@@ -32,18 +32,18 @@ The full syntax for all of the properties that are available to the **user** res
 
    user 'name' do
      comment                    String
-     force                      TrueClass, FalseClass # see description
+     force                      True, False # see description
      gid                        String, Integer
      home                       String
      iterations                 Integer
-     manage_home                TrueClass, FalseClass
-     non_unique                 TrueClass, FalseClass
+     manage_home                True, False
+     non_unique                 True, False
      notifies                   # see description
      password                   String
      salt                       String
      shell                      String
      subscribes                 # see description
-     system                     TrueClass, FalseClass
+     system                     True, False
      uid                        String, Integer
      username                   String # defaults to 'name' if not specified
      action                     Symbol # defaults to :create if not specified
@@ -95,7 +95,7 @@ This resource has the following properties:
    One (or more) comments about the user.
 
 ``force``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Force the removal of a user. May be used only with the ``:remove`` action.
 
@@ -104,12 +104,7 @@ This resource has the following properties:
 ``gid``
    **Ruby Types:** String, Integer
 
-   The identifier for the group.
-
-``group``
-   **Ruby Types:** String, Integer
-
-   The ``group`` property is an alias of the ``gid`` property.
+   The identifier for the group. This property was previously named ``group`` and both continue to function.
 
 ``home``
    **Ruby Type:** String
@@ -117,28 +112,26 @@ This resource has the following properties:
    The location of the home directory.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``iterations``
    **Ruby Type:** Integer
 
-   macOS platform only, 10.8 (or higher). The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
-
-   New in Chef Client 12.0.
+   macOS platform only. The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
 
 ``manage_home``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Manage a user's home directory.
 
-   With the ``:create`` action, a user's home directory is created based on ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. When created, a skeleton set of files and sub-directories is also created in the home directory.
+   When used with the ``:create`` action, a user's home directory is created based on ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. When created, a skeleton set of files and subdirectories are included within the home directory.
 
-   With the ``:modify`` action, a user's home directory is moved to ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. The contents of the user's home directory are moved to the new location.
+   When used with the ``:modify`` action, a user's home directory is moved to ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. The contents of the user's home directory are moved to the new location.
 
 ``non_unique``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Create a duplicate (non-unique) user account.
 
@@ -159,7 +152,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -194,9 +187,7 @@ This resource has the following properties:
 ``salt``
    **Ruby Type:** String
 
-   macOS platform only, 10.7 or higher. The salt value for a password shadow hash. macOS version 10.7 uses SALTED-SHA512 and version 10.8 (and higher) uses SALTED-SHA512-PBKDF2 to calculate password shadow hashes.
-
-   New in Chef Client 12.0.
+   A SALTED-SHA512-PBKDF2 hash.
 
 ``shell``
    **Ruby Type:** String
@@ -235,7 +226,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -253,7 +244,7 @@ This resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Create a system user. This property may be used with ``useradd`` as the provider to create a system user which passes the ``-r`` flag to ``useradd``.
 

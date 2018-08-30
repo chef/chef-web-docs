@@ -11,8 +11,6 @@ The Recipe DSL is a Ruby DSL that is primarily used to declare resources from wi
 
 Because the Recipe DSL is a Ruby DSL, then anything that can be done using Ruby can also be done in a recipe, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies.
 
-New in Chef Client 12.10 ``declare_resource``, ``delete_resource``, ``edit_resource``, ``find_resource``, ``delete_resource!``, ``edit_resource!`` and ``find_resource!``. New in 12.1, ``control_group`` method added. New in 12.0, ``data_bag``, ``data_bag_item``, ``:filter_result``, ``platform?``, ``shell_out!``, ``shell_out_with_systems_locale``, ``tag``, ``tagged?``, ``untag``.
-
 Use Ruby
 =====================================================
 Common Ruby techniques can be used with the Recipe DSL methods.
@@ -189,984 +187,6 @@ For example:
      # the node has an ipaddress
    end
 
-control
------------------------------------------------------
-.. tag dsl_recipe_method_control
-
-Use the ``control`` method to define a specific series of tests that comprise an individual audit. A ``control`` method MUST be contained within a ``control_group`` block. A ``control_group`` block may contain multiple ``control`` methods.
-
-.. end_tag
-
-.. tag dsl_recipe_method_control_syntax
-
-The syntax for the ``control`` method is as follows:
-
-.. code-block:: ruby
-
-   control_group 'audit name' do
-     control 'name' do
-       it 'should do something' do
-         expect(something).to/.to_not be_something
-       end
-     end
-   end
-
-where:
-
-* ``control_group`` groups one (or more) ``control`` blocks
-* ``control 'name' do`` defines an individual audit
-* Each ``control`` block must define at least one validation
-* Each ``it`` statement defines a single validation. ``it`` statements are processed individually when the chef-client is run in audit-mode
-* An ``expect(something).to/.to_not be_something`` is a statement that represents the individual test. In other words, this statement tests if something is expected to be (or not be) something. For example, a test that expects the PostgreSQL pacakge to not be installed would be similar to ``expect(package('postgresql')).to_not be_installed`` and a test that ensures a service is enabled would be similar to ``expect(service('init')).to be_enabled``
-* An ``it`` statement may contain multiple ``expect`` statements
-
-.. end_tag
-
-directory Matcher
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_directory
-
-Matchers are available for directories. Use this matcher to define audits for directories that test if the directory exists, is mounted, and if it is linked to. This matcher uses the same matching syntax---``expect(file('foo'))``---as the files. The following matchers are available for directories:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Matcher
-     - Description, Example
-   * - ``be_directory``
-     - Use to test if directory exists. For example:
-
-       .. code-block:: ruby
-
-          it 'should be a directory' do
-            expect(file('/var/directory')).to be_directory
-          end
-
-   * - ``be_linked_to``
-     - Use to test if a subject is linked to the named directory. For example:
-
-       .. code-block:: ruby
-
-          it 'should be linked to the named directory' do
-            expect(file('/etc/directory')).to be_linked_to('/etc/some/other/directory')
-          end
-
-   * - ``be_mounted``
-     - Use to test if a directory is mounted. For example:
-
-       .. code-block:: ruby
-
-          it 'should be mounted' do
-            expect(file('/')).to be_mounted
-          end
-
-       For directories with a single attribute that requires testing:
-
-       .. code-block:: ruby
-
-          it 'should be mounted with an ext4 partition' do
-            expect(file('/')).to be_mounted.with( :type => 'ext4' )
-          end
-
-       For directories with multiple attributes that require testing:
-
-       .. code-block:: ruby
-
-          it 'should be mounted only with certain attributes' do
-            expect(file('/')).to be_mounted.only_with(
-              :attribute => 'value',
-              :attribute => 'value',
-          )
-          end
-
-.. end_tag
-
-file Matcher
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_file
-
-Matchers are available for files and directories. Use this matcher to define audits for files that test if the file exists, its version, if it is is executable, writable, or readable, who owns it, verify checksums (both MD5 and SHA-256) and so on. The following matchers are available for files:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Matcher
-     - Description, Example
-   * - ``be_executable``
-     - Use to test if a file is executable. For example:
-
-       .. code-block:: ruby
-
-          it 'should be executable' do
-            expect(file('/etc/file')).to be_executable
-          end
-
-       For a file that is executable by its owner:
-
-       .. code-block:: ruby
-
-          it 'should be executable by owner' do
-            expect(file('/etc/file')).to be_executable.by('owner')
-          end
-
-       For a file that is executable by a group:
-
-       .. code-block:: ruby
-
-          it 'should be executable by group members' do
-            expect(file('/etc/file')).to be_executable.by('group')
-          end
-
-       For a file that is executable by a specific user:
-
-       .. code-block:: ruby
-
-          it 'should be executable by user foo' do
-            expect(file('/etc/file')).to be_executable.by_user('foo')
-          end
-
-   * - ``be_file``
-     - Use to test if a file exists. For example:
-
-       .. code-block:: ruby
-
-          it 'should be a file' do
-            expect(file('/etc/file')).to be_file
-          end
-
-   * - ``be_grouped_into``
-     - Use to test if a file is grouped into the named group. For example:
-
-       .. code-block:: ruby
-
-          it 'should be grouped into foo' do
-            expect(file('/etc/file')).to be_grouped_into('foo')
-          end
-
-   * - ``be_linked_to``
-     - Use to test if a subject is linked to the named file. For example:
-
-       .. code-block:: ruby
-
-          it 'should be linked to the named file' do
-            expect(file('/etc/file')).to be_linked_to('/etc/some/other/file')
-          end
-
-   * - ``be_mode``
-     - Use to test if a file is set to the specified mode. For example:
-
-       .. code-block:: ruby
-
-          it 'should be mode 440' do
-            expect(file('/etc/file')).to be_mode(440)
-          end
-
-   * - ``be_owned_by``
-     - Use to test if a file is owned by the named owner. For example:
-
-       .. code-block:: ruby
-
-          it 'should be owned by the root user' do
-            expect(file('/etc/sudoers')).to be_owned_by('root')
-          end
-
-   * - ``be_readable``
-     - Use to test if a file is readable. For example:
-
-       .. code-block:: ruby
-
-          it 'should be readable' do
-            expect(file('/etc/file')).to be_readable
-          end
-
-       For a file that is readable by its owner:
-
-       .. code-block:: ruby
-
-          it 'should be readable by owner' do
-            expect(file('/etc/file')).to be_readable.by('owner')
-          end
-
-       For a file that is readable by a group:
-
-       .. code-block:: ruby
-
-          it 'should be readable by group members' do
-            expect(file('/etc/file')).to be_readable.by('group')
-          end
-
-       For a file that is readable by a specific user:
-
-       .. code-block:: ruby
-
-          it 'should be readable by user foo' do
-            expect(file('/etc/file')).to be_readable.by_user('foo')
-          end
-
-   * - ``be_socket``
-     - Use to test if a file exists as a socket. For example:
-
-       .. code-block:: ruby
-
-          it 'should be a socket' do
-            expect(file('/var/file.sock')).to be_socket
-          end
-
-   * - ``be_symlink``
-     - Use to test if a file exists as a symbolic link. For example:
-
-       .. code-block:: ruby
-
-          it 'should be a symlink' do
-            expect(file('/etc/file')).to be_symlink
-          end
-
-   * - ``be_version``
-     - Microsoft Windows only. Use to test if a file is the specified version. For example:
-
-       .. code-block:: ruby
-
-          it 'should be version 1.2' do
-            expect(file('C:\\Windows\\path\\to\\file')).to be_version('1.2')
-          end
-
-   * - ``be_writable``
-     - Use to test if a file is writable. For example:
-
-       .. code-block:: ruby
-
-          it 'should be writable' do
-            expect(file('/etc/file')).to be_writable
-          end
-
-       For a file that is writable by its owner:
-
-       .. code-block:: ruby
-
-          it 'should be writable by owner' do
-            expect(file('/etc/file')).to be_writable.by('owner')
-          end
-
-       For a file that is writable by a group:
-
-       .. code-block:: ruby
-
-          it 'should be writable by group members' do
-            expect(file('/etc/file')).to be_writable.by('group')
-          end
-
-       For a file that is writable by a specific user:
-
-       .. code-block:: ruby
-
-          it 'should be writable by user foo' do
-            expect(file('/etc/file')).to be_writable.by_user('foo')
-          end
-
-   * - ``contain``
-     - Use to test if a file contains specific contents. For example:
-
-       .. code-block:: ruby
-
-          it 'should contain docs.chef.io' do
-            expect(file('/etc/file')).to contain('docs.chef.io')
-          end
-
-.. end_tag
-
-package Matcher
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_package
-
-Matchers are available for packages and may be used to define audits that test if a package or a package version is installed. The following matchers are available:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Matcher
-     - Description, Example
-   * - ``be_installed``
-     - Use to test if the named package is installed. For example:
-
-       .. code-block:: ruby
-
-          it 'should be installed' do
-            expect(package('httpd')).to be_installed
-          end
-
-       For a specific package version:
-
-       .. code-block:: ruby
-
-          it 'should be installed' do
-            expect(package('httpd')).to be_installed.with_version('0.1.2')
-          end
-
-.. end_tag
-
-port Matcher
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_port
-
-Matchers are available for ports and may be used to define audits that test if a port is listening. The following matchers are available:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Matcher
-     - Description, Example
-   * - ``be_listening``
-     - Use to test if the named port is listening. For example:
-
-       .. code-block:: ruby
-
-          it 'should be listening' do
-            expect(port(23)).to be_listening
-          end
-
-       For a named port that is not listening:
-
-       .. code-block:: ruby
-
-          it 'should not be listening' do
-            expect(port(23)).to_not be_listening
-          end
-
-       For a specific port type use ``.with('port_type')``. For example, UDP:
-
-       .. code-block:: ruby
-
-          it 'should be listening with UDP' do
-            expect(port(23)).to_not be_listening.with('udp')
-          end
-
-       For UDP, version 6:
-
-       .. code-block:: ruby
-
-          it 'should be listening with UDP6' do
-            expect(port(23)).to_not be_listening.with('udp6')
-          end
-
-       For TCP/IP:
-
-       .. code-block:: ruby
-
-          it 'should be listening with TCP' do
-            expect(port(23)).to_not be_listening.with('tcp')
-          end
-
-       For TCP/IP, version 6:
-
-       .. code-block:: ruby
-
-          it 'should be listening with TCP6' do
-            expect(port(23)).to_not be_listening.with('tcp6')
-          end
-
-.. end_tag
-
-service Matcher
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_service
-
-Matchers are available for services and may be used to define audits that test for conditions related to services, such as if they are enabled, running, have the correct startup mode, and so on. The following matchers are available:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Matcher
-     - Description, Example
-   * - ``be_enabled``
-     - Use to test if the named service is enabled (i.e. will start up automatically). For example:
-
-       .. code-block:: ruby
-
-          it 'should be enabled' do
-            expect(service('ntpd')).to be_enabled
-          end
-
-       For a service that is enabled at a given run level:
-
-       .. code-block:: ruby
-
-          it 'should be enabled at the specified run level' do
-            expect(service('ntpd')).to be_enabled.with_level(3)
-          end
-
-   * - ``be_installed``
-     - Microsoft Windows only. Use to test if the named service is installed on the Microsoft Windows platform. For example:
-
-       .. code-block:: ruby
-
-          it 'should be installed' do
-            expect(service('DNS Client')).to be_installed
-          end
-
-   * - ``be_running``
-     - Use to test if the named service is running. For example:
-
-       .. code-block:: ruby
-
-          it 'should be running' do
-            expect(service('ntpd')).to be_running
-          end
-
-       For a service that is running under supervisor:
-
-       .. code-block:: ruby
-
-          it 'should be running under supervisor' do
-            expect(service('ntpd')).to be_running.under('supervisor')
-          end
-
-       or daemontools:
-
-       .. code-block:: ruby
-
-          it 'should be running under daemontools' do
-            expect(service('ntpd')).to be_running.under('daemontools')
-          end
-
-       or Upstart:
-
-       .. code-block:: ruby
-
-          it 'should be running under upstart' do
-            expect(service('ntpd')).to be_running.under('upstart')
-          end
-
-   * - ``be_monitored_by``
-     - Use to test if the named service is being monitored by the named monitoring application. For example:
-
-       .. code-block:: ruby
-
-          it 'should be monitored by' do
-            expect(service('ntpd')).to be_monitored_by('monit')
-          end
-
-   * - ``have_start_mode``
-     - Microsoft Windows only. Use to test if the named service's startup mode is correct on the Microsoft Windows platform. For example:
-
-       .. code-block:: ruby
-
-          it 'should start manually' do
-            expect(service('DNS Client')).to have_start_mode.Manual
-          end
-
-.. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-**A package is installed**
-
-.. tag dsl_recipe_control_matcher_package_installed
-
-For example, a package is installed:
-
-.. code-block:: ruby
-
-   control_group 'audit name' do
-     control 'mysql package' do
-       it 'should be installed' do
-         expect(package('mysql')).to be_installed
-       end
-     end
-   end
-
-The ``control_group`` block is processed when the chef-client run is run in audit-mode. If the audit was successful, the chef-client will return output similar to:
-
-.. code-block:: bash
-
-   Audit Mode
-     mysql package
-       should be installed
-
-If an audit was unsuccessful, the chef-client will return output similar to:
-
-.. code-block:: bash
-
-   Starting audit phase
-
-   Audit Mode
-     mysql package
-     should be installed (FAILED - 1)
-
-   Failures:
-
-   1) Audit Mode mysql package should be installed
-     Failure/Error: expect(package('mysql')).to be_installed.with_version('5.6')
-       expected Package 'mysql' to be installed
-     # /var/chef/cache/cookbooks/grantmc/recipes/default.rb:22:in 'block (3 levels) in from_file'
-
-   Finished in 0.5745 seconds (files took 0.46481 seconds to load)
-   1 examples, 1 failures
-
-   Failed examples:
-
-   rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:21 # Audit Mode mysql package should be installed
-
-.. end_tag
-
-**A package version is installed**
-
-.. tag dsl_recipe_control_matcher_package_installed_version
-
-A package that is installed with a specific version:
-
-.. code-block:: ruby
-
-   control_group 'audit name' do
-     control 'mysql package' do
-       it 'should be installed' do
-         expect(package('mysql')).to be_installed.with_version('5.6')
-       end
-     end
-   end
-
-.. end_tag
-
-**A package is not installed**
-
-.. tag dsl_recipe_control_matcher_package_not_installed
-
-A package that is not installed:
-
-.. code-block:: ruby
-
-   control_group 'audit name' do
-     control 'postgres package' do
-       it 'should not be installed' do
-         expect(package('postgresql')).to_not be_installed
-       end
-     end
-   end
-
-If the audit was successful, the chef-client will return output similar to:
-
-.. code-block:: bash
-
-   Audit Mode
-     postgres audit
-       postgres package
-         is not installed
-
-.. end_tag
-
-**A service is enabled**
-
-.. tag dsl_recipe_control_matcher_service_enabled
-
-A service that is enabled and running:
-
-.. code-block:: ruby
-
-   control_group 'audit name' do
-     control 'mysql service' do
-       let(:mysql_service) { service('mysql') }
-       it 'should be enabled' do
-         expect(mysql_service).to be_enabled
-       end
-       it 'should be running' do
-         expect(mysql_service).to be_running
-       end
-     end
-   end
-
-If the audit was successful, the chef-client will return output similar to:
-
-.. code-block:: bash
-
-   Audit Mode
-     mysql service audit
-       mysql service
-         is enabled
-         is running
-
-.. end_tag
-
-**A configuration file contains specific settings**
-
-.. tag dsl_recipe_control_matcher_file_sshd_configuration
-
-The following example shows how to verify ``sshd`` configration, including whether it's installed, what the permissions are, and how it can be accessed:
-
-.. code-block:: ruby
-
-   control_group 'check sshd configuration' do
-
-     control 'sshd package' do
-       it 'should be installed' do
-         expect(package('openssh-server')).to be_installed
-       end
-     end
-
-     control 'sshd configuration' do
-       let(:config_file) { file('/etc/ssh/sshd_config') }
-       it 'should exist with the right permissions' do
-         expect(config_file).to be_file
-         expect(config_file).to be_mode(644)
-         expect(config_file).to be_owned_by('root')
-         expect(config_file).to be_grouped_into('root')
-       end
-       it 'should not permit RootLogin' do
-         expect(config_file.content).to_not match(/^PermitRootLogin yes/)
-       end
-       it 'should explicitly not permit PasswordAuthentication' do
-         expect(config_file.content).to match(/^PasswordAuthentication no/)
-       end
-       it 'should force privilege separation' do
-         expect(config_file.content).to match(/^UsePrivilegeSeparation sandbox/)
-       end
-     end
-   end
-
-where
-
-* ``let(:config_file) { file('/etc/ssh/sshd_config') }`` uses the ``file`` matcher to test specific settings within the ``sshd`` configuration file
-
-.. end_tag
-
-**A file contains desired permissions and contents**
-
-.. tag dsl_recipe_control_matcher_file_permissions
-
-The following example shows how to verify that a file has the desired permissions and contents:
-
-.. code-block:: ruby
-
-   controls 'mysql config' do
-     control 'mysql config file' do
-       let(:config_file) { file('/etc/mysql/my.cnf') }
-       it 'exists with correct permissions' do
-         expect(config_file).to be_file
-         expect(config_file).to be_mode(0400)
-       end
-       it 'contains required configuration' do
-         expect(its('contents')).to match(/default-time-zone='UTC'/)
-       end
-     end
-   end
-
-If the audit was successful, the chef-client will return output similar to:
-
-.. code-block:: bash
-
-   Audit Mode
-     mysql config
-       mysql config file
-         exists with correct permissions
-         contains required configuration
-
-.. end_tag
-
-**Test an attribute value**
-
-To audit attribute values in a ``control`` block, first assign the attribute as a variable, and then use the variable within the ``control`` block to specify the test:
-
-.. code-block:: ruby
-
-   memory_mb = node['memory']['total'].gsub(/kB$/i, '').to_i / 1024
-   control 'minimum memory check' do
-     it 'should be at least 400MB free' do
-       expect(memory_mb).to be >= 400
-     end
-   end
-
-control_group
------------------------------------------------------
-.. tag dsl_recipe_method_control_group
-
-Use the ``control_group`` method to define a group of ``control`` methods that comprise a single audit. The name of each ``control_group`` must be unique within the organization.
-
-.. end_tag
-
-.. tag dsl_recipe_method_control_group_syntax
-
-The syntax for the ``control_group`` method is as follows:
-
-.. code-block:: ruby
-
-   control_group 'name' do
-     control 'name' do
-       it 'should do something' do
-         expect(something).to/.to_not be_something
-       end
-     end
-     control 'name' do
-       ...
-     end
-     ...
-   end
-
-where:
-
-* ``control_group`` groups one (or more) ``control`` blocks
-* ``'name'`` is the unique name for the ``control_group``; the chef-client will raise an exception if duplicate ``control_group`` names are present
-* ``control`` defines each individual audit within the ``control_group`` block. There is no limit to the number of ``control`` blocks that may defined within a ``control_group`` block
-
-.. end_tag
-
-New in Chef Client 12.1.
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-**control_group block with multiple control blocks**
-
-.. tag dsl_recipe_control_group_many_controls
-
-The following ``control_group`` ensures that MySQL is installed, that PostgreSQL is not installed, and that the services and configuration files associated with MySQL are configured correctly:
-
-.. code-block:: ruby
-
-   control_group 'Audit Mode' do
-
-     control 'mysql package' do
-       it 'should be installed' do
-         expect(package('mysql')).to be_installed.with_version('5.6')
-       end
-     end
-
-     control 'postgres package' do
-       it 'should not be installed' do
-         expect(package('postgresql')).to_not be_installed
-       end
-     end
-
-     control 'mysql service' do
-       let(:mysql_service) { service('mysql') }
-       it 'should be enabled' do
-         expect(mysql_service).to be_enabled
-       end
-       it 'should be running' do
-         expect(mysql_service).to be_running
-       end
-     end
-
-     control 'mysql config directory' do
-       let(:config_dir) { file('/etc/mysql') }
-       it 'should exist with correct permissions' do
-         expect(config_dir).to be_directory
-         expect(config_dir).to be_mode(0700)
-       end
-       it 'should be owned by the db user' do
-         expect(config_dir).to be_owned_by('db_service_user')
-       end
-     end
-
-     control 'mysql config file' do
-       let(:config_file) { file('/etc/mysql/my.cnf') }
-       it 'should exist with correct permissions' do
-         expect(config_file).to be_file
-         expect(config_file).to be_mode(0400)
-       end
-       it 'should contain required configuration' do
-         expect(config_file.content).to match(/default-time-zone='UTC'/)
-       end
-     end
-
-   end
-
-The ``control_group`` block is processed when the chef-client is run in audit-mode. If the chef-client run was successful, the chef-client will return output similar to:
-
-.. code-block:: bash
-
-   Audit Mode
-     mysql package
-       should be installed
-     postgres package
-       should not be installed
-     mysql service
-       should be enabled
-       should be running
-     mysql config directory
-       should exist with correct permissions
-       should be owned by the db user
-     mysql config file
-       should exist with correct permissions
-       should contain required configuration
-
-If an audit was unsuccessful, the chef-client will return output similar to:
-
-.. code-block:: bash
-
-   Starting audit phase
-
-   Audit Mode
-     mysql package
-     should be installed (FAILED - 1)
-   postgres package
-     should not be installed
-   mysql service
-     should be enabled (FAILED - 2)
-     should be running (FAILED - 3)
-   mysql config directory
-     should exist with correct permissions (FAILED - 4)
-     should be owned by the db user (FAILED - 5)
-   mysql config file
-     should exist with correct permissions (FAILED - 6)
-     should contain required configuration (FAILED - 7)
-
-   Failures:
-
-   1) Audit Mode mysql package should be installed
-     Failure/Error: expect(package('mysql')).to be_installed.with_version('5.6')
-       expected Package 'mysql' to be installed
-     # /var/chef/cache/cookbooks/grantmc/recipes/default.rb:22:in 'block (3 levels) in from_file'
-
-   2) Audit Mode mysql service should be enabled
-     Failure/Error: expect(mysql_service).to be_enabled
-       expected Service 'mysql' to be enabled
-     # /var/chef/cache/cookbooks/grantmc/recipes/default.rb:35:in 'block (3 levels) in from_file'
-
-   3) Audit Mode mysql service should be running
-      Failure/Error: expect(mysql_service).to be_running
-       expected Service 'mysql' to be running
-     # /var/chef/cache/cookbooks/grantmc/recipes/default.rb:38:in 'block (3 levels) in from_file'
-
-   4) Audit Mode mysql config directory should exist with correct permissions
-     Failure/Error: expect(config_dir).to be_directory
-       expected `File '/etc/mysql'.directory?` to return true, got false
-     # /var/chef/cache/cookbooks/grantmc/recipes/default.rb:45:in 'block (3 levels) in from_file'
-
-   5) Audit Mode mysql config directory should be owned by the db user
-     Failure/Error: expect(config_dir).to be_owned_by('db_service_user')
-       expected `File '/etc/mysql'.owned_by?('db_service_user')` to return true, got false
-     # /var/chef/cache/cookbooks/grantmc/recipes/default.rb:49:in 'block (3 levels) in from_file'
-
-   6) Audit Mode mysql config file should exist with correct permissions
-     Failure/Error: expect(config_file).to be_file
-       expected `File '/etc/mysql/my.cnf'.file?` to return true, got false
-     # /var/chef/cache/cookbooks/grantmc/recipes/default.rb:56:in 'block (3 levels) in from_file'
-
-   7) Audit Mode mysql config file should contain required configuration
-     Failure/Error: expect(config_file.content).to match(/default-time-zone='UTC'/)
-       expected '-n\n' to match /default-time-zone='UTC'/
-       Diff:
-       @@ -1,2 +1,2 @@
-       -/default-time-zone='UTC'/
-       +-n
-     # /var/chef/cache/cookbooks/grantmc/recipes/default.rb:60:in 'block (3 levels) in from_file'
-
-   Finished in 0.5745 seconds (files took 0.46481 seconds to load)
-   8 examples, 7 failures
-
-   Failed examples:
-
-   rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:21 # Audit Mode mysql package should be installed
-   rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:34 # Audit Mode mysql service should be enabled
-   rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:37 # Audit Mode mysql service should be running
-   rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:44 # Audit Mode mysql config directory should exist with correct permissions
-   rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:48 # Audit Mode mysql config directory should be owned by the db user
-   rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:55 # Audit Mode mysql config file should exist with correct permissions
-   rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:59 # Audit Mode mysql config file should contain required configuration
-   Auditing complete
-
-.. end_tag
-
-**Duplicate control_group names**
-
-.. tag dsl_recipe_control_group_duplicate_names
-
-If two ``control_group`` blocks have the same name, the chef-client will raise an exception. For example, the following ``control_group`` blocks exist in different cookbooks:
-
-.. code-block:: ruby
-
-   control_group 'basic control group' do
-     it 'should pass' do
-       expect(2 - 2).to eq(0)
-     end
-   end
-
-.. code-block:: ruby
-
-   control_group 'basic control group' do
-     it 'should pass' do
-       expect(3 - 2).to eq(1)
-     end
-   end
-
-Because the two ``control_group`` block names are identical, the chef-client will return an exception similar to:
-
-.. code-block:: ruby
-
-   Synchronizing Cookbooks:
-     - audit_test
-   Compiling Cookbooks...
-
-   ================================================================================
-   Recipe Compile Error in /Users/grantmc/.cache/chef/cache/cookbooks
-                           /audit_test/recipes/error_duplicate_control_groups.rb
-   ================================================================================
-
-   Chef::Exceptions::AuditControlGroupDuplicate
-   --------------------------------------------
-   Audit control group with name 'basic control group' has already been defined
-
-   Cookbook Trace:
-   ---------------
-   /Users/grantmc/.cache/chef/cache/cookbooks
-   /audit_test/recipes/error_duplicate_control_groups.rb:13:in 'from_file'
-
-   Relevant File Content:
-   ----------------------
-   /Users/grantmc/.cache/chef/cache/cookbooks/audit_test/recipes/error_duplicate_control_groups.rb:
-
-   control_group 'basic control group' do
-     it 'should pass' do
-       expect(2 - 2).to eq(0)
-     end
-   end
-
-   control_group 'basic control group' do
-     it 'should pass' do
-       expect(3 - 2).to eq(1)
-     end
-   end
-
-   Running handlers:
-   [2015-01-15T09:36:14-08:00] ERROR: Running exception handlers
-   Running handlers complete
-
-.. end_tag
-
-**Verify a package is installed**
-
-.. tag dsl_recipe_control_group_simple_recipe
-
-The following ``control_group`` verifies that the ``git`` package has been installed:
-
-.. code-block:: ruby
-
-   package 'git' do
-     action :install
-   end
-
-   execute 'list packages' do
-     command 'dpkg -l'
-   end
-
-   execute 'list directory' do
-     command 'ls -R ~'
-   end
-
-   control_group 'my audits' do
-     control 'check git' do
-       it 'should be installed' do
-         expect(package('git')).to be_installed
-       end
-     end
-   end
-
-.. end_tag
-
 cookbook_name
 -----------------------------------------------------
 Use the ``cookbook_name`` method to return the name of a cookbook.
@@ -1187,7 +207,7 @@ data_bag
 -----------------------------------------------------
 .. tag data_bag
 
-A data bag is a global variable that is stored as JSON data and is accessible from a Chef server. A data bag is indexed for searching and can be loaded by a recipe or accessed during a search.
+Data bags store global variables as JSON data. Data bags are indexed for searching and can be loaded by a cookbook or accessed during a search.
 
 .. end_tag
 
@@ -1225,13 +245,11 @@ The ``id`` for each data bag item will be returned as a string.
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 data_bag_item
 -----------------------------------------------------
 .. tag data_bag
 
-A data bag is a global variable that is stored as JSON data and is accessible from a Chef server. A data bag is indexed for searching and can be loaded by a recipe or accessed during a search.
+Data bags store global variables as JSON data. Data bags are indexed for searching and can be loaded by a cookbook or accessed during a search.
 
 .. end_tag
 
@@ -1301,7 +319,6 @@ The following example shows how to use the ``data_bag`` and ``data_bag_item`` me
 
 For a more complete version of the previous example, see the default recipe in the https://github.com/hw-cookbooks/apt-mirror community cookbook.
 
-New in Chef Client 12.0.
 
 declare_resource
 -----------------------------------------------------
@@ -1337,8 +354,6 @@ is equivalent to:
      action :delete
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 delete_resource
@@ -1364,8 +379,6 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 delete_resource!
@@ -1390,8 +403,6 @@ For example:
 .. code-block:: ruby
 
    delete_resource!(:file, '/x/file.txt')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1435,8 +446,6 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 edit_resource!
@@ -1467,8 +476,6 @@ For example:
 .. code-block:: ruby
 
    edit_resource!(:file, '/x/y.rst')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1509,8 +516,6 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
-New in Chef Client 12.10.
-
 .. end_tag
 
 find_resource!
@@ -1535,8 +540,6 @@ For example:
 .. code-block:: ruby
 
    find_resource!(:template, '/x/y.erb')
-
-New in Chef Client 12.10.
 
 .. end_tag
 
@@ -1570,30 +573,36 @@ The following parameters can be used with this method:
      - Platforms
    * - ``aix``
      - AIX. All platform variants of AIX return ``aix``.
+   * - ``amazon``
+     - Amazon Linux
    * - ``arch``
      - Arch Linux
    * - ``debian``
-     - Debian, Linux Mint, Ubuntu
+     - Debian
    * - ``fedora``
      - Fedora
    * - ``freebsd``
      - FreeBSD. All platform variants of FreeBSD return ``freebsd``.
    * - ``gentoo``
      - Gentoo
-   * - ``hpux``
-     - HP-UX. All platform variants of HP-UX return ``hpux``.
    * - ``mac_os_x``
      - macOS
    * - ``netbsd``
      - NetBSD. All platform variants of NetBSD return ``netbsd``.
    * - ``openbsd``
      - OpenBSD. All platform variants of OpenBSD return ``openbsd``.
+   * - ``opensuse``
+     - openSUSE
+   * - ``opensuseleap``
+     - openSUSE leap
    * - ``slackware``
      - Slackware
    * - ``solaris``
      - Solaris. For Solaris-related platforms, the ``platform_family`` method does not support the Solaris platform family and will default back to ``platform_family = platform``. For example, if the platform is OmniOS, the ``platform_family`` is ``omnios``, if the platform is SmartOS, the ``platform_family`` is ``smartos``, and so on. All platform variants of Solaris return ``solaris``.
    * - ``suse``
-     - openSUSE, SUSE Enterprise Linux Server.
+     - SUSE Enterprise Linux Server.
+   * - ``ubuntu``
+     - Ubuntu Linux.
    * - ``windows``
      - Microsoft Windows. All platform variants of Microsoft Windows return ``windows``.
 
@@ -1609,7 +618,7 @@ or:
 
 .. code-block:: ruby
 
-   platform?('rhel', 'debian')
+   platform?('redhat', 'debian')
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1869,8 +878,6 @@ For example:
    end
 
 .. end_tag
-
-New in Chef Client 12.0.
 
 Query Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2191,8 +1198,6 @@ where ``command_args`` is the command that is run against the node.
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 shell_out!
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_bang
@@ -2209,8 +1214,6 @@ where ``command_args`` is the command that is run against the node. This method 
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 shell_out_with_systems_locale
 -----------------------------------------------------
 .. tag dsl_recipe_method_shell_out_with_systems_locale
@@ -2226,8 +1229,6 @@ The syntax for the ``shell_out_with_systems_locale`` method is as follows:
 where ``command_args`` is the command that is run against the node.
 
 .. end_tag
-
-New in Chef Client 12.0.
 
 tag, tagged?, untag
 -----------------------------------------------------
@@ -2320,8 +1321,6 @@ When each value has more than one platform, the syntax changes to:
        'version' => 'value'
      },
    )
-
-Changed in Chef Client 12.0 to support version constraints.
 
 Operators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2462,353 +1461,6 @@ For example:
      end
      log "kick it off" do
        notifies :run, "my_thing[accumulated state], :delayed
-     end
-   end
-
-.. end_tag
-
-Event Handlers
-=====================================================
-.. note:: Event handlers are not specifically part of the Recipe DSL. An event handler is declared using the ``Chef.event_hander`` method, which declares the event handler within recipes in a similar manner to other Recipe DSL methods.
-
-.. tag dsl_handler_summary
-
-Use the Handler DSL to attach a callback to an event. If the event occurs during the chef-client run, the associated callback is executed. For example:
-
-* Sending email if a chef-client run fails
-* Sending a notification to chat application if an audit run fails
-* Aggregating statistics about resources updated during a chef-client runs to StatsD
-
-.. end_tag
-
-on Method
------------------------------------------------------
-.. tag dsl_handler_method_on
-
-Use the ``on`` method to associate an event type with a callback. The callback defines what steps are taken if the event occurs during the chef-client run and is defined using arbitrary Ruby code. The syntax is as follows:
-
-.. code-block:: ruby
-
-   Chef.event_handler do
-     on :event_type do
-       # some Ruby
-     end
-   end
-
-where
-
-* ``Chef.event_handler`` declares a block of code within a recipe that is processed when the named event occurs during a chef-client run
-* ``on`` defines the block of code that will tell the chef-client how to handle the event
-* ``:event_type`` is a valid exception event type, such as ``:run_start``, ``:run_failed``, ``:converge_failed``, ``:resource_failed``, or ``:recipe_not_found``
-
-For example:
-
-.. code-block:: bash
-
-   Chef.event_handler do
-     on :converge_start do
-       puts "Ohai! I have started a converge."
-     end
-   end
-
-.. end_tag
-
-Event Types
------------------------------------------------------
-.. tag dsl_handler_event_types
-
-The following table describes the events that may occur during a chef-client run. Each of these events may be referenced in an ``on`` method block by declaring it as the event type.
-
-.. list-table::
-   :widths: 100 420
-   :header-rows: 1
-
-   * - Event
-     - Description
-   * - ``:run_start``
-     - The start of the chef-client run.
-   * - ``:run_started``
-     - The chef-client run has started.
-   * - ``:ohai_completed``
-     - The Ohai run has completed.
-   * - ``:skipping_registration``
-     - The chef-client is not registering with the Chef server because it already has a private key or because it does not need one.
-   * - ``:registration_start``
-     - The chef-client is attempting to create a private key with which to register to the Chef server.
-   * - ``:registration_completed``
-     - The chef-client created its private key successfully.
-   * - ``:registration_failed``
-     - The chef-client encountered an error and was unable to register with the Chef server.
-   * - ``:node_load_start``
-     - The chef-client is attempting to load node data from the Chef server.
-   * - ``:node_load_failed``
-     - The chef-client encountered an error and was unable to load node data from the Chef server.
-   * - ``:run_list_expand_failed``
-     - The chef-client failed to expand the run-list.
-   * - ``:node_load_completed``
-     - The chef-client successfully loaded node data from the Chef server. Default and override attributes for roles have been computed, but are not yet applied.
-   * - ``:policyfile_loaded``
-     - The policy file was loaded.
-   * - ``:cookbook_resolution_start``
-     - The chef-client is attempting to pull down the cookbook collection from the Chef server.
-   * - ``:cookbook_resolution_failed``
-     - The chef-client failed to pull down the cookbook collection from the Chef server.
-   * - ``:cookbook_resolution_complete``
-     - The chef-client successfully pulled down the cookbook collection from the Chef server.
-   * - ``:cookbook_clean_start``
-     - The chef-client is attempting to remove unneeded cookbooks.
-   * - ``:removed_cookbook_file``
-     - The chef-client removed a file from a cookbook.
-   * - ``:cookbook_clean_complete``
-     - The chef-client is done removing cookbooks and/or cookbook files.
-   * - ``:cookbook_sync_start``
-     - The chef-client is attempting to synchronize cookbooks.
-   * - ``:synchronized_cookbook``
-     - The chef-client is attempting to synchronize the named cookbook.
-   * - ``:updated_cookbook_file``
-     - The chef-client updated the named file in the named cookbook.
-   * - ``:cookbook_sync_failed``
-     - The chef-client was unable to synchronize cookbooks.
-   * - ``:cookbook_sync_complete``
-     - The chef-client is finished synchronizing cookbooks.
-   * - ``:library_load_start``
-     - The chef-client is loading library files.
-   * - ``:library_file_loaded``
-     - The chef-client successfully loaded the named library file.
-   * - ``:library_file_load_failed``
-     - The chef-client was unable to load the named library file.
-   * - ``:library_load_complete``
-     - The chef-client is finished loading library files.
-   * - ``:lwrp_load_start``
-     - The chef-client is loading custom resources.
-   * - ``:lwrp_file_loaded``
-     - The chef-client successfully loaded the named custom resource.
-   * - ``:lwrp_file_load_failed``
-     - The chef-client was unable to load the named custom resource.
-   * - ``:lwrp_load_complete``
-     - The chef-client is finished loading custom resources.
-   * - ``:attribute_load_start``
-     - The chef-client is loading attribute files.
-   * - ``:attribute_file_loaded``
-     - The chef-client successfully loaded the named attribute file.
-   * - ``:attribute_file_load_failed``
-     - The chef-client was unable to load the named attribute file.
-   * - ``:attribute_load_complete``
-     - The chef-client is finished loading attribute files.
-   * - ``:definition_load_start``
-     - The chef-client is loading definitions.
-   * - ``:definition_file_loaded``
-     - The chef-client successfully loaded the named definition.
-   * - ``:definition_file_load_failed``
-     - The chef-client was unable to load the named definition.
-   * - ``:definition_load_complete``
-     - The chef-client is finished loading definitions.
-   * - ``:recipe_load_start``
-     - The chef-client is loading recipes.
-   * - ``:recipe_file_loaded``
-     - The chef-client successfully loaded the named recipe.
-   * - ``:recipe_file_load_failed``
-     - The chef-client was unable to load the named recipe.
-   * - ``:recipe_not_found``
-     - The chef-client was unable to find the named recipe.
-   * - ``:recipe_load_complete``
-     - The chef-client is finished loading recipes.
-   * - ``:converge_start``
-     - The chef-client run converge phase has started.
-   * - ``:converge_complete``
-     - The chef-client run converge phase is complete.
-   * - ``:converge_failed``
-     - The chef-client run converge phase has failed.
-   * - ``:audit_phase_start``
-     - The chef-client run audit phase has started.
-   * - ``:audit_phase_complete``
-     - The chef-client run audit phase is finished.
-   * - ``:audit_phase_failed``
-     - The chef-client run audit phase has failed.
-   * - ``:control_group_started``
-     - The named control group is being processed.
-   * - ``:control_example_success``
-     - The named control group has been processed.
-   * - ``:control_example_failure``
-     - The named control group's processing has failed.
-   * - ``:resource_action_start``
-     - A resource action is starting.
-   * - ``:resource_skipped``
-     - A resource action was skipped.
-   * - ``:resource_current_state_loaded``
-     - A resource's current state was loaded.
-   * - ``:resource_current_state_load_bypassed``
-     - A resource's current state was not loaded because the resource does not support why-run mode.
-   * - ``:resource_bypassed``
-     - A resource action was skipped because the resource does not support why-run mode.
-   * - ``:resource_update_applied``
-     - A change has been made to a resource. (This event occurs for each change made to a resource.)
-   * - ``:resource_failed_retriable``
-     - A resource action has failed and will be retried.
-   * - ``:resource_failed``
-     - A resource action has failed and will not be retried.
-   * - ``:resource_updated``
-     - A resource requires modification.
-   * - ``:resource_up_to_date``
-     - A resource is already correct.
-   * - ``:resource_completed``
-     - All actions for the resource are complete.
-   * - ``:stream_opened``
-     - A stream has opened.
-   * - ``:stream_closed``
-     - A stream has closed.
-   * - ``:stream_output``
-     - A chunk of data from a single named stream.
-   * - ``:handlers_start``
-     - The handler processing phase of the chef-client run has started.
-   * - ``:handler_executed``
-     - The named handler was processed.
-   * - ``:handlers_completed``
-     - The handler processing phase of the chef-client run is complete.
-   * - ``:provider_requirement_failed``
-     - An assertion declared by a provider has failed.
-   * - ``:whyrun_assumption``
-     - An assertion declared by a provider has failed, but execution is allowed to continue because the chef-client is running in why-run mode.
-   * - ``:run_completed``
-     - The chef-client run has completed.
-   * - ``:run_failed``
-     - The chef-client run has failed.
-   * - ``:attribute_changed``
-     - Prints out all the attribute changes in cookbooks or sets a policy that override attributes should never be used.
-
-.. end_tag
-
-Examples
------------------------------------------------------
-The following examples show ways to use the Handler DSL.
-
-Send Email
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_handler_slide_send_email
-
-Use the ``on`` method to create an event handler that sends email when the chef-client run fails. This will require:
-
-* A way to tell the chef-client how to send email
-* An event handler that describes what to do when the ``:run_failed`` event is triggered
-* A way to trigger the exception and test the behavior of the event handler
-
-.. end_tag
-
-**Define How Email is Sent**
-
-.. tag dsl_handler_slide_send_email_library
-
-Use a library to define the code that sends email when a chef-client run fails. Name the file ``helper.rb`` and add it to a cookbook's ``/libraries`` directory:
-
-.. code-block:: ruby
-
-   require 'net/smtp'
-
-   module HandlerSendEmail
-     class Helper
-
-       def send_email_on_run_failure(node_name)
-
-         message = "From: Chef <chef@chef.io>\n"
-         message << "To: Grant <grantmc@chef.io>\n"
-         message << "Subject: Chef run failed\n"
-         message << "Date: #{Time.now.rfc2822}\n\n"
-         message << "Chef run failed on #{node_name}\n"
-         Net::SMTP.start('localhost', 25) do |smtp|
-           smtp.send_message message, 'chef@chef.io', 'grantmc@chef.io'
-         end
-       end
-     end
-   end
-
-.. end_tag
-
-**Add the Handler**
-
-.. tag dsl_handler_slide_send_email_handler
-
-Invoke the library helper in a recipe:
-
-.. code-block:: ruby
-
-   Chef.event_handler do
-     on :run_failed do
-       HandlerSendEmail::Helper.new.send_email_on_run_failure(
-         Chef.run_context.node.name
-       )
-     end
-   end
-
-* Use ``Chef.event_handler`` to define the event handler
-* Use the ``on`` method to specify the event type
-
-Within the ``on`` block, tell the chef-client how to handle the event when it's triggered.
-
-.. end_tag
-
-**Test the Handler**
-
-.. tag dsl_handler_slide_send_email_test
-
-Use the following code block to trigger the exception and have the chef-client send email to the specified email address:
-
-.. code-block:: ruby
-
-   ruby_block 'fail the run' do
-     block do
-       fail 'deliberately fail the run'
-     end
-   end
-
-.. end_tag
-
-etcd Locks
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_handler_example_etcd_lock
-
-The following example shows how to prevent concurrent chef-client runs from both holding a lock on etcd:
-
-.. code-block:: ruby
-
-   lock_key = "#{node.chef_environment}/#{node.name}"
-
-   Chef.event_handler do
-     on :converge_start do |run_context|
-       Etcd.lock_acquire(lock_key)
-     end
-   end
-
-   Chef.event_handler do
-     on :converge_complete do
-       Etcd.lock_release(lock_key)
-     end
-   end
-
-.. end_tag
-
-HipChat Notifications
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_handler_example_hipchat
-
-Event messages can be sent to a team communication tool like HipChat. For example, if a chef-client run fails:
-
-.. code-block:: ruby
-
-   Chef.event_handler do
-     on :run_failed do |exception|
-       hipchat_notify exception.message
-     end
-   end
-
-or send an alert on a configuration change:
-
-.. code-block:: ruby
-
-   Chef.event_handler do
-     on :resource_updated do |resource, action|
-       if resource.to_s == 'template[/etc/nginx/nginx.conf]'
-         Helper.hipchat_message("#{resource} was updated by chef")
-       end
      end
    end
 

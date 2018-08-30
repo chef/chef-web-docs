@@ -37,7 +37,7 @@ The full syntax for all of the properties that are available to the **powershell
      architecture               Symbol
      code                       String
      command                    String, Array
-     convert_boolean_return     TrueClass, FalseClass
+     convert_boolean_return     True, False
      creates                    String
      cwd                        String
      environment                Hash
@@ -46,16 +46,15 @@ The full syntax for all of the properties that are available to the **powershell
      guard_interpreter          Symbol
      interpreter                String
      notifies                   # see description
-     provider                   Chef::Provider::PowershellScript
      returns                    Integer, Array
-     sensitive                  TrueClass, FalseClass
+     sensitive                  True, False
      subscribes                 # see description
      timeout                    Integer, Float
      user                       String
      password                   String
      domain                     String
      action                     Symbol # defaults to :run if not specified
-     elevated                   TrueClass, FalseClass
+     elevated                   True, False
    end
 
 where
@@ -64,7 +63,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -104,7 +103,7 @@ This resource has the following properties:
    The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``convert_boolean_return``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false. Default value: ``false``.
 
@@ -145,7 +144,7 @@ This resource has the following properties:
 ``flags``
    **Ruby Type:** String
 
-   A string that is passed to the Windows PowerShell command. Default value: ``-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy RemoteSigned, -InputFormat None, -File``.
+   A string that is passed to the Windows PowerShell command. Default value (Windows PowerShell 3.0+): ``-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy Bypass, -InputFormat None``.
 
 ``group``
    **Ruby Types:** String, Integer
@@ -157,10 +156,8 @@ This resource has the following properties:
 
    Default value: ``:powershell_script``. When this property is set to ``:powershell_script``, the 64-bit version of the Windows PowerShell shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
-   Changed in Chef Client 12.0 to default to the specified property.
-
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -186,7 +183,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -202,11 +199,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -224,10 +216,10 @@ This resource has the following properties:
    Inherited from **execute** resource. The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
 
 ``sensitive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
-   
+
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -260,7 +252,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -285,7 +277,7 @@ This resource has the following properties:
 ``user``
    **Ruby Types:** String
 
-   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
    **Ruby Types:** String
@@ -296,13 +288,13 @@ This resource has the following properties:
 ``domain``
    **Ruby Types:** String
 
-   *Windows only*: The domain of the user user specified by the `user` property.
+   *Windows only*: The domain of the user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
-    **Ruby Type:**  TrueClass, FalseClass
+    **Ruby Type:**  True, False
 
-    Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process. 
+    Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
 
     This will cause the process to be run under a batch login instead of an interactive login. The user running Chef needs the "Replace a process level token" and "Adjust Memory Quotas for a process" permissions. The user that is running the command needs the "Log on as a batch job" permission.
 
@@ -384,7 +376,7 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate different approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
 
 **Write to an interpolated path**
 
@@ -616,5 +608,3 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
    end
 
 .. end_tag
-
-New in Chef Client 12.19.

@@ -26,16 +26,15 @@ The full syntax for all of the properties that are available to the **group** re
 .. code-block:: ruby
 
    group 'name' do
-     append                     TrueClass, FalseClass
+     append                     True, False
      excluded_members           Array
      gid                        String, Integer
      group_name                 String # defaults to 'name' if not specified
      members                    Array
-     non_unique                 TrueClass, FalseClass
+     non_unique                 True, False
      notifies                   # see description
-     provider                   Chef::Provider::Group
      subscribes                 # see description
-     system                     TrueClass, FalseClass
+     system                     True, False
      action                     Symbol # defaults to :create if not specified
    end
 
@@ -44,7 +43,7 @@ where
 * ``group`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``append``, ``excluded_members``, ``gid``, ``group_name``, ``members``, ``non_unique``, ``provider``, and ``system`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``append``, ``excluded_members``, ``gid``, ``group_name``, ``members``, ``non_unique``, and ``system`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -74,7 +73,7 @@ Properties
 This resource has the following properties:
 
 ``append``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    How members should be appended and/or removed from a group. When ``true``, ``members`` are appended and ``excluded_members`` are removed. When ``false``, group members are reset to the value of the ``members`` property. Default value: ``false``.
 
@@ -94,7 +93,7 @@ This resource has the following properties:
    The name of the group. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -104,7 +103,7 @@ This resource has the following properties:
    Which users should be set or appended to a group. When more than one group member is identified, the list of members should be an array: ``members ['user1', 'user2']``.
 
 ``non_unique``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Allow ``gid`` duplication. May only be used with the ``Groupadd`` provider. Default value: ``false``.
 
@@ -125,7 +124,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -141,11 +140,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -189,7 +183,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -207,79 +201,9 @@ This resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Show if a group belongs to a system group. Set to ``true`` if the group belongs to a system group.
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-``Chef::Provider::Group``, ``group``
-   When this short name is used, the chef-client will determine the correct provider during the chef-client run.
-
-``Chef::Provider::Group::Aix``, ``group``
-   The provider for the AIX platform.
-
-``Chef::Provider::Group::Dscl``, ``group``
-   The provider for the macOS platform.
-
-``Chef::Provider::Group::Gpasswd``, ``group``
-   The provider for the gpasswd command.
-
-``Chef::Provider::Group::Groupadd``, ``group``
-   The provider for the groupadd command.
-
-``Chef::Provider::Group::Groupmod``, ``group``
-   The provider for the groupmod command.
-
-``Chef::Provider::Group::Pw``, ``group``
-   The provider for the FreeBSD platform.
-
-``Chef::Provider::Group::Suse``, ``group``
-   The provider for the openSUSE platform.
-
-``Chef::Provider::Group::Usermod``, ``group``
-   The provider for the Solaris platform.
-
-``Chef::Provider::Group::Windows``, ``group``
-   The provider for the Microsoft Windows platform.
 
 Examples
 =====================================================

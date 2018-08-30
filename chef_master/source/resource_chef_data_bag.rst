@@ -11,7 +11,7 @@ chef_data_bag
 
 .. tag data_bag
 
-A data bag is a global variable that is stored as JSON data and is accessible from a Chef server. A data bag is indexed for searching and can be loaded by a recipe or accessed during a search.
+Data bags store global variables as JSON data. Data bags are indexed for searching and can be loaded by a cookbook or accessed during a search.
 
 .. end_tag
 
@@ -61,7 +61,7 @@ This resource has the following properties:
    The URL for the Chef server.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -85,7 +85,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -144,7 +144,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

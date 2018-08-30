@@ -4,7 +4,7 @@
 *.doctree
 *.pickle
 
-build/
+public/
 
 **/.sass-cache
 **/.sass-cache/*

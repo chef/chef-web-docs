@@ -254,7 +254,7 @@ Cookbooks are comprised of the following components:
 
      - .. tag cookbooks_metadata
 
-       Every cookbook requires a small amount of metadata. A file named metadata.rb is located at the top of every cookbook directory structure. The contents of the metadata.rb file provides hints to the Chef server to help ensure that cookbooks are deployed to each node correctly.
+       Every cookbook requires a small amount of metadata. A file named metadata.rb is located at the top of every cookbook directory structure. The contents of the metadata.rb file provides information that helps Chef Client and Server correctly deploy cookbooks to each node.
 
        .. end_tag
 
@@ -482,7 +482,7 @@ The Chef server acts as a hub for configuration data. The Chef server stores coo
 
      - .. tag data_bag
 
-       A data bag is a global variable that is stored as JSON data and is accessible from a Chef server. A data bag is indexed for searching and can be loaded by a recipe or accessed during a search.
+       Data bags store global variables as JSON data. Data bags are indexed for searching and can be loaded by a cookbook or accessed during a search.
 
        .. end_tag
 

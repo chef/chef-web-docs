@@ -466,7 +466,7 @@ The full syntax for all of the properties that are available to the ``aws_cache_
 
    aws_cache_replication_group 'name' do
      az_mode                       String
-     automatic_failover            TrueClass, FalseClass
+     automatic_failover            True, False
      description                   String
      engine                        String
      engine_version                String
@@ -495,7 +495,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - Property
      - Description
    * - ``automatic_failover``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to specify if a read-only replica is automatically promoted to read/write primary if the existing primary fails. Set to ``true`` to enable automatic failover for this cache replication group.
    * - ``aws_tags``
@@ -752,7 +752,7 @@ The full syntax for all of the properties that are available to the ``aws_clouds
      access_policies               String
      index_fields                  Array
      instance_type                 String
-     multi_az                      TrueClass, FalseClass
+     multi_az                      True, False
      partition_count               Integer
      replication_count             Integer
    end
@@ -798,7 +798,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
    * - ``multi_az``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Specifies if the Amazon CloudSearch domain is deployed to multiple availability zones. Default value: ``false``.
    * - ``name``
@@ -865,7 +865,7 @@ The full syntax for all of the properties that are available to the ``aws_cloudw
      insufficient_data_actions    Array
      ok_actions                   Array
      alarm_actions                Array
-     actions_enabled              TrueClass, FalseClass
+     actions_enabled              True, False
      alarm_description            String
      unit                         String
    end
@@ -943,7 +943,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The actions to execute when this alarm transitions to the ``ALARM`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
    * - ``actions_enabled``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Indicates whether actions should be executed during any changes to the alarm state.
    * - ``alarm_description``
@@ -1135,7 +1135,7 @@ The full syntax for all of the properties that are available to the ``aws_ebs_vo
    aws_ebs_volume 'name' do
      availability_zone             String
      device                        String
-     encrypted                     TrueClass, FalseClass
+     encrypted                     True, False
      iops                          Integer
      machine                       String
      size                          Integer
@@ -1196,7 +1196,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``encrypted``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to specify that a block-level storage device should be encrypted.
    * - ``iops``
@@ -1204,7 +1204,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Required for provisioned volumes. Use to specify the maximum number of input/output operations per second (IOPS) that the block-level storage device will support.
    * - ``machine``
-     - **Ruby Type:** String, FalseClass, AwsInstance, AWS::EC2::Instance
+     - **Ruby Type:** String, False, AwsInstance, AWS::EC2::Instance
 
        Use to specify the machine to be provisioned.
    * - ``managed_entry_store``
@@ -1359,8 +1359,8 @@ The full syntax for all of the properties that are available to the ``aws_eip_ad
 .. code-block:: ruby
 
    aws_eip_address 'name' do
-     associate_to_vpc              TrueClass, FalseClass
-     machine                       String, FalseClass
+     associate_to_vpc              True, False
+     machine                       String, False
      public_ip                     String
    end
 
@@ -1381,7 +1381,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - Property
      - Description
    * - ``associate_to_vpc``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to associate an elastic IP address to a virtual network that is defined in Amazon Virtual Private Cloud (VPC).
    * - ``chef_server``
@@ -1393,7 +1393,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``machine``
-     - **Ruby Type:** String, FalseClass
+     - **Ruby Type:** String, False
 
        Use to specify the machine to be provisioned.
    * - ``managed_entry_store``
@@ -1477,7 +1477,7 @@ The full syntax for all of the properties that are available to the ``aws_elasti
 
    aws_elasticsearch_domain 'name' do
      instance_type                     String
-     ebs_enabled                       TrueClass, FalseClass
+     ebs_enabled                       True, False
      volume_size                       Integer
      automated_snapshot_start_hour     Integer
      elasticsearch_version             String, Integer
@@ -1512,7 +1512,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``ebs_enabled``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to specify the elastic block size enable/disable.
    * - ``managed_entry_store``
@@ -2160,7 +2160,7 @@ The full syntax for all of the properties that are available to the ``aws_key_pa
 .. code-block:: ruby
 
    aws_key_pair 'name' do
-     allow_overwrite               TrueClass, FalseClass
+     allow_overwrite               True, False
      private_key_options()         Hash
      private_key_path              String
      public_key_path               String
@@ -2183,7 +2183,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - Property
      - Description
    * - ``allow_overwrite``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to allow a public or private key to be overwritten.
    * - ``aws_tags``
@@ -3028,7 +3028,7 @@ The full syntax for all of the properties that are available to the ``aws_networ
    aws_network_interface 'name' do
      description                   String
      device_index                  Integer
-     machine                       String, FalseClass
+     machine                       String, False
      network_interface_id          String
      private_ip_address            String
      subnet                        String
@@ -3087,7 +3087,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``machine``
-     - **Ruby Type:** String, FalseClass, AwsInstance, AWS::EC2::Instance
+     - **Ruby Type:** String, False, AwsInstance, AWS::EC2::Instance
 
        Use to specify the name of the Amazon Web Services (AWS) instance that this network interface is associated with.
    * - ``managed_entry_store``
@@ -3168,9 +3168,9 @@ The full syntax for all of the properties that are available to the ``aws_rds_in
      iops                          Integer
      master_user_password          String
      master_username               String
-     multi_az                      TrueClass, FalseClass
+     multi_az                      True, False
      port                          Integer
-     publicly_accessible           TrueClass, FalseClass
+     publicly_accessible           True, False
    end
 
 where
@@ -3246,7 +3246,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The username for the database super user.
    * - ``multi_az``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to specify if the database instance is deployed to multiple availability zones. Default value: ``false``.
    * - ``name``
@@ -3258,7 +3258,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The port number on which the database accepts connections.
    * - ``publicly_accessible``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to specify that a relational database instance has DNS name that resolves to a routable public IP address. Default value: ``false``.
 
@@ -3801,7 +3801,7 @@ The full syntax for all of the properties that are available to the ``aws_s3_buc
 .. code-block:: ruby
 
    aws_s3_bucket 'name' do
-     enable_website_hosting        TrueClass, FalseClass
+     enable_website_hosting        True, False
      options                       Hash
      website_options               Hash
    end
@@ -3850,7 +3850,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``enable_website_hosting``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to specify if an Amazon Simple Storage Service (S3) bucket is configured for for static website hosting. Default value: ``false``.
    * - ``managed_entry_store``
@@ -4722,7 +4722,7 @@ The full syntax for all of the properties that are available to the ``aws_subnet
    aws_subnet 'name' do
      availability_zone             String
      cidr_block                    String
-     map_public_ip_on_launch       TrueClass, FalseClass
+     map_public_ip_on_launch       True, False
      route_table                   String
      subnet_id                     String
      vpc                           String
@@ -4784,7 +4784,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
    * - ``map_public_ip_on_launch``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to specify if public IP addresses are assigned to new instances in this subnet by default. Default value: ``false``.
    * - ``name``
@@ -4974,9 +4974,9 @@ The full syntax for all of the properties that are available to the ``aws_vpc`` 
    aws_vpc 'name' do
      cidr_block                    String
      dhcp_options                  String
-     enable_dns_hostnames          TrueClass, FalseClass
-     enable_dns_support            TrueClass, FalseClass
-     internet_gateway              TrueClass, FalseClass
+     enable_dns_hostnames          True, False
+     enable_dns_support            True, False
+     internet_gateway              True, False
      instance_tenancy              Symbol
      main_route_table              String
      main_routes                   Hash
@@ -5035,11 +5035,11 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``enable_dns_hostnames``
-     - **Ruby Type:** TrueClass
+     - **Ruby Type:** True
 
        Use to specify if instances launched in a defined virtual network are assigned DNS hostnames. Possible values: ``true`` or ``false``. When ``true``, ``enable_dns_support`` must also be set to ``true``.
    * - ``enable_dns_support``
-     - **Ruby Type:** TrueClass
+     - **Ruby Type:** True
 
        Use to specify if DNS resolution is supported for a defined virtual network. When ``false``, resolution of public DNS hostnames to IP addresses is disabled. When ``true``, queries made to either the DNS server provided by Amazon Web Services (AWS) (and located at the 169.254.169.253 IP address) or the reserved IP address at the base of the defined virtual network range (plus two) will be resolved successfully. For example, a reserved IP address of ``10.0.0.0/16`` is located at ``10.0.0.2``.
    * - ``instance_tenancy``

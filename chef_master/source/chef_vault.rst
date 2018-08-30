@@ -3,7 +3,7 @@
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_vault.rst>`__
 
-``chef-vault`` is a RubyGems package that is included in the Chef development kit. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand. 
+``chef-vault`` is a Ruby Gem that is included in the Chef Development Kit and the chef-client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand. 
 
 .. note:: ``chef-vault`` does not currently support alternate keying mechanisms like GPG and Amazon KMS. 
 
@@ -23,20 +23,8 @@ The ``chef-vault cookbook`` is maintained by Chef. Use it along with ``chef-vaul
 
 Installation
 =====================================================
-If you are installing ``chef-vault`` independently of the Chef Development Kit, then first verify that you have  the latest version Chef installed. Versions earlier than 0.10.0 don't support plugins:
 
-.. code-block:: shell
-
-    gem install chef
-
-This plugin is distributed as a Ruby Gem. To install it, run:
-
-.. code-block:: shell
-
-    gem install chef-vault
-
-Depending on your system's configuration, you may need to run this command
-with root privileges.
+The Chef Development Kit ships with the latest release of Chef vault and should be used for working with Chef vault.
 
 Configuring knife.rb for ``chef_vault``
 ------------------------------------------------------

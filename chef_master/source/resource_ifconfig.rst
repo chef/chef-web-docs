@@ -29,6 +29,7 @@ The full syntax for all of the properties that are available to the **ifconfig**
      bootproto                  String
      device                     String
      ethtool_opts               String
+     family                     String # defaults to 'inet' if not specified
      hwaddr                     String
      inet_addr                  String
      mask                       String
@@ -39,7 +40,6 @@ The full syntax for all of the properties that are available to the **ifconfig**
      notifies                   # see description
      onboot                     String
      onparent                   String
-     provider                   Chef::Provider::Ifconfig
      slave                      String
      subscribes                 # see description
      target                     String # defaults to 'name' if not specified
@@ -51,7 +51,7 @@ where
 * ``ifconfig`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``provider``, ``slave``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``slave``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -109,13 +109,20 @@ This resource has the following properties:
 
    New in Chef Client 13.4
 
+``family``
+   **Ruby Type:** String | **Default Value:** ``inet``
+
+   Networking family option for Debian-based systems; for example: ``inet`` or ``inet6``.
+   
+   New in Chef Client 14.0.
+
 ``hwaddr``
    **Ruby Type:** String
 
    The hardware address for the network interface.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -168,7 +175,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -194,11 +201,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Bring up the network interface when its parent interface is brought up.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -242,7 +244,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

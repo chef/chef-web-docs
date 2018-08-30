@@ -28,7 +28,6 @@ The full syntax for all of the properties that are available to the **http_reque
      headers                    Hash
      message                    Object # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::HttpRequest
      subscribes                 # see description
      url                        String
      action                     Symbol # defaults to :get if not specified
@@ -39,7 +38,7 @@ where
 * ``http_request`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``headers``, ``message``, ``provider``, and ``url`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``headers``, ``message``, and ``url`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -84,7 +83,7 @@ This resource has the following properties:
    A Hash of custom headers. Default value: ``{}``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -110,7 +109,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -126,11 +125,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -174,7 +168,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -255,7 +249,7 @@ To send a ``POST`` request as JSON data, convert the message to JSON and include
      message ''
      url 'http://couchdb.apache.org/img/sketch.png'
      action :head
-     if File.exist?('/tmp/couch.png')
+     if ::File.exist?('/tmp/couch.png')
        headers 'If-Modified-Since' => File.mtime('/tmp/couch.png').httpdate
      end
      notifies :create, 'remote_file[/tmp/couch.png]', :immediately

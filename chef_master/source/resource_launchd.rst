@@ -28,44 +28,43 @@ The full syntax for all of the properties that are available to the **launchd** 
 .. code-block:: ruby
 
    launchd 'name' do
-     abandon_process_group      TrueClass, FalseClass
-     backup                     Integer, FalseClass
+     abandon_process_group      True, False
+     backup                     Integer, False
      cookbook                   String
-     debug                      TrueClass, FalseClass
-     disabled                   TrueClass, FalseClass
-     enable_globbing            TrueClass, FalseClass
-     enable_transactions        TrueClass, FalseClass
+     debug                      True, False
+     disabled                   True, False
+     enable_globbing            True, False
+     enable_transactions        True, False
      environment_variables      Hash
      exit_timeout               Integer
      group                      String, Integer
      hard_resource_limits       Hash
-     ignore_failure             TrueClass, FalseClass
+     ignore_failure             True, False
      inetd_compatibility        Hash
-     init_groups                TrueClass, FalseClass
-     keep_alive                 TrueClass, FalseClass
+     init_groups                True, False
+     keep_alive                 True, False
      label                      String
-     launch_only_once           TrueClass, FalseClass
+     launch_only_once           True, False
      limit_load_from_hosts      Array
      limit_load_to_hosts        Array
      limit_load_to_session_type Array, String
-     low_priority_io            TrueClass, FalseClass
+     low_priority_io            True, False
      mach_services              Hash
      mode                       Integer, String
      nice                       Integer
      notifies                   # see description
-     on_demand                  TrueClass, FalseClass
+     on_demand                  True, False
      owner                      Integer, String
      path                       String
      plist_hash                 Hash
      process_type               String
      program                    String
      program_arguments          Array
-     provider                   Chef::Provider::Launchd
      queue_directories          Array
      retries                    Integer
      retry_delay                Integer
      root_directory             String
-     run_at_load                TrueClass, FalseClass
+     run_at_load                True, False
      sockets                    Hash
      soft_resource_limits       Array
      standard_error_path        String
@@ -73,14 +72,14 @@ The full syntax for all of the properties that are available to the **launchd** 
      standard_out_path          String
      start_calendar_interval    Hash
      start_interval             Integer
-     start_on_mount             TrueClass, FalseClass
+     start_on_mount             True, False
      subscribes                 # see description
      throttle_interval          Integer
      time_out                   Integer
      type                       String
      umask                      Integer
      username                   String
-     wait_for_debugger          TrueClass, FalseClass
+     wait_for_debugger          True, False
      watch_paths                Array
      working_directory          String
      action                     Symbol # defaults to :create if not specified
@@ -128,7 +127,7 @@ Properties
 This resource has the following properties:
 
 ``backup``
-   **Ruby Types:** Integer, FalseClass
+   **Ruby Types:** Integer, False
 
    The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 
@@ -143,7 +142,7 @@ This resource has the following properties:
    When launchd is run as the root user, the group to run the job as. If the ``username`` property is specified and this property is not, this value is set to the default group for the user.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -155,13 +154,7 @@ This resource has the following properties:
 ``mode``
    **Ruby Types:** Integer, String
 
-   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
-
-   The behavior is different depending on the platform.
-
-   UNIX- and Linux-based systems: A quoted 3-5 character string that defines the octal mode that is passed to chmod. For example: ``'755'``, ``'0755'``, or ``00755``. If the value is specified as a quoted string, it works exactly as if the ``chmod`` command was passed. If the value is specified as an integer, prepend a zero (``0``) to the value to ensure that it is interpreted as an octal number. For example, to assign read, write, and execute rights for all users, use ``'0777'`` or ``'777'``; for the same rights, plus the sticky bit, use ``01777`` or ``'1777'``.
-
-   Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. Default value: ``'0755'``
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -180,7 +173,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -211,13 +204,6 @@ This resource has the following properties:
    **Ruby Type:** Hash
 
    A Hash of key value pairs used to create the launchd property list.
-
-   New in Chef Client 12.19. Was previously named ``hash`` in earlier versions.
-
-``provider``
-   **Ruby Type:** Chef::Provider::Launchd
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -271,7 +257,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -301,27 +287,27 @@ This resource has the following properties:
 The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the Apple man page documentation for launchd for more information about these keys:
 
 ``abandon_process_group``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    If a job dies, all remaining processes with the same process ID may be kept running. Set to ``true`` to kill all remaining processes.
 
 ``debug``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
 ``disabled``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Hints to ``launchctl`` to not submit this job to launchd. Default value: ``false``.
 
 ``enable_globbing``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Update program arguments before invocation.
 
 ``enable_transactions``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Track in-progress transactions; if none, then send the ``SIGKILL`` signal.
 
@@ -346,19 +332,17 @@ The following resource properties may be used to define keys in the XML property
    Specifies if a daemon expects to be run as if it were launched from ``inetd``. Set to ``wait => true`` to pass standard input, output, and error file descriptors. Set to ``wait => false`` to call the ``accept`` system call on behalf of the job, and then pass standard input, output, and error file descriptors.
 
 ``init_groups``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
-   Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
+   Specify if ``initgroups`` is called before running a job. Default value: ``true``.
 
 ``keep_alive``
-   **Ruby Types:** TrueClass, FalseClass, Hash
+   **Ruby Types:** True, False, Hash
 
    Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``). Default value: ``false``.
 
-   Hash type was added in Chef client 12.14.
-
 ``launch_only_once``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Specify if a job can be run only one time. Set this value to ``true`` if a job cannot be restarted without a full machine reboot.
 
@@ -378,7 +362,7 @@ The following resource properties may be used to define keys in the XML property
    The session type(s) to which this configuration file applies.
 
 ``low_priority_io``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Specify if the kernel on the node should consider this daemon to be low priority during file system I/O.
 
@@ -393,7 +377,7 @@ The following resource properties may be used to define keys in the XML property
    The program scheduling priority value in the range ``-20`` to ``20``.
 
 ``on_demand``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
@@ -423,7 +407,7 @@ The following resource properties may be used to define keys in the XML property
    ``chroot`` to this directory, and then run the job.
 
 ``run_at_load``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Launch a job once (at the time it is loaded). Default value: ``false``.
 
@@ -462,7 +446,7 @@ The following resource properties may be used to define keys in the XML property
    The frequency (in seconds) at which a job is started.
 
 ``start_on_mount``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Start a job every time a file system is mounted.
 
@@ -487,7 +471,7 @@ The following resource properties may be used to define keys in the XML property
    When launchd is run as the root user, the user to run the job as.
 
 ``wait_for_debugger``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Specify if launchd has a job wait for a debugger to attach before executing code.
 

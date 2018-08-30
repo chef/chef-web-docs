@@ -45,23 +45,22 @@ The full syntax for all of the properties that are available to the **template**
 .. code-block:: ruby
 
    template 'name' do
-     atomic_update              TrueClass, FalseClass
-     backup                     FalseClass, Integer
+     atomic_update              True, False
+     backup                     False, Integer
      cookbook                   String
-     force_unlink               TrueClass, FalseClass
+     force_unlink               True, False
      group                      String, Integer
      helper(:method)            Method { String } # see Helpers below
      helpers(module)            Module # see Helpers below
-     inherits                   TrueClass, FalseClass
-     local                      TrueClass, FalseClass
-     manage_symlink_source      TrueClass, FalseClass
+     inherits                   True, False
+     local                      True, False
+     manage_symlink_source      True, False
      mode                       String, Integer
      notifies                   # see description
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     provider                   Chef::Provider::File::Template
      rights                     Hash
-     sensitive                  TrueClass, FalseClass
+     sensitive                  True, False
      source                     String, Array
      subscribes                 # see description
      variables                  Hash
@@ -75,7 +74,7 @@ where
 * ``name`` is the name of the resource block, typically the path to the location in which a file is created *and also* the name of the file to be managed. For example: ``/var/www/html/index.html``, where ``/var/www/html/`` is the fully qualified path to the location and ``index.html`` is the name of the file
 * ``source`` is the template file that will be used to create the file on the node, for example: ``index.html.erb``; the template file is located in the ``/templates`` directory of a cookbook
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``atomic_update``, ``backup``, ``cookbook``, ``force_unlink``, ``group``, ``helper``, ``helpers``, ``inherits``, ``local``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``provider``, ``rights``, ``sensitive``, ``source``, ``variables``, and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``atomic_update``, ``backup``, ``cookbook``, ``force_unlink``, ``group``, ``helper``, ``helpers``, ``inherits``, ``local``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``rights``, ``sensitive``, ``source``, ``variables``, and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -105,12 +104,12 @@ Properties
 This resource has the following properties:
 
 ``atomic_update``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file. Default value: ``true``.
 
 ``backup``
-   **Ruby Types:** FalseClass, Integer
+   **Ruby Types:** False, Integer
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept. Default value: ``5``.
 
@@ -120,7 +119,7 @@ This resource has the following properties:
    The cookbook in which a file is located (if it is not located in the current cookbook). The default value is the current cookbook.
 
 ``force_unlink``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error. Default value: ``false``.
 
@@ -140,22 +139,22 @@ This resource has the following properties:
    Define a helper module inline or in a library. For example, an inline module: ``helpers do``, which is then followed by a block of Ruby code. And for a library module: ``helpers(MyHelperModule)``. Default value: ``[]``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``inherits``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
 ``local``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Load a template from a local path. By default, the chef-client loads templates from a cookbook's ``/templates`` directory. When this property is set to ``true``, use the ``source`` property to specify the path to a template on the local node. Default value: ``false``.
 
 ``manage_symlink_source``
-   **Ruby Types:** TrueClass, FalseClass | **Default Value:** ``true`` (with warning)
+   **Ruby Types:** True, False | **Default Value:** ``true`` (with warning)
 
    Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
 
@@ -189,7 +188,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -218,11 +217,6 @@ This resource has the following properties:
 
    Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``retries``
    **Ruby Type:** Integer
 
@@ -239,7 +233,7 @@ This resource has the following properties:
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
 ``sensitive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
@@ -280,7 +274,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -391,8 +385,6 @@ This resource has the following properties:
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
 
    .. end_tag
-
-   New in Chef Client 12.1.
 
 Atomic File Updates
 -----------------------------------------------------
@@ -591,7 +583,7 @@ And then create a template called ``sudoers.erb`` and save it to ``templates/def
 
    <% @sudoers_groups.each do |group| -%>
    # Members of the group '<%= group %>' may gain root privileges
-   %<%= group %> ALL=(ALL) <%= "NOPASSWD:" if @passwordless %>ALL
+   <%= group %> ALL=(ALL) <%= "NOPASSWD:" if @passwordless %>ALL
    <% end -%>
 
 And then set the default attributes in ``attributes/default.rb``:
@@ -680,8 +672,6 @@ This resource would be matched in the same order as the ``/templates`` directory
      default/text_file.txt
 
 .. end_tag
-
-Changed in Chef Client 12.0.
 
 Helpers
 -----------------------------------------------------
@@ -950,7 +940,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { node[:some_value] }
+     not_if { node['some_value'] }
    end
 
 .. end_tag
@@ -980,7 +970,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { File.exist?('/etc/passwd' )}
+     not_if { File.exist?('/etc/passwd') }
    end
 
 .. end_tag
@@ -1010,7 +1000,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     only_if { node[:some_value] }
+     only_if { node['some_value'] }
    end
 
 .. end_tag

@@ -33,8 +33,8 @@ The full syntax for all of the properties that are available to the **apt_packag
      default_release            String
      notifies                   # see description
      options                    String
+     overwrite_config_files     True, False # default value: 'false'
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Apt
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -47,9 +47,7 @@ where
 * ``apt_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``default_release``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
+* ``default_release``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -60,8 +58,6 @@ This resource has the following actions:
 
 ``:lock``
    Locks the apt package to a specific version.
-
-   New in Chef Client 12.16.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -82,8 +78,6 @@ This resource has the following actions:
 ``:unlock``
    Unlocks the apt package so that it can be upgraded to a newer version.
 
-   New in Chef Client 12.16.
-
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
@@ -97,7 +91,7 @@ This resource has the following properties:
    The default release. For example: ``stable``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -118,7 +112,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -140,15 +134,17 @@ This resource has the following properties:
 
    One (or more) additional options that are passed to the command. For example, common apt-get directives, such as ``--no-install-recommends``. See the `apt-get man page <http://manpages.ubuntu.com/manpages/zesty/man8/apt-get.8.html>`_ for the full list.
 
+``overwrite_config_files``
+   **Ruby Type:** True, False | **Default Value:** ``false``
+   
+   Overwrite existing configuration files with those supplied by the package, if prompted by APT.
+   
+   New in Chef Client 14.0.
+
 ``package_name``
    **Ruby Types:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -197,7 +193,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -287,59 +283,10 @@ Notifications, via an implicit name:
 
 .. end_tag
 
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-``Chef::Provider::Package``, ``package``
-   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
-
-``Chef::Provider::Package::Apt``, ``apt_package``
-   The provider for the Debian and Ubuntu platforms.
-
 Examples
 =====================================================
-.. tag resources_common_examples_intro
 
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
-.. end_tag
+The following examples demonstrate various approaches for using apt_update in recipes.
 
 **Install a package using package manager**
 

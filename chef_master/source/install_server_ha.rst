@@ -315,9 +315,11 @@ For each additional frontend node you wish to add to your cluster:
 Upgrading Chef Server on the Frontend Machines
 ----------------------------------------------------------------
 
-#. On any of the frontends follow documentation from `</upgrade_server.html#standalone>`_ to upgrade.
+#. On one frontend server, follow the  `standalone upgrade process </upgrade_server.html#standalone>`_.
 
-#. On each of the remaining frontends, copy ``/var/opt/opscode/upgrades/migration-level`` from first upgraded frontend to ``/var/opt/opscode/upgrades/migration-level`` on the current box.
+#. Copy ``/var/opt/opscode/upgrades/migration-level`` from the first upgraded frontend to ``/var/opt/opscode/upgrades/migration-level`` on each of the remaining frontends.
+
+#. Once the updated file has been copied to each of the remaining frontends, perform the `<standalone upgrade process /upgrade_server.html#standalone>`_ on each of the frontend servers.
 
 Configuring Frontend and Backend Members on Different Networks
 ----------------------------------------------------------------
@@ -452,10 +454,10 @@ The ``chef-backend-ctl gen-server-config`` command, which can be run as root fro
 Software Versions
 ----------------------------------------------------------------
 
-The backend HA cluster uses the omnibus installer (https://github.com/chef/omnibus) to package all of the software
+The backend HA cluster uses the Chef installer to package all of the software
 necessary to run the services included in the backend cluster. For a full list of the software packages included (and their versions), see the file located at ``/opt/chef-backend/version-manifest.json``.
 
-Do not attempt to upgrade individual components of the omnibus package. Due to the way omnibus packages are built, modifying any of the individual components in the package will lead to cluster instability. If the latest version of the backend cluster is providing an out-of-date package, please bring it to the attention of Chef by filling out a ticket with support@chef.io.
+Do not attempt to upgrade individual components of the Chef package. Due to the way Chef packages are built, modifying any of the individual components in the package will lead to cluster instability. If the latest version of the backend cluster is providing an out-of-date package, please bring it to the attention of Chef by filling out a ticket with support@chef.io.
 
 chef-backend.rb Options
 =====================================================
@@ -667,4 +669,4 @@ If ``certificate`` and ``certificate_key`` are nil, the SSL Certificate will be 
 chef-backend-ctl
 =====================================================
 
-The Chef server backend HA cluster includes a command-line utility named chef-backend-ctl. This command-line tool is used to manage the Chef server backend HA cluster, start and stop individual services, and tail Chef server log files. For more information, see the `chef-backed-ctl documentation </ctl_chef_backend.html>`_.
+The Chef server backend HA cluster includes a command-line utility named chef-backend-ctl. This command-line tool is used to manage the Chef server backend HA cluster, start and stop individual services, and tail Chef server log files. For more information, see the `chef-backend-ctl documentation </ctl_chef_backend.html>`_.

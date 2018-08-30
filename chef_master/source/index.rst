@@ -17,14 +17,14 @@ For information on Habitat and InSpec, see their respective documentation:
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If this is your first visit, check out the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef.
+If you are new to Chef, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef to familarize yourself with Chef concepts.
 
 If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
 
 Overview
 =====================================================
 
-Platform Overview
+Chef Platform Overview
 -----------------------------------------------------
 
 `Platform Overview </platform_overview.html>`__
@@ -37,7 +37,7 @@ Community
 `Guidelines </community_guidelines.html>`__ |
 `Docs Style Guide </style_guide.html>`__
 
-Packages and Platforms
+Packages and Platform Support
 -----------------------------------------------------
 `Packages </packages.html>`__ |
 `Platforms and Supported Versions </platforms.html>`__ |
@@ -52,6 +52,10 @@ Getting Started
 `Chef Overview </chef_overview.html>`__ |
 `Quick Start </quick_start.html>`__ |
 `System Requirements </chef_system_requirements.html>`__
+
+**Chef Workstation**:
+`Chef Workstation Beta <https://www.chef.sh/>`__ |
+`Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
 `Chef Client </release_notes.html>`__ |
@@ -81,7 +85,7 @@ Concepts
 `Reporting </reporting.html>`__ |
 `Run-lists </run_lists.html>`__
 
-**Security**:`Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `Private Keys </chef_private_keys.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
+**Security**: `Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `Private Keys </chef_private_keys.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
 
 **Supermarket**: `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
 
@@ -95,7 +99,7 @@ Setup
 `Chef DK on Windows </dk_windows.html>`__ |
 `Workstation </install_dk.html>`__
 
-**Nodes**:`Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
+**Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
 **Server**: `Hosted Chef Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__  | `Integrate Chef Compliance with Chef Server </integrate_compliance_chef_server.html>`__
 
@@ -119,20 +123,142 @@ Cookbook Reference
 
 **Recipes**: `About Recipes </recipes.html>`__ | `Debug Recipes, Client Runs </debug.html>`__
 
-**Resources**: `About Resources </resource.html>`__ | `Common Functionality </resource_common.html>`__ | `Custom Resources </custom_resources.html>`__ | `All Resources (Single Page) </resource_reference.html>`__ | `apt_package </resource_apt_package.html>`__ | `apt_preference </resource_apt_preference.html>`__ | `apt_repository </resource_apt_repository.html>`__ |
-`apt_update </resource_apt_update.html>`__ | `bash </resource_bash.html>`__ | `batch </resource_batch.html>`__ | `bff_package </resource_bff_package.html>`__ | `breakpoint </resource_breakpoint.html>`__ | `cab_package </resource_cab_package.html>`__ | `chef_acl </resource_chef_acl.html>`__ |
-`chef_client </resource_chef_client.html>`__ | `chef_container </resource_chef_container.html>`__ | `chef_data_bag </resource_chef_data_bag.html>`__ | `chef_data_bag_item </resource_chef_data_bag_item.html>`__ | `chef_environment </resource_chef_environment.html>`__ | `chef_gem </resource_chef_gem.html>`__ | `chef_group </resource_chef_group.html>`__ |
-`chef_handler </resource_chef_handler.html>`__ | `chef_mirror </resource_chef_mirror.html>`__ | `chef_node </resource_chef_node.html>`__ | `chef_organization </resource_chef_organization.html>`__ | `chef_role </resource_chef_role.html>`__ | `chef_user </resource_chef_user.html>`__ |  `chocolatey_package </resource_chocolatey_package.html>`__
-`cookbook_file </resource_cookbook_file.html>`__ | `cron </resource_cron.html>`__ | `csh </resource_csh.html>`__ | `deploy </resource_deploy.html>`__ | `directory </resource_directory.html>`__ | `dpkg_package </resource_dpkg_package.html>`__ | `dsc_resource </resource_dsc_resource.html>`__ |
-`dsc_script </resource_dsc_script.html>`__ | `env </resource_env.html>`__ | `erl_call </resource_erlang_call.html>`__ | `execute </resource_execute.html>`__ | `file </resource_file.html>`__ | `freebsd_package </resource_freebsd_package.html>`__ | `gem_package </resource_gem_package.html>`__ |
-`git </resource_git.html>`__ | `group </resource_group.html>`__ | `homebrew_package </resource_homebrew_package.html>`__ | `http_request </resource_http_request.html>`__ | `ifconfig </resource_ifconfig.html>`__ | `ips_package </resource_ips_package.html>`__ | `ksh </resource_ksh.html>`__ |
-`launchd </resource_launchd.html>`__ | `link </resource_link.html>`__ | `log </resource_log.html>`__ | `macports_package </resource_macports_package.html>`__ | `mdadm </resource_mdadm.html>`__ | `mount </resource_mount.html>`__ | `ohai </resource_ohai.html>`__ |
-`openbsd_package </resource_openbsd_package.html>`__ | `osx_profile </resource_osx_profile.html>`__ | `package </resource_package.html>`__ | `pacman_package </resource_pacman_package.html>`__ | `paludis_package </resource_paludis_package.html>`__ | `perl </resource_perl.html>`__ | `portage_package </resource_portage_package.html>`__ |
-`powershell_package </resource_powershell_package.html>`__ | `powershell_script </resource_powershell_script.html>`__ | `private_key </resource_private_key.html>`__ | `public_key </resource_public_key.html>`__ | `python </resource_python.html>`__ | `reboot </resource_reboot.html>`__ | `registry_key </resource_registry_key.html>`__ | `remote_directory </resource_remote_directory.html>`__ |
-`remote_file </resource_remote_file.html>`__ | `route </resource_route.html>`__ | `rpm_package </resource_rpm_package.html>`__ | `ruby </resource_ruby.html>`__ | `ruby_block </resource_ruby_block.html>`__ | `script </resource_script.html>`__ | `service </resource_service.html>`__ |
-`smartos_package </resource_smartos_package.html>`__ | `solaris_package </resource_solaris_package.html>`__ | `subversion </resource_subversion.html>`__ | `systemd_unit </resource_systemd_unit.html>`__ | `template </resource_template.html>`__ | `user </resource_user.html>`__ | `windows_package </resource_windows_package.html>`__ |
-`windows_service </resource_windows_service.html>`__ | `windows_task </resource_windows_task.html>`__ | `yum_package </resource_yum.html>`__ | `yum_repository </resource_yum_repository.html>`__ | `dnf_package </resource_dnf_package.html>`__ | `zypper_package </resource_zypper_package.html>`__ |
-`zypper_repository </resource_zypper_repository.html>`__ | `Examples (by Resource) </resource_examples.html>`__
+**Audit Mode DSL**:
+`About the Audit Mode DSL </dsl_audit.html>`__ |
+`control </dsl_audit.html#control>`__ |
+`control_group </dsl_audit.html#control-group>`__ |
+
+**Resources**:
+`About Resources </resource.html>`__ |
+`Common Functionality </resource_common.html>`__ |
+`Custom Resources </custom_resources.html>`__ |
+`All Resources (Single Page) </resource_reference.html>`__ |
+`Examples (by Resource) </resource_examples.html>`__
+
+`apt_package </resource_apt_package.html>`__ |
+`apt_preference </resource_apt_preference.html>`__ |
+`apt_repository </resource_apt_repository.html>`__ |
+`apt_update </resource_apt_update.html>`__ |
+`bash </resource_bash.html>`__ |
+`batch </resource_batch.html>`__ |
+`bff_package </resource_bff_package.html>`__ |
+`breakpoint </resource_breakpoint.html>`__ |
+`build_essential </resource_build_essential.html>`__ |
+`cab_package </resource_cab_package.html>`__ |
+`chef_acl </resource_chef_acl.html>`__ |
+`chef_client </resource_chef_client.html>`__ |
+`chef_container </resource_chef_container.html>`__ |
+`chef_data_bag </resource_chef_data_bag.html>`__ |
+`chef_data_bag_item </resource_chef_data_bag_item.html>`__ |
+`chef_environment </resource_chef_environment.html>`__ |
+`chef_gem </resource_chef_gem.html>`__ |
+`chef_group </resource_chef_group.html>`__ |
+`chef_handler </resource_chef_handler.html>`__ |
+`chef_mirror </resource_chef_mirror.html>`__ |
+`chef_node </resource_chef_node.html>`__ |
+`chef_organization </resource_chef_organization.html>`__ |
+`chef_role </resource_chef_role.html>`__ |
+`chef_user </resource_chef_user.html>`__ |
+`chocolatey_config </resource_chocolatey_config.html>`__
+`chocolatey_package </resource_chocolatey_package.html>`__
+`cookbook_file </resource_cookbook_file.html>`__ |
+`cron </resource_cron.html>`__ |
+`cron_d </resource_cron_d.html>`__ |
+`cron_access </resource_cron_access.html>`__ |
+`csh </resource_csh.html>`__ |
+`deploy </resource_deploy.html>`__ |
+`directory </resource_directory.html>`__ |
+`dmg_package </resource_dmg_package.html>`__ |
+`dpkg_package </resource_dpkg_package.html>`__ |
+`dsc_resource </resource_dsc_resource.html>`__ |
+`dsc_script </resource_dsc_script.html>`__ |
+`windows_env </resource_windows_env.html>`__ |
+`erl_call </resource_erlang_call.html>`__ |
+`execute </resource_execute.html>`__ |
+`file </resource_file.html>`__ |
+`freebsd_package </resource_freebsd_package.html>`__ |
+`gem_package </resource_gem_package.html>`__ |
+`git </resource_git.html>`__ |
+`group </resource_group.html>`__ |
+`homebrew_cask </resource_homebrew_cask.html>`__ |
+`homebrew_package </resource_homebrew_package.html>`__ |
+`homebrew_tap </resource_homebrew_tap.html>`__ |
+`hostname </resource_hostname.html>`__ |
+`http_request </resource_http_request.html>`__ |
+`ifconfig </resource_ifconfig.html>`__ |
+`ips_package </resource_ips_package.html>`__ |
+`ksh </resource_ksh.html>`__ |
+`launchd </resource_launchd.html>`__ |
+`link </resource_link.html>`__ |
+`log </resource_log.html>`__ |
+`macos_userdefaults </resource_macos_userdefaults.html>`__ |
+`macports_package </resource_macports_package.html>`__ |
+`mdadm </resource_mdadm.html>`__ |
+`mount </resource_mount.html>`__ |
+`ohai </resource_ohai.html>`__ |
+`ohai_hint </resource_ohai_hint.html>`__ |
+`openbsd_package </resource_openbsd_package.html>`__ |
+`openssl_dhparam </resource_openssl_dhparam.html>`__ |
+`openssl_ec_private_key </resource_openssl_ec_private_key.html>`__ |
+`openssl_ec_public_key </resource_openssl_ec_public_key.html>`__ |
+`openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ |
+`openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ |
+`openssl_x509_certificate </resource_openssl_x509_certificate.html>`__ |
+`openssl_x509_crl </resource_openssl_x509_crl.html>`__ |
+`openssl_x509_request </resource_openssl_x509_request.html>`__ |
+`osx_profile </resource_osx_profile.html>`__ |
+`package </resource_package.html>`__ |
+`pacman_package </resource_pacman_package.html>`__ |
+`paludis_package </resource_paludis_package.html>`__ |
+`perl </resource_perl.html>`__ |
+`portage_package </resource_portage_package.html>`__ |
+`powershell_package </resource_powershell_package.html>`__ |
+`powershell_script </resource_powershell_script.html>`__ |
+`private_key </resource_private_key.html>`__ |
+`public_key </resource_public_key.html>`__ |
+`python </resource_python.html>`__ |
+`reboot </resource_reboot.html>`__ |
+`registry_key </resource_registry_key.html>`__ |
+`remote_directory </resource_remote_directory.html>`__ |
+`remote_file </resource_remote_file.html>`__ |
+`route </resource_route.html>`__ |
+`rpm_package </resource_rpm_package.html>`__ |
+`ruby </resource_ruby.html>`__ |
+`ruby_block </resource_ruby_block.html>`__ |
+`script </resource_script.html>`__ |
+`rhsm_errata </resource_rhsm_errata.html>`__ |
+`rhsm_errata_level </resource_rhsm_errata_level.html>`__ |
+`rhsm_register </resource_rhsm_register.html>`__ |
+`rhsm_repo </resource_rhsm_repo.html>`__ |
+`rhsm_subscription </resource_rhsm_subscription.html>`__ |
+`service </resource_service.html>`__ |
+`smartos_package </resource_smartos_package.html>`__ |
+`solaris_package </resource_solaris_package.html>`__ |
+`subversion </resource_subversion.html>`__ |
+`sudo </resource_sudo.html>`__ |
+`swap_file </resource_swap_file.html>`__ |
+`sysctl </resource_sysctl.html>`__ |
+`systemd_unit </resource_systemd_unit.html>`__ |
+`template </resource_template.html>`__ |
+`user </resource_user.html>`__ |
+`windows_ad_join </resource_windows_ad_join.html>`__ |
+`windows_auto_run </resource_windows_auto_run.html>`__ |
+`windows_feature </resource_windows_feature.html>`__ |
+`windows_feature_dism </resource_windows_feature_dism.html>`__ |
+`windows_feature_powershell.html </resource_windows_feature_powershell.html>`__ |
+`windows_font </resource_windows_font.html>`__ |
+`windows_package </resource_windows_package.html>`__ |
+`windows_printer.html </resource_windows_printer.html>`__ |
+`windows_printer_port </resource_windows_printer_port.html>`__ |
+`windows_service </resource_windows_service.html>`__ |
+`windows_shortcut </resource_windows_shortcut.html>`__ |
+`windows_task </resource_windows_task.html>`__ |
+`yum_package </resource_yum.html>`__ |
+`yum_repository </resource_yum_repository.html>`__ |
+`dnf_package </resource_dnf_package.html>`__ |
+`zypper_package </resource_zypper_package.html>`__ |
+`zypper_repository </resource_zypper_repository.html>`__
+
 
 `Templates </templates.html>`__ |
 `Cookbook Repo </cookbook_repo.html>`__ |
@@ -150,11 +276,10 @@ Chef DK
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__
 
-**chef (executable)**:`chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate lwrp </ctl_chef.html#chef-generate-lwrp>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__ | `chef verify </ctl_chef.html#chef-verify>`__
+**chef (executable)**: `chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate resource </ctl_chef.html#chef-generate-resource>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__ | `chef verify </ctl_chef.html#chef-verify>`__
 
 **Chef Solo**: `About Chef Solo </chef_solo.html>`__ | `chef-solo (executable) </ctl_chef_solo.html>`__ | `solo.rb </config_rb_solo.html>`__
 
-`chef-shell (executable) </ctl_chef_shell.html>`__ |
 `chef-zero (local mode) </ctl_chef_client.html#run-in-local-mode>`_ |
 `chef-vault </chef_vault.html>`__ |
 `ChefSpec </chefspec.html>`__
@@ -208,11 +333,11 @@ Managing the Server
 `opscode-expander-ctl </ctl_opscode_expander.html>`__ |
 `Chef Server API </api_chef_server.html>`__
 
-**Push Jobs**:`knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
+**Push Jobs**: `knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
 
-**Supermarket**:`Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </plugin_knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
+**Supermarket**: `Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </plugin_knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
 
-**Management Console**:`Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
+**Management Console**: `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
 
 Habitat
 =====================================================
@@ -338,7 +463,6 @@ Compliance scanner
 -----------------------------------------------------
 
 `Overview </chef_compliance.html>`__ |
-`Release Notes </release_notes_compliance.html>`__ |
 `Installation Guide </install_chef_compliance.html>`__ |
 `Integrate w/Chef Server </integrate_compliance_chef_server.html>`__ |
 `Integrate w/Chef Automate </integrate_compliance_server_chef_automate.html>`__ |
@@ -454,6 +578,7 @@ Addenda
    chef_client_overview
    chef_client_security
    chef_deprecations_client
+   chefdk_setup
    chef_license
    chef_overview
    chef_private_keys
@@ -498,7 +623,6 @@ Addenda
    ctl_chef_backend
    ctl_chef_client
    ctl_chef_server
-   ctl_chef_shell
    ctl_chef_solo
    delivery_cli
    ctl_automate_server
@@ -560,9 +684,11 @@ Addenda
    deprecations_property_name_collision
    deprecations_resource_cloning
    deprecations_run_command
+   deprecations_shell_out
    deprecations_supports_property
    deprecations_verify_file
    dk_windows
+   dsl_audit
    dsl_custom_resource
    dsl_delivery
    dsl_handler
@@ -677,7 +803,6 @@ Addenda
    release_notes
    release_notes_chef_automate
    release_notes_chefdk
-   release_notes_compliance
    release_notes_server
    release_notes_push_jobs
    release_notes_ohai
@@ -690,6 +815,7 @@ Addenda
    resource_batch
    resource_bff_package
    resource_breakpoint
+   resource_build_essential
    resource_cab_package
    resource_chef_acl
    resource_chef_client
@@ -712,11 +838,11 @@ Addenda
    resource_csh
    resource_deploy
    resource_directory
+   resource_dmg_package
    resource_dnf_package
    resource_dpkg_package
    resource_dsc_resource
    resource_dsc_script
-   resource_env
    resource_erlang_call
    resource_examples
    resource_execute
@@ -725,7 +851,10 @@ Addenda
    resource_gem_package
    resource_git
    resource_group
+   resource_homebrew_cask
    resource_homebrew_package
+   resource_homebrew_tap
+   resource_hostname
    resource_http_request
    resource_ifconfig
    resource_ips_package
@@ -739,12 +868,22 @@ Addenda
    resource_machine_execute
    resource_machine_file
    resource_machine_image
+   resource_macos_userdefaults
    resource_macports_package
    resource_mdadm
    resource_mount
    resource_msu_package
    resource_ohai
+   resource_ohai_hint
    resource_openbsd_package
+   resource_openssl_dhparam
+   resource_openssl_ec_private_key
+   resource_openssl_ec_public_key
+   resource_openssl_rsa_private_key
+   resource_openssl_rsa_public_key
+   resource_openssl_x509_certificate
+   resource_openssl_x509_crl
+   resource_openssl_x509_request
    resource_osx_profile
    resource_package
    resource_pacman_package
@@ -760,6 +899,11 @@ Addenda
    resource_registry_key
    resource_remote_directory
    resource_remote_file
+   resource_rhsm_errata
+   resource_rhsm_errata_level
+   resource_rhsm_register
+   resource_rhsm_repo
+   resource_rhsm_subscription
    resource_route
    resource_rpm_package
    resource_ruby
@@ -769,12 +913,25 @@ Addenda
    resource_smartos_package
    resource_solaris_package
    resource_subversion
+   resource_sudo
+   resource_swap_file
+   resource_sysctl
    resource_systemd_unit
    resource_template
    resource_user
+   resource_windows_ad_join
+   resource_windows_auto_run
+   resource_windows_env
+   resource_windows_feature
+   resource_windows_feature_dism
+   resource_windows_feature_powershell
+   resource_windows_font
    resource_windows_package
    resource_windows_path
+   resource_windows_printer
+   resource_windows_printer_port
    resource_windows_service
+   resource_windows_shortcut
    resource_windows_task
    resource_yum
    resource_yum_repository
@@ -834,7 +991,6 @@ Addenda
    vmware
    windows
    workflow
-   workstation
    actions
    analytics
    analytics_monitor

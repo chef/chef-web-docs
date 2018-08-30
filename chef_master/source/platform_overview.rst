@@ -80,10 +80,6 @@ To get a sense of how the InSpec language works, here are some examples. This In
 Chef Automate
 =====================================================
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
-
 Chef Automate provides a full suite of enterprise capabilities for workflow, node visibility and compliance. Chef Automate integrates with the open-source products Chef, InSpec and Habitat. Chef Automate comes with comprehensive 24x7 support services for the entire platform, including open source components.
 
 Chef Automate gives you a full-stack continuous deployment pipeline, automated testing for compliance and security, as well as visibility into everything that's happening as you move your applications and infrastructure through the pipeline and then when they're in production.
@@ -122,6 +118,12 @@ Chef Automate creates customizable reports that identify compliance issues, secu
 Compliance reporting is currently done through two mechanisms: The integrated compliance reporting in Chef Automate 0.8.5 or later, and the standalone Chef Compliance server.
 
 For information on the integrated reporting capabilities in Chef Automate, see `Compliance Overview </chef_automate_compliance.html>`__.
+
+.. tag EOL_compliance_server
+
+.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://www.chef.io/automate/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server. 
+
+.. end_tag
 
 For information on how to use the standalone Chef Compliance server, see `Chef Compliance </chef_compliance.html>`__.
 

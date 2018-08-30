@@ -9,8 +9,6 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. end_tag
 
-Changed in 12.4 to include ``checksum`` and ``remote_file_attributes`` and URL locations on the ``source`` properties. Changed in Chef Client 12.6 to support a greater variety of ``installer_type``; Changed in 12.0 for ``installer_type`` to require a symbol.
-
 Syntax
 =====================================================
 .. tag resource_package_windows_syntax
@@ -32,7 +30,6 @@ The full syntax for all of the properties that are available to the **windows_pa
      installer_type             Symbol
      notifies                   # see description
      options                    String
-     provider                   Chef::Provider::Package::Windows
      remote_file_attributes     Hash
      returns                    Integer, Array of integers
      source                     String # defaults to 'name' if not specified
@@ -47,7 +44,7 @@ where
 * ``windows_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``checksum``, ``installer_type``, ``options``, ``package_name``, ``provider``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -83,10 +80,8 @@ This resource has the following properties:
 
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
 
-   New in Chef Client 12.4, changed in 12.6.
-
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -94,8 +89,6 @@ This resource has the following properties:
    **Ruby Type:** Symbol
 
    A symbol that specifies the type of package. Possible values: ``:custom`` (such as installing a non-.msi file that embeds an .msi-based installer), ``:inno`` (Inno Setup), ``:installshield`` (InstallShield), ``:msi`` (Microsoft Installer Package (MSI)), ``:nsis`` (Nullsoft Scriptable Install System (NSIS)), ``:wise`` (Wise).
-
-   Changed in Chef Client 12.6 to support diverse installer types; Changed in 12.0 to require a symbol.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -114,7 +107,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -136,17 +129,10 @@ This resource has the following properties:
 
    One (or more) additional options that are passed to the command.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
-
 ``remote_file_attributes``
    **Ruby Type:** Hash
 
    A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
-
-   New in Chef Client 12.4.
 
 ``retries``
    **Ruby Type:** Integer
@@ -177,8 +163,6 @@ This resource has the following properties:
       HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 
    .. note:: If there are multiple versions of a package installed with the same display name, all of those packages will be removed unless a version is provided in the ``version`` property or unless it can be discovered in the installer file specified by the ``source`` property.
-
-   Changed in Chef Client 12.4 to support URL locations.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -212,7 +196,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -238,56 +222,6 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    The version of a package to be installed or upgraded.
-
-.. end_tag
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-.. tag resource_package_windows_providers
-
-``Chef::Provider::Package``, ``package``
-   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
-
-``Chef::Provider::Package::Windows``, ``windows_package``
-   The provider for the Microsoft Windows platform.
 
 .. end_tag
 

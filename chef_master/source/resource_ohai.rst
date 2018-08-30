@@ -29,7 +29,6 @@ The full syntax for all of the properties that are available to the **ohai** res
      name                       String
      notifies                   # see description
      plugin                     String
-     provider                   Chef::Provider::Ohai
      subscribes                 # see description
      action                     Symbol # defaults to :reload if not specified
    end
@@ -39,7 +38,7 @@ where
 * ``ohai`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``name``, ``plugin``,  and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``name`` and ``plugin`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -68,7 +67,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -94,7 +93,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -115,11 +114,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Optional. The name of an Ohai plugin to be reloaded. If this property is not specified, the chef-client will reload all plugins.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -163,7 +157,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -229,4 +223,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

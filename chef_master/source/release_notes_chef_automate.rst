@@ -5,6 +5,79 @@ Release Notes: Chef Automate
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
 
+
+What's New in 1.8.86
+=====================================================
+
+New Features
+-----------------------------------------------------
+* ``automate-ctl create-backup`` now has a ``--timeout`` option to control the timeout for backups, which defaults to 600 seconds.
+* Added support for CIS Centos 7 benchmark v2.2.0
+* Added support for CIS Windows Server 2012 R2 benchmark v2.3.0
+* Added support for CIS Cisco IOS 12 benchmark v4.0.0 and CIS Cisco IOS 15 benchmark v4.0.0
+* Most supported profiles now include ``supports`` metadata in ``inspec.yml``
+
+Resolved Issues
+-----------------------------------------------------
+* Resolved an issue with Workflow jobs becoming stuck
+* Corrected the release metadata on a number of profiles so the profiles are compatible with target hosts.
+
+
+What's New in 1.8.85
+=====================================================
+
+Resolved Issues
+-----------------------------------------------------
+* Specify SSL certificates for rabbitmq in the configuration.
+* Deleting a project from Workflow with dependencies raises a new error message indicating the steps for resolving the issue.
+* You can correctly filter nodes by *Organization* and *Chef Server* simultaneously.
+* We updated the Compliance Profiles for CIS Red Hat 7 Server, Red Hat 6 Server, Windows Server 2012, 2012 R2 and 2016 to correct test logic and bring these profiles closer to the CIS benchmarks.
+* After loading the updated profiles, you may see legitimate failures on nodes that previously passing inspection. The node failures are the result of our more accurate tests.
+
+What's New in 1.8.68
+=====================================================
+
+New Features
+-----------------------------------------------------
+* Added support for specifying an AWS role ARN using ``elasticsearch['role_arn']`` in backups to an S3Client.
+
+Resolved Issues
+-----------------------------------------------------
+* Fixed an issue preventing compliance scanner reports from being collected
+* The built-in ssl certificate is no longer a CA keypair and works with newer versions of Chrome
+* **Fixed multiple bugs with the reaper:**
+
+    * Relocated executable to ``/opt/delivery/bin/reaper`` from ``/opt/delivery/embedded/service/reaper/bin/reaper``.
+    * Application is now `AppBundled` to ensure high reliability.
+    * Logs now append to log file for each execution rather than overwrite.
+    * Application crash logs are now appended to the logfile.
+    * Curator timeout is now configurable. This can set via ``node['delivery']['elasticsearch']['curator']['timeout']`` in the delivery.rb or by exporting the environment variable `CURATOR_ELASTICSEARCH_TIMEOUT` when running the reaper manually. Default value is 600 seconds (10 minutes).
+
+What's New in 1.8.38
+=====================================================
+
+New Features
+-----------------------------------------------------
+* ``automate-ctl install-runner`` supports use of a non-standard SSH port via the ``-p`` or ``-port`` options
+* The **RHEL7 Server CIS**, **Windows 2012 DC**, and **Member Server CIS** Compliance profiles have been refactored to improve overall testing methods and effectiveness
+* The `Reaper service </data_retention_chef_automate.html>`__ can now be configured to remove missing nodes from the **Nodes** tab on a schedule, by setting the ``reaper['insights_clean_missing_nodes']`` setting to ``true`` alongside the ``reaper['insights_retention_period_in_days']`` setting
+* The Compliance Scanner feature is available in the `Chef Automate Pilot <https://blog.chef.io/2017/07/05/chef-automate-pilot-try-chef-automate-using-docker/>`__ demo environment
+
+Resolved Issues
+-----------------------------------------------------
+* More than 100 nodes are now displayed on the scan job creation page
+* The cron job for the Reaper service runs on schedule again
+* The sudo checkbox on the Scanner Node configuration page is now correctly labeled as **Enable Sudo**
+
+* **RHEL7 CIS Compliance Profile fixes:**
+
+    * Corrected control 1.6.1.1 “Ensure SELinux is not disabled in bootloader configuration”
+    * Corrected control 5.2.14 “Ensure SSH LoginGraceTime is set to one minute or less”
+    * Corrected control 3.6.2 “Ensure default deny firewall policy”
+    * Corrected control 5.2.11 “Ensure only approved ciphers are used”
+    * Corrected control 5.1.1 “Ensure cron daemon is enabled”
+    * Corrected control 1.3.2 “Ensure file system integrity is regularly checked”
+
 What's New in 1.8.3
 =====================================================
 
@@ -77,7 +150,7 @@ New Features
 
 * **Performance Improvements for Compliance Reporting**
 
-  Large environments with thousands of nodes provide great insights, but have been somewhat slow to load in Chef Automate due to the sheer amount of data that requires processing. In this release, we introduced a number of improvements to the backend that will make both API calls and the UI experience much faster for large environments.
+  Large environments with thousands of nodes provide great insights, but aare slow to load in Chef Automate due to the sheer amount of data that requires processing. In this release, we introduced a number of improvements to the backend that will make both API calls and the UI experience much faster for large environments.
 
   In the same cycle we improved the suggestions on all searches in Compliance Reporting. These now return more accurate results and have become noticeably faster.
 
@@ -309,7 +382,7 @@ To get started using notifications, navigate to the **Nodes** tab in Chef Automa
 Updated Compliance Profiles
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-All compliance profiles have been updated to include the build number of the profile. This change was necessary to track updates to CIS profiles which received changes without the official version number increasing. For example, a number of improvements were made to tests in the the RHEL profile family. Additionally, incorrectly formatted descriptions were updated and improved significantly.
+All compliance profiles have been updated to include the build number of the profile. This change was necessary to track updates to CIS profiles which received changes without the official version number increasing. For example, a number of improvements were made to tests in the RHEL profile family. Additionally, incorrectly formatted descriptions were updated and improved significantly.
 
 CSV Export for Compliance Reports
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

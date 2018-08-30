@@ -15,21 +15,16 @@ Syntax
 =====================================================
 A **perl** resource block executes scripts Perl:
 
-.. code-block:: ruby
+.. code-block:: perl
 
-   perl 'extract_module' do
-     cwd ::File.dirname(src_filepath)
+   perl 'hello world' do
      code <<-EOH
-       mkdir -p #{extract_path}
-       tar xzf #{src_filename} -C #{extract_path}
-       mv #{extract_path}/*/* #{extract_path}/
+       print "Hello world! From Chef and Perl.";
        EOH
-     not_if { ::File.exist?(extract_path) }
    end
 
 where
 
-* ``cwd`` specifies the directory from which the command is run
 * ``code`` specifies the command to run
 
 The full syntax for all of the properties that are available to the **perl** resource is:
@@ -45,7 +40,6 @@ The full syntax for all of the properties that are available to the **perl** res
      group                      String, Integer
      notifies                   # see description
      path                       Array
-     provider                   Chef::Provider::Script::Perl
      returns                    Integer, Array
      subscribes                 # see description
      timeout                    Integer, Float
@@ -60,7 +54,7 @@ where
 * ``name`` is the name of the resource block
 * ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``provider``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -107,7 +101,7 @@ This resource has the following properties:
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -128,7 +122,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -163,11 +157,6 @@ This resource has the following properties:
          perl 'mycommand' do
            environment 'PATH' => "/my/path/to/bin:#{ENV['PATH']}"
          end
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -216,7 +205,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -319,52 +308,6 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
       not_if 'sleep 10000', :timeout => 10
 
 .. end_tag
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-``Chef::Provider::Script``, ``script``
-   When this short name is used, the chef-client will determine the correct provider during the chef-client run.
-
-``Chef::Provider::Script::Perl``, ``perl``
-   The provider for the Perl command interpreter.
 
 Examples
 =====================================================

@@ -67,7 +67,7 @@ During every chef-client run, the following happens:
    * - **Reset node attributes**
      - All attributes in the rebuilt node object are reset. All attributes from attribute files, environments, roles, and Ohai are loaded. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. If attribute files are found within any cookbooks that are listed as dependencies in the ``metadata.rb`` file, these are loaded as well. All attributes in the rebuilt node object are updated with the attribute data according to attribute precedence. When all of the attributes are updated, the rebuilt node object is complete.
    * - **Compile the resource collection**
-     - The chef-client identifies each resource in the node object and builds the resource collection. Libraries are loaded first to ensure that all language extensions and Ruby classes are available to all resources. Next, attributes are loaded, followed by lightweight resources, and then all definitions (to ensure that any pseudo-resources within definitions are available). Finally, all recipes are loaded in the order specified by the expanded run-list. This is also referred to as the "compile phase".
+     - The chef-client identifies each resource in the node object and builds the resource collection. Libraries are loaded first to ensure that all language extensions and Ruby classes are available to all resources. Next, attributes are loaded, followed by custom resources, and then all definitions (to ensure that any pseudo-resources within definitions are available). Finally, all recipes are loaded in the order specified by the expanded run-list. This is also referred to as the "compile phase".
    * - **Converge the node**
      - The chef-client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource in the resource collection is mapped to a provider. The provider examines the node, and then does the steps necessary to complete the action. And then the next resource is processed. Each action configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".
    * - **Update the node object, process exception and report handlers**
@@ -173,28 +173,6 @@ responds with an error similar to:
    ERROR: OpenSSL::SSL::SSLError: SSL_connect returned=1 errno=0 state=SSLv3 ...
 
 This is by design and will occur until a verifiable certificate is added to the machine from which the request is sent.
-
-.. end_tag
-
-Changes Prior to Chef 12
------------------------------------------------------
-.. tag 12_ssl_changes
-
-The following changes were made during certain chef-client release prior to the chef-client 12 release:
-
-* In the chef-client 11.8 release, the ``verify_api_cert`` setting was added to the client.rb file with a default value of ``false``.
-* In the chef-client 11.12 release, the ``local_key_generation`` setting was added to the client.rb file.
-
-  The ``ssl_verify_mode`` continued to default to ``:verify_none``, but now returned a warning: ``SSL validation of HTTPS requests is disabled...``, followed by steps for how to configure SSL certificate validation for the chef-client.
-
-  Two knife commands---``knife ssl check`` and ``knife ssl fetch`` were added.
-
-  A new directory in the chef-repo---``/.chef/trusted_certs``---was added.
-
-  These new settings and tools enabled users who wanted to use stronger SSL settings to generate the private/public key pair from the chef-client, verify HTTPS requests, verify SSL certificates, and pull the SSL certificate from the Chef server down to the ``/.chef/trusted_certs`` directory.
-* In the chef-client 12 release, the default value for ``local_key_generation`` was changed to ``true`` and the default value for ``ssl_verify_mode`` was changed to ``:verify_peer``.
-
-Starting with chef-client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary `part of the setup process </install_dk.html#get-ssl-certificates>`__ for every workstation.
 
 .. end_tag
 
@@ -416,9 +394,9 @@ Bootstrap Operations
 
 The ``knife bootstrap`` command is a common way to install the chef-client on a node. The default for this approach assumes that a node can access the Chef website so that it may download the chef-client package from that location.
 
-The omnibus installer will detect the version of the operating system, and then install the appropriate version of the chef-client using a single command to install the chef-client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities.
+The Chef installer will detect the version of the operating system, and then install the appropriate version of the chef-client using a single command to install the chef-client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities.
 
-The omnibus installer puts everything into a unique directory (``/opt/chef/``) so that the chef-client will not interfere with other applications that may be running on the target machine. Once installed, the chef-client requires a few more configuration steps before it can perform its first chef-client run on a node.
+The Chef installer puts everything into a unique directory (``/opt/chef/``) so that the chef-client will not interfere with other applications that may be running on the target machine. Once installed, the chef-client requires a few more configuration steps before it can perform its first chef-client run on a node.
 
 .. end_tag
 
@@ -426,7 +404,7 @@ The omnibus installer puts everything into a unique directory (``/opt/chef/``) s
 
 A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the omnibus installer </install_bootstrap.html>`__
+* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
 
 .. end_tag

@@ -7,7 +7,7 @@ knife bootstrap
 
 A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the omnibus installer </install_bootstrap.html>`__
+* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
 
 .. end_tag
@@ -136,21 +136,16 @@ This subcommand has the following options:
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
-   New in Chef Client 12.6.
-
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
 ``--json-attribute-file FILE``
    A JSON file to be added to the first run of chef-client.
 
-   New in Chef Client 12.6.
-
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
-   .. note:: This option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
-
+   .. note:: This option is required for a validatorless bootstrap.
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
 
@@ -160,16 +155,12 @@ This subcommand has the following options:
 ``--[no-]node-verify-api-cert``
    Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
 
-   New in Chef Client 12.0.
-
 ``--node-ssl-verify-mode MODE``
    Set the verify mode for HTTPS requests. Options: ``none`` or ``peer``.
 
    Use ``none`` to do no validation of SSL certificates.
 
    Use ``peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
-
-   New in Chef Client 12.0.
 
 ``-p PORT``, ``--ssh-port PORT``
    The SSH port.
@@ -195,18 +186,17 @@ This subcommand has the following options:
 ``--sudo-preserve-home``
    Use to preserve the non-root user's ``HOME`` environment.
 
-   New in Chef Client 12.6.
-
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
-   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the omnibus installer on all supported platforms.
-
-   New in Chef Client 12.0.
+   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the Chef installer on all supported platforms.
 
 ``--use-sudo-password``
    Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.
 
 ``-V -V``
    Run the initial chef-client run at the ``debug`` log-level (e.g. ``chef-client -l debug``).
+
+``-V -V -V``
+   Run the initial chef-client run at the ``trace`` log-level (e.g. ``chef-client -l trace``). This was added in Chef Client 14.
 
 ``-x USERNAME``, ``--ssh-user USERNAME``
    The SSH user name.
@@ -255,8 +245,6 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
-New in Chef Client 12.1.
-
 ``knife bootstrap`` Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_vault_knife_bootstrap_options
@@ -300,8 +288,6 @@ Notes about FIPS:
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
 
-Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL. New in Chef Client 12.8, support for OpenSSL validation of FIPS.
-
 .. end_tag
 
 **Bootstrap a node using FIPS**
@@ -328,7 +314,7 @@ Custom Templates
 =====================================================
 .. tag knife_bootstrap_template
 
-The default ``chef-full`` template uses the omnibus installer. For most bootstrap operations, regardless of the platform on which the target node is running, using the ``chef-full`` distribution is the best approach for installing the chef-client on a target node. In some situations, a custom template may be required.
+The default ``chef-full`` template uses the Chef installer. For most bootstrap operations, regardless of the platform on which the target node is running, using the ``chef-full`` distribution is the best approach for installing the chef-client on a target node. In some situations, a custom template may be required.
 
 For example, the default bootstrap operation relies on an Internet connection to get the distribution to the target node. If a target node cannot access the Internet, then a custom template can be used to define a specific location for the distribution so that the target node may access it during the bootstrap operation. The example below will show you how to create a bootstrap template that uses a custom artifact store for Chef packages and installation scripts, as well as a RubyGem mirror:
 

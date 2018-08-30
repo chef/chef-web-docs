@@ -3,23 +3,20 @@
 The `dtags` command lets you query and manipulate regions of
 restructuredText files that use `.. tag` and `.. end_tag` comments to
 annotate shared content. Here is a tagged region named `foo_summary`:
- 
-```
+
+```bash
    .. tag foo_summary
-   
+
    **Foo** does lots of things.
-   
+
    .. end_tag
 ```
 
-* Tagged regions may be indented, and if so, the whitespace to the 
-left of the indentation until the `.. end_tag` is not considered part
-of the tagged region. 
-* The `..tag ` and `.. end_tag` must have the same 
-indentation, and the body must have at least that indentation.
-* The ``tag`` line should be followed by a blank line.
-* The ``end_tag`` line should be preceded by a blank line.
-* The name that follows ``tag`` must use only lowercase letters, digits and the underscore character.
+* Tagged regions may be indented, and if so, the whitespace to the left of the indentation until the `.. end_tag` is not considered part of the tagged region.
+* The `..tag` and `.. end_tag` must have the same indentation, and the body must have at least that indentation.
+* The `tag` line should be followed by a blank line.
+* The `end_tag` line should be preceded by a blank line.
+* The name that follows `tag` must use only lowercase letters, digits and the underscore character.
 * It's ok for tagged regions to be nested.
 * We recommend that you use tags only for content that appears in more than one place.
 
@@ -27,11 +24,11 @@ Note that `.. tag` and `.. tag_end` are comments in
 restructuredText. They are ignored by the Sphinx documentation
 generator.
 
-`dtags`searches for files in the current working directory. For convenience, you'll want to put it in your path, make a symbolic link or create an alias. The `dtags` script is located in the the `doctools` directory of this repo.
+`dtags` searches for files in the current working directory. For convenience, you'll want to put it in your path, make a symbolic link or create an alias. The `dtags` script is located in the the `doctools` directory of this repo.
 
 Usage:
 
-```
+```bash
    dtags [--help] <command> [<args>]
 ```
 
@@ -47,9 +44,11 @@ The `dtags` command has subcommands. These are:
 ## dtags check
 
 Usage:
-```
+
+```bash
   dtags check [(<regexp> | "--") [<topic> [<topic2>]]]
 ```
+
 The `dtags check` command lists tags with multiple (inconsistent)
 definitions. If `<regexp>` is given, only tags whose names match
 `<regexp>` are checked. `dtags` uses Ruby regex syntax, but it assumes
@@ -71,20 +70,21 @@ The command exits with status 1 if the check fails.
 
 For example,
 
-```
+```bash
      dtags check foo
 ```
 
-processes only tag `foo` while 
+processes only tag `foo` while
 
-```
+```bash
      dtags check "foo.*"
-```	 
+```
 
 checks all tags starting with "foo" in the current working directory.
 
-**Example**
-```
+### Example
+
+```bash
 dtags check
 Inconsistent tagged regions:
   foo_summary e8ae754 foo.rst:6
@@ -93,8 +93,9 @@ Inconsistent tagged regions:
 
 ## dtags replicate
 
-Usage: 
-```
+Usage:
+
+```bash
   dtags replicate (<regexp> | "--") <topic> [<topic2>]
 ```
 
@@ -126,8 +127,9 @@ single file, you'll need to resolve the conflict by editing the file.
 
 ## dtags whereis
 
-Usage: 
-```
+Usage:
+
+```bash
   dtags whereis (<regexp> | "--") [<topic> [<topic2>]]
 ```
 
@@ -149,10 +151,12 @@ and line number where each tagged region begins.
 
 ## dtags list
 
-Usage: 
-```
+Usage:
+
+```bash
   dtags list [(<regexp> | "--") [<topic> [<topic2>]]
 ```
+
 The `dtags list` command scans the current directory and subdirectory
 (or just `<topic2>`, if provided) and prints tag names that match
 `<regexp>`, possibly limiting them to tags found in `<topic>`.
@@ -167,8 +171,9 @@ The results are in alphabetical order.
 
 ## dtags print
 
-Usage: 
-```
+Usage:
+
+```bash
   dtags print (<regexp> | "--") [`<topic> [`<topic2>]]
 ```
 
@@ -184,8 +189,9 @@ used as a placeholder if no regex is needed.
 
 ## dtags help
 
-Usage: 
-```
+Usage:
+
+```bash
   dtags help <command>
 ```
 

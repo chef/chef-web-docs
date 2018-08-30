@@ -27,12 +27,12 @@ The following repositories are the preferred locations for the creation of issue
      - https://github.com/chef/chef
    * - Ohai
      - https://github.com/chef/ohai
+   * - Chef Workstation
+     - https://github.com/chef/chef-workstation
    * - Chef DK
      - https://github.com/chef/chef-dk
    * - Chef Server
      - https://github.com/chef/chef-server
-   * - Chef Push Jobs
-     - https://github.com/chef/chef-push
    * - Chef Automate
      - please contact `Chef Support <https://www.chef.io/support/>`_
 
@@ -112,7 +112,7 @@ The DCO is an attestation attached to every contribution made by every developer
         consistent with this project or the open source license(s)
         involved.
 
-Chef does not merge any pull requests made against an Chef-managed open source repository until each commit has been signed for the DCO, with three exceptions:
+Chef does not merge any pull requests made against a Chef-managed open source repository until each commit has been signed for the DCO, with three exceptions:
 
 * "Obvious Fixes" (as described below)
 * Pull requests made against the docs.chef.io documentation repository (https://github.com/chef/chef-web-docs)

@@ -68,7 +68,7 @@ where:
 * ``provisioner_name`` specifies how the chef-client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
 * ``verifier_name`` specifies which application to use when running tests, such as ``inspec``
 * ``transport_name`` specifies which transport to use when executing commands remotely on the test instance. ``winrm`` is the default transport on Windows. The ``ssh`` transport is the default on all other operating systems.
-* ``platform-version`` is the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-12.04`` or ``centos-6.4``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
+* ``platform-version`` is the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
 * ``platforms`` may define Chef server attributes that are common to the collection of test suites
 * ``suites`` is a collection of test suites, with each ``suite_name`` grouping defining an aspect of a cookbook to be tested. Each ``suite_name`` must specify a run-list, for example:
 
@@ -98,18 +98,18 @@ For example, a very simple .kitchen.yml file:
      name: chef_zero
 
    platforms:
-     - name: ubuntu-12.04
-     - name: centos-6.4
-     - name: debian-7.1.0
+     - name: ubuntu-16.04
+     - name: centos-7
+     - name: debian-9
 
   suites:
     - name: default
       run_list:
         - recipe[apache::httpd]
       excludes:
-        - debian-7.1.0
+        - debian-9
 
-This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 12.04, and CentOS 6.4.
+This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 
 .. end_tag
 
@@ -127,7 +127,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - Setting
      - Description
    * - ``attributes``
-     -
+     - Chef attributes for use in the suite
    * - ``chef_client_path``
      - chef-client provisioner only.
    * - ``chef_metadata_url``
@@ -341,7 +341,7 @@ will be set to:
 
    ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 
-Kitchen also supports ``http_proxy`` and ```https_proxy`` in the ``.kitchen.yml`` file:
+Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``.kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
 
 .. code-block:: yaml
 
@@ -350,13 +350,21 @@ Kitchen also supports ``http_proxy`` and ```https_proxy`` in the ``.kitchen.yml`
 
    provisioner:
      name: chef_zero
-     http_proxy: http://10.0.0.1
+     # Set proxy settings manually, or
+     http_proxy: 'http://user:password@server:port'
+     https_proxy: 'http://user:password@server:port'
+     
+     # Read from local environment variables
+     http_proxy: <%= ENV['http_proxy'] %>
+     https_proxy: <%= ENV['https_proxy'] %>
+
+This will not set the proxy environment variables for applications other than Chef. The Vagrant plugin, `vagrant-proxyconf <http://tmatilai.github.io/vagrant-proxyconf/>`__, can be used to set the proxy environment variables for applications inside the VM.
 
 .. end_tag
 
 chef-client Settings
 ==========================================================================
-A .kitchen.yml file may define chef-client-specific settings, such as whether to require the omnibus installer or the URL from which the chef-client is downloaded, or to override settings in the client.rb file:
+A .kitchen.yml file may define chef-client-specific settings, such as whether to require the Chef installer or the URL from which the chef-client is downloaded, or to override settings in the client.rb file:
 
 .. code-block:: yaml
 
@@ -387,7 +395,7 @@ A .kitchen.yml file may define chef-client-specific settings, such as whether to
 
 where:
 
-* ``require_chef_omnibus`` is used to ensure that the omnibus installer will be used to install the chef-client to all platform instances; ``require_chef_omnibus`` may also be set to ``latest``, which means the newest version of the chef-client for that platform will be used for cookbook testing
+* ``require_chef_omnibus`` is used to ensure that the Chef installer will be used to install the chef-client to all platform instances; ``require_chef_omnibus`` may also be set to ``latest``, which means the newest version of the chef-client for that platform will be used for cookbook testing
 * ``chef_omnibus_url`` is used to specify the URL from which the chef-client is downloaded
 * All of the ``attributes`` for the ``config`` test suite contain specific client.rb settings for use with this test suite
 
@@ -530,9 +538,9 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
    platforms:
    - name: ubuntu-14.04
    - name: ubuntu-16.04
-   - name: centos-6.9
-   - name: centos-7.3
-   - name: debian-8.8
+   - name: centos-6
+   - name: centos-7
+   - name: debian-8
 
 which will generate a configuration file similar to:
 
@@ -615,10 +623,10 @@ The following example shows provisioner settings for running the chef-client in 
      - name: ubuntu-14.04
        run_list:
          - recipe[audit-cis::ubuntu1404-100]
-     - name: centos-7.0
+     - name: centos-7
        run_list:
          - recipe[audit-cis::centos7-100]
-     - name: centos-6.6
+     - name: centos-6
        run_list:
        - recipe[audit-cis::centos6-110]
 
@@ -707,12 +715,8 @@ The following .kitchen.yml file is part of the ``chef-splunk`` cookbook and is u
    platforms:
      - name: ubuntu-14.04
      - name: ubuntu-16.04
-     - name: centos-6.8
-     - name: centos-7.2
-     - name: omnios-r151006c
-       driver:
-         box: omnios-r151006c
-         box_url: http://omnios.omniti.com/media/OmniOS_r151006c-r1.box
+     - name: centos-6
+     - name: centos-7
 
    suites:
      - name: client
@@ -806,7 +810,7 @@ The following .kitchen.yml file sets up a simple tiered configuration of the Che
      name: chef_zero
 
    platforms:
-     - name: ubuntu-12.04
+     - name: ubuntu-16.04
        attributes:
          chef-server:
            api_fqdn: backend.chef-server.com

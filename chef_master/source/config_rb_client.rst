@@ -52,7 +52,10 @@ This configuration file has the following settings:
 
 ``checksum_path``
    The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
-
+   
+``chef_guid``
+   The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node. 
+   
 ``chef_repo_path``
    The path to the chef-repo.
 
@@ -449,8 +452,6 @@ For example, when using knife, the following configuration files would be loaded
 The ``old_settings.rb.bak`` file is ignored because it's not a configuration file. The ``config.rb``, ``company_settings.rb``, and ``ec2_configuration`` files are merged together as if they are a single configuration file.
 
 .. note:: If multiple configuration files exists in a ``.d`` directory, ensure that the same setting has the same value in all files.
-
-New in Chef Client 12.8.
 
 .. end_tag
 

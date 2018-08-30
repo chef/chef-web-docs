@@ -21,7 +21,7 @@ Getting Started
 
 .. This page is used as the short overview on the index page at docs.chef.io
 
-Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) workstations, a single server, and every node that will be configured and maintained by the chef-client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
+Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) ChefDK installations, a single server, and every node that will be configured and maintained by the Chef Client. Cookbooks (and recipes) are used to tell the chef-client how each node in your organization should be configured. The chef-client (which is installed on every node) does the actual configuration.
 
 .. end_tag
 
@@ -70,7 +70,7 @@ The most important tools included in the Chef development kit are:
    * - Cookstyle
      - A Rubocop-based style-checking tool for writing clean cookbooks.
    * - Delivery CLI
-     - A command-line tool for continuous delivery workflow. Is used to setup and execute phase jobs on an Chef Automate server.
+     - A command-line tool for continuous delivery workflow. Is used to setup and execute phase jobs on a Chef Automate server.
    * - Fauxhai
      - A gem for mocking Ohai data in ChefSpec tests.
    * - Foodcritic

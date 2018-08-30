@@ -9,8 +9,6 @@ Windows PowerShell is a task-based command-line shell and scripting language dev
 
 .. end_tag
 
-New in Chef Client 12.2.  Changed in Chef Client 12.6.
-
 .. tag resources_common_powershell_dsc
 
 Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
@@ -38,7 +36,7 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
 
              * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
 
-               This is because composite resources aren't "real" resources from the perspective of the the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
+               This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
 
              .. end_tag
 
@@ -105,8 +103,6 @@ This resource has the following actions:
 ``:reboot_action``
    Use to request an immediate reboot or to queue a reboot using the ``:reboot_now`` (immediate reboot) or ``:request_reboot`` (queued reboot) actions built into the **reboot** resource.
 
-   New in Chef Client 12.6.
-
 Properties
 =====================================================
 .. tag resource_dsc_resource_attributes
@@ -114,7 +110,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -127,8 +123,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
-
-   New in Chef Client 12.19.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -147,7 +141,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -185,7 +179,7 @@ This resource has the following properties:
         - ``Object[]``
       * - ``Chef::Util::Powershell:PSCredential``
         - ``PSCredential``
-      * - ``FalseClass``
+      * - ``False``
         - ``bool($false)``
       * - ``Fixnum``
         - ``Integer``
@@ -193,7 +187,7 @@ This resource has the following properties:
         - ``Double``
       * - ``Hash``
         - ``Hashtable``
-      * - ``TrueClass``
+      * - ``True``
         - ``bool($true)``
 
    These are converted into the corresponding Windows PowerShell type during the chef-client run.
@@ -216,31 +210,31 @@ This resource has the following properties:
       * - Value
         - Description
       * - ``:archive``
-        - Use to to `unpack archive (.zip) files <https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource>`_.
+        - Use to `unpack archive (.zip) files <https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource>`_.
       * - ``:environment``
-        - Use to to `manage system environment variables <https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource>`_.
+        - Use to `manage system environment variables <https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource>`_.
       * - ``:file``
-        - Use to to `manage files and directories <https://msdn.microsoft.com/en-us/powershell/dsc/fileresource>`_.
+        - Use to `manage files and directories <https://msdn.microsoft.com/en-us/powershell/dsc/fileresource>`_.
       * - ``:group``
-        - Use to to `manage local groups <https://msdn.microsoft.com/en-us/powershell/dsc/groupresource>`_.
+        - Use to `manage local groups <https://msdn.microsoft.com/en-us/powershell/dsc/groupresource>`_.
       * - ``:log``
-        - Use to to `log configuration messages <https://msdn.microsoft.com/en-us/powershell/dsc/logresource>`_.
+        - Use to `log configuration messages <https://msdn.microsoft.com/en-us/powershell/dsc/logresource>`_.
       * - ``:package``
-        - Use to to `install and manage packages <https://msdn.microsoft.com/en-us/powershell/dsc/packageresource>`_.
+        - Use to `install and manage packages <https://msdn.microsoft.com/en-us/powershell/dsc/packageresource>`_.
       * - ``:registry``
-        - Use to to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
+        - Use to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
       * - ``:script``
-        - Use to to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
+        - Use to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
       * - ``:service``
-        - Use to to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
+        - Use to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
       * - ``:user``
-        - Use to to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
+        - Use to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
       * - ``:windowsfeature``
-        - Use to to `add or remove Windows features and roles <https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource>`_.
+        - Use to `add or remove Windows features and roles <https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource>`_.
       * - ``:windowsoptionalfeature``
         - Use to configure Microsoft Windows optional features.
       * - ``:windowsprocess``
-        - Use to to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
+        - Use to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
 
    Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
@@ -288,7 +282,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -379,8 +373,6 @@ in case the executable is not at the defined location:
   end
 
 .. end_tag
-
-New in Chef Client 12.0.
 
 **Create a test message queue**
 

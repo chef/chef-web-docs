@@ -45,8 +45,6 @@ This subcommand has the following options:
 ``-S SEPARATOR``, ``--field-separator SEPARATOR``
    Character separator used to delineate nesting in --attribute filters. For example, to use a colon as the delimiter, specify ``-S:`` in your ``knife node show`` subcommand. Default is ``.``
 
-   New in Chef Client 12.16.
-
 Examples
 =====================================================
 The following examples show how to use this knife subcommand:

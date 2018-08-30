@@ -39,7 +39,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
    * - Amazon Linux
      -
-     - current version
+     - 2013+ and 2.0
    * - CentOS
      - ``x86_64``
      - ``6``, ``7``
@@ -54,19 +54,19 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Solaris
      - ``sparc``, ``x86``
      - ``11.2``, ``11.3``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
-     - ``11 SP4``, ``12 SP1``
+     - ``11 SP4``, ``12 SP1+``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2012``, ``2012r2``, ``2016``, ``10``
+     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -85,7 +85,7 @@ The following platforms are supported only via the community:
      - current version
    * - Debian
      - ``i686``, ``x86_64``
-     - ``7``, ``8``, ``9``
+     - ``8``, ``9``
    * - Fedora
      -
      - current non-EOL releases
@@ -125,16 +125,16 @@ The following table lists the commercially-supported platforms and versions for 
      - ``10.11``, ``10.12``, ``10.13``
    * - Red Hat Enterprise Linux
      -
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - SUSE Enterprise Linux Server
      -
-     - ``11 SP4``, ``12 SP1``
+     - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
      -
-     - ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      -
-     - ``10``, ``2012``, ``2012 R2``, ``2016``
+     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -149,10 +149,10 @@ The following platforms are supported only via the community:
      - Version
    * - Debian
      -
-     - ``7.x``, ``8.x``, ``9.x``
+     - ``8``, ``9``
    * - Scientific Linux
      - ``x86-64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
 
 Chef Server
 ------------------------------------------------------
@@ -172,16 +172,16 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1``
+     - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
      - ``x86_64``, ``ppc64le`` (14.04 only)
      - ``14.04``, ``16.04``
@@ -194,7 +194,14 @@ Chef Automate Server
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms and versions for Chef Automate Server. Do not mix platforms or platform versions within the Chef Automate cluster.
+Commercial support for the `Chef Automate 2 Server <https://automate.chef.io/docs/system_requirements>`_ is available for platforms that use
+
+* a Linux kernel version of 3.2 or greater
+* ``systemd`` as the init system
+* ``useradd``
+* ``curl`` or ``wget``
+
+The following table lists the commercially-supported platforms and versions for Chef Automate 1 Server. Do not mix platforms or platform versions within the Chef Automate cluster.
 
 .. list-table::
    :widths: 280 100 120
@@ -256,19 +263,19 @@ The following table lists the commercially-supported platforms for the Chef push
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - macOS
      - ``x86_64``
      - ``10.11``, ``10.12``, ``10.13``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
      - ``14.04``, ``16.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``2012``, ``2012r2``, ``2016``, ``10``
+     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 .. end_tag
 
@@ -289,10 +296,10 @@ The following table lists the commercially-supported platforms for the Chef push
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -314,16 +321,22 @@ The following table lists the commercially-supported platforms for Chef Backend,
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
 
 Chef Compliance Server
 ----------------------
+
+.. tag EOL_compliance_server
+
+.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://www.chef.io/automate/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server.
+
+.. end_tag
 
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -339,10 +352,10 @@ The following table lists the commercially-supported platforms for Chef Complian
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -364,10 +377,10 @@ The following table lists the commercially-supported platforms for Chef Manage:
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6``, ``7``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -390,7 +403,7 @@ terms:
 +------------------------------------------------------------------------------------+----------------------------+
 | FreeBSD                                                                            | End of Life                |
 +------------------------------------------------------------------------------------+----------------------------+
-| Microsoft Windows                                                                  | Mainstream End of Support  |
+| Microsoft Windows                                                                  | End of Extended Support    |
 +------------------------------------------------------------------------------------+----------------------------+
 | Oracle Enterprise Linux                                                            | Premier Support Ends       |
 +------------------------------------------------------------------------------------+----------------------------+
@@ -418,13 +431,13 @@ On the Chef end-of-life date, Chef discontinues building software for that platf
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Enterprise Linux 6 (covers Red Hat Enterprise Linux, CentOS) | November 30, 2020       | November 30, 2020     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| FreeBSD 10-STABLE                                            | April 30, 2018          | April 30, 2018        |
+| FreeBSD 10-STABLE                                            | October 31, 2018        | October 31, 2018      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Microsoft Windows Server 2008 (RTM) Service Pack 2           | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2008R2 Service Pack 1               | January 13, 2015        | January 13, 2018      |
+| Microsoft Windows Server 2008 R2 Service Pack 1              | January 13, 2015        | January 14, 2020      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2012 and 2012R2                     | October 9, 2018         | October 9, 2018       |
+| Microsoft Windows Server 2012/2012 R2                        | January 13, 2015        | January 13, 2015      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Oracle Enterprise Linux 5                                    | June 30, 2017           | December 31, 2017     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
@@ -487,21 +500,29 @@ Versions and Status
      - Lifecycle Status
      - EOL Date
    * - Chef Client
+     - 14.x
+     - GA
+     - n/a
+   * - Chef Client
+     - 13.x
+     - Deprecated
+     - n/a
+   * - Chef Client
      - 12.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
      - April 30, 2018
-   * - Chef Client
-     - 13.x
+   * - Chef DK
+     - 3.x
      - GA
+     - n/a
+   * - Chef DK
+     - 2.x
+     - Deprecated
      - n/a
    * - Chef DK
      - 1.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
      - April 30, 2018
-   * - Chef DK
-     - 2.x
-     - GA
-     - n/a
    * - Chef Server
      - 12.x
      - GA
@@ -510,11 +531,11 @@ Versions and Status
      - 1.6.0 or later
      - GA
      - n/a
-   * - `InSpec <https://www.inspec.io/>`_
+   * - InSpec
      - Latest
      - GA
      - n/a
-   * - `Habitat <https://www.habitat.sh/>`_
+   * - Habitat Supervisor
      - Latest
      - GA
      - n/a
@@ -548,21 +569,21 @@ Versions and Status
      - n/a
    * - Chef Compliance
      - 0.9.0 or later
-     - GA
-     - n/a
+     - Deprecated
+     - December 31, 2018
    * - Chef Manage
      - 2.1.0 or later
      - GA
      - n/a
    * - Enterprise Chef
      - 11.2.2 or later
-     - Deprecated
-     - TBD
+     - EOL
+     - December 31, 2018
    * - Reporting
      - 1.5.5 or later
-     - GA
-     - n/a
+     - EOL
+     - December 31, 2018
    * - Analytics
      - 1.5.0 or later
-     - Deprecated
-     - TBD
+     - EOL
+     - December 31, 2018

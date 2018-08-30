@@ -9,7 +9,7 @@ Use the **chef_handler** resource to enable handlers during a chef-client run. T
 
 The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.
 
-The **chef_handler** resource `is included with the chef_handler cookbook <https://github.com/chef-cookbooks/chef_handler>`__. This cookbook defines the the resource itself and also provides the location in which the chef-client looks for custom handlers. All custom handlers should be added to the ``files/default/handlers`` directory in the **chef_handler** cookbook.
+**New in Chef Client 14.0.**
 
 .. end_tag
 
@@ -203,7 +203,7 @@ This resource has the following properties:
    The name of the handler class. This can be module name-spaced.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -224,7 +224,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -288,7 +288,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -319,7 +319,7 @@ This resource has the following properties:
 
    The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ report: true, exception: true }``.
 
-  
+
 
 Custom Handlers
 =====================================================
@@ -566,7 +566,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Enable the CloudkickHandler handler**
 
-.. tag lwrp_chef_handler_enable_cloudkickhandler
+.. tag resource_chef_handler_enable_cloudkickhandler
 
 The following example shows how to enable the ``CloudkickHandler`` handler, which adds it to the default handler path and passes the ``oauth`` key/secret to the handler's initializer:
 
@@ -582,7 +582,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 **Enable handlers during the compile phase**
 
-.. tag lwrp_chef_handler_enable_during_compile
+.. tag resource_chef_handler_enable_during_compile
 
 .. To enable a handler during the compile phase:
 
@@ -598,7 +598,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 **Handle only exceptions**
 
-.. tag lwrp_chef_handler_exceptions_only
+.. tag resource_chef_handler_exceptions_only
 
 .. To handle exceptions only:
 
@@ -706,7 +706,6 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 .. code-block:: ruby
 
-   irb(main):001:0> require 'rubygems' => true
    irb(main):002:0> require 'json' => true
    irb(main):003:0> require 'chef' => true
    irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated
@@ -717,7 +716,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 **Register the JsonFile handler**
 
-.. tag lwrp_chef_handler_register
+.. tag resource_chef_handler_register
 
 .. To register the ``Chef::Handler::JsonFile`` handler:
 
@@ -755,4 +754,3 @@ By using the `chef_handler </resource_chef_handler.html>`__ resource in a recipe
    end
 
 .. end_tag
-

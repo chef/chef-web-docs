@@ -3,12 +3,6 @@ solo.rb
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_solo.rst>`__
 
-.. warning:: .. tag notes_chef_solo_use_local_mode
-
-             The chef-client `includes an option called local mode </ctl_chef_client.html#run-in-local-mode>`_ (``--local-mode`` or ``-z``), which runs the chef-client against the chef-repo on the local machine as if it were running against a Chef server. Local mode was added to the chef-client in the 11.8 release. If you are running that version of the chef-client (or later), you should consider using local mode instead of using chef-solo.
-
-             .. end_tag
-
 A solo.rb file is used to specify the configuration details for chef-solo.
 
 * This file is loaded every time this executable is run
@@ -89,8 +83,32 @@ This configuration file has the following settings:
 ``verbose_logging``
    Set the log level. Options: ``true``, ``nil``, and ``false``. When this is set to ``false``, notifications about individual resources being processed are suppressed (and are output at the ``:info`` logging level). Setting this to ``false`` can be useful when a chef-client is run as a daemon. Default value: ``nil``.
 
-Example
+Examples
 =====================================================
+
+**Using Chef Automate Data Collector**
+
+This example solo.rb file uses the ``data_collector`` settings to send data to an available Chef Automate system. Since Chef Automate generates a self-signed SSL certificate by default, you will need to add the certificate (located under ``/var/opt/delivery/nginx/`` on the Chef Automate server) to your ``trusted_certs_dir`` directory, as seen in this example:
+
+.. code-block:: ruby
+
+   chef_server_url  "https://localhost:8989"
+   log_location   STDOUT
+   node_name "YOUR_NODES_FQDN"
+   trusted_certs_dir "/etc/chef/trusted_certs"
+   
+   data_collector.server_url "https://YOUR_AUTOMATE_FQDN/data-collector/v0"
+   data_collector.mode       :both
+   data_collector.token = "YOURTOKEN"
+
+You can run it like this
+
+.. code-block:: ruby
+
+   chef-solo -c solo.rb
+
+**All Options**
+
 A sample solo.rb file that contains all possible settings (listed alphabetically):
 
 .. code-block:: ruby

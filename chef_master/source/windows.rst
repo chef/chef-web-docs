@@ -5,8 +5,6 @@ Chef for Microsoft Windows
 
 .. note:: This page collects information about Chef that is specific to using Chef with Microsoft Windows.
 
-.. note:: New in Chef Client 12.9, Chef client now runs on 64-bit versions of Microsoft Windows.
-
 The chef-client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
 
 * The chef-client is `installed on a machine <https://downloads.chef.io/chef-client/windows/>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
@@ -162,7 +160,6 @@ where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used
 ADDLOCAL Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec_addlocal
-.. note:: ``ChefSchTaskFeature`` is New in Chef Client 12.18.
 
 The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
 
@@ -719,7 +716,7 @@ knife bootstrap
 
 A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the omnibus installer </install_bootstrap.html>`__
+* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
 
 .. end_tag
@@ -838,21 +835,16 @@ This subcommand has the following options:
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
-   New in Chef Client 12.6.
-
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
 ``--json-attribute-file FILE``
    A JSON file to be added to the first run of chef-client.
 
-   New in Chef Client 12.6.
-
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
-   .. note:: This option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
-
+   .. note:: This option is required for a validatorless bootstrap.
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
 
@@ -862,16 +854,12 @@ This subcommand has the following options:
 ``--[no-]node-verify-api-cert``
    Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
 
-   New in Chef Client 12.0.
-
 ``--node-ssl-verify-mode MODE``
    Set the verify mode for HTTPS requests. Options: ``none`` or ``peer``.
 
    Use ``none`` to do no validation of SSL certificates.
 
    Use ``peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
-
-   New in Chef Client 12.0.
 
 ``-p PORT``, ``--ssh-port PORT``
    The SSH port.
@@ -897,18 +885,17 @@ This subcommand has the following options:
 ``--sudo-preserve-home``
    Use to preserve the non-root user's ``HOME`` environment.
 
-   New in Chef Client 12.6.
-
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
-   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the omnibus installer on all supported platforms.
-
-   New in Chef Client 12.0.
+   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the Chef installer on all supported platforms.
 
 ``--use-sudo-password``
    Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.
 
 ``-V -V``
    Run the initial chef-client run at the ``debug`` log-level (e.g. ``chef-client -l debug``).
+
+``-V -V -V``
+   Run the initial chef-client run at the ``trace`` log-level (e.g. ``chef-client -l trace``). This was added in Chef Client 14.
 
 ``-x USERNAME``, ``--ssh-user USERNAME``
    The SSH user name.
@@ -1717,7 +1704,7 @@ This argument has the following options:
 
    .. end_tag
 
-   Deprecated in Chef Client 12.0.
+   Deprecated in Chef Client 12.0. Removed in Chef Client 14.0
 
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
@@ -1755,7 +1742,7 @@ This argument has the following options:
 ``--template-file TEMPLATE``
    The path to a template file to be used during a bootstrap operation.
 
-   Deprecated in Chef Client 12.0.
+   Deprecated in Chef Client 12.0. Removed in Chef Client 14.0
 
 ``-x USER_NAME``, ``--ssh-user USER_NAME``
    The SSH user name.
@@ -2181,7 +2168,6 @@ The full syntax for all of the properties that are available to the **batch** re
      guard_interpreter          Symbol
      interpreter                String
      notifies                   # see description
-     provider                   Chef::Provider::Batch
      returns                    Integer, Array
      subscribes                 # see description
      timeout                    Integer, Float
@@ -2197,7 +2183,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``creates``, ``cwd``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``timeout``, `user``, `password`` and `domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``creates``, ``cwd``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``timeout``, `user``, `password`` and `domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -2265,10 +2251,8 @@ This resource has the following properties:
 
    Default value: ``:batch``. When this property is set to ``:batch``, the 64-bit version of the cmd.exe shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
-   Changed in Chef Client 12.0 to default to the specified property.
-
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -2294,7 +2278,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2310,11 +2294,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -2363,7 +2342,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2489,7 +2468,7 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
 
              * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
 
-               This is because composite resources aren't "real" resources from the perspective of the the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
+               This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
 
              .. end_tag
 
@@ -2547,7 +2526,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -2560,8 +2539,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
-
-   New in Chef Client 12.19.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -2580,7 +2557,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2618,7 +2595,7 @@ This resource has the following properties:
         - ``Object[]``
       * - ``Chef::Util::Powershell:PSCredential``
         - ``PSCredential``
-      * - ``FalseClass``
+      * - ``False``
         - ``bool($false)``
       * - ``Fixnum``
         - ``Integer``
@@ -2626,7 +2603,7 @@ This resource has the following properties:
         - ``Double``
       * - ``Hash``
         - ``Hashtable``
-      * - ``TrueClass``
+      * - ``True``
         - ``bool($true)``
 
    These are converted into the corresponding Windows PowerShell type during the chef-client run.
@@ -2649,31 +2626,31 @@ This resource has the following properties:
       * - Value
         - Description
       * - ``:archive``
-        - Use to to `unpack archive (.zip) files <https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource>`_.
+        - Use to `unpack archive (.zip) files <https://msdn.microsoft.com/en-us/powershell/dsc/archiveresource>`_.
       * - ``:environment``
-        - Use to to `manage system environment variables <https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource>`_.
+        - Use to `manage system environment variables <https://msdn.microsoft.com/en-us/powershell/dsc/environmentresource>`_.
       * - ``:file``
-        - Use to to `manage files and directories <https://msdn.microsoft.com/en-us/powershell/dsc/fileresource>`_.
+        - Use to `manage files and directories <https://msdn.microsoft.com/en-us/powershell/dsc/fileresource>`_.
       * - ``:group``
-        - Use to to `manage local groups <https://msdn.microsoft.com/en-us/powershell/dsc/groupresource>`_.
+        - Use to `manage local groups <https://msdn.microsoft.com/en-us/powershell/dsc/groupresource>`_.
       * - ``:log``
-        - Use to to `log configuration messages <https://msdn.microsoft.com/en-us/powershell/dsc/logresource>`_.
+        - Use to `log configuration messages <https://msdn.microsoft.com/en-us/powershell/dsc/logresource>`_.
       * - ``:package``
-        - Use to to `install and manage packages <https://msdn.microsoft.com/en-us/powershell/dsc/packageresource>`_.
+        - Use to `install and manage packages <https://msdn.microsoft.com/en-us/powershell/dsc/packageresource>`_.
       * - ``:registry``
-        - Use to to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
+        - Use to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
       * - ``:script``
-        - Use to to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
+        - Use to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
       * - ``:service``
-        - Use to to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
+        - Use to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
       * - ``:user``
-        - Use to to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
+        - Use to `manage local user accounts <https://msdn.microsoft.com/en-us/powershell/dsc/userresource>`_.
       * - ``:windowsfeature``
-        - Use to to `add or remove Windows features and roles <https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource>`_.
+        - Use to `add or remove Windows features and roles <https://msdn.microsoft.com/en-us/powershell/dsc/windowsfeatureresource>`_.
       * - ``:windowsoptionalfeature``
         - Use to configure Microsoft Windows optional features.
       * - ``:windowsprocess``
-        - Use to to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
+        - Use to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
 
    Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
@@ -2721,7 +2698,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -2879,8 +2856,6 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 
 .. end_tag
 
-New in Chef Client 12.2.  Changed in Chef Client 12.6.
-
 .. note:: Windows PowerShell 4.0 is required for using the **dsc_script** resource with Chef.
 
 .. note:: The WinRM service must be enabled. (Use ``winrm quickconfig`` to enable the service.)
@@ -3003,7 +2978,7 @@ This resource has the following properties:
    Pass parameters to the DSC script that is specified by the ``command`` property. Parameters are defined as key-value pairs, where the value of each key is the parameter to pass. This property may not be used in the same recipe as the ``code`` property. For example: ``flags ({ :EditorChoice => 'emacs', :EditorFlags => '--maximized' })``. Default value: ``nil``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -3038,8 +3013,6 @@ This resource has the following properties:
 
       imports 'cRDPEnabled', 'PSHOrg_cRDPEnabled'
 
-   New in Chef Client 12.1.
-
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -3057,7 +3030,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3116,7 +3089,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3338,7 +3311,9 @@ env
 -----------------------------------------------------
 .. tag resource_env_summary
 
-Use the **env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+Use the **windows_env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+
+This resource was previously called the **env** resource; its name was updated in Chef Client 14.0 to reflect the fact that only Windows is supported. Existing cookbooks using ``env`` will continue to function, but should be updated to use the new name.
 
 .. end_tag
 
@@ -3346,11 +3321,11 @@ Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_env_syntax
 
-A **env** resource block manages environment keys in Microsoft Windows:
+A **windows_env** resource block manages environment keys in Microsoft Windows:
 
 .. code-block:: ruby
 
-   env 'ComSpec' do
+   windows_env 'ComSpec' do
      value 'C:\\Windows\\system32\\cmd.exe'
    end
 
@@ -3358,11 +3333,10 @@ The full syntax for all of the properties that are available to the **env** reso
 
 .. code-block:: ruby
 
-   env 'name' do
+   windows_env 'name' do
      delim                      String
      key_name                   String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::Env
      subscribes                 # see description
      value                      String
      action                     Symbol # defaults to :create if not specified
@@ -3370,10 +3344,10 @@ The full syntax for all of the properties that are available to the **env** reso
 
 where
 
-* ``env`` is the resource
+* ``windows_env`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``delim``, ``key_name``, ``provider``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``delim``, ``key_name``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -3413,7 +3387,7 @@ This resource has the following properties:
    The delimiter that is used to separate multiple values for a single key.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -3439,7 +3413,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3455,11 +3429,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -3503,7 +3472,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3539,7 +3508,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-   env 'ComSpec' do
+   windows_env 'ComSpec' do
      value "C:\\Windows\\system32\\cmd.exe"
    end
 
@@ -3579,7 +3548,7 @@ The full syntax for all of the properties that are available to the **powershell
      architecture               Symbol
      code                       String
      command                    String, Array
-     convert_boolean_return     TrueClass, FalseClass
+     convert_boolean_return     True, False
      creates                    String
      cwd                        String
      environment                Hash
@@ -3588,16 +3557,15 @@ The full syntax for all of the properties that are available to the **powershell
      guard_interpreter          Symbol
      interpreter                String
      notifies                   # see description
-     provider                   Chef::Provider::PowershellScript
      returns                    Integer, Array
-     sensitive                  TrueClass, FalseClass
+     sensitive                  True, False
      subscribes                 # see description
      timeout                    Integer, Float
      user                       String
      password                   String
      domain                     String
      action                     Symbol # defaults to :run if not specified
-     elevated                   TrueClass, FalseClass
+     elevated                   True, False
    end
 
 where
@@ -3606,7 +3574,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``provider``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -3646,7 +3614,7 @@ This resource has the following properties:
    The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``convert_boolean_return``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false. Default value: ``false``.
 
@@ -3687,7 +3655,7 @@ This resource has the following properties:
 ``flags``
    **Ruby Type:** String
 
-   A string that is passed to the Windows PowerShell command. Default value: ``-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy RemoteSigned, -InputFormat None, -File``.
+   A string that is passed to the Windows PowerShell command. Default value (Windows PowerShell 3.0+): ``-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy Bypass, -InputFormat None``.
 
 ``group``
    **Ruby Types:** String, Integer
@@ -3699,10 +3667,8 @@ This resource has the following properties:
 
    Default value: ``:powershell_script``. When this property is set to ``:powershell_script``, the 64-bit version of the Windows PowerShell shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
-   Changed in Chef Client 12.0 to default to the specified property.
-
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -3728,7 +3694,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3744,11 +3710,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -3766,7 +3727,7 @@ This resource has the following properties:
    Inherited from **execute** resource. The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
 
 ``sensitive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
@@ -3802,7 +3763,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -3827,7 +3788,7 @@ This resource has the following properties:
 ``user``
    **Ruby Types:** String
 
-   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
    **Ruby Types:** String
@@ -3838,11 +3799,11 @@ This resource has the following properties:
 ``domain``
    **Ruby Types:** String
 
-   *Windows only*: The domain of the user user specified by the `user` property.
+   *Windows only*: The domain of the user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
-    **Ruby Type:**  TrueClass, FalseClass
+    **Ruby Type:**  True, False
 
     Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
 
@@ -3982,8 +3943,8 @@ The full syntax for all of the properties that are available to the **registry_k
      architecture               Symbol
      key                        String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::Windows::Registry
-     recursive                  TrueClass, FalseClass
+     recursive                  True, False
+     sensitive                  True, False # default value: 'false'
      subscribes                 # see description
      values                     Hash, Array
      action                     Symbol # defaults to :create if not specified
@@ -3998,7 +3959,7 @@ where
 
   .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``key``, ``provider``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``key``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -4303,7 +4264,7 @@ This resource has the following properties:
              .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -4330,7 +4291,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4347,13 +4308,8 @@ This resource has the following properties:
 
    .. end_tag
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``recursive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 
@@ -4372,6 +4328,13 @@ This resource has the following properties:
    **Ruby Type:** Integer
 
    The retry delay (in seconds). Default value: ``2``.
+
+``sensitive``
+   **Ruby Type:** True, False | **Default value:** False
+
+   Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
+
+   New in Chef Client 14.0.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -4405,7 +4368,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4534,8 +4497,6 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 .. end_tag
 
-Changed in 12.4 to include ``checksum`` and ``remote_file_attributes`` and URL locations on the ``source`` properties. Changed in Chef Client 12.6 to support a greater variety of ``installer_type``; Changed in 12.0 for ``installer_type`` to require a symbol.
-
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_windows_syntax
@@ -4557,7 +4518,6 @@ The full syntax for all of the properties that are available to the **windows_pa
      installer_type             Symbol
      notifies                   # see description
      options                    String
-     provider                   Chef::Provider::Package::Windows
      remote_file_attributes     Hash
      returns                    Integer, Array of integers
      source                     String # defaults to 'name' if not specified
@@ -4572,7 +4532,7 @@ where
 * ``windows_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``checksum``, ``installer_type``, ``options``, ``package_name``, ``provider``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -4608,10 +4568,8 @@ This resource has the following properties:
 
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
 
-   New in Chef Client 12.4, changed in 12.6.
-
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -4619,8 +4577,6 @@ This resource has the following properties:
    **Ruby Type:** Symbol
 
    A symbol that specifies the type of package. Possible values: ``:custom`` (such as installing a non-.msi file that embeds an .msi-based installer), ``:inno`` (Inno Setup), ``:installshield`` (InstallShield), ``:msi`` (Microsoft Installer Package (MSI)), ``:nsis`` (Nullsoft Scriptable Install System (NSIS)), ``:wise`` (Wise).
-
-   Changed in Chef Client 12.6 to support diverse installer types; Changed in 12.0 to require a symbol.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -4639,7 +4595,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4661,17 +4617,10 @@ This resource has the following properties:
 
    One (or more) additional options that are passed to the command.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
-
 ``remote_file_attributes``
    **Ruby Type:** Hash
 
    A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
-
-   New in Chef Client 12.4.
 
 ``retries``
    **Ruby Type:** Integer
@@ -4702,8 +4651,6 @@ This resource has the following properties:
       HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall
 
    .. note:: If there are multiple versions of a package installed with the same display name, all of those packages will be removed unless a version is provided in the ``version`` property or unless it can be discovered in the installer file specified by the ``source`` property.
-
-   Changed in Chef Client 12.4 to support URL locations.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -4737,7 +4684,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -4916,8 +4863,7 @@ The full syntax for all of the properties that are available to the **windows_se
      load_order_group           String
      notifies                   # see description
      pattern                    String
-     provider                   Chef::Provider::Service::Windows
-     reload_command             String
+     reload_command             String # not used on the Windows platform
      restart_command            String
      run_as_password            String
      run_as_user                String
@@ -4938,7 +4884,7 @@ where
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``provider``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -4954,12 +4900,12 @@ This resource has the following actions:
 ``:create``
    Create the service based on the value of the ``binary_path_name``, ``service_name`` and/or ``display_name`` property.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``:delete``
    Delete the service based on the value of the ``service_name`` property.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``:disable``
    Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform.
@@ -4971,7 +4917,7 @@ This resource has the following actions:
    Default. Do nothing with a service.
 
 ``:reload``
-   Reload the configuration for this service.
+   Reload the configuration for this service. This action is not supported on the Windows platform and will raise an error if used.
 
 ``:restart``
    Restart a service.
@@ -4995,38 +4941,38 @@ This resource has the following properties:
 
    **Required** The fully qualified path to the service binary file. The path can also include arguments for an auto-start service.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``display_name``
    **Ruby Type:** String
 
    The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``delayed_start``
    **Ruby Type:** Integer
 
    Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``dependencies``
    **Ruby Types:** String, Array
 
    A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``description``
    **Ruby Types:** String
 
    Description of the service.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -5040,7 +4986,7 @@ This resource has the following properties:
 
    The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -5059,7 +5005,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -5080,11 +5026,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The pattern to look for in the process table. Default value: ``service_name``.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``reload_command``
    **Ruby Type:** String
@@ -5111,21 +5052,15 @@ This resource has the following properties:
 
    The password for the user specified by ``run_as_user``.
 
-   New in Chef Client 12.1.
-
 ``run_as_user``
    **Ruby Type:** String
 
    The user under which a Microsoft Windows service runs.
 
-   New in Chef Client 12.1.
-
 ``service_name``
    **Ruby Type:** String
 
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
-
-   New in Chef Client 13.7.16.
 
 ``start_command``
    **Ruby Type:** String
@@ -5179,7 +5114,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -5228,7 +5163,7 @@ Examples
 
 Cookbook Resources
 =====================================================
-Some of the most popular Chef-maintained cookbooks that contain lightweight resources useful when configuring machines running Microsoft Windows are listed below:
+Some of the most popular Chef-maintained cookbooks that contain custom resources useful when configuring machines running Microsoft Windows are listed below:
 
 .. list-table::
    :widths: 150 450

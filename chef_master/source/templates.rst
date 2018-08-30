@@ -61,7 +61,7 @@ And then create a template called ``sudoers.erb`` and save it to ``templates/def
 
    <% @sudoers_groups.each do |group| -%>
    # Members of the group '<%= group %>' may gain root privileges
-   %<%= group %> ALL=(ALL) <%= "NOPASSWD:" if @passwordless %>ALL
+   <%= group %> ALL=(ALL) <%= "NOPASSWD:" if @passwordless %>ALL
    <% end -%>
 
 And then set the default attributes in ``attributes/default.rb``:
@@ -200,8 +200,6 @@ This resource would be matched in the same order as the ``/templates`` directory
      default/text_file.txt
 
 .. end_tag
-
-New in Chef Client 12.0.
 
 Host Notation
 =====================================================

@@ -15,8 +15,6 @@ The ``knife client`` subcommand is used to manage an API client list and their a
 
           .. end_tag
 
-Changed in Chef Client 12.4 to support public key management for users and clients.
-
 bulk delete
 =====================================================
 Use the ``bulk delete`` argument to delete any API client that matches a pattern defined by a regular expression. The regular expression must be within quotes and not be surrounded by forward slashes (``/``).

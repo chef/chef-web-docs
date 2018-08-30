@@ -32,13 +32,12 @@ The full syntax for all of the properties that are available to the **yum_packag
 .. code-block:: ruby
 
    yum_package 'name' do
-     allow_downgrade            TrueClass, FalseClass
+     allow_downgrade            True, False
      arch                       String, Array
      flush_cache                Array
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
-     provider                   Chef::Provider::Package::Yum
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -51,9 +50,7 @@ where
 * ``yum_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``provider``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-Changed in Chef Client 12.1 to support specifying multiple packages and/or versions.
+* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -64,8 +61,6 @@ This resource has the following actions:
 
 ``:lock``
    Locks the yum package to a specific version.
-
-   New in Chef Client 12.16.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -83,8 +78,6 @@ This resource has the following actions:
 ``:unlock``
    Unlocks the yum package so that it can be upgraded to a newer version.
 
-   New in Chef Client 12.16.
-
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version. This action will ignore the ``version`` attribute.
 
@@ -93,12 +86,12 @@ Properties
 This resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Downgrade a package to satisfy requested version requirements.
 
 ``arch``
-   **Ruby Types:** String
+   **Ruby Type:** String, Array
 
    The architecture of the package to be installed or upgraded. This value can also be passed as part of the package name.
 
@@ -136,7 +129,7 @@ This resource has the following properties:
    .. note:: The ``flush_cache`` property does not flush the local Yum cache! Use Yum tools---``yum clean headers``, ``yum clean packages``, ``yum clean all``---to clean the local Yum cache.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -157,7 +150,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -183,11 +176,6 @@ This resource has the following properties:
    **Ruby Types:** String, Array
 
    One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider. See "Providers" section below for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -236,7 +224,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -325,52 +313,6 @@ Notifications, via an implicit name:
 .. note:: Notifications and subscriptions do not need to be updated when packages and versions are added or removed from the ``package_name`` or ``version`` properties.
 
 .. end_tag
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-``Chef::Provider::Package``, ``package``
-   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
-
-``Chef::Provider::Package::Yum``, ``yum_package``
-   The provider for the Yum package provider.
 
 Examples
 =====================================================

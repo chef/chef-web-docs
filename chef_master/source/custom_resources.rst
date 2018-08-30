@@ -19,8 +19,6 @@ For example, Chef includes built-in resources to manage files, packages, templat
 
 Custom resources were introduced in Chef version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__.
 
-As of Chef client 12.14, individual resource properties can be marked as ``sensitive: true``, which suppresses the value of that property when exporting the resource's state.
-
 Syntax
 =====================================================
 .. tag custom_resources_syntax
@@ -35,17 +33,17 @@ The syntax for a custom resource is. For example:
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    load_current_value do
      # some Ruby for loading the current state of the resource
    end
 
-   action :name do
+   action :action_name do
     # a mix of built-in Chef resources and Ruby
    end
 
-   action :name do
+   action :another_action_name do
     # a mix of built-in Chef resources and Ruby
    end
 
@@ -71,7 +69,7 @@ This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``packa
      end
 
      file '/var/www/html/index.html' do
-       content homepage
+       content new_resource.homepage
      end
    end
 
@@ -149,7 +147,7 @@ For example, the ``httpd.rb`` file in the ``website`` cookbook could be assigned
      end
 
      file '/var/www/html/index.html' do
-       content homepage
+       content new_resource.homepage
      end
    end
 
@@ -613,7 +611,7 @@ The default action in a custom resource is, by default, the first action listed 
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    ...
 
@@ -629,7 +627,7 @@ The ``default_action`` method may also be used to specify the default action. Fo
 
 .. code-block:: ruby
 
-   property :name, RubyType, default: 'value'
+   property :property_name, RubyType, default: 'value'
 
    default_action :aaaaa
 
@@ -655,18 +653,15 @@ Use the ``load_current_value`` method to guard against property values being rep
 
 .. code-block:: ruby
 
-   action :some_action do
-
-     load_current_value do
-       if ::File.exist?('/var/www/html/index.html')
-         homepage IO.read('/var/www/html/index.html')
-       end
-       if ::File.exist?('/var/www/html/404.html')
-         page_not_found IO.read('/var/www/html/404.html')
-       end
-     end
-
-   end
+    load_current_value do
+      if ::File.exist?('/var/www/html/index.html')
+        homepage IO.read('/var/www/html/index.html')
+      end
+      
+      if ::File.exist?('/var/www/html/404.html')
+        page_not_found IO.read('/var/www/html/404.html')
+      end
+    end
 
 This ensures the values for ``homepage`` and ``page_not_found`` are not changed to the default values when the chef-client configures the node.
 
@@ -766,11 +761,11 @@ Use the ``property`` method to define properties for the custom resource. The sy
 
 .. code-block:: ruby
 
-   property :name, ruby_type, default: 'value', parameter: 'value'
+   property :property_name, ruby_type, default: 'value', parameter: 'value'
 
 where
 
-* ``:name`` is the name of the property
+* ``:property_name`` is the name of the property
 * ``ruby_type`` is the optional Ruby type or array of types, such as ``String``, ``Integer``, ``true``, or ``false``
 * ``default: 'value'`` is the optional default value loaded into the resource
 * ``parameter: 'value'`` optional parameters
@@ -792,33 +787,40 @@ The property ruby_type is a positional parameter. Use to ensure a property value
 
        .. code-block:: ruby
 
-          property :name, String
+          property :aaaa, String
 
        .. code-block:: ruby
 
-          property :name, Integer
+          property :bbbb, Integer
 
        .. code-block:: ruby
 
-          property :name, Hash
+          property :cccc, Hash
 
        .. code-block:: ruby
 
-          property :name, [true, false]
+          property :dddd, [true, false]
 
        .. code-block:: ruby
 
-          property :name, [String, nil]
+          property :eeee, [String, nil]
 
        .. code-block:: ruby
 
-          property :name, [Class, String, Symbol]
+          property :ffff, [Class, String, Symbol]
 
        .. code-block:: ruby
 
-          property :name, [Array, Hash]
+          property :gggg, [Array, Hash]
 
 .. end_tag
+
+sensitive
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+A property can be marked sensitive by specifying ``sensitive: true`` on the property. This prevents the contents of the property from being exported to data collection and sent to an Automate server.
+
+Note: This feature was introduced in Chef 12.14.
 
 validators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -910,18 +912,20 @@ desired_state
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_custom_resource_method_property_desired_state
 
-Add ``desired_state:`` to get or set the list of desired state properties for a resource, which describe the desired state of the node, such as permissions on an existing file. This value may be ``true`` or ``false``.
+Add ``desired_state:`` to set the desired state property for a resource. This value may be ``true`` or ``false``, and all properties default to true.
 
-* When ``true``, the state of the system will determine the value.
-* When ``false``, the values defined by the recipe or custom resource will determine the value, i.e. "the desired state of this system includes setting the value defined in this custom resource or recipe"
+* When ``true``, the state of the property is determined by the state of the system
+* When ``false``, the value of the property impacts how the resource executes, but it is not determined by the state of the system.
 
-For example, the following properties define the ``owner``, ``group``, and ``mode`` properties for a file that already exists on the node, and with ``desired_state`` set to ``false``:
+For example, if you were to write a resource to create volumes on a cloud provider you would need define properties such as ``volume_name``, ``volume_size``, and ``volume_region``. The state of these properties would determine if your resource needed to converge or not. For the resource to function you would also need to define properties such as ``cloud_login`` and ``cloud_password``. These are necessary properties for interacting with the cloud provider, but their state has no impact on decision to converge the resource or not, so you would set ``desired_state`` to ``false`` for these properties.
 
 .. code-block:: ruby
 
-   property :owner, String, default: 'root', desired_state: false
-   property :group, String, default: 'root', desired_state: false
-   property :mode, String, default: '0755', desired_state: false
+   property :volume_name, String
+   property :volume_size, Integer
+   property :volume_region, String
+   property :cloud_login, String, desired_state: false
+   property :cloud_password, String, desired_state: false
 
 .. end_tag
 

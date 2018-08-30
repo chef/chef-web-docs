@@ -35,20 +35,19 @@ The full syntax for all of the properties that are available to the **remote_dir
 
    remote_directory 'name' do
      cookbook                   String
-     files_backup               Integer, FalseClass
+     files_backup               Integer, False
      files_group                String
      files_mode                 String
      files_owner                String
      group                      String, Integer
-     inherits                   TrueClass, FalseClass
+     inherits                   True, False
      mode                       String, Integer
      notifies                   # see description
-     overwrite                  TrueClass, FalseClass
+     overwrite                  True, False
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     provider                   Chef::Provider::Directory::RemoteDirectory
-     purge                      TrueClass, FalseClass
-     recursive                  TrueClass, FalseClass
+     purge                      True, False
+     recursive                  True, False
      rights                     Hash
      source                     String
      subscribes                 # see description
@@ -60,7 +59,7 @@ where
 * ``remote_directory`` is the resource
 * ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``cookbook``, ``files_backup``, ``files_group``, ``files_mode``, ``files_owner``, ``group``, ``inherits``, ``mode``, ``overwrite``, ``owner``, ``path``, ``provider``, ``recursive``, ``rights``, and ``source`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``cookbook``, ``files_backup``, ``files_group``, ``files_mode``, ``files_owner``, ``group``, ``inherits``, ``mode``, ``overwrite``, ``owner``, ``path``, ``recursive``, ``rights``, and ``source`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -92,7 +91,7 @@ This resource has the following properties:
    The cookbook in which a file is located (if it is not located in the current cookbook). The default value is the current cookbook.
 
 ``files_backup``
-   **Ruby Types:** Integer, FalseClass
+   **Ruby Types:** Integer, False
 
    The number of backup copies to keep for files in the directory. Default value: ``5``.
 
@@ -121,12 +120,12 @@ This resource has the following properties:
    Use to configure permissions for directories. A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``inherits``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
@@ -158,7 +157,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -176,7 +175,7 @@ This resource has the following properties:
    .. end_tag
 
 ``overwrite``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Overwrite a file when it is different. Default value: ``true``.
 
@@ -190,18 +189,13 @@ This resource has the following properties:
 
    The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``purge``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Purge extra files found in the target directory. Default value: ``false``.
 
 ``recursive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Create or delete directories recursively. Default value: ``true``; the chef-client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
 
@@ -257,7 +251,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -568,7 +562,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-**Use with the chef_handler lightweight resource**
+**Use with the chef_handler resource**
 
 .. tag resource_remote_directory_report_handler
 
@@ -594,4 +588,3 @@ The following example shows how to use the **remote_directory** resource and the
    end
 
 .. end_tag
-

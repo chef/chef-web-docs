@@ -5,8 +5,6 @@ cab_package
 
 Use the **cab_package** resource to install or remove Microsoft Windows cabinet (.cab) packages.
 
-*New in Chef Client 12.15.*
-
 Syntax
 ==========================================
 A **cab_package** resource installs or removes a cabinet package from the specified file path.
@@ -42,15 +40,6 @@ source
 
    The local file path or URL for the CAB package.
 
-   Changed in Chef Client 12.19 to allow URLs as valid source values.
-
-Providers
-=====================================================
-This resource has the following provider:
-
-``Chef::Provider::Package::Cab``, ``cab_package``
-   The provider for the Microsoft Windows platform.
-
 Examples
 =====================================================
 
@@ -85,4 +74,3 @@ Examples
      source 'https://s3.amazonaws.com/my_bucket/Temp\Windows6.1-KB958488-x64.cab'
      action :remove
    end
-

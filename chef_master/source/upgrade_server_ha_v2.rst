@@ -80,12 +80,13 @@ Chef Backend 1.x to 2.x Upgrade
    
       chef-backend-ctl upgrade
 
-#. On any Chef Server nodes using this Chef Backend cluster, run: 
+#. On any Chef Server frontend nodes using the Chef Backend cluster upgraded in the previous steps, run: 
 
    .. code-block:: bash
 
       chef-server-ctl reconfigure
 
+#. To continue the upgrades on Chef Server frontends using this backend cluster, see `Upgrade Frontends Associated with a Chef Backend Cluster <https://docs.chef.io/install_server_ha.html#upgrading-chef-server-on-the-frontend-machines>`_
 
 Chef Backend 1.x to 1.x Upgrade
 =====================================================

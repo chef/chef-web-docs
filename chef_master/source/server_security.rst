@@ -240,6 +240,26 @@ To use an intermediate certificate, append both the server and intermediate cert
 
    $ cat server.crt intermediate.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
 
+Verify Certificate Was Signed by Proper Key
+-----------------------------------------------------
+It's possible that a certificate/key mismatch can occur during the CertificateSigningRequest (CSR) process. During a CSR, the original key for the server in question should always be used. If the output of the following commands don't match, then it's possible the CSR for a new key for this host was generated using a random key or a newly generated key. The symptoms of this issue will look like the following in the nginx log files
+
+.. code-block:: bash
+
+   nginx: [emerg] SSL_CTX_use_PrivateKey_file("/var/opt/opscode/nginx/ca/YOUR_HOSTNAME.key") failed (SSL: error:0B080074:x509    certificate routines:X509_check_private_key:key values mismatch)
+
+Here's how to tell for sure when the configured certificate doesn't match the key
+
+.. code-block:: bash
+
+   # openssl x509 -in /var/opt/opscode/nginx/ca/chef-432.lxc.crt -noout -modulus | openssl sha1
+   (stdin)= 05b4f62e52fe7ce2351ff81d3e1060c0cdf1fa24
+
+   # openssl rsa -in /var/opt/opscode/nginx/ca/chef-432.lxc.key -noout -modulus | openssl sha1
+   (stdin)= 05b4f62e52fe7ce2351ff81d3e1060c0cdf1fa24
+
+To fix this, you will need to generate a new CSR using the original key for the server, the same key that was used to produce the CSR for the previous certificates. Install that new certificates along with the original key and the mismatch error should go away.
+
 Regenerate Certificates
 -----------------------------------------------------
 SSL certificates should be regenerated periodically. This is an important part of protecting the Chef server from vulnerabilities and helps to prevent the information stored on the Chef server from being compromised.

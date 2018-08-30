@@ -38,20 +38,6 @@ The examples in this section show functionality that is common across all resour
 
 .. end_tag
 
-**Use the provider common attribute**
-
-.. tag resource_package_use_provider_attribute
-
-.. To use the ``:provider`` common attribute in a recipe:
-
-.. code-block:: ruby
-
-   package 'some_package' do
-     provider Chef::Provider::Package::Rubygems
-   end
-
-.. end_tag
-
 **Use the retries common attribute**
 
 .. tag resource_service_use_supports_attribute
@@ -61,22 +47,6 @@ The examples in this section show functionality that is common across all resour
 .. code-block:: ruby
 
    service 'apache' do
-     action [ :enable, :start ]
-     retries 3
-   end
-
-.. end_tag
-
-**Use the retries and providers common attributes**
-
-.. tag resource_service_use_provider_and_supports_attributes
-
-.. To use the ``provider`` and ``retries`` common attributes in a recipe:
-
-.. code-block:: ruby
-
-   service 'some_service' do
-     provider Chef::Provider::Service::Upstart
      action [ :enable, :start ]
      retries 3
    end
@@ -94,7 +64,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { node[:some_value] }
+     not_if { node['some_value'] }
    end
 
 .. end_tag
@@ -128,7 +98,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { File.exist?('/etc/passwd' )}
+     not_if { File.exist?('/etc/passwd') }
    end
 
 .. end_tag
@@ -206,7 +176,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     only_if { node[:some_value] }
+     only_if { node['some_value'] }
    end
 
 .. end_tag
@@ -432,8 +402,6 @@ The following example shows how start a service named ``example_service`` and im
      notifies :restart, 'service[nginx]', :immediately
    end
 
-where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
-
 .. end_tag
 
 **Restart one service before restarting another**
@@ -472,7 +440,7 @@ With the ``:before`` notification, the action specified for the ``nginx`` resour
      message ''
      url 'http://couchdb.apache.org/img/sketch.png'
      action :head
-     if File.exist?('/tmp/couch.png')
+     if ::File.exist?('/tmp/couch.png')
        headers 'If-Modified-Since' => File.mtime('/tmp/couch.png').httpdate
      end
      notifies :create, 'remote_file[/tmp/couch.png]', :immediately
@@ -1046,13 +1014,13 @@ Use the **chef_handler** resource to enable handlers during a chef-client run. T
 
 The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.
 
-The **chef_handler** resource `is included with the chef_handler cookbook <https://github.com/chef-cookbooks/chef_handler>`__. This cookbook defines the the resource itself and also provides the location in which the chef-client looks for custom handlers. All custom handlers should be added to the ``files/default/handlers`` directory in the **chef_handler** cookbook.
+**New in Chef Client 14.0.**
 
 .. end_tag
 
 **Enable the CloudkickHandler handler**
 
-.. tag lwrp_chef_handler_enable_cloudkickhandler
+.. tag resource_chef_handler_enable_cloudkickhandler
 
 The following example shows how to enable the ``CloudkickHandler`` handler, which adds it to the default handler path and passes the ``oauth`` key/secret to the handler's initializer:
 
@@ -1068,7 +1036,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 **Enable handlers during the compile phase**
 
-.. tag lwrp_chef_handler_enable_during_compile
+.. tag resource_chef_handler_enable_during_compile
 
 .. To enable a handler during the compile phase:
 
@@ -1084,7 +1052,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 **Handle only exceptions**
 
-.. tag lwrp_chef_handler_exceptions_only
+.. tag resource_chef_handler_exceptions_only
 
 .. To handle exceptions only:
 
@@ -1192,7 +1160,6 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 .. code-block:: ruby
 
-   irb(main):001:0> require 'rubygems' => true
    irb(main):002:0> require 'json' => true
    irb(main):003:0> require 'chef' => true
    irb(main):004:0> r = JSON.parse(IO.read('/var/chef/reports/chef-run-report-20110322060731.json')) => ... output truncated
@@ -1203,7 +1170,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 **Register the JsonFile handler**
 
-.. tag lwrp_chef_handler_register
+.. tag resource_chef_handler_register
 
 .. To register the ``Chef::Handler::JsonFile`` handler:
 
@@ -1424,9 +1391,9 @@ cron
 =====================================================
 .. tag resource_cron_summary
 
-Use the **cron** resource to manage cron entries for time-based job scheduling. Properties for a schedule will default to ``*`` if not provided. The **cron** resource requires access to a crontab program, typically cron.
+Use the **cron** resource to manage cron entries for time-based job scheduling.
 
-.. warning:: The **cron** resource should only be used to modify an entry in a crontab file. Use the **cookbook_file** or **template** resources to add a crontab file to the cron.d directory. The ``cron_d`` lightweight resource (found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) is another option for managing crontab files.
+.. warning:: The **cron** resource should only be used to modify an entry in a crontab file. The ``cron_d`` resource directly manages cron.d files. This resource ships in Chef 14.4 or later and can also be found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) for previous chef-client releases.
 
 .. end_tag
 
@@ -1513,318 +1480,6 @@ Use the **csh** resource to execute scripts using the csh interpreter. This reso
 .. end_tag
 
 No examples.
-
-deploy
-=====================================================
-.. tag resource_deploy_summary
-
-Use the **deploy** resource to manage and control deployments. This is a popular resource, but is also complex, having the most properties, multiple providers, the added complexity of callbacks, plus four attributes that support layout modifications from within a recipe.
-
-.. end_tag
-
-**Modify the layout of a Ruby on Rails application**
-
-.. tag resource_deploy_custom_application_layout
-
-The layout of the **deploy** resource matches a Ruby on Rails app by default, but this can be customized. To customize the layout, do something like the following:
-
-.. code-block:: ruby
-
-   deploy '/my/apps/dir/deploy' do
-     # Use a local repo if you prefer
-     repo '/path/to/gitrepo/typo/'
-     environment 'RAILS_ENV' => 'production'
-     revision 'HEAD'
-     action :deploy
-     migration_command 'rake db:migrate --trace'
-     migrate true
-     restart_command 'touch tmp/restart.txt'
-     create_dirs_before_symlink  %w{tmp public config deploy}
-
-     # You can use this to customize if your app has extra configuration files
-     # such as amqp.yml or app_config.yml
-     symlink_before_migrate  'config/database.yml' => 'config/database.yml'
-
-     # If your app has extra files in the shared folder, specify them here
-     symlinks  'system' => 'public/system',
-               'pids' => 'tmp/pids',
-               'log' => 'log',
-               'deploy/before_migrate.rb' => 'deploy/before_migrate.rb',
-               'deploy/before_symlink.rb' => 'deploy/before_symlink.rb',
-               'deploy/before_restart.rb' => 'deploy/before_restart.rb',
-               'deploy/after_restart.rb' => 'deploy/after_restart.rb'
-   end
-
-.. end_tag
-
-**Use resources within callbacks**
-
-.. tag resource_deploy_embedded_recipes_for_callbacks
-
-Using resources from within your callbacks as blocks or within callback files distributed with your application's source code. To use embedded recipes for callbacks:
-
-.. code-block:: ruby
-
-   deploy "#{node['tmpdir']}/deploy" do
-     repo "#{node['tmpdir']}/gitrepo/typo/"
-     environment 'RAILS_ENV' => 'production'
-     revision 'HEAD'
-     action :deploy
-     migration_command 'rake db:migrate --trace'
-     migrate true
-
-     # Callback awesomeness:
-     before_migrate do
-       current_release = release_path
-
-       directory "#{current_release}/deploy" do
-         mode '0755'
-       end
-
-       # creates a callback for before_symlink
-       template "#{current_release}/deploy/before_symlink_callback.rb" do
-         source 'embedded_recipe_before_symlink.rb.erb'
-         mode '0755'
-       end
-
-     end
-
-     # This file can contain Chef recipe code, plain ruby also works
-     before_symlink 'deploy/before_symlink_callback.rb'
-
-     restart do
-       current_release = release_path
-       file "#{release_path}/tmp/restart.txt" do
-         mode '0755'
-       end
-     end
-
-   end
-
-.. end_tag
-
-**Deploy from a private git repository without using the application cookbook**
-
-.. tag resource_deploy_private_git_repo_using_application_cookbook
-
-To deploy from a private git repository without using the ``application`` cookbook, first ensure that:
-
-* the private key does not have a passphrase, as this will pause a chef-client run to wait for input
-* an SSH wrapper is being used
-* a private key has been added to the node
-
-and then remove a passphrase from a private key by using code similar to:
-
-.. code-block:: bash
-
-   ssh-keygen -p -P 'PASSPHRASE' -N '' -f id_deploy
-
-.. end_tag
-
-**Use an SSH wrapper**
-
-.. tag resource_deploy_recipe_uses_ssh_wrapper
-
-To write a recipe that uses an SSH wrapper:
-
-#. Create a file in the ``cookbooks/COOKBOOK_NAME/files/default`` directory that is named ``wrap-ssh4git.sh`` and which contains the following:
-
-   .. code-block:: ruby
-
-      #!/usr/bin/env bash
-      /usr/bin/env ssh -o "StrictHostKeyChecking=no" -i "/tmp/private_code/.ssh/id_deploy" $1 $2
-
-#. Set up the cookbook file.
-
-#. Add a recipe to the cookbook file similar to the following:
-
-   .. code-block:: ruby
-
-      directory '/tmp/private_code/.ssh' do
-        owner 'ubuntu'
-        recursive true
-      end
-
-      cookbook_file '/tmp/private_code/wrap-ssh4git.sh' do
-        source 'wrap-ssh4git.sh'
-        owner 'ubuntu'
-        mode '0755'
-      end
-
-      deploy 'private_repo' do
-        repo 'git@github.com:acctname/private-repo.git'
-        user 'ubuntu'
-        deploy_to '/tmp/private_code'
-        action :deploy
-        ssh_wrapper '/tmp/private_code/wrap-ssh4git.sh'
-      end
-
-   This will deploy the git repository at ``git@github.com:acctname/private-repo.git`` in the ``/tmp/private_code`` directory.
-
-.. end_tag
-
-**Use a callback to include a file that will be passed as a code block**
-
-.. tag resource_deploy_use_callback_to_include_code_from_file
-
-The code in a file that is included in a recipe using a callback is evaluated exactly as if the code had been put in the recipe as a block. Files are searched relative to the current release.
-
-To specify a file that contains code to be used as a block:
-
-.. code-block:: ruby
-
-   deploy '/deploy/dir/' do
-     # ...
-
-     before_migrate 'callbacks/do_this_before_migrate.rb'
-   end
-
-.. end_tag
-
-**Use a callback to pass a code block**
-
-.. tag resource_deploy_use_callback_to_pass_python
-
-To pass a block of Python code before a migration is run:
-
-.. code-block:: ruby
-
-   deploy_revision '/deploy/dir/' do
-     # other attributes
-     # ...
-
-     before_migrate do
-       # release_path is the path to the timestamp dir
-       # for the current release
-       current_release = release_path
-
-       # Create a local variable for the node so we'll have access to
-       # the attributes
-       deploy_node = node
-
-       # A local variable with the deploy resource.
-       deploy_resource = new_resource
-
-       python do
-         cwd current_release
-         user 'myappuser'
-         code<<-PYCODE
-           # Woah, callbacks in python!
-           # ...
-           # current_release, deploy_node, and deploy_resource are all available
-           # within the deploy hook now.
-         PYCODE
-       end
-     end
-   end
-
-.. end_tag
-
-**Use the same API for all recipes using the same gem**
-
-.. tag resource_deploy_use_same_api_as_gitdeploy_gems
-
-Any recipes using the ``git-deploy`` gem can continue using the same API. To include this behavior in a recipe, do something like the following:
-
-.. code-block:: ruby
-
-   deploy "/srv/#{appname}" do
-     repo 'git://github.com/radiant/radiant.git'
-     revision 'HEAD'
-     user 'railsdev'
-     enable_submodules false
-     migrate true
-     migration_command 'rake db:migrate'
-     # Giving a string for environment sets RAILS_ENV, MERB_ENV, RACK_ENV
-     environment 'production'
-     shallow_clone true
-     action :deploy
-     restart_command 'touch tmp/restart.txt'
-   end
-
-.. end_tag
-
-**Deploy without creating symbolic links to a shared folder**
-
-.. tag resource_deploy_without_symlink_to_shared
-
-To deploy without creating symbolic links to a shared folder:
-
-.. code-block:: ruby
-
-   deploy '/my/apps/dir/deploy' do
-     symlinks {}
-   end
-
-When deploying code that is not Ruby on Rails and symbolic links to a shared folder are not wanted, use parentheses ``()`` or ``Hash.new`` to avoid ambiguity. For example, using parentheses:
-
-.. code-block:: ruby
-
-   deploy '/my/apps/dir/deploy' do
-     symlinks({})
-   end
-
-or using ``Hash.new``:
-
-.. code-block:: ruby
-
-   deploy '/my/apps/dir/deploy' do
-     symlinks Hash.new
-   end
-
-.. end_tag
-
-**Clear a layout modifier attribute**
-
-.. tag resource_deploy_clear_layout_modifiers
-
-Using the default property values for the various resources is the recommended starting point when working with recipes. Then, depending on what each node requires, these default values can be overridden with node-, role-, environment-, and cookbook-specific values. The **deploy** resource has four layout modifiers: ``create_dirs_before_symlink``, ``purge_before_symlink``, ``symlink_before_migrate``, and ``symlinks``. Each of these is a Hash that behaves as a property of the **deploy** resource. When these layout modifiers are used in a recipe, they appear similar to the following:
-
-.. code-block:: ruby
-
-   deploy 'name' do
-     ...
-     symlink_before_migrate       {'config/database.yml' => 'config/database.yml'}
-     create_dirs_before_symlink   %w{tmp public config}
-     purge_before_symlink         %w{log tmp/pids public/system}
-     symlinks                     { 'system' => 'public/system',
-                                    'pids' => 'tmp/pids',
-                                    'log' => 'log'
-                                  }
-     ...
-   end
-
-and then what these layout modifiers look like if they were empty:
-
-.. code-block:: ruby
-
-   deploy 'name' do
-     ...
-     symlink_before_migrate       nil
-     create_dirs_before_symlink   []
-     purge_before_symlink         []
-     symlinks                     nil
-     ...
-   end
-
-In most cases, using the empty values for the layout modifiers will prevent the chef-client from passing symbolic linking information to a node during the chef-client run. However, in some cases, it may be preferable to ensure that one (or more) of these layout modifiers do not pass any symbolic linking information to a node during the chef-client run at all. Because each of these layout modifiers are a Hash, the ``clear`` instance method can be used to clear out these values.
-
-To clear the default values for a layout modifier:
-
-.. code-block:: ruby
-
-   deploy 'name' do
-     ...
-     symlink_before_migrate.clear
-     create_dirs_before_symlink.clear
-     purge_before_symlink.clear
-     symlinks.clear
-     ...
-   end
-
-In general, use this approach carefully and only after it is determined that nil or empty values won't provide the expected result.
-
-.. end_tag
 
 directory
 =====================================================
@@ -2371,7 +2026,9 @@ env
 =====================================================
 .. tag resource_env_summary
 
-Use the **env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+Use the **windows_env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
+
+This resource was previously called the **env** resource; its name was updated in Chef Client 14.0 to reflect the fact that only Windows is supported. Existing cookbooks using ``env`` will continue to function, but should be updated to use the new name.
 
 .. end_tag
 
@@ -2383,32 +2040,8 @@ Use the **env** resource to manage environment keys in Microsoft Windows. After 
 
 .. code-block:: ruby
 
-   env 'ComSpec' do
+   windows_env 'ComSpec' do
      value "C:\\Windows\\system32\\cmd.exe"
-   end
-
-.. end_tag
-
-erl_call
-=====================================================
-.. tag resource_erlang_call_summary
-
-Use the **erl_call** resource to connect to a node located within a distributed Erlang system. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
-
-.. end_tag
-
-**Run a command**
-
-.. tag resource_erlang_call_run_command_on_node
-
-.. To run a command on an Erlang node:
-
-.. code-block:: ruby
-
-   erl_call 'list names' do
-     code 'net_adm:names().'
-     distributed true
-     node_name 'chef@latte'
    end
 
 .. end_tag
@@ -3423,7 +3056,7 @@ To send a ``POST`` request as JSON data, convert the message to JSON and include
      message ''
      url 'http://couchdb.apache.org/img/sketch.png'
      action :head
-     if File.exist?('/tmp/couch.png')
+     if ::File.exist?('/tmp/couch.png')
        headers 'If-Modified-Since' => File.mtime('/tmp/couch.png').httpdate
      end
      notifies :create, 'remote_file[/tmp/couch.png]', :immediately
@@ -3734,7 +3367,7 @@ mdadm
 =====================================================
 .. tag resource_mdadm_summary
 
-Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** provider to create a file systems table (fstab) entry.
+Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** resource to create a file systems table (fstab) entry.
 
 .. end_tag
 
@@ -4867,7 +4500,7 @@ reboot
 =====================================================
 .. tag resource_service_reboot
 
-Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.  New in Chef Client 12.0.
+Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.
 
 .. end_tag
 
@@ -5219,7 +4852,7 @@ Use the **remote_directory** resource to incrementally transfer a directory from
 
 .. end_tag
 
-**Use with the chef_handler lightweight resource**
+**Use with the chef_handler resource**
 
 .. tag resource_remote_directory_report_handler
 
@@ -6179,8 +5812,6 @@ The following example shows how start a service named ``example_service`` and im
      notifies :restart, 'service[nginx]', :immediately
    end
 
-where by using the default ``provider`` for the **service**, the recipe is telling the chef-client to determine the specific provider to be used during the chef-client run based on the platform of the node on which the recipe will run.
-
 .. end_tag
 
 **Stop a service, do stuff, and then restart it**
@@ -6441,7 +6072,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { node[:some_value] }
+     not_if { node['some_value'] }
    end
 
 .. end_tag
@@ -6471,7 +6102,7 @@ The following example shows how to use the ``not_if`` condition to create a file
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     not_if { File.exist?('/etc/passwd' )}
+     not_if { File.exist?('/etc/passwd') }
    end
 
 .. end_tag
@@ -6501,7 +6132,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
    template '/tmp/somefile' do
      mode '0755'
      source 'somefile.erb'
-     only_if { node[:some_value] }
+     only_if { node['some_value'] }
    end
 
 .. end_tag

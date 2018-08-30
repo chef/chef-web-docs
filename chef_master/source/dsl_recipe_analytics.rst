@@ -119,7 +119,7 @@ file Matcher
 -----------------------------------------------------
 .. tag dsl_recipe_method_control_matcher_file
 
-Matchers are available for files and directories. Use this matcher to define audits for files that test if the file exists, its version, if it is is executable, writable, or readable, who owns it, verify checksums (both MD5 and SHA-256) and so on. The following matchers are available for files:
+Matchers are available for files and directories. Use this matcher to define audits for files that test if the file exists, its version, if it is executable, writable, or readable, who owns it, verify checksums (both MD5 and SHA-256) and so on. The following matchers are available for files:
 
 .. list-table::
    :widths: 60 420
@@ -749,8 +749,6 @@ where:
 * ``control`` defines each individual audit within the ``control_group`` block. There is no limit to the number of ``control`` blocks that may defined within a ``control_group`` block
 
 .. end_tag
-
-New in Chef Client 12.1.
 
 Examples
 -----------------------------------------------------

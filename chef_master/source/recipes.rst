@@ -124,8 +124,6 @@ Attribute precedence, when viewed as a table:
 
 .. end_tag
 
-Changed in Chef Client 12.0, so that attributes may be modified for named precedence levels, all precedence levels, and be fully assigned.
-
 Blacklist Attributes
 -----------------------------------------------------
 .. tag node_attribute_blacklist
@@ -311,7 +309,7 @@ Use Data Bags
 -----------------------------------------------------
 .. tag data_bag
 
-A data bag is a global variable that is stored as JSON data and is accessible from a Chef server. A data bag is indexed for searching and can be loaded by a recipe or accessed during a search.
+Data bags store global variables as JSON data. Data bags are indexed for searching and can be loaded by a cookbook or accessed during a search.
 
 .. end_tag
 

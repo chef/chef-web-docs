@@ -7,7 +7,7 @@ Install Reporting
 
 .. note:: This documentation is meant to support existing Chef customers using Reporting.
 
-          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate </chef_automate.html>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `download Chef Automate here <https://downloads.chef.io/automate>`__.
+          Are you a new Chef customer, or looking to gain better insight into your fleet? Take advantage of `Chef Automate <https://www.chef.io/automate/>`__. You'll get a graphical interface and query language that gives you insight into operational, compliance, and workflow events. You can `try out Chef Automate here <https://automate.chef.io/docs/quickstart/>`__.
 
 .. end_tag
 
@@ -63,7 +63,7 @@ To set up the Reporting server:
 
       $ chef-server-ctl reconfigure
 
-#. Reconfigure Reporting services on each server:
+#. Complete the installation:
 
    .. code-block:: bash
 

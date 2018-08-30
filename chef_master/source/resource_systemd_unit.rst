@@ -5,8 +5,6 @@ systemd_unit
 
 Use the **systemd_unit** resource to create, manage, and run `systemd units <https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts>`_.
 
-New in Chef Client 12.11. Changed in 12.19 to verify systemd unit-files before installation (using the external ``systemd-analyze verify`` command).
-
 Syntax
 =====================================================
 .. tag resource_systemd_unit_syntax
@@ -74,6 +72,21 @@ This resource has the following actions:
 
 ``:unmask``
    Stop the unit from being masked and cause it to start as specified.
+   
+``:preset``
+   Restore the preset "enable/disable" configuration for a unit.
+   
+   New in Chef Client 14.0.
+
+``:reenable``
+   Reenable a unit file.
+   
+   New in Chef Client 14.0.
+   
+``:revert``
+   Revet to a vendor's version of a unit file. 
+   
+   New in Chef Client 14.0.
 
 ``:start``
    Start a unit based in its systemd unit file.
@@ -113,62 +126,19 @@ This resource has the following properties:
 ``content``
    **Ruby Type:** String, Hash
 
-   A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on.
+   A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on. In Chef 14.4, repeatable options can be implemented with an array.
 
 ``triggers_reload``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
 
 ``verify``
-   **Ruby Type:** TrueClass, FalseClass
+   **Ruby Type:** True, False
 
    Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
 
 .. end_tag
-
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-``Chef::Provider::SystemdUnit``, ``systemd_unit``
-   The provider for systemd_unit.
 
 Examples
 =====================================================
@@ -180,9 +150,9 @@ Examples
 .. code-block:: ruby
 
    systemd_unit 'etcd.service' do
-     content(Unit: {
+     content({Unit: {
                Description: 'Etcd',
-               Documentation: 'https://coreos.com/etcd',
+               Documentation: ['https://coreos.com/etcd', 'man:etcd(1)'],
                After: 'network.target',
              },
              Service: {
@@ -192,7 +162,7 @@ Examples
              },
              Install: {
                WantedBy: 'multi-user.target',
-             })
+             }})
      action :create
    end
 

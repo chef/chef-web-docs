@@ -5,9 +5,9 @@ cron
 
 .. tag resource_cron_summary
 
-Use the **cron** resource to manage cron entries for time-based job scheduling. Properties for a schedule will default to ``*`` if not provided. The **cron** resource requires access to a crontab program, typically cron.
+Use the **cron** resource to manage cron entries for time-based job scheduling.
 
-.. warning:: The **cron** resource should only be used to modify an entry in a crontab file. Use the **cookbook_file** or **template** resources to add a crontab file to the cron.d directory. The ``cron_d`` lightweight resource (found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) is another option for managing crontab files.
+.. warning:: The **cron** resource should only be used to modify an entry in a crontab file. The ``cron_d`` resource directly manages cron.d files. This resource ships in Chef 14.4 or later and can also be found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) for previous chef-client releases.
 
 .. end_tag
 
@@ -18,7 +18,7 @@ A **cron** resource block manages cron entries. For example, to get a weekly coo
 .. code-block:: ruby
 
    cron 'cookbooks_report' do
-     action node.tags.include?('cookbooks-report') ? :create : :delete
+     action :create
      minute '0'
      hour '0'
      weekday '1'
@@ -48,7 +48,6 @@ The full syntax for all of the properties that are available to the **cron** res
      month                      String
      notifies                   # see description
      path                       String
-     provider                   Chef::Provider::Cron
      shell                      String
      subscribes                 # see description
      time                       Symbol
@@ -63,7 +62,7 @@ where
 * ``name`` is the name of the resource block
 * ``command`` is the command to be run
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``provider``, ``shell``, ``time``, ``user``, and ``weekday`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``user``, and ``weekday`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -81,6 +80,16 @@ This resource has the following actions:
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
+
+.. note:: Chef can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
+
+  .. code-block:: ruby
+
+    execute "remove foo_daemon from crontab" do
+      command "sed -i '/foo_daemon/d' /etc/crontab"
+      only_if "grep 'foo_daemon' /etc/crontab 2>&1 >/dev/null"
+    end
+
 
 Properties
 =====================================================
@@ -116,9 +125,9 @@ This resource has the following properties:
       command "/srv/app/scripts/daily_report"
 
 ``day``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``*``
 
-   The day of month at which the cron entry should run (1 - 31). Default value: ``*``.
+   The day of month at which the cron entry should run (1 - 31).
 
 ``environment``
    **Ruby Type:** Hash
@@ -131,14 +140,14 @@ This resource has the following properties:
    Set the ``HOME`` environment variable.
 
 ``hour``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``*``
 
-   The hour at which the cron entry is to run (0 - 23). Default value: ``*``.
+   The hour at which the cron entry is to run (0 - 23).
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``mailto``
    **Ruby Type:** String
@@ -146,14 +155,14 @@ This resource has the following properties:
    Set the ``MAILTO`` environment variable.
 
 ``minute``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``*``
 
-   The minute at which the cron entry should run (0 - 59). Default value: ``*``.
+   The minute at which the cron entry should run (0 - 59).
 
 ``month``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``*``
 
-   The month in the year on which a cron entry is to run (1 - 12). Default value: ``*``.
+   The month in the year on which a cron entry is to run (1 - 12).
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -172,7 +181,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -194,20 +203,15 @@ This resource has the following properties:
 
    Set the ``PATH`` environment variable.
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``shell``
    **Ruby Type:** String
@@ -246,7 +250,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -269,18 +273,18 @@ This resource has the following properties:
    A time interval. Possible values: ``:annually``, ``:daily``, ``:hourly``, ``:midnight``, ``:monthly``, ``:reboot``, ``:weekly``, or ``:yearly``.
 
 ``user``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``root``
 
-   This attribute is not applicable on the AIX platform. The name of the user that runs the command. If the ``user`` property is changed, the original ``user`` for the crontab program continues to run until that crontab program is deleted. Default value: ``root``.
+   This attribute is not applicable on the AIX platform. The name of the user that runs the command. If the ``user`` property is changed, the original ``user`` for the crontab program continues to run until that crontab program is deleted.
 
 ``weekday``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``*``
 
-   The day of the week on which this entry is to run (0 - 6), where Sunday = 0. Default value: ``*``.
+   The day of the week on which this entry is to run (0 - 6), where Sunday = 0.
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Run a program at a specified interval**
 
@@ -353,4 +357,3 @@ The following example shows a schedule that will run at 8:00 PM, every weekday (
    end
 
 .. end_tag
-

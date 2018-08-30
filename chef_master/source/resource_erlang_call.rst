@@ -11,6 +11,8 @@ Use the **erl_call** resource to connect to a node located within a distributed 
 
 .. note:: The ``erl_call`` command needs to be on the path for this resource to work properly.
 
+**Removed from Chef Client 14.0**
+
 Syntax
 =====================================================
 A **erl_call** resource block connects to a node located within a distributed Erlang system:
@@ -30,11 +32,10 @@ The full syntax for all of the properties that are available to the **erl_call**
    erl_call 'name' do
      code                       String
      cookie                     String
-     distributed                TrueClass, FalseClass
+     distributed                True, False
      name_type                  String
      node_name                  String
      notifies                   # see description
-     provider                   Chef::Provider::ErlCall
      subscribes                 # see description
      action                     Symbol # defaults to :run if not specified
    end
@@ -44,7 +45,7 @@ where
 * ``erl_call`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``code``, ``cookie``, ``distributed``, ``name_type``, ``node_name``, and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``code``, ``cookie``, ``distributed``, ``name_type``, and ``node_name`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -71,12 +72,12 @@ This resource has the following properties:
    The magic cookie for the node to which a connection is made.
 
 ``distributed``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    The node is a distributed Erlang node. Default value: ``false``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -107,7 +108,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -123,11 +124,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -171,7 +167,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -279,4 +275,3 @@ The following examples demonstrate various approaches for using resources in rec
    end
 
 .. end_tag
-

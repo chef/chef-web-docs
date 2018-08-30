@@ -5,8 +5,6 @@ apt_repository
 
 Use the **apt_repository** resource to specify additional APT repositories. Adding a new repository will update APT package cache immediately.
 
-**New in Chef Client 12.9.**
-
 Syntax
 ==========================================
 An **apt_repository** resource specifies APT repository information and adds an additional APT repository to the existing list of repositories:
@@ -21,7 +19,7 @@ An **apt_repository** resource specifies APT repository information and adds an 
 where
 
 * ``apt_repository`` is the resource
-* ``name`` is the name of the resource block
+* ``name`` is the name of the APT repository, or the name of the resource block. Must not contain spaces.
 * ``uri`` is a base URI for the distribution where the APT packages are located at
 * ``components`` is an array of package groupings in the repository
 
@@ -35,14 +33,15 @@ The full syntax for all of the properties that are available to the **apt_reposi
       distribution          String
       components            Array
       arch                  String
-      trusted               TrueClass, FalseClass
-      deb_src               TrueClass, FalseClass
+      trusted               True, False
+      deb_src               True, False
       keyserver             String
       key                   String, Array
       key_proxy             String
       cookbook              String
-      cache_rebuild         TrueClass, FalseClass
-      sensitive             TrueClass, FalseClass
+      cache_rebuild         True, False
+      sensitive             True, False
+      action                Symbol # defaults to :add if not specified
    end
 
 where
@@ -65,80 +64,71 @@ Properties
 =====================================================
 This resource has the following properties:
 
+
+``arch``
+   **Ruby Type:** String, false
+
+   Constrain packages to a particular CPU architecture such as ``i386`` or ``amd64``.
+
+``cache_rebuild``
+   **Ruby Type:** true, false | **Default Value:** ``true``
+
+   Determines whether to rebuild the APT package cache.
+
+``components``
+   **Ruby Type:** Array | **Default Value:** ``lazy default``
+
+   Package groupings, such as 'main' and 'stable'.
+
+``cookbook``
+   **Ruby Type:** String, false
+
+   If key should be a cookbook_file, specify a cookbook where the key is located for files/default. Default value is nil, so it will use the cookbook where the resource is used.
+
+``deb_src``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Determines whether or not to add the repository as a source repo as well.
+
+``distribution``
+   **Ruby Type:** String, false | **Default Value:** ``lazy default``
+
+   Usually a distribution's codename, such as trusty, xenial or bionic. Default value: the codename of the node's distro.
+
+``key``
+   **Ruby Type:** String, Array, false | **Default Value:** ``lazy default``
+
+   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file.
+
+``key_proxy``
+   **Ruby Type:** String, false
+
+   If set, a specified proxy is passed to GPG via ``http-proxy=``.
+
+``keyserver``
+   **Ruby Type:** String, false | **Default Value:** ``keyserver.ubuntu.com``
+
+   The GPG keyserver where the key for the repo should be retrieved.
+
 ``repo_name``
    **Ruby Type:** String
 
-   The name of the channel to discover.
+   The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
+
+``sensitive``
+   **Ruby Type:** True, False | **Default Value:** ``false``
+
+   Determines whether sensitive resource data (such as key information) is not logged by the chef-client.
+
+``trusted``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Determines whether you should treat all packages from this repository as authenticated regardless of signature.
 
 ``uri``
    **Ruby Type:** String
 
    The base of the Debian distribution.
-
-``distribution``
-   **Ruby Type:** String
-
-   Usually a codename, such as something like karmic, lucid or maverick.
-
-``components``
-   **Ruby Type:** Array
-
-   Package groupings, such as 'main' and 'stable'. Default value: empty array.
-
-``arch``
-   **Ruby Type:** String
-
-   Constrain packages to a particular CPU architecture such as ``'i386'`` or ``'amd64'``. Default value: ``nil``.
-
-``trusted``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Determines whether you should treat all packages from this repository as authenticated regardless of signature. Default value: ``false``.
-
-``deb_src``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Determines whether or not to add the repository as a source repo as well. Default value: ``false``.
-
-``keyserver``
-   **Ruby Type:** String
-
-   The GPG keyserver where the key for the repo should be retrieved. Default value: "keyserver.ubuntu.com".
-
-``key``
-   **Ruby Type:** String, Array
-
-   If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file. Default value: ``nil``.
-
-   New in Chef client 13.4. 
-
-``key_proxy``
-   **Ruby Type:** String
-
-   If set, a specified proxy is passed to GPG via ``http-proxy=``. Default value: ``nil``.
-
-``cookbook``
-   **Ruby Type:** String
-
-   If ``key`` should be a cookbook_file, specify a cookbook where the key is located for files/default. Default value is ``nil``, so it will use the cookbook where the resource is used.
-
-``cache_rebuild``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Determines whether to rebuild the APT package cache. Default value: ``true``.
-
-``sensitive``
-   **Ruby Type:** TrueClass, FalseClass
-
-   Determines whether sensitive resource data (such as key information) is not logged by the chef-client. Default value: ``false``.
-
-Providers
-=====================================================
-
-This resource has the following provider:
-
-``Chef::Provider::AptRepository``, ``apt_repository``
-   The default provider for all platforms.
 
 Examples
 =====================================================
@@ -169,7 +159,6 @@ Examples
 
    apt_repository 'nginx-php' do
      uri          'ppa:nginx/stable'
-     distribution node['lsb']['codename']
    end
 
 **Add the JuJu PPA, grab the key from the keyserver, and add source repo**

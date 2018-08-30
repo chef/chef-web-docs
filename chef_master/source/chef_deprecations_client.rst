@@ -23,6 +23,43 @@ To test your code for deprecations, you can put Test Kitchen in a mode where any
 
 and then run Test Kitchen as usual. Test Kitchen will fail if any deprecation errors are issued. This feature was added in Test Kitchen 1.13, which shipped in ChefDK 1.0.
 
+Silencing deprecation warnings
+=====================================================
+
+Deprecation warnings are great for ensuring cookbooks are kept up-to-date and to prepare for major version upgrades, sometimes you just can't fix a deprecation right away. Enabling ``treat_deprecation_warnings_as_errors`` mode in Test Kitchen integration tests often compounds the problem because it does not distinguish between deprecations from community cookbooks and those in your own code.
+
+Two new options are provided for silencing deprecation warnings: ``silence_deprecation_warnings`` and inline ``chef:silence_deprecation`` comments.
+
+The ``silence_deprecation_warnings`` configuration value can be set in your ``client.rb`` or ``solo.rb`` config file, either to ``true`` to silence all deprecation warnings or to an array of deprecations to silence. You can specify which to silence either by the deprecation key name (e.g. ``"internal_api"``), the numeric deprecation ID (e.g. ``25`` or `"CHEF-25"`), or by specifying the filename and line number where the deprecation is being raised from (e.g. ``"default.rb:67"``).
+
+An example of setting the ``silence_deprecation_warnings`` option in your ``client.rb`` or ``solo.rb``:
+
+.. code-block:: ruby
+
+   silence_deprecation_warnings %w{deploy_resource chef-23 recipes/install.rb:22}
+
+or in your `kitchen.yml`:
+
+.. code-block:: yaml
+
+   provisioner:
+     name: chef_solo
+       solo_rb:
+         treat_deprecation_warnings_as_errors: true
+         silence_deprecation_warnings:
+           - deploy_resource
+           - chef-23
+           - recipes/install.rb:22
+
+You can also silence deprecations using a comment on the line that is raising the warning:
+
+.. code-block:: ruby
+
+   erl_call 'something' do # chef:silence_deprecation
+
+
+We advise caution in the use of this feature, as excessive or prolonged silencing can lead to difficulty upgrading when the next major release of Chef comes out.
+
 All Deprecations
 =====================================================
 
@@ -97,7 +134,7 @@ All Deprecations
   * - `CHEF-18 </deprecations_local_listen.html>`__
     - Deprecation of local mode listening.
     - 13.1
-    - 14.0
+    - 15.0
   * - `CHEF-19 </deprecations_namespace_collisions.html>`__
     - Deprecation of ``property_name`` within actions.
     - 13.2
@@ -110,6 +147,18 @@ All Deprecations
     - Deprecation of the ``:uninstall`` action in the ``chocolatey_package`` resource.
     - 13.7
     - 14.0
+  * - CHEF-22
+    - Deprecation of the ``erl_call`` resource.
+    - 13.7
+    - 14.0
+  * - CHEF-23
+    - Deprecation of legacy HWRP mixins.
+    - 12.X
+    - 14.0
+  * - CHEF-24
+    - Deprecation of ``epic_fail`` in favor of ``allow_failure``
+    - 13.7
+    - 14.0  
   * - `CHEF-3694 </deprecations_resource_cloning.html>`__
     - Resource Cloning will no longer work.
     - 10.18

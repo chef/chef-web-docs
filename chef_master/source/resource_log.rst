@@ -32,7 +32,6 @@ The full syntax for all of the properties that are available to the **log** reso
      level                      Symbol
      message                    String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::ChefLog
      subscribes                 # see description
      action                     Symbol # defaults to :write if not specified
    end
@@ -43,7 +42,7 @@ where
 * ``name`` is the name of the resource block
 * ``message`` is the log message to write
 * ``action`` identifies the steps the Chef Client will take to bring the node into the desired state
-* ``level``, ``message``, and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``level`` and ``message`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -72,14 +71,14 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass | **Default Value:** ``false``
+   **Ruby Types:** True, False | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
 ``level``
    **Ruby Type:** Symbol | **Default Value:** ``:info``
 
-   The level of logging that is to be displayed by the Chef Client. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
+   The logging level for displaying this message.. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
 
 ``message``
    **Ruby Type:** String
@@ -103,7 +102,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -119,11 +118,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
@@ -167,7 +161,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

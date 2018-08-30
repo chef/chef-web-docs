@@ -57,7 +57,7 @@ The full syntax for all of the properties that are available to the ``fog_key_pa
 .. code-block:: ruby
 
    fog_key_pair 'name' do
-     allow_overwrite         TrueClass, FalseClass
+     allow_overwrite         True, False
      driver                  Chef::Provisioning::Driver
      private_key_options     Hash
      private_key_path        String
@@ -81,7 +81,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - Property
      - Description
    * - ``allow_overwrite``
-     - **Ruby Type:** TrueClass, FalseClass
+     - **Ruby Type:** True, False
 
        Use to allow overwriting an existing key pair.
    * - ``driver``

@@ -1,13 +1,15 @@
 =====================================================
-chef-shell
+chef-shell (executable)
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_shell.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_shell.rst>`__
 
 .. tag chef_shell_summary
 
 chef-shell is a recipe debugging tool that allows the use of breakpoints within recipes. chef-shell runs as an Interactive Ruby (IRb) session. chef-shell supports both recipe and attribute file syntax, as well as interactive debugging features.
 
 .. end_tag
+
+The chef-shell executable is run as a command-line tool.
 
 Modes
 =====================================================
@@ -29,6 +31,99 @@ chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-she
      - chef-shell acts as a chef-client. During startup, it reads the chef-client configuration file and contacts the Chef server to get attributes and cookbooks. The run-list will be set in the same way as normal chef-client runs. chef-client mode is activated with the ``-z`` or ``--client`` options. You can also specify the configuration file with ``-c CONFIG`` and the server URL with ``-S SERVER_URL``.
 
 .. end_tag
+
+Options
+=====================================================
+This command has the following syntax:
+
+.. code-block:: bash
+
+   chef-shell OPTION VALUE OPTION VALUE ...
+
+This command has the following options:
+
+``-a``, ``--standalone``
+   Run chef-shell in standalone mode.
+
+``-c CONFIG``, ``--config CONFIG``
+   The configuration file to use.
+
+``-h``, ``--help``
+   Show help for the command.
+
+``-j PATH``, ``--json-attributes PATH``
+   The path to a file that contains JSON data.
+
+   .. tag node_ctl_run_list
+
+   Use this option to define a ``run_list`` object. For example, a JSON file similar to:
+
+   .. code-block:: javascript
+
+      "run_list": [
+        "recipe[base]",
+        "recipe[foo]",
+        "recipe[bar]",
+        "role[webserver]"
+      ],
+
+   may be used by running ``chef-client -j path/to/file.json``.
+
+   In certain situations this option may be used to update ``normal`` attributes.
+
+   .. end_tag
+
+   .. warning:: .. tag node_ctl_attribute
+
+                Any other attribute type that is contained in this JSON file will be treated as a ``normal`` attribute. Setting attributes at other precedence levels is not possible. For example, attempting to update ``override`` attributes using the ``-j`` option:
+
+                .. code-block:: javascript
+
+                   {
+                     "name": "dev-99",
+                     "description": "Install some stuff",
+                     "override_attributes": {
+                       "apptastic": {
+                         "enable_apptastic": "false",
+                         "apptastic_tier_name": "dev-99.bomb.com"
+                       }
+                     }
+                   }
+
+                will result in a node object similar to:
+
+                .. code-block:: javascript
+
+                   {
+                     "name": "maybe-dev-99",
+                     "normal": {
+                       "name": "dev-99",
+                       "description": "Install some stuff",
+                       "override_attributes": {
+                         "apptastic": {
+                           "enable_apptastic": "false",
+                           "apptastic_tier_name": "dev-99.bomb.com"
+                         }
+                       }
+                     }
+                   }
+
+                .. end_tag
+
+``-l LEVEL``, ``--log-level LEVEL``
+   The level of logging to be stored in a log file.
+
+``-s``, ``--solo``
+   Run chef-shell in chef-solo mode.
+
+``-S CHEF_SERVER_URL``, ``--server CHEF_SERVER_URL``
+   The URL for the Chef server.
+
+``-v``, ``--version``
+   The version of the chef-client.
+
+``-z``, ``--client``
+   Run chef-shell in chef-client mode.
 
 Configure
 =====================================================
@@ -343,13 +438,13 @@ Advanced Debugging
 -----------------------------------------------------
 .. tag chef_shell_advanced_debug
 
-In chef-shell, it is possible to get extremely verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:
+In chef-shell, it is possible to get verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:
 
 .. code-block:: bash
 
    $ chef > tracing on
-     /Users/danielsdeleo/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:150: warning: tried to create Proc object without a block
-     /Users/danielsdeleo/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:146: warning: tried to create Proc object without a block
+     /Users/username/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:150: warning: tried to create Proc object without a block
+     /Users/username/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:146: warning: tried to create Proc object without a block
      tracing is on
        => nil
 
@@ -440,7 +535,7 @@ Typing is evaluated in the same context as recipes. Create a file resource:
           @name="/tmp/ohai2u_shef",
           @action="create",
           @path="/tmp/ohai2u_shef",
-          @source_line="/Users/danielsdeleo/ruby/chef/chef/(irb#1) line 1",
+          @source_line="/Users/username/ruby/chef/chef/(irb#1) line 1",
           @params={},
           @actions={},
           @cookbook_name=nil,

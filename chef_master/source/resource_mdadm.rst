@@ -5,7 +5,7 @@ mdadm
 
 .. tag resource_mdadm_summary
 
-Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** provider to create a file systems table (fstab) entry.
+Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** resource to create a file systems table (fstab) entry.
 
 .. end_tag
 
@@ -29,13 +29,11 @@ The full syntax for all of the properties that are available to the **mdadm** re
      bitmap                     String
      chunk                      Integer
      devices                    Array
-     exists                     TrueClass, FalseClass
+     exists                     True, False
      layout                     String
      level                      Integer
-     mdadm_defaults             TrueClass, FalseClass
      metadata                   String
      notifies                   # see description
-     provider                   Chef::Provider::Mdadm
      raid_device                String # defaults to 'name' if not specified
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
@@ -43,10 +41,10 @@ The full syntax for all of the properties that are available to the **mdadm** re
 
 where
 
-* ``mdadm`` is the resource
+* ``mdadm`` is the name of the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``bitmap``, ``chunk``, ``devices``, ``exists``, ``layout``, ``level``, ``mdadm_defaults``, ``metadata``, ``provider``,  and ``raid_device`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``bitmap``, ``chunk``, ``devices``, ``exists``, ``layout``, ``level``, ``metadata``,  and ``raid_device`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -78,22 +76,22 @@ This resource has the following properties:
    The path to a file in which a write-intent bitmap is stored.
 
 ``chunk``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``16``
 
-   The chunk size. This property should not be used for a RAID 1 mirrored pair (i.e. when the ``level`` property is set to ``1``). Default value: ``16``.
+   The chunk size. This property should not be used for a RAID 1 mirrored pair (i.e. when the ``level`` property is set to ``1``).
 
 ``devices``
-   **Ruby Type:** Array
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
-   A comma-separated list of devices to be part of a RAID array. Default value: ``[]``.
+   The devices to be part of a RAID array.
 
 ``exists``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Type:** TrueClass, FalseClass | **Default Value:** ``false``
 
-   Indicates whether the RAID array exists. Default value: ``false``.
+   Indicates whether the RAID array exists.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -102,24 +100,15 @@ This resource has the following properties:
 
    The RAID5 parity algorithm. Possible values: ``left-asymmetric`` (or ``la``), ``left-symmetric`` (or ``ls``), ``right-asymmetric`` (or ``ra``), or ``right-symmetric`` (or ``rs``).
 
-   New in Chef Client 12.10
-
 ``level``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``1``
 
-   The RAID level. Default value: ``1``.
-
-``mdadm_defaults``
-   **Ruby Types:** TrueClass, FalseClass
-
-   When ``true`` this property sets the default values for ``chunk`` and ``metadata`` to ``nil`` allowing mdadm to use its own default values. Default value: ``false``.
-
-   New in Chef Client 12.9.
+   The RAID level.
 
 ``metadata``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``0.90``
 
-   The superblock type for RAID metadata. Default value: ``0.90``.
+   The superblock type for RAID metadata.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -138,7 +127,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -154,11 +143,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``raid_device``
    **Ruby Type:** String
@@ -207,7 +191,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

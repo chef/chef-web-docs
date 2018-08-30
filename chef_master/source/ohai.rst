@@ -251,6 +251,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      virtualization.rb
    digital_ocean.rb
    dmi.rb
+   docker.rb
    dragonflybsd
     cpu.rb
     memory.rb
@@ -273,12 +274,12 @@ The following list shows the type of plugins that are included with Ohai. See th
    haskell.rb
    hostname.rb
    init_package.rb
-   ip_scopes.rb
    java.rb
    joyent.rb
    kernel.rb
    keys.rb
    languages.rb
+   libvirt.rb
    linode.rb
    linux
      block_device.rb
@@ -325,6 +326,8 @@ The following list shows the type of plugins that are included with Ohai. See th
    ruby.rb
    rust.rb
    scala.rb
+   scaleway.rb
+   scsi.rb
    shard.rb
    shells.rb
    softlayer.rb
@@ -336,13 +339,11 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
      virtualization.rb
-     zpools.rb
    ssh_host_key.rb
    sysconf.rb
    timezone.rb
    uptime.rb
    virtualbox.rb
-   virtualization.rb
    vmware.rb
    windows
      cpu.rb
@@ -353,6 +354,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
      virtualization.rb
+   zpools.rb
 
 Custom Plugins
 =====================================================
@@ -425,7 +427,6 @@ The full syntax for all of the properties that are available to the **ohai** res
      name                       String
      notifies                   # see description
      plugin                     String
-     provider                   Chef::Provider::Ohai
      subscribes                 # see description
      action                     Symbol # defaults to :reload if not specified
    end
@@ -435,7 +436,7 @@ where
 * ``ohai`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``name``, ``plugin``,  and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``name`` and ``plugin`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -457,14 +458,14 @@ This resource has the following actions:
 
 .. end_tag
 
-Attributes
+Properties
 -----------------------------------------------------
 .. tag resource_ohai_attributes
 
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -490,7 +491,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -511,11 +512,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Optional. The name of an Ohai plugin to be reloaded. If this property is not specified, the chef-client will reload all plugins.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -559,7 +555,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -656,8 +652,11 @@ This tool has the following options:
 ``ATTRIBUTE_NAME ATTRIBUTE NAME ...``
    Use to have Ohai show only output for named attributes.
 
-``-d PATH``, ``--directory PATH``
-   The directory in which Ohai plugins are located. For example: ``/etc/ohai/plugins``.
+``-c CONFIG``, ``--config CONFIG``
+   The path to a configuration file to use For example: ``/etc/ohai/config.rb``.
+
+``-d DIRECTORY``, ``--directory DIRECTORY``
+   The directory in which additional Ohai plugins are located. For example: ``/my/extra/plugins``.
 
 ``-h``, ``--help``
    Show help for the command.

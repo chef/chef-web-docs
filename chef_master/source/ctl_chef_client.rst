@@ -372,7 +372,7 @@ Use Encrypted Data Bags
 -----------------------------------------------------
 .. tag data_bag
 
-A data bag is a global variable that is stored as JSON data and is accessible from a Chef server. A data bag is indexed for searching and can be loaded by a recipe or accessed during a search.
+Data bags store global variables as JSON data. Data bags are indexed for searching and can be loaded by a cookbook or accessed during a search.
 
 .. end_tag
 
@@ -427,8 +427,6 @@ Notes about FIPS:
 * May be enabled for nodes running on Microsoft Windows and Enterprise Linux platforms
 * Should only be enabled for environments that require FIPS 140-2 compliance
 * May not be enabled for any version of the chef-client earlier than 12.8
-
-Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL. New in Chef Client 12.8, support for OpenSSL validation of FIPS.
 
 .. end_tag
 
@@ -506,7 +504,7 @@ This can be resolved by running the command as root. There are a few ways this c
 
    .. code-block:: bash
 
-      $ chef-client
+      # chef-client
 
 * Use the sudo utility
 

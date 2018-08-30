@@ -704,12 +704,8 @@ This subcommand has the following options:
 ``-l``, ``--long``
    Display all attributes in the output and show the output as JSON.
 
-   New in Chef Client 12.0.
-
 ``-m``, ``--medium``
    Display normal attributes in the output and to show the output as JSON.
-
-   New in Chef Client 12.0.
 
 ``-q SEARCH_QUERY``, ``--query SEARCH_QUERY``
    Protect search queries that start with a hyphen (-). A ``-q`` query may be specified as an argument or an option, but not both.

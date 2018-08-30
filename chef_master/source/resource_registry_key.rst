@@ -58,8 +58,8 @@ The full syntax for all of the properties that are available to the **registry_k
      architecture               Symbol
      key                        String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::Windows::Registry
-     recursive                  TrueClass, FalseClass
+     recursive                  True, False
+     sensitive                  True, False # default value: 'false'
      subscribes                 # see description
      values                     Hash, Array
      action                     Symbol # defaults to :create if not specified
@@ -74,7 +74,7 @@ where
 
   .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``architecture``, ``key``, ``provider``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``architecture``, ``key``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -379,7 +379,7 @@ This resource has the following properties:
              .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -406,7 +406,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -423,13 +423,8 @@ This resource has the following properties:
 
    .. end_tag
 
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
-
 ``recursive``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 
@@ -448,6 +443,13 @@ This resource has the following properties:
    **Ruby Type:** Integer
 
    The retry delay (in seconds). Default value: ``2``.
+   
+``sensitive``
+   **Ruby Type:** True, False | **Default value:** False
+   
+   Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
+   
+   New in Chef Client 14.0.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -481,7 +483,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

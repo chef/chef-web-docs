@@ -155,12 +155,12 @@ Properties
 This resource has the following properties:
 
 ``admin``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Use to specify whether the chef-client is an API client.
 
 ``allow_overwrite_keys``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Use to overwrite the key on a machine when it is different from the key specified by ``source_key``.
 
@@ -221,7 +221,7 @@ This resource has the following properties:
       end
 
 ``converge``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Use to manage convergence when used with the ``:create`` action. Set to ``false`` to prevent convergence. Set to ``true`` to force convergence. When ``nil``, the machine will converge only if something changes. Default value: ``nil``.
 
@@ -261,7 +261,7 @@ This resource has the following properties:
    Use to specify an image created by the **machine_image** resource.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -292,7 +292,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -436,7 +436,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -460,7 +460,7 @@ This resource has the following properties:
    Use to add one (or more) tags. This will remove any tag currently associated with the machine. For example: ``tags :a, :b, :c``.
 
 ``validator``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Use to specify if the chef-client is a chef-validator.
 

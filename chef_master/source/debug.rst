@@ -8,7 +8,7 @@ Elements of good approaches to building cookbooks and recipes that are reliable 
 * A consistent syntax pattern when constructing recipes
 * Using the same patterns in Ruby
 * Using platform resources before creating custom ones
-* Using community-authored lightweight resources before creating custom ones
+* Using community-authored resources before creating custom ones
 
 Ideally, the best way to debug a recipe is to not have to debug it in the first place. That said, the following sections discuss various approaches to debugging recipes and failed chef-client runs.
 
@@ -84,7 +84,6 @@ The full syntax for all of the properties that are available to the **log** reso
      level                      Symbol
      message                    String # defaults to 'name' if not specified
      notifies                   # see description
-     provider                   Chef::Provider::ChefLog
      subscribes                 # see description
      action                     Symbol # defaults to :write if not specified
    end
@@ -95,7 +94,7 @@ where
 * ``name`` is the name of the resource block
 * ``message`` is the log message to write
 * ``action`` identifies the steps the Chef Client will take to bring the node into the desired state
-* ``level``, ``message``, and ``provider`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``level`` and ``message`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -124,14 +123,14 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass | **Default Value:** ``false``
+   **Ruby Types:** True, False | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
 ``level``
    **Ruby Type:** Symbol | **Default Value:** ``:info``
 
-   The level of logging that is to be displayed by the Chef Client. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
+   The logging level for displaying this message.. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
 
 ``message``
    **Ruby Type:** String
@@ -155,7 +154,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -171,11 +170,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
@@ -219,7 +213,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -808,13 +802,13 @@ Advanced Debugging
 -----------------------------------------------------
 .. tag chef_shell_advanced_debug
 
-In chef-shell, it is possible to get extremely verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:
+In chef-shell, it is possible to get verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:
 
 .. code-block:: bash
 
    $ chef > tracing on
-     /Users/danielsdeleo/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:150: warning: tried to create Proc object without a block
-     /Users/danielsdeleo/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:146: warning: tried to create Proc object without a block
+     /Users/username/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:150: warning: tried to create Proc object without a block
+     /Users/username/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8/tracer.rb:146: warning: tried to create Proc object without a block
      tracing is on
        => nil
 
@@ -953,8 +947,6 @@ This command has the following options:
 ``-f``, ``--[no-]fork``
    Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This option helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``.
 
-   Changed in Chef Client 12.0, unforked interval runs are no longer allowed.
-
 ``-F FORMAT``, ``--format FORMAT``
    .. tag ctl_chef_client_options_format
 
@@ -1058,15 +1050,11 @@ This command has the following options:
 ``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
    Replace the current run-list with the specified items.
 
-   New in Chef Client 12.0.
-
 ``-r RECIPE_URL``, ``--recipe-url RECIPE_URL``
    The URL location from which a remote cookbook tar.gz is to be downloaded.
 
 ``-s SECONDS``, ``--splay SECONDS``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. When the chef-client is run at intervals, ``--splay`` values are applied first, then the chef-client run occurs, and then ``--interval`` values are applied.
-
-   Changed in Chef Client 12.0 to be applied before the chef-client run.
 
 ``-u USER``, ``--user USER``
    The user that owns a process. This is required when starting any executable as a daemon.
@@ -1181,7 +1169,7 @@ Typing is evaluated in the same context as recipes. Create a file resource:
           @name="/tmp/ohai2u_shef",
           @action="create",
           @path="/tmp/ohai2u_shef",
-          @source_line="/Users/danielsdeleo/ruby/chef/chef/(irb#1) line 1",
+          @source_line="/Users/username/ruby/chef/chef/(irb#1) line 1",
           @params={},
           @actions={},
           @cookbook_name=nil,

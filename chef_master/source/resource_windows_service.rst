@@ -9,8 +9,6 @@ Use the **windows_service** resource to create, delete, and manage a service on 
 
 .. end_tag
 
-**New in Chef Client 12.0.**
-
 Syntax
 =====================================================
 .. tag resource_service_windows_syntax
@@ -40,8 +38,7 @@ The full syntax for all of the properties that are available to the **windows_se
      load_order_group           String
      notifies                   # see description
      pattern                    String
-     provider                   Chef::Provider::Service::Windows
-     reload_command             String
+     reload_command             String # not used on the Windows platform
      restart_command            String
      run_as_password            String
      run_as_user                String
@@ -62,7 +59,7 @@ where
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``provider``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -78,12 +75,12 @@ This resource has the following actions:
 ``:create``
    Create the service based on the value of the ``binary_path_name``, ``service_name`` and/or ``display_name`` property.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``:delete``
    Delete the service based on the value of the ``service_name`` property.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``:disable``
    Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform.
@@ -95,7 +92,7 @@ This resource has the following actions:
    Default. Do nothing with a service.
 
 ``:reload``
-   Reload the configuration for this service.
+   Reload the configuration for this service. This action is not supported on the Windows platform and will raise an error if used.
 
 ``:restart``
    Restart a service.
@@ -119,38 +116,38 @@ This resource has the following properties:
 
    **Required** The fully qualified path to the service binary file. The path can also include arguments for an auto-start service.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``display_name``
    **Ruby Type:** String
 
    The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``delayed_start``
    **Ruby Type:** Integer
 
    Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``dependencies``
    **Ruby Types:** String, Array
 
    A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``description``
    **Ruby Types:** String
 
    Description of the service.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -164,7 +161,7 @@ This resource has the following properties:
 
    The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 
-   New in Chef Client 13.7.16.
+   New in Chef Client 14.0.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -183,7 +180,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -204,11 +201,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The pattern to look for in the process table. Default value: ``service_name``.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``reload_command``
    **Ruby Type:** String
@@ -235,21 +227,15 @@ This resource has the following properties:
 
    The password for the user specified by ``run_as_user``.
 
-   New in Chef Client 12.1.
-
 ``run_as_user``
    **Ruby Type:** String
 
    The user under which a Microsoft Windows service runs.
 
-   New in Chef Client 12.1.
-
 ``service_name``
    **Ruby Type:** String
 
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
-
-   New in Chef Client 13.7.16.
 
 ``start_command``
    **Ruby Type:** String
@@ -303,7 +289,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -423,7 +409,7 @@ Create service with a description:
 
 .. tag resource_service_windows_delete
 
-Deelete service with the ``'name'`` of ``chef-client``:
+Delete service with the ``'name'`` of ``chef-client``:
 
 .. code-block:: ruby
 

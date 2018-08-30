@@ -9,8 +9,6 @@ Use the **osx_profile** resource to manage configuration profiles (``.mobileconf
 
 .. end_tag
 
-*New in Chef Client 12.7.*
-
 Syntax
 =====================================================
 .. tag resource_osx_profile_syntax
@@ -77,7 +75,7 @@ This resource has the following properties:
    Use to specify the identifier for the profile, such as ``com.company.screensaver``.
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -98,7 +96,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -124,11 +122,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    Use to specify the name of the profile, if different from the name of the resource block.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``retries``
    **Ruby Type:** Integer
@@ -172,7 +165,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

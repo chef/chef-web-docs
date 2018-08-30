@@ -30,20 +30,23 @@ The full syntax for all of the properties that are available to the **zypper_rep
 .. code-block:: ruby
 
    zypper_repository 'name' do
-      autorefresh           TrueClass, FalseClass
+      autorefresh           true, false
       baseurl               String
+      cookbook              String
       description           String
-      enabled               TrueClass, FalseClass
-      gpgcheck              TrueClass, FalseClass
+      enabled               true, false
+      gpgautoimportkeys     true, false
+      gpgcheck              true, false
       gpgkey                String
-      keeppackages          TrueClass, FalseClass
+      keeppackages          true, false
       mirrorlist            String
       mode                  String
       notifies              # see description
       path                  String
       priority              Integer
-      refresh_cache         TrueClass, FalseClass
+      refresh_cache         true, false
       repo_name             String
+      source                String
       subscribes            # see description
       type                  String
 
@@ -55,60 +58,69 @@ This resource has the following actions:
 
 ``:add``
 
-   Default action. Add a new Zypper repository. 
+   Default action. Add a new Zypper repository.
 
 ``:remove``
 
-   Remove a Zypper repository. 
+   Remove a Zypper repository.
 
 Properties
 ==========================================
 This resource has the following properties:
 
-``autorefresh``           
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** False
+``autorefresh``
+   **Ruby Type:** true, false |  **Default Value:** true
 
    Determines whether or not the repository should be refreshed automatically.
 
-``baseurl``               
+``baseurl``
    **Ruby Type:** String
 
-   The base URL for the Zypper repository, such as ``http://download.opensuse.org``. 
+   The base URL for the Zypper repository, such as ``http://download.opensuse.org``.
 
-``description``           
-   **Ruby Type:** String
-   
-   The description of the repository that will be shown by the ``zypper repos`` command. 
-
-``enabled``               
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** True
-
-   Determines whether or not the repository should be enabled. 
-
-``gpgcheck``             
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** True 
-   
-   Determines whether or not to perform a GPG signature check on the repository. 
-
-``gpgkey``                
+``cookbook``
    **Ruby Type:** String
 
-   The location of the repository key to be imported. 
+   The cookbook to source the repository template file from. Only necessary if you're not using the built in template.
+
+``description``
+   **Ruby Type:** String
+
+   The description of the repository that will be shown by the ``zypper repos`` command.
+
+``enabled``
+   **Ruby Type:** true, false  |  **Default Value:** true
+
+   Determines whether or not the repository should be enabled.
+
+``gpgautoimportkeys``
+   **Ruby Type:** true, false | **Default Value:** ``true``
+
+   Automatically import the specified key when setting up the repository.
+``gpgcheck``
+   **Ruby Type:** true, false  |  **Default Value:** true
+
+   Determines whether or not to perform a GPG signature check on the repository.
+
+``gpgkey``
+   **Ruby Type:** String
+
+   The location of the repository key to be imported.
 
 ``keeppackages``
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** False
+   **Ruby Type:** true, false  |  **Default Value:** false
 
-   Determines whether or not packages should be saved. 
+   Determines whether or not packages should be saved.
 
-``mirrorlist``           
+``mirrorlist``
    **Ruby Type:** String
 
-   The URL of the mirror list that will be used. 
+   The URL of the mirror list that will be used.
 
-``mode``                  
+``mode``
    **Ruby Type:** String  |  **Default Value:** ``0644``
 
-   The file mode of the repository file. 
+   The file mode of the repository file.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -127,7 +139,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -147,22 +159,28 @@ This resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   The relative path from the repository's base URL. 
+   The relative path from the repository's base URL.
 
-``priority``              
+``priority``
    **Ruby Type:** Integer  |  **Default Value:** ``99``
 
-   Determines the priority of the Zypper repository. 
+   Determines the priority of the Zypper repository.
 
-``refresh_cache``         
-   **Ruby Type:** TrueClass, FalseClass  |  **Default Value:** True
+``refresh_cache``
+   **Ruby Type:** true, false  |  **Default Value:** true
 
-   Determines whether or not the package cache should be refreshed. 
+   Determines whether or not the package cache should be refreshed.
 
-``repo_name``             
+``repo_name``
    **Ruby Type:** String
 
-   Specifies the repository name, if it differs from the resource name. 
+   Specifies the repository name, if it differs from the resource name.
+
+``source``
+   **Ruby Type:** String
+
+   The name of the template for the repository file. Only necessary if you're not using the built in template.
+
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -196,7 +214,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -213,10 +231,10 @@ This resource has the following properties:
 
    .. end_tag
 
-``type``                  
+``type``
    **Ruby Type:** String  |  **Default Value:** ``NONE``
 
-   Specifies the repository type. 
+   Specifies the repository type.
 
 Examples
 ==========================================

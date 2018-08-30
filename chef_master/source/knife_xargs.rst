@@ -42,8 +42,6 @@ This subcommand has the following options:
 ``--dry-run``
    Prevent changes from being uploaded to the Chef server. Default: ``false``.
 
-   New in Chef Client 12.0.
-
 ``--[no-]force``
    Force the upload of files even if they haven't been changed. Default: ``--no-force``.
 

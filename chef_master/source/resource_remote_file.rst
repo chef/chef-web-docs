@@ -38,28 +38,27 @@ The full syntax for all of the properties that are available to the **remote_fil
 .. code-block:: ruby
 
    remote_file 'name' do
-     atomic_update              TrueClass, FalseClass
-     backup                     FalseClass, Integer
+     atomic_update              True, False
+     backup                     False, Integer
      checksum                   String
-     force_unlink               TrueClass, FalseClass
-     ftp_active_mode            TrueClass, FalseClass
+     force_unlink               True, False
+     ftp_active_mode            True, False
      group                      String, Integer
      headers                    Hash
-     inherits                   TrueClass, FalseClass
-     manage_symlink_source      TrueClass, FalseClass
+     inherits                   True, False
+     manage_symlink_source      True, False
      mode                       String, Integer
      notifies                   # see description
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     provider                   Chef::Provider::File::RemoteFile
      rights                     Hash
      source                     String, Array
      subscribes                 # see description
-     use_conditional_get        TrueClass, FalseClass
-     use_etag                   TrueClass, FalseClass
-     use_last_modified          TrueClass, FalseClass
+     use_conditional_get        True, False
+     use_etag                   True, False
+     use_last_modified          True, False
      verify                     String, Block
-     show_progress              TrueClass, FalseClass
+     show_progress              True, False
      remote_user                String
      remote_password            String
      remote_domain              String
@@ -71,7 +70,7 @@ where
 * ``remote_file`` is the resource
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``provider``, ``remote_user``, ``remote_password``, ``remote_domain``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, ```show_progress`` and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``remote_user``, ``remote_password``, ``remote_domain``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, ```show_progress`` and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
@@ -101,12 +100,12 @@ Properties
 This resource has the following properties:
 
 ``atomic_update``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file. Default value: ``true``.
 
 ``backup``
-   **Ruby Types:** FalseClass, Integer
+   **Ruby Types:** False, Integer
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept. Default value: ``5``.
 
@@ -116,12 +115,12 @@ This resource has the following properties:
    Optional, see ``use_conditional_get``. The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it.
 
 ``force_unlink``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error. Default value: ``false``.
 
 ``ftp_active_mode``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Whether the chef-client uses active or passive FTP. Set to ``true`` to use active FTP. Default value: ``false``.
 
@@ -152,17 +151,17 @@ This resource has the following properties:
       headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").gsub("\n", "") }" )
 
 ``ignore_failure``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``inherits``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
 
 ``manage_symlink_source``
-   **Ruby Types:** TrueClass, FalseClass | **Default Value:** ``true`` (with warning)
+   **Ruby Types:** True, False | **Default Value:** ``true`` (with warning)
 
    Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
 
@@ -196,7 +195,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -222,11 +221,6 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The full path to the file, including the file name and its extension. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``provider``
-   **Ruby Type:** Chef Class
-
-   Optional. Explicitly specifies a provider.
 
 ``remote_user``
    **Ruby Types:** String
@@ -299,8 +293,6 @@ This resource has the following properties:
 
       source '\\\\path\\to\\img\\sketch.png'
 
-      New in Chef Client 12.4.
-
    By using a node attribute:
 
    .. code-block:: ruby
@@ -359,7 +351,7 @@ This resource has the following properties:
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the very end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -377,22 +369,22 @@ This resource has the following properties:
    .. end_tag
 
 ``use_conditional_get``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Enable conditional HTTP requests by using a conditional ``GET`` (with the If-Modified-Since header) or an opaque identifier (ETag). To use If-Modified-Since headers, ``use_last_modified`` must also be set to ``true``. To use ETag headers, ``use_etag`` must also be set to ``true``. Default value: ``true``.
 
 ``use_etag``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Enable ETag headers. Set to ``false`` to disable ETag headers. To use this setting, ``use_conditional_get`` must also be set to ``true``. Default value: ``true``.
 
 ``use_last_modified``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Enable If-Modified-Since headers. Set to ``false`` to disable If-Modified-Since headers. To use this setting, ``use_conditional_get`` must also be set to ``true``. Default value: ``true``.
 
 ``show_progess``
-   **Ruby Types:** TrueClass, FalseClass
+   **Ruby Types:** True, False
 
    Displays the progress of the file download. Set to ``true`` to enable this feature. Default value: ``false``.
 
@@ -456,8 +448,6 @@ This resource has the following properties:
       end
 
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
-
-   New in Chef Client 12.1.
 
 Atomic File Updates
 -----------------------------------------------------
@@ -672,49 +662,6 @@ OR
      remote_password "password"
    end
 
-Providers
-=====================================================
-.. tag resources_common_provider
-
-Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
-
-.. end_tag
-
-.. tag resources_common_provider_attributes
-
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
-
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
-
-* Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
-* Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
-
-  .. code-block:: ruby
-
-     pkg_resource = case node['platform_family']
-       when 'debian'
-         :dpkg_package
-       when 'fedora', 'rhel', 'amazon'
-         :rpm_package
-       end
-
-     pkg_path = (pkg_resource == :dpkg_package) ? '/tmp/foo.deb' : '/tmp/foo.rpm'
-
-     declare_resource(pkg_resource, pkg_path) do
-       action :install
-     end
-
-.. end_tag
-
-.. tag resource_provider_list_note
-
-For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
-
-.. end_tag
-
-``Chef::Provider::File::RemoteFile``, ``remote_file``
-   The default provider for all platforms.
-
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
@@ -754,7 +701,7 @@ The following examples demonstrate various approaches for using resources in rec
      message ''
      url 'http://couchdb.apache.org/img/sketch.png'
      action :head
-     if File.exist?('/tmp/couch.png')
+     if ::File.exist?('/tmp/couch.png')
        headers 'If-Modified-Since' => File.mtime('/tmp/couch.png').httpdate
      end
      notifies :create, 'remote_file[/tmp/couch.png]', :immediately
