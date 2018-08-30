@@ -1,11 +1,9 @@
 =====================================================
 openssl_ec_private_key
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_private_key>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_private_key.rst>`__
 
-Use the **openssl_ec_private_key** resource to generate an elliptic curve (EC) private key files. If a valid EC key file can be opened at the specified location, no new file will be created. If the EC key file cannot be opened or does not exist, it will be overwritten.
-
-.. note:: If the password to your EC key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
+Use the **openssl_ec_private_key** resource to generate an elliptic curve (EC) private key file. If a valid EC key file can be opened at the specified location, no new file will be created. If the EC key file cannot be opened, either because it does not exist or because the password to the EC key file does not match the password in the recipe, then it will be overwritten.
 
 **New in Chef Client 14.4.**
 
@@ -15,7 +13,7 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_ec_private_key_file 'name' do
+   openssl_ec_private_key 'name' do
      force                      True, False # default value: 'false'
      group                      String
      key_cipher                 String # default value: 'des3'
