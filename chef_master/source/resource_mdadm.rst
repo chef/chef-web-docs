@@ -81,7 +81,7 @@ This resource has the following properties:
    The chunk size. This property should not be used for a RAID 1 mirrored pair (i.e. when the ``level`` property is set to ``1``).
 
 ``devices``
-   **Ruby Type:** Array | **Default Value:** `[]``
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
    The devices to be part of a RAID array.
 
