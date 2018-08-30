@@ -43,7 +43,7 @@ where
 * ``task_name`` is the name of the task.
 * ``command`` is the command to be executed by the windows scheduled task.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``cwd``, ``user``, ``password``, ``run_level``, ``force``, ``interactive_enabled``, ``frequency``, ``frequency_modifier``, ``start_day``, ``start_time``, ``day``, ``months``, ``idle_time`` etc. are the properties of this resource, with the Ruby type shown. See the “Properties” section below for more information about all of the properties that may be used with this resource.
+* ``cwd``, ``day``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, and ``stop_if_going_on_batteries`` are the properties available to this resource.
 
 Actions
 =====================================================
