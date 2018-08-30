@@ -47,7 +47,7 @@ Actions
 Properties
 =====================================================
 ``group``
-   **Ruby Type:** String, 
+   **Ruby Type:** String
 
    The group ownership applied to all files created by the resource.
 
@@ -91,7 +91,7 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Type:** String, 
+   **Ruby Type:** String
 
    The owner applied to all files created by the resource.
 

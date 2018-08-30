@@ -146,7 +146,7 @@ Properties
 ``key_pass``
    **Ruby Type:** String
 
-   The passphrase for an existing key's passphrase
+   The passphrase for an existing key's passphrase.
 
 ``key_type``
    **Ruby Type:** String | **Default Value:** ``rsa``

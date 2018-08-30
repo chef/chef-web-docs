@@ -105,7 +105,7 @@ Properties
    The desired type of the generated key (rsa or ec).
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String
 
    The permission mode applied to all files created by the resource.
 
@@ -154,7 +154,7 @@ Properties
    Value for the ``OU`` certificate field.
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The owner applied to all files created by the resource.
 

@@ -57,7 +57,7 @@ Properties
 ``group``
    **Ruby Type:** String
 
-   The group of all files created by the resource.
+   The group ownership applied to all files created by the resource.
 
 ``key_cipher``
    **Ruby Type:** String | **Default Value:** ``des3``
@@ -67,7 +67,7 @@ Properties
 ``key_curve``
    **Ruby Type:** String | **Default Value:** ``prime256v1``
 
-   The desired curve of the generated key (if key_type is equal to 'ec'). Run ``openssl ecparam -list_curves`` to see available options
+   The desired curve of the generated key (if key_type is equal to 'ec'). Run ``openssl ecparam -list_curves`` to see available options.
 
 ``key_pass``
    **Ruby Type:** String
@@ -116,7 +116,7 @@ Properties
 ``owner``
    **Ruby Type:** String
 
-   The owner of all files created by the resource.
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String

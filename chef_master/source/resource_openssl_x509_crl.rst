@@ -131,7 +131,7 @@ Properties
 ``revocation_reason``
    **Ruby Type:** Integer | **Default Value:** ``0``
 
-   Reason for the revokation.
+   Reason for the revocation.
 
 ``serial_to_revoke``
    **Ruby Type:** Integer, String
