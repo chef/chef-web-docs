@@ -1064,7 +1064,7 @@ Solaris SMF services can now be started recursively
 -----------------------------------------------------
 It is now possible to load Solaris services recursively, by ensuring the new ``options`` property of the ``service`` resource contains ``-r``.
 
-The guard interpreter for ``powershell_script`` is Powershell, again
+The guard interpreter for ``powershell_script`` is PowerShell, again
 ------------------------------------------------------------------------------
 When writing ``not_if`` or ``only_if`` statements, by default we now run those statements using powershell, rather than forcing the user to set ``guard_interpreter`` each time.
 
@@ -5899,13 +5899,13 @@ dsc_resource
 
 .. tag resources_common_powershell
 
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting>`_ that supports using Chef for configuration management.
 
 .. end_tag
 
 .. tag resources_common_powershell_dsc
 
-Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
+Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <https://docs.microsoft.com/en-us/powershell/dsc/overview>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
 
 .. end_tag
 
@@ -6091,7 +6091,7 @@ This resource has the following properties:
       * - ``:registry``
         - Use to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
       * - ``:script``
-        - Use to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
+        - Use to `run PowerShell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
       * - ``:service``
         - Use to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
       * - ``:user``

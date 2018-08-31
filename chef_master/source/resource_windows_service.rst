@@ -28,13 +28,12 @@ The full syntax for all of the properties that are available to the **windows_se
 
    windows_service 'name' do
      binary_path_name           String
-     display_name               String
      desired_access             Integer
      delayed_start              [Integer] # This only applies if startup_type is :automatic
      dependencies               [String, Array]
      description                String
      desired_access             Integer # defaults to 983551
-     display_name                String
+     display_name               String
      error_control              Integer
      init_command               String
      load_order_group           String
@@ -56,7 +55,7 @@ The full syntax for all of the properties that are available to the **windows_se
      action                     Symbol # defaults to :nothing if not specified
    end
 
-where
+where:
 
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block

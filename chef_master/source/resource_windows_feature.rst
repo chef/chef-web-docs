@@ -34,38 +34,38 @@ where:
 Actions
 =====================================================
 ``:install``
-   Default. Install a Windows role / feature using Powershell.
-   
+   Default. Install a Windows role / feature using PowerShell.
+
 ``:remove``
-   Remove a Windows role / feature using Powershell.
-   
+   Remove a Windows role / feature using PowerShell.
+
 ``:delete``
-   Delete a Windows role / feature from the image using Powershell.
-   
+   Delete a Windows role / feature from the image using PowerShell.
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 ``all``
    **Ruby Type:** True, False | **Default Value:** ``false``
-   
+
    Install all subfeatures.
-   
+
 ``feature_name``
    **Ruby Type:** Array, String | **Default Value:** ``'name'``
-   
+
    The name of the feature(s) or role(s) to install, if it differs from the resource block name.
-   
+
 ``management_tools``
    **Ruby Type:** true, false | **Default Value:** ``false``
-   
-   Install all applicable management tools for the roles, role services, or features (Powershell-only).
-   
+
+   Install all applicable management tools for the roles, role services, or features (PowerShell-only).
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -99,12 +99,12 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``source``
    **Ruby Type:** String
-   
-   Specify a local repository for the feature install. 
-   
+
+   Specify a local repository for the feature install.
+
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -153,8 +153,8 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``timeout``
    **Ruby Type:** Integer | **Default Value:** ``600``
-   
+
    Specifies a timeout (in seconds) for the feature installation.

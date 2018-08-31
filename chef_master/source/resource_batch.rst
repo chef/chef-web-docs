@@ -256,7 +256,7 @@ This resource has the following properties:
    *Windows only*: The domain of the user user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
-.. note:: See http://technet.microsoft.com/en-us/library/bb490880.aspx for more information about the cmd.exe interpreter.
+.. note:: See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd for more information about the cmd.exe interpreter.
 
 .. end_tag
 

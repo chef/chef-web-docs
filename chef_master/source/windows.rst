@@ -7,9 +7,9 @@ Chef for Microsoft Windows
 
 The chef-client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
 
-* The chef-client is `installed on a machine <https://downloads.chef.io/chef-client/windows/>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
+* The chef-client is `installed on a machine <https://downloads.chef.io/chef>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
 * Six resources dedicated to the Microsoft Windows platform are built into the chef-client: **batch**, **dsc_script**, **env**, **powershell_script**, **registry_key**, and **windows_package**
-* Use the **dsc_resource** to use Powershell DSC resources in Chef!
+* Use the **dsc_resource** to use PowerShell DSC resources in Chef!
 * Two knife plugins dedicated to the Microsoft Windows platform are available: ``knife azure`` is used to manage virtual instances in Microsoft Azure; ``knife windows`` is used to interact with and manage physical nodes that are running Microsoft Windows, such as desktops and servers
 * Many community cookbooks on Supermarket provide Windows specific support. Chef maintains cookbooks for `PowerShell <https://github.com/chef-cookbooks/powershell>`_, `IIS <https://github.com/chef-cookbooks/iis>`_, `SQL Server <https://github.com/chef-cookbooks/database>`_, and `Windows <https://github.com/chef-cookbooks/windows>`_.
 * The following Microsoft Windows platform-specific helpers can be used in recipes:
@@ -93,7 +93,7 @@ The chef-client can be used to manage machines that run on the following version
 
 (The recommended amount of RAM available to the chef-client during a chef-client run is 512MB. Each node and workstation must have access to the Chef server via HTTPS. Ruby version 1.9.1 or Ruby version 1.9.2 with SSL bindings is required.)
 
-The Microsoft Installer Package (MSI) for Microsoft Windows is available at http://www.chef.io/chef/install/. From the drop-downs, select the operating system (``Windows``), then the version, and then the architecture.
+The Microsoft Installer Package (MSI) for Microsoft Windows is available at https://downloads.chef.io/chef.
 
 After the chef-client is installed, it is located at ``C:\chef``. The main configuration file for the chef-client is located at ``C:\chef\client.rb``.
 
@@ -533,7 +533,7 @@ For more information ...
 -----------------------------------------------------
 For more information about Microsoft Azure and how to use it with Chef:
 
-* `Microsoft Azure Documentation <http://www.windowsazure.com/en-us/documentation/services/virtual-machines/>`_
+* `Microsoft Azure Documentation <https://docs.microsoft.com/en-us/azure/virtual-machines/>`_
 * `azure-cookbook <https://github.com/chef-partners/azure-cookbook>`_
 
 Knife
@@ -1550,7 +1550,7 @@ Requirements
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag plugin_knife_windows_winrm_requirements
 
-This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: http://msdn.microsoft.com/en-us/library/aa384372(v=vs.85).aspx and/or http://support.microsoft.com/kb/968930. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
+This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management and/or https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
 
 .. code-block:: bash
 
@@ -1618,7 +1618,7 @@ Domain Authentication
 The ``knife windows`` plugin supports Microsoft Windows domain authentication. This requires:
 
 * An SSL certificate on the target node
-* The certificate details can be viewed and its `thumbprint hex values copied <http://msdn.microsoft.com/en-us/library/ms788967.aspx>`_
+* The certificate details can be viewed and its `thumbprint hex values copied <https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in>`_
 
 To create the listener over HTTPS, run the following command:
 
@@ -2205,7 +2205,7 @@ This resource has the following actions:
 
 .. end_tag
 
-Attributes
+Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_batch_attributes
 
@@ -2381,7 +2381,7 @@ This resource has the following properties:
    *Windows only*: The domain of the user user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
-.. note:: See http://technet.microsoft.com/en-us/library/bb490880.aspx for more information about the cmd.exe interpreter.
+.. note:: See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd for more information about the cmd.exe interpreter.
 
 .. end_tag
 
@@ -2443,7 +2443,7 @@ A `resource </resource.html>`__ defines the desired state for a single configura
 
 .. tag resources_common_powershell_dsc
 
-Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
+Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <https://docs.microsoft.com/en-us/powershell/dsc/overview>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
 
 .. end_tag
 
@@ -2538,7 +2538,7 @@ This resource has the following properties:
 ``module_version``
    **Ruby Type:** String
 
-   The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
+   The version number of the module to use. PowerShell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -2640,7 +2640,7 @@ This resource has the following properties:
       * - ``:registry``
         - Use to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
       * - ``:script``
-        - Use to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
+        - Use to `run PowerShell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
       * - ``:service``
         - Use to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
       * - ``:user``
@@ -2840,13 +2840,13 @@ A `resource </resource.html>`__ defines the desired state for a single configura
 
 .. tag resources_common_powershell
 
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting>`_ that supports using Chef for configuration management.
 
 .. end_tag
 
 .. tag resources_common_powershell_dsc
 
-Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
+Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <https://docs.microsoft.com/en-us/powershell/dsc/overview>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
 
 .. end_tag
 
@@ -2950,7 +2950,7 @@ This resource has the following properties:
 ``configuration_data``
    **Ruby Type:** String
 
-   The configuration data for the DSC script. The configuration data must be `a valid Windows Powershell data file <http://msdn.microsoft.com/en-us/library/dd878337(v=vs.85).aspx>`_. This property may not be used in the same recipe as the ``configuration_data_script`` property.
+   The configuration data for the DSC script. The configuration data must be `a valid Windows PowerShell data file <https://docs.microsoft.com/en-us/powershell/developer/windows-powershell>`_. This property may not be used in the same recipe as the ``configuration_data_script`` property.
 
 ``configuration_data_script``
    **Ruby Type:** String
@@ -3137,7 +3137,7 @@ DSC data can be specified directly in a recipe:
 
 .. end_tag
 
-**Specify DSC code using a Windows Powershell data file**
+**Specify DSC code using a Windows PowerShell data file**
 
 .. tag resource_dsc_script_command
 
@@ -4518,6 +4518,7 @@ The full syntax for all of the properties that are available to the **windows_pa
      installer_type             Symbol
      notifies                   # see description
      options                    String
+     package_name               String, Array
      remote_file_attributes     Hash
      returns                    Integer, Array of integers
      source                     String # defaults to 'name' if not specified
@@ -4527,9 +4528,9 @@ The full syntax for all of the properties that are available to the **windows_pa
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``windows_package`` tells the chef-client to manage a package
+* ``windows_package`` is the resource.
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
@@ -4853,11 +4854,12 @@ The full syntax for all of the properties that are available to the **windows_se
 
    windows_service 'name' do
      binary_path_name           String
-     display_name               String
      desired_access             Integer
      delayed_start              [Integer] # This only applies if startup_type is :automatic
      dependencies               [String, Array]
      description                String
+     desired_access             Integer # defaults to 983551
+     display_name               String
      error_control              Integer
      init_command               String
      load_order_group           String
@@ -4879,7 +4881,7 @@ The full syntax for all of the properties that are available to the **windows_se
      action                     Symbol # defaults to :nothing if not specified
    end
 
-where
+where:
 
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block

@@ -14,7 +14,6 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    windows_pagefile 'name' do
-
      automatic_managed          True, False # default value: 'false'
      initial_size               Integer
      maximum_size               Integer
@@ -95,7 +94,7 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``path``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
