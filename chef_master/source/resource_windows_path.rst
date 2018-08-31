@@ -5,17 +5,17 @@ windows_path
 
 Use the **windows_path** resource to manage the path environment variable on Microsoft Windows.
 
-New in Chef Client 13.4
+**New in Chef Client 13.4.**
 
 Syntax
-==========================================
-A **windows_path** resource manages the path environment variable on Microsoft Windows.
+=====================================================
+This resource has the following syntax:
 
 .. code-block:: ruby
 
    windows_path 'name' do
      path                   String
-     action                 Symbol
+     action                 Symbol # defaults to :add if not specified
    end
 
 where
@@ -74,7 +74,7 @@ This resource has the following properties:
 
 ``path``
    **Ruby Type:** String
-   Name attribute. The name of the value to add to the system path
+   Name property. The name of the value to add to the system path
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

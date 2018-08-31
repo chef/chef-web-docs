@@ -74,7 +74,7 @@ Properties
 This resource has the following properties:
 
 ``autorefresh``
-   **Ruby Type:** true, false |  **Default Value:** true
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not the repository should be refreshed automatically.
 
@@ -94,7 +94,7 @@ This resource has the following properties:
    The description of the repository that will be shown by the ``zypper repos`` command.
 
 ``enabled``
-   **Ruby Type:** true, false  |  **Default Value:** true
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not the repository should be enabled.
 
@@ -103,7 +103,7 @@ This resource has the following properties:
 
    Automatically import the specified key when setting up the repository.
 ``gpgcheck``
-   **Ruby Type:** true, false  |  **Default Value:** true
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not to perform a GPG signature check on the repository.
 
@@ -113,7 +113,7 @@ This resource has the following properties:
    The location of the repository key to be imported.
 
 ``keeppackages``
-   **Ruby Type:** true, false  |  **Default Value:** false
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether or not packages should be saved.
 
@@ -123,7 +123,7 @@ This resource has the following properties:
    The URL of the mirror list that will be used.
 
 ``mode``
-   **Ruby Type:** String  |  **Default Value:** ``0644``
+   **Ruby Type:** String, Integer | **Default Value:** ``0644``
 
    The file mode of the repository file.
 
@@ -172,12 +172,12 @@ This resource has the following properties:
    Determines the priority of the Zypper repository.
 
 ``refresh_cache``
-   **Ruby Type:** true, false  |  **Default Value:** true
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not the package cache should be refreshed.
 
 ``repo_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    Specifies the repository name, if it differs from the resource name.
 

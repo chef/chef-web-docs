@@ -3,7 +3,7 @@ windows_printer
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
 
-Use the **windows_printer** resource to setup Windows printers. This resource does not install a printer driver; you must already have the driver installed on the system.
+Use the **windows_printer** resource to setup Windows printers. Note that this doesn't currently install a printer driver. You must already have the driver installed on the system.
 
 **New in Chef Client 14.0.**
 
@@ -63,7 +63,7 @@ Properties
 ``device_id``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   Printer queue name, such as: ``"HP LJ 5200 2nd floor"``.
+   Printer queue name, such as: ``"HP LJ 5200 in fifth floor copy room"``.
 
 ``driver_name``
    **Ruby Type:** String
@@ -73,7 +73,7 @@ Properties
 ``ipv4_address``
    **Ruby Type:** String
    
-   The IPv4 address of the printer.
+   The IPv4 address of the printer, such as '10.4.64.23'.
 
 ``location``
    **Ruby Type:** String
@@ -113,17 +113,17 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
-``shared``
-   **Ruby Type:** True, False | **Default Value:** ``false``
-   
-   Determines whether or not the printer is shared.
 
 ``share_name``
    **Ruby Type:** String
-   
+
    The name used to identify the shared printer.
-   
+
+``shared``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Determines whether or not the printer is shared.
+
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

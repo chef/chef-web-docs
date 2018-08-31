@@ -40,7 +40,7 @@ The full syntax for all of the properties that are available to the **windows_pa
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
 * ``windows_package`` is the resource.
 * ``'name'`` is the name of the package

@@ -38,7 +38,7 @@ The full syntax for all of the properties that are available to the **systemd_un
      triggers_reload        Boolean
    end
 
-where
+where:
 
 * ``name`` is the name of the unit. Must include the type/suffix (e.g. `name.socket` or `name.service`).
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.

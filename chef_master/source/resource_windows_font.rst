@@ -30,22 +30,22 @@ where:
 Actions
 =====================================================
 ``:install``
-   Default. Install the font to the system fonts directory. 
-   
+   Default. Install the font to the system fonts directory.
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 ``font_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
-   
+
    The name of the font file to install, if it differs from the resource name.
-   
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -79,10 +79,10 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``source``
    **Ruby Type:** String
-   
+
    A local filesystem path or URI that is used to source the font file.
 
 ``subscribes``
@@ -133,4 +133,3 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
