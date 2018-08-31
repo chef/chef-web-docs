@@ -2,6 +2,7 @@
   "workstation.html": "/chefdk_setup.html",
   "resource_env.html": "/resource_windows_env.html",
   "resources.html": "/resource_reference.html",
+  "resource_yum.html": "/resource_yum_package.html",
   "habitat.html": "https://www.habitat.sh/docs/",
   "inspec.html": "https://www.inspec.io/docs/",
   "ctl_delivery.html": "/delivery_cli.html",
