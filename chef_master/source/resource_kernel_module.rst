@@ -1,11 +1,11 @@
 =====================================================
-windows_printer_port
+kernel_module
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_kernel_module.rst>`__
 
-Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer ports on Windows.
+Use the **kernel_module** resource to manage kernel modules on Linux systems. This resource can load, unload, blacklist, install, and uninstall modules.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
@@ -13,31 +13,37 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_printer_port 'name' do
-     ipv4_address               String # default value: 'name'
-     notifies                   # see description
-     port_description           String
-     port_name                  String
-     port_number                Integer # default value: '9100'
-     port_protocol              Integer # default value: '1'
-     snmp_enabled               True, False # default value: 'false'
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+   kernel_module 'name' do
+     load_dir              String # defaults to /etc/modules-load.d
+     modname               String
+     notifies              # see description
+     unload_dir            String # defaults to /etc/modprobe.d
+     subscribes            # see description
+     action                Symbol # defaults to :install if not specified
    end
 
 where:
 
-* ``windows_printer_port`` is the resource
-* ``'name'`` is the IP address of the printer, or the name of the resource block
-* ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, and ``port_protocol`` are the properties available to this resource.
+* ``kernel_module`` is the name of the resource
+* ``load_dir``, ``modname`` are the properties available to this resource.
 
 Actions
 =====================================================
-``:create``
-   Default. Create the printer port, if one doesn't already exist.
 
-``:delete``
-   Delete an existing printer port.
+``:blacklist``
+   Blacklist a kernel module.
+
+``:install``
+   Default. Load kernel module, and ensure it loads on reboot.
+
+``:load``
+   Load a kernel module.
+
+``:uninstall``
+   Unload a kernel module and remove module config, so it doesn't load on reboot.
+
+``:unload``
+   Unload kernel module.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -48,10 +54,16 @@ Actions
 
 Properties
 =====================================================
-``ipv4_address``
-   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The IPv4 address of the printer, if it differs from the resource block name.
+``load_dir``
+   **Ruby Type:** String | **Default Value:** ``/etc/modules-load.d``
+
+   The directory to load modules from.
+
+``modname``
+   **Ruby Type:** String
+
+   The name of the kernel module.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -86,31 +98,6 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``port_description``
-   **Ruby Type:** String
-
-   The description of the port.
-
-``port_name``
-   **Ruby Type:** String
-
-   The port name.
-
-``port_number``
-   **Ruby Type:** Integer | **Default Value:** ``9100``
-
-   The port number.
-
-``port_protocol``
-   **Ruby Type:** Integer | **Default Value:** ``1``
-
-   The printer port protocol; ``1`` (RAW) or ``2`` (LPR).
-
-``snmp_enabled``
-   **Ruby Type:** True, False | **Default Value:** ``false``
-
-   Determines if SNMP is enabled on the port
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -160,3 +147,8 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
+
+``unload_dir``
+   **Ruby Type:** String | **Default Value:** ``/etc/modprobe.d``
+
+   The modprobe.d directory.

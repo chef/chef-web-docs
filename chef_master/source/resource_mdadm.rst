@@ -86,7 +86,7 @@ This resource has the following properties:
    The devices to be part of a RAID array.
 
 ``exists``
-   **Ruby Type:** TrueClass, FalseClass | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Indicates whether the RAID array exists.
 

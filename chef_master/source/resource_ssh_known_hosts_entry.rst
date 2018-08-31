@@ -1,11 +1,11 @@
 =====================================================
-windows_printer_port
+ssh_known_hosts_entry
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ssh_known_hosts_entry.rst>`__
 
-Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer ports on Windows.
+Use the **ssh_known_hosts_entry** resource to add an entry for the specified host in /etc/ssh/ssh_known_hosts or a user's known hosts file if specified.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
@@ -13,31 +13,35 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_printer_port 'name' do
-     ipv4_address               String # default value: 'name'
-     notifies                   # see description
-     port_description           String
-     port_name                  String
-     port_number                Integer # default value: '9100'
-     port_protocol              Integer # default value: '1'
-     snmp_enabled               True, False # default value: 'false'
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+   ssh_known_hosts_entry 'name' do
+     file_location             String # defaults to /etc/ssh/ssh_known_hosts
+     group                     String # defaults to the root_group on the system
+     hash_entries              true, false # defaults to false
+     host                      String
+     key                       String
+     key_type                  String # defaults to rsa
+     mode                      String # defaults to 0644
+     notifies                  # see description
+     owner                     String # defaults to root
+     port                      Integer # defaults to 22
+     subscribes                # see description
+     timeout                   Integer # defaults to 30
+     action                    Symbol # defaults to :create if not specified
    end
 
 where:
 
-* ``windows_printer_port`` is the resource
-* ``'name'`` is the IP address of the printer, or the name of the resource block
-* ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, and ``port_protocol`` are the properties available to this resource.
+* ``ssh_known_hosts_entry`` is the name of the resource
+* ``file_location``, ``group``, ``hash_entries``, ``host``, ``key``, ``key_type``, ``mode``, ``owner``, and ``port`` are the properties available to this resource
 
 Actions
 =====================================================
-``:create``
-   Default. Create the printer port, if one doesn't already exist.
 
-``:delete``
-   Delete an existing printer port.
+``:create``
+   Default. Create an entry in the ssh_known_hosts file.
+
+``:flush``
+   Immediately flush the entries to the config file. Without this the actual writing of the file is delayed in the Chef run so all entries can be accumulated before writing the file out.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -48,10 +52,41 @@ Actions
 
 Properties
 =====================================================
-``ipv4_address``
-   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The IPv4 address of the printer, if it differs from the resource block name.
+``file_location``
+   **Ruby Type:** String | **Default Value:** ``/etc/ssh/ssh_known_hosts``
+
+   The location of the ssh known hosts file. Change this to set a known host file for a particular user.
+
+``group``
+   **Ruby Type:** String
+
+   The file group for the ssh_known_hosts file.
+
+``hash_entries``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Hash the hostname and addresses in the ssh_known_hosts file for privacy.
+
+``host``
+   **Ruby Type:** String
+
+   The host to add to the known hosts file.
+
+``key``
+   **Ruby Type:** String
+
+   An optional key for the host. If not provided this will be automatically determined.
+
+``key_type``
+   **Ruby Type:** String | **Default Value:** ``rsa``
+
+   The type of key to store.
+
+``mode``
+   **Ruby Type:** String | **Default Value:** ``0644``
+
+   The file mode for the ssh_known_hosts file.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -87,30 +122,16 @@ Properties
 
    .. end_tag
 
-``port_description``
-   **Ruby Type:** String
+``owner``
+   **Ruby Type:** String | **Default Value:** ``root``
 
-   The description of the port.
+   The file owner for the ssh_known_hosts file.
 
-``port_name``
-   **Ruby Type:** String
+``port``
+   **Ruby Type:** Integer | **Default Value:** ``22``
 
-   The port name.
+   The server port that the ssh-keyscan command will use to gather the public key.
 
-``port_number``
-   **Ruby Type:** Integer | **Default Value:** ``9100``
-
-   The port number.
-
-``port_protocol``
-   **Ruby Type:** Integer | **Default Value:** ``1``
-
-   The printer port protocol; ``1`` (RAW) or ``2`` (LPR).
-
-``snmp_enabled``
-   **Ruby Type:** True, False | **Default Value:** ``false``
-
-   Determines if SNMP is enabled on the port
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -160,3 +181,8 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
+
+``timeout``
+   **Ruby Type:** Integer | **Default Value:** ``30``
+
+   The timeout in seconds for ssh-keyscan.

@@ -1,11 +1,11 @@
 =====================================================
-windows_printer_port
+chocolatey_source
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_source.rst>`__
 
-Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer ports on Windows.
+Use the **chocolatey_source** resource to add or remove Chocolatey sources.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
@@ -13,31 +13,29 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_printer_port 'name' do
-     ipv4_address               String # default value: 'name'
+   chocolatey_source 'name' do
+     bypass_proxy               true, false # defaults to false
      notifies                   # see description
-     port_description           String
-     port_name                  String
-     port_number                Integer # default value: '9100'
-     port_protocol              Integer # default value: '1'
-     snmp_enabled               True, False # default value: 'false'
+     priority                   Integer # defaults to 0
+     source                     String
+     source_name                String # default value: 'name'
      subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+     action                     Symbol # defaults to :add if not specified
    end
 
 where:
 
-* ``windows_printer_port`` is the resource
-* ``'name'`` is the IP address of the printer, or the name of the resource block
-* ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, and ``port_protocol`` are the properties available to this resource.
+* ``chocolatey_source`` is the name of the resource
+* ``bypass_proxy``, ``priority``, and ``source`` are the properties available to this resource
 
 Actions
 =====================================================
-``:create``
-   Default. Create the printer port, if one doesn't already exist.
 
-``:delete``
-   Delete an existing printer port.
+``:add``
+   Default. Adds a Chocolatey source.
+
+``:remove``
+   Removes a Chocolatey source.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -48,10 +46,11 @@ Actions
 
 Properties
 =====================================================
-``ipv4_address``
-   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The IPv4 address of the printer, if it differs from the resource block name.
+``bypass_proxy``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Whether or not to bypass the system's proxy settings to access the source.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -87,30 +86,20 @@ Properties
 
    .. end_tag
 
-``port_description``
+``priority``
+   **Ruby Type:** Integer | **Default Value:** ``0``
+
+   The priority level of the source.
+
+``source``
    **Ruby Type:** String
 
-   The description of the port.
+   The source URL.
 
-``port_name``
+``source_name``
    **Ruby Type:** String
 
-   The port name.
-
-``port_number``
-   **Ruby Type:** Integer | **Default Value:** ``9100``
-
-   The port number.
-
-``port_protocol``
-   **Ruby Type:** Integer | **Default Value:** ``1``
-
-   The printer port protocol; ``1`` (RAW) or ``2`` (LPR).
-
-``snmp_enabled``
-   **Ruby Type:** True, False | **Default Value:** ``false``
-
-   Determines if SNMP is enabled on the port
+   The name of the source to add. The resource's name will be used if this isn't provided.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

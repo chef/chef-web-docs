@@ -1,11 +1,11 @@
 =====================================================
-windows_printer_port
+powershell_package_source
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_package_source.rst>`__
 
-Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer ports on Windows.
+Use the **powershell_package_source** resource to register a PowerShell package repository.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
@@ -13,45 +13,38 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_printer_port 'name' do
-     ipv4_address               String # default value: 'name'
-     notifies                   # see description
-     port_description           String
-     port_name                  String
-     port_number                Integer # default value: '9100'
-     port_protocol              Integer # default value: '1'
-     snmp_enabled               True, False # default value: 'false'
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+   powershell_package_source 'name' do
+     notifies                    # see description
+     provider_name               String # defaults to NuGet
+     publish_location            String
+     script_publish_location     String
+     script_source_location      String
+     source_name                 String
+     subscribes                  # see description
+     trusted                     true, false # defaults to false
+     url                         String
+     action                      Symbol # defaults to :register if not specified
    end
 
 where:
 
-* ``windows_printer_port`` is the resource
-* ``'name'`` is the IP address of the printer, or the name of the resource block
-* ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, and ``port_protocol`` are the properties available to this resource.
+* ``powershell_package_source`` is the name of the resource
+* ``provider_name``, ``publish_location``, ``script_publish_location``, ``script_source_location``, ``source_name``, and ``trusted`` are the properties available to this resource
 
 Actions
 =====================================================
-``:create``
-   Default. Create the printer port, if one doesn't already exist.
 
-``:delete``
-   Delete an existing printer port.
+``register``
+   Default. Registers and updates the PowerShell package source.
+
+``unregister``
+   Unregisters the PowerShell package source.
 
 ``:nothing``
-   .. tag resources_common_actions_nothing
-
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
-
-   .. end_tag
 
 Properties
 =====================================================
-``ipv4_address``
-   **Ruby Type:** String | **Default Value:** ``'name'``
-
-   The IPv4 address of the printer, if it differs from the resource block name.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -87,30 +80,30 @@ Properties
 
    .. end_tag
 
-``port_description``
+``provider_name``
+   **Ruby Type:** String | **Default Value:** ``NuGet``
+
+   The package management provider for the source. It supports the following providers: 'Programs', 'msi', 'NuGet', 'msu', 'PowerShellGet', 'psl' and 'chocolatey'.
+
+``publish_location``
    **Ruby Type:** String
 
-   The description of the port.
+   The url where modules will be published to for this source. Only valid if the provider is 'PowerShellGet'.
 
-``port_name``
+``script_publish_location``
    **Ruby Type:** String
 
-   The port name.
+   The location where scripts will be published to for this source. Only valid if the provider is 'PowerShellGet'.
 
-``port_number``
-   **Ruby Type:** Integer | **Default Value:** ``9100``
+``script_source_location``
+   **Ruby Type:** String
 
-   The port number.
+   The url where scripts are located for this source. Only valid if the provider is 'PowerShellGet'.
 
-``port_protocol``
-   **Ruby Type:** Integer | **Default Value:** ``1``
+``source_name``
+   **Ruby Type:** String
 
-   The printer port protocol; ``1`` (RAW) or ``2`` (LPR).
-
-``snmp_enabled``
-   **Ruby Type:** True, False | **Default Value:** ``false``
-
-   Determines if SNMP is enabled on the port
+   The name of the package source.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -160,3 +153,13 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
+
+``trusted``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Whether or not to trust packages from this source.
+
+``url``
+   **Ruby Type:** String
+
+   The url to the package source.
