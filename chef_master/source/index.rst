@@ -62,7 +62,6 @@ Getting Started
 `Chef Development Kit </release_notes_chefdk.html>`__ |
 `Chef Server </release_notes_server.html>`__ |
 `Chef Push Jobs </release_notes_push_jobs.html>`__ |
-`Ohai </release_notes_ohai.html>`__
 
 `Deprecations </chef_deprecations_client.html>`__
 
@@ -809,7 +808,6 @@ Addenda
    release_notes_chefdk
    release_notes_server
    release_notes_push_jobs
-   release_notes_ohai
    resource
    resource_apt_package
    resource_apt_preference
