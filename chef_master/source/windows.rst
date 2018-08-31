@@ -8,52 +8,10 @@ Chef for Microsoft Windows
 The chef-client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
 
 * The chef-client is `installed on a machine <https://downloads.chef.io/chef>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
-* Six resources dedicated to the Microsoft Windows platform are built into the chef-client: **batch**, **dsc_script**, **env**, **powershell_script**, **registry_key**, and **windows_package**
+* Over a dozen resources dedicated to the Microsoft Windows platform are built into the chef-client.
 * Use the **dsc_resource** to use PowerShell DSC resources in Chef!
 * Two knife plugins dedicated to the Microsoft Windows platform are available: ``knife azure`` is used to manage virtual instances in Microsoft Azure; ``knife windows`` is used to interact with and manage physical nodes that are running Microsoft Windows, such as desktops and servers
 * Many community cookbooks on Supermarket provide Windows specific support. Chef maintains cookbooks for `PowerShell <https://github.com/chef-cookbooks/powershell>`_, `IIS <https://github.com/chef-cookbooks/iis>`_, `SQL Server <https://github.com/chef-cookbooks/database>`_, and `Windows <https://github.com/chef-cookbooks/windows>`_.
-* The following Microsoft Windows platform-specific helpers can be used in recipes:
-
-  .. list-table::
-     :widths: 200 300
-     :header-rows: 1
-
-     * - Helper
-       - Description
-     * - ``cluster?``
-       - Use to test for a Cluster SKU (Windows Server 2003 and later).
-     * - ``core?``
-       - Use to test for a Core SKU (Windows Server 2003 and later).
-     * - ``datacenter?``
-       - Use to test for a Datacenter SKU.
-     * - ``marketing_name``
-       - Use to display the marketing name for a Microsoft Windows platform.
-     * - ``windows_7?``
-       - Use to test for Windows 7.
-     * - ``windows_8?``
-       - Use to test for Windows 8.
-     * - ``windows_8_1?``
-       - Use to test for Windows 8.1.
-     * - ``windows_2000?``
-       - Use to test for Windows 2000.
-     * - ``windows_home_server?``
-       - Use to test for Windows Home Server.
-     * - ``windows_server_2003?``
-       - Use to test for Windows Server 2003.
-     * - ``windows_server_2003_r2?``
-       - Use to test for Windows Server 2003 R2.
-     * - ``windows_server_2008?``
-       - Use to test for Windows Server 2008.
-     * - ``windows_server_2008_r2?``
-       - Use to test for Windows Server 2008 R2.
-     * - ``windows_server_2012?``
-       - Use to test for Windows Server 2012.
-     * - ``windows_server_2012_r2?``
-       - Use to test for Windows Server 2012 R2.
-     * - ``windows_vista?``
-       - Use to test for Windows Vista.
-     * - ``windows_xp?``
-       - Use to test for Windows XP.
 * Two community provisioners for Kitchen: `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`_ and `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`_
 
 The most popular core resources in the chef-client---`cookbook_file </resource_cookbook_file.html>`__, `directory </resource_directory.html>`__, `env </resource_env.html>`__, `execute </resource_execute.html>`__, `file </resource_file.html>`__, `group </resource_group.html>`__, `http_request </resource_http_request.html>`__, `link </resource_link.html>`__, `mount </resource_mount.html>`__, `package </resource_package.html>`__, `remote_directory </resource_remote_directory.html>`__, `remote_file </resource_remote_file.html>`__, `ruby_block </resource_ruby_block.html>`__, `service </resource_service.html>`__, `template </resource_template.html>`__, and `user </resource_user.html>`__---work the same way in Microsoft Windows as they do on any UNIX- or Linux-based platform.
@@ -88,7 +46,7 @@ The chef-client can be used to manage machines that run on the following version
      - Version
      - Architecture
    * - Windows
-     - 2008 R2, 2012, 2012 R2
+     - 2008 R2, 2012, 2012 R2, 2016
      - x86_64
 
 (The recommended amount of RAM available to the chef-client during a chef-client run is 512MB. Each node and workstation must have access to the Chef server via HTTPS. Ruby version 1.9.1 or Ruby version 1.9.2 with SSL bindings is required.)
