@@ -52,6 +52,11 @@ The full syntax for all of the properties that are available to the **zypper_rep
 
    end
 
+where:
+
+* ``zypper_repository`` is the resource type.
+* ``autorefresh``, ``baseurl``, ``cookbook``, ``description``, ``enabled``, ``gpgautoimportkeys``, ``gpgcheck``, ``gpgkey``, ``keeppackages``, ``mirrorlist``, ``mode``, ``path``, ``priority``, ``refresh_cache``, ``repo_name``, and ``source`` are the properties available to this resource.
+
 Actions
 ==========================================
 This resource has the following actions:
