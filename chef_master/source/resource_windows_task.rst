@@ -5,7 +5,7 @@ windows_task
 
 Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.
 
-**New in Chef Client 13**
+**New in Chef Client 13.0.**
 
 .. note:: The ``windows_task`` resource that was provided as part of the ``windows`` cookbook included the ``:change`` action, which has been removed from ``windows_task`` in Chef client. The ``:create`` action can be used instead to update an existing task.
 
@@ -16,34 +16,41 @@ A **windows_task** resource creates, deletes or runs a Windows scheduled task.
 .. code-block:: ruby
 
    windows_task 'name' do
-     task_name                   String
-     command                     String
-     cwd                         String
-     user                        String # defaults to SYSTEM
-     password                    String
-     run_level                   Symbol # defaults to :limited
-     force                       True, False # defaults to false
-     interactive_enabled         True, False # defaults to false
-     frequency                   Symbol
-     frequency_modifier          Integer, String # defaults to 1
-     start_day                   String
-     start_time                  String
-     day                         String, Integer
-     months                      String
-     idle_time                   Integer
-     random_delay                String, Integer
-     execution_time_limit        String, Integer
-     action                      Symbol #defaults to :create
+     command                            String
+     cwd                                String
+     day                                String, Integer
+     disallow_start_if_on_batteries     true, false # defaults to false
+     execution_time_limit               String, Integer # defaults to PT72H
+     force                              true, false # defaults to false
+     frequency                          Symbol
+     frequency_modifier                 Integer, String # defaults to 1
+     idle_time                          Integer
+     interactive_enabled                true, false # defaults to false
+     minutes_duration                   String, Integer
+     minutes_interval                   String, Integer
+     months                             String
+     notifies                           # see description
+     password                           String
+     priority                           Integer # defaults to 7
+     random_delay                       String, Integer
+     run_level                          Symbol # defaults to limited
+     start_day                          String
+     start_time                         String
+     stop_if_going_on_batteries         true, false # defaults to false
+     task_name                          String
+     subscribes                         # see description
+     user                               String # defaults to SYSTEM
+     action                             Symbol # defaults to :create if not specified
    end
 
-where
+where:
 
 * ``windows_task`` is the resource.
 * ``name`` is the name of the resource block.
 * ``task_name`` is the name of the task.
 * ``command`` is the command to be executed by the windows scheduled task.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``cwd``, ``day``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, and ``stop_if_going_on_batteries`` are the properties available to this resource.
+* ``command``, ``cwd``, ``day``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``stop_if_going_on_batteries``, and ``task_name`` are the properties available to this resource.
 
 Actions
 =====================================================
