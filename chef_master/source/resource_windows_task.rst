@@ -47,8 +47,6 @@ where:
 
 * ``windows_task`` is the resource.
 * ``name`` is the name of the resource block.
-* ``task_name`` is the name of the task.
-* ``command`` is the command to be executed by the windows scheduled task.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``command``, ``cwd``, ``day``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``stop_if_going_on_batteries``, and ``task_name`` are the properties available to this resource.
 
@@ -76,37 +74,42 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
 
-``task_name``
+``command``
    **Ruby Type:** String
 
-   The task name, such as ``"Task Name"`` or ``"/Task Name"``
-
-``force``
-   **Ruby Type:** True, False
-
-   When used with create, will update the task.
+   The command to be executed by the windows scheduled task.
 
 ``cwd``
    **Ruby Type:** String
 
    The directory the task will be run from.
 
-``user``
-   **Ruby Type:** String | **Default Value:** ``'SYSTEM'``
+``day``
+   **Ruby Type:** String, Integer
 
-   The user to run the task as.
+   The day(s) on which the task runs.
+    * Use with frequency ``:monthly`` and ``:weekly`` tasks,
+    * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
+    * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
+       * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modiifer`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
+       * Multiple days should be comma seprated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
 
-``password``
-   **Ruby Type:** String
+``disallow_start_if_on_batteries``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   The user's password. Requires user.
+   Disallow start of the task if the system is running on battery power.
+   New in Chef Client 14.4.
 
-``run_level``
-   **Ruby Type:** Symbol | **Default Value:** ``:limited``
+``execution_time_limit``
+   **Ruby Type:** String, Integer | **Default Value:** ``PT72H`` (72 hours)
 
-   Run with ``:limited`` or ``:highest`` privileges.
+   The maximum time (in seconds) the task will run.
+
+``force``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   When used with create, will update the task.
 
 ``frequency``
    **Ruby Type:** Symbol
@@ -128,6 +131,47 @@ This resource has the following properties:
       * e.g. If user want to run the task on ``second week of the month`` use ``frequency_modifier`` value as ``SECOND``. Multiple values for weeks of the month should be comma seperated e.g. ``"FIRST, THIRD, LAST"``.
       * To run task every (n) months user values '1-12'.
 
+``idle_time``
+   **Ruby Type:** Integer
+
+   For ``:on_idle`` frequency, the time (in minutes) without user activity that must pass to trigger the task, from ``1`` - ``999``.
+
+``interactive_enabled``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Allow task to run interactively or non-interactively. Requires user and password to also be set.
+
+``minutes_duration``
+   **Ruby Type:** String, Integer
+
+``minutes_interval``
+   **Ruby Type:** String, Integer
+
+``months``
+   **Ruby Type:** String
+
+   The Months of the year on which the task runs, such as: ``"JAN, FEB"`` or ``"\*"``. Multiple months should be comma delimited. e.g. ``"Jan, Feb, Mar, Dec"``
+
+
+``password``
+   **Ruby Type:** String
+
+   The user’s password. The user property must be set if using this property.
+
+``priority``
+   **Ruby Type:** Integer | **Default Value:** ``7``
+
+   Use to set Priority Levels range from 0 to 10.
+
+``random_delay``
+   **Ruby Type:** String, Integer
+
+   Delays the task up to a given time (in seconds).
+
+``run_level``
+  **Ruby Type:** Symbol | **Default Value:** ``:limited``
+
+  Run with ``:limited`` or ``:highest`` privileges.
 
 ``start_day``
    **Ruby Type:** String
@@ -139,41 +183,21 @@ This resource has the following properties:
 
    Specifies the start time to run the task, in **HH:mm** format.
 
-``interactive_enabled``
-   **Ruby Type:** True, False | **Default Value:** ``False``
+``stop_if_going_on_batteries``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Allow task to run interactively or non-interactively. Requires user and password.
+   Scheduled task option when system is switching on battery.
+   New in Chef Client 14.4.
 
-``day``
-   **Ruby Type:** Integer, String
+``task_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The day(s) on which the task runs.
-    * Use with frequency ``:monthly`` and ``:weekly`` tasks,
-    * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
-    * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
-       * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modiifer`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
-       * Multiple days should be comma seprated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
+   The task name, such as ``"Task Name"`` or ``"/Task Name"``
 
-``months``
-   **Ruby Type:** String
+``user``
+   **Ruby Type:** String | **Default Value:** ``SYSTEM``
 
-   The Months of the year on which the task runs, such as: ``"JAN, FEB"`` or ``"\*"``. Multiple months should be comma delimited. e.g. ``"Jan, Feb, Mar, Dec"``
-
-``idle_time``
-   **Ruby Type:** Integer
-
-   For ``:on_idle`` frequency, the time (in minutes) without user activity that must pass to trigger the task, from ``1`` - ``999``.
-
-``execution_time_limit``
-   **Ruby Type:** String | **Default Value:** ``PT72H`` (72 hours)
-
-   The maximum time (in seconds) the task will run.
-
-``random_delay``
-   **Ruby Type:** Integer, String
-
-   Delays the task upto given time (in seconds).
-
+   The user to run the task as.
 
 Examples
 =====================================================
