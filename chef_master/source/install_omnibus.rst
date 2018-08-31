@@ -64,7 +64,7 @@ In addition to the default install behavior, the Chef install script supports th
    The name of the file and the path at which that file is located. When a filename already exists at this path and the checksum matches, the package is not re-downloaded. When ``-d`` and ``-f`` are not specified, a package is downloaded to a temporary directory.
 
 ``-P`` (``-project`` on Microsoft Windows)
-   The product name to install. A list of valid product names can be found at https://omnitruck.chef.io/products. Default value: ``chef``.
+   The product name to install. Valid product names are `automate`, `chef`, `chef-server`, `chef-workstation`, `chefdk`, `inspec`, and `supermarket`. Default value: ``chef``.
 
 ``-v`` (``-version`` on Microsoft Windows)
    The version of the package to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. A two-part version (x.y) is also allowed. For more information about application versioning, see http://semver.org/.
