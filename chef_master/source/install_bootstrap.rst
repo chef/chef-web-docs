@@ -389,7 +389,7 @@ The method used to inject a user data script into a server will vary depending o
 
 The following user data examples demonstrate the process of bootstrapping Windows and Linux nodes.
 
-Powershell User Data
+PowerShell User Data
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: none

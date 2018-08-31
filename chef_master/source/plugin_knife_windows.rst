@@ -29,7 +29,7 @@ Requirements
 =====================================================
 .. tag plugin_knife_windows_winrm_requirements
 
-This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: http://msdn.microsoft.com/en-us/library/aa384372(v=vs.85).aspx and/or http://support.microsoft.com/kb/968930. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
+This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management and/or https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
 
 .. code-block:: bash
 
@@ -97,7 +97,7 @@ Domain Authentication
 The ``knife windows`` plugin supports Microsoft Windows domain authentication. This requires:
 
 * An SSL certificate on the target node
-* The certificate details can be viewed and its `thumbprint hex values copied <http://msdn.microsoft.com/en-us/library/ms788967.aspx>`_
+* The certificate details can be viewed and its `thumbprint hex values copied <https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in>`_
 
 To create the listener over HTTPS, run the following command:
 

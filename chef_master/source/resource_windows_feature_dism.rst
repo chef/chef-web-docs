@@ -48,9 +48,9 @@ Properties
    Install all sub-features. When set to ``true``, this is the equivalent of specifying the ``/All`` switch to ``dism.exe``.
    
 ``feature_name``
-   **Ruby Types:** String, Array | **Default Value:** ``'name'``
+   **Ruby Type:** Array, String | **Default Value:** ``'name'``
    
-   The name of the feature(s) or role(s) to install, if it differs from the resource block name. 
+   The name of the feature(s) or role(s) to install, if it differs from the resource name. 
    
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

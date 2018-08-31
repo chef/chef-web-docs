@@ -33,6 +33,7 @@ This resource has the following syntax:
      users                      String, Array # default value: []
      variables                  Hash, nil # default value: nil
      visudo_binary              String # default value: '/usr/bin/visudo'
+     visudo_path                String
      action                     Symbol # defaults to :create if not specified
   end
 
@@ -60,7 +61,7 @@ Actions
 Properties
 =====================================================
 ``commands``
-   **Ruby Type:** Array | **Default Value:** ``"ALL"``
+   **Ruby Type:** Array | **Default Value:** ``["ALL"]``
 
    An array of commands this sudoer can execute.
 

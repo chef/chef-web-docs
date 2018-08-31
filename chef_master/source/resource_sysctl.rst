@@ -59,7 +59,7 @@ Properties
 ``key``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The kernel paramater key in dotted format, if it differs from the resource block name.
+   The kernel parameter key in dotted format, if it differs from the resource block name.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -145,6 +145,6 @@ Properties
    .. end_tag
 
 ``value``
-   **Ruby Types:** Array, String, Integer, Float
+   **Ruby Type:** Array, String, Integer, Float
 
    Required. The value to set.
