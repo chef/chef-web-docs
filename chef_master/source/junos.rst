@@ -9,7 +9,7 @@ Juniper Networks is a leading provider of network routing, switching and securit
 
 Chef for Junos OS allows hardware running Junos OS to be managed by the Chef server. The ``netdev`` cookbook is an open source cookbook (maintained by Chef) that contains a collection of resources that can be used to build recipes that extend the node management capabilities of the Chef server to include Juniper Networks network devices.
 
-For more information about Chef for Junos OS, including information about installing and configuring the chef-client on a Junos OS device, see the Juniper Networks Chef for Junos OS documentation at http://www.juniper.net/techpubs/en_US/release-independent/junos-chef/information-products/pathway-pages/index.html.
+For more information about Chef for Junos OS, including information about installing and configuring the chef-client on a Junos OS device, see the Juniper Networks Chef for Junos OS documentation at https://www.juniper.net/documentation/en_US/release-independent/junos-chef/information-products/pathway-pages/index.html.
 
 The netdev Custom Resources
 =====================================================
@@ -132,7 +132,7 @@ netdev_lag
 -----------------------------------------------------
 The ``netdev_lag`` custom resource is used to to model the properties and to manage the configuration of a link aggregation group (LAG). This is referred to as an aggregated Ethernet bundle in Junos OS.
 
-.. note:: The number of supported aggregated Ethernet interfaces on a switch must be manually configured before this resource can be used to create LAGs. Use the `aggregated-devices <http://www.juniper.net/techpubs/en_US/junos13.2/topics/reference/configuration-statement/device-count-chassis-qfx-series.html>`_ command to configure the number of supported interfaces:
+.. note:: The number of supported aggregated Ethernet interfaces on a switch must be manually configured before this resource can be used to create LAGs. Use the `aggregated-devices <https://www.juniper.net/documentation/en_US/junos13.2/topics/reference/configuration-statement/device-count-chassis-qfx-series.html>`_ command to configure the number of supported interfaces:
 
    .. code-block:: bash
 

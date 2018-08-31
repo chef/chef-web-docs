@@ -235,7 +235,7 @@ The following open source handlers are available from the Chef community:
      - A handler that collects exception and report handler data and reports it to Graphite, a graphic rendering application.
    * - `Graylog2 GELF <https://github.com/jellybob/chef-gelf/>`_
      - A handler that provides exception and report handler status (including changes) to a Graylog2 server, so that the data can be viewed using Graylog Extended Log Format (GELF).
-   * - `Growl <http://rubygems.org/gems/chef-handler-growl>`_
+   * - `Growl <https://rubygems.org/gems/chef-handler-growl>`_
      - A handler that collects exception and report handler data and then sends it as a Growl notification.
    * - `HipChat <https://github.com/mojotech/hipchat/blob/master/lib/hipchat/chef.rb>`_
      - A handler that collects exception handler data and sends it to HipChat, a hosted private chat service for companies and teams.
@@ -288,7 +288,7 @@ The following plugins are available for the chef-client:
      - Adds an exception handler for chef-client runs.
    * - `chef-jenkins <https://github.com/adamhjk/chef-jenkins>`_
      - Adds the ability to use Jenkins to drive continuous deployment and synchronization of environments from a git repository.
-   * - `chef-rundeck <http://rubygems.org/gems/chef-rundeck>`_
+   * - `chef-rundeck <https://rubygems.org/gems/chef-rundeck>`_
      - Adds a resource endpoint for Rundeck.
    * - `chef-trac-hacks <http://trac-hacks.org/wiki/CloudPlugin>`_
      - Adds the ability to fill a coordination gap between Amazon Web Services (AWS) and the chef-client.

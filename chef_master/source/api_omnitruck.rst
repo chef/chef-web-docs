@@ -42,7 +42,7 @@ where:
 * ``p`` is the platform. Possible values: ``debian``, ``el`` (for CentOS), ``freebsd``, ``mac_os_x``, ``solaris2``, ``sles``, ``suse``, ``ubuntu`` or ``windows``.
 * ``pv`` is the platform version. Possible values depend on the platform. For example, Ubuntu: ``14.04``, or ``16.04`` or for macOS: ``10.12`` or ``10.13``.
 * ``m`` is the machine architecture for the machine on which the product will be installed. Possible values depend on the platform. For example, for Ubuntu or Debian: ``i386`` or ``x86_64`` or for macOS: ``x86_64``.
-* ``v`` is the version of the product to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. One-part (x) and two-part (x.y) versions are allowed. For more information about application versioning, see http://semver.org/. Default value: ``latest``.
+* ``v`` is the version of the product to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. One-part (x) and two-part (x.y) versions are allowed. For more information about application versioning, see https://semver.org/. Default value: ``latest``.
 
 Platforms
 -----------------------------------------------------
@@ -137,9 +137,9 @@ to return something like:
 .. code-block:: none
 
 
-   sha1 1e8019cf630e8a7c6287e1b950ddeecbe042d554 
-   sha256 26c31070a71309709ed1d19b796ad0b47a283c5c21930906f19e0771a5dd1c1b 
-   url https://packages.chef.io/files/stable/chef/14.0.190/ubuntu/16.04/chef_14.0.190-1_amd64.deb 
+   sha1 1e8019cf630e8a7c6287e1b950ddeecbe042d554
+   sha256 26c31070a71309709ed1d19b796ad0b47a283c5c21930906f19e0771a5dd1c1b
+   url https://packages.chef.io/files/stable/chef/14.0.190/ubuntu/16.04/chef_14.0.190-1_amd64.deb
    version 14.0.190
 
 **Download Directly**

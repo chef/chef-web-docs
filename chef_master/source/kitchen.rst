@@ -322,5 +322,5 @@ For more information ...
 For more information about test-driven development and Kitchen:
 
 * `kitchen.ci <http://kitchen.ci>`_
-* `Getting Started with Kitchen <http://kitchen.ci/docs/getting-started/>`_
+* `Getting Started with Kitchen <https://kitchen.ci/docs/getting-started/>`_
 * `How Can I Combine Berks and Local Cookbooks? <https://coderwall.com/p/j72egw/organise-your-site-cookbooks-with-berkshelf-and-this-trick>`_

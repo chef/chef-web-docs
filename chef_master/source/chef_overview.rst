@@ -169,7 +169,7 @@ Some important tools and components of Chef workstations include:
 
      - .. tag test_kitchen
 
-       Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+       Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
        * Defined in a .kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
        * Uses a driver plugin architecture
