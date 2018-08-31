@@ -30,6 +30,7 @@ The full syntax for all of the properties that are available to the **windows_pa
      installer_type             Symbol
      notifies                   # see description
      options                    String
+     package_name               String, Array
      remote_file_attributes     Hash
      returns                    Integer, Array of integers
      source                     String # defaults to 'name' if not specified
@@ -41,7 +42,7 @@ The full syntax for all of the properties that are available to the **windows_pa
 
 where
 
-* ``windows_package`` tells the chef-client to manage a package
+* ``windows_package`` is the resource.
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
