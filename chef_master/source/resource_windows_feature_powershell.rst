@@ -3,7 +3,7 @@ windows_feature_powershell
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_feature_powershell.rst>`__
 
-Use the **windows_feature_powershell** resource to add, remove or entirely delete Windows features and roles via PowerShell. This resource offers significant speed benefits over the `windows_feature_dism </resource_windows_feature_dism.html>`__ resource, but requires installation of the Remote Server Administration Tools on non-server releases of Windows.
+Use the **windows_feature_powershell** resource to add, remove or entirely delete Windows features and roles using PowerShell. This resource offers significant speed benefits over the `windows_feature_dism </resource_windows_feature_dism.html>`__ resource, but requires installation of the Remote Server Administration Tools on non-server releases of Windows.
 
 **New in Chef Client 14.0.**
 
@@ -56,7 +56,7 @@ Properties
    Install all subfeatures. When set to ``true``, this is the equivalent of specifying the ``-InstallAllSubFeatures`` switch with ``Add-WindowsFeature``.
    
 ``feature_name``
-   **Ruby Types:** String, Array | **Default Value:** ``'name'``
+   **Ruby Type:** Array, String | **Default Value:** ``'name'``
    
    The name of the feature(s) or role(s) to install, if it differs from the resource block name.
    
