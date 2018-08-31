@@ -346,7 +346,7 @@
   "release/analytics/install_reporting.html": "/install_reporting.html",
   "release/analytics/install_server_pre.html": "/install_server_pre.html",
   "release/analytics/plugin_knife_analytics.html": "/plugin_knife_analytics.html",
-  "release/analytics/.html": "/release_notes.html",
+  "release/analytics/release_notes.html": "/release_notes.html",
   "release/analytics/reporting.html": "/reporting.html",
   "release/analytics/upgrade_analytics.html": "/upgrade_analytics.html",
   "release/compliance_1-0/api_compliance.html": "/api_compliance.html",
