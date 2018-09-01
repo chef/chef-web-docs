@@ -266,7 +266,7 @@ Cookbook Reference
 `Templates </templates.html>`__ |
 `Cookbook Repo </cookbook_repo.html>`__ |
 `metadata.rb </config_rb_metadata.html>`__ |
-`Cookbook Versions </cookbook_versions.html>`__ |
+`Cookbook Versioning </cookbook_versioning.html>`__ |
 `Ruby </ruby.html>`__
 
 **Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__
@@ -618,7 +618,7 @@ Addenda
    config_rb_supermarket
    config_yml_kitchen
    cookbook_repo
-   cookbook_versions
+   cookbook_versioning
    cookbooks
    cookstyle
    ctl_chef

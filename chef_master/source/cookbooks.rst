@@ -76,7 +76,7 @@ In addition to attributes and recipes, the following items are also part of cook
      - A resource instructs the chef-client to complete various tasks like installing packages, running Ruby code, or accessing directories and file systems. The chef-client includes built-in resources that cover many common scenarios. For the full list of resources that are built-in to the chef-client, see /resources.html.
    * - `Templates </templates.html>`__
      - A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.
-   * - `Cookbook Versions </cookbook_versions.html>`__
+   * - `Cookbook Versioning </cookbook_versioning.html>`__
      - .. tag cookbooks_version
 
        A cookbook version represents a set of functionality that is different from the cookbook on which it is based. A version may exist for many reasons, such as ensuring the correct use of a third-party component, updating a bug fix, or adding an improvement. A cookbook version is defined using syntax and operators, may be associated with environments, cookbook metadata, and/or run-lists, and may be frozen (to prevent unwanted updates from being made).

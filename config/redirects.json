@@ -13,6 +13,7 @@
   "community_lists.html": "/community.html",
   "community_plugin_ohai.html": "/plugin_community.html#ohai",
   "community_plugin_report_handler.html": "/plugin_community.html#handlers",
+  "cookbook_versions.html": "/cookbook_versioning.html",
   "delivery_configure_pipeline.html": "/delivery_pipeline.html",
   "delivery_cookbooks.html": "/delivery_build_cookbook.html",
   "delivery.html": "/workflow.html",
