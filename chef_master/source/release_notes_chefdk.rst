@@ -9,7 +9,7 @@ What's New in 3.1
 =====================================================
 
 * **Chef 14.2.0**
-     ChefDK now ships with Chef 14.2.0. See `Chef release notes </release_notes.html#what-s-new-in-14-2-0>`__ for more information on what’s new.
+     ChefDK now ships with Chef 14.2.0. See `Chef release notes </release_notes.html#whats-new-in-14-2-0>`__ for more information on what’s new.
 
 * **Habitat Packages**
      ChefDK is now released as a habitat package under the identifier ``chef/chef-dk``. All successful builds are available in the unstable channel and all promoted builds are available in the stable channel. 
