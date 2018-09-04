@@ -1320,7 +1320,7 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_windows_task.rst
 
-.. include:: resource_yum.rst
+.. include:: resource_yum_package.rst
 
 .. include:: resource_yum_repository.rst
 

@@ -27,12 +27,13 @@ This resource has the following syntax:
 
 where:
 
-* ``windows_printer_port`` is the resource
-* ``'name'`` is the IP address of the printer, or the name of the resource block
+* ``windows_printer_port`` is the resource.
+* ``'name'`` is the IP address of the printer, or the name of the resource block.
 * ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, and ``port_protocol`` are the properties available to this resource.
 
 Actions
 =====================================================
+
 ``:create``
    Default. Create the printer port, if one doesn't already exist.
 

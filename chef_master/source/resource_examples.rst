@@ -1852,7 +1852,7 @@ DSC data can be specified directly in a recipe:
 
 .. end_tag
 
-**Specify DSC code using a Windows Powershell data file**
+**Specify DSC code using a Windows PowerShell data file**
 
 .. tag resource_dsc_script_command
 

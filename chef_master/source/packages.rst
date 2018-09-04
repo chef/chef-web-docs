@@ -3,7 +3,7 @@ Chef Software Inc Packages
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/packages.rst>`__
 
-Packages for Chef Software Inc products may be installed using platform-native package repositories or the Chef install script. Both installation methods support the following release channels:
+Packages for Chef Software Inc. products may be installed using platform-native package repositories or the Chef install script. Both installation methods support the following release channels:
 
 .. list-table::
    :widths: 150 450
@@ -14,7 +14,7 @@ Packages for Chef Software Inc products may be installed using platform-native p
    * - ``stable``
      - A build from this channel is an "official" release that has passed full user acceptance testing. Artifacts in this channel are retained indefinitely.
    * - ``current``
-     - A build from this channel is an "integration" build that has passed basic automated testing. Artifacts in this channel are retained for 30 days and then removed automatically.
+     - A build from this channel is an "integration" build that has passed full testing, but has not been officially released. Artifacts in this channel are retained for 30 days and then removed automatically.
 
 Chef recommends using the stable channel when installing any of these products on production systems.
 
@@ -25,7 +25,7 @@ The ``stable`` and ``current`` release channels support the following package re
 * Apt (Debian and Ubuntu platforms)
 * Yum (Enterprise Linux platforms)
 
-Chef Software Inc GPG public key is can be downloaded `here <https://packages.chef.io/chef.asc>`_.
+Chef Software Inc. GPG public key is can be downloaded `here <https://packages.chef.io/chef.asc>`_.
 
 Debian / Ubuntu
 -----------------------------------------------------
@@ -53,9 +53,8 @@ To set up an Apt package repository for Debian and Ubuntu platforms:
 
    Replace ``<DISTRIBUTION>`` with the appropriate distribution name:
 
-   * For Debian 7: ``wheezy``
    * For Debian 8: ``jessie``
-   * For Ubuntu 12.04: ``precise``
+   * For Debian 9: ``stretch``
    * For Ubuntu 14.04: ``trusty``
    * For Ubuntu 16.04: ``xenial``
    * For Ubuntu 18.04: ``bionic``
@@ -96,7 +95,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
    Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
 
-   Replace ``<VERSION>`` with your Enterprise Linux version; the allowable versions are ``5``, ``6``, or ``7``.
+   Replace ``<VERSION>`` with your Enterprise Linux version; the allowable versions are ``6``, or ``7``.
 
 #. Update the package repository list:
 
@@ -186,11 +185,11 @@ Examples
 
 The following examples show how to use the install script.
 
-To install chef-client version 13.2.20:
+To install chef-client version 14.4.56:
 
 .. code-block:: bash
 
-   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 13.2.20
+   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 14.4.56
 
 To install the latest version of the Chef development kit on Microsoft Windows from the ``current`` channel:
 

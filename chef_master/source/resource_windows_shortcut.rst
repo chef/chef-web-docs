@@ -29,7 +29,7 @@ where:
 
 * ``windows_shortcut`` is the resource
 * ``'name'`` is the name of the shortcut, or the name of the resource block
-* ``arguments``, ``description``, ``cwd``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
+* ``arguments``, ``cwd``, ``description``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
 
 Actions
 =====================================================
@@ -50,15 +50,15 @@ Properties
 
    Arguments to pass to the target when the shortcut is executed.
 
-``description``
-   **Ruby Type:** String
-
-   A description of the shortcut.
-
 ``cwd``
    **Ruby Type:** String
 
    Working directory to use when the target is executed.
+
+``description``
+   **Ruby Type:** String
+
+   The description of the shortcut
 
 ``iconlocation``
    **Ruby Type:** String

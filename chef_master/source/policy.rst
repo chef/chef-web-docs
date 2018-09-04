@@ -24,7 +24,7 @@ A cookbook version is maintained just like a cookbook, with regard to source con
 
 .. end_tag
 
-.. note:: For more information about cookbook versions, see `About Cookbook Versions </cookbook_versions.html>`__
+.. note:: For more information about cookbook versioning, see `About Cookbook Versioning </cookbook_versioning.html>`__
 
 Data Bags (Secrets)
 =====================================================

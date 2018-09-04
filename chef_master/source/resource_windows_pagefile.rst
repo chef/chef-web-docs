@@ -14,11 +14,11 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    windows_pagefile 'name' do
-     path                       String # default value: 'name'
-     system_managed             True, False
      automatic_managed          True, False # default value: 'false'
      initial_size               Integer
      maximum_size               Integer
+     path                       String # default value: 'name'
+     system_managed             True, False
      action                     Symbol # defaults to :set if not specified
    end
 
@@ -26,7 +26,7 @@ where:
 
 * ``windows_pagefile`` is the resource
 * ``'path'`` is the path to the pagefile, or the name of the resource block
-* ``system_managed``, ``automatic_managed``, ``initial_size``, and ``maximum_size`` are the properties available to this resource
+* ``automatic_managed``, ``initial_size``, ``maximum_size``, and ``path`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -45,18 +45,9 @@ Actions
 
 Properties
 =====================================================
-``path``
-   **Ruby Type:** String
-
-   The path to the pagefile if different from the resource name.
-
-``system_managed``
-   **Ruby Type:** True, False
-
-   Configures whether the system manages the pagefile size.
 
 ``automatic_managed``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Enable automatic management of pagefile initial and maximum size. Setting this to true ignores 'initial_size' and 'maximum_size' properties.
 
@@ -103,6 +94,11 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
+
+``path``
+   **Ruby Type:** String | **Default Value:** ``'name'``
+
+   The path to the pagefile if different from the resource name.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -152,3 +148,9 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
+
+``system_managed``
+
+   **Ruby Type:** true, false
+
+   Configures whether the system manages the pagefile size.
