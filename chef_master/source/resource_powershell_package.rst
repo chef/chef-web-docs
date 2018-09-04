@@ -3,7 +3,7 @@ powershell_package
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_package.rst>`__
 
-Use the **powershell_package** resource to install and manage packages via the PowerShell Package Manager for the Microsoft Windows platform.  The **powershell_package** resource requires administrative access, and a source must be configured in the PowerShell Package Manager via the `Register-PackageSource <https://docs.microsoft.com/en-us/powershell/module/packagemanagement/register-packagesource?view=powershell-5.1>`_ command or the ``powershell_package_source`` resource.
+Use the **powershell_package** resource to install and manage packages via the PowerShell Package Manager for the Microsoft Windows platform.  The **powershell_package** resource requires administrative access, and a source must be configured in the PowerShell Package Manager via the `Register-PackageSource <https://docs.microsoft.com/en-us/powershell/module/packagemanagement/register-packagesource?view=powershell-5.1>`_ command or the `powershell_package_source </resource_powershell_package_source.html>`__ resource.
 
 **Available in Chef Client 12.16 and above**
 
