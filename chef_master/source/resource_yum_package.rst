@@ -1,7 +1,7 @@
 =====================================================
 yum_package
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_yum.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_yum_package.rst>`__
 
 .. tag resource_package_yum
 
