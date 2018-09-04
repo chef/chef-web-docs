@@ -33,7 +33,7 @@ For more information about specific resources for specific platforms, see the fo
 * `smartos_package </resource_smartos_package.html>`__
 * `solaris_package </resource_solaris_package.html>`__
 * `windows_package </resource_windows_package.html>`__
-* `yum_package </resource_yum.html>`__
+* `yum_package </resource_yum_package.html>`__
 * `zypper_package </resource_zypper_package.html>`__
 
 Syntax
