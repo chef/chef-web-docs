@@ -152,7 +152,53 @@ OR
 
 Use MSI Installer
 -----------------------------------------------------
-A Microsoft Installer Package (MSI) is available for installing the chef-client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/chef>`__.
+A Microsoft Installer Package (MSI) is available for installing the chef-client on a Microsoft Windows machine.
+
+.. tag install_chef_client_windows
+
+To install the chef-client on Microsoft Windows, do the following:
+
+#. Go to https://downloads.chef.io/chef.
+
+#. Click the **Chef Client** tab.
+
+#. Select **Windows**, a version, and an architecture.
+
+#. Under **Downloads**, select the version of the chef-client to download, and then click the link that appears below to download the package.
+
+#. Ensure that the MSI is on the target node.
+
+#. Run the MSI package and use all the default options:
+
+   .. image:: ../../images/step_install_windows_01.png
+
+then:
+
+   .. image:: ../../images/step_install_windows_02.png
+
+then:
+
+   .. image:: ../../images/step_install_windows_03.png
+
+   .. note:: The MSI can either configure the chef-client to run as a scheduled task or as a service for it to be able to regularly check in with the Chef server. Using a scheduled task is a recommended approach. Select the **Chef Unattended Execution Options** option to have the MSI configure the chef-client as a scheduled task or as a service.
+
+then:
+
+   .. image:: ../../images/step_install_windows_04.png
+
+then:
+
+   .. image:: ../../images/step_install_windows_05.png
+
+then:
+
+   .. image:: ../../images/step_install_windows_06.png
+
+then:
+
+   .. image:: ../../images/step_install_windows_07.png
+
+.. end_tag
 
 Enable as a Scheduled Task
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -265,6 +311,188 @@ To configure proxy settings in Microsoft Windows:
 #. Set ``http_proxy`` and ``https_proxy`` to the location of your proxy server. This value **MUST** be lowercase.
 
 .. end_tag
+
+Microsoft Azure portal
+=====================================================
+
+.. tag cloud_azure_portal
+
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. Through the Azure Marketplace and the `Azure portal <https://portal.azure.com/>`_, virtual machines can be bootstrapped and ready to run Chef Automate, Chef Compliance and Chef client.
+
+.. end_tag
+
+.. tag cloud_azure_portal_platforms
+
+Through the Azure portal, you can provision a virtual machine with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
+
+.. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
+
+.. end_tag
+
+chef-client Settings
+-----------------------------------------------------
+.. tag cloud_azure_portal_settings_chef_client
+
+Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
+
+* The ``chef_server_url`` and ``validation_client_name``. These are settings in the `client.rb file </config_rb_client.html>`__.
+
+* The file for the `validator key </chef_private_keys.html>`__.
+
+.. end_tag
+
+Set up Virtual Machines
+-----------------------------------------------------
+.. tag cloud_azure_portal_virtual_machines
+
+Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef using the following steps:
+
+#. Sign in to the `Azure portal <https://portal.azure.com/>`_ and authenticate using your Microsoft Azure account credentials.
+
+#. Choose **Virtual Machines** in the left pane of the portal.
+
+#. Click the **Add** option at the top of the blade.
+
+#. Select either **Windows Server** or **Ubuntu Server** in the **Recommended** category.
+
+   .. note:: The Chef extension on the Azure portal may be used on the following platforms:
+
+      * Windows Server 2008 R2 SP1, 2012, 2012 R2, 2016
+      * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 16.10
+      * CentOS 6.5+
+      * RHEL 6+
+      * Debian 7, 8
+
+#. In the next blade, select the sku/version of the OS that you would like to use on your VM and click **Create**.
+
+#. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on.
+
+   .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
+
+#. In Step 3 on the portal UI, open the **Extensions** blade and click ``Add extension``.
+
+#. Depending on the OS you selected earlier, select either **Windows Chef Extension** or **Linux Chef Extension** and then **Create**.
+
+#. Using the ``chef-repo/.chef/knife.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
+
+#. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).
+
+#. Upload it through the portal in the **Validation Key** field.
+
+   .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box.
+
+#. For **Client Configuration File**, browse to the ``chef-repo/.chef/knife.rb`` file and upload it through your web browser.
+
+   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
+
+#. Optional. `Use a run-list </run_lists.html>`__ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
+
+   .. code-block:: ruby
+
+      iis
+
+   or:
+
+   .. code-block:: ruby
+
+      iis::default
+
+   or:
+
+   .. code-block:: ruby
+
+      recipe['iis']
+
+   A run-list can also be built using a role. For example, if a role named ``backend_server`` is defined on the Chef server, the run-list would look like:
+
+   .. code-block:: ruby
+
+      role['backend_server']
+
+   Even without a run-list, the virtual machine will periodically check with the Chef server to see if the configuration requirements change. This means that the run-list can be updated later, by editing the run-list to add the desired run-list items by using the Chef server web user interface or by using the knife command line tool.
+
+   .. note:: A run-list may only refer to roles and/or recipes that have already been uploaded to the Chef server.
+
+#. Click **OK** to complete the page. Click **OK** in the Extensions blade and the rest of the setup blades. Provisioning will begin and the portal will the blade for your new VM.
+
+After the process is complete, the virtual machine will be registered with the Chef server and it will have been provisioned with the configuration (applications, services, etc.) from the specified run-list. The Chef server can now be used to perform all ongoing management of the virtual machine node.
+
+.. end_tag
+
+Log Files
+-----------------------------------------------------
+.. tag cloud_azure_portal_log_files
+
+If the Azure portal displays an error in dashboard, check the log files. The log files are created by the chef-client. The log files can be accessed from within the Azure portal or by running the chef-client on the node itself and then reproducing the issue interactively.
+
+.. end_tag
+
+From the Azure portal
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag cloud_azure_portal_log_files_azure_portal
+
+Log files are available from within the Azure portal:
+
+#. Select **Virtual Machines** in the left pane of the Azure portal.
+
+#. Select the virtual machine that has the error status.
+
+#. Click the **Connect** button at the bottom of the portal to launch a Windows Remote Desktop session, and then log in to the virtual machine.
+
+#. Start up a Windows PowerShell command shell.
+
+   .. code-block:: bash
+
+      $ cd c:\windowsazure\logs
+        ls –r chef*.log
+
+#. This should display the log files, including the chef-client log file.
+
+.. end_tag
+
+From the chef-client
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag cloud_azure_portal_log_files_chef_client
+
+The chef-client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then running the chef-client:
+
+#. Log into the virtual machine.
+
+#. Start up a Windows PowerShell command shell.
+
+#. Run the following command:
+
+   .. code-block:: bash
+
+      $ chef-client -l debug
+
+#. View the logs. On a linux system, the Chef client logs are saved to ``/var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/<extension-version-number>/chef-client.log`` and can be viewed using the following command:
+
+   .. code-block:: bash
+
+      $ tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
+
+.. end_tag
+
+Troubleshoot Log Files
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag cloud_azure_portal_log_files_troubleshoot
+
+After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
+
+* Connectivity errors with the Chef server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
+* An invalid validator key has been specified. This will prevent the chef-client from authenticating to the Chef server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
+* The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
+* An error in one the run-list. The log file will specify the details about errors related to the run-list.
+
+.. end_tag
+
+For more information ...
+-----------------------------------------------------
+For more information about Microsoft Azure and how to use it with Chef:
+
+* `Microsoft Azure Documentation <https://docs.microsoft.com/en-us/azure/virtual-machines/>`_
+* `azure-cookbook <https://github.com/chef-partners/azure-cookbook>`_
 
 Knife
 =====================================================
@@ -637,6 +865,967 @@ This subcommand has the following options:
           See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
+
+knife azure
+-----------------------------------------------------
+.. tag plugin_knife_azure
+
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines for Linux and Windows Server, cloud and database services, and more. The ``knife azure`` subcommand is used to manage API-driven cloud servers that are hosted by Microsoft Azure.
+
+.. end_tag
+
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
+
+Install this plugin
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+To install the ``knife azure`` plugin using RubyGems, run the following command:
+
+.. code-block:: bash
+
+   $ /opt/chef/embedded/bin/gem install knife-azure
+
+where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located. If the chef-client was installed using RubyGems, omit the path in the previous example.
+
+Generate Certificates
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``knife azure`` subcommand must use a management certificate for secure communication with Microsoft Azure. The management certificate is required for secure communication with the Microsoft Azure platform via the REST APIs. To generate the management certificate (.pem file):
+
+#. Download the settings file: http://go.microsoft.com/fwlink/?LinkId=254432.
+#. Extract the data from the ``ManagementCertificate`` field into a separate file named ``cert.pfx``.
+#. Decode the certificate file with the following command:
+
+   .. code-block:: bash
+
+      $ base64 -d cert.pfx > cert_decoded.pfx
+#. Convert the decoded PFX file to a PEM file with the following command:
+
+   .. code-block:: bash
+
+      $ openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
+
+.. note:: It is possible to generate certificates, and then upload them. See the following link for more information: www.windowsazure.com/en-us/manage/linux/common-tasks/manage-certificates/.
+
+ag create
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``ag create`` argument to create an affinity group.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure ag create (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``-a``, ``--azure-affinity-group GROUP``
+   The affinity group to which the virtual machine belongs. Required when not using a service location. Required when not using ``--azure-service-location``.
+
+``--azure-ag-desc DESCRIPTION``
+   The description of the Microsoft Azure affinity group.
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-m LOCATION``, ``--azure-service-location LOCATION``
+   The geographic location for a virtual machine and its services. Required when not using ``--azure-affinity-group``.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+ag list
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``ag list`` argument to get a list of affinity groups.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure ag list (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+image list
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``image list`` argument to get a list of images that exist in a Microsoft Azure environment. Any image in this list may be used for provisioning.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure image list (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``--full``
+   Show all fields for all images.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+server create
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``server create`` argument to create a new Microsoft Azure cloud instance. This will provision a new image in Microsoft Azure, perform a bootstrap (using the SSH protocol), and then install the chef-client on the target system so that it can be used to configure the node and to communicate with a Chef server.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure server create (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``-a``, ``--azure-affinity-group GROUP``
+   The affinity group to which the virtual machine belongs. Required when not using a service location. Required when not using ``--azure-service-location``.
+
+``--auto-update-client``
+   Enable automatic updates for the chef-client in Microsoft Azure. This option may only be used when ``--bootstrap-protocol`` is set to ``cloud-api``. Default value: ``false``.
+
+``--azure-availability-set NAME``
+   The name of the availability set for the virtual machine.
+
+``--azure-dns-name DNS_NAME``
+   Required. The name of the DNS prefix that is used to access the cloud service. This name must be unique within Microsoft Azure. Use with ``--azure-connect-to-existing-dns`` to use an existing DNS prefix.
+
+``--azure-network-name NETWORK_NAME``
+   The network for the virtual machine.
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``--azure-storage-account STORAGE_ACCOUNT_NAME``
+   The name of the storage account used with the hosted service. A storage account name may be between 3 and 24 characters (lower-case letters and numbers only) and must be unique within Microsoft Azure.
+
+``--azure-subnet-name SUBNET_NAME``
+   The subnet for the virtual machine.
+
+``--azure-vm-name NAME``
+   The name of the virtual machine. Must be unique within Microsoft Azure. Required for advanced server creation options.
+
+``--azure-vm-ready-timeout TIMEOUT``
+   A number (in minutes) to wait for a virtual machine to reach the ``provisioning`` state. Default value: ``10``.
+
+``--azure-vm-startup-timeout TIMEOUT``
+   A number (in minutes) to wait for a virtual machine to transition from the ``provisioning`` state to the ``ready`` state. Default value: ``15``.
+
+``--bootstrap-protocol PROTOCOL``
+   The protocol used to bootstrap on a machine that is running Windows Server: ``cloud-api``, ``ssh``, or ``winrm``. Default value: ``winrm``.
+
+   Use the ``cloud-api`` option to bootstrap a machine in Microsoft Azure. The bootstrap operation will enable the guest agent to install, configure, and run the chef-client on a node, after which the chef-client is configured to run as a daemon/service. (This is a similar process to using the Azure portal.)
+
+   Microsoft Azure maintains images of the chef-client on the guest, so connectivity between the guest and the workstation from which the bootstrap operation was initiated is not required, after a ``cloud-api`` bootstrap is started.
+
+   During the ``cloud-api`` bootstrap operation, knife does not print the output of the chef-client run like it does when the ``winrm`` and ``ssh`` options are used. knife reports only on the status of the bootstrap process: ``provisioning``, ``installing``, ``ready``, and so on, along with reporting errors.
+
+``--bootstrap-version VERSION``
+   The version of the chef-client to install.
+
+``-c``, ``--azure-connect-to-existing-dns``
+   Add a new virtual machine to the existing deployment and/or service. Use with ``--azure-dns-name`` to ensure the correct DNS is used.
+
+``--cert-passphrase PASSWORD``
+   The password for the SSL certificate.
+
+``--cert-path PATH``
+   The path to the location of the SSL certificate.
+
+``-d DISTRO``, ``--distro DISTRO``
+   .. tag knife_bootstrap_distro
+
+   The template file to be used during a bootstrap operation. The following distributions are supported:
+
+   * ``chef-full`` (the default bootstrap)
+   * ``centos5-gems``
+   * ``fedora13-gems``
+   * ``ubuntu10.04-gems``
+   * ``ubuntu10.04-apt``
+   * ``ubuntu12.04-gems``
+   * The name of a custom bootstrap template file.
+
+   When this option is used, knife searches for the template file in the following order:
+
+   #. The ``bootstrap/`` folder in the current working directory
+   #. The ``bootstrap/`` folder in the chef-repo
+   #. The ``bootstrap/`` folder in the ``~/.chef/`` directory
+   #. A default bootstrap file.
+
+   Do not use the ``--template-file`` option when ``--distro`` is specified.
+
+   .. end_tag
+
+   Deprecated in Chef Client 12.0,
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the virtual machine.
+
+``--hint HINT_NAME[=HINT_FILE]``
+   An Ohai hint to be set on the target node.
+
+   .. tag ohai_hints
+
+   Ohai hints are used to tell Ohai something about the system that it is running on that it would not be able to discover itself. An Ohai hint exists if a JSON file exists in the hint directory with the same name as the hint. For example, calling ``hint?('antarctica')`` in an Ohai plugin would return an empty hash if the file ``antarctica.json`` existed in the hints directory, and return nil if the file does not exist.
+
+   .. end_tag
+
+   .. tag ohai_hints_json
+
+   If the hint file contains JSON content, it will be returned as a hash from the call to ``hint?``.
+
+   .. code-block:: javascript
+
+      {
+        "snow": true,
+        "penguins": "many"
+      }
+
+   .. code-block:: ruby
+
+      antarctica_hint = hint?('antarctica')
+      if antarctica_hint['snow']
+        "There are #{antarctica_hint['penguins']} penguins here."
+      else
+        'There is no snow here, and penguins like snow.'
+      end
+
+   Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the ``client.rb`` file to customize this location.
+
+   .. end_tag
+
+   ``HINT_FILE`` is the name of the JSON file. ``HINT_NAME`` is the name of a hint in a JSON file. Use multiple ``--hint`` options to specify multiple hints.
+
+``--host-name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-I IMAGE``, ``--azure-source-image IMAGE``
+   The name of the disk image to be used to create the virtual machine.
+
+``--identity-file IDENTITY_FILE``
+   The SSH identity file used for authentication. Key-based authentication is recommended.
+
+``--identity-file_passphrase PASSWORD``
+   The passphrase for the SSH key. Use only with ``--identity-file``.
+
+``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
+   A JSON string that is added to the first run of a chef-client.
+
+``-m LOCATION``, ``--azure-service-location LOCATION``
+   The geographic location for a virtual machine and its services. Required when not using ``--azure-affinity-group``.
+
+``-N NAME``, ``--node-name NAME``
+   The name of the node. Node names, when used with Microsoft Azure, must be 91 characters or shorter.
+
+``--[no-]host-key-verify``
+   Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
+
+``-o DISK_NAME``, ``--azure-os-disk-name DISK_NAME``
+   The operating system type of the Microsoft Azure OS image: ``Linux`` or ``Windows``.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-P PASSWORD``, ``--ssh-password PASSWORD``
+   The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
+
+``--prerelease``
+   Install pre-release gems.
+
+``-r RUN_LIST``, ``--run-list RUN_LIST``
+   A comma-separated list of roles and/or recipes to be applied.
+
+``-R ROLE_NAME``, ``--role-name ROLE_NAME``
+   The name of the virtual machine.
+
+``--ssh-port PORT``
+   The SSH port. Default value: ``22``.
+
+``-t PORT_LIST``, ``--tcp-endpoints PORT_LIST``
+   A comma-separated list of local and public TCP ports that are to be opened. For example: ``80:80,433:5000``.
+
+``--template-file TEMPLATE``
+   The path to a template file to be used during a bootstrap operation.
+
+   Deprecated in Chef Client 12.0.
+
+``--thumbprint THUMBPRINT``
+   The thumbprint of the SSL certificate.
+
+``-u PORT_LIST``, ``---udp-endpoints PORT_LIST``
+   A comma-separated list of local and public UDP ports that are to be opened. For example: ``80:80,433:5000``.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+``--windows-auth-timeout MINUTES``
+   The amount of time (in minutes) to wait for authentication to succeed. Default value: ``25``.
+
+``-x USER_NAME``, ``--ssh-user USER_NAME``
+   The SSH user name.
+
+``-z SIZE``, ``--azure-vm-size SIZE``
+   The size of the virtual machine: ``ExtraSmall``, ``Small``, ``Medium``, ``Large``, or ``ExtraLarge``. Default value: ``Small``.
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Provision an instance using new hosted service and storage accounts**
+
+To provision a medium-sized CentOS machine configured as a web server in the ``West US`` data center, while reusing existing hosted service and storage accounts, enter something like:
+
+.. code-block:: bash
+
+   $ knife azure server create -r "role[webserver]" --service-location "West US"
+     --hosted-service-name webservers --storage-account webservers-storage --ssh-user foo
+     --ssh--password password --role-name web-apache-0001 --host-name web-apache
+     --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
+
+**Provision an instance using new hosted service and storage accounts**
+
+To provision a medium-sized CentOS machine configured as a web server in the ``West US`` data center, while also creating new hosted service and storage accounts, enter something like:
+
+.. code-block:: bash
+
+   $ knife azure server create -r "role[webserver]" --service-location "West US" --ssh-user foo
+     --ssh--password password --role-name web-apache-0001 --host-name web-apache
+     --tcp-endpoints 80:80,8080:8080 --source-image name_of_source_image --role-size Medium
+
+server delete
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``server delete`` argument to delete one or more instances that are running in the Microsoft Azure cloud. To find a specific cloud instance, use ``knife azure server list``. Use the ``--purge`` option to delete all associated node and client objects from the Chef server or use the ``knife node delete`` and ``knife client delete`` subcommands to delete specific node and client objects.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure server delete [SERVER...] (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-dns-name NAME``
+   The name of the DNS server (also known as the Hosted Service Name).
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``--delete-azure-storage-account``
+   Delete any corresponding storage account. When this option is ``true``, any storage account not used by any virtual machine is deleted.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-N NODE_NAME``, ``--node-name NODE_NAME``
+   The name of the node to be deleted, if different from the server name. This must be used with the ``-p`` (purge) option.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-P``, ``--purge``
+   Destroy all corresponding nodes and clients on the Chef server, in addition to the Microsoft Azure node itself. This action (by itself) assumes that the node and client have the same name as the server; if they do not have the same names, then the ``--node-name`` option must be used to specify the name of the node.
+
+``--preserve-azure-dns-name``
+   Preserve the DNS entries for the corresponding cloud services. If this option is ``false``, any service not used by any virtual machine is deleted.
+
+``--preserve-azure-os-disk``
+   Preserve the corresponding operating system disk.
+
+``--preserve-azure-vhd``
+   Preserve the underlying virtual hard disk (VHD).
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+``--wait``
+   Pause the console until the server has finished processing the request.
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Delete an instance**
+
+To delete an instance named ``devops12``, enter:
+
+.. code-block:: bash
+
+   $ knife azure server delete devops12
+
+server describe
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``server describe`` argument to view a detailed description of one (or more) roles that exist in a Microsoft Azure cloud instance. For each specified role name, information such as status, size, hosted service name, deployment name, ports (open, local, public) and IP are displayed.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure server describe [ROLE_NAME...] (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+Examples
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**View role details**
+
+To view the details for a role named ``admin``, enter:
+
+.. code-block:: bash
+
+   $ knife azure server describe admin
+
+server list
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``server list`` argument to find instances that are associated with a Microsoft Azure account. The results may show instances that are not currently managed by the Chef server.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure server list (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+server show
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``server show`` argument to show the details for the named server (or servers).
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure server show SERVER [SERVER...] (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+vnet create
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``vnet create`` argument to create a virtual network.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure vnet create (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``-a``, ``--azure-affinity-group GROUP``
+   The affinity group to which the virtual machine belongs. Required when not using a service location.
+
+``--azure-address-space CIDR``
+   The address space of the virtual network. Use with classless inter-domain routing (CIDR) notation.
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``--azure-subnet-name CIDR``
+   The subnet for the virtual machine. Use with classless inter-domain routing (CIDR) notation.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-n``, ``--azure-network-name NETWORK_NAME``
+   The network for the virtual machine.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+vnet list
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``vnet list`` argument to get a list of virtual networks.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure vnet list (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-publish-settings-file FILE_NAME``
+   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
+
+``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
+   The host name for the Microsoft Azure environment.
+
+``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
+   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
+
+``-S ID``, ``--azure-subscription-id ID``
+   The subscription identifier for the Microsoft Azure portal.
+
+``--verify-ssl-cert``
+   The SSL certificate used to verify communication over HTTPS.
+
+knife windows
+-----------------------------------------------------
+.. tag plugin_knife_windows_summary
+
+The ``knife windows`` subcommand is used to configure and interact with nodes that exist on server and/or desktop machines that are running Microsoft Windows. Nodes are configured using WinRM, which allows native objects---batch scripts, Windows PowerShell scripts, or scripting library variables---to be called by external applications. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
+
+.. end_tag
+
+.. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
+
+Install this plugin
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag plugin_knife_windows_install_rubygem
+
+To install the ``knife windows`` plugin using RubyGems, run the following command:
+
+.. code-block:: bash
+
+   $ /opt/chef/embedded/bin/gem install knife-windows
+
+where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located. If the chef-client was installed using RubyGems, omit the path in the previous example.
+
+.. end_tag
+
+Requirements
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag plugin_knife_windows_winrm_requirements
+
+This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management and/or https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
+
+.. code-block:: bash
+
+   $ winrm quickconfig -q
+
+The following WinRM configuration settings should be updated:
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Setting
+     - Description
+   * - ``MaxMemoryPerShellMB``
+     - The chef-client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
+   * - ``MaxTimeoutms``
+     - A bootstrap command can take longer than allowed by the default setting. Increase this value to ``1800000`` (30 minutes).
+
+To update these settings, run the following commands:
+
+.. code-block:: bash
+
+   $ winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="300"}'
+
+and then:
+
+.. code-block:: bash
+
+   $ winrm set winrm/config '@{MaxTimeoutms="1800000"}'
+
+Ensure that the Windows Firewall is configured to allow WinRM connections between the workstation and the Chef server. For example:
+
+.. code-block:: bash
+
+   $ netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
+
+.. end_tag
+
+Negotiate, NTLM
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tag plugin_knife_windows_winrm_requirements_nltm
+
+When knife is executed from a Microsoft Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for ``winrm quickconfig``. This is because ``knife windows`` supports the Microsoft Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
+
+.. note:: To use Negotiate or NTLM to authenticate as the user specified by the ``--winrm-user`` option, include the user's Microsoft Windows domain, using the format ``domain\user``, where the backslash (``\``) separates the domain from the user.
+
+For example:
+
+.. code-block:: bash
+
+   $ knife bootstrap windows winrm web1.cloudapp.net -r 'server::web' -x 'proddomain\webuser' -P 'password'
+
+and:
+
+.. code-block:: bash
+
+   $ knife bootstrap windows winrm db1.cloudapp.net -r 'server::db' -x '.\localadmin' -P 'password'
+
+.. end_tag
+
+Domain Authentication
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag plugin_knife_windows_winrm_domain_authentication
+
+The ``knife windows`` plugin supports Microsoft Windows domain authentication. This requires:
+
+* An SSL certificate on the target node
+* The certificate details can be viewed and its `thumbprint hex values copied <https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in>`_
+
+To create the listener over HTTPS, run the following command:
+
+.. code-block:: bash
+
+   $ winrm create winrm/config/Listener?Address=IP:<ip_address>+Transport=HTTPS @{Hostname="<fqdn>";CertificateThumbprint="<hexidecimal_thumbprint_value>"}
+
+where the ``CertificateThumbprint`` is the thumbprint hex value copied from the certificate details. (The hex value may require that spaces be removed before passing them to the node using the ``knife windows`` plugin.) WinRM 2.0 uses port ``5985`` for HTTP and port ``5986`` for HTTPS traffic, by default.
+
+To bootstrap the target node using the ``knife bootstrap`` subcommand, first use the ``winrm`` argument in the ``knife windows`` plugin to verify communication with the node:
+
+.. code-block:: bash
+
+   $ knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' –p 5986
+
+and then run a command similar to the following:
+
+.. code-block:: bash
+
+   $ knife bootstrap windows winrm 'node1.domain.com' -r 'role[webserver]' -x domain\\administrator -P 'password' -p 5986
+
+.. end_tag
+
+bootstrap windows ssh
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag plugin_knife_windows_bootstrap_windows_ssh
+
+Use the ``bootstrap windows ssh`` argument to bootstrap chef-client installations in a Microsoft Windows environment, using a command shell that is native to Microsoft Windows.
+
+.. end_tag
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tag plugin_knife_windows_bootstrap_windows_ssh_syntax
+
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife bootstrap windows ssh (options)
+
+.. end_tag
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tag plugin_knife_windows_bootstrap_windows_ssh_options
+
+This argument has the following options:
+
+``--auth-timeout MINUTES``,
+   The amount of time (in minutes) to wait for authentication to succeed. Default: ``2``.
+
+``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
+   A URL or IP address that specifies a location that should not be proxied.
+
+``--bootstrap-proxy PROXY_URL``
+   The proxy server for the node that is the target of a bootstrap operation.
+
+``--bootstrap-version VERSION``
+   The version of the chef-client to install.
+
+``-G GATEWAY``, ``--ssh-gateway GATEWAY``
+   The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
+
+``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
+   The SSH identity file used for authentication. Key-based authentication is recommended.
+
+``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
+   A JSON string that is added to the first run of a chef-client.
+
+``-N NAME``, ``--node-name NAME``
+   The name of the node.
+
+``--[no-]host-key-verify``
+   Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
+
+``-p PORT``, ``--ssh-port PORT``
+   The SSH port.
+
+``-P PASSWORD``, ``--ssh-password PASSWORD``
+   The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
+
+``--prerelease``
+   Install pre-release gems.
+
+``-r RUN_LIST``, ``--run-list RUN_LIST``
+   A comma-separated list of roles and/or recipes to be applied.
+
+``-s SECRET``, ``--secret``
+   The encryption key that is used for values contained within a data bag item.
+
+``--secret-file SECRET_FILE``
+   The path to the file that contains the encryption key.
+
+``-x USER_NAME``, ``--ssh-user USER_NAME``
+   The SSH user name.
+
+.. end_tag
+
+winrm
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag plugin_knife_windows_winrm
+
+Use the ``winrm`` argument to create a connection to one or more remote machines. As each connection is created, a password must be provided. This argument uses the same syntax as the ``search`` subcommand.
+
+.. end_tag
+
+.. tag plugin_knife_windows_winrm_ports
+
+WinRM requires that a target node be accessible via the ports configured to support access via HTTP or HTTPS.
+
+.. end_tag
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tag plugin_knife_windows_winrm_syntax
+
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife winrm SEARCH_QUERY SSH_COMMAND (options)
+
+.. end_tag
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+.. tag plugin_knife_windows_winrm_options
+
+This argument has the following options:
+
+``-a ATTR``, ``--attribute ATTR``
+   The attribute used when opening an SSH connection. The default attribute is the FQDN of the host. Other possible values include a public IP address, a private IP address, or a hostname.
+
+``-f CA_TRUST_FILE``, ``--ca-trust-file CA_TRUST_FILE``
+   Optional. The certificate authority (CA) trust file used for SSL transport.
+
+``-C NUM``, ``--concurrency NUM``
+   Changed in knife-windows 1.9.0.
+   The number of allowed concurrent connections. Defaults to 1.
+
+``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
+   The keytab file that contains the encryption key required by Kerberos-based authentication.
+
+``--keytab-file KEYTAB_FILE``
+   The keytab file that contains the encryption key required by Kerberos-based authentication.
+
+``-m``, ``--manual-list``
+   Define a search query as a space-separated list of servers.
+
+``-p PORT``, ``--winrm-port PORT``
+   The WinRM port. The TCP port on the remote system to which ``knife windows`` commands that are made using WinRM are sent. Default: ``5986`` when ``--winrm-transport`` is set to ``ssl``, otherwise ``5985``.
+
+``-P PASSWORD``, ``--winrm-password PASSWORD``
+   The WinRM password.
+
+``-R KERBEROS_REALM``, ``--kerberos-realm KERBEROS_REALM``
+   Optional. The administrative domain to which a user belongs.
+
+``--returns CODES``
+   A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely.
+
+``-S KERBEROS_SERVICE``, ``--kerberos-service KERBEROS_SERVICE``
+   Optional. The service principal used during Kerberos-based authentication.
+
+``SEARCH_QUERY``
+   The search query used to return a list of servers to be accessed using SSH and the specified ``SSH_COMMAND``. This option uses the same syntax as the search subcommand.
+
+``SSH_COMMAND``
+   The command to be run against the results of a search query.
+
+``--session-timeout MINUTES``
+   The amount of time (in minutes) for the maximum length of a WinRM session.
+
+``-t TRANSPORT``, ``--winrm-transport TRANSPORT``
+   The WinRM transport type. Possible values: ``ssl`` or ``plaintext``.
+
+``--winrm-authentication-protocol PROTOCOL``
+   The authentication protocol to be used during WinRM communication. Possible values: ``basic``, ``kerberos`` or ``negotiate``. Default value: ``negotiate``.
+
+``--winrm-shell SHELL``
+   The WinRM shell type. Valid choices are ``cmd``, ``powershell`` or ``elevated``. Default value: ``cmd``. The ``elevated`` shell is similar to the ``powershell`` option, but runs the powershell command from a scheduled task.
+
+``--winrm-ssl-verify-mode MODE``
+   The peer verification mode that is used during WinRM communication. Possible values: ``verify_none`` or ``verify_peer``. Default value: ``verify_peer``.
+
+``-x USERNAME``, ``--winrm-user USERNAME``
+   The WinRM user name.
+
+.. end_tag
+
+Examples
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+**Find Uptime for Web Servers**
+
+.. tag plugin_knife_windows_winrm_find_uptime
+
+To find the uptime of all web servers, enter:
+
+.. code-block:: bash
+
+   $ knife winrm "role:web" "net stats srv" -x Administrator -P password
+
+.. end_tag
+
+**Force a chef-client run**
+
+.. tag plugin_knife_windows_winrm_force_chef_run
+
+To force a chef-client run:
+
+.. code-block:: bash
+
+   knife winrm 'ec2-50-xx-xx-124.amazonaws.com' 'chef-client -c c:/chef/client.rb' -m -x admin -P 'password'
+   ec2-50-xx-xx-124.amazonaws.com [date] INFO: Starting Chef Run (Version 0.9.12)
+   ec2-50-xx-xx-124.amazonaws.com [date] WARN: Node ip-0A502FFB has an empty run list.
+   ec2-50-xx-xx-124.amazonaws.com [date] INFO: Chef Run complete in 4.383966 seconds
+   ec2-50-xx-xx-124.amazonaws.com [date] INFO: cleaning the checksum cache
+   ec2-50-xx-xx-124.amazonaws.com [date] INFO: Running report handlers
+   ec2-50-xx-xx-124.amazonaws.com [date] INFO: Report handlers complete
+
+Where in the examples above, ``[date]`` represents the date and time the long entry was created. For example: ``[Fri, 04 Mar 2011 22:00:53 +0000]``.
+
+.. end_tag
+
+**Bootstrap a Windows machine using SSH**
+
+.. tag plugin_knife_windows_bootstrap_ssh
+
+To bootstrap a Microsoft Windows machine using SSH:
+
+.. code-block:: bash
+
+   $ knife bootstrap windows ssh ec2-50-xx-xx-124.compute-1.amazonaws.com -r 'role[webserver],role[production]' -x Administrator -i ~/.ssh/id_rsa
+
+.. end_tag
+
+**Bootstrap a Windows machine using Windows Remote Management**
+
+.. tag plugin_knife_windows_bootstrap_winrm
+
+To bootstrap a Microsoft Windows machine using WinRM:
+
+.. code-block:: bash
+
+   $ knife bootstrap windows winrm ec2-50-xx-xx-124.compute-1.amazonaws.com -r 'role[webserver],role[production]' -x Administrator -P 'super_secret_password'
+
+.. end_tag
 
 Resources
 =====================================================
