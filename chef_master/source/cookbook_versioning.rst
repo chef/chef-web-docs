@@ -1,7 +1,7 @@
 =====================================================
-About Cookbook Versions
+About Cookbook Versioning
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/cookbook_versions.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/cookbook_versioning.rst>`__
 
 .. tag cookbooks_version
 
