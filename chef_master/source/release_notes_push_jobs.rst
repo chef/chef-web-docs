@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Push Jobs 1.0 - 2.2
+Release Notes: Chef Push Jobs 1.0 - 2.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_push_jobs.rst>`__
 
