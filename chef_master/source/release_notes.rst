@@ -8,13 +8,13 @@ Chef Client is released on a monthly schedule with new releases the first Wednes
 What’s New in 14.4
 =====================================================
 * **Knife configuration profile management commands**
-      Several new commands have been added under knife config to help manage multiple profiles in your credentials file.
+      We've added new commands to the knife config to help you manage multiple profiles in your credentials file.
 
-      ```knife config get-profile``` will display the active profile.
+      ```knife config get-profile``` displays the active profile.
 
-      ```knife config use-profile PROFILE``` will set the workstation-level default profile. That default can still be overridden by the --profile command line option or the $CHEF_PROFILE environment variable.
+      ```knife config use-profile PROFILE``` sets the workstation-level default profile. You can still override this setting with the ``--profile`` command line option or the $CHEF_PROFILE environment variable.
 
-      ```knife config list-profiles``` will display all your available profiles along with summary information on each.
+      ```knife config list-profiles``` displays all your available profiles along with summary information on each.
 
       .. code-block:: bash
 
@@ -26,27 +26,25 @@ What’s New in 14.4
          Profile  Client  Key               Server
         -----------------------------------------------------------------------------
          staging  myuser  ~/.chef/user.pem  https://example.com/organizations/staging
-        *prod     myuser  ~/.chef/user.pem  https://example.com/organizations/prod
+         *prod    myuser  ~/.chef/user.pem  https://example.com/organizations/prod
 
       Thank you @coderanger for this contribution.
 
 * **New Preview Resources**
 
   * **cron_d**
-      Use the `cron_d </resource_cron_d.html>`__ resource to manage cron definitions in /etc/cron.d. This is similar to the cron resource, but it does not use the monolithic /etc/crontab. file.
-
-      See cron_d resource documentation for full usage.
+      Use the `cron_d </resource_cron_d.html>`__ resource to manage cron definitions in ``/etc/cron.d``. This is similar to the cron resource, but it does not use the monolithic ``/etc/crontab`` file.
 
   * **cron_access**
-      Use the `cron_access </resource_cron_access.html>`__ resource to manage the /etc/cron.allow and /etc/cron.deny files. This resource previously shipped in the cron community cookbook and has fully backwards compatibility with the previous cron_manage definition in that cookbook.
+      Use the `cron_access </resource_cron_access.html>`__ resource to manage the ``/etc/cron.allow`` and ``/etc/cron.deny`` files. This resource previously shipped in the cron community cookbook and has fully backwards compatibility with the previous ``cron_manage`` definition in that cookbook.
 
   * **openssl_x509_certificate**
-      Use the `openssl_x509_certificate </resource_openssl_x509_certificate.html>`__ resource to generate signed or self-signed, PEM-formatted x509 certificates. If no existing key is specified, the resource will automatically generate a passwordless key with the certificate. If a CA private key and certificate are provided, the certificate will be signed with them. This resource previously shipped in the openssl cookbook as openssl_x509 and is fully backwards compatible with the legacy resource name.
+      Use the `openssl_x509_certificate </resource_openssl_x509_certificate.html>`__ resource to generate signed or self-signed, PEM-formatted x509 certificates. If no existing key is specified, the resource automatically generates a passwordless key with the certificate. If a CA private key and certificate are provided, the certificate will be signed with them. This resource previously shipped in the openssl cookbook as ``openssl_x509`` and is fully backwards compatible with the legacy resource name.
 
-      Thank you @juju482 for updating this resource so it could be included here.
+      Thank you @juju482 for updating this resource!
 
   * **openssl_x509_request**
-      Use the `openssl_x509_request </resource_openssl_x509_request.html>`__ resource to generate PEM-formatted x509 certificates requests. If no existing key is specified, the resource will automatically generate a passwordless key with the certificate.
+      Use the `openssl_x509_request </resource_openssl_x509_request.html>`__ resource to generate PEM-formatted x509 certificates requests. If no existing key is specified, the resource automatically generates a passwordless key with the certificate.
 
       Thank you @juju482 for contributing this resource.
 
@@ -71,18 +69,18 @@ What’s New in 14.4
        The `windows_package </resource_windows_package.html>`__ resource now supports setting the sensitive property to avoid showing errors if a package install fails.
 
   * **sysctl**
-       The `sysctl </resource_sysctl.html>`__ resource will now update the on-disk sysctl.d file even if the current sysctl value matches the desired value.
+       The `sysctl </resource_sysctl.html>`__ resource now updates the on-disk ``sysctl.d`` file even if the current sysctl value matches the desired value.
 
   * **windows_task**
-       The `windows_task </resource_windows_task.html>`__ resource now supports setting the task priority of the scheduled task with a new priority property. Additionally windows_task now supports managing the behavior of task execution when a system is on battery using new disallow_start_if_on_batteries and stop_if_going_on_batteries properties.
+       The `windows_task </resource_windows_task.html>`__ resource now supports setting the task priority of the scheduled task with a new priority property. Additionally ``windows_task`` now supports managing the behavior of task execution when a system is on battery using new ``disallow_start_if_on_batteries`` and ``stop_if_going_on_batteries`` properties.
 
   * **ifconfig**
-       The `ifconfig </resource_ifconfig.html>`__ resource now supports setting the interface's VLAN via a new vlan property on RHEL platform_family and setting the interface's gateway via a new gateway property on RHEL/Debian platform_family.
+       The `ifconfig </resource_ifconfig.html>`__ resource now supports setting the interface's VLAN via a new vlan property on RHEL ``platform_family`` and setting the interface's gateway via a new gateway property on RHEL/Debian ``platform_family``.
 
        Thank you @tomdoherty for this contribution.
 
   * **route**
-       The `route </resource_route.html>`__ resource has been improved to support additional RHEL platform_family systems as well as Amazon Linux.
+       The `route </resource_route.html>`__ resource now supports additional RHEL platform_family systems as well as Amazon Linux.
 
   * **systemd_unit**
        The `systemd_unit </resource_systemd_unit.html>`__ resource now supports specifying options multiple times in the content hash. Instead of setting the value to a string you can now set it to an array of strings.
