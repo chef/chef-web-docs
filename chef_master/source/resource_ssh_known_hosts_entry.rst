@@ -1,11 +1,11 @@
 =====================================================
-windows_shortcut
+ssh_known_hosts_entry
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_shortcut.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ssh_known_hosts_entry.rst>`__
 
-Use the **windows_shortcut** resource to create shortcut files on Windows.
+Use the **ssh_known_hosts_entry** resource to add an entry for the specified host in /etc/ssh/ssh_known_hosts or a user's known hosts file if specified.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
@@ -13,28 +13,35 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_shortcut 'name' do
-     arguments                  String
-     cwd                        String
-     description                String
-     iconlocation               String
-     notifies                   # see description
-     shortcut_name              String # default value: 'name'
-     subscribes                 # see description
-     target                     String
-     action                     Symbol # defaults to :create if not specified
+   ssh_known_hosts_entry 'name' do
+     file_location             String # defaults to /etc/ssh/ssh_known_hosts
+     group                     String # defaults to the root_group on the system
+     hash_entries              true, false # defaults to false
+     host                      String
+     key                       String
+     key_type                  String # defaults to rsa
+     mode                      String # defaults to 0644
+     notifies                  # see description
+     owner                     String # defaults to root
+     port                      Integer # defaults to 22
+     subscribes                # see description
+     timeout                   Integer # defaults to 30
+     action                    Symbol # defaults to :create if not specified
    end
 
 where:
 
-* ``windows_shortcut`` is the resource
-* ``'name'`` is the name of the shortcut, or the name of the resource block
-* ``arguments``, ``cwd``, ``description``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
+* ``ssh_known_hosts_entry`` is the name of the resource
+* ``file_location``, ``group``, ``hash_entries``, ``host``, ``key``, ``key_type``, ``mode``, ``owner``, and ``port`` are the properties available to this resource
 
 Actions
 =====================================================
+
 ``:create``
-   Default. Create or modify a Windows shortcut.
+   Default. Create an entry in the ssh_known_hosts file.
+
+``:flush``
+   Immediately flush the entries to the config file. Without this the actual writing of the file is delayed in the Chef run so all entries can be accumulated before writing the file out.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -45,25 +52,41 @@ Actions
 
 Properties
 =====================================================
-``arguments``
+
+``file_location``
+   **Ruby Type:** String | **Default Value:** ``/etc/ssh/ssh_known_hosts``
+
+   The location of the ssh known hosts file. Change this to set a known host file for a particular user.
+
+``group``
    **Ruby Type:** String
 
-   Arguments to pass to the target when the shortcut is executed.
+   The file group for the ssh_known_hosts file.
 
-``cwd``
+``hash_entries``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Hash the hostname and addresses in the ssh_known_hosts file for privacy.
+
+``host``
    **Ruby Type:** String
 
-   Working directory to use when the target is executed.
+   The host to add to the known hosts file.
 
-``description``
+``key``
    **Ruby Type:** String
 
-   The description of the shortcut
+   An optional key for the host. If not provided this will be automatically determined.
 
-``iconlocation``
-   **Ruby Type:** String
+``key_type``
+   **Ruby Type:** String | **Default Value:** ``rsa``
 
-   Icon to use for the shortcut. Accepts the format of ``'path, index'``, where index is the icon file to use. See Microsoft's `documentation <https://msdn.microsoft.com/en-us/library/3s9bx7at.aspx>`__ for details.
+   The type of key to store.
+
+``mode``
+   **Ruby Type:** String | **Default Value:** ``0644``
+
+   The file mode for the ssh_known_hosts file.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -99,10 +122,16 @@ Properties
 
    .. end_tag
 
-``shortcut_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+``owner``
+   **Ruby Type:** String | **Default Value:** ``root``
 
-   The name for the shortcut, if it differs from the resource name.
+   The file owner for the ssh_known_hosts file.
+
+``port``
+   **Ruby Type:** Integer | **Default Value:** ``22``
+
+   The server port that the ssh-keyscan command will use to gather the public key.
+
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -153,7 +182,7 @@ Properties
 
    .. end_tag
 
-``target``
-   **Ruby Type:** String
+``timeout``
+   **Ruby Type:** Integer | **Default Value:** ``30``
 
-   The destination that the shortcut links to.
+   The timeout in seconds for ssh-keyscan.

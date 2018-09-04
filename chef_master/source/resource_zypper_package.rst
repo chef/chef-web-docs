@@ -43,9 +43,9 @@ The full syntax for all of the properties that are available to the **zypper_pac
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``zypper_package`` tells the chef-client to manage a package
+* ``zypper_package`` is the resource.
 * ``'name'`` is the name of the package
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``allow_downgrade``, ``gpg_check``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, and ``timeout`` are the properties available to this resource

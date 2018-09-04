@@ -1,11 +1,11 @@
 =====================================================
-windows_shortcut
+kernel_module
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_shortcut.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_kernel_module.rst>`__
 
-Use the **windows_shortcut** resource to create shortcut files on Windows.
+Use the **kernel_module** resource to manage kernel modules on Linux systems. This resource can load, unload, blacklist, install, and uninstall modules.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
@@ -13,28 +13,37 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_shortcut 'name' do
-     arguments                  String
-     cwd                        String
-     description                String
-     iconlocation               String
-     notifies                   # see description
-     shortcut_name              String # default value: 'name'
-     subscribes                 # see description
-     target                     String
-     action                     Symbol # defaults to :create if not specified
+   kernel_module 'name' do
+     load_dir              String # defaults to /etc/modules-load.d
+     modname               String
+     notifies              # see description
+     unload_dir            String # defaults to /etc/modprobe.d
+     subscribes            # see description
+     action                Symbol # defaults to :install if not specified
    end
 
 where:
 
-* ``windows_shortcut`` is the resource
-* ``'name'`` is the name of the shortcut, or the name of the resource block
-* ``arguments``, ``cwd``, ``description``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
+* ``kernel_module`` is the name of the resource
+* ``load_dir``, ``modname`` are the properties available to this resource.
 
 Actions
 =====================================================
-``:create``
-   Default. Create or modify a Windows shortcut.
+
+``:blacklist``
+   Blacklist a kernel module.
+
+``:install``
+   Default. Load kernel module, and ensure it loads on reboot.
+
+``:load``
+   Load a kernel module.
+
+``:uninstall``
+   Unload a kernel module and remove module config, so it doesn't load on reboot.
+
+``:unload``
+   Unload kernel module.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -45,25 +54,16 @@ Actions
 
 Properties
 =====================================================
-``arguments``
+
+``load_dir``
+   **Ruby Type:** String | **Default Value:** ``/etc/modules-load.d``
+
+   The directory to load modules from.
+
+``modname``
    **Ruby Type:** String
 
-   Arguments to pass to the target when the shortcut is executed.
-
-``cwd``
-   **Ruby Type:** String
-
-   Working directory to use when the target is executed.
-
-``description``
-   **Ruby Type:** String
-
-   The description of the shortcut
-
-``iconlocation``
-   **Ruby Type:** String
-
-   Icon to use for the shortcut. Accepts the format of ``'path, index'``, where index is the icon file to use. See Microsoft's `documentation <https://msdn.microsoft.com/en-us/library/3s9bx7at.aspx>`__ for details.
+   The name of the kernel module.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -98,11 +98,6 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``shortcut_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
-
-   The name for the shortcut, if it differs from the resource name.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -153,7 +148,7 @@ Properties
 
    .. end_tag
 
-``target``
-   **Ruby Type:** String
+``unload_dir``
+   **Ruby Type:** String | **Default Value:** ``/etc/modprobe.d``
 
-   The destination that the shortcut links to.
+   The modprobe.d directory.

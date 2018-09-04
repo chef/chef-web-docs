@@ -3,9 +3,9 @@ zypper_repository
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_zypper_repository.rst>`__
 
-The **zypper_repository** resource allows for the creation of Zypper package repositories on SUSE Enterprise Linux and openSUSE systems. This resource maintains full compatibility with the zypper_repository resource in the existing zypper cookbook.
+Use the **zypper_repository** resource to create Zypper package repositories on SUSE Enterprise Linux and openSUSE systems. This resource maintains full compatibility with the **zypper_repository** resource in the existing zypper cookbook.
 
-**New in Chef Client 13.3**
+**New in Chef Client 13.3.**
 
 Syntax
 ==========================================
@@ -52,6 +52,11 @@ The full syntax for all of the properties that are available to the **zypper_rep
 
    end
 
+where:
+
+* ``zypper_repository`` is the resource type.
+* ``autorefresh``, ``baseurl``, ``cookbook``, ``description``, ``enabled``, ``gpgautoimportkeys``, ``gpgcheck``, ``gpgkey``, ``keeppackages``, ``mirrorlist``, ``mode``, ``path``, ``priority``, ``refresh_cache``, ``repo_name``, and ``source`` are the properties available to this resource.
+
 Actions
 ==========================================
 This resource has the following actions:
@@ -69,7 +74,7 @@ Properties
 This resource has the following properties:
 
 ``autorefresh``
-   **Ruby Type:** true, false |  **Default Value:** true
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not the repository should be refreshed automatically.
 
@@ -89,7 +94,7 @@ This resource has the following properties:
    The description of the repository that will be shown by the ``zypper repos`` command.
 
 ``enabled``
-   **Ruby Type:** true, false  |  **Default Value:** true
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not the repository should be enabled.
 
@@ -98,7 +103,7 @@ This resource has the following properties:
 
    Automatically import the specified key when setting up the repository.
 ``gpgcheck``
-   **Ruby Type:** true, false  |  **Default Value:** true
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not to perform a GPG signature check on the repository.
 
@@ -108,7 +113,7 @@ This resource has the following properties:
    The location of the repository key to be imported.
 
 ``keeppackages``
-   **Ruby Type:** true, false  |  **Default Value:** false
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether or not packages should be saved.
 
@@ -118,7 +123,7 @@ This resource has the following properties:
    The URL of the mirror list that will be used.
 
 ``mode``
-   **Ruby Type:** String  |  **Default Value:** ``0644``
+   **Ruby Type:** String, Integer | **Default Value:** ``0644``
 
    The file mode of the repository file.
 
@@ -167,12 +172,12 @@ This resource has the following properties:
    Determines the priority of the Zypper repository.
 
 ``refresh_cache``
-   **Ruby Type:** true, false  |  **Default Value:** true
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not the package cache should be refreshed.
 
 ``repo_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    Specifies the repository name, if it differs from the resource name.
 

@@ -62,7 +62,6 @@ Getting Started
 `Chef Development Kit </release_notes_chefdk.html>`__ |
 `Chef Server </release_notes_server.html>`__ |
 `Chef Push Jobs </release_notes_push_jobs.html>`__ |
-`Ohai </release_notes_ohai.html>`__
 
 `Deprecations </chef_deprecations_client.html>`__
 
@@ -161,6 +160,7 @@ Cookbook Reference
 `chef_user </resource_chef_user.html>`__ |
 `chocolatey_config </resource_chocolatey_config.html>`__
 `chocolatey_package </resource_chocolatey_package.html>`__
+`chocolatey_source </resource_chocolatey_source.html>`__
 `cookbook_file </resource_cookbook_file.html>`__ |
 `cron </resource_cron.html>`__ |
 `cron_d </resource_cron_d.html>`__ |
@@ -187,6 +187,7 @@ Cookbook Reference
 `http_request </resource_http_request.html>`__ |
 `ifconfig </resource_ifconfig.html>`__ |
 `ips_package </resource_ips_package.html>`__ |
+`kernel_module </resource_kernel_module.html>`__ |
 `ksh </resource_ksh.html>`__ |
 `launchd </resource_launchd.html>`__ |
 `link </resource_link.html>`__ |
@@ -213,6 +214,7 @@ Cookbook Reference
 `perl </resource_perl.html>`__ |
 `portage_package </resource_portage_package.html>`__ |
 `powershell_package </resource_powershell_package.html>`__ |
+`powershell_package_source </resource_powershell_package_source.html>`__ |
 `powershell_script </resource_powershell_script.html>`__ |
 `private_key </resource_private_key.html>`__ |
 `public_key </resource_public_key.html>`__ |
@@ -234,6 +236,7 @@ Cookbook Reference
 `service </resource_service.html>`__ |
 `smartos_package </resource_smartos_package.html>`__ |
 `solaris_package </resource_solaris_package.html>`__ |
+`ssh_known_hosts_entry </resource_ssh_known_hosts_entry.html>`__ |
 `subversion </resource_subversion.html>`__ |
 `sudo </resource_sudo.html>`__ |
 `swap_file </resource_swap_file.html>`__ |
@@ -806,7 +809,6 @@ Addenda
    release_notes_chefdk
    release_notes_server
    release_notes_push_jobs
-   release_notes_ohai
    resource
    resource_apt_package
    resource_apt_preference

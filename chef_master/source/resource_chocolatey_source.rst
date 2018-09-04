@@ -1,11 +1,11 @@
 =====================================================
-windows_shortcut
+chocolatey_source
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_shortcut.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_source.rst>`__
 
-Use the **windows_shortcut** resource to create shortcut files on Windows.
+Use the **chocolatey_source** resource to add or remove Chocolatey sources.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
@@ -13,28 +13,29 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_shortcut 'name' do
-     arguments                  String
-     cwd                        String
-     description                String
-     iconlocation               String
+   chocolatey_source 'name' do
+     bypass_proxy               true, false # defaults to false
      notifies                   # see description
-     shortcut_name              String # default value: 'name'
+     priority                   Integer # defaults to 0
+     source                     String
+     source_name                String # default value: 'name'
      subscribes                 # see description
-     target                     String
-     action                     Symbol # defaults to :create if not specified
+     action                     Symbol # defaults to :add if not specified
    end
 
 where:
 
-* ``windows_shortcut`` is the resource
-* ``'name'`` is the name of the shortcut, or the name of the resource block
-* ``arguments``, ``cwd``, ``description``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
+* ``chocolatey_source`` is the name of the resource
+* ``bypass_proxy``, ``priority``, and ``source`` are the properties available to this resource
 
 Actions
 =====================================================
-``:create``
-   Default. Create or modify a Windows shortcut.
+
+``:add``
+   Default. Adds a Chocolatey source.
+
+``:remove``
+   Removes a Chocolatey source.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -45,25 +46,11 @@ Actions
 
 Properties
 =====================================================
-``arguments``
-   **Ruby Type:** String
 
-   Arguments to pass to the target when the shortcut is executed.
+``bypass_proxy``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-``cwd``
-   **Ruby Type:** String
-
-   Working directory to use when the target is executed.
-
-``description``
-   **Ruby Type:** String
-
-   The description of the shortcut
-
-``iconlocation``
-   **Ruby Type:** String
-
-   Icon to use for the shortcut. Accepts the format of ``'path, index'``, where index is the icon file to use. See Microsoft's `documentation <https://msdn.microsoft.com/en-us/library/3s9bx7at.aspx>`__ for details.
+   Whether or not to bypass the system's proxy settings to access the source.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -99,10 +86,20 @@ Properties
 
    .. end_tag
 
-``shortcut_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+``priority``
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The name for the shortcut, if it differs from the resource name.
+   The priority level of the source.
+
+``source``
+   **Ruby Type:** String
+
+   The source URL.
+
+``source_name``
+   **Ruby Type:** String
+
+   The name of the source to add. The resource's name will be used if this isn't provided.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -152,8 +149,3 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
-``target``
-   **Ruby Type:** String
-
-   The destination that the shortcut links to.

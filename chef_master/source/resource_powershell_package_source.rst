@@ -1,11 +1,11 @@
 =====================================================
-windows_shortcut
+powershell_package_source
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_shortcut.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_package_source.rst>`__
 
-Use the **windows_shortcut** resource to create shortcut files on Windows.
+Use the **powershell_package_source** resource to register a PowerShell package repository.
 
-**New in Chef Client 14.0.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
@@ -13,57 +13,38 @@ This resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_shortcut 'name' do
-     arguments                  String
-     cwd                        String
-     description                String
-     iconlocation               String
-     notifies                   # see description
-     shortcut_name              String # default value: 'name'
-     subscribes                 # see description
-     target                     String
-     action                     Symbol # defaults to :create if not specified
+   powershell_package_source 'name' do
+     notifies                    # see description
+     provider_name               String # defaults to NuGet
+     publish_location            String
+     script_publish_location     String
+     script_source_location      String
+     source_name                 String
+     subscribes                  # see description
+     trusted                     true, false # defaults to false
+     url                         String
+     action                      Symbol # defaults to :register if not specified
    end
 
 where:
 
-* ``windows_shortcut`` is the resource
-* ``'name'`` is the name of the shortcut, or the name of the resource block
-* ``arguments``, ``cwd``, ``description``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
+* ``powershell_package_source`` is the name of the resource
+* ``provider_name``, ``publish_location``, ``script_publish_location``, ``script_source_location``, ``source_name``, and ``trusted`` are the properties available to this resource
 
 Actions
 =====================================================
-``:create``
-   Default. Create or modify a Windows shortcut.
+
+``register``
+   Default. Registers and updates the PowerShell package source.
+
+``unregister``
+   Unregisters the PowerShell package source.
 
 ``:nothing``
-   .. tag resources_common_actions_nothing
-
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
-
-   .. end_tag
 
 Properties
 =====================================================
-``arguments``
-   **Ruby Type:** String
-
-   Arguments to pass to the target when the shortcut is executed.
-
-``cwd``
-   **Ruby Type:** String
-
-   Working directory to use when the target is executed.
-
-``description``
-   **Ruby Type:** String
-
-   The description of the shortcut
-
-``iconlocation``
-   **Ruby Type:** String
-
-   Icon to use for the shortcut. Accepts the format of ``'path, index'``, where index is the icon file to use. See Microsoft's `documentation <https://msdn.microsoft.com/en-us/library/3s9bx7at.aspx>`__ for details.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -99,10 +80,30 @@ Properties
 
    .. end_tag
 
-``shortcut_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+``provider_name``
+   **Ruby Type:** String | **Default Value:** ``NuGet``
 
-   The name for the shortcut, if it differs from the resource name.
+   The package management provider for the source. It supports the following providers: 'Programs', 'msi', 'NuGet', 'msu', 'PowerShellGet', 'psl' and 'chocolatey'.
+
+``publish_location``
+   **Ruby Type:** String
+
+   The url where modules will be published to for this source. Only valid if the provider is 'PowerShellGet'.
+
+``script_publish_location``
+   **Ruby Type:** String
+
+   The location where scripts will be published to for this source. Only valid if the provider is 'PowerShellGet'.
+
+``script_source_location``
+   **Ruby Type:** String
+
+   The url where scripts are located for this source. Only valid if the provider is 'PowerShellGet'.
+
+``source_name``
+   **Ruby Type:** String
+
+   The name of the package source.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -153,7 +154,12 @@ Properties
 
    .. end_tag
 
-``target``
+``trusted``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Whether or not to trust packages from this source.
+
+``url``
    **Ruby Type:** String
 
-   The destination that the shortcut links to.
+   The url to the package source.
