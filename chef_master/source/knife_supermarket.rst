@@ -1,7 +1,7 @@
 =====================================================
 knife supermarket
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_supermarket.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_supermarket.rst>`__
 
 .. tag supermarket_api_summary
 

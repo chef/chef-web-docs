@@ -301,7 +301,7 @@ Chef DK
 
 `knife spork </plugin_knife_spork.html>`__
 
-**knife supermarket**: `supermarket download </plugin_knife_supermarket.html#download>`__ | `supermarket install </plugin_knife_supermarket.html#install>`__ | `supermarket list </plugin_knife_supermarket.html#list>`__ | `supermarket search </plugin_knife_supermarket.html#search>`__ | `supermarket share </plugin_knife_supermarket.html#share>`__ | `supermarket show </plugin_knife_supermarket.html#show>`__ | `supermarket unshare </plugin_knife_supermarket.html#unshare>`__
+**knife supermarket**: `supermarket download </knife_supermarket.html#download>`__ | `supermarket install </knife_supermarket.html#install>`__ | `supermarket list </plugin_knife_supermarket.html#list>`__ | `supermarket search </plugin_knife_supermarket.html#search>`__ | `supermarket share </plugin_knife_supermarket.html#share>`__ | `supermarket show </plugin_knife_supermarket.html#show>`__ | `supermarket unshare </plugin_knife_supermarket.html#unshare>`__
 
 **Ohai**: `About Ohai </ohai.html>`__ | `ohai (executable) </ctl_ohai.html>`__
 
@@ -765,6 +765,7 @@ Addenda
    knife_ssl_check
    knife_ssl_fetch
    knife_status
+   knife_supermarket
    knife_tag
    knife_upload
    knife_user
@@ -788,7 +789,6 @@ Addenda
    plugin_knife_push_jobs
    plugin_knife_reporting
    plugin_knife_spork
-   plugin_knife_supermarket
    plugin_knife_windows
    policy
    policyfile
