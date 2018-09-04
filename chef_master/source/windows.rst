@@ -1680,32 +1680,6 @@ This argument has the following options:
 ``--bootstrap-version VERSION``
    The version of the chef-client to install.
 
-``-d DISTRO``, ``--distro DISTRO``
-   .. tag knife_bootstrap_distro
-
-   The template file to be used during a bootstrap operation. The following distributions are supported:
-
-   * ``chef-full`` (the default bootstrap)
-   * ``centos5-gems``
-   * ``fedora13-gems``
-   * ``ubuntu10.04-gems``
-   * ``ubuntu10.04-apt``
-   * ``ubuntu12.04-gems``
-   * The name of a custom bootstrap template file.
-
-   When this option is used, knife searches for the template file in the following order:
-
-   #. The ``bootstrap/`` folder in the current working directory
-   #. The ``bootstrap/`` folder in the chef-repo
-   #. The ``bootstrap/`` folder in the ``~/.chef/`` directory
-   #. A default bootstrap file.
-
-   Do not use the ``--template-file`` option when ``--distro`` is specified.
-
-   .. end_tag
-
-   Deprecated in Chef Client 12.0. Removed in Chef Client 14.0
-
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
@@ -1738,11 +1712,6 @@ This argument has the following options:
 
 ``--secret-file SECRET_FILE``
    The path to the file that contains the encryption key.
-
-``--template-file TEMPLATE``
-   The path to a template file to be used during a bootstrap operation.
-
-   Deprecated in Chef Client 12.0. Removed in Chef Client 14.0
 
 ``-x USER_NAME``, ``--ssh-user USER_NAME``
    The SSH user name.
