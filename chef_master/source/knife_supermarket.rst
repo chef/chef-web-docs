@@ -3,12 +3,6 @@ knife supermarket
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_supermarket.rst>`__
 
-.. tag supermarket_api_summary
-
-The Supermarket API is used to provide access to cookbooks, tools, and users on the `Chef Supermarket <https://supermarket.chef.io>`__. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API by accessing ``supermarket.chef.io/api/v1/`` via the supported endpoints. In most cases, knife is the best way to interact with the Supermarket; however in some cases, direct use of the Supermarket API is necessary.
-
-.. end_tag
-
 The ``knife supermarket`` subcommand is used to interact with cookbooks that are located in private Chef Supermarket configured inside the firewall. A user account is required for any community actions that write data to the Chef Supermarket; however, the following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. note:: If you are interested in uploading to the supermarket as a company you might be interested
