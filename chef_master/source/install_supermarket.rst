@@ -25,7 +25,6 @@ The private Chef Supermarket is installed behind the firewall on the internal ne
           The source code for Chef Supermarket is located at the following URLs:
 
           * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
-          * The code that builds Chef Supermarket as a Chef package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own Chef packages.
           * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/supermarket/tree/master/omnibus/cookbooks/omnibus-supermarket
 
           .. end_tag
@@ -296,9 +295,9 @@ Install Supermarket Directly (without a cookbook)
 =====================================================
 While there are many benefits to using the cookbook method to install Supermarket, there are also cases where it's simpler to set up the Supermarket installation manually. These steps will walk you through the process of manually configuring your private Supermarket server.
 
-Before following these steps, be sure to complete the OAuth setup process detailed in the `Chef Identity </install_supermarket.html#chef-identity>`__ section of this guide.  
+Before following these steps, be sure to complete the OAuth setup process detailed in the `Chef Identity </install_supermarket.html#chef-identity>`__ section of this guide.
 
-#. `Download <https://downloads.chef.io/supermarket/>`__ the correct package for your operating system from ``downloads.chef.io``. 
+#. `Download <https://downloads.chef.io/supermarket/>`__ the correct package for your operating system from ``downloads.chef.io``.
 
 #. Install Supermarket using the appropriate package manager for your distribution:
 
@@ -340,7 +339,7 @@ Before following these steps, be sure to complete the OAuth setup process detail
    * ``chef_oauth2_verify_ssl`` is set to false, which is necessary when using a self-signed certificate without a properly configured certificate authority
    * ``fqdn`` should contain the desired URL that will be used to access your private Supermarket. If not specified, this default to the FQDN of the machine
 
- 
+
 #. Issue another ``reconfigure`` command to apply your changes:
 
    .. code-block:: none
@@ -395,4 +394,4 @@ Cookbook artifacts---tar.gz artifacts that are uploaded to Chef Supermarket when
    node.override['supermarket_omnibus']['config']['s3_region'] = 'some-place-3'
    node.override['supermarket_omnibus']['config']['s3_secret_access_key'] = 'yoursecretaccesskey'
 
-.. note:: Encrypted S3 buckets are currently not supported. 
+.. note:: Encrypted S3 buckets are currently not supported.
