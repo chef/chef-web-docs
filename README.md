@@ -3,10 +3,6 @@
 This repo is the source of the Chef reference documentation located at
 https://docs.chef.io/
 
-On October 23, 2016, it became easier to contribute to Chef reference
-documentation. For each topic, you now only have to make edits to a
-single file that looks a lot like the final HTML.
-
 ## The fastest way to contribute
 
 If you spot something in the docs that needs to be fixed, the fastest
