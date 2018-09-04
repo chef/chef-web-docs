@@ -3,7 +3,7 @@ knife supermarket
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_supermarket.rst>`__
 
-The ``knife supermarket`` subcommand is used to interact with cookbooks that are located in private Chef Supermarket configured inside the firewall. A user account is required for any community actions that write data to the Chef Supermarket; however, the following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+The ``knife supermarket`` subcommand is used to interact with cookbooks that are located in on the public Supermarket as well as private Chef Supermarket sites. A user account is required for any community actions that write data to the Chef Supermarket; however, the following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. note:: If you are interested in uploading to the supermarket as a company you might be interested
           in looking at the `Chef Partner Cookbook Program <https://www.chef.io/partners/cookbooks/>`__
