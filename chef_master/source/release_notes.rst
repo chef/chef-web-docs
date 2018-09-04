@@ -7,6 +7,29 @@ Chef Client is released on a monthly schedule with new releases the first Wednes
 
 What’s New in 14.4
 =====================================================
+* **Knife configuration profile management commands**
+      Several new commands have been added under knife config to help manage multiple profiles in your credentials file.
+
+      ```knife config get-profile``` will display the active profile.
+
+      ```knife config use-profile PROFILE``` will set the workstation-level default profile. That default can still be overridden by the --profile command line option or the $CHEF_PROFILE environment variable.
+
+      ```knife config list-profiles``` will display all your available profiles along with summary information on each.
+
+      .. code-block:: bash
+
+        $ knife config get-profile
+        staging
+        $ knife config use-profile prod
+        Set default profile to prod
+        $ knife config list-profiles
+         Profile  Client  Key               Server
+        -----------------------------------------------------------------------------
+         staging  myuser  ~/.chef/user.pem  https://example.com/organizations/staging
+        *prod     myuser  ~/.chef/user.pem  https://example.com/organizations/prod
+
+      Thank you @coderanger for this contribution.
+
 * **New Preview Resources**
 
   * **cron_d**
