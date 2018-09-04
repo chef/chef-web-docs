@@ -152,53 +152,7 @@ OR
 
 Use MSI Installer
 -----------------------------------------------------
-A Microsoft Installer Package (MSI) is available for installing the chef-client on a Microsoft Windows machine.
-
-.. tag install_chef_client_windows
-
-To install the chef-client on Microsoft Windows, do the following:
-
-#. Go to https://downloads.chef.io/chef.
-
-#. Click the **Chef Client** tab.
-
-#. Select **Windows**, a version, and an architecture.
-
-#. Under **Downloads**, select the version of the chef-client to download, and then click the link that appears below to download the package.
-
-#. Ensure that the MSI is on the target node.
-
-#. Run the MSI package and use all the default options:
-
-   .. image:: ../../images/step_install_windows_01.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_02.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_03.png
-
-   .. note:: The MSI can either configure the chef-client to run as a scheduled task or as a service for it to be able to regularly check in with the Chef server. Using a scheduled task is a recommended approach. Select the **Chef Unattended Execution Options** option to have the MSI configure the chef-client as a scheduled task or as a service.
-
-then:
-
-   .. image:: ../../images/step_install_windows_04.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_05.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_06.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_07.png
-
-.. end_tag
+A Microsoft Installer Package (MSI) is available for installing the chef-client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/>`__.
 
 Enable as a Scheduled Task
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
