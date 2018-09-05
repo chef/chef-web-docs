@@ -5,7 +5,7 @@ knife user
 
 .. tag knife_user_summary
 
-The ``knife user`` subcommand is used to manage the list of users and their associated RSA public key-pairs.
+Use the ``knife user`` subcommand to manage the list of users and their associated RSA public key-pairs.
 
 .. end_tag
 

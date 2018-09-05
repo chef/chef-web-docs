@@ -11,7 +11,7 @@ A node is any machine---physical, virtual, cloud, network device, etc.---that is
 
 .. tag knife_node_summary
 
-The ``knife node`` subcommand is used to manage the nodes that exist on a Chef server.
+Use the ``knife node`` subcommand to manage the nodes that exist on a Chef server.
 
 .. end_tag
 

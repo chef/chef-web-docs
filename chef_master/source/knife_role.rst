@@ -11,7 +11,7 @@ A role is a way to define certain patterns and processes that exist across nodes
 
 .. tag knife_role_summary
 
-The ``knife role`` subcommand is used to manage the roles that are associated with one or more nodes on a Chef server.
+Use the ``knife role`` subcommand to manage the roles that are associated with one or more nodes on a Chef server.
 
 .. end_tag
 

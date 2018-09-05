@@ -17,7 +17,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 
 .. tag knife_cookbook_summary
 
-The ``knife cookbook`` subcommand is used to interact with cookbooks that are located on the Chef server or the local chef-repo.
+Use the ``knife cookbook`` subcommand to interact with cookbooks that are located on the Chef server or the local chef-repo.
 
 .. end_tag
 
@@ -566,4 +566,3 @@ If a cookbook is frozen and the ``--force`` option is not specified, knife will 
 
    Uploading redis...
    ERROR: Version 0.1.6 of cookbook redis is frozen. Use --force to override.
-

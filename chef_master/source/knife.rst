@@ -70,7 +70,7 @@ Built-in Subcommands
    * - `knife_client </knife_client.html>`_
      - .. tag knife_client_summary
 
-       The ``knife client`` subcommand is used to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef server by any entity that uses the Chef server API, such as the chef-client and knife.
+       Use the ``knife client`` subcommand to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef server by any entity that uses the Chef server API, such as the chef-client and knife.
 
        .. end_tag
 
@@ -84,21 +84,21 @@ Built-in Subcommands
    * - `knife cookbook </knife_cookbook.html>`_
      - .. tag knife_cookbook_summary
 
-       The ``knife cookbook`` subcommand is used to interact with cookbooks that are located on the Chef server or the local chef-repo.
+       Use the ``knife cookbook`` subcommand to interact with cookbooks that are located on the Chef server or the local chef-repo.
 
        .. end_tag
 
    * - `knife cookbook site </knife_cookbook_site.html>`_
      - .. tag knife_site_cookbook
 
-       The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+       Use the ``knife cookbook site`` subcommand to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
        .. end_tag
 
    * - `knife data bag </knife_data_bag.html>`_
      - .. tag knife_data_bag_summary
 
-       The ``knife data bag`` subcommand is used to manage arbitrary stores of globally available JSON data.
+       Use the  ``knife data bag`` subcommand to manage arbitrary stores of globally available JSON data.
 
        .. end_tag
 
@@ -140,14 +140,14 @@ Built-in Subcommands
    * - `knife environment </knife_environment.html>`_
      - .. tag knife_environment_summary
 
-       The ``knife environment`` subcommand is used to manage environments within a single organization on the Chef server.
+       Use the ``knife environment`` subcommand to manage environments within a single organization on the Chef server.
 
        .. end_tag
 
    * - `knife exec </knife_exec.html>`_
      - .. tag knife_exec_summary
 
-       The ``knife exec`` subcommand uses the knife configuration file to execute Ruby scripts in the context of a fully configured chef-client. Use this subcommand to run scripts that will only access Chef server one time (or otherwise very infrequently) or any time that an operation does not warrant full usage of the knife subcommand library.
+       Use the ``knife exec`` subcommand to execute Ruby scripts in the context of a fully configured chef-client. Use this subcommand to run scripts that will only access Chef server one time (or otherwise very infrequently) or any time that an operation does not warrant full usage of the knife subcommand library.
 
        .. end_tag
 
@@ -161,7 +161,7 @@ Built-in Subcommands
    * - `knife node </knife_node.html>`_
      - .. tag knife_node_summary
 
-       The ``knife node`` subcommand is used to manage the nodes that exist on a Chef server.
+       Use the ``knife node`` subcommand to manage the nodes that exist on a Chef server.
 
        .. end_tag
 
@@ -182,7 +182,7 @@ Built-in Subcommands
    * - `knife role </knife_role.html>`_
      - .. tag knife_role_summary
 
-       The ``knife role`` subcommand is used to manage the roles that are associated with one or more nodes on a Chef server.
+       Use the ``knife role`` subcommand to manage the roles that are associated with one or more nodes on a Chef server.
 
        .. end_tag
 
@@ -244,7 +244,7 @@ Built-in Subcommands
    * - `knife tag </knife_tag.html>`_
      - .. tag knife_tag_summary
 
-       The ``knife tag`` subcommand is used to apply tags to nodes on a Chef server.
+       Use the ``knife tag`` subcommand to apply tags to nodes on a Chef server.
 
        .. end_tag
 
@@ -265,7 +265,7 @@ Built-in Subcommands
    * - `knife user </knife_user.html>`_
      - .. tag knife_user_summary
 
-       The ``knife user`` subcommand is used to manage the list of users and their associated RSA public key-pairs.
+       Use the ``knife user`` subcommand to manage the list of users and their associated RSA public key-pairs.
 
        .. end_tag
 

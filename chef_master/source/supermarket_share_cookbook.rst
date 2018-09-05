@@ -49,7 +49,7 @@ Share Cookbooks via Stove
 
 Share Cookbooks via Knife
 -------------------------------------------------------
-The `knife cookbook site  </knife_cookbook_site.html>`__ command is used to upload cookbooks to the Supermarket via Knife. In this section you'll configure the chef-repo that was created by the Hosted Chef starter kit, and then upload cookbooks from your workstation's cookbook repository.
+Use the `knife cookbook site  </knife_cookbook_site.html>`__ command to upload cookbooks to the Supermarket via Knife. In this section you'll configure the chef-repo that was created by the Hosted Chef starter kit, and then upload cookbooks from your workstation's cookbook repository.
 
 .. note:: If you're using Hosted Chef as your regular Chef server, skip to the second step.
 

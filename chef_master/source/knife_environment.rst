@@ -11,7 +11,7 @@ An environment is a way to map an organization's real-life workflow to what can 
 
 .. tag knife_environment_summary
 
-The ``knife environment`` subcommand is used to manage environments within a single organization on the Chef server.
+Use the ``knife environment`` subcommand to manage environments within a single organization on the Chef server.
 
 .. end_tag
 
