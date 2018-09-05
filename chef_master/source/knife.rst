@@ -362,11 +362,13 @@ Chef maintains the following plugins:
 * ``knife-google``
 * ``knife-linode``
 * ``knife-lpar``
+* ``knife-opc``
 * ``knife-openstack``
 * ``knife-push``
 * ``knife-rackspace``
+* ``knife-reporting``
 * ``knife-vcenter``
-* ``knife-windows``.
+* ``knife-windows``
 
 Community Knife Plugins
 -----------------------------------------------------
