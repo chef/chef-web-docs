@@ -207,6 +207,8 @@ To search for a cookbook, use a command similar to:
 
 where ``mysql`` is the search term. This will return something similar to:
 
+.. code-block:: bash
+
    mysql:
      cookbook:             https://supermarket.chef.io/api/v1/cookbooks/mysql
      cookbook_description: Provides mysql_service, mysql_config, and mysql_client resources
