@@ -603,10 +603,10 @@ Addenda
    config_rb_compliance
    config_rb_delivery
    config_rb_delivery_optional_settings
-   config_rb_knife_optional_settings
    config_rb_manage
    config_rb_metadata
    config_rb_metadata
+   config_rb_optional_settings
    config_rb_policyfile
    config_rb_push_jobs_client
    config_rb_push_jobs_server

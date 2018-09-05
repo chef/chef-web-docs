@@ -32,7 +32,7 @@ The Knife Quick Reference provides an all-in-one quick reference of knife comman
      - Common options that are available for all knife subcommands.
    * - `config.rb </config_rb.html>`_
      - Common options for the ``config.rb`` (config.rb) file
-   * - `config.rb Optional Settings </config_rb_knife_optional_settings.html>`_
+   * - `config.rb Optional Settings </config_rb_optional_settings.html>`_
      - Additional options for your ``config.rb`` file
 
 .. end_tag

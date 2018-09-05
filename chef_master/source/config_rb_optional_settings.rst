@@ -1,7 +1,7 @@
 =====================================================
 config.rb Optional Settings
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_knife_optional_settings.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_optional_settings.rst>`__
 
 .. tag knife_using_knife_rb
 
