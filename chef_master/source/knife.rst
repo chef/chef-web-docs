@@ -40,7 +40,7 @@ The Knife Quick Reference provides an all-in-one quick reference of knife comman
 Knife Subcommands
 =====================================================
 
-knife includes a collection of built in subcommands that work together to provide all of the functionality required to take specific actions against any object in an organization, including cookbooks, nodes, roles, data bags, environments, and users. A knife plugin extends the functionality beyond built-in subcommands.
+knife includes a collection of built in subcommands that work together to provide all of the functionality required to take specific actions against any object in an organization, including cookbooks, nodes, roles, data bags, environments, and users.
 
 Knife Command Syntax
 -----------------------------------------------------
