@@ -3,7 +3,7 @@ config.rb
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb.rst>`__
 
-.. warning:: The config.rb file is a replacement for the knife.rb file, starting with the chef-client 12.0 release. The config.rb file has identical settings and behavior to the knife.rb file. The chef-client will first look for the presence of the config.rb file and if it is not found, will look for the knife.rb file. If you are using the chef-client 11.x versions in your infrastructure, continue using the knife.rb file.
+.. warning:: The config.rb file is a replacement for the knife.rb file, starting with the chef-client 12.0 release. The config.rb file has identical settings and behavior to the knife.rb file. The chef-client will first look for the presence of the config.rb file and if it is not found, will look for the knife.rb file.
 
 A config.rb file is used to specify configuration details for knife.
 
