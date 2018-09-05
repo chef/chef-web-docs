@@ -5,7 +5,7 @@ Cookbook Directories and Metadata
 
 The ``cookbooks/`` directory is used to store the cookbooks that are used by the chef-client when configuring the various systems in the organization. This directory contains the cookbooks that are used to configure systems in the infrastructure. Each cookbook can be configured to contain cookbook-specific copyright, email, and license data.
 
-To configure cookbook-specific copyright, email, and license data, add the following to the knife.rb file in the chef-repo:
+To configure cookbook-specific copyright, email, and license data, add the following to the config.rb file in the chef-repo:
 
 .. code-block:: bash
 
@@ -13,7 +13,7 @@ To configure cookbook-specific copyright, email, and license data, add the follo
    cookbook_email     "cookbooks@example.com"
    cookbook_license   "apachev2"
 
-where the ``cookbook_copyright`` and ``cookbook_email`` are specific to the organization and ``cookbook_license`` is either ``apachev2`` or ``none``. These settings will be used in the default recipe and in corresponding values in the metadata.rb file, but can be modified in those locations as well (if they should be different from the default values contained in the knife.rb file.)
+where the ``cookbook_copyright`` and ``cookbook_email`` are specific to the organization and ``cookbook_license`` is either ``apachev2`` or ``none``. These settings will be used in the default recipe and in corresponding values in the metadata.rb file, but can be modified in those locations as well (if they should be different from the default values contained in the config.rb file.)
 
 Work with Cookbooks
 =====================================================
@@ -35,7 +35,7 @@ To download a cookbook when git is used for version source control, run the foll
 
 .. code-block:: bash
 
-   $ knife cookbook site install COOKBOOK_NAME
+   $ knife supermarket install COOKBOOK_NAME
 
 where ``COOKBOOK_NAME`` is the name of a cookbook on `Chef Supermarket <https://supermarket.chef.io/>`__. This will start a process that:
 
@@ -53,7 +53,7 @@ To download a cookbook when git is not used for version source control, run the 
 
 .. code-block:: bash
 
-   $ knife cookbook site download COOKBOOK_NAME
+   $ knife supermarket download COOKBOOK_NAME
 
 where ``COOKBOOK_NAME`` is the name of a cookbook on `Chef Supermarket <https://supermarket.chef.io/>`__. This will download the tar.gz file associated with the cookbook and will create a file named ``COOKBOOK_NAME.tar.gz`` in the current directory (e.g., ``~/chef-repo``). Once downloaded, using a version source control system is recommended.
 

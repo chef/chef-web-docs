@@ -105,7 +105,7 @@ To add a local Chef repository:
    source "https://supermarket.chef.io"
    source chef_repo: ".."
 
-The location and authentication details for the Chef Server will be taken from the user's ``knife.rb`` by default.
+The location and authentication details for the Chef Server will be taken from the user's ``config.rb`` by default.
 
 To add multiple Chef Servers:
 

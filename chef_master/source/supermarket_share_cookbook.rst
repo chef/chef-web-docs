@@ -49,11 +49,11 @@ Share Cookbooks via Stove
 
 Share Cookbooks via Knife
 -------------------------------------------------------
-The `knife cookbook site  </knife_cookbook_site.html>`__ command is used to upload cookbooks to the Supermarket via Knife. In this section you'll configure the chef-repo that was created by the Hosted Chef starter kit, and then upload cookbooks from your workstation's cookbook repository.
+Use the `knife supermarket  </knife_supermarket.html>`__ command to upload cookbooks to the Supermarket via Knife. In this section you'll configure the chef-repo that was created by the Hosted Chef starter kit, and then upload cookbooks from your workstation's cookbook repository.
 
 .. note:: If you're using Hosted Chef as your regular Chef server, skip to the second step.
 
-#. The ``knife.rb`` file located under ``/chef-repo/.chef/knife.rb`` contains the basic information necessary to authenticate with Hosted Chef. It will look similar to the following:
+#. The ``config.rb`` file located under ``/chef-repo/.chef/config.rb`` contains the basic information necessary to authenticate with Hosted Chef. It will look similar to the following:
 
    .. code-block:: ruby
 
@@ -71,14 +71,14 @@ The `knife cookbook site  </knife_cookbook_site.html>`__ command is used to uplo
 
       cookbook_path            ["~/my-repo/cookbooks"]
 
-#.  Use the ``knife cookbook site`` command to upload your cookbook to the Supermarket:
+#.  Use the ``knife supermarket`` command to upload your cookbook to the Supermarket:
 
     .. code-block:: none
 
-       knife cookbook site share example_cookbook
+       knife supermarket share example_cookbook
 
-    Alternatively, if you chose not to modify the location of your cookbook repository within your ``knife.rb``, you can specify the cookbook path in your ``knife`` command:
+    Alternatively, if you chose not to modify the location of your cookbook repository within your ``config.rb``, you can specify the cookbook path in your ``knife`` command:
 
     .. code-block:: none
 
-       knife cookbook site share example_cookbook -o ~/my-repo/cookbooks
+       knife supermarket share example_cookbook -o ~/my-repo/cookbooks

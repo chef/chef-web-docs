@@ -24,7 +24,7 @@ Options
 This subcommand has the following options:
 
 ``URL_or_URI``
-   The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef server, as defined in the knife.rb file.
+   The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef server, as defined in the config.rb file.
 
 Examples
 =====================================================

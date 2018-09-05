@@ -11,9 +11,12 @@ The Supermarket API is used to provide access to cookbooks, tools, and users on 
 
 .. tag knife_site_cookbook
 
-The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+Use the ``knife cookbook site`` subcommand to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. end_tag
+
+.. warning::
+  ``knife cookbook site`` has been deprecated in favor of the `knife supermarket </knife_supermarket.html>`__ command.
 
 .. warning:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
@@ -29,7 +32,7 @@ The ``knife cookbook site`` subcommand is used to interact with cookbooks that a
 
 Private Supermarket
 =====================================================
-To use the ``knife cookbook site`` command with a private Supermarket installation, you must first add the URL of your Supermarket to your ``knife.rb`` file:
+To use the ``knife cookbook site`` command with a private Supermarket installation, you must first add the URL of your Supermarket to your ``config.rb`` file:
 
 .. code-block:: ruby
 
@@ -67,7 +70,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -135,7 +138,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -318,7 +321,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 

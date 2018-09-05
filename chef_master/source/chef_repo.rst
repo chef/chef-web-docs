@@ -31,7 +31,7 @@ The sub-directories in the chef-repo are:
    * - Directory
      - Description
    * - ``.chef/``
-     - A hidden directory that is used to store validation key files and optionally a knife.rb file.
+     - A hidden directory that is used to store validation key files and optionally a config.rb file.
    * - ``cookbooks/``
      - Contains cookbooks that have been downloaded from the `Chef Supermarket <https://supermarket.chef.io/>`__ or created locally.
    * - ``data_bags/``
@@ -45,7 +45,7 @@ The sub-directories in the chef-repo are:
 -----------------------------------------------------
 .. tag all_directory_chef
 
-The .chef directory is a hidden directory that is used to store validation key files and optionally a knife.rb file.
+The .chef directory is a hidden directory that is used to store validation key files and optionally a config.rb file.
 
 .. end_tag
 
@@ -147,9 +147,9 @@ Many Users, Same Repo
 =====================================================
 .. tag chef_repo_many_users_same_knife
 
-The knife.rb configuration can include arbitrary Ruby code to extend configuration beyond static values. This can be used to load environmental variables from the workstation. This makes it possible to write a single knife.rb file that can be used by all users within your organization. This single file can also be checked into your chef-repo, allowing users to load different knife.rb files based on which chef-repo they execute the commands from. This can be especially useful when each chef-repo points to a different chef server or organization.
+The config.rb configuration can include arbitrary Ruby code to extend configuration beyond static values. This can be used to load environmental variables from the workstation. This makes it possible to write a single config.rb file that can be used by all users within your organization. This single file can also be checked into your chef-repo, allowing users to load different config.rb files based on which chef-repo they execute the commands from. This can be especially useful when each chef-repo points to a different chef server or organization.
 
-Example knife.rb:
+Example config.rb:
 
 .. code-block:: none
 

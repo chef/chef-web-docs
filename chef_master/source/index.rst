@@ -297,7 +297,7 @@ Chef DK
 
 **Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__
 
-**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `knife.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  | `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
+**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `config.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  | `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
 
 `knife spork </plugin_knife_spork.html>`__
 
@@ -603,11 +603,10 @@ Addenda
    config_rb_compliance
    config_rb_delivery
    config_rb_delivery_optional_settings
-   config_rb_knife
-   config_rb_knife_optional_settings
    config_rb_manage
    config_rb_metadata
    config_rb_metadata
+   config_rb_optional_settings
    config_rb_policyfile
    config_rb_push_jobs_client
    config_rb_push_jobs_server

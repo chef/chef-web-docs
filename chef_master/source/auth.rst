@@ -266,7 +266,7 @@ or:
    Chef::Log.level = Chef::Config[:log_level]
 
    def Usage()
-     puts '/etc/chef/client.rb' # The config file location, e.g. ~/home/.chef/knife.rb etc
+     puts '/etc/chef/client.rb' # The config file location, e.g. ~/home/.chef/config.rb etc
      config_file = gets.chomp
      if (!File.exist?(config_file))
        puts 'config_file #{config_file} does not exist. Exiting.\n'
@@ -507,7 +507,7 @@ Use the following code to set the correct permissions:
    require 'chef/knife'
    require 'chef/rest'
 
-   Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
+   Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'config.rb'))
 
    rest = Chef::REST.new(Chef::Config[:chef_server_url])
 
@@ -560,7 +560,7 @@ A single instance of the Chef server can support many organizations. Each organi
 A user may belong to multiple organizations under the following conditions:
 
 * Role-based access control is configured per-organization
-* For a single user to interact with the Chef server using knife from the same chef-repo, that user may need to edit their knife.rb file prior to that interaction
+* For a single user to interact with the Chef server using knife from the same chef-repo, that user may need to edit their config.rb file prior to that interaction
 
 .. end_tag
 
@@ -578,9 +578,9 @@ Many Users, Same Repo
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag chef_repo_many_users_same_knife
 
-The knife.rb configuration can include arbitrary Ruby code to extend configuration beyond static values. This can be used to load environmental variables from the workstation. This makes it possible to write a single knife.rb file that can be used by all users within your organization. This single file can also be checked into your chef-repo, allowing users to load different knife.rb files based on which chef-repo they execute the commands from. This can be especially useful when each chef-repo points to a different chef server or organization.
+The config.rb configuration can include arbitrary Ruby code to extend configuration beyond static values. This can be used to load environmental variables from the workstation. This makes it possible to write a single config.rb file that can be used by all users within your organization. This single file can also be checked into your chef-repo, allowing users to load different config.rb files based on which chef-repo they execute the commands from. This can be especially useful when each chef-repo points to a different chef server or organization.
 
-Example knife.rb:
+Example config.rb:
 
 .. code-block:: none
 
@@ -650,7 +650,7 @@ Chef server versions 12.4.0 and above support signing protocol version 1.3, whic
 
    authentication_protocol_version = '1.3'
 
-And on Chef knife via ``knife.rb``:
+And on Chef knife via ``config.rb``:
 
 .. code-block:: ruby
 

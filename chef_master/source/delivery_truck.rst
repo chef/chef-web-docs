@@ -535,8 +535,8 @@ To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first
 
    .. code-block::bash
 
-      knife cookbook site share 'delivery-truck'
-      knife cookbook site share 'delivery-sugar'
+      knife supermarket share 'delivery-truck'
+      knife supermarket share 'delivery-sugar'
 
 Generate a cookbook
 -----------------------------------------------------

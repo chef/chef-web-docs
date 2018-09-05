@@ -3,7 +3,7 @@ Configuring the ChefDK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chefdk_setup.rst>`__
 
-This guide contains common configuration options used when setting up a new ChefDK installation. If you do not have the ChefDK installed, see its  `installation guide </install_dk.html>`__ before proceeding further. 
+This guide contains common configuration options used when setting up a new ChefDK installation. If you do not have the ChefDK installed, see its  `installation guide </install_dk.html>`__ before proceeding further.
 
 Configure Ruby Environment
 =====================================================
@@ -92,7 +92,7 @@ Create .chef Directory
 
 The ``.chef`` directory is used to store three files:
 
-* ``knife.rb``
+* ``config.rb``
 * ``ORGANIZATION-validator.pem``
 * ``USER.pem``
 
@@ -129,28 +129,28 @@ To create the ``.chef`` directory:
 
 Starter Kit
 -----------------------------------------------------
-If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``knife.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
+If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
 
 Configure the Chef Repository
 =====================================================
 
 With WebUI
 -----------------------------------------------------
-Use the following steps to manually set up the chef-repo and to use the Chef management console to get the ``.pem`` and ``knife.rb`` files.
+Use the following steps to manually set up the chef-repo and to use the Chef management console to get the ``.pem`` and ``config.rb`` files.
 
 Get Config Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 For a ChefDK installation that will interact with the Chef server (including the hosted Chef server), log on and download the following files:
 
-* ``knife.rb``. This configuration file can be downloaded from the **Organizations** page.
+* ``config.rb``. This configuration file can be downloaded from the **Organizations** page.
 * ``ORGANIZATION-validator.pem``. This private key can be downloaded from the **Organizations** page.
 * ``USER.pem``. This private key can be downloaded from the **Change Password** section of the **Account Management** page.
 
 Move Config Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``knife.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem`` files must be moved to the ``.chef`` directory after they are downloaded from the Chef server.
+The ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem`` files must be moved to the ``.chef`` directory after they are downloaded from the Chef server.
 
 To move files to the ``.chef`` directory:
 
@@ -158,7 +158,7 @@ To move files to the ``.chef`` directory:
 
    .. code-block:: bash
 
-      cp /path/to/knife.rb ~/chef-repo/.chef
+      cp /path/to/config.rb ~/chef-repo/.chef
 
    and:
 
@@ -178,7 +178,7 @@ To move files to the ``.chef`` directory:
 
 Without WebUI
 -----------------------------------------------------
-Use the following steps to manually set up the Chef repository, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool, and then create the ``knife.rb`` file.
+Use the following steps to manually set up the Chef repository, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool, and then create the ``config.rb`` file.
 
 Create an Organization
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -243,10 +243,10 @@ To move files to the .chef directory:
 
 #. Verify that the files are in the ``.chef`` folder.
 
-Create the knife.rb File
+Create the config.rb File
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``knife.rb`` file must be created in the ``.chef`` folder. It should look similar to:
+The ``config.rb`` file must be created in the ``.chef`` folder. It should look similar to:
 
 .. code-block:: ruby
 
@@ -269,7 +269,7 @@ At a minimum, you must update the following settings with the appropriate values
 * ``validation_key`` should point to the location of your organization's ``.pem`` file on your ChefDK machine.
 * ``chef_server_url`` must be updated with the domain or IP address used to access the Chef server.
 
-See the `knife documentation </config_rb_knife.html>`__ for more details.
+See the `knife config.rb documentation </config_rb.html>`__ for more details.
 
 Get SSL Certificates
 =====================================================

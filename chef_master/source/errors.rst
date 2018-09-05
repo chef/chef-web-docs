@@ -47,7 +47,7 @@ When the values for certain settings in the client.rb file---``node_name`` and `
 
 **Troubleshooting Steps**
 
-* Verify you have the correct values in your knife.rb file, especially for the ``node_name`` and ``client_key`` settings.
+* Verify you have the correct values in your config.rb file, especially for the ``node_name`` and ``client_key`` settings.
 
 * Check if the file referenced in the ``client_key`` setting (usually USER.pem) exists. Some common locations include::
 
@@ -281,7 +281,7 @@ Solve this by committing the cookbook changes. For example, the following comman
 
    $ git commit -am "Updating so I can install a site cookbook"
 
-Re-run the ``knife cookbook site install`` subcommand again to install the community cookbook.
+Re-run the ``knife supermarket install`` subcommand again to install the community cookbook.
 
 Cannot find config file
 -----------------------------------------------------

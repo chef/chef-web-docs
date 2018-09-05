@@ -5,7 +5,7 @@ knife user
 
 .. tag knife_user_summary
 
-The ``knife user`` subcommand is used to manage the list of users and their associated RSA public key-pairs.
+Use the ``knife user`` subcommand to manage the list of users and their associated RSA public key-pairs.
 
 .. end_tag
 
@@ -34,7 +34,7 @@ create
 Use the ``create`` argument to create a user. This process will generate an RSA key pair for the named user. The public key will be stored on the Chef server and the private key will be displayed on ``STDOUT`` or written to a named file.
 
 * For the user, the private key should be copied to the system as ``/etc/chef/client.pem``.
-* For knife, the private key is typically copied to ``~/.chef/client_name.pem`` and referenced in the knife.rb configuration file.
+* For knife, the private key is typically copied to ``~/.chef/client_name.pem`` and referenced in the config.rb configuration file.
 
 Syntax
 -----------------------------------------------------
@@ -62,7 +62,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -352,7 +352,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
