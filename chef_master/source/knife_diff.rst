@@ -53,7 +53,7 @@ This subcommand has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 

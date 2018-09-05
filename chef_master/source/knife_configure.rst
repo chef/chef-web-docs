@@ -5,13 +5,13 @@ knife configure
 
 .. tag knife_configure_summary
 
-Use the ``knife configure`` subcommand to create the knife.rb and client.rb files so that they can be distributed to workstations and nodes.
+Use the ``knife configure`` subcommand to create the `client.rb <config_rb_client.html>`_ and `config.rb <config_rb.html>`_ files so that they can be distributed to workstations and nodes.
 
 .. end_tag
 
 Syntax
 =====================================================
-This subcommand has the following syntax when creating a knife.rb file:
+This subcommand has the following syntax when creating a config.rb file:
 
 .. code-block:: bash
 
@@ -53,7 +53,7 @@ This subcommand has the following options for use when configuring a knife.rb fi
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `knife.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
 
           .. end_tag
 
@@ -76,4 +76,3 @@ The following examples show how to use this knife subcommand:
 .. code-block:: bash
 
    $ knife configure client '/directory'
-

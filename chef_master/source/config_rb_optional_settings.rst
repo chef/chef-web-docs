@@ -1,21 +1,21 @@
 =====================================================
-knife.rb Optional Settings
+config.rb Optional Settings
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_knife_optional_settings.rst>`__
 
 .. tag knife_using_knife_rb
 
-In addition to the default settings in a knife.rb file, there are other subcommand-specific settings that can be added. When a subcommand is run, knife will use:
+In addition to the default settings in a config.rb file, there are other subcommand-specific settings that can be added. When a subcommand is run, knife will use:
 
 #. A value passed via the command-line
-#. A value contained in the knife.rb file
+#. A value contained in the config.rb file
 #. The default value
 
-A value passed via the command line will override a value in the knife.rb file; a value in a knife.rb file will override a default value.
+A value passed via the command line will override a value in the config.rb file; a value in a config.rb file will override a default value.
 
 .. end_tag
 
-.. warning:: Many optional settings should not be added to the knife.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the knife.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the knife.rb file. In general, if the optional settings are not listed on `the main knife.rb topic </config_rb_knife.html>`__, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
+.. warning:: Many optional settings should not be added to the config.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the config.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the config.rb file. In general, if the optional settings are not listed on `the main config.rb topic </config_rb.html>`__, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
 
 The following list describes all of the optional settings that can be added to the configuration file:
 
@@ -386,11 +386,11 @@ The following list describes all of the optional settings that can be added to t
 
 By Subcommand
 =====================================================
-The following sections show the optional settings for the knife.rb file, sorted by subcommand.
+The following sections show the optional settings for the config.rb file, sorted by subcommand.
 
 bootstrap
 -----------------------------------------------------
-The following ``knife bootstrap`` settings can be added to the knife.rb file:
+The following ``knife bootstrap`` settings can be added to the config.rb file:
 
 ``knife[:bootstrap_curl_options]``
    Adds the ``--bootstrap-curl-options`` option.
@@ -432,7 +432,7 @@ The following ``knife bootstrap`` settings can be added to the knife.rb file:
 
 client create
 -----------------------------------------------------
-The following ``knife client create`` settings can be added to the knife.rb file:
+The following ``knife client create`` settings can be added to the config.rb file:
 
 ``knife[:admin]``
    Adds the the ``--admin`` option.
@@ -442,14 +442,14 @@ The following ``knife client create`` settings can be added to the knife.rb file
 
 client reregister
 -----------------------------------------------------
-The following ``knife client reregister`` settings can be added to the knife.rb file:
+The following ``knife client reregister`` settings can be added to the config.rb file:
 
 ``knife[:file]``
    Adds the the ``--file`` option.
 
 configure
 -----------------------------------------------------
-The following ``knife configure`` settings can be added to the knife.rb file:
+The following ``knife configure`` settings can be added to the config.rb file:
 
 ``knife[:admin_client_name]``
    The name of the admin client that is passed as part of the command itself.
@@ -480,7 +480,7 @@ The following ``knife configure`` settings can be added to the knife.rb file:
 
 cookbook bulk delete
 -----------------------------------------------------
-The following ``knife cookbook bulk delete`` settings can be added to the knife.rb file:
+The following ``knife cookbook bulk delete`` settings can be added to the config.rb file:
 
 ``knife[:purge]``
    Adds the the ``--purge`` option.
@@ -490,14 +490,14 @@ The following ``knife cookbook bulk delete`` settings can be added to the knife.
 
 cookbook create
 -----------------------------------------------------
-The following ``knife cookbook create`` settings can be added to the knife.rb file:
+The following ``knife cookbook create`` settings can be added to the config.rb file:
 
 ``knife[:readme_format]``
    Adds the the ``--readme-format`` option.
 
 cookbook delete
 -----------------------------------------------------
-The following ``knife cookbook delete`` settings can be added to the knife.rb file:
+The following ``knife cookbook delete`` settings can be added to the config.rb file:
 
 ``knife[:all]``
    Adds the the ``--all`` option.
@@ -510,7 +510,7 @@ The following ``knife cookbook delete`` settings can be added to the knife.rb fi
 
 cookbook download
 -----------------------------------------------------
-The following ``knife cookbook download`` settings can be added to the knife.rb file:
+The following ``knife cookbook download`` settings can be added to the config.rb file:
 
 ``knife[:download_directory]``
    Adds the the ``--dir`` option.
@@ -523,7 +523,7 @@ The following ``knife cookbook download`` settings can be added to the knife.rb 
 
 cookbook list
 -----------------------------------------------------
-The following ``knife cookbook list`` settings can be added to the knife.rb file:
+The following ``knife cookbook list`` settings can be added to the config.rb file:
 
 ``knife[:all]``
    Adds the the ``--all`` option.
@@ -533,14 +533,14 @@ The following ``knife cookbook list`` settings can be added to the knife.rb file
 
 cookbook metadata
 -----------------------------------------------------
-The following ``knife cookbook metadata`` settings can be added to the knife.rb file:
+The following ``knife cookbook metadata`` settings can be added to the config.rb file:
 
 ``knife[:all]``
    Adds the the ``--all`` option.
 
 cookbook show
 -----------------------------------------------------
-The following ``knife cookbook show`` settings can be added to the knife.rb file:
+The following ``knife cookbook show`` settings can be added to the config.rb file:
 
 ``knife[:fqdn]``
    Adds the the ``--fqdn`` option.
@@ -553,7 +553,7 @@ The following ``knife cookbook show`` settings can be added to the knife.rb file
 
 cookbook test
 -----------------------------------------------------
-The following ``knife cookbook test`` settings can be added to the knife.rb file:
+The following ``knife cookbook test`` settings can be added to the config.rb file:
 
 ``knife[:all]``
    Adds the the ``--all`` option.
@@ -562,7 +562,7 @@ The following ``knife cookbook test`` settings can be added to the knife.rb file
 
 cookbook upload
 -----------------------------------------------------
-The following ``knife cookbook upload`` settings can be added to the knife.rb file:
+The following ``knife cookbook upload`` settings can be added to the config.rb file:
 
 ``knife[:all]``
    Adds the the ``--all`` option.
@@ -581,7 +581,7 @@ The following ``knife cookbook upload`` settings can be added to the knife.rb fi
 
 cookbook site download
 -----------------------------------------------------
-The following ``knife cookbook site download`` settings can be added to the knife.rb file:
+The following ``knife cookbook site download`` settings can be added to the config.rb file:
 
 ``knife[:file]``
    Adds the the ``--file`` option.
@@ -594,7 +594,7 @@ The following ``knife cookbook site download`` settings can be added to the knif
 
 cookbook site install
 -----------------------------------------------------
-The following ``knife cookbook site install`` settings can be added to the knife.rb file:
+The following ``knife cookbook site install`` settings can be added to the config.rb file:
 
 ``knife[:cookbook_path]``
    Adds the the ``--cookbook-path`` option.
@@ -613,7 +613,7 @@ The following ``knife cookbook site install`` settings can be added to the knife
 
 cookbook site share
 -----------------------------------------------------
-The following ``knife cookbook site share`` settings can be added to the knife.rb file:
+The following ``knife cookbook site share`` settings can be added to the config.rb file:
 
 ``knife[:cookbook_path]``
    Adds the the ``--cookbook-path`` option.
@@ -623,7 +623,7 @@ The following ``knife cookbook site share`` settings can be added to the knife.r
 
 data bag create
 -----------------------------------------------------
-The following ``knife data bag create`` settings can be added to the knife.rb file:
+The following ``knife data bag create`` settings can be added to the config.rb file:
 
 ``knife[:secret]``
    Adds the the ``--secret`` option.
@@ -633,7 +633,7 @@ The following ``knife data bag create`` settings can be added to the knife.rb fi
 
 data bag edit
 -----------------------------------------------------
-The following ``knife data bag edit`` settings can be added to the knife.rb file:
+The following ``knife data bag edit`` settings can be added to the config.rb file:
 
 ``knife[:print_after]``
    Adds the the ``--print-after`` option.
@@ -646,7 +646,7 @@ The following ``knife data bag edit`` settings can be added to the knife.rb file
 
 data bag from file
 -----------------------------------------------------
-The following ``knife data bag from file`` settings can be added to the knife.rb file:
+The following ``knife data bag from file`` settings can be added to the config.rb file:
 
 ``knife[:all]``
    Adds the the ``--all`` option.
@@ -659,7 +659,7 @@ The following ``knife data bag from file`` settings can be added to the knife.rb
 
 data bag show
 -----------------------------------------------------
-The following ``knife data bag show`` settings can be added to the knife.rb file:
+The following ``knife data bag show`` settings can be added to the config.rb file:
 
 ``knife[:secret]``
    Adds the the ``--secret`` option.
@@ -669,7 +669,7 @@ The following ``knife data bag show`` settings can be added to the knife.rb file
 
 delete
 -----------------------------------------------------
-The following ``knife delete`` settings can be added to the knife.rb file:
+The following ``knife delete`` settings can be added to the config.rb file:
 
 ``knife[:chef_repo_path]``
    Adds the the ``--chef-repo-path`` option.
@@ -685,7 +685,7 @@ The following ``knife delete`` settings can be added to the knife.rb file:
 
 deps
 -----------------------------------------------------
-The following ``knife deps`` settings can be added to the knife.rb file:
+The following ``knife deps`` settings can be added to the config.rb file:
 
 ``knife[:chef_repo_path]``
    Adds the the ``--chef-repo-path`` option.
@@ -707,7 +707,7 @@ The following ``knife deps`` settings can be added to the knife.rb file:
 
 diff
 -----------------------------------------------------
-The following ``knife diff`` settings can be added to the knife.rb file:
+The following ``knife diff`` settings can be added to the config.rb file:
 
 ``knife[:chef_repo_path]``
    Adds the the ``--chef-repo-path`` option.
@@ -729,7 +729,7 @@ The following ``knife diff`` settings can be added to the knife.rb file:
 
 download
 -----------------------------------------------------
-The following ``knife download`` settings can be added to the knife.rb file:
+The following ``knife download`` settings can be added to the config.rb file:
 
 ``knife[:chef_repo_path]``
    Adds the the ``--chef-repo-path`` option.
@@ -745,7 +745,7 @@ The following ``knife download`` settings can be added to the knife.rb file:
 
 edit
 -----------------------------------------------------
-The following ``knife edit`` settings can be added to the knife.rb file:
+The following ``knife edit`` settings can be added to the config.rb file:
 
 ``knife[:chef_repo_path]``
    Adds the the ``--chef-repo-path`` option.
@@ -767,14 +767,14 @@ The following ``knife edit`` settings can be added to the knife.rb file:
 
 environment create
 -----------------------------------------------------
-The following ``knife environment create`` settings can be added to the ``knife.rb`` file:
+The following ``knife environment create`` settings can be added to the ``config.rb`` file:
 
 ``knife[:description]``
    Adds the the ``--description`` option.
 
 environment from file
 -----------------------------------------------------
-The following ``knife environment from file`` settings can be added to the knife.rb file:
+The following ``knife environment from file`` settings can be added to the config.rb file:
 
 ``knife[:all]``
    Adds the the ``--all`` option.
@@ -784,7 +784,7 @@ The following ``knife environment from file`` settings can be added to the knife
 
 exec
 -----------------------------------------------------
-The following ``knife exec`` settings can be added to the knife.rb file:
+The following ``knife exec`` settings can be added to the config.rb file:
 
 ``knife[:exec]``
    Adds the the ``--exec`` option.
@@ -794,7 +794,7 @@ The following ``knife exec`` settings can be added to the knife.rb file:
 
 list
 -----------------------------------------------------
-The following ``knife list`` settings can be added to the knife.rb file:
+The following ``knife list`` settings can be added to the config.rb file:
 
 ``knife[:bare_directories]``
    Adds the the ``-d`` option.
@@ -813,21 +813,21 @@ The following ``knife list`` settings can be added to the knife.rb file:
 
 node from file
 -----------------------------------------------------
-The following ``knife node from file`` settings can be added to the knife.rb file:
+The following ``knife node from file`` settings can be added to the config.rb file:
 
 ``knife[:print_after]``
    Adds the the ``--print-after`` option.
 
 node list
 -----------------------------------------------------
-The following ``knife node list`` settings can be added to the knife.rb file:
+The following ``knife node list`` settings can be added to the config.rb file:
 
 ``knife[:environment]``
    Adds the the ``--environment`` option.
 
 node run list add
 -----------------------------------------------------
-The following ``knife node run list add`` settings can be added to the knife.rb file:
+The following ``knife node run list add`` settings can be added to the config.rb file:
 
 ``knife[:after]``
    Adds the the ``--after`` option.
@@ -837,14 +837,14 @@ The following ``knife node run list add`` settings can be added to the knife.rb 
 
 node run list remove
 -----------------------------------------------------
-The following ``knife node run list remove`` settings can be added to the knife.rb file:
+The following ``knife node run list remove`` settings can be added to the config.rb file:
 
 ``knife[:run_list]``
    The run-list that is passed as part of the command itself.
 
 raw
 -----------------------------------------------------
-The following ``knife raw`` settings can be added to the knife.rb file:
+The following ``knife raw`` settings can be added to the config.rb file:
 
 ``knife[:chef_repo_path]``
    Adds the the ``--chef-repo-path`` option.
@@ -866,28 +866,28 @@ The following ``knife raw`` settings can be added to the knife.rb file:
 
 role create
 -----------------------------------------------------
-The following ``knife role create`` settings can be added to the knife.rb file:
+The following ``knife role create`` settings can be added to the config.rb file:
 
 ``knife[:description]``
    Adds the the ``--description`` option.
 
 role from file
 -----------------------------------------------------
-The following ``knife role from file`` settings can be added to the knife.rb file:
+The following ``knife role from file`` settings can be added to the config.rb file:
 
 ``knife[:print_after]``
    Adds the the ``--print-after`` option.
 
 role show
 -----------------------------------------------------
-The following ``knife role show`` settings can be added to the knife.rb file:
+The following ``knife role show`` settings can be added to the config.rb file:
 
 ``knife[:environment]``
    Adds the the ``--environment`` option.
 
 ssh
 -----------------------------------------------------
-The following ``knife ssh`` settings can be added to the knife.rb file:
+The following ``knife ssh`` settings can be added to the config.rb file:
 
 ``knife[:concurrency]``
    Adds the the ``--concurrency`` option.
@@ -918,7 +918,7 @@ The following ``knife ssh`` settings can be added to the knife.rb file:
 
 status
 -----------------------------------------------------
-The following ``knife status`` settings can be added to the knife.rb file:
+The following ``knife status`` settings can be added to the config.rb file:
 
 ``knife[:hide_healthy]``
    Adds the the ``--hide-healthy`` option.
@@ -931,7 +931,7 @@ The following ``knife status`` settings can be added to the knife.rb file:
 
 upload
 -----------------------------------------------------
-The following ``knife upload`` settings can be added to the knife.rb file:
+The following ``knife upload`` settings can be added to the config.rb file:
 
 ``knife[:chef_repo_path]``
    Adds the the ``--chef-repo-path`` option.
@@ -947,7 +947,7 @@ The following ``knife upload`` settings can be added to the knife.rb file:
 
 user create
 -----------------------------------------------------
-The following ``knife user create`` settings can be added to the knife.rb file:
+The following ``knife user create`` settings can be added to the config.rb file:
 
 ``knife[:admin]``
    Adds the the ``--admin`` option.
@@ -963,14 +963,14 @@ The following ``knife user create`` settings can be added to the knife.rb file:
 
 user reregister
 -----------------------------------------------------
-The following ``knife user reregister`` settings can be added to the knife.rb file:
+The following ``knife user reregister`` settings can be added to the config.rb file:
 
 ``knife[:file]``
    Adds the the ``--file`` option.
 
 xargs
 -----------------------------------------------------
-The following ``knife delete`` settings can be added to the knife.rb file:
+The following ``knife delete`` settings can be added to the config.rb file:
 
 ``knife[:chef_repo_path]``
    Adds the the ``--chef-repo-path`` option.

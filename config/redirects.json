@@ -1,4 +1,5 @@
 {
+  "config_rb_knife_optional_settings.html": "/config_rb_optional_settings.html",
   "workstation.html": "/chefdk_setup.html",
   "resource_env.html": "/resource_windows_env.html",
   "resources.html": "/resource_reference.html",
