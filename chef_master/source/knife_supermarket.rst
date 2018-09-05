@@ -1,17 +1,9 @@
 =====================================================
 knife supermarket
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_supermarket.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_supermarket.rst>`__
 
-.. warning:: Only use knife supermarket if you are using a Chef 12.12 or earlier. If you are using Chef 12.13 or later, you should use the `knife cookbook site </knife_cookbook_site.html>`__ commands.
-
-.. tag supermarket_api_summary
-
-The Supermarket API is used to provide access to cookbooks, tools, and users on the `Chef Supermarket <https://supermarket.chef.io>`__. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API by accessing ``supermarket.chef.io/api/v1/`` via the supported endpoints. In most cases, knife is the best way to interact with the Supermarket; however in some cases, direct use of the Supermarket API is necessary.
-
-.. end_tag
-
-The ``knife supermarket`` subcommand is used to interact with cookbooks that are located in private Chef Supermarket configured inside the firewall. A user account is required for any community actions that write data to the Chef Supermarket; however, the following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+The ``knife supermarket`` subcommand is used to interact with cookbooks that are located in on the public Supermarket as well as private Chef Supermarket sites. A user account is required for any community actions that write data to the Chef Supermarket; however, the following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. note:: If you are interested in uploading to the supermarket as a company you might be interested
           in looking at the `Chef Partner Cookbook Program <https://www.chef.io/partners/cookbooks/>`__
@@ -20,11 +12,15 @@ The ``knife supermarket`` subcommand is used to interact with cookbooks that are
 
 .. note:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see `About the Chef DK </about_chefdk.html>`__.
+          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef Development Kit. For more information about the Chef Development Kit, see `About the Chef DK </about_chefdk.html>`__.
 
           .. end_tag
 
-.. note:: Review the list of `common options </knife_options>`_ available to this (and all) knife subcommands and plugins.
+.. note:: .. tag knife_common_see_common_options_link
+
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
+
+          .. end_tag
 
 download
 =====================================================
@@ -211,18 +207,20 @@ To search for a cookbook, use a command similar to:
 
 where ``mysql`` is the search term. This will return something similar to:
 
+.. code-block:: bash
+
    mysql:
-     cookbook:             http://cookbooks.opscode.com/api/v1/cookbooks/mysql
+     cookbook:             https://supermarket.chef.io/api/v1/cookbooks/mysql
      cookbook_description: Provides mysql_service, mysql_config, and mysql_client resources
      cookbook_maintainer:  chef
      cookbook_name:        mysql
    mysql-apt-config:
-     cookbook:             http://cookbooks.opscode.com/api/v1/cookbooks/mysql-apt-config
+     cookbook:             https://supermarket.chef.io/api/v1/cookbooks/mysql-apt-config
      cookbook_description: Installs/Configures mysql-apt-config
      cookbook_maintainer:  tata
      cookbook_name:        mysql-apt-config
    mysql-multi:
-     cookbook:             http://cookbooks.opscode.com/api/v1/cookbooks/mysql-multi
+     cookbook:             https://supermarket.chef.io/api/v1/cookbooks/mysql-multi
      cookbook_description: MySQL replication wrapper cookbook
      cookbook_maintainer:  rackops
      cookbook_name:        mysql-multi
@@ -305,18 +303,18 @@ to return something similar to:
 .. code-block:: bash
 
    average_rating:
-   category:           Other
-   created_at:         2009-10-28T19:16:54.000Z
-   deprecated:         false
-   description:        Provides mysql_service, mysql_config, and mysql_client resources
-   external_url:       https://github.com/chef-cookbooks/mysql
-   foodcritic_failure: true
-   issues_url:
-   latest_version:     http://cookbooks.opscode.com/api/v1/cookbooks/mysql/versions/6.0.15
-   maintainer:         chef
+   category:        Other
+   created_at:      2009-10-28T19:16:54.000Z
+   deprecated:      false
+   description:     Provides mysql_service, mysql_config, and mysql_client resources
+   external_url:    https://github.com/chef-cookbooks/mysql
+   issues_url:      https://github.com/chef-cookbooks/mysql/issues
+   latest_version:  https://supermarket.chef.io/api/v1/cookbooks/mysql/versions/8.5.1
+   maintainer:      sous-chefs
    metrics:
+     collaborators: 2
      downloads:
-       total:    79275449
+       total:    128998032
      versions:
        0.10.0: 927561
        0.15.0: 927536
@@ -337,18 +335,64 @@ To show the details for a cookbook version, run a command similar to:
 
 .. code-block:: bash
 
-   $ knife supermarket show mysql 0.10.0
+   $ knife supermarket show mysql 8.5.1
 
-where ``mysql`` is the cookbook and ``0.10.0`` is the cookbook version. This will return something similar to:
+where ``mysql`` is the cookbook and ``8.5.1`` is the cookbook version. This will return something similar to:
 
 .. code-block:: bash
 
-   average_rating:
-   cookbook:          http://cookbooks.opscode.com/api/v1/cookbooks/mysql
-   file:              http://cookbooks.opscode.com/api/v1/cookbooks/mysql/versions/0.10.0/download
-   license:           Apache 2.0
-   tarball_file_size: 7010
-   version:           0.10.0
+    average_rating:
+    cookbook:          https://supermarket.chef.io/api/v1/cookbooks/mysql
+    file:              https://supermarket.chef.io/api/v1/cookbooks/mysql/versions/8.5.1/download
+    license:           Apache-2.0
+    published_at:      2017-08-23T19:01:28Z
+    quality_metrics:
+      failed:   false
+      feedback: passed the No Binaries metric. Contains no obvious binaries.
+      name:     No Binaries
+
+      failed:   false
+      feedback: mysql passed the publish metric
+      name:     Publish
+
+      failed:   false
+      feedback: mysql supports at least one platform.
+      name:     Supported Platforms
+
+      failed:   false
+      feedback: passed the Collaborators Metric with 2 collaborators.
+      name:     Collaborator Number
+
+      failed:   false
+      feedback:
+      Run with Foodcritic Version 14.0.0 with tags metadata,correctness ~FC031 ~FC045 and failure tags any
+      name:     Foodcritic
+
+      failed:   false
+      feedback: passed the CONTRIBUTING.md file metric.
+      name:     Contributing File
+
+      failed:   false
+      feedback: passed the version tag metric.
+      name:     Version Tag
+
+      failed:   false
+      feedback: passed the TESTING.md file metric.
+      name:     Testing File
+    supports:
+      amazon:       >= 0.0.0
+      centos:       >= 6.0
+      debian:       >= 7.0
+      fedora:       >= 0.0.0
+      opensuse:     >= 13.0
+      opensuseleap: >= 0.0.0
+      oracle:       >= 6.0
+      redhat:       >= 6.0
+      scientific:   >= 6.0
+      suse:         >= 12.0
+      ubuntu:       >= 12.04
+    tarball_file_size: 23763
+    version:           8.5.1
 
 unshare
 =====================================================

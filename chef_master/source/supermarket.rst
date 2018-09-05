@@ -37,7 +37,6 @@ The private Chef Supermarket is installed behind the firewall on the internal ne
           The source code for Chef Supermarket is located at the following URLs:
 
           * The application itself: https://github.com/chef/supermarket. Report issues to: https://github.com/chef/supermarket/issues.
-          * The code that builds Chef Supermarket as a Chef package: https://github.com/chef/omnibus-supermarket. Use a Kitchen-based environment to build your own Chef packages.
           * The cookbook that is run by the ``supermarket-ctl reconfigure`` command: https://github.com/chef/supermarket/tree/master/omnibus/cookbooks/omnibus-supermarket
 
           .. end_tag
@@ -71,35 +70,6 @@ To install a Private Supermarket, see the instructions `here </install_supermark
 
 Set up Workstation
 -----------------------------------------------------
-If you are using Chef 12.13 or higher, use the `knife cookbook site </knife_cookbook_site.html>`__ commands to work with cookbooks in both Public Chef Supermarket and a Private Chef Supermarket.
-
-If you are using Chef 12.12 or lower, use the ``knife supermarket`` plugin to work with cookbooks in a Private Chef Supermarket.
-
-knife
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Chef 12.13 and higher
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you are using Chef 12.13 or higher, use the `knife cookbook site </knife_cookbook_site.html>`__ commands with BOTH Public Supermarket and Private Supermarket.
-
-Chef 12.12 and lower
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-If you are using Chef 12.12 or a previous version, you will need to use ``knife supermarket``.
-
-The ``knife supermarket`` command is a plugin that must be installed to the workstation.
-
-If using the Chef development kit, run the following command:
-
-.. code-block:: bash
-
-   $ chef gem install knife-supermarket
-
-and if not using the Chef development kit, run the following command:
-
-.. code-block:: bash
-
-   $ gem install knife-supermarket
 
 Configure knife.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -118,7 +88,7 @@ To configure knife.rb for the private Chef Supermarket, do the following:
 
 Create a Cookbook
 -----------------------------------------------------
-The following examples show how to create a simple cookbook by using the chef command that is built into the the Chef development kit.
+The following examples show how to create a simple cookbook by using the chef command that is built into the the Chef Development Kit.
 
 **Generate a chef-repo**
 
@@ -184,16 +154,6 @@ Upload a Cookbook
 -----------------------------------------------------
 To upload a cookbook to Chef Supermarket, do the following:
 
-#. Determine which version of Chef you are using.
-
-   If you are using Chef 12.13 or later, you have everything you need in the knife cookbook site commands
-
-   If you are using Chef 12.12 or earlier, you need to install the ``knife supermarket`` plugin:
-
-   .. code-block:: bash
-
-      $ chef gem install knife-supermarket
-
 #. Add a setting for Chef Supermarket to the knife.rb file:
 
    .. code-block:: ruby
@@ -214,27 +174,12 @@ To upload a cookbook to Chef Supermarket, do the following:
 
 #. Upload the cookbook to Chef Supermarket:
 
-   If you are using Chef 12.13 or later:
-
-   .. code-block:: bash
-
-      $ knife cookbook site share mycookbook "Other"
-
-   If you are using Chef 12.12 or earlier:
-
    .. code-block:: bash
 
       $ knife supermarket share mycookbook "Other"
 
 Share a Cookbook
 -----------------------------------------------------
-If you are using Chef 12.13 or later, a cookbook may be shared to the private Chef Supermarket using the ``knife cookbook site``` commands.
-
-.. code-block:: bash
-
-   $ knife cookbook site share 'my_cookbook'
-
-If you are using Chef 12.12 or lower, a cookbook may be shared to the private Chef Supermarket using the ``knife supermarket`` command. Run the following command:
 
 .. code-block:: bash
 
@@ -303,8 +248,6 @@ For more information about the Supermarket API, see `Supermarket API </supermark
 fieri
 -----------------------------------------------------
 Fieri is an optional service what will check cookbook versions for certain metrics to determine the quality of the cookbook.
-
-As of Supermarket 2.7, Fieri now lives within the Supermarket code base.
 
 If you are using a private Chef Supermarket, you can activate the Fieri service like this:
 
