@@ -281,7 +281,7 @@ Solve this by committing the cookbook changes. For example, the following comman
 
    $ git commit -am "Updating so I can install a site cookbook"
 
-Re-run the ``knife cookbook site install`` subcommand again to install the community cookbook.
+Re-run the ``knife supermarket install`` subcommand again to install the community cookbook.
 
 Cannot find config file
 -----------------------------------------------------

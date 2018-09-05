@@ -90,13 +90,6 @@ Built-in Subcommands
 
        .. end_tag
 
-   * - `knife cookbook site </knife_cookbook_site.html>`_
-     - .. tag knife_site_cookbook
-
-       Use the ``knife cookbook site`` subcommand to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
-
-       .. end_tag
-
    * - `knife data bag </knife_data_bag.html>`_
      - .. tag knife_data_bag_summary
 
@@ -247,6 +240,13 @@ Built-in Subcommands
      - .. tag knife_tag_summary
 
        Use the ``knife tag`` subcommand to apply tags to nodes on a Chef server.
+
+       .. end_tag
+
+   * - `knife supermarket </knife_supermarket.html>`_
+     - .. tag knife_supermarket
+
+       Use the ``knife supermarket`` subcommand to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
        .. end_tag
 

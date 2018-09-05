@@ -466,11 +466,11 @@ If you're using Berkshelf, update your ``Berksfile`` to replace ``https://superm
 Upload cookbooks to Supermarket
 -----------------------------------------------------
 
-To upload new cookbooks to your private Supermarket, use the ``knife cookbook site share`` command on your workstation:
+To upload new cookbooks to your private Supermarket, use the ``knife supermarket share`` command on your workstation:
 
 .. code-block:: ruby
 
-   knife cookbook site share chef-ingredient
+   knife supermarket share chef-ingredient
 
 Chef Automate
 =====================================================

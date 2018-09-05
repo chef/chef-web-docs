@@ -18,7 +18,7 @@ Public Supermarket
 =====================================================
 The public Chef Supermarket hosted by Chef is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
 
-To interact with the public Chef Supermarket, use `knife cookbook site </knife_cookbook_site.html>`__ commands.
+To interact with the public Chef Supermarket, use `knife supermarket </knife_supermarket.html>`__ commands.
 
 .. image:: ../../images/public_supermarket.svg
    :width: 700px

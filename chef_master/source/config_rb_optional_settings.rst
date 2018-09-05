@@ -579,9 +579,9 @@ The following ``knife cookbook upload`` settings can be added to the config.rb f
 ``knife[:freeze]``
    Adds the the ``--freeze`` option.
 
-cookbook site download
+supermarket download
 -----------------------------------------------------
-The following ``knife cookbook site download`` settings can be added to the config.rb file:
+The following ``knife supermarket download`` settings can be added to the config.rb file:
 
 ``knife[:file]``
    Adds the the ``--file`` option.
@@ -592,9 +592,9 @@ The following ``knife cookbook site download`` settings can be added to the conf
 ``knife[:supermarket_site]``
    The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
-cookbook site install
+supermarket install
 -----------------------------------------------------
-The following ``knife cookbook site install`` settings can be added to the config.rb file:
+The following ``knife supermarket install`` settings can be added to the config.rb file:
 
 ``knife[:cookbook_path]``
    Adds the the ``--cookbook-path`` option.
@@ -611,9 +611,9 @@ The following ``knife cookbook site install`` settings can be added to the confi
 ``knife[:supermarket_site]``
    The URL at which the Chef Supermarket is located. Default value: https://supermarket.chef.io.
 
-cookbook site share
+supermarket share
 -----------------------------------------------------
-The following ``knife cookbook site share`` settings can be added to the config.rb file:
+The following ``knife supermarket share`` settings can be added to the config.rb file:
 
 ``knife[:cookbook_path]``
    Adds the the ``--cookbook-path`` option.
