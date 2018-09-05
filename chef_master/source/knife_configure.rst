@@ -31,7 +31,7 @@ Options
 
           .. end_tag
 
-This subcommand has the following options for use when configuring a knife.rb file:
+This subcommand has the following options for use when configuring a config.rb file:
 
 ``--admin-client-name NAME``
    The name of the client, typically the name of the admin client.
@@ -53,7 +53,7 @@ This subcommand has the following options for use when configuring a knife.rb fi
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -61,9 +61,9 @@ Examples
 =====================================================
 The following examples show how to use this knife subcommand:
 
-**Configure knife.rb**
+**Configure config.rb**
 
-.. To create a knife.rb file, enter:
+.. To create a config.rb file, enter:
 
 .. code-block:: bash
 

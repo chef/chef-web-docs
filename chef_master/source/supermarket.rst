@@ -71,13 +71,13 @@ To install a Private Supermarket, see the instructions `here </install_supermark
 Set up Workstation
 -----------------------------------------------------
 
-Configure knife.rb
+Configure config.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The knife.rb file on the workstation should be configured for use with the private Chef Supermarket.
+The config.rb file on the workstation should be configured for use with the private Chef Supermarket.
 
-To configure knife.rb for the private Chef Supermarket, do the following:
+To configure config.rb for the private Chef Supermarket, do the following:
 
-#. Open the knife.rb file in an editor.
+#. Open the config.rb file in an editor.
 #. Add the following setting:
 
    .. code-block:: ruby
@@ -154,7 +154,7 @@ Upload a Cookbook
 -----------------------------------------------------
 To upload a cookbook to Chef Supermarket, do the following:
 
-#. Add a setting for Chef Supermarket to the knife.rb file:
+#. Add a setting for Chef Supermarket to the config.rb file:
 
    .. code-block:: ruby
 

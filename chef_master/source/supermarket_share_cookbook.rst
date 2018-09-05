@@ -53,7 +53,7 @@ The `knife cookbook site  </knife_cookbook_site.html>`__ command is used to uplo
 
 .. note:: If you're using Hosted Chef as your regular Chef server, skip to the second step.
 
-#. The ``knife.rb`` file located under ``/chef-repo/.chef/knife.rb`` contains the basic information necessary to authenticate with Hosted Chef. It will look similar to the following:
+#. The ``config.rb`` file located under ``/chef-repo/.chef/config.rb`` contains the basic information necessary to authenticate with Hosted Chef. It will look similar to the following:
 
    .. code-block:: ruby
 
@@ -77,7 +77,7 @@ The `knife cookbook site  </knife_cookbook_site.html>`__ command is used to uplo
 
        knife cookbook site share example_cookbook
 
-    Alternatively, if you chose not to modify the location of your cookbook repository within your ``knife.rb``, you can specify the cookbook path in your ``knife`` command:
+    Alternatively, if you chose not to modify the location of your cookbook repository within your ``config.rb``, you can specify the cookbook path in your ``knife`` command:
 
     .. code-block:: none
 

@@ -59,7 +59,7 @@ Proxy settings are defined in configuration files for the chef-client and for kn
 
 HTTP
 -----------------------------------------------------
-Use the following settings in the client.rb or knife.rb files for environments that use an HTTP proxy:
+Use the following settings in the client.rb or config.rb files for environments that use an HTTP proxy:
 
 .. list-table::
    :widths: 200 300
@@ -76,7 +76,7 @@ Use the following settings in the client.rb or knife.rb files for environments t
 
 HTTPS
 -----------------------------------------------------
-Use the following settings in the client.rb or knife.rb files for environments that use an HTTPS proxy:
+Use the following settings in the client.rb or config.rb files for environments that use an HTTPS proxy:
 
 .. list-table::
    :widths: 200 300
@@ -93,7 +93,7 @@ Use the following settings in the client.rb or knife.rb files for environments t
 
 FTP
 -----------------------------------------------------
-Use the following settings in the client.rb or knife.rb files for environments that use an FTP proxy:
+Use the following settings in the client.rb or config.rb files for environments that use an FTP proxy:
 
 .. list-table::
    :widths: 200 300

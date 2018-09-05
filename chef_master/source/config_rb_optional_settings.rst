@@ -5,7 +5,7 @@ config.rb Optional Settings
 
 .. tag knife_using_knife_rb
 
-In addition to the default settings in a config.rb file, there are other subcommand-specific settings that can be added. When a subcommand is run, knife will use:
+In addition to the default settings in a knife config.rb file, there are other subcommand-specific settings that can be added. When a subcommand is run, knife will use:
 
 #. A value passed via the command-line
 #. A value contained in the config.rb file

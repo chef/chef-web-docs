@@ -22,7 +22,7 @@ The easiest way to create this is to download and install the `Google Cloud SDK 
 
 If you already have a file you'd like to use that is in a different location, set the ``GOOGLE_APPLICATION_CREDENTIALS`` environment variable with the full path to that file.
 
-These are the necessary settings for your ``knife.rb`` file:
+These are the necessary settings for your ``config.rb`` file:
 
 .. code-block:: ruby
 
@@ -55,7 +55,7 @@ chef-provisioning-google
 =====================================================
 `[Github] <https://github.com/chef/chef-provisioning-google>`__
 
-This plugin makes it easy to use Chef Provisioning with the Google Cloud Platform. 
+This plugin makes it easy to use Chef Provisioning with the Google Cloud Platform.
 
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

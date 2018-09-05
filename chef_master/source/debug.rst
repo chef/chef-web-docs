@@ -27,7 +27,7 @@ Empty Run-lists
 
 Use an empty run-list to determine if a failed chef-client run has anything to do with the recipes that are defined within that run-list. This is a quick way to discover if the underlying cause of a chef-client run failure is a configuration issue. If a failure persists even if the run-list is empty, check the following:
 
-* Configuration settings in the knife.rb file
+* Configuration settings in the config.rb file
 * Permissions for the user to both the Chef server and to the node on which the chef-client run is to take place
 
 .. end_tag
@@ -382,7 +382,7 @@ chef-shell.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_config_rb
 
-The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure the chef-client. For example, to configure chef-shell to authenticate to the Chef server, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the knife.rb file:
+The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure the chef-client. For example, to configure chef-shell to authenticate to the Chef server, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the config.rb file:
 
 .. code-block:: ruby
 
@@ -400,7 +400,7 @@ Run as a chef-client
 
 By default, chef-shell loads in standalone mode and does not connect to the Chef server. The chef-shell can be run as a chef-client to verify functionality that is only available when the chef-client connects to the Chef server, such as search functionality or accessing data stored in data bags.
 
-chef-shell can use the same credentials as knife when connecting to a Chef server. Make sure that the settings in chef-shell.rb are the same as those in knife.rb, and then use the ``-z`` option as part of the command. For example:
+chef-shell can use the same credentials as knife when connecting to a Chef server. Make sure that the settings in chef-shell.rb are the same as those in config.rb, and then use the ``-z`` option as part of the command. For example:
 
 .. code-block:: bash
 

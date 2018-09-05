@@ -44,7 +44,7 @@ Empty Run-lists
 
 Use an empty run-list to determine if a failed chef-client run has anything to do with the recipes that are defined within that run-list. This is a quick way to discover if the underlying cause of a chef-client run failure is a configuration issue. If a failure persists even if the run-list is empty, check the following:
 
-* Configuration settings in the knife.rb file
+* Configuration settings in the config.rb file
 * Permissions for the user to both the Chef server and to the node on which the chef-client run is to take place
 
 .. end_tag
@@ -192,7 +192,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -286,7 +286,7 @@ This command does not have any specific options.
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 

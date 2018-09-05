@@ -308,17 +308,17 @@ Changes to that file can then be made:
      "description": "I am passing the time by letting time pass over me ..."
    }
 
-The type of text editor that is used by knife can be configured by adding an entry to your knife.rb file, or by setting an ``EDITOR`` environment variable. For example, to configure knife to open the ``vim`` text editor, add the following to your knife.rb file:
+The type of text editor that is used by knife can be configured by adding an entry to your config.rb file, or by setting an ``EDITOR`` environment variable. For example, to configure knife to open the ``vim`` text editor, add the following to your config.rb file:
 
 .. code-block:: ruby
 
    knife[:editor] = "/usr/bin/vim"
 
-When a Microsoft Windows file path is enclosed in a double-quoted string (" "), the same backslash character (``\``) that is used to define the file path separator is also used in Ruby to define an escape character. The knife.rb file is a Ruby file; therefore, file path separators must be escaped. In addition, spaces in the file path must be replaced with ``~1`` so that the length of each section within the file path is not more than 8 characters. For example, if EditPad Pro is the text editor of choice and is located at the following path::
+When a Microsoft Windows file path is enclosed in a double-quoted string (" "), the same backslash character (``\``) that is used to define the file path separator is also used in Ruby to define an escape character. The config.rb file is a Ruby file; therefore, file path separators must be escaped. In addition, spaces in the file path must be replaced with ``~1`` so that the length of each section within the file path is not more than 8 characters. For example, if EditPad Pro is the text editor of choice and is located at the following path::
 
    C:\\Program Files (x86)\EditPad Pro\EditPad.exe
 
-the setting in the knife.rb file would be similar to:
+the setting in the config.rb file would be similar to:
 
 .. code-block:: ruby
 
@@ -634,7 +634,7 @@ This subcommand has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -5305,6 +5305,6 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 
 .. end_tag
 
-knife.rb
+config.rb
 =====================================================
-When running Microsoft Windows, the knife.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\.chef``.
+When running Microsoft Windows, the config.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\.chef``.

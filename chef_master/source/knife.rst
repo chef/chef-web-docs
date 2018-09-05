@@ -30,10 +30,10 @@ The Knife Quick Reference provides an all-in-one quick reference of knife comman
      - Configure knife to interact with your organization's Chef server and infrastructure.
    * - `Knife Common Options </knife_options.html>`_
      - Common options that are available for all knife subcommands.
-   * - `knife.rb </config_rb_knife.html>`_
-     - Common options for the ``knife.rb`` file
-   * - `knife.rb Optional Settings </config_rb_knife_optional_settings.html>`_
-     - Additional options for your ``knife.rb``
+   * - `config.rb </config_rb.html>`_
+     - Common options for the ``config.rb`` (config.rb) file
+   * - `config.rb Optional Settings </config_rb_knife_optional_settings.html>`_
+     - Additional options for your ``config.rb`` file
 
 .. end_tag
 
@@ -77,7 +77,7 @@ Built-in Subcommands
    * - `knife configure </knife_configure.html>`_
      - .. tag knife_configure_summary
 
-       Use the ``knife configure`` subcommand to create the knife.rb and client.rb files so that they can be distributed to workstations and nodes.
+       Use the ``knife configure`` subcommand to create the `client.rb <config_rb_client.html>`_ and `config.rb <config_rb.html>`_ files so that they can be distributed to workstations and nodes.
 
        .. end_tag
 
@@ -196,7 +196,7 @@ Built-in Subcommands
    * - `knife serve </knife_serve.html>`_
      - .. tag knife_serve_summary
 
-       Use the ``knife serve`` subcommand to run a persistent chef-zero against the local chef-repo. (chef-zero is a lightweight Chef server that runs in-memory on the local machine.) This is the same as running the chef-client executable with the ``--local-mode`` option. The ``chef_repo_path`` is located automatically and the Chef server will bind to the first available port between ``8889`` and ``9999``. ``knife serve`` will print the URL for the local Chef server, so that it may be added to the knife.rb file.
+       Use the ``knife serve`` subcommand to run a persistent chef-zero against the local chef-repo. (chef-zero is a lightweight Chef server that runs in-memory on the local machine.) This is the same as running the chef-client executable with the ``--local-mode`` option. The ``chef_repo_path`` is located automatically and the Chef server will bind to the first available port between ``8889`` and ``9999``. ``knife serve`` will print the URL for the local Chef server, so that it may be added to the config.rb file.
 
        .. end_tag
 

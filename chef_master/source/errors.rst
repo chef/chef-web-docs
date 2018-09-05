@@ -47,7 +47,7 @@ When the values for certain settings in the client.rb file---``node_name`` and `
 
 **Troubleshooting Steps**
 
-* Verify you have the correct values in your knife.rb file, especially for the ``node_name`` and ``client_key`` settings.
+* Verify you have the correct values in your config.rb file, especially for the ``node_name`` and ``client_key`` settings.
 
 * Check if the file referenced in the ``client_key`` setting (usually USER.pem) exists. Some common locations include::
 

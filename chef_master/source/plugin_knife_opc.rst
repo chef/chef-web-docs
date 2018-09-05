@@ -15,7 +15,7 @@ The ``knife opc`` subcommand is used to manage organizations and users in Chef S
 
 .. _plugin_knife_opc-knife-rb-configuration:
 
-knife.rb Configuration
+config.rb Configuration
 =====================================================
 Unlike other knife subcommands the subcommands in the knife-opc plugin make API calls against the root of your Chef server installation's API endpoint.
 
