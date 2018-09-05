@@ -620,9 +620,9 @@ The following example shows provisioner settings for running the chef-client in 
        audit_mode: :enabled
 
    platforms:
-     - name: ubuntu-14.04
+     - name: ubuntu-18.04
        run_list:
-         - recipe[audit-cis::ubuntu1404-100]
+         - recipe[audit-cis::ubuntu1804-100]
      - name: centos-7
        run_list:
          - recipe[audit-cis::centos7-100]
@@ -654,12 +654,10 @@ The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensu
      name: chef_zero
 
    platforms:
-     - name: centos-5.10
-     - name: centos-6.5
-     - name: fedora-19
-     - name: ubuntu-1004
-     - name: ubuntu-1204
-     - name: ubuntu-1310
+     - name: centos-6
+     - name: fedora-latest
+     - name: ubuntu-1604
+     - name: ubuntu-1804
 
    suites:
 
@@ -707,14 +705,14 @@ The following .kitchen.yml file is part of the ``chef-splunk`` cookbook and is u
    driver:
      name: vagrant
      customize:
-       memory: 512
+       memory: 1024
 
    provisioner:
      name: chef_zero
 
    platforms:
-     - name: ubuntu-14.04
      - name: ubuntu-16.04
+     - name: ubuntu-18.04
      - name: centos-6
      - name: centos-7
 
@@ -780,21 +778,15 @@ The following .kitchen.yml file is part of the ``yum`` cookbook:
      name: chef_zero
 
    platforms:
-     - name: centos-5.11
-     - name: centos-6.7
-     - name: centos-7.2
-     - name: fedora-22
+     - name: centos-6
+     - name: centos-7
+     - name: fedora-latest
 
    suites:
      - name: default
        run_list:
          - recipe[yum::default]
          - recipe[yum_test::test_repo]
-     - name: dnf_compat
-       run_list:
-         - recipe[yum::dnf_yum_compat]
-         - recipe[yum_test::test_dnf_compat]
-       includes: fedora-22
 
 Platform Attributes
 --------------------------------------------------------------------------

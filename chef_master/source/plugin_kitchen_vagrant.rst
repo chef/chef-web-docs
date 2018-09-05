@@ -71,13 +71,13 @@ which will generate a configuration file similar to:
 
 .. code-block:: ruby
 
-  platforms:
-  - name: ubuntu-16.04
-    driver:
-      box: bento/ubuntu-16.04
-  - name: ubuntu-18.04
-    driver:
-      box: bento/ubuntu-18.04
+   platforms:
+   - name: ubuntu-16.04
+     driver:
+       box: bento/ubuntu-16.04
+   - name: ubuntu-18.04
+     driver:
+       box: bento/ubuntu-18.04
    # ...
 
 .. end_tag
