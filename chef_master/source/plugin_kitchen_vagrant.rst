@@ -61,23 +61,23 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-14.04
    - name: ubuntu-16.04
+   - name: ubuntu-18.04
    - name: centos-6
    - name: centos-7
-   - name: debian-8
+   - name: debian-9
 
 which will generate a configuration file similar to:
 
 .. code-block:: ruby
 
-   platforms:
-   - name: ubuntu-14.04
-     driver:
-       box: bento/ubuntu-14.04
-   - name: ubuntu-16.04
-     driver:
-       box: bento/ubuntu-16.04
+  platforms:
+  - name: ubuntu-16.04
+    driver:
+      box: bento/ubuntu-16.04
+  - name: ubuntu-18.04
+    driver:
+      box: bento/ubuntu-18.04
    # ...
 
 .. end_tag

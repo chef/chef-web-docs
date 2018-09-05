@@ -353,7 +353,7 @@ Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``.kitchen.yml``
      # Set proxy settings manually, or
      http_proxy: 'http://user:password@server:port'
      https_proxy: 'http://user:password@server:port'
-     
+
      # Read from local environment variables
      http_proxy: <%= ENV['http_proxy'] %>
      https_proxy: <%= ENV['https_proxy'] %>
@@ -536,23 +536,23 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-14.04
    - name: ubuntu-16.04
+   - name: ubuntu-18.04
    - name: centos-6
    - name: centos-7
-   - name: debian-8
+   - name: debian-9
 
 which will generate a configuration file similar to:
 
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-14.04
-     driver:
-       box: bento/ubuntu-14.04
    - name: ubuntu-16.04
      driver:
        box: bento/ubuntu-16.04
+   - name: ubuntu-18.04
+     driver:
+       box: bento/ubuntu-18.04
    # ...
 
 .. end_tag
@@ -582,7 +582,7 @@ and to install a specific version of the Chef development kit:
      ...
      chef_omnibus_install_options: -P chefdk
      chef_omnibus_root: /opt/chefdk
-     require_chef_omnibus: 0.5.0
+     require_chef_omnibus: 3.2.0
 
 Microsoft Windows Platform
 --------------------------------------------------------------------------
