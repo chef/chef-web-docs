@@ -30,7 +30,7 @@ The Knife Quick Reference provides an all-in-one quick reference of knife comman
      - Configure knife to interact with your organization's Chef server and infrastructure.
    * - `Knife Common Options </knife_options.html>`_
      - Common options that are available for all knife subcommands.
-   * - `config.rb </config_rb.html>`_
+   * - `config.rb </config_rb.html>`__
      - Common options for the ``config.rb`` (config.rb) file
    * - `config.rb Optional Settings </config_rb_optional_settings.html>`_
      - Additional options for your ``config.rb`` file
