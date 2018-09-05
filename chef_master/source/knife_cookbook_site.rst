@@ -17,7 +17,7 @@ The ``knife cookbook site`` subcommand is used to interact with cookbooks that a
 
 .. warning:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-             Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see `About the Chef DK </about_chefdk.html>`__.
+             Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef Development Kit. For more information about the Chef Development Kit, see `About the Chef DK </about_chefdk.html>`__.
 
              .. end_tag
 
@@ -31,11 +31,11 @@ Private Supermarket
 =====================================================
 To use the ``knife cookbook site`` command with a private Supermarket installation, you must first add the URL of your Supermarket to your ``knife.rb`` file:
 
-.. code-block:: ruby 
+.. code-block:: ruby
 
    knife[:supermarket_site] = 'https://supermarket.example.com'
 
-If this value is not specified, knife will use ``https://supermarket.chef.io`` by default. 
+If this value is not specified, knife will use ``https://supermarket.chef.io`` by default.
 
 download
 =====================================================
