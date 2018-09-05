@@ -353,14 +353,12 @@ Post installation you will also need to rehash the list of knife commands by run
 Chef Maintained Knife Plugins
 -----------------------------------------------------
 
-Chef maintains the following plugins:
+Chef maintains the following plugins which ship with Chef-DK:
 
 * ``knife-acl``
 * ``knife-azure``
 * ``knife-ec2``
-* ``knife-eucalyptus``
 * ``knife-google``
-* ``knife-linode``
 * ``knife-lpar``
 * ``knife-opc``
 * ``knife-openstack``
