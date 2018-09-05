@@ -46,6 +46,8 @@ Knife Command Syntax
 -----------------------------------------------------
 All knife subcommands have the following syntax:
 
+.. code-block:: bash
+
    knife subcommand [ARGUMENT] (options)
 
 Each subcommand has its own set of arguments and options.
