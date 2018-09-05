@@ -7346,7 +7346,7 @@ To create a node via the USER.pem file, simply delete the ORGANIZATION-validator
 
    $ rm -f /home/lamont/.chef/myorg-validator.pem
 
-and then make the following changes in the knife.rb file:
+and then make the following changes in the config.rb file:
 
 * Remove the ``validation_client_name`` setting
 * Edit the ``validation_key`` setting to be something that isn't a path to an existent ORGANIZATION-validator.pem file. For example: ``/nonexist``.
