@@ -493,6 +493,15 @@ This subcommand has the following options:
 
    .. note:: This option is used internally by Chef to help verify bootstrap operations during testing and should never be used during an actual bootstrap operation.
 
+``--bootstrap-preinstall-command COMMANDS``
+   Custom commands to run before installing chef-client
+
+``--bootstrap-proxy-pass PROXY_PASS``
+   The proxy authentication password for the node being bootstrapped
+
+``--bootstrap-proxy-user PROXY_USER``
+   The proxy authentication username for the node being bootstrapped
+
 ``--bootstrap-proxy PROXY_URL``
    The proxy server for the node that is the target of a bootstrap operation.
 
