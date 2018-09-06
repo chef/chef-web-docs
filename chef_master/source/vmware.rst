@@ -22,7 +22,7 @@ knife-vsphere
 * Most VMware compute use cases are covered
 * The main starting point for Chef and VMware
 
-These are the necessary settings for your ``knife.rb`` file:
+These are the necessary settings for your ``config.rb`` file:
 
 .. code-block:: ruby
 
@@ -83,7 +83,7 @@ knife-vcenter
 * Supports the main use cases of knife: ``bootstrap``, ``create``, ``destroy``, and ``list``
 * If you have the `VCSA <https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vcsa.doc/GUID-223C2821-BD98-4C7A-936B-7DBE96291BA4.html>`__ or are planning on upgrading to vCenter 6.5+, this is the plugin to use
 
-The main settings for your ``knife.rb``:
+The main settings for your ``config.rb``:
 
 .. code-block:: ruby
 
@@ -140,7 +140,7 @@ knife-vrealize
 * Directly integrates with vRA to call out predetermined blueprints or catalogs
 * Can integrate directly with vRO to call out predetermined workflows
 
-The main settings for your ``knife.rb``:
+The main settings for your ``config.rb``:
 
 .. code-block:: ruby
 
@@ -150,7 +150,7 @@ The main settings for your ``knife.rb``:
    knife[:vra_tenant]   = 'tenant'
    knife[:vra_disable_ssl_verify] = true # if you want to disable SSL checking.
 
-Additional ``knife.rb`` settings are required to integrate with vRO:
+Additional ``config.rb`` settings are required to integrate with vRO:
 
 .. code-block:: ruby
 

@@ -50,9 +50,9 @@ For example:
 
    $ knife ssl fetch https://ec2-52-27-166-146.us-west-2.compute.amazonaws.com
 
-Configure knife.rb
+Configure config.rb
 -----------------------------------------------------
-The knife.rb file may be configured for the URL for Chef Analytics. Add the following setting to the knife.rb file:
+The config.rb file may be configured for the URL for Chef Analytics. Add the following setting to the config.rb file:
 
 .. code-block:: ruby
 

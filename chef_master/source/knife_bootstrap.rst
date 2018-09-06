@@ -20,7 +20,7 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 **Considerations:**
 
-* As of Chef 12.8 you can create a ``.chef/client.d`` directory on your workstation and the contents of that ``client.d`` directory will be copied to the system being bootstrapped by the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in ``knife.rb`` to point to an arbitrary directory instead of ``.chef/client.d``, and the contents of that directory will be copied to the system being bootstrapped. All config files inside ``client.d`` directory get copied into ``/etc/chef/client.d`` on the system being bootstrapped.
+* As of Chef 12.8 you can create a ``.chef/client.d`` directory on your workstation and the contents of that ``client.d`` directory will be copied to the system being bootstrapped by the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in ``config.rb`` to point to an arbitrary directory instead of ``.chef/client.d``, and the contents of that directory will be copied to the system being bootstrapped. All config files inside ``client.d`` directory get copied into ``/etc/chef/client.d`` on the system being bootstrapped.
 
 * Starting with Chef 12.0, use the `knife ssl fetch </knife_ssl_fetch.html>`__ command to pull down the SSL certificates from the on-premises Chef server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
 
@@ -63,6 +63,15 @@ This subcommand has the following options:
    A URL or IP address that specifies a location that should not be proxied.
 
    .. note:: This option is used internally by Chef to help verify bootstrap operations during testing and should never be used during an actual bootstrap operation.
+
+``--bootstrap-preinstall-command COMMANDS``
+   Custom commands to run before installing chef-client
+
+``--bootstrap-proxy-pass PROXY_PASS``
+   The proxy authentication password for the node being bootstrapped
+
+``--bootstrap-proxy-user PROXY_USER``
+   The proxy authentication username for the node being bootstrapped
 
 ``--bootstrap-proxy PROXY_URL``
    The proxy server for the node that is the target of a bootstrap operation.
@@ -205,7 +214,7 @@ This subcommand has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -221,7 +230,7 @@ To create a node via the USER.pem file, simply delete the ORGANIZATION-validator
 
    $ rm -f /home/lamont/.chef/myorg-validator.pem
 
-and then make the following changes in the knife.rb file:
+and then make the following changes in the config.rb file:
 
 * Remove the ``validation_client_name`` setting
 * Edit the ``validation_key`` setting to be something that isn't a path to an existent ORGANIZATION-validator.pem file. For example: ``/nonexist``.
@@ -372,7 +381,7 @@ You can use the ``--bootstrap-template`` option with the ``knife bootstrap`` sub
 
    $ knife bootstrap 123.456.7.8 -x username -P password --sudo --bootstrap-template "template"
 
-Alternatively, you can use the ``knife[:bootstrap_template]`` option within ``knife.rb`` to specify the template that ``knife bootstrap`` will use by default when bootstrapping a node. It should point to your custom template within the ``bootstrap`` directory:
+Alternatively, you can use the ``knife[:bootstrap_template]`` option within ``config.rb`` to specify the template that ``knife bootstrap`` will use by default when bootstrapping a node. It should point to your custom template within the ``bootstrap`` directory:
 
 .. code-block:: ruby
 

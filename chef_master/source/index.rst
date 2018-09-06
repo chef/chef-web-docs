@@ -116,7 +116,6 @@ Cookbook Reference
 -----------------------------------------------------
 `About Cookbooks </cookbooks.html>`__ |
 `Attributes </attributes.html>`__ |
-`Definitions </definitions.html>`__ |
 `Files </files.html>`__ |
 `Libraries </libraries.html>`__
 
@@ -298,11 +297,11 @@ Chef DK
 
 **Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__
 
-**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `knife.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  | `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
+**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `config.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  | `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
 
 `knife spork </plugin_knife_spork.html>`__
 
-**knife supermarket**: `supermarket download </plugin_knife_supermarket.html#download>`__ | `supermarket install </plugin_knife_supermarket.html#install>`__ | `supermarket list </plugin_knife_supermarket.html#list>`__ | `supermarket search </plugin_knife_supermarket.html#search>`__ | `supermarket share </plugin_knife_supermarket.html#share>`__ | `supermarket show </plugin_knife_supermarket.html#show>`__ | `supermarket unshare </plugin_knife_supermarket.html#unshare>`__
+**knife supermarket**: `supermarket download </knife_supermarket.html#download>`__ | `supermarket install </knife_supermarket.html#install>`__ | `supermarket list </knife_supermarket.html#list>`__ | `supermarket search </knife_supermarket.html#search>`__ | `supermarket share </knife_supermarket.html#share>`__ | `supermarket show </knife_supermarket.html#show>`__ | `supermarket unshare </knife_supermarket.html#unshare>`__
 
 **Ohai**: `About Ohai </ohai.html>`__ | `ohai (executable) </ctl_ohai.html>`__
 
@@ -339,7 +338,7 @@ Managing the Server
 
 **Push Jobs**: `knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
 
-**Supermarket**: `Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </plugin_knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
+**Supermarket**: `Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
 
 **Management Console**: `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
 
@@ -604,11 +603,10 @@ Addenda
    config_rb_compliance
    config_rb_delivery
    config_rb_delivery_optional_settings
-   config_rb_knife
-   config_rb_knife_optional_settings
    config_rb_manage
    config_rb_metadata
    config_rb_metadata
+   config_rb_optional_settings
    config_rb_policyfile
    config_rb_push_jobs_client
    config_rb_push_jobs_server
@@ -766,6 +764,7 @@ Addenda
    knife_ssl_check
    knife_ssl_fetch
    knife_status
+   knife_supermarket
    knife_tag
    knife_upload
    knife_user
@@ -789,7 +788,6 @@ Addenda
    plugin_knife_push_jobs
    plugin_knife_reporting
    plugin_knife_spork
-   plugin_knife_supermarket
    plugin_knife_windows
    policy
    policyfile

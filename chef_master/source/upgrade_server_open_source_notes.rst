@@ -44,7 +44,7 @@ Validation Keys
 -----------------------------------------------------
 The Open Source Chef server does not have the concept of organizations. The Chef server version 12 upgrade process will require an organization to be created.
 
-The Open Source Chef uses a validation key and validation client name to ensure that clients can validate to the Open Source Chef server. In Open Source Chef, this is a generic validation client and key. These two settings in the the client.rb and/or knife.rb files specify the generic client and key:
+The Open Source Chef uses a validation key and validation client name to ensure that clients can validate to the Open Source Chef server. In Open Source Chef, this is a generic validation client and key. These two settings in the the client.rb and/or config.rb files specify the generic client and key:
 
 .. list-table::
    :widths: 200 300

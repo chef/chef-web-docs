@@ -118,14 +118,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -278,14 +277,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -413,14 +411,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -465,14 +462,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -651,14 +647,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -707,14 +702,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -772,14 +766,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -864,14 +857,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -922,14 +914,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -976,14 +967,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -1110,14 +1100,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-5.10
-       - name: centos-6.5
-       - name: fedora-19
-       - name: ubuntu-1004
-       - name: ubuntu-1204
-       - name: ubuntu-1310
+       - name: centos-6
+       - name: centos-7
+       - name: fedora-latest
+       - name: ubuntu-1604
+       - name: ubuntu-1804
 
-   then a regular expression like ``(04|5)`` would run Kitchen against ``centos-5.10``, ``centos-6.5``, ``ubuntu-1004``, and ``ubuntu-1204``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1004``, ``ubuntu-1204``, and ``ubuntu-1310``. A regular expression like ``(fedora-19)`` would run Kitchen against only ``fedora-19``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 

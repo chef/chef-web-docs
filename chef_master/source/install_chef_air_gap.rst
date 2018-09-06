@@ -28,7 +28,7 @@ For Chef Supermarket:
 
 * `supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`_
 * `chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
-* `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
+* `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_
 
 For Chef Automate Workflow:
 
@@ -44,7 +44,7 @@ The following Ruby gems are required to install private Supermarket via the supe
 * mixlib-versioning
 * artifactory
 
-These should be accessible from your Gem mirror. 
+These should be accessible from your Gem mirror.
 
 Create an install script
 -----------------------------------------------------
@@ -218,7 +218,7 @@ By default, ``knife bootstrap`` uses the ``chef-full`` template to bootstrap a n
 
 Configure knife
 -----------------------------------------------------
-Within the ``.chef`` directory, create a ``knife.rb`` file and replace ``USER`` and ``ORGANIZATION`` with the user and organization that you created on your Chef server; replace ``chef-server.example.com`` with your Chef server URL:
+Within the ``.chef`` directory, create a ``config.rb`` file and replace ``USER`` and ``ORGANIZATION`` with the user and organization that you created on your Chef server; replace ``chef-server.example.com`` with your Chef server URL:
 
 .. code-block:: ruby
 
@@ -251,8 +251,8 @@ Requirements
 -----------------------------------------------------
 In this section, you will use a wrapper around the `supermarket-omnibus-cookbook <https://supermarket.chef.io/cookbooks/supermarket-omnibus-cookbook>`__ to install private Supermarket. The Supermarket cookbook depends upon the following cookbooks:
 
-* `chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_ 
-* `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_ 
+* `chef-ingredient <https://supermarket.chef.io/cookbooks/chef-ingredient>`_
+* `hostsfile <https://supermarket.chef.io/cookbooks/hostsfile>`_
 
 The following Gems must be accessible via your Gem mirror:
 
@@ -449,7 +449,7 @@ Configuration updates
 -----------------------------------------------------
 Knife
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Update the ``knife.rb`` file on your workstation to use your private Supermarket:
+Update the ``config.rb`` file on your workstation to use your private Supermarket:
 
 .. code-block:: ruby
 
@@ -466,11 +466,11 @@ If you're using Berkshelf, update your ``Berksfile`` to replace ``https://superm
 Upload cookbooks to Supermarket
 -----------------------------------------------------
 
-To upload new cookbooks to your private Supermarket, use the ``knife cookbook site share`` command on your workstation:
+To upload new cookbooks to your private Supermarket, use the ``knife supermarket share`` command on your workstation:
 
 .. code-block:: ruby
 
-   knife cookbook site share chef-ingredient
+   knife supermarket share chef-ingredient
 
 Chef Automate
 =====================================================
@@ -509,7 +509,7 @@ Installation
 
 #. Ensure that the Chef Automate license file and the ``delivery`` user key you created earlier in the Chef Server setup are located on the Chef Automate server.
 
-#. Run the ``automate-ctl setup`` command with the ``--supermarket-fqdn`` option to specify the URL of your private Supermarket. This command requires root user privileges. 
+#. Run the ``automate-ctl setup`` command with the ``--supermarket-fqdn`` option to specify the URL of your private Supermarket. This command requires root user privileges.
 
    .. code-block:: bash
 
@@ -609,4 +609,4 @@ Additional configuration options include:
    min}``.
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
- * ``opscode_erchef['max_request_size']``: When the request body size is greater than this value, a ``413 Request Entity Too Large`` error   is returned. Default value: ``1000000``.  
+ * ``opscode_erchef['max_request_size']``: When the request body size is greater than this value, a ``413 Request Entity Too Large`` error   is returned. Default value: ``1000000``.

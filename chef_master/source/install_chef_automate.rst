@@ -386,7 +386,7 @@ If the Chef Automate setup process is happening in an environment that is config
 through a proxy server, then some additional steps need to be taken.
 
 The ``http_proxy``, ``https_proxy`` and ``no_proxy`` environment variables will need to be set appropriately for the setup process
-to complete successfully. These can be set in the environment directly, or added to a knife.rb file (for example, in ``/root/.chef/knife.rb``).
+to complete successfully. These can be set in the environment directly, or added to a config.rb file (for example, in ``/root/.chef/config.rb``).
 
 Any host that needs to make outgoing http or https connections will require these settings as well. For example, the Chef Automate server
 (which makes knife calls to Chef server) and Chef server (for push jobs) should have these configured. To update the Chef Automate server, update ``/etc/delivery/delivery.rb`` on your Chef Automate server with the values specified in `Proxy Settings </config_rb_delivery.html#proxy-settings>`_. After you have configured your settings, run ``sudo automate-ctl reconfigure``.

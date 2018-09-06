@@ -11,7 +11,7 @@ A tag is a custom description that is applied to a node. A tag, once applied, ca
 
 .. tag knife_tag_summary
 
-The ``knife tag`` subcommand is used to apply tags to nodes on a Chef server.
+Use the ``knife tag`` subcommand to apply tags to nodes on a Chef server.
 
 .. end_tag
 
@@ -106,4 +106,3 @@ To view the tags for a node named ``devops_prod1``, enter:
 .. code-block:: bash
 
    $ knife tag list devops_prod1
-
