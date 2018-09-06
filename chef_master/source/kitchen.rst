@@ -5,7 +5,7 @@ Kitchen
 
 .. tag test_kitchen
 
-Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
 * Defined in a .kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
 * Uses a driver plugin architecture
@@ -321,6 +321,6 @@ For more information ...
 =====================================================
 For more information about test-driven development and Kitchen:
 
-* `kitchen.ci <http://kitchen.ci>`_
+* `kitchen.ci <https://kitchen.ci/>`_
 * `Getting Started with Kitchen <https://kitchen.ci/docs/getting-started/>`_
 * `How Can I Combine Berks and Local Cookbooks? <https://coderwall.com/p/j72egw/organise-your-site-cookbooks-with-berkshelf-and-this-trick>`_
