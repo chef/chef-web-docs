@@ -9,7 +9,7 @@ Juniper Networks is a leading provider of network routing, switching and securit
 
 Chef for Junos OS allows hardware running Junos OS to be managed by the Chef server. The ``netdev`` cookbook is an open source cookbook (maintained by Chef) that contains a collection of resources that can be used to build recipes that extend the node management capabilities of the Chef server to include Juniper Networks network devices.
 
-For more information about Chef for Junos OS, including information about installing and configuring the chef-client on a Junos OS device, see the Juniper Networks Chef for Junos OS documentation at https://www.juniper.net/documentation/en_US/release-independent/junos-chef/information-products/pathway-pages/index.html.
+For more information about Chef for Junos OS, including information about installing and configuring the chef-client on a Junos OS device, see the Juniper Networks Chef for Junos OS `documentation <https://www.juniper.net/documentation/en_US/release-independent/junos-chef/information-products/pathway-pages/index.html>`__.
 
 The netdev Custom Resources
 =====================================================
