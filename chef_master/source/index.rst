@@ -116,7 +116,6 @@ Cookbook Reference
 -----------------------------------------------------
 `About Cookbooks </cookbooks.html>`__ |
 `Attributes </attributes.html>`__ |
-`Definitions </definitions.html>`__ |
 `Files </files.html>`__ |
 `Libraries </libraries.html>`__
 

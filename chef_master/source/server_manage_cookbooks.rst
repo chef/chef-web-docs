@@ -58,25 +58,6 @@ A cookbook can contain the following types of files:
 
        .. end_tag
 
-   * - Definitions
-     - .. tag 4
-
-       A definition is code that is reused across recipes, similar to a compile-time macro. A definition is created using arbitrary code wrapped around built-in chef-client resources---**file**, **execute**, **template**, and so on---by declaring those resources into the definition as if they were declared in a recipe. A definition is then used in one (or more) recipes as if it were a resource.
-
-       Though a definition behaves like a resource, some key differences exist. A definition:
-
-       * Is not a resource or a custom resource
-       * Is defined from within the ``/definitions`` directory of a cookbook
-       * Is loaded before resources during the chef-client run; this ensures the definition is available to all of the resources that may need it
-       * May not notify resources in the resource collection because a definition is loaded **before** the resource collection itself is created; however, a resource in a definition **may** notify a resource that exists within the same definition
-       * Automatically supports why-run mode, unlike custom resources
-
-       Use a definition when repeating patterns exist across resources and/or when a simple, direct approach is desired. There is no limit to the number of resources that may be included in a definition: use as many built-in chef-client resources as necessary.
-
-       .. end_tag
-
-       .. warning:: Starting with chef-client 12.5, it is recommended to `build custom resources </custom_resources.html>`__ instead of definitions and to `migrate existing definitions to be custom resources </definitions.html>`__.
-
    * - Files
      - .. tag resource_cookbook_file_summary
 
@@ -222,4 +203,3 @@ To view permissions for a cookbook object:
 #. Select a cookbook.
 #. Click the **Permissions** tab.
 #. Set the appropriate permissions: **Delete**, **Grant**, **Read**, and/or **Update**.
-
