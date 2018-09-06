@@ -17,6 +17,7 @@ This resource has the following syntax:
      domain_name                String # default value: 'name'
      domain_password            String # required
      domain_user                String # required
+     newname                    String
      notifies                   # see description
      ou_path                    String
      reboot                     Symbol # see description
@@ -28,7 +29,7 @@ where:
 
 * ``windows_ad_join`` is the resource
 * ``'name'`` is the Active Directory domain name, or the name of the resource block
-* ``domain_name``, ``domain_password``, ``domain_user``, ``notifies``, ``ou_path``, ``reboot``, and ``subscribes`` are the properties available to this resource
+* ``domain_name``, ``domain_password``, ``domain_user``, ``newname``, ``notifies``, ``ou_path``, ``reboot``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
@@ -59,6 +60,11 @@ Properties
    **Ruby Type:** String
 
    Required. The domain user that will be used to join the domain.
+
+``newname``
+  **Ruby Type:** String
+
+  "Specifies a new name for the computer in the new domain."
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -165,7 +171,17 @@ Examples
 
 .. code-block:: ruby
 
-   windows_ad_join 'ad.example.org' do
-     domain_user 'nick'
-     domain_password 'p@ssw0rd1'
-   end
+  windows_ad_join 'ad.example.org' do
+    domain_user 'nick'
+    domain_password 'p@ssw0rd1'
+  end
+
+**Join a domain, as `win-workstation`**
+
+.. code-block:: ruby
+
+  windows_ad_join 'ad.example.org' do
+    domain_users 'nick'
+    domain_password 'p@ssw0rd1'
+    newname 'win-workstation'
+  end
