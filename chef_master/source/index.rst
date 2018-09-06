@@ -257,7 +257,6 @@ Cookbook Reference
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
 `windows_workgroup </resource_windows_workgroup.html>`__ |
-`yum_package </resource_yum.html>`__ |
 `yum_package </resource_yum_package.html>`__ |
 `yum_repository </resource_yum_repository.html>`__ |
 `dnf_package </resource_dnf_package.html>`__ |
