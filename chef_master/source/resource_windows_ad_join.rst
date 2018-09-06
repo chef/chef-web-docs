@@ -181,7 +181,7 @@ Examples
 .. code-block:: ruby
 
   windows_ad_join 'ad.example.org' do
-    domain_users 'nick'
+    domain_user 'nick'
     domain_password 'p@ssw0rd1'
     newname 'win-workstation'
   end
