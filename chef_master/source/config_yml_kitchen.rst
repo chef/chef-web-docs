@@ -3,7 +3,7 @@
 ==========================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_yml_kitchen.rst>`__
 
-Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
 * Defined in a .kitchen.yml file
 * Uses a driver plugin architecture
@@ -18,7 +18,7 @@ Use a .kitchen.yml file to define what is required to run Kitchen, including dri
 
 .. end_tag
 
-.. note:: This topic details functionality that is packaged with Chef development kit. See http://kitchen.ci/docs/getting-started/ for more information about Kitchen.
+.. note:: This topic details functionality that is packaged with Chef development kit. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
 
 Syntax
 ==========================================================================
