@@ -8,6 +8,7 @@ config.rb
 A config.rb file is used to specify configuration details for knife.
 
 A config.rb file:
+
 * Is loaded every time the knife executable is run
 * The default location in which the chef-client expects to find this file is ``~/.chef/config.rb``; use the ``--config`` option from the command line to change this location
 * Is not created by default
