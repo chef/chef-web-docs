@@ -8,8 +8,8 @@ Use the **zypper_repository** resource to create Zypper package repositories on 
 **New in Chef Client 13.3.**
 
 Syntax
-==========================================
-A **zypper_repository** resource specifies Zypper repository information and adds the Zypper repository to the existing list of repositories:
+=====================================================
+The zypper_repository resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -68,6 +68,10 @@ This resource has the following actions:
 ``:remove``
 
    Remove a Zypper repository.
+
+``:refresh``
+
+   Refresh a Zypper repository.
 
 Properties
 ==========================================

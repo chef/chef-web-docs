@@ -10,7 +10,7 @@ Use the **yum_repository** resource to manage a Yum repository configuration fil
 .. end_tag
 
 Syntax
-==========================================
+=====================================================
 A **yum_repository** resource creates a Yum repository configuration file to make individual Yum repositories available for use. The **yum_repository** resource can be as simple as the following:
 
 .. code-block:: ruby
@@ -112,12 +112,12 @@ This resource has the following properties:
    URL to the directory where the Yum repository's 'repodata' directory lives. Can be an http://, https:// or a ftp:// URL. You can specify multiple URLs in one baseurl statement.
 
 ``clean_headers``
-   **Ruby Type:** true, false | **Default Value:** ``false`` | ``DEPRECATED`` 
+   **Ruby Type:** true, false | **Default Value:** ``false`` | ``DEPRECATED``
 
    Specifies whether you want to purge the package data files that are downloaded from a Yum repository and held in a cache directory.
 
 ``clean_metadata``
-   **Ruby Type:** True, False | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Specifies whether you want to purge all of the packages downloaded from a Yum repository and held in a cache directory.
 
@@ -137,7 +137,7 @@ This resource has the following properties:
    Specifies whether or not Yum should use this repository.
 
 ``enablegroups``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false
 
    Specifies whether Yum will allow the use of package groups for this repository.
 
@@ -152,12 +152,12 @@ This resource has the following properties:
    Method to determine how to switch to a new server if the current one fails, which can either be ``roundrobin`` or ``priority``. ``roundrobin`` randomly selects a URL out of the list of URLs to start with and proceeds through each of them as it encounters a failure contacting the host. ``priority`` starts from the first ``baseurl`` listed and reads through them sequentially.
 
 ``fastestmirror_enabled``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false
 
    Specifies whether to use the fastest mirror from a repository configuration when more than one mirror is listed in that configuration.
 
 ``gpgcheck``
-   **Ruby Type:** True, False | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Specifies whether or not Yum should perform a GPG signature check on the packages received from a repository.
 
@@ -192,12 +192,12 @@ This resource has the following properties:
    Inverse of exclude property. This is a list of packages you want to use from a repository. If this option lists only one package then that is all Yum will ever see from the repository.
 
 ``keepalive``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false
 
    Determines whether or not HTTP/1.1 ``keep-alive`` should be used with this repository.
 
 ``make_cache``
-   **Ruby Type:** True, False | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether package files downloaded by Yum stay in cache directories. By using cached data, you can carry out certain operations without a network connection.
 
@@ -285,6 +285,8 @@ This resource has the following properties:
 
 ``skip_if_unavailable``
    **Ruby Type:** true, false
+
+   Allow yum to continue if this repository cannot be contacted for any reason.
 
 ``source``
    **Ruby Type:** String

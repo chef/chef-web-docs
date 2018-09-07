@@ -96,7 +96,7 @@ This resource has the following properties:
    The architecture of the package to be installed or upgraded. This value can also be passed as part of the package name.
 
 ``flush_cache``
-   **Ruby Type:** Array
+   **Ruby Type:** Array, Hash | **Default Value:** ``{"before"=>false, "after"=>false}``
 
    Flush the in-memory cache before or after a Yum operation that installs, upgrades, or removes a package. Default value: ``[ :before, :after ]``. The value may also be a Hash: ``( { :before => true/false, :after => true/false } )``.
 
@@ -168,12 +168,12 @@ This resource has the following properties:
    .. end_tag
 
 ``options``
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
@@ -242,14 +242,14 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The version of a package to be installed or upgraded. This attribute is ignored when using the ``:upgrade`` action.
+   The version of a package to be installed or upgraded. This property is ignored when using the ``:upgrade`` action.
 
 Multiple Packages
 -----------------------------------------------------

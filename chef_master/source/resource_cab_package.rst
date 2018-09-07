@@ -6,7 +6,7 @@ cab_package
 Use the **cab_package** resource to install or remove Microsoft Windows cabinet (.cab) packages.
 
 Syntax
-==========================================
+=====================================================
 A **cab_package** resource installs or removes a cabinet package from the specified file path.
 
 .. code-block:: ruby
@@ -15,7 +15,7 @@ A **cab_package** resource installs or removes a cabinet package from the specif
      source String
    end
 
-where
+where:
 
 * ``cab_package`` is the resource
 * ``name`` is the name of the resource block

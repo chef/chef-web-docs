@@ -22,8 +22,9 @@ This resource has the following syntax:
 
 where:
 
-* ``build_essential`` is the resource
-* ``'name'`` is the name of the resource block
+* ``build_essential`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``compile_time``, ``notifies``, and ``subscribes`` are the properties available to this resource
 
 Actions
