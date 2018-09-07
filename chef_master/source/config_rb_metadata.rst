@@ -152,7 +152,7 @@ This configuration file has the following settings:
       license 'Proprietary - All Rights Reserved'
 
 ``long_description``
-   A longer description that ideally contains full instructions on the proper use of a cookbook, including definitions, libraries, dependencies, and so on. There are two ways to use this field: with the contents embedded in the field itself or with the contents pulled from a file at a specified path, such as a README.rdoc located at the top of a cookbook directory.
+   A longer description that ideally contains full instructions on the proper use of a cookbook, including resources, libraries, dependencies, and so on. There are two ways to use this field: with the contents embedded in the field itself or with the contents pulled from a file at a specified path, such as a README.rdoc located at the top of a cookbook directory.
 
    For example, to embed the long description within the field itself:
 
@@ -244,12 +244,6 @@ This configuration file has the following settings:
 
       provides 'cats::sleep'
       provides 'cats::eat'
-
-   For definitions:
-
-   .. code-block:: ruby
-
-      provides 'here(:kitty, :time_to_eat)'
 
    And for resources:
 

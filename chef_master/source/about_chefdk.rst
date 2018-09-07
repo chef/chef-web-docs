@@ -7,7 +7,7 @@ About the Chef DK
 
 The Chef Development Kit is a package that contains everything that is needed to start using Chef:
 
-* chef-client and ohai
+* chef-client
 * chef and knife command line tools
 * Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
 * InSpec

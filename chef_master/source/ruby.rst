@@ -896,5 +896,5 @@ More about Ruby
 To learn more about Ruby, see the following:
 
 * `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
-* `Ruby Standard Library Documentation <http://www.ruby-doc.org/stdlib/>`_
+* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
 * `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
