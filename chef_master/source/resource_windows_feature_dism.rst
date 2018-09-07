@@ -1,5 +1,5 @@
 =====================================================
-windows_feature_dism
+windows_feature_dism resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_feature_dism.rst>`__
 
@@ -9,25 +9,24 @@ Use the **windows_feature_dism** resource to add, remove, or entirely delete Win
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_feature_dism resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_feature_dism 'name' do
-     all                        True, False # default value: 'false'
-     feature_name               Array, String # default value: 'name'
-     notifies                   # see description
-     source                     String
-     subscribes                 # see description
-     timeout                    Integer # default value: '600'
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_feature_dism 'name' do
+    all               true, false # default value: false
+    feature_name      Array, String # default value: 'name' unless specified
+    source            String
+    timeout           Integer # default value: 600
+    action            Symbol # defaults to :install if not specified
+  end
 
 where:
 
-* ``windows_feature_dism`` is the resource
-* ``'name'`` is the name of the Windows feature / role, or the name of the resource block
-* ``all``, ``feature_name``, ``notifies``, ``source``, ``subscribes``, and ``timeout`` are the properties available to this resource
+* ``windows_feature_dism`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``all``, ``feature_name``, ``source``, and ``timeout`` are the properties available to this resource.
 
 Actions
 =====================================================

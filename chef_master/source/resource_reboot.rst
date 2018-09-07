@@ -1,5 +1,5 @@
 =====================================================
-reboot
+reboot resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_reboot.rst>`__
 
@@ -11,44 +11,28 @@ Use the **reboot** resource to reboot a node, a necessary step with some install
 
 Syntax
 =====================================================
-.. tag resource_service_reboot_syntax
-
-A **reboot** resource block reboots a node:
+The reboot resource has the following syntax:
 
 .. code-block:: ruby
 
-   reboot 'app_requires_reboot' do
-     action :request_reboot
-     reason 'Need to reboot when the run completes successfully.'
-     delay_mins 5
-   end
+  reboot 'name' do
+    delay_mins      Integer # default value: 0
+    reason          String # default value: Reboot by Chef
+    action          Symbol # defaults to :nothing if not specified
+  end
 
-The full syntax for all of the properties that are available to the **reboot** resource is:
+where:
 
-.. code-block:: ruby
-
-   reboot 'name' do
-     delay_mins                 Fixnum
-     notifies                   # see description
-     reason                     String
-     subscribes                 # see description
-     action                     Symbol
-   end
-
-where
-
-* ``reboot`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``delay_mins`` and ``reason`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
+* ``reboot`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``delay_mins`` and ``reason`` are the properties available to this resource.
 
 Actions
 =====================================================
 .. tag resource_service_reboot_actions
 
-This resource has the following actions:
+The reboot resource has the following actions:
 
 ``:cancel``
    Cancel a reboot request.

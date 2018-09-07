@@ -1,5 +1,5 @@
 =====================================================
-ssh_known_hosts_entry
+ssh_known_hosts_entry resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ssh_known_hosts_entry.rst>`__
 
@@ -9,30 +9,30 @@ Use the **ssh_known_hosts_entry** resource to add an entry for the specified hos
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The ssh_known_hosts_entry resource has the following syntax:
 
 .. code-block:: ruby
 
-   ssh_known_hosts_entry 'name' do
-     file_location             String # defaults to /etc/ssh/ssh_known_hosts
-     group                     String # defaults to the root_group on the system
-     hash_entries              true, false # defaults to false
-     host                      String
-     key                       String
-     key_type                  String # defaults to rsa
-     mode                      String # defaults to 0644
-     notifies                  # see description
-     owner                     String # defaults to root
-     port                      Integer # defaults to 22
-     subscribes                # see description
-     timeout                   Integer # defaults to 30
-     action                    Symbol # defaults to :create if not specified
-   end
+  ssh_known_hosts_entry 'name' do
+    file_location      String # default value: /etc/ssh/ssh_known_hosts
+    group              String
+    hash_entries       true, false # default value: false
+    host               String # default value: 'name' unless specified
+    key                String
+    key_type           String # default value: rsa
+    mode               String # default value: 0644
+    owner              String # default value: root
+    port               Integer # default value: 22
+    timeout            Integer # default value: 30
+    action             Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``ssh_known_hosts_entry`` is the name of the resource
-* ``file_location``, ``group``, ``hash_entries``, ``host``, ``key``, ``key_type``, ``mode``, ``owner``, and ``port`` are the properties available to this resource
+* ``ssh_known_hosts_entry`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``file_location``, ``group``, ``hash_entries``, ``host``, ``key``, ``key_type``, ``mode``, ``owner``, ``port``, and ``timeout`` are the properties available to this resource.
 
 Actions
 =====================================================

@@ -1,30 +1,29 @@
 =====================================================
-rhsm_subscription
+rhsm_subscription resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_subscription.rst>`__
 
-Use the **rhsm_subscription** to add and remove Red Hat Subscription Manager subscriptions to your host. This can be used when a host's ``activation_key`` does not attach all necessary subscriptions to your host.
+Use the **rhsm_subscription** resource to add or remove Red Hat Subscription Manager subscriptions from your host. This can be used when a host's activation_key does not attach all necessary subscriptions to your host.
 
 **New in Chef Client 14.0.**
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The rhsm_subscription resource has the following syntax:
 
 .. code-block:: ruby
 
-   rhsm_subscription 'name' do
-     pool_id                    String # default value: 'name'
-     notifies                   # see description
-     subscribes                 # see description
-     action                     Symbol # defaults to :attach if not specified
-   end
+  rhsm_subscription 'name' do
+    pool_id      String # default value: 'name' unless specified
+    action       Symbol # defaults to :attach if not specified
+  end
 
 where:
 
-* ``rhsm_subscription`` is the resource
-* ``'name'`` is the RHSM subscription name, or the resource name
-* ``repo_name``, ``notifies``, and ``subscribes`` are the properties available to this resource
+* ``rhsm_subscription`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``pool_id`` is the property available to this resource.
 
 Actions
 =====================================================

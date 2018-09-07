@@ -1,5 +1,5 @@
 =====================================================
-windows_printer_port
+windows_printer_port resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer_port.rst>`__
 
@@ -9,27 +9,27 @@ Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer 
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_printer_port resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_printer_port 'name' do
-     ipv4_address               String # default value: 'name'
-     notifies                   # see description
-     port_description           String
-     port_name                  String
-     port_number                Integer # default value: '9100'
-     port_protocol              Integer # default value: '1'
-     snmp_enabled               True, False # default value: 'false'
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  windows_printer_port 'name' do
+    exists                true, false
+    ipv4_address          String # default value: 'name' unless specified
+    port_description      String
+    port_name             String
+    port_number           Integer # default value: 9100
+    port_protocol         Integer # default value: 1
+    snmp_enabled          true, false # default value: false
+    action                Symbol # defaults to :create if not specified
+  end
 
 where:
 
 * ``windows_printer_port`` is the resource.
-* ``'name'`` is the IP address of the printer, or the name of the resource block.
-* ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, and ``port_protocol`` are the properties available to this resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, ``port_protocol``, and ``snmp_enabled`` are the properties available to this resource.
 
 Actions
 =====================================================

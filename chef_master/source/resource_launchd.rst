@@ -1,104 +1,86 @@
 =====================================================
-launchd
+launchd resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_launchd.rst>`__
 
-.. tag resource_launchd_summary
-
 Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the macOS platform.
 
-.. end_tag
+**New in Chef Client 12.8.**
 
 Syntax
 =====================================================
-.. tag resource_launchd_syntax
-
-A **launchd** resource manages system-wide services (daemons) and per-user services (agents) on the macOS platform:
+The launchd resource has the following syntax:
 
 .. code-block:: ruby
 
-   launchd 'call.mom.weekly' do
-     program '/Library/scripts/call_mom.sh'
-     start_calendar_interval 'Weekday' => 7, 'Hourly' => 10
-     time_out 300
-   end
+  launchd 'name' do
+    abandon_process_group           true, false
+    backup                          Integer, false
+    cookbook                        String
+    debug                           true, false
+    disabled                        true, false # default value: false
+    enable_globbing                 true, false
+    enable_transactions             true, false
+    environment_variables           Hash
+    exit_timeout                    Integer
+    group                           String, Integer
+    hard_resource_limits            Hash
+    inetd_compatibility             Hash
+    init_groups                     true, false
+    keep_alive                      true, false, Hash
+    label                           String # default value: 'name' unless specified
+    launch_only_once                true, false
+    ld_group                        String
+    limit_load_from_hosts           Array
+    limit_load_to_hosts             Array
+    limit_load_to_session_type      Array, String
+    low_priority_io                 true, false
+    mach_services                   Hash
+    mode                            String, Integer
+    nice                            Integer
+    on_demand                       true, false
+    owner                           String, Integer
+    path                            String
+    plist_hash                      Hash
+    process_type                    String
+    program                         String
+    program_arguments               Array
+    queue_directories               Array
+    root_directory                  String
+    run_at_load                     true, false
+    session_type                    String
+    sockets                         Hash
+    soft_resource_limits            Array
+    source                          String
+    standard_error_path             String
+    standard_in_path                String
+    standard_out_path               String
+    start_calendar_interval         Hash, Array
+    start_interval                  Integer
+    start_on_mount                  true, false
+    throttle_interval               Integer
+    time_out                        Integer
+    type                            String # default value: daemon
+    umask                           Integer
+    username                        String
+    wait_for_debugger               true, false
+    watch_paths                     Array
+    working_directory               String
+    action                          Symbol # defaults to :create if not specified
+  end
 
-The full syntax for all of the properties that are available to the **launchd** resource is:
+where:
 
-.. code-block:: ruby
-
-   launchd 'name' do
-     abandon_process_group      True, False
-     backup                     Integer, False
-     cookbook                   String
-     debug                      True, False
-     disabled                   True, False
-     enable_globbing            True, False
-     enable_transactions        True, False
-     environment_variables      Hash
-     exit_timeout               Integer
-     group                      String, Integer
-     hard_resource_limits       Hash
-     ignore_failure             True, False
-     inetd_compatibility        Hash
-     init_groups                True, False
-     keep_alive                 True, False
-     label                      String
-     launch_only_once           True, False
-     limit_load_from_hosts      Array
-     limit_load_to_hosts        Array
-     limit_load_to_session_type Array, String
-     low_priority_io            True, False
-     mach_services              Hash
-     mode                       Integer, String
-     nice                       Integer
-     notifies                   # see description
-     on_demand                  True, False
-     owner                      Integer, String
-     path                       String
-     plist_hash                 Hash
-     process_type               String
-     program                    String
-     program_arguments          Array
-     queue_directories          Array
-     retries                    Integer
-     retry_delay                Integer
-     root_directory             String
-     run_at_load                True, False
-     sockets                    Hash
-     soft_resource_limits       Array
-     standard_error_path        String
-     standard_in_path           String
-     standard_out_path          String
-     start_calendar_interval    Hash
-     start_interval             Integer
-     start_on_mount             True, False
-     subscribes                 # see description
-     throttle_interval          Integer
-     time_out                   Integer
-     type                       String
-     umask                      Integer
-     username                   String
-     wait_for_debugger          True, False
-     watch_paths                Array
-     working_directory          String
-     action                     Symbol # defaults to :create if not specified
-   end
-
-where
-
-* ``launchd`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``abandon_process_group``, ``backup``, ``cookbook``, ``debug``, ``disabled``, ``enable_globbing``, ``enable_transactions``, ``environment_variables``, ``exit_timeout``, ``group``, ``hard_resource_limits``, ``inetd_compatibility``, ``init_groups``, ``keep_alive``, ``label``, ``launch_only_once``, ``limit_load_from_hosts``, ``limit_load_to_hosts``, ``limit_load_to_session_type``, ``low_priority_io``, ``mach_services``, ``mode``, ``nice``, ``on_demand``, ``owner``, ``path``, ``plist_hash``, ``process_type``, ``program``, ``program_arguments``, ``queue_directories``, ``retries``, ``retry_delay``, ``root_directory``, ``run_at_load``, ``sockets``, ``soft_resource_limits``, ``standard_error_path``, ``standard_in_path``, ``standard_out_path``, ``start_calendar_interval``, ``start_interval``, ``start_on_mount``, ``throttle_interval``, ``time_out``, ``type``, ``umask``, ``username``, ``wait_for_debugger``, ``watch_paths``, and ``working_directory`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
+* ``launchd`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``abandon_process_group``, ``backup``, ``cookbook``, ``debug``, ``disabled``, ``enable_globbing``, ``enable_transactions``, ``environment_variables``, ``exit_timeout``, ``group``, ``hard_resource_limits``, ``inetd_compatibility``, ``init_groups``, ``keep_alive``, ``label``, ``launch_only_once``, ``ld_group``, ``limit_load_from_hosts``, ``limit_load_to_hosts``, ``limit_load_to_session_type``, ``low_priority_io``, ``mach_services``, ``mode``, ``nice``, ``on_demand``, ``owner``, ``path``, ``plist_hash``, ``process_type``, ``program``, ``program_arguments``, ``queue_directories``, ``root_directory``, ``run_at_load``, ``session_type``, ``sockets``, ``soft_resource_limits``, ``source``, ``standard_error_path``, ``standard_in_path``, ``standard_out_path``, ``start_calendar_interval``, ``start_interval``, ``start_on_mount``, ``throttle_interval``, ``time_out``, ``type``, ``umask``, ``username``, ``wait_for_debugger``, ``watch_paths``, and ``working_directory`` are the properties available to this resource.
 
 Actions
 =====================================================
 .. tag resource_launchd_actions
 
-This resource has the following actions:
+The launchd resource has the following actions:
 
 ``:create``
    Default. Create a launchd property list.

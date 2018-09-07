@@ -1,5 +1,5 @@
 =====================================================
-openssl_x509_certificate
+openssl_x509_certificate resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_x509_certificate.rst>`__
 
@@ -9,37 +9,36 @@ Use the **openssl_x509_certificate** resource to generate signed or self-signed,
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_x509_certificate resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_x509_certificate 'name' do
-     ca_cert_file               String
-     ca_key_file                String
-     ca_key_pass                String
-     city                       String
-     common_name                String
-     country                    String
-     csr_file                   String
-     email                      String
-     expire                     Integer, # default value '365'
-     extensions                 Hash
-     group                      String
-     key_curve                  String # default value: 'prime256v1'
-     key_file                   String
-     key_length                 Integer # default value: '2048'
-     key_pass                   String
-     key_type                   String # default value: 'rsa'
-     mode                       Integer, String
-     notifies                   # see description
-     org                        String
-     org_unit                   String
-     owner                      String
-     path                       String # default value: 'name'
-     state                      String
-     subject_alt_name           Array
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+  openssl_x509_certificate 'name' do
+    ca_cert_file          String
+    ca_key_file           String
+    ca_key_pass           String
+    city                  String
+    common_name           String
+    country               String
+    csr_file              String
+    email                 String
+    expire                Integer # default value: 365
+    extensions            Hash
+    group                 String
+    key_curve             String # default value: prime256v1
+    key_file              String
+    key_length            Integer # default value: 2048
+    key_pass              String
+    key_type              String # default value: rsa
+    mode                  Integer, String
+    org                   String
+    org_unit              String
+    owner                 String
+    path                  String # default value: 'name' unless specified
+    state                 String
+    subject_alt_name      Array
+    action                Symbol # defaults to :create if not specified
+  end
 
 where:
 

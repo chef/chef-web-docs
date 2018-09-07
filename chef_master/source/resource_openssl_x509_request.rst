@@ -1,5 +1,5 @@
 =====================================================
-openssl_x509_request
+openssl_x509_request resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_x509_request.rst>`__
 
@@ -9,36 +9,36 @@ Use the **openssl_x509_request** resource to generate PEM-formatted x509 certifi
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_x509_request resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_x509_request 'name' do
-     city                       String
-     common_name                String
-     country                    String
-     email                     String
-     group                      String
-     key_curve                  String # default value: 'prime256v1'
-     key_file                   String
-     key_length                 Integer # default value: '2048'
-     key_pass                   String
-     key_type                   String # default value: 'ec'
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     org                        String
-     org_unit                   String
-     owner                      String
-     path                       String # default value: 'name'
-     state                      String
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+  openssl_x509_request 'name' do
+    city             String
+    common_name      String
+    country          String
+    email            String
+    group            String
+    key_curve        String # default value: prime256v1
+    key_file         String
+    key_length       Integer # default value: 2048
+    key_pass         String
+    key_type         String # default value: ec
+    mode             Integer, String
+    org              String
+    org_unit         String
+    owner            String
+    path             String # default value: 'name' unless specified
+    state            String
+    action           Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_x509_request`` is the name of the resource
-* ``'name'`` is the path where the certificate file will be written, or the name of the resource block
-* ``city``, ``common_name``, ``country``, ``email``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``org``, ``org_unit``, ``owner``, and ``path`` are the properties available to this resource
+* ``openssl_x509_request`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``city``, ``common_name``, ``country``, ``email``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``org``, ``org_unit``, ``owner``, ``path``, and ``state`` are the properties available to this resource.
 
 Actions
 =====================================================

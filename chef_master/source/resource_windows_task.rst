@@ -1,6 +1,6 @@
-==========================================
-windows_task
-==========================================
+=====================================================
+windows_task resource
+=====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_task.rst>`__
 
 Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.
@@ -10,45 +10,43 @@ Use the **windows_task** resource to create, delete or run a Windows scheduled t
 .. note:: The ``windows_task`` resource that was provided as part of the ``windows`` cookbook included the ``:change`` action, which has been removed from ``windows_task`` in Chef client. The ``:create`` action can be used instead to update an existing task.
 
 Syntax
-==========================================
-A **windows_task** resource creates, deletes or runs a Windows scheduled task.
+=====================================================
+The windows_task resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_task 'name' do
-     command                            String
-     cwd                                String
-     day                                String, Integer
-     disallow_start_if_on_batteries     true, false # defaults to false
-     execution_time_limit               String, Integer # defaults to PT72H
-     force                              true, false # defaults to false
-     frequency                          Symbol
-     frequency_modifier                 Integer, String # defaults to 1
-     idle_time                          Integer
-     interactive_enabled                true, false # defaults to false
-     minutes_duration                   String, Integer
-     minutes_interval                   String, Integer
-     months                             String
-     notifies                           # see description
-     password                           String
-     priority                           Integer # defaults to 7
-     random_delay                       String, Integer
-     run_level                          Symbol # defaults to limited
-     start_day                          String
-     start_time                         String
-     stop_if_going_on_batteries         true, false # defaults to false
-     task_name                          String
-     subscribes                         # see description
-     user                               String # defaults to SYSTEM
-     action                             Symbol # defaults to :create if not specified
-   end
+  windows_task 'name' do
+    command                             String
+    cwd                                 String
+    day                                 String, Integer
+    disallow_start_if_on_batteries      true, false # default value: false
+    execution_time_limit                String, Integer # default value: PT72H
+    force                               true, false # default value: false
+    frequency                           Symbol
+    frequency_modifier                  Integer, String # default value: 1
+    idle_time                           Integer
+    interactive_enabled                 true, false # default value: false
+    minutes_duration                    String, Integer
+    minutes_interval                    String, Integer
+    months                              String
+    password                            String
+    priority                            Integer # default value: 7
+    random_delay                        String, Integer
+    run_level                           Symbol # default value: limited
+    start_day                           String
+    start_time                          String
+    stop_if_going_on_batteries          true, false # default value: false
+    task_name                           String # default value: 'name' unless specified
+    user                                String # default value: SYSTEM
+    action                              Symbol # defaults to :create if not specified
+  end
 
 where:
 
 * ``windows_task`` is the resource.
-* ``name`` is the name of the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``command``, ``cwd``, ``day``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``stop_if_going_on_batteries``, and ``task_name`` are the properties available to this resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``command``, ``cwd``, ``day``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``stop_if_going_on_batteries``, ``task_name``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================

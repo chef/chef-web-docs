@@ -1,5 +1,5 @@
 =====================================================
-log
+log resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_log.rst>`__
 
@@ -28,29 +28,24 @@ The full syntax for all of the properties that are available to the **log** reso
 
 .. code-block:: ruby
 
-   log 'name' do
-     level                      Symbol
-     message                    String # defaults to 'name' if not specified
-     notifies                   # see description
-     subscribes                 # see description
-     action                     Symbol # defaults to :write if not specified
-   end
+  log 'name' do
+    level        Symbol # default value: info
+    message      String # default value: 'name' unless specified
+    action       Symbol # defaults to :write if not specified
+  end
 
-where
+where:
 
-* ``log`` is the resource
-* ``name`` is the name of the resource block
-* ``message`` is the log message to write
-* ``action`` identifies the steps the Chef Client will take to bring the node into the desired state
-* ``level`` and ``message`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
+* ``log`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``level`` and ``message`` are the properties available to this resource.
 
 Actions
 =====================================================
 .. tag resource_log_actions
 
-This resource has the following actions:
+The log resource has the following actions:
 
 ``:nothing``
    .. tag resources_common_actions_nothing
