@@ -24,7 +24,7 @@ This resource has the following syntax:
 
 where:
 
-* ``windows_pagefile`` is the resource
+* ``windows_pagefile`` is the resource.
 * ``'path'`` is the path to the pagefile, or the name of the resource block
 * ``automatic_managed``, ``initial_size``, ``maximum_size``, and ``path`` are the properties available to this resource.
 

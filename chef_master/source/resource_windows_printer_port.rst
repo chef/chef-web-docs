@@ -1,7 +1,7 @@
 =====================================================
 windows_printer_port
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer_port.rst>`__
 
 Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer ports on Windows.
 
