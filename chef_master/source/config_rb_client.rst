@@ -14,8 +14,6 @@ A client.rb file is used to specify the configuration details for the chef-clien
 
 .. end_tag
 
-New in Chef Client 13.0, attributes may be blacklisted or whitelisted. Changed in Chef Client 12.11 to support standard ``exit-status`` codes. Changed in 12.9 to support new ``:win_evt`` and ``:syslog`` output locations. Changed in 12.8 to support ``.d`` setting. Changed in 12.4 to support the Windows Event Logger and the daemon facility, see ``log_location``; stable audit-mode introduced. Changed in 12.3, ``listen`` can be used in socketless mode. Changed in 12.1 to run chef-client in audit_mode. Changed in 12.1, ``windows_service.watchdog_timeout`` defaults to ``2 * (60 * 60)``. Changed in 12.0 to set the ``disable_event_logger`` to send events to the Microsoft Windows "Application" event log by default, file_staging_uses_destdir creates temporary files in the directory in which the files will reside by default, ``local_key_generation`` is enabled by default, ``no_lazy_load`` defaults to ``true``, ``interval`` and ``splay`` are applied before the chef-client run, unforked interval runs are no longer allowed.
-
 Settings
 =====================================================
 This configuration file has the following settings:
@@ -26,7 +24,7 @@ This configuration file has the following settings:
 ``audit_mode``
    Enable audit-mode. Set to ``audit-only`` to skip the converge phase of the chef-client run and only perform audits. Possible values: ``audit-only``, ``disabled``, and ``enabled``. Default value: ``disabled``.
 
-   Changed in Chef Client 12.4 to "stable", changed in 12.1 to run chef-client in audit_mode.
+   New in Chef Client 12.1
 
 ``authentication_protocol_version``
   Sets the authentication protocol that is used to communicate with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
@@ -84,20 +82,6 @@ This configuration file has the following settings:
 ``chef_gem_compile_time``
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Recommended value: ``false``.
 
-   .. note:: .. tag resource_package_chef_gem_attribute_compile_time
-
-             .. This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
-
-             To suppress warnings for cookbooks authored prior to chef-client 12.1, use a ``respond_to?`` check to ensure backward compatibility. For example:
-
-             .. code-block:: ruby
-
-                chef_gem 'aws-sdk' do
-                  compile_time false if respond_to?(:compile_time)
-                end
-
-             .. end_tag
-
 ``client_d_dir``
    A directory that contains additional configuration scripts to load for chef-client.
 
@@ -149,8 +133,6 @@ This configuration file has the following settings:
 ``disable_event_logger``
    Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``false``.
 
-   Changed in Chef Client 12.0 to send events to the Microsoft Windows "Application" event log by default.
-
 ``enable_reporting``
    Cause the chef-client to send data to the Chef server for use with Reporting.
 
@@ -189,8 +171,6 @@ This configuration file has the following settings:
 
 ``file_staging_uses_destdir``
    How file staging (via temporary files) is done. When ``true``, temporary files are created in the directory in which files will reside. When ``false``, temporary files are created under ``ENV['TMP']``. Default value: ``true``.
-
-   Changed in Chef Client 12.0.
 
 ``fips``
   Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
@@ -236,20 +216,14 @@ This configuration file has the following settings:
 ``interval``
    The frequency (in seconds) at which the chef-client runs. Default value: ``1800``.
 
-   Changed in Chef Client 12.0, unforked intervals are no longer allowed.
-
 ``json_attribs``
    The path to a file that contains JSON data.
 
 ``listen``
    Run chef-zero in socketless mode. Set to ``false`` to disable port binding and HTTP requests on localhost.
 
-   Changed in Chef Client 12.3.
-
 ``local_key_generation``
    Whether the Chef server or chef-client generates the private/public key pair. When ``true``, the chef-client generates the key pair, and then sends the public key to the Chef server. Default value: ``true``.
-
-   Changed in Chef Client 12.0.
 
 ``local_mode``
    Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
@@ -273,8 +247,6 @@ This configuration file has the following settings:
 
 ``no_lazy_load``
    Download all cookbook files and templates at the beginning of the chef-client run. Default value: ``true``.
-
-   Changed in Chef Client 12.0.
 
 ``no_proxy``
    A comma-separated list of URLs that do not need a proxy. Default value: ``nil``.
@@ -330,8 +302,6 @@ This configuration file has the following settings:
 
 ``splay``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. Default value: ``nil``.
-
-   Changed in Chef Client 12.0.
 
 ``ssl_ca_file``
    The file in which the OpenSSL key is saved. This setting is generated automatically by the chef-client and most users do not need to modify it.
