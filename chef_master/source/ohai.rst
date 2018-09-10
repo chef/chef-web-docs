@@ -353,6 +353,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      memory.rb
      network.rb
      platform.rb
+     system_enclosure.rb
      virtualization.rb
    zpools.rb
 
