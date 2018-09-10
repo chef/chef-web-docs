@@ -42,6 +42,12 @@ To (build and) preview locally:
 - Run `make docker-preview`
 - go to http://localhost:8000
 
+To check dtags:
+
+- Run `make docker-dtags` (this will drop you in a shell at the correct location)
+- cd to the appropriate directories
+- run `dtags replicate <options>` as needed (see the [readme](doctools/dtags_readme.md) and [help](doctools/dtags_help.md) for more information)
+
 To clean your local development environment:
 
 - Run `make clean`

@@ -14,7 +14,17 @@ clean:
 	@rm -rf $(BUILDDIR)
 
 docker-build:
-	docker run -v $(shell pwd):/chef-web-docs -w /chef-web-docs chefes/buildkite make docs
+	docker run -v $(shell pwd):/chef-web-docs \
+		-w /chef-web-docs chefes/buildkite \
+		bash -c 'export PATH=$$PATH:/chef-web-docs/doctools; make docs'
 
 docker-preview: docker-build
-	docker run -it -v $(shell pwd):/chef-web-docs -w /chef-web-docs/public -p 8000:8000 chefes/buildkite python -m SimpleHTTPServer
+	docker run -it -v $(shell pwd):/chef-web-docs \
+		-w /chef-web-docs/public \
+		-p 8000:8000 chefes/buildkite \
+		bash -c 'export PATH=$$PATH:/chef-web-docs/doctools; python -m SimpleHTTPServer'
+
+docker-dtags: docker-build
+	docker run -it -v $(shell pwd):/chef-web-docs \
+		-w /chef-web-docs chefes/buildkite \
+		bash -c 'export PATH=$$PATH:/chef-web-docs/doctools; bash'
