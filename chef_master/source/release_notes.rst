@@ -8070,7 +8070,7 @@ The following items are new for chef-client 12.0 and/or are changes from previou
 * **The path property is deprecated for the execute resource** Use the ``environment`` property instead.
 * **SSL certificate validation improvements** The default settings for SSL certificate validation now default in favor of validation. In addition, using the ``knife ssl fetch`` subcommand is now an important part of setting up your workstation.
 * **New property for git resource** The **git** resource has a new property: ``environment``, which takes a Hash of environment variables in the form of ``{"ENV_VARIABLE" => "VALUE"}``.
-* **New encrypted data bag version 3** format utilizing aes-256-gcm ciphers for enhanced security.
+* **New encrypted a version 3** Format utilizes aes-256-gcm ciphers for enhanced security.
 
 Please `view the notes </upgrade_client_notes.html>`__ for more background on the upgrade process from chef-client 11 to chef-client 12.
 
