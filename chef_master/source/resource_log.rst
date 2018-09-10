@@ -41,6 +41,8 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``level`` and ``message`` are the properties available to this resource.
 
+.. end_tag
+
 Actions
 =====================================================
 .. tag resource_log_actions
