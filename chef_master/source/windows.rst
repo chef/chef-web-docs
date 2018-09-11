@@ -3,8 +3,6 @@ Chef for Microsoft Windows
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/windows.rst>`__
 
-.. note:: This page collects information about Chef that is specific to using Chef with Microsoft Windows.
-
 The chef-client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
 
 * The chef-client is `installed on a machine <https://downloads.chef.io/chef>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
@@ -49,7 +47,7 @@ The chef-client can be used to manage machines that run on the following version
      - 2008 R2, 2012, 2012 R2, 2016
      - x86_64
 
-(The recommended amount of RAM available to the chef-client during a chef-client run is 512MB. Each node and workstation must have access to the Chef server via HTTPS. Ruby version 1.9.1 or Ruby version 1.9.2 with SSL bindings is required.)
+(The recommended amount of RAM available to the chef-client during a chef-client run is 512MB. Each node and workstation must have access to the Chef server via HTTPS.)
 
 The Microsoft Installer Package (MSI) for Microsoft Windows is available at https://downloads.chef.io/chef.
 
@@ -171,26 +169,6 @@ Refer `Schedule a Task <https://technet.microsoft.com/en-us/library/cc748993%28v
 After the chef-client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
 
 Using a scheduled task is a recommended approach. Refer to `Should I run chef-client on Windows as a 'service' or a 'scheduled task'? <https://getchef.zendesk.com/hc/en-us/articles/205233360-Should-I-run-chef-client-on-Windows-as-a-service-or-a-scheduled-task->`_ for additional information on the differences between the two approaches.
-
-.. end_tag
-
-Enable as a Service
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag install_chef_client_windows_as_service
-
-To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a service. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Client Service** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
-
-.. code-block:: bash
-
-   $ chef-service-manager -a install
-
-and then start the chef-client as a service:
-
-.. code-block:: bash
-
-   $ chef-service-manager -a start
-
-After the chef-client is configured to run as a service, the default file path is: ``c:\chef\chef-client.log``.
 
 .. end_tag
 
