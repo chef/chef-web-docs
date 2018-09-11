@@ -126,6 +126,9 @@ This configuration file has the following settings:
 
       no_proxy 'localhost, 10.0.1.35, *.example.com, *.dev.example.com'
 
+``ssh_agent_signing``
+   Use ``ssh-agent`` to authenticate. When using this option specify the location of the public key in ``client_key``. Default value: ``false``.
+
 ``ssh_timeout``
    The amount of time (in seconds) to wait for an SSH connection time out.
 
