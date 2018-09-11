@@ -24,7 +24,7 @@ docker-preview: docker-build
 		-p 8000:8000 chefes/buildkite \
 		bash -c 'export PATH=$$PATH:/chef-web-docs/doctools; python -m SimpleHTTPServer'
 
-docker-dtags: docker-build
+docker-dtags:
 	docker run -it -v $(shell pwd):/chef-web-docs \
 		-w /chef-web-docs chefes/buildkite \
 		bash -c 'export PATH=$$PATH:/chef-web-docs/doctools; bash'
