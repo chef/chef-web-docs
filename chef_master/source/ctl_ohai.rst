@@ -36,7 +36,7 @@ This tool has the following options:
 ``-l LEVEL``, ``--log_level LEVEL``
    The level of logging to be stored in a log file.
 
-``-L LOGLOCATION``, ``--logfile c``
+``-L LOGLOCATION``, ``--logfile LOGLOCATION``
    The location of the log file.
 
 ``-v``, ``--version``
