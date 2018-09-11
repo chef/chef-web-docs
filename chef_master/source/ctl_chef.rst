@@ -5,8 +5,8 @@ chef (executable)
 
 The chef executable is a command-line tool that does the following:
 
-* Generates applications, cookbooks, recipes, attributes, files, templates, and custom resources (LWRPs)
-* Ensures that RubyGems are downloaded properly for the chef-client development environment
+* Generates repositories, cookbooks, recipes, attributes, templates, and custom resources.
+* Installs gems into the Chef development environment's Ruby installation.
 * Verifies that all components are installed and configured correctly
 
 chef env
