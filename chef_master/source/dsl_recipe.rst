@@ -835,12 +835,6 @@ and then using the results of that query to populate a template:
 
 Use ``:filter_result`` as part of a search query to filter the search output based on the pattern specified by a Hash. Only attributes in the Hash will be returned.
 
-.. note:: .. tag notes_filter_search_vs_partial_search
-
-          Prior to chef-client 12.0, this functionality was available from the ``partial_search`` cookbook and was referred to as "partial search".
-
-          .. end_tag
-
 The syntax for the ``search`` method that uses ``:filter_result`` is as follows:
 
 .. code-block:: ruby
