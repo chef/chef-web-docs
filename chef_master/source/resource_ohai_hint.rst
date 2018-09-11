@@ -1,5 +1,5 @@
 =====================================================
-ohai_hint
+ohai_hint resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ohai_hint.rst>`__
 
@@ -9,26 +9,29 @@ Use the **ohai_hint** resource to aid in configuration detection by passing hint
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The ohai_hint resource has the following syntax:
 
 .. code-block:: ruby
 
-   ohai_hint 'name' do
-     compile_time               True, False # default value: 'true'
-     content                    Hash
-     hint_name                  String # defaults to 'name'
-     notifies                   # see description
-     subscribes                 # see description
-     action                    Symbol # default to :create if not specified
+  ohai_hint 'name' do
+    compile_time      true, false # default value: true
+    content           Hash
+    hint_name         String # default value: 'name' unless specified
+    action            Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``ohai_hint`` is the name of the resource
-* ``'name'`` is the name of the hint file, or the name of the resource block
-* ``compile_time``, ``content``, ``hint_name``, ``notifies``, and ``subscribes`` are the properties available to the resource
+* ``ohai_hint`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``compile_time``, ``content``, and ``hint_name`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The ohai_hint resource has the following actions:
+
 ``:create``
    Default. Create an Ohai hint file.
 

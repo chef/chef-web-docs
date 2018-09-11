@@ -445,7 +445,7 @@ Actions
 -----------------------------------------------------
 .. tag resource_ohai_actions
 
-This resource has the following actions:
+The ohai resource has the following actions:
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -463,7 +463,7 @@ Properties
 -----------------------------------------------------
 .. tag resource_ohai_attributes
 
-This resource has the following properties:
+The ohai resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** True, False

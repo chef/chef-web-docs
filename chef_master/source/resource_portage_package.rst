@@ -1,5 +1,5 @@
 =====================================================
-portage_package
+portage_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_portage_package.rst>`__
 
@@ -25,31 +25,30 @@ A **portage_package** resource block manages a package on a node, typically by i
 
 which will install the named package using all of the default options and the default action (``:install``).
 
-The full syntax for all of the properties that are available to the **portage_package** resource is:
+The portage_package resource has the following syntax:
 
 .. code-block:: ruby
 
-   portage_package 'name' do
-     notifies                   # see description
-     options                    String
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     subscribes                 # see description
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  portage_package 'name' do
+    options                      String, Array
+    package_name                 String, Array
+    source                       String
+    timeout                      String, Integer # default value: 3600
+    version                      String, Array
+    action                       Symbol # defaults to :install if not specified
+  end
 
-where
+where:
 
-* ``portage_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``portage_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The portage_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.

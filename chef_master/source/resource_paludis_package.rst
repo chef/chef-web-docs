@@ -1,5 +1,5 @@
 =====================================================
-paludis_package
+paludis_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_paludis_package.rst>`__
 
@@ -42,11 +42,11 @@ The full syntax for all of the properties that are available to the **paludis_pa
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``paludis_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``paludis_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag

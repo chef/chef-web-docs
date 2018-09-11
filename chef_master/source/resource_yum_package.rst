@@ -1,5 +1,5 @@
 =====================================================
-yum_package
+yum_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_yum_package.rst>`__
 
@@ -27,30 +27,29 @@ A **yum_package** resource block manages a package on a node, typically by insta
 
 which will install the named package using all of the default options and the default action (``:install``).
 
-The full syntax for all of the properties that are available to the **yum_package** resource is:
+The yum_package resource has the following syntax:
 
 .. code-block:: ruby
 
    yum_package 'name' do
-     allow_downgrade            True, False
+     allow_downgrade            true, false # default value: false
      arch                       String, Array
-     flush_cache                Array
-     notifies                   # see description
-     options                    String
+     flush_cache                Hash # default value: {"before"=>false, "after"=>false}
+     options                    String, Array
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
+     yum_binary                 String
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``yum_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``yum_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
 
 Actions
 =====================================================

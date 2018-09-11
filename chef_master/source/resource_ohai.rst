@@ -1,52 +1,34 @@
 =====================================================
-ohai
+ohai resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ohai.rst>`__
 
-.. tag resource_ohai_summary
-
 Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the chef-client run.
-
-.. end_tag
 
 Syntax
 =====================================================
-.. tag resource_ohai_syntax
-
-A **ohai** resource block reloads the Ohai configuration on a node:
+The ohai resource has the following syntax:
 
 .. code-block:: ruby
 
-   ohai 'reload' do
-     action :reload
-   end
+  ohai 'name' do
+    ohai_name       # default value: 'name' unless specified
+    plugin         String
+    action         Symbol # defaults to :reload if not specified
+  end
 
-The full syntax for all of the properties that are available to the **ohai** resource is:
+where:
 
-.. code-block:: ruby
-
-   ohai 'name' do
-     name                       String
-     notifies                   # see description
-     plugin                     String
-     subscribes                 # see description
-     action                     Symbol # defaults to :reload if not specified
-   end
-
-where
-
-* ``ohai`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``name`` and ``plugin`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
+* ``ohai`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``ohai_name`` and ``plugin`` are the properties available to this resource.
 
 Actions
 =====================================================
 .. tag resource_ohai_actions
 
-This resource has the following actions:
+The ohai resource has the following actions:
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -64,7 +46,7 @@ Properties
 =====================================================
 .. tag resource_ohai_attributes
 
-This resource has the following properties:
+The ohai resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** True, False

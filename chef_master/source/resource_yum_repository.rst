@@ -1,90 +1,70 @@
-==========================================
-yum_repository
-==========================================
+=====================================================
+yum_repository resource
+=====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_yum_repository.rst>`__
-
-.. tag resource_yum_repository_summary
 
 Use the **yum_repository** resource to manage a Yum repository configuration file located at ``/etc/yum.repos.d/repositoryid.repo`` on the local machine. This configuration file specifies which repositories to reference, how to handle cached data, etc.
 
-.. end_tag
+**New in Chef Client 12.14.**
 
 Syntax
 =====================================================
-A **yum_repository** resource creates a Yum repository configuration file to make individual Yum repositories available for use. The **yum_repository** resource can be as simple as the following:
+The yum_repository resource has the following syntax:
 
 .. code-block:: ruby
 
-   yum_repository 'zenoss' do
-     description "Zenoss Stable repo"
-     baseurl "http://dev.zenoss.com/yum/stable/"
-     gpgkey 'http://dev.zenoss.com/yum/RPM-GPG-KEY-zenoss'
-     action :create
-   end
+  yum_repository 'name' do
+    baseurl                    String, Array
+    clean_headers              true, false # default value: false
+    clean_metadata             true, false # default value: true
+    cost                       String
+    description                String # default value: Yum Repository
+    enabled                    true, false # default value: true
+    enablegroups               true, false
+    exclude                    String
+    failovermethod             String
+    fastestmirror_enabled      true, false
+    gpgcheck                   true, false # default value: true
+    gpgkey                     String, Array
+    http_caching               String
+    include_config             String
+    includepkgs                String
+    keepalive                  true, false
+    make_cache                 true, false # default value: true
+    max_retries                String, Integer
+    metadata_expire            String
+    metalink                   String
+    mirror_expire              String
+    mirrorlist                 String
+    mirrorlist_expire          String
+    mode                       String, Integer # default value: 0644
+    options                    Hash
+    password                   String
+    priority                   String
+    proxy                      String
+    proxy_password             String
+    proxy_username             String
+    repo_gpgcheck              true, false
+    report_instanceid          true, false
+    repositoryid               String # default value: 'name' unless specified
+    skip_if_unavailable        true, false
+    source                     String
+    sslcacert                  String
+    sslclientcert              String
+    sslclientkey               String
+    sslverify                  true, false
+    throttle                   String, Integer
+    timeout                    String
+    username                   String
+    action                     Symbol # defaults to :create if not specified
+  end
 
-where
+where:
 
-* ``'baseurl'`` is the URL to the directory where the Yum repository's 'repodata' directory lives
-* ``'gpgkey'`` is the GPG key for the repository
-
-The full syntax for all of the properties that are available to the **yum_repository** resource is:
-
-.. code-block:: ruby
-
-   yum_repository 'name' do
-      baseurl                 String, Array
-      clean_headers           True, False
-      clean_metadata          True, False
-      cost                    String
-      description             String
-      enabled                 True, False
-      enablegroups            True, False
-      exclude                 String
-      failovermethod          String
-      fastestmirror_enabled   True, False
-      gpgcheck                True, False
-      gpgkey                  String, Array
-      http_caching            String
-      include_config          String
-      includepkgs             String
-      keepalive               True, False
-      make_cache              True, False
-      max_retries             String, Integer
-      metadata_expire         String
-      metalink                String
-      mirror_expire           String
-      mirrorexpire            String
-      mirrorlist              String
-      mirrorlist_expire       String
-      mode                    String, Integer
-      options                 Hash
-      priority                String
-      proxy                   String
-      proxy_username          String
-      proxy_password          String
-      username                String
-      password                String
-      repo_gpgcheck           True, False
-      report_instanceid       True, False
-      repositoryid            String
-      sensitive               True, False
-      skip_if_unavailable     True, False
-      source                  String
-      sslcacert               String
-      sslclientcert           String
-      sslclientkey            String
-      sslverify               True, False
-      throttle                String, Integer
-      timeout                 String
-      action                  Symbol # default is :create if not specified
-   end
-
-where
-
-* ``yum_repository`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``baseurl``, ``clean_headers``, ``clean_metadata``, ``cost``, ``description``, ``enabled``, ``enablegroups``, ``exclude``, ``failovermethod``, ``fastestmirror_enabled``, ``gpgcheck``, ``gpgkey``, ``http_caching``, ``include_config``, ``includepkgs``, ``keepalive``, ``make_cache``, ``max_retries``, ``metadata_expire``, ``metalink``, ``mirror_expire``, ``mirrorexpire``, ``mirrorlist``, ``mirrorlist_expire``, ``mode``, ``options``, ``password``, ``priority``, ``proxy``, ``proxy_password``, ``proxy_username``, ``repo_gpgcheck``, ``report_instanceid``, ``repositoryid``, ``skip_if_unavailable``, ``source``, ``sslcacert``, ``sslclientcert``, ``sslclientkey``, ``sslverify``, ``throttle``, and ``timeout`` are the properties available to this resource.
+* ``yum_repository`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``baseurl``, ``clean_headers``, ``clean_metadata``, ``cost``, ``description``, ``enabled``, ``enablegroups``, ``exclude``, ``failovermethod``, ``fastestmirror_enabled``, ``gpgcheck``, ``gpgkey``, ``http_caching``, ``include_config``, ``includepkgs``, ``keepalive``, ``make_cache``, ``max_retries``, ``metadata_expire``, ``metalink``, ``mirror_expire``, ``mirrorlist``, ``mirrorlist_expire``, ``mode``, ``options``, ``password``, ``priority``, ``proxy``, ``proxy_password``, ``proxy_username``, ``repo_gpgcheck``, ``report_instanceid``, ``repositoryid``, ``skip_if_unavailable``, ``source``, ``sslcacert``, ``sslclientcert``, ``sslclientkey``, ``sslverify``, ``throttle``, ``timeout``, and ``username`` are the properties available to this resource.
 
 Actions
 =====================================================
