@@ -1,5 +1,5 @@
 =====================================================
-kernel_module
+kernel_module resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_kernel_module.rst>`__
 
@@ -9,23 +9,23 @@ Use the **kernel_module** resource to manage kernel modules on Linux systems. Th
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The kernel_module resource has the following syntax:
 
 .. code-block:: ruby
 
-   kernel_module 'name' do
-     load_dir              String # defaults to /etc/modules-load.d
-     modname               String
-     notifies              # see description
-     unload_dir            String # defaults to /etc/modprobe.d
-     subscribes            # see description
-     action                Symbol # defaults to :install if not specified
-   end
+  kernel_module 'name' do
+    load_dir        String # default value: /etc/modules-load.d
+    modname         String # default value: 'name' unless specified
+    unload_dir      String # default value: /etc/modprobe.d
+    action          Symbol # defaults to :install if not specified
+  end
 
 where:
 
-* ``kernel_module`` is the name of the resource
-* ``load_dir``, ``modname`` are the properties available to this resource.
+* ``kernel_module`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``load_dir``, ``modname``, and ``unload_dir`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -55,13 +55,15 @@ Actions
 Properties
 =====================================================
 
+The kernel_module resource has the following properties:
+
 ``load_dir``
    **Ruby Type:** String | **Default Value:** ``/etc/modules-load.d``
 
    The directory to load modules from.
 
 ``modname``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the kernel module.
 

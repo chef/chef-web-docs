@@ -1,5 +1,5 @@
 =====================================================
-windows_pagefile
+windows_pagefile resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_pagefile.rst>`__
 
@@ -9,24 +9,25 @@ Use the **windows_pagefile** resource to configure pagefile settings on Windows.
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_pagefile resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_pagefile 'name' do
-     automatic_managed          True, False # default value: 'false'
-     initial_size               Integer
-     maximum_size               Integer
-     path                       String # default value: 'name'
-     system_managed             True, False
-     action                     Symbol # defaults to :set if not specified
-   end
+  windows_pagefile 'name' do
+    automatic_managed      true, false # default value: false
+    initial_size           Integer
+    maximum_size           Integer
+    path                   String # default value: 'name' unless specified
+    system_managed         true, false
+    action                 Symbol # defaults to :set if not specified
+  end
 
 where:
 
-* ``windows_pagefile`` is the resource
-* ``'path'`` is the path to the pagefile, or the name of the resource block
-* ``automatic_managed``, ``initial_size``, ``maximum_size``, and ``path`` are the properties available to this resource.
+* ``windows_pagefile`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``automatic_managed``, ``initial_size``, ``maximum_size``, ``path``, and ``system_managed`` are the properties available to this resource.
 
 Actions
 =====================================================

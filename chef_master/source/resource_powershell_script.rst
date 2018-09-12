@@ -1,5 +1,5 @@
 =====================================================
-powershell_script
+powershell_script resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_script.rst>`__
 

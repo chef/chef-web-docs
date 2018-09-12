@@ -1,17 +1,13 @@
 =====================================================
-service
+service resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_service.rst>`__
 
-.. tag resource_service_summary
-
 Use the **service** resource to manage a service.
-
-.. end_tag
 
 Syntax
 =====================================================
-A **service** resource block manages the state of a service. For example:
+The service resource has the following syntax:
 
 .. code-block:: ruby
 

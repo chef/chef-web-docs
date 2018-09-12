@@ -1,5 +1,5 @@
 =====================================================
-windows_auto_run
+windows_auto_run resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_auto_run.rst>`__
 
@@ -9,25 +9,24 @@ Use the **windows_auto_run** resource to set applications to run at login.
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_auto_run resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_auto_run 'name' do
-     args                       String
-     path                       String
-     program_name               String # default value: 'name'
-     notifies                   # see description
-     root                       Symbol
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  windows_auto_run 'name' do
+    args              String
+    path              String
+    program_name      String # default value: 'name' unless specified
+    root              Symbol # default value: machine
+    action            Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``windows_auto_run`` is the resource
-* ``'name'`` is the name of the startup program, or the name of the resource block
-* ``args``, ``path``, ``program_name``, ``notifies``, ``root``, and ``subscribes`` are the properties available to this resource
+* ``windows_auto_run`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``args``, ``path``, ``program_name``, and ``root`` are the properties available to this resource.
 
 Actions
 =====================================================

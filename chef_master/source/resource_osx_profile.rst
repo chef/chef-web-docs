@@ -1,5 +1,5 @@
 =====================================================
-osx_profile
+osx_profile resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_osx_profile.rst>`__
 
@@ -11,42 +11,30 @@ Use the **osx_profile** resource to manage configuration profiles (``.mobileconf
 
 Syntax
 =====================================================
-.. tag resource_osx_profile_syntax
-
-A **osx_profile** resource block manages configuration profiles on the macOS platform:
+The osx_profile resource has the following syntax:
 
 .. code-block:: ruby
 
-   osx_profile 'Install screensaver profile' do
-     profile 'com.company.screensaver.mobileconfig'
-   end
+  osx_profile 'name' do
+    identifier        String
+    path              String
+    profile           String, Hash
+    profile_name      String # default value: 'name' unless specified
+    action            Symbol # defaults to :install if not specified
+  end
 
-The full syntax for all of the properties that are available to the **osx_profile** resource is:
+where:
 
-.. code-block:: ruby
-
-   osx_profile 'name' do
-     path                       # set automatically
-     profile                    String, Hash
-     profile_name               String # defaults to 'name' if not specified
-     identifier                 String
-     action                     Symbol # defaults to :install if not specified
-   end
-
-where
-
-* ``osx_profile`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``profile``, ``profile_name``, and ``identifier`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
+* ``osx_profile`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``identifier``, ``path``, ``profile``, and ``profile_name`` are the properties available to this resource.
 
 Actions
 =====================================================
 .. tag resource_osx_profile_actions
 
-This resource has the following actions:
+The osx_profile resource has the following actions:
 
 ``:install``
    Default. Install the specified configuration profile.

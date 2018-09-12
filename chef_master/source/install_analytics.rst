@@ -68,7 +68,7 @@ In a standalone configuration, the Chef Analytics deployment is on a different s
 
 Install Chef Analytics:
 
-#. Download the package from http://downloads.chef.io/analytics/ to the dedicated standalone server that will be used for Chef Analytics. For Red Hat and CentOS 6:
+#. Download the package from https://downloads.chef.io/analytics/ to the dedicated standalone server that will be used for Chef Analytics. For Red Hat and CentOS 6:
 
    .. code-block:: bash
 
@@ -173,7 +173,7 @@ In a standalone configuration, the Chef Analytics deployment is on a different m
 
 On the Chef server:
 
-#. Download the package from http://downloads.chef.io/analytics/.
+#. Download the package from https://downloads.chef.io/analytics/.
 #. Enable the Chef server deployment to publish to Chef actions by adding the following line to ``/etc/opscode/chef-server.rb``:
 
    .. code-block:: bash
@@ -245,4 +245,3 @@ On the dedicated, standalone machine:
    .. code-block:: bash
 
       $ opscode-analytics-ctl reconfigure
-

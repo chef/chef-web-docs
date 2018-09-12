@@ -1,5 +1,5 @@
 =====================================================
-script
+script resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_script.rst>`__
 

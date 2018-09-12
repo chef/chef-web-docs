@@ -1,5 +1,5 @@
 =====================================================
-openssl_ec_public_key
+openssl_ec_public_key resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_public_key.rst>`__
 
@@ -9,28 +9,27 @@ Use the **openssl_ec_public_key** resource to generate elliptic curve (EC) publi
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_ec_public_key resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_ec_public_key 'name' do
-     group                      String
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     owner                      String
-     path                       String
-     private_key_content        String
-     private_key_pass           String
-     private_key_path           String
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  openssl_ec_public_key 'name' do
+    group                    String
+    mode                     Integer, String # default value: 0640
+    owner                    String
+    path                     String # default value: 'name' unless specified
+    private_key_content      String
+    private_key_pass         String
+    private_key_path         String
+    action                   Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_ec_public_key`` is the name of the resource
-* ``name`` is the path to the public key file that is to be created, or the name of the resource block
-* ``group``, ``mode``, ``notifies``, ``owner``, ``path``, ``private_key_content``, ``private_key_pass``, ``private_key_path``, and ``subscribes`` are the properties available to this resource
+* ``openssl_ec_public_key`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``group``, ``mode``, ``owner``, ``path``, ``private_key_content``, ``private_key_pass``, and ``private_key_path`` are the properties available to this resource.
 
 Actions
 =====================================================

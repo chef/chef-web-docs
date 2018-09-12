@@ -1,13 +1,9 @@
 =====================================================
-windows_service
+windows_service resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_service.rst>`__
 
-.. tag resource_service_windows
-
-Use the **windows_service** resource to create, delete, and manage a service on the Microsoft Windows platform.
-
-.. end_tag
+Use the **windows_service** resource to create, delete, or manage a service on the Microsoft Windows platform.
 
 Syntax
 =====================================================

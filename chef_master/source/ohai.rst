@@ -353,6 +353,7 @@ The following list shows the type of plugins that are included with Ohai. See th
      memory.rb
      network.rb
      platform.rb
+     system_enclosure.rb
      virtualization.rb
    zpools.rb
 
@@ -444,7 +445,7 @@ Actions
 -----------------------------------------------------
 .. tag resource_ohai_actions
 
-This resource has the following actions:
+The ohai resource has the following actions:
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -462,7 +463,7 @@ Properties
 -----------------------------------------------------
 .. tag resource_ohai_attributes
 
-This resource has the following properties:
+The ohai resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** True, False
@@ -664,17 +665,13 @@ This tool has the following options:
 ``-l LEVEL``, ``--log_level LEVEL``
    The level of logging to be stored in a log file.
 
-``-L LOGLOCATION``, ``--logfile c``
+``-L LOGLOCATION``, ``--logfile LOGLOCATION``
    The location of the log file.
 
 ``-v``, ``--version``
    The version of Ohai.
 
 .. end_tag
-
-Examples
------------------------------------------------------
-None.
 
 Ohai Settings in client.rb
 =====================================================

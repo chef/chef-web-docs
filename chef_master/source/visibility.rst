@@ -45,16 +45,15 @@ Further filtering can also be provided by the **Environment** and **Roles** drop
 
 If you wish to share your filtered search with others, you can do so with the share and save icons next to the search bar.
 
-.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. Please note that as of Chef Automate 1.6.87, Kibana is no longer enabled by default. Also, this endpoint may be removed or restricted in a future release of Chef Automate, so any custom dashboards or visualizations built on the Kibana endpoint are not supported, but can be used. See the `Chef Automate 1.6.87 release notes <http://docs.chef.io/release_notes_chef_automate.html#what-s-new-in-1-6-87>`_ for more details. And for more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
+.. note:: If you want to see the raw, real-time events coming into Chef Automate and perform simple queries and visualizations on them, navigate to ``https://<YourAutomateServer>/kibana``. Please note that as of Chef Automate 1.6.87, Kibana is no longer enabled by default. Also, this endpoint may be removed or restricted in a future release of Chef Automate, so any custom dashboards or visualizations built on the Kibana endpoint are not supported, but can be used. See the `Chef Automate 1.6.87 release notes <https://docs.chef.io/release_notes_chef_automate.html#what-s-new-in-1-6-87>`_ for more details. And for more information on Kibana, see the `Kibana User Guide <https://www.elastic.co/guide/en/kibana/current/index.html>`_.
 
 Compliance status
 ------------------------------------------------------
 
-In addition to converge data, Chef Automate also provides information on the compliance state of your nodes. By using Chef Automate 1.5.46 or later, you can view compliance scan data in the **Compliance** tab at the top of the page. See this `Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information. 
+In addition to converge data, Chef Automate also provides information on the compliance state of your nodes. By using Chef Automate 1.5.46 or later, you can view compliance scan data in the **Compliance** tab at the top of the page. See this `Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information.
 
 .. image:: ../../images/compliance_node.png
 
 This tab provides a summary of the compliance status across all nodes of your cluster and allows you to pivot and search through that data from either a node perspective or a profile perspective. In addition, you can manage your compliance profiles and perform powerful filtering against your compliance data. See the link above for more information.
 
 Chef Automate also continues to support the reporting of compliance data through the **Nodes** tab. If you need to continue using the previous compliance view, you can enable it easily by typing ``legacy`` in the UI and toggling on this view in the menu.
-

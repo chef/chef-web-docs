@@ -62,8 +62,6 @@ In addition to attributes and recipes, the following items are also part of cook
 
    * - Components
      - Description
-   * - `Definitions </definitions.html>`__
-     - A definition is used to create new resources by stringing together one (or more) existing resources.
    * - `Files </files.html>`__
      - A file distribution is a specific type of resource that tells a cookbook how to distribute files, including by node, by platform, or by file version.
    * - `Libraries </libraries.html>`__

@@ -1,5 +1,5 @@
 =====================================================
-macos_userdefaults
+macos_userdefaults resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_macos_userdefaults.rst>`__
 
@@ -9,7 +9,7 @@ Use the **macos_userdefaults** resource to manage the macOS `user defaults <http
 
 Syntax
 =====================================================
-This resource has the following Syntax:
+The macos_userdefaults resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -22,20 +22,21 @@ This resource has the following Syntax:
      sudo                  True, False # default value: 'false'
      type                  String # default value: ""
      user                  String
-     value                 # required - see description     
+     value                 Integer, Float, String, true, false, Hash, Array
      action                Symbol # defaults to :write if not specified
    end
 
 where:
 
-* ``macos_userdefaults`` is the name of the resource
-* ``'name'`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node to the desired state
-* ``domain``, ``global``, ``key``, ``sudo``, ``type``, ``user``, and ``value`` are the properties available to this resource
+* ``macos_userdefaults`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``domain``, ``global``, ``is_set``, ``key``, ``sudo``, ``type``, ``user``, and ``value`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The macos_userdefaults resource has the following actions:
 
 ``:write``
    Default. Writes the setting to the specified domain. 

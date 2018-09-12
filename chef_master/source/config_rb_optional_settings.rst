@@ -551,15 +551,6 @@ The following ``knife cookbook show`` settings can be added to the config.rb fil
 ``knife[:platform_version]``
    Adds the the ``--platform-version`` option.
 
-cookbook test
------------------------------------------------------
-The following ``knife cookbook test`` settings can be added to the config.rb file:
-
-``knife[:all]``
-   Adds the the ``--all`` option.
-
-.. warning:: This feature is deprecated in favor of `Cookstyle </cookstyle.html>`__ and `ChefSpec </chefspec.html>`__
-
 cookbook upload
 -----------------------------------------------------
 The following ``knife cookbook upload`` settings can be added to the config.rb file:
