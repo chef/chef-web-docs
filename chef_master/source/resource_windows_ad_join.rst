@@ -1,5 +1,5 @@
 =====================================================
-windows_ad_join
+windows_ad_join resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_ad_join.rst>`__
 
@@ -9,26 +9,26 @@ Use the **windows_ad_join** resource to join a Windows Active Directory domain.
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_ad_join resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_ad_join 'name' do
-     domain_name                String # default value: 'name'
-     domain_password            String # required
-     domain_user                String # required
-     notifies                   # see description
-     ou_path                    String
-     reboot                     Symbol # see description
-     subscribes                 # see description
-     action                     Symbol # defaults to :join if not specified
-   end
+  windows_ad_join 'name' do
+    domain_name          String # default value: 'name' unless specified
+    domain_password      String
+    domain_user          String
+    ou_path              String
+    reboot               Symbol # default value: immediate
+    sensitive            true, false # default value: true
+    action               Symbol # defaults to :join if not specified
+  end
 
 where:
 
-* ``windows_ad_join`` is the resource
-* ``'name'`` is the Active Directory domain name, or the name of the resource block
-* ``domain_name``, ``domain_password``, ``domain_user``, ``notifies``, ``ou_path``, ``reboot``, and ``subscribes`` are the properties available to this resource
+* ``windows_ad_join`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``domain_name``, ``domain_password``, ``domain_user``, ``ou_path``, ``reboot``, and ``sensitive`` are the properties available to this resource.
 
 Actions
 =====================================================

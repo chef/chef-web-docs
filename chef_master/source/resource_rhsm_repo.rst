@@ -1,5 +1,5 @@
 =====================================================
-rhsm_repo
+rhsm_repo resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_repo.rst>`__
 
@@ -9,22 +9,21 @@ Use the **rhsm_repo** resource to enable or disable Red Hat Subscription Manager
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The rhsm_repo resource has the following syntax:
 
 .. code-block:: ruby
 
-   rhsm_repo 'name' do
-     repo_name                  String # default value: 'name'
-     notifies                   # see description
-     subscribes                 # see description
-     action                     Symbol # defaults to :enable if not specified
-   end
+  rhsm_repo 'name' do
+    repo_name      String # default value: 'name' unless specified
+    action         Symbol # defaults to :enable if not specified
+  end
 
 where:
 
-* ``rhsm_repo`` is the resource
-* ``'name'`` is the RHSM repository name, or the resource name
-* ``repo_name``, ``notifies``, and ``subscribes`` are the properties available to this resource
+* ``rhsm_repo`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``repo_name`` is the property available to this resource.
 
 Actions
 =====================================================

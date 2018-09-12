@@ -31,7 +31,7 @@ The sub-directories in the chef-repo are:
    * - Directory
      - Description
    * - ``.chef/``
-     - A hidden directory that is used to store validation key files and optionally a config.rb file.
+     - A hidden directory that is used to store validation key files and optionally a `config.rb </config_rb.html>`_ file.
    * - ``cookbooks/``
      - Contains cookbooks that have been downloaded from the `Chef Supermarket <https://supermarket.chef.io/>`__ or created locally.
    * - ``data_bags/``
@@ -45,7 +45,7 @@ The sub-directories in the chef-repo are:
 -----------------------------------------------------
 .. tag all_directory_chef
 
-The .chef directory is a hidden directory that is used to store validation key files and optionally a config.rb file.
+The .chef directory is a hidden directory that is used to store validation key files and optionally a `config.rb </config_rb.html>`__ file.
 
 .. end_tag
 
@@ -173,15 +173,7 @@ Example config.rb:
 
 Create the chef-repo
 =====================================================
-There are two ways to create a chef-repo when using the Chef boilerplate repository as a base:
 
-* Clone the chef-repo from GitHub
-* Download the chef-repo as a tar.gz file and place it into local version source control.
-
-.. note:: Chef strongly recommends using some type of version control tool to manage the source code in the chef-repo. Chef uses git for everything, including for cookbooks. git and/or GitHub is not required to use Chef. If another version source control system is preferred over git (such as Subversion, Mercurial, or Bazaar) that is just fine.
-
-Generate
------------------------------------------------------
 To create a chef-repo, run the following command:
 
 .. code-block:: bash

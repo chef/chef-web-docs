@@ -1,13 +1,15 @@
-==========================================
-msu_package
-==========================================
+=====================================================
+msu_package resource
+=====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_msu_package.rst>`__
 
 Use the **msu_package** resource to install Microsoft Update(MSU) packages on Microsoft Windows machines.
 
+**New in Chef Client 12.17.**
+
 Syntax
-==========================================
-A **msu_package** resource installs or removes Microsoft Update packages.
+=====================================================
+The msu_package resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -44,7 +46,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The msu_package resource has the following properties:
 
 source
    **Ruby Type:** String

@@ -1,13 +1,9 @@
 =====================================================
-zypper_package
+zypper_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_zypper_package.rst>`__
 
-.. tag resource_package_zypper
-
 Use the **zypper_package** resource to install, upgrade, and remove packages with Zypper for the SUSE Enterprise and OpenSUSE platforms.
-
-.. end_tag
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -29,30 +25,28 @@ The full syntax for all of the properties that are available to the **zypper_pac
 
 .. code-block:: ruby
 
-   zypper_package 'name' do
-     allow_downgrade            True, False
-     gpg_check                  True, False
-     notifies                   # see description
-     options                    String, Array
-     package_name               String, Array # defaults to 'name' if not specified
-     response_file              Hash
-     source                     String
-     subscribes                 # see description
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  zypper_package 'name' do
+    allow_downgrade              true, false # default value: false
+    gpg_check                    true, false
+    options                      String, Array
+    package_name                 String, Array
+    source                       String
+    timeout                      String, Integer
+    version                      String, Array
+    action                       Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``zypper_package`` is the resource.
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``allow_downgrade``, ``gpg_check``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, and ``timeout`` are the properties available to this resource
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``allow_downgrade``, ``gpg_check``, ``options``, ``package_name``, ``source``, and ``timeout`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The zypper_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -82,15 +76,25 @@ This resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+
+   .. end_tag
+
 Properties
 =====================================================
+
 This resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false | **Default Value:** ``false`` 
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Allow downgrading a package to satisfy requested version requirements.
 
 ``gpg_check``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Verify the package's GPG signature. Default value: ``true``. Can also be controlled site-wide using the ``zypper_check_gpg`` config option.
 

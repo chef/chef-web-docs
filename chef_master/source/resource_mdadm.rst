@@ -1,54 +1,39 @@
 =====================================================
-mdadm
+mdadm resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_mdadm.rst>`__
 
-.. tag resource_mdadm_summary
-
 Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** resource to create a file systems table (fstab) entry.
-
-.. end_tag
 
 Syntax
 =====================================================
-A **mdadm** resource block manages RAID devices in a Linux environment using the mdadm utility:
+The mdadm resource has the following syntax:
 
 .. code-block:: ruby
 
-   mdadm '/dev/md0' do
-     devices [ '/dev/sda', '/dev/sdb' ]
-     level 1
-     action [ :create, :assemble ]
-   end
+  mdadm 'name' do
+    bitmap           String
+    chunk            Integer # default value: 16
+    devices          Array
+    exists           true, false # default value: false
+    layout           String
+    level            Integer # default value: 1
+    metadata         String # default value: 0.90
+    raid_device      String # default value: 'name' unless specified
+    action           Symbol # defaults to :create if not specified
+  end
 
-The full syntax for all of the properties that are available to the **mdadm** resource is:
+where:
 
-.. code-block:: ruby
-
-   mdadm 'name' do
-     bitmap                     String
-     chunk                      Integer
-     devices                    Array
-     exists                     True, False
-     layout                     String
-     level                      Integer
-     metadata                   String
-     notifies                   # see description
-     raid_device                String # defaults to 'name' if not specified
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
-
-where
-
-* ``mdadm`` is the name of the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``bitmap``, ``chunk``, ``devices``, ``exists``, ``layout``, ``level``, ``metadata``,  and ``raid_device`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``mdadm`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``bitmap``, ``chunk``, ``devices``, ``exists``, ``layout``, ``level``, ``metadata``, and ``raid_device`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The mdadm resource has the following actions:
 
 ``:assemble``
    Assemble a previously created array into an active array.

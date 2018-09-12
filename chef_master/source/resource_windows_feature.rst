@@ -1,5 +1,5 @@
 =====================================================
-windows_feature
+windows_feature resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_feature.rst>`__
 
@@ -9,27 +9,26 @@ Use the windows_feature resource to add, remove or entirely delete Windows featu
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_feature resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_feature 'name' do
-     all                        True, False # default value: 'false'
-     feature_name               Array, String # default value: 'name'
-     install_method             Symbol
-     management_tools           True, False # default value: 'false'
-     notifies                   # see description
-     source                     String
-     subscribes                 # see description
-     timeout                    Integer # default value: '600'
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_feature 'name' do
+    all                   true, false # default value: false
+    feature_name          Array, String # default value: 'name' unless specified
+    install_method        Symbol
+    management_tools      true, false # default value: false
+    source                String
+    timeout               Integer # default value: 600
+    action                Symbol # defaults to :install if not specified
+  end
 
 where:
 
-* ``windows_feature`` is the resource
-* ``'name'`` is the name of the startup program, or the name of the resource block
-* ``all``, ``feature_name``, ``management_tools``, ``notifies``, ``source``, ``subscribes``, and ``timeout`` are the properties available to this resource
+* ``windows_feature`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``all``, ``feature_name``, ``install_method``, ``management_tools``, ``source``, and ``timeout`` are the properties available to this resource.
 
 Actions
 =====================================================

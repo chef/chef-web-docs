@@ -1,5 +1,5 @@
 =====================================================
-remote_file
+remote_file resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_remote_file.rst>`__
 
@@ -65,12 +65,12 @@ The full syntax for all of the properties that are available to the **remote_fil
      action                     Symbol # defaults to :create if not specified
    end
 
-where
+where:
 
-* ``remote_file`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``atomic_update``, ``backup``, ``checksum``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``remote_user``, ``remote_password``, ``remote_domain``, ``rights``, ``source``, ``use_conditional_get``, ``use_etag``, ``use_last_modified``, ```show_progress`` and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``remote_file`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``atomic_update``, ``authentication``, ``backup``, ``checksum``, ``content``, ``diff``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``remote_domain``, ``remote_password``, ``remote_user``, ``show_progress``, ``use_etag``, ``use_last_modified``, and ``verifications`` are the properties available to this resource.
 
 Actions
 =====================================================

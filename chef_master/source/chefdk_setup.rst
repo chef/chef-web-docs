@@ -61,7 +61,7 @@ To install Git:
 
 #. Go to the following URL: https://help.github.com/articles/set-up-git.
 
-#. Follow the directions, install Git (http://git-scm.com/downloads), and then complete the remaining configuration steps on that page.
+#. Follow the directions, install Git (https://git-scm.com/downloads), and then complete the remaining configuration steps on that page.
 
 .. note:: It is not necessary to create or fork a repository in order to clone the chef-repo from GitHub.
 
