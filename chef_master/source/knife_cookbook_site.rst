@@ -11,13 +11,16 @@ The Supermarket API is used to provide access to cookbooks, tools, and users on 
 
 .. tag knife_site_cookbook
 
-The ``knife cookbook site`` subcommand is used to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+Use the ``knife cookbook site`` subcommand to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
 .. end_tag
 
+.. warning::
+  ``knife cookbook site`` has been deprecated in favor of the `knife supermarket </knife_supermarket.html>`__ command.
+
 .. warning:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-             Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef development kit. For more information about the Chef development kit, see `About the Chef DK </about_chefdk.html>`__.
+             Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef Development Kit. For more information about the Chef Development Kit, see `About the Chef DK </about_chefdk.html>`__.
 
              .. end_tag
 
@@ -29,13 +32,13 @@ The ``knife cookbook site`` subcommand is used to interact with cookbooks that a
 
 Private Supermarket
 =====================================================
-To use the ``knife cookbook site`` command with a private Supermarket installation, you must first add the URL of your Supermarket to your ``knife.rb`` file:
+To use the ``knife cookbook site`` command with a private Supermarket installation, you must first add the URL of your Supermarket to your ``config.rb`` file:
 
-.. code-block:: ruby 
+.. code-block:: ruby
 
    knife[:supermarket_site] = 'https://supermarket.example.com'
 
-If this value is not specified, knife will use ``https://supermarket.chef.io`` by default. 
+If this value is not specified, knife will use ``https://supermarket.chef.io`` by default.
 
 download
 =====================================================
@@ -67,7 +70,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -135,7 +138,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -263,29 +266,27 @@ To search for all of the cookbooks that can be used with Apache, enter:
 
 .. code-block:: bash
 
-   $ knife cookbook site search apache*
+   $ knife cookbook site search 'apache*'
 
 to return something like:
 
 .. code-block:: bash
 
-   apache2:
-     cookbook:              https://supermarket.chef.io/api/v1/cookbooks/apache2
-     cookbook_description:  Installs and configures apache2 using Debian symlinks
-                            with helper definitions
-     cookbook_maintainer:   chef
-     cookbook_name:         apache2
-   instiki:
-     cookbook:              https://supermarket.chef.io/api/v1/cookbooks/instiki
-     cookbook_description:  Installs instiki, a Ruby on Rails wiki server under
-                            passenger+Apache2.
-     cookbook_maintainer:   jtimberman
-     cookbook_name:         instiki
-   kickstart:
-     cookbook:              https://supermarket.chef.io/api/v1/cookbooks/kickstart
-     cookbook_description:  Creates apache2 vhost and serves a kickstart file.
-     cookbook_maintainer:   chef
-     cookbook_name:         kickstart
+    apache2:
+      cookbook:             https://supermarket.chef.io/api/v1/cookbooks/apache2
+      cookbook_description: Installs and configures apache2
+      cookbook_maintainer:  sous-chefs
+      cookbook_name:        apache2
+    apache_hadoop:
+      cookbook:             https://supermarket.chef.io/api/v1/cookbooks/apache_hadoop
+      cookbook_description: Installs/Configures the Apache Hadoop distribution
+      cookbook_maintainer:  dowlingj
+      cookbook_name:        apache_hadoop
+    apache_kafka:
+      cookbook:             https://supermarket.chef.io/api/v1/cookbooks/apache_kafka
+      cookbook_description: Installs/Configures Apache Kafka >= 0.7.0
+      cookbook_maintainer:  mathyourlife
+      cookbook_name:        apache_kafka
    [...truncated...]
 
 share
@@ -318,7 +319,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -372,23 +373,32 @@ to return something like:
 
 .. code-block:: bash
 
-   average_rating:
-   category:        Networking
-   created_at:      2009-10-25T23:51:07Z
-   description:     Installs and configures haproxy
-   external_url:
-   latest_version:  https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/1_0_3
-   maintainer:      opscode
-   name:            haproxy
-   updated_at:      2011-06-30T21:53:25Z
-   versions:
-     https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/1_0_3
-     https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/1_0_2
-     https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/1_0_1
-     https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/1_0_0
-     https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/0_8_1
-     https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/0_8_0
-     https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/0_7_0
+  average_rating:
+  category:        Other
+  created_at:      2009-10-25T23:51:07.000Z
+  deprecated:      false
+  description:     Installs and configures haproxy
+  external_url:    https://github.com/sous-chefs/haproxy
+  issues_url:      https://github.com/sous-chefs/haproxy/issues
+  latest_version:  https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/6.2.3
+  maintainer:      sous-chefs
+  metrics:
+    collaborators: 3
+    downloads:
+      total:    29114892
+      versions:
+        0.7.0: 1258890
+        0.8.0: 1258804
+        [...truncated...]
+    followers:     139
+  name:            haproxy
+  source_url:      https://github.com/sous-chefs/haproxy
+  up_for_adoption:
+  updated_at:      2018-08-08T20:09:52.334Z
+  versions:
+    https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/6.2.3
+    https://supermarket.chef.io/api/v1/cookbooks/haproxy/versions/6.2.2
+    [...truncated...]
 
 **Show cookbook data as JSON**
 

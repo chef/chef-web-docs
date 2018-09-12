@@ -292,13 +292,13 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 #. Open a command prompt and change into your ``chef-repo`` directory.
 #. .. tag install_update_aws_knife_rb
 
-   Open ``.chef/knife.rb`` in a text editor and modify the ``chef_server_url`` with your new public DNS. For example:
+   Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your new public DNS. For example:
 
    .. code-block:: bash
 
-      $ vim ~/chef-repo/.chef/knife.rb
+      $ vim ~/chef-repo/.chef/config.rb
 
-   will open a ``knife.rb`` file similar to:
+   will open a ``config.rb`` file similar to:
 
    .. code-block:: ruby
 
@@ -450,13 +450,13 @@ After verifying that your existing Chef server installation is up to date, do th
 
 #. .. tag install_update_aws_knife_rb
 
-   Open ``.chef/knife.rb`` in a text editor and modify the ``chef_server_url`` with your new public DNS. For example:
+   Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your new public DNS. For example:
 
    .. code-block:: bash
 
-      $ vim ~/chef-repo/.chef/knife.rb
+      $ vim ~/chef-repo/.chef/config.rb
 
-   will open a ``knife.rb`` file similar to:
+   will open a ``config.rb`` file similar to:
 
    .. code-block:: ruby
 

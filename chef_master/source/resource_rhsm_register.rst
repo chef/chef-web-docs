@@ -1,5 +1,5 @@
 =====================================================
-rhsm_register
+rhsm_register resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_register.rst>`__
 
@@ -9,29 +9,29 @@ Use the **rhsm_register** resource to register a node with the Red Hat Subscript
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The rhsm_register resource has the following syntax:
 
 .. code-block:: ruby
 
-   rhsm_register 'name' do
-     activation_key             String, Array
-     auto_attach                True, False # default value: 'false'
-     environment                String
-     force                      True, False # default value: 'false'
-     install_katello_agent      True, False # default value: 'true'
-     notifies                   # see description
-     organization               String
-     password                   String
-     satellite_host             String
-     subscribes                 # see description
-     action                     Symbol # defaults to :register if not specified
-   end
+  rhsm_register 'name' do
+    activation_key             String, Array
+    auto_attach                true, false # default value: false
+    environment                String
+    force                      true, false # default value: false
+    install_katello_agent      true, false # default value: true
+    organization               String
+    password                   String
+    satellite_host             String
+    username                   String
+    action                     Symbol # defaults to :register if not specified
+  end
 
 where:
 
-* ``rhsm_register`` is the resource
-* ``'name'`` is the RHSM Satellite server name, or the resource name
-* ``activation_key``, ``auto_attach``, ``environment``, ``force``, ``install_katello_agent``, ``notifies``, ``organization``, ``password``, ``satellite_host``, and ``subscribes`` are the properties available to this resource
+* ``rhsm_register`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``activation_key``, ``auto_attach``, ``environment``, ``force``, ``install_katello_agent``, ``organization``, ``password``, ``satellite_host``, and ``username`` are the properties available to this resource.
 
 Actions
 =====================================================

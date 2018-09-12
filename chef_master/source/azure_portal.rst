@@ -120,13 +120,13 @@ After verifying that your existing Chef server installation is up to date, do th
 
 #. .. tag install_update_azure_knife_rb
 
-   Update your workstation knife configuration. Open ``.chef/knife.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
+   Update your workstation knife configuration. Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
 
    .. code-block:: bash
 
-      $ vim ~/chef-repo/.chef/knife.rb
+      $ vim ~/chef-repo/.chef/config.rb
 
-   will open a ``knife.rb`` file similar to:
+   will open a ``config.rb`` file similar to:
 
    .. code-block:: ruby
 
@@ -258,7 +258,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. Depending on the OS you selected earlier, select either **Windows Chef Extension** or **Linux Chef Extension** and then **Create**.
 
-#. Using the ``chef-repo/.chef/knife.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
+#. Using the ``chef-repo/.chef/config.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
 
 #. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).
 
@@ -266,9 +266,9 @@ Once this information has been identified, launch the Azure portal, start the vi
 
    .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box.
 
-#. For **Client Configuration File**, browse to the ``chef-repo/.chef/knife.rb`` file and upload it through your web browser.
+#. For **Client Configuration File**, browse to the ``chef-repo/.chef/config.rb`` file and upload it through your web browser.
 
-   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
+   .. note:: Same directory issue from previous step applies here as well. Also, the ``config.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
 
 #. Optional. `Use a run-list </run_lists.html>`__ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
@@ -608,7 +608,7 @@ The following examples show how to use the ``knife azure server create`` command
 
    $ knife azure server create -I "123abc__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd"\n
                              --azure-vm-size Medium -x 'azureuser' -P 'azure@123' --bootstrap-protocol\n
-                             'cloud-api' -c '~/chef-repo/.chef/knife.rb' -r 'recipe[getting-started]'\n
+                             'cloud-api' -c '~/chef-repo/.chef/config.rb' -r 'recipe[getting-started]'\n
                              --azure-service-location "West US" -VV
 
 **Create Linux virtual machine**
@@ -617,7 +617,7 @@ The following examples show how to use the ``knife azure server create`` command
 
    $ knife azure server create -I "123abc__Ubuntu_DAILY_BUILD-trusty-14_04_1-LTS-amd64-server-etc"\n
                                --azure-vm-size Medium -x 'azureuser' -P 'azure@123' --bootstrap-protocol 'cloud-api'\n
-                               -c '~/chef-repo/.chef/knife.rb' -r 'recipe[getting-started]'\n
+                               -c '~/chef-repo/.chef/config.rb' -r 'recipe[getting-started]'\n
                                --azure-service-location "West US" -VV
 
 Azure Resource Manager (ARM) Templates

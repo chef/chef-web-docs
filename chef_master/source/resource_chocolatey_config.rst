@@ -14,8 +14,10 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    chocolatey_config 'name' do
+     notifies                   # see description
      config_key                 String # default value: 'name'
      value                      String
+     subscribes                 # see description
      action                     Symbol # defaults to :set if not specified
    end
 

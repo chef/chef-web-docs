@@ -36,8 +36,9 @@ The full syntax for all of the properties that are available to the **chef_gem**
 
    chef_gem 'name' do
      clear_sources              True, False
-     include_default_source     True, False
      compile_time               True, False
+     gem_binary                 String
+     include_default_source     True, False
      notifies                   # see description
      options                    String
      package_name               String # defaults to 'name' if not specified
@@ -104,10 +105,15 @@ This resource has the following properties:
 
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
-``include_default_source``
-   **Ruby Types:** True, False
+``gem_binary``
+   **Ruby Type:** String
+   
+   The path of a gem binary to use for the installation. By default, the same version of Ruby that is used by the chef-client will be installed.
 
-   Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources. Default value: ``true``.
+``include_default_source``
+   **Ruby Types:** True, False | **Default Value:** ``true``
+
+   Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
    New in Chef Client 13.0
 
@@ -151,9 +157,10 @@ This resource has the following properties:
    .. end_tag
 
 ``options``
-   **Ruby Type:** String
+   **Ruby Type:** String, Hash, Array, 
 
-   One (or more) additional options that are passed to the command.
+   Options for the gem install, either a Hash or a String. When a hash is given, the options are passed to Gem::DependencyInstaller.new, and the gem will be installed via the gems API. When a String is given, the gem will be installed by shelling out to the gem command. Using a Hash of options with an explicit gem_binary will result in undefined behavior.
+
 
 ``package_name``
    **Ruby Types:** String
@@ -173,7 +180,7 @@ This resource has the following properties:
 ``source``
    **Ruby Type:** String, Array
 
-   Optional. The URL location of the gem package. May also be a list of URLs. This list is added to the source configured in ``Chef::Config[:rubygems_url]`` (see also ``include_default_source``) to construct the complete list of rubygems sources. Users in an "airgapped" environment should set ``Chef::Config[:rubygems_url]`` to their local RubyGems mirror.
+   Optional. The URL, or list of URLs, at which the gem package is located. This list is added to the source configured in ``Chef::Config[:rubygems_url]`` (see also include_default_source) to construct the complete list of rubygems sources. Users in an 'airgapped' environment should set ``Chef::Config[:rubygems_url]`` to their local RubyGems mirror.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

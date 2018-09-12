@@ -1,11 +1,11 @@
 =====================================================
-powershell_package
+powershell_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_package.rst>`__
 
-Use the **powershell_package** resource to install and manage packages via the Powershell Package Manager for the Microsoft Windows platform.  The **powershell_package** resource requires administrative access, and a source must be configured in the Powershell Package Manager via the `Register-PackageSource <https://docs.microsoft.com/en-us/powershell/module/packagemanagement/register-packagesource?view=powershell-5.1>`_ command
+Use the **powershell_package** resource to install and manage packages via the PowerShell Package Manager for the Microsoft Windows platform.  The **powershell_package** resource requires administrative access, and a source must be configured in the PowerShell Package Manager via the `Register-PackageSource <https://docs.microsoft.com/en-us/powershell/module/packagemanagement/register-packagesource?view=powershell-5.1>`_ command or the `powershell_package_source </resource_powershell_package_source.html>`__ resource.
 
-**Available in Chef Client 12.16 and above**
+**New in Chef Client 12.16.**
 
 Syntax
 =====================================================
@@ -17,7 +17,7 @@ A **powershell_package** resource block manages a package on a node, typically b
 
 which will install the named package using all of the default options and the default action (``:install``).
 
-The full syntax for all of the properties that are available to the **powershell_package** resource:
+The powershell_package resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -33,9 +33,9 @@ The full syntax for all of the properties that are available to the **powershell
 
 where:
 
-* ``powershell_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``powershell_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``package_name``, ``version``, ``source``, ``notifies``, and ``subscribes`` are properties of this resource, with the Ruby type shown. See the "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -49,20 +49,20 @@ Actions
 Properties
 =====================================================
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the name of the resource block.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
 ``source``
-   **Ruby Types:** String
-   
+   **Ruby Type:** String
+
    Specify the source of the package.
-   
+
    New in Chef Client 14.0.
 
 ``notifies``
@@ -147,7 +147,7 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-  
+
 Examples
 =====================================================
 **Install a specific version of a package:**
@@ -167,7 +167,7 @@ Examples
      action :install
      package_name %w(xCertificate xNetworking)
    end
-   
+
 **Install a package from a custom source:**
 
 .. code-block:: ruby

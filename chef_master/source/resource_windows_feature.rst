@@ -1,5 +1,5 @@
 =====================================================
-windows_feature
+windows_feature resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_feature.rst>`__
 
@@ -9,62 +9,62 @@ Use the windows_feature resource to add, remove or entirely delete Windows featu
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_feature resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_feature 'name' do
-     all                        True, False # default value: 'false'
-     feature_name               Array, String # default value: 'name'
-     management_tools           True, False # default value: 'false'
-     notifies                   # see description
-     source                     String
-     subscribes                 # see description
-     timeout                    Integer # default value: '600'
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_feature 'name' do
+    all                   true, false # default value: false
+    feature_name          Array, String # default value: 'name' unless specified
+    install_method        Symbol
+    management_tools      true, false # default value: false
+    source                String
+    timeout               Integer # default value: 600
+    action                Symbol # defaults to :install if not specified
+  end
 
 where:
 
-* ``windows_feature`` is the resource
-* ``'name'`` is the name of the startup program, or the name of the resource block
-* ``all``, ``feature_name``, ``management_tools``, ``notifies``, ``source``, ``subscribes``, and ``timeout`` are the properties available to this resource
+* ``windows_feature`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``all``, ``feature_name``, ``install_method``, ``management_tools``, ``source``, and ``timeout`` are the properties available to this resource.
 
 Actions
 =====================================================
 ``:install``
-   Default. Install a Windows role / feature using Powershell.
-   
+   Default. Install a Windows role / feature using PowerShell.
+
 ``:remove``
-   Remove a Windows role / feature using Powershell.
-   
+   Remove a Windows role / feature using PowerShell.
+
 ``:delete``
-   Delete a Windows role / feature from the image using Powershell.
-   
+   Delete a Windows role / feature from the image using PowerShell.
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 ``all``
    **Ruby Type:** True, False | **Default Value:** ``false``
-   
+
    Install all subfeatures.
-   
+
 ``feature_name``
-   **Ruby Types:** String, Array | **Default Value:** ``'name'``
-   
+   **Ruby Type:** Array, String | **Default Value:** ``'name'``
+
    The name of the feature(s) or role(s) to install, if it differs from the resource block name.
-   
+
 ``management_tools``
-   **Ruby Type:** True, False | **Default Value:** ``false``
-   
-   Install all applicable management tools for the roles, role services, or features (Powershell-only).
-   
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Install all applicable management tools for the roles, role services, or features (PowerShell-only).
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -98,12 +98,12 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``source``
    **Ruby Type:** String
-   
-   Specify a local repository for the feature install. 
-   
+
+   Specify a local repository for the feature install.
+
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -152,8 +152,8 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``timeout``
    **Ruby Type:** Integer | **Default Value:** ``600``
-   
+
    Specifies a timeout (in seconds) for the feature installation.

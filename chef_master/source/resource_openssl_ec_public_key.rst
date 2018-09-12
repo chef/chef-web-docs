@@ -1,5 +1,5 @@
 =====================================================
-openssl_ec_public_key
+openssl_ec_public_key resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_public_key.rst>`__
 
@@ -9,28 +9,27 @@ Use the **openssl_ec_public_key** resource to generate elliptic curve (EC) publi
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_ec_public_key resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_ec_public_key 'name' do
-     group                      String
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     owner                      String
-     path                       String
-     private_key_content        String
-     private_key_pass           String
-     private_key_path           String
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  openssl_ec_public_key 'name' do
+    group                    String
+    mode                     Integer, String # default value: 0640
+    owner                    String
+    path                     String # default value: 'name' unless specified
+    private_key_content      String
+    private_key_pass         String
+    private_key_path         String
+    action                   Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_ec_public_key`` is the name of the resource
-* ``name`` is the path to the public key file that is to be created, or the name of the resource block
-* ``group``, ``mode``, ``notifies``, ``owner``, ``path``, ``private_key_content``, ``private_key_pass``, ``private_key_path``, and ``subscribes`` are the properties available to this resource
+* ``openssl_ec_public_key`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``group``, ``mode``, ``owner``, ``path``, ``private_key_content``, ``private_key_pass``, and ``private_key_path`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -47,14 +46,14 @@ Actions
 Properties
 =====================================================
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group ownership applied to all files created by the resource.
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String | **Default Value:** ``0640``
 
-   The permission mode of all files created by the resource.
+   The permission mode applied to all files created by the resource.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -91,9 +90,9 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system user that owns all files created by the resource.
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String
@@ -108,7 +107,7 @@ Properties
 ``private_key_pass``
    **Ruby Type:** String
 
-   The passphrase of the private key.
+   The passphrase of the provided private key.
 
 ``private_key_path``
    **Ruby Type:** String

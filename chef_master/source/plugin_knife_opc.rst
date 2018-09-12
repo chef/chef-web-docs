@@ -5,9 +5,7 @@ knife opc
 
 .. tag plugin_knife_opc_summary
 
-The ``knife opc`` subcommand is used to manage organizations and users in Chef server 12.
-
-.. note:: The ``knife-opc`` plugin ships in ChefDK 1.0 and later. If you use an older version, please upgrade, or install ``knife-opc`` from RubyGems manually.
+The ``knife opc`` subcommand is used to manage organizations and users in Chef Server 12.
 
 .. note:: Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef server. `See chef-server-ctl for details </ctl_chef_server.html>`__.
 
@@ -17,7 +15,7 @@ The ``knife opc`` subcommand is used to manage organizations and users in Chef s
 
 .. _plugin_knife_opc-knife-rb-configuration:
 
-knife.rb Configuration
+config.rb Configuration
 =====================================================
 Unlike other knife subcommands the subcommands in the knife-opc plugin make API calls against the root of your Chef server installation's API endpoint.
 

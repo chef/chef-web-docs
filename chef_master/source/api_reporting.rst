@@ -78,7 +78,7 @@ Chef server versions 12.4.0 and above support signing protocol version 1.3, whic
 
    authentication_protocol_version = '1.3'
 
-And on Chef knife via ``knife.rb``:
+And on Chef knife via ``config.rb``:
 
 .. code-block:: ruby
 
@@ -647,4 +647,3 @@ The response is similar to:
      - Invalid request. The protocol version is incorrect.
 
 .. end_tag
-

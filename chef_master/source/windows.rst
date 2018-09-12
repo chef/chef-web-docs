@@ -3,57 +3,13 @@ Chef for Microsoft Windows
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/windows.rst>`__
 
-.. note:: This page collects information about Chef that is specific to using Chef with Microsoft Windows.
-
 The chef-client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
 
-* The chef-client is `installed on a machine <https://downloads.chef.io/chef-client/windows/>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
-* Six resources dedicated to the Microsoft Windows platform are built into the chef-client: **batch**, **dsc_script**, **env**, **powershell_script**, **registry_key**, and **windows_package**
-* Use the **dsc_resource** to use Powershell DSC resources in Chef!
+* The chef-client is `installed on a machine <https://downloads.chef.io/chef>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
+* Over a dozen resources dedicated to the Microsoft Windows platform are built into the chef-client.
+* Use the **dsc_resource** to use PowerShell DSC resources in Chef!
 * Two knife plugins dedicated to the Microsoft Windows platform are available: ``knife azure`` is used to manage virtual instances in Microsoft Azure; ``knife windows`` is used to interact with and manage physical nodes that are running Microsoft Windows, such as desktops and servers
 * Many community cookbooks on Supermarket provide Windows specific support. Chef maintains cookbooks for `PowerShell <https://github.com/chef-cookbooks/powershell>`_, `IIS <https://github.com/chef-cookbooks/iis>`_, `SQL Server <https://github.com/chef-cookbooks/database>`_, and `Windows <https://github.com/chef-cookbooks/windows>`_.
-* The following Microsoft Windows platform-specific helpers can be used in recipes:
-
-  .. list-table::
-     :widths: 200 300
-     :header-rows: 1
-
-     * - Helper
-       - Description
-     * - ``cluster?``
-       - Use to test for a Cluster SKU (Windows Server 2003 and later).
-     * - ``core?``
-       - Use to test for a Core SKU (Windows Server 2003 and later).
-     * - ``datacenter?``
-       - Use to test for a Datacenter SKU.
-     * - ``marketing_name``
-       - Use to display the marketing name for a Microsoft Windows platform.
-     * - ``windows_7?``
-       - Use to test for Windows 7.
-     * - ``windows_8?``
-       - Use to test for Windows 8.
-     * - ``windows_8_1?``
-       - Use to test for Windows 8.1.
-     * - ``windows_2000?``
-       - Use to test for Windows 2000.
-     * - ``windows_home_server?``
-       - Use to test for Windows Home Server.
-     * - ``windows_server_2003?``
-       - Use to test for Windows Server 2003.
-     * - ``windows_server_2003_r2?``
-       - Use to test for Windows Server 2003 R2.
-     * - ``windows_server_2008?``
-       - Use to test for Windows Server 2008.
-     * - ``windows_server_2008_r2?``
-       - Use to test for Windows Server 2008 R2.
-     * - ``windows_server_2012?``
-       - Use to test for Windows Server 2012.
-     * - ``windows_server_2012_r2?``
-       - Use to test for Windows Server 2012 R2.
-     * - ``windows_vista?``
-       - Use to test for Windows Vista.
-     * - ``windows_xp?``
-       - Use to test for Windows XP.
 * Two community provisioners for Kitchen: `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`_ and `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`_
 
 The most popular core resources in the chef-client---`cookbook_file </resource_cookbook_file.html>`__, `directory </resource_directory.html>`__, `env </resource_env.html>`__, `execute </resource_execute.html>`__, `file </resource_file.html>`__, `group </resource_group.html>`__, `http_request </resource_http_request.html>`__, `link </resource_link.html>`__, `mount </resource_mount.html>`__, `package </resource_package.html>`__, `remote_directory </resource_remote_directory.html>`__, `remote_file </resource_remote_file.html>`__, `ruby_block </resource_ruby_block.html>`__, `service </resource_service.html>`__, `template </resource_template.html>`__, and `user </resource_user.html>`__---work the same way in Microsoft Windows as they do on any UNIX- or Linux-based platform.
@@ -88,12 +44,12 @@ The chef-client can be used to manage machines that run on the following version
      - Version
      - Architecture
    * - Windows
-     - 2008 R2, 2012, 2012 R2
+     - 2008 R2, 2012, 2012 R2, 2016
      - x86_64
 
-(The recommended amount of RAM available to the chef-client during a chef-client run is 512MB. Each node and workstation must have access to the Chef server via HTTPS. Ruby version 1.9.1 or Ruby version 1.9.2 with SSL bindings is required.)
+(The recommended amount of RAM available to the chef-client during a chef-client run is 512MB. Each node and workstation must have access to the Chef server via HTTPS.)
 
-The Microsoft Installer Package (MSI) for Microsoft Windows is available at http://www.chef.io/chef/install/. From the drop-downs, select the operating system (``Windows``), then the version, and then the architecture.
+The Microsoft Installer Package (MSI) for Microsoft Windows is available at https://downloads.chef.io/chef.
 
 After the chef-client is installed, it is located at ``C:\chef``. The main configuration file for the chef-client is located at ``C:\chef\client.rb``.
 
@@ -113,7 +69,7 @@ Spaces and Directories
 -----------------------------------------------------
 .. tag windows_spaces_and_directories
 
-Directories that are used by Chef on Windows cannot have spaces. For example, ``C:\Users\Steven Danno`` will not work, but ``C:\Users\StevenDanno`` will. Because of this, the ``knife cookbook site install`` subcommand will fail if the directory contains a space.
+Directories that are used by Chef on Windows cannot have spaces. For example, ``C:\Users\Steven Danno`` will not work, but ``C:\Users\StevenDanno`` will. Because of this, the ``knife supermarket install`` subcommand will fail if the directory contains a space.
 
 .. end_tag
 
@@ -194,53 +150,7 @@ OR
 
 Use MSI Installer
 -----------------------------------------------------
-A Microsoft Installer Package (MSI) is available for installing the chef-client on a Microsoft Windows machine.
-
-.. tag install_chef_client_windows
-
-To install the chef-client on Microsoft Windows, do the following:
-
-#. Go to https://downloads.chef.io/chef.
-
-#. Click the **Chef Client** tab.
-
-#. Select **Windows**, a version, and an architecture.
-
-#. Under **Downloads**, select the version of the chef-client to download, and then click the link that appears below to download the package.
-
-#. Ensure that the MSI is on the target node.
-
-#. Run the MSI package and use all the default options:
-
-   .. image:: ../../images/step_install_windows_01.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_02.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_03.png
-
-   .. note:: The MSI can either configure the chef-client to run as a scheduled task or as a service for it to be able to regularly check in with the Chef server. Using a scheduled task is a recommended approach. Select the **Chef Unattended Execution Options** option to have the MSI configure the chef-client as a scheduled task or as a service.
-
-then:
-
-   .. image:: ../../images/step_install_windows_04.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_05.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_06.png
-
-then:
-
-   .. image:: ../../images/step_install_windows_07.png
-
-.. end_tag
+A Microsoft Installer Package (MSI) is available for installing the chef-client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/>`__.
 
 Enable as a Scheduled Task
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -259,26 +169,6 @@ Refer `Schedule a Task <https://technet.microsoft.com/en-us/library/cc748993%28v
 After the chef-client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
 
 Using a scheduled task is a recommended approach. Refer to `Should I run chef-client on Windows as a 'service' or a 'scheduled task'? <https://getchef.zendesk.com/hc/en-us/articles/205233360-Should-I-run-chef-client-on-Windows-as-a-service-or-a-scheduled-task->`_ for additional information on the differences between the two approaches.
-
-.. end_tag
-
-Enable as a Service
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag install_chef_client_windows_as_service
-
-To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a service. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Client Service** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
-
-.. code-block:: bash
-
-   $ chef-service-manager -a install
-
-and then start the chef-client as a service:
-
-.. code-block:: bash
-
-   $ chef-service-manager -a start
-
-After the chef-client is configured to run as a service, the default file path is: ``c:\chef\chef-client.log``.
 
 .. end_tag
 
@@ -354,188 +244,6 @@ To configure proxy settings in Microsoft Windows:
 
 .. end_tag
 
-Microsoft Azure portal
-=====================================================
-
-.. tag cloud_azure_portal
-
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. Through the Azure Marketplace and the `Azure portal <https://portal.azure.com/>`_, virtual machines can be bootstrapped and ready to run Chef Automate, Chef Compliance and Chef client.
-
-.. end_tag
-
-.. tag cloud_azure_portal_platforms
-
-Through the Azure portal, you can provision a virtual machine with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
-
-.. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
-
-.. end_tag
-
-chef-client Settings
------------------------------------------------------
-.. tag cloud_azure_portal_settings_chef_client
-
-Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
-
-* The ``chef_server_url`` and ``validation_client_name``. These are settings in the `client.rb file </config_rb_client.html>`__.
-
-* The file for the `validator key </chef_private_keys.html>`__.
-
-.. end_tag
-
-Set up Virtual Machines
------------------------------------------------------
-.. tag cloud_azure_portal_virtual_machines
-
-Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef using the following steps:
-
-#. Sign in to the `Azure portal <https://portal.azure.com/>`_ and authenticate using your Microsoft Azure account credentials.
-
-#. Choose **Virtual Machines** in the left pane of the portal.
-
-#. Click the **Add** option at the top of the blade.
-
-#. Select either **Windows Server** or **Ubuntu Server** in the **Recommended** category.
-
-   .. note:: The Chef extension on the Azure portal may be used on the following platforms:
-
-      * Windows Server 2008 R2 SP1, 2012, 2012 R2, 2016
-      * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 16.10
-      * CentOS 6.5+
-      * RHEL 6+
-      * Debian 7, 8
-
-#. In the next blade, select the sku/version of the OS that you would like to use on your VM and click **Create**.
-
-#. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on.
-
-   .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
-
-#. In Step 3 on the portal UI, open the **Extensions** blade and click ``Add extension``.
-
-#. Depending on the OS you selected earlier, select either **Windows Chef Extension** or **Linux Chef Extension** and then **Create**.
-
-#. Using the ``chef-repo/.chef/knife.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
-
-#. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).
-
-#. Upload it through the portal in the **Validation Key** field.
-
-   .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box.
-
-#. For **Client Configuration File**, browse to the ``chef-repo/.chef/knife.rb`` file and upload it through your web browser.
-
-   .. note:: Same directory issue from previous step applies here as well. Also, the ``knife.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
-
-#. Optional. `Use a run-list </run_lists.html>`__ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
-
-   .. code-block:: ruby
-
-      iis
-
-   or:
-
-   .. code-block:: ruby
-
-      iis::default
-
-   or:
-
-   .. code-block:: ruby
-
-      recipe['iis']
-
-   A run-list can also be built using a role. For example, if a role named ``backend_server`` is defined on the Chef server, the run-list would look like:
-
-   .. code-block:: ruby
-
-      role['backend_server']
-
-   Even without a run-list, the virtual machine will periodically check with the Chef server to see if the configuration requirements change. This means that the run-list can be updated later, by editing the run-list to add the desired run-list items by using the Chef server web user interface or by using the knife command line tool.
-
-   .. note:: A run-list may only refer to roles and/or recipes that have already been uploaded to the Chef server.
-
-#. Click **OK** to complete the page. Click **OK** in the Extensions blade and the rest of the setup blades. Provisioning will begin and the portal will the blade for your new VM.
-
-After the process is complete, the virtual machine will be registered with the Chef server and it will have been provisioned with the configuration (applications, services, etc.) from the specified run-list. The Chef server can now be used to perform all ongoing management of the virtual machine node.
-
-.. end_tag
-
-Log Files
------------------------------------------------------
-.. tag cloud_azure_portal_log_files
-
-If the Azure portal displays an error in dashboard, check the log files. The log files are created by the chef-client. The log files can be accessed from within the Azure portal or by running the chef-client on the node itself and then reproducing the issue interactively.
-
-.. end_tag
-
-From the Azure portal
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag cloud_azure_portal_log_files_azure_portal
-
-Log files are available from within the Azure portal:
-
-#. Select **Virtual Machines** in the left pane of the Azure portal.
-
-#. Select the virtual machine that has the error status.
-
-#. Click the **Connect** button at the bottom of the portal to launch a Windows Remote Desktop session, and then log in to the virtual machine.
-
-#. Start up a Windows PowerShell command shell.
-
-   .. code-block:: bash
-
-      $ cd c:\windowsazure\logs
-        ls –r chef*.log
-
-#. This should display the log files, including the chef-client log file.
-
-.. end_tag
-
-From the chef-client
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag cloud_azure_portal_log_files_chef_client
-
-The chef-client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then running the chef-client:
-
-#. Log into the virtual machine.
-
-#. Start up a Windows PowerShell command shell.
-
-#. Run the following command:
-
-   .. code-block:: bash
-
-      $ chef-client -l debug
-
-#. View the logs. On a linux system, the Chef client logs are saved to ``/var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/<extension-version-number>/chef-client.log`` and can be viewed using the following command:
-
-   .. code-block:: bash
-
-      $ tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
-
-.. end_tag
-
-Troubleshoot Log Files
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag cloud_azure_portal_log_files_troubleshoot
-
-After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
-
-* Connectivity errors with the Chef server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
-* An invalid validator key has been specified. This will prevent the chef-client from authenticating to the Chef server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
-* The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
-* An error in one the run-list. The log file will specify the details about errors related to the run-list.
-
-.. end_tag
-
-For more information ...
------------------------------------------------------
-For more information about Microsoft Azure and how to use it with Chef:
-
-* `Microsoft Azure Documentation <http://www.windowsazure.com/en-us/documentation/services/virtual-machines/>`_
-* `azure-cookbook <https://github.com/chef-partners/azure-cookbook>`_
-
 Knife
 =====================================================
 .. tag knife_summary
@@ -578,17 +286,17 @@ Changes to that file can then be made:
      "description": "I am passing the time by letting time pass over me ..."
    }
 
-The type of text editor that is used by knife can be configured by adding an entry to your knife.rb file, or by setting an ``EDITOR`` environment variable. For example, to configure knife to open the ``vim`` text editor, add the following to your knife.rb file:
+The type of text editor that is used by knife can be configured by adding an entry to your config.rb file, or by setting an ``EDITOR`` environment variable. For example, to configure knife to open the ``vim`` text editor, add the following to your config.rb file:
 
 .. code-block:: ruby
 
    knife[:editor] = "/usr/bin/vim"
 
-When a Microsoft Windows file path is enclosed in a double-quoted string (" "), the same backslash character (``\``) that is used to define the file path separator is also used in Ruby to define an escape character. The knife.rb file is a Ruby file; therefore, file path separators must be escaped. In addition, spaces in the file path must be replaced with ``~1`` so that the length of each section within the file path is not more than 8 characters. For example, if EditPad Pro is the text editor of choice and is located at the following path::
+When a Microsoft Windows file path is enclosed in a double-quoted string (" "), the same backslash character (``\``) that is used to define the file path separator is also used in Ruby to define an escape character. The config.rb file is a Ruby file; therefore, file path separators must be escaped. In addition, spaces in the file path must be replaced with ``~1`` so that the length of each section within the file path is not more than 8 characters. For example, if EditPad Pro is the text editor of choice and is located at the following path::
 
    C:\\Program Files (x86)\EditPad Pro\EditPad.exe
 
-the setting in the knife.rb file would be similar to:
+the setting in the config.rb file would be similar to:
 
 .. code-block:: ruby
 
@@ -763,6 +471,15 @@ This subcommand has the following options:
 
    .. note:: This option is used internally by Chef to help verify bootstrap operations during testing and should never be used during an actual bootstrap operation.
 
+``--bootstrap-preinstall-command COMMANDS``
+   Custom commands to run before installing chef-client
+
+``--bootstrap-proxy-pass PROXY_PASS``
+   The proxy authentication password for the node being bootstrapped
+
+``--bootstrap-proxy-user PROXY_USER``
+   The proxy authentication username for the node being bootstrapped
+
 ``--bootstrap-proxy PROXY_URL``
    The proxy server for the node that is the target of a bootstrap operation.
 
@@ -904,7 +621,7 @@ This subcommand has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -1121,32 +838,6 @@ This argument has the following options:
 
 ``--cert-path PATH``
    The path to the location of the SSL certificate.
-
-``-d DISTRO``, ``--distro DISTRO``
-   .. tag knife_bootstrap_distro
-
-   The template file to be used during a bootstrap operation. The following distributions are supported:
-
-   * ``chef-full`` (the default bootstrap)
-   * ``centos5-gems``
-   * ``fedora13-gems``
-   * ``ubuntu10.04-gems``
-   * ``ubuntu10.04-apt``
-   * ``ubuntu12.04-gems``
-   * The name of a custom bootstrap template file.
-
-   When this option is used, knife searches for the template file in the following order:
-
-   #. The ``bootstrap/`` folder in the current working directory
-   #. The ``bootstrap/`` folder in the chef-repo
-   #. The ``bootstrap/`` folder in the ``~/.chef/`` directory
-   #. A default bootstrap file.
-
-   Do not use the ``--template-file`` option when ``--distro`` is specified.
-
-   .. end_tag
-
-   Deprecated in Chef Client 12.0,
 
 ``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
    The host name for the virtual machine.
@@ -1550,7 +1241,7 @@ Requirements
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag plugin_knife_windows_winrm_requirements
 
-This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: http://msdn.microsoft.com/en-us/library/aa384372(v=vs.85).aspx and/or http://support.microsoft.com/kb/968930. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
+This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management and/or https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
 
 .. code-block:: bash
 
@@ -1618,7 +1309,7 @@ Domain Authentication
 The ``knife windows`` plugin supports Microsoft Windows domain authentication. This requires:
 
 * An SSL certificate on the target node
-* The certificate details can be viewed and its `thumbprint hex values copied <http://msdn.microsoft.com/en-us/library/ms788967.aspx>`_
+* The certificate details can be viewed and its `thumbprint hex values copied <https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in>`_
 
 To create the listener over HTTPS, run the following command:
 
@@ -1680,32 +1371,6 @@ This argument has the following options:
 ``--bootstrap-version VERSION``
    The version of the chef-client to install.
 
-``-d DISTRO``, ``--distro DISTRO``
-   .. tag knife_bootstrap_distro
-
-   The template file to be used during a bootstrap operation. The following distributions are supported:
-
-   * ``chef-full`` (the default bootstrap)
-   * ``centos5-gems``
-   * ``fedora13-gems``
-   * ``ubuntu10.04-gems``
-   * ``ubuntu10.04-apt``
-   * ``ubuntu12.04-gems``
-   * The name of a custom bootstrap template file.
-
-   When this option is used, knife searches for the template file in the following order:
-
-   #. The ``bootstrap/`` folder in the current working directory
-   #. The ``bootstrap/`` folder in the chef-repo
-   #. The ``bootstrap/`` folder in the ``~/.chef/`` directory
-   #. A default bootstrap file.
-
-   Do not use the ``--template-file`` option when ``--distro`` is specified.
-
-   .. end_tag
-
-   Deprecated in Chef Client 12.0. Removed in Chef Client 14.0
-
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
@@ -1738,11 +1403,6 @@ This argument has the following options:
 
 ``--secret-file SECRET_FILE``
    The path to the file that contains the encryption key.
-
-``--template-file TEMPLATE``
-   The path to a template file to be used during a bootstrap operation.
-
-   Deprecated in Chef Client 12.0. Removed in Chef Client 14.0
 
 ``-x USER_NAME``, ``--ssh-user USER_NAME``
    The SSH user name.
@@ -2205,7 +1865,7 @@ This resource has the following actions:
 
 .. end_tag
 
-Attributes
+Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_batch_attributes
 
@@ -2381,7 +2041,7 @@ This resource has the following properties:
    *Windows only*: The domain of the user user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
-.. note:: See http://technet.microsoft.com/en-us/library/bb490880.aspx for more information about the cmd.exe interpreter.
+.. note:: See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd for more information about the cmd.exe interpreter.
 
 .. end_tag
 
@@ -2443,7 +2103,7 @@ A `resource </resource.html>`__ defines the desired state for a single configura
 
 .. tag resources_common_powershell_dsc
 
-Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
+Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <https://docs.microsoft.com/en-us/powershell/dsc/overview>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
 
 .. end_tag
 
@@ -2538,7 +2198,7 @@ This resource has the following properties:
 ``module_version``
    **Ruby Type:** String
 
-   The version number of the module to use. Powershell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
+   The version number of the module to use. PowerShell 5.0.10018.0 (or higher) supports having multiple versions of a module installed. This should be specified along with the ``module_name``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -2640,7 +2300,7 @@ This resource has the following properties:
       * - ``:registry``
         - Use to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
       * - ``:script``
-        - Use to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
+        - Use to `run PowerShell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
       * - ``:service``
         - Use to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
       * - ``:user``
@@ -2840,13 +2500,13 @@ A `resource </resource.html>`__ defines the desired state for a single configura
 
 .. tag resources_common_powershell
 
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting>`_ that supports using Chef for configuration management.
 
 .. end_tag
 
 .. tag resources_common_powershell_dsc
 
-Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
+Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <https://docs.microsoft.com/en-us/powershell/dsc/overview>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
 
 .. end_tag
 
@@ -2950,7 +2610,7 @@ This resource has the following properties:
 ``configuration_data``
    **Ruby Type:** String
 
-   The configuration data for the DSC script. The configuration data must be `a valid Windows Powershell data file <http://msdn.microsoft.com/en-us/library/dd878337(v=vs.85).aspx>`_. This property may not be used in the same recipe as the ``configuration_data_script`` property.
+   The configuration data for the DSC script. The configuration data must be `a valid Windows PowerShell data file <https://docs.microsoft.com/en-us/powershell/developer/windows-powershell>`_. This property may not be used in the same recipe as the ``configuration_data_script`` property.
 
 ``configuration_data_script``
    **Ruby Type:** String
@@ -3137,7 +2797,7 @@ DSC data can be specified directly in a recipe:
 
 .. end_tag
 
-**Specify DSC code using a Windows Powershell data file**
+**Specify DSC code using a Windows PowerShell data file**
 
 .. tag resource_dsc_script_command
 
@@ -4513,26 +4173,27 @@ The full syntax for all of the properties that are available to the **windows_pa
 
 .. code-block:: ruby
 
-   windows_package 'name' do
-     checksum                   String
-     installer_type             Symbol
-     notifies                   # see description
-     options                    String
-     remote_file_attributes     Hash
-     returns                    Integer, Array of integers
-     source                     String # defaults to 'name' if not specified
-     subscribes                 # see description
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_package 'name' do
+    checksum                     String
+    installer_type               Symbol
+    options                      String
+    package_name                 String, Array
+    remote_file_attributes       Hash
+    response_file                String
+    response_file_variables      Hash
+    returns                      String, Integer, Array # default value: [0]
+    source                       String
+    timeout                      String, Integer # default value: 600
+    version                      String, Array
+    action                       Symbol # defaults to :install if not specified
+  end
 
-where
+where:
 
-* ``windows_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``windows_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``response_file``, ``response_file_variables``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 .. end_tag
 
@@ -4853,11 +4514,12 @@ The full syntax for all of the properties that are available to the **windows_se
 
    windows_service 'name' do
      binary_path_name           String
-     display_name               String
      desired_access             Integer
      delayed_start              [Integer] # This only applies if startup_type is :automatic
      dependencies               [String, Array]
      description                String
+     desired_access             Integer # defaults to 983551
+     display_name               String
      error_control              Integer
      init_command               String
      load_order_group           String
@@ -4879,7 +4541,7 @@ The full syntax for all of the properties that are available to the **windows_se
      action                     Symbol # defaults to :nothing if not specified
    end
 
-where
+where:
 
 * ``windows_service`` is the resource
 * ``name`` is the name of the resource block
@@ -5604,6 +5266,6 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 
 .. end_tag
 
-knife.rb
+config.rb
 =====================================================
-When running Microsoft Windows, the knife.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\.chef``.
+When running Microsoft Windows, the config.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\.chef``.

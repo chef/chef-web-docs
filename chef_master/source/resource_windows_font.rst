@@ -1,5 +1,5 @@
 =====================================================
-windows_font
+windows_font resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_font.rst>`__
 
@@ -9,43 +9,42 @@ Use the **windows_font** resource to install font files on Windows. By default, 
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_font resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_font 'name' do
-     font_name                  String # default value: 'name'
-     notifies                   # see description
-     source                     String
-     subscribes                 # see description
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_font 'name' do
+    font_name      String # default value: 'name' unless specified
+    source         String
+    action         Symbol # defaults to :install if not specified
+  end
 
 where:
 
-* ``windows_font`` is the resource
-* ``'name'`` is the name of the font file, or the name of the resource block
-* ``font_name``, ``notifies``, ``source``, and ``subscribes`` are the properties available to this resource
+* ``windows_font`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``font_name`` and ``source`` are the properties available to this resource.
 
 Actions
 =====================================================
 ``:install``
-   Default. Install the font to the system fonts directory. 
-   
+   Default. Install the font to the system fonts directory.
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 ``font_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
-   
+
    The name of the font file to install, if it differs from the resource name.
-   
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -79,10 +78,10 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``source``
    **Ruby Type:** String
-   
+
    A local filesystem path or URI that is used to source the font file.
 
 ``subscribes``
@@ -133,4 +132,3 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-

@@ -1,5 +1,5 @@
 =====================================================
-openssl_x509_crl
+openssl_x509_crl resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_x509_crl.rst>`__
 
@@ -9,31 +9,31 @@ Use the **openssl_x509_crl** resource to generate PEM-formatted x509 certificate
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_x509_crl resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_x509_crl 'name' do
-     ca_cert_file               String # required
-     ca_key_file                String # required
-     ca_key_pass                String
-     expire                     Integer # default value: 8
-     group                      String
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     owner                      String
-     path                       String # default value: 'name'
-     renewal_threshold          Integer # default value: 1
-     revocation_reason          Integer # default value: 0
-     serial_to_revoke           Integer, String
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+  openssl_x509_crl 'name' do
+    ca_cert_file           String
+    ca_key_file            String
+    ca_key_pass            String
+    expire                 Integer # default value: 8
+    group                  String
+    mode                   Integer, String
+    owner                  String
+    path                   String # default value: 'name' unless specified
+    renewal_threshold      Integer # default value: 1
+    revocation_reason      Integer # default value: 0
+    serial_to_revoke       Integer, String
+    action                 Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_x509_crl`` is the name of the resource
-* ``'name'`` is the path where the crl file will be written, or the name of the resource block
-* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``expire``, ``group``, ``mode``, ``notifies``, ``owner``, ``path``, ``renewal_threshold``, ``revocation_reason``, ``serial_to_revoke``, and ``subscribes`` are the properties available to this resource
+* ``openssl_x509_crl`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``expire``, ``group``, ``mode``, ``owner``, ``path``, ``renewal_threshold``, ``revocation_reason``, and ``serial_to_revoke`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -50,34 +50,34 @@ Actions
 Properties
 =====================================================
 ``ca_cert_file``
-   **Ruby Types:** Integer
+   **Ruby Type:** String
 
-   Required. The path to the CA X509 Certificate on the filesystem.
+   The path to the CA X509 Certificate on the filesystem. If the ca_cert_file property is specified, the ca_key_file property must also be specified, the CRL will be signed with them.
 
 ``ca_key_file``
-   **Ruby Types:** Integer
+   **Ruby Type:** String
 
-   Required. The path to the CA private key on the filesystem.
+   The path to the CA private key on the filesystem. If the ca_key_file property is specified, the ca_cert_file property must also be specified, the CRL will be signed with them.
 
 ``ca_key_pass``
-   **Ruby Types:** Integer
+   **Ruby Type:** String
 
-   The passphrase for CA private key's passphrase
+   The passphrase for CA private key's passphrase.
 
 ``expire``
-   **Ruby Types:** Integer | **Default Value:** ``8``
+   **Ruby Type:** Integer | **Default Value:** ``8``
 
    Value representing the number of days from now through which the issued CRL will remain valid. The CRL will expire after this period.
 
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group permission for the CRL file.
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String
 
-   The permission mode applied to all files created by the resource.
+   The permission mode of the CRL file.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -114,9 +114,9 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The owner of all files created by the resource.
+   The owner permission for the CRL file.
 
 ``path``
    **Ruby Type:** String
@@ -124,17 +124,17 @@ Properties
    The path to write the file to, if it differs from the resource name.
 
 ``renewal_threshold``
-   **Ruby Types:** Integer | **Default Value:** ``1``
+   **Ruby Type:** Integer | **Default Value:** ``1``
 
-   Number of days before the expiration. It this threshold is reached, the CRL will be renewed
+   Number of days before the expiration. It this threshold is reached, the CRL will be renewed.
 
 ``revocation_reason``
-   **Ruby Types:** Integer | **Default Value:** ``0``
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   Reason for the revokation.
+   Reason for the revocation.
 
 ``serial_to_revoke``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Serial of the X509 Certificate to revoke.
 

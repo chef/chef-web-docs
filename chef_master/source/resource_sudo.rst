@@ -1,5 +1,5 @@
 =====================================================
-sudo
+sudo resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_sudo.rst>`__
 
@@ -9,38 +9,38 @@ Use the **sudo** resource to add or remove individual sudo entries using ``sudoe
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The sudo resource has the following syntax:
 
 .. code-block:: ruby
 
-   sudo 'name' do
-     commands                   Array # default value: 'ALL'
-     command_aliases            Array # default value: []
-     config_prefix              String # see description
-     defaults                   Array # default value: []
-     env_keep_add               Array # default value: []
-     env_keep_subtract          Array # default value: []
-     filename                   String # default value: The resource's name
-     groups                     String, Array # default value: []
-     host                       String # default value: 'ALL'
-     noexec                     True, False # default value: 'false'
-     nopasswd                   True, False #default value: 'false'
-     notifies                   # see description
-     runas                      String # default value: 'ALL'
-     setenv                     True, False # default value: 'false'
-     subscribes                 # see description
-     template                   String
-     users                      String, Array # default value: []
-     variables                  Hash, nil # default value: nil
-     visudo_binary              String # default value: '/usr/bin/visudo'
-     action                     Symbol # defaults to :create if not specified
+  sudo 'name' do
+    command_aliases        Array
+    commands               Array # default value: ["ALL"]
+    config_prefix          String
+    defaults               Array
+    env_keep_add           Array
+    env_keep_subtract      Array
+    filename               String # default value: 'name' unless specified
+    groups                 String, Array
+    host                   String # default value: ALL
+    noexec                 true, false # default value: false
+    nopasswd               true, false # default value: false
+    runas                  String # default value: ALL
+    setenv                 true, false # default value: false
+    template               String
+    users                  String, Array
+    variables              Hash, nil
+    visudo_binary          String # default value: /usr/sbin/visudo
+    visudo_path            String
+    action                 Symbol # defaults to :create if not specified
   end
 
 where:
 
-* ``sudo`` is the resource
-* ``name`` is the name of the ``sudoers.d`` file, or the name of the resource block
-* ``commands``, ``command_aliases``, ``config_prefix``, ``defaults``, ``env_keep_add``, ``env_keep_subtract``, ``filename``, ``groups``, ``host``, ``noexec``, ``nopasswd``, ``notifies``, ``runas``, ``setenv``, ``subscribes``, ``template``, ``users``, ``variables``, and ``visudo_binary`` are the properties available to this resource
+* ``sudo`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``command_aliases``, ``commands``, ``config_prefix``, ``defaults``, ``env_keep_add``, ``env_keep_subtract``, ``filename``, ``groups``, ``host``, ``noexec``, ``nopasswd``, ``runas``, ``setenv``, ``template``, ``users``, ``variables``, ``visudo_binary``, and ``visudo_path`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -60,7 +60,7 @@ Actions
 Properties
 =====================================================
 ``commands``
-   **Ruby Type:** Array | **Default Value:** ``"ALL"``
+   **Ruby Type:** Array | **Default Value:** ``["ALL"]``
 
    An array of commands this sudoer can execute.
 

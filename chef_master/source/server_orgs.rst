@@ -76,7 +76,7 @@ A single instance of the Chef server can support many organizations. Each organi
 A user may belong to multiple organizations under the following conditions:
 
 * Role-based access control is configured per-organization
-* For a single user to interact with the Chef server using knife from the same chef-repo, that user may need to edit their knife.rb file prior to that interaction
+* For a single user to interact with the Chef server using knife from the same chef-repo, that user may need to edit their config.rb file prior to that interaction
 
 .. end_tag
 
@@ -164,7 +164,7 @@ Use the following code to set the correct permissions:
    require 'chef/knife'
    require 'chef/rest'
 
-   Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
+   Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'config.rb'))
 
    rest = Chef::REST.new(Chef::Config[:chef_server_url])
 

@@ -1,5 +1,5 @@
 =====================================================
-remote_directory
+remote_directory resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_remote_directory.rst>`__
 
@@ -54,12 +54,12 @@ The full syntax for all of the properties that are available to the **remote_dir
      action                     Symbol # defaults to :create if not specified
    end
 
-where
+where:
 
-* ``remote_directory`` is the resource
-* ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``cookbook``, ``files_backup``, ``files_group``, ``files_mode``, ``files_owner``, ``group``, ``inherits``, ``mode``, ``overwrite``, ``owner``, ``path``, ``recursive``, ``rights``, and ``source`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``remote_directory`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``cookbook``, ``files_backup``, ``files_group``, ``files_mode``, ``files_owner``, ``group``, ``mode``, ``overwrite``, ``owner``, ``path``, ``purge``, ``recursive``, and ``source`` are the properties available to this resource.
 
 Actions
 =====================================================

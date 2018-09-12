@@ -1128,6 +1128,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_chocolatey_package.rst
 
+.. include:: resource_chocolatey_source.rst
+
 .. include:: resource_cookbook_file.rst
 
 .. include:: resource_cron.rst
@@ -1175,6 +1177,8 @@ The following resources are built into the Chef Client:
 .. include:: resource_ifconfig.rst
 
 .. include:: resource_ips_package.rst
+
+.. include:: resource_kernel_module.rst
 
 .. include:: resource_ksh.rst
 
@@ -1230,6 +1234,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_powershell_package.rst
 
+.. include:: resource_powershell_package_source.rst
+
 .. include:: resource_powershell_script.rst
 
 .. include:: resource_python.rst
@@ -1267,6 +1273,8 @@ The following resources are built into the Chef Client:
 .. include:: resource_smartos_package.rst
 
 .. include:: resource_solaris_package.rst
+
+.. include:: resource_ssh_known_hosts_entry.rst
 
 .. include:: resource_subversion.rst
 
@@ -1312,7 +1320,7 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_windows_task.rst
 
-.. include:: resource_yum.rst
+.. include:: resource_yum_package.rst
 
 .. include:: resource_yum_repository.rst
 

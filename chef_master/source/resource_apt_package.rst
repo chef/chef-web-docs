@@ -32,9 +32,11 @@ The full syntax for all of the properties that are available to the **apt_packag
    apt_package 'name' do
      default_release            String
      notifies                   # see description
-     options                    String
+     options                    String, Array
      overwrite_config_files     True, False # default value: 'false'
      package_name               String, Array # defaults to 'name' if not specified
+     response_file              String
+     response_file_variables    Hash
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -42,7 +44,7 @@ The full syntax for all of the properties that are available to the **apt_packag
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
 * ``apt_package`` tells the chef-client to manage a package
 * ``'name'`` is the name of the package

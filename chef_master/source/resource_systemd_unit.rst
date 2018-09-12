@@ -1,15 +1,15 @@
 =====================================================
-systemd_unit
+systemd_unit resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_systemd_unit.rst>`__
 
 Use the **systemd_unit** resource to create, manage, and run `systemd units <https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts>`_.
 
+**New in Chef Client 12.11.**
+
 Syntax
 =====================================================
-.. tag resource_systemd_unit_syntax
-
-A **systemd_unit** resource describes the configuration behavior for systemd units. For example:
+The systemd_unit resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -38,17 +38,15 @@ The full syntax for all of the properties that are available to the **systemd_un
      triggers_reload        Boolean
    end
 
-where
+where:
 
 * ``name`` is the name of the unit. Must include the type/suffix (e.g. `name.socket` or `name.service`).
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
 
-.. end_tag
 
 Actions
 =====================================================
-.. tag resource_systemd_unit_actions
 
 This resource has the following actions:
 
@@ -72,20 +70,20 @@ This resource has the following actions:
 
 ``:unmask``
    Stop the unit from being masked and cause it to start as specified.
-   
+
 ``:preset``
    Restore the preset "enable/disable" configuration for a unit.
-   
+
    New in Chef Client 14.0.
 
 ``:reenable``
    Reenable a unit file.
-   
+
    New in Chef Client 14.0.
-   
+
 ``:revert``
-   Revet to a vendor's version of a unit file. 
-   
+   Revet to a vendor's version of a unit file.
+
    New in Chef Client 14.0.
 
 ``:start``
@@ -109,11 +107,8 @@ This resource has the following actions:
 ``:reload_or_try_restart``
    For units that are services, this action reloads the configuration of the service without restarting, if possible; otherwise, it will try to restart the service so the new configuration is applied.
 
-.. end_tag
-
 Properties
 =====================================================
-.. tag resource_systemd_unit_attributes
 
 This resource has the following properties:
 
@@ -137,8 +132,6 @@ This resource has the following properties:
    **Ruby Type:** True, False
 
    Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
-
-.. end_tag
 
 Examples
 =====================================================

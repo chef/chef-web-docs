@@ -1,80 +1,50 @@
 =====================================================
-smartos_package
+powershell_package_source resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_smartos_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_package_source.rst>`__
 
-.. tag resource_package_smartos
+Use the **powershell_package_source** resource to register a PowerShell package repository.
 
-Use the **smartos_package** resource to manage packages for the SmartOS platform.
-
-.. end_tag
-
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
-A **smartos_package** resource block manages a package on a node, typically by installing it. The simplest use of the **smartos_package** resource is:
+The powershell_package_source resource has the following syntax:
 
 .. code-block:: ruby
 
-   smartos_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **smartos_package** resource is:
-
-.. code-block:: ruby
-
-  smartos_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    response_file                String
-    response_file_variables      Hash
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+  powershell_package_source 'name' do
+    provider_name                String # default value: NuGet
+    publish_location             String
+    script_publish_location      String
+    script_source_location       String
+    source_name                  String # default value: 'name' unless specified
+    trusted                      true, false # default value: false
+    url                          String
+    action                       Symbol # defaults to :register if not specified
   end
 
 where:
 
-* ``smartos_package`` is the resource.
+* ``powershell_package_source`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``provider_name``, ``publish_location``, ``script_publish_location``, ``script_source_location``, ``source_name``, ``trusted``, and ``url`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+``register``
+   Default. Registers and updates the PowerShell package source.
+
+``unregister``
+   Unregisters the PowerShell package source.
 
 ``:nothing``
-   .. tag resources_common_actions_nothing
-
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
-
-   .. end_tag
-
-``:remove``
-   Remove a package.
-
-``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
 
 Properties
 =====================================================
-This resource has the following properties:
-
-``ignore_failure``
-   **Ruby Types:** True, False
-
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -110,30 +80,30 @@ This resource has the following properties:
 
    .. end_tag
 
-``options``
+``provider_name``
+   **Ruby Type:** String | **Default Value:** ``NuGet``
+
+   The package management provider for the source. It supports the following providers: 'Programs', 'msi', 'NuGet', 'msu', 'PowerShellGet', 'psl' and 'chocolatey'.
+
+``publish_location``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   The url where modules will be published to for this source. Only valid if the provider is 'PowerShellGet'.
 
-``package_name``
-   **Ruby Types:** String, Array
-
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``retries``
-   **Ruby Type:** Integer
-
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
-
-``retry_delay``
-   **Ruby Type:** Integer
-
-   The retry delay (in seconds). Default value: ``2``.
-
-``source``
+``script_publish_location``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The location where scripts will be published to for this source. Only valid if the provider is 'PowerShellGet'.
+
+``script_source_location``
+   **Ruby Type:** String
+
+   The url where scripts are located for this source. Only valid if the provider is 'PowerShellGet'.
+
+``source_name``
+   **Ruby Type:** String
+
+   The name of the package source.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -184,30 +154,12 @@ This resource has the following properties:
 
    .. end_tag
 
-``timeout``
-   **Ruby Types:** String, Integer
+``trusted``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   The amount of time (in seconds) to wait before timing out.
+   Whether or not to trust packages from this source.
 
-``version``
-   **Ruby Types:** String, Array
+``url``
+   **Ruby Type:** String
 
-   The version of a package to be installed or upgraded.
-
-Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
-**Install a package**
-
-.. tag resource_smartos_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   smartos_package 'name of package' do
-     action :install
-   end
-
-.. end_tag
+   The url to the package source.

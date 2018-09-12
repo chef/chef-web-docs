@@ -1,5 +1,5 @@
 =====================================================
-windows_shortcut
+windows_shortcut resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_shortcut.rst>`__
 
@@ -9,62 +9,61 @@ Use the **windows_shortcut** resource to create shortcut files on Windows.
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_shortcut resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_shortcut 'name' do
-     arguments                  String
-     description                String
-     cwd                        String
-     iconlocation               String
-     notifies                   # see description
-     shortcut_name              String # default value: 'name'
-     subscribes                 # see description
-     target                     String
-     action                     Symbol # defaults to :create if not specified
-   end
+  windows_shortcut 'name' do
+    arguments          String
+    cwd                String
+    description        String
+    iconlocation       String
+    shortcut_name      String # default value: 'name' unless specified
+    target             String
+    action             Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``windows_shortcut`` is the resource
-* ``'name'`` is the name of the shortcut, or the name of the resource block
-* ``arguments``, ``description``, ``cwd``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
+* ``windows_shortcut`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``arguments``, ``cwd``, ``description``, ``iconlocation``, ``shortcut_name``, and ``target`` are the properties available to this resource.
 
 Actions
 =====================================================
 ``:create``
-   Default. Create or modify a Windows shortcut. 
-   
+   Default. Create or modify a Windows shortcut.
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 ``arguments``
    **Ruby Type:** String
-   
+
    Arguments to pass to the target when the shortcut is executed.
+
+``cwd``
+   **Ruby Type:** String
+
+   Working directory to use when the target is executed.
 
 ``description``
    **Ruby Type:** String
-   
-   A description of the shortcut.
-   
-``cwd``
-   **Ruby Type:** String
-   
-   Working directory to use when the target is executed.
-   
+
+   The description of the shortcut
+
 ``iconlocation``
    **Ruby Type:** String
-   
+
    Icon to use for the shortcut. Accepts the format of ``'path, index'``, where index is the icon file to use. See Microsoft's `documentation <https://msdn.microsoft.com/en-us/library/3s9bx7at.aspx>`__ for details.
-   
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -98,12 +97,12 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``shortcut_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
-   
+
    The name for the shortcut, if it differs from the resource name.
-   
+
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -152,8 +151,8 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``target``
    **Ruby Type:** String
-   
+
    The destination that the shortcut links to.

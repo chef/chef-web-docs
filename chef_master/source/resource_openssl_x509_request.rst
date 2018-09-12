@@ -1,5 +1,5 @@
 =====================================================
-openssl_x509_request
+openssl_x509_request resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_x509_request.rst>`__
 
@@ -9,33 +9,36 @@ Use the **openssl_x509_request** resource to generate PEM-formatted x509 certifi
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_x509_request resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_x509_request 'name' do
-     city                       String
-     email                      String
-     common_name                String
-     country                    String
-     group                      String
-     key_curve                  String # default value: 'prime256v1'
-     key_file                   String
-     key_length                 Integer # default value: '2048'
-     key_type                   String # default value: 'ec'
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     owner                      String
-     path                       String # default value: 'name'
-     state                      String
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+  openssl_x509_request 'name' do
+    city             String
+    common_name      String
+    country          String
+    email            String
+    group            String
+    key_curve        String # default value: prime256v1
+    key_file         String
+    key_length       Integer # default value: 2048
+    key_pass         String
+    key_type         String # default value: ec
+    mode             Integer, String
+    org              String
+    org_unit         String
+    owner            String
+    path             String # default value: 'name' unless specified
+    state            String
+    action           Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_x509_request`` is the name of the resource
-* ``'name'`` is the path where the certificate file will be written, or the name of the resource block
-* ``city``, ``email``, ``common_name``, ``country``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_type``, ``mode``, ``notifies``, ``owner``, ``path``, ``state``, and ``subscribes`` are the properties available to this resource
+* ``openssl_x509_request`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``city``, ``common_name``, ``country``, ``email``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``org``, ``org_unit``, ``owner``, ``path``, and ``state`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -56,11 +59,6 @@ Properties
 
    Value for the ``L`` certificate field.
 
-``email``
-   **Ruby Type:** String
-
-   Value for the ``email`` ssl field.
-
 ``common_name``
    **Ruby Type:** String
 
@@ -71,18 +69,23 @@ Properties
 
    Value for the ``C`` certificate field.
 
-``group``
-   **Ruby Types:** String
+``email``
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   Value for the ``email`` certificate field.
+
+``group``
+   **Ruby Type:** String
+
+   The group ownership applied to all files created by the resource.
 
 ``key_curve``
-   **Ruby Types:** String | **Default Value:** ``prime256v1``
+   **Ruby Type:** String | **Default Value:** ``prime256v1``
 
    The desired curve of the generated key (if key_type is equal to 'ec'). Run ``openssl ecparam -list_curves`` to see available options.
 
 ``key_file``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The path to a certificate key file on the filesystem. If the key_file property is specified, the resource will attempt to source a key from this location. If no key file is found, the resource will generate a new key file at this location. If the key_file property is not specified, the resource will generate a key file in the same directory as the generated certificate, with the same name as the generated certificate.
 
@@ -92,17 +95,17 @@ Properties
    The desired bit length of the generated key (if key_type is equal to 'rsa'). Available options are ``1024``, ``2048``, ``4096``, and ``8192``.
 
 ``key_pass``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The passphrase for an existing key's passphrase
+   The passphrase for an existing key's passphrase.
 
 ``key_type``
-   **Ruby Types:** String | **Default Value:** ``ec``
+   **Ruby Type:** String | **Default Value:** ``ec``
 
    The desired type of the generated key (rsa or ec).
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String
 
    The permission mode applied to all files created by the resource.
 
@@ -140,10 +143,20 @@ Properties
 
    .. end_tag
 
-``owner``
-   **Ruby Types:** String
+``org``
+   **Ruby Type:** String
 
-   The owner of all files created by the resource.
+   Value for the ``O`` certificate field.
+
+``org_unit``
+   **Ruby Type:** String
+
+   Value for the ``OU`` certificate field.
+
+``owner``
+   **Ruby Type:** String
+
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String
@@ -151,7 +164,7 @@ Properties
    The path to write the file to, if it differs from the resource name.
 
 ``state``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    Value for the ``ST`` certificate field.
 

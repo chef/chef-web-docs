@@ -1,58 +1,41 @@
 =====================================================
-smartos_package
+chocolatey_source
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_smartos_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_source.rst>`__
 
-.. tag resource_package_smartos
+Use the **chocolatey_source** resource to add or remove Chocolatey sources.
 
-Use the **smartos_package** resource to manage packages for the SmartOS platform.
-
-.. end_tag
-
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
-A **smartos_package** resource block manages a package on a node, typically by installing it. The simplest use of the **smartos_package** resource is:
+This resource has the following syntax:
 
 .. code-block:: ruby
 
-   smartos_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **smartos_package** resource is:
-
-.. code-block:: ruby
-
-  smartos_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    response_file                String
-    response_file_variables      Hash
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
-  end
+   chocolatey_source 'name' do
+     bypass_proxy               true, false # defaults to false
+     notifies                   # see description
+     priority                   Integer # defaults to 0
+     source                     String
+     source_name                String # default value: 'name'
+     subscribes                 # see description
+     action                     Symbol # defaults to :add if not specified
+   end
 
 where:
 
-* ``smartos_package`` is the resource.
-* ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``chocolatey_source`` is the name of the resource
+* ``bypass_proxy``, ``priority``, and ``source`` are the properties available to this resource
 
 Actions
 =====================================================
-This resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+``:add``
+   Default. Adds a Chocolatey source.
+
+``:remove``
+   Removes a Chocolatey source.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -61,20 +44,13 @@ This resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
-``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
-
 Properties
 =====================================================
-This resource has the following properties:
 
-``ignore_failure``
-   **Ruby Types:** True, False
+``bypass_proxy``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Whether or not to bypass the system's proxy settings to access the source.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -110,30 +86,20 @@ This resource has the following properties:
 
    .. end_tag
 
-``options``
-   **Ruby Type:** String
+``priority``
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   One (or more) additional options that are passed to the command.
-
-``package_name``
-   **Ruby Types:** String, Array
-
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``retries``
-   **Ruby Type:** Integer
-
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
-
-``retry_delay``
-   **Ruby Type:** Integer
-
-   The retry delay (in seconds). Default value: ``2``.
+   The priority level of the source.
 
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The source URL.
+
+``source_name``
+   **Ruby Type:** String
+
+   The name of the source to add. The resource's name will be used if this isn't provided.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -183,31 +149,3 @@ This resource has the following properties:
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
-``timeout``
-   **Ruby Types:** String, Integer
-
-   The amount of time (in seconds) to wait before timing out.
-
-``version``
-   **Ruby Types:** String, Array
-
-   The version of a package to be installed or upgraded.
-
-Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
-**Install a package**
-
-.. tag resource_smartos_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   smartos_package 'name of package' do
-     action :install
-   end
-
-.. end_tag

@@ -1,58 +1,49 @@
 =====================================================
-smartos_package
+kernel_module resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_smartos_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_kernel_module.rst>`__
 
-.. tag resource_package_smartos
+Use the **kernel_module** resource to manage kernel modules on Linux systems. This resource can load, unload, blacklist, install, and uninstall modules.
 
-Use the **smartos_package** resource to manage packages for the SmartOS platform.
-
-.. end_tag
-
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
-A **smartos_package** resource block manages a package on a node, typically by installing it. The simplest use of the **smartos_package** resource is:
+The kernel_module resource has the following syntax:
 
 .. code-block:: ruby
 
-   smartos_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **smartos_package** resource is:
-
-.. code-block:: ruby
-
-  smartos_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    response_file                String
-    response_file_variables      Hash
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+  kernel_module 'name' do
+    load_dir        String # default value: /etc/modules-load.d
+    modname         String # default value: 'name' unless specified
+    unload_dir      String # default value: /etc/modprobe.d
+    action          Symbol # defaults to :install if not specified
   end
 
 where:
 
-* ``smartos_package`` is the resource.
+* ``kernel_module`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``load_dir``, ``modname``, and ``unload_dir`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+``:blacklist``
+   Blacklist a kernel module.
 
 ``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+   Default. Load kernel module, and ensure it loads on reboot.
+
+``:load``
+   Load a kernel module.
+
+``:uninstall``
+   Unload a kernel module and remove module config, so it doesn't load on reboot.
+
+``:unload``
+   Unload kernel module.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -61,20 +52,20 @@ This resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
-``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
-
 Properties
 =====================================================
-This resource has the following properties:
 
-``ignore_failure``
-   **Ruby Types:** True, False
+The kernel_module resource has the following properties:
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+``load_dir``
+   **Ruby Type:** String | **Default Value:** ``/etc/modules-load.d``
+
+   The directory to load modules from.
+
+``modname``
+   **Ruby Type:** String | **Default Value:** ``'name'``
+
+   The name of the kernel module.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -109,31 +100,6 @@ This resource has the following properties:
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-
-``options``
-   **Ruby Type:** String
-
-   One (or more) additional options that are passed to the command.
-
-``package_name``
-   **Ruby Types:** String, Array
-
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
-
-``retries``
-   **Ruby Type:** Integer
-
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
-
-``retry_delay``
-   **Ruby Type:** Integer
-
-   The retry delay (in seconds). Default value: ``2``.
-
-``source``
-   **Ruby Type:** String
-
-   Optional. The path to a package in the local file system.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -184,30 +150,7 @@ This resource has the following properties:
 
    .. end_tag
 
-``timeout``
-   **Ruby Types:** String, Integer
+``unload_dir``
+   **Ruby Type:** String | **Default Value:** ``/etc/modprobe.d``
 
-   The amount of time (in seconds) to wait before timing out.
-
-``version``
-   **Ruby Types:** String, Array
-
-   The version of a package to be installed or upgraded.
-
-Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
-**Install a package**
-
-.. tag resource_smartos_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   smartos_package 'name of package' do
-     action :install
-   end
-
-.. end_tag
+   The modprobe.d directory.

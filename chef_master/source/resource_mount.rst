@@ -1,62 +1,45 @@
 =====================================================
-mount
+mount resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_mount.rst>`__
 
-.. tag resource_mount_summary
-
 Use the **mount** resource to manage a mounted file system.
-
-.. end_tag
 
 Syntax
 =====================================================
-A **mount** resource block manages a mounted file system:
+The mount resource has the following syntax:
 
 .. code-block:: ruby
 
-   mount node['mysql']['ec2_path'] do
-     device ebs_vol_dev
-     fstype 'xfs'
-     action :mount
-   end
+  mount 'name' do
+    device           String
+    device_type      String, Symbol # default value: device
+    domain           String
+    dump             Integer, false # default value: 0
+    enabled          true, false # default value: false
+    fsck_device      String # default value: -
+    fstype           String, nil # default value: auto
+    mount_point      String # default value: 'name' unless specified
+    mounted          true, false # default value: false
+    options          Array, String, nil # default value: ["defaults"]
+    pass             Integer, false # default value: 2
+    password         String
+    supports         Hash
+    username         String
+    action           Symbol # defaults to :mount if not specified
+  end
 
+where:
 
-The full syntax for all of the properties that are available to the **mount** resource is:
-
-.. code:: ruby
-
-   mount 'name' do
-     device                     String
-     device_type                Symbol
-     domain                     String
-     dump                       Integer, False
-     enabled                    True, False
-     fsck_device                String
-     fstype                     String
-     mount_point                String # defaults to 'name' if not specified
-     mounted                    True, False
-     notifies                   # see description
-     options                    Array, String
-     pass                       Integer, False
-     password                   String
-     subscribes                 # see description
-     supports                   # see description
-     username                   String
-     action                     Symbol # defaults to :mount if not specified
-   end
-
-
-where
-
-* ``mount`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``device``, ``device_type``, ``domain``, ``dump``, ``enabled``, ``fsck_device``, ``fstype``, ``mount_point``, ``mounted``, ``options``, ``pass``, ``password``, ``supports``, and ``username`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``mount`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``device``, ``device_type``, ``domain``, ``dump``, ``enabled``, ``fsck_device``, ``fstype``, ``mount_point``, ``mounted``, ``options``, ``pass``, ``password``, ``supports``, and ``username`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The mount resource has the following actions:
 
 ``:disable``
    Remove an entry from the file systems table (``fstab``).
@@ -87,7 +70,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The mount resource has the following properties:
 
 ``device``
    **Ruby Type:** String
@@ -95,24 +79,25 @@ This resource has the following properties:
    Required for ``:umount`` and ``:remount`` actions (for the purpose of checking the mount command output for presence). The special block device or remote node, a label, or a uuid to be mounted.
 
 ``device_type``
-   **Ruby Type:** Symbol
+   **Ruby Type:** String, Symbol | **Default Value:** ``device``
 
-   The type of device: ``:device``, ``:label``, or ``:uuid``. Default value: ``:device``.
+   The type of device: :device, :label, or :uuid
+
 
 ``domain``
    **Ruby Type:** String
 
-   Microsoft Windows only. Use to specify the domain in which the ``username`` and ``password`` are located.
+   Windows only: Use to specify the domain in which the ``username`` and ``password`` are located.
 
 ``dump``
-   **Ruby Types:** Integer, False
+   **Ruby Type:** Integer, false | **Default Value:** ``0``
 
-   The dump frequency (in days) used while creating a file systems table (fstab) entry. Default value: ``0``.
+   The dump frequency (in days) used while creating a file systems table (fstab) entry.
 
 ``enabled``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Use to specify if a mounted file system is enabled. Default value: ``false``.
+   Use to specify if a mounted file system is enabled.
 
 ``fsck_device``
    **Ruby Type:** String

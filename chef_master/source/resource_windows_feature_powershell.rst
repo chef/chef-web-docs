@@ -3,7 +3,7 @@ windows_feature_powershell
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_feature_powershell.rst>`__
 
-Use the **windows_feature_powershell** resource to add, remove or entirely delete Windows features and roles via PowerShell. This resource offers significant speed benefits over the `windows_feature_dism </resource_windows_feature_dism.html>`__ resource, but requires installation of the Remote Server Administration Tools on non-server releases of Windows.
+Use the **windows_feature_powershell** resource to add, remove or entirely delete Windows features and roles using PowerShell. This resource offers significant speed benefits over the `windows_feature_dism </resource_windows_feature_dism.html>`__ resource, but requires installation of the Remote Server Administration Tools on non-server releases of Windows.
 
 **New in Chef Client 14.0.**
 
@@ -33,38 +33,38 @@ where:
 Actions
 =====================================================
 ``:install``
-   Default. Install a Windows role / feature using Powershell.
-   
+   Default. Install a Windows role / feature using PowerShell.
+
 ``:remove``
-   Remove a Windows role / feature using Powershell.
-   
+   Remove a Windows role / feature using PowerShell.
+
 ``:delete``
-   Delete a Windows role / feature from the image using Powershell.
-   
+   Delete a Windows role / feature from the image using PowerShell.
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 ``all``
    **Ruby Type:** True, False | **Default Value:** ``false``
-   
+
    Install all subfeatures. When set to ``true``, this is the equivalent of specifying the ``-InstallAllSubFeatures`` switch with ``Add-WindowsFeature``.
-   
+
 ``feature_name``
-   **Ruby Types:** String, Array | **Default Value:** ``'name'``
-   
+   **Ruby Type:** Array, String | **Default Value:** ``'name'``
+
    The name of the feature(s) or role(s) to install, if it differs from the resource block name.
-   
+
 ``management_tools``
    **Ruby Type:** True, False | **Default Value:** ``false``
-   
+
    Install all applicable management tools for the roles, role services, or features.
-   
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -98,12 +98,12 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``source``
    **Ruby Type:** String
-   
-   Specify a local repository for the feature install. 
-   
+
+   Specify a local repository for the feature install.
+
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -152,8 +152,8 @@ Properties
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``timeout``
    **Ruby Type:** Integer | **Default Value:** ``600``
-   
+
    Specifies a timeout (in seconds) for the feature installation.

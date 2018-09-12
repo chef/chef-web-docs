@@ -1,5 +1,5 @@
 =====================================================
-swap_file
+swap_file resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_swap_file.rst>`__
 
@@ -9,26 +9,25 @@ Use the **swap_file** resource to create or delete swap files on Linux systems, 
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The swap_file resource has the following syntax:
 
 .. code-block:: ruby
 
-   swap_file 'name' do
-     notifies                   # see description
-     path                       String # default value: 'name'
-     persist                    True, False # default value: 'false'
-     size                       Integer
-     subscribes                 # see description
-     swappiness                 Integer
-     timeout                    Integer # default value: 600
-     action                     Symbol # defaults to :create if not specified
+  swap_file 'name' do
+    path            String # default value: 'name' unless specified
+    persist         true, false # default value: false
+    size            Integer
+    swappiness      Integer
+    timeout         Integer # default value: 600
+    action          Symbol # defaults to :create if not specified
   end
 
 where:
 
-* ``swap_file`` is the resource
-* ``'name`` is the path where the swap file will be created, or the name of the resource block
-* ``notifies``, ``path``, ``persist``, ``size``, ``subscribes``, ``swappiness``, and ``timeout`` are the properties available to this resource
+* ``swap_file`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``path``, ``persist``, ``size``, ``swappiness``, and ``timeout`` are the properties available to this resource.
 
 Actions
 =====================================================

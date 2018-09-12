@@ -3,7 +3,7 @@
 ==========================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_yml_kitchen.rst>`__
 
-Use `Test Kitchen <http://kitchen.ci>`_  to automatically test cookbook data across any combination of platforms and test suites:
+Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
 * Defined in a .kitchen.yml file
 * Uses a driver plugin architecture
@@ -18,7 +18,7 @@ Use a .kitchen.yml file to define what is required to run Kitchen, including dri
 
 .. end_tag
 
-.. note:: This topic details functionality that is packaged with Chef development kit. See http://kitchen.ci/docs/getting-started/ for more information about Kitchen.
+.. note:: This topic details functionality that is packaged with Chef development kit. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
 
 Syntax
 ==========================================================================
@@ -353,7 +353,7 @@ Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``.kitchen.yml``
      # Set proxy settings manually, or
      http_proxy: 'http://user:password@server:port'
      https_proxy: 'http://user:password@server:port'
-     
+
      # Read from local environment variables
      http_proxy: <%= ENV['http_proxy'] %>
      https_proxy: <%= ENV['https_proxy'] %>
@@ -536,23 +536,23 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-14.04
    - name: ubuntu-16.04
+   - name: ubuntu-18.04
    - name: centos-6
    - name: centos-7
-   - name: debian-8
+   - name: debian-9
 
 which will generate a configuration file similar to:
 
 .. code-block:: ruby
 
    platforms:
-   - name: ubuntu-14.04
-     driver:
-       box: bento/ubuntu-14.04
    - name: ubuntu-16.04
      driver:
        box: bento/ubuntu-16.04
+   - name: ubuntu-18.04
+     driver:
+       box: bento/ubuntu-18.04
    # ...
 
 .. end_tag
@@ -582,7 +582,7 @@ and to install a specific version of the Chef development kit:
      ...
      chef_omnibus_install_options: -P chefdk
      chef_omnibus_root: /opt/chefdk
-     require_chef_omnibus: 0.5.0
+     require_chef_omnibus: 3.2.0
 
 Microsoft Windows Platform
 --------------------------------------------------------------------------
@@ -620,9 +620,9 @@ The following example shows provisioner settings for running the chef-client in 
        audit_mode: :enabled
 
    platforms:
-     - name: ubuntu-14.04
+     - name: ubuntu-18.04
        run_list:
-         - recipe[audit-cis::ubuntu1404-100]
+         - recipe[audit-cis::ubuntu1804-100]
      - name: centos-7
        run_list:
          - recipe[audit-cis::centos7-100]
@@ -654,12 +654,10 @@ The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensu
      name: chef_zero
 
    platforms:
-     - name: centos-5.10
-     - name: centos-6.5
-     - name: fedora-19
-     - name: ubuntu-1004
-     - name: ubuntu-1204
-     - name: ubuntu-1310
+     - name: centos-6
+     - name: fedora-latest
+     - name: ubuntu-1604
+     - name: ubuntu-1804
 
    suites:
 
@@ -707,14 +705,14 @@ The following .kitchen.yml file is part of the ``chef-splunk`` cookbook and is u
    driver:
      name: vagrant
      customize:
-       memory: 512
+       memory: 1024
 
    provisioner:
      name: chef_zero
 
    platforms:
-     - name: ubuntu-14.04
      - name: ubuntu-16.04
+     - name: ubuntu-18.04
      - name: centos-6
      - name: centos-7
 
@@ -780,21 +778,15 @@ The following .kitchen.yml file is part of the ``yum`` cookbook:
      name: chef_zero
 
    platforms:
-     - name: centos-5.11
-     - name: centos-6.7
-     - name: centos-7.2
-     - name: fedora-22
+     - name: centos-6
+     - name: centos-7
+     - name: fedora-latest
 
    suites:
      - name: default
        run_list:
          - recipe[yum::default]
          - recipe[yum_test::test_repo]
-     - name: dnf_compat
-       run_list:
-         - recipe[yum::dnf_yum_compat]
-         - recipe[yum_test::test_dnf_compat]
-       includes: fedora-22
 
 Platform Attributes
 --------------------------------------------------------------------------

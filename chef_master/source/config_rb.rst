@@ -3,14 +3,19 @@ config.rb
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb.rst>`__
 
-.. warning:: The config.rb file is a replacement for the knife.rb file, starting with the chef-client 12.0 release. The config.rb file has identical settings and behavior to the knife.rb file. The chef-client will first look for the presence of the config.rb file and if it is not found, will look for the knife.rb file. If you are using the chef-client 11.x versions in your infrastructure, continue using the knife.rb file.
+.. warning:: The config.rb file is a replacement for the knife.rb file, starting with the chef-client 12.0 release. The config.rb file has identical settings and behavior to the knife.rb file. The chef-client will first look for the presence of the config.rb file and if it is not found, will look for the knife.rb file.
 
-A ``config.rb`` file is used to specify chef-repo-specific configuration details.
+A config.rb file is used to specify configuration details for knife.
 
-* This file is loaded every time this executable is run
+A config.rb file:
+
+* Is loaded every time the knife executable is run
 * The default location in which the chef-client expects to find this file is ``~/.chef/config.rb``; use the ``--config`` option from the command line to change this location
-* This file is not created by default
-* When a config.rb file is present in this directory, the settings contained within that file will override the default configuration settings
+* Is not created by default
+* Is located by default at ``~/.chef/config.rb`` (UNIX and Linux platforms) or ``c:\Users\username\.chef`` (Microsoft Windows platform, use the ``--config`` option from the command line to change this location
+* Will override the default configuration when a config.rb file exists at the default path or the path specified by the ``--config`` option
+
+.. note:: When running Microsoft Windows, the config.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\chef-repo\.chef``.
 
 Settings
 =====================================================
@@ -79,10 +84,10 @@ This configuration file has the following settings:
       data_bag_encrypt_version 2
 
 ``fips``
-  Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security. 
-  
+  Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
+
   FIPS support is available in Chef client versions 12.8 and above. The following operating systems are supported:
-  
+
   * Red Hat Enterprise Linux
   * Oracle Enterprise Linux
   * CentOS
@@ -255,3 +260,80 @@ In addition to the default settings in a config.rb file, there are other subcomm
 #. The default value
 
 A value passed via the command line will override a value in the config.rb file; a value in a config.rb file will override a default value.
+Before adding any settings to the config.rb file:
+
+* Verify the settings by reviewing the documentation for the knife subcommands and/or knife plugins
+* Verify the use case(s) your organization has for adding them
+
+Also note that:
+
+* Custom plugins can be configured to use the same settings as the core knife subcommands
+* Many of these settings are used by more than one subcommand and/or plugin
+* Some of the settings are included only because knife checks for a value in the config.rb file
+
+To add settings to the config.rb file, use the following syntax:
+
+.. code-block:: ruby
+
+   knife[:setting_name] = value
+
+where ``value`` may require quotation marks (' ') if that value is a string. For example:
+
+.. code-block:: ruby
+
+   knife[:ssh_port] = 22
+   knife[:bootstrap_template] = 'ubuntu14.04-gems'
+   knife[:bootstrap_version] = ''
+   knife[:bootstrap_proxy] = ''
+
+Some of the optional config.rb settings are used often, such as the template file used in a bootstrap operation. The frequency of use of any option varies from organization to organization, so even though the following settings are often added to a config.rb file, they may not be the right settings to add for every organization:
+
+``knife[:bootstrap_proxy]``
+   The proxy server for the node that is the target of a bootstrap operation.
+
+``knife[:bootstrap_template]``
+   The path to a template file to be used during a bootstrap operation.
+
+``knife[:bootstrap_version]``
+   The version of the chef-client to install.
+
+``knife[:editor]``
+   The $EDITOR that is used for all interactive commands.
+
+``knife[:ssh_gateway]``
+   The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation. Adding this setting can be helpful when a user cannot SSH directly into a host.
+
+``knife[:ssh_port]``
+   The SSH port.
+
+Other SSH-related settings that are sometimes helpful when added to the config.rb file:
+
+``knife[:forward_agent]``
+   Enable SSH agent forwarding.
+
+``knife[:ssh_attribute]``
+   The attribute used when opening an SSH connection.
+
+``knife[:ssh_password]``
+   The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
+
+``knife[:ssh_user]``
+   The SSH user name.
+
+Some organizations choose to have all data bags use the same secret and secret file, rather than have a unique secret and secret file for each data bag. To use the same secret and secret file for all data bags, add the following to config.rb:
+
+``knife[:secret]``
+   The encryption key that is used for values contained within a data bag item.
+
+``knife[:secret_file]``
+   The path to the file that contains the encryption key.
+
+Some settings are better left to Ohai, which will get the value at the start of the chef-client run:
+
+``knife[:server_name]``
+   Same as node_name. Recommended configuration is to allow Ohai to collect this value during each chef-client run.
+
+``node_name``
+   See the description above for this setting.
+
+.. warning:: Review the full list of `optional settings </config_rb_optional_settings.html>`__ that can be added to the config.rb file. Many of these optional settings should not be added to the config.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the config.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the config.rb file. In general, if the optional settings are not listed on `the main config.rb topic </config_rb.html>`__, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.

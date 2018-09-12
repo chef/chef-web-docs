@@ -94,7 +94,7 @@
 
 .. |url slides_kitchen| raw:: html
 
-    <a href="http://kitchen.ci" target="_blank">http://kitchen.ci</a>
+    <a href="https://kitchen.ci/" target="_blank">https://kitchen.ci/</a>
 
 .. |url slides_docs_kitchen| raw:: html
 

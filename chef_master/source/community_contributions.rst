@@ -81,7 +81,7 @@ Developer Certification of Origin (DCO)
 
 To make a good faith effort to ensure the criteria of the Apache License are met, Chef requires the Developer Certificate of Origin (DCO) process to be followed.
 
-The DCO is an attestation attached to every contribution made by every developer. In the commit message of the contribution, the developer simply adds a Signed-off-by statement and thereby agrees to the DCO, which you can find below or at http://developercertificate.org/.
+The DCO is an attestation attached to every contribution made by every developer. In the commit message of the contribution, the developer simply adds a Signed-off-by statement and thereby agrees to the DCO, which you can find below or at https://developercertificate.org/.
 
 .. code-block:: console
 
@@ -382,5 +382,3 @@ After work has been merged by the branch maintainer, the topic branch is no long
    .. code-block:: bash
 
       $ git push origin :CHEF-XX
-
-

@@ -8,7 +8,7 @@ Supermarket API
 The Supermarket API is used to provide access to cookbooks, tools, and users on the `Chef Supermarket <https://supermarket.chef.io>`__. All of the cookbooks, tools, and users on the Supermarket are accessible through a RESTful API by accessing ``supermarket.chef.io/api/v1/`` via the supported endpoints. In most cases, knife is the best way to interact with the Supermarket; however in some cases, direct use of the Supermarket API is necessary.
 
 .. end_tag
-.. note:: In general, using knife (and the ``knife cookbook site`` subcommand) to manage cookbooks that are located on the Cookbooks site is more efficient than using the Supermarket API and is the recommended approach for managing cookbooks on that site. This document provides information about the Supermarket API in the event that using the API is necessary.
+.. note:: In general, using knife (and the ``knife supermarket`` subcommand) to manage cookbooks that are located on the Cookbooks site is more efficient than using the Supermarket API and is the recommended approach for managing cookbooks on that site. This document provides information about the Supermarket API in the event that using the API is necessary.
 
 Endpoints
 =====================================================
@@ -806,7 +806,7 @@ The response will return details for a user, including their name, Chef username
          "bacon": "https://supermarket.chef.io/api/v1/cookbooks/bacon"
          "chef-sugar": "https://supermarket.chef.io/api/v1/cookbooks/chef-sugar"
        }
-     }, 
+     },
      "tools": {
        "owns": {
          "bacon_tool": "https://supermarket.chef.io/api/v1/tools/bacon_tool"

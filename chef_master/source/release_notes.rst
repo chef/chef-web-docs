@@ -1,13 +1,106 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.3
+Release Notes: Chef Client 12.0 - 14.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
+What’s New in 14.4
+=====================================================
+* **Knife configuration profile management commands**
+      We've added new commands to the knife config to help you manage multiple profiles in your credentials file.
+
+      ```knife config get-profile``` displays the active profile.
+
+      ```knife config use-profile PROFILE``` sets the workstation-level default profile. You can still override this setting with the ``--profile`` command line option or the $CHEF_PROFILE environment variable.
+
+      ```knife config list-profiles``` displays all your available profiles along with summary information on each.
+
+      .. code-block:: bash
+
+        $ knife config get-profile
+        staging
+        $ knife config use-profile prod
+        Set default profile to prod
+        $ knife config list-profiles
+         Profile  Client  Key               Server
+        -----------------------------------------------------------------------------
+         staging  myuser  ~/.chef/user.pem  https://example.com/organizations/staging
+         *prod    myuser  ~/.chef/user.pem  https://example.com/organizations/prod
+
+      Thank you @coderanger for this contribution.
+
+* **New Preview Resources**
+
+  * **cron_d**
+      Use the `cron_d </resource_cron_d.html>`__ resource to manage cron definitions in ``/etc/cron.d``. This is similar to the cron resource, but it does not use the monolithic ``/etc/crontab`` file.
+
+  * **cron_access**
+      Use the `cron_access </resource_cron_access.html>`__ resource to manage the ``/etc/cron.allow`` and ``/etc/cron.deny`` files. This resource previously shipped in the cron community cookbook and has fully backwards compatibility with the previous ``cron_manage`` definition in that cookbook.
+
+  * **openssl_x509_certificate**
+      Use the `openssl_x509_certificate </resource_openssl_x509_certificate.html>`__ resource to generate signed or self-signed, PEM-formatted x509 certificates. If no existing key is specified, the resource automatically generates a passwordless key with the certificate. If a CA private key and certificate are provided, the certificate will be signed with them. This resource previously shipped in the openssl cookbook as ``openssl_x509`` and is fully backwards compatible with the legacy resource name.
+
+      Thank you @juju482 for updating this resource!
+
+  * **openssl_x509_request**
+      Use the `openssl_x509_request </resource_openssl_x509_request.html>`__ resource to generate PEM-formatted x509 certificates requests. If no existing key is specified, the resource automatically generates a passwordless key with the certificate.
+
+      Thank you @juju482 for contributing this resource.
+
+  * **openssl_x509_crl**
+      Use the `openssl_x509_crl </resource_openssl_x509_crl.html>`__ resource to generate PEM-formatted x509 certificate revocation list (CRL) files.
+
+      Thank you @juju482 for contributing this resource.
+
+  * **openssl_ec_private_key**
+      Use the `openssl_ec_private_key </resource_openssl_ec_private_key.html>`__ resource to generate ec private key files. If a valid ec key file can be opened at the specified location, no new file will be created.
+
+      Thank you @juju482 for contributing this resource.
+
+  * **openssl_ec_public_key**
+      Use the `openssl_ec_public_key </resource_openssl_ec_public_key.html>`__ resource to generate ec public key files given a private key.
+
+      Thank you @juju482 for contributing this resource.
+
+* **Improved Resources**
+
+  * **windows_package**
+       The `windows_package </resource_windows_package.html>`__ resource now supports setting the sensitive property to avoid showing errors if a package install fails.
+
+  * **sysctl**
+       The `sysctl </resource_sysctl.html>`__ resource now updates the on-disk ``sysctl.d`` file even if the current sysctl value matches the desired value.
+
+  * **windows_task**
+       The `windows_task </resource_windows_task.html>`__ resource now supports setting the task priority of the scheduled task with a new priority property. Additionally ``windows_task`` now supports managing the behavior of task execution when a system is on battery using new ``disallow_start_if_on_batteries`` and ``stop_if_going_on_batteries`` properties.
+
+  * **ifconfig**
+       The `ifconfig </resource_ifconfig.html>`__ resource now supports setting the interface's VLAN via a new vlan property on RHEL ``platform_family`` and setting the interface's gateway via a new gateway property on RHEL/Debian ``platform_family``.
+
+       Thank you @tomdoherty for this contribution.
+
+  * **route**
+       The `route </resource_route.html>`__ resource now supports additional RHEL platform_family systems as well as Amazon Linux.
+
+  * **systemd_unit**
+       The `systemd_unit </resource_systemd_unit.html>`__ resource now supports specifying options multiple times in the content hash. Instead of setting the value to a string you can now set it to an array of strings.
+
+       Thank you @dbresson for this contribution.
+
+Ohai 14.4
+-----------------------------------------------------
+* The default shell out timeout period of 30 seconds can now be configured by setting ```shellout_timeout``` in your ```client.rb``` config.
+
+* System enclosure information is now collected on Windows with a new ```system_enclosure``` plugin.
+
+Security Updates
+-----------------------------------------------------
+* **OpenSSL**
+     OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://nvd.nist.gov/vuln/detail/CVE-2018-0732>`__ and `CVE-2018-0737 <https://nvd.nist.gov/vuln/detail/CVE-2018-0737>`__
+
+
 What’s New in 14.3
 =====================================================
-
 * **New Preview Resources Concept**
 
   This release of Chef introduces the concept of Preview Resources. Preview resources behave the same as a standard resource built into Chef, except Chef will load a resource with the same name from a cookbook instead of the built-in preview resource.
@@ -16,18 +109,18 @@ What’s New in 14.3
 
   Then when we perform our yearly major release we'll remove the preview designation from all resources, and the built in resources will take precedence over resources with the same names in cookbooks.
 
-* **New Resources**
+* **New Preview Resources**
 
   * **chocolatey_config**
-       Use the ``chocolatey_config`` resource to add or remove Chocolatey configuration keys."
+       Use the `chocolatey_config </resource_chocolatey_config.html>`__ resource to add or remove Chocolatey configuration keys."
   * **chocolatey_source**
-       Use the ``chocolatey_source`` resource to add or remove Chocolatey sources.
+       Use the `chocolatey_source </resource_chocolatey_source.html>`__  resource to add or remove Chocolatey sources.
   * **powershell_package_source**
-       Use the ``powershell_package_source`` resource to register a powershell package repository.
+       Use the `powershell_package_source </resource_powershell_package_source.html>`__ resource to register a PowerShell package repository.
   * **kernel_module**
-       Use the ``kernel_module`` resource to manage kernel modules on Linux systems. This resource can ``load``,``unload``, ``blacklist``, ``install``, and ``uninstall`` modules.
+       Use the `kernel_module </resource_kernel_module.html>`__ resource to manage kernel modules on Linux systems. This resource can ``load``,``unload``, ``blacklist``, ``install``, and ``uninstall`` modules.
   * **ssh_known_hosts_entry**
-       Use the ``ssh_known_hosts_entry`` resource to add an entry for the specified host in ``/etc/ssh/ssh_known_hosts`` or a user's known hosts file if specified.
+       Use the `ssh_known_hosts_entry </resource_ssh_known_hosts_entry.html>`__ resource to add an entry for the specified host in ``/etc/ssh/ssh_known_hosts`` or a user's known hosts file if specified.
 
 * **New `knife config get` command**
     The ``knife config get`` command has been added to help with debugging configuration issues with `knife` and other tools that use the ``knife.rb`` file.
@@ -37,12 +130,12 @@ What’s New in 14.3
 
 * **Windows Improvements**
 
-     * A new ``skip_publisher_check`` property has been added to the ``powershell_package`` resource
+     * A new ``skip_publisher_check`` property has been added to the `powershell_package </resource_powershell_package.html>`__ resource
      * ``windows_feature_powershell`` now supports Windows 2008 R2
-     * The ``mount`` resource now supports the `mount_point` property on Windows
-     * ``windows_feature_dism`` no longer errors when specifying the source
-     * Resolved idempotency issues in the ``windows_task`` resource and prevented setting up a task with bad credentials
-     * ``windows_service`` no longer throws Ruby deprecation warnings
+     * The `mount </resource_mount.html>`__ resource now supports the `mount_point` property on Windows
+     * `windows_feature_dism </resource_windows_feature_dism.html>`__ no longer errors when specifying the source
+     * Resolved idempotency issues in the `windows_task </resource_windows_task.html>`__ resource and prevented setting up a task with bad credentials
+     * `windows_service </resource_windows_service.html>`__ no longer throws Ruby deprecation warnings
 
 * **Deprecations**
 
@@ -75,7 +168,7 @@ What’s New in 14.2.0
 
      The ``shell_out`` helper has been extended with a new option ``default_env`` to allow disabling Chef from modifying PATH and LOCALE environmental variables as it shells out. This new option defaults to true (modify the environment), preserving the previous behavior of the helper.
 
-     The ``execute`` resource has also been updated with a new property ``default_env`` that allows utilizing this the ENV sanity functionality in ``shell_out``. The new property defaults to false, but it can be set to true in order to ensure a sane PATH and LOCALE when shelling out. If you find that binaries cannot be found when using the ``execute`` resource, ``default_env`` set to true may resolve those issues.
+     The `execute </resource_execute.html>`__ resource has also been updated with a new property ``default_env`` that allows utilizing this the ENV sanity functionality in ``shell_out``. The new property defaults to false, but it can be set to true in order to ensure a sane PATH and LOCALE when shelling out. If you find that binaries cannot be found when using the ``execute`` resource, ``default_env`` set to true may resolve those issues.
 
 * **Small Size on Disk**
 
@@ -90,12 +183,12 @@ What's New in 14.1.12
 
 * **Resource Changes & Notes**
 
-  * ``git`` resource: we don't recommend using ``--prune-tags`` yet, because it is really new.
-  * ``rhsm_repo`` resource: now works
-  * ``apt_repository`` resource: use the repo_name property to name files
-  * ``windows_task`` resource: properly handle commands with arguments
-  * ``windows_task`` resource: handle creating tasks as the SYSTEM user
-  * ``remote_directory`` resource: restore the default for the overwrite property
+  * `git </resource_git.html>`__ resource: we don't recommend using ``--prune-tags`` yet, because it is really new.
+  * `rhsm_repo </resource_rhsm_repo.html>`__ resource: now works
+  * `apt_repository </resource_apt_repository.html>`__ resource: use the repo_name property to name files
+  * `windows_task </resource_windows_task.html>`__ resource: properly handle commands with arguments
+  * `windows_task </resource_windows_task.html>`__ resource: handle creating tasks as the SYSTEM user
+  * `remote_directory </resource_remote_directory.html>`__ resource: restore the default for the overwrite property
 
 Ohai 14.1.3
 -------------------------------------------------------
@@ -108,13 +201,13 @@ Ohai 14.1.3
 What's New in 14.1.1
 =====================================================
 * **windows_task**
-     The ``windows_task`` resource has been entirely rewritten. This resolves a large number of bugs by allowing Chef to correctly set the start time of tasks, adding proper creation and deletion of tasks, and improving Chef’s validation of tasks. The rewrite will also solve the idempotency problems that users have reported.
+     The `windows_task </resource_windows_task.html>`__ resource has been entirely rewritten. This resolves a large number of bugs by allowing Chef to correctly set the start time of tasks, adding proper creation and deletion of tasks, and improving Chef’s validation of tasks. The rewrite will also solve the idempotency problems that users have reported.
 
 * **Ubuntu 18.04**
      We’re testing Chef on Ubuntu 18.04, which means it's now available on the `downloads <https://downloads.chef.io/chef/14.1.1>`__ page.
 
 * **build_essential**
-     The ``build_essential`` resource no longer requires a name, similar to the ``apt_update`` resource.
+     The `build_essential </resource_build_essential.html>`__ resource no longer requires a name, similar to the ``apt_update`` resource.
 
 * **ignore_failure**
      The ignore_failure property now accept the ``:quiet`` argument to suppress the error output when a resource fails.
@@ -125,7 +218,7 @@ This release of Chef Client 14 resolves a number of regressions in 14.0:
 * Fixes a number of issues related to Red Hat Satellite
 * ``git fetch`` now prunes remotes before running
 * Fixes locking and unlocking packages with APT and Zypper
-* Chef no longers requests every remote file when running with lazy loading enabled
+* Chef no longer requests every remote file when running with lazy loading enabled
 * The ``sysctl`` resource correctly handles missing keys when used with ``ignore_error``
 * ``–recipe-url`` works with Windows with local files.
 
@@ -146,7 +239,7 @@ This release fixes a handful of regressions that were present in the 14.0 releas
 
 * Resources contained in cookbooks would be used instead of built-in Chef Client resources, which resulted in older resources running
 * Resources failed due to missing ``property_is_set?`` and ``resources`` methods
-* yum_package changed the order of ``disablerepo`` and ``enablerepo`` options
+* `yum_package </resource_yum_package.html>`__ changed the order of ``disablerepo`` and ``enablerepo`` options
 * Depsolving large numbers of cookbooks with Chef zero/local took a long time
 
 What's New in 14.0
@@ -313,22 +406,22 @@ Improved Resources
 Many existing resources now include new actions and properties that expand their functionality.
 
 * **apt_package**
-     apt_package includes a new overwrite_config_files property. Setting this new property to true is equivalent to passing ``-o Dpkg::Options::="--force-confnew"`` to ``apt``, and allows you to install packages that prompt the user to overwrite config files. Thanks @ccope for this new property.
+     `apt_package </resource_apt_package.html>`__ includes a new overwrite_config_files property. Setting this new property to true is equivalent to passing ``-o Dpkg::Options::="--force-confnew"`` to ``apt``, and allows you to install packages that prompt the user to overwrite config files. Thanks @ccope for this new property.
 
 * **env**
-     The env resource has been renamed to windows_env as it only supports the Windows platform. Existing cookbooks using env will continue to function, but should be updated to use the new name.
+     The env resource has been renamed to `windows_env </resource_windows_env.html>`__ as it only supports the Windows platform. Existing cookbooks using env will continue to function, but should be updated to use the new name.
 
 * **ifconfig**
-     The ifconfig resource includes a new family property for setting the network family on Debian systems. Thanks @martinisoft for this new property.
+     The `ifconfig </resource_ifconfig.html>`__ resource includes a new family property for setting the network family on Debian systems. Thanks @martinisoft for this new property.
 
 * **registry_key**
-     The ``sensitive`` property can now be used in registry_key to suppress the output of the key's data from logs and error messages. Thanks @shoekstra for implementing this.
+     The ``sensitive`` property can now be used in `registry_key </resource_registry_key.html>`__ to suppress the output of the key's data from logs and error messages. Thanks @shoekstra for implementing this.
 
 * **powershell_package**
-     powershell_package includes a new ``source`` property to allow specifying the source of the package. Thanks @Happycoil for this new property.
+     `powershell_package </resource_powershell_package.html>`__ includes a new ``source`` property to allow specifying the source of the package. Thanks @Happycoil for this new property.
 
 * **systemd_unit**
-     systemd_unit includes the following new actions:
+     `systemd_unit </resource_systemd_unit.html>`__ includes the following new actions:
 
      * ``preset`` - Restore the preset enable/disable configuration for a unit
      * ``revert`` - Revert to a vendor's version of a unit file
@@ -337,7 +430,7 @@ Many existing resources now include new actions and properties that expand their
      Thanks @nathwill for these new actions.
 
 * **windows_service**
-     windows_service now includes actions for fully managing services on Windows, in addition to the previous actions for starting/stopping/enabling services:
+     `windows_service </resource_windows_service.html>`__ now includes actions for fully managing services on Windows, in addition to the previous actions for starting/stopping/enabling services:
 
      * ``create`` - Create a new service
      * ``delete`` - Delete an existing service
@@ -346,7 +439,7 @@ Many existing resources now include new actions and properties that expand their
      Thanks @jasonwbarnett for these new actions
 
 * **route**
-     route includes a new ``comment`` property.
+     `route </resource_route.html>`__ includes a new ``comment`` property.
 
      Thanks Thomas Doherty for adding this new property.
 
@@ -405,7 +498,7 @@ Other Changes
      The correct attribute is then provided based on the ``policy_group`` of the node, so with a ``policy_group`` of ``staging`` the attribute would contain "My Staging App".
 
 * **yum_package rewrite**
-     yum_package received a ground up rewrite that greatly improves both the performance and functionality while also resolving a dozen existing issues. It introduces a new caching method that runs for the duration of the chef-client process. This caching method speeds up each package install and takes 1/2 the memory of the previous ``yum-dump.py`` process.
+     `yum_package </resource_yum_package.html>`__ received a ground up rewrite that greatly improves both the performance and functionality while also resolving a dozen existing issues. It introduces a new caching method that runs for the duration of the chef-client process. This caching method speeds up each package install and takes 1/2 the memory of the previous ``yum-dump.py`` process.
 
      yum_package should now take any argument that ``yum install`` does and operate the same way, including version constraints ,(``foo < 1.2.3``), globs (``foo-1.2*``), and arches (``foo.i386``), in combinations.
 
@@ -448,10 +541,10 @@ Breaking Changes
 This release completes the deprecation process for many of the deprecations that were warnings throughout the Chef 12 and Chef 13 releases.
 
 * **erl_call Resource**
-     The erl_call resource was deprecated in Chef 13.7 and has been removed.
+     The `erl_call </resource_erl_call.html>`__ resource was deprecated in Chef 13.7 and has been removed.
 
 * **deploy Resource**
-     The deploy resource was deprecated in Chef 13.6 and been removed. If you still require this resource, it is available in the new deploy_resource cookbook at https://supermarket.chef.io/cookbooks/deploy_resource
+     The `deploy </resource_deploy.html>`__ resource was deprecated in Chef 13.6 and been removed. If you still require this resource, it is available in the new deploy_resource cookbook at https://supermarket.chef.io/cookbooks/deploy_resource
 
 * **Windows 2003 Support**
      Support for Windows 2003 has been removed from both Chef and Ohai, improving the performance of Chef on Windows hosts.
@@ -573,8 +666,8 @@ The Filesystem2 functionality has been backported to BSD systems to provide a co
 What's New in 13.9.1
 =====================================================
 * On Windows, the installer now correctly re-extracts files during repair mode
-* The ``mount`` resource will not create duplicate entries when the device type differs
-* Chef no longers requests every remote file when running with lazy loading enabled
+* The `mount </resource_mount.html>`__ resource will not create duplicate entries when the device type differs
+* Chef no longer requests every remote file when running with lazy loading enabled
 * Fixes a bug that caused Chef to crash when retrieving access rights for Windows system accounts
 
 This release also includes the `custom resource improvements </release_notes.html#custom-resource-improvements>`__ that were introduced in Chef 14.
@@ -590,7 +683,7 @@ What's New in 13.9
 =====================================================
 
 * On Windows, the installer now correctly re-extracts files during repair mode
-* The mount resource will now not create duplicate entries when the device type differs
+* The `mount </resource_mount.html>`__ resource will now not create duplicate entries when the device type differs
 * Ensure we don’t request every remote file when running with lazy loading enabled
 * Don’t crash when getting the access rights for Windows system accounts
 
@@ -937,8 +1030,9 @@ What's New in 13.0/13.1
 
 * **Blacklist attributes**
 * **Rubygems sources**
-* **Windows task**
+* **windows_task resource**
 * **Chef client will now exit using the rfc062 defined exit codes**
+* **New default encrypted databag format**
 * **Backwards compatibility breaks**
 
 
@@ -1064,7 +1158,7 @@ Solaris SMF services can now be started recursively
 -----------------------------------------------------
 It is now possible to load Solaris services recursively, by ensuring the new ``options`` property of the ``service`` resource contains ``-r``.
 
-The guard interpreter for ``powershell_script`` is Powershell, again
+The guard interpreter for ``powershell_script`` is PowerShell, again
 ------------------------------------------------------------------------------
 When writing ``not_if`` or ``only_if`` statements, by default we now run those statements using powershell, rather than forcing the user to set ``guard_interpreter`` each time.
 
@@ -1079,6 +1173,11 @@ The ``inspec`` and ``train`` gems are shipped by default in the chef omnibus pac
 Properly support managing Sys-V services on Debian systemd hosts
 ----------------------------------------------------------------
 Chef now properly supports managing sys-v services on hosts running systemd. Previously Chef would incorrectly attempt to fallback to Upstart even if upstart was not installed.
+
+New default encrypted databag format
+-----------------------------------------------------
+
+The default encrypted databag format is now 3.0, which was introduced in Chef 12.0. Encrypted databag version 3.0 format uses the ``aes-256-gcm`` cipher for enhanced security. All nodes using encrypted data bags in your environment will need to be upgraded to Chef 12.0 or later before creating encrypted data bags in this new format.
 
 Backwards Compatibility Breaks
 -----------------------------------------------------
@@ -2625,7 +2724,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_launchd_actions
 
-This resource has the following actions:
+The launchd resource has the following actions:
 
 ``:create``
    Default. Create a launchd property list.
@@ -3386,7 +3485,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_osx_profile_actions
 
-This resource has the following actions:
+The osx_profile resource has the following actions:
 
 ``:install``
    Default. Install the specified configuration profile.
@@ -5431,7 +5530,7 @@ knife client key
 -----------------------------------------------------
 .. tag knife_client_summary
 
-The ``knife client`` subcommand is used to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef server by any entity that uses the Chef server API, such as the chef-client and knife.
+Use the ``knife client`` subcommand to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef server by any entity that uses the Chef server API, such as the chef-client and knife.
 
 .. end_tag
 
@@ -5599,7 +5698,7 @@ knife user key
 -----------------------------------------------------
 .. tag knife_user_summary
 
-The ``knife user`` subcommand is used to manage the list of users and their associated RSA public key-pairs.
+Use the ``knife user`` subcommand to manage the list of users and their associated RSA public key-pairs.
 
 .. end_tag
 
@@ -5899,13 +5998,13 @@ dsc_resource
 
 .. tag resources_common_powershell
 
-Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <http://technet.microsoft.com/en-us/library/bb978526.aspx>`_ that supports using Chef for configuration management.
+Windows PowerShell is a task-based command-line shell and scripting language developed by Microsoft. Windows PowerShell uses a document-oriented approach for managing Microsoft Windows-based machines, similar to the approach that is used for managing Unix and Linux-based machines. Windows PowerShell is `a tool-agnostic platform <https://docs.microsoft.com/en-us/powershell/scripting/powershell-scripting>`_ that supports using Chef for configuration management.
 
 .. end_tag
 
 .. tag resources_common_powershell_dsc
 
-Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <http://technet.microsoft.com/en-us/library/dn249912.aspx>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
+Desired State Configuration (DSC) is a feature of Windows PowerShell that provides `a set of language extensions, cmdlets, and resources <https://docs.microsoft.com/en-us/powershell/dsc/overview>`_ that can be used to declaratively configure software. DSC is similar to Chef, in that both tools are idempotent, take similar approaches to the concept of resources, describe the configuration of a system, and then take the steps required to do that configuration. The most important difference between Chef and DSC is that Chef uses Ruby and DSC is exposed as configuration data from within Windows PowerShell.
 
 .. end_tag
 
@@ -6091,7 +6190,7 @@ This resource has the following properties:
       * - ``:registry``
         - Use to `manage registry keys and registry key values <https://msdn.microsoft.com/en-us/powershell/dsc/registryresource>`_.
       * - ``:script``
-        - Use to `run Powershell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
+        - Use to `run PowerShell script blocks <https://msdn.microsoft.com/en-us/powershell/dsc/scriptresource>`_.
       * - ``:service``
         - Use to `manage services <https://msdn.microsoft.com/en-us/powershell/dsc/serviceresource>`_.
       * - ``:user``
@@ -7253,7 +7352,7 @@ To create a node via the USER.pem file, simply delete the ORGANIZATION-validator
 
    $ rm -f /home/lamont/.chef/myorg-validator.pem
 
-and then make the following changes in the knife.rb file:
+and then make the following changes in the config.rb file:
 
 * Remove the ``validation_client_name`` setting
 * Edit the ``validation_key`` setting to be something that isn't a path to an existent ORGANIZATION-validator.pem file. For example: ``/nonexist``.
@@ -7470,11 +7569,11 @@ The full syntax for all of the properties that are available to the **paludis_pa
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``paludis_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``paludis_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -7971,6 +8070,7 @@ The following items are new for chef-client 12.0 and/or are changes from previou
 * **The path property is deprecated for the execute resource** Use the ``environment`` property instead.
 * **SSL certificate validation improvements** The default settings for SSL certificate validation now default in favor of validation. In addition, using the ``knife ssl fetch`` subcommand is now an important part of setting up your workstation.
 * **New property for git resource** The **git** resource has a new property: ``environment``, which takes a Hash of environment variables in the form of ``{"ENV_VARIABLE" => "VALUE"}``.
+* **New encrypted a version 3** Format utilizes aes-256-gcm ciphers for enhanced security.
 
 Please `view the notes </upgrade_client_notes.html>`__ for more background on the upgrade process from chef-client 11 to chef-client 12.
 
@@ -9194,7 +9294,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_service_reboot_actions
 
-This resource has the following actions:
+The reboot resource has the following actions:
 
 ``:cancel``
    Cancel a reboot request.
@@ -10086,6 +10186,11 @@ This is by design and will occur until a verifiable certificate is added to the 
 .. end_tag
 
 See `SSL Certificates </chef_client_security.html#ssl-certificates>`__ for more information about how knife and the chef-client use SSL certificates generated by the Chef server.
+
+Encrypted Databag Version 3
+-----------------------------------------------------
+
+Chef 12.0 includes a new version 3.0 encrypted databag format using the aes-256-gcm cipher for enhanced security. The default version remains 1.0 for compatibility with chef-client version 11.0. The new version can be enabled in environments running Chef 12.0 by setting ``data_bag_encrypt_version 3`` in the ``client.rb`` / ``config.rb`` files.
 
 Changelog
 =====================================================

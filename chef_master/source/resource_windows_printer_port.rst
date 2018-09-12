@@ -1,7 +1,7 @@
 =====================================================
-windows_printer_port
+windows_printer_port resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer_port.rst>`__
 
 Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer ports on Windows.
 
@@ -9,50 +9,51 @@ Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer 
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_printer_port resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_printer_port 'name' do
-     ipv4_address               String # default value: 'name'
-     notifies                   # see description
-     port_description           String
-     port_name                  String
-     port_number                Integer # default value: '9100'
-     port_protocol              Integer # default value: '1'
-     snmp_enabled               True, False # default value: 'false'
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  windows_printer_port 'name' do
+    exists                true, false
+    ipv4_address          String # default value: 'name' unless specified
+    port_description      String
+    port_name             String
+    port_number           Integer # default value: 9100
+    port_protocol         Integer # default value: 1
+    snmp_enabled          true, false # default value: false
+    action                Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``windows_printer_port`` is the resource
-* ``'name'`` is the IP address of the printer, or the name of the resource block
-*  and ``subscribes`` are the properties available to this resource
+* ``windows_printer_port`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, ``port_protocol``, and ``snmp_enabled`` are the properties available to this resource.
 
 Actions
 =====================================================
+
 ``:create``
    Default. Create the printer port, if one doesn't already exist.
-   
+
 ``:delete``
    Delete an existing printer port.
-   
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 ``ipv4_address``
    **Ruby Type:** String | **Default Value:** ``'name'``
-   
+
    The IPv4 address of the printer, if it differs from the resource block name.
-   
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -86,31 +87,31 @@ Properties
       notifies :action, 'resource[name]', :timer
 
    .. end_tag
-   
+
 ``port_description``
    **Ruby Type:** String
-   
-   A description of the port.
+
+   The description of the port.
 
 ``port_name``
    **Ruby Type:** String
-   
+
    The port name.
-             
+
 ``port_number``
    **Ruby Type:** Integer | **Default Value:** ``9100``
-   
+
    The port number.
 
 ``port_protocol``
    **Ruby Type:** Integer | **Default Value:** ``1``
-   
+
    The printer port protocol; ``1`` (RAW) or ``2`` (LPR).
 
 ``snmp_enabled``
    **Ruby Type:** True, False | **Default Value:** ``false``
-   
-   Determines ig SNMP is enabled on the port.
+
+   Determines if SNMP is enabled on the port
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

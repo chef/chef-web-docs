@@ -62,7 +62,6 @@ Getting Started
 `Chef Development Kit </release_notes_chefdk.html>`__ |
 `Chef Server </release_notes_server.html>`__ |
 `Chef Push Jobs </release_notes_push_jobs.html>`__ |
-`Ohai </release_notes_ohai.html>`__
 
 `Deprecations </chef_deprecations_client.html>`__
 
@@ -117,7 +116,6 @@ Cookbook Reference
 -----------------------------------------------------
 `About Cookbooks </cookbooks.html>`__ |
 `Attributes </attributes.html>`__ |
-`Definitions </definitions.html>`__ |
 `Files </files.html>`__ |
 `Libraries </libraries.html>`__
 
@@ -161,6 +159,7 @@ Cookbook Reference
 `chef_user </resource_chef_user.html>`__ |
 `chocolatey_config </resource_chocolatey_config.html>`__
 `chocolatey_package </resource_chocolatey_package.html>`__
+`chocolatey_source </resource_chocolatey_source.html>`__
 `cookbook_file </resource_cookbook_file.html>`__ |
 `cron </resource_cron.html>`__ |
 `cron_d </resource_cron_d.html>`__ |
@@ -187,6 +186,7 @@ Cookbook Reference
 `http_request </resource_http_request.html>`__ |
 `ifconfig </resource_ifconfig.html>`__ |
 `ips_package </resource_ips_package.html>`__ |
+`kernel_module </resource_kernel_module.html>`__ |
 `ksh </resource_ksh.html>`__ |
 `launchd </resource_launchd.html>`__ |
 `link </resource_link.html>`__ |
@@ -213,6 +213,7 @@ Cookbook Reference
 `perl </resource_perl.html>`__ |
 `portage_package </resource_portage_package.html>`__ |
 `powershell_package </resource_powershell_package.html>`__ |
+`powershell_package_source </resource_powershell_package_source.html>`__ |
 `powershell_script </resource_powershell_script.html>`__ |
 `private_key </resource_private_key.html>`__ |
 `public_key </resource_public_key.html>`__ |
@@ -234,6 +235,7 @@ Cookbook Reference
 `service </resource_service.html>`__ |
 `smartos_package </resource_smartos_package.html>`__ |
 `solaris_package </resource_solaris_package.html>`__ |
+`ssh_known_hosts_entry </resource_ssh_known_hosts_entry.html>`__ |
 `subversion </resource_subversion.html>`__ |
 `sudo </resource_sudo.html>`__ |
 `swap_file </resource_swap_file.html>`__ |
@@ -253,7 +255,7 @@ Cookbook Reference
 `windows_service </resource_windows_service.html>`__ |
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
-`yum_package </resource_yum.html>`__ |
+`yum_package </resource_yum_package.html>`__ |
 `yum_repository </resource_yum_repository.html>`__ |
 `dnf_package </resource_dnf_package.html>`__ |
 `zypper_package </resource_zypper_package.html>`__ |
@@ -263,7 +265,7 @@ Cookbook Reference
 `Templates </templates.html>`__ |
 `Cookbook Repo </cookbook_repo.html>`__ |
 `metadata.rb </config_rb_metadata.html>`__ |
-`Cookbook Versions </cookbook_versions.html>`__ |
+`Cookbook Versioning </cookbook_versioning.html>`__ |
 `Ruby </ruby.html>`__
 
 **Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__
@@ -276,7 +278,7 @@ Chef DK
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__
 
-**chef (executable)**: `chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate resource </ctl_chef.html#chef-generate-resource>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__ | `chef verify </ctl_chef.html#chef-verify>`__
+**chef (executable)**: `chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate resource </ctl_chef.html#chef-generate-resource>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__
 
 **Chef Solo**: `About Chef Solo </chef_solo.html>`__ | `chef-solo (executable) </ctl_chef_solo.html>`__ | `solo.rb </config_rb_solo.html>`__
 
@@ -292,13 +294,11 @@ Chef DK
 
 **Kitchen**: `About Kitchen </kitchen.html>`__ | `kitchen (executable) </ctl_kitchen.html>`__ | `.kitchen.yml </config_yml_kitchen.html>`__ `kitchen-vagrant </plugin_kitchen_vagrant.html>`__
 
-**Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__
+**Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife supermarket </knife_supermarket.html>`_ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__
 
-**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `knife.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  | `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
+**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `config.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
 
 `knife spork </plugin_knife_spork.html>`__
-
-**knife supermarket**: `supermarket download </plugin_knife_supermarket.html#download>`__ | `supermarket install </plugin_knife_supermarket.html#install>`__ | `supermarket list </plugin_knife_supermarket.html#list>`__ | `supermarket search </plugin_knife_supermarket.html#search>`__ | `supermarket share </plugin_knife_supermarket.html#share>`__ | `supermarket show </plugin_knife_supermarket.html#show>`__ | `supermarket unshare </plugin_knife_supermarket.html#unshare>`__
 
 **Ohai**: `About Ohai </ohai.html>`__ | `ohai (executable) </ctl_ohai.html>`__
 
@@ -335,7 +335,7 @@ Managing the Server
 
 **Push Jobs**: `knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
 
-**Supermarket**: `Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </plugin_knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
+**Supermarket**: `Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
 
 **Management Console**: `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
 
@@ -600,11 +600,10 @@ Addenda
    config_rb_compliance
    config_rb_delivery
    config_rb_delivery_optional_settings
-   config_rb_knife
-   config_rb_knife_optional_settings
    config_rb_manage
    config_rb_metadata
    config_rb_metadata
+   config_rb_optional_settings
    config_rb_policyfile
    config_rb_push_jobs_client
    config_rb_push_jobs_server
@@ -615,7 +614,7 @@ Addenda
    config_rb_supermarket
    config_yml_kitchen
    cookbook_repo
-   cookbook_versions
+   cookbook_versioning
    cookbooks
    cookstyle
    ctl_chef
@@ -762,6 +761,7 @@ Addenda
    knife_ssl_check
    knife_ssl_fetch
    knife_status
+   knife_supermarket
    knife_tag
    knife_upload
    knife_user
@@ -785,7 +785,6 @@ Addenda
    plugin_knife_push_jobs
    plugin_knife_reporting
    plugin_knife_spork
-   plugin_knife_supermarket
    plugin_knife_windows
    policy
    policyfile
@@ -805,7 +804,6 @@ Addenda
    release_notes_chefdk
    release_notes_server
    release_notes_push_jobs
-   release_notes_ohai
    resource
    resource_apt_package
    resource_apt_preference
@@ -933,7 +931,7 @@ Addenda
    resource_windows_service
    resource_windows_shortcut
    resource_windows_task
-   resource_yum
+   resource_yum_package
    resource_yum_repository
    resource_zypper_package
    resource_zypper_repository

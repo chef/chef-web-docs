@@ -64,7 +64,7 @@ A Berksfile describes the set of sources and dependencies needed to use a cookbo
 
 Syntax
 -------
-A Berksfile is a Ruby file, in which sources, dependencies, and options may be specified. Berksfiles are modelled closely on Bundler's Gemfile. The syntax is as follows:
+A Berksfile is a Ruby file, in which sources, dependencies, and options may be specified. Berksfiles are modeled closely on Bundler's Gemfile. The syntax is as follows:
 
 .. code-block:: ruby
 
@@ -105,7 +105,7 @@ To add a local Chef repository:
    source "https://supermarket.chef.io"
    source chef_repo: ".."
 
-The location and authentication details for the Chef Server will be taken from the user's ``knife.rb`` by default.
+The location and authentication details for the Chef Server will be taken from the user's ``config.rb`` by default.
 
 To add multiple Chef Servers:
 
@@ -318,7 +318,7 @@ Use ``berks cookbook`` to create a skeleton for a new cookbook.
 
 berks info
 -----------------------------------------------------
-Use ``berks info`` to display the name, author, copyright, and dependcy information for the named cookbook.
+Use ``berks info`` to display the name, author, copyright, and dependency information for the named cookbook.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

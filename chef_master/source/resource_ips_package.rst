@@ -70,7 +70,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The ips_package resource has the following properties:
 
 ``accept_license``
    **Ruby Types:** True, False

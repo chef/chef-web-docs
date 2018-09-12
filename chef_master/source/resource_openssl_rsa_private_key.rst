@@ -1,7 +1,7 @@
 =====================================================
-openssl_rsa_private_key
+openssl_rsa_private_key resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_rsa_private_key>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_rsa_private_key.rst>`__
 
 Use the **openssl_rsa_private_key** resource to generate RSA private key files. If a valid RSA key file can be opened at the specified location, no new file will be created. If the RSA key file cannot be opened or does not exist, it will be overwritten.
 
@@ -11,29 +11,28 @@ Use the **openssl_rsa_private_key** resource to generate RSA private key files. 
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_rsa_private_key resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_rsa_private_key_file 'name' do
-     force                      True, False # default value: 'false'
-     group                      String
-     key_cipher                 String # default value: 'des3'
-     key_length                 Integer # default value: '2048'
-     key_pass                   String
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     owner                      String
-     path                       String # default value: 'name'
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  openssl_rsa_private_key 'name' do
+    force           true, false # default value: false
+    group           String
+    key_cipher      String # default value: des3
+    key_length      Integer # default value: 2048
+    key_pass        String
+    mode            Integer, String # default value: 0600
+    owner           String
+    path            String # default value: 'name' unless specified
+    action          Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_rsa_private_key_file`` is the name of the resource
-* ``'name'`` is the path to the private key file that is to be created, or the name of the resource block
-* ``force``, ``group``, ``key_cipher``, ``key_length``, ``key_pass``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
+* ``openssl_rsa_private_key`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``force``, ``group``, ``key_cipher``, ``key_length``, ``key_pass``, ``mode``, ``owner``, and ``path`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -55,14 +54,14 @@ Properties
    Force creation of the key even if the same key already exists on the node.
 
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group ownership applied to all files created by the resource.
 
 ``key_cipher``
    **Ruby Type:** String | **Default Value:** ``des3``
 
-   The designed cipher to use when generating your key; run ``openssl list-cipher-algorithms`` to see available options.
+   The designed cipher to use when generating your key. Run ``openssl list-cipher-algorithms`` to see available options.
 
 ``key_length``
    **Ruby Type:** Integer | **Default Value:** ``2048``
@@ -75,9 +74,9 @@ Properties
    The desired passphrase for the key.
 
 ``mode``
-  **Ruby Type:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String | **Default Value:** ``0600``
 
-  The permission mode of all files created by the resource.
+   The permission mode applied to all files created by the resource.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -114,9 +113,9 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system user that owns all files created by the resource.
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String

@@ -1,5 +1,5 @@
 =====================================================
-openssl_dhparam
+openssl_dhparam resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_dhparam.rst>`__
 
@@ -9,29 +9,32 @@ Use the **openssl_dhparam** resource to generate ``dhparam.pem`` files. If a val
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_dhparam resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_dhparam 'name' do
-     generator                  Integer # default value: '2'
-     group                      String
-     key_length                 Integer # default value: '2048'
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     owner                      String
-     path                       String # default value: 'name'
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+  openssl_dhparam 'name' do
+    generator       Integer # default value: 2
+    group           String
+    key_length      Integer # default value: 2048
+    mode            Integer, String # default value: 0640
+    owner           String
+    path            String # default value: 'name' unless specified
+    action          Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_dhparam`` is the name of the resource
-* ``'name'`` is the path where the dhparam file will be written, or the name of the resource block
-* ``generator``, ``group``, ``key_length``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
+* ``openssl_dhparam`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``generator``, ``group``, ``key_length``, ``mode``, ``owner``, and ``path`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The openssl_dhparam resource has the following actions:
+
 ``:create``
    Default. Create the ``dhparam.pem`` file.
 
@@ -50,9 +53,9 @@ Properties
    The desired Diffie-Hellmann generator; available options are ``2`` and ``5``.
 
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group ownership applied to all files created by the resource.
 
 ``key_length``
    **Ruby Type:** Integer | **Default Value:** ``2048``
@@ -60,7 +63,7 @@ Properties
    The desired bit length of the generated key; available options are ``1024``, ``2048``, ``4096``, and ``8192``.
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``0640``
+   **Ruby Type:** Integer, String | **Default Value:** ``0640``
 
    The permission mode applied to all files created by the resource.
 
@@ -99,9 +102,9 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The owner of all files created by the resource.
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String

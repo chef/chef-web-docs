@@ -11,7 +11,7 @@ An environment is a way to map an organization's real-life workflow to what can 
 
 .. tag knife_environment_summary
 
-The ``knife environment`` subcommand is used to manage environments within a single organization on the Chef server.
+Use the ``knife environment`` subcommand to manage environments within a single organization on the Chef server.
 
 .. end_tag
 
@@ -142,7 +142,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 
@@ -237,7 +237,7 @@ This argument has the following options:
 
 .. note:: .. tag knife_common_see_all_config_options
 
-          See `knife.rb </config_rb_knife_optional_settings.html>`__ for more information about how to add certain knife options as settings in the knife.rb file.
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
 
           .. end_tag
 

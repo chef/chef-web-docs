@@ -67,7 +67,7 @@ In addition to the default install behavior, the Chef install script supports th
    The product name to install. A list of valid product names can be found at https://omnitruck.chef.io/products. Default value: ``chef``.
 
 ``-v`` (``-version`` on Microsoft Windows)
-   The version of the package to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. A two-part version (x.y) is also allowed. For more information about application versioning, see http://semver.org/.
+   The version of the package to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. A two-part version (x.y) is also allowed. For more information about application versioning, see https://semver.org/.
 
 .. end_tag
 
@@ -77,11 +77,11 @@ Examples
 
 The following examples show how to use the install script.
 
-To install chef-client version 13.2.20:
+To install chef-client version 14.4.56:
 
 .. code-block:: bash
 
-   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 13.2.20
+   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 14.4.56
 
 To install the latest version of the Chef development kit on Microsoft Windows from the ``current`` channel:
 

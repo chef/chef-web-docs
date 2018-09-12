@@ -1,5 +1,5 @@
 =====================================================
-windows_env
+windows_env resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_env.rst>`__
 
@@ -15,37 +15,24 @@ This resource was previously called the **env** resource; its name was updated i
 
 Syntax
 =====================================================
-.. tag resource_env_syntax
-
-A **windows_env** resource block manages environment keys in Microsoft Windows:
+The windows_env resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_env 'ComSpec' do
-     value 'C:\\Windows\\system32\\cmd.exe'
-   end
+  windows_env 'name' do
+    delim         String, nil, false
+    key_name      String # default value: 'name' unless specified
+    user          String # default value: <System>
+    value         String
+    action        Symbol # defaults to :create if not specified
+  end
 
-The full syntax for all of the properties that are available to the **env** resource is:
+where:
 
-.. code-block:: ruby
-
-   windows_env 'name' do
-     delim                      String
-     key_name                   String # defaults to 'name' if not specified
-     notifies                   # see description
-     subscribes                 # see description
-     value                      String
-     action                     Symbol # defaults to :create if not specified
-   end
-
-where
-
-* ``windows_env`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``delim``, ``key_name``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
+* ``windows_env`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``delim``, ``key_name``, ``user``, and ``value`` are the properties available to this resource.
 
 Actions
 =====================================================

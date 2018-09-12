@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Push Jobs 1.0 - 2.2
+Release Notes: Chef Push Jobs 1.0 - 2.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_push_jobs.rst>`__
 
@@ -102,7 +102,7 @@ This includes:
 
 .. code-block:: bash
 
-   $ knife job start --file .chef/knife.rb --capture --with-env '{"test": "foo"}' --in-dir "/tmp" --as-user daemon "print_execution_environment" node2
+   $ knife job start --file .chef/config.rb --capture --with-env '{"test": "foo"}' --in-dir "/tmp" --as-user daemon "print_execution_environment" node2
    Started. Job ID: 26e98ba162fac37787292637362808cb
    ...
 

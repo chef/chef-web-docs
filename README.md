@@ -3,10 +3,6 @@
 This repo is the source of the Chef reference documentation located at
 https://docs.chef.io/
 
-On October 23, 2016, it became easier to contribute to Chef reference
-documentation. For each topic, you now only have to make edits to a
-single file that looks a lot like the final HTML.
-
 ## The fastest way to contribute
 
 If you spot something in the docs that needs to be fixed, the fastest
@@ -45,6 +41,12 @@ To (build and) preview locally:
 
 - Run `make docker-preview`
 - go to http://localhost:8000
+
+To check dtags:
+
+- Run `make docker-dtags` (this will drop you in a shell at the correct location)
+- cd to the appropriate directories
+- run `dtags replicate <options>` as needed (see the [readme](doctools/dtags_readme.md) and [help](doctools/dtags_help.md) for more information)
 
 To clean your local development environment:
 

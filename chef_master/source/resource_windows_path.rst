@@ -1,32 +1,34 @@
-==========================================
-windows_path
-==========================================
+=====================================================
+windows_path resource
+=====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_path.rst>`__
 
 Use the **windows_path** resource to manage the path environment variable on Microsoft Windows.
 
-New in Chef Client 13.4
+**New in Chef Client 13.4.**
 
 Syntax
-==========================================
-A **windows_path** resource manages the path environment variable on Microsoft Windows.
+=====================================================
+The windows_path resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_path 'name' do
-     path                   String
-     action                 Symbol
-   end
+  windows_path 'name' do
+    path      String # default value: 'name' unless specified
+    action    Symbol # defaults to :add if not specified
+  end
 
-where
+where:
 
-* ``windows_path`` is the resource
-* ``'name'`` is the name of the resource block
-* ``path`` is the path to be added/removed from the ``path`` environment variable.
+* ``windows_path`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``path`` is the property available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The windows_path resource has the following actions:
 
 ``:add``
    Add an item to the system path
@@ -74,7 +76,7 @@ This resource has the following properties:
 
 ``path``
    **Ruby Type:** String
-   Name attribute. The name of the value to add to the system path
+   Name property. The name of the value to add to the system path
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

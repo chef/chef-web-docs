@@ -1,49 +1,52 @@
-==========================================
-windows_task
-==========================================
+=====================================================
+windows_task resource
+=====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_task.rst>`__
 
 Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.
 
-**New in Chef Client 13**
+**New in Chef Client 13.0.**
 
 .. note:: The ``windows_task`` resource that was provided as part of the ``windows`` cookbook included the ``:change`` action, which has been removed from ``windows_task`` in Chef client. The ``:create`` action can be used instead to update an existing task.
 
 Syntax
-==========================================
-A **windows_task** resource creates, deletes or runs a Windows scheduled task.
+=====================================================
+The windows_task resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_task 'name' do
-     task_name                   String
-     command                     String
-     cwd                         String
-     user                        String # defaults to SYSTEM
-     password                    String
-     run_level                   Symbol # defaults to :limited
-     force                       True, False # defaults to false
-     interactive_enabled         True, False # defaults to false
-     frequency                   Symbol
-     frequency_modifier          Integer, String # defaults to 1
-     start_day                   String
-     start_time                  String
-     day                         String, Integer
-     months                      String
-     idle_time                   Integer
-     random_delay                String, Integer
-     execution_time_limit        String, Integer
-     action                      Symbol #defaults to :create
-   end
+  windows_task 'name' do
+    command                             String
+    cwd                                 String
+    day                                 String, Integer
+    disallow_start_if_on_batteries      true, false # default value: false
+    execution_time_limit                String, Integer # default value: PT72H
+    force                               true, false # default value: false
+    frequency                           Symbol
+    frequency_modifier                  Integer, String # default value: 1
+    idle_time                           Integer
+    interactive_enabled                 true, false # default value: false
+    minutes_duration                    String, Integer
+    minutes_interval                    String, Integer
+    months                              String
+    password                            String
+    priority                            Integer # default value: 7
+    random_delay                        String, Integer
+    run_level                           Symbol # default value: limited
+    start_day                           String
+    start_time                          String
+    stop_if_going_on_batteries          true, false # default value: false
+    task_name                           String # default value: 'name' unless specified
+    user                                String # default value: SYSTEM
+    action                              Symbol # defaults to :create if not specified
+  end
 
-where
+where:
 
 * ``windows_task`` is the resource.
-* ``name`` is the name of the resource block.
-* ``task_name`` is the name of the task.
-* ``command`` is the command to be executed by the windows scheduled task.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-* ``cwd``, ``user``, ``password``, ``run_level``, ``force``, ``interactive_enabled``, ``frequency``, ``frequency_modifier``, ``start_day``, ``start_time``, ``day``, ``months``, ``idle_time`` etc. are the properties of this resource, with the Ruby type shown. See the “Properties” section below for more information about all of the properties that may be used with this resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``command``, ``cwd``, ``day``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``stop_if_going_on_batteries``, ``task_name``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -69,37 +72,42 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
 
-``task_name``
+``command``
    **Ruby Type:** String
 
-   The task name, such as ``"Task Name"`` or ``"/Task Name"``
-
-``force``
-   **Ruby Type:** True, False
-
-   When used with create, will update the task.
+   The command to be executed by the windows scheduled task.
 
 ``cwd``
    **Ruby Type:** String
 
    The directory the task will be run from.
 
-``user``
-   **Ruby Type:** String | **Default Value:** ``'SYSTEM'``
+``day``
+   **Ruby Type:** String, Integer
 
-   The user to run the task as.
+   The day(s) on which the task runs.
+    * Use with frequency ``:monthly`` and ``:weekly`` tasks,
+    * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
+    * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
+       * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modiifer`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
+       * Multiple days should be comma seprated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
 
-``password``
-   **Ruby Type:** String
+``disallow_start_if_on_batteries``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   The user's password. Requires user.
+   Disallow start of the task if the system is running on battery power.
+   New in Chef Client 14.4.
 
-``run_level``
-   **Ruby Type:** Symbol | **Default Value:** ``:limited``
+``execution_time_limit``
+   **Ruby Type:** String, Integer | **Default Value:** ``PT72H`` (72 hours)
 
-   Run with ``:limited`` or ``:highest`` privileges.
+   The maximum time (in seconds) the task will run.
+
+``force``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   When used with create, will update the task.
 
 ``frequency``
    **Ruby Type:** Symbol
@@ -121,6 +129,47 @@ This resource has the following properties:
       * e.g. If user want to run the task on ``second week of the month`` use ``frequency_modifier`` value as ``SECOND``. Multiple values for weeks of the month should be comma seperated e.g. ``"FIRST, THIRD, LAST"``.
       * To run task every (n) months user values '1-12'.
 
+``idle_time``
+   **Ruby Type:** Integer
+
+   For ``:on_idle`` frequency, the time (in minutes) without user activity that must pass to trigger the task, from ``1`` - ``999``.
+
+``interactive_enabled``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Allow task to run interactively or non-interactively. Requires user and password to also be set.
+
+``minutes_duration``
+   **Ruby Type:** String, Integer
+
+``minutes_interval``
+   **Ruby Type:** String, Integer
+
+``months``
+   **Ruby Type:** String
+
+   The Months of the year on which the task runs, such as: ``"JAN, FEB"`` or ``"\*"``. Multiple months should be comma delimited. e.g. ``"Jan, Feb, Mar, Dec"``
+
+
+``password``
+   **Ruby Type:** String
+
+   The user’s password. The user property must be set if using this property.
+
+``priority``
+   **Ruby Type:** Integer | **Default Value:** ``7``
+
+   Use to set Priority Levels range from 0 to 10.
+
+``random_delay``
+   **Ruby Type:** String, Integer
+
+   Delays the task up to a given time (in seconds).
+
+``run_level``
+  **Ruby Type:** Symbol | **Default Value:** ``:limited``
+
+  Run with ``:limited`` or ``:highest`` privileges.
 
 ``start_day``
    **Ruby Type:** String
@@ -132,41 +181,21 @@ This resource has the following properties:
 
    Specifies the start time to run the task, in **HH:mm** format.
 
-``interactive_enabled``
-   **Ruby Type:** True, False | **Default Value:** ``False``
+``stop_if_going_on_batteries``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Allow task to run interactively or non-interactively. Requires user and password.
+   Scheduled task option when system is switching on battery.
+   New in Chef Client 14.4.
 
-``day``
-   **Ruby Type:** Integer, String
+``task_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The day(s) on which the task runs.
-    * Use with frequency ``:monthly`` and ``:weekly`` tasks,
-    * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
-    * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
-       * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modiifer`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
-       * Multiple days should be comma seprated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
+   The task name, such as ``"Task Name"`` or ``"/Task Name"``
 
-``months``
-   **Ruby Type:** String
+``user``
+   **Ruby Type:** String | **Default Value:** ``SYSTEM``
 
-   The Months of the year on which the task runs, such as: ``"JAN, FEB"`` or ``"\*"``. Multiple months should be comma delimited. e.g. ``"Jan, Feb, Mar, Dec"``
-
-``idle_time``
-   **Ruby Type:** Integer
-
-   For ``:on_idle`` frequency, the time (in minutes) without user activity that must pass to trigger the task, from ``1`` - ``999``.
-
-``execution_time_limit``
-   **Ruby Type:** String | **Default Value:** ``PT72H`` (72 hours)
-
-   The maximum time (in seconds) the task will run.
-
-``random_delay``
-   **Ruby Type:** Integer, String
-
-   Delays the task upto given time (in seconds).
-
+   The user to run the task as.
 
 Examples
 =====================================================

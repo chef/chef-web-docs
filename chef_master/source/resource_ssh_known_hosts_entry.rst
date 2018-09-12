@@ -1,58 +1,47 @@
 =====================================================
-smartos_package
+ssh_known_hosts_entry resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_smartos_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ssh_known_hosts_entry.rst>`__
 
-.. tag resource_package_smartos
+Use the **ssh_known_hosts_entry** resource to add an entry for the specified host in /etc/ssh/ssh_known_hosts or a user's known hosts file if specified.
 
-Use the **smartos_package** resource to manage packages for the SmartOS platform.
-
-.. end_tag
-
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================
-A **smartos_package** resource block manages a package on a node, typically by installing it. The simplest use of the **smartos_package** resource is:
+The ssh_known_hosts_entry resource has the following syntax:
 
 .. code-block:: ruby
 
-   smartos_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **smartos_package** resource is:
-
-.. code-block:: ruby
-
-  smartos_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    response_file                String
-    response_file_variables      Hash
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+  ssh_known_hosts_entry 'name' do
+    file_location      String # default value: /etc/ssh/ssh_known_hosts
+    group              String
+    hash_entries       true, false # default value: false
+    host               String # default value: 'name' unless specified
+    key                String
+    key_type           String # default value: rsa
+    mode               String # default value: 0644
+    owner              String # default value: root
+    port               Integer # default value: 22
+    timeout            Integer # default value: 30
+    action             Symbol # defaults to :create if not specified
   end
 
 where:
 
-* ``smartos_package`` is the resource.
+* ``ssh_known_hosts_entry`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``file_location``, ``group``, ``hash_entries``, ``host``, ``key``, ``key_type``, ``mode``, ``owner``, ``port``, and ``timeout`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+``:create``
+   Default. Create an entry in the ssh_known_hosts file.
+
+``:flush``
+   Immediately flush the entries to the config file. Without this the actual writing of the file is delayed in the Chef run so all entries can be accumulated before writing the file out.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -61,20 +50,43 @@ This resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
-``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
-
 Properties
 =====================================================
-This resource has the following properties:
 
-``ignore_failure``
-   **Ruby Types:** True, False
+``file_location``
+   **Ruby Type:** String | **Default Value:** ``/etc/ssh/ssh_known_hosts``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   The location of the ssh known hosts file. Change this to set a known host file for a particular user.
+
+``group``
+   **Ruby Type:** String
+
+   The file group for the ssh_known_hosts file.
+
+``hash_entries``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Hash the hostname and addresses in the ssh_known_hosts file for privacy.
+
+``host``
+   **Ruby Type:** String
+
+   The host to add to the known hosts file.
+
+``key``
+   **Ruby Type:** String
+
+   An optional key for the host. If not provided this will be automatically determined.
+
+``key_type``
+   **Ruby Type:** String | **Default Value:** ``rsa``
+
+   The type of key to store.
+
+``mode``
+   **Ruby Type:** String | **Default Value:** ``0644``
+
+   The file mode for the ssh_known_hosts file.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -110,30 +122,16 @@ This resource has the following properties:
 
    .. end_tag
 
-``options``
-   **Ruby Type:** String
+``owner``
+   **Ruby Type:** String | **Default Value:** ``root``
 
-   One (or more) additional options that are passed to the command.
+   The file owner for the ssh_known_hosts file.
 
-``package_name``
-   **Ruby Types:** String, Array
+``port``
+   **Ruby Type:** Integer | **Default Value:** ``22``
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The server port that the ssh-keyscan command will use to gather the public key.
 
-``retries``
-   **Ruby Type:** Integer
-
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
-
-``retry_delay``
-   **Ruby Type:** Integer
-
-   The retry delay (in seconds). Default value: ``2``.
-
-``source``
-   **Ruby Type:** String
-
-   Optional. The path to a package in the local file system.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -185,29 +183,6 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** Integer | **Default Value:** ``30``
 
-   The amount of time (in seconds) to wait before timing out.
-
-``version``
-   **Ruby Types:** String, Array
-
-   The version of a package to be installed or upgraded.
-
-Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
-
-**Install a package**
-
-.. tag resource_smartos_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   smartos_package 'name of package' do
-     action :install
-   end
-
-.. end_tag
+   The timeout in seconds for ssh-keyscan.

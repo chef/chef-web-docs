@@ -1,5 +1,5 @@
 =====================================================
-openssl_x509_certificate
+openssl_x509_certificate resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_x509_certificate.rst>`__
 
@@ -9,43 +9,42 @@ Use the **openssl_x509_certificate** resource to generate signed or self-signed,
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_x509_certificate resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_x509_certificate 'name' do
-     city                       String
-     email                      String
-     ca_cert_file               String
-     ca_key_file                String
-     ca_key_pass                String
-     common_name                String
-     country                    String
-     csr_file                   String
-     expire                     Integer, # default value '365'
-     extensions                 Hash
-     group                      String
-     key_curve                  String # default value: 'prime256v1'
-     key_file                   String
-     key_length                 Integer # default value: '2048'
-     key_pass                   String
-     key_type                   String # default value: 'rsa'
-     mode                       Integer, String
-     notifies                   # see description
-     owner                      String
-     org                        String
-     org_unit                   String
-     path                       String # default value: 'name'
-     state                      String
-     subject_alt_name           Array
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+  openssl_x509_certificate 'name' do
+    ca_cert_file          String
+    ca_key_file           String
+    ca_key_pass           String
+    city                  String
+    common_name           String
+    country               String
+    csr_file              String
+    email                 String
+    expire                Integer # default value: 365
+    extensions            Hash
+    group                 String
+    key_curve             String # default value: prime256v1
+    key_file              String
+    key_length            Integer # default value: 2048
+    key_pass              String
+    key_type              String # default value: rsa
+    mode                  Integer, String
+    org                   String
+    org_unit              String
+    owner                 String
+    path                  String # default value: 'name' unless specified
+    state                 String
+    subject_alt_name      Array
+    action                Symbol # defaults to :create if not specified
+  end
 
 where:
 
 * ``openssl_x509_certificate`` is the name of the resource
 * ``'name'`` is the path where the certificate file will be written, or the name of the resource block
-* ``city``, ``email``, ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``common_name``, ``country``, ``csr_file``, ``expire``, ``extensions``,  ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``notifies``, ``org``, ``org_unit``, ``owner``, ``path``, ``state``, ``subject_alt_name``, and ``subscribes`` are the properties available to this resource
+* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``city``, ``common_name``, ``country``, ``csr_file``, ``email``, ``expire``, ``extensions``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``org``, ``org_unit``, ``owner``, ``path``, and ``state`` are the properties available to this resource
 
 Actions
 =====================================================
@@ -86,6 +85,12 @@ Properties
 
    The passphrase for CA private key's passphrase.
 
+
+``city``
+   **Ruby Type:** String
+
+   Value for the ``L`` certificate field.
+
 ``common_name``
    **Ruby Type:** String
 
@@ -101,28 +106,34 @@ Properties
 
    The path to a X509 Certificate Request (CSR) on the filesystem. If the csr_file property is specified, the resource will attempt to source a CSR from this location. If no CSR file is found, the resource will generate a Self-Signed Certificate and the certificate fields must be specified (common_name at last).
 
+
+``email``
+   **Ruby Type:** String
+
+   Value for the ``email`` certificate field.
+
 ``expire``
    **Ruby Type:** Integer | **Default Value:** ``365``
 
    Value representing the number of days from now through which the issued certificate cert will remain valid. The certificate will expire after this period.
 
-``extension``
-   **Ruby Type:** Array
+``extensions``
+   **Ruby Type:** Hash
 
    Hash of X509 Extensions entries, in format ``{ 'keyUsage' => { 'values' => %w( keyEncipherment digitalSignature), 'critical' => true } }``.
 
 ``group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The system group of all files created by the resource.
+   The group ownership applied to all files created by the resource.
 
 ``key_curve``
-   **Ruby Types:** String | **Default Value:** ``prime256v1``
+   **Ruby Type:** String | **Default Value:** ``prime256v1``
 
    The desired curve of the generated key (if key_type is equal to 'ec'). Run ``openssl ecparam -list_curves`` to see available options.
 
 ``key_file``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The path to a certificate key file on the filesystem. If the key_file property is specified, the resource will attempt to source a key from this location. If no key file is found, the resource will generate a new key file at this location. If the key_file property is not specified, the resource will generate a key file in the same directory as the generated certificate, with the same name as the generated certificate.
 
@@ -132,17 +143,17 @@ Properties
    The desired bit length of the generated key (if key_type is equal to 'rsa'). Available options are ``1024``, ``2048``, ``4096``, and ``8192``.
 
 ``key_pass``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
-   The passphrase for an existing key's passphrase
+   The passphrase for an existing key's passphrase.
 
 ``key_type``
-   **Ruby Types:** String | **Default Value:** ``rsa``
+   **Ruby Type:** String | **Default Value:** ``rsa``
 
    The desired type of the generated key (rsa or ec).
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    The permission mode applied to all files created by the resource.
 
@@ -180,16 +191,20 @@ Properties
 
    .. end_tag
 
-``owner``
-   **Ruby Types:** String
-
-   The owner of all files created by the resource.
-
 ``org``
-   **Ruby Types:** String
+   **Ruby Type:** String
+
+   Value for the ``O`` certificate field.
 
 ``org_unit``
-   **Ruby Types:** String
+   **Ruby Type:** String
+
+   Value for the ``OU`` certificate field.
+
+``owner``
+   **Ruby Type:** String
+
+   The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String
@@ -197,12 +212,14 @@ Properties
    The path to write the file to, if it differs from the resource name.
 
 ``state``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    Value for the ``ST`` certificate field.
 
 ``subject_alt_name``
-   **Ruby Types:** String
+   **Ruby Type:** Array
+   
+   Array of Subject Alternative Name entries, in format DNS:example.com or IP:1.2.3.4.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

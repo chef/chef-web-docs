@@ -1,5 +1,5 @@
 =====================================================
-package
+package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_package.rst>`__
 
@@ -33,7 +33,7 @@ For more information about specific resources for specific platforms, see the fo
 * `smartos_package </resource_smartos_package.html>`__
 * `solaris_package </resource_solaris_package.html>`__
 * `windows_package </resource_windows_package.html>`__
-* `yum_package </resource_yum.html>`__
+* `yum_package </resource_yum_package.html>`__
 * `zypper_package </resource_zypper_package.html>`__
 
 Syntax
@@ -84,7 +84,7 @@ The full syntax for all of the properties that are available to the **package** 
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
 * ``package`` tells the chef-client to manage a package; the chef-client will determine the correct package provider to use based on the platform running on the node
 * ``'name'`` is the name of the package
