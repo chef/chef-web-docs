@@ -375,7 +375,7 @@ Chef Automate 1
 
 **Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Chef Compliance API </api_compliance.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
 
-**Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__ 
+**Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__
 
 **AWS OpsWorks for Chef Automate**: `AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
 
