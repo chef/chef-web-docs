@@ -5,15 +5,9 @@ https://docs.chef.io/
 
 ## The fastest way to contribute
 
-If you spot something in the docs that needs to be fixed, the fastest
-way to get in the change is to edit the file on the GitHub web
-site using the GitHub UI. PRs submitted through remote forks are not currently allowed as they do not work with our CI system.
+If you spot something in the docs that needs to be fixed, the fastest way to get in the change is to edit the file on the GitHub website using the GitHub UI. PRs submitted through remote forks are not currently enabled as they do not work with our CI system.
 
-To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at the top of
-the page you want to edit. The link takes you to that topic's GitHub
-page. In GitHub, click on the pencil icon and make your changes. You
-can preview how they'll look right on the page ("Preview Changes"
-tab).
+To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at the top ofthe page you want to edit. The link takes you to that topic's GitHub page. In GitHub, click on the pencil icon and make your changes. You can preview how they'll look right on the page ("Preview Changes" tab).
 
 We no longer use "swaps" and include files, so you'll be able to see
 all of text in one place for each topic. If you need tips on the
@@ -53,44 +47,6 @@ To check dtags:
 To clean your local development environment:
 
 - Run `make clean`
-
-## The next fastest way
-
-If your change involves edits to multiple topics, or if you contribute
-frequently, you'll want to fork this repo in GitHub, clone it on your
-workstation, and make pull requests from commits you push to your
-forked repo. After you fork `chef/chef-web-docs` using the GitHub web
-interface, clone the forked repo to your workstation, following these [instructions](https://docs.chef.io/community_contributions.html#use-git).
-
-Contributing this way requires some set-up, but once you're done, you can contribute
-frequently and from the comfort of your own GitHub repo. Our docs have three major dependencies:
-
-  1. We currently require version 1.6.2 of [Sphinx](http://sphinx-doc.org/).
-  2. The requirements.txt file referenced below pins Sphinx and its dependencies to versions that are compatible with each other.
-  3. You may also need to install Python, depending on your system.
-  4. You may also need to install Ruby, depending on your system.
-
-After making your changes but before submitting a PR, run the shell
-command `make` at the root of your local `chef-web-docs` repo to check for errors and build a local version of
-the doc set in HTML for testing. Before running `make` for the first time, you'll need to
-install Sphinx, the documentation generator, possibly using `sudo`:
-
-```bash
-  pip install -r requirements.txt
-```
-
-> Note: The default `make` target is `docs`. This is the target that creates the appropriate `public` directory on your local machine and references in the source files in the `chef_master/source` directory of your local repo.
-
-The docs build in a minute or two. To
-view the local version you built, you have two options:
-
-- Open the file `public/<filename>` in your browser
-- Use a local web server like the `SimpleHTTPServer` python module
-
-Viewing your content using the `SimpleHTTPServer` module allows you to navigate through the documentation as if you were browsing it on https://docs.chef.io. To use the `SimpleHTTPServer` module:
-
-1. Navigate to the `public` directory.
-2. Run `python -m SimpleHTTPServer`. After the server starts up, connect to your docs through your loopback IP address (http://127.0.0.1:8000).
 
 If you need tips on the source language for the docs, check out the
 [instructions](https://docs.chef.io/style_guide.html). We use a subset
