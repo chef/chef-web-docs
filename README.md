@@ -5,7 +5,7 @@ https://docs.chef.io/
 
 ## The fastest way to contribute
 
-If you spot something in the docs that needs to be fixed, the fastest way to get in the change is to edit the file on the GitHub website using the GitHub UI. PRs submitted through remote forks are not currently enabled as they do not work with our CI system.
+If you spot something in the docs that needs to be fixed, the fastest way to get in the change is to edit the file on the GitHub website using the GitHub UI.
 
 To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at the top ofthe page you want to edit. The link takes you to that topic's GitHub page. In GitHub, click on the pencil icon and make your changes. You can preview how they'll look right on the page ("Preview Changes" tab).
 
