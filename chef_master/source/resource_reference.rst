@@ -1186,6 +1186,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_link.rst
 
+.. include:: resource_locale.rst
+
 .. include:: resource_log.rst
 
 .. include:: resource_macos_userdefaults.rst
