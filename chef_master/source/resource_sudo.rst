@@ -252,5 +252,5 @@ Examples
 
    sudo 'passwordless-access' do
      commands ['systemctl restart httpd', 'systemctl restart mysql']
-     nopasswd True
+     nopasswd true
    end
