@@ -109,7 +109,7 @@ Properties
 This resource has the following properties:
 
 ``backup``
-   **Ruby Types:** Integer, False
+   **Ruby Type:** Integer, false
 
    The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 
@@ -119,12 +119,12 @@ This resource has the following properties:
    The name of the cookbook in which the source files are located.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    When launchd is run as the root user, the group to run the job as. If the ``username`` property is specified and this property is not, this value is set to the default group for the user.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -134,7 +134,7 @@ This resource has the following properties:
    The unique identifier for the job.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. Default value: ``'0755'``
 
@@ -173,7 +173,7 @@ This resource has the following properties:
    .. end_tag
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
@@ -279,17 +279,17 @@ The following resource properties may be used to define keys in the XML property
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
 ``disabled``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Hints to ``launchctl`` to not submit this job to launchd. Default value: ``false``.
 
 ``enable_globbing``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Update program arguments before invocation.
 
 ``enable_transactions``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Track in-progress transactions; if none, then send the ``SIGKILL`` signal.
 
@@ -314,17 +314,17 @@ The following resource properties may be used to define keys in the XML property
    Specifies if a daemon expects to be run as if it were launched from ``inetd``. Set to ``wait => true`` to pass standard input, output, and error file descriptors. Set to ``wait => false`` to call the ``accept`` system call on behalf of the job, and then pass standard input, output, and error file descriptors.
 
 ``init_groups``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Specify if ``initgroups`` is called before running a job. Default value: ``true``.
 
 ``keep_alive``
-   **Ruby Types:** True, False, Hash
+   **Ruby Type:** True, False, Hash
 
    Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``). Default value: ``false``.
 
 ``launch_only_once``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Specify if a job can be run only one time. Set this value to ``true`` if a job cannot be restarted without a full machine reboot.
 
@@ -344,7 +344,7 @@ The following resource properties may be used to define keys in the XML property
    The session type(s) to which this configuration file applies.
 
 ``low_priority_io``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Specify if the kernel on the node should consider this daemon to be low priority during file system I/O.
 
@@ -359,7 +359,7 @@ The following resource properties may be used to define keys in the XML property
    The program scheduling priority value in the range ``-20`` to ``20``.
 
 ``on_demand``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
@@ -389,7 +389,7 @@ The following resource properties may be used to define keys in the XML property
    ``chroot`` to this directory, and then run the job.
 
 ``run_at_load``
-   **Ruby Types:** True, False
+   **Ruby Type:** True, False
 
    Launch a job once (at the time it is loaded). Default value: ``false``.
 

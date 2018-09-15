@@ -1,6 +1,6 @@
-==========================================
-cab_package
-==========================================
+=====================================================
+cab_package resource
+=====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cab_package.rst>`__
 
 Use the **cab_package** resource to install or remove Microsoft Windows cabinet (.cab) packages.
