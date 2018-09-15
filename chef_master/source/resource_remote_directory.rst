@@ -83,7 +83,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The remote_directory resource has the following properties:
 
 ``cookbook``
    **Ruby Type:** String
