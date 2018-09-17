@@ -103,6 +103,7 @@ The following properties are common to every resource:
    **Ruby Types:** true, false | **Default Value:** ``false``
 
    Ensure that sensitive resource data is not logged by the chef-client.
+
 .. end_tag
 
 Notifications
