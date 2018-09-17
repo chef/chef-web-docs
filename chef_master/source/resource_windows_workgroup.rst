@@ -90,7 +90,7 @@ The following properties are common to every resource:
    Continue running a recipe if a resource fails for any reason.
 
 ``retries``
-   **Ruby Type:** Integer | **Default Value:**``0``
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
    The number of times to catch exceptions and retry the resource.
 
