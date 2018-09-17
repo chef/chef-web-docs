@@ -61,10 +61,13 @@ Properties
 
    Required. The domain user that will be used to join the domain.
 
+
 ``new_hostname``
   **Ruby Type:** String
 
   "Specifies a new name for the computer in the new domain."
+
+  New in Chef Client 14.5.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
