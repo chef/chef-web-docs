@@ -1,5 +1,5 @@
 =====================================================
-rpm_package
+rpm_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rpm_package.rst>`__
 

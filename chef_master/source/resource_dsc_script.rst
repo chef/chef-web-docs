@@ -1,5 +1,5 @@
 =====================================================
-dsc_script
+dsc_script resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dsc_script.rst>`__
 

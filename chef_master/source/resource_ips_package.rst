@@ -1,5 +1,5 @@
 =====================================================
-ips_package
+ips_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ips_package.rst>`__
 
@@ -50,7 +50,8 @@ where
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The ips_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.

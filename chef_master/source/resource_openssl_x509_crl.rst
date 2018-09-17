@@ -37,6 +37,9 @@ where:
 
 Actions
 =====================================================
+
+The openssl_x509_crl resource has the following actions:
+
 ``:create``
    Default. Create the certificate revocation list file.
 

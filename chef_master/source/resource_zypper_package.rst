@@ -86,12 +86,14 @@ The zypper_package resource has the following actions:
 Properties
 =====================================================
 
-This resource has the following properties:
+The zypper_package resource has the following properties:
 
 ``allow_downgrade``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Allow downgrading a package to satisfy requested version requirements.
+
+   New in Chef Client 13.6.
 
 ``gpg_check``
    **Ruby Type:** true, false

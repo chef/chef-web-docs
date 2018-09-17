@@ -3738,7 +3738,6 @@ Use the **apt_update** resource to manage APT repository updates on Debian and U
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_apt_update_syntax
 
 An **apt_update** resource block defines the update frequency for APT repositories:
 
@@ -3755,8 +3754,6 @@ where
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``frequency`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3971,7 +3968,6 @@ Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpret
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_script_ksh_syntax
 
 A **ksh** resource block executes scripts using ksh:
 
@@ -4016,7 +4012,6 @@ where
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

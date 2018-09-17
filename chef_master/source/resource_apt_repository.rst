@@ -1,6 +1,6 @@
-==========================================
-apt_repository
-==========================================
+=====================================================
+apt_repository resource
+=====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_repository.rst>`__
 
 Use the **apt_repository** resource to specify additional APT repositories. Adding a new repository will update APT package cache immediately.
@@ -44,10 +44,11 @@ The full syntax for all of the properties that are available to the **apt_reposi
       action                Symbol # defaults to :add if not specified
    end
 
-where
+where:
 
-* ``apt_repository`` is the resource
-* ``name`` is the name of the resource block
+* ``apt_repository`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``repo_name``, ``uri``, ``distribution``, ``components``, ``arch``, ``trusted``, ``deb_src``, ``keyserver``, ``key``, ``key_proxy``, ``cookbook``, ``cache_rebuild``, and ``sensitive`` are properties of this resource, with the Ruby type shown. See “Properties” section below for more information about all of the properties that may be used with this resource.
 
 Actions

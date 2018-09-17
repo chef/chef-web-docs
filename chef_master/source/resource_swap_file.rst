@@ -31,6 +31,9 @@ where:
 
 Actions
 =====================================================
+
+The swap_file resource has the following actions:
+
 ``:create``
    Default. Create a swap file.
 
@@ -46,6 +49,9 @@ Actions
 
 Properties
 =====================================================
+
+The swap_file resource has the following properties:
+
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

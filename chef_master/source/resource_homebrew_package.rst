@@ -1,5 +1,5 @@
 =====================================================
-homebrew_package
+homebrew_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_homebrew_package.rst>`__
 

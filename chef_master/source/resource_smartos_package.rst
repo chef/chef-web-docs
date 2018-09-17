@@ -1,5 +1,5 @@
 =====================================================
-smartos_package
+smartos_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_smartos_package.rst>`__
 
@@ -49,7 +49,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The smartos_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -69,7 +70,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The smartos_package resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** True, False

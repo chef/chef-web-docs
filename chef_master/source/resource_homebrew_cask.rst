@@ -1,5 +1,5 @@
 =====================================================
-homebrew_cask
+homebrew_cask resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_homebrew_cask.rst>`__
 
@@ -9,29 +9,31 @@ Use the **homebrew_cask** resource to install binaries distributed via the Homeb
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The homebrew_cask resource has the following syntax:
 
 .. code-block:: ruby
 
-   homebrew_cask 'name' do
-     cask_name                  String # default value: 'name'
-     homebrew_path              String # default value: '/usr/local/bin/brew'
-     install_cask               True, False # default value: 'true'
-     notifies                   # see description
-     options                    String
-     owner                      String # default value: lazy { find_homebrew_username }
-     subscribes                 # see description
-     action                     Symbol # defaults to :install if not specified
-   end
+  homebrew_cask 'name' do
+    cask_name          String # default value: 'name' unless specified
+    homebrew_path      String # default value: /usr/local/bin/brew
+    install_cask       true, false # default value: true
+    options            String
+    owner              String
+    action             Symbol # defaults to :install if not specified
+  end
 
 where:
 
-* ``homebrew_cask`` is the resource
-* ``'name'`` is the name of the Homebrew cask, or the name of the resource block
-* ``cask_name``, ``homebrew_path``, ``install_cask``, ``notifies``, ``options``, ``owner``, and ``subscribes`` are the properties available to this resource
+* ``homebrew_cask`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``cask_name``, ``homebrew_path``, ``install_cask``, ``options``, and ``owner`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The homebrew_cask resource has the following actions:
+
 ``:install``
    Default. Install an application that is packaged as a Homebrew cask.
    
@@ -58,8 +60,8 @@ Properties
    The path to the Homebrew binary.
 
 ``install_cask``
-   **Ruby Type:** True, False | **Default Value:** ``true``
-   
+   **Ruby Type:** true, false | **Default Value:** ``true``
+
    Automatically install the Homebrew cask tap, if necessary.
 
 ``notifies``

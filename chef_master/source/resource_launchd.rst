@@ -109,7 +109,7 @@ Properties
 This resource has the following properties:
 
 ``backup``
-   **Ruby Types:** Integer, False
+   **Ruby Type:** Integer, false
 
    The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 
@@ -119,14 +119,14 @@ This resource has the following properties:
    The name of the cookbook in which the source files are located.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    When launchd is run as the root user, the group to run the job as. If the ``username`` property is specified and this property is not, this value is set to the default group for the user.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``label``
    **Ruby Type:** String
@@ -134,9 +134,9 @@ This resource has the following properties:
    The unique identifier for the job.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String | **Default Value:** ``'0755'``
 
-   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. Default value: ``'0755'``
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -173,7 +173,7 @@ This resource has the following properties:
    .. end_tag
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
@@ -269,27 +269,27 @@ This resource has the following properties:
 The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the Apple man page documentation for launchd for more information about these keys:
 
 ``abandon_process_group``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    If a job dies, all remaining processes with the same process ID may be kept running. Set to ``true`` to kill all remaining processes.
 
 ``debug``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
 ``disabled``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false| **Default Value:** ``false``
 
-   Hints to ``launchctl`` to not submit this job to launchd. Default value: ``false``.
+   Hints to ``launchctl`` to not submit this job to launchd.
 
 ``enable_globbing``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Update program arguments before invocation.
 
 ``enable_transactions``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Track in-progress transactions; if none, then send the ``SIGKILL`` signal.
 
@@ -299,9 +299,9 @@ The following resource properties may be used to define keys in the XML property
    Additional environment variables to set before running a job.
 
 ``exit_timeout``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``20``
 
-   The amount of time (in seconds) launchd waits before sending a ``SIGKILL`` signal. Default value: ``20``.
+   The amount of time (in seconds) launchd waits before sending a ``SIGKILL`` signal.
 
 ``hard_resource_limits``
    **Ruby Type:** Hash
@@ -314,17 +314,17 @@ The following resource properties may be used to define keys in the XML property
    Specifies if a daemon expects to be run as if it were launched from ``inetd``. Set to ``wait => true`` to pass standard input, output, and error file descriptors. Set to ``wait => false`` to call the ``accept`` system call on behalf of the job, and then pass standard input, output, and error file descriptors.
 
 ``init_groups``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Specify if ``initgroups`` is called before running a job. Default value: ``true``.
+   Specify if ``initgroups`` is called before running a job.
 
 ``keep_alive``
-   **Ruby Types:** True, False, Hash
+   **Ruby Type:** true, false, Hash | **Default Value:** ``false``
 
-   Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``). Default value: ``false``.
+   Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``).
 
 ``launch_only_once``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Specify if a job can be run only one time. Set this value to ``true`` if a job cannot be restarted without a full machine reboot.
 
@@ -344,7 +344,7 @@ The following resource properties may be used to define keys in the XML property
    The session type(s) to which this configuration file applies.
 
 ``low_priority_io``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Specify if the kernel on the node should consider this daemon to be low priority during file system I/O.
 
@@ -359,7 +359,7 @@ The following resource properties may be used to define keys in the XML property
    The program scheduling priority value in the range ``-20`` to ``20``.
 
 ``on_demand``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
@@ -389,9 +389,9 @@ The following resource properties may be used to define keys in the XML property
    ``chroot`` to this directory, and then run the job.
 
 ``run_at_load``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Launch a job once (at the time it is loaded). Default value: ``false``.
+   Launch a job once (at the time it is loaded).
 
 ``sockets``
    **Ruby Type:** Hash
@@ -428,14 +428,14 @@ The following resource properties may be used to define keys in the XML property
    The frequency (in seconds) at which a job is started.
 
 ``start_on_mount``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Start a job every time a file system is mounted.
 
 ``throttle_interval``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``10``
 
-   The frequency (in seconds) at which jobs are allowed to spawn. Default value: ``10``.
+   The frequency (in seconds) at which jobs are allowed to spawn.
 
 ``time_out``
    **Ruby Type:** Integer
@@ -453,7 +453,7 @@ The following resource properties may be used to define keys in the XML property
    When launchd is run as the root user, the user to run the job as.
 
 ``wait_for_debugger``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Specify if launchd has a job wait for a debugger to attach before executing code.
 

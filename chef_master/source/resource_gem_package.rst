@@ -1,5 +1,5 @@
 =====================================================
-gem_package
+gem_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_gem_package.rst>`__
 
