@@ -3,7 +3,7 @@ rhsm_errata resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_errata.rst>`__
 
-Use the **rhsm_errata** resource to install packages associated with a given Red Hat Subscription Manager Errata ID. This is helpful if packages to mitigate a single vulnerability must be installed on your hosts.
+Use the **rhsm_errata** resource to install packages associated with a given Red Hat Subscription Manager Errata ID. This is helpful if packages that mitigate a single vulnerability must be installed on your hosts.
 
 **New in Chef Client 14.0.**
 
