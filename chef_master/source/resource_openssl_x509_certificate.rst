@@ -42,12 +42,16 @@ The openssl_x509_certificate resource has the following syntax:
 
 where:
 
-* ``openssl_x509_certificate`` is the name of the resource
-* ``'name'`` is the path where the certificate file will be written, or the name of the resource block
-* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``city``, ``common_name``, ``country``, ``csr_file``, ``email``, ``expire``, ``extensions``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``org``, ``org_unit``, ``owner``, ``path``, and ``state`` are the properties available to this resource
+* ``openssl_x509_certificate`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``city``, ``common_name``, ``country``, ``csr_file``, ``email``, ``expire``, ``extensions``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``org``, ``org_unit``, ``owner``, ``path``, ``state``, and ``subject_alt_name`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The openssl_x509_certificate resource has the following actions:
+
 ``:create``
    Default. Create the certificate file.
 

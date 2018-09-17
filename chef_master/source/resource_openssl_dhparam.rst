@@ -47,6 +47,9 @@ The openssl_dhparam resource has the following actions:
 
 Properties
 =====================================================
+
+The openssl_dhparam resource has the following properties:
+
 ``generator``
    **Ruby Type:** Integer | **Default Value:** ``2``
 

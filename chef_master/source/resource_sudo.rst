@@ -44,6 +44,9 @@ where:
 
 Actions
 =====================================================
+
+The sudo resource has the following actions:
+
 ``:create``
    Default. Create a single sudoers configuration file in the ``sudoers.d`` directory.
 
@@ -59,15 +62,20 @@ Actions
 
 Properties
 =====================================================
+
+The sudo resource has the following properties:
+
+``command_aliases``
+   **Ruby Type:** Array
+
+   Command aliases that can be used as allowed commands later in the configuration.
+
+
 ``commands``
    **Ruby Type:** Array | **Default Value:** ``["ALL"]``
 
    An array of commands this sudoer can execute.
 
-``command_aliases``
-   **Ruby Type:** Array | **Default Value:** ``[]``
-
-   Command aliases that can be used as allowed commands later in the configuration.
 
 ``config_prefix``
    **Ruby Type:** String | **Default Value:** ``Prefix values based on the node's platform``
@@ -75,17 +83,17 @@ Properties
    The directory that contains the sudoers configuration file.
 
 ``defaults``
-   **Ruby Type:** Array | **Default Value:** ``[]``
+   **Ruby Type:** Array
 
    An array of defaults for the user/group.
 
 ``env_keep_add``
-   **Ruby Type:** Array | **Default Value:** ``[]``
+   **Ruby Type:** Array
 
    An array of strings to add to ``env_keep``.
 
 ``env_keep_subtract``
-   **Ruby Type:** Array | **Default Value:** ``[]``
+   **Ruby Type:** Array
 
    An array of strings to remove from ``env_keep``.
 
@@ -105,12 +113,12 @@ Properties
    The host to set in the sudo configuration.
 
 ``noexec``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Prevent commands from shelling out.
 
 ``nopasswd``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Allow sudo to be run without specifying a password.
 
@@ -154,7 +162,7 @@ Properties
    User that the command(s) can be run as.
 
 ``setenv``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether or not to permit preservation of the environment with ``sudo -E``.
 

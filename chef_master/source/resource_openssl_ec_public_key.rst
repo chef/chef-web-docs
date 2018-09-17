@@ -33,6 +33,9 @@ where:
 
 Actions
 =====================================================
+
+The openssl_ec_public_key resource has the following actions:
+
 ``:create``
    Default. Generate the EC public key from a private key.
 
@@ -45,6 +48,9 @@ Actions
 
 Properties
 =====================================================
+
+The openssl_ec_public_key resource has the following properties:
+
 ``group``
    **Ruby Type:** String
 

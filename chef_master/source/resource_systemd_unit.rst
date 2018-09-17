@@ -40,6 +40,7 @@ The full syntax for all of the properties that are available to the **systemd_un
 
 where:
 
+* ``systemd_unit`` is the resource.
 * ``name`` is the name of the unit. Must include the type/suffix (e.g. `name.socket` or `name.service`).
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
@@ -48,7 +49,7 @@ where:
 Actions
 =====================================================
 
-This resource has the following actions:
+The systemd_unit resource has the following actions:
 
 ``:create``
    Create a unit file, if it does not already exist.
@@ -110,7 +111,7 @@ This resource has the following actions:
 Properties
 =====================================================
 
-This resource has the following properties:
+The systemd_unit resource has the following properties:
 
 ``user``
    **Ruby Type:** String

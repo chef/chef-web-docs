@@ -68,7 +68,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The yum_repository resource has the following actions:
 
 :create
    Creates a repository file and builds the repository listing.

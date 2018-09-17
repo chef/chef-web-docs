@@ -1,5 +1,5 @@
 =====================================================
-dnf_package
+dnf_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dnf_package.rst>`__
 

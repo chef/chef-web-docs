@@ -30,6 +30,9 @@ where:
 
 Actions
 =====================================================
+
+The sysctl resource has the following actions:
+
 ``:apply``
    Default. Set the kernel parameter and update the ``sysctl`` settings.
 
@@ -45,13 +48,16 @@ Actions
 
 Properties
 =====================================================
+
+The sysctl resource has the following properties:
+
 ``conf_dir``
    **Ruby Type:** String | **Default Value:** ``/etc/sysctl.d``
 
    The configuration directory to write the config to.
 
 ``ignore_error``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Ignore any errors when setting the value on the command line.
 

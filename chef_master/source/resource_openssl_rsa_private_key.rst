@@ -36,6 +36,9 @@ where:
 
 Actions
 =====================================================
+
+The openssl_rsa_private_key resource has the following actions:
+
 ``:create``
    Default. Create the RSA private key file.
 
@@ -48,8 +51,11 @@ Actions
 
 Properties
 =====================================================
+
+The openssl_rsa_private_key resource has the following properties:
+
 ``force``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Force creation of the key even if the same key already exists on the node.
 
