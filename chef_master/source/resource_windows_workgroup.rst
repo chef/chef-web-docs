@@ -78,14 +78,14 @@ Common Resource Functionality
 Chef resources include common properties, notifications, and resource guards.
 
 Common Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 .. tag resources_common_properties
 
 The following properties are common to every resource:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
@@ -100,12 +100,12 @@ The following properties are common to every resource:
    The retry delay (in seconds). Default value: ``2``.
 
 ``sensitive``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
+   Ensure that sensitive resource data is not logged by the chef-client.
 
  Notifications
- +++++++++++++++++++++++++++++++++++++++++++++++++++++
+ -----------------------------------------------------
 
  ``notifies``
     **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -191,7 +191,7 @@ The following properties are common to every resource:
     .. end_tag
 
 Guards
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 .. tag resources_common_guards
 
