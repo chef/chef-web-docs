@@ -105,8 +105,8 @@ The following properties are common to every resource:
    Ensure that sensitive resource data is not logged by the chef-client.
    .. end_tag
 
- Notifications
- -----------------------------------------------------
+Notifications
+-----------------------------------------------------
 
  ``notifies``
     **Ruby Type:** Symbol, 'Chef::Resource[String]'
