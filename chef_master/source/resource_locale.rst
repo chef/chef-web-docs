@@ -1,41 +1,38 @@
 =====================================================
-windows_workgroup resource
+locale resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_workgroup.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_locale.rst>`__
 
-Use the **windows_workgroup** resource to join change the workgroup of a machine.
+Use the **locale** resource to set the system's locale.
 
 **New in Chef Client 14.5.**
 
 Syntax
 =====================================================
-The windows_workgroup resource has the following syntax:
+The locale resource has the following syntax:
 
 .. code-block:: ruby
 
-  windows_workgroup 'name' do
-    password            String
-    reboot              Symbol # default value: immediate
-    sensitive           true, false # default value: true
-    user                String
-    workgroup_name      String # default value: 'name' unless specified
-    action              Symbol # defaults to :join if not specified
+  locale 'name' do
+    lang        String # default value: en_US.utf8
+    lc_all      String # default value: en_US.utf8
+    action      Symbol # defaults to :update if not specified
   end
 
 where:
 
-* ``windows_workgroup`` is the resource.
+* ``locale`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``password``, ``reboot``, ``sensitive``, ``user``, and ``workgroup_name`` are the properties available to this resource.
+* ``lang`` and ``lc_all`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The windows_workgroup resource has the following actions:
+The locale resource has the following actions:
 
-``:join``
-    Update the workgroup.
+``:update``
+    Updates the system's locale.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -47,30 +44,17 @@ The windows_workgroup resource has the following actions:
 Properties
 =====================================================
 
-The windows_workgroup resource has the following properties:
+The locale resource has the following properties:
 
-``password``
-   **Ruby Type:** String
+``lang``
+   **Ruby Type:** String | **Default Value:** ``en_US.utf8``
 
-   The password for the local administrator user.
+   Sets the default system language.
 
-``reboot``
-   **Ruby Type:** Symbol | **Default Value:** ``immediate``
+``lc_all``
+   **Ruby Type:** String | **Default Value:** ``en_US.utf8``
 
-   Controls the system reboot behavior post workgroup joining. Reboot immediately, after the Chef run completes, or never. Note that a reboot is necessary for changes to take effect.
-
-``sensitive``
-   **Ruby Type:** true, false | **Default Value:** ``true``
-
-``user``
-   **Ruby Type:** String
-
-   The local administrator user to use to change the workgroup.
-
-``workgroup_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
-
-   The name of the workgroup for the computer.
+   Sets the fallback system language.
 
 Common Resource Functionality
 =====================================================
@@ -108,7 +92,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
  ``notifies``
     **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

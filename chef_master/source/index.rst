@@ -191,6 +191,7 @@ Cookbook Reference
 `launchd </resource_launchd.html>`__ |
 `link </resource_link.html>`__ |
 `log </resource_log.html>`__ |
+`locale </resource_locale.html>`__ |
 `macos_userdefaults </resource_macos_userdefaults.html>`__ |
 `macports_package </resource_macports_package.html>`__ |
 `mdadm </resource_mdadm.html>`__ |
