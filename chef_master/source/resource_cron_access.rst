@@ -1,5 +1,5 @@
 =====================================================
-cron_access
+cron_access resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cron_access.rst>`__
 
@@ -9,28 +9,26 @@ Use the **cron_access** resource to manage the /etc/cron.allow and /etc/cron.den
 
 Syntax
 =====================================================
-
-This resource has the following syntax:
+The cron_access resource has the following syntax:
 
 .. code-block:: ruby
 
-   cron_access 'name' do
-     user                       String
-     notifies                   # see description
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  cron_access 'name' do
+    user      String # default value: 'name' unless specified
+    action    Symbol # defaults to :allow if not specified
+  end
 
-where
+where:
 
-* ``cron_access`` is the resource
-* ``name`` is the name of the resource block
-* ``user`` is the command to user to add to /etc/cron.allow or /etc/cron.deny. If not provided the resource uses the ``name``.
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``cron_access`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``user`` is the property available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The cron_access resource has the following actions:
 
 ``:allow``
    Default. Add the user to the cron.allow file.
@@ -47,10 +45,11 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The cron_access resource has the following properties:
 
 ``user``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The user to allow or deny. If not provided we'll use the resource name.
 

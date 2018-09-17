@@ -1,5 +1,5 @@
 =====================================================
-windows_printer
+windows_printer resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_printer.rst>`__
 
@@ -9,29 +9,29 @@ Use the **windows_printer** resource to setup Windows printers. Note that this d
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_printer resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_printer 'name' do
-     comment                    String
-     default                    True, False # default value: 'false'
-     device_id                  String # default value: 'name'
-     driver_name                String # required
-     ipv4_address               String
-     location                   String
-     notifies                   # see description
-     shared                     True, False # default value: 'false'
-     share_name                 String
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  windows_printer 'name' do
+    comment           String
+    default           true, false # default value: false
+    device_id         String # default value: 'name' unless specified
+    driver_name       String
+    exists            true, false
+    ipv4_address      String
+    location          String
+    share_name        String
+    shared            true, false # default value: false
+    action            Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``windows_printer`` is the resource
-* ``'name'`` is the device name, or the name of the resource block
-* ``comment``, ``default``, ``device_id``, ``driver_name``, ``exists``, ``ipv4_address``, ``location``, ``notifies``, ``shared``, ``share_name``, and ``subscribes`` are the properties available to this resource
+* ``windows_printer`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``comment``, ``default``, ``device_id``, ``driver_name``, ``exists``, ``ipv4_address``, ``location``, ``share_name``, and ``shared`` are the properties available to this resource.
 
 Actions
 =====================================================

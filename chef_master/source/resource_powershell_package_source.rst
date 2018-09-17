@@ -1,5 +1,5 @@
 =====================================================
-powershell_package_source
+powershell_package_source resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_package_source.rst>`__
 
@@ -9,27 +9,27 @@ Use the **powershell_package_source** resource to register a PowerShell package 
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The powershell_package_source resource has the following syntax:
 
 .. code-block:: ruby
 
-   powershell_package_source 'name' do
-     notifies                    # see description
-     provider_name               String # defaults to NuGet
-     publish_location            String
-     script_publish_location     String
-     script_source_location      String
-     source_name                 String
-     subscribes                  # see description
-     trusted                     true, false # defaults to false
-     url                         String
-     action                      Symbol # defaults to :register if not specified
-   end
+  powershell_package_source 'name' do
+    provider_name                String # default value: NuGet
+    publish_location             String
+    script_publish_location      String
+    script_source_location       String
+    source_name                  String # default value: 'name' unless specified
+    trusted                      true, false # default value: false
+    url                          String
+    action                       Symbol # defaults to :register if not specified
+  end
 
 where:
 
-* ``powershell_package_source`` is the name of the resource
-* ``provider_name``, ``publish_location``, ``script_publish_location``, ``script_source_location``, ``source_name``, and ``trusted`` are the properties available to this resource
+* ``powershell_package_source`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``provider_name``, ``publish_location``, ``script_publish_location``, ``script_source_location``, ``source_name``, ``trusted``, and ``url`` are the properties available to this resource.
 
 Actions
 =====================================================

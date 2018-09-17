@@ -1,15 +1,15 @@
 =====================================================
-rhsm_errata
+rhsm_errata resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_errata.rst>`__
 
-Use the **rhsm_errata** resource to install packages associated with a given Red Hat Subscription Manager Errata ID.
+Use the **rhsm_errata** resource to install packages associated with a given Red Hat Subscription Manager Errata ID. This is helpful if packages that mitigate a single vulnerability must be installed on your hosts.
 
 **New in Chef Client 14.0.**
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The rhsm_errata resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -27,6 +27,9 @@ where:
 
 Actions
 =====================================================
+
+The rhsm_errata resource has the following actions:
+
 ``:install``
    Default. Install a package for a specific errata ID.
 

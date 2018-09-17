@@ -1,5 +1,5 @@
 =====================================================
-zypper_repository
+zypper_repository resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_zypper_repository.rst>`__
 
@@ -13,53 +13,38 @@ The zypper_repository resource has the following syntax:
 
 .. code-block:: ruby
 
-   zypper_repository 'Packman' do
-     baseurl    'http://packman.inode.at'
-     path   '/suse/openSUSE_Leap_42.3'
-   end
-
-where
-
-* ``zypper_repository`` is the resource
-* ``Packman`` is the name of the resource block
-* ``baseurl`` is a base URI for the Zypper repository
-* ``path`` is the relative path from the ``baseurl``. If the full URL of the repository is ``http://packman.inode.at/suse/openSUSE_Leap_42.3``, the ``path`` is ``/suse/openSUSE_Leap_42.3``
-
-The full syntax for all of the properties that are available to the **zypper_repository** resource:
-
-.. code-block:: ruby
-
-   zypper_repository 'name' do
-      autorefresh           true, false
-      baseurl               String
-      cookbook              String
-      description           String
-      enabled               true, false
-      gpgautoimportkeys     true, false
-      gpgcheck              true, false
-      gpgkey                String
-      keeppackages          true, false
-      mirrorlist            String
-      mode                  String
-      notifies              # see description
-      path                  String
-      priority              Integer
-      refresh_cache         true, false
-      repo_name             String
-      source                String
-      subscribes            # see description
-      type                  String
-
-   end
+  zypper_repository 'name' do
+    autorefresh            true, false # default value: true
+    baseurl                String
+    cookbook               String
+    description            String
+    enabled                true, false # default value: true
+    gpgautoimportkeys      true, false # default value: true
+    gpgcheck               true, false # default value: true
+    gpgkey                 String
+    keeppackages           true, false # default value: false
+    mirrorlist             String
+    mode                   String, Integer # default value: 0644
+    path                   String
+    priority               Integer # default value: 99
+    refresh_cache          true, false # default value: true
+    repo_name              String # default value: 'name' unless specified
+    source                 String
+    type                   String # default value: NONE
+    action                 Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``zypper_repository`` is the resource type.
-* ``autorefresh``, ``baseurl``, ``cookbook``, ``description``, ``enabled``, ``gpgautoimportkeys``, ``gpgcheck``, ``gpgkey``, ``keeppackages``, ``mirrorlist``, ``mode``, ``path``, ``priority``, ``refresh_cache``, ``repo_name``, and ``source`` are the properties available to this resource.
+* ``zypper_repository`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``autorefresh``, ``baseurl``, ``cookbook``, ``description``, ``enabled``, ``gpgautoimportkeys``, ``gpgcheck``, ``gpgkey``, ``keeppackages``, ``mirrorlist``, ``mode``, ``path``, ``priority``, ``refresh_cache``, ``repo_name``, ``source``, and ``type`` are the properties available to this resource.
 
 Actions
-==========================================
-This resource has the following actions:
+=====================================================
+
+The zypper_repository resource has the following actions:
 
 ``:add``
 
@@ -74,8 +59,9 @@ This resource has the following actions:
    Refresh a Zypper repository.
 
 Properties
-==========================================
-This resource has the following properties:
+=====================================================
+
+The zypper_repository resource has the following properties:
 
 ``autorefresh``
    **Ruby Type:** true, false | **Default Value:** ``true``

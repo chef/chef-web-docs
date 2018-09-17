@@ -1,5 +1,5 @@
 =====================================================
-group
+group resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_group.rst>`__
 
@@ -11,43 +11,32 @@ Use the **group** resource to manage a local group.
 
 Syntax
 =====================================================
-A **group** resource block manages groups on a node:
+The group resource has the following syntax:
 
 .. code-block:: ruby
 
-   group 'www-data' do
-     action :modify
-     members 'maintenance'
-     append true
-   end
+  group 'name' do
+    append                true, false # default value: false
+    excluded_members      String, Array
+    gid                   String, Integer
+    group_name            String # default value: 'name' unless specified
+    members               String, Array
+    non_unique            true, false # default value: false
+    system                true, false # default value: false
+    action                Symbol # defaults to :create if not specified
+  end
 
-The full syntax for all of the properties that are available to the **group** resource is:
+where:
 
-.. code-block:: ruby
-
-   group 'name' do
-     append                     True, False
-     excluded_members           Array
-     gid                        String, Integer
-     group_name                 String # defaults to 'name' if not specified
-     members                    Array
-     non_unique                 True, False
-     notifies                   # see description
-     subscribes                 # see description
-     system                     True, False
-     action                     Symbol # defaults to :create if not specified
-   end
-
-where
-
-* ``group`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``append``, ``excluded_members``, ``gid``, ``group_name``, ``members``, ``non_unique``, and ``system`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``group`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``append``, ``excluded_members``, ``gid``, ``group_name``, ``members``, ``non_unique``, and ``system`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The group resource has the following actions:
 
 ``:create``
    Default. Create a group. If a group already exists (but does not match), update that group to match.
@@ -70,25 +59,26 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The group resource has the following properties:
 
 ``append``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   How members should be appended and/or removed from a group. When ``true``, ``members`` are appended and ``excluded_members`` are removed. When ``false``, group members are reset to the value of the ``members`` property. Default value: ``false``.
+   How members should be appended and/or removed from a group. When ``true``, ``members`` are appended and ``excluded_members`` are removed. When ``false``, group members are reset to the value of the ``members`` property.
 
 ``excluded_members``
-   **Ruby Type:** Array
+   **Ruby Type:** String, Array
 
    Remove users from a group. May only be used when ``append`` is set to ``true``.
 
 ``gid``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The identifier for the group.
 
 ``group_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the group. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 

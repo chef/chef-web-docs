@@ -1,5 +1,5 @@
 =====================================================
-package
+package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_package.rst>`__
 
@@ -84,7 +84,7 @@ The full syntax for all of the properties that are available to the **package** 
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
 * ``package`` tells the chef-client to manage a package; the chef-client will determine the correct package provider to use based on the platform running on the node
 * ``'name'`` is the name of the package

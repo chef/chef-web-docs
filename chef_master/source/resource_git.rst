@@ -1,5 +1,5 @@
 =====================================================
-git
+git resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_git.rst>`__
 
@@ -25,37 +25,35 @@ The full syntax for all of the properties that are available to the **git** reso
 
 .. code-block:: ruby
 
-   git 'name' do
-     additional_remotes         Hash
-     checkout_branch            String
-     depth                      Integer
-     destination                String # defaults to 'name' if not specified
-     enable_checkout            True, False
-     enable_submodules          True, False
-     environment                Hash
-     group                      String, Integer
-     notifies                   # see description
-     reference                  String
-     remote                     String
-     repository                 String
-     revision                   String
-     ssh_wrapper                String
-     subscribes                 # see description
-     timeout                    Integer
-     user                       String, Integer
-     action                     Symbol # defaults to :sync if not specified
-   end
+  git 'name' do
+    additional_remotes      Hash
+    checkout_branch         String # default value: deploy
+    depth                   Integer
+    destination             String # default value: 'name' unless specified
+    enable_checkout         true, false # default value: true
+    enable_submodules       true, false # default value: false
+    environment             Hash, nil
+    group                   String, Integer
+    remote                  String # default value: origin
+    repository              String
+    revision                String # default value: HEAD
+    ssh_wrapper             String
+    timeout                 Integer
+    user                    String, Integer
+    action                  Symbol # defaults to :sync if not specified
+  end
 
-where
+where:
 
-* ``git`` is the resource
-* ``name`` is the name of the resource block and also (when the ``destination`` property is not specified) the location in which the source files will be placed and/or synchronized with the files under source control management
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``additional_remotes``, ``checkout_branch``, ``depth``, ``destination``, ``enable_checkout``, ``enable_submodules``, ``environment``, ``group``, ``reference``, ``remote``, ``repository``, ``revision``, ``ssh_wrapper``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``git`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``additional_remotes``, ``checkout_branch``, ``depth``, ``destination``, ``enable_checkout``, ``enable_submodules``, ``environment``, ``group``, ``remote``, ``repository``, ``revision``, ``ssh_wrapper``, ``timeout``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The git resource has the following actions:
 
 ``:checkout``
    Clone or check out the source. When a checkout is available, this provider does nothing.
@@ -75,12 +73,13 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The git resource has the following properties:
 
 ``additional_remotes``
    **Ruby Type:** Hash
 
-   An array of additional remotes that are added to the git repository configuration.
+   A Hash of additional remotes that are added to the git repository configuration.
 
 ``checkout_branch``
    **Ruby Type:** String

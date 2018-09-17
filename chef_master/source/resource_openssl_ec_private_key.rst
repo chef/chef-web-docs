@@ -1,5 +1,5 @@
 =====================================================
-openssl_ec_private_key
+openssl_ec_private_key resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_ec_private_key.rst>`__
 
@@ -9,32 +9,34 @@ Use the **openssl_ec_private_key** resource to generate an elliptic curve (EC) p
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_ec_private_key resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_ec_private_key 'name' do
-     force                      True, False # default value: 'false'
-     group                      String
-     key_cipher                 String # default value: 'des3'
-     key_curve                  String # default value: 'prime256v1'
-     key_pass                   String
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     owner                      String
-     path                       String # default value: 'name'
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
-   end
+  openssl_ec_private_key 'name' do
+    force           true, false # default value: false
+    group           String
+    key_cipher      String # default value: des3
+    key_curve       String # default value: prime256v1
+    key_pass        String
+    mode            Integer, String # default value: 0600
+    owner           String
+    path            String # default value: 'name' unless specified
+    action          Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_ec_private_key_file`` is the name of the resource
-* ``'name'`` is the path to the private key file that is to be created, or the name of the resource block
-* ``force``, ``group``, ``key_cipher``, ``key_curve``, ``key_pass``, ``mode``, ``notifies``, ``owner``, ``path``, and ``subscribes`` are the properties available to this resource
+* ``openssl_ec_private_key`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``force``, ``group``, ``key_cipher``, ``key_curve``, ``key_pass``, ``mode``, ``owner``, and ``path`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The openssl_ec_private_key resource has the following actions:
+
 ``:create``
    Default. Create the EC private key file.
 
@@ -47,8 +49,11 @@ Actions
 
 Properties
 =====================================================
+
+The openssl_ec_private_key resource has the following properties:
+
 ``force``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Force creation of the key even if the same key already exists on the node.
 

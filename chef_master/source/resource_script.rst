@@ -1,5 +1,5 @@
 =====================================================
-script
+script resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_script.rst>`__
 
@@ -95,7 +95,8 @@ where
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The script resource has the following actions:
 
 ``:nothing``
    Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.

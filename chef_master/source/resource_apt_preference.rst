@@ -1,38 +1,37 @@
 =====================================================
-apt_preference
+apt_preference resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_preference.rst>`__
 
 The **apt_preference** resource allows for the creation of APT `preference files <https://wiki.debian.org/AptPreferences>`__. Preference files are used to control which package versions and sources are prioritized during installation. 
 
-**New in Chef Client 13.3**
+**New in Chef Client 13.3.**
 
 Syntax
 =====================================================
-An **apt_preference** resource block specifies the application that is being installed, and then the specific preferences for that package. The example below creates a preference file for the specified package using the ``:add`` action:
+The apt_preference resource has the following syntax:
 
 .. code-block:: ruby
 
-   apt_preference 'package_name' do
-     action :add
-   end
+  apt_preference 'name' do
+    glob              String
+    package_name      String # default value: 'name' unless specified
+    pin               String
+    pin_priority      String, Integer
+    action            Symbol # defaults to :add if not specified
+  end
 
-The full syntax for all of the properties that are available to the **apt_preference** resource is:
+where:
 
-.. code-block:: ruby
-
-   apt_preference 'name' do
-     glob                       String
-     notifies                   # see description
-     package_name               String # defaults to 'name' if not specified
-     pin                        String
-     pin_priority               String, Integer
-     subscribes                 # see description
-   end
+* ``apt_preference`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``glob``, ``package_name``, ``pin``, and ``pin_priority`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The apt_preference resource has the following actions:
 
 ``add``
   Default action. Creates a preferences file under ``/etc/apt/preferences.d``.
@@ -42,7 +41,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The apt_preference resource has the following properties:
 
 ``glob``
    **Ruby Type:** String

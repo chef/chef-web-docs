@@ -1,5 +1,5 @@
 =====================================================
-windows_shortcut
+windows_shortcut resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_shortcut.rst>`__
 
@@ -9,27 +9,26 @@ Use the **windows_shortcut** resource to create shortcut files on Windows.
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_shortcut resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_shortcut 'name' do
-     arguments                  String
-     cwd                        String
-     description                String
-     iconlocation               String
-     notifies                   # see description
-     shortcut_name              String # default value: 'name'
-     subscribes                 # see description
-     target                     String
-     action                     Symbol # defaults to :create if not specified
-   end
+  windows_shortcut 'name' do
+    arguments          String
+    cwd                String
+    description        String
+    iconlocation       String
+    shortcut_name      String # default value: 'name' unless specified
+    target             String
+    action             Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``windows_shortcut`` is the resource
-* ``'name'`` is the name of the shortcut, or the name of the resource block
-* ``arguments``, ``cwd``, ``description``, ``iconlocation``, ``notifies``, ``shortcut_name``, ``subscribes``, and ``target`` are the properties available to this resource
+* ``windows_shortcut`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``arguments``, ``cwd``, ``description``, ``iconlocation``, ``shortcut_name``, and ``target`` are the properties available to this resource.
 
 Actions
 =====================================================

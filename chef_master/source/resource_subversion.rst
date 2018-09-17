@@ -1,59 +1,51 @@
 =====================================================
-subversion
+subversion resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_subversion.rst>`__
 
-.. tag resource_scm_subversion
-
 Use the **subversion** resource to manage source control resources that exist in a Subversion repository.
-
-.. end_tag
 
 .. warning:: The subversion resource has known bugs and may not work as expected. For more information see Chef GitHub issues, particularly `#4050 <https://github.com/chef/chef/issues/4050>`_ and `#4257 <https://github.com/chef/chef/issues/4257>`_.
 
 Syntax
 =====================================================
-A **subversion** resource block manages source control resources that exist in a Subversion repository:
+The subversion resource has the following syntax:
 
 .. code-block:: ruby
 
-   subversion 'CouchDB Edge' do
-     repository 'http://svn.apache.org/repos/asf/couchdb/trunk'
-     revision 'HEAD'
-     destination '/opt/mysources/couch'
-     action :sync
-   end
+  subversion 'name' do
+    checkout_branch        String # default value: deploy
+    depth                  Integer
+    destination            String # default value: 'name' unless specified
+    enable_checkout        true, false # default value: true
+    enable_submodules      true, false # default value: false
+    environment            Hash, nil
+    group                  String, Integer
+    remote                 String # default value: origin
+    repository             String
+    revision               String # default value: HEAD
+    ssh_wrapper            String
+    svn_arguments          String, nil, false # default value: --no-auth-cache
+    svn_binary             String
+    svn_info_args          String, nil, false # default value: --no-auth-cache
+    svn_password           String
+    svn_username           String
+    timeout                Integer
+    user                   String, Integer
+    action                 Symbol # defaults to :sync if not specified
+  end
 
-The full syntax for all of the properties that are available to the **subversion** resource is:
+where:
 
-.. code-block:: ruby
-
-   subversion 'name' do
-     destination                String # defaults to 'name' if not specified
-     group                      String, Integer
-     notifies                   # see description
-     repository                 String
-     revision                   String
-     subscribes                 # see description
-     svn_arguments              String
-     svn_info_args              String
-     svn_password               String
-     svn_username               String
-     timeout                    Integer
-     user                       String, Integer
-     action                     Symbol # defaults to :sync if not specified
-   end
-
-where
-
-* ``subversion`` is the resource
-* ``name`` is the name of the resource block and also (when the ``destination`` property is not specified) the location in which the source files will be placed and/or synchronized with the files under source control management
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``destination``, ``group``, ``repository``, ``revision``, ``svn_arguments``, ``svn_info_args``, ``svn_password``, ``svn_username``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``subversion`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``checkout_branch``, ``depth``, ``destination``, ``enable_checkout``, ``enable_submodules``, ``environment``, ``group``, ``remote``, ``repository``, ``revision``, ``ssh_wrapper``, ``svn_arguments``, ``svn_binary``, ``svn_info_args``, ``svn_password``, ``svn_username``, ``timeout``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The subversion resource has the following actions:
 
 ``:checkout``
    Clone or check out the source. When a checkout is available, this provider does nothing.
@@ -76,7 +68,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The subversion resource has the following properties:
 
 ``destination``
    **Ruby Type:** String

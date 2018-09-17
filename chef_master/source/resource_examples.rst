@@ -3068,7 +3068,7 @@ ifconfig
 =====================================================
 .. tag resource_ifconfig_summary
 
-Use the **ifconfig** resource to manage interfaces on \*nix systems.
+Use the **ifconfig** resource to manage interfaces on Unix and Linux systems.
 
 .. end_tag
 

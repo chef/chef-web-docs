@@ -1,5 +1,5 @@
 =====================================================
-windows_font
+windows_font resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_font.rst>`__
 
@@ -9,23 +9,22 @@ Use the **windows_font** resource to install font files on Windows. By default, 
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_font resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_font 'name' do
-     font_name                  String # default value: 'name'
-     notifies                   # see description
-     source                     String
-     subscribes                 # see description
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_font 'name' do
+    font_name      String # default value: 'name' unless specified
+    source         String
+    action         Symbol # defaults to :install if not specified
+  end
 
 where:
 
-* ``windows_font`` is the resource
-* ``'name'`` is the name of the font file, or the name of the resource block
-* ``font_name``, ``notifies``, ``source``, and ``subscribes`` are the properties available to this resource
+* ``windows_font`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``font_name`` and ``source`` are the properties available to this resource.
 
 Actions
 =====================================================

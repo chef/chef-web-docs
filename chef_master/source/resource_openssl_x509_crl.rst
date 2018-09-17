@@ -1,5 +1,5 @@
 =====================================================
-openssl_x509_crl
+openssl_x509_crl resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_x509_crl.rst>`__
 
@@ -9,34 +9,37 @@ Use the **openssl_x509_crl** resource to generate PEM-formatted x509 certificate
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The openssl_x509_crl resource has the following syntax:
 
 .. code-block:: ruby
 
-   openssl_x509_crl 'name' do
-     ca_cert_file               String # required
-     ca_key_file                String # required
-     ca_key_pass                String
-     expire                     Integer # default value: 8
-     group                      String
-     mode                       Integer, String # default value: '0640'
-     notifies                   # see description
-     owner                      String
-     path                       String # default value: 'name'
-     renewal_threshold          Integer # default value: 1
-     revocation_reason          Integer # default value: 0
-     serial_to_revoke           Integer, String
-     subscribes                 # see description
-     action                     Symbol # defaults to :create if not specified
+  openssl_x509_crl 'name' do
+    ca_cert_file           String
+    ca_key_file            String
+    ca_key_pass            String
+    expire                 Integer # default value: 8
+    group                  String
+    mode                   Integer, String
+    owner                  String
+    path                   String # default value: 'name' unless specified
+    renewal_threshold      Integer # default value: 1
+    revocation_reason      Integer # default value: 0
+    serial_to_revoke       Integer, String
+    action                 Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``openssl_x509_crl`` is the name of the resource
-* ``'name'`` is the path where the crl file will be written, or the name of the resource block
-* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``expire``, ``group``, ``mode``, ``notifies``, ``owner``, ``path``, ``renewal_threshold``, ``revocation_reason``, ``serial_to_revoke``, and ``subscribes`` are the properties available to this resource
+* ``openssl_x509_crl`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``expire``, ``group``, ``mode``, ``owner``, ``path``, ``renewal_threshold``, ``revocation_reason``, and ``serial_to_revoke`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The openssl_x509_crl resource has the following actions:
+
 ``:create``
    Default. Create the certificate revocation list file.
 

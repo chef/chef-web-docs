@@ -1,5 +1,5 @@
 =====================================================
-ruby_block
+ruby_block resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ruby_block.rst>`__
 

@@ -1,5 +1,5 @@
 =====================================================
-python
+python resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_python.rst>`__
 
@@ -13,7 +13,7 @@ Use the **python** resource to execute scripts using the Python interpreter. Thi
 
 Syntax
 =====================================================
-A **python** resource block executes scripts using Python:
+The python resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -31,33 +31,39 @@ The full syntax for all of the properties that are available to the **python** r
 
 .. code-block:: ruby
 
-   python 'name' do
-     code                       String
-     creates                    String
-     cwd                        String
-     environment                Hash
-     flags                      String
-     group                      String, Integer
-     notifies                   # see description
-     path                       Array
-     returns                    Integer, Array
-     subscribes                 # see description
-     timeout                    Integer, Float
-     user                       String, Integer
-     umask                      String, Integer
-     action                     Symbol # defaults to :run if not specified
-   end
+  python 'name' do
+    code             String
+    command          
+    creates          String
+    cwd              String
+    default_env      true, false # default value: false
+    domain           String
+    elevated         true, false # default value: false
+    environment      Hash
+    flags            String
+    group            String, Integer
+    interpreter      String
+    live_stream      true, false # default value: false
+    password         String
+    returns          Integer, Array # default value: 0
+    sensitive        true, false
+    timeout          Integer, Float
+    umask            String, Integer
+    user             String, Integer
+    action           Symbol # defaults to :run if not specified
+  end
 
-where
+where:
 
-* ``python`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``python`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``code``, ``command``, ``creates``, ``cwd``, ``default_env``, ``domain``, ``elevated``, ``environment``, ``flags``, ``group``, ``interpreter``, ``live_stream``, ``name``, ``password``, ``returns``, ``sensitive``, ``timeout``, ``umask``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The python resource has the following actions:
 
 ``:nothing``
    Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
@@ -67,7 +73,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The python resource has the following properties:
 
 ``code``
    **Ruby Type:** String

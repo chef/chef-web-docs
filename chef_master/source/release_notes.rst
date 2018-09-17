@@ -2724,7 +2724,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_launchd_actions
 
-This resource has the following actions:
+The launchd resource has the following actions:
 
 ``:create``
    Default. Create a launchd property list.
@@ -3485,7 +3485,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_osx_profile_actions
 
-This resource has the following actions:
+The osx_profile resource has the following actions:
 
 ``:install``
    Default. Install the specified configuration profile.
@@ -3738,7 +3738,6 @@ Use the **apt_update** resource to manage APT repository updates on Debian and U
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_apt_update_syntax
 
 An **apt_update** resource block defines the update frequency for APT repositories:
 
@@ -3755,8 +3754,6 @@ where
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``frequency`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3971,7 +3968,6 @@ Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpret
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_script_ksh_syntax
 
 A **ksh** resource block executes scripts using ksh:
 
@@ -4016,7 +4012,6 @@ where
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -7569,11 +7564,11 @@ The full syntax for all of the properties that are available to the **paludis_pa
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``paludis_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``paludis_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -9294,7 +9289,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_service_reboot_actions
 
-This resource has the following actions:
+The reboot resource has the following actions:
 
 ``:cancel``
    Cancel a reboot request.

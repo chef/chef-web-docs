@@ -1,5 +1,5 @@
 =====================================================
-chocolatey_source
+chocolatey_source resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_source.rst>`__
 
@@ -9,27 +9,29 @@ Use the **chocolatey_source** resource to add or remove Chocolatey sources.
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The chocolatey_source resource has the following syntax:
 
 .. code-block:: ruby
 
-   chocolatey_source 'name' do
-     bypass_proxy               true, false # defaults to false
-     notifies                   # see description
-     priority                   Integer # defaults to 0
-     source                     String
-     source_name                String # default value: 'name'
-     subscribes                 # see description
-     action                     Symbol # defaults to :add if not specified
-   end
+  chocolatey_source 'name' do
+    bypass_proxy      true, false # default value: false
+    priority          Integer # default value: 0
+    source            String
+    source_name       String # default value: 'name' unless specified
+    action            Symbol # defaults to :add if not specified
+  end
 
 where:
 
-* ``chocolatey_source`` is the name of the resource
-* ``bypass_proxy``, ``priority``, and ``source`` are the properties available to this resource
+* ``chocolatey_source`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``bypass_proxy``, ``priority``, ``source``, and ``source_name`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The chocolatey_source resource has the following actions:
 
 ``:add``
    Default. Adds a Chocolatey source.
@@ -46,6 +48,8 @@ Actions
 
 Properties
 =====================================================
+
+The chocolatey_source resource has the following properties:
 
 ``bypass_proxy``
    **Ruby Type:** true, false | **Default Value:** ``false``

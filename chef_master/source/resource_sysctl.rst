@@ -1,5 +1,5 @@
 =====================================================
-sysctl
+sysctl resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_sysctl.rst>`__
 
@@ -9,28 +9,30 @@ Use the **sysctl** resource to set or remove kernel parameters using the ``sysct
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The sysctl resource has the following syntax:
 
 .. code-block:: ruby
 
-   sysctl 'name' do
-     conf_dir                   String # default value: "/etc/sysctl.d"
-     ignore_error               True, False # default value: 'false'
-     key                        String # default value: 'name'
-     notifies                   # see description
-     subscribes                 # see description
-     value                      Array, String, Integer, Float # required
-     action                     Symbol # defaults to :apply if not specified
+  sysctl 'name' do
+    conf_dir          String # default value: /etc/sysctl.d
+    ignore_error      true, false # default value: false
+    key               String # default value: 'name' unless specified
+    value             Array, String, Integer, Float
+    action            Symbol # defaults to :apply if not specified
   end
 
 where:
 
-* ``sysctl`` is the resource
-* ``'name'`` is the kernel parameter, or the name of the resource block
-* ``conf_dir``, ``ignore_error``, ``key``, ``notifies``, ``subscribes``, and ``value`` are the resources available to this property
+* ``sysctl`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``conf_dir``, ``ignore_error``, ``key``, and ``value`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The sysctl resource has the following actions:
+
 ``:apply``
    Default. Set the kernel parameter and update the ``sysctl`` settings.
 
@@ -46,13 +48,16 @@ Actions
 
 Properties
 =====================================================
+
+The sysctl resource has the following properties:
+
 ``conf_dir``
    **Ruby Type:** String | **Default Value:** ``/etc/sysctl.d``
 
    The configuration directory to write the config to.
 
 ``ignore_error``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Ignore any errors when setting the value on the command line.
 
