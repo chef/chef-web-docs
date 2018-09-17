@@ -62,7 +62,7 @@ Common Resource Functionality
 Chef resources include common properties, notifications, and resource guards.
 
 Common Properties
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 .. tag resources_common_properties
 
@@ -88,9 +88,10 @@ The following properties are common to every resource:
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 
- Notifications
- +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. end_tag
 
+Notifications
+-----------------------------------------------------
  ``notifies``
     **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -175,7 +176,7 @@ The following properties are common to every resource:
     .. end_tag
 
 Guards
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 .. tag resources_common_guards
 
