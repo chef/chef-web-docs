@@ -148,13 +148,13 @@ Install Chef DK
 
    .. code-block:: bash
 
-      dpkg -i chefdk_2.0.28-1_amd64.deb
+      dpkg -i chefdk_3.2.30-1_amd64.deb
 
-#. Use the ``chef generate app`` command to generate your Chef repo:
+#. Use the ``chef generate repo`` command to generate your Chef repo:
 
    .. code-block:: bash
 
-      chef generate app chef-repo
+      chef generate reoi chef-repo
 
 #. Within your Chef repo, create a ``.chef`` directory:
 

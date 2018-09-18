@@ -11,7 +11,7 @@ For the quickest way to get started using Chef:
 
    .. code-block:: bash
 
-      $ chef generate app first_cookbook
+      $ chef generate cookbook first_cookbook
 
    where ``first_cookbook`` is an arbitrary cookbook name.
 
