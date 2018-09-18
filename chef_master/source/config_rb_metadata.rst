@@ -114,6 +114,10 @@ This configuration file has the following settings:
 
    .. end_tag
 
+   Note that as these gem installs run before any recipe code has been run, the chef-client cannot be used to install compilers, and therefore native gems which
+require C compilers to install must not be installed out of metadata.rb.  Those gems must be installed by recipe code, which should use the ``build_essential`` resource
+to install compilers on the system as a preqrequisite.
+
 ``issues_url``
    The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the "View Issues" link.
 
