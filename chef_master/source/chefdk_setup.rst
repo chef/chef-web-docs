@@ -71,7 +71,7 @@ Create the Chef repository
 
 Use `the chef generate repo </ctl_chef.html#chef-generate-repo>`__ to create the Chef repository. For example, to create a repository called ``chef-repo``:
 
-.. code-block:: ruby
+.. code-block:: bash
 
    chef generate repo chef-repo
 
