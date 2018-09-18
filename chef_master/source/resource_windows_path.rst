@@ -38,7 +38,9 @@ The windows_path resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The windows_path resource has the following properties:
+
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

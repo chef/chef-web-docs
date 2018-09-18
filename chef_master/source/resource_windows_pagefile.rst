@@ -31,6 +31,9 @@ where:
 
 Actions
 =====================================================
+
+The windows_pagefile resource has the following actions:
+
 ``:set``
    Default. Configures the default pagefile, creating if it doesn't exist.
 
@@ -46,6 +49,8 @@ Actions
 
 Properties
 =====================================================
+
+The windows_pagefile resource has the following properties:
 
 ``automatic_managed``
    **Ruby Type:** true, false | **Default Value:** ``false``
