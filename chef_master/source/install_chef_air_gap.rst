@@ -154,7 +154,7 @@ Install Chef DK
 
    .. code-block:: bash
 
-      chef generate reoi chef-repo
+      chef generate repo chef-repo
 
 #. Within your Chef repo, create a ``.chef`` directory:
 
