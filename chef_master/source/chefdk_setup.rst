@@ -68,22 +68,12 @@ To install Git:
 
 Create the Chef repository
 =====================================================
-There are two ways to create the chef-repo:
 
-* Use the starter kit built into the Chef server web user interface
-* Manually, by using the ``chef generate app`` subcommand in the chef command-line tool that is packaged in the Chef development kit
-
-Manual
------------------------------------------------------
-
-Create the Chef Repo
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Use `the chef generate app </ctl_chef.html#chef-generate-app>`__ to create the Chef repository. For example, to create a repository called ``chef-repo``:
+Use `the chef generate repo </ctl_chef.html#chef-generate-repo>`__ to create the Chef repository. For example, to create a repository called ``chef-repo``:
 
 .. code-block:: ruby
 
-   chef generate app chef-repo
+   chef generate repo chef-repo
 
 Create .chef Directory
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
