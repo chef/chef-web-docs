@@ -114,16 +114,9 @@ This configuration file has the following settings:
 
    .. end_tag
 
-   Note that metadata.rb must not be used to install native gems which require C compilation.  Since metadata.rb runs before any recipe code runs, the chef-client
-cannot install the C compilers before the gem installation happens in metadata.rb.  Therefore native gems must be installed by the ``chef_gem`` resource called
-from recipe code.  The recipe code should also use the ``build_essential`` resource to install compilers on the system as a preqrequisite.
+   Note that metadata.rb must not be used to install native gems which require C compilation.  Since metadata.rb runs before any recipe code runs, the chef-client cannot install the C compilers before the gem installation happens in metadata.rb.  Therefore native gems must be installed by the ``chef_gem`` resource called from recipe code.  The recipe code should also use the ``build_essential`` resource to install compilers on the system as a preqrequisite.
 
-   This feature is not intended to be a general purpose replacement for the ``chef_gem`` resource.  It targets a specific use case of external chef libraries shipped as
-gems (such as the "chef-sugar" and "poise" gems).  These gems require eager loading so that their features are accessable very early in the chef-client run so that they can be used in
-library files and attributes files.  Delaying their installation until recipe time would mean that on first run none of their features could be used in libraries or
-attribute files.  Those gems could not use the ``chef_gem`` resource, so this mechanism was created to allow them to install very early, with the understanding that it had an inherent
-limitation to being unable to install native gems.  To the extent that other native gems can be installed this way they are free to, but this mechanism was not designed to
-suit all use cases and cannot be adapted to all use cases.
+   This feature is not intended to be a general purpose replacement for the ``chef_gem`` resource, and does not internally re-use the ``chef_gem`` resource.  It targets a specific use case of external chef libraries shipped as gems (such as the "chef-sugar" and "poise" gems).  These gems require eager loading so that their features are accessable very early in the chef-client run so that they can be used in library files and attributes files.  Delaying their installation until recipe time would mean that on first run none of their features could be used in libraries or attribute files.  Those gems could not use the ``chef_gem`` resource, so this mechanism was created to allow them to install very early, with the understanding that it had an inherent limitation to being unable to install native gems.  To the extent that other native gems can be installed this way they are free to, but this mechanism was not designed to suit all use cases and cannot be adapted to all use cases.
 
 ``issues_url``
    The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the "View Issues" link.
