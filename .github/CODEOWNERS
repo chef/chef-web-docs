@@ -1,6 +1,6 @@
 # Order is important. The last matching pattern has the most precedence.
 
+*             @chef/client-maintainers
+*             @chef/docs-team
 .expeditor/** @chef/jex-team
 terraform/**  @chef/jex-team
-*             @chef/docs-team
-*             @chef/client-maintainers
