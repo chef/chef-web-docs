@@ -58,7 +58,7 @@ where:
 * ``python`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``code``, ``command``, ``creates``, ``cwd``, ``default_env``, ``domain``, ``elevated``, ``environment``, ``flags``, ``group``, ``interpreter``, ``live_stream``, ``name``, ``password``, ``returns``, ``sensitive``, ``timeout``, ``umask``, and ``user`` are the properties available to this resource.
+* ``code``, ``command``, ``creates``, ``cwd``, ``default_env``, ``domain``, ``elevated``, ``environment``, ``flags``, ``group``, ``interpreter``, ``live_stream``, ``password``, ``returns``, ``sensitive``, ``timeout``, ``umask``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================

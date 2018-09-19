@@ -54,16 +54,13 @@ The full syntax for all of the properties that are available to the **registry_k
 
 .. code-block:: ruby
 
-   registry_key 'name' do
-     architecture               Symbol
-     key                        String # defaults to 'name' if not specified
-     notifies                   # see description
-     recursive                  True, False
-     sensitive                  True, False # default value: 'false'
-     subscribes                 # see description
-     values                     Hash, Array
-     action                     Symbol # defaults to :create if not specified
-   end
+  registry_key 'name' do
+    architecture      Symbol # default value: machine
+    key               String # default value: 'name' unless specified
+    recursive         true, false # default value: false
+    values            
+    action            Symbol # defaults to :create if not specified
+  end
 
 where
 
