@@ -76,7 +76,7 @@ Use `the chef generate repo </ctl_chef.html#chef-generate-repo>`__ to create the
    chef generate repo chef-repo
 
 Create .chef Directory
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 .. tag install_chef_client_repo_manual_chef_directory
 
