@@ -38,11 +38,14 @@ The full syntax for all of the properties that are available to the **remote_fil
 .. code-block:: ruby
 
    remote_file 'name' do
-     atomic_update              True, False
-     backup                     False, Integer
+     atomic_update              true, false
+     authentication             # default value: remote
+     backup                     Integer, false # default value: 5
      checksum                   String
-     force_unlink               True, False
-     ftp_active_mode            True, False
+     content                    String, nil
+     diff                       String, nil
+     force_unlink               true, false # default value: false
+     ftp_active_mode            true, false # default value: false
      group                      String, Integer
      headers                    Hash
      inherits                   True, False
@@ -55,13 +58,14 @@ The full syntax for all of the properties that are available to the **remote_fil
      source                     String, Array
      subscribes                 # see description
      use_conditional_get        True, False
-     use_etag                   True, False
-     use_last_modified          True, False
      verify                     String, Block
-     show_progress              True, False
-     remote_user                String
-     remote_password            String
      remote_domain              String
+     remote_password            String
+     remote_user                String
+     show_progress              true, false # default value: false
+     use_etag                   true, false # default value: true
+     use_last_modified          true, false # default value: true
+     verifications              Array
      action                     Symbol # defaults to :create if not specified
    end
 

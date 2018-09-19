@@ -54,10 +54,11 @@ The reboot resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The reboot resource has the following properties:
 
 ``delay_mins``
-   **Ruby Type:** Fixnum
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
    The amount of time (in minutes) to delay a reboot request.
 
