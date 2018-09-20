@@ -149,7 +149,7 @@ The windows_service resource has the following properties:
    Continue running a recipe if a resource fails for any reason.
 
 ``init_command``
-   **Ruby Type:** String | **Default Value:** ``nil``
+   **Ruby Type:** String
 
    The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes.
 
