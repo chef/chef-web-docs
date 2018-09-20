@@ -3908,7 +3908,7 @@ Attributes
 This resource has the following properties:
 
 ``architecture``
-   **Ruby Type:** Symbol | **Default Value:** ``machine``
+   **Ruby Type:** Symbol | **Default Value:** ``:machine``
 
    The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the chef-client determine the architecture during the chef-client run).
 
@@ -3979,7 +3979,7 @@ This resource has the following properties:
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. 
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
    **Ruby Type:** Integer | **Default Value:** ``2``
