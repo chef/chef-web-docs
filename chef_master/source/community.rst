@@ -68,7 +68,7 @@ Contribute
 * `Chef-managed cookbooks <https://github.com/chef-cookbooks>`_
 * `Community cookbooks <https://supermarket.chef.io>`_
 * `Documentation <https://github.com/chef/chef-web-docs>`_
-* `Share your Chef product ideas <https://feedback.chef.io>`_
+* `Share your Chef product ideas <https://www.chef.io/feedback/>`_
 
 Supermarket
 =====================================================
