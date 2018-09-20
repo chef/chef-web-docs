@@ -391,7 +391,7 @@ to complete successfully. These can be set in the environment directly, or added
 Any host that needs to make outgoing http or https connections will require these settings as well. For example, the Chef Automate server
 (which makes knife calls to Chef server) and Chef server (for push jobs) should have these configured. To update the Chef Automate server, update ``/etc/delivery/delivery.rb`` on your Chef Automate server with the values specified in `Proxy Settings </config_rb_delivery.html#proxy-settings>`_. After you have configured your settings, run ``sudo automate-ctl reconfigure``.
 
-For general information on proxy settings, please see `About Proxies </proxies.html>`__.
+For general information on proxy settings, please see `Working with Proxies </proxies.html>`__.
 
 Compliance
 ===================================================================
