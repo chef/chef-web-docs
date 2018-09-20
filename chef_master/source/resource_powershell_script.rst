@@ -37,7 +37,7 @@ The full syntax for all of the properties that are available to the **powershell
      architecture               Symbol
      code                       String
      command                    String, Array
-     convert_boolean_return     True, False
+     convert_boolean_return     true, false
      creates                    String
      cwd                        String
      environment                Hash
@@ -47,14 +47,14 @@ The full syntax for all of the properties that are available to the **powershell
      interpreter                String
      notifies                   # see description
      returns                    Integer, Array
-     sensitive                  True, False
+     sensitive                  true, false
      subscribes                 # see description
      timeout                    Integer, Float
      user                       String
      password                   String
      domain                     String
      action                     Symbol # defaults to :run if not specified
-     elevated                   True, False
+     elevated                   true, false
    end
 
 where
@@ -103,9 +103,9 @@ This resource has the following properties:
    The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``convert_boolean_return``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false. Default value: ``false``.
+   Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false.
 
    When the ``guard_interpreter`` common attribute is set to ``:powershell_script``, a string command will be evaluated as if this value were set to ``true``. This is because the behavior of this attribute is similar to the value of the ``"$?"`` expression common in UNIX interpreters. For example, this:
 
@@ -152,14 +152,14 @@ This resource has the following properties:
    Inherited from **execute** resource. The group name or group ID that must be changed before running a command.
 
 ``guard_interpreter``
-   **Ruby Type:** Symbol
+   **Ruby Type:** Symbol | **Default Value:** ``:powershell_script``
 
-   Default value: ``:powershell_script``. When this property is set to ``:powershell_script``, the 64-bit version of the Windows PowerShell shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
+   When this property is set to ``:powershell_script``, the 64-bit version of the Windows PowerShell shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``interpreter``
    **Ruby Type:** String
@@ -201,24 +201,24 @@ This resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array
+   **Ruby Types:** Integer, Array | **Default Value:** ``0``
 
-   Inherited from **execute** resource. The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
+   Inherited from **execute** resource. The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
 ``sensitive``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
+   Ensure that sensitive resource data is not logged by the chef-client.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -275,9 +275,9 @@ This resource has the following properties:
    Inherited from **execute** resource. The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
 
 ``user``
-   **Ruby Types:** String
+   **Ruby Types:** String | **Default Value:** ``nil``
 
-   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+   The user name of the user identity with which to launch the new process. The user name may optionally be specified with a domain, i.e. `domain\\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
    **Ruby Types:** String
@@ -292,7 +292,7 @@ This resource has the following properties:
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
-    **Ruby Type:**  True, False
+    **Ruby Type:**  true, false
 
     Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
 

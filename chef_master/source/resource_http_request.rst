@@ -76,12 +76,13 @@ The http_request resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The http_request resource has the following properties:
 
 ``headers``
    **Ruby Type:** Hash
 
-   A Hash of custom headers. Default value: ``{}``.
+   A Hash of custom headers.
 
 ``ignore_failure``
    **Ruby Types:** True, False

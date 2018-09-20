@@ -3,7 +3,7 @@ windows_workgroup resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_workgroup.rst>`__
 
-Use the **windows_workgroup** resource to join change the workgroup of a machine.
+Use the **windows_workgroup** resource to join or change the workgroup of a Windows host.
 
 **New in Chef Client 14.5.**
 
