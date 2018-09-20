@@ -215,9 +215,9 @@ The windows_service resource has the following properties:
    The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``run_as_password``
    **Ruby Type:** String
