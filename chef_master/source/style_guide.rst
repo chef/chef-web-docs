@@ -16,9 +16,9 @@ Run the command
 
    .. code-block:: bash
 
-      make master
+      make docker-preview
 
-to build the doc set. Open ``build/index.html`` in a browser to see the results.
+to build the docs as a Docker container that will run at port ``http://localhost:8000``.
 
 Basic Doc Template
 =====================================================
