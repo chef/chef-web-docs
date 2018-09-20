@@ -26,7 +26,7 @@ Install the chef-client on Windows
 
 The chef-client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using the `knife windows </plugin_knife_windows.html>`__ plugin to bootstrap the chef-client; this process requires the target node be available via SSH (port 22) or by using the HTTP or HTTPS ports that are required by WinRM
+* By using `knife windows </plugin_knife_windows.html>`__ to bootstrap the chef-client; this process requires the target node be available via the WinRM port (typically port 5985)
 * By downloading the chef-client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
@@ -3603,7 +3603,7 @@ The full syntax for all of the properties that are available to the **registry_k
     architecture      Symbol # default value: machine
     key               String # default value: 'name' unless specified
     recursive         true, false # default value: false
-    values            
+    values
     action            Symbol # defaults to :create if not specified
   end
 
@@ -3978,12 +3978,12 @@ This resource has the following properties:
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
-  
+
    The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
    **Ruby Type:** Integer | **Default Value:** ``2``
-  
+
    The retry delay (in seconds).
 
 ``sensitive``
