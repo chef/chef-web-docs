@@ -421,7 +421,7 @@ This resource has the following properties:
    .. end_tag
 
 ``recursive``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 
@@ -432,17 +432,17 @@ This resource has the following properties:
              .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
    
 ``sensitive``
-   **Ruby Type:** True, False | **Default value:** False
+   **Ruby Type:** true, false | **Default Value:** ``false``
    
    Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
    
