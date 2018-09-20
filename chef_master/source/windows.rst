@@ -3978,16 +3978,16 @@ This resource has the following properties:
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
-
+  
    The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
    **Ruby Type:** Integer | **Default Value:** ``2``
-
+  
    The retry delay (in seconds).
 
 ``sensitive``
-   **Ruby Type:** true, false | **Default value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
 
