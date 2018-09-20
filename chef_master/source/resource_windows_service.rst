@@ -144,14 +144,14 @@ The windows_service resource has the following properties:
    New in Chef Client 14.0.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``init_command``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``nil``
 
-   The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes. Default value: ``nil``.
+   The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes.
 
 ``load_order_group``
    **Ruby Types:** String
@@ -195,9 +195,9 @@ The windows_service resource has the following properties:
    .. end_tag
 
 ``pattern``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``service_name``
 
-   The pattern to look for in the process table. Default value: ``service_name``.
+   The pattern to look for in the process table.
 
 ``reload_command``
    **Ruby Type:** String
@@ -210,9 +210,9 @@ The windows_service resource has the following properties:
    The command used to restart a service.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
    **Ruby Type:** Integer
@@ -240,9 +240,9 @@ The windows_service resource has the following properties:
    The command used to start a service.
 
 ``startup_type``
-   **Ruby Type:** Symbol
+   **Ruby Type:** Symbol | **Default Value:** ``:automatic``
 
-   Use to specify the startup type for a Microsoft Windows service. Possible values: ``:automatic``, ``:disabled``, or ``:manual``. Default value: ``:automatic``.
+   Use to specify the startup type for a Microsoft Windows service. Possible values: ``:automatic``, ``:disabled``, or ``:manual``.
 
 ``status_command``
    **Ruby Type:** String
@@ -309,9 +309,9 @@ The windows_service resource has the following properties:
    A list of properties that controls how the chef-client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the chef-client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the chef-client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
 
 ``timeout``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``60``
 
-   The amount of time (in seconds) to wait before timing out. Default value: ``60``.
+   The amount of time (in seconds) to wait before timing out.
 
 .. end_tag
 
