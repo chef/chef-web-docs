@@ -32,7 +32,7 @@ Linux
 
    .. code-block:: bash
 
-      wget https://packages.chef.io/files/stable/chefdk/2.4.17/ubuntu/16.04/chefdk_2.4.17-1_amd64.deb
+      wget https://packages.chef.io/files/stable/chefdk/3.2.30/ubuntu/18.04/chefdk_3.2.30-1_amd64.deb
 
 #. Use your distribution's package manager to install the Chef Development Kit:
 
@@ -40,13 +40,13 @@ Linux
 
      .. code-block:: bash
 
-        rpm -Uvh chefdk-2.4.17-1.el7.x86_64.rpm
+        rpm -Uvh chefdk-3.2.30-1.el7.x86_64.rpm
 
    * Debian/Ubuntu:
 
      .. code-block:: bash
 
-        dpkg -i chefdk_2.4.17-1_amd64.deb
+        dpkg -i chefdk_3.2.30-1_amd64.deb
 
 Next Steps
 =====================================================
