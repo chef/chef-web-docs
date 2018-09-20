@@ -53,11 +53,6 @@ The ohai resource has the following properties:
 
    Continue running a recipe if a resource fails for any reason. Default value: ``false``.
 
-``name``
-   **Ruby Type:** String
-
-   Always the same value as the ``name`` of the resource block. See "Syntax" section above for more information.
-
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -95,7 +90,7 @@ The ohai resource has the following properties:
 ``plugin``
    **Ruby Type:** String
 
-   Optional. The name of an Ohai plugin to be reloaded. If this property is not specified, the chef-client will reload all plugins.
+   The name of an Ohai plugin to be reloaded. If this property is not specified, the chef-client will reload all plugins.
 
 ``retries``
    **Ruby Type:** Integer
