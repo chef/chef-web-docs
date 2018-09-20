@@ -18,7 +18,7 @@ Run the command
 
       make docker-preview
 
-to build the docs as a Docker container that will run at port ``http://localhost:8000`.
+to build the docs as a Docker container that will run at port ``http://localhost:8000``.
 
 Basic Doc Template
 =====================================================
