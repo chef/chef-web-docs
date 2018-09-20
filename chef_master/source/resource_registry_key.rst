@@ -363,9 +363,9 @@ Properties
 This resource has the following properties:
 
 ``architecture``
-   **Ruby Type:** Symbol
+   **Ruby Type:** Symbol | **Default Value:** ``:machine``
 
-   The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the chef-client determine the architecture during the chef-client run). Default value: ``:machine``.
+   The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the chef-client determine the architecture during the chef-client run).
 
    In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
 
@@ -376,9 +376,9 @@ This resource has the following properties:
              .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``key``
    **Ruby Type:** String
@@ -421,7 +421,7 @@ This resource has the following properties:
    .. end_tag
 
 ``recursive``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 
@@ -432,20 +432,20 @@ This resource has the following properties:
              .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
-
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   **Ruby Type:** Integer | **Default Value:** ``0``
+  
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
+  
+   The retry delay (in seconds).
 
-   The retry delay (in seconds). Default value: ``2``.
-   
 ``sensitive``
-   **Ruby Type:** True, False | **Default value:** False
-   
+   **Ruby Type:** true, false | **Default Value:** ``false``
+  
    Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
-   
+  
    New in Chef Client 14.0.
 
 ``subscribes``
