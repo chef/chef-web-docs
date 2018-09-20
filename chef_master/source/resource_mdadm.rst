@@ -53,7 +53,8 @@ The mdadm resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The mdadm resource has the following properties:
 
 ``bitmap``
    **Ruby Type:** String
@@ -66,7 +67,7 @@ This resource has the following properties:
    The chunk size. This property should not be used for a RAID 1 mirrored pair (i.e. when the ``level`` property is set to ``1``).
 
 ``devices``
-   **Ruby Type:** Array | **Default Value:** ``[]``
+   **Ruby Type:** Array
 
    The devices to be part of a RAID array.
 

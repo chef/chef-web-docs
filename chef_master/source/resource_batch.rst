@@ -122,14 +122,14 @@ This resource has the following properties:
    The group name or group ID that must be changed before running a command.
 
 ``guard_interpreter``
-   **Ruby Type:** Symbol
+   **Ruby Type:** Symbol | **Default Value:** ``:batch``
 
-   Default value: ``:batch``. When this property is set to ``:batch``, the 64-bit version of the cmd.exe shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
+   When this property is set to ``:batch``, the 64-bit version of the cmd.exe shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``interpreter``
    **Ruby Type:** String
@@ -171,19 +171,19 @@ This resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array
+   **Ruby Types:** Integer, Array | **Default Value:** ``0``
 
-   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
+   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -235,26 +235,26 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float
+   **Ruby Types:** Integer, Float | **Default Value:** ``3600``
 
-   The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+   The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
    **Ruby Types:** String
 
-   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
+   The user name of the user identity with which to launch the new process. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
    **Ruby Types:** String
 
    *Windows only*: The password of the user specified by the `user` property.
-   Default value: `nil`. This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
+   This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
 
 ``domain``
    **Ruby Types:** String
 
    *Windows only*: The domain of the user user specified by the `user` property.
-   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
+   If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 .. note:: See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd for more information about the cmd.exe interpreter.
 

@@ -48,16 +48,17 @@ The full syntax for all of the properties that are available to the **link** res
      action                     Symbol # defaults to :create if not specified
    end
 
-where
+where:
 
-* ``link`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``link`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``group``, ``link_type``, ``mode``, ``owner``, ``target_file``, and ``to`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The link resource has the following actions:
 
 ``:create``
    Default. Create a link. If a link already exists (but does not match), update that link to match.
@@ -74,7 +75,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The link resource has the following properties:
 
 ``group``
    **Ruby Types:** Integer, String

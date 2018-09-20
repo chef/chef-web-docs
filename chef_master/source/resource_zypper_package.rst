@@ -21,7 +21,7 @@ A **zypper_package** resource block manages a package on a node, typically by in
 
 which will install the named package using all of the default options and the default action (``:install``).
 
-The full syntax for all of the properties that are available to the **zypper_package** resource is:
+The zypper_package resource has the following syntax:
 
 .. code-block:: ruby
 
