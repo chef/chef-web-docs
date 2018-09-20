@@ -3,7 +3,7 @@ Install the Chef DK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_dk.rst>`__
 
-The Chef DK installer is used to set up the Chef development kit on a workstation, including the chef-client itself, an embedded version of Ruby, RubyGems, OpenSSL, and tools such as Test Kitchen, Cookstyle, Foodcritic and ChefSpec. The Chef installer puts everything into a unique directory (``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows) so that these components will not interfere with other applications that may be running on the target machine.
+Use the Chef DK installer to set up the Chef development kit on a workstation. Chef DK includes the chef-client, an embedded version of Ruby, RubyGems, and OpenSSL, as well as our tools: Test Kitchen, Cookstyle, Foodcritic and ChefSpec. The Chef installer puts everything into a unique directory (``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows) so that these components will not interfere with other applications that may be running on the target machine.
 
 .. note:: The Chef installer must run as a root user.
 
