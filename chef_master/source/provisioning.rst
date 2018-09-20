@@ -1902,24 +1902,3 @@ The following Chef provisioning driver-specific resources are available for Fog:
 * ``fog_key_pair``
 
 For more information about these driver-specific resources, see `Fog Driver Resources </provisioning_fog.html>`__.
-
-Vagrant Driver Resources
-=====================================================
-.. tag resources_provisioning
-
-A driver-specific resource is a statement of configuration policy that:
-
-* Describes the desired state for a configuration item that is created using Chef provisioning
-* Declares the steps needed to bring that item to the desired state
-* Specifies a resource type---such as ``package``, ``template``, or ``service``
-* Lists additional details (also known as properties), as necessary
-* Are grouped into recipes, which describe working configurations
-
-.. end_tag
-
-The following Chef provisioning driver-specific resources are available for Vagrant:
-
-* ``vagrant_box``
-* ``vagrant_cluster``
-
-For more information about these driver-specific resources, see `Vagrant Driver Resources </provisioning_vagrant.html>`__.
