@@ -4551,7 +4551,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_service_windows_actions
 
-This resource has the following actions:
+The windows_service resource has the following actions:
 
 ``:configure_startup``
    Configure a service based on the value of the ``startup_type`` property.
@@ -4593,7 +4593,7 @@ Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_service_windows_attributes
 
-This resource has the following properties:
+The windows_service has the following properties:
 
 ``binary_path_name``
    **Ruby Type:** String
