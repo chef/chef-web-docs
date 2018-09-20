@@ -159,7 +159,7 @@ This resource has the following properties:
 ``ignore_failure``
    **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``interpreter``
    **Ruby Type:** String
@@ -292,7 +292,7 @@ This resource has the following properties:
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
-    **Ruby Type:**  True, False
+    **Ruby Type:**  true, false
 
     Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process.
 
