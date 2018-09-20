@@ -215,9 +215,9 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Types:** String, Integer | **Default Value:** ``600`` (seconds)
 
-   The amount of time (in seconds) to wait before timing out. Default value: ``600`` (seconds).
+   The amount of time (in seconds) to wait before timing out.
 
 ``version``
    **Ruby Types:** String, Array
