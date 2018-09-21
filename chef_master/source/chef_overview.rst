@@ -244,7 +244,7 @@ Cookbooks are comprised of the following components:
 
      - .. tag libraries_summary
 
-       A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to the chef-client---``Chef::Recipe``, for example---or for implementing entirely new functionality, similar to a mixin in Ruby. A library file is a Ruby file that is located within a cookbook's ``/libraries`` directory. Because a library is built using Ruby, anything that can be done with Ruby can be done in a library file.
+       A library allows arbitrary Ruby code to be included in a cookbook. The most common use for libraries is to write helpers that are used throughout recipes and custom resources. A library file is a Ruby file that is located within a cookbook's ``/libraries`` directory. Because a library is built using Ruby, anything that can be done with Ruby can be done in a library file, including advanced functionality such as extending built-in Chef classes.
 
        .. end_tag
 
@@ -274,10 +274,9 @@ Cookbooks are comprised of the following components:
        * Is mostly a collection of resources, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
        * Must define everything that is required to configure part of a system
        * Must be stored in a cookbook
-       * May be included in a recipe
+       * May be included in another recipe
        * May use the results of a search query and read the contents of a data bag (including an encrypted data bag)
        * May have a dependency on one (or more) recipes
-       * May tag a node to facilitate the creation of arbitrary groupings
        * Must be added to a run-list before it can be used by the chef-client
        * Is always executed in the same order as listed in a run-list
 
