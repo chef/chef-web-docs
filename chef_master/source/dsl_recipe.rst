@@ -9,109 +9,7 @@ The Recipe DSL is a Ruby DSL that is primarily used to declare resources from wi
 
 .. end_tag
 
-Because the Recipe DSL is a Ruby DSL, then anything that can be done using Ruby can also be done in a recipe, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies.
-
-Use Ruby
-=====================================================
-Common Ruby techniques can be used with the Recipe DSL methods.
-
-if Statements
------------------------------------------------------
-.. tag ruby_style_basics_statement_if
-
-An ``if`` statement can be used to specify part of a recipe to be used when certain conditions are met. ``else`` and ``elseif`` statements can be used to handle situations where either the initial condition is not met or when there are other possible conditions that can be met. Since this behavior is 100% Ruby, do this in a recipe the same way here as anywhere else.
-
-For example, using an ``if`` statement with the ``platform`` node attribute:
-
-.. code-block:: ruby
-
-   if node['platform'] == 'ubuntu'
-     # do ubuntu things
-   end
-
-.. future example: step_resource_ruby_block_reload_configuration
-.. future example: step_resource_ruby_block_run_specific_blocks_on_specific_platforms
-.. future example: step_resource_mount_mysql
-.. future example: step_resource_package_install_sudo_configure_etc_sudoers
-.. future example: step_resource_ruby_block_if_statement_use_with_platform
-.. future example: step_resource_remote_file_transfer_remote_source_changes
-.. future example: step_resource_remote_file_use_platform_family
-.. future example: step_resource_scm_use_different_branches
-.. future example: step_resource_service_stop_do_stuff_start
-
-.. end_tag
-
-case Statements
------------------------------------------------------
-.. tag ruby_style_basics_statement_case
-
-A ``case`` statement can be used to handle a situation where there are a lot of conditions. Use the ``when`` statement for each condition, as many as are required.
-
-For example, using a ``case`` statement with the ``platform`` node attribute:
-
-.. code-block:: ruby
-
-   case node['platform']
-   when 'debian', 'ubuntu'
-     # do debian/ubuntu things
-   when 'redhat', 'centos', 'fedora'
-     # do redhat/centos/fedora things
-   end
-
-For example, using a ``case`` statement with the ``platform_family`` node attribute:
-
-.. code-block:: ruby
-
-   case node['platform_family']
-   when 'debian'
-     # do things on debian-ish platforms (debian, ubuntu, linuxmint)
-   when 'rhel'
-     # do things on RHEL platforms (redhat, centos, scientific, etc)
-   end
-
-.. future example: step_resource_package_install_package_on_platform
-.. future example: step_resource_package_use_case_statement
-.. future example: step_resource_service_manage_ssh_based_on_node_platform
-
-.. end_tag
-
-include? Method
------------------------------------------------------
-.. tag ruby_style_basics_parameter_include
-
-The ``include?`` method can be used to ensure that a specific parameter is included before an action is taken. For example, using the ``include?`` method to find a specific parameter:
-
-.. code-block:: ruby
-
-   if %w(debian ubuntu).include?(node['platform'])
-     # do debian/ubuntu things
-   end
-
-or:
-
-.. code-block:: ruby
-
-   if %w{rhel}.include?(node['platform_family'])
-     # do RHEL things
-   end
-
-.. end_tag
-
-Array Syntax Shortcut
------------------------------------------------------
-.. tag ruby_style_basics_array_shortcut
-
-The ``%w`` syntax is a Ruby shortcut for creating an array without requiring quotes and commas around the elements.
-
-For example:
-
-.. code-block:: ruby
-
-   if %w(debian ubuntu).include?(node['platform'])
-     # do debian/ubuntu things with the Ruby array %w() shortcut
-   end
-
-.. end_tag
+Because the Recipe DSL is a Ruby DSL, anything that can be done using Ruby can also be done in a recipe or custom resource, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies. See the `Ruby </ruby.html>`_ guide for further information on built-in Ruby functionality.
 
 Include Recipes
 =====================================================
@@ -1824,5 +1722,103 @@ The following example installs Windows PowerShell 2.0 on systems that do not alr
    end
 
 The previous example is from the `ms_dotnet2 cookbook <https://github.com/juliandunn/ms_dotnet2>`_, created by community member ``juliandunn``.
+
+.. end_tag
+
+Log Entries
+-----------------------------------------------------
+.. tag ruby_style_basics_chef_log
+
+``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the Chef Client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
+
+The following log levels are supported:
+
+.. list-table::
+   :widths: 150 450
+   :header-rows: 1
+
+   * - Log Level
+     - Syntax
+   * - Fatal
+     - ``Chef::Log.fatal('string')``
+   * - Error
+     - ``Chef::Log.error('string')``
+   * - Warn
+     - ``Chef::Log.warn('string')``
+   * - Info
+     - ``Chef::Log.info('string')``
+   * - Debug
+     - ``Chef::Log.debug('string')``
+
+.. note:: The parentheses are optional, e.g. ``Chef::Log.info 'string'`` may be used instead of ``Chef::Log.info('string')``.
+
+.. end_tag
+
+The following examples show using ``Chef::Log`` entries in a recipe.
+
+.. tag ruby_class_chef_log_fatal
+
+The following example shows a series of fatal ``Chef::Log`` entries:
+
+.. code-block:: ruby
+
+   unless node['splunk']['upgrade_enabled']
+     Chef::Log.fatal('The chef-splunk::upgrade recipe was added to the node,')
+     Chef::Log.fatal('but the attribute `node["splunk"]["upgrade_enabled"]` was not set.')
+     Chef::Log.fatal('I am bailing here so this node does not upgrade.')
+     raise
+   end
+
+   service 'splunk_stop' do
+     service_name 'splunk'
+     supports status: true
+     action :stop
+   end
+
+   if node['splunk']['is_server']
+     splunk_package = 'splunk'
+     url_type = 'server'
+   else
+     splunk_package = 'splunkforwarder'
+     url_type = 'forwarder'
+   end
+
+   splunk_installer splunk_package do
+     url node['splunk']['upgrade']["#{url_type}_url"]
+   end
+
+   if node['splunk']['accept_license']
+     execute 'splunk-unattended-upgrade' do
+       command "#{splunk_cmd} start --accept-license --answer-yes"
+     end
+   else
+     Chef::Log.fatal('You did not accept the license (set node["splunk"]["accept_license"] to true)')
+     Chef::Log.fatal('Splunk is stopped and cannot be restarted until the license is accepted!')
+     raise
+   end
+
+The full recipe is the ``upgrade.rb`` recipe of the `chef-splunk cookbook <https://github.com/chef-cookbooks/chef-splunk/>`_ that is maintained by Chef.
+
+.. end_tag
+
+.. tag ruby_class_chef_log_multiple
+
+The following example shows using multiple ``Chef::Log`` entry types:
+
+.. code-block:: ruby
+
+   ...
+
+   begin
+     aws = Chef::DataBagItem.load(:aws, :main)
+     Chef::Log.info("Loaded AWS information from DataBagItem aws[#{aws['id']}]")
+   rescue
+     Chef::Log.fatal("Could not find the 'main' item in the 'aws' data bag")
+     raise
+   end
+
+   ...
+
+The full recipe is in the ``ebs_volume.rb`` recipe of the `database cookbook <https://github.com/chef-cookbooks/database/>`_ that is maintained by Chef.
 
 .. end_tag
