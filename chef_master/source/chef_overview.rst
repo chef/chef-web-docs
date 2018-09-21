@@ -274,10 +274,9 @@ Cookbooks are comprised of the following components:
        * Is mostly a collection of resources, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
        * Must define everything that is required to configure part of a system
        * Must be stored in a cookbook
-       * May be included in a recipe
+       * May be included in another recipe
        * May use the results of a search query and read the contents of a data bag (including an encrypted data bag)
        * May have a dependency on one (or more) recipes
-       * May tag a node to facilitate the creation of arbitrary groupings
        * Must be added to a run-list before it can be used by the chef-client
        * Is always executed in the same order as listed in a run-list
 
