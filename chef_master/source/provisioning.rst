@@ -3,17 +3,13 @@ Chef Provisioning
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/provisioning.rst>`__
 
-.. warning:: .. tag notes_provisioning
-
-             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
-
-             .. end_tag
-
 .. tag provisioning_summary
 
 Chef provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the chef-client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
 
 Chef provisioning is built around two major components: the **machine** resource and drivers.
+
+Chef provisioning is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
 
 .. end_tag
 
@@ -101,22 +97,12 @@ The following drivers are available for Chef provisioning:
      - Description
    * - `Amazon Web Services <https://github.com/chef/chef-provisioning-aws>`__
      - A Chef provisioning driver for Amazon Web Services (AWS).
-   * - `Docker <https://github.com/chef/chef-provisioning-docker>`__
-     - A Chef provisioning driver for Docker.
    * - `Fog <https://github.com/chef/chef-provisioning-fog>`__
      - A Chef provisioning driver for Fog.
-   * - `Hanlon <https://github.com/chef/chef-provisioning-hanlon>`__
-     - A Chef provisioning driver for Hanlon.
-   * - `LXC <https://github.com/chef/chef-provisioning-lxc>`__
-     - A Chef provisioning driver for LXC.
-   * - `Microsoft Azure <https://github.com/chef/chef-provisioning-azure>`__
-     - A Chef provisioning driver for Microsoft Azure.
    * - `OpenNebula <https://github.com/blackberry/chef-provisioning-opennebula>`__
      - A Chef provisioning driver for OpenNebula.
    * - `SSH <https://github.com/chef/chef-provisioning-ssh>`__
      - A Chef provisioning driver for SSH.
-   * - `Vagrant <https://github.com/chef/chef-provisioning-vagrant>`__
-     - A Chef provisioning driver for Vagrant.
    * - `vSphere <https://github.com/chef-partners/chef-provisioning-vsphere>`__
      - A Chef provisioning driver for VMware vSphere.
 
@@ -1916,24 +1902,3 @@ The following Chef provisioning driver-specific resources are available for Fog:
 * ``fog_key_pair``
 
 For more information about these driver-specific resources, see `Fog Driver Resources </provisioning_fog.html>`__.
-
-Vagrant Driver Resources
-=====================================================
-.. tag resources_provisioning
-
-A driver-specific resource is a statement of configuration policy that:
-
-* Describes the desired state for a configuration item that is created using Chef provisioning
-* Declares the steps needed to bring that item to the desired state
-* Specifies a resource type---such as ``package``, ``template``, or ``service``
-* Lists additional details (also known as properties), as necessary
-* Are grouped into recipes, which describe working configurations
-
-.. end_tag
-
-The following Chef provisioning driver-specific resources are available for Vagrant:
-
-* ``vagrant_box``
-* ``vagrant_cluster``
-
-For more information about these driver-specific resources, see `Vagrant Driver Resources </provisioning_vagrant.html>`__.
