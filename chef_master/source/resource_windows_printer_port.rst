@@ -34,6 +34,8 @@ where:
 Actions
 =====================================================
 
+The windows_printer_port resource has the following actions:
+
 ``:create``
    Default. Create the printer port, if one doesn't already exist.
 
@@ -49,6 +51,9 @@ Actions
 
 Properties
 =====================================================
+
+The windows_printer_port resource has the following properties:
+
 ``ipv4_address``
    **Ruby Type:** String | **Default Value:** ``'name'``
 

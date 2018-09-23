@@ -35,6 +35,9 @@ where:
 
 Actions
 =====================================================
+
+The windows_printer resource has the following actions:
+
 ``:create``
    Default. Create a new printer and printer port, if one doesn't already exist.
    
@@ -50,14 +53,17 @@ Actions
    
 Properties
 =====================================================
+
+The windows_printer resource has the following properties:
+
 ``comment``
    **Ruby Type:** String
    
    Optional descriptor for the printer queue.
 
 ``default``
-   **Ruby Type:** True, False | **Default Value:** ``false``
-   
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
    Determines whether or not this should be the system's default printer.
 
 ``device_id``
@@ -66,9 +72,9 @@ Properties
    Printer queue name, such as: ``"HP LJ 5200 in fifth floor copy room"``.
 
 ``driver_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | ``REQUIRED``
    
-   Required. The exact name of the installed printer driver on the system.   
+   The exact name of the installed printer driver on the system.   
 
 ``ipv4_address``
    **Ruby Type:** String

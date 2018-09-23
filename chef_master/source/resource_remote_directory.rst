@@ -63,7 +63,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The remote_directory resource has the following actions:
 
 ``:create``
    Default. Create a directory and/or the contents of that directory. If a directory or its contents already exist (but does not match), update that directory or its contents to match.

@@ -402,7 +402,6 @@ Use the Ruby ``File`` class in a recipe. Because Chef has the **file** resource,
    execute 'apt-get-update' do
      command 'apt-get update'
      ignore_failure true
-     only_if { apt_installed? }
      not_if { File.exist?('/var/lib/apt/periodic/update-success-stamp') }
    end
 
@@ -435,104 +434,6 @@ or:
    if %w{rhel}.include?(node['platform_family'])
      # do RHEL things
    end
-
-.. end_tag
-
-Log Entries
------------------------------------------------------
-.. tag ruby_style_basics_chef_log
-
-``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the Chef Client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
-
-The following log levels are supported:
-
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
-
-   * - Log Level
-     - Syntax
-   * - Fatal
-     - ``Chef::Log.fatal('string')``
-   * - Error
-     - ``Chef::Log.error('string')``
-   * - Warn
-     - ``Chef::Log.warn('string')``
-   * - Info
-     - ``Chef::Log.info('string')``
-   * - Debug
-     - ``Chef::Log.debug('string')``
-
-.. note:: The parentheses are optional, e.g. ``Chef::Log.info 'string'`` may be used instead of ``Chef::Log.info('string')``.
-
-.. end_tag
-
-The following examples show using ``Chef::Log`` entries in a recipe.
-
-.. tag ruby_class_chef_log_fatal
-
-The following example shows a series of fatal ``Chef::Log`` entries:
-
-.. code-block:: ruby
-
-   unless node['splunk']['upgrade_enabled']
-     Chef::Log.fatal('The chef-splunk::upgrade recipe was added to the node,')
-     Chef::Log.fatal('but the attribute `node["splunk"]["upgrade_enabled"]` was not set.')
-     Chef::Log.fatal('I am bailing here so this node does not upgrade.')
-     raise
-   end
-
-   service 'splunk_stop' do
-     service_name 'splunk'
-     supports status: true
-     action :stop
-   end
-
-   if node['splunk']['is_server']
-     splunk_package = 'splunk'
-     url_type = 'server'
-   else
-     splunk_package = 'splunkforwarder'
-     url_type = 'forwarder'
-   end
-
-   splunk_installer splunk_package do
-     url node['splunk']['upgrade']["#{url_type}_url"]
-   end
-
-   if node['splunk']['accept_license']
-     execute 'splunk-unattended-upgrade' do
-       command "#{splunk_cmd} start --accept-license --answer-yes"
-     end
-   else
-     Chef::Log.fatal('You did not accept the license (set node["splunk"]["accept_license"] to true)')
-     Chef::Log.fatal('Splunk is stopped and cannot be restarted until the license is accepted!')
-     raise
-   end
-
-The full recipe is the ``upgrade.rb`` recipe of the `chef-splunk cookbook <https://github.com/chef-cookbooks/chef-splunk/>`_ that is maintained by Chef.
-
-.. end_tag
-
-.. tag ruby_class_chef_log_multiple
-
-The following example shows using multiple ``Chef::Log`` entry types:
-
-.. code-block:: ruby
-
-   ...
-
-   begin
-     aws = Chef::DataBagItem.load(:aws, :main)
-     Chef::Log.info("Loaded AWS information from DataBagItem aws[#{aws['id']}]")
-   rescue
-     Chef::Log.fatal("Could not find the 'main' item in the 'aws' data bag")
-     raise
-   end
-
-   ...
-
-The full recipe is in the ``ebs_volume.rb`` recipe of the `database cookbook <https://github.com/chef-cookbooks/database/>`_ that is maintained by Chef.
 
 .. end_tag
 

@@ -32,6 +32,9 @@ where:
 
 Actions
 =====================================================
+
+The windows_shortcut resource has the following actions:
+
 ``:create``
    Default. Create or modify a Windows shortcut.
 
@@ -44,6 +47,9 @@ Actions
 
 Properties
 =====================================================
+
+The windows_shortcut resource has the following properties:
+
 ``arguments``
    **Ruby Type:** String
 
