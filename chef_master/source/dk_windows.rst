@@ -29,25 +29,24 @@ Installation and Setup
 
 Verify the ChefDK Installation
 -----------------------------------------------------
-.. code-block:: PowerShell
-    chef -v
+.. code-block:: shell
 
-Which returns the versions of all installed Chef tools.
+   chef -v
 
-.. code-block:: PowerShell
+Which returns the versions of all installed Chef tools:
 
-Chef Development Kit Version: 3.2.30
-chef-client version: 14.4.56
-berks version: 7.0.6
-kitchen version: 1.23.2
-inspec version: 2.2.70
+.. code-block:: shell
 
-The command chef shell-init lets you achieve this by generating the correct initialization script for your environment, and so all we need to do is run this command whenever we start a new session by placing a call to this command in the shell’s start up (i.e., in the file located at $PROFILE on Windows and in ∼/.bash_profile or ∼/.zshrc on Mac OS X and Linux).
+   Chef Development Kit Version: 3.2.30
+   chef-client version: 14.4.56
+   berks version: 7.0.6
+   kitchen version: 1.23.2
+   inspec version: 2.2.70
 
 Configure the Windows Environment
 -----------------------------------------------------
 
-Use the ``chef shell-init`` command to configure your environment to use the ChefDK locations for Chef and Ruby.  The ``chef shell-init`` command creates the initialization script for your environment.
+Use the ``chef shell-init`` command to configure your environment to use the ChefDK locations for Chef and Ruby. The ``chef shell-init`` command creates the initialization script for your environment.
 
 First, newer Windows machines, PowerShell scripts will not work until an administrator runs the following command:
 
@@ -57,27 +56,27 @@ First, newer Windows machines, PowerShell scripts will not work until an adminis
 
 Once the execution policy is in place, initialize the Windows environment with the following commands: 
 
-Create a $PROFILE file if one doesn’t exist already:
+Create a ``$PROFILE`` file if one doesn’t exist already:
 
-.. code-block:: PowerShell
+.. code-block:: shell
 
-PS C:\Users\<username>> if(!(Test-Path $PROFILE)) { New-Item -Force -ItemType File $PROFILE }
+   PS C:\Users\<username>> if(!(Test-Path $PROFILE)) { New-Item -Force -ItemType File $PROFILE }
 
 Next, add the output of ``chef shell-init powershell`` to your ``$PROFILE`` (This command does not print the output onto the screen):
 
-.. code-block:: PowerShell
+.. code-block:: shell
 
-PS C:\Users\<username>> chef shell-init powershell | Add-Content $PROFILE
+   PS C:\Users\<username>> chef shell-init powershell | Add-Content $PROFILE
 
 Once initialized, your paths and environment variables are set up correctly for every new PowerShell session. See your environment settings by using ``cat $PROFILE``:
 
-.. code-block:: PowerShell
+.. code-block:: shell
 
-PS C:\Users|<username>> cat $PROFILE
-$env:PATH="C:/opscode/chefdk/bin;C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0/bin;C:/opscode/chefdk/embedded/bin;C:/opscode/chefdk/embedded/git/usr/bin"
-$env:GEM_ROOT="C:/opscode/chefdk/embedded/lib/ruby/gems/2.5.0"
-$env:GEM_HOME="C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0"
-$env:GEM_PATH="C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0;C:/opscode/chefdk/embedded/lib/ruby/gems/2.5.0"
+    PS C:\Users|<username>> cat $PROFILE
+    $env:PATH="C:/opscode/chefdk/bin;C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0/bin;C:/opscode/chefdk/embedded/bin;C:/opscode/chefdk/embedded/git/usr/bin"
+    $env:GEM_ROOT="C:/opscode/chefdk/embedded/lib/ruby/gems/2.5.0"
+    $env:GEM_HOME="C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0"
+    $env:GEM_PATH="C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0;C:/opscode/chefdk/embedded/lib/ruby/gems/2.5.0"
 
 Spaces and Directories
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -97,8 +96,8 @@ Windows will throw errors when path name lengths are too long. For this reason, 
 
 Install a Code Editor
 -------------------------------------------------------
-A good visual code editor is not a requirement for working with CHef, but a good code editor can save you time.
-A code editor should supports the following: Themes and Plugins, Snippets, Syntax Ruby code coloring/highlighting, Multiple cursors, a tree view of the entire folder/repository you are working with, and a Git integration.
+A good visual code editor is not a requirement for working with Chef, but a good code editor can save you time.
+A code editor should supports the following: themes, plugins, snippets, syntax Ruby code coloring/highlighting, multiple cursors, a tree view of the entire folder/repository you are working with, and a Git integration.
 
 These are a few common editors: 
 
@@ -119,11 +118,9 @@ Download the installer and launch the Git Setup Wizard. Follow the on-screen ins
 Install the Windows Tools
 -------------------------------------------------------
 
-* Azure-cli 
-``azure.microsoft.com/en-gb/downloads``
-follow installation
-* PsGet--TODO: Compare to the Azure PowerShell tools
-* If you have a copy of Visual Studio installed on your machine, I recommend adding the Microsoft Azure SDK for .NET though - this will give you some visual help writing Azure Resource Manager deployment templates in JSON.
+ * The Azure-cli ``azure.microsoft.com/en-gb/downloads`` follow installation
+ * The Azure Resource Manager Tools
+ * If you are using Visual Studio Code, add the Microsoft Azure SDK for .NET for help with writing Azure Resource Manager JSON deployment templates.
+ * ``Install-Module AzureRM``
+ * ``Install-AzureRM``
 
-* Install-Module AzureRM
-* Install-AzureRM
