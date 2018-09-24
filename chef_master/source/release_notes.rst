@@ -3178,7 +3178,6 @@ Specifies a gem dependency to be installed via the **chef_gem** resource after a
 
    gem "poise"
    gem "chef-sugar"
-   gem "chef-provisioning"
 
 .. end_tag
 
