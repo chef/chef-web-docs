@@ -40,13 +40,8 @@ The following diagram shows the various components that are part of a Chef serve
        .. end_tag
 
    * - Chef Manage
-     - .. tag chef_server_component_webui
+     - Chef Manage is the web interface for the Chef server, which uses the Chef server API for all communication to the Chef server.
 
-       chef-server-webui is a Ruby on Rails application that hosts the web interface for the Chef server.
-
-       .. end_tag
-
-       The Chef management console uses the Chef server API for all communication to the Chef server.
    * - Chef Server
      - .. tag chef_server_component_erchef
 
