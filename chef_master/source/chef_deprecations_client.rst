@@ -147,7 +147,7 @@ All Deprecations
     - Deprecation of the ``:uninstall`` action in the ``chocolatey_package`` resource.
     - 13.7
     - 14.0
-  * - CHEF-22
+  * - `CHEF-22  </deprecations_erl_call_resource.html>`__
     - Deprecation of the ``erl_call`` resource.
     - 13.7
     - 14.0
