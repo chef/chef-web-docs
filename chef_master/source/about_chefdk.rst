@@ -27,7 +27,7 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 
 * `An Overview of Chef </chef_overview.html>`_
 * `Install the Chef DK </install_dk.html>`_
-* `Chef Style Guide </ruby.html>`_
+* `Ruby Guide </ruby.html>`_
 
 .. note:: See this blog post by Irving Popovetsky about running the Chef DK on Windows: https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/.
 
@@ -118,7 +118,7 @@ The following resources are available in the Chef development kit and may be use
 `chef_role </resource_chef_role.html>`_ |
 `chef_user </resource_chef_user.html>`_ |
 `private_key </resource_private_key.html>`_ |
-`public_key </resource_public_key.html>`_ 
+`public_key </resource_public_key.html>`_
 
 Community Tools
 -----------------------------------------------------
