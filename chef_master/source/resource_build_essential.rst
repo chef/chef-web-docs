@@ -1,5 +1,5 @@
 =====================================================
-build_essential
+build_essential resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_build_essential.rst>`__
 
@@ -9,26 +9,27 @@ Use the **build_essential** resource to install the packages required for compil
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The build_essential resource has the following syntax:
 
 .. code-block:: ruby
 
-   build_essential 'name' do
-     compile_time               True, False # default value: 'false'
-     notifies                   # see description
-     subscribes                 # see description
-     action                     Symbol # defaults to :install if not specified
-   end
+  build_essential 'name' do
+    compile_time      true, false # default value: false
+    action            Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``build_essential`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``compile_time``, ``notifies``, and ``subscribes`` are the properties available to this resource
+* ``compile_time`` is the property available to this resource.
 
 Actions
 =====================================================
+
+The build_essential resource has the following actions:
+
 ``:install``
    Default. Install the build essential packages. 
    

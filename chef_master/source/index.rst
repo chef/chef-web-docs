@@ -121,11 +121,6 @@ Cookbook Reference
 
 **Recipes**: `About Recipes </recipes.html>`__ | `Debug Recipes, Client Runs </debug.html>`__
 
-**Audit Mode DSL**:
-`About the Audit Mode DSL </dsl_audit.html>`__ |
-`control </dsl_audit.html#control>`__ |
-`control_group </dsl_audit.html#control-group>`__ |
-
 **Resources**:
 `About Resources </resource.html>`__ |
 `Common Functionality </resource_common.html>`__ |
@@ -191,6 +186,7 @@ Cookbook Reference
 `launchd </resource_launchd.html>`__ |
 `link </resource_link.html>`__ |
 `log </resource_log.html>`__ |
+`locale </resource_locale.html>`__ |
 `macos_userdefaults </resource_macos_userdefaults.html>`__ |
 `macports_package </resource_macports_package.html>`__ |
 `mdadm </resource_mdadm.html>`__ |
@@ -255,6 +251,7 @@ Cookbook Reference
 `windows_service </resource_windows_service.html>`__ |
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
+`windows_workgroup </resource_windows_workgroup.html>`__ |
 `yum_package </resource_yum_package.html>`__ |
 `yum_repository </resource_yum_repository.html>`__ |
 `dnf_package </resource_dnf_package.html>`__ |
@@ -280,15 +277,12 @@ Chef DK
 
 **chef (executable)**: `chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate resource </ctl_chef.html#chef-generate-resource>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__
 
-**Chef Solo**: `About Chef Solo </chef_solo.html>`__ | `chef-solo (executable) </ctl_chef_solo.html>`__ | `solo.rb </config_rb_solo.html>`__
-
+**Chef Solo**: `About Chef Solo </chef_solo.html>`__ | `chef-solo (executable) </ctl_chef_solo.html>`__ | `solo.rb </config_rb_solo.html>`__ |
 `chef-zero (local mode) </ctl_chef_client.html#run-in-local-mode>`_ |
 `chef-vault </chef_vault.html>`__ |
 `ChefSpec </chefspec.html>`__
 
-**Configuration**: `config.rb </config_rb.html>`__ | `Multiple Config Files </config_rb_client.html#d-directories.html>`__
-
-`cookstyle </cookstyle.html>`__ |
+**Configuration**: `config.rb </config_rb.html>`__ | `Multiple Config Files </config_rb_client.html#d-directories.html>`__ | `cookstyle </cookstyle.html>`__ |
 `Delivery CLI </delivery_cli.html>`__ |
 `Foodcritic </foodcritic.html>`__
 
@@ -296,42 +290,15 @@ Chef DK
 
 **Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife supermarket </knife_supermarket.html>`_ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__
 
-**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `config.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
-
-`knife spork </plugin_knife_spork.html>`__
+**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `config.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__ | `knife spork </plugin_knife_spork.html>`__
 
 **Ohai**: `About Ohai </ohai.html>`__ | `ohai (executable) </ctl_ohai.html>`__
 
 **Policyfile**: `About Policyfile </policyfile.html>`__ | `Policyfile.rb </config_rb_policyfile.html>`__
 
-**Provisioning**: `About Provisioning </provisioning.html>`__ | `load_balancer resource </resource_load_balancer.html>`__ | `machine resource </resource_machine.html>`__ | `machine_batch resource </resource_machine_batch.html>`__ | `machine_execute resource </resource_machine_execute.html>`__ | `machine_file resource </resource_machine_file.html>`__ | `machine_image resource </resource_machine_image.html>`__ | `AWS Driver Resources </provisioning_aws.html>`__ | `Fog Driver Resources </provisioning_fog.html>`__ | `Vagrant Driver Resources </provisioning_vagrant.html>`__
-
 `push-jobs-client (executable) </ctl_push_jobs_client.html>`__
 
-Managing the Server
------------------------------------------------------
-
-`Runbook (Single Page) </runbook.html>`__ |
-`Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ |
-`Backup and Restore </server_backup_restore.html>`__ |
-`Data Storage </server_data.html>`__ |
-`Firewalls and Ports </server_firewalls_and_ports.html>`__ |
-`Active Directory and LDAP </server_ldap.html>`__ |
-`Log Files </server_logs.html>`__ |
-`Monitor </server_monitor.html>`__ |
-`Organizations and Groups </server_orgs.html>`__ |
-`Secrets </secrets.html>`__ |
-`Security </server_security.html>`__ |
-`Services </server_services.html>`__ |
-`Tuning </server_tuning.html>`__ |
-`Upgrades </upgrade_server.html>`__ |
-`Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ |
-`Users </server_users.html>`__ |
-`chef-server-ctl </ctl_chef_server.html>`__ |
-`chef-backend-ctl </ctl_chef_backend.html>`__ |
-`chef-server.rb </config_rb_server.html>`__ |
-`opscode-expander-ctl </ctl_opscode_expander.html>`__ |
-`Chef Server API </api_chef_server.html>`__
+**Managing the Server**: `Runbook (Single Page) </runbook.html>`__ | `Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ | `Backup and Restore </server_backup_restore.html>`__ | `Data Storage </server_data.html>`__ | `Firewalls and Ports </server_firewalls_and_ports.html>`__ | `Active Directory and LDAP </server_ldap.html>`__ | `Log Files </server_logs.html>`__ | `Monitor </server_monitor.html>`__ | `Organizations and Groups </server_orgs.html>`__ | `Secrets </secrets.html>`__ | `Security </server_security.html>`__ | `Services </server_services.html>`__ | `Tuning </server_tuning.html>`__ | `Upgrades </upgrade_server.html>`__ | `Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ | `Users </server_users.html>`__ | `chef-server-ctl </ctl_chef_server.html>`__ | `chef-backend-ctl </ctl_chef_backend.html>`__ | `chef-server.rb </config_rb_server.html>`__ | `opscode-expander-ctl </ctl_opscode_expander.html>`__ | `Chef Server API </api_chef_server.html>`__
 
 **Push Jobs**: `knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
 
@@ -342,44 +309,37 @@ Managing the Server
 Habitat
 =====================================================
 
-Documentation
------------------------------------------------------
+**Documentation**: `Habitat Documentation <https://www.habitat.sh/docs/>`__
 
-`Habitat Documentation <https://www.habitat.sh/docs/>`__
-
-Tutorials
------------------------------------------------------
-
- `Habitat Tutorials <https://www.habitat.sh/tutorials/>`_
+**Tutorials**: `Habitat Tutorials <https://www.habitat.sh/tutorials/>`_
 
 InSpec
 =====================================================
 
-Documentation
------------------------------------------------------
+**Documentation**: `InSpec Documentation <https://www.inspec.io/docs/>`_
 
-`InSpec Documentation <https://www.inspec.io/docs/>`_
+**Tutorials**: `InSpec Tutorials <https://www.inspec.io/tutorials/>`_
 
-Tutorials
------------------------------------------------------
 
-`InSpec Tutorials <https://www.inspec.io/tutorials/>`_
-
-Chef Automate
+Legacy
 =====================================================
 
-Overview
+Analytics
 -----------------------------------------------------
 
+`Overview </analytics.html>`__ | `Release Notes </release_notes_analytics.html>`__ | `Install Standalone </install_analytics.html>`__ | `Web UI </actions.html>`__ | `Management Console </analytics_webui_tasks.html>`__ | `Nodes View </analytics_nodes_view.html>`__ | `Integrations </analytics.html#integrations>`_ | `Splunk </analytics_splunk.html>`__ | `Rules </analytics_rules.html>`__ | `Monitor </analytics_monitor.html>`__ | `Upgrades </upgrade_analytics.html>`__ | `Chef Client for Analytics </chef_client_analytics.html>`__ | `opscode-analytics-ctl </ctl_analytics.html>`__ | `opscode-analytics.rb </config_rb_analytics.html>`__ | `knife-analytics </plugin_knife_analytics.html>`__ | `Analytics API </api_analytics.html>`__ | `Recipe DSL for Analytics </dsl_recipe_analytics.html>`__
+
+Chef Automate 1
+-----------------------------------------------------
+
+**Overview**:
 `Chef Automate Overview </chef_automate.html>`__ |
 `Workflow Overview </workflow.html>`__ |
 `Nodes Overview </visibility.html>`__ |
 `Compliance Overview </chef_automate_compliance.html>`__ |
 `Administration Overview </automate_admin.html>`__
 
-Getting Started
------------------------------------------------------
-
+**Getting Started**:
 `Installation Guide </install_chef_automate.html>`__ |
 `Configure a Pipeline </delivery_pipeline.html>`__ |
 `Configure a Project </config_json_delivery.html>`__ |
@@ -389,75 +349,32 @@ Getting Started
 `Stream Data </stream_data_chef_automate.html>`__ |
 `Upgrades </upgrade_chef_automate.html>`_
 
-Release Notes
------------------------------------------------------
+**Release Notes**: `Release Notes </release_notes_chef_automate.html>`__
 
-`Release Notes </release_notes_chef_automate.html>`__
-
-Nodes
------------------------------------------------------
-
+**Nodes**:
 `Node Notifications w/Slack </integrate_node_notifications_slack.html>`__ |
 `Node Notifications w/Webhooks </integrate_node_notifications_webhook.html>`__ |
 `Node Search Reference </search_query_chef_automate.html>`__
 
-Compliance
------------------------------------------------------
-
+**Compliance**:
 `Reporting </automate_compliance_reporting.html>`__ |
 `Scanner </automate_compliance_scanner.html>`__ |
 `Profile Store </profile_store.html>`__ |
 `Credentials </automate_compliance_credentials.html>`__
 
-Workflow
------------------------------------------------------
+**Workflow**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__ | `Runners </runners.html>`__ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ | `Workflow w/GitHub </integrate_delivery_github.html>`__ | `Workflow w/Slack </integrate_delivery_slack.html>`__
 
-`build-cookbook (cookbook) </delivery_build_cookbook.html>`__ |
-`delivery-truck (cookbook) </delivery_truck.html>`__ |
-`Manage Dependencies </delivery_manage_dependencies.html>`__ |
-`Runners </runners.html>`__ |
-`Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ |
-`Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ |
-`Workflow w/GitHub </integrate_delivery_github.html>`__ |
-`Workflow w/Slack </integrate_delivery_slack.html>`__
+**Admin**: `Authentication w/LDAP </integrate_delivery_ldap.html>`__ | `Authentication w/SAML </integrate_chef_automate_saml.html>`__
 
-Admin
------------------------------------------------------
+**Managing the Server**: `Backups </delivery_server_backup.html>`__ | `Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ | `Disaster Recovery </delivery_server_disaster_recovery.html>`__ | `Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ | `Secrets </delivery_manage_secrets.html>`__ | `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ | `Tuning </delivery_server_tuning.html>`__ | `Users and Roles </delivery_users_and_roles.html>`__
 
-`Authentication w/LDAP </integrate_delivery_ldap.html>`__ |
-`Authentication w/SAML </integrate_chef_automate_saml.html>`__
+**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Chef Compliance API </api_compliance.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
 
-Managing the Server
------------------------------------------------------
+**Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__
 
-`Backups </delivery_server_backup.html>`__ |
-`Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ |
-`Disaster Recovery </delivery_server_disaster_recovery.html>`__ |
-`Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ |
-`Secrets </delivery_manage_secrets.html>`__ |
-`Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ |
-`Tuning </delivery_server_tuning.html>`__ |
-`Users and Roles </delivery_users_and_roles.html>`__
+**AWS OpsWorks for Chef Automate**: `AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
 
-Reference
------------------------------------------------------
-
-`Chef Automate API </api_automate.html>`__ |
-`Automate CTL </ctl_automate_server.html>`__ |
-`Chef Compliance API </api_compliance.html>`__ |
-`Delivery CLI </delivery_cli.html>`__
-`delivery.rb </config_rb_delivery.html>`__ |
-`Workflow DSL </dsl_delivery.html>`__
-
-AWS OpsWorks for Chef Automate
------------------------------------------------------
-
-`AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
-
-Troubleshooting
------------------------------------------------------
-
-`Troubleshooting </troubleshooting_chef_automate.html>`__
+**Troubleshooting**: `Troubleshooting </troubleshooting_chef_automate.html>`__
 
 Compliance scanner
 -----------------------------------------------------
@@ -469,30 +386,7 @@ Compliance scanner
 `Upgrade Compliance </upgrade_compliance.html>`__ |
 `chef-compliance.rb </config_rb_compliance.html>`__ |
 `Profile Store </profile_store.html>`__
-
-Legacy
-=====================================================
-
-Analytics
------------------------------------------------------
-
-`Overview </analytics.html>`__ |
-`Release Notes </release_notes_analytics.html>`__ |
-`Install Standalone </install_analytics.html>`__ |
-`Web UI </actions.html>`__ |
-`Management Console </analytics_webui_tasks.html>`__ |
-`Nodes View </analytics_nodes_view.html>`__ |
-`Integrations </analytics.html#integrations>`_ |
-`Splunk </analytics_splunk.html>`__ |
-`Rules </analytics_rules.html>`__ |
-`Monitor </analytics_monitor.html>`__ |
-`Upgrades </upgrade_analytics.html>`__ |
-`Chef Client for Analytics </chef_client_analytics.html>`__ |
-`opscode-analytics-ctl </ctl_analytics.html>`__ |
-`opscode-analytics.rb </config_rb_analytics.html>`__ |
-`knife-analytics </plugin_knife_analytics.html>`__ |
-`Analytics API </api_analytics.html>`__ |
-`Recipe DSL for Analytics </dsl_recipe_analytics.html>`__
+`Chef Compliance for Microsoft Azure </compliance_azure.html>`__
 
 Reporting
 -----------------------------------------------------
@@ -562,6 +456,7 @@ Addenda
    attributes
    audit_cookbook
    auth
+   automate_azure
    automate_compliance_scanner
    automate_compliance_reporting
    automate_compliance_profile_store
@@ -593,6 +488,7 @@ Addenda
    community
    community_contributions
    community_guidelines
+   compliance_azure
    chef_compliance
    config_json_delivery
    config_rb

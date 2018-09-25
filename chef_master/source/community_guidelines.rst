@@ -77,7 +77,7 @@ The Chef community advocates are well informed on how to deal with incidents. Re
    * - Decider
      - Adam Jacob - adam @ chef.io
    * - Ombudsperson
-     - Nathen Harvey - nharvey @ chef.io; phone - +1 202-368-7264
+     - Mandi Walls - mandi @ chef.io; phone - +1 703-582-7396; slack - lnxchk
    * - Advocates
      - The `list of advocates <https://github.com/chef/chef-rfc/blob/master/rfc020-community-guidelines.md>`__ for the various locations in which Chef community discussions take place is maintained in the RFC.
 

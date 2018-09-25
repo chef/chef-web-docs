@@ -50,15 +50,16 @@ The macos_userdefaults resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The macos_userdefaults resource has the following properties:
 
 ``domain``
-   **Ruby Type:** String
+   **Ruby Type:** String | ``REQUIRED``
 
-   Required. The domain that the user defaults belong to. 
+   The domain that the user defaults belong to. 
 
 ``global``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether or not the domain is `global <https://developer.apple.com/documentation/foundation/nsglobaldomain>`__.
 

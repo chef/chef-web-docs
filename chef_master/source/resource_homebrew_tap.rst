@@ -1,37 +1,39 @@
 =====================================================
-homebrew_tap
+homebrew_tap resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_homebrew_tap.rst>`__
 
-Use the **homebrew_tap** resource to add formula repositories to the Homebrew package manager.
+Use the **homebrew_tap** resource to add additional formula repositories to the Homebrew package manager.
 
 **New in Chef Client 14.0.**
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The homebrew_tap resource has the following syntax:
 
 .. code-block:: ruby
 
-   homebrew_tap 'name' do
-     full                       True, False # default value: 'false'
-     homebrew_path              String # default value: '/usr/local/bin/brew'
-     notifies                   # see description
-     owner                      String # default value: lazy { find_homebrew_username }
-     subscribes                 # see description
-     tap_name                   String # default value: 'name'
-     url                        String
-     action                     Symbol # defaults to :tap if not specified
-   end
+  homebrew_tap 'name' do
+    full               true, false # default value: false
+    homebrew_path      String # default value: /usr/local/bin/brew
+    owner              String
+    tap_name           String # default value: 'name' unless specified
+    url                String
+    action             Symbol # defaults to :tap if not specified
+  end
 
 where:
 
-* ``homebrew_tap`` is the resource
-* ``'name'`` is the name of the Homebrew formula repository, or the name of the resource block
-* ``full``, ``homebrew_path``, ``notifies``, ``owner``, ``subscribes``, ``tap_name``, and ``url`` are the properties available to this resource
+* ``homebrew_tap`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``full``, ``homebrew_path``, ``owner``, ``tap_name``, and ``url`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The homebrew_tap resource has the following actions:
+
 ``:tap``
    Default. Add a Homebrew tap.
    
@@ -47,9 +49,12 @@ Actions
    
 Properties
 =====================================================
+
+The homebrew_tap resource has the following properties:
+
 ``full``
-   **Ruby Type:** True, False | **Default Value:** ``false``
-   
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
    Perform a full clone on the tap, as opposed to a shallow clone.
 
 ``homebrew_path``
@@ -92,7 +97,7 @@ Properties
    .. end_tag
 
 ``owner``
-   **Ruby Type:** String | **Default Value:** ``lazy { find_homebrew_username }``
+   **Ruby Type:** String | **Default Value:** ``Calculated default username``
    
    The owner of the Homebrew installation.
    

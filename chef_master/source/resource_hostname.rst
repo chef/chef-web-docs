@@ -1,56 +1,61 @@
 =====================================================
-hostname
+hostname resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_hostname.rst>`__
 
-The **hostname** resource sets the system's hostname and hosts configuration, ensures that the hostname persists after a reboot, and then re-run the Ohai plugin so the hostname will be available in subsequent cookbooks. 
+Use the **hostname** resource to set the system's hostname, configure hostname and hosts config file, and re-run the Ohai **hostname** plugin so the hostname will be available in subsequent cookbooks.
 
-New in Chef Client 14.0
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
-Here's the full syntax of this resource's properties and actions:
+The hostname resource has the following syntax:
 
 .. code-block:: ruby
 
-   hostname 'name' do
-     aliases                    Array, nil # defaults to 'nil'
-     compile_time               True, False # default to 'true'
-     hostname                   String # default value: 'name'
-     ipaddress                  String # see description
-     notifies                   # see description
-     subscribes                 # see description
-     windows_reboot             True, False # defaults to 'true'
-     action                     Symbol # defaults to :set if not specified
+  hostname 'name' do
+    aliases             Array, nil
+    compile_time        true, false # default value: true
+    hostname            String # default value: 'name' unless specified
+    ipaddress           String
+    windows_reboot      true, false # default value: true
+    action              Symbol # defaults to :set if not specified
+  end
 
 where:
 
-* ``hostname`` is the name of the resource
-* ``'name'`` is the desired hostname, or name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node to the desired state
-* ``aliases``, ``compile_time``, ``hostname``, ``ipaddress``, and ``windows_reboot`` are the properties available to this resource
+* ``hostname`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``aliases``, ``compile_time``, ``hostname``, ``ipaddress``, and ``windows_reboot`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The hostname resource has the following actions:
 
 ``:set``
    Default action. Set the node's hostname. 
 
 ``:nothing``
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, the resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   .. tag resources_common_actions_nothing
+
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The hostname resource has the following properties:
 
 ``aliases``
-   **Ruby Types**: Array, nil | **Default Value:** ``nil``
+   **Ruby Type**: Array, nil | **Default Value:** ``nil``
 
    An array of hostname aliases to use when configuring the hosts file.
 
 ``compile_time``
-   **Ruby Types:** True, False | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not the resource shoul be run at compile time.
 
@@ -60,7 +65,7 @@ This resource has the following properties:
    Used to specify the hostname if it is different than the resource's name.
 
 ``ipaddress``
-   **Ruby Type:** String | **Default Value:** ``lazy { node["ipaddress"] }``
+   **Ruby Type:** String | **Default Value:** ``node["ipaddress"]``
 
    The IP address to use when configuring the hosts file. By default, this uses ``node["ipaddress"]`` information collected by Ohai.
 
@@ -148,7 +153,7 @@ This resource has the following properties:
    .. end_tag
   
 ``windows_reboot``
-   **Ruby Types:** True, False | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not Windows should be reboot after changing the hostname, as this is required for the change to take effect. 
 

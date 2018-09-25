@@ -30,6 +30,8 @@ where:
 Actions
 =====================================================
 
+The kernel_module resource has the following actions:
+
 ``:blacklist``
    Blacklist a kernel module.
 

@@ -1,5 +1,5 @@
 =====================================================
-bff_package
+bff_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_bff_package.rst>`__
 

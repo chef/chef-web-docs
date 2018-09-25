@@ -45,7 +45,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The solaris_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -62,7 +63,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The solaris_package resource has the following properties:
 
 ``source``
    **Ruby Type:** String

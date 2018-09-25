@@ -1,9 +1,9 @@
 =====================================================
-rhsm_errata_level
+rhsm_errata_level resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_errata_level.rst>`__
 
-Use the **rhsm_errata** resource to install all packages of a specified errata level from the Red Hat Subscription Manager. For example, you can ensure that all packages associated with errata marked at a "Critical" security level are installed.
+Use the **rhsm_errata_level** resource to install all packages of a specified errata level from the Red Hat Subscription Manager. For example, you can ensure that all packages associated with errata marked at a "Critical" security level are installed.
 
 The available errata levels are: ``critical``, ``moderate``, ``important``, and ``low``.
 
@@ -11,7 +11,7 @@ The available errata levels are: ``critical``, ``moderate``, ``important``, and 
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The rhsm_errata_level resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -24,12 +24,15 @@ This resource has the following syntax:
 
 where:
 
-* ``rhsm_errata`` is the resource
+* ``rhsm_errata_level`` is the resource.
 * ``'name'`` is the errata level to install packages from, or the resource name
 * ``errata_level``, ``notifies``, and ``subscribes`` are the properties available to this resource
 
 Actions
 =====================================================
+
+The rhsm_errata_level resource has the following actions:
+
 ``:install``
    Default. Install all packages of the specified errata level.
 
@@ -42,6 +45,9 @@ Actions
 
 Properties
 =====================================================
+
+The rhsm_errata_level resource has the following properties:
+
 ``errata_level``
    **Ruby Type:** String
 

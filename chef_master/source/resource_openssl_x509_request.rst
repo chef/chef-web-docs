@@ -42,6 +42,9 @@ where:
 
 Actions
 =====================================================
+
+The openssl_x509_request resource has the following actions:
+
 ``:create``
    Default. Create the certificate request file.
 

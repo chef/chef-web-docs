@@ -44,7 +44,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The subversion resource has the following actions:
 
 ``:checkout``
    Clone or check out the source. When a checkout is available, this provider does nothing.
@@ -67,7 +68,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The subversion resource has the following properties:
 
 ``destination``
    **Ruby Type:** String

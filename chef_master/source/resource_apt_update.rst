@@ -1,5 +1,5 @@
 =====================================================
-apt_update
+apt_update resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_update.rst>`__
 
@@ -17,17 +17,17 @@ An **apt_update** resource block defines the update frequency for APT repositori
 
 .. code-block:: ruby
 
-   apt_update 'name' do
-     frequency                  Integer
-     action                     Symbol # defaults to :periodic if not specified
-   end
+  apt_update 'name' do
+    frequency      Integer # default value: 86400
+    action         Symbol # defaults to :periodic if not specified
+  end
 
-where
+where:
 
-* ``apt_update`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``frequency`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``apt_update`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``frequency`` is the property available to this resource.
 
 .. end_tag
 

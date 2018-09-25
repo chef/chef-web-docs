@@ -37,6 +37,8 @@ where:
 Actions
 =====================================================
 
+The ssh_known_hosts_entry resource has the following actions:
+
 ``:create``
    Default. Create an entry in the ssh_known_hosts file.
 
@@ -52,6 +54,8 @@ Actions
 
 Properties
 =====================================================
+
+The ssh_known_hosts_entry resource has the following properties:
 
 ``file_location``
    **Ruby Type:** String | **Default Value:** ``/etc/ssh/ssh_known_hosts``
@@ -69,7 +73,7 @@ Properties
    Hash the hostname and addresses in the ssh_known_hosts file for privacy.
 
 ``host``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The host to add to the known hosts file.
 

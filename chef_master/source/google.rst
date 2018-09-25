@@ -51,36 +51,6 @@ Usage Examples
 
   $ knife google server list
 
-chef-provisioning-google
-=====================================================
-`[Github] <https://github.com/chef/chef-provisioning-google>`__
-
-This plugin makes it easy to use Chef Provisioning with the Google Cloud Platform.
-
-Usage Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following is an example of a verbose provisioning recipe:
-
-.. code-block:: ruby
-
-   require 'chef/provisioning/google_driver'
-
-   with_driver 'google:us-central1-a:some-project',
-     :google_credentials => {
-        :json_key_path => 'REDACTED',
-        :google_client_email => 'REDACTED',
-   }
-
-  google_key_pair "chef_default" do
-    private_key_path "google_default"
-    public_key_path "google_default.pub"
-  end
-
-  machine 'test' do
-    machine_options key_name: "google_default"
-    action [:converge, :destroy]
-  end
-
 kitchen-google
 =====================================================
 `[Github] <https://github.com/test-kitchen/kitchen-google>`__
