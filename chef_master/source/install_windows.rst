@@ -3,6 +3,9 @@ Install the chef-client on Microsoft Windows
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_windows.rst>`__
 
+
+Chef-client on Windows
+=========================================================
 .. tag windows_install_overview
 
 The chef-client can be installed on machines running Microsoft Windows in the following ways:
@@ -11,12 +14,17 @@ The chef-client can be installed on machines running Microsoft Windows in the fo
 * By downloading the chef-client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
-To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a service or as a scheduled task. (The chef-client can be configured to run as a service during the setup process.)
+
+To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the ``chef-client`` during the setup to run as a service or later as a scheduled task. 
 
 .. end_tag
 
-Use knife windows
-=====================================================
+Tools for Chef on Windows
+-----------------------------------------------------
+
+Using knife windows
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
 .. tag plugin_knife_windows_summary
 
 The ``knife windows`` subcommand is used to configure and interact with nodes that exist on server and/or desktop machines that are running Microsoft Windows. Nodes are configured using WinRM, which allows native objects---batch scripts, Windows PowerShell scripts, or scripting library variables---to be called by external applications. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
@@ -24,24 +32,24 @@ The ``knife windows`` subcommand is used to configure and interact with nodes th
 .. end_tag
 
 Ports
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag plugin_knife_windows_winrm_ports
 
-WinRM requires that a target node be accessible via the ports configured to support access via HTTP or HTTPS.
+WinRM requires access to a target node throught access HTTP or HTTPS ports.
 
 .. end_tag
 
 Msiexec.exe
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec
 
-Msiexec.exe is used to install the chef-client on a node as part of a bootstrap operation. The actual command that is run by the default bootstrap script is:
+Use Msiexec.exe to install the chef-client on a node as part of a bootstrapping operation. The actual command run by the default bootstrap script is:
 
 .. code-block:: bash
 
    $ msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
 
-where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which the chef-client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/bootstrap/windows-chef-client-msi.erb>`_ bootstrap template. See http://msdn.microsoft.com/en-us/library/aa367988%28v=vs.85%29.aspx for more information about the options available to Msiexec.exe.
+where ``/qn`` sets the user interface level to "No UI", ``/i`` defines the location for installing the chef-client, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/bootstrap/windows-chef-client-msi.erb>`_ bootstrap template. See http://msdn.microsoft.com/en-us/library/aa367988%28v=vs.85%29.aspx for more information about the options available to Msiexec.exe.
 
 .. end_tag
 
@@ -49,7 +57,7 @@ ADDLOCAL Options
 -----------------------------------------------------
 .. tag windows_msiexec_addlocal
 
-The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
+The ``ADDLOCAL`` parameter adds two setup options specific to the chef-client. These options can be passed along with an Msiexec.exe command:
 
 .. list-table::
    :widths: 60 420
@@ -71,6 +79,19 @@ First install the chef-client, and then enable it to run as a scheduled task. Fo
    $ msiexec /qn /i C:\inst\chef-client-14.5.27-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
 
 .. end_tag
+
+Bootstrap A Node on a Windows Workstation
+-----------------------------------------------------
+If your workstation is running Windows, you need to run the bootstrap command differently.
+
+Although we recommend that you run Chef commands from the Chef DK command prompt, for this part we recommend that you use a standard PowerShell window. GitHub issue
+
+From PowerShell, create a variable to hold the string as a JSON object.
+
+$public_ip = '{"cloud": {"public_ip": "13.82.139.157"}}' | ConvertTo-Json
+When you run the bootstrap command, pass the --json-attributes argument like this.
+
+--json-attributes $public_ip
 
 Use MSI Installer
 =====================================================

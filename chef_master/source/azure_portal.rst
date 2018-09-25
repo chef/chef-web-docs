@@ -14,9 +14,9 @@ Virtual Machines running Chef client
 
 .. tag cloud_azure_portal_platforms
 
-Through the Azure portal, you can provision a virtual machine with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
+Through the Azure portal, you can provision a virtual machine as nodes, with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
 
-.. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
+.. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who prefercommand-line interfaces.
 
 .. end_tag
 
@@ -650,5 +650,5 @@ For more information ...
 For more information about Microsoft Azure and how to use it with Chef:
 
 * `Microsoft Azure Documentation <https://azure.microsoft.com/en-us/documentation/services/virtual-machines/>`_
-* `knife azure Plugin <https://github.com/chef/knife-azure>`_
+* `knife azure <https://github.com/chef/knife-azure>`_
 * `azure-cookbook <https://github.com/chef-partners/azure-cookbook>`_
