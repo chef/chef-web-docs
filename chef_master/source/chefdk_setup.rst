@@ -236,7 +236,7 @@ To move files to the .chef directory:
 Create the config.rb File
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``config.rb`` file must be created in the ``.chef`` folder. It should look similar to:
+Navigate to the ``~/chef-repo/.chef`` directory and create the ``config.rb`` using the ``knife configure`` tool. The file must be created in the ``.chef`` folder. It should look similar to:
 
 .. code-block:: ruby
 
