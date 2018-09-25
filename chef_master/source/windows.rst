@@ -26,10 +26,10 @@ Install the chef-client on Windows
 
 The chef-client can be installed on machines running Microsoft Windows in the following ways:
 
-<<<<<<< HEAD
 * By using `knife windows </plugin_knife_windows.html>`__ to bootstrap the chef-client; this process requires the target node be available via the WinRM port (typically port 5985)
 * By downloading the chef-client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
+
 
 To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the ``chef-client`` during the setup to run as a service or later as a scheduled task.
 
