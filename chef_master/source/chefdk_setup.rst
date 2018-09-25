@@ -9,7 +9,7 @@ Configure Ruby Environment
 =====================================================
 For many users of Chef, the version of Ruby that is included in the Chef development kit should be configured as the default version of Ruby.
 
-.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby enviroment on Windows, see `ChefDK on Windows </dk_windows.html#configure-environment>`__.
+.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby environment on Windows, see `ChefDK on Windows </dk_windows.html#configure-environment>`__.
 
 #. Open a command window and enter the following:
 
@@ -119,7 +119,7 @@ To create the ``.chef`` directory:
 
 Starter Kit
 -----------------------------------------------------
-If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
+If you have access to Chef server through Automate or Chef Manage, you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
 
 Configure the Chef Repository
 =====================================================
@@ -168,7 +168,7 @@ To move files to the ``.chef`` directory:
 
 Without WebUI
 -----------------------------------------------------
-Use the following steps to manually set up the Chef repository, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool, and then create the ``config.rb`` file.
+Use the following steps to manually set up the Chef repository: On your Chef server, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool. Then, on your workstation create the ``config.rb`` file with the ``knife`` tool.
 
 Create an Organization
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -213,7 +213,7 @@ For example: a user named ``grantmc``, with a first and last name of ``Grant McL
 Move .pem Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``ORGANIZATION-validator.pem`` and ``USER.pem`` files must be moved to the ``.chef`` directory after they are downloaded from the Chef server.
+Download the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files from the Chef Server and move them to the ``.chef`` directory.
 
 To move files to the .chef directory:
 
