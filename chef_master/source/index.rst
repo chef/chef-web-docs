@@ -557,6 +557,7 @@ Addenda
    deprecations_deploy_resource
    deprecations_dnf_package_allow_downgrade
    deprecations_easy_install
+   deprecations_erl_call_resource
    deprecations_exit_code
    deprecations_internal_api
    deprecations_json_auto_inflate
