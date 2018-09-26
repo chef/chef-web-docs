@@ -124,10 +124,6 @@ Some popular drivers:
 
    * - Driver Plugin
      - Description
-   * - `kitchen-all <https://rubygems.org/gems/kitchen-all>`__
-     - A driver for everything, or "all the drivers in a single Ruby gem".
-   * - `kitchen-bluebox <https://github.com/blueboxgroup/kitchen-bluebox>`__
-     - A driver for Blue Box.
    * - `kitchen-cloudstack <https://github.com/test-kitchen/kitchen-cloudstack>`__
      - A driver for CloudStack.
    * - `kitchen-digitalocean <https://github.com/test-kitchen/kitchen-digitalocean>`__
