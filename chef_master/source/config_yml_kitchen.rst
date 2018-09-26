@@ -1,11 +1,11 @@
 ==========================================================================
-.kitchen.yml
+kitchen.yml
 ==========================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_yml_kitchen.rst>`__
 
 Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
-* Defined in a .kitchen.yml file
+* Defined in a kitchen.yml file
 * Uses a driver plugin architecture
 * Supports cookbook testing across many cloud providers and virtualization technologies
 * Supports all common testing frameworks that are used by the Ruby community
@@ -14,7 +14,7 @@ Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data a
 
 .. tag test_kitchen_yml
 
-Use a .kitchen.yml file to define what is required to run Kitchen, including drivers, provisioners, platforms, and test suites.
+Use a kitchen.yml file to define what is required to run Kitchen, including drivers, provisioners, platforms, and test suites.
 
 .. end_tag
 
@@ -24,7 +24,7 @@ Syntax
 ==========================================================================
 .. tag test_kitchen_yml_syntax
 
-The basic structure of a .kitchen.yml file is as follows:
+The basic structure of a kitchen.yml file is as follows:
 
 .. code-block:: yaml
 
@@ -87,7 +87,7 @@ where:
         - platform-version
         - platform-version       # for additional platforms
 
-For example, a very simple .kitchen.yml file:
+For example, a very simple kitchen.yml file:
 
 .. code-block:: yaml
 
@@ -206,7 +206,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``wait_for_retry``
      - Number of seconds to wait between converge attempts. Default value: 30.
 
-These settings may be added to the ``provisioner`` section of the .kitchen.yml file when the provisioner is chef-zero or chef-solo.
+These settings may be added to the ``provisioner`` section of the kitchen.yml file when the provisioner is chef-zero or chef-solo.
 
 New Provisioner Settings
 --------------------------------------------------------------------------
@@ -281,7 +281,7 @@ Kitchen can configure a transport with the following settings for either ``ssh``
    * - ``username``
      - The username used for authenticating to the test instance. This defaults to ``administrator`` for the ``winrm`` transport and ``root`` for the ``ssh`` transport. Some drivers may change this default.
 
-These settings may be added to the ``transport`` section of the .kitchen.yml file when the transport is SSH:
+These settings may be added to the ``transport`` section of the kitchen.yml file when the transport is SSH:
 
 .. list-table::
    :widths: 200 300
@@ -304,7 +304,7 @@ These settings may be added to the ``transport`` section of the .kitchen.yml fil
    * - ``ssh_key``
      - Path to an ssh key identity file.
 
-These settings may be added to the ``transport`` section of the .kitchen.yml file when the transport is WinRM:
+These settings may be added to the ``transport`` section of the kitchen.yml file when the transport is WinRM:
 
 .. list-table::
    :widths: 200 300
@@ -341,7 +341,7 @@ will be set to:
 
    ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 
-Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``.kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
+Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
 
 .. code-block:: yaml
 
@@ -364,7 +364,7 @@ This will not set the proxy environment variables for applications other than Ch
 
 chef-client Settings
 ==========================================================================
-A .kitchen.yml file may define chef-client-specific settings, such as whether to require the Chef installer or the URL from which the chef-client is downloaded, or to override settings in the client.rb file:
+A kitchen.yml file may define chef-client-specific settings, such as whether to require the Chef installer or the URL from which the chef-client is downloaded, or to override settings in the client.rb file:
 
 .. code-block:: yaml
 
@@ -427,7 +427,7 @@ Kitchen uses a driver plugin architecture to enable Kitchen to simulate testing 
 
 .. note:: The Chef development kit includes the ``kitchen-vagrant`` driver.
 
-Most drivers have driver-specific configuration settings that must be added to the .kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
+Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
 
 Some popular drivers:
 
@@ -437,10 +437,6 @@ Some popular drivers:
 
    * - Driver Plugin
      - Description
-   * - `kitchen-all <https://rubygems.org/gems/kitchen-all>`__
-     - A driver for everything, or "all the drivers in a single Ruby gem".
-   * - `kitchen-bluebox <https://github.com/blueboxgroup/kitchen-bluebox>`__
-     - A driver for Blue Box.
    * - `kitchen-cloudstack <https://github.com/test-kitchen/kitchen-cloudstack>`__
      - A driver for CloudStack.
    * - `kitchen-digitalocean <https://github.com/test-kitchen/kitchen-digitalocean>`__
@@ -523,7 +519,7 @@ The following attributes are used to configure ``kitchen-vagrant`` for Chef:
    * - ``vagrantfile_erb``
      - Use to specify an alternate Vagrant Embedded Ruby (ERB) template to be used by this driver.
    * - ``vagrantfiles``
-     - An array of paths to one (or more) Vagrant files to be merged with the default Vagrant file. The paths may be absolute or relative to the .kitchen.yml file.
+     - An array of paths to one (or more) Vagrant files to be merged with the default Vagrant file. The paths may be absolute or relative to the kitchen.yml file.
    * - ``vm_hostname``
      - Use to specify the internal hostname for the instance. This is not required when connecting to a Vagrant virtual machine. Set this to ``false`` to prevent this value from being rendered in the default Vagrantfile. Default value: computed from the platform name of the instance.
 
@@ -559,7 +555,7 @@ which will generate a configuration file similar to:
 
 Examples
 ==========================================================================
-The following examples show actual .kitchen.yml files used in Chef-maintained cookbooks.
+The following examples show actual kitchen.yml files used in Chef-maintained cookbooks.
 
 Chef, Chef DK
 --------------------------------------------------------------------------
@@ -637,13 +633,13 @@ where ``audit_mode`` may be ``:enabled``, ``:disabled`` (default), or ``:audit_o
 
 mysql Cookbook
 --------------------------------------------------------------------------
-The most impressive (and thorough) .kitchen.yml file is part of the ``mysql`` cookbook. It is too big to paste into this topic, so please see it at the following links:
+The most impressive (and thorough) kitchen.yml file is part of the ``mysql`` cookbook. It is too big to paste into this topic, so please see it at the following links:
 
-* `.kitchen.yml <https://github.com/chef-cookbooks/mysql/blob/master/.kitchen.yml>`__
+* `kitchen.yml <https://github.com/chef-cookbooks/mysql/blob/master/.kitchen.yml>`__
 
 chef-client Cookbook
 --------------------------------------------------------------------------
-The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensures the chef-client is configured correctly.
+The following kitchen.yml file is part of the ``chef-client`` cookbook and ensures the chef-client is configured correctly.
 
 .. code-block:: yaml
 
@@ -698,7 +694,7 @@ The following .kitchen.yml file is part of the ``chef-client`` cookbook and ensu
 
 chef-splunk Cookbook
 --------------------------------------------------------------------------
-The following .kitchen.yml file is part of the ``chef-splunk`` cookbook and is used to help ensure the installation of the Splunk client and server is done correctly.
+The following kitchen.yml file is part of the ``chef-splunk`` cookbook and is used to help ensure the installation of the Splunk client and server is done correctly.
 
 .. code-block:: yaml
 
@@ -767,7 +763,7 @@ The following .kitchen.yml file is part of the ``chef-splunk`` cookbook and is u
 
 yum Cookbook
 --------------------------------------------------------------------------
-The following .kitchen.yml file is part of the ``yum`` cookbook:
+The following kitchen.yml file is part of the ``yum`` cookbook:
 
 .. code-block:: yaml
 
@@ -790,7 +786,7 @@ The following .kitchen.yml file is part of the ``yum`` cookbook:
 
 Platform Attributes
 --------------------------------------------------------------------------
-The following .kitchen.yml file sets up a simple tiered configuration of the Chef server, including two front-end servers, a single back-end server, and all three add-ons (Chef push jobs, Reporting, and Chef management console). The ``platforms`` block uses an ``attributes`` section to define Chef server-specific attributes that are used by all three test suites:
+The following kitchen.yml file sets up a simple tiered configuration of the Chef server, including two front-end servers, a single back-end server, and all three add-ons (Chef push jobs, Reporting, and Chef management console). The ``platforms`` block uses an ``attributes`` section to define Chef server-specific attributes that are used by all three test suites:
 
 .. code-block:: yaml
 
@@ -861,7 +857,7 @@ The following .kitchen.yml file sets up a simple tiered configuration of the Che
 
 Kitchen Converge On System Reboot
 --------------------------------------------------------------------------
-Test-Kitchen can handle reboots (when initiated from chef-client) by setting ``retry_on_exit_code``, ``max_retries`` and ``wait_for_retry`` attributes on the provisioner in ``.kitchen.yml`` file as follows :
+Test-Kitchen can handle reboots (when initiated from chef-client) by setting ``retry_on_exit_code``, ``max_retries`` and ``wait_for_retry`` attributes on the provisioner in ``kitchen.yml`` file as follows :
 
 .. code-block:: yaml
 
