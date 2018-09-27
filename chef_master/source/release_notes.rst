@@ -1,9 +1,68 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.4
+Release Notes: Chef Client 12.0 - 14.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What’s New in 14.5
+=====================================================
+* **New Preview Resources**
+
+  * **locale**
+      Use the `locale </resource_locale.html>`__ resource to set the system’s locale.
+
+      Thank you @vincentaubert for contributing this resource.
+
+  * **windows_workgroup**
+      Use the `windows_workgroup </resource_windows_workgroup.html>`__ resource to join or change the workgroup of a Windows host.
+
+      Thank you @derekgroh for contributing this resource.
+
+* **Improved Resources**
+
+  * **windows_package**
+      The `windows_package </resource_windows_package.html>`__ resource will no longer log sensitive information in the event of an installation failure if the ``sensitive`` property is set.
+
+  * **windows_package**
+      The `windows_service </resource_windows_service.html>`__ resource will no longer log potentially sensitive information when the service is setup.
+
+  * **windows_ad_join**
+      Use the `windows_ad_join </resource_windows_ad_join.html>`__ resource now includes a ``new_hostname`` property for setting the hostname for the node upon joining the domain.
+
+      Thank you @derekgroh for contributing this resource.
+
+Ohai 14.5
+-----------------------------------------------------
+
+* **Windows Improvements**
+    Detection for the ``root_group`` attribute on Windows has been simplified and improved to properly support non-English systems. With this change, we've also deprecated the ``Ohai::Util::Win32::GroupHelper`` helper, which is no longer necessary. Thanks to @jugatsu for putting this together.
+
+    We've also added a new ``encryption_status`` attribute to ``volumes`` on Windows. Thanks to @kmf for suggesting this new feature.
+
+* **Configuration Improvements**
+    The timeout period for communicating with OpenStack metadata servers can now be configured with the ``openstack_metadata_timeout`` config option. Thanks to @sawanoboly for this improvement.
+
+    Ohai now properly handles relative paths to config files when running on the command line. This means commands like ``ohai -c ../client.rb`` will now properly use your config values.
+
+InSpec Updated to 2.2.102
+-----------------------------------------------------
+
+* Support for using ERB templating within the .yml files
+* HTTP basic auth support for fetching dependent profiles
+* A new global attributes concept
+* Better error handling with Automate reporting
+* Vendor command now vendors profiles when using path://
+
+New Deprecations
+-----------------------------------------------------
+
+* The unused ``ohai_name`` property in the ``ohai`` resource has been deprecated. This property will be removed in Chef 15 (April 2019)
+
+Security Updates
+-----------------------------------------------------
+
+* The rubyzip gem has been updated to 1.2.2 to resolve `CVE-2018-1000544 </https://www.cvedetails.com/cve/CVE-2018-1000544/>`__
 
 What’s New in 14.4
 =====================================================
@@ -137,13 +196,19 @@ What’s New in 14.3
      * Resolved idempotency issues in the `windows_task </resource_windows_task.html>`__ resource and prevented setting up a task with bad credentials
      * `windows_service </resource_windows_service.html>`__ no longer throws Ruby deprecation warnings
 
-* **Deprecations**
+Ohai 14.3
+-----------------------------------------------------
 
-  * **CHEF-26: Deprecation of old shell_out APIs**
-    As noted above, this release of Chef unifies our shell_out helpers into just shell_out and shell_out!. Previous helpers are now deprecated and will be removed in Chef 15. See `CHEF-26 Deprecation Page </deprecations_shell_out.html>`__ for details.
+* Ohai now properly detects the platform_version of the final release of Amazon Linux 2.0 in addition to the previous detection of the RC platform_version.
 
-  * **Legacy FreeBSD pkg provider**
-    Chef 15 will remove support for the legacy FreeBSD pkg format. We will continue to support the pkgng format introduced in FreeBSD 10.
+New Deprecations
+-----------------------------------------------------
+
+* **CHEF-26: Deprecation of old shell_out APIs**
+  As noted above, this release of Chef unifies our shell_out helpers into just shell_out and shell_out!. Previous helpers are now deprecated and will be removed in Chef 15. See `CHEF-26 Deprecation Page </deprecations_shell_out.html>`__ for details.
+
+* **Legacy FreeBSD pkg provider**
+  Chef 15 will remove support for the legacy FreeBSD pkg format. We will continue to support the pkgng format introduced in FreeBSD 10.
 
 What’s New in 14.2.0
 =====================================================
@@ -178,6 +243,11 @@ What’s New in 14.2.0
 
      Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
 
+Ohai 14.2
+-----------------------------------------------------
+
+* Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon's new C5/M5 instances.
+
 What's New in 14.1.12
 =====================================================
 
@@ -193,9 +263,9 @@ What's New in 14.1.12
 Ohai 14.1.3
 -------------------------------------------------------
 
-  * Properly detect FIPS environments
-  * shard plugin: work in FIPS compliant environments
-  * filesystem plugin: Handle BSD platforms
+* Properly detect FIPS environments
+* shard plugin: work in FIPS compliant environments
+* filesystem plugin: Handle BSD platforms
 
 
 What's New in 14.1.1
