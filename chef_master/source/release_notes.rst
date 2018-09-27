@@ -155,7 +155,7 @@ Ohai 14.4
 Security Updates
 -----------------------------------------------------
 * **OpenSSL**
-     OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://nvd.nist.gov/vuln/detail/CVE-2018-0732>`__ and `CVE-2018-0737 <https://nvd.nist.gov/vuln/detail/CVE-2018-0737>`__
+     OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`__ and `CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`__
 
 
 What’s New in 14.3
@@ -679,6 +679,26 @@ This release completes the deprecation process for many of the deprecations that
 
         optional_plugins [ "lspci", "passwd" ]
 
+What's New in 13.11
+=====================================================
+* **Sensitive Properties on Windows**
+
+  - windows_service no longer logs potentially sensitive information when a service is setup
+  - windows_package now respects the sensitive property to avoid logging sensitive data in the event of a package installation failure
+
+* **Bugfixes**
+
+  - ``remote_directory`` now properly loads files in the root of a cookbook's files directory
+  - ``osx_profile`` now uses the full path the profiles CLI tool to avoid running other binaries of the same name in a users path
+  - ``package`` resources that don't support the ``allow_downgrade`` property will no longer fail
+  - ``knife bootstrap windows`` error messages have been improved
+
+
+* **Security Updates**
+
+  - OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`__ and `CVE-2018-0737<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`__
+  - Updated rubyzip to 1.2.2 to resolve `CVE-2018-1000544 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544>`__
+
 What's New in 13.10
 =====================================================
 
@@ -704,12 +724,12 @@ What's New in 13.9.4
 Security Updates
 Ruby has been updated to 2.4.4
 
-CVE-2017-17742: HTTP response splitting in WEBrick
-CVE-2018-6914: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
-CVE-2018-8777: DoS by large request in WEBrick
-CVE-2018-8778: Buffer under-read in String#unpack
-CVE-2018-8779: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
-CVE-2018-8780: Unintentional directory traversal by poisoned NUL byte in Dir
+`CVE-2017-17742 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742>`__: HTTP response splitting in WEBrick
+`CVE-2018-6914 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914>`__: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
+`CVE-2018-8777 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777>`__: DoS by large request in WEBrick
+`CVE-2018-8778 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778>`__: Buffer under-read in String#unpack
+`CVE-2018-8779 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779>`__: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
+`CVE-2018-8780 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8780>`__: Unintentional directory traversal by poisoned NUL byte in Dir
 Multiple vulnerabilities in RubyGems
 Nokogiri has been updated to 1.8.2
 
