@@ -3,9 +3,9 @@ Install the Chef DK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_dk.rst>`__
 
-Use the Chef DK installer to set up the Chef development kit on a workstation. Chef DK includes the chef-client, an embedded version of Ruby, RubyGems, and OpenSSL, as well as our tools: Test Kitchen, Cookstyle, Foodcritic and ChefSpec. The Chef installer puts everything into a unique directory (``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows) so that these components will not interfere with other applications that may be running on the target machine.
+Use the Chef Development Kit installer to set up the Chef DK on a workstation. Chef DK includes the chef-client, an embedded version of Ruby, RubyGems, and OpenSSL, as well as our tools: Test Kitchen, Cookstyle, Foodcritic and ChefSpec. The Chef installer puts everything into a unique directory (``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows) so that these components will not interfere with other applications that may be running on the target machine.
 
-.. note:: The Chef installer must run as a root user.
+.. note:: The Chef installer must run as a privileged user.
 
 Install
 =====================================================
@@ -13,7 +13,7 @@ Install
 macOS
 -----------------------------------------------------
 
-.. note:: Apple Xcode is required to install the Chef DK on macOS. Install Xcode via the Mac App Store.
+.. note:: ChefDK works without installing Xcode, but Xcode is required for native Ruby Gem installation. Run ``xcode-select --install`` from the terminal to install Xcode.
 
 #. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your macOS version. Click on the **Download** button.
 #. Follow the steps to accept the license and install the Chef development kit. You will have the option to change your install location; by default the installer uses the ``/opt/chefdk/`` directory.
@@ -50,4 +50,4 @@ Linux
 
 Next Steps
 =====================================================
-Now that you've installed the Chef DK, proceed to the `ChefDk Setup </chefdk_setup.html>`__ guide to configure your ChefDK installation.
+Now that you've installed the Chef DK, proceed to the `Chef DK Setup </chefdk_setup.html>`__ guide to configure your ChefDK installation.

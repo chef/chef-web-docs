@@ -111,7 +111,6 @@ This configuration file has the following settings:
 
       gem "poise"
       gem "chef-sugar"
-      gem "chef-provisioning"
 
    .. end_tag
 

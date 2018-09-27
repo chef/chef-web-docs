@@ -94,22 +94,6 @@
             "url": "/chef_system_requirements.html"
           },
           {
-            "title": "Chef Workstation",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Chef Workstation Beta",
-                "hasSubItems": false,
-                "url": "https://www.chef.sh/"
-              },
-              {
-                "title": "Documentation",
-                "hasSubItems": false,
-                "url": "https://www.chef.sh/docs/chef-workstation/getting-started/"
-              }
-            ]
-          },
-          {
             "title": "Release Notes",
             "hasSubItems": true,
             "subItems": [
@@ -139,6 +123,16 @@
             "title": "Deprecations",
             "hasSubItems": false,
             "url": "/chef_deprecations_client.html"
+          },
+          {
+            "title": "Microsoft Windows Guide",
+            "hasSubItems": false,
+            "url": "/windows.html"
+          },
+          {
+            "title": "Glossary",
+            "hasSubItems": false,
+            "url": "/glossary.html"
           }
         ]
       },
@@ -150,11 +144,6 @@
             "title": "Workstation",
             "hasSubItems": false,
             "url": "/workstation.html"
-          },
-          {
-            "title": "chef-repo",
-            "hasSubItems": false,
-            "url": "/chef_repo.html"
           },
           {
             "title": "Nodes",
@@ -172,11 +161,6 @@
             "url": "/server_components.html"
           },
           {
-            "title": "Search",
-            "hasSubItems": false,
-            "url": "/chef_search.html"
-          },
-          {
             "title": "Secrets",
             "hasSubItems": false,
             "url": "/secrets.html"
@@ -190,16 +174,6 @@
             "title": "Custom Resources",
             "hasSubItems": false,
             "url": "/custom_resources.html"
-          },
-          {
-            "title": "Handlers",
-            "hasSubItems": false,
-            "url": "/handlers.html"
-          },
-          {
-            "title": "Management Console",
-            "hasSubItems": false,
-            "url": "/manage.html"
           },
           {
             "title": "Policy",
@@ -224,13 +198,60 @@
                 "title": "Roles",
                 "hasSubItems": false,
                 "url": "/roles.html"
-              }
+              },
             ]
           },
           {
-            "title": "Provisioning",
+            "title": "Authentication",
             "hasSubItems": false,
-            "url": "/provisioning.html"
+            "url": "/auth.html#authentication"
+          },
+          {
+            "title": "Authorization",
+            "hasSubItems": false,
+            "url": "/auth.html#authorization"
+          },
+          {
+            "title": "Supermarket",
+            "hasSubItems": true,
+            "subItems": [
+              {
+               "title": "Public Supermarket",
+                "hasSubItems": false,
+                "url": "/supermarket.html#public-supermarket"
+              },
+              {
+                "title": "Private Supermarket",
+                "hasSubItems": false,
+                "url": "/supermarket.html#private-supermarket"
+              }
+            ]
+          },
+        ]
+      },
+      {
+        "title": "Features",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "chef-repo",
+            "hasSubItems": false,
+            "url": "/chef_repo.html"
+          },
+          {
+            "title": "FIPS-mode",
+            "hasSubItems": false,
+            "url": "/ctl_chef_client.html#run-in-fips-mode"
+          },
+         {
+            "title": "Handlers",
+            "hasSubItems": false,
+            "url": "/handlers.html"
+          },
+          {
+            "title": "Management Console",
+            "hasSubItems": false,
+            "url": "/manage.html"
           },
           {
             "title": "Push Jobs",
@@ -243,76 +264,23 @@
             "url": "/run_lists.html"
           },
           {
-            "title": "Security",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Authentication",
-                "hasSubItems": false,
-                "url": "/auth.html#authentication"
-              },
-              {
-                "title": "Authorization",
-                "hasSubItems": false,
-                "url": "/auth.html#authorization"
-              },
-              {
-                "title": "Private Keys",
-                "hasSubItems": false,
-                "url": "/chef_private_keys.html"
-              },
-              {
-                "title": "FIPS-mode",
-                "hasSubItems": false,
-                "url": "/ctl_chef_client.html#run-in-fips-mode"
-              }
-            ]
-          },
-          {
-            "title": "Supermarket",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Public Supermarket",
-                "hasSubItems": false,
-                "url": "/supermarket.html#public-supermarket"
-              },
-              {
-                "title": "Private Supermarket",
-                "hasSubItems": false,
-                "url": "/supermarket.html#private-supermarket"
-              }
-
-            ]
-          },
-          {
-            "title": "Microsoft Windows",
+            "title": "Search",
             "hasSubItems": false,
-            "url": "/windows.html"
+           "url": "/chef_search.html"
           },
-          {
-            "title": "Appendix",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Env Variables",
-                "hasSubItems": false,
-                "url": "/environment_variables.html"
-              },
-              {
-                "title": "Troubleshooting",
-                "hasSubItems": false,
-                "url": "/errors.html"
-              },
-              {
-                "title": "Glossary",
-                "hasSubItems": false,
-                "url": "/glossary.html"
-              }
-            ]
-          }
         ]
-      },
+    },
+    {
+      "title": "Troubleshooting",
+      "hasSubItems": true,
+      "subItems": [
+        {
+          "title": "Errors",
+          "hasSubItems": false,
+          "url": "/errors.html"
+        }
+      ]
+    },
       {
         "title": "Setup",
         "hasSubItems": true,
@@ -1271,117 +1239,6 @@
             ]
           },
           {
-            "title": "Provisioning Resources",
-            "hasSubItems": true,
-            "subItems": [
-            {
-              "title": "chef_acl",
-              "hasSubItems": false,
-              "url": "/resource_chef_acl.html"
-            },
-            {
-              "title": "chef_client",
-              "hasSubItems": false,
-              "url": "/resource_chef_client.html"
-            },
-            {
-              "title": "chef_container",
-              "hasSubItems": false,
-              "url": "/resource_chef_container.html"
-            },
-            {
-              "title": "chef_data_bag_item",
-              "hasSubItems": false,
-              "url": "/resource_chef_data_bag_item.html"
-            },
-            {
-              "title": "chef_data_bag",
-              "hasSubItems": false,
-              "url": "/resource_chef_data_bag.html"
-            },
-            {
-              "title": "chef_environment",
-              "hasSubItems": false,
-              "url": "/resource_chef_environment.html"
-            },
-            {
-              "title": "chef_group",
-              "hasSubItems": false,
-              "url": "/resource_chef_group.html"
-            },
-            {
-              "title": "chef_mirror",
-              "hasSubItems": false,
-              "url": "/resource_chef_mirror.html"
-            },
-            {
-              "title": "chef_node",
-              "hasSubItems": false,
-              "url": "/resource_chef_node.html"
-            },
-            {
-              "title": "chef_organization",
-              "hasSubItems": false,
-              "url": "/resource_chef_organization.html"
-            },
-            {
-              "title": "chef_role",
-              "hasSubItems": false,
-              "url": "/resource_chef_role.html"
-            },
-            {
-              "title": "chef_user",
-              "hasSubItems": false,
-              "url": "/resource_chef_user.html"
-            },
-            {
-              "title": "load_balancer resource",
-              "hasSubItems": false,
-              "url": "/resource_load_balancer.html"
-            },
-            {
-              "title": "machine resource",
-              "hasSubItems": false,
-              "url": "/resource_machine.html"
-            },
-            {
-              "title": "machine_batch resource",
-              "hasSubItems": false,
-              "url": "/resource_machine_batch.html"
-            },
-            {
-              "title": "machine_execute resource",
-              "hasSubItems": false,
-              "url": "/resource_machine_execute.html"
-            },
-            {
-              "title": "machine_file resource",
-              "hasSubItems": false,
-              "url": "/resource_machine_file.html"
-            },
-            {
-              "title": "machine_image resource",
-              "hasSubItems": false,
-              "url": "/resource_machine_image.html"
-            },
-            {
-              "title": "public_key",
-              "hasSubItems": false,
-              "url": "/resource_public_key.html"
-            },
-            {
-              "title": "AWS Driver Resources",
-              "hasSubItems": false,
-              "url": "/provisioning_aws.html"
-            },
-            {
-              "title": "Fog Driver Resources",
-              "hasSubItems": false,
-              "url": "/provisioning_fog.html"
-            }
-            ]
-          },
-          {
             "title": "Templates",
             "hasSubItems": false,
             "url": "/templates.html"
@@ -1955,64 +1812,55 @@
                 "url": "/server_sent_events.html"
               }
             ]
-          },
-          {
-            "title": "Management Console",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Configure SAML",
-                "hasSubItems": false,
-                "url": "/server_configure_saml.html"
-              },
-              {
-                "title": "Clients",
-                "hasSubItems": false,
-                "url": "/server_manage_clients.html"
-              },
-              {
-                "title": "Cookbooks",
-                "hasSubItems": false,
-                "url": "/server_manage_cookbooks.html"
-              },
-              {
-                "title": "Data Bags",
-                "hasSubItems": false,
-                "url": "/server_manage_data_bags.html"
-              },
-              {
-                "title": "Environments",
-                "hasSubItems": false,
-                "url": "/server_manage_environments.html"
-              },
-              {
-                "title": "Nodes",
-                "hasSubItems": false,
-                "url": "/server_manage_nodes.html"
-              },
-              {
-                "title": "Roles",
-                "hasSubItems": false,
-                "url": "/server_manage_roles.html"
-              },
-              {
-                "title": "Users",
-                "hasSubItems": false,
-                "url": "/server_users.html#chef-manage"
-              },
-              {
-                "title": "manage.rb",
-                "hasSubItems": false,
-                "url": "/config_rb_manage.html"
-              },
-              {
-                "title": "chef-manage-ctl",
-                "hasSubItems": false,
-                "url": "/ctl_manage.html"
-              }
-            ]
           }
         ]
+      },
+      {
+        "title": "Release Notes",
+        "hasSubItems": true,
+        "subItems": [
+          {
+            "title": "Chef Client",
+            "hasSubItems": false,
+            "url": "/release_notes.html"
+          },
+          {
+            "title": "Chef Development Kit",
+            "hasSubItems": false,
+            "url": "/release_notes_chefdk.html"
+          },
+          {
+            "title": "Chef Server",
+            "hasSubItems": false,
+            "url": "/release_notes_server.html"
+          },
+          {
+            "title": "Chef Push Jobs",
+            "hasSubItems": false,
+            "url": "/release_notes_push_jobs.html"
+          }
+        ]
+      },
+      {
+        "title": "Deprecations",
+        "hasSubItems": false,
+        "url": "/chef_deprecations_client.html"
+      }
+    ]
+  },
+  {
+    "title": "Chef Workstation",
+    "hasSubItems": true,
+    "subItems": [
+      {
+        "title": "Chef Workstation Beta",
+        "hasSubItems": false,
+        "url": "https://www.chef.sh/"
+      },
+      {
+        "title": "Documentation",
+        "hasSubItems": false,
+        "url": "https://www.chef.sh/docs/chef-workstation/getting-started/"
       }
     ]
   },
@@ -2145,6 +1993,67 @@
                 "title": "Upgrades",
                 "hasSubItems": false,
                 "url": "/upgrade_chef_automate.html"
+              }
+            ]
+          },
+          {
+            "title": "Management Console",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About the Management Console",
+                "hasSubItems": false,
+                "url": "/manage.html"
+              },
+              {
+                "title": "Configure SAML",
+                "hasSubItems": false,
+                "url": "/server_configure_saml.html"
+              },
+              {
+                "title": "Clients",
+                "hasSubItems": false,
+                "url": "/server_manage_clients.html"
+              },
+              {
+                "title": "Cookbooks",
+                "hasSubItems": false,
+                "url": "/server_manage_cookbooks.html"
+              },
+              {
+                "title": "Data Bags",
+                "hasSubItems": false,
+                "url": "/server_manage_data_bags.html"
+              },
+              {
+                "title": "Environments",
+                "hasSubItems": false,
+                "url": "/server_manage_environments.html"
+              },
+              {
+                "title": "Nodes",
+                "hasSubItems": false,
+                "url": "/server_manage_nodes.html"
+              },
+              {
+                "title": "Roles",
+                "hasSubItems": false,
+                "url": "/server_manage_roles.html"
+              },
+              {
+                "title": "Users",
+                "hasSubItems": false,
+                "url": "/server_users.html#chef-manage"
+              },
+              {
+                "title": "manage.rb",
+                "hasSubItems": false,
+                "url": "/config_rb_manage.html"
+              },
+              {
+                "title": "chef-manage-ctl",
+                "hasSubItems": false,
+                "url": "/ctl_manage.html"
               }
             ]
           },
