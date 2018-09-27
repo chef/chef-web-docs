@@ -12,6 +12,7 @@
   "rubocop.html": "/cookstyle.html",
   "auth_authentication.html": "/auth.html",
   "auth_authorization.html": "/auth.html",
+  "breaking_changes_chef_11.html": "https://docs-archive.chef.io/release/11-0/release_notes.html",
   "chef_client.html": "/chef_client_overview.html",
   "chef_dk.html": "/workstation.html",
   "community_lists.html": "/community.html",

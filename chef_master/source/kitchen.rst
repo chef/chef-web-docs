@@ -7,7 +7,7 @@ Kitchen
 
 Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
-* Defined in a .kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
+* Defined in a kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
 * Uses a driver plugin architecture
 * Supports cookbook testing across many cloud providers and virtualization technologies
 * Supports all common testing frameworks that are used by the Ruby community
@@ -114,7 +114,7 @@ Kitchen uses a driver plugin architecture to enable Kitchen to simulate testing 
 
 .. note:: The Chef development kit includes the ``kitchen-vagrant`` driver.
 
-Most drivers have driver-specific configuration settings that must be added to the .kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
+Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
 
 Some popular drivers:
 
@@ -124,10 +124,6 @@ Some popular drivers:
 
    * - Driver Plugin
      - Description
-   * - `kitchen-all <https://rubygems.org/gems/kitchen-all>`__
-     - A driver for everything, or "all the drivers in a single Ruby gem".
-   * - `kitchen-bluebox <https://github.com/blueboxgroup/kitchen-bluebox>`__
-     - A driver for Blue Box.
    * - `kitchen-cloudstack <https://github.com/test-kitchen/kitchen-cloudstack>`__
      - A driver for CloudStack.
    * - `kitchen-digitalocean <https://github.com/test-kitchen/kitchen-digitalocean>`__
@@ -175,21 +171,21 @@ kitchen is the command-line tool for Kitchen, an integration testing tool used b
 
 .. note:: For more information about the ``kitchen`` command line tool, see `kitchen </ctl_kitchen.html>`__.
 
-.kitchen.yml
+kitchen.yml
 =====================================================
 .. tag test_kitchen_yml
 
-Use a .kitchen.yml file to define what is required to run Kitchen, including drivers, provisioners, platforms, and test suites.
+Use a kitchen.yml file to define what is required to run Kitchen, including drivers, provisioners, platforms, and test suites.
 
 .. end_tag
 
-.. note:: For more information about the .kitchen.yml file, see `kitchen.yml </config_yml_kitchen.html>`__.
+.. note:: For more information about the kitchen.yml file, see `kitchen.yml </config_yml_kitchen.html>`__.
 
 Syntax
 -----------------------------------------------------
 .. tag test_kitchen_yml_syntax
 
-The basic structure of a .kitchen.yml file is as follows:
+The basic structure of a kitchen.yml file is as follows:
 
 .. code-block:: yaml
 
@@ -252,7 +248,7 @@ where:
         - platform-version
         - platform-version       # for additional platforms
 
-For example, a very simple .kitchen.yml file:
+For example, a very simple kitchen.yml file:
 
 .. code-block:: yaml
 
@@ -296,7 +292,7 @@ will be set to:
 
    ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 
-Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``.kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
+Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
 
 .. code-block:: yaml
 
