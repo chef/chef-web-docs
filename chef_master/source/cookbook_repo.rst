@@ -155,7 +155,7 @@ This configuration file has the following settings:
    .. warning:: 
     metadata.rb must not be used to install native gems, which require C compilation. Instead, native gems must be installed by the ``chef_gem`` resource called from the recipe code. The recipe code should also use the ``build_essential`` resource to install compilers on the system as a preqrequisite.
     
-    Since metadata.rb runs before any recipe code runs, the chef-cliegint cannot install the C compilers before the gem installation happens in metadata.rb.  
+    Since metadata.rb runs before any recipe code runs, the chef-client cannot install the C compilers before the gem installation happens in metadata.rb.  
     
     The ``gem`` setting is not a general purpose replacement for the ``chef_gem`` `resource </resource_chef_gem.html>`__, and does not internally re-use the ``chef_gem`` resource. The ``gem`` setting addresses a specific use case of external chef libraries shipped as gems - such as the "chef-sugar" and "poise" gems - that need to be accessible and used in the chef-client run for libraries and attribute files. The ``gem`` setting allows for these specific use cases to be installed very early, while understanding that an inherent limitation is that the ``gem`` setting is unable to install native gems. Other pure ruby gems can be installed with metadata.rb.
 
