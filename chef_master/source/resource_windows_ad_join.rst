@@ -34,6 +34,8 @@ where:
 Actions
 =====================================================
 
+The windows_ad_join resource has the following actions:
+
 ``:join``
    Default. Join the Active Directory domain. 
 
@@ -46,20 +48,23 @@ Actions
 
 Properties
 =====================================================
+
+The windows_ad_join resource has the following properties:
+
 ``domain_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The FQDN of the Active Directory domain to join. 
+   The FQDN of the Active Directory domain to join.
 
 ``domain_password``
-   **Ruby Type:** String
+   **Ruby Type:** String | ``REQUIRED``
 
-   Required. The password for the domain user. Note that this resource is set to hide sensitive information by default. 
+   The password for the domain user. Note that this resource is set to hide sensitive information by default. 
 
 ``domain_user``
-   **Ruby Type:** String
+   **Ruby Type:** String | ``REQUIRED``
 
-   Required. The domain user that will be used to join the domain.
+   The domain user that will be used to join the domain.
 
 
 ``new_hostname``

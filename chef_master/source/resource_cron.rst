@@ -1,5 +1,5 @@
 =====================================================
-cron
+cron resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cron.rst>`__
 
@@ -37,36 +37,34 @@ The full syntax for all of the properties that are available to the **cron** res
 
 .. code-block:: ruby
 
-   cron 'name' do
-     command                    String
-     day                        String
-     environment                Hash
-     home                       String
-     hour                       String
-     mailto                     String
-     minute                     String
-     month                      String
-     notifies                   # see description
-     path                       String
-     shell                      String
-     subscribes                 # see description
-     time                       Symbol
-     user                       String
-     weekday                    String, Symbol
-     action                     Symbol # defaults to :create if not specified
-   end
+  cron 'name' do
+    command          String
+    day              
+    environment      Hash
+    home             String
+    hour             
+    mailto           String
+    minute           
+    month            
+    path             String
+    shell            String
+    time             Symbol
+    user             String # default value: root
+    weekday          
+    action           Symbol # defaults to :create if not specified
+  end
 
-where
+where:
 
-* ``cron`` is the resource
-* ``name`` is the name of the resource block
-* ``command`` is the command to be run
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``user``, and ``weekday`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``cron`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``user``, and ``weekday`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The cron resource has the following actions:
 
 ``:create``
    Default. Create an entry in a cron table file (crontab). If an entry already exists (but does not match), update that entry to match.
@@ -93,7 +91,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The cron resource has the following properties:
 
 ``command``
    **Ruby Type:** String

@@ -1,5 +1,5 @@
 =====================================================
-cron_d
+cron_d resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cron_d.rst>`__
 
@@ -67,7 +67,8 @@ where
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The cron_d resource has the following actions:
 
 ``:create``
    Default. "Add a cron definition file to /etc/cron.d, but do not update an existing file.
@@ -87,7 +88,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The cron_d resource has the following properties:
 
 ``command``
    **Ruby Type:** String

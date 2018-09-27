@@ -34,12 +34,6 @@ The following diagram shows the various components that are part of a Chef serve
        .. end_tag
 
        All cookbooks are stored in a dedicated repository.
-   * - WebUI
-     - .. tag chef_server_component_webui
-
-       chef-server-webui is a Ruby on Rails application that hosts the web interface for the Chef server.
-
-       .. end_tag
 
    * - Erchef
      - .. tag chef_server_component_erchef
@@ -101,4 +95,3 @@ The following sections detail how to monitor the server, manage log files, manag
 .. include:: server_tuning.rst
 
 .. include:: server_backup_restore.rst
-

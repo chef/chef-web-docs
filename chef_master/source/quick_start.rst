@@ -11,7 +11,7 @@ For the quickest way to get started using Chef:
 
    .. code-block:: bash
 
-      $ chef generate app first_cookbook
+      $ chef generate cookbook first_cookbook
 
    where ``first_cookbook`` is an arbitrary cookbook name.
 
@@ -40,5 +40,4 @@ This will create a file named ``test.txt`` at the home path on your machine. Ope
 There's a lot more that Chef can do, obviously, but that was super easy!
 
 * See https://learn.chef.io/ for more detailed setup scenarios.
-* Try `running Chef in the AWS Marketplace </aws_marketplace.html>`__.
 * Keep reading  for more information about setting up a workstation, configuring Kitchen to run virtual environments, setting up a more detailed cookbook, resources, and more.

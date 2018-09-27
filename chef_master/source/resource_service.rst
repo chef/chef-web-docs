@@ -48,7 +48,8 @@ where
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The service resource has the following actions:
 
 ``:disable``
    Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform. This action is not supported when using System Resource Controller (SRC) on the AIX platform because System Resource Controller (SRC) does not have a standard mechanism for enabling and disabling services on system boot.
@@ -75,7 +76,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The service resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** True, False

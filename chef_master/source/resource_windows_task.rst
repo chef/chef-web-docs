@@ -50,7 +50,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The windows_task resource has the following actions:
 
 ``:create``
    Creates a task, or updates an existing task if any property has changed.
@@ -72,6 +73,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
+
+The windows_task resource has the following properties:
 
 ``command``
    **Ruby Type:** String

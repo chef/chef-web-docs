@@ -18,10 +18,10 @@ The msu_package resource has the following syntax:
      action                     Symbol
    end
 
-where
+where:
 
-* ``msu_package`` is the resource
-* ``'name'`` is the name of the resource block
+* ``msu_package`` is the resource.
+* ``name`` is the name given to the resource block.
 * ``source`` is the local path or URL for the MSU package.
 
 The full syntax for all of the properties that are available to the **msu_package** resource is:
@@ -36,7 +36,8 @@ The full syntax for all of the properties that are available to the **msu_packag
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The msu_package resource has the following actions:
 
 :install
    Installs the MSU package from either a local file path or URL.
@@ -49,16 +50,15 @@ Properties
 
 The msu_package resource has the following properties:
 
-source
-   **Ruby Type:** String
-
-   The local file path or URL for the MSU package.
-
-checksum
+``checksum``
    **Ruby Type:** String
 
    SHA-256 digest used to verify the checksum of the downloaded MSU package.
 
+``source``
+   **Ruby Type:** String
+
+   The local file path or URL for the MSU package.
 
 Examples
 =====================================================

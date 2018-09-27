@@ -33,6 +33,9 @@ where:
 
 Actions
 =====================================================
+
+The openssl_rsa_public_key resource has the following actions:
+
 ``:create``
    Default. Create the RSA public key.
 
@@ -45,6 +48,9 @@ Actions
 
 Properties
 =====================================================
+
+The openssl_rsa_public_key resource has the following properties:
+
 ``group``
    **Ruby Type:** String
 

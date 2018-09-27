@@ -1,5 +1,5 @@
 =====================================================
-route
+route resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_route.rst>`__
 

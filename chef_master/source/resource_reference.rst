@@ -1186,6 +1186,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_link.rst
 
+.. include:: resource_locale.rst
+
 .. include:: resource_log.rst
 
 .. include:: resource_macos_userdefaults.rst
@@ -1319,6 +1321,8 @@ The following resources are built into the Chef Client:
 .. include:: resource_windows_shortcut.rst
 
 .. include:: resource_windows_task.rst
+
+.. include:: resource_windows_workgroup.rst
 
 .. include:: resource_yum_package.rst
 

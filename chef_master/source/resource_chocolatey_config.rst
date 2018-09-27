@@ -1,5 +1,5 @@
 =====================================================
-chocolatey_config
+chocolatey_config resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_config.rst>`__
 
@@ -9,26 +9,28 @@ Use the **chocolatey_config** resource to add or remove Chocolatey configuration
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The chocolatey_config resource has the following syntax:
 
 .. code-block:: ruby
 
-   chocolatey_config 'name' do
-     notifies                   # see description
-     config_key                 String # default value: 'name'
-     value                      String
-     subscribes                 # see description
-     action                     Symbol # defaults to :set if not specified
-   end
+  chocolatey_config 'name' do
+    config_key      String # default value: 'name' unless specified
+    value           String
+    action          Symbol # defaults to :set if not specified
+  end
 
 where:
 
-* ``chocolatey_config`` is the resource
-* ``'name'`` is the name of the config key to set, or the name of the resource block
-* ``value`` is the value to set.
+* ``chocolatey_config`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``config_key`` and ``value`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The chocolatey_config resource has the following actions:
+
 ``:set``
    Default. Sets a Chocolatey config value.
 
@@ -44,6 +46,9 @@ Actions
 
 Properties
 =====================================================
+
+The chocolatey_config resource has the following properties:
+
 ``config_key``
    **Ruby Type:** String | **Default Value:** ``'name'``
 

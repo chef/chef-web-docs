@@ -21,8 +21,8 @@ Glossary
 **chef-client**
    A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
 
-**Chef DK**
-   A collection of tools to help development of Chef and Chef resources. It uses the full stack installer to give you everything you need to get going in one package.  You can download it at `Chef Development Kit <https://downloads.chef.io/chefdk/>`__.
+**Chef Development Kit (DK)**
+   A collection of tools to aide in development of Chef cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at `Chef Development Kit <https://downloads.chef.io/chefdk/>`__.
 
 **chef-repo**
    The repository structure in which cookbooks are authored, tested, and maintained. View `an example of the <https://github.com/chef/chef-repo>`__ chef-repo.
@@ -30,7 +30,7 @@ Glossary
 **Chef server**
    The Chef server acts as a hub for configuration data. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions.
 
-**Chefspec**
+**ChefSpec**
    ChefSpec is a unit-testing framework for testing Chef cookbooks.
 
 **chef-zero**
@@ -38,6 +38,9 @@ Glossary
 
 **cookbook**
    A cookbook is the fundamental unit of configuration and policy distribution.
+
+**cookstyle**
+  A linter to enforce Ruby code quality and style based on the popular Rubocop linter.
 
 **data bag**
    A data_bag is a global variable that is stored as JSON data and is accessible from a Chef server.
@@ -51,7 +54,7 @@ Glossary
 **environment**
    An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef server.
 
-**foodcritic**
+**Foodcritic**
    A linting tool for doing static code analysis on cookbooks.
 
 **kitchen**

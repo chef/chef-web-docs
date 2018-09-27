@@ -3178,7 +3178,6 @@ Specifies a gem dependency to be installed via the **chef_gem** resource after a
 
    gem "poise"
    gem "chef-sugar"
-   gem "chef-provisioning"
 
 .. end_tag
 
@@ -3738,7 +3737,6 @@ Use the **apt_update** resource to manage APT repository updates on Debian and U
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_apt_update_syntax
 
 An **apt_update** resource block defines the update frequency for APT repositories:
 
@@ -3755,8 +3753,6 @@ where
 * ``name`` is the name of the resource block
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``frequency`` is a property of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -3971,7 +3967,6 @@ Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpret
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_script_ksh_syntax
 
 A **ksh** resource block executes scripts using ksh:
 
@@ -4016,7 +4011,6 @@ where
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -9979,15 +9973,12 @@ The following configuration settings are updated for the client.rb file and now 
 
 Filter Search Results
 -----------------------------------------------------
-.. tag dsl_recipe_method_search_filter_result
 
 Use ``:filter_result`` as part of a search query to filter the search output based on the pattern specified by a Hash. Only attributes in the Hash will be returned.
 
-.. note:: .. tag notes_filter_search_vs_partial_search
+.. note:: ..
 
           Prior to chef-client 12.0, this functionality was available from the ``partial_search`` cookbook and was referred to as "partial search".
-
-          .. end_tag
 
 The syntax for the ``search`` method that uses ``:filter_result`` is as follows:
 
@@ -10024,8 +10015,6 @@ For example:
      puts result['ip']
      puts result['kernel_version']
    end
-
-.. end_tag
 
 knife search
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

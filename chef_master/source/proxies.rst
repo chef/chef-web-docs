@@ -1,5 +1,5 @@
 =====================================================
-About Proxies
+Working with Proxies
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/proxies.rst>`__
 
@@ -152,4 +152,3 @@ will be set to:
    ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 
 .. end_tag
-

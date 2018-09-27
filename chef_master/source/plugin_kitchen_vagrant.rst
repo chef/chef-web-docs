@@ -48,7 +48,7 @@ The following attributes are used to configure ``kitchen-vagrant`` for Chef:
    * - ``vagrantfile_erb``
      - Use to specify an alternate Vagrant Embedded Ruby (ERB) template to be used by this driver.
    * - ``vagrantfiles``
-     - An array of paths to one (or more) Vagrant files to be merged with the default Vagrant file. The paths may be absolute or relative to the .kitchen.yml file.
+     - An array of paths to one (or more) Vagrant files to be merged with the default Vagrant file. The paths may be absolute or relative to the kitchen.yml file.
    * - ``vm_hostname``
      - Use to specify the internal hostname for the instance. This is not required when connecting to a Vagrant virtual machine. Set this to ``false`` to prevent this value from being rendered in the default Vagrantfile. Default value: computed from the platform name of the instance.
 

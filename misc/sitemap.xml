@@ -1449,6 +1449,9 @@
 <loc>https://docs.chef.io/resource_load_balancer.html</loc>
 </url>
 
+<url>
+<loc>https://docs.chef.io/resource_locale.html</loc>
+</url>
 
 <url>
 <loc>https://docs.chef.io/resource_log.html</loc>

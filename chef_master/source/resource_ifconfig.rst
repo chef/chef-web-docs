@@ -1,11 +1,11 @@
 =====================================================
-ifconfig
+ifconfig resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ifconfig.rst>`__
 
 .. tag resource_ifconfig_summary
 
-Use the **ifconfig** resource to manage interfaces on \*nix systems.
+Use the **ifconfig** resource to manage interfaces on Unix and Linux systems.
 
 .. end_tag
 
@@ -23,39 +23,40 @@ The full syntax for all of the properties that are available to the **ifconfig**
 
 .. code-block:: ruby
 
-   ifconfig 'name' do
-     bcast                      String
-     bonding_opts               String
-     bootproto                  String
-     device                     String
-     ethtool_opts               String
-     family                     String # defaults to 'inet' if not specified
-     hwaddr                     String
-     inet_addr                  String
-     mask                       String
-     master                     String
-     metric                     String
-     mtu                        String
-     network                    String
-     notifies                   # see description
-     onboot                     String
-     onparent                   String
-     slave                      String
-     subscribes                 # see description
-     target                     String # defaults to 'name' if not specified
-     action                     Symbol # defaults to :create if not specified
-   end
+  ifconfig 'name' do
+    bcast             String
+    bonding_opts      String
+    bootproto         String
+    device            String
+    ethtool_opts      String
+    family            String # default value: inet
+    gateway           String
+    hwaddr            String
+    inet_addr         String
+    mask              String
+    master            String
+    metric            String
+    mtu               String
+    network           String
+    onboot            String
+    onparent          String
+    slave             String
+    target            String # default value: 'name' unless specified
+    vlan              String
+    action            Symbol # defaults to :add if not specified
+  end
 
-where
+where:
 
-* ``ifconfig`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``slave``,  and ``target`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``ifconfig`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``family``, ``gateway``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``slave``, ``target``, and ``vlan`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The ifconfig resource has the following actions:
 
 ``:add``
    Default. Run ifconfig to configure a network interface and (on some platforms) write a configuration file for that network interface.
@@ -78,7 +79,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The ifconfig resource has the following properties:
 
 ``bcast``
    **Ruby Type:** String
@@ -90,7 +92,7 @@ This resource has the following properties:
 
    Bonding options to pass via ``BONDING_OPTS`` on RHEL and CentOS. For example: ``mode=active-backup miimon=100``
 
-   New in Chef Client 13.4
+   New in Chef Client 13.4.
 
 ``bootproto``
    **Ruby Type:** String
@@ -107,14 +109,21 @@ This resource has the following properties:
 
    Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``
 
-   New in Chef Client 13.4
+   New in Chef Client 13.4.
 
 ``family``
    **Ruby Type:** String | **Default Value:** ``inet``
 
    Networking family option for Debian-based systems; for example: ``inet`` or ``inet6``.
-   
+
    New in Chef Client 14.0.
+
+``gateway``
+   **Ruby Type:** String
+
+   The gateway to use for the interface.
+
+   New in Chef Client 14.4.
 
 ``hwaddr``
    **Ruby Type:** String
@@ -141,7 +150,7 @@ This resource has the following properties:
 
    Specifies the channel bonding interface to which the Ethernet interface is linked.
 
-   New in Chef Client 13.4
+   New in Chef Client 13.4.
 
 ``metric``
    **Ruby Type:** String

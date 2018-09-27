@@ -21,7 +21,7 @@ A **zypper_package** resource block manages a package on a node, typically by in
 
 which will install the named package using all of the default options and the default action (``:install``).
 
-The full syntax for all of the properties that are available to the **zypper_package** resource is:
+The zypper_package resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -86,12 +86,14 @@ The zypper_package resource has the following actions:
 Properties
 =====================================================
 
-This resource has the following properties:
+The zypper_package resource has the following properties:
 
 ``allow_downgrade``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Allow downgrading a package to satisfy requested version requirements.
+
+   New in Chef Client 13.6.
 
 ``gpg_check``
    **Ruby Type:** true, false

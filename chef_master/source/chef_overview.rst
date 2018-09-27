@@ -51,7 +51,7 @@ Chef has the following major components:
 
        Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users). The full power of Ruby is available for when you need a programming language.
 
-       Often, a workstation is configured to use the Chef Development Kit as the development toolkit. The Chef Development Kit is a package from Chef that provides a recommended set of tooling, including Chef itself, the chef command line tool, Test Kitchen, ChefSpec, Berkshelf, and more.
+       Often, a workstation is configured to use the Chef Development Kit as the development toolkit. The Chef Development Kit is a package from Chef that provides a recommended set of tooling, including Chef itself, the chef command line tool, Test Kitchen, ChefSpec, and more.
 
    * - .. image:: ../../images/icon_node.svg
           :width: 100px
@@ -171,7 +171,7 @@ Some important tools and components of Chef workstations include:
 
        Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data across any combination of platforms and test suites:
 
-       * Defined in a .kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
+       * Defined in a kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
        * Uses a driver plugin architecture
        * Supports cookbook testing across many cloud providers and virtualization technologies
        * Supports all common testing frameworks that are used by the Ruby community
@@ -244,7 +244,7 @@ Cookbooks are comprised of the following components:
 
      - .. tag libraries_summary
 
-       A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to the chef-client---``Chef::Recipe``, for example---or for implementing entirely new functionality, similar to a mixin in Ruby. A library file is a Ruby file that is located within a cookbook's ``/libraries`` directory. Because a library is built using Ruby, anything that can be done with Ruby can be done in a library file.
+       A library allows arbitrary Ruby code to be included in a cookbook. The most common use for libraries is to write helpers that are used throughout recipes and custom resources. A library file is a Ruby file that is located within a cookbook's ``/libraries`` directory. Because a library is built using Ruby, anything that can be done with Ruby can be done in a library file, including advanced functionality such as extending built-in Chef classes.
 
        .. end_tag
 
@@ -274,10 +274,9 @@ Cookbooks are comprised of the following components:
        * Is mostly a collection of resources, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
        * Must define everything that is required to configure part of a system
        * Must be stored in a cookbook
-       * May be included in a recipe
+       * May be included in another recipe
        * May use the results of a search query and read the contents of a data bag (including an encrypted data bag)
        * May have a dependency on one (or more) recipes
-       * May tag a node to facilitate the creation of arbitrary groupings
        * Must be added to a run-list before it can be used by the chef-client
        * Is always executed in the same order as listed in a run-list
 

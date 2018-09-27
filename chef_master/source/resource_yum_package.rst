@@ -53,7 +53,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The yum_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.

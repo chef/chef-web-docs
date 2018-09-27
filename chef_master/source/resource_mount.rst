@@ -100,12 +100,13 @@ The mount resource has the following properties:
    Use to specify if a mounted file system is enabled.
 
 ``fsck_device``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``-``
 
-   The fsck device on the Solaris platform. Default value: ``-``.
+   Solaris only: The fsck device.
+
 
 ``fstype``
-   **Ruby Type:** String
+   **Ruby Type:** String, nil | **Default Value:** ``auto``
 
    Required. The file system type (fstype) of the device.
 
