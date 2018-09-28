@@ -124,7 +124,7 @@ This configuration file has the following settings:
 
     Native gems require C compilation and must not be installed with ``metadata.rb`` because ``metadata.rb`` runs before any recipe code runs and consequently, the chef-client cannot install the C compilers before the gem installation occurs.
     Instead, install native gems with the  ``chef_gem`` resource called from the recipe code.
-    You'll also need to use use the ``build_essential`` resource in the recipe code to install the prerequisite compilers onto the system.
+    You'll also need to use the ``build_essential`` resource in the recipe code to install the prerequisite compilers onto the system.
 
 ``issues_url``
    The URL for the location in which a cookbook's issue tracking is maintained. This setting is also used by Chef Supermarket. In Chef Supermarket, this value is used to define the destination for the "View Issues" link.
