@@ -157,7 +157,7 @@ This configuration file has the following settings:
     The ``gem`` setting is not a general purpose replacement for the `chef_gem resource </resource_chef_gem.html>`__, and does not internally re-use the ``chef_gem`` resource.
 
     Use the ``gem`` setting specifically for making external chef libraries shipped as gems -- such as the "chef-sugar" and "poise" gems -- accessible in the chef-client run for libraries and attribute files.
-    The ``gem`` setting in ``metadata.rb`` allows for the very early installation of this specific type of gem, with the fundamental limitation that it cannot install native gems.
+    The ``gem`` setting in ``metadata.rb`` allows for the early installation of this specific type of gem, with the fundamental limitation that it cannot install native gems.
     Other pure ruby gems can be installed with metadata.rb.
 
     Native gems require C compilation and must not be installed with ``metadata.rb`` because ``metadata.rb`` runs before any recipe code runs and consequently, the chef-client cannot install the C compilers before the gem installation occurs.
