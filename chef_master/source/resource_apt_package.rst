@@ -37,7 +37,6 @@ The full syntax for all of the properties that are available to the **apt_packag
      package_name               String, Array # defaults to 'name' if not specified
      response_file              String
      response_file_variables    Hash
-     source                     String
      subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
@@ -159,11 +158,6 @@ The apt_package resource has the following properties:
    **Ruby Type:** Integer
 
    The retry delay (in seconds). Default value: ``2``.
-
-``source``
-   **Ruby Type:** String
-
-   Optional. The direct path to a dpkg or deb package.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -302,21 +296,6 @@ The following examples demonstrate various approaches for using apt_update in re
 
    apt_package 'name of package' do
      action :install
-   end
-
-.. end_tag
-
-**Install a package using local file**
-
-.. tag resource_apt_package_install_package_using_local_file
-
-.. To install a package using local file:
-
-.. code-block:: ruby
-
-   apt_package 'jwhois' do
-     action :install
-     source '/path/to/jwhois.deb'
    end
 
 .. end_tag
