@@ -38,7 +38,7 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
 
       $ knife bootstrap 123.45.6.789 -x username -P password --sudo
 
-   where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see `knife bootstrap </knife_bootstrap.html>`__. For Microsoft Windows, the ``knife windows`` plugin is required, see `knife windows </plugin_knife_windows.html>`__.
+   where ``123.45.6.789`` is the IP address or the FQDN for the node. Use the ``--distro`` option to specify a non-default distribution. For more information about the options available to the ``knife bootstrap`` command for Ubuntu- and Linux-based platforms, see `knife bootstrap </knife_bootstrap.html>`__. For Microsoft Windows, the ``knife windows`` plugin is required, see `knife windows </knife_windows.html>`__.
 
    And then while the bootstrap operation is running, the command window will show something like the following:
 

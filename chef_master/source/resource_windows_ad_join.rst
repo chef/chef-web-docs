@@ -17,6 +17,7 @@ The windows_ad_join resource has the following syntax:
     domain_name          String # default value: 'name' unless specified
     domain_password      String
     domain_user          String
+    new_hostname         String    
     ou_path              String
     reboot               Symbol # default value: immediate
     sensitive            true, false # default value: true
@@ -28,7 +29,7 @@ where:
 * ``windows_ad_join`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``domain_name``, ``domain_password``, ``domain_user``, ``ou_path``, ``reboot``, and ``sensitive`` are the properties available to this resource.
+* ``domain_name``, ``domain_password``, ``domain_user``, ``new_hostname``, ``ou_path``, ``reboot``, and ``sensitive`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -64,6 +65,14 @@ The windows_ad_join resource has the following properties:
    **Ruby Type:** String | ``REQUIRED``
 
    The domain user that will be used to join the domain.
+
+
+``new_hostname``
+  **Ruby Type:** String
+
+  "Specifies a new name for the computer in the new domain."
+
+  New in Chef Client 14.5.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -170,7 +179,17 @@ Examples
 
 .. code-block:: ruby
 
-   windows_ad_join 'ad.example.org' do
-     domain_user 'nick'
-     domain_password 'p@ssw0rd1'
-   end
+  windows_ad_join 'ad.example.org' do
+    domain_user 'nick'
+    domain_password 'p@ssw0rd1'
+  end
+
+**Join a domain, as `win-workstation`**
+
+.. code-block:: ruby
+
+  windows_ad_join 'ad.example.org' do
+    domain_user 'nick'
+    domain_password 'p@ssw0rd1'
+    new_hostname 'win-workstation'
+  end
