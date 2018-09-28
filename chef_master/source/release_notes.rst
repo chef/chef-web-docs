@@ -3172,7 +3172,7 @@ gem, metadata.rb
 -----------------------------------------------------
 .. tag config_rb_metadata_settings_gem
 
-Specifies a gem dependency to be installed via the **chef_gem** resource after all cookbooks are synchronized, but before any other cookbook loading is done. Use this attribute once per gem dependency. For example:
+Specifies a gem dependency for installation into the chef-client through bundler. The gem installation occurs after all cookbooks are synchronized but before loading any other cookbooks. Use this attribute one time for each gem dependency. For example:
 
 .. code-block:: ruby
 
