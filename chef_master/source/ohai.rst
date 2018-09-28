@@ -691,7 +691,7 @@ Ohai configuration settings can be added to the client.rb file.
         :MyPlugin
       ]
 
-    or disabling multiple plugins:
+   or disabling multiple plugins:
 
    .. code-block:: ruby
 
