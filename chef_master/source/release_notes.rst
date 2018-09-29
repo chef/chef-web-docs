@@ -1,9 +1,68 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.4
+Release Notes: Chef Client 12.0 - 14.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What’s New in 14.5
+=====================================================
+* **New Preview Resources**
+
+  * **locale**
+      Use the `locale </resource_locale.html>`__ resource to set the system’s locale.
+
+      Thank you @vincentaubert for contributing this resource.
+
+  * **windows_workgroup**
+      Use the `windows_workgroup </resource_windows_workgroup.html>`__ resource to join or change the workgroup of a Windows host.
+
+      Thank you @derekgroh for contributing this resource.
+
+* **Improved Resources**
+
+  * **windows_package**
+      The `windows_package </resource_windows_package.html>`__ resource will no longer log sensitive information in the event of an installation failure if the ``sensitive`` property is set.
+
+  * **windows_package**
+      The `windows_service </resource_windows_service.html>`__ resource will no longer log potentially sensitive information when the service is setup.
+
+  * **windows_ad_join**
+      Use the `windows_ad_join </resource_windows_ad_join.html>`__ resource now includes a ``new_hostname`` property for setting the hostname for the node upon joining the domain.
+
+      Thank you @derekgroh for contributing this resource.
+
+Ohai 14.5
+-----------------------------------------------------
+
+* **Windows Improvements**
+    Detection for the ``root_group`` attribute on Windows has been simplified and improved to properly support non-English systems. With this change, we've also deprecated the ``Ohai::Util::Win32::GroupHelper`` helper, which is no longer necessary. Thanks to @jugatsu for putting this together.
+
+    We've also added a new ``encryption_status`` attribute to ``volumes`` on Windows. Thanks to @kmf for suggesting this new feature.
+
+* **Configuration Improvements**
+    The timeout period for communicating with OpenStack metadata servers can now be configured with the ``openstack_metadata_timeout`` config option. Thanks to @sawanoboly for this improvement.
+
+    Ohai now properly handles relative paths to config files when running on the command line. This means commands like ``ohai -c ../client.rb`` will now properly use your config values.
+
+InSpec Updated to 2.2.102
+-----------------------------------------------------
+
+* Support for using ERB templating within the .yml files
+* HTTP basic auth support for fetching dependent profiles
+* A new global attributes concept
+* Better error handling with Automate reporting
+* Vendor command now vendors profiles when using path://
+
+New Deprecations
+-----------------------------------------------------
+
+* The unused ``ohai_name`` property in the ``ohai`` resource has been deprecated. This property will be removed in Chef 15 (April 2019)
+
+Security Updates
+-----------------------------------------------------
+
+* The rubyzip gem has been updated to 1.2.2 to resolve `CVE-2018-1000544 </https://www.cvedetails.com/cve/CVE-2018-1000544/>`__
 
 What’s New in 14.4
 =====================================================
@@ -96,7 +155,7 @@ Ohai 14.4
 Security Updates
 -----------------------------------------------------
 * **OpenSSL**
-     OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://nvd.nist.gov/vuln/detail/CVE-2018-0732>`__ and `CVE-2018-0737 <https://nvd.nist.gov/vuln/detail/CVE-2018-0737>`__
+     OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`__ and `CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`__
 
 
 What’s New in 14.3
@@ -137,13 +196,19 @@ What’s New in 14.3
      * Resolved idempotency issues in the `windows_task </resource_windows_task.html>`__ resource and prevented setting up a task with bad credentials
      * `windows_service </resource_windows_service.html>`__ no longer throws Ruby deprecation warnings
 
-* **Deprecations**
+Ohai 14.3
+-----------------------------------------------------
 
-  * **CHEF-26: Deprecation of old shell_out APIs**
-    As noted above, this release of Chef unifies our shell_out helpers into just shell_out and shell_out!. Previous helpers are now deprecated and will be removed in Chef 15. See `CHEF-26 Deprecation Page </deprecations_shell_out.html>`__ for details.
+* Ohai now properly detects the platform_version of the final release of Amazon Linux 2.0 in addition to the previous detection of the RC platform_version.
 
-  * **Legacy FreeBSD pkg provider**
-    Chef 15 will remove support for the legacy FreeBSD pkg format. We will continue to support the pkgng format introduced in FreeBSD 10.
+New Deprecations
+-----------------------------------------------------
+
+* **CHEF-26: Deprecation of old shell_out APIs**
+  As noted above, this release of Chef unifies our shell_out helpers into just shell_out and shell_out!. Previous helpers are now deprecated and will be removed in Chef 15. See `CHEF-26 Deprecation Page </deprecations_shell_out.html>`__ for details.
+
+* **Legacy FreeBSD pkg provider**
+  Chef 15 will remove support for the legacy FreeBSD pkg format. We will continue to support the pkgng format introduced in FreeBSD 10.
 
 What’s New in 14.2.0
 =====================================================
@@ -178,6 +243,11 @@ What’s New in 14.2.0
 
      Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
 
+Ohai 14.2
+-----------------------------------------------------
+
+* Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon's new C5/M5 instances.
+
 What's New in 14.1.12
 =====================================================
 
@@ -193,9 +263,9 @@ What's New in 14.1.12
 Ohai 14.1.3
 -------------------------------------------------------
 
-  * Properly detect FIPS environments
-  * shard plugin: work in FIPS compliant environments
-  * filesystem plugin: Handle BSD platforms
+* Properly detect FIPS environments
+* shard plugin: work in FIPS compliant environments
+* filesystem plugin: Handle BSD platforms
 
 
 What's New in 14.1.1
@@ -609,6 +679,27 @@ This release completes the deprecation process for many of the deprecations that
 
         optional_plugins [ "lspci", "passwd" ]
 
+What's New in 13.11
+=====================================================
+* **Sensitive Properties on Windows**
+
+  - windows_service no longer logs potentially sensitive information when a service is setup
+  - windows_package now respects the sensitive property to avoid logging sensitive data in the event of a package installation failure
+
+* **Bugfixes**
+
+  - ``remote_directory`` now properly loads files in the root of a cookbook's files directory
+  - ``osx_profile`` now uses the full path the profiles CLI tool to avoid running other binaries of the same name in a users path
+  - ``package`` resources that don't support the ``allow_downgrade`` property will no longer fail
+  - ``knife bootstrap windows`` error messages have been improved
+
+
+* **Security Updates**
+
+`CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`_: Fixes handshake violation in OpenSSL
+`CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`_: OpenSSL RSA Key generation algorithm has been shown to be vulnerable to a cache timing side channel attack
+`CVE-2018-1000544 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544>`_: rubyzip gem rubyzip version 1.2.1 and earlier contains a Directory Traversal vulnerability
+
 What's New in 13.10
 =====================================================
 
@@ -634,12 +725,12 @@ What's New in 13.9.4
 Security Updates
 Ruby has been updated to 2.4.4
 
-CVE-2017-17742: HTTP response splitting in WEBrick
-CVE-2018-6914: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
-CVE-2018-8777: DoS by large request in WEBrick
-CVE-2018-8778: Buffer under-read in String#unpack
-CVE-2018-8779: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
-CVE-2018-8780: Unintentional directory traversal by poisoned NUL byte in Dir
+`CVE-2017-17742 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742>`__: HTTP response splitting in WEBrick
+`CVE-2018-6914 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914>`__: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
+`CVE-2018-8777 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777>`__: DoS by large request in WEBrick
+`CVE-2018-8778 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778>`__: Buffer under-read in String#unpack
+`CVE-2018-8779 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779>`__: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
+`CVE-2018-8780 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8780>`__: Unintentional directory traversal by poisoned NUL byte in Dir
 Multiple vulnerabilities in RubyGems
 Nokogiri has been updated to 1.8.2
 
