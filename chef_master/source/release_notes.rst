@@ -24,7 +24,7 @@ What’s New in 14.5
   * **windows_package**
       The `windows_package </resource_windows_package.html>`__ resource will no longer log sensitive information in the event of an installation failure if the ``sensitive`` property is set.
 
-  * **windows_package**
+  * **windows_service**
       The `windows_service </resource_windows_service.html>`__ resource will no longer log potentially sensitive information when the service is setup.
 
   * **windows_ad_join**
