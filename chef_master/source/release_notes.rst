@@ -696,8 +696,9 @@ What's New in 13.11
 
 * **Security Updates**
 
-  - OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`__ and `CVE-2018-0737<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`__
-  - Updated rubyzip to 1.2.2 to resolve `CVE-2018-1000544 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544>`__
+`CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`_: Fixes handshake violation in OpenSSL
+`CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`_: OpenSSL RSA Key generation algorithm has been shown to be vulnerable to a cache timing side channel attack
+`CVE-2018-1000544 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544>`_: rubyzip gem rubyzip version 1.2.1 and earlier contains a Directory Traversal vulnerability
 
 What's New in 13.10
 =====================================================
