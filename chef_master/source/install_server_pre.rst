@@ -59,7 +59,7 @@ Hardware Requirements
 All machines in a Chef server deployment have the following hardware requirements. Disk space for standalone and backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows. Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment) is preferred.
 
 For all deployments
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 * 64-bit architecture
 
@@ -73,7 +73,7 @@ For a standalone deployment:
 .. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_components.html#capacity-planning>`_ for more information on how this metric affects scalability.
 
 For high availability deployments
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 
 General requirements
 
@@ -83,12 +83,14 @@ General requirements
 .. tag system_requirements_ha
 
 Frontend requirements
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 * 4 cores (physical or virtual)
 * 4GB RAM
 * 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
 Backend requirements
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 * 2 cores (physical or virtual)
 * 8GB RAM
