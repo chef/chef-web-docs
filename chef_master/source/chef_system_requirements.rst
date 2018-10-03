@@ -22,7 +22,7 @@ The hosted Chef server has the following requirements:
 * **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
 * Every node that will be configured by the chef-client and every workstation that will upload data to the Chef server must be able to communicate with the hosted Chef server
 
-Chef Server, On-premises or in cloud environment
+Chef Server, On-premises or in Cloud Environment
 -----------------------------------------------------
 .. tag system_requirements_server_hardware
 
