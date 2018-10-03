@@ -28,11 +28,11 @@ Chef Server, On-premises or in cloud environment
 
 All machines in a Chef server deployment have the following hardware requirements. Disk space for standalone and backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows. Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment) is preferred.
 
-For all deployments:
+**All Deployments**
 
 * 64-bit architecture
 
-For a standalone deployment:
+**Standalone Deployments**
 
 * 4 total cores (physical or virtual)
 * 8 GB of RAM or more
@@ -43,20 +43,20 @@ For a standalone deployment:
 
 For a high availability deployment:
 
-General requirements
+**General Requirements**
 
 * Three backend servers; as many frontend servers as required
 * 1 x GigE NIC interface (if on premises)
 
 .. tag system_requirements_ha
 
-*Frontend requirements*
+**Frontend Requirements**
 
 * 4 cores (physical or virtual)
 * 4GB RAM
 * 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
-*Backend requirements*
+**Backend Requirements**
 
 * 2 cores (physical or virtual)
 * 8GB RAM
@@ -92,7 +92,6 @@ In addition:
 
 Chef Client
 =====================================================
-In addition:
 
 * The recommended amount of RAM available to the chef-client during a chef-client run is 512MB
 * The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the chef-client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
