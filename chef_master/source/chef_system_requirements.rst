@@ -11,13 +11,6 @@ Before installing Chef:
 
 Install and configure the Chef server, then install and configure a workstation, and then run the bootstrap command from the workstation to install the chef-client on each node.
 
-chef-client
-=====================================================
-In addition:
-
-* The recommended amount of RAM available to the chef-client during a chef-client run is 512MB
-* The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the chef-client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
-* The chef-client caches to ``/var/chef/cache`` during the chef-client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
 
 The Chef Server
 =====================================================
@@ -37,7 +30,8 @@ Chef Server, On-premises or in cloud environment
 
 All machines in a Chef server deployment have the following hardware requirements. Disk space for standalone and backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows. Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment) is preferred.
 
-For all deployments:
+For all deployments
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 * 64-bit architecture
 
@@ -50,7 +44,8 @@ For a standalone deployment:
 
 .. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_components.html#capacity-planning>`_ for more information on how this metric affects scalability.
 
-For a high availability deployment:
+For high availability deployments
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 General requirements
 
@@ -101,4 +96,12 @@ In addition:
 
 Chef DK
 =====================================================
-The Chef development kit has the same requirements as the chef-client.
+The Chef development kit has the same requirements as the Chef Client.
+
+Chef Client
+=====================================================
+In addition:
+
+* The recommended amount of RAM available to the chef-client during a chef-client run is 512MB
+* The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the chef-client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
+* The chef-client caches to ``/var/chef/cache`` during the chef-client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
