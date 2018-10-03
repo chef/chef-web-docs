@@ -1,13 +1,22 @@
 =====================================================
-Install the chef-client on Microsoft Windows
+Install the chef-client on Windows Nodes
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_windows.rst>`__
+
+
+Nodes
+=====================================================
+.. tag node
+
+A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+
+.. end_tag
 
 .. tag windows_install_overview
 
 The chef-client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using `knife windows </plugin_knife_windows.html>`__ to bootstrap the chef-client; this process requires the target node be available via the WinRM port (typically port 5985)
+* By using `knife windows </knife_windows.html>`__ to bootstrap the chef-client; this process requires the target node be available via the WinRM port (typically port 5985)
 * By downloading the chef-client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
@@ -16,16 +25,16 @@ To run the chef-client at periodic intervals (so that it can check in with the C
 .. end_tag
 
 Use knife windows
-=====================================================
-.. tag plugin_knife_windows_summary
+-----------------------------------------------------
+.. tag knife_windows_summary
 
 The ``knife windows`` subcommand is used to configure and interact with nodes that exist on server and/or desktop machines that are running Microsoft Windows. Nodes are configured using WinRM, which allows native objects---batch scripts, Windows PowerShell scripts, or scripting library variables---to be called by external applications. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
 
 .. end_tag
 
 Ports
------------------------------------------------------
-.. tag plugin_knife_windows_winrm_ports
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag knife_windows_winrm_ports
 
 WinRM requires that a target node be accessible via the ports configured to support access via HTTP or HTTPS.
 
@@ -46,7 +55,7 @@ where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used
 .. end_tag
 
 ADDLOCAL Options
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec_addlocal
 
 The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
@@ -73,11 +82,11 @@ First install the chef-client, and then enable it to run as a scheduled task. Fo
 .. end_tag
 
 Use MSI Installer
-=====================================================
+-----------------------------------------------------
 A Microsoft Installer Package (MSI) is available for installing the chef-client on a Microsoft Windows machine at `Chef Downloads <https://downloads.chef.io/>`__
 
 Run as a Scheduled Task
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The chef-client can be run as a scheduled task. On the Microsoft Windows platform, a scheduled task provides more visibility, configurability, and reliability around log rotation and permissions, as compared to running the chef-client as a service. A scheduled task:
 
 * Prevents log rotation issues, such as filling a disk partition
@@ -104,7 +113,7 @@ After the chef-client is configured to run as a scheduled task, the default file
 .. end_tag
 
 Use an Existing Process
-=====================================================
+-----------------------------------------------------
 .. tag windows_install_system_center
 
 Many organizations already have processes in place for managing the applications and settings on various Microsoft Windows machines. For example, System Center. The chef-client can be installed using this method.
@@ -112,7 +121,7 @@ Many organizations already have processes in place for managing the applications
 .. end_tag
 
 PATH System Variable
-=====================================================
+-----------------------------------------------------
 .. tag windows_environment_variable_path
 
 On Microsoft Windows, the chef-client must have two entries added to the ``PATH`` environment variable:

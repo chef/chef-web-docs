@@ -1,12 +1,30 @@
 =====================================================
-Chef DK on Windows
+ChefDK on Windows Workstations
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dk_windows.rst>`__
 
-This guide details some of the common considerations that come into play when using the Chef Development Kit on Windows.
+This guide details some of the common considerations that come into play when using the Chef Development Kit on Windows. Download the ChefDK by following the installation instructions on `Installing the ChefDK </install_dk.html>`_.
+
+Workstations
+=====================================================
+.. tag workstation_summary
+
+A workstation is a computer running the `Chef Development Kit </about_chefdk.html>`__ (Chef DK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
+
+The workstation is where users do most of their work, including:
+
+* Developing and testing cookbooks and recipes
+* Testing Chef code
+* Keeping the Chef repository synchronized with version source control
+* Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
+* Interacting with nodes, as (or when) required, such as performing a bootstrap operation
+
+.. end_tag
+
+Installing ChefDK on Windows
 
 Configure Environment
-=====================================================
+-----------------------------------------------------
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows
 
 You can use the ``chef shell-init`` command with Windows PowerShell to add the appropriate variables to your environment.
@@ -28,7 +46,7 @@ To enable it permanently:
 If ``$PROFILE`` does not exist, continue to the next section.
 
 Create a Profile
-=====================================================
+-----------------------------------------------------
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows_user_profile
 
 On new Windows machines, commands cannot be appended to ``$PROFILE`` if the folder does not exist, or if there is a new user profile. This will result in an error similar to the following:
@@ -53,7 +71,7 @@ In this situation, run the following ``chef shell-init`` command instead:
 .. end_tag
 
 Set the Execution Policy
-=====================================================
+-----------------------------------------------------
 .. tag ruby_set_system_ruby_as_chefdk_ruby_windows_admin
 
 On new Windows machines, PowerShell scripts will not work until an administrator runs the following command:
@@ -65,7 +83,7 @@ On new Windows machines, PowerShell scripts will not work until an administrator
 .. end_tag
 
 Spaces and Directories
-=====================================================
+-----------------------------------------------------
 .. tag windows_spaces_and_directories
 
 Directories that are used by Chef on Windows cannot have spaces. For example, ``C:\Users\Steven Danno`` will not work, but ``C:\Users\StevenDanno`` will. Because of this, the ``knife supermarket install`` subcommand will fail if the directory contains a space.
@@ -73,7 +91,7 @@ Directories that are used by Chef on Windows cannot have spaces. For example, ``
 .. end_tag
 
 Top-level Directory Names
-=====================================================
+-----------------------------------------------------
 .. tag windows_top_level_directory_names
 
 Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install the Chef development kit on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.

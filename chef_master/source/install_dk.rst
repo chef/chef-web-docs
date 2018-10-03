@@ -15,12 +15,12 @@ macOS
 
 .. note:: ChefDK works without installing Xcode, but Xcode is required for native Ruby Gem installation. Run ``xcode-select --install`` from the terminal to install Xcode.
 
-#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your macOS version. Click on the **Download** button.
+#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk#mac_os_x>`__ and select the appropriate package for your macOS version. Click on the **Download** button.
 #. Follow the steps to accept the license and install the Chef development kit. You will have the option to change your install location; by default the installer uses the ``/opt/chefdk/`` directory.
 
 Windows
 -----------------------------------------------------
-#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your Windows version. Click on the **Download** button.
+#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk#windows>`__ and select the appropriate package for your Windows version. Click on the **Download** button.
 #. Follow the steps to accept the license and install the Chef development kit. You will have the option to change your install location; by default the installer uses the ``C:\opscode\chefdk\`` directory.
 #. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and ``cmd.exe``.
 
@@ -28,7 +28,7 @@ See the `Chef DK on Windows </dk_windows.html>`__ guide for additional caveats a
 
 Linux
 -----------------------------------------------------
-#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`_ and download the appropriate package for your distribution:
+#. Visit the `Chef DK downloads page <https://downloads.chef.io/chefdk>`__ and download the appropriate package for your distribution:
 
    .. code-block:: bash
 

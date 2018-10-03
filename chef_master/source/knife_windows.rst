@@ -1,9 +1,11 @@
 =====================================================
-knife windows
+Knife Windows
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_windows.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_windows.rst>`__
 
-.. tag plugin_knife_windows_summary
+Knife Windows Overview
+=====================================================
+.. tag knife_windows_summary
 
 The ``knife windows`` subcommand is used to configure and interact with nodes that exist on server and/or desktop machines that are running Microsoft Windows. Nodes are configured using WinRM, which allows native objects---batch scripts, Windows PowerShell scripts, or scripting library variables---to be called by external applications. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
 
@@ -11,9 +13,9 @@ The ``knife windows`` subcommand is used to configure and interact with nodes th
 
 .. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
-Install this plugin
-=====================================================
-.. tag plugin_knife_windows_install_rubygem
+Install Knife Windows
+------------------------------------------------------
+.. tag knife_windows_install_rubygem
 
 To install the ``knife windows`` plugin using RubyGems, run the following command:
 
@@ -26,8 +28,8 @@ where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-cli
 .. end_tag
 
 Requirements
-=====================================================
-.. tag plugin_knife_windows_winrm_requirements
+------------------------------------------------------
+.. tag knife_windows_winrm_requirements
 
 This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management and/or https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
 
@@ -70,7 +72,7 @@ Ensure that the Windows Firewall is configured to allow WinRM connections betwee
 
 Negotiate, NTLM
 -----------------------------------------------------
-.. tag plugin_knife_windows_winrm_requirements_nltm
+.. tag knife_windows_winrm_requirements_nltm
 
 When knife is executed from a Microsoft Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for ``winrm quickconfig``. This is because ``knife windows`` supports the Microsoft Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
 
@@ -91,8 +93,8 @@ and:
 .. end_tag
 
 Domain Authentication
-=====================================================
-.. tag plugin_knife_windows_winrm_domain_authentication
+-----------------------------------------------------
+.. tag knife_windows_winrm_domain_authentication
 
 The ``knife windows`` plugin supports Microsoft Windows domain authentication. This requires:
 
@@ -123,7 +125,7 @@ and then run a command similar to the following:
 
 bootstrap windows ssh
 =====================================================
-.. tag plugin_knife_windows_bootstrap_windows_ssh
+.. tag knife_windows_bootstrap_windows_ssh
 
 Use the ``bootstrap windows ssh`` argument to bootstrap chef-client installations in a Microsoft Windows environment, using a command shell that is native to Microsoft Windows.
 
@@ -131,7 +133,7 @@ Use the ``bootstrap windows ssh`` argument to bootstrap chef-client installation
 
 Syntax
 -----------------------------------------------------
-.. tag plugin_knife_windows_bootstrap_windows_ssh_syntax
+.. tag knife_windows_bootstrap_windows_ssh_syntax
 
 This argument has the following syntax:
 
@@ -161,7 +163,7 @@ This argument has the following syntax:
 
 Options
 -----------------------------------------------------
-.. tag plugin_knife_windows_bootstrap_windows_ssh_options
+.. tag knife_windows_bootstrap_windows_ssh_options
 
 This argument has the following options:
 
@@ -367,13 +369,13 @@ This argument has the following options:
 
 winrm
 =====================================================
-.. tag plugin_knife_windows_winrm
+.. tag knife_windows_winrm
 
 Use the ``winrm`` argument to create a connection to one or more remote machines. As each connection is created, a password must be provided. This argument uses the same syntax as the ``search`` subcommand.
 
 .. end_tag
 
-.. tag plugin_knife_windows_winrm_ports
+.. tag knife_windows_winrm_ports
 
 WinRM requires that a target node be accessible via the ports configured to support access via HTTP or HTTPS.
 
@@ -381,7 +383,7 @@ WinRM requires that a target node be accessible via the ports configured to supp
 
 Syntax
 -----------------------------------------------------
-.. tag plugin_knife_windows_winrm_syntax
+.. tag knife_windows_winrm_syntax
 
 This argument has the following syntax:
 
@@ -393,7 +395,7 @@ This argument has the following syntax:
 
 Options
 -----------------------------------------------------
-.. tag plugin_knife_windows_winrm_options
+.. tag knife_windows_winrm_options
 
 This argument has the following options:
 
@@ -462,7 +464,7 @@ Examples
 
 **Find Uptime for Web Servers**
 
-.. tag plugin_knife_windows_winrm_find_uptime
+.. tag knife_windows_winrm_find_uptime
 
 To find the uptime of all web servers, enter:
 
@@ -474,7 +476,7 @@ To find the uptime of all web servers, enter:
 
 **Force a chef-client run**
 
-.. tag plugin_knife_windows_winrm_force_chef_run
+.. tag knife_windows_winrm_force_chef_run
 
 To force a chef-client run:
 
@@ -494,7 +496,7 @@ Where in the examples above, ``[date]`` represents the date and time the long en
 
 **Bootstrap a Windows machine using SSH**
 
-.. tag plugin_knife_windows_bootstrap_ssh
+.. tag knife_windows_bootstrap_ssh
 
 To bootstrap a Microsoft Windows machine using SSH:
 
@@ -506,7 +508,7 @@ To bootstrap a Microsoft Windows machine using SSH:
 
 **Bootstrap a Windows machine using Windows Remote Management**
 
-.. tag plugin_knife_windows_bootstrap_winrm
+.. tag knife_windows_bootstrap_winrm
 
 To bootstrap a Microsoft Windows machine using WinRM:
 
