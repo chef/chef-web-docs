@@ -83,15 +83,13 @@ The following are a list of general hardware requirements for both frontend and 
 
 .. tag system_requirements_ha
 
-Frontend requirements
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+*Frontend requirements*
 
 * 4 cores (physical or virtual)
 * 4GB RAM
 * 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
-Backend requirements
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+*Backend requirements*
 
 * 2 cores (physical or virtual)
 * 8GB RAM
