@@ -49,7 +49,9 @@ The syntax for a custom resource is. For example:
 
 where the first action listed is the default action.
 
-.. warning:: There are certain keywords in the chef-client resource system, like "name", which may not be used as a ``property :property_name`` in a custom resource. For example, the following is invalid syntax, and will result in difficult to debug errors ``property :name, String, default: 'thename'``. The rule of thumb is avoid existing keywords when coming up with property names for custom resources.
+.. warning:: 
+   Do not use existing keywords from the chef-client resource system in a custom resource, like "name". For example, ``property :property_name``  in the following invalid syntax: 
+   ``property :name, String, default: 'thename'``. 
 
 .. end_tag
 
