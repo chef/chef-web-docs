@@ -4439,6 +4439,10 @@ The syntax for a custom resource is. For example:
 
 where the first action listed is the default action.
 
+.. warning:: 
+   Do not use existing keywords from the chef-client resource system in a custom resource, like "name". For example, ``property :property_name`` in the following invalid syntax: 
+   ``property :name, String, default: 'thename'``. 
+
 .. end_tag
 
 This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built in Chef resources, besides defining the property and actions, the code is very similar to that of a recipe.
