@@ -154,9 +154,10 @@ This configuration file has the following settings:
 ``exit_status``
    When set to ``:enabled``, chef-client will use `standardized exit codes <https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use>`_ for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
 
-   .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In a future release of Chef client, using standardized exit codes will be the default behavior.
+   .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In the 13.x release of Chef Client and beyond, using standardized exit codes is the default behavior and cannot be changed with this config item.
 
    Changed in Chef Client 12.11 to support standard exit codes.
+   In Chef Client 13.x and above, you will also need to set ``client_fork false`` in the Chef Client config file in order to capture the standard return code. Otherwise, you will be gathering the exit status of the master process, and not that of the forked chef-client process that did the actual run.
 
 ``file_atomic_update``
    Apply atomic file updates to all resources. Set to ``true`` for global atomic file updates. Set to ``false`` for global non-atomic file updates. (Use the ``atomic_update`` setting on a per-resource basis to override this setting.) Default value: ``true``.
