@@ -44,7 +44,7 @@ The ohai_hint resource has the following actions:
 Properties
 =====================================================
 ``compile_time``
-   **Ruby Type:** True, False | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Determines whether or not the resource is executed during the compile time phase.
 

@@ -54,12 +54,12 @@ Actions
 Properties
 =====================================================
 ``accept_eula``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
    
    Specify if the application's EULA should be accepted, if applicable.
 
 ``allow_untrusted``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
    
    Allow installation of packages that do not have trusted certificates.
 

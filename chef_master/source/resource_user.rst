@@ -95,7 +95,7 @@ This resource has the following properties:
    One (or more) comments about the user.
 
 ``force``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Force the removal of a user. May be used only with the ``:remove`` action.
 
@@ -112,9 +112,9 @@ This resource has the following properties:
    The location of the home directory.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``iterations``
    **Ruby Type:** Integer
@@ -122,7 +122,7 @@ This resource has the following properties:
    macOS platform only. The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
 
 ``manage_home``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Manage a user's home directory.
 
@@ -131,7 +131,7 @@ This resource has the following properties:
    When used with the ``:modify`` action, a user's home directory is moved to ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. The contents of the user's home directory are moved to the new location.
 
 ``non_unique``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Create a duplicate (non-unique) user account.
 
@@ -244,7 +244,7 @@ This resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Create a system user. This property may be used with ``useradd`` as the provider to create a system user which passes the ``-r`` flag to ``useradd``.
 

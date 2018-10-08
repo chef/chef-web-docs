@@ -64,9 +64,9 @@ This resource has the following properties:
    Use to specify the format of a private key. Possible values: ``pem`` and ``der``. Default value: ``pem``.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -118,14 +118,14 @@ This resource has the following properties:
    Use to regenerate a private key if it does not have the desired size, type, and so on. Default value: ``false``.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``size``
    Use to specify the size of an RSA or DSA private key. Default value: ``2048``.

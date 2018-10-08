@@ -82,9 +82,9 @@ The git resource has the following properties:
    A Hash of additional remotes that are added to the git repository configuration.
 
 ``checkout_branch``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``deploy``
 
-   Do a one-time checkout from git **or** use when a branch in the upstream repository is named ``deploy``. To prevent the **git** resource from attempting to check out master from master, set ``enable_checkout`` to ``false`` when using the ``checkout_branch`` property. See ``revision``. Default value: ``deploy``.
+   Do a one-time checkout from git **or** use when a branch in the upstream repository is named ``deploy``. To prevent the **git** resource from attempting to check out master from master, set ``enable_checkout`` to ``false`` when using the ``checkout_branch`` property. See ``revision``.
 
 ``depth``
    **Ruby Type:** Integer
@@ -97,14 +97,14 @@ The git resource has the following properties:
    The location path to which the source is to be cloned, checked out, or exported. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``enable_checkout``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
-   Check out a repo from master. Set to ``false`` when using the ``checkout_branch`` attribute to prevent the **git** resource from attempting to check out master from master. Default value: ``true``.
+   Check out a repo from master. Set to ``false`` when using the ``checkout_branch`` attribute to prevent the **git** resource from attempting to check out master from master.
 
 ``enable_submodules``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Perform a sub-module initialization and update. Default value: ``false``.
+   Perform a sub-module initialization and update.
 
 ``environment``
    **Ruby Type:** Hash
@@ -119,9 +119,9 @@ The git resource has the following properties:
    The system group that is responsible for the checked-out code.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -173,19 +173,19 @@ The git resource has the following properties:
    The URI for the git repository.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``revision``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``HEAD``
 
-   A branch, tag, or commit to be synchronized with git. This can be symbolic, like ``HEAD`` or it can be a source control management-specific revision identifier. See ``checkout_branch``. Default value: ``HEAD``.
+   A branch, tag, or commit to be synchronized with git. This can be symbolic, like ``HEAD`` or it can be a source control management-specific revision identifier. See ``checkout_branch``.
 
    The value of the ``revision`` attribute may change over time. From one branch to another, to a tag, to a specific SHA for a commit, and then back to a branch. The ``revision`` attribute may even be changed in a way where history gets rewritten.
 

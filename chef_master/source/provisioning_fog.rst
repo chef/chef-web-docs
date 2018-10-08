@@ -77,7 +77,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - Property
      - Description
    * - ``allow_overwrite``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false
 
        Use to allow overwriting an existing key pair.
    * - ``driver``

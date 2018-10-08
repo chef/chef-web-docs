@@ -153,7 +153,7 @@ The macos_userdefaults resource has the following properties:
    .. end_tag
 
 ``sudo``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Set to ``true`` if the setting you wish to modify requires privileged access.
 

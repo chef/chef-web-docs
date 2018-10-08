@@ -104,14 +104,14 @@ Properties
 This resource has the following properties:
 
 ``atomic_update``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
-   Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file. Default value: ``true``.
+   Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file.
 
 ``backup``
-   **Ruby Types:** False, Integer
+   **Ruby Types:** False, Integer | **Default Value:** ``5``
 
-   The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept. Default value: ``5``.
+   The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept.
 
 ``checksum``
    **Ruby Type:** String
@@ -119,14 +119,14 @@ This resource has the following properties:
    Optional, see ``use_conditional_get``. The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it.
 
 ``force_unlink``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error. Default value: ``false``.
+   How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error.
 
 ``ftp_active_mode``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Whether the chef-client uses active or passive FTP. Set to ``true`` to use active FTP. Default value: ``false``.
+   Whether the chef-client uses active or passive FTP. Set to ``true`` to use active FTP.
 
 ``group``
    **Ruby Types:** Integer, String
@@ -134,9 +134,9 @@ This resource has the following properties:
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``headers()``
-   **Ruby Type:** Hash
+   **Ruby Type:** Hash | **Default Value:** ``{}``
 
-   A Hash of custom headers. Default value: ``{}``. For example:
+   A Hash of custom headers. For example:
 
    .. code-block:: ruby
 
@@ -155,17 +155,17 @@ This resource has the following properties:
       headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").gsub("\n", "") }" )
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``inherits``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
-   Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
+   Microsoft Windows only. Whether a file inherits rights from its parent directory.
 
 ``manage_symlink_source``
-   **Ruby Types:** True, False | **Default Value:** ``true`` (with warning)
+   **Ruby Types:** true, false | **Default Value:** ``true`` (with warning)
 
    Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
 
@@ -248,14 +248,14 @@ This resource has the following properties:
    New in Chef client 13.4
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``rights``
    **Ruby Types:** Integer, String
@@ -373,24 +373,24 @@ This resource has the following properties:
    .. end_tag
 
 ``use_conditional_get``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
-   Enable conditional HTTP requests by using a conditional ``GET`` (with the If-Modified-Since header) or an opaque identifier (ETag). To use If-Modified-Since headers, ``use_last_modified`` must also be set to ``true``. To use ETag headers, ``use_etag`` must also be set to ``true``. Default value: ``true``.
+   Enable conditional HTTP requests by using a conditional ``GET`` (with the If-Modified-Since header) or an opaque identifier (ETag). To use If-Modified-Since headers, ``use_last_modified`` must also be set to ``true``. To use ETag headers, ``use_etag`` must also be set to ``true``.
 
 ``use_etag``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
-   Enable ETag headers. Set to ``false`` to disable ETag headers. To use this setting, ``use_conditional_get`` must also be set to ``true``. Default value: ``true``.
+   Enable ETag headers. Set to ``false`` to disable ETag headers. To use this setting, ``use_conditional_get`` must also be set to ``true``.
 
 ``use_last_modified``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
-   Enable If-Modified-Since headers. Set to ``false`` to disable If-Modified-Since headers. To use this setting, ``use_conditional_get`` must also be set to ``true``. Default value: ``true``.
+   Enable If-Modified-Since headers. Set to ``false`` to disable If-Modified-Since headers. To use this setting, ``use_conditional_get`` must also be set to ``true``.
 
 ``show_progess``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Displays the progress of the file download. Set to ``true`` to enable this feature. Default value: ``false``.
+   Displays the progress of the file download. Set to ``true`` to enable this feature.
 
 ``verify``
    **Ruby Types:** String, Block

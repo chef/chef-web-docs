@@ -240,9 +240,9 @@ Properties
 This resource has the following attributes:
 
 ``allow_downgrade``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   **yum_package** resource only. Downgrade a package to satisfy requested version requirements. Default value: ``false``.
+   **yum_package** resource only. Downgrade a package to satisfy requested version requirements.
 
 ``arch``
    **Ruby Types:** String, Array
@@ -298,9 +298,9 @@ This resource has the following attributes:
    **homebrew_package** resource only. The name of the Homebrew owner to be used by the chef-client when executing a command.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -357,14 +357,14 @@ This resource has the following attributes:
    **apt_package** and **dpkg_package** resources only. A Hash of response file variables in the form of ``{"VARIABLE" => "VALUE"}``.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String

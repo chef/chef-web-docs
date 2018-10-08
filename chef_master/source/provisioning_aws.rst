@@ -491,7 +491,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - Property
      - Description
    * - ``automatic_failover``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false
 
        Use to specify if a read-only replica is automatically promoted to read/write primary if the existing primary fails. Set to ``true`` to enable automatic failover for this cache replication group.
    * - ``aws_tags``
@@ -794,9 +794,9 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
    * - ``multi_az``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false | **Default Value:** ``false``
 
-       Specifies if the Amazon CloudSearch domain is deployed to multiple availability zones. Default value: ``false``.
+       Specifies if the Amazon CloudSearch domain is deployed to multiple availability zones.
    * - ``name``
      - **Ruby Type:** String
 
@@ -939,7 +939,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The actions to execute when this alarm transitions to the ``ALARM`` state from any other state. Each action is specified as an Amazon Resource Name (ARN).
    * - ``actions_enabled``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false
 
        Indicates whether actions should be executed during any changes to the alarm state.
    * - ``alarm_description``
@@ -1192,7 +1192,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``encrypted``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false
 
        Use to specify that a block-level storage device should be encrypted.
    * - ``iops``
@@ -1377,7 +1377,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - Property
      - Description
    * - ``associate_to_vpc``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false
 
        Use to associate an elastic IP address to a virtual network that is defined in Amazon Virtual Private Cloud (VPC).
    * - ``chef_server``
@@ -1508,7 +1508,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``ebs_enabled``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false
 
        Use to specify the elastic block size enable/disable.
    * - ``managed_entry_store``
@@ -2179,7 +2179,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - Property
      - Description
    * - ``allow_overwrite``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false
 
        Use to allow a public or private key to be overwritten.
    * - ``aws_tags``
@@ -3242,9 +3242,9 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The username for the database super user.
    * - ``multi_az``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false | **Default Value:** ``false``
 
-       Use to specify if the database instance is deployed to multiple availability zones. Default value: ``false``.
+       Use to specify if the database instance is deployed to multiple availability zones.
    * - ``name``
      - **Ruby Type:** String
 
@@ -3254,9 +3254,9 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The port number on which the database accepts connections.
    * - ``publicly_accessible``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false | **Default Value:** ``false``
 
-       Use to specify that a relational database instance has DNS name that resolves to a routable public IP address. Default value: ``false``.
+       Use to specify that a relational database instance has DNS name that resolves to a routable public IP address.
 
 Examples
 -----------------------------------------------------
@@ -3846,9 +3846,9 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The Chef provisioning driver.
    * - ``enable_website_hosting``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false | **Default Value:** ``false``
 
-       Use to specify if an Amazon Simple Storage Service (S3) bucket is configured for for static website hosting. Default value: ``false``.
+       Use to specify if an Amazon Simple Storage Service (S3) bucket is configured for for static website hosting.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -4780,9 +4780,9 @@ This Chef provisioning driver-specific resource has the following properties:
 
        The managed entry store. For example: ``Chef::Provisioning.chef_managed_entry_store(self.chef_server)``.
    * - ``map_public_ip_on_launch``
-     - **Ruby Type:** True, False
+     - **Ruby Type:** true, false | **Default Value:** ``false``
 
-       Use to specify if public IP addresses are assigned to new instances in this subnet by default. Default value: ``false``.
+       Use to specify if public IP addresses are assigned to new instances in this subnet by default.
    * - ``name``
      - **Ruby Type:** String
 

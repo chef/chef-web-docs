@@ -51,7 +51,7 @@ Actions
 Properties
 =====================================================
 ``all``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Install all subfeatures.
 
