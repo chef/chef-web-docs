@@ -2744,33 +2744,33 @@ The full syntax for all of the properties that are available to the **launchd** 
 .. code-block:: ruby
 
    launchd 'name' do
-     abandon_process_group      True, False
-     backup                     Integer, False
+     abandon_process_group      true, false
+     backup                     Integer, false
      cookbook                   String
-     debug                      True, False
-     disabled                   True, False
-     enable_globbing            True, False
-     enable_transactions        True, False
+     debug                      true, false
+     disabled                   true, false
+     enable_globbing            true, false
+     enable_transactions        true, false
      environment_variables      Hash
      exit_timeout               Integer
      group                      String, Integer
      hard_resource_limits       Hash
      hash                       Hash
-     ignore_failure             True, False
+     ignore_failure             true, false
      inetd_compatibility        Hash
-     init_groups                True, False
-     keep_alive                 True, False
+     init_groups                true, false
+     keep_alive                 true, false
      label                      String
-     launch_only_once           True, False
+     launch_only_once           true, false
      limit_load_from_hosts      Array
      limit_load_to_hosts        Array
      limit_load_to_session_type String
-     low_priority_io            True, False
+     low_priority_io            true, false
      mach_services              Hash
      mode                       Integer, String
      nice                       Integer
      notifies                   # see description
-     on_demand                  True, False
+     on_demand                  true, false
      owner                      Integer, String
      path                       String
      process_type               String
@@ -2781,7 +2781,7 @@ The full syntax for all of the properties that are available to the **launchd** 
      retries                    Integer
      retry_delay                Integer
      root_directory             String
-     run_at_load                True, False
+     run_at_load                true, false
      sockets                    Hash
      soft_resource_limits       Array
      standard_error_path        String
@@ -2789,14 +2789,14 @@ The full syntax for all of the properties that are available to the **launchd** 
      standard_out_path          String
      start_calendar_interval    Hash
      start_interval             Integer
-     start_on_mount             True, False
+     start_on_mount             true, false
      subscribes                 # see description
      throttle_interval          Integer
      time_out                   Integer
      type                       String
      umask                      Integer
      username                   String
-     wait_for_debugger          True, False
+     wait_for_debugger          true, false
      watch_paths                Array
      working_directory          String
      action                     Symbol # defaults to :create if not specified
@@ -2844,7 +2844,7 @@ Properties
 This resource has the following properties:
 
 ``backup``
-   **Ruby Types:** Integer, False
+   **Ruby Types:** Integer, false
 
    The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 

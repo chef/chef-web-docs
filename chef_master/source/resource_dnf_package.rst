@@ -32,13 +32,13 @@ The full syntax for all of the properties that are available to the **dnf_packag
    dnf_package 'name' do
      arch                       String, Array
      flush_cache                Array
-     ignore_failure             True, False # defaults to ``false``
+     ignore_failure             true, false # defaults to ``false``
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      retries                    Integer
      retry_delay                Integer
-     sensitive                  True, False # defaults to ``false``
+     sensitive                  true, false # defaults to ``false``
      source                     String
      subscribes                 # see description
      timeout                    String, Integer

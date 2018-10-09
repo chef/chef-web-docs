@@ -30,7 +30,7 @@ The full syntax for all of the properties that are available to the **ips_packag
 .. code-block:: ruby
 
    ips_package 'name' do
-     accept_license             True, False
+     accept_license             true, false
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified

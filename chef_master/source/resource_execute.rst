@@ -57,10 +57,10 @@ The full syntax for all of the properties that are available to the **execute** 
      cwd                        String
      environment                Hash # env is an alias for environment
      group                      String, Integer
-     live_stream                True, False
+     live_stream                true, false
      notifies                   # see description
      returns                    Integer, Array
-     sensitive                  True, False
+     sensitive                  true, false
      subscribes                 # see description
      timeout                    Integer, Float
      umask                      String, Integer

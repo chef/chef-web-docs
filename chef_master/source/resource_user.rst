@@ -32,18 +32,18 @@ The full syntax for all of the properties that are available to the **user** res
 
    user 'name' do
      comment                    String
-     force                      True, False # see description
+     force                      true, false # see description
      gid                        String, Integer
      home                       String
      iterations                 Integer
-     manage_home                True, False
-     non_unique                 True, False
+     manage_home                true, false
+     non_unique                 true, false
      notifies                   # see description
      password                   String
      salt                       String
      shell                      String
      subscribes                 # see description
-     system                     True, False
+     system                     true, false
      uid                        String, Integer
      username                   String # defaults to 'name' if not specified
      action                     Symbol # defaults to :create if not specified

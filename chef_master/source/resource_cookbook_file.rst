@@ -36,13 +36,13 @@ The full syntax for all of the properties that are available to the **cookbook_f
 .. code-block:: ruby
 
    cookbook_file 'name' do
-     atomic_update              True, False
-     backup                     False, Integer
+     atomic_update              true, false
+     backup                     false, Integer
      cookbook                   String
-     force_unlink               True, False
+     force_unlink               true, false
      group                      String, Integer
-     inherits                   True, False
-     manage_symlink_source      True, False
+     inherits                   true, false
+     manage_symlink_source      true, false
      mode                       String, Integer
      notifies                   # see description
      owner                      String, Integer
@@ -94,7 +94,7 @@ This resource has the following properties:
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file.
 
 ``backup``
-   **Ruby Types:** False, Integer | **Default Value:** ``5``
+   **Ruby Types:** false, Integer | **Default Value:** ``5``
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept.
 

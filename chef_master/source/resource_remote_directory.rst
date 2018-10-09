@@ -35,19 +35,19 @@ The full syntax for all of the properties that are available to the **remote_dir
 
    remote_directory 'name' do
      cookbook                   String
-     files_backup               Integer, False
+     files_backup               Integer, false
      files_group                String
      files_mode                 String
      files_owner                String
      group                      String, Integer
-     inherits                   True, False
+     inherits                   true, false
      mode                       String, Integer
      notifies                   # see description
-     overwrite                  True, False
+     overwrite                  true, false
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     purge                      True, False
-     recursive                  True, False
+     purge                      true, false
+     recursive                  true, false
      rights                     Hash
      source                     String
      subscribes                 # see description
@@ -93,7 +93,7 @@ The remote_directory resource has the following properties:
    The cookbook in which a file is located (if it is not located in the current cookbook). The default value is the current cookbook.
 
 ``files_backup``
-   **Ruby Types:** Integer, False | **Default Value:** ``5``
+   **Ruby Types:** Integer, false | **Default Value:** ``5``
 
    The number of backup copies to keep for files in the directory.
 

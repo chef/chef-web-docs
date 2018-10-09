@@ -15,11 +15,11 @@ The macos_userdefaults resource has the following syntax:
 
    macos_userdefaults 'name' do
      domain                String # required
-     global                True, False # default value: 'false'
+     global                true, false # default value: 'false'
      key                   String
      notifies              # see description
      subscribes            # see description
-     sudo                  True, False # default value: 'false'
+     sudo                  true, false # default value: 'false'
      type                  String # default value: ""
      user                  String
      value                 Integer, Float, String, true, false, Hash, Array

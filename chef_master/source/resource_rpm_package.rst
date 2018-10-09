@@ -30,7 +30,7 @@ The full syntax for all of the properties that are available to the **rpm_packag
 .. code-block:: ruby
 
    rpm_package 'name' do
-     allow_downgrade            True, False
+     allow_downgrade            true, false
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified

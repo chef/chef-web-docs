@@ -70,12 +70,12 @@ The full syntax for all of the properties that are available to the **deploy** w
      create_dirs_before_symlink Array
      deploy_to                  String # defaults to 'name' if not specified
      depth                      Integer
-     enable_submodules          True, False
+     enable_submodules          true, false
      environment                Hash
      git_ssh_wrapper            String
      group                      String
      keep_releases              Integer
-     migrate                    True, False
+     migrate                    true, false
      migration_command          String
      notifies                   # see description
      purge_before_symlink       Array
@@ -85,9 +85,9 @@ The full syntax for all of the properties that are available to the **deploy** w
      repository_cache           String
      restart_command            Proc, String
      revision                   String
-     rollback_on_error          True, False
+     rollback_on_error          true, false
      scm_provider               Chef::Provider::Git
-     shallow_clone              True, False
+     shallow_clone              true, false
      ssh_wrapper                String
      symlinks                   Hash
      symlink_before_migrate     Hash
@@ -111,7 +111,7 @@ and the full syntax for all of the properties that are available to the **deploy
      environment                Hash
      group                      String
      keep_releases              Integer
-     migrate                    True, False
+     migrate                    true, false
      migration_command          String
      notifies                   # see description
      purge_before_symlink       Array
@@ -120,7 +120,7 @@ and the full syntax for all of the properties that are available to the **deploy
      repository_cache           String
      restart_command            Proc, String
      revision                   String
-     rollback_on_error          True, False
+     rollback_on_error          true, false
      scm_provider               Chef::Provider::Subversion
      subscribes                 # see description
      svn_arguments              String

@@ -33,7 +33,7 @@ The full syntax for all of the properties that are available to the **apt_packag
      default_release            String
      notifies                   # see description
      options                    String, Array
-     overwrite_config_files     True, False # default value: 'false'
+     overwrite_config_files     true, false # default value: 'false'
      package_name               String, Array # defaults to 'name' if not specified
      response_file              String
      response_file_variables    Hash

@@ -66,7 +66,7 @@ The full syntax for all of the properties that are available to the **package** 
 .. code-block:: ruby
 
    package 'name' do
-     allow_downgrade            True, False # Yum, RPM packages only
+     allow_downgrade            true, false # Yum, RPM packages only
      arch                       String, Array # Yum packages only
      default_release            String # Apt packages only
      flush_cache                Array

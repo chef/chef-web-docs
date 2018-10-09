@@ -53,7 +53,7 @@ The full syntax for all of the properties that are available to the ``fog_key_pa
 .. code-block:: ruby
 
    fog_key_pair 'name' do
-     allow_overwrite         True, False
+     allow_overwrite         true, false
      driver                  Chef::Provisioning::Driver
      private_key_options     Hash
      private_key_path        String

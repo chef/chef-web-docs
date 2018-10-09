@@ -32,7 +32,7 @@ The full syntax for all of the properties that are available to the **erl_call**
    erl_call 'name' do
      code                       String
      cookie                     String
-     distributed                True, False
+     distributed                true, false
      name_type                  String
      node_name                  String
      notifies                   # see description

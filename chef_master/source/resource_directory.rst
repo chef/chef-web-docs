@@ -33,12 +33,12 @@ The full syntax for all of the properties that are available to the **directory*
 
    directory 'name' do
      group                      String, Integer
-     inherits                   True, False
+     inherits                   true, false
      mode                       String, Integer
      notifies                   # see description
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     recursive                  True, False
+     recursive                  true, false
      rights                     Hash
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified

@@ -36,8 +36,8 @@ The full syntax for all of the properties that are available to the **gem_packag
 .. code-block:: ruby
 
    gem_package 'name' do
-     clear_sources              True, False
-     include_default_source     True, False
+     clear_sources              true, false
+     include_default_source     true, false
      gem_binary                 String
      notifies                   # see description
      options                    String

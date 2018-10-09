@@ -14,9 +14,9 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    windows_feature_powershell 'name' do
-     all                        True, False # default value: 'false'
+     all                        true, false # default value: 'false'
      feature_name               Array, String # default value: 'name'
-     management_tools           True, False # default value: 'false'
+     management_tools           true, false # default value: 'false'
      notifies                   # see description
      source                     String
      subscribes                 # see description

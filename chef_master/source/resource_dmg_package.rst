@@ -14,8 +14,8 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    dmg_package 'name' do
-     accept_eula                True, False # default value: 'false'
-     allow_untrusted            True, False # default value: 'false'
+     accept_eula                true, false # default value: 'false'
+     allow_untrusted            true, false # default value: 'false'
      app                        String # default value: 'name'
      checksum                   String
      destination                String # default value: '/Applications'

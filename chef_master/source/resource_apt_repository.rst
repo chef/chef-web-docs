@@ -33,14 +33,14 @@ The full syntax for all of the properties that are available to the **apt_reposi
       distribution          String
       components            Array
       arch                  String
-      trusted               True, False
-      deb_src               True, False
+      trusted               true, false
+      deb_src               true, false
       keyserver             String
       key                   String, Array
       key_proxy             String
       cookbook              String
-      cache_rebuild         True, False
-      sensitive             True, False
+      cache_rebuild         true, false
+      sensitive             true, false
       action                Symbol # defaults to :add if not specified
    end
 
