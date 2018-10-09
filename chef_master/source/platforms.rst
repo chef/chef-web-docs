@@ -66,7 +66,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
+     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -104,6 +104,9 @@ The following platforms are supported only via the community:
    * - Ubuntu
      - ``x86``, ``x86_64``
      - Current non-LTS releases
+   * - Windows
+     - ``x86_64``
+     - ``Windows Server, Semi-annual channel (SAC) (Server Core only)``
 
 Chef DK
 ------------------------------------------------------
@@ -134,7 +137,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``14.04``, ``16.04``, ``18.04``
    * - Microsoft Windows
      -
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
+     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -433,11 +436,13 @@ On the Chef end-of-life date, Chef discontinues building software for that platf
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | FreeBSD 10-STABLE                                            | October 31, 2018        | October 31, 2018      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2008 (RTM) Service Pack 2           | January 13, 2015        | January 13, 2015      |
+| Microsoft Windows Server 2008 (SP2)/R2 (SP1)                 | January 13, 2015        | January 14, 2020      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2008 R2 Service Pack 1              | January 13, 2015        | January 14, 2020      |
+| Microsoft Windows Server 2012/2012 R2                        | October 10, 2023        | October 10, 2023      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
-| Microsoft Windows Server 2012/2012 R2                        | January 13, 2015        | January 13, 2015      |
+| Microsoft Windows Server 2016                                | November 11, 2027       | November 11, 2027     |
++--------------------------------------------------------------+-------------------------+-----------------------+
+| Microsoft Windows Server 2019                                | October 10, 2028        | October 10, 2028      |
 +--------------------------------------------------------------+-------------------------+-----------------------+
 | Oracle Enterprise Linux 5                                    | June 30, 2017           | December 31, 2017     |
 +--------------------------------------------------------------+-------------------------+-----------------------+
