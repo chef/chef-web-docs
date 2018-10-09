@@ -32,13 +32,13 @@ The full syntax for all of the properties that are available to the **dnf_packag
    dnf_package 'name' do
      arch                       String, Array
      flush_cache                Array
-     ignore_failure             True, False # defaults to ``false``
+     ignore_failure             true, false # defaults to ``false``
      notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      retries                    Integer
      retry_delay                Integer
-     sensitive                  True, False # defaults to ``false``
+     sensitive                  true, false # defaults to ``false``
      source                     String
      subscribes                 # see description
      timeout                    String, Integer
@@ -125,9 +125,9 @@ This resource has the following properties:
    .. note:: The ``flush_cache`` property does not flush the local DNF cache! Use dnf tools---``dnf clean metadata``, ``dnf clean packages``, ``dnf clean all``---to clean the local DNF cache.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -174,19 +174,19 @@ This resource has the following properties:
    One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``sensitive``
-  **Ruby Type** True, False
+  **Ruby Type** true, false | **Default Value:** ``false``
 
-   Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
+   Ensure that sensitive resource data is not logged by the chef-client.
 
 ``source``
    **Ruby Type:** String

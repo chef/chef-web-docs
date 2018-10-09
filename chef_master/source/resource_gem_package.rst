@@ -36,8 +36,8 @@ The full syntax for all of the properties that are available to the **gem_packag
 .. code-block:: ruby
 
    gem_package 'name' do
-     clear_sources              True, False
-     include_default_source     True, False
+     clear_sources              true, false
+     include_default_source     true, false
      gem_binary                 String
      notifies                   # see description
      options                    String
@@ -206,14 +206,14 @@ Properties
 This resource has the following properties:
 
 ``clear_sources``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems). Default value: ``false``.
+   Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems).
 
 ``include_default_source``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
-   Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources. Default value: ``true``.
+   Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
    New in Chef Client 13.0
 
@@ -223,9 +223,9 @@ This resource has the following properties:
    A property for the ``gem_package`` provider that is used to specify a gems binary. By default, the same version of Ruby that is used by the chef-client will be installed.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -269,17 +269,17 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String, Array

@@ -139,9 +139,9 @@ This resource has the following attributes:
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``interpreter``
    **Ruby Type:** String
@@ -202,14 +202,14 @@ This resource has the following attributes:
          end
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``returns``
    **Ruby Types:** Integer, Array
@@ -266,9 +266,9 @@ This resource has the following attributes:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float
+   **Ruby Types:** Integer, Float | **Default Value:**  ``3600``
 
-   The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+   The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
    **Ruby Types:** String

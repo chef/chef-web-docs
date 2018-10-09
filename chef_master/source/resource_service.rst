@@ -80,9 +80,9 @@ Properties
 The service resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``init_command``
    **Ruby Type:** String
@@ -129,9 +129,9 @@ The service resource has the following properties:
    Solaris platform only. Options to pass to the service command. See the ``svcadm`` manual for details of possible options.
 
 ``pattern``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``service_name``
 
-   The pattern to look for in the process table. Default value: ``service_name``.
+   The pattern to look for in the process table.
 
 ``priority``
    **Ruby Types:** Integer, String, Hash
@@ -149,14 +149,14 @@ The service resource has the following properties:
    The command used to restart a service.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``service_name``
    **Ruby Type:** String
@@ -233,9 +233,9 @@ The service resource has the following properties:
    A list of properties that controls how the chef-client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the chef-client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the chef-client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
 
 ``timeout``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``60``
 
-   Microsoft Windows platform only. The amount of time (in seconds) to wait before timing out. Default value: ``60``.
+   Microsoft Windows platform only. The amount of time (in seconds) to wait before timing out.
 
 Examples
 =====================================================

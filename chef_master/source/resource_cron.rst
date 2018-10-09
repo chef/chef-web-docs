@@ -144,7 +144,7 @@ The cron resource has the following properties:
    The hour at which the cron entry is to run (0 - 23).
 
 ``ignore_failure``
-   **Ruby Types:** True, False | **Default Value:** ``false``
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
