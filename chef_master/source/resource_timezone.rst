@@ -30,7 +30,7 @@ The timezone resource has the following syntax:
  Actions
 =====================================================
 
- The timezone resource has the following actions:
+The timezone resource has the following actions:
 
  ``:set``
     Set the system timezone.
@@ -45,7 +45,7 @@ The timezone resource has the following syntax:
  Properties
 =====================================================
 
- The timezone resource has the following properties:
+The timezone resource has the following properties:
 
  ``timezone``
    **Ruby Type:** String | **Default Value:** ``'name'``
