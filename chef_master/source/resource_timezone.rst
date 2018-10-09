@@ -3,12 +3,11 @@ timezone resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_timezone.rst>`__
  
- Use the **timezone** resource to change the system timezone.
- 
+Use the **timezone** resource to change the system timezone.
+
  **New in Chef Client 14.6.**
 
- Syntax
-
+Syntax
 =====================================================
 
 The timezone resource has the following syntax:
@@ -27,7 +26,7 @@ The timezone resource has the following syntax:
  * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
  * ``timezone`` is the property available to this resource.
 
- Actions
+Actions
 =====================================================
 
 The timezone resource has the following actions:
@@ -42,7 +41,7 @@ The timezone resource has the following actions:
 
     .. end_tag
  
- Properties
+Properties
 =====================================================
 
 The timezone resource has the following properties:
@@ -53,10 +52,10 @@ The timezone resource has the following properties:
     The timezone value to set.
 
 
- Examples
+Examples
 ==========================================
 
- **Set the timezone to UTC**
+**Set the timezone to UTC**
  .. code-block:: ruby
 
    timezone 'UTC'
