@@ -1,7 +1,7 @@
 =====================================================
 Knife Azure
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_azrue.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_azure.rst>`__
 
 
 Knife Azure Overview
