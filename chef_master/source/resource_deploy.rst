@@ -317,7 +317,7 @@ This resource has the following properties:
 ``deploy_to``
    **Ruby Type:** String
 
-   The "meta root" for the application, if different from the path that is used to specify the name of a resource. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The "meta root" for the application, if different from the path that is used to specify the name of a resource. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``environment``
    **Ruby Type:** Hash

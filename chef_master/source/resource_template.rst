@@ -240,7 +240,7 @@ This resource has the following properties:
 ``source``
    **Ruby Types:** String, Array
 
-   The location of a template file. By default, the chef-client looks for a template file in the ``/templates`` directory of a cookbook. When the ``local`` property is set to ``true``, use to specify the path to a template on the local node. This property may also be used to distribute specific files to specific platforms. See "File Specificity" below for more information. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The location of a template file. By default, the chef-client looks for a template file in the ``/templates`` directory of a cookbook. When the ``local`` property is set to ``true``, use to specify the path to a template on the local node. This property may also be used to distribute specific files to specific platforms. See "File Specificity" below for more information. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

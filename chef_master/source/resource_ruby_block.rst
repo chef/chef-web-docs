@@ -71,7 +71,7 @@ This resource has the following properties:
 ``block_name``
    **Ruby Type:** String
 
-   The name of the Ruby block. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the Ruby block. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``ignore_failure``
    **Ruby Types:** true, false | **Default Value:** ``false``

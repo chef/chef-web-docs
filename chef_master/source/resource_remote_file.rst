@@ -224,7 +224,7 @@ This resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   The full path to the file, including the file name and its extension. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The full path to the file, including the file name and its extension. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``remote_user``
    **Ruby Types:** String

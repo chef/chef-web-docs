@@ -180,7 +180,7 @@ This resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``plist_hash``
    **Ruby Type:** Hash

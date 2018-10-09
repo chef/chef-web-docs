@@ -186,7 +186,7 @@ This resource has the following properties:
 ``target``
    **Ruby Type:** String
 
-   The IP address of the target route. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The IP address of the target route. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 Examples
 =====================================================

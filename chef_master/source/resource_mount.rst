@@ -118,7 +118,7 @@ The mount resource has the following properties:
 ``mount_point``
    **Ruby Type:** String
 
-   The directory (or path) in which the device is to be mounted. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The directory (or path) in which the device is to be mounted. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``mounted``
    **Ruby Types:** true, false | **Default Value:** ``false``
