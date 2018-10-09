@@ -212,9 +212,9 @@ This resource has the following attributes:
    The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array
+   **Ruby Types:** Integer, Array | **Default Value:** ``0``
 
-   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
+   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
