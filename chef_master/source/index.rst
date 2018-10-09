@@ -815,6 +815,7 @@ Addenda
    resource_sysctl
    resource_systemd_unit
    resource_template
+   resource_timezone
    resource_user
    resource_windows_ad_join
    resource_windows_auto_run
