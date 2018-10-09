@@ -87,9 +87,9 @@ This resource has the following properties:
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``local_path``
    **Ruby Type:** String
@@ -159,14 +159,14 @@ This resource has the following properties:
    Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

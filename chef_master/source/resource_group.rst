@@ -83,9 +83,9 @@ The group resource has the following properties:
    The name of the group. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``members``
    **Ruby Type:** Array
@@ -93,9 +93,9 @@ The group resource has the following properties:
    Which users should be set or appended to a group. When more than one group member is identified, the list of members should be an array: ``members ['user1', 'user2']``.
 
 ``non_unique``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Allow ``gid`` duplication. May only be used with the ``Groupadd`` provider. Default value: ``false``.
+   Allow ``gid`` duplication. May only be used with the ``Groupadd`` provider.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -132,14 +132,14 @@ The group resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -191,7 +191,7 @@ The group resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Show if a group belongs to a system group. Set to ``true`` if the group belongs to a system group.
 

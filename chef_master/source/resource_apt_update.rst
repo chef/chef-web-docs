@@ -74,14 +74,14 @@ Properties
 This resource has the following properties:
 
 ``frequency``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``86400``
 
-   Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
+   Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -118,14 +118,14 @@ This resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

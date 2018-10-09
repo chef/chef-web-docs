@@ -14,9 +14,9 @@ This resource has the following syntax:
 .. code-block:: ruby
 
    windows_feature_powershell 'name' do
-     all                        True, False # default value: 'false'
+     all                        true, false # default value: 'false'
      feature_name               Array, String # default value: 'name'
-     management_tools           True, False # default value: 'false'
+     management_tools           true, false # default value: 'false'
      notifies                   # see description
      source                     String
      subscribes                 # see description
@@ -51,7 +51,7 @@ Actions
 Properties
 =====================================================
 ``all``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Install all subfeatures. When set to ``true``, this is the equivalent of specifying the ``-InstallAllSubFeatures`` switch with ``Add-WindowsFeature``.
 
@@ -61,7 +61,7 @@ Properties
    The name of the feature(s) or role(s) to install, if it differs from the resource block name.
 
 ``management_tools``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Install all applicable management tools for the roles, role services, or features.
 

@@ -85,9 +85,9 @@ The http_request resource has the following properties:
    A Hash of custom headers.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``message``
    **Ruby Type:** Object
@@ -129,14 +129,14 @@ The http_request resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

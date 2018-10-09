@@ -57,10 +57,10 @@ The full syntax for all of the properties that are available to the **execute** 
      cwd                        String
      environment                Hash # env is an alias for environment
      group                      String, Integer
-     live_stream                True, False
+     live_stream                true, false
      notifies                   # see description
      returns                    Integer, Array
-     sensitive                  True, False
+     sensitive                  true, false
      subscribes                 # see description
      timeout                    Integer, Float
      umask                      String, Integer
@@ -95,7 +95,7 @@ This resource has the following properties:
 ``command``
    **Ruby Types:** String, Array
 
-   The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the command to be executed. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
    .. note:: Use the **execute** resource to run a single command. Use multiple **execute** resource blocks to run multiple commands.
 
@@ -120,14 +120,14 @@ This resource has the following properties:
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``live_stream``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Send the output of the command run by this **execute** resource block to the chef-client event stream. Default value: ``false``.
+   Send the output of the command run by this **execute** resource block to the chef-client event stream.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -164,22 +164,22 @@ This resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array
+   **Ruby Types:** Integer, Array | **Default Value:** ``0``
 
-   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
+   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
 ``sensitive``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
    Ensure that sensitive resource data is not logged by the chef-client. Default value: ``false``.
 

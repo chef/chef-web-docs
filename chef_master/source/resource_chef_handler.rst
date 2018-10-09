@@ -184,9 +184,9 @@ Properties
 This resource has the following properties:
 
 ``arguments``
-   **Ruby Type:** Array
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
-   An array of arguments that are passed to the initializer for the handler class. Default value: ``[]``. For example:
+   An array of arguments that are passed to the initializer for the handler class. For example:
 
    .. code-block:: ruby
 
@@ -204,9 +204,9 @@ This resource has the following properties:
    The name of the handler class. This can be module name-spaced.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -243,14 +243,14 @@ This resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -310,15 +310,15 @@ This resource has the following properties:
 
    .. warning:: This property has been deprecated, and will be removed in the future. Use the ``type`` property instead.
 
-   **Ruby Type:** Hash
+   **Ruby Type:** Hash | **Default Value:** ``{ report: true, exception: true }``.
 
-   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ report: true, exception: true }``.
+   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. 
 
 ``type``
 
-  **Ruby Type:** Hash
+  **Ruby Type:** Hash | **Default Value:** ``{ report: true, exception: true }``.
 
-   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. Default value: ``{ report: true, exception: true }``.
+   The type of handler. Possible values: ``:exception``, ``:report``, or ``:start``. 
 
 
 
