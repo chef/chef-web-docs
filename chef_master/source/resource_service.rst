@@ -161,7 +161,7 @@ The service resource has the following properties:
 ``service_name``
    **Ruby Type:** String
 
-   The name of the service. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the service. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``start_command``
    **Ruby Type:** String

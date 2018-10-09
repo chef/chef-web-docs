@@ -1729,7 +1729,7 @@ This resource has the following properties:
 ``key_name``
    **Ruby Type:** String
 
-   The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -1946,7 +1946,7 @@ This resource has the following properties:
 ``command``
    **Ruby Types:** String, Array
 
-   The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the command to be executed. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``convert_boolean_return``
    **Ruby Types:** true, false | **Default Value:** ``false``
@@ -2603,7 +2603,7 @@ This resource has the following properties:
 ``key``
    **Ruby Type:** String
 
-   The path to the location in which a registry key is to be created or from which a registry key is to be deleted. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The path to the location in which a registry key is to be created or from which a registry key is to be deleted. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
    The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 
 ``notifies``

@@ -344,7 +344,7 @@ This resource has the following attributes:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``response_file``
    **Ruby Type:** String

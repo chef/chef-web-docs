@@ -175,7 +175,7 @@ This resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``

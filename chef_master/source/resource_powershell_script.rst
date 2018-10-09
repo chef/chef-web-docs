@@ -100,7 +100,7 @@ This resource has the following properties:
 ``command``
    **Ruby Types:** String, Array
 
-   The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the command to be executed. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``convert_boolean_return``
    **Ruby Types:** true, false | **Default Value:** ``false``
