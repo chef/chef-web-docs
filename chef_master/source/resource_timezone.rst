@@ -23,9 +23,9 @@ The timezone resource has the following syntax:
  where:
 
  * ``timezone`` is the resource.
-* ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``timezone`` is the property available to this resource.
+ * ``name`` is the name given to the resource block.
+ * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+ * ``timezone`` is the property available to this resource.
 
  Actions
 =====================================================
