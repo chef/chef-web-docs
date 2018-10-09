@@ -92,7 +92,7 @@ The http_request resource has the following properties:
 ``message``
    **Ruby Type:** Object
 
-   The message that is sent by the HTTP request. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The message that is sent by the HTTP request. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

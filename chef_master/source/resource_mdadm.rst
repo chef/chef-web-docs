@@ -133,7 +133,7 @@ The mdadm resource has the following properties:
 ``raid_device``
    **Ruby Type:** String
 
-   The name of the RAID device. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the RAID device. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``

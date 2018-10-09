@@ -256,7 +256,7 @@ This resource has the following properties:
 ``username``
    **Ruby Type:** String
 
-   The name of the user. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the user. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 Password Shadow Hash
 =====================================================

@@ -80,7 +80,7 @@ The group resource has the following properties:
 ``group_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the group. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the group. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``ignore_failure``
    **Ruby Types:** true, false | **Default Value:** ``false``

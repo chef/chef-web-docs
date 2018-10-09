@@ -280,7 +280,7 @@ The ifconfig resource has the following properties:
 ``target``
    **Ruby Type:** String
 
-   The IP address that is to be assigned to the network interface. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The IP address that is to be assigned to the network interface. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 Examples
 =====================================================

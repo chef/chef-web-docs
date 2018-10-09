@@ -2926,7 +2926,7 @@ This resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -3424,7 +3424,7 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -7739,7 +7739,7 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
@@ -7944,7 +7944,7 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
@@ -8955,7 +8955,7 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
    **Ruby Type:** Integer
@@ -9204,7 +9204,7 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
@@ -9707,7 +9707,7 @@ This resource has the following properties:
 ``service_name``
    **Ruby Type:** String
 
-   The name of the service. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the service. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``start_command``
    **Ruby Type:** String

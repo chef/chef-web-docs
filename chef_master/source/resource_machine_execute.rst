@@ -70,7 +70,7 @@ This resource has the following properties:
 ``command``
    **Ruby Type:** String
 
-   The name of the command to be executed. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the command to be executed. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``driver``
    **Ruby Type:** Chef::Provisioning::Driver

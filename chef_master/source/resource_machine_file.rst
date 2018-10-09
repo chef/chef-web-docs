@@ -154,7 +154,7 @@ This resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   The full path to the file, including the file name and its extension. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The full path to the file, including the file name and its extension. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
    Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
 
