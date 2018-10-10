@@ -1711,15 +1711,15 @@ The following properties are new or updated for the ``execute``, ``script``, ``b
 
 ``user``
   **Ruby types:** String
-  The user name of the user identity with which to launch the new process. Default value: ``nil``. The user name may optionally be specified with a domain, i.e. ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as ``user`` if the domain is instead specified using the ``domain`` attribute. On Windows only, if this property is specified, the ``password`` property **must** be specified.
+  The user name of the user identity with which to launch the new process. The user name may optionally be specified with a domain, i.e. ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as ``user`` if the domain is instead specified using the ``domain`` attribute. On Windows only, if this property is specified, the ``password`` property **must** be specified.
 
 ``password``
   **Ruby types** String
-  _Windows only:_ The password of the user specified by the ``user`` property. Default value: ``nil``. This property is mandatory if ``user`` is specified on Windows and may only be specified if ``user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``password`` is specified.
+  _Windows only:_ The password of the user specified by the ``user`` property. This property is mandatory if ``user`` is specified on Windows and may only be specified if ``user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``password`` is specified.
 
 ``domain``
   **Ruby types** String
-  _Windows only:_ The domain of the user specified by the ``user`` property. Default value: ``nil``. If not specified, the user name and password specified by the ``user`` and ``password`` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the ``user`` property.
+  _Windows only:_ The domain of the user specified by the ``user`` property. If not specified, the user name and password specified by the ``user`` and ``password`` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the ``user`` property.
 
 Usage
 -----------------------------------------------------
@@ -9636,7 +9636,7 @@ This resource has the following properties:
 ``init_command``
    **Ruby Type:** String
 
-   The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes. Default value: ``nil``.
+   The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

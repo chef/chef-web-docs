@@ -223,7 +223,7 @@ This resource has the following properties:
 ``converge``
    **Ruby Types:** true, false
 
-   Use to manage convergence when used with the ``:create`` action. Set to ``false`` to prevent convergence. Set to ``true`` to force convergence. When ``nil``, the machine will converge only if something changes. Default value: ``nil``.
+   Use to manage convergence when used with the ``:create`` action. Set to ``false`` to prevent convergence. Set to ``true`` to force convergence. When ``nil``, the machine will converge only if something changes.
 
 ``driver``
    **Ruby Type:** Chef::Provisioning::Driver
