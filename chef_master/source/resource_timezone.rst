@@ -64,6 +64,6 @@ Examples
 **Set the timezone to UTC with a friendly resource name**
  .. code-block:: ruby
 
-   timezone 'Set the hosts timezone to UTC' do
+  timezone 'Set the hosts timezone to UTC' do
     timezone 'UTC'
   end
