@@ -1290,6 +1290,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_template.rst
 
+.. include:: resource_timezone.rst
+
 .. include:: resource_user.rst
 
 .. include:: resource_windows_ad_join.rst
