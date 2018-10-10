@@ -31,25 +31,26 @@ Actions
 
 The timezone resource has the following actions:
 
- ``:set``
+``:set``
     Set the system timezone.
 
- ``:nothing``
-   .. tag resources_common_actions_nothing
+``:nothing``
 
-    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
-
-   .. end_tag
+     .. tag resources_common_actions_nothing
+    
+     Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+    
+     .. end_tag
  
 Properties
 =====================================================
 
 The timezone resource has the following properties:
 
- ``timezone``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+``timezone``
+     **Ruby Type:** String | **Default Value:** ``'name'``
 
-    The timezone value to set.
+     The timezone value to set.
 
 
 Examples
