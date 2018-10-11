@@ -440,47 +440,6 @@ To delete an instance named ``devops12``, enter:
 
    $ knife azure server delete devops12
 
-server describe
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``server describe`` argument to view a detailed description of one (or more) roles that exist in a Microsoft Azure cloud instance. For each specified role name, information such as status, size, hosted service name, deployment name, ports (open, local, public) and IP are displayed.
-
-Syntax
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This argument has the following syntax:
-
-.. code-block:: bash
-
-   $ knife azure server describe [ROLE_NAME...] (options)
-
-Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This argument has the following options:
-
-``--azure-publish-settings-file FILE_NAME``
-   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
-
-``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
-   The host name for the Microsoft Azure environment.
-
-``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
-   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
-
-``-S ID``, ``--azure-subscription-id ID``
-   The subscription identifier for the Microsoft Azure portal.
-
-``--verify-ssl-cert``
-   The SSL certificate used to verify communication over HTTPS.
-
-Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-**View role details**
-
-To view the details for a role named ``admin``, enter:
-
-.. code-block:: bash
-
-   $ knife azure server describe admin
-
 server list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Use the ``server list`` argument to find instances that are associated with a Microsoft Azure account. The results may show instances that are not currently managed by the Chef server.
