@@ -232,11 +232,14 @@ To use an internal certificate authority, append the server--optionally, any int
 
    $ cat server.crt [intermediate.crt] root.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
 
-You can check the validity of your new combined certificate on the Chef Server, using the command below. The cacert.pem only needs to contain your root CA's certificate file. This is not the usual treatment, but mimics how ChefDK behaves after a ``knife ssl fetch`` followed by a ``knife ssl verify``.
+
+Check your combined certificate's validity on the Chef Server:
 
 .. code-block:: bash
 
    $ openssl verify -verbose -purpose sslserver -CAfile cacert.pem  /var/opt/opscode/nginx/ca/FQDN.crt 
+
+The cacert.pem should contain only your root CA's certificate file. This is not the usual treatment, but mimics how ChefDK behaves after a ``knife ssl fetch`` followed by a ``knife ssl verify``.
 
 Intermediate Certificates
 -----------------------------------------------------
