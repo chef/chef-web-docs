@@ -282,6 +282,103 @@ This argument has the following options:
 ``-z``, ``--local-mode``
    Point knife commands at local repository instead of server.
 
+internal lb list 
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``internal lb create`` argument to a list of defined load balancers for all cloud services. Does not show public facing load balancers.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure internal lb create (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-publish-settings-file FILENAME``
+   Your Azure Publish Settings File
+
+``-c``, ``--config CONFIG``
+   The configuration file to use.
+
+``--chef-zero-host HOST``
+   Host for starting chef-zero.
+
+``--chef-zero-port PORT``
+   Port (or port range) to start chef-zero on.  Port ranges lik1000,1010 or 8889-9999 will try all given ports until one works.
+
+``--config-option OPTION=VALUE`` 
+   Override a single configuration option.
+
+``--[no-]color``
+   Use colored output, defaults to enabled.
+
+``-d``, ``--disable-editing`` 
+   Do not open EDITOR, just accept the data as is.
+
+``--defaults``
+   Accept default values for all questions
+
+``-e``, ``--editor EDITOR``
+   Set the editor to use for interactive commands
+
+``-E``, ``--environment ENVIRONMENT``
+   Set the Chef environment (except for in searches where this will be flagrantly ignored)
+
+``-F``, ``--format FORMAT`` 
+   Which format to use for output.
+
+``--[no-]fips`` 
+   Enable fips mode.
+
+``--[no-]listen``
+   Whether a local mode (-z) server binds to a port.
+
+``-h``, ``--help``
+   Show help message.
+
+``-H HOSTNAME``, ``--azure-api-host-name``
+   Your Azure host name
+
+``-k``, ``--key KEY``
+   API Client Key
+
+``-p``, ``--azure-mgmt-cert FILENAME``
+   Your Azure PEM file name.
+
+``-s``, ``--server-url URL``
+   Chef Server URL.
+
+``-S``, ``--azure-subscription-id ID``
+   Your Azure subscription ID
+
+``--print-after``
+   Show the data after a destructive operation
+
+``--profile PROFILE``
+   The credentials profile to select
+
+``-u``, ``--user USER API``
+   Client Username.
+
+``-v``, ``--version`` 
+   Show Chef version.
+
+``-V``, ``--verbose``
+   More verbose output. Use twice for maximum verbosity.
+
+``--verify-ssl-cert``
+   Verify SSL Certificates for communication over HTTPS.
+
+``-y``, ``--yes``
+   Say yes to all prompts for confirmation.
+
+``-z``, ``--local-mode``
+   Point knife commands at local repository instead of server.
+
 server create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Use the ``server create`` argument to create a new Microsoft Azure cloud instance. This will provision a new image in Microsoft Azure, perform a bootstrap (using the SSH protocol), and then install the chef-client on the target system so that it can be used to configure the node and to communicate with a Chef server.
