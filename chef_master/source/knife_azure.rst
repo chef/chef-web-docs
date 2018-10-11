@@ -9,25 +9,46 @@ Knife Azure Overview
 
 .. tag knife_azure
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines for Linux and Windows Server, cloud and database services, and more. The ``knife azure`` subcommand is used to manage API-driven cloud servers that are hosted by Microsoft Azure.
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines for Linux and Windows Server, cloud and database services, and more. Use the ``knife azure`` subcommand to manage API-driven cloud servers hosted by Microsoft Azure.
 
 .. end_tag
 
 .. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
-Install Knife Azure
+``knife-azure`` version 1.6.0 and later supports Azure Resource Manager. Commands starting with ``knife azurerm`` use the Azure Resource Manager API. Commands starting with ``knife azure`` use the Azure Service Management API. While you can switch between the two command sets, they are not designed to work together.
+
+
+Install Chef Workstation
 ------------------------------------------------------
-To install the ``knife azure`` plugin using RubyGems, run the following command:
+
+Install the latest version of Chef Workstation from `Chef Downloads <https://downloads.chef.io/chef-workstation>`__
+
+For Windows versions older than 2012r2, download the `ChefDK <https://downloads.chef.io/chefdk/>`__.
+
+Install Knife Azure 
+------------------------------------------------------
+
+If Chef Client was installed using RubyGems, install the ``knife azure`` with the following command:
+
+.. code-block:: bash
+
+   $ gem install knife-azure
+
+If the Chef Client was installed from the `Chef Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
 
 .. code-block:: bash
 
    $ /opt/chef/embedded/bin/gem install knife-azure
 
-where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located. If the chef-client was installed using RubyGems, omit the path in the previous example.
+where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located.
 
-Generate Certificates
+Configuration
+------------------------------------------------------
+
+ASM Mode
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``knife azure`` subcommand must use a management certificate for secure communication with Microsoft Azure. The management certificate is required for secure communication with the Microsoft Azure platform via the REST APIs. To generate the management certificate (.pem file):
+
+The ``knife azure`` (ASM mode) subcommand uses a management certificate for secure communication with Microsoft Azure. The management certificate is required for secure communication with the Microsoft Azure platform via the REST APIs. To generate the management certificate (.pem file):
 
 #. Download the settings file: http://go.microsoft.com/fwlink/?LinkId=254432.
 #. Extract the data from the ``ManagementCertificate`` field into a separate file named ``cert.pfx``.
@@ -43,6 +64,9 @@ The ``knife azure`` subcommand must use a management certificate for secure comm
       $ openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
 
 .. note:: It is possible to generate certificates, and then upload them. See the following link for more information: www.windowsazure.com/en-us/manage/linux/common-tasks/manage-certificates/.
+
+Knife Azure Commands
+------------------------------------------------------
 
 ag create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
