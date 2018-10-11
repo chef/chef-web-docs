@@ -1,5 +1,5 @@
-=====================================================
 Knife Azure
+=====================================================
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_azure.rst>`__
 
@@ -172,6 +172,115 @@ This argument has the following options:
 
 ``--verify-ssl-cert``
    The SSL certificate used to verify communication over HTTPS.
+
+internal lb create 
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``internal lb create`` argument to create a new internal load balancer within a cloud service.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure internal lb create (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-dns-name DNS_NAME``
+   The DNS prefix name that will be used to add this loabalancer to. This must be an existing service/deployment.
+
+``--azure-lb-static-vip VIP``
+   The Virtual IP that will be used for the load balancer.
+
+``--azure-publish-settings-file FILENAME``
+   Your Azure Publish Settings File
+
+``--azure-subnet-name SUBNET_NAME``
+   Required if static VIP is set. Specifies the subnename the load balancer is located in.
+
+``-c``, ``--config CONFIG``
+   The configuration file to use.
+
+``--chef-zero-host HOST``
+   Host for starting chef-zero.
+
+``--chef-zero-port PORT``
+   Port (or port range) to start chef-zero on.  Port ranges lik1000,1010 or 8889-9999 will try all given ports until one works.
+
+``--config-option OPTION=VALUE`` 
+   Override a single configuration option.
+
+``--[no-]color``
+   Use colored output, defaults to enabled.
+
+``-d``, ``--disable-editing`` 
+   Do not open EDITOR, just accept the data as is.
+
+``--defaults``
+   Accept default values for all questions
+
+``-e``, ``--editor EDITOR``
+   Set the editor to use for interactive commands
+
+``-E``, ``--environment ENVIRONMENT``
+   Set the Chef environment (except for in searches where this will be flagrantly ignored)
+
+``-F``, ``--format FORMAT`` 
+   Which format to use for output.
+
+``--[no-]fips`` 
+   Enable fips mode.
+
+``--[no-]listen``
+   Whether a local mode (-z) server binds to a port.
+
+``-h``, ``--help``
+   Show help message.
+
+``-H HOSTNAME``, ``--azure-api-host-name``
+   Your Azure host name
+
+``-k``, ``--key KEY``
+   API Client Key
+
+``-n``, ``--azure-load-balancer NAME``
+   Required. Specifies new load balancer name.
+
+``-p``, ``--azure-mgmt-cert FILENAME``
+   Your Azure PEM file name.
+
+``-s``, ``--server-url URL``
+   Chef Server URL.
+
+``-S``, ``--azure-subscription-id ID``
+   Your Azure subscription ID
+
+``--print-after``
+   Show the data after a destructive operation
+
+``--profile PROFILE``
+   The credentials profile to select
+
+``-u``, ``--user USER API``
+   Client Username.
+
+``-v``, ``--version`` 
+   Show Chef version.
+
+``-V``, ``--verbose``
+   More verbose output. Use twice for maximum verbosity.
+
+``--verify-ssl-cert``
+   Verify SSL Certificates for communication over HTTPS.
+
+``-y``, ``--yes``
+   Say yes to all prompts for confirmation.
+
+``-z``, ``--local-mode``
+   Point knife commands at local repository instead of server.
 
 server create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
