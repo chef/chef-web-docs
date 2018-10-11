@@ -86,14 +86,14 @@ To show the status of nodes on which the chef-client did not run successfully wi
 
 .. code-block:: bash 
 
-# knife status --hide-by-mins 60
+   $ knife status --hide-by-mins 60
 
 to return something like:
 
 .. code-block:: bash 
 
-422492 hours ago, runner-1-432.lxc, centos 6.8.
-27 hours ago, union-3-432.lxc, centos 7.3.1611.
+   422492 hours ago, runner-1-432.lxc, centos 6.8.
+   27 hours ago, union-3-432.lxc, centos 7.3.1611.
 
 On systems running Chef Client 12.5 or prior:
 
