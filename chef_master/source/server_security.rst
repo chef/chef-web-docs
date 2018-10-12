@@ -226,14 +226,25 @@ Private Certificate Authority
 -----------------------------------------------------
 If an organization is using an internal certificate authority, then the root certificate will not appear in any ``cacerts.pem`` file that ships by default with operating systems and web browsers. Because of this, no currently deployed system will be able to verify certificates that are issued in this manner. To allow other systems to trust certificates from an internal certificate authority, this root certificate will need to be configured so that other systems can follow the chain of authority back to the root certificate. (An intermediate certificate is not enough because the root certificate is not already globally known.)
 
-To use an internal certificate authority, append both the server and root certificates into a single ``.crt`` file. For example:
+To use an internal certificate authority, append the server--optionally, any intermediate certificate as well--and root certificates into a single ``.crt`` file. For example:
 
 .. code-block:: bash
 
-   $ cat server.crt root.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
+   $ cat server.crt [intermediate.crt] root.crt >> /var/opt/opscode/nginx/ca/FQDN.crt
+
+
+Check your combined certificate's validity on the Chef Server:
+
+.. code-block:: bash
+
+   $ openssl verify -verbose -purpose sslserver -CAfile cacert.pem  /var/opt/opscode/nginx/ca/FQDN.crt 
+
+The cacert.pem should contain only your root CA's certificate file. This is not the usual treatment, but mimics how ChefDK behaves after a ``knife ssl fetch`` followed by a ``knife ssl verify``.
 
 Intermediate Certificates
 -----------------------------------------------------
+For use with 3rd party certificate providers, for example, Verisign.
+
 To use an intermediate certificate, append both the server and intermediate certificates into a single ``.crt`` file. For example:
 
 .. code-block:: bash
@@ -242,7 +253,7 @@ To use an intermediate certificate, append both the server and intermediate cert
 
 Verify Certificate Was Signed by Proper Key
 -----------------------------------------------------
-It's possible that a certificate/key mismatch can occur during the CertificateSigningRequest (CSR) process. During a CSR, the original key for the server in question should always be used. If the output of the following commands don't match, then it's possible the CSR for a new key for this host was generated using a random key or a newly generated key. The symptoms of this issue will look like the following in the nginx log files
+It's possible that a certificate/key mismatch can occur during the CertificateSigningRequest (CSR) process. During a CSR, the original key for the server in question should always be used. If the output of the following commands don't match, then it's possible the CSR for a new key for this host was generated using a random key or a newly generated key. The symptoms of this issue will look like the following in the nginx log files:
 
 .. code-block:: bash
 
