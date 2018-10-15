@@ -172,7 +172,7 @@ This resource has the following properties:
 ``password``
    **Ruby Type:** String
 
-   The password shadow hash. This property requires that ``ruby-shadow`` be installed. This is part of the Debian package: ``libshadow-ruby1.8``.
+   The password shadow hash
  
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
