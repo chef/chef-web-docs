@@ -33,14 +33,14 @@ The full syntax for all of the properties that are available to the **apt_reposi
       distribution          String
       components            Array
       arch                  String
-      trusted               True, False
-      deb_src               True, False
+      trusted               true, false
+      deb_src               true, false
       keyserver             String
       key                   String, Array
       key_proxy             String
       cookbook              String
-      cache_rebuild         True, False
-      sensitive             True, False
+      cache_rebuild         true, false
+      sensitive             true, false
       action                Symbol # defaults to :add if not specified
    end
 
@@ -117,7 +117,7 @@ This resource has the following properties:
    The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
 
 ``sensitive``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether sensitive resource data (such as key information) is not logged by the chef-client.
 

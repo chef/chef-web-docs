@@ -96,14 +96,14 @@ The zypper_package resource has the following properties:
    New in Chef Client 13.6.
 
 ``gpg_check``
-   **Ruby Type:** true, false
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Verify the package's GPG signature. Default value: ``true``. Can also be controlled site-wide using the ``zypper_check_gpg`` config option.
+   Verify the package's GPG signature. Can also be controlled site-wide using the ``zypper_check_gpg`` config option.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -150,14 +150,14 @@ The zypper_package resource has the following properties:
    The name of the package. Defaults to the name of the resourse block unless specified.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String

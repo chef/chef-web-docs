@@ -120,7 +120,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False | **Default Value:** ``false``
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -132,7 +132,7 @@ This resource has the following properties:
 ``message``
    **Ruby Type:** String
 
-   The message to be added to a log file. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The message to be added to a log file. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

@@ -1711,15 +1711,15 @@ The following properties are new or updated for the ``execute``, ``script``, ``b
 
 ``user``
   **Ruby types:** String
-  The user name of the user identity with which to launch the new process. Default value: ``nil``. The user name may optionally be specified with a domain, i.e. ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as ``user`` if the domain is instead specified using the ``domain`` attribute. On Windows only, if this property is specified, the ``password`` property **must** be specified.
+  The user name of the user identity with which to launch the new process. The user name may optionally be specified with a domain, i.e. ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as ``user`` if the domain is instead specified using the ``domain`` attribute. On Windows only, if this property is specified, the ``password`` property **must** be specified.
 
 ``password``
   **Ruby types** String
-  _Windows only:_ The password of the user specified by the ``user`` property. Default value: ``nil``. This property is mandatory if ``user`` is specified on Windows and may only be specified if ``user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``password`` is specified.
+  _Windows only:_ The password of the user specified by the ``user`` property. This property is mandatory if ``user`` is specified on Windows and may only be specified if ``user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``password`` is specified.
 
 ``domain``
   **Ruby types** String
-  _Windows only:_ The domain of the user specified by the ``user`` property. Default value: ``nil``. If not specified, the user name and password specified by the ``user`` and ``password`` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the ``user`` property.
+  _Windows only:_ The domain of the user specified by the ``user`` property. If not specified, the user name and password specified by the ``user`` and ``password`` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the ``user`` property.
 
 Usage
 -----------------------------------------------------
@@ -2278,14 +2278,14 @@ This resource has the following properties:
    A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on.
 
 ``triggers_reload``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
+   Specifies whether to trigger a daemon reload when creating or deleting a unit.
 
 ``verify``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
+   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit.
 
 
 What's New in 12.10
@@ -2744,33 +2744,33 @@ The full syntax for all of the properties that are available to the **launchd** 
 .. code-block:: ruby
 
    launchd 'name' do
-     abandon_process_group      True, False
-     backup                     Integer, False
+     abandon_process_group      true, false
+     backup                     Integer, false
      cookbook                   String
-     debug                      True, False
-     disabled                   True, False
-     enable_globbing            True, False
-     enable_transactions        True, False
+     debug                      true, false
+     disabled                   true, false
+     enable_globbing            true, false
+     enable_transactions        true, false
      environment_variables      Hash
      exit_timeout               Integer
      group                      String, Integer
      hard_resource_limits       Hash
      hash                       Hash
-     ignore_failure             True, False
+     ignore_failure             true, false
      inetd_compatibility        Hash
-     init_groups                True, False
-     keep_alive                 True, False
+     init_groups                true, false
+     keep_alive                 true, false
      label                      String
-     launch_only_once           True, False
+     launch_only_once           true, false
      limit_load_from_hosts      Array
      limit_load_to_hosts        Array
      limit_load_to_session_type String
-     low_priority_io            True, False
+     low_priority_io            true, false
      mach_services              Hash
      mode                       Integer, String
      nice                       Integer
      notifies                   # see description
-     on_demand                  True, False
+     on_demand                  true, false
      owner                      Integer, String
      path                       String
      process_type               String
@@ -2781,7 +2781,7 @@ The full syntax for all of the properties that are available to the **launchd** 
      retries                    Integer
      retry_delay                Integer
      root_directory             String
-     run_at_load                True, False
+     run_at_load                true, false
      sockets                    Hash
      soft_resource_limits       Array
      standard_error_path        String
@@ -2789,14 +2789,14 @@ The full syntax for all of the properties that are available to the **launchd** 
      standard_out_path          String
      start_calendar_interval    Hash
      start_interval             Integer
-     start_on_mount             True, False
+     start_on_mount             true, false
      subscribes                 # see description
      throttle_interval          Integer
      time_out                   Integer
      type                       String
      umask                      Integer
      username                   String
-     wait_for_debugger          True, False
+     wait_for_debugger          true, false
      watch_paths                Array
      working_directory          String
      action                     Symbol # defaults to :create if not specified
@@ -2844,7 +2844,7 @@ Properties
 This resource has the following properties:
 
 ``backup``
-   **Ruby Types:** Integer, False
+   **Ruby Types:** Integer, false
 
    The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 
@@ -2864,9 +2864,9 @@ This resource has the following properties:
    A Hash of key value pairs used to create the launchd property list.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``label``
    **Ruby Type:** String
@@ -2926,17 +2926,17 @@ This resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``session_type``
    **Ruby Type:** String
@@ -3010,27 +3010,27 @@ This resource has the following properties:
 The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the Apple man page documentation for launchd for more information about these keys:
 
 ``abandon_process_group``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    If a job dies, all remaining processes with the same process ID may be kept running. Set to ``true`` to kill all remaining processes.
 
 ``debug``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
 ``disabled``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Hints to ``launchctl`` to not submit this job to launchd. Default value: ``false``.
+   Hints to ``launchctl`` to not submit this job to launchd.
 
 ``enable_globbing``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Update program arguments before invocation.
 
 ``enable_transactions``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Track in-progress transactions; if none, then send the ``SIGKILL`` signal.
 
@@ -3040,9 +3040,9 @@ The following resource properties may be used to define keys in the XML property
    Additional environment variables to set before running a job.
 
 ``exit_timeout``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``20``
 
-   The amount of time (in seconds) launchd waits before sending a ``SIGKILL`` signal. Default value: ``20``.
+   The amount of time (in seconds) launchd waits before sending a ``SIGKILL`` signal.
 
 ``hard_resource_limits``
    **Ruby Type:** Hash
@@ -3055,19 +3055,19 @@ The following resource properties may be used to define keys in the XML property
    Specifies if a daemon expects to be run as if it were launched from ``inetd``. Set to ``wait => true`` to pass standard input, output, and error file descriptors. Set to ``wait => false`` to call the ``accept`` system call on behalf of the job, and then pass standard input, output, and error file descriptors.
 
 ``init_groups``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
 
 ``keep_alive``
-   **Ruby Types:** True, False, Hash
+   **Ruby Types:** true, false, Hash | **Default Value:** ``false``
 
-   Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``). Default value: ``false``.
+   Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``).
 
    Hash type was added in Chef client 12.14.
 
 ``launch_only_once``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Specify if a job can be run only one time. Set this value to ``true`` if a job cannot be restarted without a full machine reboot.
 
@@ -3087,7 +3087,7 @@ The following resource properties may be used to define keys in the XML property
    The session type to which this configuration file applies.
 
 ``low_priority_io``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Specify if the kernel on the node should consider this daemon to be low priority during file system I/O.
 
@@ -3102,7 +3102,7 @@ The following resource properties may be used to define keys in the XML property
    The program scheduling priority value in the range ``-20`` to ``20``.
 
 ``on_demand``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
@@ -3132,9 +3132,9 @@ The following resource properties may be used to define keys in the XML property
    ``chroot`` to this directory, and then run the job.
 
 ``run_at_load``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Launch a job once (at the time it is loaded). Default value: ``false``.
+   Launch a job once (at the time it is loaded).
 
 ``sockets``
    **Ruby Type:** Hash
@@ -3171,14 +3171,14 @@ The following resource properties may be used to define keys in the XML property
    The frequency (in seconds) at which a job is started.
 
 ``start_on_mount``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Start a job every time a file system is mounted.
 
 ``throttle_interval``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``10``
 
-   The frequency (in seconds) at which jobs are allowed to spawn. Default value: ``10``.
+   The frequency (in seconds) at which jobs are allowed to spawn.
 
 ``time_out``
    **Ruby Type:** Integer
@@ -3196,7 +3196,7 @@ The following resource properties may be used to define keys in the XML property
    When launchd is run as the root user, the user to run the job as.
 
 ``wait_for_debugger``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Specify if launchd has a job wait for a debugger to attach before executing code.
 
@@ -3378,9 +3378,9 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -3424,17 +3424,17 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -3604,9 +3604,9 @@ This resource has the following properties:
    Use to specify the identifier for the profile, such as ``com.company.screensaver``.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -3653,14 +3653,14 @@ This resource has the following properties:
    Use to specify the name of the profile, if different from the name of the resource block.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -3873,14 +3873,14 @@ Properties
 This resource has the following properties:
 
 ``frequency``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``86400``
 
-   Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
+   Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -3917,14 +3917,14 @@ This resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -4154,9 +4154,9 @@ This resource has the following properties:
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -4212,19 +4212,19 @@ This resource has the following properties:
          end
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array
+   **Ruby Types:** Integer, Array | **Default Value:** ``0``
 
-   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
+   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -4276,9 +4276,9 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float
+   **Ruby Types:** Integer, Float | **Default Value:** ``3600``
 
-   The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+   The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
    **Ruby Types:** String, Integer
@@ -4438,6 +4438,10 @@ The syntax for a custom resource is. For example:
    end
 
 where the first action listed is the default action.
+
+.. warning:: 
+   Do not use existing keywords from the chef-client resource system in a custom resource, like "name". For example, ``property :property_name`` in the following invalid syntax: 
+   ``property :name, String, default: 'thename'``. 
 
 .. end_tag
 
@@ -6169,9 +6173,9 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``module_name``
    **Ruby Type:** String
@@ -6292,14 +6296,14 @@ This resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -7692,9 +7696,9 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -7735,17 +7739,17 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -7897,9 +7901,9 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -7940,17 +7944,17 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -8908,9 +8912,9 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -8951,17 +8955,17 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -9157,9 +9161,9 @@ This resource has the following properties:
    .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -9200,17 +9204,17 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -9409,9 +9413,9 @@ This resource has the following properties:
    The amount of time (in minutes) to delay a reboot request.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -9437,14 +9441,14 @@ This resource has the following properties:
    A string that describes the reboot action.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -9625,14 +9629,14 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``init_command``
    **Ruby Type:** String
 
-   The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes. Default value: ``nil``.
+   The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -9681,14 +9685,14 @@ This resource has the following properties:
    The command used to restart a service.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``run_as_password``
    **Ruby Type:** String
@@ -9703,7 +9707,7 @@ This resource has the following properties:
 ``service_name``
    **Ruby Type:** String
 
-   The name of the service. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the service. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``start_command``
    **Ruby Type:** String

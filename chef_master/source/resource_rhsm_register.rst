@@ -56,7 +56,7 @@ Properties
    A string or array of  activation keys to use when registering; you must also specify the ``organization`` property when using this.
 
 ``auto_attach``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    If ``true``, RHSM will attempt to automatically attach the host to applicable subscriptions. It is generally better to use an activation key with the subscriptions predefined.
 
@@ -66,12 +66,12 @@ Properties
    The environment to use when registering; required when using the ``username`` and ``password`` properties.
 
 ``force``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    If true, the system will be registered even if it is already registered. Normally, any register operations will fail if the machine has already been registered.
 
 ``install_katello_agent``
-   **Ruby Type:** True, False | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    If true, the ``katello-agent`` RPM will be installed.
 

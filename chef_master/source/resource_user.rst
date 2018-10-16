@@ -1,5 +1,5 @@
 =====================================================
-user
+user resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_user.rst>`__
 
@@ -32,18 +32,18 @@ The full syntax for all of the properties that are available to the **user** res
 
    user 'name' do
      comment                    String
-     force                      True, False # see description
+     force                      true, false # see description
      gid                        String, Integer
      home                       String
      iterations                 Integer
-     manage_home                True, False
-     non_unique                 True, False
+     manage_home                true, false
+     non_unique                 true, false
      notifies                   # see description
      password                   String
      salt                       String
      shell                      String
      subscribes                 # see description
-     system                     True, False
+     system                     true, false
      uid                        String, Integer
      username                   String # defaults to 'name' if not specified
      action                     Symbol # defaults to :create if not specified
@@ -95,7 +95,7 @@ This resource has the following properties:
    One (or more) comments about the user.
 
 ``force``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Force the removal of a user. May be used only with the ``:remove`` action.
 
@@ -112,9 +112,9 @@ This resource has the following properties:
    The location of the home directory.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``iterations``
    **Ruby Type:** Integer
@@ -122,7 +122,7 @@ This resource has the following properties:
    macOS platform only. The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
 
 ``manage_home``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Manage a user's home directory.
 
@@ -131,7 +131,7 @@ This resource has the following properties:
    When used with the ``:modify`` action, a user's home directory is moved to ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. The contents of the user's home directory are moved to the new location.
 
 ``non_unique``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Create a duplicate (non-unique) user account.
 
@@ -172,17 +172,17 @@ This resource has the following properties:
 ``password``
    **Ruby Type:** String
 
-   The password shadow hash. This property requires that ``ruby-shadow`` be installed. This is part of the Debian package: ``libshadow-ruby1.8``.
+   The password shadow hash
  
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``salt``
    **Ruby Type:** String
@@ -244,7 +244,7 @@ This resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Create a system user. This property may be used with ``useradd`` as the provider to create a system user which passes the ``-r`` flag to ``useradd``.
 
@@ -256,7 +256,7 @@ This resource has the following properties:
 ``username``
    **Ruby Type:** String
 
-   The name of the user. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the user. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 Password Shadow Hash
 =====================================================

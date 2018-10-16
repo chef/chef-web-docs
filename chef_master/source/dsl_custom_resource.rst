@@ -1,5 +1,3 @@
-.. THIS PAGE DOCUMENTS chef-client version 12.5
-
 =====================================================
 About the Custom Resource DSL
 =====================================================
@@ -14,8 +12,6 @@ Use the Custom Resource DSL to define property behaviors within custom resources
 * Telling the chef-client when and how to make changes
 
 .. end_tag
-
-Custom resources are new in Chef Client 12.5 and can be used on Chef 12.1 or later by depending on the compat_resource cookbook.
 
 action_class
 =====================================================

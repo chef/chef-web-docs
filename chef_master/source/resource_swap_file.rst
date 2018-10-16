@@ -92,7 +92,7 @@ The swap_file resource has the following properties:
    The path where the swap file will be created on the system, if it differs from the resource block name.
 
 ``persist``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Persist the swapon.
 

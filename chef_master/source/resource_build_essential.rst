@@ -43,7 +43,7 @@ The build_essential resource has the following actions:
 Properties
 =====================================================
 ``compile_time``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
    
    Install the build essential packages at compile time.
    

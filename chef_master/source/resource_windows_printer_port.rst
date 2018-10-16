@@ -114,7 +114,7 @@ The windows_printer_port resource has the following properties:
    The printer port protocol; ``1`` (RAW) or ``2`` (LPR).
 
 ``snmp_enabled``
-   **Ruby Type:** True, False | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines if SNMP is enabled on the port
 

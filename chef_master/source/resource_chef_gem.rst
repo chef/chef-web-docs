@@ -35,10 +35,10 @@ The full syntax for all of the properties that are available to the **chef_gem**
 .. code-block:: ruby
 
    chef_gem 'name' do
-     clear_sources              True, False
-     compile_time               True, False
+     clear_sources              true, false
+     compile_time               true, false
      gem_binary                 String
-     include_default_source     True, False
+     include_default_source     true, false
      notifies                   # see description
      options                    String
      package_name               String # defaults to 'name' if not specified
@@ -87,9 +87,9 @@ Properties
 This resource has the following properties:
 
 ``clear_sources``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems). Default value: ``false``.
+   Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems).
 
    .. note:: Another approach is to use the **gem_package** resource, and then specify the ``gem_binary`` location to the RubyGems directory that is used by Chef. For example:
 
@@ -101,7 +101,7 @@ This resource has the following properties:
                 end
 
 ``compile_time``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false
 
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
@@ -111,16 +111,16 @@ This resource has the following properties:
    The path of a gem binary to use for the installation. By default, the same version of Ruby that is used by the chef-client will be installed.
 
 ``include_default_source``
-   **Ruby Types:** True, False | **Default Value:** ``true``
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
    New in Chef Client 13.0
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -165,17 +165,17 @@ This resource has the following properties:
 ``package_name``
    **Ruby Types:** String
 
-   The name of the gem. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the gem. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:**  ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String, Array

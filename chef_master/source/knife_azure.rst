@@ -1,33 +1,53 @@
 =====================================================
 Knife Azure
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_azrue.rst>`__
-
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_azure.rst>`__
 
 Knife Azure Overview
 =====================================================
 
 .. tag knife_azure
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines for Linux and Windows Server, cloud and database services, and more. The ``knife azure`` subcommand is used to manage API-driven cloud servers that are hosted by Microsoft Azure.
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines for Linux and Windows Server, cloud and database services, and more. Use the ``knife azure`` subcommand to manage API-driven cloud servers hosted by Microsoft Azure.
 
 .. end_tag
 
 .. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
-Install Knife Azure
+``knife-azure`` version 1.6.0 and later supports Azure Resource Manager. Commands starting with ``knife azurerm`` use the Azure Resource Manager API. Commands starting with ``knife azure`` use the Azure Service Management API. While you can switch between the two command sets, they are not designed to work together.
+
+
+Install Chef Workstation
 ------------------------------------------------------
-To install the ``knife azure`` plugin using RubyGems, run the following command:
+
+Install the latest version of Chef Workstation from `Chef Downloads <https://downloads.chef.io/chef-workstation>`__
+
+For Windows versions older than 2012r2, download the `ChefDK <https://downloads.chef.io/chefdk/>`__.
+
+Install Knife Azure 
+------------------------------------------------------
+
+If Chef Client was installed using RubyGems, install the ``knife azure`` with the following command:
+
+.. code-block:: bash
+
+   $ gem install knife-azure
+
+If the Chef Client was installed from the `Chef Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
 
 .. code-block:: bash
 
    $ /opt/chef/embedded/bin/gem install knife-azure
 
-where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located. If the chef-client was installed using RubyGems, omit the path in the previous example.
+where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located.
 
-Generate Certificates
+Configuration
+------------------------------------------------------
+
+ASM Mode
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``knife azure`` subcommand must use a management certificate for secure communication with Microsoft Azure. The management certificate is required for secure communication with the Microsoft Azure platform via the REST APIs. To generate the management certificate (.pem file):
+
+The ``knife azure`` (ASM mode) subcommand uses a management certificate for secure communication with Microsoft Azure. The management certificate is required for secure communication with the Microsoft Azure platform via the REST APIs. To generate the management certificate (.pem file):
 
 #. Download the settings file: http://go.microsoft.com/fwlink/?LinkId=254432.
 #. Extract the data from the ``ManagementCertificate`` field into a separate file named ``cert.pfx``.
@@ -43,6 +63,9 @@ The ``knife azure`` subcommand must use a management certificate for secure comm
       $ openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
 
 .. note:: It is possible to generate certificates, and then upload them. See the following link for more information: www.windowsazure.com/en-us/manage/linux/common-tasks/manage-certificates/.
+
+Knife Azure Commands
+------------------------------------------------------
 
 ag create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -148,6 +171,212 @@ This argument has the following options:
 
 ``--verify-ssl-cert``
    The SSL certificate used to verify communication over HTTPS.
+
+internal lb create 
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``internal lb create`` argument to create a new internal load balancer within a cloud service.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure internal lb create (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-dns-name DNS_NAME``
+   The DNS prefix name that will be used to add this loabalancer to. This must be an existing service/deployment.
+
+``--azure-lb-static-vip VIP``
+   The Virtual IP that will be used for the load balancer.
+
+``--azure-publish-settings-file FILENAME``
+   Your Azure Publish Settings File
+
+``--azure-subnet-name SUBNET_NAME``
+   Required if static VIP is set. Specifies the subnename the load balancer is located in.
+
+``-c``, ``--config CONFIG``
+   The configuration file to use.
+
+``--chef-zero-host HOST``
+   Host for starting chef-zero.
+
+``--chef-zero-port PORT``
+   Port (or port range) to start chef-zero on.  Port ranges lik1000,1010 or 8889-9999 will try all given ports until one works.
+
+``--config-option OPTION=VALUE`` 
+   Override a single configuration option.
+
+``--[no-]color``
+   Use colored output, defaults to enabled.
+
+``-d``, ``--disable-editing`` 
+   Do not open EDITOR, just accept the data as is.
+
+``--defaults``
+   Accept default values for all questions
+
+``-e``, ``--editor EDITOR``
+   Set the editor to use for interactive commands
+
+``-E``, ``--environment ENVIRONMENT``
+   Set the Chef environment (except for in searches where this will be flagrantly ignored)
+
+``-F``, ``--format FORMAT`` 
+   Which format to use for output.
+
+``--[no-]fips`` 
+   Enable fips mode.
+
+``--[no-]listen``
+   Whether a local mode (-z) server binds to a port.
+
+``-h``, ``--help``
+   Show help message.
+
+``-H HOSTNAME``, ``--azure-api-host-name``
+   Your Azure host name
+
+``-k``, ``--key KEY``
+   API Client Key
+
+``-n``, ``--azure-load-balancer NAME``
+   Required. Specifies new load balancer name.
+
+``-p``, ``--azure-mgmt-cert FILENAME``
+   Your Azure PEM file name.
+
+``-s``, ``--server-url URL``
+   Chef Server URL.
+
+``-S``, ``--azure-subscription-id ID``
+   Your Azure subscription ID
+
+``--print-after``
+   Show the data after a destructive operation
+
+``--profile PROFILE``
+   The credentials profile to select
+
+``-u``, ``--user USER API``
+   Client Username.
+
+``-v``, ``--version`` 
+   Show Chef version.
+
+``-V``, ``--verbose``
+   More verbose output. Use twice for maximum verbosity.
+
+``--verify-ssl-cert``
+   Verify SSL Certificates for communication over HTTPS.
+
+``-y``, ``--yes``
+   Say yes to all prompts for confirmation.
+
+``-z``, ``--local-mode``
+   Point knife commands at local repository instead of server.
+
+internal lb list 
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Use the ``internal lb create`` argument to a list of defined load balancers for all cloud services. Does not show public facing load balancers.
+
+Syntax
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife azure internal lb create (options)
+
+Options
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This argument has the following options:
+
+``--azure-publish-settings-file FILENAME``
+   Your Azure Publish Settings File
+
+``-c``, ``--config CONFIG``
+   The configuration file to use.
+
+``--chef-zero-host HOST``
+   Host for starting chef-zero.
+
+``--chef-zero-port PORT``
+   Port (or port range) to start chef-zero on.  Port ranges lik1000,1010 or 8889-9999 will try all given ports until one works.
+
+``--config-option OPTION=VALUE`` 
+   Override a single configuration option.
+
+``--[no-]color``
+   Use colored output, defaults to enabled.
+
+``-d``, ``--disable-editing`` 
+   Do not open EDITOR, just accept the data as is.
+
+``--defaults``
+   Accept default values for all questions
+
+``-e``, ``--editor EDITOR``
+   Set the editor to use for interactive commands
+
+``-E``, ``--environment ENVIRONMENT``
+   Set the Chef environment (except for in searches where this will be flagrantly ignored)
+
+``-F``, ``--format FORMAT`` 
+   Which format to use for output.
+
+``--[no-]fips`` 
+   Enable fips mode.
+
+``--[no-]listen``
+   Whether a local mode (-z) server binds to a port.
+
+``-h``, ``--help``
+   Show help message.
+
+``-H HOSTNAME``, ``--azure-api-host-name``
+   Your Azure host name
+
+``-k``, ``--key KEY``
+   API Client Key
+
+``-p``, ``--azure-mgmt-cert FILENAME``
+   Your Azure PEM file name.
+
+``-s``, ``--server-url URL``
+   Chef Server URL.
+
+``-S``, ``--azure-subscription-id ID``
+   Your Azure subscription ID
+
+``--print-after``
+   Show the data after a destructive operation
+
+``--profile PROFILE``
+   The credentials profile to select
+
+``-u``, ``--user USER API``
+   Client Username.
+
+``-v``, ``--version`` 
+   Show Chef version.
+
+``-V``, ``--verbose``
+   More verbose output. Use twice for maximum verbosity.
+
+``--verify-ssl-cert``
+   Verify SSL Certificates for communication over HTTPS.
+
+``-y``, ``--yes``
+   Say yes to all prompts for confirmation.
+
+``-z``, ``--local-mode``
+   Point knife commands at local repository instead of server.
 
 server create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -415,47 +644,6 @@ To delete an instance named ``devops12``, enter:
 .. code-block:: bash
 
    $ knife azure server delete devops12
-
-server describe
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``server describe`` argument to view a detailed description of one (or more) roles that exist in a Microsoft Azure cloud instance. For each specified role name, information such as status, size, hosted service name, deployment name, ports (open, local, public) and IP are displayed.
-
-Syntax
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This argument has the following syntax:
-
-.. code-block:: bash
-
-   $ knife azure server describe [ROLE_NAME...] (options)
-
-Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This argument has the following options:
-
-``--azure-publish-settings-file FILE_NAME``
-   The name of the Azure Publish Settings file, including the path. For example: ``"/path/to/your.publishsettings"``.
-
-``-H HOST_NAME``, ``--azure_host_name HOST_NAME``
-   The host name for the Microsoft Azure environment.
-
-``-p FILE_NAME``, ``--azure-mgmt-cert FILE_NAME``
-   The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
-
-``-S ID``, ``--azure-subscription-id ID``
-   The subscription identifier for the Microsoft Azure portal.
-
-``--verify-ssl-cert``
-   The SSL certificate used to verify communication over HTTPS.
-
-Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-**View role details**
-
-To view the details for a role named ``admin``, enter:
-
-.. code-block:: bash
-
-   $ knife azure server describe admin
 
 server list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
