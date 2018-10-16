@@ -33,7 +33,7 @@ This configuration file has the following settings:
 
       knife[:authentication_protocol_version] = '1.3'
 
-   Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
+   .. note:: Authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
 
 ``automatic_attribute_blacklist``
    A hash  that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
@@ -71,7 +71,9 @@ This configuration file has the following settings:
    The port on which chef-zero is to listen. This value may be specified as a range; the chef-client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
 
 ``client_fork``
-   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Set to ``false`` to disable running the chef-client in fork node. Default value: ``true``. Must be set to false up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Client configuration file necessary.
+   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the chef-client in fork node. 
+   
+   .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Client configuration file necessary.
 
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``.
