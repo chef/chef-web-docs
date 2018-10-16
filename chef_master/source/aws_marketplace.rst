@@ -149,9 +149,9 @@ Launch the BYOL AMI
 #. Associate the IAM role for backup access.
 #. Run the CloudFormation template to create the Chef Automate instance.
 
-Install the Chef DK
+Install the ChefDK
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef Automate is provisioning, download and install the `Chef development kit </install_dk.html>`__.  The Chef development kit is a collection of tools and libraries that are packaged together to make it easy to develop cookbooks and resources for a Chef / Chef Automate environment. You'll need this to interact with Chef Automate and Chef server from the command line.
+While the Amazon Machine Images (AMI) for Chef Automate is provisioning, download and install the `Chef Development Kit </install_dk.html>`__.  The Chef Development Kit is a collection of tools and libraries that are packaged together to make it easy to develop cookbooks and resources for a Chef / Chef Automate environment. You'll need this to interact with Chef Automate and Chef server from the command line.
 
 Configure Chef Automate
 -----------------------------------------------------

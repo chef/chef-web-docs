@@ -9,7 +9,7 @@ The following steps should be performed on a Chef Automate server:
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
-#. Download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_. Version 0.15.16 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
+#. Download the latest ChefDK from `<https://downloads.chef.io/>`_. Version 0.15.16 or greater is required. The download location is referred to below as ``$CHEF_DK_PACKAGE_PATH``.
 
 #. Run the ``install-build-node`` subcommand.
 

@@ -768,9 +768,9 @@ Default and override attributes are cleared at the start of the chef-client run,
 
 ``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first chef-client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
 
-Cookbook Linting with ChefDK Tools
+Cookbook Linting with Chef Workstation Tools
 =====================================================
-ChefDK includes Foodcritic for linting the Chef specific portion of your cookbook code, and Cookstyle for linting the Ruby specific portion of your code.
+Chef Workstation includes Foodcritic for linting the Chef specific portion of your cookbook code, and Cookstyle for linting the Ruby specific portion of your code.
 
 Foodcritic Linting
 -----------------------------------------------------
