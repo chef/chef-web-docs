@@ -3,7 +3,7 @@ ChefDK on Windows Workstations
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dk_windows.rst>`__
 
-This guide details some of the common considerations that come into play when using the Chef Development Kit on Windows. Download the ChefDK by following the installation instructions on `Installing the ChefDK </install_dk.html>`_.
+This guide details some of the common considerations that come into play when using the Chef Development Kit on Windows. Download ChefDK by following the installation instructions on `Installing ChefDK </install_dk.html>`_.
 
 .. note:: `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
 

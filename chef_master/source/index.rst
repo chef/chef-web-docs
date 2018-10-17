@@ -270,7 +270,7 @@ Cookbook Reference
 ChefDK
 -----------------------------------------------------
 
-`About the ChefDK </about_chefdk.html>`__ |
+`About ChefDK </about_chefdk.html>`__ |
 `Berkshelf </berkshelf.html>`__ |
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__

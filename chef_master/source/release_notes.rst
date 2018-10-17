@@ -1469,7 +1469,7 @@ Please use ``knife cookbook site install`` instead.
 
 ``knife cookbook create`` has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Please use ``chef generate cookbook`` from the ChefDK instead.
+Please use ``chef generate cookbook`` from ChefDK instead.
 
 Verify commands no longer support "%{file}"
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

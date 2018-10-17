@@ -1,5 +1,5 @@
 =====================================================
-About the ChefDK
+About ChefDK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/about_chefdk.rst>`__
 
@@ -28,10 +28,10 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 .. end_tag
 
 * `An Overview of Chef </chef_overview.html>`_
-* `Install the ChefDK </install_dk.html>`_
+* `Install ChefDK </install_dk.html>`_
 * `Ruby Guide </ruby.html>`_
 
-.. note:: See this `blog post by Irving Popovetsky about running the ChefDK on Windows. <https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/>`__
+.. note:: See this `blog post by Irving Popovetsky about running ChefDK on Windows. <https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/>`__
 
 About Workflow
 -----------------------------------------------------

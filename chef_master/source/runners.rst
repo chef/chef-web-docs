@@ -32,7 +32,7 @@ Adding a Runner
 
 You can add a new runner via ``automate-ctl`` from your Chef Automate server. Log in to your Chef Automate server and run the `install-runner </ctl_automate_server.html#install-runner>`__ command.
 
-.. note:: You can pin to a specific ChefDK version through the ``--chefdk-version`` option on the ``install-runner`` command or by using a version of the ChefDK that you have installed locally on your Chef Automate server using the ``-I`` option. As an example, this is useful if you have not upgraded your cookbooks to be Chef 13 compliant and the latest version of the ChefDK installs Chef 13 on your runner.
+.. note:: You can pin to a specific ChefDK version through the ``--chefdk-version`` option on the ``install-runner`` command or by using a version of ChefDK that you have installed locally on your Chef Automate server using the ``-I`` option. As an example, this is useful if you have not upgraded your cookbooks to be Chef 13 compliant and the latest version of ChefDK installs Chef 13 on your runner.
 
 After the `install-runner </ctl_automate_server.html#install-runner>`__ command succeeds, the new runner should show up in the UI under ``Workflow -> Runners -> Manage Runners``. If you see it there, click the ``Test`` button. That will test an ssh connection to your runner to verify that jobs can be dispatched to it. If there are any issues, you should get an error in the UI.
 
@@ -64,7 +64,7 @@ To delete a runner:
 Upgrading the version of ChefDK on a Runner
 -----------------------------------------------------
 
-If you need to upgrade the version of ChefDK on your runner, you can do so by logging into the runner, upgrading the ChefDK, and manually appending the Chef Automate server certificate to the cert file that ships in the ChefDK.
+If you need to upgrade the version of ChefDK on your runner, you can do so by logging into the runner, upgrading ChefDK, and manually appending the Chef Automate server certificate to the cert file that ships in ChefDK.
 
 Typically, we recommend re-running the ``install-runner`` command rather than manually updating as the installation process will take care of this certification change for you when it bootstraps the node.
 

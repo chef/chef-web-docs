@@ -144,7 +144,7 @@ Chef workstation
 
 Install ChefDK
 -----------------------------------------------------
-#. Your workstation should have a copy of the ChefDK `installer package <https://downloads.chef.io/chefdk>`__. Use the appropriate tool to run the installer:
+#. Your workstation should have a copy of ChefDK `installer package <https://downloads.chef.io/chefdk>`__. Use the appropriate tool to run the installer:
 
    .. code-block:: bash
 
