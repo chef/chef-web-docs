@@ -15,7 +15,7 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
 
              .. end_tag
              
-**New in Chef Client 12.7.*
+**New in Chef Client 12.7.**
 
 Syntax
 =====================================================
