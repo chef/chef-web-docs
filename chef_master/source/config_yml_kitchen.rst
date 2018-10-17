@@ -133,7 +133,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``chef_metadata_url``
      - **This will be deprecated in a future version.**
    * - ``chef_omnibus_install_options``
-     - Use to specify the package to be installed. Possible values: ``-P chef`` (for the Chef client) and ``-P chefdk`` (for the Chef client that is packaged as part of the Chef DK). Use ``-n`` to specify the nightly build. For example: ``-P chefdk`` or ``-n -P chefdk``. **This will be deprecated in a future version.** See the ``product_name``, ``product_version``, and ``channel`` settings instead.
+     - Use to specify the package to be installed. Possible values: ``-P chef`` (for the Chef client) and ``-P chefdk`` (for the Chef client that is packaged as part of ChefDK). Use ``-n`` to specify the nightly build. For example: ``-P chefdk`` or ``-n -P chefdk``. **This will be deprecated in a future version.** See the ``product_name``, ``product_version``, and ``channel`` settings instead.
 
    * - ``chef_omnibus_root``
      - Default value: ``/etc/opt`` for UNIX and Linux, ``$env:systemdrive\\opscode\\chef`` on Microsoft Windows.
@@ -557,7 +557,7 @@ Examples
 ==========================================================================
 The following examples show actual kitchen.yml files used in Chef-maintained cookbooks.
 
-Chef, Chef DK
+Chef, ChefDK
 --------------------------------------------------------------------------
 The following example shows the provisioner settings needed to install the Chef development kit, and then use the version of Chef that is embedded in the Chef development kit to converge the node.
 

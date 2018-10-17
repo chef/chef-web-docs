@@ -71,7 +71,7 @@ Launch the Metered AMI
 #. Configure the Amazon EC2 instance type, Amazon Virtual Private Cloud (VPC) settings, SSH key pair, IAM Role and assign `a public IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html#concepts-public-addresses>`__.
 #. Increase the root volume size to a minimum of 30GB. You might consider even larger if you have hundreds of nodes or need to maintain months of node visibility data.
 #. Launch the Amazon Machine Image (AMI).
-#. `Install the ChefDK <aws_marketplace.html#install-the-chef-dk>`__.
+#. `Install Chef Workstation <aws_marketplace.html#install-chef-workstation>`__.
 
 Bring Your Own License (BYOL) AMI
 -----------------------------------------------------
@@ -149,9 +149,9 @@ Launch the BYOL AMI
 #. Associate the IAM role for backup access.
 #. Run the CloudFormation template to create the Chef Automate instance.
 
-Install the Chef DK
+Install Chef Workstation
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef Automate is provisioning, download and install the `Chef development kit </install_dk.html>`__.  The Chef development kit is a collection of tools and libraries that are packaged together to make it easy to develop cookbooks and resources for a Chef / Chef Automate environment. You'll need this to interact with Chef Automate and Chef server from the command line.
+While the Amazon Machine Images (AMI) for Chef Automate is provisioning, download and install Chef Workstation. Chef Workstation is a collection of tools and libraries that are packaged together to make it easy to develop cookbooks and resources for a Chef / Chef Automate environment. You'll need this to interact with Chef Automate and Chef server from the command line.
 
 Configure Chef Automate
 -----------------------------------------------------

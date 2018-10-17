@@ -3,7 +3,7 @@ Release Notes: Chef Development Kit 0.19 - 3.1
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
-Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef DK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
 What's New in 3.1
 =====================================================
@@ -124,7 +124,7 @@ What's New in 2.5.3
 
 * **Chef 13.8.5**
 
-  Chef DK now ships with Chef 13.8.5. See the `Chef release notes </release_notes.html#what-s-new-in-13-8-5>`__ for more information.
+  ChefDK now ships with Chef 13.8.5. See the `Chef release notes </release_notes.html#what-s-new-in-13-8-5>`__ for more information.
 
 * **Updated chef_version in cookbook generator** 
 
@@ -245,7 +245,7 @@ What's New in 2.4.17
 
 * **New tools bundled**
 
-  We are now shipping these tools as part of Chef DK:
+  We are now shipping these tools as part of ChefDK:
 
     * `kitchen-digitalocean <https://github.com/test-kitchen/kitchen-digitalocean>`__
     * `kitchen-google <https://github.com/test-kitchen/kitchen-google>`__
@@ -308,7 +308,7 @@ ChefDK 2.2.1 includes:
 
 What's New in 2.1.11
 =====================================================
-This release updates the version of git shipped in Chef DK to 2.14.1 to address `CVE-2017-1000117 <https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-1000117>`__.
+This release updates the version of git shipped in ChefDK to 2.14.1 to address `CVE-2017-1000117 <https://bugzilla.redhat.com/show_bug.cgi?id=CVE-2017-1000117>`__.
 
 Notable Updated Gems
 -----------------------------------------------------
@@ -329,7 +329,7 @@ See the detailed `change log <https://github.com/chef/chef-dk/blob/master/CHANGE
 
 What's New in 2.0.28
 =====================================================
-Chef 2.0.28 fixes an `issue <https://github.com/chef/chef-dk/issues/1322>`__ in Chef DK 2.0 where ``chef push`` would upload incomplete cookbooks.
+Chef 2.0.28 fixes an `issue <https://github.com/chef/chef-dk/issues/1322>`__ in ChefDK 2.0 where ``chef push`` would upload incomplete cookbooks.
 
 What's New in 2.0
 =====================================================
