@@ -340,7 +340,7 @@ Knife functionality can be extended with plugins, which work the same as built-i
 Plugin Installation
 -----------------------------------------------------
 
-Knife plugins ship as Rubygems and are installed into the ChefDK installation using the ``chef`` command:
+Knife plugins ship as RubyGems and are installed into the Chef Workstation installation using the ``chef`` command:
 
 .. code-block:: bash
 
@@ -355,7 +355,7 @@ Post installation you will also need to rehash the list of knife commands by run
 Chef Maintained Knife Plugins
 -----------------------------------------------------
 
-Chef maintains the following plugins which ship with Chef-DK:
+Chef maintains the following plugins which ship with Chef Workstation:
 
 * ``knife-acl``
 * ``knife-azure``

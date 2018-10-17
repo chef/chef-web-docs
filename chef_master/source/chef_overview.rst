@@ -3,6 +3,8 @@ An Overview of Chef
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_overview.rst>`__
 
+.. note:: `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
+
 .. tag chef
 
 Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
@@ -15,9 +17,9 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-* The **Chef DK workstation** is the location where users interact with Chef. On the workstation users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
+* **Chef workstation** is the location where users interact with Chef. With Chef Workstation, users can author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
 * **Chef client nodes** are the machines that are managed by Chef. The Chef client is installed on each node and is used to configure the node to its desired state.
-* The **Chef server** acts as `a hub for configuration data </server_components.html>`__. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef client to ask the Chef server for configuration details, such as recipes, templates, and file distributions.
+* **Chef server** acts as `a hub for configuration data </server_components.html>`__. Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef client to ask the Chef server for configuration details, such as recipes, templates, and file distributions.
 
 Chef Components
 =====================================================
@@ -91,7 +93,7 @@ Workstations
 =====================================================
 .. tag workstation_summary
 
-A workstation is a computer running the `Chef Development Kit </about_chefdk.html>`__ (Chef DK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
+A workstation is a computer running Chef Workstation that is used to author cookbooks, interact with the Chef server, and interact with nodes.
 
 The workstation is where users do most of their work, including:
 
@@ -103,7 +105,7 @@ The workstation is where users do most of their work, including:
 
 .. end_tag
 
-The Chef Development Kit tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made tools uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the Chef DK, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
+The Chef Development Kit tooling encourages integration and unit testing, and defines workflow around cookbook authoring and policy, but it's important to note that you know best about how your infrastructure should be put together. Therefore, Chef makes as few decisions on its own as possible. When a decision must be made tools uses a reasonable default setting that can be easily changed. While Chef encourages the use of the tooling packaged in the ChefDK, none of these tools should be seen as a requirement or pre-requisite for being successful using Chef.
 
 Workstation Components and Tools
 -----------------------------------------------------
@@ -139,10 +141,16 @@ Some important tools and components of Chef workstations include:
           :width: 100px
           :align: center
 
-     - ChefDK includes two important command-line tools:
+     - Chef Workstation includes important command-line tools:
 
        * Chef: Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef server
        * Knife: Use the knife command-line tool to interact with nodes or work with objects on the Chef server
+       * chef-client: an agent that configures your nodes
+       * Ohai: a tool for collecting system profiling data 
+       * Test Kitchen: a testing harness for rapid validation of Chef code
+       * InSpec: Chef's open source security & compliance automation framework
+       * chef-run: a tool for running ad-hoc tasks
+       * Chef Workstation App: for updating and managing your chef tools
 
    * - .. image:: ../../images/icon_repository.svg
           :width: 100px

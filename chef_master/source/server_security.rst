@@ -239,7 +239,7 @@ Check your combined certificate's validity on the Chef Server:
 
    $ openssl verify -verbose -purpose sslserver -CAfile cacert.pem  /var/opt/opscode/nginx/ca/FQDN.crt 
 
-The cacert.pem should contain only your root CA's certificate file. This is not the usual treatment, but mimics how ChefDK behaves after a ``knife ssl fetch`` followed by a ``knife ssl verify``.
+The cacert.pem should contain only your root CA's certificate file. This is not the usual treatment, but mimics how Chef Workstation behaves after a ``knife ssl fetch`` followed by a ``knife ssl verify``.
 
 Intermediate Certificates
 -----------------------------------------------------

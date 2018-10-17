@@ -1120,7 +1120,7 @@ What's New in 13.0/13.1
 =====================================================
 
 * **Blacklist attributes**
-* **Rubygems sources**
+* **RubyGems sources**
 * **windows_task resource**
 * **Chef client will now exit using the rfc062 defined exit codes**
 * **New default encrypted databag format**
@@ -1196,7 +1196,7 @@ For attributes that contain slashes (``/``) within the attribute value, such as 
 
 .. end_tag
 
-Rubygems provider sources behavior changed.
+RubyGems provider sources behavior changed.
 -----------------------------------------------------
 The behavior of ``gem_package`` and ``chef_gem`` is now to always apply the ``Chef::Config[:rubygems_uri]`` sources, which may be a string uri or an array of strings.  If additional sources are put on the resource with the ``source`` property those are added to the configured ``:rubygems_uri`` sources.
 
@@ -1626,7 +1626,7 @@ What's New in 12.21.4
 
 * **Improved Resource Reporting** Resource reporting for Chef Automate has been improved
 * **Ruby Upgrade** Ruby has been updated to 2.3.4
-* **Rubygems Upgrade** Rubygems has been updated to 2.6.12 to prevent a segfault on Windows
+* **RubyGems Upgrade** RubyGems has been updated to 2.6.12 to prevent a segfault on Windows
 * **Policyfile fix** Chef client now properly sends expanded run list events for policy file nodes
 
 What's New in 12.21.1
