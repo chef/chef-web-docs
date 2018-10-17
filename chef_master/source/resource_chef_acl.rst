@@ -68,9 +68,9 @@ This resource has the following properties:
    Use to specify if this resource defines a chef-client completely. When ``true``, any property not specified by this resource will be reset to default property values.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -149,14 +149,14 @@ This resource has the following properties:
       remove_rights :all, :users => [ 'jkeiser', 'adam' ]
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``rights``
    Use to add rights. Syntax: ``:right, :right => 'user', :groups => [ 'group', 'group']``. For example:

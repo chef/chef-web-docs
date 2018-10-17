@@ -33,7 +33,7 @@ The full syntax for all of the properties that are available to the **apt_packag
      default_release            String
      notifies                   # see description
      options                    String, Array
-     overwrite_config_files     True, False # default value: 'false'
+     overwrite_config_files     true, false # default value: 'false'
      package_name               String, Array # defaults to 'name' if not specified
      response_file              String
      response_file_variables    Hash
@@ -94,9 +94,9 @@ The apt_package resource has the following properties:
    The default release. For example: ``stable``.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -147,17 +147,17 @@ The apt_package resource has the following properties:
 ``package_name``
    **Ruby Types:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

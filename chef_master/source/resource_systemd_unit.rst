@@ -125,12 +125,12 @@ The systemd_unit resource has the following properties:
    A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on. In Chef 14.4, repeatable options can be implemented with an array.
 
 ``triggers_reload``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
+   Specifies whether to trigger a daemon reload when creating or deleting a unit.
 
 ``verify``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false
 
    Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
 

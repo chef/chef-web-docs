@@ -111,19 +111,19 @@ The mount resource has the following properties:
    Required. The file system type (fstype) of the device.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``mount_point``
    **Ruby Type:** String
 
-   The directory (or path) in which the device is to be mounted. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The directory (or path) in which the device is to be mounted. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``mounted``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Use to specify if a file system is already mounted. Default value: ``false``.
+   Use to specify if a file system is already mounted.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -160,14 +160,14 @@ The mount resource has the following properties:
    .. end_tag
 
 ``options``
-   **Ruby Types:** Array, String
+   **Ruby Types:** Array, String | **Default Value:** ``defaults``
 
-   An array or string that contains mount options. If this value is a string, it is converted to an array. Default value: ``defaults``.
+   An array or string that contains mount options. If this value is a string, it is converted to an array.
 
 ``pass``
-   **Ruby Types:** Integer, False
+   **Ruby Types:** Integer, false | **Default Value:** ``2``
 
-   The pass number used by the file system check (``fsck``) command while creating a file systems table (``fstab``) entry. Default value: ``2``.
+   The pass number used by the file system check (``fsck``) command while creating a file systems table (``fstab``) entry.
 
 ``password``
    **Ruby Type:** String
@@ -175,14 +175,14 @@ The mount resource has the following properties:
    Microsoft Windows only. Use to specify the password for ``username``.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

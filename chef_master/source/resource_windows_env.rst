@@ -77,7 +77,7 @@ This resource has the following properties:
 ``key_name``
    **Ruby Type:** String
 
-   The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

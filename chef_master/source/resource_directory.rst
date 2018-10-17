@@ -33,12 +33,12 @@ The full syntax for all of the properties that are available to the **directory*
 
    directory 'name' do
      group                      String, Integer
-     inherits                   True, False
+     inherits                   true, false
      mode                       String, Integer
      notifies                   # see description
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     recursive                  True, False
+     recursive                  true, false
      rights                     Hash
      subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
@@ -78,14 +78,14 @@ This resource has the following properties:
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``inherits``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``true``
 
-   Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
+   Microsoft Windows only. Whether a file inherits rights from its parent directory.
 
 ``mode``
    **Ruby Types:** Integer, String
@@ -140,22 +140,22 @@ This resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``recursive``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Create or delete parent directories recursively. For the ``owner``, ``group``, and ``mode`` properties, the value of this attribute applies only to the leaf directory. Default value: ``false``.
+   Create or delete parent directories recursively. For the ``owner``, ``group``, and ``mode`` properties, the value of this attribute applies only to the leaf directory.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``rights``
    **Ruby Types:** Integer, String

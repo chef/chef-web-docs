@@ -84,19 +84,19 @@ The link resource has the following properties:
    A string or ID that identifies the group associated with a symbolic link.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Types:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``link_type``
-   **Ruby Type:** Symbol
+   **Ruby Type:** Symbol | **Default Value:** ``:symbolic``
 
-   The type of link: ``:symbolic`` or ``:hard``. Default value: ``:symbolic``.
+   The type of link: ``:symbolic`` or ``:hard``.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Types:** Integer, String | **Default Value:** ``777``
 
-   If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``. Default value: ``777``.
+   If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``. 
 
    The behavior is different depending on the platform.
 
@@ -144,14 +144,14 @@ The link resource has the following properties:
    The owner associated with a symbolic link.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of times to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -205,7 +205,7 @@ The link resource has the following properties:
 ``target_file``
    **Ruby Type:** String
 
-   The name of the link. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the link. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``to``
    **Ruby Type:** String
