@@ -5,6 +5,32 @@ Release Notes: Chef Server 12.0 - 12.17.33
 
 The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
 
+What's New in 12.18.14
+=====================================================
+This release:
+
+* Segment free cookbooks are implemented. (https://github.com/chef/chef-rfc/blob/master/rfc067-cookbook-segment-deprecation.md) This bumps the API version
+* ACLs for cookbook artifacts
+* /nodes/NODENAME endpoint has HEAD operation
+* Security headers for HTTP
+* Optional disabling of welcome page
+* chef-server-ctl now has version subcommand
+* chef-server-ctl appbundled to better control gem loading.
+* Support for SSL auth between internal Chef Server Services. This includes connections to bifrost and the internal Postgresql server
+* All datestamps in logs are now in UTC. SOLR GC log now datestamped.
+* Nginx logs now include the request id
+* Fixie is now shipped with chef server
+* Security issue with old doorkeeper fixed by upgrading. CVE-2018-1000211
+* Fixed issue migrating rabbitmq passwords (migration 031)
+* Chef indexing queue times now reported in stats in log messages and status endpoint
+* Ruby updated to 2.5.1
+* Update gems
+* Chef Client updated to 14.3
+* Postgresql updated to 9.6.10 and 9.2.24 (latter only for upgrades from older Chef Servers)
+* Fix for SUSE SLES-11 sysvinit install
+* Removed nodejs (a build dependency that was shipped)
+
+
 What's New in 12.17.33
 =====================================================
 This release:
