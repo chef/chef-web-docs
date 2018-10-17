@@ -9,9 +9,9 @@ Install Delivery CLI
 =====================================================
 .. tag delivery_cli_install
 
-The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in the Chef DK and can be obtained by `installing the latest version </install_dk.html>`__.
+The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in the ChefDK and can be obtained by `installing the latest version </install_dk.html>`__.
 
-.. note:: You must delete your old Delivery CLI if you installed it prior to it being included in the Chef DK.
+.. note:: You must delete your old Delivery CLI if you installed it prior to it being included in the ChefDK.
 
 .. end_tag
 
@@ -716,7 +716,7 @@ delivery local
 =====================================================
 Use the ``local`` subcommand to run a phase or stage of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
 
-.. note:: As of Chef DK 1.2, delivery local now supports options for functional phases, running stages, and specifying a remote ``project.toml``.
+.. note:: As of ChefDK 1.2, delivery local now supports options for functional phases, running stages, and specifying a remote ``project.toml``.
 
 Syntax
 -----------------------------------------------------

@@ -3,7 +3,7 @@ Troubleshooting
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/errors.rst>`__
 
-The following sections describe how to troubleshoot the Chef server, Chef client and Chef DK.
+The following sections describe how to troubleshoot the Chef server, Chef client and ChefDK.
 
 401 Unauthorized
 =====================================================

@@ -6,7 +6,7 @@ Site Map
 This is the documentation for:
 
 * Chef, including the Chef server, the Chef client, the Chef
-  development kit (Chef DK) and related tools
+  development kit (ChefDK) and related tools
 * Chef Automate
 
 For information on Habitat and InSpec, see their respective documentation:
@@ -95,7 +95,7 @@ Concepts
 Setup
 -----------------------------------------------------
 `Proxies </proxies.html>`__ |
-`Chef DK on Windows </dk_windows.html>`__ |
+`ChefDK on Windows </dk_windows.html>`__ |
 `Workstation </install_dk.html>`__
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
@@ -267,7 +267,7 @@ Cookbook Reference
 
 **Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__
 
-Chef DK
+ChefDK
 -----------------------------------------------------
 
 `About the ChefDK </about_chefdk.html>`__ |

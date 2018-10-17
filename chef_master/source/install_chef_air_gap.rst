@@ -15,7 +15,7 @@ Since a variety of different practices are used to create an air-gapped network,
 * A server's Fully Qualified Domain Name (FQDN) is the name that will be used by other servers to access it
 * You have a private Ruby gem mirror to supply gems as needed
 * You have an artifact store for file downloads. At a minimum, it should have the following packages available:
-    * Chef DK
+    * ChefDK
     * Chef client
     * Chef Supermarket
     * An `install script </install_chef_air_gap.html#create-an-install-script>`__ for Chef client
@@ -142,9 +142,9 @@ In this section you'll install the Chef server, and create your organization and
 Chef workstation
 =====================================================
 
-Install Chef DK
+Install ChefDK
 -----------------------------------------------------
-#. Your workstation should have a copy of the Chef DK `installer package <https://downloads.chef.io/chefdk>`__. Use the appropriate tool to run the installer:
+#. Your workstation should have a copy of the ChefDK `installer package <https://downloads.chef.io/chefdk>`__. Use the appropriate tool to run the installer:
 
    .. code-block:: bash
 

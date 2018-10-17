@@ -81,7 +81,7 @@ push-jobs-client
 -----------------------------------------------------
 Use the package manager for the platform on which Chef push jobs is installed to uninstall Chef push jobs.
 
-Chef DK
+ChefDK
 =====================================================
 .. tag uninstall_chef_dk
 
