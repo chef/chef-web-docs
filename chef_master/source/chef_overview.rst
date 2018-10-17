@@ -15,9 +15,9 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 .. end_tag
 
-* The **Chef workstation** is the location where users interact with Chef. On the workstation, users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
+* **Chef workstation** is the location where users interact with Chef. Users author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
 * **Chef client nodes** are the machines that are managed by Chef. The Chef client is installed on each node and is used to configure the node to its desired state.
-* The **Chef server** acts as `a hub for configuration data </server_components.html>`__. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef client to ask the Chef server for configuration details, such as recipes, templates, and file distributions.
+* **Chef server** acts as `a hub for configuration data </server_components.html>`__. Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef client to ask the Chef server for configuration details, such as recipes, templates, and file distributions.
 
 .. note:: `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
 

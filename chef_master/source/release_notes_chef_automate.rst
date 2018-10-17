@@ -108,7 +108,7 @@ Resolved Issues
 * Fixed a race condition preventing the ‘updates available’ notification for Compliance profiles from being displayed
 * Correctly displays platform versions in the Compliance nodes list
 * Fixed missing input validation on Compliance UI
-* Rubygems installed into Automate with an overly restrictive umask are now fixed when ``automate-ctl reconfigure`` is run
+* RubyGems installed into Automate with an overly restrictive umask are now fixed when ``automate-ctl reconfigure`` is run
 * Passwords and keys fields no longer display values when editing a credential
 * The Compliance UI now displays a spinner when loading pages
 * Scan jobs are now nested inside their parent job

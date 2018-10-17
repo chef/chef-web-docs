@@ -31,7 +31,7 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 * `Install the ChefDK </install_dk.html>`_
 * `Ruby Guide </ruby.html>`_
 
-.. note:: See this blog post by Irving Popovetsky about running the ChefDK on Windows: https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/.
+.. note:: See this `blog post by Irving Popovetsky about running the ChefDK on Windows. <https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/>`__
 
 About Workflow
 -----------------------------------------------------

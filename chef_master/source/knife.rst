@@ -340,7 +340,7 @@ Knife functionality can be extended with plugins, which work the same as built-i
 Plugin Installation
 -----------------------------------------------------
 
-Knife plugins ship as Rubygems and are installed into the Chef Workstation installation using the ``chef`` command:
+Knife plugins ship as RubyGems and are installed into the Chef Workstation installation using the ``chef`` command:
 
 .. code-block:: bash
 

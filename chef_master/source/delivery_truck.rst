@@ -541,7 +541,7 @@ To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first
 Generate a cookbook
 -----------------------------------------------------
 
-#. On your workstation, use Chef Workstation's `cookbook generator command </ctl_chef.html#chef-generate-cookbook>`__ to create a default cookbook directory structure called ``my_cookbook``.
+#. Use Chef Workstation's `cookbook generator command </ctl_chef.html#chef-generate-cookbook>`__ to create a default cookbook directory structure called ``my_cookbook``.
 
    .. code-block:: bash
 
