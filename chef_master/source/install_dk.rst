@@ -52,4 +52,4 @@ Linux
 
 Next Steps
 =====================================================
-Now that you've installed the ChefDK, proceed to the `ChefDK Setup </chefdk_setup.html>`__ guide to configure your ChefDK installation.
+Now that you've installed ChefDK, proceed to the `ChefDK Setup </chefdk_setup.html>`__ guide to configure your ChefDK installation.
