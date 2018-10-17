@@ -27,7 +27,7 @@ Supported Products
 
 * `Chef Automate </fips.html#how-to-enable-fips-mode-for-the-chef-automate-server>`__
 * `Chef Client </fips.html#how-to-enable-fips-mode-for-the-chef-client>`__
-* `Chef DK </fips.html#how-to-enable-fips-mode-for-workstations>`__
+* `ChefDK </fips.html#how-to-enable-fips-mode-for-workstations>`__
 * `Chef server </fips.html#how-to-enable-fips-mode-for-the-chef-server>`__
 
 **Unsupported:**

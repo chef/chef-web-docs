@@ -1,9 +1,9 @@
 =====================================================
-Configuring the ChefDK
+Configuring ChefDK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chefdk_setup.rst>`__
 
-This guide contains common configuration options used when setting up a new ChefDK installation. If you do not have the ChefDK installed, see its  `installation guide </install_dk.html>`__ before proceeding further.
+This guide contains common configuration options used when setting up a new ChefDK installation. If you do not have ChefDK installed, see its  `installation guide </install_dk.html>`__ before proceeding further.
 
 Configure Ruby Environment
 =====================================================
@@ -39,7 +39,7 @@ For many users of Chef, the version of Ruby that is included in the Chef develop
 
 Add Ruby to $PATH
 =====================================================
-The Chef Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running the ChefDK. In a command window, type the following:
+The Chef Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running ChefDK. In a command window, type the following:
 
 .. code-block:: bash
 
@@ -55,7 +55,7 @@ where ``configuration_file`` is the name of the configuration file for the speci
 
 Install Git
 =====================================================
-An open source distributed version control system called Git must be installed before the chef-repo can be cloned to the ChefDK machine from GitHub.
+An open source distributed version control system called Git must be installed before the chef-repo can be cloned to ChefDK machine from GitHub.
 
 To install Git:
 
@@ -86,7 +86,7 @@ The ``.chef`` directory is used to store three files:
 * ``ORGANIZATION-validator.pem``
 * ``USER.pem``
 
-Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for the ChefDK to be able to connect to a Chef server.
+Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for ChefDK to be able to connect to a Chef server.
 
 To create the ``.chef`` directory:
 
@@ -277,7 +277,7 @@ Verify Install
 =====================================================
 The ChefDK is installed correctly when it is able to use ``knife`` to communicate with the Chef server.
 
-To verify that the ChefDK can connect to the Chef server:
+To verify that ChefDK can connect to the Chef server:
 
 #. In a command window, navigate to the Chef repository:
 

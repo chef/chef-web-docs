@@ -29,7 +29,7 @@ The following repositories are the preferred locations for the creation of issue
      - https://github.com/chef/ohai
    * - Chef Workstation
      - https://github.com/chef/chef-workstation
-   * - Chef DK
+   * - ChefDK
      - https://github.com/chef/chef-dk
    * - Chef Server
      - https://github.com/chef/chef-server
