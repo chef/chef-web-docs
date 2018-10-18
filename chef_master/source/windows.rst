@@ -858,7 +858,7 @@ Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_dsc_resource_attributes
 
-This resource has the following properties:
+The dsc_resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** true, false | **Default Value:** ``false``
