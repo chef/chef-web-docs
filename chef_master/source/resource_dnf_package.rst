@@ -46,16 +46,17 @@ The full syntax for all of the properties that are available to the **dnf_packag
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``dnf_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``dnf_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``arch``, ``flush_cache``, etc. are the properties available to this resource. See the `Properties </resource_dnf_package.html#properties>`__ section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The dnf_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.

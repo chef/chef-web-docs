@@ -181,10 +181,11 @@ The chef_handler resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The chef_handler resource has the following properties:
 
 ``arguments``
-   **Ruby Type:** Array | **Default Value:** ``[]``
+   **Ruby Type:** Array, Hash | **Default Value:** ``[]``
 
    An array of arguments that are passed to the initializer for the handler class. For example:
 

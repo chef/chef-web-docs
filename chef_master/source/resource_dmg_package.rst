@@ -35,12 +35,16 @@ This resource has the following syntax:
 
 where:
 
-* ``dmg_package`` is the resource
-* ``'name'`` The name of the application as it exists in the ``/Volumes`` directory, or the name of the resource block
+* ``dmg_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``accept_eula``, ``allow_untrusted``, ``app``, ``checksum``, ``destination``, ``dmg_name``, ``dmg_passphrase``, ``file``, ``headers``, ``notifies``, ``owner``, ``package_id``, ``source``, ``subscribes``, ``type``, and ``volumes_dir``  are the properties available to this resource
 
 Actions
 =====================================================
+
+The dmg_package resource has the following actions:
+
 ``:install``
    Default. Installs the application. 
    
@@ -53,6 +57,9 @@ Actions
    
 Properties
 =====================================================
+
+The dmg_package resource has the following properties:
+
 ``accept_eula``
    **Ruby Type:** true, false | **Default Value:** ``false``
    
