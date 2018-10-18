@@ -4189,13 +4189,9 @@ and the next uses a single **package** resource and a whitespace array (``%w``):
 
 .. code-block:: ruby
 
-   %w{package-a package-b package-c package-d}.each do |pkg|
-     package pkg do
-       action :upgrade
-     end
+   package %w{package-a package-b package-c package-d} do
+     action :upgrade
    end
-
-where ``|pkg|`` is used to define the name of the resource, but also to ensure that each item in the whitespace array has its own name.
 
 .. end_tag
 
