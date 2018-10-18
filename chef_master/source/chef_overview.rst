@@ -144,7 +144,6 @@ Some important tools and components of Chef workstations include:
        * Chef: Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef server
        * Knife: Use the knife command-line tool to interact with nodes or work with objects on the Chef server
        * chef-client: an agent that configures your nodes
-       * Ohai: a tool for collecting system profiling data 
        * Test Kitchen: a testing harness for rapid validation of Chef code
        * InSpec: Chef's open source security & compliance automation framework
        * chef-run: a tool for running ad-hoc tasks
