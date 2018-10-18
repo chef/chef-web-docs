@@ -40,16 +40,17 @@ The full syntax for all of the properties that are available to the **dpkg_packa
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``dpkg_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package; this may be an array of packages
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``dpkg_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The dpkg_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -69,7 +70,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The dpkg_package resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** true, false | **Default Value:** ``false``
