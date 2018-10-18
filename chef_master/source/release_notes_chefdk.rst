@@ -1,18 +1,90 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 3.1
+Release Notes: Chef Development Kit 0.19 - 3.3
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
+What's New in 3.3
+=====================================================
+
+* **Chef 14.5.33**
+
+  ChefDK now ships with Chef 14.5.33. See `Chef 14.5 release notes </release_notes.html#whats-new-in-14-5>`__ for more information on what's new.
+
+* **New Functionality**
+
+  New option: `chef update --exclude-deps` for policyfiles will only update the cookbook(s) given on the command line.
+
+* **Updated Tooling**
+
+  **ChefSpec**
+
+    ChefSpec 7.3 greatly simplifies the ChefSpec syntax as well as allows testing of custom resources. See the `ChefSpec README <https://github.com/chefspec/chefspec/blob/v7.3.2/README.md>`__ and especially the section on `testing custom resources <https://github.com/chefspec/chefspec/blob/v7.3.2/README.md#testing-a-custom-resource>`__ for examples of the new syntax.
+
+* **Updated Components**
+
+     * ``chef-provisioning-aws``: 3.0.4 -> 3.0.6
+     * ``chef-vault``: 3.3.0 -> 3.4.2
+     * ``foodcritic``: 14.0.0 -> 14.1.0
+     * ``inspec``: 2.2.70 -> 2.2.112
+     * ``kitchen-inspec``: 0.23.1 -> 0.24.0
+     * ``kitchen-vagrant``: 1.3.3 -> 1.3.4
+
+* **Deprecations**
+
+  * ```chef generate app`` - Application repos were a pattern that didn't take off.
+  * ``chef generate lwrp`` - Use `chef generate resource`. Every supported release of Chef supports custom resources. Custom resources are awesome. No one should be writing new LWRPs any more. LWRPS are not awesome.
+
+
+What's New in 3.2
+=====================================================
+
+* **Chef 14.4.56**
+
+  ChefDK now ships with Chef 14.4.56. See `Chef 14.4 release notes </release_notes.html#whats-new-in-14-4>`__ for more information on what's new.
+
+* **New Functionality**
+
+  * New `chef describe-cookbook` command to display the cookbook checksum.
+  * Change policyfile generator to use ``policyfiles`` directory instead of ``policies`` directory
+
+* **New Tooling**
+
+  **Kitchen AzureRM**
+    ChefDK now includes a driver for `Azure Resource Manager <https://github.com/test-kitchen/kitchen-azurerm>`__. This allows Microsoft Azure resources to be provisioned prior to testing. This driver uses the new Microsoft Azure Resource Management REST API via the azure-sdk-for-ruby.
+
+* **Updated Tooling**
+
+  **Test Kitchen**
+
+    Test Kitchen 1.23 now includes support for `lifecycle hooks <https://github.com/test-kitchen/test-kitchen/blob/master/RELEASE_NOTES.md#life-cycle-hooks>`__.
+
+* **Updated Components**
+
+     * ``berkshelf``: 7.0.4 -> 7.0.6
+     * ``chef-provisioning``: 2.7.1 -> 2.7.2
+     * ``chef-provisioning-aws``: 3.0.2 -> 3.0.4
+     * ``chef-sugar``: 4.0.0 -> 4.1.0
+     * ``fauxhai``: 6.4.0 -> 6.6.0
+     * ``inspec``: 2.1.72 ->2.2.70
+     * ``kitchen-google``: 1.4.0 -> 1.5.0
+
+* **Security Updates**
+
+  **OpenSSL**
+      OpenSSL updated to 1.0.2p to resolve:
+        * Client DoS due to large DH parameter `CVE-2018-0732 <https://nvd.nist.gov/vuln/detail/CVE-2018-0732>`__
+        * Cache timing vulnerability in RSA Key Generation `CVE-2018-0737 <https://nvd.nist.gov/vuln/detail/CVE-2018-0737>`__
+
 What's New in 3.1
 =====================================================
 
 * **Chef 14.2.0**
-     ChefDK now ships with Chef 14.2.0. See `Chef release notes </release_notes.html#whats-new-in-14-2-0>`__ for more information on what’s new.
+     ChefDK now ships with Chef 14.2.0. See `Chef 14.2 release notes </release_notes.html#whats-new-in-14-2-0>`__ for more information on what’s new.
 
 * **Habitat Packages**
-     ChefDK is now released as a habitat package under the identifier ``chef/chef-dk``. All successful builds are available in the unstable channel and all promoted builds are available in the stable channel. 
+     ChefDK is now released as a habitat package under the identifier ``chef/chef-dk``. All successful builds are available in the unstable channel and all promoted builds are available in the stable channel.
 
 * **Updated Homebrew Cask Tap**
      You can install ChefDK on macOS using ``brew cask install chef/chef/chefdk``. The tap name is new, but not the behavior.
@@ -23,7 +95,7 @@ What's New in 3.1
       Fauxhai 6.4.0 brings support for 3 new platforms - CentOS 7.5, Debian 8.11, and FreeBSD 11.2. It also updates the dumps for Amazon Linux, Red Hat, SLES, and Ubuntu to match Chef 14.2 output. Finally it deprecates FreeBSD 10.3.
 
   **Foodcritic**
-      Foodcritic 14.0.0 adds support for Chef 14.2 metadata, makes it the default, and removes old Chef 13 metadata. It also updates rules for clarity, removes an unecessary rule, and adds a new rule saying when cookbooks have unecessary dependencies now that resources moved into core Chef. See the changelog for a full list of changes.
+      Foodcritic 14.0.0 adds support for Chef 14.2 metadata, makes it the default, and removes old Chef 13 metadata. It also updates rules for clarity, removes an unnecessary rule, and adds a new rule saying when cookbooks have unnecessary dependencies now that resources moved into core Chef. See the changelog for a full list of changes.
 
   **knife-acl**
       ``knife-acl`` is now included with ChefDK. This knife plugin allows admin users to modify Chef Server ACLs from their command line.
@@ -42,16 +114,17 @@ What's New in 3.1
      * ``knife-opc: 0.3.2 -> 0.4.0``
      * ``test-kitchen: 1.21.2 ->1.22.0``
 
-* *Security Updates**
+* **Security Updates**
 
   * **ffi**
+
     CVE-2018-1000201: DLL loading issue which can be hijacked on Windows OS
 
 What's New in 3.0
 =====================================================
 
 * **Chef 14.1.1**
-     ChefDK now ships with Chef 14.1.1. `Chef release notes </release_notes.html#what-s-new-in-14-1-1>`__ for more information on what’s new.
+     ChefDK now ships with Chef 14.1.1. See the `Chef 14.1 release notes </release_notes.html#what-s-new-in-14-1-1>`__ for more information on what’s new.
 
 * **Updated Operating System support**
      ChefDK now ships packages for Ubuntu 18.04 and Debian 9. In accordance with Chef’s platform End Of Life policy, ChefDK is no longer shipped on macOS 10.10.
@@ -63,7 +136,7 @@ What's New in 3.0
      Policyfiles now support git targets for included policies.
 
   .. code-block:: ruby
-  
+
     include_policy 'base_policy',
                   git: 'https://github.com/happychef/chef-repo.git',
                   branch: master,
@@ -78,8 +151,8 @@ What's New in 3.0
      InSpec has been updated from 1.51.21 to 2.1.68. InSpec 2.0 brings compliance automation to the cloud, with new resource types specifically built for AWS and Azure clouds. Along with these changes are major speed improvements and quality of life updates. Please visit ` Inspec <https://www.inspec.io>`__ for more information.
 
   * **ChefSpec**
-     ChefSpec has been updated to 7.2.1 with Fauxhai 6.2.0. This release removes all platforms that were previously marked as deprecated in Fauxhai. If you saw Fauxhai deprecation warnings during your ChefSpec runs you will now see failures. This update also adds 9 new platforms and updates existing data for Chef 14. To see a complete list of platforms that can be mocked in ChefSpec see https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md 2.
-  
+     ChefSpec has been updated to 7.2.1 with Fauxhai 6.2.0. This release removes all platforms that were previously marked as deprecated in Fauxhai. If you saw Fauxhai deprecation warnings during your ChefSpec runs you will now see failures. This update also adds 9 new platforms and updates existing data for Chef 14. To see a complete list of platforms that can be mocked in ChefSpec see https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md.
+
   * **Foodcritic**
      Foodcritic has been updated to from 12.3.0 to 13.1.1. This updates Foodcritic for Chef 13 or later by removing Chef 12 metadata and removing several legacy rules that suggested writing resources in a Chef 12 manner. The update also adds 9 new rules for writing custom resources and updating cookbooks to Chef 13 and 14, resolves several long standing file detection bugs, and improves performance.
 
@@ -107,7 +180,7 @@ What's New in 3.0
 
      * `CVE-2017-17742 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742>`__
      * `CVE-2018-6914 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914>`__
-     * `CVE-2018-8777 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777>`__ 
+     * `CVE-2018-8777 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777>`__
      * `CVE-2018-8778 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778>`__
      * `CVE-2018-8779 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779>`__
      * `CVE-2018-8780 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-69148780>`__
@@ -124,14 +197,14 @@ What's New in 2.5.3
 
 * **Chef 13.8.5**
 
-  ChefDK now ships with Chef 13.8.5. See the `Chef release notes </release_notes.html#what-s-new-in-13-8-5>`__ for more information.
+  ChefDK now ships with Chef 13.8.5. See the `Chef 13.8 release notes </release_notes.html#what-s-new-in-13-8-5>`__ for more information.
 
-* **Updated chef_version in cookbook generator** 
+* **Updated chef_version in cookbook generator**
 
   When running ``chef generate cookbook`` the generated cookbook will now specify a minimum Chef release of 12.14 not 12.1.
 
 * **Security Updates**
-  
+
   * Ruby has been updated to 2.4.3 to resolve `CVE-2017-17405 <https://nvd.nist.gov/vuln/detail/CVE-2017-17405>`__
   * OpenSSL has been updated to 1.0.2n to resolve `CVE-2017-3738 <https://nvd.nist.gov/vuln/detail/CVE-2017-3738>`__, `CVE-2017-3737 <https://nvd.nist.gov/vuln/detail/CVE-2017-3737>`__, `CVE-2017-3736 <https://nvd.nist.gov/vuln/detail/CVE-2017-3736>`__, and `CVE-2017-3735 <https://nvd.nist.gov/vuln/detail/CVE-2017-3735>`__
   * LibXML2 has been updated to 2.9.7 to fix `CVE-2017-15412 <https://access.redhat.com/security/cve/cve-2017-15412>`__
