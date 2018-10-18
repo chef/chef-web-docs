@@ -10,7 +10,6 @@ A Policyfile is an optional way to manage role, environment, and community cookb
 .. note:: Consider the following before using Policyfiles:
 
    * Policyfile is not supported as part of a Chef Automate workflow
-   * Policyfile is intended to be used with Chef server 12.3 or above, and Chef client 12.8 or above
 
 .. end_tag
 
