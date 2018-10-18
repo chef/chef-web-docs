@@ -35,35 +35,34 @@ The full syntax for all of the properties that are available to the **cron_d** r
 
 .. code-block:: ruby
 
-   cron_d 'name' do
-     command                    String
-     comment                    String
-     day                        String, Integer # default: '*'
-     environment                Hash # default: {}
-     home                       String
-     hour                       String, Integer # default: '*'
-     mailto                     String
-     minute                     String, Integer # default: '*'
-     mode                       String, Integer # default: '0600'
-     month                      String, Integer # default: '*'
-     notifies                   # see description
-     path                       String
-     predefined_value           String
-     random_delay               Integer
-     shell                      String
-     subscribes                 # see description
-     user                       String
-     weekday                    String, Integer # default: '*'
-     action                     Symbol # defaults to :create if not specified
-   end
+  cron_d 'name' do
+    command               String
+    comment               String
+    cookbook              String
+    cron_name             String # default value: 'name' unless specified
+    day                   Integer, String # default value: *
+    environment           Hash
+    home                  String
+    hour                  Integer, String # default value: *
+    mailto                String
+    minute                Integer, String # default value: *
+    mode                  String, Integer # default value: 0600
+    month                 Integer, String # default value: *
+    path                  String
+    predefined_value      String
+    random_delay          Integer
+    shell                 String
+    user                  String # default value: root
+    weekday               Integer, String # default value: *
+    action                Symbol # defaults to :create if not specified
+  end
 
-where
+where:
 
-* ``cron_d`` is the resource
-* ``name`` is the name of the resource block
-* ``command`` is the command to be run
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``command``, ``comment``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``mode``, ``month``, ``path``, ``predefined_value``, ``random_delay``, ``shell``, ``user``, and ``weekday`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``cron_d`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``command``, ``comment``, ``cookbook``, ``cron_name``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``mode``, ``month``, ``path``, ``predefined_value``, ``random_delay``, ``shell``, ``user``, and ``weekday`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -92,7 +91,7 @@ Properties
 The cron_d resource has the following properties:
 
 ``command``
-   **Ruby Type:** String
+   **Ruby Type:** String | ``REQUIRED``
 
    The command to be run, or the path to a file that contains the command to be run.
 
@@ -121,12 +120,21 @@ The cron_d resource has the following properties:
       command "/srv/app/scripts/daily_report"
 
 ``comment``
-   **Ruby Type:** String,
+   **Ruby Type:** String
 
    A comment to place in the cron.d file.
 
+
+``cookbook``
+   **Ruby Type:** String
+
+``cron_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
+
+   Set the name of the cron job. If this isn't specified we'll use the resource name.
+
 ``day``
-   **Ruby Type:** String, Integer | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``*``
 
    The day of month at which the cron entry should run (1 - 31).
 
@@ -141,7 +149,7 @@ The cron_d resource has the following properties:
    Set the ``HOME`` environment variable in the cron.d file."
 
 ``hour``
-   **Ruby Type:** String, Integer | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``*``
 
    The hour at which the cron entry is to run (0 - 23).
 
@@ -156,7 +164,7 @@ The cron_d resource has the following properties:
    Set the ``MAILTO`` environment variable in the cron.d file.
 
 ``minute``
-   **Ruby Type:** String, Integer | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``*``
 
    The minute at which the cron entry should run (0 - 59).
 
@@ -166,7 +174,7 @@ The cron_d resource has the following properties:
 
 
 ``month``
-   **Ruby Type:** String, Integer | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``*``
 
    The month in the year on which a cron entry is to run (1 - 12).
 
@@ -208,6 +216,12 @@ The cron_d resource has the following properties:
    **Ruby Type:** String
 
    Set the ``PATH`` environment variable in the cron.d file.
+
+
+``predefined_value``
+   **Ruby Type:** String
+
+   Schedule your cron job with one of the special predefined value instead of ** * pattern. This correspond to "@reboot", "@yearly", "@annually", "@monthly", "@weekly", "@daily", "@midnight" or "@hourly".
 
 ``random_delay``
    **Ruby Type:** Integer
@@ -284,12 +298,13 @@ The cron_d resource has the following properties:
    The name of the user that runs the command.
 
 ``weekday``
-   **Ruby Type:** String, Integer | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``*``
 
    The day of the week on which this entry is to run (``0-7``, ``mon-sun``, or ``*``), where Sunday is both 0 and 7.
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes
 
 **Run a program at a specified interval**
