@@ -21,7 +21,7 @@ To test your code for deprecations, you can put Test Kitchen in a mode where any
    provisioner:
      deprecations_as_errors: true
 
-and then run Test Kitchen as usual. Test Kitchen will fail if any deprecation errors are issued. This feature was added in Test Kitchen 1.13, which shipped in ChefDK 1.0.
+and then run Test Kitchen as usual. Test Kitchen will fail if any deprecation errors are issued.
 
 Silencing deprecation warnings
 =====================================================

@@ -89,7 +89,8 @@ where
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The dsc_resource resource has the following actions:
 
 ``:nothing``
    Default.
@@ -107,7 +108,7 @@ Properties
 =====================================================
 .. tag resource_dsc_resource_attributes
 
-This resource has the following properties:
+The dsc_resource resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** true, false | **Default Value:** ``false``
