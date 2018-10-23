@@ -57,7 +57,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6``, ``7``
    * - Solaris
      - ``sparc``, ``x86``
-     - ``11.2``, ``11.3``
+     - ``11.2``, ``11.3``, ``11.4``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
      - ``11 SP4``, ``12 SP1+``
