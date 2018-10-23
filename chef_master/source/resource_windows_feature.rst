@@ -58,12 +58,17 @@ Properties
 ``feature_name``
    **Ruby Type:** Array, String | **Default Value:** ``'name'``
 
-   The name of the feature(s) or role(s) to install, if it differs from the resource block name.
+   The name of the feature/role(s) to install. The same feature may have different names depending on the underlying resource being used (ie DHCPServer vs DHCP; DNS-Server-Full-Role vs DNS).
 
 ``management_tools``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Install all applicable management tools for the roles, role services, or features (PowerShell-only).
+
+``install_method``
+   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+   If DISM or PowerShell should be used for the installation. Note feature names differ between the two installation methods. Possible values: ``:windows_feature_dism``, ``:windows_feature_powershell``, ``:windows_feature_servermanagercmd``.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
