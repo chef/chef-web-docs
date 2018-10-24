@@ -193,41 +193,8 @@ This argument has the following options:
 ``--bootstrap-version VERSION``
     The version of the Chef Client to install.
 
-``--chef-zero-host HOST``
-    Host for starting chef-zero.
-
-``--chef-zero-port PORT``
-    Port or port range for starting chef-zero. Port ranges such as 100,1010 or 889-999, will try all given ports until one works.
-
-``--[no-]color``
-    Use color output. Default: enabled.
-
-``-c``, ``--config CONFIG``
-    Location of the configuration file.
-
-``--config-option OPTION=VALUE``
-    Override a single configuration option.
-
-``--defaults``
-    Accept default values for all questions.
-
-``--disable-editing``
-    Accept data without opening an editor.
-
-``-e``, ``--editor EDITOR``
-    Set the editor for use with interactive commands.
-
-``-E``, ``--environment ENVIRONMENT``
-    Set the Chef environment. This will be ignored in searches.
-
-``-F``, ``--format FORMAT``
-    Define the output format.
-
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
     The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
-
-``-h``, ``--help``
-    Show all options.
 
 ``--hint HINT_NAME[=HINT_FILE]``
     Specify Ohai Hint to be set on the bootstrap targeting multiple nodes. See ``--hint options`` to specify multiple hints.
@@ -249,9 +216,6 @@ This argument has the following options:
 
 ``-k``, ``--key KEY``
     API client key.
-
-``[no-]listen``
-    Define if a local mode (-z) server binds to a port.
 
 ``--msi-url URL``
     Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
@@ -280,9 +244,6 @@ This argument has the following options:
 ``--prerelease``
     Install the pre-release chef gems.
 
-``--print-after``
-    Show data after a destructive action.
-
 ``--profile PROFILE``
     Selects a credential profile
 
@@ -307,20 +268,11 @@ This argument has the following options:
 ``-u``, ``--user USER``
     API client username.
 
-``-V``, ``--verbose``
-    More verbose output. Use twice for maximum verbosity.
-
 ``-v``, ``--version``
     Show chef version.
 
 ``-x USERNAME``, ``--ssh-user USERNAME``
     The SSH username. Default: ``root``.
-
-``-y``, ``--yes``
-    Say "yes" to all confirmation prompts.
-
-``-z``, ``--local-mode``
-    Points knife commands at local repository instead of server.
 
 bootstrap windows winrm
 =====================================================
@@ -371,7 +323,6 @@ This argument has the following options:
 ``--bootstrap-proxy PROXY_URL``
    The proxy server for the node that is the target of a bootstrap operation.
 
-
 ``--bootstrap-vault-file VAULT_FILE``
     A JSON file with a list of vault(s) and item(s) to be updated.
 
@@ -384,44 +335,14 @@ This argument has the following options:
 ``--bootstrap-version VERSION``
    The version of the chef-client to install.
 
-``--chef-zero-host HOST``
-    Host for starting chef-zero.
-
-``--chef-zero-port PORT``
-    Port or port range for starting chef-zero. Port ranges such as 100,1010 or 889-999, will try all given ports until one works.
-
-``--[no-]color``
-    Use color output. Default: enabled.
-
-``-c``, ``--config CONFIG``
-    Location of the configuration file.
-
 ``-C``, ``--concurrency NUM``
     The number of allowed concurrent connections
-
-``--config-option OPTION=VALUE``
-    Override a single configuration option.
-
-``--defaults``
-    Accept default values for all questions.
-
-``--disable-editing``
-    Accept data without opening an editor.
-
-``-e``, ``--editor EDITOR``
-    Set the editor for use with interactive commands.
 
 ``-E``, ``--environment ENVIRONMENT``
     Set the Chef environment. This will be ignored in searches.
 
 ``-f CA_TRUST_FILE``, ``--ca-trust-file``
     The Certificate Authority (CA) trust file used for SSL transport
-
-``-F``, ``--format FORMAT``
-    Define the output format.
-
-``-h``, ``--help``
-    Show all options.
 
 ``--hint HINT_NAME[=HINT_FILE]``
     Specify Ohai Hint to be set on the bootstrap targeting multiple nodes. See ``--hint options`` to specify multiple hints.
@@ -437,9 +358,6 @@ This argument has the following options:
 
 ``-k``, ``--key KEY``
     API client key.
-
-``[no-]listen``
-    Define if a local mode (-z) server binds to a port.
 
 ``--msi-url URL``
     Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
@@ -471,9 +389,6 @@ This argument has the following options:
 ``--prerelease``
    Install pre-release gems.
 
-``--print-after``
-    Show data after a destructive action.
-
 ``--profile PROFILE``
     Selects a credential profile
 
@@ -502,7 +417,7 @@ This argument has the following options:
     SSL certificate fingerprint to bypass normal certificate chain checks.
 
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
-    Bootstrap Chef using a built-in or custom template. Set to the full path of an erb template or use one of the built-in templates.
+    Bootstrap Chef using a built-in or custom template. Set to the full path of an ``.erb`` template or use one of the built-in templates.
 
 ``-T``, ``--keytab-file KEYTAB_FILE``
     The Kerberos keytab file used for authentication.
@@ -512,9 +427,6 @@ This argument has the following options:
 
 ``-u``, ``--user USER``
     API client username.
-
-``-V``, ``--verbose``
-    More verbose output. Use twice for maximum verbosity.
 
 ``-v``, ``--version``
     Show chef version.
@@ -526,7 +438,7 @@ This argument has the following options:
     The authentication protocol used during WinRM communication. The supported protocols are basic,negotiate,kerberos. Default is 'negotiate'.
 
 ``--winrm-codepage CODEPAGE``
-    The codepage to use for the winrm cmd shell
+    The codepage to use for the winrm cmd shell.
 
 ``--winrm-shell SHELL``
       The WinRM shell type. Values: ``cmd``, ``powershell``, ``elevated``. ``elevated`` runs powershell in a scheduled task
@@ -536,12 +448,6 @@ This argument has the following options:
 
 ``-x USERNAME``, ``--ssh-user USERNAME``
     The SSH username. Default: ``root``.
-
-``-y``, ``--yes``
-    Say "yes" to all confirmation prompts.
-
-``-z``, ``--local-mode``
-    Points knife commands at local repository instead of server.
 
 cert generate
 =====================================================
