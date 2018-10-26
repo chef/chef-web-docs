@@ -57,7 +57,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6``, ``7``
    * - Solaris
      - ``sparc``, ``x86``
-     - ``11.2``, ``11.3``
+     - ``11.2``, ``11.3``, ``11.4``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
      - ``11 SP4``, ``12 SP1+``
@@ -108,13 +108,13 @@ The following platforms are supported only via the community:
      - ``x86_64``
      - ``Windows Server, Semi-annual channel (SAC) (Server Core only)``
 
-Chef DK
+ChefDK
 ------------------------------------------------------
 
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms and versions for the Chef Development Kit (Chef DK):
+The following table lists the commercially-supported platforms and versions for the Chef Development Kit (ChefDK):
 
 .. list-table::
    :widths: 280 100 120
@@ -516,15 +516,15 @@ Versions and Status
      - 12.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
      - April 30, 2018
-   * - Chef DK
+   * - ChefDK
      - 3.x
      - GA
      - n/a
-   * - Chef DK
+   * - ChefDK
      - 2.x
      - Deprecated
      - n/a
-   * - Chef DK
+   * - ChefDK
      - 1.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
      - April 30, 2018

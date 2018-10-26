@@ -14,6 +14,8 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
              The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
 
              .. end_tag
+             
+**New in Chef Client 12.7.**
 
 Syntax
 =====================================================
@@ -32,23 +34,20 @@ The full syntax for all of the properties that are available to the **chocolatey
 .. code-block:: ruby
 
    chocolatey_package 'name' do
-     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
+     returns                    Integer, Array # default value: [0]
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
-     returns                    Integer, Array of Integers
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``chocolatey_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``returns`` specifies the exit code(s) returned by chocolatey package that indicate success. Default is 0.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``chocolatey_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -92,7 +91,7 @@ Properties
 =====================================================
 .. tag resource_package_chocolatey_attributes
 
-This resource has the following properties:
+The chocolatey_package resource has the following properties:
 
 ``ignore_failure``
    **Ruby Types:** true, false | **Default Value:** ``false``
@@ -139,7 +138,7 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -208,12 +207,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 

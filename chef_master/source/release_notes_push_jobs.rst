@@ -14,7 +14,7 @@ This release includes an important fix for a number of deadlock scenarios. We en
 
 This also includes a number of maintenance items, including:
 
-Ruby and Rubygems upgraded to 2.4.4 and 2.7.6, respectively, to include a number of security fixes.
+Ruby and RubyGems upgraded to 2.4.4 and 2.7.6, respectively, to include a number of security fixes.
 Chef Client (packaged as a library) upgraded to 14.0.202
 Other dependencies upgraded to latest
 

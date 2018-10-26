@@ -233,7 +233,7 @@ Solver Keyword
 
 It is possible to configure which engine to use for the `solve <https://github.com/berkshelf/solve>`__ dependency resolution system.
 
-By default, the solver selection depends on your environment. When the ``dep_selector`` gem is installed, as in the case of Chef DK, the ``gecode`` solver is used. Otherwise, the ``ruby`` solver is utilized by default.
+By default, the solver selection depends on your environment. When the ``dep_selector`` gem is installed, as in the case of ChefDK, the ``gecode`` solver is used. Otherwise, the ``ruby`` solver is utilized by default.
 
 The ``gecode`` solver matches the engine used by the Chef Server, so will more closely reflect the behavior of the Chef Server in selecting cookbooks:
 

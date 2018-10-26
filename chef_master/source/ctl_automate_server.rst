@@ -562,7 +562,7 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
                                             You can pass the password in directly or you will be prompted if you simply pass --password.
                                             If --ssh-identify-file is also passed, will only be used for sudo access
 
-      -v, --chefdk-version VERSION          Custom version of the ChefDK you wish to download and install.
+      -v, --chefdk-version VERSION          Custom version of ChefDK you wish to download and install.
                                             This option cannot be passed with --installer as that option specifies using a package local to this server.
                                             If neither are passed, the latest ChefDK will be downloaded remotely
 

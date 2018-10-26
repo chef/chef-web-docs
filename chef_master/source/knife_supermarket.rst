@@ -12,7 +12,7 @@ The ``knife supermarket`` subcommand is used to interact with cookbooks that are
 
 .. note:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef Development Kit. For more information about the Chef Development Kit, see `About the Chef DK </about_chefdk.html>`__.
+          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef Development Kit. For more information about the Chef Development Kit, see `About ChefDK </about_chefdk.html>`__.
 
           .. end_tag
 

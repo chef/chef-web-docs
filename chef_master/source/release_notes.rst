@@ -856,7 +856,7 @@ What's New in 13.7.16
 
 * **Credentials Handling**
 
-  Previously, Chef DK workstations used ``knife.rb`` or ``config.rb`` to handle credentials. This didn’t do a great job of interacting with multiple Chef servers, which lead to the need for tools like `knife_block <https://github.com/knife-block/knife-block>`__. We’ve added support for a credentials file that contains configuration information for many Chef servers / organizations, and we’ve made it easy to indicate which account you mean to use.
+  Previously, ChefDK workstations used ``knife.rb`` or ``config.rb`` to handle credentials. This didn’t do a great job of interacting with multiple Chef servers, which lead to the need for tools like `knife_block <https://github.com/knife-block/knife-block>`__. We’ve added support for a credentials file that contains configuration information for many Chef servers / organizations, and we’ve made it easy to indicate which account you mean to use.
 
 * **Bug Fixes**
 
@@ -1120,7 +1120,7 @@ What's New in 13.0/13.1
 =====================================================
 
 * **Blacklist attributes**
-* **Rubygems sources**
+* **RubyGems sources**
 * **windows_task resource**
 * **Chef client will now exit using the rfc062 defined exit codes**
 * **New default encrypted databag format**
@@ -1196,7 +1196,7 @@ For attributes that contain slashes (``/``) within the attribute value, such as 
 
 .. end_tag
 
-Rubygems provider sources behavior changed.
+RubyGems provider sources behavior changed.
 -----------------------------------------------------
 The behavior of ``gem_package`` and ``chef_gem`` is now to always apply the ``Chef::Config[:rubygems_uri]`` sources, which may be a string uri or an array of strings.  If additional sources are put on the resource with the ``source`` property those are added to the configured ``:rubygems_uri`` sources.
 
@@ -1469,7 +1469,7 @@ Please use ``knife cookbook site install`` instead.
 
 ``knife cookbook create`` has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Please use ``chef generate cookbook`` from the ChefDK instead.
+Please use ``chef generate cookbook`` from ChefDK instead.
 
 Verify commands no longer support "%{file}"
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1532,7 +1532,7 @@ This release fixes an issue in our Windows security support code that would occa
 
 This issue is also fixed in the recent Chef 14.0.190 release, and will be included in the next Chef 13 release expected by the end of the month.
 
-This is the final planned Chef 12 release, which is currently deprecated and will become End of Life on April 30th. For additional information on that process, please see our `Chef 12 and Chef DK 1 EOL information <https://www.chef.io/eol-chef12-and-chefdk1>`__.
+This is the final planned Chef 12 release, which is currently deprecated and will become End of Life on April 30th. For additional information on that process, please see our `Chef 12 and ChefDK 1 EOL information <https://www.chef.io/eol-chef12-and-chefdk1>`__.
 
 What's New in 12.22.1
 =====================================================
@@ -1626,7 +1626,7 @@ What's New in 12.21.4
 
 * **Improved Resource Reporting** Resource reporting for Chef Automate has been improved
 * **Ruby Upgrade** Ruby has been updated to 2.3.4
-* **Rubygems Upgrade** Rubygems has been updated to 2.6.12 to prevent a segfault on Windows
+* **RubyGems Upgrade** RubyGems has been updated to 2.6.12 to prevent a segfault on Windows
 * **Policyfile fix** Chef client now properly sends expanded run list events for policy file nodes
 
 What's New in 12.21.1

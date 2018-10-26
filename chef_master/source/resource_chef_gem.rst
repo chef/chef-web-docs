@@ -49,11 +49,11 @@ The full syntax for all of the properties that are available to the **chef_gem**
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``chef_gem`` tells the chef-client to manage a gem
-* ``'name'`` is the name of the gem
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``chef_gem`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``clear_sources``, ``include_default_source``, ``gem_binary``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -84,7 +84,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The chef_gem resource has the following properties:
 
 ``clear_sources``
    **Ruby Types:** true, false | **Default Value:** ``false``
@@ -101,7 +102,7 @@ This resource has the following properties:
                 end
 
 ``compile_time``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
@@ -111,11 +112,11 @@ This resource has the following properties:
    The path of a gem binary to use for the installation. By default, the same version of Ruby that is used by the chef-client will be installed.
 
 ``include_default_source``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
-   New in Chef Client 13.0
+   New in Chef Client 13.0.
 
 ``ignore_failure``
    **Ruby Types:** true, false | **Default Value:** ``false``
