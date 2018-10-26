@@ -48,7 +48,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``10``, ``11``
    * - macOS
      - ``x86_64``
-     - ``10.11``, ``10.12``, ``10.13``
+     - ``10.11``, ``10.12``, ``10.13``, ``10.14``
    * - Oracle Enterprise Linux
      - ``x86_64``
      - ``6.x``, ``7.x``
@@ -125,7 +125,7 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - macOS
      -
-     - ``10.11``, ``10.12``, ``10.13``
+     - ``10.11``, ``10.12``, ``10.13``, ``10.14``
    * - Red Hat Enterprise Linux
      -
      - ``6``, ``7``
