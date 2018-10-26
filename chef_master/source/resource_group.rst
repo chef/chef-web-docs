@@ -83,7 +83,7 @@ The group resource has the following properties:
    The name of the group. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -93,7 +93,7 @@ The group resource has the following properties:
    Which users should be set or appended to a group. When more than one group member is identified, the list of members should be an array: ``members ['user1', 'user2']``.
 
 ``non_unique``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Allow ``gid`` duplication. May only be used with the ``Groupadd`` provider.
 
@@ -191,9 +191,9 @@ The group resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Show if a group belongs to a system group. Set to ``true`` if the group belongs to a system group.
+   Set if a group belongs to a system group. Set to ``true`` if the group belongs to a system group.
 
 Examples
 =====================================================

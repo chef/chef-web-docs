@@ -68,7 +68,7 @@ This resource has the following properties:
    Use to specify if this resource defines a chef-client completely. When ``true``, any property not specified by this resource will be reset to default property values.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

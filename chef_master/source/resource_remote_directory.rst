@@ -93,7 +93,7 @@ The remote_directory resource has the following properties:
    The cookbook in which a file is located (if it is not located in the current cookbook). The default value is the current cookbook.
 
 ``files_backup``
-   **Ruby Types:** Integer, false | **Default Value:** ``5``
+   **Ruby Type:** Integer, false | **Default Value:** ``5``
 
    The number of backup copies to keep for files in the directory.
 
@@ -117,22 +117,22 @@ The remote_directory resource has the following properties:
    Configure owner permissions for files. A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
 ``group``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Use to configure permissions for directories. A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
 ``inherits``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
@@ -177,12 +177,12 @@ The remote_directory resource has the following properties:
    .. end_tag
 
 ``overwrite``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Overwrite a file when it is different.
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Use to configure permissions for directories. A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
@@ -192,12 +192,12 @@ The remote_directory resource has the following properties:
    The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``purge``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Purge extra files found in the target directory.
 
 ``recursive``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Create or delete directories recursively. Default value: ``true``; the chef-client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
 
@@ -212,7 +212,7 @@ The remote_directory resource has the following properties:
    The retry delay (in seconds).
 
 ``rights``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 

@@ -55,7 +55,7 @@ This resource has the following properties:
    Use to specify the format of a public key. Possible values: ``pem`` and ``der``. Default value: ``pem``.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

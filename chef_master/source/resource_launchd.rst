@@ -269,12 +269,12 @@ This resource has the following properties:
 The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the Apple man page documentation for launchd for more information about these keys:
 
 ``abandon_process_group``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    If a job dies, all remaining processes with the same process ID may be kept running. Set to ``true`` to kill all remaining processes.
 
 ``debug``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
@@ -428,7 +428,7 @@ The following resource properties may be used to define keys in the XML property
    The frequency (in seconds) at which a job is started.
 
 ``start_on_mount``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Start a job every time a file system is mounted.
 
@@ -453,7 +453,7 @@ The following resource properties may be used to define keys in the XML property
    When launchd is run as the root user, the user to run the job as.
 
 ``wait_for_debugger``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Specify if launchd has a job wait for a debugger to attach before executing code.
 

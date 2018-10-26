@@ -74,7 +74,7 @@ This resource has the following properties:
    The name of the Ruby block. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

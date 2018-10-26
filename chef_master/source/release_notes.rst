@@ -1710,7 +1710,7 @@ Properties
 The following properties are new or updated for the ``execute``, ``script``, ``batch``, and ``powershell_script`` resources and any resources derived from them:
 
 ``user``
-  **Ruby types:** String
+  **Ruby Type:** String
   The user name of the user identity with which to launch the new process. The user name may optionally be specified with a domain, i.e. ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as ``user`` if the domain is instead specified using the ``domain`` attribute. On Windows only, if this property is specified, the ``password`` property **must** be specified.
 
 ``password``
@@ -2844,7 +2844,7 @@ Properties
 This resource has the following properties:
 
 ``backup``
-   **Ruby Types:** Integer, false
+   **Ruby Type:** Integer, false
 
    The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 
@@ -2854,7 +2854,7 @@ This resource has the following properties:
    The name of the cookbook in which the source files are located.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    When launchd is run as the root user, the group to run the job as. If the ``username`` property is specified and this property is not, this value is set to the default group for the user.
 
@@ -2864,7 +2864,7 @@ This resource has the following properties:
    A Hash of key value pairs used to create the launchd property list.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -2874,7 +2874,7 @@ This resource has the following properties:
    The unique identifier for the job.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
@@ -2919,7 +2919,7 @@ This resource has the following properties:
    .. end_tag
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
@@ -3010,27 +3010,27 @@ This resource has the following properties:
 The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the Apple man page documentation for launchd for more information about these keys:
 
 ``abandon_process_group``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    If a job dies, all remaining processes with the same process ID may be kept running. Set to ``true`` to kill all remaining processes.
 
 ``debug``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
 ``disabled``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Hints to ``launchctl`` to not submit this job to launchd.
 
 ``enable_globbing``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Update program arguments before invocation.
 
 ``enable_transactions``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Track in-progress transactions; if none, then send the ``SIGKILL`` signal.
 
@@ -3055,19 +3055,19 @@ The following resource properties may be used to define keys in the XML property
    Specifies if a daemon expects to be run as if it were launched from ``inetd``. Set to ``wait => true`` to pass standard input, output, and error file descriptors. Set to ``wait => false`` to call the ``accept`` system call on behalf of the job, and then pass standard input, output, and error file descriptors.
 
 ``init_groups``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
 
 ``keep_alive``
-   **Ruby Types:** true, false, Hash | **Default Value:** ``false``
+   **Ruby Type:** true, false, Hash | **Default Value:** ``false``
 
    Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``).
 
    Hash type was added in Chef client 12.14.
 
 ``launch_only_once``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Specify if a job can be run only one time. Set this value to ``true`` if a job cannot be restarted without a full machine reboot.
 
@@ -3087,7 +3087,7 @@ The following resource properties may be used to define keys in the XML property
    The session type to which this configuration file applies.
 
 ``low_priority_io``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Specify if the kernel on the node should consider this daemon to be low priority during file system I/O.
 
@@ -3102,7 +3102,7 @@ The following resource properties may be used to define keys in the XML property
    The program scheduling priority value in the range ``-20`` to ``20``.
 
 ``on_demand``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
@@ -3132,7 +3132,7 @@ The following resource properties may be used to define keys in the XML property
    ``chroot`` to this directory, and then run the job.
 
 ``run_at_load``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Launch a job once (at the time it is loaded).
 
@@ -3171,7 +3171,7 @@ The following resource properties may be used to define keys in the XML property
    The frequency (in seconds) at which a job is started.
 
 ``start_on_mount``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Start a job every time a file system is mounted.
 
@@ -3196,7 +3196,7 @@ The following resource properties may be used to define keys in the XML property
    When launchd is run as the root user, the user to run the job as.
 
 ``wait_for_debugger``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Specify if launchd has a job wait for a debugger to attach before executing code.
 
@@ -3378,7 +3378,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -3422,7 +3422,7 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -3491,12 +3491,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -3604,7 +3604,7 @@ This resource has the following properties:
    Use to specify the identifier for the profile, such as ``com.company.screensaver``.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -3643,7 +3643,7 @@ This resource has the following properties:
    .. end_tag
 
 ``profile``
-   **Ruby Types:** String, Hash
+   **Ruby Type:** String, Hash
 
    Use to specify a profile. This may be the name of a profile contained in a cookbook or a Hash that contains the contents of the profile.
 
@@ -3878,7 +3878,7 @@ This resource has the following properties:
    Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -4149,12 +4149,12 @@ This resource has the following properties:
    One or more command line flags that are passed to the interpreter when a command is invoked.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -4222,7 +4222,7 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array | **Default Value:** ``0``
+   **Ruby Type:** Integer, Array | **Default Value:** ``0``
 
    The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
@@ -4276,17 +4276,17 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float | **Default Value:** ``3600``
+   **Ruby Type:** Integer, Float | **Default Value:** ``3600``
 
    The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The user name or user ID that should be changed before running a command.
 
 ``umask``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The file mode creation mask, or umask.
 
@@ -6173,7 +6173,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -7696,7 +7696,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -7737,7 +7737,7 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -7803,12 +7803,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -7901,7 +7901,7 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -7942,7 +7942,7 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -8008,12 +8008,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -8912,7 +8912,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -8953,7 +8953,7 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -9019,12 +9019,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -9150,7 +9150,7 @@ Properties
 This resource has the following properties:
 
 ``homebrew_user``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The name of the Homebrew owner to be used by the chef-client when executing a command.
 
@@ -9161,7 +9161,7 @@ This resource has the following properties:
    .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -9202,7 +9202,7 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -9268,12 +9268,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -9413,7 +9413,7 @@ This resource has the following properties:
    The amount of time (in minutes) to delay a reboot request.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -9629,7 +9629,7 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

@@ -63,7 +63,8 @@ where
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The file resource has the following actions:
 
 ``:create``
    Default. Create a file. If a file already exists (but does not match), update that file to match.
@@ -89,17 +90,17 @@ Properties
 This resource has the following properties:
 
 ``atomic_update``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file.
 
 ``backup``
-   **Ruby Types:** false, Integer | **Default Value:** ``5``
+   **Ruby Type:** false, Integer | **Default Value:** ``5``
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept.
 
 ``checksum``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The SHA-256 checksum of the file. Use to ensure that a specific file is used. If the checksum does not match, the file is not used. Default value: no checksum required.
 
@@ -109,34 +110,34 @@ This resource has the following properties:
    A string that is written to the file. The contents of this property replace any previous content when this property has something other than the default value. The default behavior will not modify content.
 
 ``force_unlink``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error.
 
 ``group``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
 ``inherits``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory.
 
 ``manage_symlink_source``
-   **Ruby Types:** true, false | **Default Value:** ``true`` (with warning)
+   **Ruby Type:** true, false | **Default Value:** ``true`` (with warning)
 
    Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of symlink's target file.
 
    The default behavior is ``true`` but emits a warning that the default value will be changed to ``false`` in a future version; setting this explicitly to ``true`` or ``false`` suppresses this warning.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
@@ -181,7 +182,7 @@ This resource has the following properties:
    .. end_tag
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
@@ -203,12 +204,12 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``rights``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
 ``sensitive``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Ensure that sensitive resource data is not logged by the chef-client.
 
@@ -262,7 +263,7 @@ This resource has the following properties:
    .. end_tag
 
 ``verify``
-   **Ruby Types:** String, Block
+   **Ruby Type:** String, Block
 
    Allows verification of a file's contents before it is created. Creates a temporary file and then allows execution of commands or Ruby code. If this code evaluates to true, the file is created. If the code evaluates to false, an error is raised.
 

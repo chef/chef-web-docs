@@ -104,12 +104,12 @@ Properties
 This resource has the following properties:
 
 ``atomic_update``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file.
 
 ``backup``
-   **Ruby Types:** false, Integer | **Default Value:** ``5``
+   **Ruby Type:** false, Integer | **Default Value:** ``5``
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept.
 
@@ -119,17 +119,17 @@ This resource has the following properties:
    Optional, see ``use_conditional_get``. The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it.
 
 ``force_unlink``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error.
 
 ``ftp_active_mode``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Whether the chef-client uses active or passive FTP. Set to ``true`` to use active FTP.
 
 ``group``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
@@ -155,24 +155,24 @@ This resource has the following properties:
       headers( "Authorization"=>"Basic #{ Base64.encode64("#{username}:#{password}").gsub("\n", "") }" )
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
 ``inherits``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory.
 
 ``manage_symlink_source``
-   **Ruby Types:** true, false | **Default Value:** ``true`` (with warning)
+   **Ruby Type:** true, false | **Default Value:** ``true`` (with warning)
 
    Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
 
    The default behavior is ``true`` but emits a warning that the default value will be changed to ``false`` in a future version; setting this explicitly to ``true`` or ``false`` suppresses this warning.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
@@ -217,7 +217,7 @@ This resource has the following properties:
    .. end_tag
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
@@ -227,21 +227,21 @@ This resource has the following properties:
    The full path to the file, including the file name and its extension. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``remote_user``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    **Windows only** The name of a user with access to the remote file specified by the ``source`` property. The user name may optionally be specified with a domain, such as: ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. The domain may also be set using the ``remote_domain`` property. Note that this property is ignored if ``source`` is not a UNC path. If this property is specified, the ``remote_password`` property is required.
 
    New in Chef client 13.4
 
 ``remote_password``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    **Windows only** The password of the user specified by the ``remote_user`` property. This property is required if `remote_user` is specified and may only be specified if ``remote_user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``remote_password`` is specified.
 
    New in Chef client 13.4
 
 ``remote_domain``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    **Windows only** The domain of the user specified by the ``remote_user`` property. By default the resource will authenticate against the domain of the remote system, or as a local account if the remote system is not joined to a domain. If the remote system is not part of a domain, it is necessary to authenticate as a local user on the remote system by setting the domain to ``.``, for example: ``remote_domain "."``. The domain may also be specified as part of the ``remote_user`` property.
 
@@ -258,12 +258,12 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``rights``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
 ``source``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    Required. The location of the source file. The location of the source file may be HTTP (``http://``), FTP (``ftp://``), SFTP (``sftp://``), local (``file:///``), or UNC (``\\host\share\file.tar.gz``).
 
@@ -373,27 +373,27 @@ This resource has the following properties:
    .. end_tag
 
 ``use_conditional_get``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Enable conditional HTTP requests by using a conditional ``GET`` (with the If-Modified-Since header) or an opaque identifier (ETag). To use If-Modified-Since headers, ``use_last_modified`` must also be set to ``true``. To use ETag headers, ``use_etag`` must also be set to ``true``.
 
 ``use_etag``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Enable ETag headers. Set to ``false`` to disable ETag headers. To use this setting, ``use_conditional_get`` must also be set to ``true``.
 
 ``use_last_modified``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Enable If-Modified-Since headers. Set to ``false`` to disable If-Modified-Since headers. To use this setting, ``use_conditional_get`` must also be set to ``true``.
 
 ``show_progess``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Displays the progress of the file download. Set to ``true`` to enable this feature.
 
 ``verify``
-   **Ruby Types:** String, Block
+   **Ruby Type:** String, Block
 
    A block or a string that returns ``true`` or ``false``. A string, when ``true`` is executed as a system command.
 

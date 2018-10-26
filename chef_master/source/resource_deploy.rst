@@ -285,22 +285,22 @@ Properties
 This resource has the following properties:
 
 ``after_restart``
-   **Ruby Types:** Proc, String
+   **Ruby Type:** Proc, String
 
    A block of code, or a path to a file that contains code, that is run after restarting. Default value: ``deploy/after_restart.rb``.
 
 ``before_migrate``
-   **Ruby Types:** Proc, String
+   **Ruby Type:** Proc, String
 
    A block of code, or a path to a file that contains code, that is run before a migration. Default value: ``deploy/before_migrate.rb``.
 
 ``before_restart``
-   **Ruby Types:** Proc, String
+   **Ruby Type:** Proc, String
 
    A block of code, or a path to a file that contains code, that is run before restarting. Default value: ``deploy/before_restart.rb``.
 
 ``before_symlink``
-   **Ruby Types:** Proc, String
+   **Ruby Type:** Proc, String
 
    A block of code, or a path to a file that contains code, that is run before symbolic linking. Default value: ``deploy/before_symlink.rb``.
 
@@ -330,7 +330,7 @@ This resource has the following properties:
    The system group that is responsible for the checked-out code.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -340,7 +340,7 @@ This resource has the following properties:
    The number of releases for which a backup is kept.
 
 ``migrate``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Run a migration command.
 
@@ -404,7 +404,7 @@ This resource has the following properties:
    The name of the sub-directory in which the pristine copy of an application's source is kept.
 
 ``restart_command``
-   **Ruby Types:** String, Proc
+   **Ruby Type:** String, Proc
 
    A string that contains a shell command that can be executed to run a restart operation.
 
@@ -424,7 +424,7 @@ This resource has the following properties:
    A branch, tag, or commit to be synchronized with git. This can be symbolic, like ``HEAD`` or it can be a source control management-specific revision identifier.
 
 ``rollback_on_error``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Roll a resource back to a previously-deployed release if an error occurs when deploying a new release.
 
@@ -510,7 +510,7 @@ The following properties are for use with git only:
    The depth of a git repository, truncated to the specified number of revisions. See ``shallow_clone``.
 
 ``enable_submodules``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Perform a sub-module initialization and update.
 
@@ -525,7 +525,7 @@ The following properties are for use with git only:
    The remote repository to use when synchronizing an existing clone.
 
 ``shallow_clone``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Set the clone depth to ``5``. If a depth other than ``5`` is required, use the ``depth`` property instead of ``shallow_clone``.
 

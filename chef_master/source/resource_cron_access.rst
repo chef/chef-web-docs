@@ -54,7 +54,7 @@ The cron_access resource has the following properties:
    The user to allow or deny. If not provided we'll use the resource name.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

@@ -104,7 +104,7 @@ Properties
    Options to pass to the ``brew`` command during installation.
 
 ``owner``
-   **Ruby Type:** String | **Default Value:** ``lazy { find_homebrew_username }``
+   **Ruby Type:** String
    
    The owner of the Homebrew installation.
    

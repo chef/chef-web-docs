@@ -79,22 +79,22 @@ Properties
 The link resource has the following properties:
 
 ``group``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** String, Integer
 
    A string or ID that identifies the group associated with a symbolic link.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
 ``link_type``
-   **Ruby Type:** Symbol | **Default Value:** ``:symbolic``
+   **Ruby Type:** String, Symbol | **Default Value:** ``:symbolic``
 
    The type of link: ``:symbolic`` or ``:hard``.
 
 ``mode``
-   **Ruby Types:** Integer, String | **Default Value:** ``777``
+   **Ruby Type:** Integer, String | **Default Value:** ``777``
 
    If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``. 
 
@@ -139,7 +139,7 @@ The link resource has the following properties:
    .. end_tag
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    The owner associated with a symbolic link.
 

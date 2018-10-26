@@ -96,12 +96,12 @@ This resource has the following properties:
    One or more command line flags that are passed to the interpreter when a command is invoked.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -169,7 +169,7 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array | **Default Value:** ``0``
+   **Ruby Type:** Integer, Array | **Default Value:** ``0``
 
    The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
@@ -223,17 +223,17 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float | **Default Value:** ``3600``
+   **Ruby Type:** Integer, Float | **Default Value:** ``3600``
 
    The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The user name or user ID that should be changed before running a command.
 
 ``umask``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The file mode creation mask, or umask.
 

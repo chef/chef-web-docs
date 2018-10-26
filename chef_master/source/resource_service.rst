@@ -80,7 +80,7 @@ Properties
 The service resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -134,7 +134,7 @@ The service resource has the following properties:
    The pattern to look for in the process table.
 
 ``priority``
-   **Ruby Types:** Integer, String, Hash
+   **Ruby Type:** Integer, String, Hash
 
    Debian platform only. The relative priority of the program for start and shutdown ordering. May be an integer or a Hash. An integer is used to define the start run levels; stop run levels are then 100-integer. A Hash is used to define values for specific run levels. For example, ``{ 2 => [:start, 20], 3 => [:stop, 55] }`` will set a priority of twenty for run level two and a priority of fifty-five for run level three.
 

@@ -78,10 +78,10 @@ The full syntax for all of the properties that are available to the **dsc_resour
      subscribes                 # see description
    end
 
-where
+where:
 
-* ``dsc_resource`` is the resource
-* ``name`` is the name of the resource block
+* ``dsc_resource`` is the resource.
+* ``name`` is the name given to the resource block.
 * ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
 * ``module_name``, ``module_version``, ``property``, and ``resource`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -111,7 +111,7 @@ Properties
 The dsc_resource resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

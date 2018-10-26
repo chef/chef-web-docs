@@ -557,7 +557,7 @@ This resource has the following properties:
    A quoted (" ") string of code to be executed.
 
 ``command``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the command to be executed.
 
@@ -577,7 +577,7 @@ This resource has the following properties:
    One or more command line flags that are passed to the interpreter when a command is invoked.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The group name or group ID that must be changed before running a command.
 
@@ -587,7 +587,7 @@ This resource has the following properties:
    When this property is set to ``:batch``, the 64-bit version of the cmd.exe shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -641,7 +641,7 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array | **Default Value:** ``0``
+   **Ruby Type:** Integer, Array | **Default Value:** ``0``
 
    The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
@@ -695,23 +695,23 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float | **Default Value:** ``3600``
+   **Ruby Type:** Integer, Float | **Default Value:** ``3600``
 
    The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The user name of the user identity with which to launch the new process. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    *Windows only*: The password of the user specified by the `user` property.
    This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
 
 ``domain``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    *Windows only*: The domain of the user user specified by the `user` property.
    If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
@@ -861,7 +861,7 @@ Attributes
 The dsc_resource resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -1313,7 +1313,7 @@ This resource has the following properties:
    Pass parameters to the DSC script that is specified by the ``command`` property. Parameters are defined as key-value pairs, where the value of each key is the parameter to pass. This property may not be used in the same recipe as the ``code`` property. For example: ``flags ({ :EditorChoice => 'emacs', :EditorFlags => '--maximized' })``.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -1442,7 +1442,7 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer
+   **Ruby Type:** Integer
 
    The amount of time (in seconds) a command is to wait before timing out.
 
@@ -1722,7 +1722,7 @@ This resource has the following properties:
    The delimiter that is used to separate multiple values for a single key.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -1944,12 +1944,12 @@ This resource has the following properties:
    A quoted (" ") string of code to be executed.
 
 ``command``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the command to be executed. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``convert_boolean_return``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Return ``0`` if the last line of a command is evaluated to be true or to return ``1`` if the last line is evaluated to be false.
 
@@ -1993,7 +1993,7 @@ This resource has the following properties:
    A string that is passed to the Windows PowerShell command. Default value (Windows PowerShell 3.0+): ``-NoLogo, -NonInteractive, -NoProfile, -ExecutionPolicy Bypass, -InputFormat None``.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    Inherited from **execute** resource. The group name or group ID that must be changed before running a command.
 
@@ -2003,7 +2003,7 @@ This resource has the following properties:
    When this property is set to ``:powershell_script``, the 64-bit version of the Windows PowerShell shell will be used to evaluate strings values for the ``not_if`` and ``only_if`` properties. Set this value to ``:default`` to use the 32-bit version of the cmd.exe shell.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -2057,12 +2057,12 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array | **Default Value:** ``0``
+   **Ruby Type:** Integer, Array | **Default Value:** ``0``
 
    Inherited from **execute** resource. The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
 ``sensitive``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Ensure that sensitive resource data is not logged by the chef-client.
 
@@ -2116,23 +2116,23 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float
+   **Ruby Type:** Integer, Float
 
    Inherited from **execute** resource. The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
 
 ``user``
-   **Ruby Types:** String | **Default Value:** ``nil``
+   **Ruby Type:** String | **Default Value:** ``nil``
 
    The user name of the user identity with which to launch the new process. The user name may optionally be specified with a domain, i.e. `domain\\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    *Windows only*: The password of the user specified by the `user` property.
    Default value: `nil`. This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
 
 ``domain``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    *Windows only*: The domain of the user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
@@ -2596,7 +2596,7 @@ This resource has the following properties:
              .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -2641,7 +2641,7 @@ This resource has the following properties:
    .. end_tag
 
 ``recursive``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 
@@ -2718,7 +2718,7 @@ This resource has the following properties:
    .. end_tag
 
 ``values``
-   **Ruby Types:** Hash, Array
+   **Ruby Type:** Hash, Array
 
    An array of hashes, where each Hash contains the values that are to be set under a registry key. Each Hash must contain ``name:``, ``type:``, and ``data:`` (and must contain no other key values).
 
@@ -2902,7 +2902,7 @@ This resource has the following properties:
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -2966,7 +2966,7 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array of integers | **Default Value:** ``0``
+   **Ruby Type:** Integer, Array of integers | **Default Value:** ``0``
 
    A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely. This code signals a successful ``:install`` action.
 
@@ -3035,12 +3035,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer | **Default Value:** ``600`` (seconds)
+   **Ruby Type:** String, Integer | **Default Value:** ``600`` (seconds)
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -3292,21 +3292,21 @@ The windows_service resource has the following properties:
    New in Chef Client 14.0.
 
 ``dependencies``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
    New in Chef Client 14.0.
 
 ``description``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    Description of the service.
 
    New in Chef Client 14.0.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -3316,7 +3316,7 @@ The windows_service resource has the following properties:
    The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes.
 
 ``load_order_group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 

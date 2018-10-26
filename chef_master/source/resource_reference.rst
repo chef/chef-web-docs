@@ -50,7 +50,7 @@ Properties
 The following properties are common to every resource:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -65,7 +65,7 @@ The following properties are common to every resource:
    The retry delay (in seconds).
 
 ``sensitive``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Ensure that sensitive resource data is not logged by the chef-client.
 
