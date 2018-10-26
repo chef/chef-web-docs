@@ -14,6 +14,8 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
              The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
 
              .. end_tag
+             
+**New in Chef Client 12.7.**
 
 Syntax
 =====================================================
