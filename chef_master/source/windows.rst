@@ -3186,7 +3186,6 @@ The full syntax for all of the properties that are available to the **windows_se
 
    windows_service 'name' do
      binary_path_name           String
-     desired_access             Integer
      delayed_start              [Integer] # This only applies if startup_type is :automatic
      dependencies               [String, Array]
      description                String
