@@ -847,8 +847,8 @@ The full syntax for all of the properties that are available to the **dsc_resour
 
 where
 
-* ``dsc_resource`` is the resource
-* ``name`` is the name of the resource block
+* ``dsc_resource`` is the resource.
+* ``name`` is the name given to the resource block.
 * ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
 * ``module_name``, ``module_version``, ``property``, and ``resource`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -1240,9 +1240,9 @@ The full syntax for all of the properties that are available to the **dsc_script
 
 where
 
-* ``dsc_script`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``dsc_script`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``code``, ``command``, ``configuration_data``, ``configuration_data_script``, ``configuration_name``, ``cwd``, ``environment``, ``flags``, ``imports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1251,7 +1251,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_dsc_script_actions
 
-This resource has the following actions:
+This dsc_script resource has the following actions:
 
 ``:nothing``
 
@@ -1270,7 +1270,7 @@ Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_dsc_script_attributes
 
-This resource has the following properties:
+This dsc_script resource has the following properties:
 
 ``code``
    **Ruby Type:** String
