@@ -70,12 +70,10 @@ The windows_shortcut resource has the following properties:
 
    Icon to use for the shortcut. Accepts the format of ``'path, index'``, where index is the icon file to use. See Microsoft's `documentation <https://msdn.microsoft.com/en-us/library/3s9bx7at.aspx>`__ for details.
 
-
 ``shortcut_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name for the shortcut, if it differs from the resource name.
-
 
 ``target``
    **Ruby Type:** String

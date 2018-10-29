@@ -360,7 +360,7 @@ Properties
 =====================================================
 .. tag resource_registry_key_attributes
 
-This resource has the following properties:
+The registry_key resource has the following properties:
 
 ``architecture``
    **Ruby Type:** Symbol | **Default Value:** ``:machine``

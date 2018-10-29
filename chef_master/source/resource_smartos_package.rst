@@ -72,6 +72,7 @@ Properties
 =====================================================
 
 The smartos_package resource has the following properties:
+
 ``options``
    **Ruby Type:** String
 

@@ -45,7 +45,6 @@ where:
 * ``user`` is the user account that systemd units run under. If not specified, systemd units will run under the system account.
 * ``content`` describes the behavior of the unit
 
-
 Actions
 =====================================================
 
@@ -113,6 +112,12 @@ Properties
 
 The systemd_unit resource has the following properties:
 
+``unit_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
+
+
+   New in Chef Client 13.7.
+
 ``user``
    **Ruby Type:** String
 
@@ -130,9 +135,9 @@ The systemd_unit resource has the following properties:
    Specifies whether to trigger a daemon reload when creating or deleting a unit.
 
 ``verify``
-   **Ruby Type:** true, false
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
+   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit.
 
 Common Resource Functionality
 =====================================================

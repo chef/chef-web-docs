@@ -92,7 +92,6 @@ The ssh_known_hosts_entry resource has the following properties:
 
    The file mode for the ssh_known_hosts file.
 
-
 ``owner``
    **Ruby Type:** String | **Default Value:** ``root``
 
@@ -102,7 +101,6 @@ The ssh_known_hosts_entry resource has the following properties:
    **Ruby Type:** Integer | **Default Value:** ``22``
 
    The server port that the ssh-keyscan command will use to gather the public key.
-
 
 ``timeout``
    **Ruby Type:** Integer | **Default Value:** ``30``

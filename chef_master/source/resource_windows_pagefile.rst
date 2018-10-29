@@ -72,7 +72,6 @@ The windows_pagefile resource has the following properties:
 
    The path to the pagefile if different from the resource name.
 
-
 ``system_managed``
 
    **Ruby Type:** true, false

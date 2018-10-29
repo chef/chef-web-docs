@@ -40,17 +40,17 @@ The windows_printer resource has the following actions:
 
 ``:create``
    Default. Create a new printer and printer port, if one doesn't already exist.
-   
+
 ``:delete``
    Delete an existing printer. Note that this resource does not delete the associated printer port.
-   
+
 ``:nothing``
    .. tag resources_common_actions_nothing
 
    Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 
@@ -58,7 +58,7 @@ The windows_printer resource has the following properties:
 
 ``comment``
    **Ruby Type:** String
-   
+
    Optional descriptor for the printer queue.
 
 ``default``
@@ -73,19 +73,18 @@ The windows_printer resource has the following properties:
 
 ``driver_name``
    **Ruby Type:** String | ``REQUIRED``
-   
-   The exact name of the installed printer driver on the system.   
+
+   The exact name of the installed printer driver on the system.
 
 ``ipv4_address``
    **Ruby Type:** String
-   
+
    The IPv4 address of the printer, such as '10.4.64.23'.
 
 ``location``
    **Ruby Type:** String
-   
-   Printer location, such as: ``"2nd floor copy room"``. 
-   
+
+   Printer location, such as: ``"2nd floor copy room"``.
 
 ``share_name``
    **Ruby Type:** String

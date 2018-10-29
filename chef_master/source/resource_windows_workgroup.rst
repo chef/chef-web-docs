@@ -59,9 +59,6 @@ The windows_workgroup resource has the following properties:
 
    Controls the system reboot behavior post workgroup joining. Reboot immediately, after the Chef run completes, or never. Note that a reboot is necessary for changes to take effect.
 
-``sensitive``
-   **Ruby Type:** true, false | **Default Value:** ``true``
-
 ``user``
    **Ruby Type:** String
 
