@@ -79,7 +79,7 @@ This resource has the following properties:
    Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

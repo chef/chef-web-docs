@@ -85,10 +85,11 @@ The dnf_package resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The dnf_package resource has the following properties:
 
 ``arch``
-   **Ruby Types:** String
+   **Ruby Type:** String, Array
 
    The architecture of the package to be installed or upgraded. This value can also be passed as part of the package name.
 
@@ -126,7 +127,7 @@ This resource has the following properties:
    .. note:: The ``flush_cache`` property does not flush the local DNF cache! Use dnf tools---``dnf clean metadata``, ``dnf clean packages``, ``dnf clean all``---to clean the local DNF cache.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -165,12 +166,12 @@ This resource has the following properties:
    .. end_tag
 
 ``options``
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -244,14 +245,14 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The version of a package to be installed or upgraded. This attribute is ignored when using the ``:upgrade`` action.
+   The version of a package to be installed or upgraded. This property is ignored when using the ``:upgrade`` action.
 
 Multiple Packages
 -----------------------------------------------------

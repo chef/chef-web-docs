@@ -367,7 +367,7 @@ This Chef provisioning driver-specific resource has the following properties:
 
        Use to specify the preferred availability zone for this cache cluster. Use this property **or** use ``preferred_availability_zones``.
    * - ``preferred_availability_zones``
-     - **Ruby Types:** String, Array
+     - **Ruby Type:** String, Array
 
        Use to specify an array of identifiers for Amazon EC2 availability zones available to this cache cluster. Use this property **or** use ``preferred_availability_zone``. For example:
 

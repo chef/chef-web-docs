@@ -94,7 +94,7 @@ The apt_package resource has the following properties:
    The default release. For example: ``stable``.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -145,7 +145,7 @@ The apt_package resource has the following properties:
    New in Chef Client 14.0.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 

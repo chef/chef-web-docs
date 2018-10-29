@@ -72,12 +72,12 @@ This resource has the following properties:
    The magic cookie for the node to which a connection is made.
 
 ``distributed``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    The node is a distributed Erlang node.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

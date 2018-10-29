@@ -51,7 +51,7 @@ Actions
 Properties
 =====================================================
 ``activation_key``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    A string or array of  activation keys to use when registering; you must also specify the ``organization`` property when using this.
 

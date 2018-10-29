@@ -94,7 +94,7 @@ Properties
 The chocolatey_package resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -217,7 +217,7 @@ The chocolatey_package resource has the following properties:
    The version of a package to be installed or upgraded.
 
 ``returns``
-   **Ruby Types:** Integer, Array of Integers
+   **Ruby Type:** Integer, Array of Integers
 
    The exit code(s) returned a chocolatey package that indicate success. Default is 0.
 

@@ -130,21 +130,21 @@ The windows_service resource has the following properties:
    New in Chef Client 14.0.
 
 ``dependencies``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
    New in Chef Client 14.0.
 
 ``description``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    Description of the service.
 
    New in Chef Client 14.0.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -154,7 +154,7 @@ The windows_service resource has the following properties:
    The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes.
 
 ``load_order_group``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 

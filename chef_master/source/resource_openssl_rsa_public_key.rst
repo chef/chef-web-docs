@@ -103,7 +103,7 @@ The openssl_rsa_public_key resource has the following properties:
 ``path``
    **Ruby Type:** String
 
-   The path of the public key file, if it differs from the resource name.
+   The path to the public key file, if it differs from the resource name.
 
 ``private_key_content``
    **Ruby Type:** String

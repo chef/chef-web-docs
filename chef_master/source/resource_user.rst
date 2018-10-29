@@ -95,14 +95,14 @@ This resource has the following properties:
    One (or more) comments about the user.
 
 ``force``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Force the removal of a user. May be used only with the ``:remove`` action.
 
    .. warning:: Using this property may leave the system in an inconsistent state. For example, a user account will be removed even if the user is logged in. A user's home directory will be removed, even if that directory is shared by multiple users.
 
 ``gid``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The identifier for the group. This property was previously named ``group`` and both continue to function.
 
@@ -112,7 +112,7 @@ This resource has the following properties:
    The location of the home directory.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -122,7 +122,7 @@ This resource has the following properties:
    macOS platform only. The number of iterations for a password with a SALTED-SHA512-PBKDF2 shadow hash.
 
 ``manage_home``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Manage a user's home directory.
 
@@ -131,7 +131,7 @@ This resource has the following properties:
    When used with the ``:modify`` action, a user's home directory is moved to ``HOME_DIR``. If the home directory is missing, it is created unless ``CREATE_HOME`` in ``/etc/login.defs`` is set to ``no``. The contents of the user's home directory are moved to the new location.
 
 ``non_unique``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Create a duplicate (non-unique) user account.
 
@@ -244,12 +244,12 @@ This resource has the following properties:
    .. end_tag
 
 ``system``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Create a system user. This property may be used with ``useradd`` as the provider to create a system user which passes the ``-r`` flag to ``useradd``.
 
 ``uid``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The numeric user identifier.
 
