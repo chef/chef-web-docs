@@ -214,9 +214,6 @@ This argument has the following options:
 ``--json-attribute-file FILE``
     A JSON file that is used in the first Chef Client run.
 
-``-k``, ``--key KEY``
-    API client key.
-
 ``--msi-url URL``
     Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
 
@@ -244,9 +241,6 @@ This argument has the following options:
 ``--prerelease``
     Install the pre-release chef gems.
 
-``--profile PROFILE``
-    Selects a credential profile
-
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
     Comma separated list of roles/recipes to apply. Default:[].
 
@@ -264,12 +258,6 @@ This argument has the following options:
 
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
     Bootstrap Chef using a built-in or custom template. Set to the full path of an erb template or use one of the built-in templates.
-
-``-u``, ``--user USER``
-    API client username.
-
-``-v``, ``--version``
-    Show chef version.
 
 ``-x USERNAME``, ``--ssh-user USERNAME``
     The SSH username. Default: ``root``.
@@ -338,10 +326,7 @@ This argument has the following options:
 ``-C``, ``--concurrency NUM``
     The number of allowed concurrent connections
 
-``-E``, ``--environment ENVIRONMENT``
-    Set the Chef environment. This will be ignored in searches.
-
-``-f CA_TRUST_FILE``, ``--ca-trust-file``
+``-f CA_TRUST_FILE``, ``--ca-trust-file CA_TRUST_FILE``
     The Certificate Authority (CA) trust file used for SSL transport
 
 ``--hint HINT_NAME[=HINT_FILE]``
@@ -356,14 +341,14 @@ This argument has the following options:
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
-``-k``, ``--key KEY``
-    API client key.
+``--json-attribute-file FILE"
+    A JSON file used at the first chef-client run.
 
+``-m``, ``--manual-list``
+    QUERY is a space-separated list of servers.
+    
 ``--msi-url URL``
     Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
-
-``-m``, ``--manual-list`` 
-    Query returns a space separated list of servers
 
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
@@ -389,8 +374,8 @@ This argument has the following options:
 ``--prerelease``
    Install pre-release gems.
 
-``--profile PROFILE``
-    Selects a credential profile
+``--returns CODES``
+   A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely.
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
    A comma-separated list of roles and/or recipes to be applied.
@@ -407,9 +392,6 @@ This argument has the following options:
 ``--secret-file SECRET_FILE``
    The path to the file that contains the encryption key.
 
-``--server-url URL``
-    Chef Server URL.
-
 ``--session-timeout MINUTES``
     The timeout for the client for the maximum length of the WinRM session
 
@@ -424,12 +406,6 @@ This argument has the following options:
 
 ``--tags``
     Comma separated list of tags to apply to the node. default: [].
-
-``-u``, ``--user USER``
-    API client username.
-
-``-v``, ``--version``
-    Show chef version.
 
 ``-w``, ``--winrm-transport TRANSPORT`` 
     The WinRM transport type. Values: ``ssl``, ``plaintext``
@@ -471,7 +447,7 @@ This argument has the following options:
 ``-cv MONTHS``, ``--cert-validity MONTHS``
    The number of months for which a certificate is valid. Default value: ``24``.
 
-``-h HOST_NAME``, ``--hostname HOST_NAME``
+``-h HOSTNAME``, ``--hostname HOSTNAME``
    The hostname for the listener. For example, ``--hostname something.mydomain.com`` or ``*.mydomain.com``. Default value: ``*``.
 
 ``-k LENGTH``, ``--key-length LENGTH``
@@ -574,14 +550,8 @@ This argument has the following options:
    Changed in knife-windows 1.9.0.
    The number of allowed concurrent connections. Defaults to 1.
 
-``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   The keytab file that contains the encryption key required by Kerberos-based authentication.
-
 ``--keytab-file KEYTAB_FILE``
    The keytab file that contains the encryption key required by Kerberos-based authentication.
-
-``-m``, ``--manual-list``
-   Define a search query as a space-separated list of servers.
 
 ``-p PORT``, ``--winrm-port PORT``
    The WinRM port. The TCP port on the remote system to which ``knife windows`` commands that are made using WinRM are sent. Default: ``5986`` when ``--winrm-transport`` is set to ``ssl``, otherwise ``5985``.
@@ -607,11 +577,17 @@ This argument has the following options:
 ``--session-timeout MINUTES``
    The amount of time (in minutes) for the maximum length of a WinRM session.
 
+``--ssl-peer-fingerprint FINGERPRINT``
+    SSL Cert Fingerprint to bypass normal cert chain checks
+
 ``-t TRANSPORT``, ``--winrm-transport TRANSPORT``
    The WinRM transport type. Possible values: ``ssl`` or ``plaintext``.
 
 ``--winrm-authentication-protocol PROTOCOL``
    The authentication protocol to be used during WinRM communication. Possible values: ``basic``, ``kerberos`` or ``negotiate``. Default value: ``negotiate``.
+
+``--winrm-codepage Codepage``
+    The codepage to use for the WinRM Command Shell
 
 ``--winrm-shell SHELL``
    The WinRM shell type. Valid choices are ``cmd``, ``powershell`` or ``elevated``. Default value: ``cmd``. The ``elevated`` shell is similar to the ``powershell`` option, but runs the powershell command from a scheduled task.
