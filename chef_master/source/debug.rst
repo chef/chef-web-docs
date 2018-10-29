@@ -117,7 +117,7 @@ Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_log_attributes
 
-This resource has the following properties:
+The log resource has the following properties:
 
 ``ignore_failure``
    **Ruby Type:** true, false | **Default Value:** ``false``
