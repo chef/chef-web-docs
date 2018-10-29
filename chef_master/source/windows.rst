@@ -845,7 +845,7 @@ The full syntax for all of the properties that are available to the **dsc_resour
      subscribes                 # see description
    end
 
-where
+where:
 
 * ``dsc_resource`` is the resource.
 * ``name`` is the name given to the resource block.
@@ -1238,7 +1238,7 @@ The full syntax for all of the properties that are available to the **dsc_script
      action                     Symbol # defaults to :run if not specified
    end
 
-where
+where:
 
 * ``dsc_script`` is the resource.
 * ``name`` is the name given to the resource block.
