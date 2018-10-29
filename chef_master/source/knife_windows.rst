@@ -341,12 +341,12 @@ This argument has the following options:
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
-``--json-attribute-file FILE"
+``--json-attribute-file FILE``
     A JSON file used at the first chef-client run.
 
 ``-m``, ``--manual-list``
     QUERY is a space-separated list of servers.
-    
+
 ``--msi-url URL``
     Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
 
