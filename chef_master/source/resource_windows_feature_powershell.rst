@@ -1,5 +1,5 @@
 =====================================================
-windows_feature_powershell
+windows_feature_powershell resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_feature_powershell.rst>`__
 
@@ -9,29 +9,30 @@ Use the **windows_feature_powershell** resource to add, remove or entirely delet
 
 Syntax
 =====================================================
-This resource has the following syntax:
+The windows_feature_powershell resource has the following syntax:
 
 .. code-block:: ruby
 
-   windows_feature_powershell 'name' do
-     all                        true, false # default value: 'false'
-     feature_name               Array, String # default value: 'name'
-     management_tools           true, false # default value: 'false'
-     notifies                   # see description
-     source                     String
-     subscribes                 # see description
-     timeout                    Integer # default value: '600'
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_feature_powershell 'name' do
+    all                   true, false # default value: false
+    feature_name          Array, String # default value: 'name' unless specified
+    management_tools      true, false # default value: false
+    source                String
+    timeout               Integer # default value: 600
+    action                Symbol # defaults to :install if not specified
+  end
 
 where:
 
-* ``windows_feature_powershell`` is the resource
-* ``'name'`` is the name of the feature / role, or the name of the resource block
-* ``all``, ``feature_name``, ``management_tools``, ``notifies``, ``source``, ``subscribes``, and ``timeout`` are the properties available to this resource
+* ``windows_feature_powershell`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``all``, ``feature_name``, ``management_tools``, ``source``, and ``timeout`` are the properties available to this resource.
 
 Actions
 =====================================================
+
+The windows_feature_powershell resource has the following actions:
 ``:install``
    Default. Install a Windows role / feature using PowerShell.
 
@@ -50,6 +51,9 @@ Actions
 
 Properties
 =====================================================
+
+The windows_feature_powershell resource has the following properties:
+
 ``all``
    **Ruby Type:** true, false | **Default Value:** ``false``
 

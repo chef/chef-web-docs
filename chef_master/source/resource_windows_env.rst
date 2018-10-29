@@ -38,7 +38,7 @@ Actions
 =====================================================
 .. tag resource_env_actions
 
-This resource has the following actions:
+The windows_env resource has the following actions:
 
 ``:create``
    Default. Create an environment variable. If an environment variable already exists (but does not match), update that environment variable to match.
@@ -62,10 +62,10 @@ Properties
 =====================================================
 .. tag resource_env_attributes
 
-This resource has the following properties:
+The windows_env resource has the following properties:
 
 ``delim``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The delimiter that is used to separate multiple values for a single key.
 
@@ -75,7 +75,7 @@ This resource has the following properties:
    Continue running a recipe if a resource fails for any reason.
 
 ``key_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -173,7 +173,7 @@ This resource has the following properties:
    .. end_tag
 
 ``value``
-   **Ruby Type:** String
+   **Ruby Type:** String | ``REQUIRED``
 
    The value with which ``key_name`` is set.
 

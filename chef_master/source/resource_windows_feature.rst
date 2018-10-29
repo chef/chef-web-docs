@@ -32,6 +32,9 @@ where:
 
 Actions
 =====================================================
+
+The windows_feature resource has the following actions:
+
 ``:install``
    Default. Install a Windows role / feature using PowerShell.
 
@@ -50,6 +53,9 @@ Actions
 
 Properties
 =====================================================
+
+The windows_feature resource has the following properties:
+
 ``all``
    **Ruby Type:** true, false | **Default Value:** ``false``
 

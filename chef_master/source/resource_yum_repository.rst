@@ -83,7 +83,8 @@ The yum_repository resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The yum_repository resource has the following properties:
 
 .. Refer to http://linux.die.net/man/5/yum.conf as the source for these descriptions.
 

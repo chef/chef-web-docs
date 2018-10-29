@@ -68,11 +68,11 @@ The windows_ad_join resource has the following properties:
 
 
 ``new_hostname``
-  **Ruby Type:** String
+   **Ruby Type:** String
 
-  "Specifies a new name for the computer in the new domain."
+   Specifies a new hostname for the computer in the new domain.
 
-  New in Chef Client 14.5.
+   New in Chef Client 14.5.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -111,7 +111,7 @@ The windows_ad_join resource has the following properties:
 ``ou_path``
    **Ruby Type:** String
 
-   The path to the Organizational Unit where the host will be placed. 
+   The path to the Organizational Unit where the host will be placed.
 
 ``reboot``
    **Ruby Type:** Symbol | **Default Value:** ``:immediate``

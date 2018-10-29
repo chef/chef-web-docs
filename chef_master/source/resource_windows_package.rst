@@ -53,7 +53,7 @@ Actions
 =====================================================
 .. tag resource_package_windows_actions
 
-This resource has the following actions:
+The windows_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -74,7 +74,7 @@ Properties
 =====================================================
 .. tag resource_package_windows_attributes
 
-This resource has the following properties:
+The windows_package resource has the following properties:
 
 ``checksum``
    **Ruby Type:** String
@@ -129,6 +129,11 @@ This resource has the following properties:
    **Ruby Type:** String
 
    One (or more) additional options that are passed to the command.
+
+``package_name``
+   **Ruby Type:** String, Array
+
+   The name of the package. Defaults to the name of the resourse block unless specified.
 
 ``remote_file_attributes``
    **Ruby Type:** Hash

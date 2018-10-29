@@ -30,6 +30,9 @@ where:
 
 Actions
 =====================================================
+
+The windows_feature_dism resource has the following actions:
+
 ``:install``
    Default. Install a Windows role / feature using DISM.
    
@@ -41,6 +44,9 @@ Actions
    
 Properties
 =====================================================
+
+The windows_feature_dism resource has the following properties:
+
 ``all``
    **Ruby Type:** true, false | **Default Value:** ``false``
    

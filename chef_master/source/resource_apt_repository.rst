@@ -3,7 +3,7 @@ apt_repository resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_repository.rst>`__
 
-Use the **apt_repository** resource to specify additional APT repositories. Adding a new repository will update APT package cache immediately.
+Use the **apt_repository** resource to specify additional APT repositories. Adding a new repository will update the APT package cache immediately.
 
 Syntax
 ==========================================
@@ -27,33 +27,33 @@ The full syntax for all of the properties that are available to the **apt_reposi
 
 .. code-block:: ruby
 
-   apt_repository 'name' do
-      repo_name             String
-      uri                   String
-      distribution          String
-      components            Array
-      arch                  String
-      trusted               true, false
-      deb_src               true, false
-      keyserver             String
-      key                   String, Array
-      key_proxy             String
-      cookbook              String
-      cache_rebuild         true, false
-      sensitive             true, false
-      action                Symbol # defaults to :add if not specified
-   end
+  apt_repository 'name' do
+    arch               String, nil, false
+    cache_rebuild      true, false # default value: true
+    components         Array
+    cookbook           String, nil, false
+    deb_src            true, false # default value: false
+    distribution       String, nil, false # default value: The LSB codename of the host such as 'bionic'
+    key                String, Array, nil, false
+    key_proxy          String, nil, false
+    keyserver          String, nil, false # default value: keyserver.ubuntu.com
+    repo_name          String # default value: 'name' unless specified
+    trusted            true, false # default value: false
+    uri                String
+    action             Symbol # defaults to :add if not specified
+  end
 
 where:
 
 * ``apt_repository`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``repo_name``, ``uri``, ``distribution``, ``components``, ``arch``, ``trusted``, ``deb_src``, ``keyserver``, ``key``, ``key_proxy``, ``cookbook``, ``cache_rebuild``, and ``sensitive`` are properties of this resource, with the Ruby type shown. See “Properties” section below for more information about all of the properties that may be used with this resource.
+* ``arch``, ``cache_rebuild``, ``components``, ``cookbook``, ``deb_src``, ``distribution``, ``key``, ``key_proxy``, ``keyserver``, ``repo_name``, ``trusted``, and ``uri`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The apt_repository resource has the following actions:
 
 ``:add``
    Default. Creates a repository file at ``/etc/apt/sources.list.d/`` and builds the repository listing.
@@ -63,8 +63,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
 
+The apt_repository resource has the following properties:
 
 ``arch``
    **Ruby Type:** String, false
@@ -92,12 +92,12 @@ This resource has the following properties:
    Determines whether or not to add the repository as a source repo as well.
 
 ``distribution``
-   **Ruby Type:** String, false | **Default Value:** ``lazy default``
+   **Ruby Type:** String, false | **Default Value:** ``The LSB codename of the host such as 'bionic'.``
 
    Usually a distribution's codename, such as trusty, xenial or bionic. Default value: the codename of the node's distro.
 
 ``key``
-   **Ruby Type:** String, Array, false | **Default Value:** ``lazy default``
+   **Ruby Type:** String, Array, false
 
    If a keyserver is provided, this is assumed to be the fingerprint; otherwise it can be either the URI of GPG key for the repo, or a cookbook_file.
 
@@ -115,6 +115,8 @@ This resource has the following properties:
    **Ruby Type:** String
 
    The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
+
+   New in Chef Client 14.1.
 
 ``sensitive``
    **Ruby Type:** true, false | **Default Value:** ``false``

@@ -52,9 +52,9 @@ The full syntax for all of the properties that are available to the **windows_se
 
 where:
 
-* ``windows_service`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``windows_service`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -110,19 +110,12 @@ The windows_service resource has the following properties:
 ``binary_path_name``
    **Ruby Type:** String
 
-   **Required** The fully qualified path to the service binary file. The path can also include arguments for an auto-start service.
-
-   New in Chef Client 14.0.
-
-``display_name``
-   **Ruby Type:** String
-
-   The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
+   The fully qualified path to the service binary file. The path can also include arguments for an auto-start service. This is required for ':create' and ':configure' actions
 
    New in Chef Client 14.0.
 
 ``delayed_start``
-   **Ruby Type:** Integer
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
 
@@ -139,6 +132,16 @@ The windows_service resource has the following properties:
    **Ruby Type:** String
 
    Description of the service.
+
+   New in Chef Client 14.0.
+
+``desired_access``
+   **Ruby Type:** Integer | **Default Value:** ``983551``
+
+``display_name``
+   **Ruby Type:** String
+
+   The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
 
    New in Chef Client 14.0.
 

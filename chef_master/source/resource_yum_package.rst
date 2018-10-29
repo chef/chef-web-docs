@@ -83,7 +83,8 @@ The yum_package resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The yum_package resource has the following properties:
 
 ``allow_downgrade``
    **Ruby Type:** true, false | **Default Value:** ``false``
@@ -96,9 +97,9 @@ This resource has the following properties:
    The architecture of the package to be installed or upgraded. This value can also be passed as part of the package name.
 
 ``flush_cache``
-   **Ruby Type:** Array, Hash | **Default Value:** ``{"before"=>false, "after"=>false}``
+   **Ruby Type:** Hash | **Default Value:** ``{"before"=>false, "after"=>false}``
 
-   Flush the in-memory cache before or after a Yum operation that installs, upgrades, or removes a package. Default value: ``[ :before, :after ]``. The value may also be a Hash: ``( { :before => true/false, :after => true/false } )``.
+   Flush the in-memory cache before or after a Yum operation that installs, upgrades, or removes a package. Accepts a Hash in the form: { :before => true/false, :after => true/false } or an Array in the form [ :before, :after ].
 
    .. tag resources_common_package_yum_cache
 
@@ -250,6 +251,9 @@ This resource has the following properties:
    **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded. This property is ignored when using the ``:upgrade`` action.
+
+``yum_binary``
+   **Ruby Type:** String
 
 Multiple Packages
 -----------------------------------------------------

@@ -30,6 +30,9 @@ where:
 
 Actions
 =====================================================
+
+The windows_auto_run resource has the following actions:
+
 ``:create``
    Create an item to be run at login. 
    
@@ -45,6 +48,9 @@ Actions
    
 Properties
 =====================================================
+
+The windows_auto_run resource has the following properties:
+
 ``args``
    **Ruby Type:** String
    

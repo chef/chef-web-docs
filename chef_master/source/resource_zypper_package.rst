@@ -27,6 +27,7 @@ The zypper_package resource has the following syntax:
 
   zypper_package 'name' do
     allow_downgrade              true, false # default value: false
+    global_options               String, Array
     gpg_check                    true, false
     options                      String, Array
     package_name                 String, Array
@@ -41,7 +42,7 @@ where:
 * ``zypper_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``allow_downgrade``, ``gpg_check``, ``options``, ``package_name``, ``source``, and ``timeout`` are the properties available to this resource.
+* ``allow_downgrade``, ``global_options``, ``gpg_check``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -94,6 +95,13 @@ The zypper_package resource has the following properties:
    Allow downgrading a package to satisfy requested version requirements.
 
    New in Chef Client 13.6.
+
+``global_options``
+   **Ruby Type:** String, Array
+
+   One (or more) additional options that are passed to the package resource other than options to the command.
+
+   New in Chef Client 14.6.
 
 ``gpg_check``
    **Ruby Type:** true, false | **Default Value:** ``true``
