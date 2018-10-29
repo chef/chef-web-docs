@@ -1251,7 +1251,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_dsc_script_actions
 
-This dsc_script resource has the following actions:
+The dsc_script resource has the following actions:
 
 ``:nothing``
 
@@ -1270,7 +1270,7 @@ Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_dsc_script_attributes
 
-This dsc_script resource has the following properties:
+The dsc_script resource has the following properties:
 
 ``code``
    **Ruby Type:** String

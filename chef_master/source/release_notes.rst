@@ -3596,7 +3596,7 @@ Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_osx_profile_attributes
 
-This resource has the following properties:
+The osx_profile resource has the following properties:
 
 ``identifier``
    **Ruby Type:** String
@@ -4107,7 +4107,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_script_ksh_actions
 
-This resource has the following actions:
+The ksh resource has the following actions:
 
 ``:nothing``
    Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
@@ -7879,7 +7879,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_openbsd_actions
 
-This resource has the following actions:
+The openbsd_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
