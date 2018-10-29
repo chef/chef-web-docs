@@ -31,21 +31,19 @@ The full syntax for all of the properties that are available to the **rpm_packag
 
    rpm_package 'name' do
      allow_downgrade            true, false
-     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``rpm_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``rpm_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``allow_downgrade``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions

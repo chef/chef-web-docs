@@ -29,8 +29,6 @@ The full syntax for all of the properties that are available to the **ruby_block
    ruby_block 'name' do
      block                      Block
      block_name                 String # defaults to 'name' if not specified
-     notifies                   # see description
-     subscribes                 # see description
      action                     Symbol # defaults to :run if not specified
    end
 
@@ -44,7 +42,8 @@ where
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The ruby_block resource has the following actions:
 
 ``:create``
    The same as ``:run``.
@@ -61,7 +60,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The ruby_block resource has the following properties:
 
 ``block``
    **Ruby Type:** Block
@@ -69,7 +69,7 @@ This resource has the following properties:
    A block of Ruby code.
 
 ``block_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the Ruby block. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 

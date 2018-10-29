@@ -15,18 +15,17 @@ The rhsm_errata_level resource has the following syntax:
 
 .. code-block:: ruby
 
-   rhsm_errata_level 'name' do
-     errata_level               String # default value: 'name'
-     notifies                   # see description
-     subscribes                 # see description
-     action                     Symbol # defaults to :install if not specified
-   end
+  rhsm_errata_level 'name' do
+    errata_level      String # default value: 'name' unless specified
+    action            Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``rhsm_errata_level`` is the resource.
-* ``'name'`` is the errata level to install packages from, or the resource name
-* ``errata_level``, ``notifies``, and ``subscribes`` are the properties available to this resource
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``errata_level`` is the property available to this resource.
 
 Actions
 =====================================================
@@ -49,7 +48,7 @@ Properties
 The rhsm_errata_level resource has the following properties:
 
 ``errata_level``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The errata level of packages to install, if it differs from the resource name.
 

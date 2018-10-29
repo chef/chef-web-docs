@@ -25,16 +25,16 @@ The full syntax for all of the properties that are available to the **route** re
 .. code-block:: ruby
 
   route 'name' do
-    comment              String, nil
-    device               String, nil
-    domain               String, nil
-    domainname           String, nil
-    gateway              String, nil
-    hostname             String, nil
-    metric               Integer, nil
-    netmask              String, nil
-    networking           String, nil
-    networking_ipv6      String, nil
+    comment              String
+    device               String
+    domain               String
+    domainname           String
+    gateway              String
+    hostname             String
+    metric               Integer
+    netmask              String
+    networking           String
+    networking_ipv6      String
     route_type           host, net # default value: host
     target               String # default value: 'name' unless specified
     action               Symbol # defaults to :add if not specified
