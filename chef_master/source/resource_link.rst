@@ -40,9 +40,7 @@ The full syntax for all of the properties that are available to the **link** res
      group                      Integer, String
      link_type                  Symbol
      mode                       Integer, String
-     notifies                   # see description
      owner                      Integer, String
-     subscribes                 # see description
      target_file                String # defaults to 'name' if not specified
      to                         String
      action                     Symbol # defaults to :create if not specified
@@ -83,11 +81,6 @@ The link resource has the following properties:
 
    A string or ID that identifies the group associated with a symbolic link.
 
-``ignore_failure``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-
-   Continue running a recipe if a resource fails for any reason.
-
 ``link_type``
    **Ruby Type:** String, Symbol | **Default Value:** ``:symbolic``
 
@@ -96,7 +89,7 @@ The link resource has the following properties:
 ``mode``
    **Ruby Type:** Integer, String | **Default Value:** ``777``
 
-   If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``. 
+   If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
    The behavior is different depending on the platform.
 
@@ -104,106 +97,13 @@ The link resource has the following properties:
 
    Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
 
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-      notifies :action, 'resource[name]', :timer
-
-   .. end_tag
-
 ``owner``
-   **Ruby Type:** Integer, String
+   **Ruby Type:** String, Integer
 
    The owner associated with a symbolic link.
 
-``retries``
-   **Ruby Type:** Integer | **Default Value:** ``0``
-
-   The number of times to catch exceptions and retry the resource.
-
-``retry_delay``
-   **Ruby Type:** Integer | **Default Value:** ``2``
-
-   The retry delay (in seconds).
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
-
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
-
 ``target_file``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the link. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -211,6 +111,150 @@ The link resource has the following properties:
    **Ruby Type:** String
 
    The actual file to which the link is to be created.
+
+   Common Resource Functionality
+   =====================================================
+
+   Chef resources include common properties, notifications, and resource guards.
+
+   Common Properties
+   -----------------------------------------------------
+
+   .. tag resources_common_properties
+
+   The following properties are common to every resource:
+
+   ``ignore_failure``
+      **Ruby Type:** true, false | **Default Value:** ``false``
+
+      Continue running a recipe if a resource fails for any reason.
+
+   ``retries``
+      **Ruby Type:** Integer | **Default Value:** ``0``
+
+      The number of times to catch exceptions and retry the resource.
+
+   ``retry_delay``
+      **Ruby Type:** Integer | **Default Value:** ``2``
+
+      The retry delay (in seconds).
+
+   ``sensitive``
+      **Ruby Type:** true, false | **Default Value:** ``false``
+
+      Ensure that sensitive resource data is not logged by the chef-client.
+
+   .. end_tag
+
+   Notifications
+   -----------------------------------------------------
+    ``notifies``
+       **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+       .. tag resources_common_notification_notifies
+
+       A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+       .. end_tag
+
+       .. tag resources_common_notification_timers
+
+       A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+
+       ``:before``
+          Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+       ``:delayed``
+          Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+
+       ``:immediate``, ``:immediately``
+          Specifies that a notification should be run immediately, per resource notified.
+
+       .. end_tag
+
+       .. tag resources_common_notification_notifies_syntax
+
+       The syntax for ``notifies`` is:
+
+       .. code-block:: ruby
+
+          notifies :action, 'resource[name]', :timer
+
+       .. end_tag
+
+    ``subscribes``
+       **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+       .. tag resources_common_notification_subscribes
+
+       A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+
+       Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+       .. code-block:: ruby
+
+         file '/etc/nginx/ssl/example.crt' do
+            mode '0600'
+            owner 'root'
+         end
+
+         service 'nginx' do
+            subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+         end
+
+       In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
+       .. end_tag
+
+       .. tag resources_common_notification_timers
+
+       A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+
+       ``:before``
+          Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+       ``:delayed``
+          Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+
+       ``:immediate``, ``:immediately``
+          Specifies that a notification should be run immediately, per resource notified.
+
+       .. end_tag
+
+       .. tag resources_common_notification_subscribes_syntax
+
+       The syntax for ``subscribes`` is:
+
+       .. code-block:: ruby
+
+          subscribes :action, 'resource[name]', :timer
+
+       .. end_tag
+
+   Guards
+   -----------------------------------------------------
+
+   .. tag resources_common_guards
+
+   A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+
+   * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
+   * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
+
+   A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+
+   .. end_tag
+   .. tag resources_common_guards_properties
+
+   The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+
+   ``not_if``
+      Prevent a resource from executing when the condition returns ``true``.
+
+   ``only_if``
+      Allow a resource to execute only if the condition returns ``true``.
+
+   .. end_tag
 
 Examples
 =====================================================
