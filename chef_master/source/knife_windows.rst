@@ -543,15 +543,11 @@ This argument has the following options:
 ``-a ATTR``, ``--attribute ATTR``
    The attribute used when opening an SSH connection. The default attribute is the FQDN of the host. Other possible values include a public IP address, a private IP address, or a hostname.
 
+``-C NUM``, ``--concurrency NUM``
+   Changed in knife-windows 1.9.0. The number of allowed concurrent connections. Defaults to 1.
+
 ``-f CA_TRUST_FILE``, ``--ca-trust-file CA_TRUST_FILE``
    Optional. The certificate authority (CA) trust file used for SSL transport.
-
-``-C NUM``, ``--concurrency NUM``
-   Changed in knife-windows 1.9.0.
-   The number of allowed concurrent connections. Defaults to 1.
-
-``--keytab-file KEYTAB_FILE``
-   The keytab file that contains the encryption key required by Kerberos-based authentication.
 
 ``-p PORT``, ``--winrm-port PORT``
    The WinRM port. The TCP port on the remote system to which ``knife windows`` commands that are made using WinRM are sent. Default: ``5986`` when ``--winrm-transport`` is set to ``ssl``, otherwise ``5985``.
@@ -582,6 +578,9 @@ This argument has the following options:
 
 ``-t TRANSPORT``, ``--winrm-transport TRANSPORT``
    The WinRM transport type. Possible values: ``ssl`` or ``plaintext``.
+
+``-T``, ``--keytab-file KEYTAB_FILE``
+   The keytab file that contains the encryption key required by Kerberos-based authentication.
 
 ``--winrm-authentication-protocol PROTOCOL``
    The authentication protocol to be used during WinRM communication. Possible values: ``basic``, ``kerberos`` or ``negotiate``. Default value: ``negotiate``.
