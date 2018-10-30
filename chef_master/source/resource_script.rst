@@ -178,7 +178,7 @@ This resource has the following attributes:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -227,14 +227,14 @@ This resource has the following attributes:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -312,10 +312,10 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
 
 ``not_if``
-   Prevent a resource from executing when the condition returns ``true``.
+  Prevent a resource from executing when the condition returns ``true``.
 
 ``only_if``
-   Allow a resource to execute only if the condition returns ``true``.
+  Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
 
