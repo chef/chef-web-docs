@@ -1,5 +1,5 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 3.3
+Release Notes: Chef Development Kit 0.19 - 3.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
@@ -14,7 +14,7 @@ What's New in 3.4
 
 * **Smaller package size**
 
-  ChefDK RPM and Debian packages are now compressed. Additionally many gems were updated to remove extraneous files that do not need to be included. The download size of packages has decreased accordingly (all measurements in megabytes):
+  ChefDK RPM and Debian packages are now compressed. Additionally, many gems were updated to remove extraneous files that do not need to be included. The download size of packages has decreased accordingly (all measurements in megabytes):
 
     * .deb: 108 -> 84 (22%)
     * .rpm: 112 -> 86 (24%)
@@ -29,9 +29,9 @@ What's New in 3.4
 
     Foodcritic has been updated from 14.1 to 14.3. This updates the metadata that ships with Foodcritic to provide the latest Chef 13.11 and 14.5 metadata, while removing metadata from older Chef releases. This update also removes the FC121 rule, which was causing confusion with community cookbook authors. This rule will be added back when Chef 13 goes EOL in April 2019.
 
-  **inSpec 3**
+  **InSpec 3**
 
-    This release updates Inspec from 2.2.112 to 3.0.12. This is a major milestone and includes the plugin system, global attributes, enhanced skip messaging, and more. Please head over to the `inSpec <https://www.inspec.io/>`__ site for a full rundown.
+    This release updates InSpec from 2.2.112 to 3.0.12. This is a major milestone and includes the plugin system, global attributes, enhanced skip messaging, and more. Please head over to the `inSpec <https://www.inspec.io/>`__ site for a full rundown.
 
   **Kitchen AzureRM**
 
