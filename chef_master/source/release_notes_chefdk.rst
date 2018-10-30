@@ -5,6 +5,61 @@ Release Notes: Chef Development Kit 0.19 - 3.3
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
+What's New in 3.4
+=====================================================
+
+* **Chef 14.6.47**
+
+  ChefDK now ships with Chef 14.6.47. See `Chef 14.6 release notes </release_notes.html#whats-new-in-14-6>`__ for more information on what's new.
+
+* **Smaller package size**
+
+  ChefDK RPM and Debian packages are now compressed. Additionally many gems were updated to remove extraneous files that do not need to be included. The download size of packages has decreased accordingly (all measurements in megabytes):
+
+    * .deb: 108 -> 84 (22%)
+    * .rpm: 112 -> 86 (24%)
+
+* **Platform Additions**
+
+  macOS 10.14 (Mojave) is now fully tested and packages are available on the `downloads <https://downloads.chef.io/chefdk/3.4.38>`__ page.
+
+* **Updated Tooling**
+
+  **Fauxhai**
+
+    Foodcritic has been updated from 14.1 to 14.3. This updates the metadata that ships with Foodcritic to provide the latest Chef 13.11 and 14.5 metadata, while removing metadata from older Chef releases. This update also removes the FC121 rule, which was causing confusion with community cookbook authors. This rule will be added back when Chef 13 goes EOL in April 2019.
+
+  **inSpec 3**
+
+    This release updates Inspec from 2.2.112 to 3.0.12. This is a major milestone and includes the plugin system, global attributes, enhanced skip messaging, and more. Please head over to the `inSpec <https://www.inspec.io/>`__ site for a full rundown.
+
+  **Kitchen AzureRM**
+
+    The Kitchen AzureRM driver now supports the Shared Image Gallery.
+
+  **Kitchen DigitalOcean**
+
+    The Kitchen DigitalOcean driver now supports FreeBSD 10.4 and 11.2 in Kitchen configs.
+
+  **Kitchen EC2**
+
+    Kitchen EC2 has been updated to better support Windows systems. The auto-generated security group will now include support for RDP and the log directory will alway be created.
+
+  **Kitchen Google**
+
+    Kitchen Google now includes support for adding labels to instances with a new `labels` config that accepts labels as a hash.
+
+  **Knife Windows**
+
+    Knife Windows has improved Windows detection support to identify Windows 2012r2, 2016, and 10. Additionally when bootstrapping nodes, there is now support for using the client.d directories.
+
+* **Security Updates**
+
+  Ruby has been updated to 2.5.3 to resolve the following vulnerabilities:
+
+    * `CVE-2018-16396`: Tainted flags are not propagated in Array#pack and String#unpack with some directives
+    * `CVE-2018-16395`: OpenSSL::X509::Name equality check does not work correctly
+
 What's New in 3.3
 =====================================================
 
