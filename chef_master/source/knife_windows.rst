@@ -170,7 +170,7 @@ This argument has the following options:
     Enables SSH agent forwarding.
 
 ``--auth-timeout MINUTES``
-    The maximum time in minutes to wait to for authentication over the transport to the node to succeed. Default: ``2``.
+    The maximum time in minutes to wait for authentication over the transport to the node to succeed. Default: ``2``.
 
 ``--bootstrap-install-command COMMANDS``
     Custom command to install chef-client
@@ -199,8 +199,8 @@ This argument has the following options:
 ``--hint HINT_NAME[=HINT_FILE]``
     Specify Ohai Hint to be set on the bootstrap targeting multiple nodes. See ``--hint options`` to specify multiple hints.
 
-``--[no]host-key-verify``
-    Use to disable host key verification. Default: ``true``.
+``--[no-]host-key-verify``
+    Use to enable host key verification. Default: ``true``.
 
 ``-i IDENTITY FILE``, ``--ssh-identity-file IDENTITY_FILE``
     The SSH identity file used for authentication. Key-based authentication is recommended.
@@ -224,7 +224,7 @@ This argument has the following options:
     Whether or not to verify the SSL cert for all requests.
 
 ``--[no-]node-verify-api-cert``
-    Verify the SSL cert for HTTPS requests to the Chef sAPI. Default: ``true``.
+    Verify the SSL cert for HTTPS requests to the Chef Server. Default: ``true``.
 
 ``-p PORT``, ``--ssh-port PORT``
     The SSH port.
@@ -332,7 +332,7 @@ This argument has the following options:
 ``--hint HINT_NAME[=HINT_FILE]``
     Specify Ohai Hint to be set on the bootstrap targeting multiple nodes. See ``--hint options`` to specify multiple hints.
 
-``--[no]host-key-verify``
+``--[no-]host-key-verify``
     Use to disable host key verification. Default: ``true``.
 
 ``--install-as-service``
@@ -345,7 +345,7 @@ This argument has the following options:
     A JSON file used at the first chef-client run.
 
 ``-m``, ``--manual-list``
-    QUERY is a space-separated list of servers.
+    Returns a space-separated list of servers.
 
 ``--msi-url URL``
     Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
@@ -422,8 +422,8 @@ This argument has the following options:
 ``--winrm-ssl-verify-mode SSL_VERIFY_MODE``
     The WinRM peer verification mode. Values: ``verify_peer``, ``verify_none``
 
-``-x USERNAME``, ``--ssh-user USERNAME``
-    The SSH username. Default: ``root``.
+``-x USERNAME``, ``--winrm-user USERNAME``
+    The SSH username. Default: ``Administrator``.
 
 cert generate
 =====================================================
