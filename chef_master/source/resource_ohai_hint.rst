@@ -43,6 +43,9 @@ The ohai_hint resource has the following actions:
 
 Properties
 =====================================================
+
+The ohai_hint resource has the following properties:
+
 ``compile_time``
    **Ruby Type:** true, false | **Default Value:** ``true``
 
@@ -54,7 +57,7 @@ Properties
    Values to include in the hint file.
 
 ``hint_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the hints file, if it differs from the resource name.
 

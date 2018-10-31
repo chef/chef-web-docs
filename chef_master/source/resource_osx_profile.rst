@@ -55,7 +55,7 @@ Properties
 =====================================================
 .. tag resource_osx_profile_attributes
 
-This resource has the following properties:
+The osx_profile resource has the following properties:
 
 ``identifier``
    **Ruby Type:** String
@@ -63,7 +63,7 @@ This resource has the following properties:
    Use to specify the identifier for the profile, such as ``com.company.screensaver``.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -102,7 +102,7 @@ This resource has the following properties:
    .. end_tag
 
 ``profile``
-   **Ruby Types:** String, Hash
+   **Ruby Type:** String, Hash
 
    Use to specify a profile. This may be the name of a profile contained in a cookbook or a Hash that contains the contents of the profile.
 

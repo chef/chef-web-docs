@@ -79,7 +79,7 @@ This resource has the following properties:
    The environment-specific run-list for a role. Default value: ``[]``. For example: ``["env_run_lists[webserver]"]``
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

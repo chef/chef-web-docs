@@ -206,12 +206,12 @@ Properties
 This resource has the following properties:
 
 ``clear_sources``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems).
 
 ``include_default_source``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
@@ -223,7 +223,7 @@ This resource has the following properties:
    A property for the ``gem_package`` provider that is used to specify a gems binary. By default, the same version of Ruby that is used by the chef-client will be installed.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -267,7 +267,7 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -336,12 +336,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 

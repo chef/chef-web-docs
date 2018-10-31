@@ -44,16 +44,17 @@ The full syntax for all of the properties that are available to the **directory*
      action                     Symbol # defaults to :create if not specified
    end
 
-where
+where:
 
-* ``directory`` is the resource
+* ``directory`` is the resource.
 * ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``group``, ``inherits``, ``mode``, ``owner``, ``path``, ``recursive``, and ``rights`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The directory resource has the following actions:
 
 ``:create``
    Default. Create a directory. If a directory already exists (but does not match), update that directory to match.
@@ -73,22 +74,22 @@ Properties
 This resource has the following properties:
 
 ``group``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
 ``inherits``
-   **Ruby Types:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Microsoft Windows only. Whether a file inherits rights from its parent directory.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
@@ -133,17 +134,17 @@ This resource has the following properties:
    .. end_tag
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
 ``path``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``recursive``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Create or delete parent directories recursively. For the ``owner``, ``group``, and ``mode`` properties, the value of this attribute applies only to the leaf directory.
 
@@ -158,7 +159,7 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``rights``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 

@@ -88,7 +88,7 @@ Properties
 The chef_gem resource has the following properties:
 
 ``clear_sources``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Set to ``true`` to download a gem from the path specified by the ``source`` property (and not from RubyGems).
 
@@ -119,7 +119,7 @@ The chef_gem resource has the following properties:
    New in Chef Client 13.0.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -164,7 +164,7 @@ The chef_gem resource has the following properties:
 
 
 ``package_name``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The name of the gem. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -233,12 +233,12 @@ The chef_gem resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The version of a gem to be installed or upgraded.
 

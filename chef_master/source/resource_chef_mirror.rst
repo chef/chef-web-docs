@@ -75,7 +75,7 @@ This resource has the following properties:
    Use to freeze cookbooks upon upload to the mirrored location. When ``true`` (default), cookbooks are frozen.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

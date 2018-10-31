@@ -68,11 +68,11 @@ The full syntax for all of the properties that are available to the **dsc_script
      action                     Symbol # defaults to :run if not specified
    end
 
-where
+where:
 
-* ``dsc_script`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``dsc_script`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``code``, ``command``, ``configuration_data``, ``configuration_data_script``, ``configuration_name``, ``cwd``, ``environment``, ``flags``, ``imports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -81,7 +81,7 @@ Actions
 =====================================================
 .. tag resource_dsc_script_actions
 
-This resource has the following actions:
+The dsc_script resource has the following actions:
 
 ``:nothing``
 
@@ -100,7 +100,7 @@ Properties
 =====================================================
 .. tag resource_dsc_script_attributes
 
-This resource has the following properties:
+The dsc_script resource has the following properties:
 
 ``code``
    **Ruby Type:** String
@@ -143,7 +143,7 @@ This resource has the following properties:
    Pass parameters to the DSC script that is specified by the ``command`` property. Parameters are defined as key-value pairs, where the value of each key is the parameter to pass. This property may not be used in the same recipe as the ``code`` property. For example: ``flags ({ :EditorChoice => 'emacs', :EditorFlags => '--maximized' })``.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -272,7 +272,7 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer
+   **Ruby Type:** Integer
 
    The amount of time (in seconds) a command is to wait before timing out.
 

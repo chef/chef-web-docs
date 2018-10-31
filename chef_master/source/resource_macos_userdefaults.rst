@@ -168,9 +168,9 @@ The macos_userdefaults resource has the following properties:
    The system user that the default will be applied to. 
 
 ``value``
-   **Ruby Types:** Integer, Float, String, true, false, Hash, Array
-   
-   Required. The value of the key. 
+   **Ruby Type:** Integer, Float, String, true, false, Hash, Array | ``REQUIRED``
+
+   The value of the key.
 
 
 Examples

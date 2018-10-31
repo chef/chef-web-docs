@@ -70,7 +70,7 @@ This resource has the following properties:
    Use to specify the driver to be used for provisioning.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

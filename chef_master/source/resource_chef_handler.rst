@@ -205,7 +205,7 @@ The chef_handler resource has the following properties:
    The name of the handler class. This can be module name-spaced.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

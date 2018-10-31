@@ -240,12 +240,12 @@ Properties
 This resource has the following attributes:
 
 ``allow_downgrade``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    **yum_package** resource only. Downgrade a package to satisfy requested version requirements.
 
 ``arch``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    **yum_package** resource only. The architecture of the package to be installed or upgraded. This value can also be passed as part of the package name.
 
@@ -293,12 +293,12 @@ This resource has the following attributes:
    A property for the ``gem_package`` provider that is used to specify a gems binary.
 
 ``homebrew_user``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    **homebrew_package** resource only. The name of the Homebrew owner to be used by the chef-client when executing a command.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -342,7 +342,7 @@ This resource has the following attributes:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -423,12 +423,12 @@ This resource has the following attributes:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 

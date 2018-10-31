@@ -77,7 +77,7 @@ The mdadm resource has the following properties:
    Indicates whether the RAID array exists.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

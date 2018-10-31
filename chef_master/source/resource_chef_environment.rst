@@ -79,7 +79,7 @@ This resource has the following properties:
    The description of the environment. This value populates the description field for the environment on the Chef server.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

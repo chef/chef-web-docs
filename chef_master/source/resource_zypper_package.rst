@@ -101,7 +101,7 @@ The zypper_package resource has the following properties:
    Verify the package's GPG signature. Can also be controlled site-wide using the ``zypper_check_gpg`` config option.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

@@ -197,7 +197,7 @@ This resource has the following properties:
    Use to specify the driver to be used for provisioning.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -394,12 +394,12 @@ Properties
 This resource has the following properties:
 
 ``admin``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Use to specify whether the chef-client is an API client.
 
 ``allow_overwrite_keys``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Use to overwrite the key on a machine when it is different from the key specified by ``source_key``.
 
@@ -460,7 +460,7 @@ This resource has the following properties:
       end
 
 ``converge``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Use to manage convergence when used with the ``:create`` action. Set to ``false`` to prevent convergence. Set to ``true`` to force convergence. When ``nil``, the machine will converge only if something changes.
 
@@ -500,7 +500,7 @@ This resource has the following properties:
    Use to specify an image created by the **machine_image** resource.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -699,7 +699,7 @@ This resource has the following properties:
    Use to add one (or more) tags. This will remove any tag currently associated with the machine. For example: ``tags :a, :b, :c``.
 
 ``validator``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    Use to specify if the chef-client is a chef-validator.
 
@@ -931,7 +931,7 @@ This resource has the following attributes:
    ...
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -1201,12 +1201,12 @@ This resource has the following properties:
    Use to specify the driver to be used for provisioning.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
 ``live_stream``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
 ``machine``
    **Ruby Type:** String
@@ -1399,7 +1399,7 @@ This resource has the following properties:
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -1641,7 +1641,7 @@ This resource has the following properties:
    Use to specify if all of the attributes specified in ``attributes`` represent a complete specification for the machine image. When true, any attributes not specified in ``attributes`` will be reset to their default values.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 

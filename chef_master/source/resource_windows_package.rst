@@ -82,7 +82,7 @@ This resource has the following properties:
    The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -146,7 +146,7 @@ This resource has the following properties:
    The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array of integers | **Default Value:** ``0``
+   **Ruby Type:** Integer, Array of integers | **Default Value:** ``0``
 
    A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely. This code signals a successful ``:install`` action.
 
@@ -215,12 +215,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer | **Default Value:** ``600`` (seconds)
+   **Ruby Type:** String, Integer | **Default Value:** ``600`` (seconds)
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 

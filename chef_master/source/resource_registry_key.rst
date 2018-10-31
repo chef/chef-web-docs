@@ -376,7 +376,7 @@ This resource has the following properties:
              .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -421,7 +421,7 @@ This resource has the following properties:
    .. end_tag
 
 ``recursive``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 
@@ -498,7 +498,7 @@ This resource has the following properties:
    .. end_tag
 
 ``values``
-   **Ruby Types:** Hash, Array
+   **Ruby Type:** Hash, Array
 
    An array of hashes, where each Hash contains the values that are to be set under a registry key. Each Hash must contain ``name:``, ``type:``, and ``data:`` (and must contain no other key values).
 

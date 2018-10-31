@@ -111,7 +111,7 @@ The mount resource has the following properties:
    Required. The file system type (fstype) of the device.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -121,7 +121,7 @@ The mount resource has the following properties:
    The directory (or path) in which the device is to be mounted. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``mounted``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Use to specify if a file system is already mounted.
 
@@ -160,12 +160,12 @@ The mount resource has the following properties:
    .. end_tag
 
 ``options``
-   **Ruby Types:** Array, String | **Default Value:** ``defaults``
+   **Ruby Type:** Array, String | **Default Value:** ``defaults``
 
    An array or string that contains mount options. If this value is a string, it is converted to an array.
 
 ``pass``
-   **Ruby Types:** Integer, false | **Default Value:** ``2``
+   **Ruby Type:** Integer, false | **Default Value:** ``2``
 
    The pass number used by the file system check (``fsck``) command while creating a file systems table (``fstab``) entry.
 

@@ -134,12 +134,12 @@ This resource has the following attributes:
    One or more command line flags that are passed to the interpreter when a command is invoked.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -212,7 +212,7 @@ This resource has the following attributes:
    The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array | **Default Value:** ``0``
+   **Ruby Type:** Integer, Array | **Default Value:** ``0``
 
    The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
@@ -266,29 +266,29 @@ This resource has the following attributes:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float | **Default Value:**  ``3600``
+   **Ruby Type:** Integer, Float | **Default Value:**  ``3600``
 
    The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specified with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
 ``password``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    *Windows only*: The password of the user specified by the `user` property.
    Default value: `nil`. This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
 
 ``domain``
-   **Ruby Types:** String
+   **Ruby Type:** String
 
    *Windows only*: The domain of the user user specified by the `user` property.
    Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``umask``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The file mode creation mask, or umask.
 

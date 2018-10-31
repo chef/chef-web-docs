@@ -131,7 +131,7 @@ The ifconfig resource has the following properties:
    The hardware address for the network interface.
 
 ``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Continue running a recipe if a resource fails for any reason.
 
@@ -275,12 +275,18 @@ The ifconfig resource has the following properties:
 
    When set to ``yes``, this device is controlled by the channel bonding interface that is specified via the ``master`` property.
 
-   New in Chef Client 13.4
+   New in Chef Client 13.4.
 
 ``target``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The IP address that is to be assigned to the network interface. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+
+``vlan``
+   **Ruby Type:** String
+
+   The VLAN to assign the interface to.
+   New in Chef Client 14.4.
 
 Examples
 =====================================================
