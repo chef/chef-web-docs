@@ -21,6 +21,6 @@ AZURE CLOUD SHELL SETUP
 ==============================================================
 
 Ensure you have an accessible Azure Cloud Shell instance. You may need to create a storage account to use Azure Cloud Shell if you haven’t used it before in this tenant. 
-For more information on accessing, setting up, and using Azure Cloud Shell, see the `Cloud Shell Documentation <https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart>`__
+For more information on accessing, setting up, and using Azure Cloud Shell, see the `Cloud Shell Documentation <https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart>`__.
 
 
