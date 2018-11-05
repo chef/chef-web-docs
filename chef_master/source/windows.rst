@@ -1426,10 +1426,13 @@ The windows_env resource has the following properties:
 
    The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
+``user``
+   **Ruby Type:** String | **Default Value:** ``"<System>"``
+
 ``value``
    **Ruby Type:** String | ``REQUIRED``
 
-   The value with which ``key_name`` is set.
+   The value of the environmental variable to set.
 
 .. end_tag
 
@@ -2092,13 +2095,13 @@ The registry_key resource has the following properties:
              .. end_tag
 
 ``key``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The path to the location in which a registry key is to be created or from which a registry key is to be deleted. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
    The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 
 ``recursive``
-   **Ruby Type:** true, false
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 

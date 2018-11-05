@@ -20,9 +20,9 @@ The windows_env resource has the following syntax:
 .. code-block:: ruby
 
   windows_env 'name' do
-    delim         String, nil, false
+    delim         String, false
     key_name      String # default value: 'name' unless specified
-    user          String # default value: <System>
+    user          String # default value: "<System>"
     value         String
     action        Symbol # defaults to :create if not specified
   end
@@ -74,10 +74,13 @@ The windows_env resource has the following properties:
 
    The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
+``user``
+   **Ruby Type:** String | **Default Value:** ``"<System>"``
+
 ``value``
    **Ruby Type:** String | ``REQUIRED``
 
-   The value with which ``key_name`` is set.
+   The value of the environmental variable to set.
 
 .. end_tag
 

@@ -35,6 +35,9 @@ where:
 
 Actions
 =====================================================
+
+The rhsm_register resource has the following actions:
+
 ``:register``
    Default. Register the node with RHSM.
 
@@ -50,6 +53,9 @@ Actions
 
 Properties
 =====================================================
+
+The rhsm_register resource has the following properties:
+
 ``activation_key``
    **Ruby Type:** String, Array
 

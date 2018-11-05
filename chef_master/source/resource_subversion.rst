@@ -14,20 +14,20 @@ The subversion resource has the following syntax:
 .. code-block:: ruby
 
   subversion 'name' do
-    checkout_branch        String # default value: deploy
+    checkout_branch        String # default value: "deploy"
     depth                  Integer
     destination            String # default value: 'name' unless specified
     enable_checkout        true, false # default value: true
     enable_submodules      true, false # default value: false
-    environment            Hash, nil
+    environment            Hash
     group                  String, Integer
-    remote                 String # default value: origin
+    remote                 String # default value: "origin"
     repository             String
-    revision               String # default value: HEAD
+    revision               String # default value: "HEAD"
     ssh_wrapper            String
-    svn_arguments          String, nil, false # default value: --no-auth-cache
+    svn_arguments          String, false # default value: "--no-auth-cache"
     svn_binary             String
-    svn_info_args          String, nil, false # default value: --no-auth-cache
+    svn_info_args          String, false # default value: "--no-auth-cache"
     svn_password           String
     svn_username           String
     timeout                Integer
@@ -72,7 +72,7 @@ Properties
 The subversion resource has the following properties:
 
 ``destination``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The location path to which the source is to be cloned, checked out, or exported. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 

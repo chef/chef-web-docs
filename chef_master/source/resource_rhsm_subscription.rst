@@ -27,6 +27,9 @@ where:
 
 Actions
 =====================================================
+
+The rhsm_subscription resource has the following actions:
+
 ``:attach``
    Default. Attach the node to a subscription pool.
 
@@ -46,7 +49,7 @@ Properties
 The rhsm_subscription resource has the following properties:
 
 ``pool_id``
-  **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
   An optional property for specifying the Pool ID if it differs from the resource's name.
 

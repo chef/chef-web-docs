@@ -18,7 +18,7 @@ The yum_repository resource has the following syntax:
     clean_headers              true, false # default value: false
     clean_metadata             true, false # default value: true
     cost                       String
-    description                String # default value: Yum Repository
+    description                String # default value: "Yum Repository"
     enabled                    true, false # default value: true
     enablegroups               true, false
     exclude                    String
@@ -37,7 +37,7 @@ The yum_repository resource has the following syntax:
     mirror_expire              String
     mirrorlist                 String
     mirrorlist_expire          String
-    mode                       String, Integer # default value: 0644
+    mode                       String, Integer # default value: "0644"
     options                    Hash
     password                   String
     priority                   String
@@ -109,7 +109,7 @@ The yum_repository resource has the following properties:
    Relative cost of accessing this repository. Useful for weighing one repo's packages as greater/less than any other.
 
 ``description``
-   **Ruby Type:** String | **Default Value:** ``Yum Repository``
+   **Ruby Type:** String | **Default Value:** ``"Yum Repository"``
 
    Descriptive name for the repository channel and maps to the 'name' parameter in a repository .conf.
 

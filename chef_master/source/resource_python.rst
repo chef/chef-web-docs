@@ -77,7 +77,7 @@ Properties
 The python resource has the following properties:
 
 ``code``
-   **Ruby Type:** String
+   **Ruby Type:** String | ``REQUIRED``
 
    A quoted (" ") string of code to be executed.
 
@@ -89,7 +89,7 @@ The python resource has the following properties:
 ``cwd``
    **Ruby Type:** String
 
-   The current working directory.
+   The current working directory from which the command will be run.
 
 ``environment``
    **Ruby Type:** Hash

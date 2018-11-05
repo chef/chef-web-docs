@@ -15,7 +15,7 @@ The windows_workgroup resource has the following syntax:
 
   windows_workgroup 'name' do
     password            String
-    reboot              Symbol # default value: immediate
+    reboot              Symbol # default value: :immediate
     sensitive           true, false # default value: true
     user                String
     workgroup_name      String # default value: 'name' unless specified
@@ -55,7 +55,7 @@ The windows_workgroup resource has the following properties:
    The password for the local administrator user.
 
 ``reboot``
-   **Ruby Type:** Symbol | **Default Value:** ``immediate``
+   **Ruby Type:** Symbol | **Default Value:** ``:immediate``
 
    Controls the system reboot behavior post workgroup joining. Reboot immediately, after the Chef run completes, or never. Note that a reboot is necessary for changes to take effect.
 

@@ -2,8 +2,8 @@
 timezone resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_timezone.rst>`__
- 
-Use the **timezone** resource to change the system timezone.
+
+Use the **timezone** resource to change the system **timezone** on Linux and macOS hosts. Timezones are specified in tz database format, with a complete list of available TZ values here https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.
 
  **New in Chef Client 14.6.**
 
@@ -48,9 +48,9 @@ Properties
 The timezone resource has the following properties:
 
 ``timezone``
-     **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
-     The timezone value to set.
+   The timezone value to set.
 
 
 Common Resource Functionality
