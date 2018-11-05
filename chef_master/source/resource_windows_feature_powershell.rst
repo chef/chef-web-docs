@@ -224,3 +224,32 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Add the SMTP Server feature**
+
+.. code-block:: ruby
+
+  windows_feature_powershell "smtp-server" do
+    action :install
+    all true
+  end
+
+**Install multiple features using one resource**
+
+.. code-block:: ruby
+
+  windows_feature_powershell ['Web-Asp-Net45', 'Web-Net-Ext45'] do
+    action :install
+  end
+
+**Install the Network Policy and Access Service feature, including the management tools. Which, for this example, will automatically install RSAT-NPAS as well.**
+
+.. code-block:: ruby
+
+  windows_feature_powershell 'NPAS' do
+    action :install
+    management_tools true
+  end

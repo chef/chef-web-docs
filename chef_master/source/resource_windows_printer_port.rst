@@ -228,3 +228,41 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Create a TCP/IP printer port named 'IP_10.4.64.37' with all defaults**
+
+.. code-block:: ruby
+
+  windows_printer_port '10.4.64.37' do
+    action :create
+  end
+
+**Delete a printer port**
+
+.. code-block:: ruby
+
+  windows_printer_port '10.4.64.37' do
+    action :delete
+  end
+
+**Delete a port with a custom port_name**
+
+.. code-block:: ruby
+
+  windows_printer_port '10.4.64.38' do
+    port_name 'My awesome port'
+    action :delete
+  end
+
+**Create a port with more options**
+
+.. code-block:: ruby
+
+  windows_printer_port '10.4.64.39' do
+    port_name 'My awesome port'
+    snmp_enabled true
+    port_protocol 2
+  end

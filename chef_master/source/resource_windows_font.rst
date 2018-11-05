@@ -194,3 +194,20 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Install a font that exists in the cookbook's files directory**
+
+.. code-block:: ruby
+
+  windows_font 'Font.otf'
+
+**Install a font from a https source**
+
+.. code-block:: ruby
+
+  windows_font 'Custom.otf' do
+    source "https://example.com/Custom.otf"
+  end

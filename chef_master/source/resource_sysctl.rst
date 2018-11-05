@@ -215,3 +215,24 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Set vm.swappiness**
+
+.. code-block:: ruby
+
+sysctl 'vm.swappiness' do
+  value 19
+end
+
+**Remove kernel.msgmax**
+
+Note: This only removes the sysctl.d config for kernel.msgmax. The value will be set back to the kernel default value.
+
+.. code-block:: ruby
+
+sysctl 'kernel.msgmax' do
+  action :remove
+end

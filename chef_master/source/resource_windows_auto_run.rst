@@ -215,3 +215,16 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Run BGInfo at login**
+
+.. code-block:: ruby
+
+  windows_auto_run 'BGINFO' do
+    program 'C:/Sysinternals/bginfo.exe'
+    args    '\'C:/Sysinternals/Config.bgi\' /NOLICPROMPT /TIMER:0'
+    action  :create
+  end

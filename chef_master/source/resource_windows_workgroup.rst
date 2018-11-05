@@ -213,3 +213,21 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Join a workgroup**
+
+.. code-block:: ruby
+
+  windows_workgroup 'myworkgroup'
+
+**Join a workgroup using a specific user**
+
+.. code-block:: ruby
+
+  windows_workgroup 'myworkgroup' do
+    user 'Administrator'
+    password 'passw0rd'
+  end

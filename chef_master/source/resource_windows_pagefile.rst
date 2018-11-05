@@ -222,3 +222,33 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Set the system to manage pagefiles**
+
+.. code-block:: ruby
+
+  windows_pagefile 'Enable automatic management of pagefiles' do
+    automatic_managed true
+  end
+
+**Delete a pagefile**
+
+.. code-block:: ruby
+
+  windows_pagefile 'Delete the pagefile' do
+    path 'C:\pagefile.sys'
+    action :delete
+  end
+
+**Create a pagefile with an initial and maximum size**
+
+.. code-block:: ruby
+
+  windows_pagefile 'create the pagefile' do
+    path 'C:\pagefile.sys'
+    initial_size 100
+    maximum_size 200
+  end

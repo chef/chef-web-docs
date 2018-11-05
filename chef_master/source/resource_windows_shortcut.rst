@@ -224,3 +224,15 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Create a shortcut with a description**
+
+.. code-block:: ruby
+
+  windows_shortcut 'C:\shortcut_dir.lnk' do
+    target 'C:\original_dir'
+    description 'Make a shortcut to C:\original_dir'
+  end

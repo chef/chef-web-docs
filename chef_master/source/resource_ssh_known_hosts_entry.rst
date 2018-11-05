@@ -251,3 +251,20 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Add a single entry for github.com with the key auto detected**
+
+.. code-block:: ruby
+
+  ssh_known_hosts_entry 'github.com'
+
+**Add a single entry with your own provided key**
+
+.. code-block:: ruby
+
+  ssh_known_hosts_entry 'github.com' do
+    key 'node.example.com ssh-rsa ...'
+  end

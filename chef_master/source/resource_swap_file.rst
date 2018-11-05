@@ -224,6 +224,7 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 **Create a swap file**
 
 .. code-block:: ruby

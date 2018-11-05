@@ -240,3 +240,25 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Create a printer**
+
+.. code-block:: ruby
+
+  windows_printer 'HP LaserJet 5th Floor' do
+    driver_name 'HP LaserJet 4100 Series PCL6'
+    ipv4_address '10.4.64.38'
+  end
+
+**Delete a printer**
+
+Note: this doesn't delete the associated printer port. See windows_printer_port above for how to delete the port.
+
+.. code-block:: ruby
+
+  windows_printer 'HP LaserJet 5th Floor' do
+    action :delete
+  end
