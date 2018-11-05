@@ -29,8 +29,6 @@ The full syntax for all of the properties that are available to the **ruby_block
    ruby_block 'name' do
      block                      Block
      block_name                 String # defaults to 'name' if not specified
-     notifies                   # see description
-     subscribes                 # see description
      action                     Symbol # defaults to :run if not specified
    end
 
@@ -44,7 +42,8 @@ where
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The ruby_block resource has the following actions:
 
 ``:create``
    The same as ``:run``.
@@ -61,7 +60,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The ruby_block resource has the following properties:
 
 ``block``
    **Ruby Type:** Block
@@ -69,7 +69,7 @@ This resource has the following properties:
    A block of Ruby code.
 
 ``block_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the Ruby block. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -108,7 +108,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -133,14 +133,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 

@@ -47,7 +47,7 @@ This resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_breakpoint_attributes
+.. tag resource_breakpoint_properties
 
 This resource does not have any properties.
 
