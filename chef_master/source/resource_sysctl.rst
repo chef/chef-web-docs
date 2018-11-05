@@ -223,9 +223,9 @@ Examples
 
 .. code-block:: ruby
 
-sysctl 'vm.swappiness' do
-  value 19
-end
+  sysctl 'vm.swappiness' do
+    value 19
+  end
 
 **Remove kernel.msgmax**
 
@@ -233,6 +233,6 @@ Note: This only removes the sysctl.d config for kernel.msgmax. The value will be
 
 .. code-block:: ruby
 
-sysctl 'kernel.msgmax' do
-  action :remove
-end
+  sysctl 'kernel.msgmax' do
+    action :remove
+  end
