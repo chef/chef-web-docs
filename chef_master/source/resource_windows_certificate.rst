@@ -73,7 +73,7 @@ The windows_certificate resource has the following properties:
 ``private_key_acl``
    **Ruby Type:** Array
 
-   An array of 'domainccount' entries to be granted read-only access to the certificate's private key. Not idempotent.
+   An array of 'domain\account' entries to be granted read-only access to the certificate's private key. Not idempotent.
 
 ``source``
    **Ruby Type:** String | **Default Value:** ``'name'``
