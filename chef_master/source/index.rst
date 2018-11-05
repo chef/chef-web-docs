@@ -109,7 +109,7 @@ Setup
 **Integrations**: `AWS Marketplace </aws_marketplace.html>`__ |  `Microsoft Azure </azure_portal.html>`__ | `Google Cloud Platform </google.html>`__ | `VMware </vmware.html>`__
 
 `Air-gapped Installation </install_chef_air_gap.html>`__ |
-`Microsoft Windows </windows.html>`__ | 
+`Microsoft Windows </windows.html>`__ |
 `Uninstall </uninstall.html>`__
 
 Cookbook Reference
@@ -166,7 +166,6 @@ Cookbook Reference
 `dpkg_package </resource_dpkg_package.html>`__ |
 `dsc_resource </resource_dsc_resource.html>`__ |
 `dsc_script </resource_dsc_script.html>`__ |
-`windows_env </resource_windows_env.html>`__ |
 `erl_call </resource_erlang_call.html>`__ |
 `execute </resource_execute.html>`__ |
 `file </resource_file.html>`__ |
@@ -241,6 +240,8 @@ Cookbook Reference
 `user </resource_user.html>`__ |
 `windows_ad_join </resource_windows_ad_join.html>`__ |
 `windows_auto_run </resource_windows_auto_run.html>`__ |
+`windows_certificate </resource_windows_certificate.html>`__ |
+`windows_env </resource_windows_env.html>`__ |
 `windows_feature </resource_windows_feature.html>`__ |
 `windows_feature_dism </resource_windows_feature_dism.html>`__ |
 `windows_feature_powershell.html </resource_windows_feature_powershell.html>`__ |
@@ -249,6 +250,7 @@ Cookbook Reference
 `windows_printer.html </resource_windows_printer.html>`__ |
 `windows_printer_port </resource_windows_printer_port.html>`__ |
 `windows_service </resource_windows_service.html>`__ |
+`windows_share </resource_windows_share.html>`__ |
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
 `windows_workgroup </resource_windows_workgroup.html>`__ |

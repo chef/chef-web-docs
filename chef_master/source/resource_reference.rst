@@ -1298,6 +1298,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_windows_auto_run.rst
 
+.. include:: resource_windows_certificate.rst
+
 .. include:: resource_windows_env.rst
 
 .. include:: resource_windows_feature.rst
@@ -1319,6 +1321,8 @@ The following resources are built into the Chef Client:
 .. include:: resource_windows_printer_port.rst
 
 .. include:: resource_windows_service.rst
+
+.. include:: resource_windows_share.rst
 
 .. include:: resource_windows_shortcut.rst
 
