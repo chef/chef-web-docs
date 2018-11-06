@@ -95,7 +95,7 @@ Guides
 
 **Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__ 
 
-**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__| `Chef DK on Windows Workstations </dk_windows.html>__ | Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
+**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Chef DK on Windows Workstations </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
 Setup
 -----------------------------------------------------
