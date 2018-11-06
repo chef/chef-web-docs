@@ -34,6 +34,8 @@ where:
 Actions
 =====================================================
 
+The powershell_package_source resource has the following actions:
+
 ``register``
    Default. Registers and updates the PowerShell package source.
 
@@ -45,6 +47,8 @@ Actions
 
 Properties
 =====================================================
+
+The powershell_package_source resource has the following properties:
 
 ``provider_name``
    **Ruby Type:** String | **Default Value:** ``"NuGet"``

@@ -26,8 +26,6 @@ The powershell_package resource has the following syntax:
      package_name               String, Array # defaults to 'name' if not specified
      version                    String, Array
      source                     String
-     notifies                   # see description
-     subscribes                 # see description
      action                     Symbol # defaults to :install if not specified
    end
 
@@ -40,6 +38,9 @@ where:
 
 Actions
 =====================================================
+
+The powershell_package resource has the following actions:
+
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
 
@@ -48,6 +49,9 @@ Actions
 
 Properties
 =====================================================
+
+The powershell_package resource has the following properties:
+
 ``package_name``
    **Ruby Type:** String, Array
 

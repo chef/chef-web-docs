@@ -38,11 +38,9 @@ The full syntax for all of the properties that are available to the **user** res
      iterations                 Integer
      manage_home                true, false
      non_unique                 true, false
-     notifies                   # see description
      password                   String
      salt                       String
      shell                      String
-     subscribes                 # see description
      system                     true, false
      uid                        String, Integer
      username                   String # defaults to 'name' if not specified

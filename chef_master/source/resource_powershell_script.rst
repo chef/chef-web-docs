@@ -54,12 +54,12 @@ The full syntax for all of the properties that are available to the **powershell
      elevated                   true, false
    end
 
-where
+where:
 
-* ``powershell_script`` is the resource
-* ``name`` is the name of the resource block
-* ``command`` is the command to be run and ``cwd`` is the location from which the command is run
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``powershell_script`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``command`` is the command to be run and ``cwd`` is the location from which the command is run.
+* ``action`` identifies the steps the chef-client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -68,7 +68,7 @@ Actions
 =====================================================
 .. tag resource_powershell_script_actions
 
-This resource has the following actions:
+The powershell_script resource has the following actions:
 
 ``:nothing``
    Inherited from **execute** resource. Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
@@ -82,7 +82,7 @@ Properties
 =====================================================
 .. tag resource_powershell_script_properties
 
-This resource has the following properties:
+The powershell_script resource has the following properties:
 
 ``architecture``
    **Ruby Type:** Symbol
@@ -90,7 +90,7 @@ This resource has the following properties:
    The architecture of the process under which a script is executed. If a value is not provided, the chef-client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
 
 ``code``
-   **Ruby Type:** String
+   **Ruby Type:** String | ``REQUIRED``
 
    A quoted (" ") string of code to be executed.
 

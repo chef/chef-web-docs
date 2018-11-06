@@ -68,7 +68,8 @@ The perl resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The perl resource has the following properties:
 
 ``code``
    **Ruby Type:** String

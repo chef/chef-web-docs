@@ -71,45 +71,6 @@ The solaris_package resource has the following properties:
 
    Required. The path to a package in the local file system.
 
-``ignore_failure``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-
-   Continue running a recipe if a resource fails for any reason.
-
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-     notifies :action, 'resource[name]', :timer
-
-   .. end_tag
-
 ``options``
    **Ruby Type:** String
 
@@ -119,7 +80,6 @@ The solaris_package resource has the following properties:
    **Ruby Type:** String, Array
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
-
 
 ``timeout``
    **Ruby Type:** String, Integer

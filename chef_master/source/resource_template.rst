@@ -56,13 +56,11 @@ The full syntax for all of the properties that are available to the **template**
      local                      true, false
      manage_symlink_source      true, false
      mode                       String, Integer
-     notifies                   # see description
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
      rights                     Hash
      sensitive                  true, false
      source                     String, Array
-     subscribes                 # see description
      variables                  Hash
      verify                     String, Block
      action                     Symbol # defaults to :create if not specified

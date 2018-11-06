@@ -105,7 +105,7 @@ The sudo resource has the following properties:
 ``groups``
    **Ruby Type:** String, Array
 
-   Group(s) to provide sudo privileges to. This accepts either an array or a comma-separated list. Leading % on group names is optional.
+   Group(s) to provide sudo privileges to. This property accepts either an array or a comma-separated list. Leading % on group names is optional.
 
 ``host``
    **Ruby Type:** String | **Default Value:** ``"ALL"``
