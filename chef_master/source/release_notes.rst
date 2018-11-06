@@ -97,11 +97,9 @@ New Deprecation
 Security Updates
 -----------------------------------------------------
 
-### Ruby 2.5.3
-
 Ruby has been updated to from 2.5.1 to 2.5.3 to resolve multiple CVEs and bugs:
-  - `CVE-2018-16396 <https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396`>__
-  - `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395`>__
+  - `CVE-2018-16396 <https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396>`__
+  - `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395>`__
 
 What’s New in 14.5
 =====================================================
@@ -780,48 +778,58 @@ This release completes the deprecation process for many of the deprecations that
 What's New in 13.12
 =====================================================
 * **Smaller Package and Install Size**
+
   We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. MacOS/Linux/FreeBSD packages are ~50% smaller and Windows are ~12% smaller. Chef 13 is now smaller than a legacy Chef 10 package.
 
 * **macOS Mojave (10.14)**
+
   Chef is now tested against macOS Mojave and packages are now available at downloads.chef.io.
 
 * **SUSE Linux Enterprise Server 15**
-  - Ohai now properly detects SLES 15
-  - The Chef package will no longer remove symlinks to chef-client and ohai when upgrading on SLES 15
+
+  Ohai now properly detects SLES 15 and the Chef package will no longer remove symlinks to chef-client and ohai when upgrading on SLES 15.
 
 * **Updated Chef-Vault**
+
   Updating chef-vault to 3.4.2 resolved multiple bugs.
 
 * **Faster Windows Installations**
+
   Improved Windows installation speed by skipping unnecessary steps when Windows Installer 5.0 or later is available.
 
 Ohai Release Notes 13.12
 -----------------------------------------------------
 * **macOS Improvements**
+
   - sysctl commands have been modified to gather only the bare minimum required data, which prevents sysctl hanging in some scenarios
   - Extra data has been removed from the system_profile plugin, reducing the amount of data stored on the chef-server for each node
 
 New Deprecations
 -----------------------------------------------------
 * **system_profile Ohai plugin removal**
+
   The system_profile plugin will be removed from Chef/Ohai 15 in April, 2019. This plugin incorrectly returns data on modern Mac systems. Further, the hardware plugin returns the same data in a more readily consumable format. Removing this plugin reduces the speed of the Ohai return by ~3 seconds and also greatly reduces the node object size on the Chef server
 
 * **ohai_name property in ohai resource**
+
   The ``ohai`` resource's unused ``ohai_name`` property has been deprecated. This will be removed in Chef 15.0.
 
 Security Updates
 -----------------------------------------------------
 * **Ruby 2.4.5**
-  - `CVE-2018-16396<https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396/>`__
-  - `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395/>`__
+
+  - `CVE-2018-16396 <https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396>`__
+  - `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395>`__
 
 What's New in 13.11
 =====================================================
 * **Sensitive Properties on Windows**
+
   - windows_service no longer logs potentially sensitive information when a service is setup
   - windows_package now respects the sensitive property to avoid logging sensitive data in the event of a package installation failure
 
 * **Bugfixes**
+
   - ``remote_directory`` now properly loads files in the root of a cookbook's files directory
   - ``osx_profile`` now uses the full path the profiles CLI tool to avoid running other binaries of the same name in a users path
   - ``package`` resources that don't support the ``allow_downgrade`` property will no longer fail
@@ -830,9 +838,9 @@ What's New in 13.11
 
 * **Security Updates**
 
-`CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`_: Fixes handshake violation in OpenSSL
-`CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`_: OpenSSL RSA Key generation algorithm has been shown to be vulnerable to a cache timing side channel attack
-`CVE-2018-1000544 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544>`_: rubyzip gem rubyzip version 1.2.1 and earlier contains a Directory Traversal vulnerability
+  - `CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`_: Fixes handshake violation in OpenSSL
+  - `CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`_: OpenSSL RSA Key generation algorithm has been shown to be vulnerable to a cache timing side channel attack
+  - `CVE-2018-1000544 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544>`_: rubyzip gem rubyzip version 1.2.1 and earlier contains a Directory Traversal vulnerability
 
 What's New in 13.10
 =====================================================
@@ -850,43 +858,50 @@ What's New in 13.10
 
 * **Security Updates**
 
-  - ``ffi Gem``
-  - `CVE-2018-1000201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000201>`__: DLL loading issue which can be hijacked on Windows OS
+  - `CVE-2018-1000201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000201>`__: DLL loading issue which can be hijacked on Windows OS resolved by updating FFI gem
 
 What's New in 13.9.4
 =====================================================
 
+* **Platform Updates**
+
+  As Debian 7 is now end of life we will no longer produce Debian 7 chef-client packages.
+
+* **Ifconfig on Ubuntu 18.04**
+
+  Incompatibilities with Ubuntu 18.04 in the ifconfig resource have been resolved.
+
+Ohai 13.9.2
+-----------------------------------------------------
+
+* **Virtualization detection on AWS**
+
+  Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
+
+* **Configurable DMI Whitelist**
+
+  The whitelist of DMI IDs is now user configurable using the additional_dmi_ids configuration setting, which takes an Array.
+
+* **Filesystem2 on BSD**
+
+  The Filesystem2 functionality has been backported to BSD systems to provide a consistent filesystem format.
+
 Security Updates
-Ruby has been updated to 2.4.4
+-----------------------------------------------------
 
-`CVE-2017-17742 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742>`__: HTTP response splitting in WEBrick
-`CVE-2018-6914 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914>`__: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
-`CVE-2018-8777 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777>`__: DoS by large request in WEBrick
-`CVE-2018-8778 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778>`__: Buffer under-read in String#unpack
-`CVE-2018-8779 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779>`__: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
-`CVE-2018-8780 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8780>`__: Unintentional directory traversal by poisoned NUL byte in Dir
-Multiple vulnerabilities in RubyGems
-Nokogiri has been updated to 1.8.2
+* **Ruby has been updated to 2.4.4**
 
-[MRI] Behavior in libxml2 has been reverted which caused CVE-2018-8048 (loofah gem), CVE-2018-3740 (sanitize gem), and CVE-2018-3741 (rails-html-sanitizer gem).
-OpenSSL has been updated to 1.0.2o
+  - `CVE-2017-17742 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742>`__: HTTP response splitting in WEBrick
+  - `CVE-2018-6914 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914>`__: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
+  - `CVE-2018-8777 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777>`__: DoS by large request in WEBrick
+  - `CVE-2018-8778 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778>`__: Buffer under-read in String#unpack
+  - `CVE-2018-8779 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779>`__: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
+  - `CVE-2018-8780 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8780>`__: Unintentional directory traversal by poisoned NUL byte in Dir
+  - Multiple vulnerabilities in RubyGems
 
-CVE-2018-0739: Constructed ASN.1 types with a recursive definition could exceed the stack.
-Platform Updates
-As Debian 7 is now end of life we will no longer produce Debian 7 chef-client packages.
+* **OpenSSL has been updated to 1.0.2o**
 
-Ifconfig on Ubuntu 18.04
-Incompatibilities with Ubuntu 18.04 in the ifconfig resource have been resolved.
-
-Ohai Updated to 13.9.2
-Virtualization detection on AWS
-Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
-
-Configurable DMI Whitelist
-The whitelist of DMI IDs is now user configurable using the additional_dmi_ids configuration setting, which takes an Array.
-
-Filesystem2 on BSD
-The Filesystem2 functionality has been backported to BSD systems to provide a consistent filesystem format.
+  - CVE-2018-0739: Constructed ASN.1 types with a recursive definition could exceed the stack.
 
 What's New in 13.9.1
 =====================================================
@@ -899,6 +914,7 @@ This release also includes the `custom resource improvements </release_notes.htm
 
 Ohai 13.9
 -----------------------------------------------------
+
 * Fixes uptime parsing on AIX
 * Fixes Softlayer cloud detection
 * Uses the current Azure metadata endpoint
