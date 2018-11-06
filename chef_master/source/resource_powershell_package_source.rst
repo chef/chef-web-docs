@@ -34,6 +34,8 @@ where:
 Actions
 =====================================================
 
+The powershell_package_source resource has the following actions:
+
 ``register``
    Default. Registers and updates the PowerShell package source.
 
@@ -45,6 +47,8 @@ Actions
 
 Properties
 =====================================================
+
+The powershell_package_source resource has the following properties:
 
 ``provider_name``
    **Ruby Type:** String | **Default Value:** ``"NuGet"``
@@ -101,7 +105,7 @@ The following properties are common to every resource:
 ``retries``
   **Ruby Type:** Integer | **Default Value:** ``0``
 
-  The number of times to catch exceptions and retry the resource.
+  The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
   **Ruby Type:** Integer | **Default Value:** ``2``

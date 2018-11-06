@@ -35,13 +35,12 @@ The timezone resource has the following actions:
     Set the system timezone.
 
 ``:nothing``
+   .. tag resources_common_actions_nothing
 
-     .. tag resources_common_actions_nothing
-    
-     Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
-    
-     .. end_tag
- 
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+
+   .. end_tag
+
 Properties
 =====================================================
 
@@ -51,7 +50,6 @@ The timezone resource has the following properties:
    **Ruby Type:** String | **Default Value:** ``'name'``
 
    The timezone value to set.
-
 
 Common Resource Functionality
 =====================================================
@@ -73,7 +71,7 @@ The following properties are common to every resource:
 ``retries``
   **Ruby Type:** Integer | **Default Value:** ``0``
 
-  The number of times to catch exceptions and retry the resource.
+  The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
   **Ruby Type:** Integer | **Default Value:** ``2``

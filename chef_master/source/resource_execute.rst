@@ -11,8 +11,6 @@ Use the **execute** resource to execute a single command. Commands that are exec
 
 .. note:: Use the **script** resource to execute a script using a specific interpreter (Ruby, Python, Perl, csh, or Bash).
 
-Changed in 12.19 to support windows alternate user identity in execute resources.
-
 Syntax
 =====================================================
 An **execute** resource block typically executes a single command that is unique to the environment in which a recipe will run. Some **execute** resource commands are run by themselves, but often they are run in combination with other Chef resources. For example, a single command that is run by itself:
@@ -178,7 +176,7 @@ The following properties are common to every resource:
 ``retries``
   **Ruby Type:** Integer | **Default Value:** ``0``
 
-  The number of times to catch exceptions and retry the resource.
+  The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
   **Ruby Type:** Integer | **Default Value:** ``2``
