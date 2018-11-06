@@ -175,7 +175,7 @@ This resource has the following attributes:
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Set up multiple machines, in-parallel**
 

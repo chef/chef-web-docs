@@ -564,7 +564,7 @@ To get a list of nodes using a recipe named ``postfix`` use ``search(:node,"reci
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **A recipe without a breakpoint**
 

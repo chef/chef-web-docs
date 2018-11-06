@@ -405,7 +405,7 @@ The registry_key resource has the following properties:
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Create a registry key**
 

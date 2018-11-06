@@ -481,7 +481,7 @@ This resource has the following providers:
 
 Examples
 -----------------------------------------------------
-The following examples demonstrate various approaches for using resources in recipes.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Reload Ohai**
 

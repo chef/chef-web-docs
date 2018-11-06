@@ -149,7 +149,7 @@ This resource has the following properties:
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Build a machine from a machine image**
 

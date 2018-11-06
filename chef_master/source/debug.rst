@@ -133,7 +133,7 @@ The log resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples demonstrate various approaches for using resources in recipes.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Specify a log entry**
 
@@ -496,7 +496,7 @@ This resource has the following providers:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples demonstrate various approaches for using resources in recipes.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **A recipe without a breakpoint**
 
