@@ -54,7 +54,7 @@ Getting Started
 `System Requirements </chef_system_requirements.html>`__
 
 **Chef Workstation**:
-`Chef Workstation Beta <https://www.chef.sh/>`__ |
+`Chef Workstation <https://www.chef.sh/>`__ |
 `Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
@@ -88,9 +88,14 @@ Concepts
 
 **Supermarket**: `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
 
-`Microsoft Windows </windows.html>`__
-
 **Appendix**: `Env Variables </environment_variables.html>`__ | `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
+
+Guides
+-----------------------------------------------------
+
+**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__ 
+
+**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Chef DK on Windows Workstations </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
 Setup
 -----------------------------------------------------
@@ -468,6 +473,8 @@ Addenda
    automate_admin
    aws_marketplace
    aws_opsworks_chef_automate
+   azure_chef_cli
+   azure_cwa_cloud_shell
    azure_portal
    azure_powershell
    backend_failure_recovery
