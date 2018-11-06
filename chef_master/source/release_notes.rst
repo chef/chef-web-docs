@@ -3603,44 +3603,11 @@ The osx_profile resource has the following properties:
 
    Use to specify the identifier for the profile, such as ``com.company.screensaver``.
 
-``ignore_failure``
-   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason.
+``path``
+   **Ruby Type:** String
 
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-     notifies :action, 'resource[name]', :timer
-
-   .. end_tag
+   The path to write the profile to disk before loading it.
 
 ``profile``
    **Ruby Type:** String, Hash
@@ -3648,68 +3615,9 @@ The osx_profile resource has the following properties:
    Use to specify a profile. This may be the name of a profile contained in a cookbook or a Hash that contains the contents of the profile.
 
 ``profile_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    Use to specify the name of the profile, if different from the name of the resource block.
-
-``retries``
-   **Ruby Type:** Integer | **Default Value:** ``0``
-
-   The number of times to catch exceptions and retry the resource.
-
-``retry_delay``
-   **Ruby Type:** Integer | **Default Value:** ``2``
-
-   The retry delay (in seconds).
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-    file '/etc/nginx/ssl/example.crt' do
-      mode '0600'
-      owner 'root'
-    end
-
-    service 'nginx' do
-      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-    end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
 
 .. end_tag
 
@@ -7660,20 +7568,18 @@ The full syntax for all of the properties that are available to the **openbsd_pa
 .. code-block:: ruby
 
    openbsd_package 'name' do
-     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``openbsd_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
+* ``openbsd_package`` is the resource.
+* ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
