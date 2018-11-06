@@ -244,10 +244,11 @@ Cookbook Reference
 `windows_env </resource_windows_env.html>`__ |
 `windows_feature </resource_windows_feature.html>`__ |
 `windows_feature_dism </resource_windows_feature_dism.html>`__ |
-`windows_feature_powershell.html </resource_windows_feature_powershell.html>`__ |
+`windows_feature_powershell </resource_windows_feature_powershell.html>`__ |
+`windows_firewall_rule </resource_windows_firewall_rule.html>`__ |
 `windows_font </resource_windows_font.html>`__ |
 `windows_package </resource_windows_package.html>`__ |
-`windows_printer.html </resource_windows_printer.html>`__ |
+`windows_printer </resource_windows_printer.html>`__ |
 `windows_printer_port </resource_windows_printer_port.html>`__ |
 `windows_service </resource_windows_service.html>`__ |
 `windows_share </resource_windows_share.html>`__ |
