@@ -623,7 +623,7 @@ The batch resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes.
 
 **Unzip a file, and then move it**
 
@@ -1152,7 +1152,7 @@ The dsc_script resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes.
 
 **Specify DSC code directly**
 
@@ -1438,7 +1438,7 @@ The windows_env resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes.
 
 **Set an environment variable**
 
@@ -1649,7 +1649,7 @@ This resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes.
 
 **Write to an interpolated path**
 
@@ -2124,7 +2124,7 @@ The registry_key resource has the following properties:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes.
 
 **Create a registry key**
 
@@ -2363,7 +2363,7 @@ This resource has the following providers:
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes.
 
 **Install a package**
 

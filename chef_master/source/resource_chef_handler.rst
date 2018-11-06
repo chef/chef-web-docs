@@ -598,7 +598,7 @@ The ``run_status`` object is initialized by the chef-client before the ``report`
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes.
 
 **Enable the CloudkickHandler handler**
 

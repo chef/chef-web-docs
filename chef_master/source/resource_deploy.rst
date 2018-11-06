@@ -628,7 +628,7 @@ The ``timestamped_deploy`` provider is the default **deploy** provider. It is us
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes.
 
 **Modify the layout of a Ruby on Rails application**
 
