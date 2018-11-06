@@ -1308,6 +1308,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_windows_feature_powershell.rst
 
+.. include:: resource_windows_firewall_rule.rst
+
 .. include:: resource_windows_font.rst
 
 .. include:: resource_windows_package.rst
