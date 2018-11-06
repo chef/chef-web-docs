@@ -308,7 +308,7 @@ New Deprecations
 * **Legacy FreeBSD pkg provider**
   Chef 15 will remove support for the legacy FreeBSD pkg format. We will continue to support the pkgng format introduced in FreeBSD 10.
 
-What’s New in 14.2.0
+What’s New in 14.2
 =====================================================
 
 * **ssh-agent support for user keys**
@@ -777,15 +777,51 @@ This release completes the deprecation process for many of the deprecations that
 
         optional_plugins [ "lspci", "passwd" ]
 
+What's New in 13.12
+=====================================================
+* **Smaller Package and Install Size**
+  We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. MacOS/Linux/FreeBSD packages are ~50% smaller and Windows are ~12% smaller. Chef 13 is now smaller than a legacy Chef 10 package.
+
+* **macOS Mojave (10.14)**
+  Chef is now tested against macOS Mojave and packages are now available at downloads.chef.io.
+
+* **SUSE Linux Enterprise Server 15**
+  - Ohai now properly detects SLES 15
+  - The Chef package will no longer remove symlinks to chef-client and ohai when upgrading on SLES 15
+
+* **Updated Chef-Vault**
+  Updating chef-vault to 3.4.2 resolved multiple bugs.
+
+* **Faster Windows Installations**
+  Improved Windows installation speed by skipping unnecessary steps when Windows Installer 5.0 or later is available.
+
+Ohai Release Notes 13.12
+-----------------------------------------------------
+* **macOS Improvements**
+  - sysctl commands have been modified to gather only the bare minimum required data, which prevents sysctl hanging in some scenarios
+  - Extra data has been removed from the system_profile plugin, reducing the amount of data stored on the chef-server for each node
+
+New Deprecations
+-----------------------------------------------------
+* **system_profile Ohai plugin removal**
+  The system_profile plugin will be removed from Chef/Ohai 15 in April, 2019. This plugin incorrectly returns data on modern Mac systems. Further, the hardware plugin returns the same data in a more readily consumable format. Removing this plugin reduces the speed of the Ohai return by ~3 seconds and also greatly reduces the node object size on the Chef server
+
+* **ohai_name property in ohai resource**
+  The ``ohai`` resource's unused ``ohai_name`` property has been deprecated. This will be removed in Chef 15.0.
+
+Security Updates
+-----------------------------------------------------
+* **Ruby 2.4.5**
+  - `CVE-2018-16396<https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396/>`__
+  - `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395/>`__
+
 What's New in 13.11
 =====================================================
 * **Sensitive Properties on Windows**
-
   - windows_service no longer logs potentially sensitive information when a service is setup
   - windows_package now respects the sensitive property to avoid logging sensitive data in the event of a package installation failure
 
 * **Bugfixes**
-
   - ``remote_directory`` now properly loads files in the root of a cookbook's files directory
   - ``osx_profile`` now uses the full path the profiles CLI tool to avoid running other binaries of the same name in a users path
   - ``package`` resources that don't support the ``allow_downgrade`` property will no longer fail
