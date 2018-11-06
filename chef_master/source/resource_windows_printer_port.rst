@@ -14,7 +14,6 @@ The windows_printer_port resource has the following syntax:
 .. code-block:: ruby
 
   windows_printer_port 'name' do
-    exists                true, false
     ipv4_address          String # default value: 'name' unless specified
     port_description      String
     port_name             String
@@ -29,7 +28,7 @@ where:
 * ``windows_printer_port`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``exists``, ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, ``port_protocol``, and ``snmp_enabled`` are the properties available to this resource.
+* ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, ``port_protocol``, and ``snmp_enabled`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -82,7 +81,7 @@ The windows_printer_port resource has the following properties:
 ``snmp_enabled``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Determines if SNMP is enabled on the port
+   Determines if SNMP is enabled on the port.
 
 Common Resource Functionality
 =====================================================

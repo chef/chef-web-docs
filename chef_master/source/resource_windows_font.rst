@@ -40,6 +40,9 @@ Actions
 
 Properties
 =====================================================
+
+The windows_font resource has the following properties:
+
 ``font_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 

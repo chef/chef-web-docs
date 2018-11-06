@@ -14,7 +14,7 @@ The sysctl resource has the following syntax:
 .. code-block:: ruby
 
   sysctl 'name' do
-    conf_dir          String # default value: /etc/sysctl.d
+    conf_dir          String # default value: "/etc/sysctl.d"
     ignore_error      true, false # default value: false
     key               String # default value: 'name' unless specified
     value             Array, String, Integer, Float
@@ -52,7 +52,7 @@ Properties
 The sysctl resource has the following properties:
 
 ``conf_dir``
-   **Ruby Type:** String | **Default Value:** ``/etc/sysctl.d``
+   **Ruby Type:** String | **Default Value:** ``"/etc/sysctl.d"``
 
    The configuration directory to write the config to.
 

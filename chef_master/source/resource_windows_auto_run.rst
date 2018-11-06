@@ -17,7 +17,7 @@ The windows_auto_run resource has the following syntax:
     args              String
     path              String
     program_name      String # default value: 'name' unless specified
-    root              Symbol # default value: machine
+    root              Symbol # default value: :machine
     action            Symbol # defaults to :create if not specified
   end
 

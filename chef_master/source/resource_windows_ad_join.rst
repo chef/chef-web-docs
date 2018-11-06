@@ -19,7 +19,7 @@ The windows_ad_join resource has the following syntax:
     domain_user          String
     new_hostname         String
     ou_path              String
-    reboot               Symbol # default value: immediate
+    reboot               Symbol # default value: :immediate
     sensitive            true, false # default value: true
     action               Symbol # defaults to :join if not specified
   end
@@ -59,7 +59,7 @@ The windows_ad_join resource has the following properties:
 ``domain_password``
    **Ruby Type:** String | ``REQUIRED``
 
-   The password for the domain user. Note that this resource is set to hide sensitive information by default.
+   The password for the domain user. Note that this resource is set to hide sensitive information by default. 
 
 ``domain_user``
    **Ruby Type:** String | ``REQUIRED``

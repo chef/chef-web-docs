@@ -18,7 +18,6 @@ The windows_printer resource has the following syntax:
     default           true, false # default value: false
     device_id         String # default value: 'name' unless specified
     driver_name       String
-    exists            true, false
     ipv4_address      String
     location          String
     share_name        String
@@ -31,7 +30,7 @@ where:
 * ``windows_printer`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``comment``, ``default``, ``device_id``, ``driver_name``, ``exists``, ``ipv4_address``, ``location``, ``share_name``, and ``shared`` are the properties available to this resource.
+* ``comment``, ``default``, ``device_id``, ``driver_name``, ``ipv4_address``, ``location``, ``share_name``, and ``shared`` are the properties available to this resource.
 
 Actions
 =====================================================

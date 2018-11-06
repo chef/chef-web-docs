@@ -14,14 +14,14 @@ The ssh_known_hosts_entry resource has the following syntax:
 .. code-block:: ruby
 
   ssh_known_hosts_entry 'name' do
-    file_location      String # default value: /etc/ssh/ssh_known_hosts
+    file_location      String # default value: "/etc/ssh/ssh_known_hosts"
     group              String
     hash_entries       true, false # default value: false
     host               String # default value: 'name' unless specified
     key                String
-    key_type           String # default value: rsa
-    mode               String # default value: 0644
-    owner              String # default value: root
+    key_type           String # default value: "rsa"
+    mode               String # default value: "0644"
+    owner              String # default value: "root"
     port               Integer # default value: 22
     timeout            Integer # default value: 30
     action             Symbol # defaults to :create if not specified
@@ -58,7 +58,7 @@ Properties
 The ssh_known_hosts_entry resource has the following properties:
 
 ``file_location``
-   **Ruby Type:** String | **Default Value:** ``/etc/ssh/ssh_known_hosts``
+   **Ruby Type:** String | **Default Value:** ``"/etc/ssh/ssh_known_hosts"``
 
    The location of the ssh known hosts file. Change this to set a known host file for a particular user.
 
@@ -83,17 +83,17 @@ The ssh_known_hosts_entry resource has the following properties:
    An optional key for the host. If not provided this will be automatically determined.
 
 ``key_type``
-   **Ruby Type:** String | **Default Value:** ``rsa``
+   **Ruby Type:** String | **Default Value:** ``"rsa"``
 
    The type of key to store.
 
 ``mode``
-   **Ruby Type:** String | **Default Value:** ``0644``
+   **Ruby Type:** String | **Default Value:** ``"0644"``
 
    The file mode for the ssh_known_hosts file.
 
 ``owner``
-   **Ruby Type:** String | **Default Value:** ``root``
+   **Ruby Type:** String | **Default Value:** ``"root"``
 
    The file owner for the ssh_known_hosts file.
 

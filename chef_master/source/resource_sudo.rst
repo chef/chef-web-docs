@@ -16,21 +16,21 @@ The sudo resource has the following syntax:
   sudo 'name' do
     command_aliases        Array
     commands               Array # default value: ["ALL"]
-    config_prefix          String
+    config_prefix          String # default value: Prefix values based on the node's platform
     defaults               Array
     env_keep_add           Array
     env_keep_subtract      Array
     filename               String # default value: 'name' unless specified
     groups                 String, Array
-    host                   String # default value: ALL
+    host                   String # default value: "ALL"
     noexec                 true, false # default value: false
     nopasswd               true, false # default value: false
-    runas                  String # default value: ALL
+    runas                  String # default value: "ALL"
     setenv                 true, false # default value: false
     template               String
     users                  String, Array
-    variables              Hash, nil
-    visudo_binary          String # default value: /usr/sbin/visudo
+    variables              Hash
+    visudo_binary          String # default value: "/usr/sbin/visudo"
     visudo_path            String
     action                 Symbol # defaults to :create if not specified
   end
@@ -100,15 +100,15 @@ The sudo resource has the following properties:
 ``filename``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   Optional. The name of the ``sudoers.d`` file, if it differs from the name of the resource block.
+   The name of the sudoers.d file, if it differs from the name of the resource block
 
 ``groups``
-   **Ruby Type:** String, Array | **Default Value:** ``[]``
+   **Ruby Type:** String, Array
 
    Group(s) to provide sudo privileges to. This accepts either an array or a comma-separated list. Leading % on group names is optional.
 
 ``host``
-   **Ruby Type:** String| **Default Value:** ``"ALL"``
+   **Ruby Type:** String | **Default Value:** ``"ALL"``
 
    The host to set in the sudo configuration.
 
@@ -122,39 +122,6 @@ The sudo resource has the following properties:
 
    Allow sudo to be run without specifying a password.
 
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-     notifies :action, 'resource[name]', :timer
-
-   .. end_tag
 
 ``runas``
    **Ruby Type:** String | **Default Value:** ``"ALL"``
@@ -173,12 +140,12 @@ The sudo resource has the following properties:
    The name of the ``.erb`` template in your cookbook, if you wish to supply your own template.
 
 ``users``
-   **Ruby Type:** String, Array | **Default Value:** ``[]``
+   **Ruby Type:** String, Array
 
    User(s) to provide sudo privileges to. This property accepts either an array or a comma-separated list.
 
 ``variables``
-   **Ruby Type:** Hash, nil | **Default Value:** ``nil``
+   **Ruby Type:** Hash
 
    The variables to pass to the custom template. This property is ignored if not using a custom template.
 

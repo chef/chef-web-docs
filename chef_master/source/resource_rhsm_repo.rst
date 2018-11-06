@@ -27,6 +27,9 @@ where:
 
 Actions
 =====================================================
+
+The rhsm_repo resource has the following actions:
+
 ``:enable``
    Default. Enable an RHSM repository.
 
