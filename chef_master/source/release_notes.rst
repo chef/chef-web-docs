@@ -10,13 +10,13 @@ What’s New in 14.6
 
 * **Smaller Package and Install Size**
 
-  Both Chef packages and on disk installations have been greatly reduced in size by trimming unnecessary installation files. This has reduced our package size on macOS/Linux by ~50% and Windows by ~12%. With this change Chef 14 is now smaller than a legacy Chef 10 package.
+  We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. macOS/Linux packages are ~50% smaller and Windows packages are ~12% smaller. Chef 14 is now smaller than a legacy Chef 10 package.
 
 * **New Resources**
 
   * **timezone**
 
-    Chef now includes the `timezone </resource_timezone.html>`__ resource from `@dragonsmith <http://github.com/dragonsmith>`__'s ``timezone_lwrp`` cookbook. This resource supports setting a Linux node's timezone. Thank you `@dragonsmith <http://github.com/dragonsmith>`__'s for allowing us to include this out of the box in Chef.
+    Chef now includes the `timezone </resource_timezone.html>`__ resource from `@dragonsmith <http://github.com/dragonsmith>`__'s ``timezone_lwrp`` cookbook. This resource supports setting a Linux node's timezone. Thank you `@dragonsmith <http://github.com/dragonsmith>`__ for allowing us to include this in Chef.
 
     Example:
 
@@ -779,7 +779,7 @@ What's New in 13.12
 =====================================================
 * **Smaller Package and Install Size**
 
-  We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. MacOS/Linux/FreeBSD packages are ~50% smaller and Windows are ~12% smaller. Chef 13 is now smaller than a legacy Chef 10 package.
+  We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. macOS/Linux packages are ~50% smaller and Windows packages are ~12% smaller. Chef 14 is now smaller than a legacy Chef 10 package.
 
 * **macOS Mojave (10.14)**
 
