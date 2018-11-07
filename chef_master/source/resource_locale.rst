@@ -14,8 +14,8 @@ The locale resource has the following syntax:
 .. code-block:: ruby
 
   locale 'name' do
-    lang        String # default value: en_US.utf8
-    lc_all      String # default value: en_US.utf8
+    lang        String # default value: "en_US.utf8"
+    lc_all      String # default value: "en_US.utf8"
     action      Symbol # defaults to :update if not specified
   end
 
@@ -37,7 +37,7 @@ The locale resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -47,12 +47,12 @@ Properties
 The locale resource has the following properties:
 
 ``lang``
-   **Ruby Type:** String | **Default Value:** ``en_US.utf8``
+   **Ruby Type:** String | **Default Value:** ``"en_US.utf8"``
 
    Sets the default system language.
 
 ``lc_all``
-   **Ruby Type:** String | **Default Value:** ``en_US.utf8``
+   **Ruby Type:** String | **Default Value:** ``"en_US.utf8"``
 
    Sets the fallback system language.
 

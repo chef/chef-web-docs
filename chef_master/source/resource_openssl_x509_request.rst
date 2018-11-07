@@ -51,7 +51,7 @@ The openssl_x509_request resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -133,7 +133,7 @@ The openssl_x509_request resource has the following properties:
 ``path``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The path to write the file to, if it differs from the resource name.
+   An optional property for specifying the path to write the file to if it differs from the resource block's name.
 
 ``state``
    **Ruby Type:** String

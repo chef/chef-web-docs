@@ -12,19 +12,19 @@ Syntax
 
 The timezone resource has the following syntax:
 
- .. code-block:: ruby
+.. code-block:: ruby
 
-   timezone 'name' do
+  timezone 'name' do
     timezone      String # default value: 'name' unless specified
     action        Symbol # defaults to :set if not specified
   end
 
- where:
+where:
 
- * ``timezone`` is the resource.
- * ``name`` is the name given to the resource block.
- * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
- * ``timezone`` is the property available to this resource.
+* ``timezone`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``timezone`` is the property available to this resource.
 
 Actions
 =====================================================
@@ -37,7 +37,7 @@ The timezone resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 

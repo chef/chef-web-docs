@@ -55,7 +55,7 @@ The full syntax for all of the properties that are available to the **registry_k
 .. code-block:: ruby
 
   registry_key 'name' do
-    architecture      Symbol # default value: machine
+    architecture      Symbol # default value: :machine
     key               String # default value: 'name' unless specified
     recursive         true, false # default value: false
     values
@@ -327,7 +327,7 @@ Actions
 =====================================================
 .. tag resource_registry_key_actions
 
-This resource has the following actions:
+The registry_key resource has the following actions:
 
 ``:create``
    Default. Create a registry key. If a registry key already exists (but does not match), update that registry key to match.
@@ -344,7 +344,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 

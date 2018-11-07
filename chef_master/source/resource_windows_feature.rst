@@ -16,7 +16,7 @@ The windows_feature resource has the following syntax:
   windows_feature 'name' do
     all                   true, false # default value: false
     feature_name          Array, String # default value: 'name' unless specified
-    install_method        Symbol
+    install_method        Symbol # default value: :windows_feature_dism
     management_tools      true, false # default value: false
     source                String
     timeout               Integer # default value: 600
@@ -47,7 +47,7 @@ The windows_feature resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -64,7 +64,13 @@ The windows_feature resource has the following properties:
 ``feature_name``
    **Ruby Type:** Array, String | **Default Value:** ``'name'``
 
-   The name of the feature(s) or role(s) to install, if it differs from the resource block name.
+   The name of the feature(s) or role(s) to install, if it differs from the resource block name. The same feature may have different names depending on the underlying installation method being used (ie DHCPServer vs DHCP; DNS-Server-Full-Role vs DNS).
+
+``install_method``
+   **Ruby Type:** Symbol | **Default Value:** ``:windows_feature_dism``
+
+   The underlying installation method to use for feature installation. Specify ':windows_feature_dism' for DISM or ':windows_feature_powershell' for PowerShell.
+
 
 ``management_tools``
    **Ruby Type:** true, false | **Default Value:** ``false``

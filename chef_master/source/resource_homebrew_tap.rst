@@ -15,7 +15,7 @@ The homebrew_tap resource has the following syntax:
 
   homebrew_tap 'name' do
     full               true, false # default value: false
-    homebrew_path      String # default value: /usr/local/bin/brew
+    homebrew_path      String # default value: "/usr/local/bin/brew"
     owner              String
     tap_name           String # default value: 'name' unless specified
     url                String
@@ -43,7 +43,7 @@ The homebrew_tap resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -58,7 +58,7 @@ The homebrew_tap resource has the following properties:
    Perform a full clone on the tap, as opposed to a shallow clone.
 
 ``homebrew_path``
-   **Ruby Type:** String | **Default Value:** ``/usr/local/bin/brew``
+   **Ruby Type:** String | **Default Value:** ``"/usr/local/bin/brew"``
 
    The path to the Homebrew binary.
 

@@ -47,7 +47,7 @@ The rhsm_register resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -59,12 +59,12 @@ The rhsm_register resource has the following properties:
 ``activation_key``
    **Ruby Type:** String, Array
 
-   A string or array of  activation keys to use when registering; you must also specify the ``organization`` property when using this.
+   A string or array of activation keys to use when registering; you must also specify the 'organization' property when using this property.
 
 ``auto_attach``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   If ``true``, RHSM will attempt to automatically attach the host to applicable subscriptions. It is generally better to use an activation key with the subscriptions predefined.
+   If true, RHSM will attempt to automatically attach the host to applicable subscriptions. It is generally better to use an activation key with the subscriptions pre-defined.
 
 ``environment``
    **Ruby Type:** String
@@ -95,6 +95,11 @@ The rhsm_register resource has the following properties:
    **Ruby Type:** String
 
    The FQDN of the Satellite host to register with. If this property is not specified, the host will register with Red Hat's public RHSM service.
+
+``username``
+   **Ruby Type:** String
+
+   The username to use when registering. This property is not applicable if using an activation key. If specified, password and environment properties are also required.
 
 Common Resource Functionality
 =====================================================

@@ -40,20 +40,20 @@ The full syntax for all of the properties that are available to the **cron_d** r
     comment               String
     cookbook              String
     cron_name             String # default value: 'name' unless specified
-    day                   Integer, String # default value: *
+    day                   Integer, String # default value: "*"
     environment           Hash
     home                  String
-    hour                  Integer, String # default value: *
+    hour                  Integer, String # default value: "*"
     mailto                String
-    minute                Integer, String # default value: *
-    mode                  String, Integer # default value: 0600
-    month                 Integer, String # default value: *
+    minute                Integer, String # default value: "*"
+    mode                  String, Integer # default value: "0600"
+    month                 Integer, String # default value: "*"
     path                  String
     predefined_value      String
     random_delay          Integer
     shell                 String
-    user                  String # default value: root
-    weekday               Integer, String # default value: *
+    user                  String # default value: "root"
+    weekday               Integer, String # default value: "*"
     action                Symbol # defaults to :create if not specified
   end
 
@@ -81,7 +81,7 @@ The cron_d resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 

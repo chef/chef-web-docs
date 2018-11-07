@@ -36,15 +36,15 @@ The full syntax for all of the properties that are available to the **link** res
 
 .. code-block:: ruby
 
-   link 'name' do
-     group                      Integer, String
-     link_type                  Symbol
-     mode                       Integer, String
-     owner                      Integer, String
-     target_file                String # defaults to 'name' if not specified
-     to                         String
-     action                     Symbol # defaults to :create if not specified
-   end
+  link 'name' do
+    group            String, Integer
+    link_type        String, Symbol # default value: :symbolic
+    mode             Integer, String
+    owner            String, Integer
+    target_file      String # default value: 'name' unless specified
+    to               String
+    action           Symbol # defaults to :create if not specified
+  end
 
 where:
 
@@ -67,7 +67,7 @@ The link resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 

@@ -14,9 +14,9 @@ The kernel_module resource has the following syntax:
 .. code-block:: ruby
 
   kernel_module 'name' do
-    load_dir        String # default value: /etc/modules-load.d
+    load_dir        String # default value: "/etc/modules-load.d"
     modname         String # default value: 'name' unless specified
-    unload_dir      String # default value: /etc/modprobe.d
+    unload_dir      String # default value: "/etc/modprobe.d"
     action          Symbol # defaults to :install if not specified
   end
 
@@ -50,7 +50,7 @@ The kernel_module resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -60,7 +60,7 @@ Properties
 The kernel_module resource has the following properties:
 
 ``load_dir``
-   **Ruby Type:** String | **Default Value:** ``/etc/modules-load.d``
+   **Ruby Type:** String | **Default Value:** ``"/etc/modules-load.d"``
 
    The directory to load modules from.
 
@@ -70,7 +70,7 @@ The kernel_module resource has the following properties:
    The name of the kernel module.
 
 ``unload_dir``
-   **Ruby Type:** String | **Default Value:** ``/etc/modprobe.d``
+   **Ruby Type:** String | **Default Value:** ``"/etc/modprobe.d"``
 
    The modprobe.d directory.
 

@@ -203,7 +203,7 @@ The yum_repository resource has the following properties:
 ``mirror_expire``
    **Ruby Type:** String
 
-   Time (in seconds) after which the mirrorlist locally cached will expire. If the current mirrorlist is less than this many seconds old then Yum will not download another copy of the mirrorlist, it has the same extra format as metadata_expire. If you find that Yum is not downloading the mirrorlists as often as you would like lower the value of this option.
+   Time (in seconds) after which the mirrorlist locally cached will expire. If the current mirrorlist is less than this many seconds old then Yum will not download another copy of the mirrorlist, it has the same extra format as metadata_expire. If you find that Yum is not downloading the mirrorlists as often as you would like lower the value of this option. You can also change from the default of using seconds to using days, hours or minutes by appending a 'd', 'h' or 'm' respectively.
 
 ``mirrorlist``
    **Ruby Type:** String
@@ -213,10 +213,10 @@ The yum_repository resource has the following properties:
 ``mirrorlist_expire``
    **Ruby Type:** String
 
-   Specifies the time (in seconds) after which the mirrorlist locally cached will expire. If the current mirrorlist is less than the value specified, then Yum will not download another copy of the mirrorlist.
+   Specifies the time (in seconds) after which the mirrorlist locally cached will expire. If the current mirrorlist is less than the value specified, then Yum will not download another copy of the mirrorlist. You can also change from the default of using seconds to using days, hours or minutes by appending a 'd', 'h' or 'm' respectively.
 
 ``mode``
-   **Ruby Type:** String, Integer | **Default Value:** ``0644``
+   **Ruby Type:** String, Integer | **Default Value:** ``"0644"``
 
    Permissions mode of .repo file on disk. This is useful for scenarios where secrets are in the repo file. If this value is set to '600', normal users will not be able to use Yum search, Yum info, etc.
 

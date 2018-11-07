@@ -173,7 +173,7 @@ The chef_handler resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -183,7 +183,7 @@ Properties
 The chef_handler resource has the following properties:
 
 ``arguments``
-   **Ruby Type:** Array, Hash | **Default Value:** ``[]``
+   **Ruby Type:** Array, Hash
 
    An array of arguments that are passed to the initializer for the handler class. For example:
 
@@ -198,7 +198,7 @@ The chef_handler resource has the following properties:
       arguments [:key1 => 'val1', :key2 => 'val2']
 
 ``class_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the handler class. This can be module name-spaced.
 

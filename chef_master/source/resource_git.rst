@@ -27,16 +27,16 @@ The full syntax for all of the properties that are available to the **git** reso
 
   git 'name' do
     additional_remotes      Hash
-    checkout_branch         String # default value: deploy
+    checkout_branch         String # default value: "deploy"
     depth                   Integer
     destination             String # default value: 'name' unless specified
     enable_checkout         true, false # default value: true
     enable_submodules       true, false # default value: false
     environment             Hash
     group                   String, Integer
-    remote                  String # default value: origin
+    remote                  String # default value: "origin"
     repository              String
-    revision                String # default value: HEAD
+    revision                String # default value: "HEAD"
     ssh_wrapper             String
     timeout                 Integer
     user                    String, Integer
@@ -64,7 +64,7 @@ The git resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -92,7 +92,7 @@ The git resource has the following properties:
    The number of past revisions to be included in the git shallow clone. The default behavior will do a full clone.
 
 ``destination``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The location path to which the source is to be cloned, checked out, or exported. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -120,7 +120,7 @@ The git resource has the following properties:
 
 
 ``remote``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``"origin"``
 
    The remote repository to use when synchronizing an existing clone.
 

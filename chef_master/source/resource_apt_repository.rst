@@ -36,7 +36,7 @@ The full syntax for all of the properties that are available to the **apt_reposi
     distribution       String, false # default value: The LSB codename of the host such as 'bionic'.
     key                String, Array, false
     key_proxy          String, false
-    keyserver          String, false # default value: keyserver.ubuntu.com
+    keyserver          String, false # default value: "keyserver.ubuntu.com"
     repo_name          String # default value: 'name' unless specified
     trusted            true, false # default value: false
     uri                String

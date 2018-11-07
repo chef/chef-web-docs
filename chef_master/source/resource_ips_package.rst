@@ -30,7 +30,7 @@ The full syntax for all of the properties that are available to the **ips_packag
 .. code-block:: ruby
 
    ips_package 'name' do
-     accept_license             true, false
+     accept_license             true, false # default value: false
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
@@ -57,7 +57,7 @@ The ips_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 

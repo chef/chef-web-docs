@@ -60,7 +60,7 @@ The launchd resource has the following syntax:
     start_on_mount                  true, false
     throttle_interval               Integer
     time_out                        Integer
-    type                            String # default value: daemon
+    type                            String # default value: "daemon"
     umask                           Integer
     username                        String
     wait_for_debugger               true, false
@@ -99,6 +99,13 @@ The launchd resource has the following actions:
 
 ``:restart``
    Restart a launchd managed daemon or agent.
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+
+   .. end_tag
 
 .. end_tag
 

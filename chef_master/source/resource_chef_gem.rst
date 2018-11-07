@@ -65,7 +65,7 @@ The chef_gem resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -106,7 +106,7 @@ The chef_gem resource has the following properties:
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
 ``gem_binary``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``Chef's built-in gem binary``
 
    The path of a gem binary to use for the installation. By default, the same version of Ruby that is used by the chef-client will be installed.
 

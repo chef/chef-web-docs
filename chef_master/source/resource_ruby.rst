@@ -60,17 +60,23 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The ruby resource has the following actions:
 
 ``:nothing``
-   Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+
+   .. end_tag
 
 ``:run``
    Default. Run a script.
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The ruby resource has the following properties:
 
 ``code``
    **Ruby Type:** String
