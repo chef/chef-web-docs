@@ -15,7 +15,7 @@ The homebrew_tap resource has the following syntax:
 
   homebrew_tap 'name' do
     full               true, false # default value: false
-    homebrew_path      String # default value: /usr/local/bin/brew
+    homebrew_path      String # default value: "/usr/local/bin/brew"
     owner              String
     tap_name           String # default value: 'name' unless specified
     url                String
@@ -58,7 +58,7 @@ The homebrew_tap resource has the following properties:
    Perform a full clone on the tap, as opposed to a shallow clone.
 
 ``homebrew_path``
-   **Ruby Type:** String | **Default Value:** ``/usr/local/bin/brew``
+   **Ruby Type:** String | **Default Value:** ``"/usr/local/bin/brew"``
 
    The path to the Homebrew binary.
 

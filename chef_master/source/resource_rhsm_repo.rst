@@ -45,10 +45,13 @@ The rhsm_repo resource has the following actions:
 
 Properties
 =====================================================
+
+The rhsm_repo resource has the following properties:
+
 ``repo_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   An optional property for specifying the repository name if it differs from the resource's name.
+   An optional property for specifying the repository name if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================

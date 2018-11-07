@@ -78,7 +78,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The remote_file resource has the following actions:
 
 ``:create``
    Default. Create a file. If a file already exists (but does not match), update that file to match.
@@ -101,15 +102,16 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The remote_file resource has the following properties:
 
 ``atomic_update``
-   **Ruby Type:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file.
 
 ``backup``
-   **Ruby Type:** false, Integer | **Default Value:** ``5``
+   **Ruby Type:** Integer, false | **Default Value:** ``5``
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept.
 
@@ -133,8 +135,8 @@ This resource has the following properties:
 
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
-``headers()``
-   **Ruby Type:** Hash | **Default Value:** ``{}``
+``headers``
+   **Ruby Type:** Hash
 
    A Hash of custom headers. For example:
 

@@ -64,15 +64,8 @@ The openssl_x509_certificate resource has the following actions:
 
 Properties
 =====================================================
-``city``
-   **Ruby Type:** String
 
-   Value for the ``L`` certificate field.
-
-``email``
-   **Ruby Type:** String
-
-   Value for the ``email`` ssl field.
+The openssl_x509_certificate resource has the following properties:
 
 ``ca_cert_file``
    **Ruby Type:** String
@@ -88,7 +81,6 @@ Properties
    **Ruby Type:** String
 
    The passphrase for CA private key's passphrase.
-
 
 ``city``
    **Ruby Type:** String
@@ -109,7 +101,6 @@ Properties
    **Ruby Type:** String
 
    The path to a X509 Certificate Request (CSR) on the filesystem. If the csr_file property is specified, the resource will attempt to source a CSR from this location. If no CSR file is found, the resource will generate a Self-Signed Certificate and the certificate fields must be specified (common_name at last).
-
 
 ``email``
    **Ruby Type:** String

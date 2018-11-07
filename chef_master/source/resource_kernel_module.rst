@@ -14,9 +14,9 @@ The kernel_module resource has the following syntax:
 .. code-block:: ruby
 
   kernel_module 'name' do
-    load_dir        String # default value: /etc/modules-load.d
+    load_dir        String # default value: "/etc/modules-load.d"
     modname         String # default value: 'name' unless specified
-    unload_dir      String # default value: /etc/modprobe.d
+    unload_dir      String # default value: "/etc/modprobe.d"
     action          Symbol # defaults to :install if not specified
   end
 
@@ -60,7 +60,7 @@ Properties
 The kernel_module resource has the following properties:
 
 ``load_dir``
-   **Ruby Type:** String | **Default Value:** ``/etc/modules-load.d``
+   **Ruby Type:** String | **Default Value:** ``"/etc/modules-load.d"``
 
    The directory to load modules from.
 
@@ -70,7 +70,7 @@ The kernel_module resource has the following properties:
    The name of the kernel module.
 
 ``unload_dir``
-   **Ruby Type:** String | **Default Value:** ``/etc/modprobe.d``
+   **Ruby Type:** String | **Default Value:** ``"/etc/modprobe.d"``
 
    The modprobe.d directory.
 

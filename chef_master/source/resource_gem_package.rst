@@ -37,8 +37,8 @@ The full syntax for all of the properties that are available to the **gem_packag
 
    gem_package 'name' do
      clear_sources              true, false
-     include_default_source     true, false
      gem_binary                 String
+     include_default_source     true, false
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String, Array

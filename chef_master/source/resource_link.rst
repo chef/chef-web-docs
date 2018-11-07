@@ -36,15 +36,15 @@ The full syntax for all of the properties that are available to the **link** res
 
 .. code-block:: ruby
 
-   link 'name' do
-     group                      Integer, String
-     link_type                  Symbol
-     mode                       Integer, String
-     owner                      Integer, String
-     target_file                String # defaults to 'name' if not specified
-     to                         String
-     action                     Symbol # defaults to :create if not specified
-   end
+  link 'name' do
+    group            String, Integer
+    link_type        String, Symbol # default value: :symbolic
+    mode             Integer, String
+    owner            String, Integer
+    target_file      String # default value: 'name' unless specified
+    to               String
+    action           Symbol # defaults to :create if not specified
+  end
 
 where:
 

@@ -55,7 +55,7 @@ The full syntax for all of the properties that are available to the **registry_k
 .. code-block:: ruby
 
   registry_key 'name' do
-    architecture      Symbol # default value: machine
+    architecture      Symbol # default value: :machine
     key               String # default value: 'name' unless specified
     recursive         true, false # default value: false
     values
@@ -327,7 +327,7 @@ Actions
 =====================================================
 .. tag resource_registry_key_actions
 
-This resource has the following actions:
+The registry_key resource has the following actions:
 
 ``:create``
    Default. Create a registry key. If a registry key already exists (but does not match), update that registry key to match.

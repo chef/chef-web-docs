@@ -183,7 +183,7 @@ Properties
 The chef_handler resource has the following properties:
 
 ``arguments``
-   **Ruby Type:** Array, Hash | **Default Value:** ``[]``
+   **Ruby Type:** Array, Hash
 
    An array of arguments that are passed to the initializer for the handler class. For example:
 
@@ -198,7 +198,7 @@ The chef_handler resource has the following properties:
       arguments [:key1 => 'val1', :key2 => 'val2']
 
 ``class_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the handler class. This can be module name-spaced.
 

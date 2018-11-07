@@ -29,7 +29,7 @@ The full syntax for all of the properties that are available to the **log** reso
 .. code-block:: ruby
 
   log 'name' do
-    level        Symbol # default value: info
+    level        Symbol # default value: :info
     message      String # default value: 'name' unless specified
     action       Symbol # defaults to :write if not specified
   end

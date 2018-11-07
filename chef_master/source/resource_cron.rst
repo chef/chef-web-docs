@@ -49,8 +49,8 @@ The full syntax for all of the properties that are available to the **cron** res
     path             String
     shell            String
     time             Symbol
-    user             String # default value: root
-    weekday
+    user             String # default value: "root"
+    weekday          
     action           Symbol # defaults to :create if not specified
   end
 

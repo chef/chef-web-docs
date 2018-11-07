@@ -29,7 +29,7 @@ The full syntax for all of the properties that are available to the **ifconfig**
     bootproto         String
     device            String
     ethtool_opts      String
-    family            String # default value: inet
+    family            String # default value: "inet"
     gateway           String
     hwaddr            String
     inet_addr         String
@@ -112,7 +112,7 @@ The ifconfig resource has the following properties:
    New in Chef Client 13.4.
 
 ``family``
-   **Ruby Type:** String | **Default Value:** ``inet``
+   **Ruby Type:** String | **Default Value:** ``"inet"``
 
    Networking family option for Debian-based systems; for example: ``inet`` or ``inet6``.
 

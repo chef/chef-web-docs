@@ -51,7 +51,7 @@ The rhsm_subscription resource has the following properties:
 ``pool_id``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-  An optional property for specifying the Pool ID if it differs from the resource's name.
+   An optional property for specifying the Pool ID if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================

@@ -73,7 +73,7 @@ The windows_printer resource has the following properties:
 ``driver_name``
    **Ruby Type:** String | ``REQUIRED``
 
-   The exact name of the installed printer driver on the system.
+   The exact name of printer driver installed on the system.
 
 ``ipv4_address``
    **Ruby Type:** String

@@ -15,7 +15,7 @@ The homebrew_cask resource has the following syntax:
 
   homebrew_cask 'name' do
     cask_name          String # default value: 'name' unless specified
-    homebrew_path      String # default value: /usr/local/bin/brew
+    homebrew_path      String # default value: "/usr/local/bin/brew"
     install_cask       true, false # default value: true
     options            String
     owner              String
@@ -55,9 +55,9 @@ Properties
    The name of the Homebrew cask, if it differs from the resource block name.
 
 ``homebrew_path``
-   **Ruby Type:** String | **Default Value:** ``/usr/local/bin/brew``
+   **Ruby Type:** String | **Default Value:** ``"/usr/local/bin/brew"``
 
-   The path to the Homebrew binary.
+   The path to the homebrew binary.
 
 ``install_cask``
    **Ruby Type:** true, false | **Default Value:** ``true``

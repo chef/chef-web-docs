@@ -90,7 +90,7 @@ Properties
 ``path``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The path to write the file to, if it differs from the resource name.
+   An optional property for specifying the path to write the file to if it differs from the resource block's name.
 
 ``renewal_threshold``
    **Ruby Type:** Integer | **Default Value:** ``1``

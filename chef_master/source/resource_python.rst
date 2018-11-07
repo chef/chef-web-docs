@@ -46,7 +46,7 @@ The full syntax for all of the properties that are available to the **python** r
     live_stream      true, false # default value: false
     password         String
     returns          Integer, Array # default value: 0
-    sensitive        true, false
+    sensitive        true, false # default value: "True if the password property is set. False otherwise."
     timeout          Integer, Float
     umask            String, Integer
     user             String, Integer

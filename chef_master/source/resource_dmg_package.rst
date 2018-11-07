@@ -18,7 +18,7 @@ The dmg_package resource has the following syntax:
     allow_untrusted      true, false # default value: false
     app                  String # default value: 'name' unless specified
     checksum             String
-    destination          String # default value: /Applications
+    destination          String # default value: "/Applications"
     dmg_name             String
     dmg_passphrase       String
     file                 String
@@ -26,7 +26,7 @@ The dmg_package resource has the following syntax:
     owner                String
     package_id           String
     source               String
-    type                 String # default value: app
+    type                 String # default value: "app"
     volumes_dir          String
     action               Symbol # defaults to :install if not specified
   end

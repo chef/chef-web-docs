@@ -40,20 +40,20 @@ The full syntax for all of the properties that are available to the **cron_d** r
     comment               String
     cookbook              String
     cron_name             String # default value: 'name' unless specified
-    day                   Integer, String # default value: *
+    day                   Integer, String # default value: "*"
     environment           Hash
     home                  String
-    hour                  Integer, String # default value: *
+    hour                  Integer, String # default value: "*"
     mailto                String
-    minute                Integer, String # default value: *
-    mode                  String, Integer # default value: 0600
-    month                 Integer, String # default value: *
+    minute                Integer, String # default value: "*"
+    mode                  String, Integer # default value: "0600"
+    month                 Integer, String # default value: "*"
     path                  String
     predefined_value      String
     random_delay          Integer
     shell                 String
-    user                  String # default value: root
-    weekday               Integer, String # default value: *
+    user                  String # default value: "root"
+    weekday               Integer, String # default value: "*"
     action                Symbol # defaults to :create if not specified
   end
 
