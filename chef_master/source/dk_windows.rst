@@ -1,5 +1,5 @@
 =====================================================
-Chef Workstaion and Chef DK on Windows
+Installing Chef on Windows
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dk_windows.rst>`__
 
@@ -166,13 +166,13 @@ Windows will throw errors when path name lengths are too long. For this reason, 
 Install a Code Editor
 -------------------------------------------------------
 A good visual code editor is not a requirement for working with Chef, but a good code editor can save you time.
-A code editor should supports the following: themes, plugins, snippets, syntax Ruby code coloring/highlighting, multiple cursors, a tree view of the entire folder/repository you are working with, and a Git integration.
+A code editor should support the following: themes, plugins, snippets, syntax Ruby code coloring/highlighting, multiple cursors, a tree view of the entire folder/repository you are working with, and a Git integration.
 
 These are a few common editors: 
 
-Visual Studio Code (free/open source) - http://code.visualstudio.com
-GitHub Atom - (free/open source) - http://atom.io
-Sublime Text - ($70 USD) - http://sublimetext.com
+   * Visual Studio Code (free/open source) - http://code.visualstudio.com
+   * GitHub Atom - (free/open source) - http://atom.io
+   * Sublime Text - ($70 USD) - http://sublimetext.com
 
 Install and Optimize Git for Chef Development
 -------------------------------------------------------
