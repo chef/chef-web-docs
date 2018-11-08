@@ -109,7 +109,7 @@ Which returns the versions of all installed Chef tools:
 Configure the Windows Environment
 -----------------------------------------------------
 
-Use the ``chef shell-init`` command to configure your environment to use the ChefDK locations for Chef and Ruby. The ``chef shell-init`` command creates the initialization script for your environment.
+Use the ``chef shell-init`` command to configure your environment to use the ChefDK locations for Chef and Ruby. Set the execution policy, create a profile, and then create the initialization script for your environment with ``chef shell-init``.
 
 Set the Execution Policy
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
