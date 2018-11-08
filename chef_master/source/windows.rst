@@ -1,4 +1,4 @@
-Properties=====================================================
+=====================================================
 Chef for Microsoft Windows
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/windows.rst>`__
