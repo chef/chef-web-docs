@@ -1,5 +1,5 @@
 =====================================================
-Tiered Installation (DEPRECATED)
+Tiered Installation
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_tiered.rst>`__
 
