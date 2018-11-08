@@ -17,7 +17,7 @@ Chef Workstation on Azure Cloud Shell lets you use:
 
 Combine the Chef Workstation command utilities with the other tools available in Cloud Shell, such as git, az-cli, terraform to write your infrastructure and compliance automation from the browser--without the need for a local shell. 
 
-AZURE CLOUD SHELL SETUP
+Azure Cloud Shell Installation
 ==============================================================
 
 Ensure you have an accessible Azure Cloud Shell instance. You may need to create a storage account to use Azure Cloud Shell if you haven’t used it before in this tenant. 
