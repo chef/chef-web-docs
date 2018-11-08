@@ -34,8 +34,6 @@ For a tiered deployment, your backend server should support the following hardwa
 * 1 GigE NIC interface
 * A back-end server; all other systems will be front-end servers.
 
-.. note: Tiered deployments are deprecated as of Chef server 12.9. You are encouraged to set up a high availability server cluster instead. See see `High Availability: Backend Cluster </install_server_ha.html>`__ for more details.
-
 Disk Configuration
 =====================================================
 Persistent data on the backend server of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should be part of a SSD or hardware RAID-based solution that ensure redundancy and high IOPS. This configuration guide assumes that:
