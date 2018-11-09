@@ -67,7 +67,7 @@ The powershell_package resource has the following properties:
 
    Specify the source of the package.
 
-   New in Chef Client 14.0.
+   _New in Chef Client 14.0._
 
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
