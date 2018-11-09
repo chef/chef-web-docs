@@ -132,6 +132,9 @@ These are a few common editors:
    * GitHub Atom - (free/open source) - http://atom.io
    * Sublime Text - ($70 USD) - http://sublimetext.com
 
+Chef for Visual Studio Code:
+   * Chef Extension https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef
+   
 Install and Optimize Git for Chef Development
 -------------------------------------------------------
 To install Git on Windows, navigate to https://git-scm.com/downloads and download the Windows installer. 
