@@ -42,10 +42,10 @@ The following table lists the commercially-supported platforms and versions for 
      - 2013+ and 2.0
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - FreeBSD
      - ``amd64``
-     - ``10``, ``11``
+     - ``11.x``
    * - macOS
      - ``x86_64``
      - ``10.11``, ``10.12``, ``10.13``, ``10.14``
@@ -54,7 +54,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Solaris
      - ``sparc``, ``x86``
      - ``11.2``, ``11.3``, ``11.4``
@@ -97,7 +97,7 @@ The following platforms are supported only via the community:
      - stable and LTS releases
    * - openSUSE
      -
-     - ``42``
+     - ``42.x``
    * - Scientific Linux
      - ``x86-64``
      - ``6.x``, ``7.x``
@@ -128,7 +128,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``10.11``, ``10.12``, ``10.13``, ``10.14``
    * - Red Hat Enterprise Linux
      -
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      -
      - ``11 SP4``, ``12 SP1+``
@@ -152,10 +152,10 @@ The following platforms are supported only via the community:
      - Version
    * - Debian
      -
-     - ``8``, ``9``
+     - ``8.x``, ``9.x``
    * - Scientific Linux
      - ``x86-64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
 
 Chef Server
 ------------------------------------------------------
@@ -175,19 +175,19 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
      - ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``, ``18.04`` 
 
 .. end_tag
 
@@ -215,19 +215,19 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
      - ``11 SP4``, ``12 SP2``
    * - Ubuntu
      - ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``, ``18.04``
 
 Chef Automate Job Runners
 ----------------------------------------------------
@@ -266,13 +266,13 @@ The following table lists the commercially-supported platforms for the Chef push
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - macOS
      - ``x86_64``
      - ``10.11``, ``10.12``, ``10.13``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
      - ``14.04``, ``16.04``
@@ -299,10 +299,10 @@ The following table lists the commercially-supported platforms for the Chef push
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -324,10 +324,10 @@ The following table lists the commercially-supported platforms for Chef Backend,
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -355,10 +355,10 @@ The following table lists the commercially-supported platforms for Chef Complian
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
@@ -380,10 +380,10 @@ The following table lists the commercially-supported platforms for Chef Manage:
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
      - ``14.04``, ``16.04``
