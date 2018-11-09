@@ -151,9 +151,9 @@ Download the installer and launch the Git Setup Wizard. Follow the on-screen ins
 Install the Windows Tools
 -------------------------------------------------------
 
- * The Azure-cli ``azure.microsoft.com/en-gb/downloads`` follow installation
- * The Azure Resource Manager Tools
- * If you are using Visual Studio Code, add the Microsoft Azure SDK for .NET for help with writing Azure Resource Manager JSON deployment templates.
- * ``Install-Module AzureRM``
- * ``Install-AzureRM``
+ * `Azure-cli <https://azure.microsoft.com/en-gb/downloads>`__ 
+ *  `Azure Resource Manager Tools <https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools>`__
+ * If you are using Visual Studio Code, add the `Microsoft Azure SDK for .NET <https://azure.microsoft.com/en-us/tools/>`__ for help with writing Azure Resource Manager JSON deployment templates.
+ * `PowerShellGet <https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.12.0>`__
+
 
