@@ -5,6 +5,47 @@ Release Notes: Chef Client 12.0 - 14.6
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
+What’s New in 14.7
+=====================================================
+
+* **New Resources**
+
+  * **windows_firewall_rule**
+
+    Use the `windows_firewall_rule </resource_windows_firewall_rule.html>`__ resource to create or delete Windows Firewall rules.
+
+    Thank you `Schuberg Philis <https://schubergphilis.com>`__ for transferring us the `windows_firewall cookbook <https://supermarket.chef.io/cookbooks/windows_firewall>`__ and to `@Happycoil <https://github.com/Happycoil>`__ for porting it to chef-client with a significant refactoring.
+
+  * **windows_share**
+
+    Use the `windows_share </resource_windows_share.html>`__ resource create or delete Windows file shares.
+
+  * **windows_certificate**
+
+    Use the `windows_certificate </resource_windows_certificate.html>`__ resource add, remove, or verify certificates in the system or user certificate stores.
+
+* **Updated Resources**
+
+  * **dmg_package**
+
+    The dmg_package resource has been refactored to improve idempotency and properly support accepting a DMG's EULA with the ``accept_eula`` property.
+
+  * **kernel_module**
+
+    Kernel_module now only runs the ``initramfs`` update once per Chef run to greatly speed up chef-client runs when multiple kernel_module resources are used. Thank you `@tomdoherty </https://github.com/tomdoherty>`__ for this improvement.
+
+  * **mount**
+
+    The ``supports`` property once again allows passing supports data as an array. This matches the behavior present in Chef 12.
+
+  * **timezone**
+
+    macOS support has been added to the timezone resource.
+
+  * **windows_task**
+
+    A regression in Chef 14.6’s windows_task resource which resulted in tasks being created with the "Run only when user is logged on" option being set when created with a specific user other than SYSTEM, has been resolved.
+
 What’s New in 14.6
 =====================================================
 
