@@ -92,7 +92,7 @@ The ifconfig resource has the following properties:
 
    Bonding options to pass via ``BONDING_OPTS`` on RHEL and CentOS. For example: ``mode=active-backup miimon=100``
 
-   New in Chef Client 13.4.
+   _New in Chef Client 13.4._
 
 ``bootproto``
    **Ruby Type:** String
@@ -109,21 +109,21 @@ The ifconfig resource has the following properties:
 
    Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``
 
-   New in Chef Client 13.4.
+   _New in Chef Client 13.4._
 
 ``family``
    **Ruby Type:** String | **Default Value:** ``"inet"``
 
    Networking family option for Debian-based systems; for example: ``inet`` or ``inet6``.
 
-   New in Chef Client 14.0.
+   _New in Chef Client 14.0._
 
 ``gateway``
    **Ruby Type:** String
 
    The gateway to use for the interface.
 
-   New in Chef Client 14.4.
+   _New in Chef Client 14.4._
 
 ``hwaddr``
    **Ruby Type:** String
@@ -145,7 +145,7 @@ The ifconfig resource has the following properties:
 
    Specifies the channel bonding interface to which the Ethernet interface is linked.
 
-   New in Chef Client 13.4.
+   _New in Chef Client 13.4._
 
 ``metric``
    **Ruby Type:** String
@@ -177,7 +177,7 @@ The ifconfig resource has the following properties:
 
    When set to ``yes``, this device is controlled by the channel bonding interface that is specified via the ``master`` property.
 
-   New in Chef Client 13.4.
+   _New in Chef Client 13.4._
 
 ``target``
    **Ruby Type:** String | **Default Value:** ``'name'``
@@ -188,7 +188,8 @@ The ifconfig resource has the following properties:
    **Ruby Type:** String
 
    The VLAN to assign the interface to.
-   New in Chef Client 14.4.
+
+   _New in Chef Client 14.4._
 
 Common Resource Functionality
 =====================================================
