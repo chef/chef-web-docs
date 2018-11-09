@@ -83,7 +83,7 @@ Installing ChefDK
 
 In some cases, such as if you're working with older or unsupported systems, you may need to use ChefDK instead of Chef Workstation. Download ChefDK by following the installation instructions on `Installing ChefDK </install_dk.html>`_.
 
-#. Visit the `ChefDK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your Windows version. Click on the **Download** button.
+#. Visit the `ChefDK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your Windows version. Select the **Download** button.
 #. Follow the steps to accept the license and install the Chef development kit. You will have the option to change your install location; by default the installer uses the ``C:\opscode\chefdk\`` directory.
 
 Verify the Chef Workstation or ChefDK Installation
@@ -128,16 +128,19 @@ A code editor should support the following: themes, plugins, snippets, syntax Ru
 
 These are a few common editors: 
 
-   * Visual Studio Code (free/open source) - http://code.visualstudio.com
-   * GitHub Atom - (free/open source) - http://atom.io
-   * Sublime Text - ($70 USD) - http://sublimetext.com
+   * `Visual Studio Code (free/open source) <http://code.visualstudio.com>`__
+   * `GitHub Atom - (free/open source) <http://atom.io>`__
+   * `Sublime Text - ($80 USD) <http://sublimetext.com>`__
 
-Chef for Visual Studio Code:
-   * Chef Extension https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef
-   
+Chef support in editors:
+
+   * `VSCode Chef Extension <https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef>`__
+   * `Chef on Atom <https://atom.io/packages/language-chef>`__
+   * `Chef on Sublime Text <https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef>`__
+
 Install and Optimize Git for Chef Development
 -------------------------------------------------------
-To install Git on Windows, navigate to https://git-scm.com/downloads and download the Windows installer. 
+To install Git on Windows, navigate to the `Github Downloads <https://git-scm.com/downloads>`__ site and download the Windows installer. 
 
 Download the installer and launch the Git Setup Wizard. Follow the on-screen instructions. We recommend adjusting the following settings to get the optimal set up for Chef development.
 
