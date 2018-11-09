@@ -87,8 +87,6 @@ This configuration file has the following settings:
 ``client_d_dir``
    A directory that contains additional configuration scripts to load for chef-client.
 
-   New in Chef client 12.8.
-
 ``cookbook_path``
    The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 
@@ -239,8 +237,6 @@ This configuration file has the following settings:
 ``log_location``
    The location of the log file. Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` (Windows Event Logger), or ``:syslog`` (writes to the syslog daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
 
-   Changed in Chef Client 12.9 to support new ``:win_evt`` and ``:syslog`` output locations.  Changed in 12.4 to support the Windows Event Logger and configuration with the daemon facility.
-
 ``minimal_ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
@@ -368,8 +364,6 @@ This configuration file has the following settings:
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
-
-   New in Chef Client 12.1.
 
 ``yum_lock_timeout``
    The amount of time (in seconds) after which a Yum lock request is to time out. Default value: ``30``.
