@@ -9,20 +9,6 @@ Use the ``knife user`` subcommand to manage the list of users and their associat
 
 .. end_tag
 
-.. warning:: In versions of the chef-client prior to version 12.0, this subcommand ONLY works when run against the open source Chef server; it does not run against Enterprise Chef (including hosted Enterprise Chef), or Private Chef.
-
-             Starting with Chef server 12.0, this functionality is built into the `chef-server-ctl </ctl_chef_server.html>`__ command-line tool as part of the following arguments:
-
-             * `user-create </ctl_chef_server.html#user-create>`_
-             * `user-delete </ctl_chef_server.html#user-delete>`_
-             * `user-edit </ctl_chef_server.html#user-edit>`_
-             * `user-list </ctl_chef_server.html#user-list>`_
-             * `user-show </ctl_chef_server.html#user-show>`_
-
-             Starting with chef-client version 12.4.1, the ``knife user`` functionality is restored for the following arguments: ``user-edit``, ``user-list``, and ``user-show`` for Chef server version 12.0 (and higher).
-
-             Starting with Chef server 12.4.1, `users who are members of the server-admins group </ctl_chef_server.html#server-admins>`_ may use the ``user-create``, ``user-delete``, ``user-edit``, ``user-list``, and ``user-show`` arguments to manage user accounts on the Chef server via the ``knife user`` subcommand.
-
 .. note:: .. tag knife_common_see_common_options_link
 
           Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.

@@ -50,10 +50,10 @@ This configuration file has the following settings:
 
 ``checksum_path``
    The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
-   
+
 ``chef_guid``
-   The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node. 
-   
+   The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node.
+
 ``chef_repo_path``
    The path to the chef-repo.
 
@@ -71,8 +71,8 @@ This configuration file has the following settings:
    The port on which chef-zero is to listen. This value may be specified as a range; the chef-client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
 
 ``client_fork``
-   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the chef-client in fork node. 
-   
+   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the chef-client in fork node.
+
    .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Client configuration file necessary.
 
 ``client_key``
@@ -86,8 +86,6 @@ This configuration file has the following settings:
 
 ``client_d_dir``
    A directory that contains additional configuration scripts to load for chef-client.
-
-   New in Chef client 12.8.
 
 ``cookbook_path``
    The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
@@ -239,8 +237,6 @@ This configuration file has the following settings:
 ``log_location``
    The location of the log file. Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` (Windows Event Logger), or ``:syslog`` (writes to the syslog daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
 
-   Changed in Chef Client 12.9 to support new ``:win_evt`` and ``:syslog`` output locations.  Changed in 12.4 to support the Windows Event Logger and configuration with the daemon facility.
-
 ``minimal_ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
@@ -368,8 +364,6 @@ New in Chef Client 13.0.
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
-
-   New in Chef Client 12.1.
 
 ``yum_lock_timeout``
    The amount of time (in seconds) after which a Yum lock request is to time out. Default value: ``30``.

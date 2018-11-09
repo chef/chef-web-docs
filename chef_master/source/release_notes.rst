@@ -4017,7 +4017,7 @@ ksh
 -----------------------------------------------------
 .. tag resource_script_ksh
 
-Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence. New in Chef Client 12.6.
+Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
 .. note:: The **ksh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
@@ -4241,8 +4241,6 @@ Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/
 * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit.
 * Increases the amount of time required to complete the chef-client run.
 * Should not be used in a production environment.
-
-New in Chef Client 12.6.
 
 .. end_tag
 
