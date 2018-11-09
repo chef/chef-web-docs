@@ -75,7 +75,7 @@ The windows_task resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -109,7 +109,7 @@ The windows_task resource has the following properties:
 
    The task description.
 
-   New in Chef Client 14.7.
+   _New in Chef Client 14.7._
 
 ``disallow_start_if_on_batteries``
    **Ruby Type:** true, false | **Default Value:** ``false``
