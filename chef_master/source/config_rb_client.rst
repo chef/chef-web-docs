@@ -36,12 +36,12 @@ This configuration file has the following settings:
    .. note:: Authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
 
 ``automatic_attribute_blacklist``
-   A hash  that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
+   A hash that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
 
    *New in Chef Client 13.0.*
 
 ``automatic_attribute_whitelist``
-   A hash  that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
 
    *New in Chef Client 13.0.*
 
@@ -114,12 +114,12 @@ This configuration file has the following settings:
    When enabled the chef-client will raise an error if it is unable to successfully POST to the data collector server. Default value: ``false``.
 
 ``default_attribute_blacklist``
-   A hash  that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
+   A hash that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
 
    *New in Chef Client 13.0.*
 
 ``default_attribute_whitelist``
-   A hash  that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
 
    *New in Chef Client 13.0.*
 
@@ -260,22 +260,22 @@ This configuration file has the following settings:
    The location in which nodes are stored when the chef-client is run in local mode. Default value: ``/var/chef/node``.
 
 ``normal_attribute_blacklist``
-   A hash  that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
+   A hash that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
 
    *New in Chef Client 13.0.*
 
 ``override_attribute_blacklist``
-   A hash  that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
+   A hash that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
 
    *New in Chef Client 13.0.*
 
 ``normal_attribute_whitelist``
-   A hash  that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
 
    *New in Chef Client 13.0.*
 
 ``override_attribute_whitelist``
-   A hash  that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
 
    *New in Chef Client 13.0.*
 
