@@ -10,7 +10,7 @@ Start your infrastructure automation quickly and easily with `Chef Workstation <
 
 Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without back-porting features.
 
-`Download Chef Workstation <https://https://downloads.chef.io/chef-workstation/>`__ 
+`Download Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ 
 
 Chef Workstation Supported Platforms
 -----------------------------------------------------
@@ -24,13 +24,13 @@ Supported Host Operating Systems:
    * - Platform
      - Version
    * - Apple macOS
-     - 10.11, 10.12, 10.13
+     - 10.11, 10.12, 10.13, 10.14
    * - Microsoft Windows
      - 10, Server 2008 R2, Server 2012, Server 2012 R2, Server 2016
    * - Red Hat Enterprise Linux / CentOS
      - 6.x, 7.x
    * - SUSE Enterprise Linux Server
-     - 11 SP4, 12 SP1+
+     - 11 SP4, 12 SP1+, 15
    * - Ubuntu 
      - 14.04, 16.04, 18.04
    * - Debian
@@ -47,7 +47,7 @@ Supported Host Operating Systems:
    * - Red Hat Enterprise Linux
      - 6.x, 7.x
    * - SUSE Enterprise Linux Server
-     - 11 SP4, 12 SP1+
+     - 11 SP4, 12 SP1+, 15
    * - Ubuntu
      - 14.04, 16.04, 18.04
    * - Debian
@@ -85,9 +85,8 @@ In some cases, such as if you're working with older or unsupported systems, you 
 
 #. Visit the `ChefDK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your Windows version. Click on the **Download** button.
 #. Follow the steps to accept the license and install the Chef development kit. You will have the option to change your install location; by default the installer uses the ``C:\opscode\chefdk\`` directory.
-#. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and ``cmd.exe``.
 
-Verify the ChefDK Installation
+Verify the Chef Workstation or ChefDK Installation
 -----------------------------------------------------
 
 To verify the ChefDK installation, run:
@@ -106,52 +105,11 @@ Which returns the versions of all installed Chef tools:
    kitchen version: 1.23.2
    inspec version: 2.2.70
 
-Configure the Windows Environment
------------------------------------------------------
-
-Use the ``chef shell-init`` command to configure your environment to use the ChefDK locations for Chef and Ruby. Set the execution policy, create a profile, and then create the initialization script for your environment with ``chef shell-init``.
-
-Set the Execution Policy
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-On newer Windows machines, PowerShell scripts will not work until an administrator runs the following command:
-
-.. code-block:: bash
-
-   Set-ExecutionPolicy RemoteSigned
-
-Create a Profile
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Once the execution policy is in place, initialize the Windows environment with the following commands: 
-
-Create a ``$PROFILE`` file if one doesn’t exist already:
-
-.. code-block:: shell
-
-   PS C:\Users\<username>> if(!(Test-Path $PROFILE)) { New-Item -Force -ItemType File $PROFILE }
-
-Next, add the output of ``chef shell-init powershell`` to your ``$PROFILE`` (This command does not print the output onto the screen):
-
-.. code-block:: shell
-
-   PS C:\Users\<username>> chef shell-init powershell | Add-Content $PROFILE
-
-Once initialized, your paths and environment variables are set up correctly for every new PowerShell session. See your environment settings by using ``cat $PROFILE``:
-
-.. code-block:: shell
-
-    PS C:\Users|<username>> cat $PROFILE
-    $env:PATH="C:/opscode/chefdk/bin;C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0/bin;C:/opscode/chefdk/embedded/bin;C:/opscode/chefdk/embedded/git/usr/bin"
-    $env:GEM_ROOT="C:/opscode/chefdk/embedded/lib/ruby/gems/2.5.0"
-    $env:GEM_HOME="C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0"
-    $env:GEM_PATH="C:/Users/<username>/AppData/Local/chefdk/gem/ruby/2.5.0;C:/opscode/chefdk/embedded/lib/ruby/gems/2.5.0"
-
 Spaces and Directories
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_spaces_and_directories
 
-Directories that are used by Chef on Windows cannot have spaces. For example, ``C:\Users\User Name`` will not work, but ``C:\Users\UserName`` will. Because of this, the ``knife supermarket install`` subcommand will fail if the directory contains a space.
+Directories that are used by Chef on Windows cannot have spaces. For example, ``C:\Users\User Name`` will not work, but ``C:\Users\UserName`` will. Chef commands may fail if used against a directory with a space in its name.
 
 .. end_tag
 
