@@ -71,7 +71,7 @@ The windows_ad_join resource has the following properties:
 
    Specifies a new hostname for the computer in the new domain.
 
-   _New in Chef Client 14.5._
+   *New in Chef Client 14.5.*
 
 ``ou_path``
    **Ruby Type:** String

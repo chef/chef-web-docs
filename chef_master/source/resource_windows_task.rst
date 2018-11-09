@@ -109,14 +109,14 @@ The windows_task resource has the following properties:
 
    The task description.
 
-   _New in Chef Client 14.7._
+   *New in Chef Client 14.7.*
 
 ``disallow_start_if_on_batteries``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Disallow start of the task if the system is running on battery power.
 
-   _New in Chef Client 14.4._
+   *New in Chef Client 14.4.*
 
 ``execution_time_limit``
    **Ruby Type:** String, Integer | **Default Value:** ``"PT72H"`` (72 hours)
@@ -204,7 +204,7 @@ The windows_task resource has the following properties:
 
    Scheduled task option when system is switching on battery.
 
-   _New in Chef Client 14.4._
+   *New in Chef Client 14.4.*
 
 ``task_name``
    **Ruby Type:** String | **Default Value:** ``'name'``

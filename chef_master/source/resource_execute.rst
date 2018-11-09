@@ -114,21 +114,21 @@ The execute resource has the following properties:
 
    When true this enables ENV magic to add path_sanity to the PATH and force the locale to English+UTF-8 for parsing output
 
-   _New in Chef Client 14.2._
+   *New in Chef Client 14.2.*
 
 ``domain``
    **Ruby Type:** String
 
    Windows only: The domain of the user user specified by the user property. If not specified, the user name and password specified by the user and password properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the user property.
 
-   _New in Chef Client 12.21._
+   *New in Chef Client 12.21.*
 
 ``elevated``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process. This will cause the process to be run under a batch login instead of an interactive login. The user running Chef needs the “Replace a process level token” and “Adjust Memory Quotas for a process” permissions. The user that is running the command needs the “Log on as a batch job” permission because of this requires a login, the user and password properties are required.
 
-   _New in Chef Client 13.3._
+   *New in Chef Client 13.3.*
 
 ``environment``
    **Ruby Type:** Hash
@@ -150,7 +150,7 @@ The execute resource has the following properties:
 
    Windows only: The password of the user specified by the user property. This property is mandatory if user is specified on Windows and may only be specified if user is specified. The sensitive property for this resource will automatically be set to true if password is specified.
 
-   _New in Chef Client 12.21._
+   *New in Chef Client 12.21.*
 
 ``returns``
    **Ruby Type:** Integer, Array | **Default Value:** ``0``

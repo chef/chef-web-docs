@@ -38,22 +38,22 @@ This configuration file has the following settings:
 ``automatic_attribute_blacklist``
    A hash  that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``automatic_attribute_whitelist``
    A hash  that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``cache_path``
    Optional. The home directory for the user that is running the chef-client as a non-root user.
 
 ``checksum_path``
    The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
-   
+
 ``chef_guid``
-   The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node. 
-   
+   The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node.
+
 ``chef_repo_path``
    The path to the chef-repo.
 
@@ -71,8 +71,8 @@ This configuration file has the following settings:
    The port on which chef-zero is to listen. This value may be specified as a range; the chef-client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
 
 ``client_fork``
-   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the chef-client in fork node. 
-   
+   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the chef-client in fork node.
+
    .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Client configuration file necessary.
 
 ``client_key``
@@ -116,12 +116,12 @@ This configuration file has the following settings:
 ``default_attribute_blacklist``
    A hash  that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``default_attribute_whitelist``
    A hash  that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``diff_disabled``
    Cause the chef-client to create a diff when changes are made to a file. Default value: ``false``.
@@ -262,22 +262,22 @@ This configuration file has the following settings:
 ``normal_attribute_blacklist``
    A hash  that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``override_attribute_blacklist``
    A hash  that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``normal_attribute_whitelist``
    A hash  that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``override_attribute_whitelist``
    A hash  that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``pid_file``
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
@@ -364,7 +364,7 @@ This configuration file has the following settings:
 
    .. warning:: The ``whitelist`` setting is available only when using Chef push jobs, a tool that runs jobs against nodes in an organization.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.

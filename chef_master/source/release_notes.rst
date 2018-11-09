@@ -1289,7 +1289,6 @@ It is now possible to blacklist node attributes
 -----------------------------------------------------
 Blacklist Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-New in Chef Client 13.0
 
 .. tag node_attribute_blacklist
 
