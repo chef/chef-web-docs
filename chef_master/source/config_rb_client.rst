@@ -319,9 +319,6 @@ This configuration file has the following settings:
 
    Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
 
-``syntax_check_cache_path``
-   All files in a cookbook must contain valid Ruby syntax. Use this setting to specify the location in which knife caches information about files that have been checked for valid Ruby syntax.
-
 ``umask``
    The file mode creation mask, or umask. Default value: ``0022``.
 
@@ -362,9 +359,6 @@ This configuration file has the following settings:
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
-
-``yum_lock_timeout``
-   The amount of time (in seconds) after which a Yum lock request is to time out. Default value: ``30``.
 
 Automatic Proxy Config
 -----------------------------------------------------
