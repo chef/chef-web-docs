@@ -134,10 +134,10 @@ This configuration file has the following settings:
    Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``false``.
 
 ``enable_reporting``
-   Cause the chef-client to send data to the Chef server for use with Reporting.
+   Cause the chef-client to send run data to the Automate server.
 
 ``enable_reporting_url_fatals``
-   Cause the chef-client run to fail when Reporting data cannot be sent to the Chef server (for any reason).
+   Cause the chef-client run to fail when run data cannot be sent to the Automate server (for any reason).
 
 ``enable_selinux_file_permission_fixup``
    SELinux environments only. Cause the chef-client to attempt to apply the correct file permissions to an updated file via the ``restorecon`` command. Set this value to ``false`` to prevent the chef-client from attempting this action.
