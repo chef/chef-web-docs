@@ -291,9 +291,7 @@ This configuration file has the following settings:
    The location in which role files are located. Default value: ``/var/chef/roles``.
 
 ``rubygems_url``
-    The location to source rubygems. It can be set to a string or array of strings for URIs to set as rubygems sources. This allows individuals to setup an internal mirror of rubygems for "airgapped" environments. Default value: ``https://www.rubygems.org``.
-
-   Changed in Chef Client 13.0.
+    The location to source rubygems. It can be set to a string or array of strings for URIs to set as rubygems sources. This allows individuals to setup an internal mirror of rubygems for "airgapped" environments. Default value: ``https://www.rubygems.org``. If a ``source`` is specified in either ``gem_package`` of ``chef_gem`` resources it will be added to the values provided here.
 
 ``run_lock_timeout``
    The amount of time (in seconds) to wait for a chef-client lock file to be deleted. A chef-client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending chef-client run will exit. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
