@@ -741,7 +741,9 @@ The full syntax for all of the properties that are available to the **dsc_resour
      module_name                String
      module_version             String
      property                   Symbol
+     reboot_action              Symbol # default value: :nothing
      resource                   String
+     timeout                    Integer
    end
 
 where:
@@ -749,7 +751,7 @@ where:
 * ``dsc_resource`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
-* ``module_name``, ``module_version``, ``property``, and ``resource`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``module_name``, ``module_version``, ``property``, ``reboot_action``, ``resource``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -805,6 +807,11 @@ The dsc_resource resource has the following properties:
 
    .. end_tag
 
+``reboot_action``
+   **Ruby Type:** Symbol | **Default Value:** ``:nothing``
+
+   Use to request an immediate reboot or to queue a reboot using the :reboot_now (immediate reboot) or :request_reboot (queued reboot) actions built into the reboot resource.
+
 ``resource``
    **Ruby Type:** String
 
@@ -850,6 +857,11 @@ The dsc_resource resource has the following properties:
    Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
    .. end_tag
+
+``timeout``
+   **Ruby Type:** Integer
+
+   The amount of time (in seconds) a command is to wait before timing out.
 
 .. end_tag
 
@@ -1424,7 +1436,7 @@ The windows_env resource has the following properties:
 ``key_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The name of the key that is to be created, deleted, or modified.
 
 ``user``
    **Ruby Type:** String | **Default Value:** ``"<System>"``
@@ -2639,12 +2651,12 @@ The windows_service resource has the following properties:
    The password for the user specified by ``run_as_user``.
 
 ``run_as_user``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``"LocalSystem"``
 
    The user under which a Microsoft Windows service runs.
 
 ``service_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
 
