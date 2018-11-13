@@ -76,9 +76,6 @@ This configuration file has the following settings:
 ``client_registration_retries``
    The number of times a chef-client is to attempt to register with a Chef server. Default value: ``5``.
 
-``chef_gem_compile_time``
-   Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Recommended value: ``false``.
-
 ``client_d_dir``
    A directory that contains additional configuration scripts to load for chef-client.
 
