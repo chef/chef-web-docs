@@ -190,7 +190,3 @@ This resource has the following properties:
 
 ``type``
    Use to specify the type of private key. Possible values: ``dsa`` and ``rsa``. Default value: ``rsa``.
-
-Examples
-=====================================================
-None.
