@@ -31,8 +31,6 @@ The chef-client executable is run as a command-line tool.
 
           .. end_tag
 
-New in Chef client 12.13, FIPS runtime flag exposed on RHEL. New in 12.9, ``--d SECONDS``.  New in 12.8, support for OpenSSL validation of FIPS. Changed in 12.8, chef-zero supports all Chef server API 12 endpoints, except ``/universe``. New in 12.7, ``--delete-entire-chef-repo``. New in 12.6, ``--profile-ruby``. New in 12.5, ``--n NAME``. Changed in 12.5, ``-j PATH`` supports policy revisions and environments. New in 12.3, ``--minimal-ohai``, ``--[no-]listen``. New in 12.0, ``-o RUN_LIST_ITEM``. New in 12.1 ``--audit-mode MODE``. Changed in 12.0, ``chef-zero-port`` supports specifying a range of ports, ``-f`` ``--[no]fork`` unforked interval runs are no longer involved, ``-s SECONDS`` is applied before the chef-client run.
-
 Options
 =====================================================
 This command has the following syntax:
@@ -69,12 +67,8 @@ This command has the following options:
 
    This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a chef-client service under Microsoft Windows using the Windows Service Wrapper.
 
-   New in Chef Client 12.9.
-
 ``--delete-entire-chef-repo``
    This option deletes an entire repository.  This option may only be used when running the chef-client in local mode, (``--local-mode``).  This option requires ``--recipe-url`` to be specified.
-
-   New in Chef Client 12.7
 
 ``--disable-config``
    Use to run the chef-client using default settings. This will prevent the normally-associated configuration file from being used. This setting should only be used for testing purposes and should never be used in a production setting.
@@ -118,8 +112,6 @@ This command has the following options:
 
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data. Used to setup the first client run. For all the future runs with option -i the attributes are expected to be persisted in the chef-server.
-
-   Changed in Chef Client 12.5 to support policy revisions and environments.
 
    **Run-lists**
 
@@ -255,8 +247,6 @@ This command has the following options:
 ``--minimal-ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
-   New in Chef Client 12.3.
-
 ``--[no-]color``
    View colored output. Default setting: ``--color``.
 
@@ -267,25 +257,17 @@ This command has the following options:
    Use cached cookbooks without overwriting local differences from the server.
    Use with caution. Useful for patching a set of cookbooks on a machine when iterating during development.
 
-   New in Chef Client 12.8.1.
-
 ``--[no-]listen``
    Run chef-zero in socketless mode. **This is the default behavior on Chef Client 13.1 and above.**
 
-   New in Chef Client 12.3.
-
 ``-n NAME``, ``--named-run-list NAME``
    The run-list associated with a policy file.
-
-   New in Chef Client 12.5.
 
 ``-N NODE_NAME``, ``--node-name NODE_NAME``
    The name of the node.
 
 ``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
    Replace the current run-list with the specified items. This option will not clear the list of cookbooks (and related files) that is cached on the node. This option will not persist node data at the end of the client run.
-
-   New in Chef Client 12.0.
 
 ``--once``
    Run the chef-client only once and cancel ``interval`` and ``splay`` options.
@@ -302,9 +284,7 @@ This command has the following options:
    * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit.
    * Increases the amount of time required to complete the chef-client run.
    * Should not be used in a production environment.
-
-   New in Chef Client 12.6.
-
+   
    .. end_tag
 
 ``-r RUN_LIST_ITEM``, ``--runlist RUN_LIST_ITEM``
@@ -361,7 +341,7 @@ About chef-zero
 -----------------------------------------------------
 chef-zero is a very lightweight Chef server that runs in-memory on the local machine. This allows the chef-client to be run against the chef-repo as if it were running against the Chef server. chef-zero was `originally a standalone tool <https://github.com/chef/chef-zero>`_; it is enabled from within the chef-client by using the ``--local-mode`` option. chef-zero is very useful for quickly testing and validating the behavior of the chef-client, cookbooks, recipes, and run-lists before uploading that data to the actual Chef server.
 
-.. note:: chef-zero does not save data between restarts. Because it is intended to be used locally, chef-zero does not perform input validation, authentication, or authorization, as these security measures are not necessary for local testing. For these reasons, we strongly recommend against using chef-zero as a persistent Chef server. 
+.. note:: chef-zero does not save data between restarts. Because it is intended to be used locally, chef-zero does not perform input validation, authentication, or authorization, as these security measures are not necessary for local testing. For these reasons, we strongly recommend against using chef-zero as a persistent Chef server.
 
 Changed in Chef Client 12.8, now chef-zero supports all Chef server API version 12 endpoints, except ``/universe``.
 

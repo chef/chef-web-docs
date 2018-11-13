@@ -69,7 +69,7 @@ Spaces and Directories
 -----------------------------------------------------
 .. tag windows_spaces_and_directories
 
-Directories that are used by Chef on Windows cannot have spaces. For example, ``C:\Users\Steven Danno`` will not work, but ``C:\Users\StevenDanno`` will. Because of this, the ``knife supermarket install`` subcommand will fail if the directory contains a space.
+Directories that are used by Chef on Windows cannot have spaces. For example, ``C:\Users\User Name`` will not work, but ``C:\Users\UserName`` will. Chef commands may fail if used against a directory with a space in its name.
 
 .. end_tag
 
@@ -741,7 +741,9 @@ The full syntax for all of the properties that are available to the **dsc_resour
      module_name                String
      module_version             String
      property                   Symbol
+     reboot_action              Symbol # default value: :nothing
      resource                   String
+     timeout                    Integer
    end
 
 where:
@@ -749,7 +751,7 @@ where:
 * ``dsc_resource`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
-* ``module_name``, ``module_version``, ``property``, and ``resource`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``module_name``, ``module_version``, ``property``, ``reboot_action``, ``resource``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
@@ -805,6 +807,11 @@ The dsc_resource resource has the following properties:
 
    .. end_tag
 
+``reboot_action``
+   **Ruby Type:** Symbol | **Default Value:** ``:nothing``
+
+   Use to request an immediate reboot or to queue a reboot using the :reboot_now (immediate reboot) or :request_reboot (queued reboot) actions built into the reboot resource.
+
 ``resource``
    **Ruby Type:** String
 
@@ -850,6 +857,11 @@ The dsc_resource resource has the following properties:
    Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
    .. end_tag
+
+``timeout``
+   **Ruby Type:** Integer
+
+   The amount of time (in seconds) a command is to wait before timing out.
 
 .. end_tag
 
@@ -1424,7 +1436,7 @@ The windows_env resource has the following properties:
 ``key_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The name of the key that is to be created, deleted, or modified.
 
 ``user``
    **Ruby Type:** String | **Default Value:** ``"<System>"``
@@ -2532,12 +2544,12 @@ The windows_service resource has the following actions:
 ``:create``
    Create the service based on the value of the ``binary_path_name``, ``service_name`` and/or ``display_name`` property.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``:delete``
    Delete the service based on the value of the ``service_name`` property.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``:disable``
    Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform.
@@ -2573,28 +2585,28 @@ The windows_service resource has the following properties:
 
    The fully qualified path to the service binary file. The path can also include arguments for an auto-start service. This is required for ':create' and ':configure' actions
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``delayed_start``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``dependencies``
    **Ruby Type:** String, Array
 
    A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``description``
    **Ruby Type:** String
 
    Description of the service.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``desired_access``
    **Ruby Type:** Integer | **Default Value:** ``983551``
@@ -2604,7 +2616,7 @@ The windows_service resource has the following properties:
 
    The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``init_command``
    **Ruby Type:** String
@@ -2616,7 +2628,7 @@ The windows_service resource has the following properties:
 
    The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``pattern``
    **Ruby Type:** String | **Default Value:** ``service_name``
@@ -2639,12 +2651,12 @@ The windows_service resource has the following properties:
    The password for the user specified by ``run_as_user``.
 
 ``run_as_user``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``"LocalSystem"``
 
    The user under which a Microsoft Windows service runs.
 
 ``service_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
 

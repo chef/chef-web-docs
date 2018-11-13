@@ -5,94 +5,114 @@ Release Notes: Chef Client 12.0 - 14.6
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
+What’s New in 14.7
+=====================================================
+
+* **New Resources**
+
+  * **windows_firewall_rule**
+      Use the `windows_firewall_rule </resource_windows_firewall_rule.html>`__ resource to create or delete Windows Firewall rules.
+
+      Thank you `Schuberg Philis <https://schubergphilis.com>`__ for transferring us the `windows_firewall cookbook <https://supermarket.chef.io/cookbooks/windows_firewall>`__ and to `@Happycoil <https://github.com/Happycoil>`__ for porting it to chef-client with a significant refactoring.
+
+  * **windows_share**
+      Use the `windows_share </resource_windows_share.html>`__ resource create or delete Windows file shares.
+
+  * **windows_certificate**
+      Use the `windows_certificate </resource_windows_certificate.html>`__ resource add, remove, or verify certificates in the system or user certificate stores.
+
+* **Updated Resources**
+
+  * **dmg_package**
+      The dmg_package resource has been refactored to improve idempotency and properly support accepting a DMG's EULA with the ``accept_eula`` property.
+
+  * **kernel_module**
+      Kernel_module now only runs the ``initramfs`` update once per Chef run to greatly speed up chef-client runs when multiple kernel_module resources are used. Thank you `@tomdoherty </https://github.com/tomdoherty>`__ for this improvement.
+
+  * **mount**
+      The ``supports`` property once again allows passing supports data as an array. This matches the behavior present in Chef 12.
+
+  * **timezone**
+      macOS support has been added to the timezone resource.
+
+  * **windows_task**
+      A regression in Chef 14.6’s windows_task resource which resulted in tasks being created with the "Run only when user is logged on" option being set when created with a specific user other than SYSTEM, has been resolved.
+
 What’s New in 14.6
 =====================================================
 
 * **Smaller Package and Install Size**
-
-  We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. macOS/Linux packages are ~50% smaller and Windows packages are ~12% smaller. Chef 14 is now smaller than a legacy Chef 10 package.
+    We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. macOS/Linux packages are ~50% smaller and Windows packages are ~12% smaller. Chef 14 is now smaller than a legacy Chef 10 package.
 
 * **New Resources**
 
   * **timezone**
+      Chef now includes the `timezone </resource_timezone.html>`__ resource from `@dragonsmith <http://github.com/dragonsmith>`__'s ``timezone_lwrp`` cookbook. This resource supports setting a Linux node's timezone. Thank you `@dragonsmith <http://github.com/dragonsmith>`__ for allowing us to include this in Chef.
 
-    Chef now includes the `timezone </resource_timezone.html>`__ resource from `@dragonsmith <http://github.com/dragonsmith>`__'s ``timezone_lwrp`` cookbook. This resource supports setting a Linux node's timezone. Thank you `@dragonsmith <http://github.com/dragonsmith>`__ for allowing us to include this in Chef.
+      Example:
 
-    Example:
+      .. code-block:: ruby
 
-    .. code-block:: ruby
-
-      timezone 'UTC'
+        timezone 'UTC'
 
 * **Updated Resources**
 
   * **windows_task**
-
-    The ``windows_task`` resource has been updated to support localized system users and groups on non-English nodes. Thanks `@jugatsu <http://github.com/jugatsu>`__ for making this possible.
+      The ``windows_task`` resource has been updated to support localized system users and groups on non-English nodes. Thanks `@jugatsu <http://github.com/jugatsu>`__ for making this possible.
 
   * **user**
+      The ``user`` resource now includes a new ``full_name`` property for Windows hosts, which allows specifying a user's full name.
 
-    The ``user`` resource now includes a new ``full_name`` property for Windows hosts, which allows specifying a user's full name.
+      Example:
 
-    Example:
+      .. code-block:: ruby
 
-    .. code-block:: ruby
-
-      user 'jdoe' do
-        full_name 'John Doe'
-      end
+        user 'jdoe' do
+          full_name 'John Doe'
+        end
 
 
   * **zypper_package**
+      The ``zypper_package`` resource now includes a new ``global_options`` property. This property can be used to specify one or more options for the zypper command line that are global in context.
 
-    The ``zypper_package`` resource now includes a new ``global_options`` property. This property can be used to specify one or more options for the zypper command line that are global in context.
+      Example:
 
-    Example:
+      .. code-block:: ruby
 
-    .. code-block:: ruby
-
-      package 'sssd' do
-         global_options '-D /tmp/repos.d/'
-      end
+        package 'sssd' do
+           global_options '-D /tmp/repos.d/'
+        end
 
 * **InSpec 3.0**
-
-  Inspec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See `Announcing InSpec 3.0 <https://blog.chef.io/2018/10/16/announcing-inspec-3-0/>`__ for details.
+    Inspec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See `Announcing InSpec 3.0 <https://blog.chef.io/2018/10/16/announcing-inspec-3-0/>`__ for details.
 
 * **macOS Mojave (10.14)**
-
-  Chef is now tested against macOS Mojave, and packages are now available at downloads.chef.io.
+    Chef is now tested against macOS Mojave, and packages are now available at downloads.chef.io.
 
 * **Important Bugfixes**
+    * Multiple bugfixes in Chef Vault have been resolved by updating chef-vault to 3.4.2
+    * Invalid yum package names now gracefully fail
+    * ``windows_ad_join`` now properly executes. Thank you `@cpjones01 <https://github.com/cpjones01>`__ for reporting this.
+    * ``rhsm_errata_level`` now properly executes. Thank you `@freakinhippie <https://github.com/freakinhippie>`__ for this fix.
+    * ``registry_key`` now properly writes out the correct value when `sensitive` is specified. Thank you `@josh-barker <https://github.com/josh-barker>`__ for this fix.
+    * ``locale`` now properly executes on RHEL 6 and Amazon Linux 201X.
 
-  - Multiple bugfixes in Chef Vault have been resolved by updating chef-vault to 3.4.2
-  - Invalid yum package names now gracefully fail
-  - ``windows_ad_join`` now properly executes. Thank you `@cpjones01 <https://github.com/cpjones01>`__ for reporting this.
-  - ``rhsm_errata_level`` now properly executes. Thank you `@freakinhippie <https://github.com/freakinhippie>`__ for this fix.
-  - ``registry_key`` now properly writes out the correct value when `sensitive` is specified. Thank you `@josh-barker <https://github.com/josh-barker>`__ for this fix.
-  - ``locale`` now properly executes on RHEL 6 and Amazon Linux 201X.
+* **Ohai 14.6**
 
-Ohai 14.6
------------------------------------------------------
+  * **Filesystem Plugin on AIX and Solaris**
+      AIX and Solaris now ship with a filesystem2 plugin that updates the filesystem data to match that of Linux, macOS, and BSD hosts. This new data structure makes accessing filesystem data in recipes easier and especially improves the layout and depth of data on ZFS filesystems. In Chef 15 (April 2019) we will begin writing this same format of data to the existing ``node['filesystem']`` namespace. In Chef 16 (April 2020) we will remove the ``node['filesystem2']`` namespace, completing the transition to the new format. Thank you `@jaymzh <https://github.com/jaymzh>`__ for continuing the updates to our filesystem plugins with this change.
 
-* **Filesystem Plugin on AIX and Solaris**
+  * **macOS Improvements**
+      The ``system_profile`` plugin has been improved to skip over unnecessary data, which reduces macOS node sizes on the Chef Server. Additionally the CPU plugin has been updated to limit what sysctl values it polls, which prevents hanging on some system configurations.
 
-  AIX and Solaris now ship with a filesystem2 plugin that updates the filesystem data to match that of Linux, macOS, and BSD hosts. This new data structure makes accessing filesystem data in recipes easier and especially improves the layout and depth of data on ZFS filesystems. In Chef 15 (April 2019) we will begin writing this same format of data to the existing ``node['filesystem']`` namespace. In Chef 16 (April 2020) we will remove the ``node['filesystem2']`` namespace, completing the transition to the new format. Thank you `@jaymzh <https://github.com/jaymzh>`__ for continuing the updates to our filesystem plugins with this change.
+  * **SLES 15 Detection**
+      SLES 15 is now correctly detected as the platform "suse" instead of "sles". This matches the behavior of SLES 11 and 12 hosts.
 
-* **macOS Improvements**
-
-  The ``system_profile`` plugin has been improved to skip over unnecessary data, which reduces macOS node sizes on the Chef Server. Additionally the CPU plugin has been updated to limit what sysctl values it polls, which prevents hanging on some system configurations.
-
-* **SLES 15 Detection**
-
-  SLES 15 is now correctly detected as the platform "suse" instead of "sles". This matches the behavior of SLES 11 and 12 hosts.
-
-New Deprecation
+New Deprecations
 -----------------------------------------------------
 
 * **system_profile Ohai plugin removal**
-
-  The ``system_profile`` plugin will be removed from Chef/Ohai 15 in April 2019. This plugin does not correctly return data on modern Mac systems. Additionally the same data is provided by the hardware plugin, which has a format that is simpler to consume. Removing this plugin will reduce Ohai return by ~3 seconds and greatly reduce the size of the node object on the Chef server.
+    The ``system_profile`` plugin will be removed from Chef/Ohai 15 in April 2019. This plugin does not correctly return data on modern Mac systems. Additionally the same data is provided by the hardware plugin, which has a format that is simpler to consume. Removing this plugin will reduce Ohai return by ~3 seconds and greatly reduce the size of the node object on the Chef server.
 
 Security Updates
 -----------------------------------------------------
@@ -128,27 +148,25 @@ What’s New in 14.5
 
       Thank you @derekgroh for contributing this resource.
 
-Ohai 14.5
------------------------------------------------------
+* **Ohai 14.5**
 
-* **Windows Improvements**
-    Detection for the ``root_group`` attribute on Windows has been simplified and improved to properly support non-English systems. With this change, we've also deprecated the ``Ohai::Util::Win32::GroupHelper`` helper, which is no longer necessary. Thanks to @jugatsu for putting this together.
+  * **Windows Improvements**
+      Detection for the ``root_group`` attribute on Windows has been simplified and improved to properly support non-English systems. With this change, we've also deprecated the ``Ohai::Util::Win32::GroupHelper`` helper, which is no longer necessary. Thanks to @jugatsu for putting this together.
 
-    We've also added a new ``encryption_status`` attribute to ``volumes`` on Windows. Thanks to @kmf for suggesting this new feature.
+      We've also added a new ``encryption_status`` attribute to ``volumes`` on Windows. Thanks to @kmf for suggesting this new feature.
 
-* **Configuration Improvements**
-    The timeout period for communicating with OpenStack metadata servers can now be configured with the ``openstack_metadata_timeout`` config option. Thanks to @sawanoboly for this improvement.
+  * **Configuration Improvements**
+      The timeout period for communicating with OpenStack metadata servers can now be configured with the ``openstack_metadata_timeout`` config option. Thanks to @sawanoboly for this improvement.
 
-    Ohai now properly handles relative paths to config files when running on the command line. This means commands like ``ohai -c ../client.rb`` will now properly use your config values.
+      Ohai now properly handles relative paths to config files when running on the command line. This means commands like ``ohai -c ../client.rb`` will now properly use your config values.
 
-InSpec Updated to 2.2.102
------------------------------------------------------
+* **InSpec Updated to 2.2.102**
 
-* Support for using ERB templating within the .yml files
-* HTTP basic auth support for fetching dependent profiles
-* A new global attributes concept
-* Better error handling with Automate reporting
-* Vendor command now vendors profiles when using path://
+  * Support for using ERB templating within the .yml files
+  * HTTP basic auth support for fetching dependent profiles
+  * A new global attributes concept
+  * Better error handling with Automate reporting
+  * Vendor command now vendors profiles when using path://
 
 New Deprecations
 -----------------------------------------------------
@@ -221,38 +239,37 @@ What’s New in 14.4
 * **Improved Resources**
 
   * **windows_package**
-       The `windows_package </resource_windows_package.html>`__ resource now supports setting the sensitive property to avoid showing errors if a package install fails.
+      The `windows_package </resource_windows_package.html>`__ resource now supports setting the sensitive property to avoid showing errors if a package install fails.
 
   * **sysctl**
-       The `sysctl </resource_sysctl.html>`__ resource now updates the on-disk ``sysctl.d`` file even if the current sysctl value matches the desired value.
+      The `sysctl </resource_sysctl.html>`__ resource now updates the on-disk ``sysctl.d`` file even if the current sysctl value matches the desired value.
 
   * **windows_task**
-       The `windows_task </resource_windows_task.html>`__ resource now supports setting the task priority of the scheduled task with a new priority property. Additionally ``windows_task`` now supports managing the behavior of task execution when a system is on battery using new ``disallow_start_if_on_batteries`` and ``stop_if_going_on_batteries`` properties.
+      The `windows_task </resource_windows_task.html>`__ resource now supports setting the task priority of the scheduled task with a new priority property. Additionally ``windows_task`` now supports managing the behavior of task execution when a system is on battery using new ``disallow_start_if_on_batteries`` and ``stop_if_going_on_batteries`` properties.
 
   * **ifconfig**
-       The `ifconfig </resource_ifconfig.html>`__ resource now supports setting the interface's VLAN via a new vlan property on RHEL ``platform_family`` and setting the interface's gateway via a new gateway property on RHEL/Debian ``platform_family``.
+      The `ifconfig </resource_ifconfig.html>`__ resource now supports setting the interface's VLAN via a new vlan property on RHEL ``platform_family`` and setting the interface's gateway via a new gateway property on RHEL/Debian ``platform_family``.
 
-       Thank you @tomdoherty for this contribution.
+      Thank you @tomdoherty for this contribution.
 
   * **route**
-       The `route </resource_route.html>`__ resource now supports additional RHEL platform_family systems as well as Amazon Linux.
+      The `route </resource_route.html>`__ resource now supports additional RHEL platform_family systems as well as Amazon Linux.
 
   * **systemd_unit**
-       The `systemd_unit </resource_systemd_unit.html>`__ resource now supports specifying options multiple times in the content hash. Instead of setting the value to a string you can now set it to an array of strings.
+      The `systemd_unit </resource_systemd_unit.html>`__ resource now supports specifying options multiple times in the content hash. Instead of setting the value to a string you can now set it to an array of strings.
 
-       Thank you @dbresson for this contribution.
+      Thank you @dbresson for this contribution.
 
-Ohai 14.4
------------------------------------------------------
-* The default shell out timeout period of 30 seconds can now be configured by setting ```shellout_timeout``` in your ```client.rb``` config.
+* **Ohai 14.4**
 
-* System enclosure information is now collected on Windows with a new ```system_enclosure``` plugin.
+  * The default shell out timeout period of 30 seconds can now be configured by setting ``shellout_timeout`` in your ``client.rb`` config.
+
+  * System enclosure information is now collected on Windows with a new ```system_enclosure``` plugin.
 
 Security Updates
 -----------------------------------------------------
 * **OpenSSL**
-     OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`__ and `CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`__
-
+    OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`__ and `CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`__
 
 What’s New in 14.3
 =====================================================
@@ -292,10 +309,8 @@ What’s New in 14.3
      * Resolved idempotency issues in the `windows_task </resource_windows_task.html>`__ resource and prevented setting up a task with bad credentials
      * `windows_service </resource_windows_service.html>`__ no longer throws Ruby deprecation warnings
 
-Ohai 14.3
------------------------------------------------------
-
-* Ohai now properly detects the platform_version of the final release of Amazon Linux 2.0 in addition to the previous detection of the RC platform_version.
+* **Ohai 14.3**
+    Ohai now properly detects the platform_version of the final release of Amazon Linux 2.0 in addition to the previous detection of the RC platform_version.
 
 New Deprecations
 -----------------------------------------------------
@@ -339,13 +354,14 @@ What’s New in 14.2
 
      Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
 
-Ohai 14.2
------------------------------------------------------
-
-* Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon's new C5/M5 instances.
-
 What's New in 14.1.12
 =====================================================
+
+* **Ohai 14.1.3**
+
+  * Properly detect FIPS environments
+  * shard plugin: work in FIPS compliant environments
+  * filesystem plugin: Handle BSD platforms
 
 * **Resource Changes & Notes**
 
@@ -355,14 +371,6 @@ What's New in 14.1.12
   * `windows_task </resource_windows_task.html>`__ resource: properly handle commands with arguments
   * `windows_task </resource_windows_task.html>`__ resource: handle creating tasks as the SYSTEM user
   * `remote_directory </resource_remote_directory.html>`__ resource: restore the default for the overwrite property
-
-Ohai 14.1.3
--------------------------------------------------------
-
-* Properly detect FIPS environments
-* shard plugin: work in FIPS compliant environments
-* filesystem plugin: Handle BSD platforms
-
 
 What's New in 14.1.1
 =====================================================
@@ -388,16 +396,16 @@ This release of Chef Client 14 resolves a number of regressions in 14.0:
 * The ``sysctl`` resource correctly handles missing keys when used with ``ignore_error``
 * ``–recipe-url`` works with Windows with local files.
 
-Ohai 14.1
------------------------------------------------------
-* **Configurable DMI Whitelist**
-     The whitelist of DMI IDs is now user-configurable via the ``additional_dmi_ids`` configuration setting, which accepts an array.
+* **Ohai 14.1**
 
-* **Shard plugin**
-     The Shard plugin has been restored as a default plugin, rather than an optional one. The plugin will use SHA256 instead of MD5 in FIPS environments.
+  * **Configurable DMI Whitelist**
+       The whitelist of DMI IDs is now user-configurable via the ``additional_dmi_ids`` configuration setting, which accepts an array.
 
-* **SCSI plugin**
-     An optional plugin to enumerate SCSI devices.
+  * **Shard plugin**
+       The Shard plugin has been restored as a default plugin, rather than an optional one. The plugin will use SHA256 instead of MD5 in FIPS environments.
+
+  * **SCSI plugin**
+       An optional plugin to enumerate SCSI devices.
 
 What's New in 14.0.202
 =====================================================
@@ -1261,7 +1269,7 @@ What's New in 13.2
 
     When daemonized, Chef now performs a reconfigure after every run.
 
-New deprecations included in this release
+New deprecations
 -----------------------------------------------------
 
 * `Explicit property methods </deprecations_namespace_collisions.html>`__  In Chef 14, custom resources will no longer assume property methods are being called on ``new_resource``, and will instead require the resource author to be explicit.
@@ -1281,7 +1289,6 @@ It is now possible to blacklist node attributes
 -----------------------------------------------------
 Blacklist Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-New in Chef Client 13.0
 
 .. tag node_attribute_blacklist
 
@@ -1672,7 +1679,7 @@ Chef Client will only exit with exit codes defined in RFC 062.  This allows othe
 
 When Chef Client is running as a forked process on unix systems, the standardized exit codes are used by the child process.  To actually have Chef Client return the standard exit code, ``client_fork false`` will need to be set in Chef Client's configuration file.
 
-New deprecations included in this release
+New deprecations
 -----------------------------------------------------
 * `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__
 
@@ -1926,7 +1933,7 @@ The following items are new for chef-client 12.18 and/or are changes from previo
 * **Can now enable chef-client to run as a scheduled task directly from the client MSI on Windows hosts**
 * **Package provider now supports DNF packages for Fedora and upcoming RHEL releases**
 
-New deprecations included in this release
+New deprecations
 -----------------------------------------------------
 * `Chef::Platform helper methods </deprecations_chef_platform_methods.html>`__
 * `run_command helper method </deprecations_run_command.html>`__
@@ -4017,7 +4024,7 @@ ksh
 -----------------------------------------------------
 .. tag resource_script_ksh
 
-Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence. New in Chef Client 12.6.
+Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
 .. note:: The **ksh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
@@ -4241,8 +4248,6 @@ Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/
 * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and the Chef development kit.
 * Increases the amount of time required to complete the chef-client run.
 * Should not be used in a production environment.
-
-New in Chef Client 12.6.
 
 .. end_tag
 

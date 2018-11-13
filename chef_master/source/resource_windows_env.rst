@@ -72,7 +72,7 @@ The windows_env resource has the following properties:
 ``key_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the key that is to be created, deleted, or modified. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The name of the key that is to be created, deleted, or modified.
 
 ``user``
    **Ruby Type:** String | **Default Value:** ``"<System>"``

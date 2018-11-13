@@ -61,7 +61,7 @@ The full syntax for all of the properties that are available to the **execute** 
     live_stream      true, false # default value: false
     password         String
     returns          Integer, Array # default value: 0
-    sensitive        true, false
+    sensitive        true, false # default value: true if the password property is set. False otherwise.
     timeout          Integer, Float
     umask            String, Integer
     user             String, Integer
@@ -106,7 +106,29 @@ The execute resource has the following properties:
 ``cwd``
    **Ruby Type:** String
 
-   The current working directory from which a command is run.
+   The current working directory from which the command will be run.
+
+
+``default_env``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   When true this enables ENV magic to add path_sanity to the PATH and force the locale to English+UTF-8 for parsing output
+
+   *New in Chef Client 14.2.*
+
+``domain``
+   **Ruby Type:** String
+
+   Windows only: The domain of the user user specified by the user property. If not specified, the user name and password specified by the user and password properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the user property.
+
+   *New in Chef Client 12.21.*
+
+``elevated``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process. This will cause the process to be run under a batch login instead of an interactive login. The user running Chef needs the “Replace a process level token” and “Adjust Memory Quotas for a process” permissions. The user that is running the command needs the “Log on as a batch job” permission because of this requires a login, the user and password properties are required.
+
+   *New in Chef Client 13.3.*
 
 ``environment``
    **Ruby Type:** Hash
@@ -123,6 +145,13 @@ The execute resource has the following properties:
 
    Send the output of the command run by this **execute** resource block to the chef-client event stream.
 
+``password``
+   **Ruby Type:** String
+
+   Windows only: The password of the user specified by the user property. This property is mandatory if user is specified on Windows and may only be specified if user is specified. The sensitive property for this resource will automatically be set to true if password is specified.
+
+   *New in Chef Client 12.21.*
+
 ``returns``
    **Ruby Type:** Integer, Array | **Default Value:** ``0``
 
@@ -134,27 +163,16 @@ The execute resource has the following properties:
 
    The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
 
-``user``
-   **Ruby Type:** String
-
-   The user name of the user identity with which to launch the new process. Default value: `nil`. The user name may optionally be specifed with a domain, i.e. `domain\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
-
-``password``
-   **Ruby Type:** String
-
-   *Windows only*: The password of the user specified by the `user` property.
-   Default value: `nil`. This property is mandatory if `user` is specified on Windows and may only be specified if `user` is specified. The `sensitive` property for this resource will automatically be set to true if password is specified.
-
-``domain``
-   **Ruby Type:** String
-
-   *Windows only*: The domain of the user user specified by the `user` property.
-   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``umask``
    **Ruby Type:** String, Integer
 
    The file mode creation mask, or umask.
+
+``user``
+   **Ruby Type:** String, Integer
+
+   The user name of the user identity with which to launch the new process. The user name may optionally be specifed with a domain, i.e. domainuser or user@my.dns.domain.com via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the domain attribute. On Windows only, if this property is specified, the password property must be specified.
 
 Common Resource Functionality
 =====================================================

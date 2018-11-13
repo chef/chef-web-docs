@@ -107,7 +107,7 @@ The apt_repository resource has the following properties:
    If set, a specified proxy is passed to GPG via ``http-proxy=``.
 
 ``keyserver``
-   **Ruby Type:** String, false | **Default Value:** ``keyserver.ubuntu.com``
+   **Ruby Type:** String, false | **Default Value:** ``"keyserver.ubuntu.com"``
 
    The GPG keyserver where the key for the repo should be retrieved.
 
@@ -116,7 +116,7 @@ The apt_repository resource has the following properties:
 
    The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
 
-   New in Chef Client 14.1.
+   *New in Chef Client 14.1.*
 
 ``trusted``
    **Ruby Type:** true, false | **Default Value:** ``false``
@@ -271,7 +271,6 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
-
 
 Examples
 =====================================================

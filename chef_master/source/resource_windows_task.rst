@@ -19,8 +19,9 @@ The windows_task resource has the following syntax:
     command                             String
     cwd                                 String
     day                                 String, Integer
+    description                         String
     disallow_start_if_on_batteries      true, false # default value: false
-    execution_time_limit                String, Integer # default value: PT72H
+    execution_time_limit                String, Integer # default value: "PT72H"
     force                               true, false # default value: false
     frequency                           Symbol
     frequency_modifier                  Integer, String # default value: 1
@@ -32,12 +33,12 @@ The windows_task resource has the following syntax:
     password                            String
     priority                            Integer # default value: 7
     random_delay                        String, Integer
-    run_level                           Symbol # default value: limited
+    run_level                           Symbol # default value: :limited
     start_day                           String
     start_time                          String
     stop_if_going_on_batteries          true, false # default value: false
     task_name                           String # default value: 'name' unless specified
-    user                                String # default value: SYSTEM
+    user                                String # default value: The localized SYSTEM user for the node.
     action                              Symbol # defaults to :create if not specified
   end
 
@@ -46,7 +47,7 @@ where:
 * ``windows_task`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``command``, ``cwd``, ``day``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``stop_if_going_on_batteries``, ``task_name``, and ``user`` are the properties available to this resource.
+* ``command``, ``cwd``, ``day``, ``description``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``stop_if_going_on_batteries``, ``task_name``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -70,6 +71,13 @@ The windows_task resource has the following actions:
 
 ``:disable``
    Disables a task.
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
@@ -96,14 +104,22 @@ The windows_task resource has the following properties:
        * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modiifer`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
        * Multiple days should be comma seprated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
 
+``description``
+   **Ruby Type:** String
+
+   The task description.
+
+   *New in Chef Client 14.7.*
+
 ``disallow_start_if_on_batteries``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Disallow start of the task if the system is running on battery power.
-   New in Chef Client 14.4.
+
+   *New in Chef Client 14.4.*
 
 ``execution_time_limit``
-   **Ruby Type:** String, Integer | **Default Value:** ``PT72H`` (72 hours)
+   **Ruby Type:** String, Integer | **Default Value:** ``"PT72H"`` (72 hours)
 
    The maximum time (in seconds) the task will run.
 
@@ -187,7 +203,8 @@ The windows_task resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Scheduled task option when system is switching on battery.
-   New in Chef Client 14.4.
+
+   *New in Chef Client 14.4.*
 
 ``task_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
@@ -195,7 +212,7 @@ The windows_task resource has the following properties:
    The task name, such as ``"Task Name"`` or ``"/Task Name"``
 
 ``user``
-   **Ruby Type:** String | **Default Value:** ``SYSTEM``
+   **Ruby Type:** String | **Default Value:** ``"The localized SYSTEM user for the node."``
 
    The user to run the task as.
 

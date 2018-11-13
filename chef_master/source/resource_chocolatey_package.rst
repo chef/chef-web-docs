@@ -103,6 +103,17 @@ The chocolatey_package resource has the following properties:
 
    The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
+``returns``
+   **Ruby Type:** Integer, Array | **Default Value:** ``[0]``
+
+   The exit code(s) returned a chocolatey package that indicate success.
+
+   The syntax for ``returns`` is:
+
+   .. code-block:: ruby
+
+      returns [0, 1605, 1614, 1641]
+
 ``source``
    **Ruby Type:** String
 
@@ -117,17 +128,6 @@ The chocolatey_package resource has the following properties:
    **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
-
-``returns``
-   **Ruby Type:** Integer, Array of Integers
-
-   The exit code(s) returned a chocolatey package that indicate success. Default is 0.
-
-   The syntax for ``returns`` is:
-
-   .. code-block:: ruby
-
-      returns [0, 1605, 1614, 1641]
 
 .. end_tag
 

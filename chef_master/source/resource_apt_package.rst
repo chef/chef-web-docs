@@ -101,7 +101,7 @@ The apt_package resource has the following properties:
 
    Overwrite existing configuration files with those supplied by the package, if prompted by APT.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``package_name``
    **Ruby Type:** String, Array

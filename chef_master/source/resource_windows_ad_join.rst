@@ -59,7 +59,7 @@ The windows_ad_join resource has the following properties:
 ``domain_password``
    **Ruby Type:** String | ``REQUIRED``
 
-   The password for the domain user. Note that this resource is set to hide sensitive information by default. 
+   The password for the domain user. Note that this resource is set to hide sensitive information by default.
 
 ``domain_user``
    **Ruby Type:** String | ``REQUIRED``
@@ -71,7 +71,7 @@ The windows_ad_join resource has the following properties:
 
    Specifies a new hostname for the computer in the new domain.
 
-   New in Chef Client 14.5.
+   *New in Chef Client 14.5.*
 
 ``ou_path``
    **Ruby Type:** String

@@ -134,7 +134,7 @@ Versions and version constraints can be specified in a cookbook's metadata.rb fi
           depends 'runit', '~> 1.2.3'
 
    * - ``provides``
-     - Add a recipe, definition, or resource that is provided by this cookbook, should the auto-populated list be insufficient. New in Chef Client 12.0.
+     - Add a recipe, definition, or resource that is provided by this cookbook, should the auto-populated list be insufficient.
    * - ``supports``
      - Show that a cookbook has a supported platform. Use a version constraint to define dependencies for platform versions: ``<`` (less than), ``<=`` (less than or equal to), ``=`` (equal to), ``>=`` (greater than or equal to), ``~>`` (approximately greater than), or ``>`` (greater than). To specify more than one platform, use more than one ``supports`` field, once for each platform.
 
