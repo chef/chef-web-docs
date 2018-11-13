@@ -74,17 +74,17 @@ The systemd_unit resource has the following actions:
 ``:preset``
    Restore the preset "enable/disable" configuration for a unit.
 
-   New in Chef Client 14.0.
+   _New in Chef Client 14.0._
 
 ``:reenable``
    Reenable a unit file.
 
-   New in Chef Client 14.0.
+   _New in Chef Client 14.0._
 
 ``:revert``
    Revet to a vendor's version of a unit file.
 
-   New in Chef Client 14.0.
+   _New in Chef Client 14.0._
 
 ``:start``
    Start a unit based in its systemd unit file.
@@ -127,7 +127,7 @@ The systemd_unit resource has the following properties:
 
    The name of the unit file if it differs from the resource block name.
 
-   New in Chef Client 13.7.
+   _New in Chef Client 13.7._
 
 ``user``
    **Ruby Type:** String

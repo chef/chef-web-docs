@@ -94,14 +94,14 @@ The zypper_package resource has the following properties:
 
    Allow downgrading a package to satisfy requested version requirements.
 
-   New in Chef Client 13.6.
+   _New in Chef Client 13.6._
 
 ``global_options``
    **Ruby Type:** String, Array
 
    One (or more) additional options that are passed to the package resource other than options to the command.
 
-   New in Chef Client 14.6.
+   _New in Chef Client 14.6._
 
 ``gpg_check``
    **Ruby Type:** true, false | **Default Value:** ``true``

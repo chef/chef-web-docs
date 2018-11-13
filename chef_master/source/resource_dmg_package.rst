@@ -19,7 +19,7 @@ The dmg_package resource has the following syntax:
     app                  String # default value: 'name' unless specified
     checksum             String
     destination          String # default value: "/Applications"
-    dmg_name             String
+    dmg_name             String # default value: The value passed for the application name.
     dmg_passphrase       String
     file                 String
     headers              Hash
@@ -27,7 +27,7 @@ The dmg_package resource has the following syntax:
     package_id           String
     source               String
     type                 String # default value: "app"
-    volumes_dir          String
+    volumes_dir          String # default value: The value passed for the application name.
     action               Symbol # defaults to :install if not specified
   end
 
@@ -79,12 +79,12 @@ The dmg_package resource has the following properties:
    The sha256 checksum of the ``.dmg`` file to download.
 
 ``destination``
-   **Ruby Type:** String | **Default Value:** ``/Applications``
+   **Ruby Type:** String | **Default Value:** ``"/Applications"``
 
    The directory to copy the ``.app`` into.
 
 ``dmg_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``The value passed for the application name.``
 
    The name of the ``.dmg`` file if it differs from that of the app, or if the name has spaces.
 
@@ -124,7 +124,7 @@ The dmg_package resource has the following properties:
    The type of package.
 
 ``volumes_dir``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``The value passed for the application name.``
 
    The directory under ``/Volumes`` where the dmg is mounted, if it differs from the name of the ``.dmg`` file.
 
