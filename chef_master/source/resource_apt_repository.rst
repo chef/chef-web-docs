@@ -116,7 +116,7 @@ The apt_repository resource has the following properties:
 
    The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
 
-   _New in Chef Client 14.1._
+   *New in Chef Client 14.1.*
 
 ``trusted``
    **Ruby Type:** true, false | **Default Value:** ``false``

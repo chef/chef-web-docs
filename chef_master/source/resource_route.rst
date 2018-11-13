@@ -70,7 +70,7 @@ The route resource has the following properties:
 
    Add a comment for the route.
 
-   _New in Chef Client 14.0._
+   *New in Chef Client 14.0.*
 
 ``device``
    **Ruby Type:** String
