@@ -95,12 +95,12 @@ Guides
 
 **Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__ 
 
-**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Chef DK on Windows Workstations </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
+**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
 Setup
 -----------------------------------------------------
 `Proxies </proxies.html>`__ |
-`ChefDK on Windows </dk_windows.html>`__ |
+`Installing Chef on Windows </dk_windows.html>`__ |
 `Workstation </install_dk.html>`__
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
