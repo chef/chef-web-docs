@@ -215,7 +215,7 @@ The gem_package resource has the following properties:
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``gem_binary``
    **Ruby Type:** String
@@ -228,7 +228,7 @@ The gem_package resource has the following properties:
 
    Set to 'false' to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``options``
    **Ruby Type:** String

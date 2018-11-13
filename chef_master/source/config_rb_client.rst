@@ -36,24 +36,24 @@ This configuration file has the following settings:
    .. note:: Authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
 
 ``automatic_attribute_blacklist``
-   A hash  that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
+   A hash that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``automatic_attribute_whitelist``
-   A hash  that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``cache_path``
    Optional. The home directory for the user that is running the chef-client as a non-root user.
 
 ``checksum_path``
    The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
-   
+
 ``chef_guid``
-   The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node. 
-   
+   The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node.
+
 ``chef_repo_path``
    The path to the chef-repo.
 
@@ -71,8 +71,8 @@ This configuration file has the following settings:
    The port on which chef-zero is to listen. This value may be specified as a range; the chef-client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
 
 ``client_fork``
-   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the chef-client in fork node. 
-   
+   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the chef-client in fork node.
+
    .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Client configuration file necessary.
 
 ``client_key``
@@ -86,8 +86,6 @@ This configuration file has the following settings:
 
 ``client_d_dir``
    A directory that contains additional configuration scripts to load for chef-client.
-
-   New in Chef client 12.8.
 
 ``cookbook_path``
    The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
@@ -114,14 +112,14 @@ This configuration file has the following settings:
    When enabled the chef-client will raise an error if it is unable to successfully POST to the data collector server. Default value: ``false``.
 
 ``default_attribute_blacklist``
-   A hash  that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
+   A hash that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``default_attribute_whitelist``
-   A hash  that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``diff_disabled``
    Cause the chef-client to create a diff when changes are made to a file. Default value: ``false``.
@@ -136,10 +134,10 @@ This configuration file has the following settings:
    Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``false``.
 
 ``enable_reporting``
-   Cause the chef-client to send data to the Chef server for use with Reporting.
+   Cause the chef-client to send run data to the Automate server.
 
 ``enable_reporting_url_fatals``
-   Cause the chef-client run to fail when Reporting data cannot be sent to the Chef server (for any reason).
+   Cause the chef-client run to fail when run data cannot be sent to the Automate server (for any reason).
 
 ``enable_selinux_file_permission_fixup``
    SELinux environments only. Cause the chef-client to attempt to apply the correct file permissions to an updated file via the ``restorecon`` command. Set this value to ``false`` to prevent the chef-client from attempting this action.
@@ -239,8 +237,6 @@ This configuration file has the following settings:
 ``log_location``
    The location of the log file. Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` (Windows Event Logger), or ``:syslog`` (writes to the syslog daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
 
-   Changed in Chef Client 12.9 to support new ``:win_evt`` and ``:syslog`` output locations.  Changed in 12.4 to support the Windows Event Logger and configuration with the daemon facility.
-
 ``minimal_ohai``
    Run the Ohai plugins for name detection and resource/provider selection and no other Ohai plugins. Set to ``true`` during integration testing to speed up test cycles.
 
@@ -260,24 +256,24 @@ This configuration file has the following settings:
    The location in which nodes are stored when the chef-client is run in local mode. Default value: ``/var/chef/node``.
 
 ``normal_attribute_blacklist``
-   A hash  that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
+   A hash that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``override_attribute_blacklist``
-   A hash  that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
+   A hash that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``normal_attribute_whitelist``
-   A hash  that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``override_attribute_whitelist``
-   A hash  that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
+   A hash that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``pid_file``
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
@@ -295,9 +291,7 @@ This configuration file has the following settings:
    The location in which role files are located. Default value: ``/var/chef/roles``.
 
 ``rubygems_url``
-    The location to source rubygems. It can be set to a string or array of strings for URIs to set as rubygems sources. This allows individuals to setup an internal mirror of rubygems for "airgapped" environments. Default value: ``https://www.rubygems.org``.
-
-   Changed in Chef Client 13.0.
+    The location to source rubygems. It can be set to a string or array of strings for URIs to set as rubygems sources. This allows individuals to setup an internal mirror of rubygems for "airgapped" environments. Default value: ``https://www.rubygems.org``. If a ``source`` is specified in either ``gem_package`` of ``chef_gem`` resources it will be added to the values provided here.
 
 ``run_lock_timeout``
    The amount of time (in seconds) to wait for a chef-client lock file to be deleted. A chef-client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending chef-client run will exit. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
@@ -324,9 +318,6 @@ This configuration file has the following settings:
    * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
 
    Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
-
-``syntax_check_cache_path``
-   All files in a cookbook must contain valid Ruby syntax. Use this setting to specify the location in which knife caches information about files that have been checked for valid Ruby syntax.
 
 ``umask``
    The file mode creation mask, or umask. Default value: ``0022``.
@@ -364,15 +355,10 @@ This configuration file has the following settings:
 
    .. warning:: The ``whitelist`` setting is available only when using Chef push jobs, a tool that runs jobs against nodes in an organization.
 
-   _New in Chef Client 13.0._
+   *New in Chef Client 13.0.*
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
-
-   New in Chef Client 12.1.
-
-``yum_lock_timeout``
-   The amount of time (in seconds) after which a Yum lock request is to time out. Default value: ``30``.
 
 Automatic Proxy Config
 -----------------------------------------------------
