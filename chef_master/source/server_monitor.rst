@@ -38,7 +38,7 @@ High Availability
 -----------------------------------------------------
 All components of computer systems fail, and ethernet networks, while being generally very robust, are no exception. A high availability configuration of the Chef server that uses DRBD depends on a functioning network to begin and maintain replication between the back end servers on which the Chef server is running.
 
-To become aware of failure at the earliest opportunity, the ``/proc/drbd`` psuedo file should be monitored for signs
+To become aware of failure at the earliest opportunity, the ``/proc/drbd`` pseudo file should be monitored for signs
 that cluster replication has stopped or is falling behind:
 
 .. code-block:: bash
