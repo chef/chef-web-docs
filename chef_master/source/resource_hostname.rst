@@ -57,7 +57,7 @@ The hostname resource has the following properties:
 ``compile_time``
    **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Determines whether or not the resource shoul be run at compile time.
+   Determines whether or not the resource should be run at compile time.
 
 ``hostname``
    **Ruby Type:** String | **Default Value:** ``'name'``

@@ -389,11 +389,8 @@ The following examples demonstrate various approaches for using resources in rec
 .. code-block:: ruby
 
    service 'example_service' do
-     case node['platform']
-     when 'ubuntu'
-       if node['platform_version'].to_f >= 9.10
-         provider Chef::Provider::Service::Upstart
-       end
+     if platform?('ubuntu') && node['platform_version'].to_f <= 14.04
+       provider Chef::Provider::Service::Upstart
      end
      action [:enable, :start]
    end

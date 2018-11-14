@@ -33,7 +33,7 @@ The full syntax for all of the properties that are available to the **python** r
 
   python 'name' do
     code             String
-    command          
+    command
     creates          String
     cwd              String
     default_env      true, false # default value: false
@@ -314,7 +314,3 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
       not_if 'sleep 10000', :timeout => 10
 
 .. end_tag
-
-Examples
-=====================================================
-None.

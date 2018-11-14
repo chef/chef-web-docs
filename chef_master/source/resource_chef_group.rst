@@ -195,7 +195,3 @@ This resource has the following properties:
 
 ``users``
    ...
-
-Examples
-=====================================================
-None.
