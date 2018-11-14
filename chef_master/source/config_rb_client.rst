@@ -41,7 +41,7 @@ This configuration file has the following settings:
    *New in Chef Client 13.0.*
 
 ``cache_path``
-   Optional. The home directory for the user that is running the chef-client as a non-root user.
+   The home directory for the user that is running the chef-client as a non-root user.
 
 ``checksum_path``
    The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
@@ -50,7 +50,7 @@ This configuration file has the following settings:
    The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node.
 
 ``chef_repo_path``
-   The path to the chef-repo.
+   The path to the chef-repo. chef-solo sources cookbooks and roles from this directory when running the chef-client.
 
 ``chef_server_url``
    The URL for the Chef server. For example:
@@ -137,6 +137,9 @@ This configuration file has the following settings:
 ``encrypted_data_bag_secret``
    The subdirectory in which encrypted data bag secrets are located.
 
+``enforce_path_sanity``
+   Turn on path sanity in resources that shellout so that expected paths like /sbin or /bin are added to the PATH. Disabled by default.
+
 ``environment``
    The name of the environment.
 
@@ -165,9 +168,15 @@ This configuration file has the following settings:
    How file staging (via temporary files) is done. When ``true``, temporary files are created in the directory in which files will reside. When ``false``, temporary files are created under ``ENV['TMP']``. Default value: ``true``.
 
 ``fips``
-  Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
+   Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
 
-  Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL.
+   Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL.
+
+``force_formatter``
+   Using `force_formatter` causes chef to default to formatter output when STDOUT is not a tty
+
+``force_logger``
+   Using `force_logger` causes chef to default to logger output when STDOUT is a tty
 
 ``ftp_proxy``
    The proxy server for FTP connections.
@@ -288,8 +297,20 @@ This configuration file has the following settings:
 ``run_lock_timeout``
    The amount of time (in seconds) to wait for a chef-client lock file to be deleted. A chef-client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending chef-client run will exit. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
 
+``script_path``
+   An array of paths to search for knife exec scripts if they aren't in the current directory
+
 ``splay``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. Default value: ``nil``.
+
+``stream_execute_output``
+   Always stream the output of ``execute`` resources even if the ``live_stream`` property isn't set to true. Default value: ``false``
+
+``show_download_progress``
+   Using show_download_progress will display the overall progress of a ``remote_file`` download. Default value: ``false``
+
+``download_progress_interval``
+   When ``show_download_progress`` is set to true this is the interval in seconds to write out download progress. Default value: ``10``
 
 ``ssl_ca_file``
    The file in which the OpenSSL key is saved. This setting is generated automatically by the chef-client and most users do not need to modify it.
