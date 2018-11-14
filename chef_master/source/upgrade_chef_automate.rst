@@ -62,7 +62,7 @@ To upgrade to the latest version of Chef Automate, do the following:
 
       dpkg -i $PATH_TO_AUTOMATE_SERVER_PACKAGE
 
-   For Red Hat or Centos:
+   For Red Hat or CentOS:
 
    .. code-block:: bash
 
