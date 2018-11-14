@@ -102,7 +102,7 @@ The windows_task resource has the following properties:
     * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
     * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
        * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modiifer`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
-       * Multiple days should be comma seprated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
+       * Multiple days should be comma separated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
 
 ``description``
    **Ruby Type:** String

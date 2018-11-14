@@ -2320,12 +2320,12 @@ The windows_package resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Defaults to the name of the resourse block unless specified.
+   The name of the package. Defaults to the name of the resource block unless specified.
 
 ``remote_file_attributes``
    **Ruby Type:** Hash
 
-   A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
+   A package at a remote location define as a Hash of properties that modifies the properties of the **remote_file** resource.
 
 ``returns``
    **Ruby Type:** Integer, Array of integers | **Default Value:** ``0``

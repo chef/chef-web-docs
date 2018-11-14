@@ -57,7 +57,7 @@ The hostname resource has the following properties:
 ``compile_time``
    **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Determines whether or not the resource shoul be run at compile time.
+   Determines whether or not the resource should be run at compile time.
 
 ``hostname``
    **Ruby Type:** String | **Default Value:** ``'name'``
@@ -65,9 +65,9 @@ The hostname resource has the following properties:
    Used to specify the hostname if it is different than the resource's name.
 
 ``ipaddress``
-   **Ruby Type:** String | **Default Value:** ``node["ipaddress"]``
+   **Ruby Type:** String | **Default Value:** ``node['ipaddress']``
 
-   The IP address to use when configuring the hosts file. By default, this uses ``node["ipaddress"]`` information collected by Ohai.
+   The IP address to use when configuring the hosts file. By default, this uses ``node['ipaddress']`` information collected by Ohai.
 
 ``windows_reboot``
    **Ruby Type:** true, false | **Default Value:** ``true``
