@@ -69,7 +69,7 @@ The chocolatey_source resource has the following properties:
 ``source_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the source to add. The resource's name will be used if this isn't provided.
+   An optional property to set the source name if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================

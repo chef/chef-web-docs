@@ -99,14 +99,14 @@ The dmg_package resource has the following properties:
    The full path to the ``.dmg`` file on the local system.
 
 ``headers``
-   **Ruby Type:** Hash, nil | **Default Value:** ``nil``
+   **Ruby Type:** Hash
 
    Allows custom HTTP headers (like cookies) to be set on the ``remote_file`` resource.
 
 ``owner``
    **Ruby Type:** String
 
-   The system user that should own the package installation.
+   The user that should own the package installation.
 
 ``package_id``
    **Ruby Type:** String
@@ -119,7 +119,7 @@ The dmg_package resource has the following properties:
    The remote URL that is used to download the ``.dmg`` file, if specified.
 
 ``type``
-   **Ruby Type:** String | **Default Value:** ``app``
+   **Ruby Type:** String | **Default Value:** ``"app"``
 
    The type of package.
 

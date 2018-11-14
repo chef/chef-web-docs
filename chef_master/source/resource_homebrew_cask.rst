@@ -49,10 +49,13 @@ The homebrew_cask resource has the following actions:
 
 Properties
 =====================================================
+
+The homebrew_cask resource has the following properties:
+
 ``cask_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the Homebrew cask, if it differs from the resource block name.
+   An optional property to set the cask name if it differs from the resource block's name.
 
 ``homebrew_path``
    **Ruby Type:** String | **Default Value:** ``"/usr/local/bin/brew"``

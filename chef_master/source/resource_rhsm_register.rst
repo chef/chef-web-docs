@@ -245,3 +245,15 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+**Register a node with RHSM**
+
+.. code-block:: ruby
+
+   rhsm_register 'myhost' do
+     activation_key 'ABCD1234'
+     organization 'my_org'
+   end

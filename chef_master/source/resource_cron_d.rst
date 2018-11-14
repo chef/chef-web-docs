@@ -130,27 +130,27 @@ The cron_d resource has the following properties:
 ``cron_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   Set the name of the cron job. If this isn't specified we'll use the resource name.
+   An optional property to set the cron name if it differs from the resource block's name.
 
 ``day``
-   **Ruby Type:** Integer, String | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``"*"``
 
-   The day of month at which the cron entry should run (1 - 31).
+   The day of month at which the cron entry should run (``1 - 31``).
 
 ``environment``
    **Ruby Type:** Hash
 
-   A Hash containing additional arbitrary environment variables under which the cron job will be run in the form of ``({"ENV_VARIABLE" => "VALUE"})``. (These variables must exist for a command to be run successfully.)
+   A Hash containing additional arbitrary environment variables under which the cron job will be run in the form of ``({'ENV_VARIABLE' => 'VALUE'})``. (These variables must exist for a command to be run successfully.)
 
 ``home``
    **Ruby Type:** String
 
-   Set the ``HOME`` environment variable in the cron.d file."
+   Set the ``HOME`` environment variable in the cron.d file.
 
 ``hour``
-   **Ruby Type:** Integer, String | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``"*"``
 
-   The hour at which the cron entry is to run (0 - 23).
+   The hour at which the cron entry is to run (``0 - 23``).
 
 
 ``mailto``
@@ -159,18 +159,19 @@ The cron_d resource has the following properties:
    Set the ``MAILTO`` environment variable in the cron.d file.
 
 ``minute``
-   **Ruby Type:** Integer, String | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``"*"``
 
-   The minute at which the cron entry should run (0 - 59).
+   The minute at which the cron entry should run (``0 - 59``).
 
 ``mode``
-  **Ruby Type:** String, Integer | **Default Value:** ``0600``
+   **Ruby Type:** String, Integer | **Default Value:** ``"0600"``
 
+   The octal mode of the generated crontab file.
 
 ``month``
-   **Ruby Type:** Integer, String | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``"*"``
 
-   The month in the year on which a cron entry is to run (1 - 12).
+   The month in the year on which a cron entry is to run (``1 - 12``, ``jan-dec``, or ``*``).
 
 ``path``
    **Ruby Type:** String
@@ -193,15 +194,15 @@ The cron_d resource has the following properties:
    Set the ``SHELL`` environment variable in the cron.d file.
 
 ``user``
-   **Ruby Type:** String | **Default Value:** ``root``
+   **Ruby Type:** String | **Default Value:** ``"root"``
 
    The name of the user that runs the command.
 
 ``weekday``
-   **Ruby Type:** Integer, String | **Default Value:** ``*``
+   **Ruby Type:** Integer, String | **Default Value:** ``"*"``
 
    The day of the week on which this entry is to run (``0-7``, ``mon-sun``, or ``*``), where Sunday is both 0 and 7.
-   
+
 Common Resource Functionality
 =====================================================
 

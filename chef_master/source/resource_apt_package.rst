@@ -106,7 +106,7 @@ The apt_package resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``timeout``
    **Ruby Type:** String, Integer
@@ -266,7 +266,7 @@ Multiple Packages
 -----------------------------------------------------
 .. tag resources_common_multiple_packages
 
-A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
 * Update or install multiple packages with a single resource during the chef-client run
