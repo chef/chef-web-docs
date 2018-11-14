@@ -125,7 +125,7 @@ The chef_gem resource has the following properties:
 ``package_name``
    **Ruby Type:** String
 
-   The name of the gem. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the gem name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String, Array

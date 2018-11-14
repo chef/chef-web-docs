@@ -70,7 +70,7 @@ The homebrew_tap resource has the following properties:
 ``tap_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the Homebrew tap, if it differs from the resource block name. Homebrew tap names must be in the form of ``REPO/TAP``.
+   An optional property to set the tap name if it differs from the resource block's name.
 
 ``url``
    **Ruby Type:** String

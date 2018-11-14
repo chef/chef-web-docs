@@ -114,7 +114,7 @@ The apt_repository resource has the following properties:
 ``repo_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the repository to configure, if it differs from the name of the resource block. The value of this setting must not contain spaces.
+   An optional property to set the repository name if it differs from the resource block's name. The value of this setting must not contain spaces.
 
    *New in Chef Client 14.1.*
 

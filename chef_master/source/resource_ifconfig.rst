@@ -182,7 +182,7 @@ The ifconfig resource has the following properties:
 ``target``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The IP address that is to be assigned to the network interface. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The IP address that is to be assigned to the network interface. If not specified we'll use the resource's name.
 
 ``vlan``
    **Ruby Type:** String

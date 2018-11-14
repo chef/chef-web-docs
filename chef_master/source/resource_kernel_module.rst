@@ -67,7 +67,7 @@ The kernel_module resource has the following properties:
 ``modname``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the kernel module.
+   An optional property to set the kernel module name if it differs from the resource block's name.
 
 ``unload_dir``
    **Ruby Type:** String | **Default Value:** ``"/etc/modprobe.d"``

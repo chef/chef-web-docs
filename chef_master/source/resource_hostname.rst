@@ -17,7 +17,7 @@ The hostname resource has the following syntax:
     aliases             Array
     compile_time        true, false # default value: true
     hostname            String # default value: 'name' unless specified
-    ipaddress           String
+    ipaddress           String # default value: The node's IP address as determined by Ohai.
     windows_reboot      true, false # default value: true
     action              Symbol # defaults to :set if not specified
   end
@@ -62,12 +62,12 @@ The hostname resource has the following properties:
 ``hostname``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   Used to specify the hostname if it is different than the resource's name.
+   An optional property to set the hostnam if it differs from the resource block's name.
 
 ``ipaddress``
-   **Ruby Type:** String | **Default Value:** ``node["ipaddress"]``
+   **Ruby Type:** String | **Default Value:** ``The node's IP address as determined by Ohai.``
 
-   The IP address to use when configuring the hosts file. By default, this uses ``node["ipaddress"]`` information collected by Ohai.
+   The IP address to use when configuring the hosts file.
 
 ``windows_reboot``
    **Ruby Type:** true, false | **Default Value:** ``true``

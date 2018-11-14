@@ -59,7 +59,7 @@ The ohai_hint resource has the following properties:
 ``hint_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the hints file, if it differs from the resource name.
+   An optional property to set the hint name if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
