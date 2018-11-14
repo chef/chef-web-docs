@@ -211,7 +211,3 @@ This resource has the following properties:
 
 ``validator``
    Use to specify if the chef-client is a chef-validator.
-
-Examples
-=====================================================
-None.

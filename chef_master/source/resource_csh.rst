@@ -283,7 +283,3 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
-
-Examples
-=====================================================
-None.

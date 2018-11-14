@@ -343,7 +343,7 @@ The following example shows how the ``platform?`` method and an if statement can
 
 .. code-block:: ruby
 
-   if platform?('ubuntu', 'debian', 'redhat', 'centos', 'fedora', 'scientific', 'amazon')
+   if platform_family?('debian', 'rhel', 'fedora', 'amazon')
      ruby_block 'update-java-alternatives' do
        block do
          if platform?('ubuntu', 'debian') and version == 6
