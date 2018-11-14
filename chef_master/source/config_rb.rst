@@ -126,6 +126,13 @@ This configuration file has the following settings:
 
       no_proxy 'localhost, 10.0.1.35, *.example.com, *.dev.example.com'
 
+``ssh_agent_signing``
+   **New in 14.2** Use ``ssh-agent`` to authenticate. When using this option, specify the location of the public key in ``client_key``. Default value: ``false``. Ensure the public key is in PKCS#1 format. You can convert an OpenSSH public key using ``ssh-keygen``. For example:
+
+   .. code-block:: bash
+
+      $ ssh-keygen -f key.pub -e -m pem > key.pem
+
 ``ssh_timeout``
    The amount of time (in seconds) to wait for an SSH connection time out.
 
