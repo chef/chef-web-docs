@@ -65,7 +65,7 @@ The windows_service resource has the following actions:
 ``:configure``
    Configure a pre-existing service.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``:configure_startup``
    Configure a service based on the value of the ``startup_type`` property.
