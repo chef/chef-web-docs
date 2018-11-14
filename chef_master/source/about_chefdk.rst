@@ -1,7 +1,9 @@
 =====================================================
-About the Chef DK
+About ChefDK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/about_chefdk.rst>`__
+
+.. note:: `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
 
 .. tag chef_dk
 
@@ -26,10 +28,10 @@ Chef is a systems and cloud infrastructure automation framework that makes it ea
 .. end_tag
 
 * `An Overview of Chef </chef_overview.html>`_
-* `Install the Chef DK </install_dk.html>`_
+* `Install ChefDK </install_dk.html>`_
 * `Ruby Guide </ruby.html>`_
 
-.. note:: See this blog post by Irving Popovetsky about running the Chef DK on Windows: https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/.
+.. note:: See this `blog post by Irving Popovetsky about running ChefDK on Windows. <https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/>`__
 
 About Workflow
 -----------------------------------------------------
@@ -86,7 +88,7 @@ The most important tools included in the Chef development kit are:
    * - Ruby
      - The reference language for Chef.
 
-Chef DK Tools
+ChefDK Tools
 -----------------------------------------------------
 The following tools are available only in the Chef development kit:
 

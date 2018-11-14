@@ -67,7 +67,7 @@
   },
   {
     "title": "Chef",
-    "iconClass": "fa-tasks",
+    "image": "chef-logo-gray.svg",
     "subItems": [
       {
         "title": "Getting Started",
@@ -84,6 +84,11 @@
             "url": "/install_dk.html"
           },
           {
+            "title": "Configure ChefDK",
+            "hasSubItems": false,
+            "url": "/chefdk_setup.html"
+          },
+          {
             "title": "Quick Start",
             "hasSubItems": false,
             "url": "/quick_start.html"
@@ -94,40 +99,66 @@
             "url": "/chef_system_requirements.html"
           },
           {
-            "title": "Release Notes",
+            "title": "Chef on Azure Guide",
             "hasSubItems": true,
             "subItems": [
               {
-                "title": "Chef Client",
+                "title": "Installing Chef on Windows",
                 "hasSubItems": false,
-                "url": "/release_notes.html"
+                "url": "/dk_windows.html"
               },
               {
-                "title": "Chef Development Kit",
+                "title": "Microsoft Azure",
                 "hasSubItems": false,
-                "url": "/release_notes_chefdk.html"
+                "url": "/azure_portal.html"
               },
               {
-                "title": "Chef Server",
+                "title": "Chef Workstation on Azure Cloud Shell",
                 "hasSubItems": false,
-                "url": "/release_notes_server.html"
+                "url":"azure_cwa_cloud_shell.html"
               },
               {
-                "title": "Chef Push Jobs",
+                "title": "Azure Powershell_Cmdlets",
                 "hasSubItems": false,
-                "url": "/release_notes_push_jobs.html"
+                "url": "azure_powershell.html"
+              },
+              {
+                "title": "Knife Azure",
+                "hasSubItems": false,
+                "url": "knife_azure.html"
+              },
+              {
+                "title": "Knife Azurerm",
+                "hasSubItems": false,
+                "url": "knife_azurerm.html"
               }
             ]
           },
           {
-            "title": "Deprecations",
-            "hasSubItems": false,
-            "url": "/chef_deprecations_client.html"
-          },
-          {
-            "title": "Microsoft Windows Guide",
-            "hasSubItems": false,
-            "url": "/windows.html"
+            "title": "Chef on Windows Guide",
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "Chef for Microsoft Windows",
+                "hasSubItems": false,
+                "url":"/windows.html"
+              },
+              {
+                "title": "Chef Workstation and ChefDK on Windows",
+                "hasSubItems": false,
+                "url": "/dk_windows.html"
+              },
+              {
+                "title": "Chef Client on Windows",
+                "hasSubItems": false,
+                "url": "/install_windows.html"
+              },
+              {
+                "title": "Knife Windows",
+                "hasSubItems": false,
+                "url": "/knife_windows.html"
+              }
+            ]
           },
           {
             "title": "Glossary",
@@ -141,9 +172,9 @@
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Workstation",
+            "title": "Chef Development Kit",
             "hasSubItems": false,
-            "url": "/workstation.html"
+            "url": "/about_chefdk.html"
           },
           {
             "title": "Nodes",
@@ -161,9 +192,9 @@
             "url": "/server_components.html"
           },
           {
-            "title": "Secrets",
+            "title": "chef-repo",
             "hasSubItems": false,
-            "url": "/secrets.html"
+            "url": "/chef_repo.html"
           },
           {
             "title": "Cookbooks",
@@ -190,6 +221,11 @@
                 "url": "/data_bags.html"
               },
               {
+                "title": "Run-lists",
+                "hasSubItems": false,
+                "url": "/run_lists.html"
+              },
+              {
                 "title": "Environments",
                 "hasSubItems": false,
                 "url": "/environments.html"
@@ -200,6 +236,11 @@
                 "url": "/roles.html"
               },
             ]
+          },
+          {
+            "title": "Secrets",
+            "hasSubItems": false,
+            "url": "/secrets.html"
           },
           {
             "title": "Authentication",
@@ -234,11 +275,6 @@
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "chef-repo",
-            "hasSubItems": false,
-            "url": "/chef_repo.html"
-          },
-          {
             "title": "FIPS-mode",
             "hasSubItems": false,
             "url": "/ctl_chef_client.html#run-in-fips-mode"
@@ -259,11 +295,6 @@
             "url": "/push_jobs.html"
           },
           {
-            "title": "Run-lists",
-            "hasSubItems": false,
-            "url": "/run_lists.html"
-          },
-          {
             "title": "Search",
             "hasSubItems": false,
            "url": "/chef_search.html"
@@ -272,21 +303,15 @@
     },
     {
       "title": "Troubleshooting",
-      "hasSubItems": true,
-      "subItems": [
-        {
-          "title": "Errors",
-          "hasSubItems": false,
-          "url": "/errors.html"
-        }
-      ]
+      "hasSubItems": false,
+      "url": "/errors.html"
     },
       {
         "title": "Setup",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Workstation",
+            "title": "ChefDK",
             "hasSubItems": false,
             "url": "/install_dk.html"
           },
@@ -303,11 +328,6 @@
                 "hasSubItems": false,
                 "title": "Install via URL",
                 "url": "/install_omnibus.html"
-              },
-              {
-                "hasSubItems": false,
-                "title": "Install on Windows",
-                "url": "/install_windows.html"
               },
               {
                 "title": "Install on Junos OS",
@@ -375,11 +395,6 @@
                 "title": "AWS Marketplace",
                 "hasSubItems": false,
                 "url": "/aws_marketplace.html"
-              },
-              {
-                "title": "Microsoft Azure",
-                "hasSubItems": false,
-                "url": "/azure_portal.html"
               },
               {
                 "title": "Google Cloud Platform",
@@ -1127,6 +1142,11 @@
                 "url": "/resource_template.html"
               },
               {
+                "title": "timezone",
+                "hasSubItems": false,
+                "url": "/resource_timezone.html"
+              },
+              {
                 "title": "user",
                 "hasSubItems": false,
                 "url": "/resource_user.html"
@@ -1140,6 +1160,11 @@
                 "title": "windows_auto_run",
                 "hasSubItems": false,
                 "url": "/resource_windows_auto_run.html"
+              },
+              {
+                "title": "windows_certificate",
+                "hasSubItems": false,
+                "url": "/resource_windows_certificate.html"
               },
               {
                 "title": "windows_env",
@@ -1160,6 +1185,11 @@
                 "title": "windows_feature_powershell",
                 "hasSubItems": false,
                 "url": "/resource_windows_feature_powershell.html"
+              },
+              {
+                "title": "windows_firewall_rule",
+                "hasSubItems": false,
+                "url": "/resource_windows_firewall_rule.html"
               },
               {
                 "title": "windows_font",
@@ -1195,6 +1225,11 @@
                 "title": "windows_service",
                 "hasSubItems": false,
                 "url": "/resource_windows_service.html"
+              },
+              {
+                "title": "windows_share",
+                "hasSubItems": false,
+                "url": "/resource_windows_share.html"
               },
               {
                 "title": "windows_shortcut",
@@ -1266,11 +1301,11 @@
         ]
       },
       {
-        "title": "Chef DK",
+        "title": "ChefDK",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "About the ChefDK",
+            "title": "About ChefDK",
             "hasSubItems": false,
             "url": "/about_chefdk.html"
           },
@@ -1278,11 +1313,6 @@
             "title": "Berkshelf",
             "hasSubItems": false,
             "url": "/berkshelf.html"
-          },
-          {
-            "title": "chef-apply (executable)",
-            "hasSubItems": false,
-            "url": "/ctl_chef_apply.html"
           },
           {
             "title": "chef-shell (executable)",
@@ -1307,11 +1337,6 @@
                 "title": "chef gem",
                 "hasSubItems": false,
                 "url": "/ctl_chef.html#chef-gem"
-              },
-              {
-                "title": "chef generate app",
-                "hasSubItems": false,
-                "url": "/ctl_chef.html#chef-generate-app"
               },
               {
                 "title": "chef generate attribute",
@@ -1354,11 +1379,6 @@
                 "url": "/ctl_chef.html#chef-generate-template"
               },
               {
-                "title": "chef provision",
-                "hasSubItems": false,
-                "url": "/ctl_chef.html#chef-provision"
-              },
-              {
                 "title": "chef shell-init",
                 "hasSubItems": false,
                 "url": "/ctl_chef.html#chef-shell-init"
@@ -1397,20 +1417,9 @@
             "url": "/chefspec.html"
           },
           {
-            "title": "Configuration",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "config.rb",
-                "hasSubItems": false,
-                "url": "/config_rb.html"
-              },
-              {
-                "title": "Multiple Config Files",
-                "hasSubItems": false,
-                "url": "/config_rb_client.html#d-directories"
-              }
-            ]
+            "title": "config.rb (knife.rb)",
+            "hasSubItems": false,
+            "url": "/config_rb.html"
           },
           {
             "title": "cookstyle",
@@ -1850,10 +1859,11 @@
   },
   {
     "title": "Chef Workstation",
+    "image": "workstation-logo.svg",
     "hasSubItems": true,
     "subItems": [
       {
-        "title": "Chef Workstation Beta",
+        "title": "Chef Workstation",
         "hasSubItems": false,
         "url": "https://www.chef.sh/"
       },
@@ -1866,7 +1876,7 @@
   },
   {
     "title": "Habitat",
-    "image": "habitat-mark.png",
+    "image": "habitat-sprout.svg",
     "subItems": [
       {
         "title": "Documentation",

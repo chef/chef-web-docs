@@ -55,10 +55,10 @@ The full syntax for all of the properties that are available to the **registry_k
 .. code-block:: ruby
 
   registry_key 'name' do
-    architecture      Symbol # default value: machine
+    architecture      Symbol # default value: :machine
     key               String # default value: 'name' unless specified
     recursive         true, false # default value: false
-    values            
+    values
     action            Symbol # defaults to :create if not specified
   end
 
@@ -327,7 +327,7 @@ Actions
 =====================================================
 .. tag resource_registry_key_actions
 
-This resource has the following actions:
+The registry_key resource has the following actions:
 
 ``:create``
    Default. Create a registry key. If a registry key already exists (but does not match), update that registry key to match.
@@ -344,7 +344,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -358,9 +358,9 @@ This resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_registry_key_attributes
+.. tag resource_registry_key_properties
 
-This resource has the following properties:
+The registry_key resource has the following properties:
 
 ``architecture``
    **Ruby Type:** Symbol | **Default Value:** ``:machine``
@@ -375,53 +375,14 @@ This resource has the following properties:
 
              .. end_tag
 
-``ignore_failure``
-   **Ruby Types:** true, false | **Default Value:** ``false``
-
-   Continue running a recipe if a resource fails for any reason.
-
 ``key``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The path to the location in which a registry key is to be created or from which a registry key is to be deleted. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The path to the location in which a registry key is to be created or from which a registry key is to be deleted. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
    The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-      notifies :action, 'resource[name]', :timer
-
-   .. end_tag
-
 ``recursive``
-   **Ruby Types:** true, false
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
 
@@ -431,74 +392,8 @@ This resource has the following properties:
 
              .. end_tag
 
-``retries``
-   **Ruby Type:** Integer | **Default Value:** ``0``
-  
-   The number of times to catch exceptions and retry the resource.
-
-``retry_delay``
-   **Ruby Type:** Integer | **Default Value:** ``2``
-  
-   The retry delay (in seconds).
-
-``sensitive``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-  
-   Determines whether or not sensitive resource data (such as key information) is logged by Chef Client.
-  
-   New in Chef Client 14.0.
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
-
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
-
 ``values``
-   **Ruby Types:** Hash, Array
+   **Ruby Type:** Hash, Array
 
    An array of hashes, where each Hash contains the values that are to be set under a registry key. Each Hash must contain ``name:``, ``type:``, and ``data:`` (and must contain no other key values).
 
@@ -510,7 +405,7 @@ This resource has the following properties:
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Create a registry key**
 

@@ -1,9 +1,182 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.4
+Release Notes: Chef Client 12.0 - 14.6
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What’s New in 14.7
+=====================================================
+
+* **New Resources**
+
+  * **windows_firewall_rule**
+      Use the `windows_firewall_rule </resource_windows_firewall_rule.html>`__ resource to create or delete Windows Firewall rules.
+
+      Thank you `Schuberg Philis <https://schubergphilis.com>`__ for transferring us the `windows_firewall cookbook <https://supermarket.chef.io/cookbooks/windows_firewall>`__ and to `@Happycoil <https://github.com/Happycoil>`__ for porting it to chef-client with a significant refactoring.
+
+  * **windows_share**
+      Use the `windows_share </resource_windows_share.html>`__ resource create or delete Windows file shares.
+
+  * **windows_certificate**
+      Use the `windows_certificate </resource_windows_certificate.html>`__ resource add, remove, or verify certificates in the system or user certificate stores.
+
+* **Updated Resources**
+
+  * **dmg_package**
+      The dmg_package resource has been refactored to improve idempotency and properly support accepting a DMG's EULA with the ``accept_eula`` property.
+
+  * **kernel_module**
+      Kernel_module now only runs the ``initramfs`` update once per Chef run to greatly speed up chef-client runs when multiple kernel_module resources are used. Thank you `@tomdoherty </https://github.com/tomdoherty>`__ for this improvement.
+
+  * **mount**
+      The ``supports`` property once again allows passing supports data as an array. This matches the behavior present in Chef 12.
+
+  * **timezone**
+      macOS support has been added to the timezone resource.
+
+  * **windows_task**
+      A regression in Chef 14.6’s windows_task resource which resulted in tasks being created with the "Run only when user is logged on" option being set when created with a specific user other than SYSTEM, has been resolved.
+
+What’s New in 14.6
+=====================================================
+
+* **Smaller Package and Install Size**
+    We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. macOS/Linux packages are ~50% smaller and Windows packages are ~12% smaller. Chef 14 is now smaller than a legacy Chef 10 package.
+
+* **New Resources**
+
+  * **timezone**
+      Chef now includes the `timezone </resource_timezone.html>`__ resource from `@dragonsmith <http://github.com/dragonsmith>`__'s ``timezone_lwrp`` cookbook. This resource supports setting a Linux node's timezone. Thank you `@dragonsmith <http://github.com/dragonsmith>`__ for allowing us to include this in Chef.
+
+      Example:
+
+      .. code-block:: ruby
+
+        timezone 'UTC'
+
+* **Updated Resources**
+
+  * **windows_task**
+      The ``windows_task`` resource has been updated to support localized system users and groups on non-English nodes. Thanks `@jugatsu <http://github.com/jugatsu>`__ for making this possible.
+
+  * **user**
+      The ``user`` resource now includes a new ``full_name`` property for Windows hosts, which allows specifying a user's full name.
+
+      Example:
+
+      .. code-block:: ruby
+
+        user 'jdoe' do
+          full_name 'John Doe'
+        end
+
+
+  * **zypper_package**
+      The ``zypper_package`` resource now includes a new ``global_options`` property. This property can be used to specify one or more options for the zypper command line that are global in context.
+
+      Example:
+
+      .. code-block:: ruby
+
+        package 'sssd' do
+           global_options '-D /tmp/repos.d/'
+        end
+
+* **InSpec 3.0**
+    Inspec has been updated to version 3.0 with addition resources, exception handling, and a new plugin system. See `Announcing InSpec 3.0 <https://blog.chef.io/2018/10/16/announcing-inspec-3-0/>`__ for details.
+
+* **macOS Mojave (10.14)**
+    Chef is now tested against macOS Mojave, and packages are now available at downloads.chef.io.
+
+* **Important Bugfixes**
+    * Multiple bugfixes in Chef Vault have been resolved by updating chef-vault to 3.4.2
+    * Invalid yum package names now gracefully fail
+    * ``windows_ad_join`` now properly executes. Thank you `@cpjones01 <https://github.com/cpjones01>`__ for reporting this.
+    * ``rhsm_errata_level`` now properly executes. Thank you `@freakinhippie <https://github.com/freakinhippie>`__ for this fix.
+    * ``registry_key`` now properly writes out the correct value when `sensitive` is specified. Thank you `@josh-barker <https://github.com/josh-barker>`__ for this fix.
+    * ``locale`` now properly executes on RHEL 6 and Amazon Linux 201X.
+
+* **Ohai 14.6**
+
+  * **Filesystem Plugin on AIX and Solaris**
+      AIX and Solaris now ship with a filesystem2 plugin that updates the filesystem data to match that of Linux, macOS, and BSD hosts. This new data structure makes accessing filesystem data in recipes easier and especially improves the layout and depth of data on ZFS filesystems. In Chef 15 (April 2019) we will begin writing this same format of data to the existing ``node['filesystem']`` namespace. In Chef 16 (April 2020) we will remove the ``node['filesystem2']`` namespace, completing the transition to the new format. Thank you `@jaymzh <https://github.com/jaymzh>`__ for continuing the updates to our filesystem plugins with this change.
+
+  * **macOS Improvements**
+      The ``system_profile`` plugin has been improved to skip over unnecessary data, which reduces macOS node sizes on the Chef Server. Additionally the CPU plugin has been updated to limit what sysctl values it polls, which prevents hanging on some system configurations.
+
+  * **SLES 15 Detection**
+      SLES 15 is now correctly detected as the platform "suse" instead of "sles". This matches the behavior of SLES 11 and 12 hosts.
+
+New Deprecations
+-----------------------------------------------------
+
+* **system_profile Ohai plugin removal**
+    The ``system_profile`` plugin will be removed from Chef/Ohai 15 in April 2019. This plugin does not correctly return data on modern Mac systems. Additionally the same data is provided by the hardware plugin, which has a format that is simpler to consume. Removing this plugin will reduce Ohai return by ~3 seconds and greatly reduce the size of the node object on the Chef server.
+
+Security Updates
+-----------------------------------------------------
+
+Ruby has been updated to from 2.5.1 to 2.5.3 to resolve multiple CVEs and bugs:
+  - `CVE-2018-16396 <https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396>`__
+  - `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395>`__
+
+What’s New in 14.5
+=====================================================
+* **New Preview Resources**
+
+  * **locale**
+      Use the `locale </resource_locale.html>`__ resource to set the system’s locale.
+
+      Thank you @vincentaubert for contributing this resource.
+
+  * **windows_workgroup**
+      Use the `windows_workgroup </resource_windows_workgroup.html>`__ resource to join or change the workgroup of a Windows host.
+
+      Thank you @derekgroh for contributing this resource.
+
+* **Improved Resources**
+
+  * **windows_package**
+      The `windows_package </resource_windows_package.html>`__ resource will no longer log sensitive information in the event of an installation failure if the ``sensitive`` property is set.
+
+  * **windows_service**
+      The `windows_service </resource_windows_service.html>`__ resource will no longer log potentially sensitive information when the service is setup.
+
+  * **windows_ad_join**
+      Use the `windows_ad_join </resource_windows_ad_join.html>`__ resource now includes a ``new_hostname`` property for setting the hostname for the node upon joining the domain.
+
+      Thank you @derekgroh for contributing this resource.
+
+* **Ohai 14.5**
+
+  * **Windows Improvements**
+      Detection for the ``root_group`` attribute on Windows has been simplified and improved to properly support non-English systems. With this change, we've also deprecated the ``Ohai::Util::Win32::GroupHelper`` helper, which is no longer necessary. Thanks to @jugatsu for putting this together.
+
+      We've also added a new ``encryption_status`` attribute to ``volumes`` on Windows. Thanks to @kmf for suggesting this new feature.
+
+  * **Configuration Improvements**
+      The timeout period for communicating with OpenStack metadata servers can now be configured with the ``openstack_metadata_timeout`` config option. Thanks to @sawanoboly for this improvement.
+
+      Ohai now properly handles relative paths to config files when running on the command line. This means commands like ``ohai -c ../client.rb`` will now properly use your config values.
+
+* **InSpec Updated to 2.2.102**
+
+  * Support for using ERB templating within the .yml files
+  * HTTP basic auth support for fetching dependent profiles
+  * A new global attributes concept
+  * Better error handling with Automate reporting
+  * Vendor command now vendors profiles when using path://
+
+New Deprecations
+-----------------------------------------------------
+
+* The unused ``ohai_name`` property in the ``ohai`` resource has been deprecated. This property will be removed in Chef 15 (April 2019)
+
+Security Updates
+-----------------------------------------------------
+
+* The rubyzip gem has been updated to 1.2.2 to resolve `CVE-2018-1000544 </https://www.cvedetails.com/cve/CVE-2018-1000544/>`__
 
 What’s New in 14.4
 =====================================================
@@ -66,38 +239,37 @@ What’s New in 14.4
 * **Improved Resources**
 
   * **windows_package**
-       The `windows_package </resource_windows_package.html>`__ resource now supports setting the sensitive property to avoid showing errors if a package install fails.
+      The `windows_package </resource_windows_package.html>`__ resource now supports setting the sensitive property to avoid showing errors if a package install fails.
 
   * **sysctl**
-       The `sysctl </resource_sysctl.html>`__ resource now updates the on-disk ``sysctl.d`` file even if the current sysctl value matches the desired value.
+      The `sysctl </resource_sysctl.html>`__ resource now updates the on-disk ``sysctl.d`` file even if the current sysctl value matches the desired value.
 
   * **windows_task**
-       The `windows_task </resource_windows_task.html>`__ resource now supports setting the task priority of the scheduled task with a new priority property. Additionally ``windows_task`` now supports managing the behavior of task execution when a system is on battery using new ``disallow_start_if_on_batteries`` and ``stop_if_going_on_batteries`` properties.
+      The `windows_task </resource_windows_task.html>`__ resource now supports setting the task priority of the scheduled task with a new priority property. Additionally ``windows_task`` now supports managing the behavior of task execution when a system is on battery using new ``disallow_start_if_on_batteries`` and ``stop_if_going_on_batteries`` properties.
 
   * **ifconfig**
-       The `ifconfig </resource_ifconfig.html>`__ resource now supports setting the interface's VLAN via a new vlan property on RHEL ``platform_family`` and setting the interface's gateway via a new gateway property on RHEL/Debian ``platform_family``.
+      The `ifconfig </resource_ifconfig.html>`__ resource now supports setting the interface's VLAN via a new vlan property on RHEL ``platform_family`` and setting the interface's gateway via a new gateway property on RHEL/Debian ``platform_family``.
 
-       Thank you @tomdoherty for this contribution.
+      Thank you @tomdoherty for this contribution.
 
   * **route**
-       The `route </resource_route.html>`__ resource now supports additional RHEL platform_family systems as well as Amazon Linux.
+      The `route </resource_route.html>`__ resource now supports additional RHEL platform_family systems as well as Amazon Linux.
 
   * **systemd_unit**
-       The `systemd_unit </resource_systemd_unit.html>`__ resource now supports specifying options multiple times in the content hash. Instead of setting the value to a string you can now set it to an array of strings.
+      The `systemd_unit </resource_systemd_unit.html>`__ resource now supports specifying options multiple times in the content hash. Instead of setting the value to a string you can now set it to an array of strings.
 
-       Thank you @dbresson for this contribution.
+      Thank you @dbresson for this contribution.
 
-Ohai 14.4
------------------------------------------------------
-* The default shell out timeout period of 30 seconds can now be configured by setting ```shellout_timeout``` in your ```client.rb``` config.
+* **Ohai 14.4**
 
-* System enclosure information is now collected on Windows with a new ```system_enclosure``` plugin.
+  * The default shell out timeout period of 30 seconds can now be configured by setting ``shellout_timeout`` in your ``client.rb`` config.
+
+  * System enclosure information is now collected on Windows with a new ```system_enclosure``` plugin.
 
 Security Updates
 -----------------------------------------------------
 * **OpenSSL**
-     OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://nvd.nist.gov/vuln/detail/CVE-2018-0732>`__ and `CVE-2018-0737 <https://nvd.nist.gov/vuln/detail/CVE-2018-0737>`__
-
+    OpenSSL has been updated to 1.0.2p to resolve `CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`__ and `CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`__
 
 What’s New in 14.3
 =====================================================
@@ -137,15 +309,19 @@ What’s New in 14.3
      * Resolved idempotency issues in the `windows_task </resource_windows_task.html>`__ resource and prevented setting up a task with bad credentials
      * `windows_service </resource_windows_service.html>`__ no longer throws Ruby deprecation warnings
 
-* **Deprecations**
+* **Ohai 14.3**
+    Ohai now properly detects the platform_version of the final release of Amazon Linux 2.0 in addition to the previous detection of the RC platform_version.
 
-  * **CHEF-26: Deprecation of old shell_out APIs**
-    As noted above, this release of Chef unifies our shell_out helpers into just shell_out and shell_out!. Previous helpers are now deprecated and will be removed in Chef 15. See `CHEF-26 Deprecation Page </deprecations_shell_out.html>`__ for details.
+New Deprecations
+-----------------------------------------------------
 
-  * **Legacy FreeBSD pkg provider**
-    Chef 15 will remove support for the legacy FreeBSD pkg format. We will continue to support the pkgng format introduced in FreeBSD 10.
+* **CHEF-26: Deprecation of old shell_out APIs**
+  As noted above, this release of Chef unifies our shell_out helpers into just shell_out and shell_out!. Previous helpers are now deprecated and will be removed in Chef 15. See `CHEF-26 Deprecation Page </deprecations_shell_out.html>`__ for details.
 
-What’s New in 14.2.0
+* **Legacy FreeBSD pkg provider**
+  Chef 15 will remove support for the legacy FreeBSD pkg format. We will continue to support the pkgng format introduced in FreeBSD 10.
+
+What’s New in 14.2
 =====================================================
 
 * **ssh-agent support for user keys**
@@ -181,6 +357,12 @@ What’s New in 14.2.0
 What's New in 14.1.12
 =====================================================
 
+* **Ohai 14.1.3**
+
+  * Properly detect FIPS environments
+  * shard plugin: work in FIPS compliant environments
+  * filesystem plugin: Handle BSD platforms
+
 * **Resource Changes & Notes**
 
   * `git </resource_git.html>`__ resource: we don't recommend using ``--prune-tags`` yet, because it is really new.
@@ -189,14 +371,6 @@ What's New in 14.1.12
   * `windows_task </resource_windows_task.html>`__ resource: properly handle commands with arguments
   * `windows_task </resource_windows_task.html>`__ resource: handle creating tasks as the SYSTEM user
   * `remote_directory </resource_remote_directory.html>`__ resource: restore the default for the overwrite property
-
-Ohai 14.1.3
--------------------------------------------------------
-
-  * Properly detect FIPS environments
-  * shard plugin: work in FIPS compliant environments
-  * filesystem plugin: Handle BSD platforms
-
 
 What's New in 14.1.1
 =====================================================
@@ -222,16 +396,16 @@ This release of Chef Client 14 resolves a number of regressions in 14.0:
 * The ``sysctl`` resource correctly handles missing keys when used with ``ignore_error``
 * ``–recipe-url`` works with Windows with local files.
 
-Ohai 14.1
------------------------------------------------------
-* **Configurable DMI Whitelist**
-     The whitelist of DMI IDs is now user-configurable via the ``additional_dmi_ids`` configuration setting, which accepts an array.
+* **Ohai 14.1**
 
-* **Shard plugin**
-     The Shard plugin has been restored as a default plugin, rather than an optional one. The plugin will use SHA256 instead of MD5 in FIPS environments.
+  * **Configurable DMI Whitelist**
+       The whitelist of DMI IDs is now user-configurable via the ``additional_dmi_ids`` configuration setting, which accepts an array.
 
-* **SCSI plugin**
-     An optional plugin to enumerate SCSI devices.
+  * **Shard plugin**
+       The Shard plugin has been restored as a default plugin, rather than an optional one. The plugin will use SHA256 instead of MD5 in FIPS environments.
+
+  * **SCSI plugin**
+       An optional plugin to enumerate SCSI devices.
 
 What's New in 14.0.202
 =====================================================
@@ -609,6 +783,73 @@ This release completes the deprecation process for many of the deprecations that
 
         optional_plugins [ "lspci", "passwd" ]
 
+What's New in 13.12
+=====================================================
+* **Smaller Package and Install Size**
+
+  We trimmed unnecessary installation files, greatly reducing the sizes of both Chef packages and on disk installations. macOS/Linux packages are ~50% smaller and Windows packages are ~12% smaller. Chef 14 is now smaller than a legacy Chef 10 package.
+
+* **macOS Mojave (10.14)**
+
+  Chef is now tested against macOS Mojave and packages are now available at downloads.chef.io.
+
+* **SUSE Linux Enterprise Server 15**
+
+  Ohai now properly detects SLES 15 and the Chef package will no longer remove symlinks to chef-client and ohai when upgrading on SLES 15.
+
+* **Updated Chef-Vault**
+
+  Updating chef-vault to 3.4.2 resolved multiple bugs.
+
+* **Faster Windows Installations**
+
+  Improved Windows installation speed by skipping unnecessary steps when Windows Installer 5.0 or later is available.
+
+Ohai Release Notes 13.12
+-----------------------------------------------------
+* **macOS Improvements**
+
+  - sysctl commands have been modified to gather only the bare minimum required data, which prevents sysctl hanging in some scenarios
+  - Extra data has been removed from the system_profile plugin, reducing the amount of data stored on the chef-server for each node
+
+New Deprecations
+-----------------------------------------------------
+* **system_profile Ohai plugin removal**
+
+  The system_profile plugin will be removed from Chef/Ohai 15 in April, 2019. This plugin incorrectly returns data on modern Mac systems. Further, the hardware plugin returns the same data in a more readily consumable format. Removing this plugin reduces the speed of the Ohai return by ~3 seconds and also greatly reduces the node object size on the Chef server
+
+* **ohai_name property in ohai resource**
+
+  The ``ohai`` resource's unused ``ohai_name`` property has been deprecated. This will be removed in Chef 15.0.
+
+Security Updates
+-----------------------------------------------------
+* **Ruby 2.4.5**
+
+  - `CVE-2018-16396 <https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396>`__
+  - `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395>`__
+
+What's New in 13.11
+=====================================================
+* **Sensitive Properties on Windows**
+
+  - windows_service no longer logs potentially sensitive information when a service is setup
+  - windows_package now respects the sensitive property to avoid logging sensitive data in the event of a package installation failure
+
+* **Bugfixes**
+
+  - ``remote_directory`` now properly loads files in the root of a cookbook's files directory
+  - ``osx_profile`` now uses the full path the profiles CLI tool to avoid running other binaries of the same name in a users path
+  - ``package`` resources that don't support the ``allow_downgrade`` property will no longer fail
+  - ``knife bootstrap windows`` error messages have been improved
+
+
+* **Security Updates**
+
+  - `CVE-2018-0732 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0732>`_: Fixes handshake violation in OpenSSL
+  - `CVE-2018-0737 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-0737>`_: OpenSSL RSA Key generation algorithm has been shown to be vulnerable to a cache timing side channel attack
+  - `CVE-2018-1000544 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000544>`_: rubyzip gem rubyzip version 1.2.1 and earlier contains a Directory Traversal vulnerability
+
 What's New in 13.10
 =====================================================
 
@@ -625,43 +866,50 @@ What's New in 13.10
 
 * **Security Updates**
 
-  - ``ffi Gem``
-  - `CVE-2018-1000201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000201>`__: DLL loading issue which can be hijacked on Windows OS
+  - `CVE-2018-1000201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-1000201>`__: DLL loading issue which can be hijacked on Windows OS resolved by updating FFI gem
 
 What's New in 13.9.4
 =====================================================
 
+* **Platform Updates**
+
+  As Debian 7 is now end of life we will no longer produce Debian 7 chef-client packages.
+
+* **Ifconfig on Ubuntu 18.04**
+
+  Incompatibilities with Ubuntu 18.04 in the ifconfig resource have been resolved.
+
+Ohai 13.9.2
+-----------------------------------------------------
+
+* **Virtualization detection on AWS**
+
+  Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
+
+* **Configurable DMI Whitelist**
+
+  The whitelist of DMI IDs is now user configurable using the additional_dmi_ids configuration setting, which takes an Array.
+
+* **Filesystem2 on BSD**
+
+  The Filesystem2 functionality has been backported to BSD systems to provide a consistent filesystem format.
+
 Security Updates
-Ruby has been updated to 2.4.4
+-----------------------------------------------------
 
-CVE-2017-17742: HTTP response splitting in WEBrick
-CVE-2018-6914: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
-CVE-2018-8777: DoS by large request in WEBrick
-CVE-2018-8778: Buffer under-read in String#unpack
-CVE-2018-8779: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
-CVE-2018-8780: Unintentional directory traversal by poisoned NUL byte in Dir
-Multiple vulnerabilities in RubyGems
-Nokogiri has been updated to 1.8.2
+* **Ruby has been updated to 2.4.4**
 
-[MRI] Behavior in libxml2 has been reverted which caused CVE-2018-8048 (loofah gem), CVE-2018-3740 (sanitize gem), and CVE-2018-3741 (rails-html-sanitizer gem).
-OpenSSL has been updated to 1.0.2o
+  - `CVE-2017-17742 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-17742>`__: HTTP response splitting in WEBrick
+  - `CVE-2018-6914 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-6914>`__: Unintentional file and directory creation with directory traversal in tempfile and tmpdir
+  - `CVE-2018-8777 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8777>`__: DoS by large request in WEBrick
+  - `CVE-2018-8778 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8778>`__: Buffer under-read in String#unpack
+  - `CVE-2018-8779 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8779>`__: Unintentional socket creation by poisoned NUL byte in UNIXServer and UNIXSocket
+  - `CVE-2018-8780 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2018-8780>`__: Unintentional directory traversal by poisoned NUL byte in Dir
+  - Multiple vulnerabilities in RubyGems
 
-CVE-2018-0739: Constructed ASN.1 types with a recursive definition could exceed the stack.
-Platform Updates
-As Debian 7 is now end of life we will no longer produce Debian 7 chef-client packages.
+* **OpenSSL has been updated to 1.0.2o**
 
-Ifconfig on Ubuntu 18.04
-Incompatibilities with Ubuntu 18.04 in the ifconfig resource have been resolved.
-
-Ohai Updated to 13.9.2
-Virtualization detection on AWS
-Ohai now detects the virtualization hypervisor amazonec2 when running on Amazon’s new C5/M5 instances.
-
-Configurable DMI Whitelist
-The whitelist of DMI IDs is now user configurable using the additional_dmi_ids configuration setting, which takes an Array.
-
-Filesystem2 on BSD
-The Filesystem2 functionality has been backported to BSD systems to provide a consistent filesystem format.
+  - CVE-2018-0739: Constructed ASN.1 types with a recursive definition could exceed the stack.
 
 What's New in 13.9.1
 =====================================================
@@ -674,6 +922,7 @@ This release also includes the `custom resource improvements </release_notes.htm
 
 Ohai 13.9
 -----------------------------------------------------
+
 * Fixes uptime parsing on AIX
 * Fixes Softlayer cloud detection
 * Uses the current Azure metadata endpoint
@@ -765,7 +1014,7 @@ What's New in 13.7.16
 
 * **Credentials Handling**
 
-  Previously, Chef DK workstations used ``knife.rb`` or ``config.rb`` to handle credentials. This didn’t do a great job of interacting with multiple Chef servers, which lead to the need for tools like `knife_block <https://github.com/knife-block/knife-block>`__. We’ve added support for a credentials file that contains configuration information for many Chef servers / organizations, and we’ve made it easy to indicate which account you mean to use.
+  Previously, ChefDK workstations used ``knife.rb`` or ``config.rb`` to handle credentials. This didn’t do a great job of interacting with multiple Chef servers, which lead to the need for tools like `knife_block <https://github.com/knife-block/knife-block>`__. We’ve added support for a credentials file that contains configuration information for many Chef servers / organizations, and we’ve made it easy to indicate which account you mean to use.
 
 * **Bug Fixes**
 
@@ -1020,7 +1269,7 @@ What's New in 13.2
 
     When daemonized, Chef now performs a reconfigure after every run.
 
-New deprecations included in this release
+New deprecations
 -----------------------------------------------------
 
 * `Explicit property methods </deprecations_namespace_collisions.html>`__  In Chef 14, custom resources will no longer assume property methods are being called on ``new_resource``, and will instead require the resource author to be explicit.
@@ -1029,7 +1278,7 @@ What's New in 13.0/13.1
 =====================================================
 
 * **Blacklist attributes**
-* **Rubygems sources**
+* **RubyGems sources**
 * **windows_task resource**
 * **Chef client will now exit using the rfc062 defined exit codes**
 * **New default encrypted databag format**
@@ -1040,7 +1289,6 @@ It is now possible to blacklist node attributes
 -----------------------------------------------------
 Blacklist Attributes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-New in Chef Client 13.0
 
 .. tag node_attribute_blacklist
 
@@ -1105,7 +1353,7 @@ For attributes that contain slashes (``/``) within the attribute value, such as 
 
 .. end_tag
 
-Rubygems provider sources behavior changed.
+RubyGems provider sources behavior changed.
 -----------------------------------------------------
 The behavior of ``gem_package`` and ``chef_gem`` is now to always apply the ``Chef::Config[:rubygems_uri]`` sources, which may be a string uri or an array of strings.  If additional sources are put on the resource with the ``source`` property those are added to the configured ``:rubygems_uri`` sources.
 
@@ -1378,7 +1626,7 @@ Please use ``knife cookbook site install`` instead.
 
 ``knife cookbook create`` has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Please use ``chef generate cookbook`` from the ChefDK instead.
+Please use ``chef generate cookbook`` from ChefDK instead.
 
 Verify commands no longer support "%{file}"
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1431,7 +1679,7 @@ Chef Client will only exit with exit codes defined in RFC 062.  This allows othe
 
 When Chef Client is running as a forked process on unix systems, the standardized exit codes are used by the child process.  To actually have Chef Client return the standard exit code, ``client_fork false`` will need to be set in Chef Client's configuration file.
 
-New deprecations included in this release
+New deprecations
 -----------------------------------------------------
 * `Removal of support for Ohai version 6 plugins </deprecations_ohai_v6_plugins.html>`__
 
@@ -1441,7 +1689,7 @@ This release fixes an issue in our Windows security support code that would occa
 
 This issue is also fixed in the recent Chef 14.0.190 release, and will be included in the next Chef 13 release expected by the end of the month.
 
-This is the final planned Chef 12 release, which is currently deprecated and will become End of Life on April 30th. For additional information on that process, please see our `Chef 12 and Chef DK 1 EOL information <https://www.chef.io/eol-chef12-and-chefdk1>`__.
+This is the final planned Chef 12 release, which is currently deprecated and will become End of Life on April 30th. For additional information on that process, please see our `Chef 12 and ChefDK 1 EOL information <https://www.chef.io/eol-chef12-and-chefdk1>`__.
 
 What's New in 12.22.1
 =====================================================
@@ -1535,7 +1783,7 @@ What's New in 12.21.4
 
 * **Improved Resource Reporting** Resource reporting for Chef Automate has been improved
 * **Ruby Upgrade** Ruby has been updated to 2.3.4
-* **Rubygems Upgrade** Rubygems has been updated to 2.6.12 to prevent a segfault on Windows
+* **RubyGems Upgrade** RubyGems has been updated to 2.6.12 to prevent a segfault on Windows
 * **Policyfile fix** Chef client now properly sends expanded run list events for policy file nodes
 
 What's New in 12.21.1
@@ -1619,16 +1867,16 @@ Properties
 The following properties are new or updated for the ``execute``, ``script``, ``batch``, and ``powershell_script`` resources and any resources derived from them:
 
 ``user``
-  **Ruby types:** String
-  The user name of the user identity with which to launch the new process. Default value: ``nil``. The user name may optionally be specified with a domain, i.e. ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as ``user`` if the domain is instead specified using the ``domain`` attribute. On Windows only, if this property is specified, the ``password`` property **must** be specified.
+  **Ruby Type:** String
+  The user name of the user identity with which to launch the new process. The user name may optionally be specified with a domain, i.e. ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. It can also be specified without a domain simply as ``user`` if the domain is instead specified using the ``domain`` attribute. On Windows only, if this property is specified, the ``password`` property **must** be specified.
 
 ``password``
   **Ruby types** String
-  _Windows only:_ The password of the user specified by the ``user`` property. Default value: ``nil``. This property is mandatory if ``user`` is specified on Windows and may only be specified if ``user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``password`` is specified.
+  _Windows only:_ The password of the user specified by the ``user`` property. This property is mandatory if ``user`` is specified on Windows and may only be specified if ``user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``password`` is specified.
 
 ``domain``
   **Ruby types** String
-  _Windows only:_ The domain of the user specified by the ``user`` property. Default value: ``nil``. If not specified, the user name and password specified by the ``user`` and ``password`` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the ``user`` property.
+  _Windows only:_ The domain of the user specified by the ``user`` property. If not specified, the user name and password specified by the ``user`` and ``password`` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the ``user`` property.
 
 Usage
 -----------------------------------------------------
@@ -1685,7 +1933,7 @@ The following items are new for chef-client 12.18 and/or are changes from previo
 * **Can now enable chef-client to run as a scheduled task directly from the client MSI on Windows hosts**
 * **Package provider now supports DNF packages for Fedora and upcoming RHEL releases**
 
-New deprecations included in this release
+New deprecations
 -----------------------------------------------------
 * `Chef::Platform helper methods </deprecations_chef_platform_methods.html>`__
 * `run_command helper method </deprecations_run_command.html>`__
@@ -2187,14 +2435,14 @@ This resource has the following properties:
    A string or hash that contains a systemd `unit file <https://www.freedesktop.org/software/systemd/man/systemd.unit.html>`_ definition that describes the properties of systemd-managed entities, such as services, sockets, devices, and so on.
 
 ``triggers_reload``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Specifies whether to trigger a daemon reload when creating or deleting a unit. Default is true.
+   Specifies whether to trigger a daemon reload when creating or deleting a unit.
 
 ``verify``
-   **Ruby Type:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit. Defaults to true.
+   Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit.
 
 
 What's New in 12.10
@@ -2653,33 +2901,33 @@ The full syntax for all of the properties that are available to the **launchd** 
 .. code-block:: ruby
 
    launchd 'name' do
-     abandon_process_group      True, False
-     backup                     Integer, False
+     abandon_process_group      true, false
+     backup                     Integer, false
      cookbook                   String
-     debug                      True, False
-     disabled                   True, False
-     enable_globbing            True, False
-     enable_transactions        True, False
+     debug                      true, false
+     disabled                   true, false
+     enable_globbing            true, false
+     enable_transactions        true, false
      environment_variables      Hash
      exit_timeout               Integer
      group                      String, Integer
      hard_resource_limits       Hash
      hash                       Hash
-     ignore_failure             True, False
+     ignore_failure             true, false
      inetd_compatibility        Hash
-     init_groups                True, False
-     keep_alive                 True, False
+     init_groups                true, false
+     keep_alive                 true, false
      label                      String
-     launch_only_once           True, False
+     launch_only_once           true, false
      limit_load_from_hosts      Array
      limit_load_to_hosts        Array
      limit_load_to_session_type String
-     low_priority_io            True, False
+     low_priority_io            true, false
      mach_services              Hash
      mode                       Integer, String
      nice                       Integer
      notifies                   # see description
-     on_demand                  True, False
+     on_demand                  true, false
      owner                      Integer, String
      path                       String
      process_type               String
@@ -2690,7 +2938,7 @@ The full syntax for all of the properties that are available to the **launchd** 
      retries                    Integer
      retry_delay                Integer
      root_directory             String
-     run_at_load                True, False
+     run_at_load                true, false
      sockets                    Hash
      soft_resource_limits       Array
      standard_error_path        String
@@ -2698,14 +2946,14 @@ The full syntax for all of the properties that are available to the **launchd** 
      standard_out_path          String
      start_calendar_interval    Hash
      start_interval             Integer
-     start_on_mount             True, False
+     start_on_mount             true, false
      subscribes                 # see description
      throttle_interval          Integer
      time_out                   Integer
      type                       String
      umask                      Integer
      username                   String
-     wait_for_debugger          True, False
+     wait_for_debugger          true, false
      watch_paths                Array
      working_directory          String
      action                     Symbol # defaults to :create if not specified
@@ -2744,6 +2992,13 @@ The launchd resource has the following actions:
 ``:restart``
    Restart a launchd managed daemon or agent.
 
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+
+   .. end_tag
+
 .. end_tag
 
 Properties
@@ -2753,7 +3008,7 @@ Properties
 This resource has the following properties:
 
 ``backup``
-   **Ruby Types:** Integer, False
+   **Ruby Type:** Integer, false
 
    The number of backups to be kept in ``/var/chef/backup``. Set to ``false`` to prevent backups from being kept.
 
@@ -2763,7 +3018,7 @@ This resource has the following properties:
    The name of the cookbook in which the source files are located.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    When launchd is run as the root user, the group to run the job as. If the ``username`` property is specified and this property is not, this value is set to the default group for the user.
 
@@ -2773,9 +3028,9 @@ This resource has the following properties:
    A Hash of key value pairs used to create the launchd property list.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``label``
    **Ruby Type:** String
@@ -2783,7 +3038,7 @@ This resource has the following properties:
    The unique identifier for the job.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
@@ -2823,29 +3078,29 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
 ``path``
    **Ruby Type:** String
 
-   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``session_type``
    **Ruby Type:** String
@@ -2868,14 +3123,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -2919,27 +3174,27 @@ This resource has the following properties:
 The following resource properties may be used to define keys in the XML property list for a daemon or agent. Please refer to the Apple man page documentation for launchd for more information about these keys:
 
 ``abandon_process_group``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    If a job dies, all remaining processes with the same process ID may be kept running. Set to ``true`` to kill all remaining processes.
 
 ``debug``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
 ``disabled``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Hints to ``launchctl`` to not submit this job to launchd. Default value: ``false``.
+   Hints to ``launchctl`` to not submit this job to launchd.
 
 ``enable_globbing``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Update program arguments before invocation.
 
 ``enable_transactions``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Track in-progress transactions; if none, then send the ``SIGKILL`` signal.
 
@@ -2949,9 +3204,9 @@ The following resource properties may be used to define keys in the XML property
    Additional environment variables to set before running a job.
 
 ``exit_timeout``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``20``
 
-   The amount of time (in seconds) launchd waits before sending a ``SIGKILL`` signal. Default value: ``20``.
+   The amount of time (in seconds) launchd waits before sending a ``SIGKILL`` signal.
 
 ``hard_resource_limits``
    **Ruby Type:** Hash
@@ -2964,19 +3219,19 @@ The following resource properties may be used to define keys in the XML property
    Specifies if a daemon expects to be run as if it were launched from ``inetd``. Set to ``wait => true`` to pass standard input, output, and error file descriptors. Set to ``wait => false`` to call the ``accept`` system call on behalf of the job, and then pass standard input, output, and error file descriptors.
 
 ``init_groups``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Specify if ``initgroups`` is called before running a job. Default value: ``true`` (starting with macOS 10.5).
 
 ``keep_alive``
-   **Ruby Types:** True, False, Hash
+   **Ruby Type:** true, false, Hash | **Default Value:** ``false``
 
-   Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``). Default value: ``false``.
+   Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``).
 
    Hash type was added in Chef client 12.14.
 
 ``launch_only_once``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Specify if a job can be run only one time. Set this value to ``true`` if a job cannot be restarted without a full machine reboot.
 
@@ -2996,7 +3251,7 @@ The following resource properties may be used to define keys in the XML property
    The session type to which this configuration file applies.
 
 ``low_priority_io``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Specify if the kernel on the node should consider this daemon to be low priority during file system I/O.
 
@@ -3011,7 +3266,7 @@ The following resource properties may be used to define keys in the XML property
    The program scheduling priority value in the range ``-20`` to ``20``.
 
 ``on_demand``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Keep a job alive. Only applies to macOS version 10.4 (and earlier); use ``keep_alive`` instead for newer versions.
 
@@ -3041,9 +3296,9 @@ The following resource properties may be used to define keys in the XML property
    ``chroot`` to this directory, and then run the job.
 
 ``run_at_load``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Launch a job once (at the time it is loaded). Default value: ``false``.
+   Launch a job once (at the time it is loaded).
 
 ``sockets``
    **Ruby Type:** Hash
@@ -3080,14 +3335,14 @@ The following resource properties may be used to define keys in the XML property
    The frequency (in seconds) at which a job is started.
 
 ``start_on_mount``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Start a job every time a file system is mounted.
 
 ``throttle_interval``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``10``
 
-   The frequency (in seconds) at which jobs are allowed to spawn. Default value: ``10``.
+   The frequency (in seconds) at which jobs are allowed to spawn.
 
 ``time_out``
    **Ruby Type:** Integer
@@ -3105,7 +3360,7 @@ The following resource properties may be used to define keys in the XML property
    When launchd is run as the root user, the user to run the job as.
 
 ``wait_for_debugger``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Specify if launchd has a job wait for a debugger to attach before executing code.
 
@@ -3172,7 +3427,7 @@ gem, metadata.rb
 -----------------------------------------------------
 .. tag config_rb_metadata_settings_gem
 
-Specifies a gem dependency to be installed via the **chef_gem** resource after all cookbooks are synchronized, but before any other cookbook loading is done. Use this attribute once per gem dependency. For example:
+Specifies a gem dependency for installation into the chef-client through bundler. The gem installation occurs after all cookbooks are synchronized but before loading any other cookbooks. Use this attribute one time for each gem dependency. For example:
 
 .. code-block:: ruby
 
@@ -3259,7 +3514,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -3287,9 +3542,9 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -3321,7 +3576,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -3331,19 +3586,19 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -3361,14 +3616,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -3400,12 +3655,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -3490,11 +3745,11 @@ The osx_profile resource has the following actions:
    Default. Install the specified configuration profile.
 
 ``:nothing``
-   Default. .. tag resources_common_actions_nothing
+   .. tag resources_common_actions_nothing
 
-            Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
-            .. end_tag
+   .. end_tag
 
 ``:remove``
    Remove the specified configuration profile.
@@ -3503,122 +3758,30 @@ The osx_profile resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_osx_profile_attributes
+.. tag resource_osx_profile_properties
 
-This resource has the following properties:
+The osx_profile resource has the following properties:
 
 ``identifier``
    **Ruby Type:** String
 
    Use to specify the identifier for the profile, such as ``com.company.screensaver``.
 
-``ignore_failure``
-   **Ruby Types:** True, False
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+``path``
+   **Ruby Type:** String
 
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-      notifies :action, 'resource[name]', :timer
-
-   .. end_tag
+   The path to write the profile to disk before loading it.
 
 ``profile``
-   **Ruby Types:** String, Hash
+   **Ruby Type:** String, Hash
 
    Use to specify a profile. This may be the name of a profile contained in a cookbook or a Hash that contains the contents of the profile.
 
 ``profile_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    Use to specify the name of the profile, if different from the name of the resource block.
-
-``retries``
-   **Ruby Type:** Integer
-
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
-
-``retry_delay``
-   **Ruby Type:** Integer
-
-   The retry delay (in seconds). Default value: ``2``.
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
-
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
 
 .. end_tag
 
@@ -3763,7 +3926,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -3777,112 +3940,14 @@ This resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_apt_update_attributes
+.. tag resource_apt_update_properties
 
-This resource has the following properties:
+The apt_update resource has the following properties:
 
 ``frequency``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``86400``
 
-   Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified. Default value: ``86400``.
-
-``ignore_failure``
-   **Ruby Types:** True, False
-
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
-
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-      notifies :action, 'resource[name]', :timer
-
-   .. end_tag
-
-``retries``
-   **Ruby Type:** Integer
-
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
-
-``retry_delay``
-   **Ruby Type:** Integer
-
-   The retry delay (in seconds). Default value: ``2``.
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
-
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
+   Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified.
 
 .. end_tag
 
@@ -3959,7 +4024,7 @@ ksh
 -----------------------------------------------------
 .. tag resource_script_ksh
 
-Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence. New in Chef Client 12.6.
+Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
 .. note:: The **ksh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
@@ -4016,7 +4081,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_script_ksh_actions
 
-This resource has the following actions:
+The ksh resource has the following actions:
 
 ``:nothing``
    Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
@@ -4028,9 +4093,9 @@ This resource has the following actions:
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_script_ksh_attributes
+.. tag resource_script_ksh_properties
 
-This resource has the following properties:
+The ksh resource has the following properties:
 
 ``code``
    **Ruby Type:** String
@@ -4045,7 +4110,7 @@ This resource has the following properties:
 ``cwd``
    **Ruby Type:** String
 
-   The current working directory.
+   The current working directory from which the command will be run.
 
 ``environment``
    **Ruby Type:** Hash
@@ -4058,48 +4123,9 @@ This resource has the following properties:
    One or more command line flags that are passed to the interpreter when a command is invoked.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The group name or group ID that must be changed before running a command.
-
-``ignore_failure``
-   **Ruby Types:** True, False
-
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
-
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-      notifies :action, 'resource[name]', :timer
-
-   .. end_tag
 
 ``path``
    **Ruby Type:** Array
@@ -4120,82 +4146,23 @@ This resource has the following properties:
            environment 'PATH' => "/my/path/to/bin:#{ENV['PATH']}"
          end
 
-``retries``
-   **Ruby Type:** Integer
-
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
-
-``retry_delay``
-   **Ruby Type:** Integer
-
-   The retry delay (in seconds). Default value: ``2``.
-
 ``returns``
-   **Ruby Types:** Integer, Array
+   **Ruby Type:** Integer, Array | **Default Value:** ``0``
 
-   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
-
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
+   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
 ``timeout``
-   **Ruby Types:** Integer, Float
+   **Ruby Type:** Integer, Float | **Default Value:** ``3600``
 
-   The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+   The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The user name or user ID that should be changed before running a command.
 
 ``umask``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The file mode creation mask, or umask.
 
@@ -4282,8 +4249,6 @@ Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/
 * Increases the amount of time required to complete the chef-client run.
 * Should not be used in a production environment.
 
-New in Chef Client 12.6.
-
 .. end_tag
 
 What's New in 12.5
@@ -4347,6 +4312,10 @@ The syntax for a custom resource is. For example:
    end
 
 where the first action listed is the default action.
+
+.. warning::
+   Do not use existing keywords from the chef-client resource system in a custom resource, like "name". For example, ``property :property_name`` in the following invalid syntax:
+   ``property :name, String, default: 'thename'``.
 
 .. end_tag
 
@@ -5502,7 +5471,7 @@ Examples:
 
 **Modify remote_file resource attributes**
 
-.. tag resource_package_windows_source_remote_file_attributes
+.. tag resource_package_windows_source_remote_file_properties
 
 The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file.html>`__.
 
@@ -6078,9 +6047,9 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``module_name``
    **Ruby Type:** String
@@ -6114,7 +6083,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -6201,14 +6170,14 @@ This resource has the following properties:
    .. end_tag
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -6221,14 +6190,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -7584,7 +7553,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -7601,9 +7570,9 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -7632,7 +7601,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -7642,19 +7611,19 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -7672,14 +7641,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -7708,12 +7677,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -7761,20 +7730,18 @@ The full syntax for all of the properties that are available to the **openbsd_pa
 .. code-block:: ruby
 
    openbsd_package 'name' do
-     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``openbsd_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
+* ``openbsd_package`` is the resource.
+* ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -7784,7 +7751,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_openbsd_actions
 
-This resource has the following actions:
+The openbsd_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -7792,7 +7759,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -7806,9 +7773,9 @@ Attributes
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -7837,7 +7804,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -7847,19 +7814,19 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -7877,14 +7844,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -7913,12 +7880,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -7967,7 +7934,7 @@ Multiple Packages and Versions
 -----------------------------------------------------
 .. tag resources_common_multiple_packages
 
-A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
 * Update or install multiple packages with a single resource during the chef-client run
@@ -8769,21 +8736,19 @@ The full syntax for all of the properties that are available to the **bff_packag
 .. code-block:: ruby
 
    bff_package 'name' do
-     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``bff_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``bff_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -8792,7 +8757,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_bff_actions
 
-This resource has the following actions:
+The bff_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -8800,7 +8765,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -8817,9 +8782,9 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -8848,7 +8813,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -8858,19 +8823,19 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -8888,14 +8853,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -8924,12 +8889,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -9004,21 +8969,19 @@ The full syntax for all of the properties that are available to the **homebrew_p
 
    homebrew_package 'name' do
      homebrew_user              String, Integer
-     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
      action                     Symbol # defaults to :install if not specified
    end
 
-where
+where:
 
-* ``homebrew_package`` tells the chef-client to manage a package
-* ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``homebrew_package`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``homebrew_user``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -9027,7 +8990,7 @@ Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_homebrew_actions
 
-This resource has the following actions:
+The homebrew_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -9035,7 +8998,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -9055,7 +9018,7 @@ Properties
 This resource has the following properties:
 
 ``homebrew_user``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The name of the Homebrew owner to be used by the chef-client when executing a command.
 
@@ -9066,9 +9029,9 @@ This resource has the following properties:
    .. end_tag
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -9097,7 +9060,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -9107,19 +9070,19 @@ This resource has the following properties:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -9137,14 +9100,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -9173,12 +9136,12 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -9296,7 +9259,7 @@ The reboot resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -9318,9 +9281,9 @@ This resource has the following properties:
    The amount of time (in minutes) to delay a reboot request.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -9346,14 +9309,14 @@ This resource has the following properties:
    A string that describes the reboot action.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -9366,14 +9329,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -9534,14 +9497,14 @@ Properties
 This resource has the following properties:
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``init_command``
    **Ruby Type:** String
 
-   The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes. Default value: ``nil``.
+   The path to the init script that is associated with the service. This is typically ``/etc/init.d/SERVICE_NAME``. The ``init_command`` property can be used to prevent the need to specify  overrides for the ``start_command``, ``stop_command``, and ``restart_command`` attributes.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -9570,7 +9533,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -9590,14 +9553,14 @@ This resource has the following properties:
    The command used to restart a service.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``run_as_password``
    **Ruby Type:** String
@@ -9612,7 +9575,7 @@ This resource has the following properties:
 ``service_name``
    **Ruby Type:** String
 
-   The name of the service. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the service. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``start_command``
    **Ruby Type:** String
@@ -9645,14 +9608,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 

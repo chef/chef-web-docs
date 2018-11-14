@@ -70,12 +70,12 @@ The full syntax for all of the properties that are available to the **deploy** w
      create_dirs_before_symlink Array
      deploy_to                  String # defaults to 'name' if not specified
      depth                      Integer
-     enable_submodules          True, False
+     enable_submodules          true, false
      environment                Hash
      git_ssh_wrapper            String
      group                      String
      keep_releases              Integer
-     migrate                    True, False
+     migrate                    true, false
      migration_command          String
      notifies                   # see description
      purge_before_symlink       Array
@@ -85,9 +85,9 @@ The full syntax for all of the properties that are available to the **deploy** w
      repository_cache           String
      restart_command            Proc, String
      revision                   String
-     rollback_on_error          True, False
+     rollback_on_error          true, false
      scm_provider               Chef::Provider::Git
-     shallow_clone              True, False
+     shallow_clone              true, false
      ssh_wrapper                String
      symlinks                   Hash
      symlink_before_migrate     Hash
@@ -111,7 +111,7 @@ and the full syntax for all of the properties that are available to the **deploy
      environment                Hash
      group                      String
      keep_releases              Integer
-     migrate                    True, False
+     migrate                    true, false
      migration_command          String
      notifies                   # see description
      purge_before_symlink       Array
@@ -120,7 +120,7 @@ and the full syntax for all of the properties that are available to the **deploy
      repository_cache           String
      restart_command            Proc, String
      revision                   String
-     rollback_on_error          True, False
+     rollback_on_error          true, false
      scm_provider               Chef::Provider::Subversion
      subscribes                 # see description
      svn_arguments              String
@@ -250,7 +250,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -285,22 +285,22 @@ Properties
 This resource has the following properties:
 
 ``after_restart``
-   **Ruby Types:** Proc, String
+   **Ruby Type:** Proc, String
 
    A block of code, or a path to a file that contains code, that is run after restarting. Default value: ``deploy/after_restart.rb``.
 
 ``before_migrate``
-   **Ruby Types:** Proc, String
+   **Ruby Type:** Proc, String
 
    A block of code, or a path to a file that contains code, that is run before a migration. Default value: ``deploy/before_migrate.rb``.
 
 ``before_restart``
-   **Ruby Types:** Proc, String
+   **Ruby Type:** Proc, String
 
    A block of code, or a path to a file that contains code, that is run before restarting. Default value: ``deploy/before_restart.rb``.
 
 ``before_symlink``
-   **Ruby Types:** Proc, String
+   **Ruby Type:** Proc, String
 
    A block of code, or a path to a file that contains code, that is run before symbolic linking. Default value: ``deploy/before_symlink.rb``.
 
@@ -317,7 +317,7 @@ This resource has the following properties:
 ``deploy_to``
    **Ruby Type:** String
 
-   The "meta root" for the application, if different from the path that is used to specify the name of a resource. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The "meta root" for the application, if different from the path that is used to specify the name of a resource. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``environment``
    **Ruby Type:** Hash
@@ -330,19 +330,19 @@ This resource has the following properties:
    The system group that is responsible for the checked-out code.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``keep_releases``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``5``
 
-   The number of releases for which a backup is kept. Default value: ``5``.
+   The number of releases for which a backup is kept.
 
 ``migrate``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Run a migration command. Default value: ``false``.
+   Run a migration command.
 
 ``migration_command``
    **Ruby Type:** String
@@ -379,7 +379,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -399,39 +399,39 @@ This resource has the following properties:
    The URI for the repository.
 
 ``repository_cache``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``cached-copy``
 
-   The name of the sub-directory in which the pristine copy of an application's source is kept. Default value: ``cached-copy``.
+   The name of the sub-directory in which the pristine copy of an application's source is kept.
 
 ``restart_command``
-   **Ruby Types:** String, Proc
+   **Ruby Type:** String, Proc
 
    A string that contains a shell command that can be executed to run a restart operation.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``revision``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``HEAD``
 
-   A branch, tag, or commit to be synchronized with git. This can be symbolic, like ``HEAD`` or it can be a source control management-specific revision identifier. Default value: ``HEAD``.
+   A branch, tag, or commit to be synchronized with git. This can be symbolic, like ``HEAD`` or it can be a source control management-specific revision identifier.
 
 ``rollback_on_error``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Roll a resource back to a previously-deployed release if an error occurs when deploying a new release. Default value: ``false``.
+   Roll a resource back to a previously-deployed release if an error occurs when deploying a new release.
 
 ``scm_provider``
-   **Ruby Type:** Chef Class
+   **Ruby Type:** Chef Class | **Default Value:** ``Chef::Provider::Git``
 
-   The name of the source control management provider. Default value: ``Chef::Provider::Git``. Optional values: ``Chef::Provider::Subversion``.
+   The name of the source control management provider. Optional values: ``Chef::Provider::Subversion``.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -444,14 +444,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -510,9 +510,9 @@ The following properties are for use with git only:
    The depth of a git repository, truncated to the specified number of revisions. See ``shallow_clone``.
 
 ``enable_submodules``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Perform a sub-module initialization and update. Default value: ``false``.
+   Perform a sub-module initialization and update.
 
 ``git_ssh_wrapper``
    **Ruby Type:** String
@@ -520,14 +520,14 @@ The following properties are for use with git only:
    The alias for the ``ssh_wrapper``.
 
 ``remote``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``origin``
 
-   The remote repository to use when synchronizing an existing clone. Default value: ``origin``.
+   The remote repository to use when synchronizing an existing clone.
 
 ``shallow_clone``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Set the clone depth to ``5``. If a depth other than ``5`` is required, use the ``depth`` property instead of ``shallow_clone``. Default value: ``false``.
+   Set the clone depth to ``5``. If a depth other than ``5`` is required, use the ``depth`` property instead of ``shallow_clone``.
 
 ``ssh_wrapper``
    **Ruby Type:** String
@@ -628,7 +628,7 @@ The ``timestamped_deploy`` provider is the default **deploy** provider. It is us
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Modify the layout of a Ruby on Rails application**
 

@@ -11,14 +11,6 @@ Before installing Chef:
 
 Install and configure the Chef server, then install and configure a workstation, and then run the bootstrap command from the workstation to install the chef-client on each node.
 
-chef-client
-=====================================================
-In addition:
-
-* The recommended amount of RAM available to the chef-client during a chef-client run is 512MB
-* The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the chef-client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
-* The chef-client caches to ``/var/chef/cache`` during the chef-client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
-
 The Chef Server
 =====================================================
 The following sections describe the various requirements for the Chef server.
@@ -30,18 +22,17 @@ The hosted Chef server has the following requirements:
 * **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
 * Every node that will be configured by the chef-client and every workstation that will upload data to the Chef server must be able to communicate with the hosted Chef server
 
-Chef Server, On-premises or in cloud environment
+Chef Server, On-premises or in Cloud Environment
 -----------------------------------------------------
-
 .. tag system_requirements_server_hardware
 
 All machines in a Chef server deployment have the following hardware requirements. Disk space for standalone and backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows. Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment) is preferred.
 
-For all deployments:
+**All Deployments**
 
 * 64-bit architecture
 
-For a standalone deployment:
+**Standalone Deployments**
 
 * 4 total cores (physical or virtual)
 * 8 GB of RAM or more
@@ -52,20 +43,20 @@ For a standalone deployment:
 
 For a high availability deployment:
 
-General requirements
+**General Requirements**
 
 * Three backend servers; as many frontend servers as required
 * 1 x GigE NIC interface (if on premises)
 
 .. tag system_requirements_ha
 
-Frontend requirements
+**Frontend Requirements**
 
 * 4 cores (physical or virtual)
 * 4GB RAM
 * 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
-Backend requirements
+**Backend Requirements**
 
 * 2 cores (physical or virtual)
 * 8GB RAM
@@ -99,6 +90,13 @@ In addition:
 
 .. end_tag
 
-Chef DK
+Chef Client
+=====================================================
+
+* The recommended amount of RAM available to the chef-client during a chef-client run is 512MB
+* The chef-client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the chef-client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
+* The chef-client caches to ``/var/chef/cache`` during the chef-client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
+
+ChefDK
 =====================================================
 The Chef development kit has the same requirements as the chef-client.

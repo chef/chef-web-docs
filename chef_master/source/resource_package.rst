@@ -66,7 +66,7 @@ The full syntax for all of the properties that are available to the **package** 
 .. code-block:: ruby
 
    package 'name' do
-     allow_downgrade            True, False # Yum, RPM packages only
+     allow_downgrade            true, false # Yum, RPM packages only
      arch                       String, Array # Yum packages only
      default_release            String # Apt packages only
      flush_cache                Array
@@ -219,7 +219,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -240,12 +240,12 @@ Properties
 This resource has the following attributes:
 
 ``allow_downgrade``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   **yum_package** resource only. Downgrade a package to satisfy requested version requirements. Default value: ``false``.
+   **yum_package** resource only. Downgrade a package to satisfy requested version requirements.
 
 ``arch``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    **yum_package** resource only. The architecture of the package to be installed or upgraded. This value can also be passed as part of the package name.
 
@@ -293,14 +293,14 @@ This resource has the following attributes:
    A property for the ``gem_package`` provider that is used to specify a gems binary.
 
 ``homebrew_user``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    **homebrew_package** resource only. The name of the Homebrew owner to be used by the chef-client when executing a command.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -332,7 +332,7 @@ This resource has the following attributes:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -342,9 +342,9 @@ This resource has the following attributes:
    One (or more) additional options that are passed to the command.
 
 ``package_name``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``response_file``
    **Ruby Type:** String
@@ -357,14 +357,14 @@ This resource has the following attributes:
    **apt_package** and **dpkg_package** resources only. A Hash of response file variables in the form of ``{"VARIABLE" => "VALUE"}``.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source``
    **Ruby Type:** String
@@ -384,14 +384,14 @@ This resource has the following attributes:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -423,12 +423,12 @@ This resource has the following attributes:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Types:** String, Array
+   **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
 
@@ -436,7 +436,7 @@ Multiple Packages
 -----------------------------------------------------
 .. tag resources_common_multiple_packages
 
-A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifing multiple packages and/or versions allows a single transaction to:
+A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
 * Update or install multiple packages with a single resource during the chef-client run
@@ -497,7 +497,7 @@ Notifications, via an implicit name:
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Install a gems file for use in recipes**
 
@@ -858,13 +858,9 @@ and the next uses a single **package** resource and a whitespace array (``%w``):
 
 .. code-block:: ruby
 
-   %w{package-a package-b package-c package-d}.each do |pkg|
-     package pkg do
-       action :upgrade
-     end
+   package %w{package-a package-b package-c package-d} do
+     action :upgrade
    end
-
-where ``|pkg|`` is used to define the name of the resource, but also to ensure that each item in the whitespace array has its own name.
 
 .. end_tag
 

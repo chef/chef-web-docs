@@ -43,7 +43,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -55,9 +55,9 @@ This resource has the following properties:
    Use to specify the format of a public key. Possible values: ``pem`` and ``der``. Default value: ``pem``.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -89,7 +89,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -97,14 +97,14 @@ This resource has the following properties:
    The path to a public key.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``source_key``
    Use to copy a public key, but apply a different ``format`` and ``password``. Use in conjunction with ``source_key_pass_phrase``` and ``source_key_path``.
@@ -126,14 +126,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -163,7 +163,3 @@ This resource has the following properties:
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
-Examples
-=====================================================
-None.

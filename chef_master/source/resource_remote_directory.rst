@@ -35,19 +35,19 @@ The full syntax for all of the properties that are available to the **remote_dir
 
    remote_directory 'name' do
      cookbook                   String
-     files_backup               Integer, False
+     files_backup               Integer, false
      files_group                String
      files_mode                 String
      files_owner                String
      group                      String, Integer
-     inherits                   True, False
+     inherits                   true, false
      mode                       String, Integer
      notifies                   # see description
-     overwrite                  True, False
+     overwrite                  true, false
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
-     purge                      True, False
-     recursive                  True, False
+     purge                      true, false
+     recursive                  true, false
      rights                     Hash
      source                     String
      subscribes                 # see description
@@ -78,7 +78,7 @@ The remote_directory resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -93,9 +93,9 @@ The remote_directory resource has the following properties:
    The cookbook in which a file is located (if it is not located in the current cookbook). The default value is the current cookbook.
 
 ``files_backup``
-   **Ruby Types:** Integer, False
+   **Ruby Type:** Integer, false | **Default Value:** ``5``
 
-   The number of backup copies to keep for files in the directory. Default value: ``5``.
+   The number of backup copies to keep for files in the directory.
 
 ``files_group``
    **Ruby Type:** String
@@ -117,22 +117,22 @@ The remote_directory resource has the following properties:
    Configure owner permissions for files. A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
 ``group``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Use to configure permissions for directories. A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``inherits``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
+   Microsoft Windows only. Whether a file inherits rights from its parent directory.
 
 ``mode``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
 
@@ -172,47 +172,47 @@ The remote_directory resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
 ``overwrite``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Overwrite a file when it is different. Default value: ``true``.
+   Overwrite a file when it is different.
 
 ``owner``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Use to configure permissions for directories. A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
 ``path``
    **Ruby Type:** String
 
-   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block See "Syntax" section above for more information.
+   The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``purge``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Purge extra files found in the target directory. Default value: ``false``.
+   Purge extra files found in the target directory.
 
 ``recursive``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false
 
    Create or delete directories recursively. Default value: ``true``; the chef-client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``rights``
-   **Ruby Types:** Integer, String
+   **Ruby Type:** Integer, String
 
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
@@ -232,14 +232,14 @@ The remote_directory resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -539,7 +539,7 @@ Because the ``inherits`` property is not specified, the chef-client will default
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Recursively transfer a directory from a remote location**
 

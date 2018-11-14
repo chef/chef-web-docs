@@ -333,7 +333,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
    .. important:: The ``install-runner`` command creates a new file called ``job_runner`` in the ``/etc/sudoers.d`` directory that gives the runner the appropriate ``sudo`` access. If your runner does not have the ``#includedir /etc/sudoers.d`` directive included in its ``/etc/sudoers`` file, you must put that directive in before you run the ``install-runner`` command. Additionally, the line ``Defaults requiretty`` must not occur in the ``/etc/sudoers`` file on any runner. This will prevent proper installation of runners.
 
-   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of the ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``. This option cannot be used with the ``--chefdk-version`` as the version of the local package will be used.
+   .. note:: You can optionally download the latest ChefDK from `<https://downloads.chef.io/chefdk/>`_ to specify a local package via ``--installer``. Doing so is useful if you are in an air-gapped environment. Version 0.15.16 or greater of ChefDK is required. The download location is referred to below as ``OPTIONAL_CHEF_DK_PACKAGE_PATH``. This option cannot be used with the ``--chefdk-version`` as the version of the local package will be used.
 
    .. code-block:: bash
 
@@ -347,7 +347,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
    The ``SSH_USERNAME`` provided must have ``sudo`` access on the intended runner, and at least one of ``--password PASSWORD`` or ``--ssh-identity-file FILE`` is required by Chef Automate in order to communicate with it.
 
-   If you require a specific version of the ChefDK to be downloaded and installed on your runners, you can specify it in the ``--chefdk-version`` option. This is useful if your cookbooks are not compatible the Chef client that comes with the latest version of the ChefDK.
+   If you require a specific version of ChefDK to be downloaded and installed on your runners, you can specify it in the ``--chefdk-version`` option. This is useful if your cookbooks are not compatible the Chef client that comes with the latest version of ChefDK.
 
    For more ``install-runner`` usage examples, see `install-runner </ctl_automate_server.html#install-runner>`__, and for more information on runners and the SSH-based job dispatch system, see `Runners </runners.html>`_.
 

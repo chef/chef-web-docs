@@ -20,19 +20,19 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - CentOS
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
      - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6``, ``7``
+     - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
      - ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``
+     - ``14.04``, ``16.04``, ``18.04``
 
 .. end_tag
 
@@ -58,11 +58,11 @@ Hardware Requirements
 
 All machines in a Chef server deployment have the following hardware requirements. Disk space for standalone and backend servers should scale up with the number of nodes that the servers are managing. A good rule to follow is to allocate 2 MB per node. The disk values listed below should be a good default value that you will want to modify later if/when your node count grows. Fast, redundant storage (SSD/RAID-based solution either on-prem or in a cloud environment) is preferred.
 
-For all deployments:
+**All Deployments**
 
 * 64-bit architecture
 
-For a standalone deployment:
+**Standalone Deployments**
 
 * 4 total cores (physical or virtual)
 * 8 GB of RAM or more
@@ -73,20 +73,20 @@ For a standalone deployment:
 
 For a high availability deployment:
 
-General requirements
+**General Requirements**
 
 * Three backend servers; as many frontend servers as required
 * 1 x GigE NIC interface (if on premises)
 
 .. tag system_requirements_ha
 
-Frontend requirements
+**Frontend Requirements**
 
 * 4 cores (physical or virtual)
 * 4GB RAM
 * 20 GB of free disk space (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
-Backend requirements
+**Backend Requirements**
 
 * 2 cores (physical or virtual)
 * 8GB RAM

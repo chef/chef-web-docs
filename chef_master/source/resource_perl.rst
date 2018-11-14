@@ -68,7 +68,8 @@ The perl resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The perl resource has the following properties:
 
 ``code``
    **Ruby Type:** String
@@ -96,14 +97,14 @@ This resource has the following properties:
    One or more command line flags that are passed to the interpreter when a command is invoked.
 
 ``group``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The group name or group ID that must be changed before running a command.
 
 ``ignore_failure``
-   **Ruby Types:** True, False
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Continue running a recipe if a resource fails for any reason. Default value: ``false``.
+   Continue running a recipe if a resource fails for any reason.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -135,7 +136,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -159,19 +160,19 @@ This resource has the following properties:
          end
 
 ``retries``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource. Default value: ``0``.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
-   **Ruby Type:** Integer
+   **Ruby Type:** Integer | **Default Value:** ``2``
 
-   The retry delay (in seconds). Default value: ``2``.
+   The retry delay (in seconds).
 
 ``returns``
-   **Ruby Types:** Integer, Array
+   **Ruby Type:** Integer, Array | **Default Value:** ``0``
 
-   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match. Default value: ``0``.
+   The return value for a command. This may be an array of accepted values. An exception is raised when the return value(s) do not match.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -184,14 +185,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -223,17 +224,17 @@ This resource has the following properties:
    .. end_tag
 
 ``timeout``
-   **Ruby Types:** Integer, Float
+   **Ruby Type:** Integer, Float | **Default Value:** ``3600``
 
-   The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+   The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The user name or user ID that should be changed before running a command.
 
 ``umask``
-   **Ruby Types:** String, Integer
+   **Ruby Type:** String, Integer
 
    The file mode creation mask, or umask.
 
@@ -257,10 +258,10 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
 
 ``not_if``
-   Prevent a resource from executing when the condition returns ``true``.
+  Prevent a resource from executing when the condition returns ``true``.
 
 ``only_if``
-   Allow a resource to execute only if the condition returns ``true``.
+  Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
 
@@ -308,7 +309,3 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
       not_if 'sleep 10000', :timeout => 10
 
 .. end_tag
-
-Examples
-=====================================================
-None.

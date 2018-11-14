@@ -1,15 +1,15 @@
 =====================================================
-Configuring the ChefDK
+Configuring ChefDK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chefdk_setup.rst>`__
 
-This guide contains common configuration options used when setting up a new ChefDK installation. If you do not have the ChefDK installed, see its  `installation guide </install_dk.html>`__ before proceeding further.
+This guide contains common configuration options used when setting up a new ChefDK installation. If you do not have ChefDK installed, see its  `installation guide </install_dk.html>`__ before proceeding further.
 
 Configure Ruby Environment
 =====================================================
 For many users of Chef, the version of Ruby that is included in the Chef development kit should be configured as the default version of Ruby.
 
-.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby enviroment on Windows, see `ChefDK on Windows </dk_windows.html#configure-environment>`__.
+.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby environment on Windows, see `ChefDK on Windows </dk_windows.html#configure-environment>`__.
 
 #. Open a command window and enter the following:
 
@@ -39,7 +39,7 @@ For many users of Chef, the version of Ruby that is included in the Chef develop
 
 Add Ruby to $PATH
 =====================================================
-The Chef Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running the ChefDK. In a command window, type the following:
+The Chef Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running ChefDK. In a command window, type the following:
 
 .. code-block:: bash
 
@@ -55,7 +55,7 @@ where ``configuration_file`` is the name of the configuration file for the speci
 
 Install Git
 =====================================================
-An open source distributed version control system called Git must be installed before the chef-repo can be cloned to the ChefDK machine from GitHub.
+An open source distributed version control system called Git must be installed before the chef-repo can be cloned to ChefDK machine from GitHub.
 
 To install Git:
 
@@ -86,7 +86,7 @@ The ``.chef`` directory is used to store three files:
 * ``ORGANIZATION-validator.pem``
 * ``USER.pem``
 
-Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for the ChefDK to be able to connect to a Chef server.
+Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for ChefDK to be able to connect to a Chef server.
 
 To create the ``.chef`` directory:
 
@@ -119,7 +119,7 @@ To create the ``.chef`` directory:
 
 Starter Kit
 -----------------------------------------------------
-If you have access to Chef server (hosted or on premises), you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
+If you have access to Chef server through Automate or Chef Manage, you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
 
 Configure the Chef Repository
 =====================================================
@@ -168,7 +168,7 @@ To move files to the ``.chef`` directory:
 
 Without WebUI
 -----------------------------------------------------
-Use the following steps to manually set up the Chef repository, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool, and then create the ``config.rb`` file.
+Use the following steps to manually set up the Chef repository: On your Chef server, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool. Then, on your workstation create the ``config.rb`` file with the ``knife`` tool.
 
 Create an Organization
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -213,7 +213,7 @@ For example: a user named ``grantmc``, with a first and last name of ``Grant McL
 Move .pem Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``ORGANIZATION-validator.pem`` and ``USER.pem`` files must be moved to the ``.chef`` directory after they are downloaded from the Chef server.
+Download the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files from the Chef Server and move them to the ``.chef`` directory.
 
 To move files to the .chef directory:
 
@@ -236,7 +236,7 @@ To move files to the .chef directory:
 Create the config.rb File
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``config.rb`` file must be created in the ``.chef`` folder. It should look similar to:
+Navigate to the ``~/chef-repo/.chef`` directory and create the ``config.rb`` using the ``knife configure`` tool. The file must be created in the ``.chef`` folder. It should look similar to:
 
 .. code-block:: ruby
 
@@ -277,7 +277,7 @@ Verify Install
 =====================================================
 The ChefDK is installed correctly when it is able to use ``knife`` to communicate with the Chef server.
 
-To verify that the ChefDK can connect to the Chef server:
+To verify that ChefDK can connect to the Chef server:
 
 #. In a command window, navigate to the Chef repository:
 
