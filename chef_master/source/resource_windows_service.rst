@@ -62,6 +62,7 @@ Actions
 .. tag resource_service_windows_actions
 
 The windows_service resource has the following actions:
+
 ``:configure``
    Configure a pre-existing service.
 
