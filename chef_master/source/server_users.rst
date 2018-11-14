@@ -182,7 +182,6 @@ This subcommand has the following options:
 
 org-user-remove
 -----------------------------------------------------
-.. warning:: Early RC candidates for the Chef server 12 release named this command ``org-disociate``. This is the same command, but renamed for the upcoming final release of Chef server 12.
 
 .. tag ctl_chef_server_org_user_remove
 
