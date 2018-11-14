@@ -50,7 +50,7 @@ The following platforms are not tested by Chef Software:
 
 Capacity Planning
 =====================================================
-Read the `guidance around capacity planning </server_components.html#capacity-planning>`__ for information about how to choose the right toplogy for the Chef server.
+Read the `guidance around capacity planning </server_components.html#capacity-planning>`__ for information about how to choose the right topology for the Chef server.
 
 Hardware Requirements
 =====================================================
