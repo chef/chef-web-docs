@@ -105,7 +105,7 @@ The link resource has the following properties:
 ``target_file``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the link. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the target file if it differs from the resource block's name.
 
 ``to``
    **Ruby Type:** String

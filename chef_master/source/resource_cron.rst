@@ -173,7 +173,7 @@ The cron resource has the following properties:
    A time interval. Possible values: ``:annually``, ``:daily``, ``:hourly``, ``:midnight``, ``:monthly``, ``:reboot``, ``:weekly``, or ``:yearly``.
 
 ``user``
-   **Ruby Type:** String | **Default Value:** ``root``
+   **Ruby Type:** String | **Default Value:** ``"root"``
 
    This attribute is not applicable on the AIX platform. The name of the user that runs the command. If the ``user`` property is changed, the original ``user`` for the crontab program continues to run until that crontab program is deleted.
 

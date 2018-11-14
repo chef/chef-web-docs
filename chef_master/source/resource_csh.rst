@@ -83,7 +83,7 @@ The csh resource has the following properties:
 ``cwd``
    **Ruby Type:** String
 
-   Set the current working directory before running a command.
+   The current working directory from which the command will be run.
 
 ``environment``
    **Ruby Type:** Hash

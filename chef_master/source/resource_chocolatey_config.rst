@@ -52,7 +52,7 @@ The chocolatey_config resource has the following properties:
 ``config_key``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the config. The resource's name will be used if this isn't provided.
+   An optional property to set the config key name if it differs from the resource block's name.
 
 ``value``
    **Ruby Type:** String

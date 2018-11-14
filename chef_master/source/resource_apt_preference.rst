@@ -52,7 +52,7 @@ The apt_preference resource has the following properties:
 ``package_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The name of the package.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``pin``
    **Ruby Type:** String | ``REQUIRED``
