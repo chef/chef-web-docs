@@ -207,7 +207,3 @@ This resource has the following properties:
       subscribes :action, 'resource[name]', :timer
 
    .. end_tag
-
-Examples
-=====================================================
-None.
