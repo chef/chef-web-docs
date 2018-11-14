@@ -309,7 +309,3 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
       not_if 'sleep 10000', :timeout => 10
 
 .. end_tag
-
-Examples
-=====================================================
-None.
