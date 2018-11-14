@@ -29,22 +29,21 @@ The full syntax for all of the properties that are available to the **ruby_block
    ruby_block 'name' do
      block                      Block
      block_name                 String # defaults to 'name' if not specified
-     notifies                   # see description
-     subscribes                 # see description
      action                     Symbol # defaults to :run if not specified
    end
 
-where
+where:
 
-* ``ruby_block`` is the resource
-* ``name`` is the name of the resource block
-* ``block`` is the block of Ruby code to be executed
+* ``ruby_block`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``block`` is the block of Ruby code to be executed.
 * ``action`` identifies the steps the chef-client will take to bring the node into the desired state
 * ``block`` and ``block_name`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The ruby_block resource has the following actions:
 
 ``:create``
    The same as ``:run``.
@@ -52,7 +51,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -61,7 +60,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The ruby_block resource has the following properties:
 
 ``block``
    **Ruby Type:** Block
@@ -69,7 +69,7 @@ This resource has the following properties:
    A block of Ruby code.
 
 ``block_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the Ruby block. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -108,14 +108,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
    **Ruby Type:** Integer | **Default Value:** ``2``
@@ -133,14 +133,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -173,7 +173,7 @@ This resource has the following properties:
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Re-read configuration data**
 
@@ -343,7 +343,7 @@ The following example shows how the ``platform?`` method and an if statement can
 
 .. code-block:: ruby
 
-   if platform?('ubuntu', 'debian', 'redhat', 'centos', 'fedora', 'scientific', 'amazon')
+   if platform_family?('debian', 'rhel', 'fedora', 'amazon')
      ruby_block 'update-java-alternatives' do
        block do
          if platform?('ubuntu', 'debian') and version == 6

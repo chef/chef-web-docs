@@ -56,13 +56,11 @@ The full syntax for all of the properties that are available to the **template**
      local                      true, false
      manage_symlink_source      true, false
      mode                       String, Integer
-     notifies                   # see description
      owner                      String, Integer
      path                       String # defaults to 'name' if not specified
      rights                     Hash
      sensitive                  true, false
      source                     String, Array
-     subscribes                 # see description
      variables                  Hash
      verify                     String, Block
      action                     Symbol # defaults to :create if not specified
@@ -92,7 +90,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -138,11 +136,6 @@ This resource has the following properties:
 
    Define a helper module inline or in a library. For example, an inline module: ``helpers do``, which is then followed by a block of Ruby code. And for a library module: ``helpers(MyHelperModule)``.
 
-``ignore_failure``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-
-   Continue running a recipe if a resource fails for any reason.
-
 ``inherits``
    **Ruby Type:** true, false | **Default Value:** ``true``
 
@@ -171,40 +164,6 @@ This resource has the following properties:
 
    Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
 
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-      notifies :action, 'resource[name]', :timer
-
-   .. end_tag
-
 ``owner``
    **Ruby Type:** Integer, String
 
@@ -216,16 +175,6 @@ This resource has the following properties:
    The full path to the file, including the file name and its extension.
 
    Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
-
-``retries``
-   **Ruby Type:** Integer | **Default Value:** ``0``
-
-   The number of times to catch exceptions and retry the resource.
-
-``retry_delay``
-   **Ruby Type:** Integer | **Default Value:** ``2``
-
-   The retry delay (in seconds).
 
 ``rights``
    **Ruby Type:** Integer, String
@@ -241,55 +190,6 @@ This resource has the following properties:
    **Ruby Type:** String, Array
 
    The location of a template file. By default, the chef-client looks for a template file in the ``/templates`` directory of a cookbook. When the ``local`` property is set to ``true``, use to specify the path to a template on the local node. This property may also be used to distribute specific files to specific platforms. See "File Specificity" below for more information. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
-
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
 
 ``variables``
    **Ruby Type:** Hash
@@ -879,9 +779,154 @@ Even though this is a very simple example, the full capabilities of Ruby can be 
 
 .. end_tag
 
+Common Resource Functionality
+=====================================================
+
+Chef resources include common properties, notifications, and resource guards.
+
+Common Properties
+-----------------------------------------------------
+
+.. tag resources_common_properties
+
+The following properties are common to every resource:
+
+``ignore_failure``
+  **Ruby Type:** true, false | **Default Value:** ``false``
+
+  Continue running a recipe if a resource fails for any reason.
+
+``retries``
+  **Ruby Type:** Integer | **Default Value:** ``0``
+
+  The number of attempts to catch exceptions and retry the resource.
+
+``retry_delay``
+  **Ruby Type:** Integer | **Default Value:** ``2``
+
+  The retry delay (in seconds).
+
+``sensitive``
+  **Ruby Type:** true, false | **Default Value:** ``false``
+
+  Ensure that sensitive resource data is not logged by the chef-client.
+
+.. end_tag
+
+Notifications
+-----------------------------------------------------
+
+``notifies``
+  **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+  .. tag resources_common_notification_notifies
+
+  A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+  .. end_tag
+
+.. tag resources_common_notification_timers
+
+A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+
+``:before``
+   Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+``:delayed``
+   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+
+``:immediate``, ``:immediately``
+   Specifies that a notification should be run immediately, per resource notified.
+
+.. end_tag
+
+.. tag resources_common_notification_notifies_syntax
+
+The syntax for ``notifies`` is:
+
+.. code-block:: ruby
+
+  notifies :action, 'resource[name]', :timer
+
+.. end_tag
+
+``subscribes``
+  **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+.. tag resources_common_notification_subscribes
+
+A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+
+Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+.. code-block:: ruby
+
+ file '/etc/nginx/ssl/example.crt' do
+   mode '0600'
+   owner 'root'
+ end
+
+ service 'nginx' do
+   subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+ end
+
+In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
+.. end_tag
+
+.. tag resources_common_notification_timers
+
+A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+
+``:before``
+   Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+``:delayed``
+   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+
+``:immediate``, ``:immediately``
+   Specifies that a notification should be run immediately, per resource notified.
+
+.. end_tag
+
+.. tag resources_common_notification_subscribes_syntax
+
+The syntax for ``subscribes`` is:
+
+.. code-block:: ruby
+
+   subscribes :action, 'resource[name]', :timer
+
+.. end_tag
+
+Guards
+-----------------------------------------------------
+
+.. tag resources_common_guards
+
+A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+
+* A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
+* A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
+
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+
+.. end_tag
+.. tag resources_common_guards_properties
+
+The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+
+``not_if``
+  Prevent a resource from executing when the condition returns ``true``.
+
+``only_if``
+  Allow a resource to execute only if the condition returns ``true``.
+
+.. end_tag
+
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Configure a file from a template**
 
@@ -1283,19 +1328,19 @@ The following example shows how a template can be used to apply consistent proxy
 
 .. code-block:: ruby
 
-   template "#{node[:matching_node][:dir]}/sites-available/site_proxy.conf" do
+   template "#{node['matching_node']['dir']}/sites-available/site_proxy.conf" do
      source 'site_proxy.matching_node.conf.erb'
      owner 'root'
      group 'root'
      mode '0755'
      variables(
-       :ssl_certificate =>    "#{node[:matching_node][:dir]}/shared/certificates/site_proxy.crt",
-       :ssl_key =>            "#{node[:matching_node][:dir]}/shared/certificates/site_proxy.key",
-       :listen_port =>        node[:site][:matching_node_proxy][:listen_port],
-       :server_name =>        node[:site][:matching_node_proxy][:server_name],
-       :fqdn =>               node[:fqdn],
-       :server_options =>     node[:site][:matching_node][:server][:options],
-       :proxy_options =>      node[:site][:matching_node][:proxy][:options]
+       :ssl_certificate =>    "#{node['matching_node']['dir']}/shared/certificates/site_proxy.crt",
+       :ssl_key =>            "#{node['matching_node']['dir']}/shared/certificates/site_proxy.key",
+       :listen_port =>        node['site']['matching_node_proxy']['listen_port'],
+       :server_name =>        node['site']['matching_node_proxy']['server_name'],
+       :fqdn =>               node['fqdn'],
+       :server_options =>     node[:site]['matching_node']['server']['options'],
+       :proxy_options =>      node[:site]['matching_node']['proxy']['options']
      )
    end
 

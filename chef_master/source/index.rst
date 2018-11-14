@@ -54,7 +54,7 @@ Getting Started
 `System Requirements </chef_system_requirements.html>`__
 
 **Chef Workstation**:
-`Chef Workstation Beta <https://www.chef.sh/>`__ |
+`Chef Workstation <https://www.chef.sh/>`__ |
 `Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
@@ -88,14 +88,19 @@ Concepts
 
 **Supermarket**: `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
 
-`Microsoft Windows </windows.html>`__
-
 **Appendix**: `Env Variables </environment_variables.html>`__ | `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
+
+Guides
+-----------------------------------------------------
+
+**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__ 
+
+**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
 Setup
 -----------------------------------------------------
 `Proxies </proxies.html>`__ |
-`ChefDK on Windows </dk_windows.html>`__ |
+`Installing Chef on Windows </dk_windows.html>`__ |
 `Workstation </install_dk.html>`__
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
@@ -109,7 +114,7 @@ Setup
 **Integrations**: `AWS Marketplace </aws_marketplace.html>`__ |  `Microsoft Azure </azure_portal.html>`__ | `Google Cloud Platform </google.html>`__ | `VMware </vmware.html>`__
 
 `Air-gapped Installation </install_chef_air_gap.html>`__ |
-`Microsoft Windows </windows.html>`__ | 
+`Microsoft Windows </windows.html>`__ |
 `Uninstall </uninstall.html>`__
 
 Cookbook Reference
@@ -166,7 +171,6 @@ Cookbook Reference
 `dpkg_package </resource_dpkg_package.html>`__ |
 `dsc_resource </resource_dsc_resource.html>`__ |
 `dsc_script </resource_dsc_script.html>`__ |
-`windows_env </resource_windows_env.html>`__ |
 `erl_call </resource_erlang_call.html>`__ |
 `execute </resource_execute.html>`__ |
 `file </resource_file.html>`__ |
@@ -241,14 +245,18 @@ Cookbook Reference
 `user </resource_user.html>`__ |
 `windows_ad_join </resource_windows_ad_join.html>`__ |
 `windows_auto_run </resource_windows_auto_run.html>`__ |
+`windows_certificate </resource_windows_certificate.html>`__ |
+`windows_env </resource_windows_env.html>`__ |
 `windows_feature </resource_windows_feature.html>`__ |
 `windows_feature_dism </resource_windows_feature_dism.html>`__ |
-`windows_feature_powershell.html </resource_windows_feature_powershell.html>`__ |
+`windows_feature_powershell </resource_windows_feature_powershell.html>`__ |
+`windows_firewall_rule </resource_windows_firewall_rule.html>`__ |
 `windows_font </resource_windows_font.html>`__ |
 `windows_package </resource_windows_package.html>`__ |
-`windows_printer.html </resource_windows_printer.html>`__ |
+`windows_printer </resource_windows_printer.html>`__ |
 `windows_printer_port </resource_windows_printer_port.html>`__ |
 `windows_service </resource_windows_service.html>`__ |
+`windows_share </resource_windows_share.html>`__ |
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
 `windows_workgroup </resource_windows_workgroup.html>`__ |
@@ -465,6 +473,8 @@ Addenda
    automate_admin
    aws_marketplace
    aws_opsworks_chef_automate
+   azure_chef_cli
+   azure_cwa_cloud_shell
    azure_portal
    azure_powershell
    backend_failure_recovery

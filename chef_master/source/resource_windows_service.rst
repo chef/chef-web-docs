@@ -24,7 +24,6 @@ The full syntax for all of the properties that are available to the **windows_se
 
    windows_service 'name' do
      binary_path_name           String
-     desired_access             Integer
      delayed_start              [Integer] # This only applies if startup_type is :automatic
      dependencies               [String, Array]
      description                String
@@ -33,7 +32,6 @@ The full syntax for all of the properties that are available to the **windows_se
      error_control              Integer
      init_command               String
      load_order_group           String
-     notifies                   # see description
      pattern                    String
      reload_command             String # not used on the Windows platform
      restart_command            String
@@ -45,7 +43,6 @@ The full syntax for all of the properties that are available to the **windows_se
      startup_type               Symbol
      status_command             String
      stop_command               String
-     subscribes                 # see description
      supports                   Hash
      timeout                    Integer
      action                     Symbol # defaults to :nothing if not specified
@@ -53,9 +50,9 @@ The full syntax for all of the properties that are available to the **windows_se
 
 where:
 
-* ``windows_service`` is the resource
-* ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``windows_service`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -76,12 +73,12 @@ The windows_service resource has the following actions:
 ``:create``
    Create the service based on the value of the ``binary_path_name``, ``service_name`` and/or ``display_name`` property.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``:delete``
    Delete the service based on the value of the ``service_name`` property.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``:disable``
    Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform.
@@ -108,49 +105,47 @@ The windows_service resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_service_windows_attributes
+.. tag resource_service_windows_properties
 
 The windows_service resource has the following properties:
 
 ``binary_path_name``
    **Ruby Type:** String
 
-   **Required** The fully qualified path to the service binary file. The path can also include arguments for an auto-start service.
+   The fully qualified path to the service binary file. The path can also include arguments for an auto-start service. This is required for ':create' and ':configure' actions
 
-   New in Chef Client 14.0.
-
-``display_name``
-   **Ruby Type:** String
-
-   The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
-
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``delayed_start``
-   **Ruby Type:** Integer
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``dependencies``
    **Ruby Type:** String, Array
 
    A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
 ``description``
    **Ruby Type:** String
 
    Description of the service.
 
-   New in Chef Client 14.0.
+   *New in Chef Client 14.0.*
 
-``ignore_failure``
-   **Ruby Type:** true, false | **Default Value:** ``false``
+``desired_access``
+   **Ruby Type:** Integer | **Default Value:** ``983551``
 
-   Continue running a recipe if a resource fails for any reason.
+``display_name``
+   **Ruby Type:** String
+
+   The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
+
+   *New in Chef Client 14.0.*
 
 ``init_command``
    **Ruby Type:** String
@@ -162,41 +157,7 @@ The windows_service resource has the following properties:
 
    The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 
-   New in Chef Client 14.0.
-
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-      notifies :action, 'resource[name]', :timer
-
-   .. end_tag
+   *New in Chef Client 14.0.*
 
 ``pattern``
    **Ruby Type:** String | **Default Value:** ``service_name``
@@ -213,28 +174,18 @@ The windows_service resource has the following properties:
 
    The command used to restart a service.
 
-``retries``
-   **Ruby Type:** Integer | **Default Value:** ``0``
-
-   The number of times to catch exceptions and retry the resource.
-
-``retry_delay``
-   **Ruby Type:** Integer | **Default Value:** ``2``
-
-   The retry delay (in seconds).
-
 ``run_as_password``
    **Ruby Type:** String
 
    The password for the user specified by ``run_as_user``.
 
 ``run_as_user``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``"LocalSystem"``
 
    The user under which a Microsoft Windows service runs.
 
 ``service_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
 
@@ -258,55 +209,6 @@ The windows_service resource has the following properties:
 
    The command used to stop a service.
 
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
-
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
-
 ``supports``
    **Ruby Type:** Hash
 
@@ -319,9 +221,154 @@ The windows_service resource has the following properties:
 
 .. end_tag
 
+Common Resource Functionality
+=====================================================
+
+Chef resources include common properties, notifications, and resource guards.
+
+Common Properties
+-----------------------------------------------------
+
+.. tag resources_common_properties
+
+The following properties are common to every resource:
+
+``ignore_failure``
+  **Ruby Type:** true, false | **Default Value:** ``false``
+
+  Continue running a recipe if a resource fails for any reason.
+
+``retries``
+  **Ruby Type:** Integer | **Default Value:** ``0``
+
+  The number of attempts to catch exceptions and retry the resource.
+
+``retry_delay``
+  **Ruby Type:** Integer | **Default Value:** ``2``
+
+  The retry delay (in seconds).
+
+``sensitive``
+  **Ruby Type:** true, false | **Default Value:** ``false``
+
+  Ensure that sensitive resource data is not logged by the chef-client.
+
+.. end_tag
+
+Notifications
+-----------------------------------------------------
+
+``notifies``
+  **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+  .. tag resources_common_notification_notifies
+
+  A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+  .. end_tag
+
+.. tag resources_common_notification_timers
+
+A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+
+``:before``
+   Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+``:delayed``
+   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+
+``:immediate``, ``:immediately``
+   Specifies that a notification should be run immediately, per resource notified.
+
+.. end_tag
+
+.. tag resources_common_notification_notifies_syntax
+
+The syntax for ``notifies`` is:
+
+.. code-block:: ruby
+
+  notifies :action, 'resource[name]', :timer
+
+.. end_tag
+
+``subscribes``
+  **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+.. tag resources_common_notification_subscribes
+
+A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+
+Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+
+.. code-block:: ruby
+
+ file '/etc/nginx/ssl/example.crt' do
+   mode '0600'
+   owner 'root'
+ end
+
+ service 'nginx' do
+   subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+ end
+
+In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+
+.. end_tag
+
+.. tag resources_common_notification_timers
+
+A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+
+``:before``
+   Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+``:delayed``
+   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+
+``:immediate``, ``:immediately``
+   Specifies that a notification should be run immediately, per resource notified.
+
+.. end_tag
+
+.. tag resources_common_notification_subscribes_syntax
+
+The syntax for ``subscribes`` is:
+
+.. code-block:: ruby
+
+   subscribes :action, 'resource[name]', :timer
+
+.. end_tag
+
+Guards
+-----------------------------------------------------
+
+.. tag resources_common_guards
+
+A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+
+* A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
+* A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
+
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+
+.. end_tag
+.. tag resources_common_guards_properties
+
+The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+
+``not_if``
+  Prevent a resource from executing when the condition returns ``true``.
+
+``only_if``
+  Allow a resource to execute only if the condition returns ``true``.
+
+.. end_tag
+
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Start a service manually**
 

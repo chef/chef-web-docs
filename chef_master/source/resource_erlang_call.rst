@@ -121,14 +121,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
    **Ruby Type:** Integer | **Default Value:** ``2``
@@ -146,14 +146,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -204,10 +204,10 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
 
 ``not_if``
-   Prevent a resource from executing when the condition returns ``true``.
+  Prevent a resource from executing when the condition returns ``true``.
 
 ``only_if``
-   Allow a resource to execute only if the condition returns ``true``.
+  Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
 
@@ -258,7 +258,7 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Run a command**
 

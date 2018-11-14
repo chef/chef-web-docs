@@ -1,57 +1,51 @@
 =====================================================
-rpm_package resource
+windows_share resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rpm_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_share.rst>`__
 
-.. tag resource_package_rpm
+Use the **windows_share** resource to create, modify and remove Windows shares.
 
-Use the **rpm_package** resource to manage packages for the RPM Package Manager platform.
-
-.. end_tag
-
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 14.7.**
 
 Syntax
 =====================================================
-A **rpm_package** resource block manages a package on a node, typically by installing it. The simplest use of the **rpm_package** resource is:
+The windows_share resource has the following syntax:
 
 .. code-block:: ruby
 
-   rpm_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **rpm_package** resource is:
-
-.. code-block:: ruby
-
-   rpm_package 'name' do
-     allow_downgrade            true, false
-     options                    String
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_share 'name' do
+    ca_timeout                  Integer # default value: 0
+    change_users                Array
+    concurrent_user_limit       Integer # default value: 0
+    continuously_available      true, false # default value: false
+    description                 String
+    encrypt_data                true, false # default value: false
+    full_users                  Array
+    path                        String
+    read_users                  Array
+    scope_name                  String # default value: "*"
+    share_name                  String # default value: 'name' unless specified
+    temporary                   true, false # default value: false
+    action                      Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``rpm_package`` is the resource.
+* ``windows_share`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``allow_downgrade``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``ca_timeout``, ``change_users``, ``concurrent_user_limit``, ``continuously_available``, ``description``, ``encrypt_data``, ``full_users``, ``path``, ``read_users``, ``scope_name``, ``share_name``, and ``temporary`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+The windows_share resource has the following actions:
+
+``:create``
+    Create and modify Windows shares.
+
+``:delete``
+    Delete an existing Windows share.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -60,46 +54,70 @@ This resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
-``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
-
 Properties
 =====================================================
-This resource has the following properties:
 
-``allow_downgrade``
-   **Ruby Type:** true, false
+The windows_share resource has the following properties:
 
-   Downgrade a package to satisfy requested version requirements.
+``ca_timeout``
+   **Ruby Type:** Integer | **Default Value:** ``0``
 
-``options``
+   The continuous availability time-out for the share.
+
+``change_users``
+   **Ruby Type:** Array
+
+   The users that should have 'modify' permission on the share in domain\username format.
+
+``concurrent_user_limit``
+   **Ruby Type:** Integer | **Default Value:** ``0``
+
+   The maximum number of concurrently connected users the share can accommodate.
+
+``continuously_available``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Indicates that the share is continuously available.
+
+``description``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   The description to be applied to the share.
 
-``package_name``
-   **Ruby Type:** String, Array
+``encrypt_data``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   Indicates that the share is encrypted.
 
-``source``
+``full_users``
+   **Ruby Type:** Array
+
+   The users that should have 'Full control' permissions on the share in domain\username format.
+
+``path``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The path of the folder to share. Required when creating. If the share already exists on a different path then it is deleted and re-created.
 
-``timeout``
-   **Ruby Type:** String, Integer
+``read_users``
+   **Ruby Type:** Array
 
-   The amount of time (in seconds) to wait before timing out.
+   The users that should have 'read' permission on the share in domain\username format.
 
-``version``
-   **Ruby Type:** String, Array
+``scope_name``
+   **Ruby Type:** String | **Default Value:** ``"*"``
 
-   The version of a package to be installed or upgraded.
+   The scope name of the share.
 
+``share_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
+
+   The name to assign to the share.
+
+``temporary``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   The lifetime of the new SMB share. A temporary share does not persist beyond the next restart of the computer.
 
 Common Resource Functionality
 =====================================================
@@ -247,19 +265,23 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes:
+==========================================
 
-**Install a package**
-
-.. tag resource_rpm_package_install
-
-.. To install a package:
+**Create a share**
 
 .. code-block:: ruby
 
-   rpm_package 'name of package' do
-     action :install
-   end
+  windows_share 'foo' do
+    action :create
+    path 'C:\\foo'
+    full_users ['DOMAIN_A\\some_user', 'DOMAIN_B\\some_other_user']
+    read_users ['DOMAIN_C\\Domain users']
+  end
 
-.. end_tag
+** Delete a share **
+
+.. code-block:: ruby
+
+  windows_share 'foo' do
+    action :delete
+  end

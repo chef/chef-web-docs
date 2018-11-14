@@ -1,57 +1,53 @@
 =====================================================
-rpm_package resource
+windows_firewall_rule resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rpm_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_firewall_rule.rst>`__
 
-.. tag resource_package_rpm
+Use the **windows_firewall_rule** resource to create, change or remove windows firewall rules.
 
-Use the **rpm_package** resource to manage packages for the RPM Package Manager platform.
-
-.. end_tag
-
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 14.7.**
 
 Syntax
 =====================================================
-A **rpm_package** resource block manages a package on a node, typically by installing it. The simplest use of the **rpm_package** resource is:
+The windows_firewall_rule resource has the following syntax:
 
 .. code-block:: ruby
 
-   rpm_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **rpm_package** resource is:
-
-.. code-block:: ruby
-
-   rpm_package 'name' do
-     allow_downgrade            true, false
-     options                    String
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_firewall_rule 'name' do
+    description          String # default value: "Firewall rule"
+    direction            Symbol, String # default value: :inbound
+    enabled              true, false # default value: true
+    firewall_action      Symbol, String # default value: :allow
+    interface_type       Symbol, String # default value: :any
+    local_address        String
+    local_port           String, Integer, Array
+    profile              Symbol, String # default value: :any
+    program              String
+    protocol             String # default value: "TCP"
+    remote_address       String
+    remote_port          String, Integer, Array
+    rule_name            String # default value: 'name' unless specified
+    service              String
+    action               Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``rpm_package`` is the resource.
+* ``windows_firewall_rule`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``allow_downgrade``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``description``, ``direction``, ``enabled``, ``firewall_action``, ``interface_type``, ``local_address``, ``local_port``, ``profile``, ``program``, ``protocol``, ``remote_address``, ``remote_port``, ``rule_name``, and ``service`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+The windows_firewall_rule resource has the following actions:
+
+``:create``
+    Create a Windows firewall entry.
+
+``:delete``
+    Delete an existing Windows firewall entry.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -60,46 +56,80 @@ This resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
-``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
-
 Properties
 =====================================================
-This resource has the following properties:
 
-``allow_downgrade``
-   **Ruby Type:** true, false
+The windows_firewall_rule resource has the following properties:
 
-   Downgrade a package to satisfy requested version requirements.
+``description``
+   **Ruby Type:** String | **Default Value:** ``"Firewall rule"``
 
-``options``
+   The description to assign to the firewall rule.
+
+``direction``
+   **Ruby Type:** Symbol, String | **Default Value:** ``:inbound``
+
+   The direction of the firewall rule. Direction means either inbound or outbound traffic.
+
+``enabled``
+   **Ruby Type:** true, false | **Default Value:** ``true``
+
+   Whether or not to enable the firewall rule.
+
+``firewall_action``
+   **Ruby Type:** Symbol, String | **Default Value:** ``:allow``
+
+   The action of the firewall rule.
+
+``interface_type``
+   **Ruby Type:** Symbol, String | **Default Value:** ``:any``
+
+   The interface type the firewall rule applies to.
+
+``local_address``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   The local address the firewall rule applies to.
 
-``package_name``
-   **Ruby Type:** String, Array
+``local_port``
+   **Ruby Type:** String, Integer, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The local port the firewall rule applies to.
 
-``source``
+``profile``
+   **Ruby Type:** Symbol, String | **Default Value:** ``:any``
+
+   The profile the firewall rule applies to.
+
+``program``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The program the firewall rule applies to.
 
-``timeout``
-   **Ruby Type:** String, Integer
+``protocol``
+   **Ruby Type:** String | **Default Value:** ``"TCP"``
 
-   The amount of time (in seconds) to wait before timing out.
+   The protocol the firewall rule applies to.
 
-``version``
-   **Ruby Type:** String, Array
+``remote_address``
+   **Ruby Type:** String
 
-   The version of a package to be installed or upgraded.
+   The remote address the firewall rule applies to.
 
+``remote_port``
+   **Ruby Type:** String, Integer, Array
+
+   The remote port the firewall rule applies to.
+
+``rule_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
+
+   The name to assign to the firewall rule.
+
+``service``
+   **Ruby Type:** String
+
+   The service the firewall rule applies to.
 
 Common Resource Functionality
 =====================================================
@@ -247,19 +277,37 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes:
+==========================================
 
-**Install a package**
-
-.. tag resource_rpm_package_install
-
-.. To install a package:
+**Allowing port 80 access**
 
 .. code-block:: ruby
 
-   rpm_package 'name of package' do
-     action :install
-   end
+  windows_firewall_rule 'IIS' do
+    local_port '80'
+    protocol 'TCP'
+    firewall_action :allow
+  end
 
-.. end_tag
+
+**Blocking WinRM over HTTP on a particular IP**
+
+.. code-block:: ruby
+
+  windows_firewall_rule 'Disable WinRM over HTTP' do
+    local_port '5985'
+    protocol 'TCP'
+    firewall_action :block
+    local_address '192.168.1.1'
+  end
+
+
+**Deleting an existing rule**
+
+.. code-block:: ruby
+
+
+  windows_firewall_rule 'Remove the SSH rule' do
+    rule_name 'ssh'
+    action :delete
+  end

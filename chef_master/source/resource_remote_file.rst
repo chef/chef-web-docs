@@ -78,7 +78,8 @@ where:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The remote_file resource has the following actions:
 
 ``:create``
    Default. Create a file. If a file already exists (but does not match), update that file to match.
@@ -92,7 +93,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -101,15 +102,16 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The remote_file resource has the following properties:
 
 ``atomic_update``
-   **Ruby Type:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file.
 
 ``backup``
-   **Ruby Type:** false, Integer | **Default Value:** ``5``
+   **Ruby Type:** Integer, false | **Default Value:** ``5``
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept.
 
@@ -133,8 +135,8 @@ This resource has the following properties:
 
    A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
-``headers()``
-   **Ruby Type:** Hash | **Default Value:** ``{}``
+``headers``
+   **Ruby Type:** Hash
 
    A Hash of custom headers. For example:
 
@@ -212,7 +214,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -231,26 +233,26 @@ This resource has the following properties:
 
    **Windows only** The name of a user with access to the remote file specified by the ``source`` property. The user name may optionally be specified with a domain, such as: ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. The domain may also be set using the ``remote_domain`` property. Note that this property is ignored if ``source`` is not a UNC path. If this property is specified, the ``remote_password`` property is required.
 
-   New in Chef client 13.4
+   *New in Chef Client 13.4.*
 
 ``remote_password``
    **Ruby Type:** String
 
    **Windows only** The password of the user specified by the ``remote_user`` property. This property is required if `remote_user` is specified and may only be specified if ``remote_user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``remote_password`` is specified.
 
-   New in Chef client 13.4
+   *New in Chef Client 13.4.*
 
 ``remote_domain``
    **Ruby Type:** String
 
    **Windows only** The domain of the user specified by the ``remote_user`` property. By default the resource will authenticate against the domain of the remote system, or as a local account if the remote system is not joined to a domain. If the remote system is not part of a domain, it is necessary to authenticate as a local user on the remote system by setting the domain to ``.``, for example: ``remote_domain "."``. The domain may also be specified as part of the ``remote_user`` property.
 
-   New in Chef client 13.4
+   *New in Chef Client 13.4.*
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
    **Ruby Type:** Integer | **Default Value:** ``2``
@@ -334,14 +336,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -668,7 +670,7 @@ OR
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Transfer a file from a URL**
 

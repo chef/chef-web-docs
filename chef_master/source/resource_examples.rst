@@ -841,8 +841,6 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 **Install a package**
 
 .. tag resource_bff_package_install
@@ -981,8 +979,6 @@ To install a gem while the resource collection is being built (the “compile ph
    end
 
 .. end_tag
-
-New in Chef Client 12.1.
 
 **Install MySQL for Chef**
 
@@ -1829,8 +1825,6 @@ dsc_script
 Many DSC resources are comparable to built-in Chef resources. For example, both DSC and Chef have **file**, **package**, and **service** resources. The **dsc_script** resource is most useful for those DSC resources that do not have a direct comparison to a resource in Chef, such as the ``Archive`` resource, a custom DSC resource, an existing DSC script that performs an important task, and so on. Use the **dsc_script** resource to embed the code that defines a DSC configuration directly within a Chef recipe.
 
 .. end_tag
-
-New in Chef Client 12.2.  Changed in Chef Client 12.6.
 
 **Specify DSC code directly**
 
@@ -2947,8 +2941,6 @@ Use the **homebrew_package** resource to manage packages for the macOS platform.
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 **Install a package**
 
 .. tag resource_homebrew_package_install
@@ -3177,7 +3169,7 @@ ksh
 =====================================================
 .. tag resource_script_ksh
 
-Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence. New in Chef Client 12.6.
+Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpreter. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
 .. note:: The **ksh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
@@ -3680,8 +3672,6 @@ Use the **openbsd_package** resource to manage packages for the OpenBSD platform
    end
 
 .. end_tag
-
-New in Chef Client 12.1.
 
 osx_profile
 =====================================================
@@ -4266,8 +4256,6 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
    end
 
 .. end_tag
-
-New in Chef Client 12.1.
 
 perl
 =====================================================
@@ -5611,7 +5599,7 @@ Use the **service** resource to manage a service.
 
 **Use the retries and provider common attributes**
 
-.. tag resource_service_use_provider_and_supports_attributes
+.. tag resource_service_use_provider_and_supports_properties
 
 .. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
@@ -5655,11 +5643,8 @@ Use the **service** resource to manage a service.
 .. code-block:: ruby
 
    service 'example_service' do
-     case node['platform']
-     when 'ubuntu'
-       if node['platform_version'].to_f >= 9.10
-         provider Chef::Provider::Service::Upstart
-       end
+     if platform?('ubuntu') && node['platform_version'].to_f <= 14.04
+       provider Chef::Provider::Service::Upstart
      end
      action [:enable, :start]
    end
@@ -6411,19 +6396,19 @@ The following example shows how a template can be used to apply consistent proxy
 
 .. code-block:: ruby
 
-   template "#{node[:matching_node][:dir]}/sites-available/site_proxy.conf" do
+   template "#{node['matching_node']['dir']}/sites-available/site_proxy.conf" do
      source 'site_proxy.matching_node.conf.erb'
      owner 'root'
      group 'root'
      mode '0755'
      variables(
-       :ssl_certificate =>    "#{node[:matching_node][:dir]}/shared/certificates/site_proxy.crt",
-       :ssl_key =>            "#{node[:matching_node][:dir]}/shared/certificates/site_proxy.key",
-       :listen_port =>        node[:site][:matching_node_proxy][:listen_port],
-       :server_name =>        node[:site][:matching_node_proxy][:server_name],
-       :fqdn =>               node[:fqdn],
-       :server_options =>     node[:site][:matching_node][:server][:options],
-       :proxy_options =>      node[:site][:matching_node][:proxy][:options]
+       :ssl_certificate =>    "#{node['matching_node']['dir']}/shared/certificates/site_proxy.crt",
+       :ssl_key =>            "#{node['matching_node']['dir']}/shared/certificates/site_proxy.key",
+       :listen_port =>        node['site']['matching_node_proxy']['listen_port'],
+       :server_name =>        node['site']['matching_node_proxy']['server_name'],
+       :fqdn =>               node['fqdn'],
+       :server_options =>     node[:site]['matching_node']['server']['options'],
+       :proxy_options =>      node[:site]['matching_node']['proxy']['options']
      )
    end
 
@@ -6634,8 +6619,6 @@ Use the calculated password shadow hash with the **user** resource:
 
 .. end_tag
 
-New in Chef Client 12.0.
-
 **Use SALTED-SHA512-PBKDF2 passwords**
 
 .. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
@@ -6668,8 +6651,6 @@ Use the calculated password shadow hash with the **user** resource:
    end
 
 .. end_tag
-
-New in Chef Client 12.0.
 
 windows_package
 =====================================================
@@ -6725,7 +6706,7 @@ Use the **windows_package** resource to manage Microsoft Installer Package (MSI)
 
 **Modify remote_file resource attributes**
 
-.. tag resource_package_windows_source_remote_file_attributes
+.. tag resource_package_windows_source_remote_file_properties
 
 The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file.html>`__.
 

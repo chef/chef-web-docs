@@ -39,7 +39,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, this resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
 
    .. end_tag
 
@@ -47,7 +47,7 @@ This resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_breakpoint_attributes
+.. tag resource_breakpoint_properties
 
 This resource does not have any properties.
 
@@ -564,7 +564,7 @@ To get a list of nodes using a recipe named ``postfix`` use ``search(:node,"reci
 
 Examples
 =====================================================
-The following examples demonstrate various approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+The following examples demonstrate various approaches for using resources in recipes:
 
 **A recipe without a breakpoint**
 

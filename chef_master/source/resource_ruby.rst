@@ -43,37 +43,40 @@ The full syntax for all of the properties that are available to the **ruby** res
      environment                Hash
      flags                      String
      group                      String, Integer
-     notifies                   # see description
      path                       Array
      returns                    Integer, Array
-     subscribes                 # see description
      timeout                    Integer, Float
      user                       String, Integer
      umask                      String, Integer
      action                     Symbol # defaults to :run if not specified
    end
 
-where
+where:
 
-* ``ruby`` is the resource
-* ``name`` is the name of the resource block
-* ``cwd`` is the location from which the command is run
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``ruby`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The ruby resource has the following actions:
 
 ``:nothing``
-   Prevent a command from running. This action is used to specify that a command is run only when another resource notifies it.
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+
+   .. end_tag
 
 ``:run``
    Default. Run a script.
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The ruby resource has the following properties:
 
 ``code``
    **Ruby Type:** String
@@ -140,7 +143,7 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-      notifies :action, 'resource[name]', :timer
+     notifies :action, 'resource[name]', :timer
 
    .. end_tag
 
@@ -166,7 +169,7 @@ This resource has the following properties:
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``
 
-   The number of times to catch exceptions and retry the resource.
+   The number of attempts to catch exceptions and retry the resource.
 
 ``retry_delay``
    **Ruby Type:** Integer | **Default Value:** ``2``
@@ -189,14 +192,14 @@ This resource has the following properties:
 
    .. code-block:: ruby
 
-     file '/etc/nginx/ssl/example.crt' do
-        mode '0600'
-        owner 'root'
-     end
+    file '/etc/nginx/ssl/example.crt' do
+      mode '0600'
+      owner 'root'
+    end
 
-     service 'nginx' do
-        subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-     end
+    service 'nginx' do
+      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+    end
 
    In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
@@ -262,10 +265,10 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
 
 ``not_if``
-   Prevent a resource from executing when the condition returns ``true``.
+  Prevent a resource from executing when the condition returns ``true``.
 
 ``only_if``
-   Allow a resource to execute only if the condition returns ``true``.
+  Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
 

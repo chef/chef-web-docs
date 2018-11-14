@@ -163,59 +163,104 @@ This argument has the following syntax:
 
 Options
 -----------------------------------------------------
-.. tag knife_windows_bootstrap_windows_ssh_options
 
 This argument has the following options:
 
-``--auth-timeout MINUTES``,
-   The amount of time (in minutes) to wait for authentication to succeed. Default: ``2``.
+``-A``, ``--forward-agent``
+    Enables SSH agent forwarding.
 
-``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
-   A URL or IP address that specifies a location that should not be proxied.
+``--auth-timeout MINUTES``
+    The maximum time in minutes to wait for authentication over the transport to the node to succeed. Default: ``2``.
+
+``--bootstrap-install-command COMMANDS``
+    Custom command to install chef-client
+
+``--bootstrap-no-proxy [NO_PROXY_URL|NO_PROXY_IP]``
+    A URL or IP address that specifies a location that should not be proxied.
 
 ``--bootstrap-proxy PROXY_URL``
-   The proxy server for the node that is the target of a bootstrap operation.
+    The proxy server for the node that is the target of a bootstrap operation.
+
+``--bootstrap-vault-file VAULT_FILE``
+    A JSON file with a list of vault(s) and item(s) to be updated.
+
+``--bootstrap-vault-item VAULT_ITEM``
+    A single vault and item to update as ``vault:item``.
+
+``--bootstrap-vault-json VAULT_JSON``
+  A JSON string with the vault(s) and item(s) to be updated.
 
 ``--bootstrap-version VERSION``
-   The version of the chef-client to install.
+    The version of the Chef Client to install.
 
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
-   The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
+    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
-``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   The SSH identity file used for authentication. Key-based authentication is recommended.
-
-``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
-   A JSON string that is added to the first run of a chef-client.
-
-``-N NAME``, ``--node-name NAME``
-   The name of the node.
+``--hint HINT_NAME[=HINT_FILE]``
+    Specify Ohai Hint to be set on the bootstrap targeting multiple nodes. See ``--hint options`` to specify multiple hints.
 
 ``--[no-]host-key-verify``
-   Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
+    Use to enable host key verification. Default: ``true``.
+
+``-i IDENTITY FILE``, ``--ssh-identity-file IDENTITY_FILE``
+    The SSH identity file used for authentication. Key-based authentication is recommended.
+
+``--install-as-service``
+    Install the Chef Client as a Windows service. Default: ``false``.
+
+``-j JSON_ATTRIBS``, ``--json-attributes``
+    A JSON string that is added to the first Chef Client run.
+
+``--json-attribute-file FILE``
+    A JSON file that is used in the first Chef Client run.
+
+``--msi-url URL``
+    Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
+
+``-N NAME``, ``--node-name NAME``
+    The name of the node.
+
+``--node-ssl-verify-mode [peer|none]``
+    Whether or not to verify the SSL cert for all requests.
+
+``--[no-]node-verify-api-cert``
+    Verify the SSL cert for HTTPS requests to the Chef Server. Default: ``true``.
 
 ``-p PORT``, ``--ssh-port PORT``
-   The SSH port.
+    The SSH port.
 
-``-P PASSWORD``, ``--ssh-password PASSWORD``
-   The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
+``-P PASSWORD``, ``ssh-password PASSWORD``
+    The SSH password. Use to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
+
+``--policy-group POLICY_GROUP``
+    Policy group name to use (``--policy-name`` must also be given).
+
+``--policy-name POLICY_NAME``
+    Policyfile name to use (``--policy-group`` must also be given).
 
 ``--prerelease``
-   Install pre-release gems.
+    Install the pre-release chef gems.
 
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
-   A comma-separated list of roles and/or recipes to be applied.
+    Comma separated list of roles/recipes to apply. Default:[].
 
 ``-s SECRET``, ``--secret``
-   The encryption key that is used for values contained within a data bag item.
+    The encryption key that is used for values contained within a data bag item.
 
 ``--secret-file SECRET_FILE``
-   The path to the file that contains the encryption key.
+    A file containing the secret key to use to encrypt data bag item values. Will be rendered on the node at ``c:/chef/encrypted_data_bag_secret`` and set in the rendered client config.
 
-``-x USER_NAME``, ``--ssh-user USER_NAME``
-   The SSH user name.
+``--server-url URL``
+    Chef Server URL.
 
-.. end_tag
+``--tags``
+    Comma separated list of tags to apply to the node. default: [].
+
+``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
+    Bootstrap Chef using a built-in or custom template. Set to the full path of an erb template or use one of the built-in templates.
+
+``-x USERNAME``, ``--ssh-user USERNAME``
+    The SSH username. Default: ``root``.
 
 bootstrap windows winrm
 =====================================================
@@ -251,8 +296,14 @@ Options
 -----------------------------------------------------
 This argument has the following options:
 
+``-a``, ``--attribute ATTR``
+    The attribute to use for opening the connection. Default: ``fqdn``
+
 ``--auth-timeout MINUTES``,
    The amount of time (in minutes) to wait for authentication to succeed. Default: ``2``.
+
+``--bootstrap-install-command COMMANDS``
+    Custom command to install chef-client.
 
 ``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
    A URL or IP address that specifies a location that should not be proxied.
@@ -260,8 +311,29 @@ This argument has the following options:
 ``--bootstrap-proxy PROXY_URL``
    The proxy server for the node that is the target of a bootstrap operation.
 
+``--bootstrap-vault-file VAULT_FILE``
+    A JSON file with a list of vault(s) and item(s) to be updated.
+
+``--bootstrap-vault-item VAULT_ITEM``
+    A single vault and item to update as ``vault:item``.
+
+``--bootstrap-vault-json VAULT_JSON``
+  A JSON string with the vault(s) and item(s) to be updated.
+
 ``--bootstrap-version VERSION``
    The version of the chef-client to install.
+
+``-C``, ``--concurrency NUM``
+    The number of allowed concurrent connections
+
+``-f CA_TRUST_FILE``, ``--ca-trust-file CA_TRUST_FILE``
+    The Certificate Authority (CA) trust file used for SSL transport
+
+``--hint HINT_NAME[=HINT_FILE]``
+    Specify Ohai Hint to be set on the bootstrap targeting multiple nodes. See ``--hint options`` to specify multiple hints.
+
+``--[no-]host-key-verify``
+    Use to disable host key verification. Default: ``true``.
 
 ``--install-as-service``
    Indicates the client should be installed as a Windows Service.
@@ -269,20 +341,89 @@ This argument has the following options:
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a chef-client.
 
+``--json-attribute-file FILE``
+    A JSON file used at the first chef-client run.
+
+``-m``, ``--manual-list``
+    Returns a space-separated list of servers.
+
+``--msi-url URL``
+    Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
+
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
+
+``--node-ssl-verify-mode [peer|none]``
+    Whether or not to verify the SSL cert for all requests.
+
+``--[no-]node-verify-api-cert``
+    Verify the SSL cert for HTTPS requests to the Chef sAPI. Default: ``true``.
+
+``-p PORT``, ``--winrm-port PORT``
+    The WinRM port.  Defaults: ``5985`` for ``plaintext`` and ``5986`` for ``ssl`` WinRM transport
+
+``-P PASSWORD``, ``winrm-password PASSWORD``
+    The WinRM password.
+
+``--policy-group POLICY_GROUP``
+    Policy group name to use (``--policy-name`` must also be given).
+
+``--policy-name POLICY_NAME``
+    Policyfile name to use (``--policy-group`` must also be given).
 
 ``--prerelease``
    Install pre-release gems.
 
+``--returns CODES``
+   A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely.
+
 ``-r RUN_LIST``, ``--run-list RUN_LIST``
    A comma-separated list of roles and/or recipes to be applied.
+
+``-R KERBEROS_REALM``, ``--kerberos-realm``
+    The Kerberos realm used for authentication
 
 ``-s SECRET``, ``--secret``
    The encryption key that is used for values contained within a data bag item.
 
+``-S KERBEROS_SERVICE``, ``--kerberos-service``
+    The Kerberos service used for authentication
+
 ``--secret-file SECRET_FILE``
    The path to the file that contains the encryption key.
+
+``--session-timeout MINUTES``
+    The timeout for the client for the maximum length of the WinRM session
+
+``--ssl-peer-fingerprint FINGERPRINT``
+    SSL certificate fingerprint to bypass normal certificate chain checks.
+
+``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
+    Bootstrap Chef using a built-in or custom template. Set to the full path of an ``.erb`` template or use one of the built-in templates.
+
+``-T``, ``--keytab-file KEYTAB_FILE``
+    The Kerberos keytab file used for authentication.
+
+``--tags``
+    Comma separated list of tags to apply to the node. default: [].
+
+``-w``, ``--winrm-transport TRANSPORT`` 
+    The WinRM transport type. Values: ``ssl``, ``plaintext``
+
+``--winrm-authentication-protocol AUTHENTICATION_PROTOCOL``
+    The authentication protocol used during WinRM communication. The supported protocols are basic,negotiate,kerberos. Default is 'negotiate'.
+
+``--winrm-codepage CODEPAGE``
+    The codepage to use for the winrm cmd shell.
+
+``--winrm-shell SHELL``
+      The WinRM shell type. Values: ``cmd``, ``powershell``, ``elevated``. ``elevated`` runs powershell in a scheduled task
+
+``--winrm-ssl-verify-mode SSL_VERIFY_MODE``
+    The WinRM peer verification mode. Values: ``verify_peer``, ``verify_none``
+
+``-x USERNAME``, ``--winrm-user USERNAME``
+    The SSH username. Default: ``Administrator``.
 
 cert generate
 =====================================================
@@ -306,7 +447,7 @@ This argument has the following options:
 ``-cv MONTHS``, ``--cert-validity MONTHS``
    The number of months for which a certificate is valid. Default value: ``24``.
 
-``-h HOST_NAME``, ``--hostname HOST_NAME``
+``-h HOSTNAME``, ``--hostname HOSTNAME``
    The hostname for the listener. For example, ``--hostname something.mydomain.com`` or ``*.mydomain.com``. Default value: ``*``.
 
 ``-k LENGTH``, ``--key-length LENGTH``
@@ -402,21 +543,11 @@ This argument has the following options:
 ``-a ATTR``, ``--attribute ATTR``
    The attribute used when opening an SSH connection. The default attribute is the FQDN of the host. Other possible values include a public IP address, a private IP address, or a hostname.
 
+``-C NUM``, ``--concurrency NUM``
+   Changed in knife-windows 1.9.0. The number of allowed concurrent connections. Defaults to 1.
+
 ``-f CA_TRUST_FILE``, ``--ca-trust-file CA_TRUST_FILE``
    Optional. The certificate authority (CA) trust file used for SSL transport.
-
-``-C NUM``, ``--concurrency NUM``
-   Changed in knife-windows 1.9.0.
-   The number of allowed concurrent connections. Defaults to 1.
-
-``-i IDENTITY_FILE``, ``--identity-file IDENTITY_FILE``
-   The keytab file that contains the encryption key required by Kerberos-based authentication.
-
-``--keytab-file KEYTAB_FILE``
-   The keytab file that contains the encryption key required by Kerberos-based authentication.
-
-``-m``, ``--manual-list``
-   Define a search query as a space-separated list of servers.
 
 ``-p PORT``, ``--winrm-port PORT``
    The WinRM port. The TCP port on the remote system to which ``knife windows`` commands that are made using WinRM are sent. Default: ``5986`` when ``--winrm-transport`` is set to ``ssl``, otherwise ``5985``.
@@ -442,11 +573,20 @@ This argument has the following options:
 ``--session-timeout MINUTES``
    The amount of time (in minutes) for the maximum length of a WinRM session.
 
+``--ssl-peer-fingerprint FINGERPRINT``
+    SSL Cert Fingerprint to bypass normal cert chain checks
+
 ``-t TRANSPORT``, ``--winrm-transport TRANSPORT``
    The WinRM transport type. Possible values: ``ssl`` or ``plaintext``.
 
+``-T``, ``--keytab-file KEYTAB_FILE``
+   The keytab file that contains the encryption key required by Kerberos-based authentication.
+
 ``--winrm-authentication-protocol PROTOCOL``
    The authentication protocol to be used during WinRM communication. Possible values: ``basic``, ``kerberos`` or ``negotiate``. Default value: ``negotiate``.
+
+``--winrm-codepage Codepage``
+    The codepage to use for the WinRM Command Shell
 
 ``--winrm-shell SHELL``
    The WinRM shell type. Valid choices are ``cmd``, ``powershell`` or ``elevated``. Default value: ``cmd``. The ``elevated`` shell is similar to the ``powershell`` option, but runs the powershell command from a scheduled task.

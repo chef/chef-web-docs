@@ -13,8 +13,6 @@ When this command is run, the certificate files (``*.crt`` and/or ``*.pem``) tha
 
 .. end_tag
 
-Changed in Chef Client 12.5 to support Server Name Indication (SNI).
-
 Syntax
 =====================================================
 This subcommand has the following syntax:

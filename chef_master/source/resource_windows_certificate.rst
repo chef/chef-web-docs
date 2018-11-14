@@ -1,57 +1,54 @@
 =====================================================
-rpm_package resource
+windows_certificate resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rpm_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_certificate.rst>`__
 
-.. tag resource_package_rpm
+Use the **windows_certificate** resource to install a certificate into the Windows certificate store from a file. The resource grants read-only access to the private key for designated accounts. Due to current limitations in WinRM, installing certificates remotely may not work if the operation requires a user profile. Operations on the local machine store should still work.
 
-Use the **rpm_package** resource to manage packages for the RPM Package Manager platform.
-
-.. end_tag
-
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 14.7.**
 
 Syntax
 =====================================================
-A **rpm_package** resource block manages a package on a node, typically by installing it. The simplest use of the **rpm_package** resource is:
+The windows_certificate resource has the following syntax:
 
 .. code-block:: ruby
 
-   rpm_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **rpm_package** resource is:
-
-.. code-block:: ruby
-
-   rpm_package 'name' do
-     allow_downgrade            true, false
-     options                    String
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  windows_certificate 'name' do
+    cert_path            String
+    pfx_password         String
+    private_key_acl      Array
+    source               String # default value: 'name' unless specified
+    store_name           String # default value: "MY"
+    user_store           true, false # default value: false
+    action               Symbol # defaults to :create if not specified
+  end
 
 where:
 
-* ``rpm_package`` is the resource.
+* ``windows_certificate`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``allow_downgrade``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``cert_path``, ``pfx_password``, ``private_key_acl``, ``source``, ``store_name``, and ``user_store`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+The windows_certificate resource has the following actions:
+
+``:acl_add``
+    Adds read-only entries to a certificate's private key ACL.
+
+``:create``
+    Creates or updates a certificate.
+
+``:delete``
+    Deletes a certificate.
+
+``:fetch``
+    Fetches a certificate.
+
+``:verify``
+    Verifies a certificate.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -60,46 +57,38 @@ This resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
-``:upgrade``
-   Install a package and/or ensure that a package is the latest version.
-
 Properties
 =====================================================
-This resource has the following properties:
 
-``allow_downgrade``
-   **Ruby Type:** true, false
+The windows_certificate resource has the following properties:
 
-   Downgrade a package to satisfy requested version requirements.
-
-``options``
+``cert_path``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+``pfx_password``
+   **Ruby Type:** String
 
-``package_name``
-   **Ruby Type:** String, Array
+   The password to access the source if it is a pfx file.
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+``private_key_acl``
+   **Ruby Type:** Array
+
+   An array of 'domain\account' entries to be granted read-only access to the certificate's private key. Not idempotent.
 
 ``source``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   Optional. The path to a package in the local file system.
+   The source file (for create and acl_add), thumbprint (for delete and acl_add) or subject (for delete).
 
-``timeout``
-   **Ruby Type:** String, Integer
+``store_name``
+   **Ruby Type:** String | **Default Value:** ``"MY"``
 
-   The amount of time (in seconds) to wait before timing out.
+   The certificate store to manipulate.
 
-``version``
-   **Ruby Type:** String, Array
+``user_store``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   The version of a package to be installed or upgraded.
-
+   Use the user store of the local machine store if set to false.
 
 Common Resource Functionality
 =====================================================
@@ -137,7 +126,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -247,19 +235,29 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes:
+==========================================
 
-**Install a package**
-
-.. tag resource_rpm_package_install
-
-.. To install a package:
+**Add PFX cert to local machine personal store and grant accounts read-only access to private key**
 
 .. code-block:: ruby
 
-   rpm_package 'name of package' do
-     action :install
-   end
+  windows_certificate 'c:/test/mycert.pfx' do
+    pfx_password 'password'
+    private_key_acl ["acme\fred", "pc\jane"]
+  end
 
-.. end_tag
+**Add cert to trusted intermediate store**
+
+.. code-block:: ruby
+
+  windows_certificate 'c:/test/mycert.cer' do
+    store_name 'CA'
+  end
+
+**Remove all certificates matching the subject**
+
+.. code-block:: ruby
+
+  windows_certificate 'me.acme.com' do
+    action :delete
+  end
