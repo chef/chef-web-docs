@@ -292,7 +292,7 @@ There is an `example cookbook <https://github.com/jjasghar/vsphere_testing>`__ t
   suites:
     - name: default
       run_list:
-        - recipe[COOBOOK::default]
+        - recipe[COOKBOOK::default]
       attributes:
 
 kitchen-vcenter
@@ -420,7 +420,7 @@ An example demo control:
 
   control "vmware-1" do
     impact 0.7
-    title 'Checks that soft power off is diabled'
+    title 'Checks that soft power off is disabled'
     describe vmware_vm_advancedsetting({datacenter: 'ha-datacenter', vm: 'testvm'}) do
       its('softPowerOff') { should cmp 'false' }
     end

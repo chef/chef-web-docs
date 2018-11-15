@@ -101,7 +101,7 @@ The windows_task resource has the following properties:
     * Use with frequency ``:monthly`` and ``:weekly`` tasks,
     * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
     * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
-       * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modiifer`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
+       * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modifier`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
        * Multiple days should be comma separated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
 
 ``description``
@@ -145,7 +145,7 @@ The windows_task resource has the following properties:
    * For frequency ``:daily`` valid values are 1 to 365
    * For frequency ``:weekly`` valid values are 1 to 52
    * For frequency ``:monthly`` valid values are ``('FIRST', 'SECOND', 'THIRD', 'FOURTH', 'LAST')`` OR ``1-12``.
-      * e.g. If user want to run the task on ``second week of the month`` use ``frequency_modifier`` value as ``SECOND``. Multiple values for weeks of the month should be comma seperated e.g. ``"FIRST, THIRD, LAST"``.
+      * e.g. If user want to run the task on ``second week of the month`` use ``frequency_modifier`` value as ``SECOND``. Multiple values for weeks of the month should be comma separated e.g. ``"FIRST, THIRD, LAST"``.
       * To run task every (n) months user values '1-12'.
 
 ``idle_time``
