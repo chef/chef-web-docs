@@ -5434,7 +5434,7 @@ The **windows_package** resource has two new attributes (``checksum`` and ``remo
    * - ``checksum``
      - The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` attribute.
    * - ``remote_file_attributes``
-     - A package at a remote location define as a Hash of properties that modifes the properties of the **remote_file** resource.
+     - A package at a remote location define as a Hash of properties that modifies the properties of the **remote_file** resource.
    * - ``source``
      - Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -5473,7 +5473,7 @@ Examples:
 
 .. tag resource_package_windows_source_remote_file_properties
 
-The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifes the properties of the `remote_file resource </resource_remote_file.html>`__.
+The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifies the properties of the `remote_file resource </resource_remote_file.html>`__.
 
 For example:
 
