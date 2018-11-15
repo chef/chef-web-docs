@@ -44,7 +44,7 @@ SSL Protocols
 The following settings are often modified from the default as part of the tuning effort for the **nginx** service and to configure the Chef Automate server to use SSL certificates:
 
 ``delivery['ssl_certificates']``
-   A hash of SSL certificate files to use for FQDNs. Will use ``remote_file`` to download the key and crt specified. If you wanted to use a pre-generated SSL certificate for the main fqdn (``delivery_fqdn``) you could specify that here. For example:
+   A hash of SSL certificate files to use for FQDNs. Uses ``remote_file`` to download the key and certificate specified to the standard location of ``/var/opt/delivery/nginx/ca`` and replaces the contents of any file found there using the name ``delivery.example.com.crt`` or ``delivery.example.com.key``. If the content in the new custom certificate and key files and the original files match, these files are not reconfigured. To use a pre-generated SSL certificate for the main FQDN (``delivery_fqdn``), follow this example:
 
    .. code-block:: ruby
 
