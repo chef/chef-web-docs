@@ -130,7 +130,7 @@ The cron resource has the following properties:
 ``environment``
    **Ruby Type:** Hash
 
-   A Hash of environment variables in the form of ``({"ENV_VARIABLE" => "VALUE"})``. (These variables must exist for a command to be run successfully.)
+   A Hash of environment variables in the form of ``({'ENV_VARIABLE' => 'VALUE'})``. (These variables must exist for a command to be run successfully.)
 
 ``home``
    **Ruby Type:** String
@@ -175,7 +175,7 @@ The cron resource has the following properties:
 ``user``
    **Ruby Type:** String | **Default Value:** ``"root"``
 
-   This attribute is not applicable on the AIX platform. The name of the user that runs the command. If the ``user`` property is changed, the original ``user`` for the crontab program continues to run until that crontab program is deleted.
+   The name of the user that runs the command. If the user property is changed, the original user for the crontab program continues to run until that crontab program is deleted. This property is not applicable on the AIX platform.
 
 ``weekday``
    **Ruby Type:** String | **Default Value:** ``*``

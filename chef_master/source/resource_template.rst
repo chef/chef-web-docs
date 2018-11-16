@@ -99,15 +99,16 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The template resource has the following properties:
 
 ``atomic_update``
-   **Ruby Type:** true, false | **Default Value:** ``true``
+   **Ruby Type:** true, false
 
    Perform atomic file updates on a per-resource basis. Set to ``true`` for atomic file updates. Set to ``false`` for non-atomic file updates. This setting overrides ``file_atomic_update``, which is a global setting found in the client.rb file.
 
 ``backup``
-   **Ruby Type:** false, Integer | **Default Value:** ``5``
+   **Ruby Type:** Integer, false | **Default Value:** ``5``
 
    The number of backups to be kept in ``/var/chef/backup`` (for UNIX- and Linux-based platforms) or ``C:/chef/backup`` (for the Microsoft Windows platform). Set to ``false`` to prevent backups from being kept.
 
@@ -180,11 +181,6 @@ This resource has the following properties:
    **Ruby Type:** Integer, String
 
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
-
-``sensitive``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-
-   Ensure that sensitive resource data is not logged by the chef-client.
 
 ``source``
    **Ruby Type:** String, Array
