@@ -21,28 +21,31 @@ The full syntax for all of the properties that are available to the **service** 
 
 .. code-block:: ruby
 
-   service 'name' do
-     init_command               String
-     options                    Array, String
-     pattern                    String
-     priority                   Integer, String, Hash
-     reload_command             String
-     restart_command            String
-     service_name               String # defaults to 'name' if not specified
-     start_command              String
-     status_command             String
-     stop_command               String
-     supports                   Hash
-     timeout                    Integer # Microsoft Windows only
-     action                     Symbol # defaults to :nothing if not specified
-   end
+  service 'name' do
+    init_command         String
+    options              Array, String
+    parameters           Hash
+    pattern              String
+    priority             Integer, String, Hash
+    reload_command       String, false
+    restart_command      String, false
+    run_levels           Array
+    service_name         String # default value: 'name' unless specified
+    start_command        String, false
+    status_command       String, false
+    stop_command         String, false
+    supports             Hash # default value: {"restart"=>nil, "reload"=>nil, "status"=>nil}
+    timeout              Integer
+    user                 String
+    action               Symbol # defaults to :nothing if not specified
+  end
 
-where
+where:
 
-* ``service`` is the resource
-* ``name`` is the name of the resource block; when the ``path`` property is not specified, ``name`` is also the path to the directory, from the root
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
-* ``init_command``, ``options``, ``pattern``, ``priority``, ``reload_command``, ``restart_command``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``service`` is the resource.
+* ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``init_command``, ``options``, ``parameters``, ``pattern``, ``priority``, ``reload_command``, ``restart_command``, ``run_levels``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, ``timeout``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -72,6 +75,12 @@ The service resource has the following actions:
 
 .. note:: To manage a Microsoft Windows service with a ``Manual`` startup type, the **windows_service** resource must be used.
 
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+
+   .. end_tag
 Properties
 =====================================================
 
@@ -87,8 +96,13 @@ The service resource has the following properties:
 
    Solaris platform only. Options to pass to the service command. See the ``svcadm`` manual for details of possible options.
 
+``parameters``
+   **Ruby Type:** Hash
+
+   Upstart only: A hash of parameters to pass to the service command for use in the service definition.
+
 ``pattern``
-   **Ruby Type:** String | **Default Value:** ``service_name``
+   **Ruby Type:** String | **Default Value:** ``The value provided to 'service_name' or the resource block's name``
 
    The pattern to look for in the process table.
 
@@ -98,19 +112,24 @@ The service resource has the following properties:
    Debian platform only. The relative priority of the program for start and shutdown ordering. May be an integer or a Hash. An integer is used to define the start run levels; stop run levels are then 100-integer. A Hash is used to define values for specific run levels. For example, ``{ 2 => [:start, 20], 3 => [:stop, 55] }`` will set a priority of twenty for run level two and a priority of fifty-five for run level three.
 
 ``reload_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to tell a service to reload its configuration.
 
 ``restart_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to restart a service.
+
+``run_levels``
+   **Ruby Type:** Array
+
+   RHEL platforms only: Specific run_levels the service will run under.
 
 ``service_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the service. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the service name if it differs from the resource block's name.
 
 ``start_command``
    **Ruby Type:** String
@@ -136,6 +155,13 @@ The service resource has the following properties:
    **Ruby Type:** Integer | **Default Value:** ``60``
 
    Microsoft Windows platform only. The amount of time (in seconds) to wait before timing out.
+
+``user``
+   **Ruby Type:** String
+
+   systemd only: A username to run the service under.
+
+   *New in Chef Client 12.21.*
 
 Common Resource Functionality
 =====================================================
