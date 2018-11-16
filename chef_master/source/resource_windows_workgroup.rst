@@ -65,7 +65,7 @@ The windows_workgroup resource has the following properties:
    The local administrator user to use to change the workgroup.
 
 ``workgroup_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the workgroup for the computer.
 

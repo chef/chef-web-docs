@@ -103,7 +103,7 @@ The link resource has the following properties:
    The owner associated with a symbolic link.
 
 ``target_file``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property to set the target file if it differs from the resource block's name.
 

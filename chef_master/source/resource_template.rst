@@ -170,7 +170,7 @@ This resource has the following properties:
    A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
 ``path``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The full path to the file, including the file name and its extension.
 

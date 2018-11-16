@@ -108,7 +108,7 @@ The service resource has the following properties:
    The command used to restart a service.
 
 ``service_name``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the service. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 

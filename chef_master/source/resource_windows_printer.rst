@@ -66,7 +66,7 @@ The windows_printer resource has the following properties:
    Determines whether or not this should be the system's default printer.
 
 ``device_id``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    Printer queue name, such as: ``"HP LJ 5200 in fifth floor copy room"``.
 

@@ -60,7 +60,7 @@ The hostname resource has the following properties:
    Determines whether or not the resource should be run at compile time.
 
 ``hostname``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property to set the hostnam if it differs from the resource block's name.
 

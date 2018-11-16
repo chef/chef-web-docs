@@ -49,7 +49,7 @@ Properties
 The cron_access resource has the following properties:
 
 ``user``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The user to allow or deny. If not provided we'll use the resource name.
    

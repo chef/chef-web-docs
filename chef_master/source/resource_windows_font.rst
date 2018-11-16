@@ -44,7 +44,7 @@ Properties
 The windows_font resource has the following properties:
 
 ``font_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the font file to install, if it differs from the resource name.
 

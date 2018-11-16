@@ -110,7 +110,7 @@ The mount resource has the following properties:
    The file system type (fstype) of the device.
 
 ``mount_point``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The directory (or path) in which the device is to be mounted. Defaults to the name of the resource block if not provided.
 

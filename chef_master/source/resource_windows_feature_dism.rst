@@ -53,7 +53,7 @@ The windows_feature_dism resource has the following properties:
    Install all sub-features. When set to ``true``, this is the equivalent of specifying the ``/All`` switch to ``dism.exe``.
 
 ``feature_name``
-   **Ruby Type:** Array, String | **Default Value:** ``'name'``
+   **Ruby Type:** Array, String | **Default Value:** ``The resource block's name``
 
    The name of the feature(s) or role(s) to install, if it differs from the resource name.
 

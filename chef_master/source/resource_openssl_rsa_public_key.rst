@@ -67,7 +67,7 @@ The openssl_rsa_public_key resource has the following properties:
    The owner applied to all files created by the resource.
 
 ``path``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property for specifying the path to the public key if it differs from the resource block's name.
 

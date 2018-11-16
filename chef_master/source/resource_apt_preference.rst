@@ -50,7 +50,7 @@ The apt_preference resource has the following properties:
    Pin by ``glob()`` expression or with regular expressions surrounded by ``/``.
 
 ``package_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property to set the package name if it differs from the resource block's name.
 

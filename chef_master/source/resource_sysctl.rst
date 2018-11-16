@@ -62,7 +62,7 @@ The sysctl resource has the following properties:
    Ignore any errors when setting the value on the command line.
 
 ``key``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The kernel parameter key in dotted format, if it differs from the resource block name.
 

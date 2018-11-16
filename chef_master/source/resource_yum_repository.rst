@@ -261,7 +261,7 @@ The yum_repository resource has the following properties:
    Determines whether to report the instance ID when using Amazon Linux AMIs and repositories.
 
 ``repositoryid``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    Specifies a unique name for each repository, one word. Defaults to name attribute.
 

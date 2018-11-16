@@ -43,7 +43,7 @@ The rhsm_errata resource has the following actions:
 Properties
 =====================================================
 ``errata_id``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    Specify the Errata ID if it differs from the resource name.
 

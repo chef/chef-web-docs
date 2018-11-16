@@ -198,7 +198,7 @@ The chef_handler resource has the following properties:
       arguments [:key1 => 'val1', :key2 => 'val2']
 
 ``class_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the handler class. This can be module name-spaced.
 

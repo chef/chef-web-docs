@@ -78,7 +78,7 @@ The group resource has the following properties:
    The identifier for the group.
 
 ``group_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the group. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 

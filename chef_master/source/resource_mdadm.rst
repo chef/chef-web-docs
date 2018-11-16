@@ -87,7 +87,7 @@ The mdadm resource has the following properties:
 
 
 ``raid_device``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    Optional property to specify the name of the RAID device if it differs from the resource block's name.
 
