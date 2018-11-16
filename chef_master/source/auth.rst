@@ -505,11 +505,12 @@ Use the following code to set the correct permissions:
 
    #!/usr/bin/env ruby
    require 'chef/knife'
-   require 'chef/rest'
 
-   Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'config.rb'))
+   #previously knife.rb
+   
+   Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
 
-   rest = Chef::REST.new(Chef::Config[:chef_server_url])
+   rest = Chef::ServerAPI.new(Chef::Config[:chef_server_url])
 
    Chef::Node.list.each do |node|
      %w{read update delete grant}.each do |perm|
