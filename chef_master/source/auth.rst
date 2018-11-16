@@ -507,7 +507,6 @@ Use the following code to set the correct permissions:
    require 'chef/knife'
 
    #previously knife.rb
-   
    Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
 
    rest = Chef::ServerAPI.new(Chef::Config[:chef_server_url])
