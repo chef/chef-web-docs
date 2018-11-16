@@ -102,7 +102,6 @@ The windows_service resource has the following actions:
 ``:stop``
    Stop a service.
 
-
 ``:nothing``
    .. tag resources_common_actions_nothing
 
