@@ -37,13 +37,13 @@ The full syntax for all of the properties that are available to the **windows_se
     restart_command       String, false
     run_as_password       String
     run_as_user           String # default value: "LocalSystem"
-    service_name          String # default value: "name" unless specified
+    service_name          String # default value: 'name' unless specified
     service_type          Integer # default value: "SERVICE_WIN32_OWN_PROCESS"
-    start_command         String, NilClass, false
+    start_command         String, false
     startup_type          Symbol # default value: :automatic
-    status_command        String, NilClass, false
-    stop_command          String, NilClass, false
-    supports              Hash
+    status_command        String, false
+    stop_command          String, false
+    supports              Hash # default value: {"restart"=>nil, "reload"=>nil, "status"=>nil}
     timeout               Integer
     action                Symbol # defaults to :nothing if not specified
   end
