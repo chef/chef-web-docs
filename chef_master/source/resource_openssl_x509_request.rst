@@ -131,7 +131,7 @@ The openssl_x509_request resource has the following properties:
    The owner applied to all files created by the resource.
 
 ``path``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property for specifying the path to write the file to if it differs from the resource block's name.
 

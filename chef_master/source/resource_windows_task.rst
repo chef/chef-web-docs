@@ -207,7 +207,7 @@ The windows_task resource has the following properties:
    *New in Chef Client 14.4.*
 
 ``task_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The task name, such as ``"Task Name"`` or ``"/Task Name"``
 

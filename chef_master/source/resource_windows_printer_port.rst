@@ -54,7 +54,7 @@ Properties
 The windows_printer_port resource has the following properties:
 
 ``ipv4_address``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property for the IPv4 address of the printer if it differs from the resource block's name.
 

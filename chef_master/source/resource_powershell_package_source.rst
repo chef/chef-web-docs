@@ -75,7 +75,7 @@ The powershell_package_source resource has the following properties:
    The url where scripts are located for this source. Only valid if the provider is 'PowerShellGet'.
 
 ``source_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the package source.
 

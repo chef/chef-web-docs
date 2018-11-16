@@ -22,31 +22,31 @@ The full syntax for all of the properties that are available to the **windows_se
 
 .. code-block:: ruby
 
-   windows_service 'name' do
-     binary_path_name           String
-     delayed_start              [Integer] # This only applies if startup_type is :automatic
-     dependencies               [String, Array]
-     description                String
-     desired_access             Integer # defaults to 983551
-     display_name               String
-     error_control              Integer
-     init_command               String
-     load_order_group           String
-     pattern                    String
-     reload_command             String # not used on the Windows platform
-     restart_command            String
-     run_as_password            String
-     run_as_user                String
-     service_name               String # defaults to 'name' if not specified
-     service_type               Integer # defaults to 'SERVICE_WIN32_OWN_PROCESS'
-     start_command              String
-     startup_type               Symbol
-     status_command             String
-     stop_command               String
-     supports                   Hash
-     timeout                    Integer
-     action                     Symbol # defaults to :nothing if not specified
-   end
+  windows_service 'name' do
+    binary_path_name      String
+    delayed_start         true, false # default value: false
+    dependencies          String, Array
+    description           String
+    desired_access        Integer # default value: 983551
+    display_name          String
+    error_control         Integer # default value: 1
+    init_command          String
+    load_order_group      String
+    pattern               String
+    reload_command        String, false
+    restart_command       String, false
+    run_as_password       String
+    run_as_user           String # default value: "LocalSystem"
+    service_name          String # default value: 'name' unless specified
+    service_type          Integer # default value: "SERVICE_WIN32_OWN_PROCESS"
+    start_command         String, false
+    startup_type          Symbol # default value: :automatic
+    status_command        String, false
+    stop_command          String, false
+    supports              Hash # default value: {"restart"=>nil, "reload"=>nil, "status"=>nil}
+    timeout               Integer
+    action                Symbol # defaults to :nothing if not specified
+  end
 
 where:
 
@@ -102,6 +102,13 @@ The windows_service resource has the following actions:
 ``:stop``
    Stop a service.
 
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+
+   .. end_tag
+   
 .. end_tag
 
 Properties
@@ -166,12 +173,12 @@ The windows_service resource has the following properties:
    The pattern to look for in the process table.
 
 ``reload_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to tell a service to reload its configuration.
 
 ``restart_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to restart a service.
 
@@ -186,7 +193,7 @@ The windows_service resource has the following properties:
    The user under which a Microsoft Windows service runs.
 
 ``service_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
 
@@ -201,12 +208,12 @@ The windows_service resource has the following properties:
    Use to specify the startup type for a Microsoft Windows service. Possible values: ``:automatic``, ``:disabled``, or ``:manual``.
 
 ``status_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to check the run status for a service.
 
 ``stop_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to stop a service.
 

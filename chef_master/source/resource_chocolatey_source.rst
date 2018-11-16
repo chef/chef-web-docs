@@ -67,7 +67,7 @@ The chocolatey_source resource has the following properties:
    The source URL.
 
 ``source_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property to set the source name if it differs from the resource block's name.
 

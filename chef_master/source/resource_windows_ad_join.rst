@@ -52,7 +52,7 @@ Properties
 The windows_ad_join resource has the following properties:
 
 ``domain_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The FQDN of the Active Directory domain to join.
 

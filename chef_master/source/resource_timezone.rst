@@ -47,7 +47,7 @@ Properties
 The timezone resource has the following properties:
 
 ``timezone``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The timezone value to set.
 

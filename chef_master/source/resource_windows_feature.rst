@@ -3,7 +3,7 @@ windows_feature resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_feature.rst>`__
 
-Use the windows_feature resource to add, remove or entirely delete Windows features and roles. This resource calls the `windows_feature_dism </resource_windows_feature_dism.html>`__ or `windows_feature_powershell </resource_windows_feature_powershell.html>`__ resources depending on the specified installation method, and defaults to DISM, which is available on both Workstation and Server editions of Windows.
+Use the **windows_feature** resource to add, remove or entirely delete Windows features and roles. This resource calls the `windows_feature_dism </resource_windows_feature_dism.html>`__ or `windows_feature_powershell </resource_windows_feature_powershell.html>`__ resources depending on the specified installation method, and defaults to DISM, which is available on both Workstation and Server editions of Windows.
 
 **New in Chef Client 14.0.**
 
@@ -62,7 +62,7 @@ The windows_feature resource has the following properties:
    Install all subfeatures.
 
 ``feature_name``
-   **Ruby Type:** Array, String | **Default Value:** ``'name'``
+   **Ruby Type:** Array, String | **Default Value:** ``The resource block's name``
 
    The name of the feature(s) or role(s) to install, if it differs from the resource block name. The same feature may have different names depending on the underlying installation method being used (ie DHCPServer vs DHCP; DNS-Server-Full-Role vs DNS).
 

@@ -68,7 +68,7 @@ The windows_pagefile resource has the following properties:
    Maximum size of the pagefile in megabytes.
 
 ``path``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The path to the pagefile if different from the resource name.
 

@@ -110,7 +110,7 @@ The windows_share resource has the following properties:
    The scope name of the share.
 
 ``share_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name to assign to the share.
 

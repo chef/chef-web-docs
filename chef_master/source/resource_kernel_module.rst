@@ -65,7 +65,7 @@ The kernel_module resource has the following properties:
    The directory to load modules from.
 
 ``modname``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property to set the kernel module name if it differs from the resource block's name.
 

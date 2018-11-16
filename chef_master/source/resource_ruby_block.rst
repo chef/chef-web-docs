@@ -69,7 +69,7 @@ The ruby_block resource has the following properties:
    A block of Ruby code.
 
 ``block_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the Ruby block. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 

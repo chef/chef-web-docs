@@ -180,7 +180,7 @@ The ifconfig resource has the following properties:
    *New in Chef Client 13.4.*
 
 ``target``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The IP address that is to be assigned to the network interface. If not specified we'll use the resource's name.
 

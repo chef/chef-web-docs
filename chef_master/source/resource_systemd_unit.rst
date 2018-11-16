@@ -123,7 +123,7 @@ The systemd_unit resource has the following properties:
    Specifies whether to trigger a daemon reload when creating or deleting a unit.
 
 ``unit_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the unit file if it differs from the resource block name.
 

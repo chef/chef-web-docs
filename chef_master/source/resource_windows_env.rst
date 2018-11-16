@@ -70,7 +70,7 @@ The windows_env resource has the following properties:
    The delimiter that is used to separate multiple values for a single key.
 
 ``key_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the key that is to be created, deleted, or modified.
 

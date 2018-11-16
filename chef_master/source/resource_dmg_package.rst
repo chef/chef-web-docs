@@ -69,7 +69,7 @@ The dmg_package resource has the following properties:
    Allow installation of packages that do not have trusted certificates.
 
 ``app``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the application as it appears in the ``/Volumes`` directory, if it differs from the resource block name.
 

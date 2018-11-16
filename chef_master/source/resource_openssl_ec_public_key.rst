@@ -67,7 +67,7 @@ The openssl_ec_public_key resource has the following properties:
    The owner applied to all files created by the resource.
 
 ``path``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The path of the public key file, if it differs from the resource name.
 

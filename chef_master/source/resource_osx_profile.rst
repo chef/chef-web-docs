@@ -74,7 +74,7 @@ The osx_profile resource has the following properties:
    Use to specify a profile. This may be the name of a profile contained in a cookbook or a Hash that contains the contents of the profile.
 
 ``profile_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    Use to specify the name of the profile, if different from the name of the resource block.
 

@@ -77,7 +77,7 @@ The openssl_dhparam resource has the following properties:
    The owner applied to all files created by the resource.
 
 ``path``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The path to write the file to if it's different than the resource name.
 

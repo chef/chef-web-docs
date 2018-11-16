@@ -1434,7 +1434,7 @@ The windows_env resource has the following properties:
    The delimiter that is used to separate multiple values for a single key.
 
 ``key_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the key that is to be created, deleted, or modified.
 
@@ -2107,7 +2107,7 @@ The registry_key resource has the following properties:
              .. end_tag
 
 ``key``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The path to the location in which a registry key is to be created or from which a registry key is to be deleted. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
    The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
@@ -2497,31 +2497,31 @@ The full syntax for all of the properties that are available to the **windows_se
 
 .. code-block:: ruby
 
-   windows_service 'name' do
-     binary_path_name           String
-     delayed_start              [Integer] # This only applies if startup_type is :automatic
-     dependencies               [String, Array]
-     description                String
-     desired_access             Integer # defaults to 983551
-     display_name               String
-     error_control              Integer
-     init_command               String
-     load_order_group           String
-     pattern                    String
-     reload_command             String # not used on the Windows platform
-     restart_command            String
-     run_as_password            String
-     run_as_user                String
-     service_name               String # defaults to 'name' if not specified
-     service_type               Integer # defaults to 'SERVICE_WIN32_OWN_PROCESS'
-     start_command              String
-     startup_type               Symbol
-     status_command             String
-     stop_command               String
-     supports                   Hash
-     timeout                    Integer
-     action                     Symbol # defaults to :nothing if not specified
-   end
+  windows_service 'name' do
+    binary_path_name      String
+    delayed_start         true, false # default value: false
+    dependencies          String, Array
+    description           String
+    desired_access        Integer # default value: 983551
+    display_name          String
+    error_control         Integer # default value: 1
+    init_command          String
+    load_order_group      String
+    pattern               String
+    reload_command        String, false
+    restart_command       String, false
+    run_as_password       String
+    run_as_user           String # default value: "LocalSystem"
+    service_name          String # default value: 'name' unless specified
+    service_type          Integer # default value: "SERVICE_WIN32_OWN_PROCESS"
+    start_command         String, false
+    startup_type          Symbol # default value: :automatic
+    status_command        String, false
+    stop_command          String, false
+    supports              Hash # default value: {"restart"=>nil, "reload"=>nil, "status"=>nil}
+    timeout               Integer
+    action                Symbol # defaults to :nothing if not specified
+  end
 
 where:
 
@@ -2576,6 +2576,13 @@ The windows_service resource has the following actions:
 
 ``:stop``
    Stop a service.
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+
+   .. end_tag
 
 .. end_tag
 
@@ -2641,12 +2648,12 @@ The windows_service resource has the following properties:
    The pattern to look for in the process table.
 
 ``reload_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to tell a service to reload its configuration.
 
 ``restart_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to restart a service.
 
@@ -2661,7 +2668,7 @@ The windows_service resource has the following properties:
    The user under which a Microsoft Windows service runs.
 
 ``service_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
 
@@ -2676,12 +2683,12 @@ The windows_service resource has the following properties:
    Use to specify the startup type for a Microsoft Windows service. Possible values: ``:automatic``, ``:disabled``, or ``:manual``.
 
 ``status_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to check the run status for a service.
 
 ``stop_command``
-   **Ruby Type:** String
+   **Ruby Type:** String, false
 
    The command used to stop a service.
 

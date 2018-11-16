@@ -61,7 +61,7 @@ The windows_feature_powershell resource has the following properties:
    Install all subfeatures. When set to ``true``, this is the equivalent of specifying the ``-InstallAllSubFeatures`` switch with ``Add-WindowsFeature``.
 
 ``feature_name``
-   **Ruby Type:** Array, String | **Default Value:** ``'name'``
+   **Ruby Type:** Array, String | **Default Value:** ``The resource block's name``
 
    The name of the feature(s) or role(s) to install, if it differs from the resource block name.
 

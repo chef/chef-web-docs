@@ -122,7 +122,7 @@ The windows_firewall_rule resource has the following properties:
    The remote port the firewall rule applies to.
 
 ``rule_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name to assign to the firewall rule.
 

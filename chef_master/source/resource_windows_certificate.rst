@@ -76,7 +76,7 @@ The windows_certificate resource has the following properties:
    An array of 'domain\account' entries to be granted read-only access to the certificate's private key. Not idempotent.
 
 ``source``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The source file (for create and acl_add), thumbprint (for delete and acl_add) or subject (for delete).
 

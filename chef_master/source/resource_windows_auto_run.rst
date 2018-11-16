@@ -62,7 +62,7 @@ The windows_auto_run resource has the following properties:
    The path to the program that will run at login.
 
 ``program_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The name of the program to run at login, if it differs from the resource block name.
 

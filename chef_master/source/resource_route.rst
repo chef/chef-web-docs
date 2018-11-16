@@ -97,7 +97,7 @@ The route resource has the following properties:
    **Ruby Type:** Symbol, String | **Default Value:** ``:host``
 
 ``target``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The IP address of the target route.
 

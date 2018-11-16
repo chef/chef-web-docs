@@ -73,7 +73,7 @@ The ssh_known_hosts_entry resource has the following properties:
    Hash the hostname and addresses in the ssh_known_hosts file for privacy.
 
 ``host``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The host to add to the known hosts file.
 

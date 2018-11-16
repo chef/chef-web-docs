@@ -90,7 +90,7 @@ The openssl_rsa_private_key resource has the following properties:
    The owner applied to all files created by the resource.
 
 ``path``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The path where the private key file will be created, if it differs from the resource name.
 

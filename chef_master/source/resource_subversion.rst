@@ -72,7 +72,7 @@ Properties
 The subversion resource has the following properties:
 
 ``destination``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The location path to which the source is to be cloned, checked out, or exported. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
