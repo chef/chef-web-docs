@@ -168,9 +168,9 @@ The remote_directory resource has the following properties:
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
 ``source``
-   **Ruby Type:** String | **Default Value:** ``The base portion of the 'path' property. For example '/some/path/' would be 'path'.`
+   **Ruby Type:** String | **Default Value:** ``The base portion of the 'path' property. For example '/some/path/' would be 'path'.``
 
-   The base name of the source file (and inferred from the ``path`` property).
+   The base name of the source file (andd inferred from the ``path`` property).
 
 Common Resource Functionality
 =====================================================
