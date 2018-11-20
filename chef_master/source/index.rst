@@ -594,6 +594,7 @@ Addenda
    deprecations_shell_out
    deprecations_supports_property
    deprecations_verify_file
+   deprecations_ohai_system_profile
    dk_windows
    dsl_audit
    dsl_custom_resource
