@@ -1,5 +1,5 @@
 =======================================================
-Deprecation: System Profile plugin (CHEF-XX)
+Deprecation: System Profile plugin (OHAI-14)
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_system_profile.rst>`__
 
@@ -9,11 +9,6 @@ The system_profile plugin will be removed from Chef/Ohai 15 in April 2019. This 
 
 .. end_tag
 
-
-Example
-==========
-
-
-
 Remediation
 ==============
+If you relied on data in node['system_profile'], you should look at the format in node['hardware'] and migrate to that new data format.
