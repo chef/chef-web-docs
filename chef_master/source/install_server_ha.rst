@@ -71,7 +71,7 @@ Recommended Cluster Topology
 
 Nodes
 ----------------------------------------------------------------
-* Three backend cluster nodes
+* Three backend cluster nodes are required. Less and more than this number is neither tested nor supported by Chef
 * One or more frontend group nodes
 
 Hardware Requirements
