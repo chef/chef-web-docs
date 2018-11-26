@@ -71,7 +71,7 @@ Recommended Cluster Topology
 
 Nodes
 ----------------------------------------------------------------
-* Three backend cluster nodes
+* The HA backend installation requires three cluster nodes. Chef has not tested and does not support installations with other numbers of backend cluster nodes.
 * One or more frontend group nodes
 
 Hardware Requirements
