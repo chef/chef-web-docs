@@ -314,6 +314,39 @@ ChefDK
 
 **Management Console**: `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
 
+Chef Automate
+=====================================================
+`Chef Automate Documentation <https://automate.chef.io/docs/>`__ |
+`Quick Start Demo <https://automate.chef.io/docs/quickstart/>`__ |
+`System Requirements <https://automate.chef.io/docs/system-requirements/>`__ |
+`Upgrade from Chef Automate One <https://automate.chef.io/docs/upgrade/>`__ |
+`Installation Guide <https://automate.chef.io/docs/install/>`__ |
+`Backup and Restore <https://automate.chef.io/docs/backup/>`__ |
+`Configuration <https://automate.chef.io/docs/configuration/>`__ |
+`Data Collection <https://automate.chef.io/docs/data-collection/>`__ |
+`Log Management <https://automate.chef.io/docs/log-management/>`__ |
+`Telemetry <https://automate.chef.io/docs/telemetry/>`__ |
+`Event Feed <https://automate.chef.io/docs/event-feed/>`__ |
+`Client Runs <https://automate.chef.io/docs/client-runs/>`__ |
+`Compliance <https://automate.chef.io/docs/compliance/>`__ |
+`Scan Jobs <https://automate.chef.io/docs/scan-jobs/>`__ |
+`Nodes API <https://automate.chef.io/docs/nodes/>`__ |
+`Cloud Integrations <https://automate.chef.io/docs/integrations/>`__ |
+`Asset Store <https://automate.chef.io/docs/asset-store/>`__ |
+`Admin Panel <https://automate.chef.io/docs/admin/>`__ |
+`Credentials <https://automate.chef.io/docs/credentials/>`__ |
+`Notifications <https://automate.chef.io/docs/notifications/>`__ |
+`Node Integrations <https://automate.chef.io/docs/integrations-ui/>`__ |
+`Authorization <https://automate.chef.io/docs/authorization/>`__ |
+`Users and Teams <https://automate.chef.io/docs/users-and-teams/>`__ |
+`API Tokens <https://automate.chef.io/docs/api-tokens/>`__ |
+`Default Policies <https://automate.chef.io/docs/default-policies/>`__ |
+`LDAP Integration <https://automate.chef.io/docs/ldap/>`__ |
+`Architecture <https://automate.chef.io/docs/architectural-overview/>`__ |
+`Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate/>`__ |
+`ServiceNow Integration <https://automate.chef.io/docs/servicenow-integration-install/>`__ |
+`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__ 
+
 Habitat
 =====================================================
 
