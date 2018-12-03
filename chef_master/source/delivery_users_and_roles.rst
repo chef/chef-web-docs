@@ -9,6 +9,8 @@ Manage Users and Roles
    :width: 40px
    :height: 17px
 
+.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://www.chef.io/automate/quickstart>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+
 .. end_tag
 
 This topic describes the roles and permissions that may be assigned to users of Chef Automate, how to integrate an LDAP system with Chef Automate, how to add and edit users, and how to add user SSH keys.
