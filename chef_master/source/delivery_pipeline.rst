@@ -9,6 +9,8 @@ About Chef Automate Pipelines
    :width: 40px
    :height: 17px
 
+.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://www.chef.io/automate/quickstart>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+
 .. end_tag
 
 Each project contains a configuration file in its source repository, located at ``.delivery/config.json``, that specifies the build cookbook to use for the project, and in turn, the build cookbook contains recipes that control what happens in the pipeline phases. The config file also allows customization of the behavior of Chef Automate and the build cookbook.  You can create a config file (as well as a build cookbook) using the Chef Automate CLI tool and the init subcommand: ``delivery init`` or ``delivery init --local``.
