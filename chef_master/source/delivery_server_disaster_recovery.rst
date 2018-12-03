@@ -9,6 +9,8 @@ Chef Automate Disaster Recovery
    :width: 40px
    :height: 17px
 
+.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://www.chef.io/automate/quickstart>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+
 .. end_tag
 
 Use a standby Chef Automate server to protect against the loss of the primary Chef Automate server. A standby Chef Automate server is configured to replicate data from the primary Chef Automate server. In the event of loss of the primary Chef Automate server, the standby is then reconfigured to become the primary.

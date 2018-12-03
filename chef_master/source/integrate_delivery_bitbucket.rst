@@ -9,6 +9,8 @@ Integrate Chef Automate Workflow with Bitbucket
    :width: 40px
    :height: 17px
 
+.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://www.chef.io/automate/quickstart>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+
 .. end_tag
 
 Bitbucket integration with Chef Automate allows Bitbucket to be used as the canonical git repository for projects while at the same time benefiting from Chef Automate workflow and pipeline automation. When Bitbucket integration is enabled for a project in Bitbucket, you will be able to:

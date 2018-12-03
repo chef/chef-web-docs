@@ -9,6 +9,8 @@ Chef Automate
    :width: 40px
    :height: 17px
 
+.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://www.chef.io/automate/quickstart>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. 
+
 .. end_tag
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, node visibility and compliance.
@@ -18,6 +20,7 @@ comprehensive 24×7 support services for the entire platform, including open sou
 .. image:: ../../images/automate_architecture.svg
    :width: 600px
    :align: center
+
 
 Compliance
 ======================================================
