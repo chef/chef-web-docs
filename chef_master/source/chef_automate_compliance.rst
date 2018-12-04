@@ -9,6 +9,8 @@ An Overview of Compliance in Chef Automate
    :width: 40px
    :height: 17px
 
+.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://www.chef.io/automate/quickstart>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+
 .. end_tag
 
 Chef Automate 1.5.46 or later provides you the ability to store and manage compliance profiles, view compliance reports over time, and quickly filter compliance reports through a dashboard interface. In addition to seeing your compliance status, you can also easily see which controls failed and why to provide you immediate information for remediation. 
