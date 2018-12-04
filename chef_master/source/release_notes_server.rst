@@ -30,7 +30,8 @@ This release:
 * Fix for SUSE SLES-11 sysvinit install
 * Removed nodejs (a build dependency that was shipped).
 
-.. note:: The API version bump introduces an incompatibility with older versions of Berkshelf, which means that Berkshelf >= 7.0.5 and ChefDK >= 3.2.30 should be used. If your Berkshelf uploads to Chef Server fail with ``Net::HTTPServerException: 400 "Bad Request"`` and opscode-erchef logs contain ``status=400`` and ``req_api_version=1`` in the log line for the related cookbook upload API request, you may be experiencing this incompatibility.
+.. note:: Chef Server 12.18.14 introduces an incompatibility between older versions of Berkshelf and the ChefDK. We recommend using the minimum versions of  Berkshelf >= 7.0.5 and ChefDK >= 3.2.30. 
+A Berkshelf upload to Chef Server failing with ``Net::HTTPServerException: 400 "Bad Request"`` and opscode-erchef logs containing ``status=400`` and ``req_api_version=1`` in the log line for the related cookbook upload API request, are strong evidence of this incompatibility.
 
 What's New in 12.17.33
 =====================================================
