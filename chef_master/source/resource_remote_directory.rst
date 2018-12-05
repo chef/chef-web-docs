@@ -35,22 +35,20 @@ The full syntax for all of the properties that are available to the **remote_dir
 
    remote_directory 'name' do
      cookbook                   String
-     files_backup               Integer, false
-     files_group                String
-     files_mode                 String
-     files_owner                String
+     files_backup               Integer, false # default value: 5
+     files_group                String, Integer
+     files_mode                 String, Integer # default value: 0644 on *nix systems
+     files_owner                String, Integer
      group                      String, Integer
      inherits                   true, false
      mode                       String, Integer
-     notifies                   # see description
-     overwrite                  true, false
+     overwrite                  true, false # default value: true
      owner                      String, Integer
-     path                       String # defaults to 'name' if not specified
+     path                       String # default value: 'name' unless specified
      purge                      true, false
      recursive                  true, false
      rights                     Hash
      source                     String
-     subscribes                 # see description
      action                     Symbol # defaults to :create if not specified
    end
 
@@ -98,12 +96,12 @@ The remote_directory resource has the following properties:
    The number of backup copies to keep for files in the directory.
 
 ``files_group``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    Configure group permissions for files. A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
 ``files_mode``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer | **Default Value:** ``0644 on *nix systems``
 
    The octal mode for a file.
 
@@ -112,7 +110,7 @@ The remote_directory resource has the following properties:
    Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
 
 ``files_owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    Configure owner permissions for files. A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
@@ -121,10 +119,6 @@ The remote_directory resource has the following properties:
 
    Use to configure permissions for directories. A string or ID that identifies the group owner by group name, including fully qualified group names such as ``domain\group`` or ``group@domain``. If this value is not specified, existing groups remain unchanged and new group assignments use the default ``POSIX`` group (if available).
 
-``ignore_failure``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-
-   Continue running a recipe if a resource fails for any reason.
 
 ``inherits``
    **Ruby Type:** true, false | **Default Value:** ``true``
@@ -142,39 +136,6 @@ The remote_directory resource has the following properties:
 
    Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
 
-``notifies``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_notifies
-
-   A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_notifies_syntax
-
-   The syntax for ``notifies`` is:
-
-   .. code-block:: ruby
-
-     notifies :action, 'resource[name]', :timer
-
-   .. end_tag
 
 ``overwrite``
    **Ruby Type:** true, false | **Default Value:** ``true``
@@ -187,7 +148,7 @@ The remote_directory resource has the following properties:
    Use to configure permissions for directories. A string or ID that identifies the group owner by user name, including fully qualified user names such as ``domain\user`` or ``user@domain``. If this value is not specified, existing owners remain unchanged and new owner assignments use the current user (when necessary).
 
 ``path``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The path to the directory. Using a fully qualified path is recommended, but is not always required. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
@@ -197,19 +158,9 @@ The remote_directory resource has the following properties:
    Purge extra files found in the target directory.
 
 ``recursive``
-   **Ruby Type:** true, false
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Create or delete directories recursively. Default value: ``true``; the chef-client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
-
-``retries``
-   **Ruby Type:** Integer | **Default Value:** ``0``
-
-   The number of attempts to catch exceptions and retry the resource.
-
-``retry_delay``
-   **Ruby Type:** Integer | **Default Value:** ``2``
-
-   The retry delay (in seconds).
+   Create or delete directories recursively. The chef-client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
 
 ``rights``
    **Ruby Type:** Integer, String
@@ -217,58 +168,153 @@ The remote_directory resource has the following properties:
    Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
 ``source``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``The base portion of the 'path' property.``
 
-   The base name of the source file (and inferred from the ``path`` property).
+   The base name of the source file (andd inferred from the ``path`` property). For example, in the default value, '/some/path/' would be 'path'.
+
+Common Resource Functionality
+=====================================================
+
+Chef resources include common properties, notifications, and resource guards.
+
+Common Properties
+-----------------------------------------------------
+
+.. tag resources_common_properties
+
+The following properties are common to every resource:
+
+``ignore_failure``
+  **Ruby Type:** true, false | **Default Value:** ``false``
+
+  Continue running a recipe if a resource fails for any reason.
+
+``retries``
+  **Ruby Type:** Integer | **Default Value:** ``0``
+
+  The number of attempts to catch exceptions and retry the resource.
+
+``retry_delay``
+  **Ruby Type:** Integer | **Default Value:** ``2``
+
+  The retry delay (in seconds).
+
+``sensitive``
+  **Ruby Type:** true, false | **Default Value:** ``false``
+
+  Ensure that sensitive resource data is not logged by the chef-client.
+
+.. end_tag
+
+Notifications
+-----------------------------------------------------
+``notifies``
+  **Ruby Type:** Symbol, 'Chef::Resource[String]'
+
+  .. tag resources_common_notification_notifies
+
+  A resource may notify another resource to take action when its state changes. Specify a ``'resource[name]'``, the ``:action`` that resource should take, and then the ``:timer`` for that action. A resource may notify more than one resource; use a ``notifies`` statement for each resource to be notified.
+
+  .. end_tag
+
+.. tag resources_common_notification_timers
+
+A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+
+``:before``
+   Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+
+``:delayed``
+   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+
+``:immediate``, ``:immediately``
+   Specifies that a notification should be run immediately, per resource notified.
+
+.. end_tag
+
+.. tag resources_common_notification_notifies_syntax
+
+The syntax for ``notifies`` is:
+
+.. code-block:: ruby
+
+  notifies :action, 'resource[name]', :timer
+
+.. end_tag
 
 ``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
+  **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
-   .. tag resources_common_notification_subscribes
+.. tag resources_common_notification_subscribes
 
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
+A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
 
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
+Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-    file '/etc/nginx/ssl/example.crt' do
-      mode '0600'
-      owner 'root'
-    end
+ file '/etc/nginx/ssl/example.crt' do
+   mode '0600'
+   owner 'root'
+ end
 
-    service 'nginx' do
-      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-    end
+ service 'nginx' do
+   subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
+ end
 
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
+In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
 
-   .. end_tag
+.. end_tag
 
-   .. tag resources_common_notification_timers
+.. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
 
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
+``:before``
+   Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+``:delayed``
+   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
 
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
+``:immediate``, ``:immediately``
+   Specifies that a notification should be run immediately, per resource notified.
 
-   .. end_tag
+.. end_tag
 
-   .. tag resources_common_notification_subscribes_syntax
+.. tag resources_common_notification_subscribes_syntax
 
-   The syntax for ``subscribes`` is:
+The syntax for ``subscribes`` is:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      subscribes :action, 'resource[name]', :timer
+   subscribes :action, 'resource[name]', :timer
 
-   .. end_tag
+.. end_tag
+
+Guards
+-----------------------------------------------------
+
+.. tag resources_common_guards
+
+A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+
+* A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
+* A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
+
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+
+.. end_tag
+.. tag resources_common_guards_properties
+
+The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+
+``not_if``
+  Prevent a resource from executing when the condition returns ``true``.
+
+``only_if``
+  Allow a resource to execute only if the condition returns ``true``.
+
+.. end_tag
 
 Recursive Directories
 -----------------------------------------------------
