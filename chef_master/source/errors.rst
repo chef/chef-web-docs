@@ -302,3 +302,21 @@ Work around this issue by supplying the full path to the client.rb file:
 .. code-block:: bash
 
    $ chef-client -c /etc/chef/client.rb
+
+Pivotal.rb does not exist
+-----------------------------------------------------
+If you're seeing an error like: 
+
+.. code-block:: bash
+
+   $ ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does not exist
+
+**Troubleshooting Steps**
+
+Run the following to restart all of the services:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl reconfigure
+
+Because the Chef server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.

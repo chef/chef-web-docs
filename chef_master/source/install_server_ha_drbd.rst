@@ -458,7 +458,7 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
+      $ sudo chef-server-ctl user-create USER_NAME FIRST_NAME LAST_NAME EMAIL 'PASSWORD' --filename FILE_NAME
 
    An RSA private key is generated automatically. This is the user's private key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -466,7 +466,7 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ chef-server-ctl user-create stevedanno Steve Danno steved@chef.io 'abc123' --filename /path/to/stevedanno.pem
+      $ sudo chef-server-ctl user-create janedoe Jane Doe janed@example.com 'abc123' --filename /path/to/janedoe.pem
 
    .. end_tag
 
@@ -476,7 +476,13 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. code-block:: bash
 
-      $ chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
+      $ sudo chef-server-ctl org-create short_name 'full_organization_name' --association_user user_name --filename ORGANIZATION-validator.pem
+
+   For example:
+
+   .. code-block:: bash
+
+      $ sudo chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user janedoe --filename /path/to/4thcoffee-validator.pem
 
    The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``4thcoffee``.
 
@@ -485,12 +491,6 @@ For each frontend server, use the following steps to set up the Chef server:
    The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
 
    An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
-
-   For example:
-
-   .. code-block:: bash
-
-      $ chef-server-ctl org-create 4thcoffee 'Fourth Coffee, Inc.' --association_user stevedanno --filename /path/to/4thcoffee-validator.pem
 
    .. end_tag
 
@@ -560,13 +560,13 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
 .. code-block:: bash
 
-   $ chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+   $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 
 For example:
 
 .. code-block:: bash
 
-   $ chef-server-ctl install chef-manage --path /root/packages
+   $ sudo chef-server-ctl install chef-manage --path /root/packages
 
 The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 
