@@ -460,7 +460,7 @@ All data that is received by Chef Automate will be available in both the new and
 Chef Automate Pilot
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-This release introduces a Docker-based pilot offering for Chef Automate. This is specifically designed for customers evaluating Chef Automate for their organization, and is not intended for production use. The offering is built with Chef’s Habitat technology, allowing Chef Automate to be installed in a few minutes in containers running on a single machine. Also included are sets of compliance-driven demo data, to offer first-hand experience with the product. Customers can try the pilot by visiting https://www.chef.io/automate/ or https://www.chef.io/why-chef/. You can also go through the tutorial for Chef Automate Pilot on `Learn Chef Rally <https://learn.chef.io/modules/chef-automate-pilot/linux/docker#/>`_.
+This release introduces a Docker-based pilot offering for Chef Automate. This is specifically designed for customers evaluating Chef Automate for their organization, and is not intended for production use. The offering is built with Chef’s Habitat technology, allowing Chef Automate to be installed in a few minutes in containers running on a single machine. Also included are sets of compliance-driven demo data, to offer first-hand experience with the product. Customers can try the pilot by visiting https://automate.chef.io/ or https://www.chef.io/why-chef/. You can also go through the tutorial for Chef Automate Pilot on `Learn Chef Rally <https://learn.chef.io/modules/chef-automate-pilot/linux/docker#/>`_.
 
 Policyfile Data Views
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
