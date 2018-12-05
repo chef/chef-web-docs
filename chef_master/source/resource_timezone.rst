@@ -3,7 +3,7 @@ timezone resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_timezone.rst>`__
 
-Use the **timezone** resource to change the system **timezone** on Windows, Linux, and macOS hosts. Timezones are specified in tz database format, with a complete list of available TZ values for linux and macOS here https://en.wikipedia.org/wiki/List_of_tz_database_time_zones and for windows here https://ss64.com/nt/timezones.html.
+Use the **timezone** resource to change the system **timezone** on Windows, Linux, and macOS hosts. Timezones are specified in tz database format, with a complete list of available TZ values for Linux and macOS here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones and for Windows here: https://ss64.com/nt/timezones.html.
 
  **New in Chef Client 14.6.**
 
