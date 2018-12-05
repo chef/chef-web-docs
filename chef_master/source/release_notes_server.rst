@@ -31,7 +31,7 @@ This release:
 * Removed nodejs (a build dependency that was shipped).
 
 .. note:: Chef Server 12.18.14 introduces an incompatibility between older versions of Berkshelf and the ChefDK. We recommend using the minimum versions of  Berkshelf >= 7.0.5 and ChefDK >= 3.2.30. 
-A Berkshelf upload to Chef Server failing with ``Net::HTTPServerException: 400 "Bad Request"`` and opscode-erchef logs containing ``status=400`` and ``req_api_version=1`` in the log line for the related cookbook upload API request, are strong evidence of this incompatibility.
+This incompatibility manifests with a Berkshelf upload to Chef Server failure of ``Net::HTTPServerException: 400 "Bad Request"`` and opscode-erchef logs containing ``status=400`` and ``req_api_version=1`` in the log line for the corresponding cookbook upload API request.
 
 What's New in 12.17.33
 =====================================================
