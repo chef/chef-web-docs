@@ -351,3 +351,64 @@ The Chef server uses role-based access control (RBAC) to restrict access to obje
 
 .. image:: ../../images/step_manage_webui_admin.png
 
+Install Chef Manage
+=====================================================
+
+   .. tag ctl_chef_server_install_features_download
+
+   The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.  
+
+   .. list-table::
+      :widths: 100 400
+      :header-rows: 1
+
+      * - Feature
+        - Command
+      * - Chef Manage
+        - Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
+
+          On the Chef server, run:
+
+          .. code-block:: bash
+
+             $ sudo chef-server-ctl install chef-manage
+
+          then:
+
+          .. code-block:: bash
+
+             $ sudo chef-server-ctl reconfigure
+
+          and then:
+
+          .. code-block:: bash
+
+             $ sudo chef-manage-ctl reconfigure
+
+          .. note:: .. tag chef_license_reconfigure_manage
+
+                    Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+
+                    .. end_tag
+
+   .. end_tag
+
+Chef Manage Local Installation
+---------------------------------------------
+   .. tag ctl_chef_server_install_features_manual
+
+   The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are behind a firewall (and may not have connectivity to packages.chef.io), these packages can be downloaded from https://downloads.chef.io/chef-manage/, and then installed manually. First download the package that is appropriate for the platform, save it to a local path, and then run the ``install`` command using the ``--path`` option to specify the directory in which the package is located:
+
+   .. code-block:: bash
+
+      $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+
+   For example:
+
+   .. code-block:: bash
+
+      $ sudo chef-server-ctl install chef-manage --path /root/packages
+
+   The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
+
+   .. end_tag
