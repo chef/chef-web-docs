@@ -9,6 +9,8 @@ Authentication for Elasticsearch and Kibana
    :width: 40px
    :height: 17px
 
+.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://www.chef.io/automate/quickstart>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+
 .. end_tag
 
 Node data in Chef Automate is stored in `Elasticsearch <https://www.elastic.co/products/elasticsearch>`__ and viewable in the Chef Automate UI as well as `Kibana <https://www.elastic.co/products/kibana>`__. Access to Chef Automate's Elasticsearch and Kibana is protected by the same authentication used by the Chef Automate user interface. Elasticsearch authentication is enabled by default.
