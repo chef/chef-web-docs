@@ -20,7 +20,7 @@ snowballstemmer==1.2.1    # via sphinx
 sphinx==1.6.2
 sphinxcontrib-websupport==1.0.1  # via sphinx
 typing==3.6.1             # via sphinx
-urllib3==1.21.1           # via requests
+urllib3>=1.23           # via requests
 
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools                # via sphinx
