@@ -9,6 +9,7 @@ What’s New in 14.8
 =====================================================
 
 * **Updated Resources**
+
   * **apt_package**
       The apt_package resource now supports using the `allow_downgrade` property to enable downgrading of packages on a node in order to meet a specified version. Thank you [@whiteley](https://github.com/whiteley) for requesting this enhancement.
 
