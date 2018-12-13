@@ -621,6 +621,7 @@ Addenda
    deprecations_ohai_v6_plugins
    deprecations_ohai_windows_cpu
    deprecations_ohai_ipscopes
+   depreciations_ohai_system_profile
    deprecations_property_name_collision
    deprecations_resource_cloning
    deprecations_run_command

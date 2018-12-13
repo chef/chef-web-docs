@@ -215,3 +215,7 @@ All Deprecations
     - Removal of IpScopes plugin
     - 13.2
     - 14.0
+  * - `OHAI-14 </deprecations_ohai_system_profile.html>`__
+    - Removal of system_profile plugin
+    - 14.6
+    - 15.0
