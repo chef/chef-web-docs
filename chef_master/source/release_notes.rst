@@ -45,7 +45,6 @@ What’s New in 14.8
       Detection of Linux guests running on Hyper-V has been improved. In addition, Linux guests on Hyper-V hypervisors will also now detect their hypervisor's hostname. Thank you [@safematix](https://github.com/safematix) for contributing this enhancement.
       
       Example `node['virtualization']` data:
-      ```json
       {
         "systems": {
           "hyperv": "guest"
@@ -54,7 +53,6 @@ What’s New in 14.8
         "role": "guest",
         "hypervisor_host": "hyper_v.example.com"
       }
-      ```
 
   * **LXC / LXD Detection**
       On Linux systems running lxc or lxd containers, the lxc/lxd virtualization system will now properly populate the `node['virtualization']['systems']` attribute.
