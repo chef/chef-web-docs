@@ -7,7 +7,9 @@ Chef Client is released on a monthly schedule with new releases the first Wednes
 
 What’s New in 14.8
 =====================================================
+
 * **Updated Resources**
+
   * **apt_package**
       The apt_package resource now supports using the `allow_downgrade` property to enable downgrading of packages on a node in order to meet a specified version. Thank you [@whiteley](https://github.com/whiteley) for requesting this enhancement.
 
@@ -36,6 +38,7 @@ What’s New in 14.8
       A regression was resolved that prevented ChefSpec from testing the windows_task resource in Chef Client 14.7. Thank you [@jjustice6](https://github.com/jjustice6) for reporting this issue.
 
 * **Ohai 14.8**
+
   * **Improved Virtualization Detection**
 
   * **Hyper-V Hypervisor Detection**
@@ -60,6 +63,7 @@ What’s New in 14.8
       BSD-based systems can now detect guests running on KVM and Amazon's hypervisor without the need for the dmidecode package.
 
 * **New Platform Support**
+
   * Ohai now properly detects the openSUSE 15.X platform. Thank you [@megamorf](https://github.com/megamorf) for reporting this issue.
   * SUSE Linux Enterprise Desktop now identified as platform_family 'suse'
   * XCP-NG is now identified as platform 'xcp' and platform_family 'rhel'. Thank you [@heyjodom](http://github.com/heyjodom) for submitting this enhancement.
@@ -68,6 +72,7 @@ What’s New in 14.8
   * Manjaro Linux now identified as platform_family 'arch'
 
 * **Security Updates**
+
   * **OpenSSL**
       OpenSSL has been updated to 1.0.2q in order to resolve:
       * Microarchitecture timing vulnerability in ECC scalar multiplication ([CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407))
