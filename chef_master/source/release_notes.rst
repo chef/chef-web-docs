@@ -9,7 +9,6 @@ What’s New in 14.8
 =====================================================
 
 * **Updated Resources**
-
   * **apt_package**
       The apt_package resource now supports using the `allow_downgrade` property to enable downgrading of packages on a node in order to meet a specified version. Thank you [@whiteley](https://github.com/whiteley) for requesting this enhancement.
 
@@ -38,7 +37,6 @@ What’s New in 14.8
       A regression was resolved that prevented ChefSpec from testing the windows_task resource in Chef Client 14.7. Thank you [@jjustice6](https://github.com/jjustice6) for reporting this issue.
 
 * **Ohai 14.8**
-
   * **Improved Virtualization Detection**
 
   * **Hyper-V Hypervisor Detection**
@@ -71,7 +69,6 @@ What’s New in 14.8
   * Manjaro Linux now identified as platform_family 'arch'
 
 * **Security Updates**
-
   * **OpenSSL**
       OpenSSL has been updated to 1.0.2q in order to resolve:
       * Microarchitecture timing vulnerability in ECC scalar multiplication ([CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407))
