@@ -3,6 +3,7 @@ Release Notes: Chef Client 12.0 - 14.8
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
+
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
 What’s New in 14.8
@@ -43,16 +44,6 @@ What’s New in 14.8
 
   * **Hyper-V Hypervisor Detection**
       Detection of Linux guests running on Hyper-V has been improved. In addition, Linux guests on Hyper-V hypervisors will also now detect their hypervisor's hostname. Thank you [@safematix](https://github.com/safematix) for contributing this enhancement.
-      
-      Example `node['virtualization']` data:
-      {
-        "systems": {
-          "hyperv": "guest"
-        },
-        "system": "hyperv",
-        "role": "guest",
-        "hypervisor_host": "hyper_v.example.com"
-      }
 
   * **LXC / LXD Detection**
       On Linux systems running lxc or lxd containers, the lxc/lxd virtualization system will now properly populate the `node['virtualization']['systems']` attribute.
