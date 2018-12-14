@@ -1,9 +1,71 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.6
+Release Notes: Chef Client 12.0 - 14.8
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
+
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What’s New in 14.8
+=====================================================
+
+* **Updated Resources**
+
+  * **apt_package**
+      The apt_package resource now supports using the `allow_downgrade` property to enable downgrading of packages on a node in order to meet a specified version. Thank you [@whiteley](https://github.com/whiteley) for requesting this enhancement.
+
+  * **apt_repository**
+      An issue was resolved in the apt_repository resource that caused the resource to fail when importing GPG keys on newer Debian releases. Thank you [@EugenMayer](https://github.com/EugenMayer) for this fix.
+
+  * **dnf_package / yum_package**
+      Initial support has been added for Red Hat Enterprise Linux 8. Thank you [@pixdrift](https://github.com/pixdrift) for this fix.
+
+  * **gem_package**
+      gem_package now supports installing gems into Ruby 2.6 or later installations.
+
+  * **windows_ad_join**
+      windows_ad_join now uses the UPN format for usernames, which prevents some failures to authenticate to the domain.
+
+  * **windows_certificate**
+      An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you [@shoekstra](htts://github.com/shoekstra) for reporting this issue.
+
+  * **windows_feature**
+      The windows_feature resource now allows for the installation of DISM features that have been fully removed from a system. Thank you [@zanecodes](https://github.com/zanecodes) for requesting this enhancement.
+
+  * **windows_share**
+      Multiple issues were resolved in windows_share, which caused the resource to either fail or update the share state on every Chef Client run. Thank you [@chadmccune](https://github.com/chadmccune) for reporting several of these issues and [@derekgroh](https://github.com/derekgroh) for one of the fixes.
+
+  * **windows_task**
+      A regression was resolved that prevented ChefSpec from testing the windows_task resource in Chef Client 14.7. Thank you [@jjustice6](https://github.com/jjustice6) for reporting this issue.
+
+* **Ohai 14.8**
+
+  * **Improved Virtualization Detection**
+
+  * **Hyper-V Hypervisor Detection**
+      Detection of Linux guests running on Hyper-V has been improved. In addition, Linux guests on Hyper-V hypervisors will also now detect their hypervisor's hostname. Thank you [@safematix](https://github.com/safematix) for contributing this enhancement.
+
+  * **LXC / LXD Detection**
+      On Linux systems running lxc or lxd containers, the lxc/lxd virtualization system will now properly populate the `node['virtualization']['systems']` attribute.
+
+  * **BSD Hypervisor Detection**
+      BSD-based systems can now detect guests running on KVM and Amazon's hypervisor without the need for the dmidecode package.
+
+* **New Platform Support**
+
+  * Ohai now properly detects the openSUSE 15.X platform. Thank you [@megamorf](https://github.com/megamorf) for reporting this issue.
+  * SUSE Linux Enterprise Desktop now identified as platform_family 'suse'
+  * XCP-NG is now identified as platform 'xcp' and platform_family 'rhel'. Thank you [@heyjodom](http://github.com/heyjodom) for submitting this enhancement.
+  * Mangeia Linux is now identified as platform 'mangeia' and platform_family 'mandriva'
+  * Antergos Linux now identified as platform_family 'arch'
+  * Manjaro Linux now identified as platform_family 'arch'
+
+* **Security Updates**
+
+  * **OpenSSL**
+      OpenSSL has been updated to 1.0.2q in order to resolve:
+      * Microarchitecture timing vulnerability in ECC scalar multiplication ([CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407))
+      * Timing vulnerability in DSA signature generation ([CVE-2018-0734](https://nvd.nist.gov/vuln/detail/CVE-2018-0734))
 
 What’s New in 14.7
 =====================================================
