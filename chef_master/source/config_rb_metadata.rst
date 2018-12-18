@@ -245,7 +245,7 @@ This configuration file has the following settings:
    .. note:: This setting is not visible in Chef Supermarket.
 
 ``privacy``
-   Specify that a cookbook is private. 
+   Specify a cookbook as private. 
    
    For example:
 
