@@ -195,6 +195,13 @@ Individual users who are members of a group will inherit the permissions assigne
 
 .. end_tag
 
+Knife ACL
+-----------------------------------------------------
+
+The knife plugin `knife-acl <https://github.com/chef/knife-acl>`_ provides a fine-grained approach to modifying permissions, by wrapping API calls to the ``_acl`` endpoint and makes such permission changes easier to manage.
+
+`knife-acl` and the Chef Manage browser interface are incompatible. After engaging `knife-acl`, you will need to discontinue using the Chef Manage browser interface from that point forward due to possible incompatibilities.
+
 Groups
 =====================================================
 .. tag server_rbac_groups
