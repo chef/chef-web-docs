@@ -225,7 +225,7 @@ Examples
 
 .. code-block:: ruby
 
-   hostname 'example' do
+   hostname 'example'
 
 The example above sets the hostname to ``example`` for the IP address, as detected by Ohai.
 
