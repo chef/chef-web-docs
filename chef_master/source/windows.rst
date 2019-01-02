@@ -742,7 +742,7 @@ The full syntax for all of the properties that are available to the **dsc_resour
      module_version             String
      property                   Symbol
      reboot_action              Symbol # default value: :nothing
-     resource                   String
+     resource                   Symbol
      timeout                    Integer
    end
 
@@ -813,7 +813,7 @@ The dsc_resource resource has the following properties:
    Use to request an immediate reboot or to queue a reboot using the :reboot_now (immediate reboot) or :request_reboot (queued reboot) actions built into the reboot resource.
 
 ``resource``
-   **Ruby Type:** String
+   **Ruby Type:** Symbol
 
    The name of the DSC resource. This value is case-insensitive and must be a symbol that matches the name of the DSC resource.
 
