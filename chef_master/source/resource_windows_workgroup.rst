@@ -52,7 +52,7 @@ The windows_workgroup resource has the following properties:
 ``password``
    **Ruby Type:** String
 
-   The password for the local administrator user. Required if using the user property.
+   The password for the local administrator user. Required if using the ``user`` property.
 
 ``reboot``
    **Ruby Type:** Symbol | **Default Value:** ``:immediate``
