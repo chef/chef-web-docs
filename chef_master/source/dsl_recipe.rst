@@ -1352,7 +1352,7 @@ For example:
        end
      end
      log "kick it off" do
-       notifies :run, "my_thing[accumulated state], :delayed
+       notifies :run, "my_thing[accumulated state]", :delayed
      end
    end
 
