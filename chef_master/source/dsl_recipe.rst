@@ -1648,6 +1648,8 @@ The following Microsoft Windows platform-specific helpers can be used in recipes
      - Use to test for Windows 8.
    * - ``windows_8_1?``
      - Use to test for Windows 8.1.
+   * - ``windows_10?``
+     - Use to test for Windows 10.
    * - ``windows_2000?``
      - Use to test for Windows 2000.
    * - ``windows_home_server?``
@@ -1664,6 +1666,10 @@ The following Microsoft Windows platform-specific helpers can be used in recipes
      - Use to test for Windows Server 2012.
    * - ``windows_server_2012_r2?``
      - Use to test for Windows Server 2012 R2.
+   * - ``windows_server_2016?``
+     - Use to test for Windows Server 2016.
+   * - ``windows_server_2019?``
+     - Use to test for Windows Server 2019.
    * - ``windows_vista?``
      - Use to test for Windows Vista.
    * - ``windows_xp?``
