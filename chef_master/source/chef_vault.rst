@@ -3,7 +3,7 @@
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_vault.rst>`__
 
-``chef-vault`` is a Ruby Gem that is included in the Chef Development Kit and the chef-client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
+``chef-vault`` is a Ruby Gem that is included in Chef Workstation and the chef-client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
 
 .. note:: ``chef-vault`` does not currently support alternate keying mechanisms like GPG and Amazon KMS.
 
@@ -24,7 +24,7 @@ The ``chef-vault cookbook`` is maintained by Chef. Use it along with ``chef-vaul
 Installation
 =====================================================
 
-The Chef Development Kit ships with the latest release of Chef vault and should be used for working with Chef vault.
+The Chef Workstation ships with the latest release of chef_vault.
 
 Configuring config.rb for ``chef_vault``
 ------------------------------------------------------
@@ -126,7 +126,7 @@ Vault Common Options
 ``-F``, ``--format FORMAT``
       Which format to use for output
 
-``-J``,`` --json FILE``
+``-J``, ``--json FILE``
       File containing JSON data to encrypt
 
 ``-K``, ``--keys-mode KEYS_MODE``
@@ -159,7 +159,7 @@ Vault Common Options
 ``-y``, ``--yes``
       Say yes to all prompts for confirmation
 
- ``-h``, ``--help``
+``-h``, ``--help``
       Show this message
 
 Example Commands
@@ -546,7 +546,7 @@ Options for knife bootstrap
 =====================================================
 .. tag chef_vault_knife_bootstrap_options
 
-Use the following options with a validatorless bootstrap to specify items that are stored in``chef-vault``:
+Use the following options with a validatorless bootstrap to specify items that are stored in ``chef-vault``:
 
 ``--bootstrap-vault-file VAULT_FILE``
    The path to a JSON file that contains a list of vaults and items to be updated.
@@ -594,19 +594,19 @@ Example Code
 
 Note that in this case, the gem needs to be installed at compile time
 because the require statement is at the top-level of the recipe.  If
-you move the require of ``chef-vault`` and the call to `::load` to
+you move the require of ``chef-vault`` and the call to ``::load`` to
 library or provider code, you can install the gem in the converge phase
 instead.
 
 Specifying an alternate node name or client key path
 --------------------------------------------------------
-Normally, the value of `Chef::Config[:node_name]` is used to find the
+Normally, the value of ``Chef::Config[:node_name]`` is used to find the
 per-node encrypted secret in the keys data bag item, and the value of
 `Chef::Config[:client_key]` is used to locate the private key to decrypt
 this secret.
 
-These can be overridden by passing a hash with the keys `:node_name` or
-`:client_key_path` to `ChefVault::Item.load`:
+These can be overridden by passing a hash with the keys ``:node_name`` or
+``:client_key_path`` to ``ChefVault::Item.load``:
 
 .. code-block:: ruby
 
@@ -626,9 +626,9 @@ configurations where nodes are created dynamically.
 
 chef_vault_item helper
 --------------------------------------------------
-The [chef-vault cookbook](https://supermarket.chef.io/cookbooks/chef-vault)
-contains a recipe to install the ``chef-vault gem`` and a helper method
-`c`hef_vault_helper`` which makes it easier to test cookbooks that use
+The `chef-vault cookbook <https://supermarket.chef.io/cookbooks/chef-vault/>`_
+contains a recipe to install the ``chef-vault`` gem and a helper method
+``chef_vault_item`` which makes it easier to test cookbooks that use
 chef-vault using Test Kitchen.
 
 Determining if Item is a Vault
@@ -646,7 +646,7 @@ to support both normal data bags and vaults:
     end
 
 
-This functionality is also available from the command line as `knife vault isvault VAULT ITEM`.
+This functionality is also available from the command line as ``knife vault isvault VAULT ITEM``.
 
 Determining Data Bag Item Type
 -----------------------------------------------------------------
@@ -669,7 +669,7 @@ Stand Alone Usage
 ------------------------------------------------------------------------
 ``chef-vault`` can be used as a stand alone binary to decrypt values stored in
 Chef. It requires that Chef is installed on the system and that you have a
-valid config.rb. This is useful if you want to mix `chef-vault` into non-Chef
+valid config.rb. This is useful if you want to mix ``chef-vault`` into non-Chef
 recipe code, for example some other script where you want to protect a
 password.
 
@@ -690,11 +690,11 @@ To stub vault items in ChefSpec, use the
 gem.
 
 To fall back to unencrypted JSON files in Test Kitchen, use the
-``chef_vault_item`` helper in the aforementioned ``chef-vault cookbook``.
+``chef_vault_item`` helper in the aforementioned ``chef-vault`` cookbook.
 
 For more information ...
 =====================================================
 For more information about ``chef-vault``:
 
-* ` Nell Shamrell-Harringon's blog post <https://blog.chef.io/2016/01/21/chef-vault-what-is-it-and-what-can-it-do-for-you/>`_
+* `Nell Shamrell-Harringon's blog post <https://blog.chef.io/2016/01/21/chef-vault-what-is-it-and-what-can-it-do-for-you/>`_
 * `Joshua Timberman's blog post <https://www.chef.io/blog/2013/09/19/managing-secrets-with-chef-vault/>`_
