@@ -3,7 +3,7 @@
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_vault.rst>`__
 
-``chef-vault`` is a Ruby Gem that is included in the Chef Development Kit and the chef-client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
+``chef-vault`` is a Ruby Gem that is included in Chef Workstation and the chef-client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
 
 .. note:: ``chef-vault`` does not currently support alternate keying mechanisms like GPG and Amazon KMS.
 
@@ -24,7 +24,7 @@ The ``chef-vault cookbook`` is maintained by Chef. Use it along with ``chef-vaul
 Installation
 =====================================================
 
-The Chef Development Kit ships with the latest release of Chef vault and should be used for working with Chef vault.
+The Chef Workstation ships with the latest release of chef_vault.
 
 Configuring config.rb for ``chef_vault``
 ------------------------------------------------------
@@ -159,7 +159,7 @@ Vault Common Options
 ``-y``, ``--yes``
       Say yes to all prompts for confirmation
 
- ``-h``, ``--help``
+``-h``, ``--help``
       Show this message
 
 Example Commands
