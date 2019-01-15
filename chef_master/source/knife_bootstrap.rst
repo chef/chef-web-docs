@@ -258,7 +258,7 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_vault_knife_bootstrap_options
 
-Use the following options with a validatorless bootstrap to specify items that are stored in``chef-vault``:
+Use the following options with a validatorless bootstrap to specify items that are stored in ``chef-vault``:
 
 ``--bootstrap-vault-file VAULT_FILE``
    The path to a JSON file that contains a list of vaults and items to be updated.
