@@ -7,10 +7,6 @@ About Policyfile
 
 A Policyfile is an optional way to manage role, environment, and community cookbook data with a single document that is uploaded to the Chef server. The file is associated with a group of nodes, cookbooks, and settings. When these nodes perform a Chef client run, they utilize recipes specified in the Policyfile run-list.
 
-.. note:: Consider the following before using Policyfiles:
-
-   * Policyfile is not supported as part of a Chef Automate workflow
-
 .. end_tag
 
 Why Policyfile?
@@ -349,7 +345,7 @@ or testing with policies per-suite, once the Policyfile files are available in y
          provisioner:
             policyfile: policies/defaulttwo.rb
          attributes
-	 
+
 .. note:: As ``chef_zero`` explicitly tests outside the context of a Chef server, the ``policy_groups`` concept is not applicable. The value of ``policy_group`` during a converge will be set to ``local``.
 
 chef Commands
