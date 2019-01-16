@@ -159,6 +159,10 @@ All Deprecations
     - Deprecation of ``epic_fail`` in favor of ``allow_failure``
     - 13.7
     - 14.0  
+  * - CHEF-25
+    - Depreciation of ...
+    -
+    - 15.0
   * - `CHEF-3694 </deprecations_resource_cloning.html>`__
     - Resource Cloning will no longer work.
     - 10.18
