@@ -159,7 +159,7 @@ All Deprecations
     - Deprecation of ``epic_fail`` in favor of ``allow_failure``
     - 13.7
     - 14.0  
-  * - CHEF-25
+  * - CHEF-25 </deprecations_map_collision.html>`__
     - Resource(s) in a cookbook collide with the same resource(s) now included in Chef.
     -
     - 15.0
