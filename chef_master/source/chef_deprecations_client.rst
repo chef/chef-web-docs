@@ -160,7 +160,7 @@ All Deprecations
     - 13.7
     - 14.0  
   * - CHEF-25
-    - Depreciation of ...
+    - Resource(s) in a cookbook collide with the same resource(s) now included in Chef.
     -
     - 15.0
   * - `CHEF-3694 </deprecations_resource_cloning.html>`__
