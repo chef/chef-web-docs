@@ -7,4 +7,5 @@ The resource(s) referenced in the error message has been loaded from a cookbook.
 
 Remediation
 =============
+
 Please upgrade your cookbook to the latest version, which may fix your issue, or ignore this error message.
