@@ -3,15 +3,9 @@ High Availability: Backend Cluster
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_server_ha_v2.rst>`__
 
-.. tag chef_automate_mark
-
 .. image:: ../../images/chef_automate_full.png
    :width: 40px
    :height: 17px
-
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
-
-.. end_tag
 
 This topic describes the process of upgrading a highly available Chef server cluster.
 
