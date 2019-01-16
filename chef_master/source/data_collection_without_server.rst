@@ -8,7 +8,7 @@ If you do not use a Chef server in your environment (if you only use ```chef-sol
 
 To enable this functionality, you must perform the following steps:
 
- * Configure a Data Collector token in Chef Automate (see `prior section </data_collection.rst#configure-a-data-collector-token-in-chef-automate>`__)
+ * Configure a Data Collector token in Chef Automate (see `prior section </data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate>`__)
  * Add Chef Automate SSL certificate to ``trusted_certs`` directory
  * Configure Chef Client to use the Data Collector endpoint in Chef Automate
 
