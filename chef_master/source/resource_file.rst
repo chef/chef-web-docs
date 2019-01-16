@@ -125,7 +125,7 @@ The file resource has the following properties:
 ``manage_symlink_source``
    **Ruby Type:** true, false | **Default Value:** ``true`` (with warning)
 
-   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of symlink's target file.
+   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``false``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``true``, Chef will follow the symlink and will manage the permissions and content of symlink's target file.
 
    The default behavior is ``true`` but emits a warning that the default value will be changed to ``false`` in a future version; setting this explicitly to ``true`` or ``false`` suppresses this warning.
 
