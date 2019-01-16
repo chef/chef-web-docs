@@ -27,7 +27,7 @@ What’s New in 14.8
       windows_ad_join now uses the UPN format for usernames, which prevents some failures to authenticate to the domain.
 
   * **windows_certificate**
-      An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you [@shoekstra](htts://github.com/shoekstra) for reporting this issue.
+      An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you [@shoekstra](https://github.com/shoekstra) for reporting this issue.
 
   * **windows_feature**
       The windows_feature resource now allows for the installation of DISM features that have been fully removed from a system. Thank you [@zanecodes](https://github.com/zanecodes) for requesting this enhancement.
@@ -2546,7 +2546,7 @@ For example:
        end
      end
      log "kick it off" do
-       notifies :run, "my_thing[accumulated state], :delayed
+       notifies :run, "my_thing[accumulated state]", :delayed
      end
    end
 
