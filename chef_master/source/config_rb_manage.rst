@@ -3,16 +3,6 @@ manage.rb
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_manage.rst>`__
 
-.. tag chef_automate_mark
-
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
-
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
-
-.. end_tag
-
 .. tag chef_manager
 
 Chef management console is a web-based interface for the Chef server that provides users a way to manage the following objects:
