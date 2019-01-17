@@ -3,16 +3,6 @@ Chef Manage
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage.rst>`__
 
-.. tag chef_automate_mark
-
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
-
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
-
-.. end_tag
-
 .. tag manage_summary
 
 The Chef management console enables the management of nodes, data bags, roles, environments, and cookbooks by using a web user interface. In addition, access to nodes, data bags, roles, environments, and cookbooks is configurable using role-based access control (RBAC).
