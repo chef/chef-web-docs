@@ -147,15 +147,15 @@ All Deprecations
     - Deprecation of the ``:uninstall`` action in the ``chocolatey_package`` resource.
     - 13.7
     - 14.0
-  * - `CHEF-22  </deprecations_erl_call_resource.html>`__
+  * - `CHEF-22 </deprecations_erl_call_resource.html>`__
     - Deprecation of the ``erl_call`` resource.
     - 13.7
     - 14.0
-  * - CHEF-23
+  * - `CHEF-23 </deprecations_legacy_hwrp_mixins.html>`__
     - Deprecation of legacy HWRP mixins.
     - 12.X
     - 14.0
-  * - CHEF-24
+  * - `CHEF-24 </deprecations_epic_fail.html>`__
     - Deprecation of ``epic_fail`` in favor of ``allow_failure``
     - 13.7
     - 14.0  
