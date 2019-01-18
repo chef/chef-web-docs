@@ -101,7 +101,7 @@ What's New in 3.1
       ``knife-acl`` is now included with ChefDK. This knife plugin allows admin users to modify Chef Server ACLs from their command line.
 
   **knife-tidy**
-      ``knife-tidy`` 3 is now included with ChefDK. This knife plugin generates reports about stale nodes and helps clean them up.
+      ``knife-tidy`` is now included with ChefDK. This knife plugin generates reports about stale nodes and helps clean them up.
 
   **Test Kitchen**
       Test Kitchen 1.11.0 adds a new ``ssh_gateway_port`` config and fixes a bug on Unix systems where scripts are not created as executable.
