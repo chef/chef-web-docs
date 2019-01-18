@@ -1,5 +1,5 @@
 =====================================================
-Deprecation:  (CHEF-24)
+Deprecation: epic_fail (CHEF-24)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_epic_fail.rst>`__
 
