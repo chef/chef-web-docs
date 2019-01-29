@@ -441,7 +441,7 @@ Bash User Data
    /bin/mkdir -p /var/log/chef
 
    # Setup hosts file correctly
-   cat > "/etc/hosts" << EOF
+   cat >> "/etc/hosts" << EOF
    10.0.0.5    compliance-server compliance-server.automate.com
    10.0.0.6    chef-server chef-server.automate.com
    10.0.0.7    automate-server automate-server.automate.com
