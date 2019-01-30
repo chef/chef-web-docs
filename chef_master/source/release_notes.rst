@@ -12,7 +12,7 @@ What’s New in 14.10
 * **Updated Resources**
 
   * **windows_certificate**
-      The `windows_certificate </resource_windows_certificate.html>`__ resource is now fully idempotent and properly imports private keys. Thanks `@Xorima <https://github.com/Xorima>`__ for reporting these issues.
+      The `windows_certificate </resource_windows_certificate.html>`__ resource is now fully idempotent. Thanks `@Xorima <https://github.com/Xorima>`__ for reporting this issue.
 
   * **apt_repository**
       The `apt_repository </resource_apt_repository.html>`__ resource no longer creates .gpg directory in the user's home directory owned by root when installing repository keys. Thanks `@omry <https://github.com/omry>`__ for reporting this issue.

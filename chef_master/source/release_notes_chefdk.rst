@@ -15,11 +15,32 @@ What's New in 3.7
 * **Updated Tooling**
 
   * **InSpec 3.4.1**
+
       * New aws_billing_report / aws_billing_reports resources
-      * Under the hood improvements
+      * Many under the hood improvements
 
   * **kitchen-inspec 1.0.1**
+
       * Support for bastion configuration in transport options.
+
+  * **kitchen-vagrant 1.4.0**
+
+      * This fixes audio for VirtualBox users by disabling audio in VirtualBox by default to prevent interrupting host Bluetooth audio.
+
+  * **kitchen-azurerm 0.14.8**
+
+      * Support Azure Managed Identities and apply vm_tags to all resources in resource group.
+
+* **Updated Components**
+
+    * `bundler`: 1.16.1 -> 1.17.3
+    * `chef-apply`: 0.2.4 -> 0.2.7
+    * `kitchen-tidy`: 1.2.0 -> 2.0.0
+    * `rubygems`: 2.7.6 -> 2.7.8
+
+* **Deprecations**
+
+    chef provision - Chef Provisioning has been in maintenance mode since 2015 and due to the age of its dependencies it cannot be included in ChefDK 4 which is scheduled for an April 2019 release.
 
 What's New in 3.6
 =====================================================
@@ -201,7 +222,6 @@ What's New in 3.3
 
   * ```chef generate app`` - Application repos were a pattern that didn't take off.
   * ``chef generate lwrp`` - Use `chef generate resource`. Every supported release of Chef supports custom resources. Custom resources are awesome. No one should be writing new LWRPs any more. LWRPS are not awesome.
-
 
 What's New in 3.2
 =====================================================
