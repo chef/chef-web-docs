@@ -12,13 +12,13 @@ What’s New in 14.10
 * **Updated Resources**
 
   * **windows_certificate**
-      The windows_certificate resource is now fully idempotent and properly imports private keys. Thanks `@Xorima <https://github.com/Xorima>`__ for reporting these issues.
+      The `windows_certificate </resource_windows_certificate.html>`__ resource is now fully idempotent and properly imports private keys. Thanks `@Xorima <https://github.com/Xorima>`__ for reporting these issues.
 
   * **apt_repository**
-      The apt_repository resource no longer creates .gpg directory in the user's home directory owned by root when installing repository keys. Thanks `@omry <https://github.com/omry>`__ for reporting this issue.
+      The `apt_repository </resource_apt_repository.html>`__ resource no longer creates .gpg directory in the user's home directory owned by root when installing repository keys. Thanks `@omry <https://github.com/omry>`__ for reporting this issue.
 
   * **git**
-      The git resource no longer displays the URL of the repository if the sensitive property is set.
+      The `git </resource_git.html>`__ resource no longer displays the URL of the repository if the sensitive property is set.
 
 * **InSpec 3.4.1**
   InSpec has been updated from 3.2.6 to 3.4.1. This new release adds new aws_billing_report / aws_billing_reports resources, resolves multiple bugs, and includes tons of under the hood improvements.
@@ -40,22 +40,22 @@ What’s New in 14.9
 * **Updated Resources**
 
   * **group**
-      On Windows hosts the group resource now supports setting the comment field via a new comment property.
+      On Windows hosts the `group </resource_group.html>`__ resource now supports setting the comment field via a new comment property.
 
   * **homebrew_cask**
-      Two issues that caused homebrew_cask to converge on each Chef run have been resolved. Thanks `@jeroenj <https://github.com/jeroenj>`__ for this fix. Additionally the resource will no longer fail if the cask_name property is specified.
+      Two issues that caused `homebrew_cask </resource_homebrew_cask.html>`__ to converge on each Chef run have been resolved. Thanks `@jeroenj <https://github.com/jeroenj>`__ for this fix. Additionally the resource will no longer fail if the cask_name property is specified.
 
   * **homebrew_tap**
-      The homebrew_tap resource no longer fails if the tap_name property is specified.
+      The `homebrew_tap </resource_homebrew_tap.html>`__ resource no longer fails if the tap_name property is specified.
 
   * **openssl_x509_request**
-      The openssl_x509_request resource now property writes out the CSR file if the path property is specified. Thank you `@cpjones <https://github.com/cpjones>`__ for reporting this issue.
+      The `openssl_x509_request </resource_openssl_x509_request.html>`__ resource now property writes out the CSR file if the path property is specified. Thank you `@cpjones <https://github.com/cpjones>`__ for reporting this issue.
 
   * **powershell_package_source**
-      powershell_package_source now suppresses warnings which prevented properly loading the resource state, and resolves idempotency issues when both the name and source_name properties were specified. Thanks `@Happycoil <https://github.com/Happycoil>`__ for this fix.
+      `powershell_package_source </resource_powershell_package_source.html>`__ now suppresses warnings which prevented properly loading the resource state, and resolves idempotency issues when both the name and source_name properties were specified. Thanks `@Happycoil <https://github.com/Happycoil>`__ for this fix.
 
   * **sysctl**
-      The sysctl resource now allows slashes in the key or block name. This allows keys such as net/ipv4/conf/ens256.401/rp_filter to be used with this resource.
+      The `sysctl </resource_sysctl.html>`__ resource now allows slashes in the key or block name. This allows keys such as net/ipv4/conf/ens256.401/rp_filter to be used with this resource.
 
   * **windows_ad_join**
       Errors joining the domain are now properly suppressed from the console and logs if the sensitive property is set to true. Thanks `@Happycoil <https://github.com/Happycoil>`__ for this improvement.
@@ -64,7 +64,7 @@ What’s New in 14.9
       The delete action now longer fails if a certificate does not exist on the system. Additionally certificates with special characters in their passwords will no longer fail. Thank you for reporting this `@chadmccune <https://github.com/chadmccune>`__
 
   * **windows_printer**
-      The windows_printer resource no longer fails when creating or deleting a printer if the device_id property is specified.
+      The `windows_printer </resource_windows_printer.html>`__ resource no longer fails when creating or deleting a printer if the device_id property is specified.
 
   * **windows_task**
       Non-system users can now run tasks without a password being specified.
@@ -265,12 +265,12 @@ What’s New in 14.5
   * **locale**
       Use the `locale </resource_locale.html>`__ resource to set the system’s locale.
 
-      Thank you @vincentaubert for contributing this resource.
+      Thank you `@vincentaubert <https://github.com/vincentaubert>`__ for contributing this resource.
 
   * **windows_workgroup**
       Use the `windows_workgroup </resource_windows_workgroup.html>`__ resource to join or change the workgroup of a Windows host.
 
-      Thank you @derekgroh for contributing this resource.
+      Thank you `@derekgroh <https://github.com/derekgroh>`__ for contributing this resource.
 
 * **Improved Resources**
 
