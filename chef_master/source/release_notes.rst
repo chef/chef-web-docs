@@ -87,28 +87,28 @@ What’s New in 14.8
 * **Updated Resources**
 
   * **apt_package**
-      The apt_package resource now supports using the `allow_downgrade` property to enable downgrading of packages on a node in order to meet a specified version. Thank you `@whiteley <https://github.com/whiteley>`__ for requesting this enhancement.
+      The `apt_package </resource_apt_package.html>`__ resource now supports using the `allow_downgrade` property to enable downgrading of packages on a node in order to meet a specified version. Thank you `@whiteley <https://github.com/whiteley>`__ for requesting this enhancement.
 
   * **apt_repository**
-      An issue was resolved in the apt_repository resource that caused the resource to fail when importing GPG keys on newer Debian releases. Thank you `@EugenMayer <https://github.com/EugenMayer>`__ for this fix.
+      An issue was resolved in the `apt_repository </resource_apt_repository.html>`__ resource that caused the resource to fail when importing GPG keys on newer Debian releases. Thank you `@EugenMayer <https://github.com/EugenMayer>`__ for this fix.
 
   * **dnf_package / yum_package**
       Initial support has been added for Red Hat Enterprise Linux 8. Thank you `@pixdrift <https://github.com/pixdrift>`__ for this fix.
 
   * **gem_package**
-      gem_package now supports installing gems into Ruby 2.6 or later installations.
+      The `gem_package </resource_gem_package.html>`__ resource now supports installing gems into Ruby 2.6 or later installations.
 
   * **windows_ad_join**
-      windows_ad_join now uses the UPN format for usernames, which prevents some failures to authenticate to the domain.
+      The `windows_ad_join </resource_windows_ad_join.html>`__ resource now uses the UPN format for usernames, which prevents some failures to authenticate to domains.
 
   * **windows_certificate**
-      An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you `@shoekstra <https://github.com/shoekstra>`__ for reporting this issue.
+      An issue was resolved in the :acl_add action of the `windows_certificate </resource_windows_certificate.html>`__ resource, which caused the resource to fail. Thank you `@shoekstra <https://github.com/shoekstra>`__ for reporting this issue.
 
   * **windows_feature**
-      The windows_feature resource now allows for the installation of DISM features that have been fully removed from a system. Thank you `@zanecodes <https://github.com/zanecodes>`__ for requesting this enhancement.
+      The `windows_feature </resource_windows_feature.html>`__ resource now allows for the installation of DISM features that have been fully removed from a system. Thank you `@zanecodes <https://github.com/zanecodes>`__ for requesting this enhancement.
 
   * **windows_share**
-      Multiple issues were resolved in windows_share, which caused the resource to either fail or update the share state on every Chef Client run. Thank you `@chadmccune <https://github.com/chadmccune>`__ for reporting several of these issues and `@derekgroh <https://github.com/derekgroh>`__ for one of the fixes.
+      Multiple issues were resolved in `windows_share </resource_windows_share.html>`__, which caused the resource to either fail or update the share state on every Chef Client run. Thank you `@chadmccune <https://github.com/chadmccune>`__ for reporting several of these issues and `@derekgroh <https://github.com/derekgroh>`__ for one of the fixes.
 
   * **windows_task**
       A regression was resolved that prevented ChefSpec from testing the windows_task resource in Chef Client 14.7. Thank you `@jjustice6 <https://github.com/jjustice6>`__ for reporting this issue.
