@@ -1,10 +1,85 @@
 =====================================================
-Release Notes: Chef Client 12.0 - 14.8
+Release Notes: Chef Client 12.0 - 14.10
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 
 Chef Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+What’s New in 14.10
+=====================================================
+
+* **Updated Resources**
+
+  * **windows_certificate**
+      The `windows_certificate </resource_windows_certificate.html>`__ resource is now fully idempotent and properly imports private keys. Thanks `@Xorima <https://github.com/Xorima>`__ for reporting these issues.
+
+  * **apt_repository**
+      The `apt_repository </resource_apt_repository.html>`__ resource no longer creates .gpg directory in the user's home directory owned by root when installing repository keys. Thanks `@omry <https://github.com/omry>`__ for reporting this issue.
+
+  * **git**
+      The `git </resource_git.html>`__ resource no longer displays the URL of the repository if the sensitive property is set.
+
+* **InSpec 3.4.1**
+  InSpec has been updated from 3.2.6 to 3.4.1. This new release adds new aws_billing_report / aws_billing_reports resources, resolves multiple bugs, and includes tons of under the hood improvements.
+
+* **New Deprecations**
+
+  * **knife cookbook site**
+      Since Chef 13, knife cookbook site has actually called the knife supermarket command under the hood. In Chef 16 (April 2020), we will remove the knife cookbook site command in favor of knife supermarket.
+
+  * **Audit Mode**
+      Chef's Audit mode was introduced in 2015 as a beta that needed to be enabled via client.rb. Its functionality has been superseded by InSpec and we will be removing this beta feature in Chef 15 (April 2019).
+
+  * **Cookbook Shadowing**
+      Cookbook shadowing was deprecated in 0.10 and will be removed in Chef 15 (April 2019). Cookbook shadowing allowed combining cookbooks within a mono-repo, so long as the cookbooks in question had the same name and were present in both the cookbooks directory and the site-cookbooks directory.
+
+What’s New in 14.9
+=====================================================
+
+* **Updated Resources**
+
+  * **group**
+      On Windows hosts the `group </resource_group.html>`__ resource now supports setting the comment field via a new comment property.
+
+  * **homebrew_cask**
+      Two issues that caused `homebrew_cask </resource_homebrew_cask.html>`__ to converge on each Chef run have been resolved. Thanks `@jeroenj <https://github.com/jeroenj>`__ for this fix. Additionally the resource will no longer fail if the cask_name property is specified.
+
+  * **homebrew_tap**
+      The `homebrew_tap </resource_homebrew_tap.html>`__ resource no longer fails if the tap_name property is specified.
+
+  * **openssl_x509_request**
+      The `openssl_x509_request </resource_openssl_x509_request.html>`__ resource now property writes out the CSR file if the path property is specified. Thank you `@cpjones <https://github.com/cpjones>`__ for reporting this issue.
+
+  * **powershell_package_source**
+      `powershell_package_source </resource_powershell_package_source.html>`__ now suppresses warnings which prevented properly loading the resource state, and resolves idempotency issues when both the name and source_name properties were specified. Thanks `@Happycoil <https://github.com/Happycoil>`__ for this fix.
+
+  * **sysctl**
+      The `sysctl </resource_sysctl.html>`__ resource now allows slashes in the key or block name. This allows keys such as net/ipv4/conf/ens256.401/rp_filter to be used with this resource.
+
+  * **windows_ad_join**
+      Errors joining the domain are now properly suppressed from the console and logs if the sensitive property is set to true. Thanks `@Happycoil <https://github.com/Happycoil>`__ for this improvement.
+
+  * **windows_certificate**
+      The delete action now longer fails if a certificate does not exist on the system. Additionally certificates with special characters in their passwords will no longer fail. Thank you for reporting this `@chadmccune <https://github.com/chadmccune>`__
+
+  * **windows_printer**
+      The `windows_printer </resource_windows_printer.html>`__ resource no longer fails when creating or deleting a printer if the device_id property is specified.
+
+  * **windows_task**
+      Non-system users can now run tasks without a password being specified.
+
+* **Minimal Ohai Improvements**
+  The ohai init_package plugin is now included as part of the minimal_ohai plugins set, which allows resources such as timezone to continue to function if Chef is running with the minimal number of ohai plugins.
+
+* **Ruby 2.6 Support**
+  Chef 14.9 now supports Ruby 2.6.
+
+* **InSpec 3.2.6**
+  InSpec has been updated from 3.0.64 to 3.2.6 with improved resources for auditing. See the InSpec changelog 6 for additional details on this new version.
+
+* **powershell_exec Runtimes Bundled**
+  The necessary VC++ runtimes for the powershell_exec helper are now bundled with Chef to prevent failures on hosts that lacked the runtimes.
 
 What’s New in 14.8
 =====================================================
@@ -12,60 +87,59 @@ What’s New in 14.8
 * **Updated Resources**
 
   * **apt_package**
-      The apt_package resource now supports using the `allow_downgrade` property to enable downgrading of packages on a node in order to meet a specified version. Thank you [@whiteley](https://github.com/whiteley) for requesting this enhancement.
+      The `apt_package </resource_apt_package.html>`__ resource now supports using the `allow_downgrade` property to enable downgrading of packages on a node in order to meet a specified version. Thank you `@whiteley <https://github.com/whiteley>`__ for requesting this enhancement.
 
   * **apt_repository**
-      An issue was resolved in the apt_repository resource that caused the resource to fail when importing GPG keys on newer Debian releases. Thank you [@EugenMayer](https://github.com/EugenMayer) for this fix.
+      An issue was resolved in the `apt_repository </resource_apt_repository.html>`__ resource that caused the resource to fail when importing GPG keys on newer Debian releases. Thank you `@EugenMayer <https://github.com/EugenMayer>`__ for this fix.
 
   * **dnf_package / yum_package**
-      Initial support has been added for Red Hat Enterprise Linux 8. Thank you [@pixdrift](https://github.com/pixdrift) for this fix.
+      Initial support has been added for Red Hat Enterprise Linux 8. Thank you `@pixdrift <https://github.com/pixdrift>`__ for this fix.
 
   * **gem_package**
-      gem_package now supports installing gems into Ruby 2.6 or later installations.
+      The `gem_package </resource_gem_package.html>`__ resource now supports installing gems into Ruby 2.6 or later installations.
 
   * **windows_ad_join**
-      windows_ad_join now uses the UPN format for usernames, which prevents some failures to authenticate to the domain.
+      The `windows_ad_join </resource_windows_ad_join.html>`__ resource now uses the UPN format for usernames, which prevents some failures to authenticate to domains.
 
   * **windows_certificate**
-      An issue was resolved in the :acl_add action of the windows_certificate resource, which caused the resource to fail. Thank you [@shoekstra](https://github.com/shoekstra) for reporting this issue.
+      An issue was resolved in the :acl_add action of the `windows_certificate </resource_windows_certificate.html>`__ resource, which caused the resource to fail. Thank you `@shoekstra <https://github.com/shoekstra>`__ for reporting this issue.
 
   * **windows_feature**
-      The windows_feature resource now allows for the installation of DISM features that have been fully removed from a system. Thank you [@zanecodes](https://github.com/zanecodes) for requesting this enhancement.
+      The `windows_feature </resource_windows_feature.html>`__ resource now allows for the installation of DISM features that have been fully removed from a system. Thank you `@zanecodes <https://github.com/zanecodes>`__ for requesting this enhancement.
 
   * **windows_share**
-      Multiple issues were resolved in windows_share, which caused the resource to either fail or update the share state on every Chef Client run. Thank you [@chadmccune](https://github.com/chadmccune) for reporting several of these issues and [@derekgroh](https://github.com/derekgroh) for one of the fixes.
+      Multiple issues were resolved in `windows_share </resource_windows_share.html>`__, which caused the resource to either fail or update the share state on every Chef Client run. Thank you `@chadmccune <https://github.com/chadmccune>`__ for reporting several of these issues and `@derekgroh <https://github.com/derekgroh>`__ for one of the fixes.
 
   * **windows_task**
-      A regression was resolved that prevented ChefSpec from testing the windows_task resource in Chef Client 14.7. Thank you [@jjustice6](https://github.com/jjustice6) for reporting this issue.
+      A regression was resolved that prevented ChefSpec from testing the windows_task resource in Chef Client 14.7. Thank you `@jjustice6 <https://github.com/jjustice6>`__ for reporting this issue.
 
 * **Ohai 14.8**
 
   * **Improved Virtualization Detection**
 
-  * **Hyper-V Hypervisor Detection**
-      Detection of Linux guests running on Hyper-V has been improved. In addition, Linux guests on Hyper-V hypervisors will also now detect their hypervisor's hostname. Thank you [@safematix](https://github.com/safematix) for contributing this enhancement.
+    * **Hyper-V Hypervisor Detection**
+        Detection of Linux guests running on Hyper-V has been improved. In addition, Linux guests on Hyper-V hypervisors will also now detect their hypervisor's hostname. Thank you `@safematix <https://github.com/safematix>`__ for contributing this enhancement.
 
-  * **LXC / LXD Detection**
-      On Linux systems running lxc or lxd containers, the lxc/lxd virtualization system will now properly populate the `node['virtualization']['systems']` attribute.
+    * **LXC / LXD Detection**
+        On Linux systems running lxc or lxd containers, the lxc/lxd virtualization system will now properly populate the `node['virtualization']['systems']` attribute.
 
-  * **BSD Hypervisor Detection**
-      BSD-based systems can now detect guests running on KVM and Amazon's hypervisor without the need for the dmidecode package.
+    * **BSD Hypervisor Detection**
+        BSD-based systems can now detect guests running on KVM and Amazon's hypervisor without the need for the dmidecode package.
 
-* **New Platform Support**
+  * **New Platform Support**
 
-  * Ohai now properly detects the openSUSE 15.X platform. Thank you [@megamorf](https://github.com/megamorf) for reporting this issue.
-  * SUSE Linux Enterprise Desktop now identified as platform_family 'suse'
-  * XCP-NG is now identified as platform 'xcp' and platform_family 'rhel'. Thank you [@heyjodom](http://github.com/heyjodom) for submitting this enhancement.
-  * Mangeia Linux is now identified as platform 'mangeia' and platform_family 'mandriva'
-  * Antergos Linux now identified as platform_family 'arch'
-  * Manjaro Linux now identified as platform_family 'arch'
+    * Ohai now properly detects the openSUSE 15.X platform. Thank you `@megamorf <https://github.com/megamorf>`__ for reporting this issue.
+    * SUSE Linux Enterprise Desktop now identified as platform_family 'suse'
+    * XCP-NG is now identified as platform 'xcp' and platform_family 'rhel'. Thank you `@heyjodom <https://github.com/heyjodom>`__ for submitting this enhancement.
+    * Mangeia Linux is now identified as platform 'mangeia' and platform_family 'mandriva'
+    * Antergos Linux now identified as platform_family 'arch'
+    * Manjaro Linux now identified as platform_family 'arch'
 
 * **Security Updates**
 
-  * **OpenSSL**
-      OpenSSL has been updated to 1.0.2q in order to resolve:
-      * Microarchitecture timing vulnerability in ECC scalar multiplication ([CVE-2018-5407](https://nvd.nist.gov/vuln/detail/CVE-2018-5407))
-      * Timing vulnerability in DSA signature generation ([CVE-2018-0734](https://nvd.nist.gov/vuln/detail/CVE-2018-0734))
+  * **OpenSSL updated to 1.0.2q**
+      * Microarchitecture timing vulnerability in ECC scalar multiplication `CVE-2018-5407 <https://nvd.nist.gov/vuln/detail/CVE-2018-5407>`__
+      * Timing vulnerability in DSA signature generation `CVE-2018-0734 <https://nvd.nist.gov/vuln/detail/CVE-2018-0734>`__
 
 What’s New in 14.7
 =====================================================
@@ -190,12 +264,12 @@ What’s New in 14.5
   * **locale**
       Use the `locale </resource_locale.html>`__ resource to set the system’s locale.
 
-      Thank you @vincentaubert for contributing this resource.
+      Thank you `@vincentaubert <https://github.com/vincentaubert>`__ for contributing this resource.
 
   * **windows_workgroup**
       Use the `windows_workgroup </resource_windows_workgroup.html>`__ resource to join or change the workgroup of a Windows host.
 
-      Thank you @derekgroh for contributing this resource.
+      Thank you `@derekgroh <https://github.com/derekgroh>`__ for contributing this resource.
 
 * **Improved Resources**
 
