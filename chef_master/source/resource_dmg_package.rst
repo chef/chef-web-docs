@@ -71,7 +71,7 @@ The dmg_package resource has the following properties:
 ``app``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the application as it appears in the ``/Volumes`` directory, if it differs from the resource block name.
+   The name of the application as it appears in the ``/Volumes`` directory, if it differs from the resource block's name.
 
 ``checksum``
    **Ruby Type:** String

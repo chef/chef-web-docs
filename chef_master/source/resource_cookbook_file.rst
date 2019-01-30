@@ -35,22 +35,22 @@ The full syntax for all of the properties that are available to the **cookbook_f
 
 .. code-block:: ruby
 
-   cookbook_file 'name' do
-     atomic_update              true, false
-     backup                     false, Integer
-     cookbook                   String
-     force_unlink               true, false
-     group                      String, Integer
-     inherits                   true, false
-     manage_symlink_source      true, false
-     mode                       String, Integer
-     owner                      String, Integer
-     path                       String # defaults to 'name' if not specified
-     rights                     Hash
-     source                     String, Array
-     verify                     String, Block
-     action                     Symbol # defaults to :create if not specified
-   end
+  cookbook_file 'name' do
+    atomic_update              true, false
+    backup                     Integer, false # default value: 5
+    cookbook                   String
+    force_unlink               true, false # default value: false
+    group                      String, Integer
+    inherits                   true, false
+    manage_symlink_source      true, false
+    mode                       String, Integer
+    owner                      String, Integer
+    path                       String # default value: 'name' unless specified
+    rights                     Hash
+    source                     String, Array
+    verify                     String, Block
+    action                     Symbol # defaults to :create if not specified
+  end
 
 where:
 

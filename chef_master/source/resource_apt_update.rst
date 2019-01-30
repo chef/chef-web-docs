@@ -50,7 +50,7 @@ Actions
 =====================================================
 .. tag resource_apt_update_actions
 
-This resource has the following actions:
+The apt_update resource has the following actions:
 
 ``:nothing``
    .. tag resources_common_actions_nothing

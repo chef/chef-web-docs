@@ -92,7 +92,7 @@ The openssl_rsa_private_key resource has the following properties:
 ``path``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The path where the private key file will be created, if it differs from the resource name.
+   An optional property for specifying the path to write the file to if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
