@@ -510,7 +510,7 @@ Versions and Status
      - n/a
    * - Chef Client
      - 13.x
-     - Deprecated
+     - April 30, 2019
      - n/a
    * - Chef Client
      - 12.x
@@ -523,7 +523,7 @@ Versions and Status
    * - ChefDK
      - 2.x
      - Deprecated
-     - n/a
+     - April 30, 2019
    * - ChefDK
      - 1.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
@@ -534,7 +534,7 @@ Versions and Status
      - n/a
    * - Chef Provisioning
      - 1.6.0 or later
-     - GA
+     - April 30, 2019
      - n/a
    * - InSpec
      - Latest
