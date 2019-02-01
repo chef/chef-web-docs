@@ -510,7 +510,7 @@ Versions and Status
      - n/a
    * - Chef Client
      - 13.x
-     - GA
+     - Deprecated
      - April 30, 2019
    * - Chef Client
      - 12.x
@@ -534,8 +534,8 @@ Versions and Status
      - n/a
    * - Chef Provisioning
      - 1.6.0 or later
+     - Deprecated
      - August 31, 2019
-     - n/a
    * - InSpec
      - Latest
      - GA
