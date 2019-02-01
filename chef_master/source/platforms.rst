@@ -572,14 +572,14 @@ Versions and Status
      - Latest
      - GA
      - n/a
-   * - Chef Compliance
-     - 0.9.0 or later
-     - Deprecated
-     - December 31, 2018
    * - Chef Manage
      - 2.1.0 or later
      - GA
      - n/a
+   * - Chef Compliance
+     - 0.9.0 or later
+     - EOL
+     - December 31, 2018
    * - Enterprise Chef
      - 11.2.2 or later
      - EOL
