@@ -744,12 +744,14 @@ The full syntax for all of the properties that are available to the **dsc_resour
      reboot_action              Symbol # default value: :nothing
      resource                   Symbol
      timeout                    Integer
+     action                     Symbol # defaults to :run if not specified
    end
 
 where:
 
 * ``dsc_resource`` is the resource.
 * ``name`` is the name given to the resource block.
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
 * ``module_name``, ``module_version``, ``property``, ``reboot_action``, ``resource``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
@@ -1087,27 +1089,27 @@ The dsc_script resource has the following properties:
 ``code``
    **Ruby Type:** String
 
-   The code for the DSC configuration script. This property may not be used in the same recipe as the ``command`` property.
+   The code for the DSC configuration script. This property may not be used in conjunction with the ``command`` property.
 
 ``command``
    **Ruby Type:** String
 
-   The path to a valid Windows PowerShell data file that contains the DSC configuration script. This data file must be capable of running independently of Chef and must generate a valid DSC configuration. This property may not be used in the same recipe as the ``code`` property.
+   The path to a valid Windows PowerShell data file that contains the DSC configuration script. This data file must be capable of running independently of Chef and must generate a valid DSC configuration. This property may not be used in conjunction with the ``code`` property.
 
 ``configuration_data``
    **Ruby Type:** String
 
-   The configuration data for the DSC script. The configuration data must be `a valid Windows PowerShell data file <https://docs.microsoft.com/en-us/powershell/developer/windows-powershell>`_. This property may not be used in the same recipe as the ``configuration_data_script`` property.
+   The configuration data for the DSC script. The configuration data must be `a valid Windows PowerShell data file <https://docs.microsoft.com/en-us/powershell/developer/windows-powershell>`_. This property may not be used in conjunction with the ``configuration_data_script`` property.
 
 ``configuration_data_script``
    **Ruby Type:** String
 
-   The path to a valid Windows PowerShell data file that also contains a node called ``localhost``. This property may not be used in the same recipe as the ``configuration_data`` property.
+   The path to a valid Windows PowerShell data file that also contains a node called ``localhost``. This property may not be used in conjunction with the ``configuration_data`` property.
 
 ``configuration_name``
    **Ruby Type:** String
 
-   The name of a valid Windows PowerShell cmdlet. The name may only contain letter (a-z, A-Z), number (0-9), and underscore (_) characters and should start with a letter. The name may not be null or empty. This property may not be used in the same recipe as the ``code`` property.
+   The name of a valid Windows PowerShell cmdlet. The name may only contain letter (a-z, A-Z), number (0-9), and underscore (_) characters and should start with a letter. The name may not be null or empty. This property may not be used in conjunction with the ``code`` property.
 
 ``cwd``
    **Ruby Type:** String
@@ -1117,7 +1119,7 @@ The dsc_script resource has the following properties:
 ``environment``
    **Ruby Type:** Hash
 
-   A Hash of environment variables in the form of ``({"ENV_VARIABLE" => "VALUE"})``. (These variables must exist for a command to be run successfully.)
+   A Hash of environment variables in the form of ``({'ENV_VARIABLE' => 'VALUE'})``. (These variables must exist for a command to be run successfully.)
 
 ``flags``
    **Ruby Type:** Hash
