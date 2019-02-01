@@ -510,8 +510,8 @@ Versions and Status
      - n/a
    * - Chef Client
      - 13.x
+     - GA
      - April 30, 2019
-     - n/a
    * - Chef Client
      - 12.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
