@@ -534,7 +534,7 @@ Versions and Status
      - n/a
    * - Chef Provisioning
      - 1.6.0 or later
-     - April 30, 2019
+     - August 31, 2019
      - n/a
    * - InSpec
      - Latest
