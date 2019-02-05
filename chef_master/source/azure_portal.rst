@@ -12,6 +12,8 @@ Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual
 Virtual Machines running Chef client
 =====================================================
 
+.. warning:: If you have multiple extensions configured to run during a system's provisioning, we suggest not using the chef-client extension and to do do the install by another method such as through your template, preinstalling chef-client, or other methods like that. There is a 5 minute timeout and in some regions, that is not enough time to get the chef-client package and enable the chef-client extension. Azure chef-client extension installs can still be used for demonstration purposes.
+
 .. tag cloud_azure_portal_platforms
 
 Through the Azure portal, you can provision a virtual machine with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
