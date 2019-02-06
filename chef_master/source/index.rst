@@ -94,7 +94,7 @@ Concepts
 Guides
 -----------------------------------------------------
 
-**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__ 
+**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__
 
 **Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
@@ -248,6 +248,11 @@ Cookbook Reference
 `windows_auto_run </resource_windows_auto_run.html>`__ |
 `windows_certificate </resource_windows_certificate.html>`__ |
 `windows_env </resource_windows_env.html>`__ |
+`windows_dfs_folder </resource_windows_dfs_folder.html>`__ |
+`windows_dfs_namespace </resource_windows_dfs_namespace.html>`__ |
+`windows_dfs_server </resource_windows_dfs_server.html>`__ |
+`windows_dns_record </resource_windows_dns_record.html>`__ |
+`windows_dns_zone </resource_windows_dns_zone.html>`__ |
 `windows_feature </resource_windows_feature.html>`__ |
 `windows_feature_dism </resource_windows_feature_dism.html>`__ |
 `windows_feature_powershell </resource_windows_feature_powershell.html>`__ |
@@ -260,6 +265,7 @@ Cookbook Reference
 `windows_share </resource_windows_share.html>`__ |
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
+`windows_uac </resource_windows_uac.html>`__ |
 `windows_workgroup </resource_windows_workgroup.html>`__ |
 `yum_package </resource_yum_package.html>`__ |
 `yum_repository </resource_yum_repository.html>`__ |
@@ -345,7 +351,7 @@ Chef Automate
 `Architecture <https://automate.chef.io/docs/architectural-overview/>`__ |
 `Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate/>`__ |
 `ServiceNow Integration <https://automate.chef.io/docs/servicenow-integration-install/>`__ |
-`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__ 
+`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__
 
 Habitat
 =====================================================
