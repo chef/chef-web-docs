@@ -90,7 +90,7 @@ Properties
 The zypper_package resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Allow downgrading a package to satisfy requested version requirements.
 
