@@ -124,7 +124,7 @@ The windows_firewall_rule resource has the following properties:
 ``rule_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name to assign to the firewall rule.
+   An optional property to set the name of the firewall rule to assign if it differs from the resource block's name.
 
 ``service``
    **Ruby Type:** String
