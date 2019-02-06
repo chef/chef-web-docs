@@ -195,7 +195,7 @@ The windows_service resource has the following properties:
 ``service_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the service. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
+   An optional property to set the service name if it differs from the resource block's name.
 
 ``start_command``
    **Ruby Type:** String

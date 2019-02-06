@@ -63,7 +63,7 @@ The windows_feature_powershell resource has the following properties:
 ``feature_name``
    **Ruby Type:** Array, String | **Default Value:** ``The resource block's name``
 
-   The name of the feature(s) or role(s) to install, if it differs from the resource block's name.
+   The name of the feature(s) or role(s) to install if it differs from the resource block's name.
 
 ``management_tools``
    **Ruby Type:** true, false | **Default Value:** ``false``
