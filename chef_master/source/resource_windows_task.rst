@@ -209,7 +209,7 @@ The windows_task resource has the following properties:
 ``task_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The task name, such as ``"Task Name"`` or ``"/Task Name"``
+   An optional property to set the task name if it differs from the resource block's name. Example: 'Task Name' or '/Task Name'
 
 ``user``
    **Ruby Type:** String | **Default Value:** ``"The localized SYSTEM user for the node."``

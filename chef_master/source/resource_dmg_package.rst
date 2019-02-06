@@ -71,7 +71,7 @@ The dmg_package resource has the following properties:
 ``app``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the application as it appears in the ``/Volumes`` directory, if it differs from the resource block's name.
+   The name of the application as it appears in the ``/Volumes`` directory if it differs from the resource block's name.
 
 ``checksum``
    **Ruby Type:** String
@@ -126,7 +126,7 @@ The dmg_package resource has the following properties:
 ``volumes_dir``
    **Ruby Type:** String | **Default Value:** ``The value passed for the application name.``
 
-   The directory under ``/Volumes`` where the dmg is mounted, if it differs from the name of the ``.dmg`` file.
+   The directory under ``/Volumes`` where the dmg is mounted if it differs from the name of the ``.dmg`` file.
 
 Common Resource Functionality
 =====================================================

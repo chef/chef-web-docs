@@ -55,7 +55,7 @@ The windows_feature_dism resource has the following properties:
 ``feature_name``
    **Ruby Type:** Array, String | **Default Value:** ``The resource block's name``
 
-   The name of the feature(s) or role(s) to install, if it differs from the resource name.
+   The name of the feature(s) or role(s) to install if it differs from the resource name.
 
 ``source``
    **Ruby Type:** String

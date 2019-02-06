@@ -49,7 +49,7 @@ The timezone resource has the following properties:
 ``timezone``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The timezone value to set.
+   An optional property to set the timezone value if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
