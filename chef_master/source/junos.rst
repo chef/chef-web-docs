@@ -3,7 +3,7 @@ Chef for Junos OS
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/junos.rst>`__
 
-Juniper Networks is a leading provider of network routing, switching and security solutions for enterprises and service providers. Juniper Networks routers and switches help solve some of the most difficult problems in the data center. Junos OS is the operating system that runs on Juniper Networks routers and switches.
+Junos OS is the operating system that runs on routers and switches sold by `[Juniper Networks] <https://en.wikipedia.org/wiki/Juniper_Networks>`.
 
 .. image:: ../../images/overview_junos.png
 
