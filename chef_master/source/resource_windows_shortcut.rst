@@ -73,7 +73,7 @@ The windows_shortcut resource has the following properties:
 ``shortcut_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name for the shortcut, if it differs from the resource name.
+   An optional property to set the shortcut name if it differs from the resource block's name.
 
 ``target``
    **Ruby Type:** String

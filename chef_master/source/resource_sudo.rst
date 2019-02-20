@@ -100,7 +100,7 @@ The sudo resource has the following properties:
 ``filename``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the sudoers.d file, if it differs from the name of the resource block
+   The name of the sudoers.d file if it differs from the name of the resource block
 
 ``groups``
    **Ruby Type:** String, Array

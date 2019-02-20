@@ -464,13 +464,7 @@ berks test
 -----------------------------------------------------
 Use ``berks test`` to run Test Kitchen from within Berkshelf.
 
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ berks test KITCHEN_COMMAND (options)
+.. warning:: This command is deprecated. Please use ``kitchen test`` instead.
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

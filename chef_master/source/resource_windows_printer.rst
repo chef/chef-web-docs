@@ -68,7 +68,7 @@ The windows_printer resource has the following properties:
 ``device_id``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Printer queue name, such as: ``"HP LJ 5200 in fifth floor copy room"``.
+   An optional property to set the printer queue name if it differs from the resource block's name. Example: 'HP LJ 5200 in fifth floor copy room'.
 
 ``driver_name``
    **Ruby Type:** String | ``REQUIRED``
@@ -83,7 +83,7 @@ The windows_printer resource has the following properties:
 ``location``
    **Ruby Type:** String
 
-   Printer location, such as: ``"2nd floor copy room"``.
+   Printer location, such as ``'Fifth floor copy room'``.
 
 ``share_name``
    **Ruby Type:** String

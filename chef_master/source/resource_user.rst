@@ -175,7 +175,7 @@ When using ``mkpasswd``:
 For more information:
 
 * https://www.openssl.org/docs/manmaster/man1/passwd.html
-* Check the local documentation or package repository for the distribution that is being used. For example, on Ubuntu 9.10-10.04, the ``mkpasswd`` package is required and on Ubuntu 10.10+ the ``whois`` package is required.
+* Check the local documentation or package repository for the distribution that is being used.
 
 Common Resource Functionality
 =====================================================

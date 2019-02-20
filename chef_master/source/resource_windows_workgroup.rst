@@ -67,7 +67,7 @@ The windows_workgroup resource has the following properties:
 ``workgroup_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the workgroup for the computer.
+   An optional property to set the workgroup name if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
