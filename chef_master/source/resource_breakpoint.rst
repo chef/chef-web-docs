@@ -31,7 +31,7 @@ Actions
 =====================================================
 .. tag resource_breakpoint_actions
 
-This resource has the following actions:
+The breakpoint resource has the following actions:
 
 ``:break``
    Use to add a breakpoint to a recipe.

@@ -599,26 +599,6 @@ Examples
 -----------------------------------------------------
 None.
 
-kitchen driver discover
-=====================================================
-Use the ``driver discover`` subcommand to discover Kitchen driver that have been published to RubyGems. This subcommand will return all RubyGems that are match ``kitchen-*``.
-
-Syntax
------------------------------------------------------
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ kitchen driver discover
-
-Options
------------------------------------------------------
-This subcommand does not have any options.
-
-Examples
------------------------------------------------------
-None.
-
 kitchen exec
 =====================================================
 Use the ``exec`` subcommand to execute a command on a remote instance.

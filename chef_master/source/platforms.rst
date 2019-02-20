@@ -511,7 +511,7 @@ Versions and Status
    * - Chef Client
      - 13.x
      - Deprecated
-     - n/a
+     - April 30, 2019
    * - Chef Client
      - 12.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
@@ -523,7 +523,7 @@ Versions and Status
    * - ChefDK
      - 2.x
      - Deprecated
-     - n/a
+     - April 30, 2019
    * - ChefDK
      - 1.x
      - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
@@ -534,8 +534,8 @@ Versions and Status
      - n/a
    * - Chef Provisioning
      - 1.6.0 or later
-     - GA
-     - n/a
+     - Deprecated
+     - August 31, 2019
    * - InSpec
      - Latest
      - GA
@@ -572,14 +572,14 @@ Versions and Status
      - Latest
      - GA
      - n/a
-   * - Chef Compliance
-     - 0.9.0 or later
-     - Deprecated
-     - December 31, 2018
    * - Chef Manage
      - 2.1.0 or later
      - GA
      - n/a
+   * - Chef Compliance
+     - 0.9.0 or later
+     - EOL
+     - December 31, 2018
    * - Enterprise Chef
      - 11.2.2 or later
      - EOL

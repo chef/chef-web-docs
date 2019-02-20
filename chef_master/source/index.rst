@@ -601,12 +601,15 @@ Addenda
    deprecations_deploy_resource
    deprecations_dnf_package_allow_downgrade
    deprecations_easy_install
+   deprecations_epic_fail
    deprecations_erl_call_resource
    deprecations_exit_code
    deprecations_internal_api
    deprecations_json_auto_inflate
    deprecations_launchd_hash_property
+   deprecations_legacy_hwrp_mixins
    deprecations_local_listen
+   deprecations_map_collision
    deprecations_namespace_collisions
    deprecations_ohai_amazon_linux
    deprecations_ohai_cloud

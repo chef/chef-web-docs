@@ -51,7 +51,7 @@ The cron_access resource has the following properties:
 ``user``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The user to allow or deny. If not provided we'll use the resource name.
+   An optional property to set the user name if it differs from the resource block's name.
    
 Common Resource Functionality
 =====================================================

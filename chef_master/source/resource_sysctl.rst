@@ -64,7 +64,7 @@ The sysctl resource has the following properties:
 ``key``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The kernel parameter key in dotted format, if it differs from the resource block's name.
+   The kernel parameter key in dotted format if it differs from the resource block's name.
 
 ``value``
    **Ruby Type:** Array, String, Integer, Float | ``REQUIRED``

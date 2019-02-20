@@ -44,7 +44,7 @@ The windows_path resource has the following properties:
 ``path``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the value to add to the system path
+   An optional property to set the path value if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
