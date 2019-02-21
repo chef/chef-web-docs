@@ -104,7 +104,7 @@ Software Requirements
 
 Before installing the Chef server, ensure that each machine has the following installed and configured properly:
 
-* **Hostnames** --- Ensure that all systems have properly configured hostnames. The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
+* **Hostnames** --- Ensure that all systems have properly configured hostnames. The hostname for the Chef server must be a FQDN, < 64 characters including the domain suffix, lowercase, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
 * **FQDNs** --- Ensure that all systems have a resolvable FQDN
 * **NTP** --- Ensure that every server is connected to NTP; the Chef server is sensitive to clock drift
 * **Mail Relay** --- The Chef server uses email to send notifications for various events; a local mail transfer agent should be installed and available to the Chef server
@@ -114,7 +114,6 @@ Before installing the Chef server, ensure that each machine has the following in
 * **Apache Qpid** --- This daemon must be disabled on CentOS and Red Hat systems
 * **Required users** --- If the environment in which the Chef server will run has restrictions on the creation of local user and group accounts, ensure that the correct users and groups exist before reconfiguring
 * **Firewalls and ports** --- If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. These ports are used by the **nginx** service
-* **Hostname** --- The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
 
 In addition:
 
@@ -303,7 +302,7 @@ Without these changes, a Chef server install intended to run in ipv4 mode will m
 
 Hostnames
 -----------------------------------------------------
-The hostname for the Chef server may be specified using a FQDN or an IP address. This hostname must be resolvable. For example, a Chef server running in a production environment with a resolvable FQDN hostname can be added the DNS system. But when deploying Chef server into a testing environment, adding the hostname to the ``/etc/hosts`` file is enough to ensure that hostname is resolvable.
+The hostname for the Chef server may be specified using a FQDN or an IP address. This hostname must be resolvable, be 64 characters or less, and be lowercase. For example, a Chef server running in a production environment with a resolvable FQDN hostname can be added the DNS system. But when deploying Chef server into a testing environment, adding the hostname to the ``/etc/hosts`` file is enough to ensure that hostname is resolvable.
 
 * **FQDN Hostnames** When the hostname for the Chef server is a FQDN be sure to include the domain suffix. For example, something like ``mychefserver.example.com`` (and not something like ``mychefserver``).
 * **IP Address Hostnames** When the Chef server is run in IPv6 mode, a hostname specified using an IP address must also be bracketed (``[ ]``) or the Chef server will not be able to recognize it as an IPv6 address. For example:
@@ -386,6 +385,11 @@ If a hostname is not resolvable, refer to a local systems administrator for spec
 .. code-block:: bash
 
    $ echo -e "127.0.0.2 `hostname` `hostname -s`" | sudo tee -a /etc/hosts
+   
+.. tag server_openssl_fqdn_pre
+.. warning:: The FQDN for the Chef server should be resolvable, lowercase, and should not exceed 64 characters when using OpenSSL, as OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
+
+.. end_tag
 
 Chef Analytics
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
