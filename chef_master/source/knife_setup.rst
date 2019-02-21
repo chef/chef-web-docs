@@ -1,7 +1,7 @@
 =====================================================
 Setting up Knife
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_using.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_setup.rst>`__
 
 The knife command line tool must be configured to communicate with the Chef Server as well as any other infrastructure within your organization. This is done initially during the workstation setup, but subsequent modifications can be made using the config.rb configuration file.
 
@@ -16,6 +16,8 @@ Load Path Priority
 The config.rb file is loaded every time the knife command is invoked using the following load order:
 
 * From a specified location given the ``--config`` flag
+* From a specified location given the ``$KNIFE_HOME`` environment variable, if set
+* From a ``config.rb`` file within the current working directory ex: ``./config.rb``
 * From a ``config.rb`` file within a ``.chef`` directory in the current working directory ex: ``./.chef/config.rb``
 * From a ``config.rb`` file within a ``.chef`` directory located one directory above the current working directory: ex: ``../.chef/config.rb``
 * From ``~/.chef/config.rb`` (macOS and Linux platforms) or ``c:\Users\<username>\.chef`` (Microsoft Windows platform)
