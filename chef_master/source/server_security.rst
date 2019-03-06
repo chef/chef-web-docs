@@ -73,7 +73,7 @@ Because the FQDN has already been configured, do the following:
 
 .. tag server_openssl_fqdn
 
-.. warning:: The FQDN for the Chef server should be resolvable, lowercase, and should not exceed 64 characters when using OpenSSL, as OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
+.. warning:: The FQDN for the Chef server should be resolvable, lowercase, and have fewer than 64 characters including the domain suffix, when using OpenSSL, as OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
 
 .. end_tag
 
