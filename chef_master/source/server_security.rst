@@ -71,7 +71,11 @@ Because the FQDN has already been configured, do the following:
 
       $ chef-server-ctl restart nginx
 
-.. warning:: The FQDN for the Chef server should not exceed 64 characters when using OpenSSL. OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
+.. tag server_openssl_fqdn
+
+.. warning:: The FQDN for the Chef server should be resolvable, lowercase, and have fewer than 64 characters including the domain suffix, when using OpenSSL, as OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
+
+.. end_tag
 
 SSL Protocols
 -----------------------------------------------------
