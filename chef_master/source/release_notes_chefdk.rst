@@ -18,11 +18,11 @@ What's New in 3.8
 
         * Added Windows 2019 Server, Red Hat Linux 7.6, Debian 9.6, and CentOS 7.6.1804.
         * Updated Windows7, 8.1, and 10, 2008 R2, 2012, 2012 R2, and 2016 to Chef 14.10.
-        * Update Oracle Linux 6.8/7.2/7.3/7.4 to Ohai 14.8 in EC2
-        * Updated the fetcher logic to be compatible with ChefSpec 7.3+. Thanks @oscar123mendoza
-        * Removed duplicate json data in gentoo 4.9.6
+        * Updated Oracle Linux 6.8/7.2/7.3/7.4 to Ohai 14.8 in EC2.
+        * Updated the fetcher logic to be compatible with ChefSpec 7.3+. Thanks `oscar123mendoza <https://github.com/oscar123mendoza>`__!
+        * Removed duplicate json data in gentoo 4.9.6.
 
-* **Other updates
+* **Other updates**
 
     * `kitchen-digitalocean`: 0.10.1 -> 0.10.2
     * `mixlib-install`: 3.11.5 -> 3.11.11
