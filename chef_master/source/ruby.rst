@@ -619,12 +619,7 @@ Constructs to Avoid
 Avoid the following patterns:
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-* ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
-=======
 * ``node.normal` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
->>>>>>> Remove so old / bad advice on node.set
-=======
 * ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
 >>>>>>> Move ruby resources into dtag & dtag fix
 * if ``node.run_list.include?('foo')`` i.e. branching in recipes based on what's in the node's run-list. Better and more readable to use a feature flag and set its precedence appropriately.
