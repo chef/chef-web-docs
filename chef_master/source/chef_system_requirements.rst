@@ -81,7 +81,6 @@ Before installing the Chef server, ensure that each machine has the following in
 * **Apache Qpid** --- This daemon must be disabled on CentOS and Red Hat systems
 * **Required users** --- If the environment in which the Chef server will run has restrictions on the creation of local user and group accounts, ensure that the correct users and groups exist before reconfiguring
 * **Firewalls and ports** --- If host-based firewalls (iptables, ufw, etc.) are being used, ensure that ports 80 and 443 are open. These ports are used by the **nginx** service
-* **Hostname** --- The hostname for the Chef server must be a FQDN, including the domain suffix, and must be resolvable. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information
 
 In addition:
 
