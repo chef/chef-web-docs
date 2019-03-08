@@ -68,7 +68,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      chef_version '~> 14'
+      chef_version '~> 14.0'
 
    A more complex example where you set both a lower and upper bound of the chef-client version:
 
