@@ -393,7 +393,7 @@ If a hostname is not resolvable, refer to a local systems administrator for spec
 
 Chef Analytics
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The hostname for the Chef Analytics server may be specified using a FQDN or an IP address. This hostname must be resolvable. For example, a Chef Analytics server that is running in a production environment with a resolvable FQDN hostname can be added in the DNS system. But when deploying Chef Analytics into a testing environment, adding the hostname to the ``/etc/hosts`` file is enough to ensure that hostname is resolvable.
+The hostname for the Chef Analytics server may be specified using a FQDN or an IP address. This hostname must be resolvable. For example, a Chef Analytics server that is running in a production environment with a resolvable FQDN hostname can be added to the DNS system. But when deploying Chef Analytics into a testing environment, adding the hostname to the ``/etc/hosts`` file is enough to ensure that the hostname is resolvable.
 
 * **FQDN Hostnames** When the hostname for the Chef Analytics server is a FQDN be sure to include the domain suffix. For example, something like ``myanalyticsserver.example.com`` (and not something like ``myanalyticsserver``).
 

@@ -246,6 +246,12 @@ Ruby is also a powerful and complete programming language:
 * Use the Ruby programming language to make decisions about what should happen to specific resources and recipes
 * Extend Chef in any manner that your organization requires
 
+To learn more about Ruby, see:
+
+* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
+* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
+* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
+
 .. end_tag
 
 Domain-specific Ruby attributes:

@@ -15,6 +15,12 @@ Ruby is also a powerful and complete programming language:
 * Use the Ruby programming language to make decisions about what should happen to specific resources and recipes
 * Extend Chef in any manner that your organization requires
 
+To learn more about Ruby, see:
+
+* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
+* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
+* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
+
 .. end_tag
 
 As of Chef Client 14.0, Chef ships with Ruby 2.5.
@@ -612,13 +618,13 @@ Constructs to Avoid
 -----------------------------------------------------
 Avoid the following patterns:
 
-* ``node.set`` / ``normal_attributes`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
-* ``node.set_unless`` - Can lead to weird behavior if the node object had something set. Avoid unless altogether necessary (one example where it's necessary is in ``node['postgresql']['server']['password']``)
+* ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
+* ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
 * if ``node.run_list.include?('foo')`` i.e. branching in recipes based on what's in the node's run-list. Better and more readable to use a feature flag and set its precedence appropriately.
-* ``node['foo']['bar']`` i.e. setting normal attributes without specifying precedence. This is deprecated in Chef 11, so either use ``node.set['foo']['bar']`` to replace its precedence in-place or choose the precedence to suit.
 
 Recipes
 -----------------------------------------------------
+
 A recipe should be clean and well-commented. For example:
 
 .. code-block:: ruby
@@ -792,10 +798,4 @@ All cookbooks should pass Cookstyle rules before being uploaded.
 
 should return ``no offenses detected``
 
-More about Ruby
-=====================================================
-To learn more about Ruby, see the following:
 
-* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
-* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
-* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
