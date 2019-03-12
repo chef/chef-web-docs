@@ -163,6 +163,10 @@ All Deprecations
     - Resource(s) in a cookbook collide with the same resource(s) now included in Chef.
     - XX.X
     - 15.0
+  * - `CHEF-27 </deprecations_locale_lc_all.html>`__
+    - Deprecation of lc_all from locale resource
+    - 14.12
+    - 16.0
   * - `CHEF-3694 </deprecations_resource_cloning.html>`__
     - Resource Cloning will no longer work.
     - 10.18

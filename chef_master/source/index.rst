@@ -610,6 +610,7 @@ Addenda
    deprecations_legacy_hwrp_mixins
    deprecations_local_listen
    deprecations_map_collision
+   deprecations_locale_lc_all
    deprecations_namespace_collisions
    deprecations_ohai_amazon_linux
    deprecations_ohai_cloud
