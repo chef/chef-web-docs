@@ -85,6 +85,7 @@ Disallow: /resource_container_service.html
 Disallow: /runners.html
 Disallow: /scaling_capacity_planning_chef_automate.html
 Disallow: /search_query_chef_automate.html
+Disallow: /slides/
 Disallow: /stream_data_chef_automate.html
 Disallow: /troubleshooting_chef_automate.html
 Disallow: /upgrade_analytics.html
