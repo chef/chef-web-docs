@@ -95,3 +95,5 @@ Disallow: /upgrade_server_ha_notes.html
 Disallow: /upgrade_server_open_source_notes.html
 Disallow: /visibility.html
 Disallow: /workflow.html
+
+SITEMAP: https://docs.chef.io/sitemap.xml
