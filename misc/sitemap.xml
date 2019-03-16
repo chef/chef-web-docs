@@ -17,7 +17,6 @@
   <loc>about_chefdk.html</loc>
 </url>
 
-
 <url>
   <loc>api_chef_server.html</loc>
 </url>
@@ -656,10 +655,6 @@
 
 <url>
   <loc>knife_show.html</loc>
-</url>
-
-<url>
-  <loc>knife_ssh.html</loc>
 </url>
 
 <url>
@@ -1451,10 +1446,6 @@
 </url>
 
 <url>
-  <loc>server_monitor.html</loc>
-</url>
-
-<url>
   <loc>server_orgs.html</loc>
 </url>
 
@@ -1525,6 +1516,7 @@
 <url>
   <loc>upgrade_client_notes.html</loc>
 </url>
+
 
 <url>
   <loc>upgrade_server_notes.html</loc>
