@@ -370,53 +370,6 @@ Analytics
 
 `Overview </analytics.html>`__ | `Release Notes </release_notes_analytics.html>`__ | `Install Standalone </install_analytics.html>`__ | `Web UI </actions.html>`__ | `Management Console </analytics_webui_tasks.html>`__ | `Nodes View </analytics_nodes_view.html>`__ | `Integrations </analytics.html#integrations>`_ | `Splunk </analytics_splunk.html>`__ | `Rules </analytics_rules.html>`__ | `Monitor </analytics_monitor.html>`__ | `Upgrades </upgrade_analytics.html>`__ | `Chef Client for Analytics </chef_client_analytics.html>`__ | `opscode-analytics-ctl </ctl_analytics.html>`__ | `opscode-analytics.rb </config_rb_analytics.html>`__ | `knife-analytics </plugin_knife_analytics.html>`__ | `Analytics API </api_analytics.html>`__ | `Recipe DSL for Analytics </dsl_recipe_analytics.html>`__
 
-Chef Automate 1
------------------------------------------------------
-
-**Overview**:
-`Chef Automate Overview </chef_automate.html>`__ |
-`Workflow Overview </workflow.html>`__ |
-`Nodes Overview </visibility.html>`__ |
-`Compliance Overview </chef_automate_compliance.html>`__ |
-`Administration Overview </automate_admin.html>`__
-
-**Getting Started**:
-`Installation Guide </install_chef_automate.html>`__ |
-`Configure a Pipeline </delivery_pipeline.html>`__ |
-`Configure a Project </config_json_delivery.html>`__ |
-`Configure Data Collection </data_collection.html>`__ |
-`Data Collection and Chef HA </data_collection_ha.html>`__ |
-`Data Collection without Chef Server </data_collection_without_server.html>`__ |
-`Stream Data </stream_data_chef_automate.html>`__ |
-`Upgrades </upgrade_chef_automate.html>`_
-
-**Release Notes**: `Release Notes </release_notes_chef_automate.html>`__
-
-**Nodes**:
-`Node Notifications w/Slack </integrate_node_notifications_slack.html>`__ |
-`Node Notifications w/Webhooks </integrate_node_notifications_webhook.html>`__ |
-`Node Search Reference </search_query_chef_automate.html>`__
-
-**Compliance**:
-`Reporting </automate_compliance_reporting.html>`__ |
-`Scanner </automate_compliance_scanner.html>`__ |
-`Profile Store </profile_store.html>`__ |
-`Credentials </automate_compliance_credentials.html>`__
-
-**Workflow**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__ | `Runners </runners.html>`__ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ | `Workflow w/GitHub </integrate_delivery_github.html>`__ | `Workflow w/Slack </integrate_delivery_slack.html>`__
-
-**Admin**: `Authentication w/LDAP </integrate_delivery_ldap.html>`__ | `Authentication w/SAML </integrate_chef_automate_saml.html>`__
-
-**Managing the Server**: `Backups </delivery_server_backup.html>`__ | `Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ | `Disaster Recovery </delivery_server_disaster_recovery.html>`__ | `Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ | `Secrets </delivery_manage_secrets.html>`__ | `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ | `Tuning </delivery_server_tuning.html>`__ | `Users and Roles </delivery_users_and_roles.html>`__
-
-**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Chef Compliance API </api_compliance.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
-
-**Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__
-
-**AWS OpsWorks for Chef Automate**: `AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
-
-**Troubleshooting**: `Troubleshooting </troubleshooting_chef_automate.html>`__
-
 Compliance scanner
 -----------------------------------------------------
 
