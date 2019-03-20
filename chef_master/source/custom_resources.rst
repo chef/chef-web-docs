@@ -546,9 +546,9 @@ For example, a custom resource defines two properties (``content`` and ``path``)
    property :content, String
    property :path, String, name_property: true
 
-   load_current_value do
-     if ::File.exist?(path)
-       content IO.read(path)
+   load_current_value do |desired|
+     if ::File.exist?(desired.path)
+       content IO.read(desired.path)
      end
    end
 
@@ -581,10 +581,10 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
    property :content, String
    property :mode, String
 
-   load_current_value do
-     if ::File.exist?(new_resource.path)
-       content IO.read(new_resource.path)
-       mode ::File.stat(new_resource.path).mode
+   load_current_value do |desired|
+     if ::File.exist?(desired.path)
+       content IO.read(desired.path)
+       mode ::File.stat(desired.path).mode
      end
    end
 
