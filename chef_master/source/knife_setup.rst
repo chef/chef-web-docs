@@ -19,7 +19,7 @@ The config.rb file is loaded every time the knife command is invoked using the f
 * From a specified location given the ``$KNIFE_HOME`` environment variable, if set
 * From a ``config.rb`` file within the current working directory, e.g., ``./config.rb``
 * From a ``config.rb`` file within a ``.chef`` directory in the current working directory, e.g., ``./.chef/config.rb``
-* From a ``config.rb`` file within a ``.chef`` directory located one directory above the current working directory: e.g., ``../.chef/config.rb``
+* From a ``config.rb`` file within a ``.chef`` directory located one directory above the current working directory, e.g., ``../.chef/config.rb``
 * From ``~/.chef/config.rb`` (macOS and Linux platforms) or ``c:\Users\<username>\.chef`` (Microsoft Windows platform)
 
 .. note:: When running Microsoft Windows, the config.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\chef-repo\.chef``.
