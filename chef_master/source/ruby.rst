@@ -15,6 +15,12 @@ Ruby is also a powerful and complete programming language:
 * Use the Ruby programming language to make decisions about what should happen to specific resources and recipes
 * Extend Chef in any manner that your organization requires
 
+To learn more about Ruby, see:
+
+* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
+* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
+* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
+
 .. end_tag
 
 As of Chef Client 14.0, Chef ships with Ruby 2.5.
@@ -613,10 +619,12 @@ Constructs to Avoid
 Avoid the following patterns:
 
 * ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
+* ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
 * if ``node.run_list.include?('foo')`` i.e. branching in recipes based on what's in the node's run-list. Better and more readable to use a feature flag and set its precedence appropriately.
 
 Recipes
 -----------------------------------------------------
+
 A recipe should be clean and well-commented. For example:
 
 .. code-block:: ruby
@@ -790,10 +798,4 @@ All cookbooks should pass Cookstyle rules before being uploaded.
 
 should return ``no offenses detected``
 
-More about Ruby
-=====================================================
-To learn more about Ruby, see the following:
 
-* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
-* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
-* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
