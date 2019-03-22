@@ -28,7 +28,7 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife user create USER_NAME (options)
+   $ knife user create USERNAME DISPLAY_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD (options)
 
 Options
 -----------------------------------------------------
@@ -58,11 +58,11 @@ The following examples show how to use this knife subcommand:
 
 **Create a user**
 
-.. To create a new user named "Radio Birdman" with a private key saved to "/keys/user_name", enter:
+.. To create a new user named "Radio Birdman" with a private key saved to "/keys/radio_birdman", enter:
 
 .. code-block:: bash
 
-   $ knife user create "Radio Birdman" -f /keys/user_name
+   $ knife user create rbirdman "Radio Birdman" Radio Birdman radio@bird.man -f /keys/radio_birdman
 
 delete
 =====================================================
