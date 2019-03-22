@@ -263,7 +263,7 @@ The yum_repository resource has the following properties:
 ``repositoryid``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Specifies a unique name for each repository, one word. Defaults to name attribute.
+   An optional property to set the repository name if it differs from the resource block's name.
 
 ``skip_if_unavailable``
    **Ruby Type:** true, false

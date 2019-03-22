@@ -64,7 +64,7 @@ The windows_feature resource has the following properties:
 ``feature_name``
    **Ruby Type:** Array, String | **Default Value:** ``The resource block's name``
 
-   The name of the feature(s) or role(s) to install, if it differs from the resource block name. The same feature may have different names depending on the underlying installation method being used (ie DHCPServer vs DHCP; DNS-Server-Full-Role vs DNS).
+   The name of the feature(s) or role(s) to install if it differs from the resource block name. The same feature may have different names depending on the underlying installation method being used (ie DHCPServer vs DHCP; DNS-Server-Full-Role vs DNS).
 
 ``install_method``
    **Ruby Type:** Symbol | **Default Value:** ``:windows_feature_dism``

@@ -55,7 +55,7 @@ The swap_file resource has the following properties:
 ``path``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The path where the swap file will be created on the system, if it differs from the resource block name.
+   The path where the swap file will be created on the system if it differs from the resource block name.
 
 ``persist``
    **Ruby Type:** true, false | **Default Value:** ``false``

@@ -893,7 +893,7 @@ where ``e.run_action(:run)`` tells the chef-client to run the ``apt-get update``
 
 **Use the chef_gem resource for Ruby gems**
 
-A very common use case us to install a gem during the compile phase so that it will be available to the chef-client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
+A very common use case is to install a gem during the compile phase so that it will be available to the chef-client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
 
 .. code-block:: ruby
 

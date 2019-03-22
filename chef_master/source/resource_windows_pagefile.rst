@@ -70,7 +70,7 @@ The windows_pagefile resource has the following properties:
 ``path``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The path to the pagefile if different from the resource name.
+   An optional property to set the pagefile name if it differs from the resource block's name.
 
 ``system_managed``
 

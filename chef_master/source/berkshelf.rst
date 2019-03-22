@@ -115,7 +115,7 @@ To add multiple Chef Servers:
    source chef_server: "https://mychefserver.example.com/organizations/one", client_name: "one-client", client_key: "/path/to/one-client.pem"
    source chef_server: "https://mychefserver.example.com/organizations/two", client_name: "two-client", client_key: "/path/to/two-client.pem"
 
-To use an `Artifactory server <https://www.jfrog.com/confluence/display/RTF/ChefCookbookRepositories>`_ as a source:
+To use an `Artifactory server <https://www.jfrog.com/confluence/display/RTF/Chef+Cookbook+Repositories>`_ as a source:
 
 .. code-block:: ruby
 
@@ -464,13 +464,7 @@ berks test
 -----------------------------------------------------
 Use ``berks test`` to run Test Kitchen from within Berkshelf.
 
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ berks test KITCHEN_COMMAND (options)
+.. warning:: This command is deprecated. Please use ``kitchen test`` instead.
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

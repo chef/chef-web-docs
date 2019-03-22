@@ -112,7 +112,7 @@ The windows_share resource has the following properties:
 ``share_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name to assign to the share.
+   An optional property to set the share name if it differs from the resource block's name.
 
 ``temporary``
    **Ruby Type:** true, false | **Default Value:** ``false``

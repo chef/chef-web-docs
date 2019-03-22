@@ -541,7 +541,7 @@ Options
 This argument has the following options:
 
 ``-a ATTR``, ``--attribute ATTR``
-   The attribute used when opening an SSH connection. The default attribute is the FQDN of the host. Other possible values include a public IP address, a private IP address, or a hostname.
+   The attribute used when opening a connection. The default attribute is the FQDN of the host. Other possible values include a public IP address, a private IP address, or a hostname.
 
 ``-C NUM``, ``--concurrency NUM``
    Changed in knife-windows 1.9.0. The number of allowed concurrent connections. Defaults to 1.

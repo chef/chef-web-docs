@@ -50,7 +50,7 @@ The rhsm_errata_level resource has the following properties:
 ``errata_level``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The errata level of packages to install, if it differs from the resource block's name.
+   The errata level of packages to install if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
