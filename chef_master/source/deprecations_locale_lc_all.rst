@@ -15,17 +15,21 @@ This deprecation warning was added in Chef 14.12. Support for property ``lc_all`
 Remediation
 =======================================================================
 
-Setting *LC_* variables varies by platform, but common locations to configure *LC_* variables are:
+Set ``LC_ALL`` in current shell as:
 
-.. code-block:: ruby
+.. code-block:: bash
 
 	export LC_ALL="<locale_name>"
 
-1. /etc/default/locale
-2. /etc/sysconfig/i18n
-3. /etc/environment
 
-You can also use the **file** Resource and add this variable to any other file of your choice. Then, you can source that file to reflect changes.
+To check the ``locale`` value, run:
+
+.. code-block:: bash
+
+	locale -v
+
+
+You can also use **file** Resource and add this variable in any other file of your choice and then can source that file to reflect changes.
 
 .. code-block:: ruby
 
@@ -33,10 +37,13 @@ You can also use the **file** Resource and add this variable to any other file o
 	  content "LC_ALL=<locale_name>"
 	end
 
-To check the ``locale`` value, run:
 
-.. code-block:: ruby
+Where ``path_to_file`` could be any one of:
 
-	locale -v
+1. /etc/default/locale
+2. /etc/sysconfig/i18n
+3. /etc/environment
+
+Setting **LC_** variables varies by platform, but these are the common locations to configure **LC_** variables.
 
 .. warning:: Be cautious while using the **file** Resource on any existing or above listed files. As it replaces all the file contents, you may lose any previous information.
