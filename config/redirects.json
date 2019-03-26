@@ -786,5 +786,6 @@
   "job_dispatch.html": "/runners.html",
   "audit_supported_configurations.html": "/audit_cookbook.html",
   "setup_visibility_chef_automate.html": "/data_collection.html",
-  "plugin_knife_supermarket.html": "/knife_supermarket.html"
+  "plugin_knife_supermarket.html": "/knife_supermarket.html",
+  "release_notes_chef_automate.html": "https://automate.chef.io/release-notes"
 }
