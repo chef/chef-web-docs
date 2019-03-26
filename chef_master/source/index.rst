@@ -39,10 +39,12 @@ Community
 
 Packages and Platform Support
 -----------------------------------------------------
+`Licensing </chef_license.html>`__ |
 `Packages </packages.html>`__ |
-`Platforms and Supported Versions </platforms.html>`__ |
-`Omnitruck API </api_omnitruck.html>`__ |
-`Licensing </chef_license.html>`__
+`Platforms </platforms.html>`__ |
+`Supported Versions </versions.html>`__ |
+`Omnitruck API </api_omnitruck.html>`__
+
 
 Chef
 =====================================================
@@ -886,6 +888,7 @@ Addenda
    upgrade_server_ha_v2
    upgrade_server_notes
    upgrade_server_open_source_notes
+   versions
    visibility
    vmware
    windows
