@@ -107,7 +107,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -266,7 +266,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -400,7 +400,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -448,7 +448,7 @@ This subcommand has the following options:
    Include instance diagnostics. Default: ``true``.
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``--loader``
    Include data loader diagnostics. Default: ``false``.
@@ -668,7 +668,7 @@ This subcommand has the following options:
    Add one (or more) Kitchen drivers to a RubyGems file. Default: ``kitchen-vagrant``.
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``-P``, ``--provisioner``
    The default provisioner that is used by Kitchen.
@@ -735,7 +735,7 @@ This subcommand has the following options:
    Print the name of each instance, one instance per line. Default: ``false``.
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -826,7 +826,7 @@ Options
 This subcommand has the following options:
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -883,7 +883,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -936,7 +936,7 @@ This subcommand has the following options:
    The destroy strategy used at the conclusion of a Kitchen run. Possible values: ``always`` (always destroy instances), ``never`` (never destroy instances), or ``passing`` (only destroy instances that passed). Default: ``passing``.
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -1069,7 +1069,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
