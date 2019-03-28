@@ -21,7 +21,8 @@ For example, a cookbook backup command:
 .. code-block:: bash
 
      cd /var/opt/supermarket/data/ 
-     tar cvzf supermarket_cookbook_versions.tar.gz cookbook_versions
+     tar cvzf ~/supermarket_cookbook_versions.tar.gz cookbook_versions
+
 
 Database Backup
 -----------------------------------------------------
@@ -32,13 +33,14 @@ For example, a database export in a .dump format can be made with the following 
 
 .. code-block:: bash
 
-     $ /opt/supermarket/embedded/bin/pg_dump -h localhost -U supermarket -d supermarket -p 15432 -F c -b -v -f smkt-date-blah-backup.dump
+     $ $ /opt/supermarket/embedded/bin/pg_dump --host localhost --username supermarket --dbname supermarket --port 15432 --format c --blobs --verbose --file ~/supermarket_database_backup.dump
+
 
 where, in a typical installation:
-  * ``/opt/supermarket/embedded/bin/pg_dump`` is
+  * ``/opt/supermarket/embedded/bin/pg_dump`` is  the path to the database export utility included in the Supermarket installation.
   * ``localhost`` may alternatively be 127.0.0.1 
   * ``15432`` is PostgreSQL port number, which may need to be modified.
-  * ``-F c`` makes a custom .dump format
+  * ``--format c`` sets the output to PostgreSQL's "custom" binary file format
 
 For documentation about the pg_dump utility, see: https://www.postgresql.org/docs/9.3/app-pgdump.html
 
@@ -83,6 +85,7 @@ For example, to restore a backup in a .dump format, run:
 
 .. code-block:: bash
 
-     $ pg_restore -h localhost -p 15432 --clean --no-acl --no-owner -d supermarket -v smkt-date-blah-backup.dump
+     $ pg_restore --host localhost --port 15432 --clean --no-acl --no-owner --dbname supermarket_production --verbose supermarket_database_backup.dump
+
 
   
