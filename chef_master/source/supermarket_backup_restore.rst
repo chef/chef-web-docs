@@ -12,7 +12,7 @@ Backup
 Cookbook Backup
 -----------------------------------------------------
 
-If you are not using AWS S3 storage for cookbooks, you will also need to make a backup of the local cookbook storage location. 
+If Supermarket is not configured to use AWS S3 storage for cookbooks, then the local cookbook storage location on the Supermarket server will also need to be backed up. 
 
 The default location is: ``/var/opt/supermarket/data/cookbook_versions``.
 
@@ -32,7 +32,7 @@ For example, a database export in a .dump format can be made with the following 
 
 .. code-block:: bash
 
-     $ /opt/supermarket/embedded/bin/pg_dump -h localhost -U supermarket -d supermarket_production -p 15432 -F c -b -v -f smkt-date-blah-backup.dump
+     $ /opt/supermarket/embedded/bin/pg_dump -h localhost -U supermarket -d supermarket -p 15432 -F c -b -v -f smkt-date-blah-backup.dump
 
 where, in a typical installation:
   * ``/opt/supermarket/embedded/bin/pg_dump`` is
@@ -42,7 +42,7 @@ where, in a typical installation:
 
 For documentation about the pg_dump utility, see: https://www.postgresql.org/docs/9.3/app-pgdump.html
 
-Be sure to update the various local values in the syntax as necessary to match your infrastructure. To find local variables, look at ``/var/opt/supermarket/etc/database.yml``. For example, an output of ``database.yml`` may look like:
+Be sure to update the various local values in the `pg_dump` command as necessary to match your infrastructure. To find local variables, look at ``/var/opt/supermarket/etc/database.yml``. For example, an output of ``database.yml`` may look like:
 
 .. code-block:: yaml
 
@@ -83,6 +83,6 @@ For example, to restore a backup in a .dump format, run:
 
 .. code-block:: bash
 
-     $ pg_restore -h localhost -p 15432 --clean --no-acl --no-owner -d supermarket_production -v smkt-date-blah-backup.dump
+     $ pg_restore -h localhost -p 15432 --clean --no-acl --no-owner -d supermarket -v smkt-date-blah-backup.dump
 
   
