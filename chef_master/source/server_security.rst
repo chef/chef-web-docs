@@ -304,8 +304,6 @@ The following table lists which add-on versions support the more restrictive ``i
      - 2.5.0
    * - Push Jobs Server
      - 2.2.0
-   * - Reporting
-     - 1.7.0
 
 These newer add-ons will also write all of their secrets to ``/etc/opscode/private-chef-secrets.json``. Older versions of the add-ons will still write their configuration to locations in ``/etc`` and ``/var/opt``.
 

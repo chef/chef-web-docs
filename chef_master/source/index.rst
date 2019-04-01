@@ -83,7 +83,6 @@ Concepts
 **Policy**: `About Policy </policy.html>`__ | `Data Bags </data_bags.html>`__ | `Environments </environments.html>`__ | `Roles </roles.html>`__
 
 `Push Jobs </push_jobs.html>`__ |
-`Reporting </reporting.html>`__ |
 `Run-lists </run_lists.html>`__
 
 **Security**: `Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `Private Keys </chef_private_keys.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
@@ -414,6 +413,18 @@ Chef Automate 1
 
 **Troubleshooting**: `Troubleshooting </troubleshooting_chef_automate.html>`__
 
+Compliance scanner
+-----------------------------------------------------
+
+`Overview </chef_compliance.html>`__ |
+`Installation Guide </install_chef_compliance.html>`__ |
+`Integrate w/Chef Server </integrate_compliance_chef_server.html>`__ |
+`Integrate w/Chef Automate </integrate_compliance_server_chef_automate.html>`__ |
+`Upgrade Compliance </upgrade_compliance.html>`__ |
+`chef-compliance.rb </config_rb_compliance.html>`__ |
+`Profile Store </profile_store.html>`__
+`Chef Compliance for Microsoft Azure </compliance_azure.html>`__
+
 Extension APIs
 =====================================================
 
@@ -467,7 +478,6 @@ Addenda
    api_compliance
    api_omnitruck
    api_push_jobs
-   api_reporting
    attributes
    audit_cookbook
    auth
@@ -521,7 +531,6 @@ Addenda
    config_rb_policyfile
    config_rb_push_jobs_client
    config_rb_push_jobs_server
-   config_rb_reporting
    config_rb_server
    config_rb_server_optional_settings
    config_rb_solo
@@ -543,7 +552,6 @@ Addenda
    ctl_ohai
    ctl_opscode_expander
    ctl_push_jobs_client
-   ctl_reporting
    ctl_supermarket
    custom_resources
    custom_resources_notes
@@ -629,8 +637,6 @@ Addenda
    install_dk
    install_omnibus
    install_push_jobs
-   install_reporting
-   install_reporting
    install_server
    install_server_ha
    install_server_ha_aws
@@ -705,7 +711,6 @@ Addenda
    plugin_knife_custom
    plugin_knife_opc
    plugin_knife_push_jobs
-   plugin_knife_reporting
    plugin_knife_spork
    policy
    policyfile
@@ -724,7 +729,6 @@ Addenda
    release_notes_chefdk
    release_notes_push_jobs
    release_notes_server
-   reporting
    resource
    resource_apt_package
    resource_apt_preference
@@ -879,7 +883,6 @@ Addenda
    server_manage_data_bags
    server_manage_environments
    server_manage_nodes
-   server_manage_reports
    server_manage_roles
    server_monitor
    server_orgs

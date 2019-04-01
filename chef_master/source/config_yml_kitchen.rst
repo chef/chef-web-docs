@@ -786,7 +786,7 @@ The following kitchen.yml file is part of the ``yum`` cookbook:
 
 Platform Attributes
 --------------------------------------------------------------------------
-The following kitchen.yml file sets up a simple tiered configuration of the Chef server, including two front-end servers, a single back-end server, and all three add-ons (Chef push jobs, Reporting, and Chef management console). The ``platforms`` block uses an ``attributes`` section to define Chef server-specific attributes that are used by all three test suites:
+The following kitchen.yml file sets up a simple tiered configuration of the Chef server, including two front-end servers, a single back-end server, and two add-ons (Chef push jobs and Chef management console). The ``platforms`` block uses an ``attributes`` section to define Chef server-specific attributes that are used by all three test suites:
 
 .. code-block:: yaml
 

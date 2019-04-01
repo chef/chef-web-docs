@@ -447,7 +447,7 @@ Required Accounts
 -----------------------------------------------------
 By default, accounts required by the Chef server are created during setup. If your environment has restrictions on the creation of local user and group accounts that will prevent these accounts from being created automatically during setup, you will need to create these accounts.
 
-.. note:: The Chef push jobs and Reporting premium features of the Chef server use the same user and group accounts as the Chef server.
+.. note:: The Chef push jobs feature of the Chef server use the same user and group accounts as the Chef server.
 
 Group Accounts
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
