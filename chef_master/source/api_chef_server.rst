@@ -1268,7 +1268,7 @@ The ``/authenticate_user`` endpoint has the following methods: ``POST``.
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to authenticate a user. This endpoint is used by the Chef Identity Service to authenticate users of Chef Supermarket and Chef Analytics to the Chef server.
+The ``POST`` method is used to authenticate a user. This endpoint is used by the Chef Identity Service to authenticate users of Chef Supermarket to the Chef server.
 
 This method has no parameters.
 

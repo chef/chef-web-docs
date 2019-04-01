@@ -367,33 +367,52 @@ InSpec
 Legacy
 =====================================================
 
-Analytics
+Chef Automate 1
 -----------------------------------------------------
 
-`Overview </analytics.html>`__ | `Release Notes </release_notes_analytics.html>`__ | `Install Standalone </install_analytics.html>`__ | `Web UI </actions.html>`__ | `Management Console </analytics_webui_tasks.html>`__ | `Nodes View </analytics_nodes_view.html>`__ | `Integrations </analytics.html#integrations>`_ | `Splunk </analytics_splunk.html>`__ | `Rules </analytics_rules.html>`__ | `Monitor </analytics_monitor.html>`__ | `Upgrades </upgrade_analytics.html>`__ | `Chef Client for Analytics </chef_client_analytics.html>`__ | `opscode-analytics-ctl </ctl_analytics.html>`__ | `opscode-analytics.rb </config_rb_analytics.html>`__ | `knife-analytics </plugin_knife_analytics.html>`__ | `Analytics API </api_analytics.html>`__ | `Recipe DSL for Analytics </dsl_recipe_analytics.html>`__
+**Overview**:
+`Chef Automate Overview </chef_automate.html>`__ |
+`Workflow Overview </workflow.html>`__ |
+`Nodes Overview </visibility.html>`__ |
+`Compliance Overview </chef_automate_compliance.html>`__ |
+`Administration Overview </automate_admin.html>`__
 
-Compliance scanner
------------------------------------------------------
+**Getting Started**:
+`Installation Guide </install_chef_automate.html>`__ |
+`Configure a Pipeline </delivery_pipeline.html>`__ |
+`Configure a Project </config_json_delivery.html>`__ |
+`Configure Data Collection </data_collection.html>`__ |
+`Data Collection and Chef HA </data_collection_ha.html>`__ |
+`Data Collection without Chef Server </data_collection_without_server.html>`__ |
+`Stream Data </stream_data_chef_automate.html>`__ |
+`Upgrades </upgrade_chef_automate.html>`_
 
-`Overview </chef_compliance.html>`__ |
-`Installation Guide </install_chef_compliance.html>`__ |
-`Integrate w/Chef Server </integrate_compliance_chef_server.html>`__ |
-`Integrate w/Chef Automate </integrate_compliance_server_chef_automate.html>`__ |
-`Upgrade Compliance </upgrade_compliance.html>`__ |
-`chef-compliance.rb </config_rb_compliance.html>`__ |
-`Profile Store </profile_store.html>`__
-`Chef Compliance for Microsoft Azure </compliance_azure.html>`__
+**Release Notes**: `Release Notes </release_notes_chef_automate.html>`__
 
-Reporting
------------------------------------------------------
+**Nodes**:
+`Node Notifications w/Slack </integrate_node_notifications_slack.html>`__ |
+`Node Notifications w/Webhooks </integrate_node_notifications_webhook.html>`__ |
+`Node Search Reference </search_query_chef_automate.html>`__
 
-`Overview </reporting.html>`__ |
-`Install Reporting </install_reporting.html>`__ |
-`View Reports </server_manage_reports.html>`__ |
-`knife reporting </plugin_knife_reporting.html>`__ |
-`opscode-reporting-ctl </ctl_reporting.html>`__ |
-`opscode-reporting.rb </config_rb_reporting.html>`__ |
-`Reporting API </api_reporting.html>`__
+**Compliance**:
+`Reporting </automate_compliance_reporting.html>`__ |
+`Scanner </automate_compliance_scanner.html>`__ |
+`Profile Store </profile_store.html>`__ |
+`Credentials </automate_compliance_credentials.html>`__
+
+**Workflow**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__ | `Runners </runners.html>`__ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ | `Workflow w/GitHub </integrate_delivery_github.html>`__ | `Workflow w/Slack </integrate_delivery_slack.html>`__
+
+**Admin**: `Authentication w/LDAP </integrate_delivery_ldap.html>`__ | `Authentication w/SAML </integrate_chef_automate_saml.html>`__
+
+**Managing the Server**: `Backups </delivery_server_backup.html>`__ | `Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ | `Disaster Recovery </delivery_server_disaster_recovery.html>`__ | `Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ | `Secrets </delivery_manage_secrets.html>`__ | `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ | `Tuning </delivery_server_tuning.html>`__ | `Users and Roles </delivery_users_and_roles.html>`__
+
+**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Chef Compliance API </api_compliance.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
+
+**Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__
+
+**AWS OpsWorks for Chef Automate**: `AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
+
+**Troubleshooting**: `Troubleshooting </troubleshooting_chef_automate.html>`__
 
 Extension APIs
 =====================================================
@@ -443,22 +462,22 @@ Addenda
    :hidden:
 
    about_chefdk
+   api_automate
    api_chef_server
    api_compliance
-   api_automate
    api_omnitruck
    api_push_jobs
    api_reporting
    attributes
    audit_cookbook
    auth
-   automate_azure
-   automate_compliance_scanner
-   automate_compliance_reporting
-   automate_compliance_profile_store
-   automate_compliance_credentials
-   automate_nodes
    automate_admin
+   automate_azure
+   automate_compliance_credentials
+   automate_compliance_profile_store
+   automate_compliance_reporting
+   automate_compliance_scanner
+   automate_nodes
    aws_marketplace
    aws_opsworks_chef_automate
    azure_chef_cli
@@ -471,8 +490,8 @@ Addenda
    chef_automate_compliance
    chef_client_overview
    chef_client_security
+   chef_compliance
    chef_deprecations_client
-   chefdk_setup
    chef_license
    chef_overview
    chef_private_keys
@@ -483,12 +502,12 @@ Addenda
    chef_solo
    chef_system_requirements
    chef_vault
+   chefdk_setup
    chefspec
    community
    community_contributions
    community_guidelines
    compliance_azure
-   chef_compliance
    config_json_delivery
    config_rb
    config_rb_client
@@ -512,14 +531,13 @@ Addenda
    cookbook_versioning
    cookbooks
    cookstyle
+   ctl_automate_server
    ctl_chef
    ctl_chef_apply
    ctl_chef_backend
    ctl_chef_client
    ctl_chef_server
    ctl_chef_solo
-   delivery_cli
-   ctl_automate_server
    ctl_kitchen
    ctl_manage
    ctl_ohai
@@ -533,15 +551,14 @@ Addenda
    data_collection
    data_collection_ha
    data_collection_without_server
-   scaling_capacity_planning_chef_automate
-   stream_data_chef_automate
    data_retention_chef_automate
    debug
    definitions
-   delivery_pipeline
    delivery_build_cookbook
+   delivery_cli
    delivery_manage_dependencies
    delivery_manage_secrets
+   delivery_pipeline
    delivery_server_backup
    delivery_server_disaster_recovery
    delivery_server_tuning
@@ -572,20 +589,20 @@ Addenda
    deprecations_ohai_digitalocean
    deprecations_ohai_filesystem
    deprecations_ohai_filesystem_v2
+   deprecations_ohai_ipscopes
    deprecations_ohai_legacy_config
    deprecations_ohai_libvirt_plugin
    deprecations_ohai_run_command_helpers
    deprecations_ohai_sigar_plugins
    deprecations_ohai_v6_plugins
    deprecations_ohai_windows_cpu
-   deprecations_ohai_ipscopes
-   depreciations_ohai_system_profile
    deprecations_property_name_collision
    deprecations_resource_cloning
    deprecations_run_command
    deprecations_shell_out
    deprecations_supports_property
    deprecations_verify_file
+   depreciations_ohai_system_profile
    dk_windows
    dsl_audit
    dsl_custom_resource
@@ -595,8 +612,8 @@ Addenda
    elasticsearch_and_kibana_auth
    environment_variables
    environments
-   errors
    error_messages
+   errors
    feedback
    files
    filter_compliance_scan
@@ -605,19 +622,21 @@ Addenda
    glossary
    google
    handlers
-   install_chef_automate
    install_bootstrap
    install_chef_air_gap
+   install_chef_automate
    install_chef_compliance
    install_dk
    install_omnibus
    install_push_jobs
+   install_reporting
    install_reporting
    install_server
    install_server_ha
    install_server_ha_aws
    install_server_ha_drbd
    install_server_post
+   install_server_pre
    install_server_pre
    install_server_tiered
    install_supermarket
@@ -637,7 +656,6 @@ Addenda
    knife
    knife_azure
    knife_azurerm
-   knife_options
    knife_bootstrap
    knife_client
    knife_configure
@@ -653,11 +671,13 @@ Addenda
    knife_exec
    knife_list
    knife_node
+   knife_options
    knife_raw
    knife_recipe_list
    knife_role
    knife_search
    knife_serve
+   knife_setup
    knife_show
    knife_ssh
    knife_ssl_check
@@ -667,7 +687,6 @@ Addenda
    knife_tag
    knife_upload
    knife_user
-   knife_setup
    knife_windows
    knife_xargs
    libraries
@@ -691,21 +710,21 @@ Addenda
    policy
    policyfile
    profile_store
-   proxies
    provisioning
    provisioning_aws
    provisioning_fog
    provisioning_vagrant
+   proxies
    publish_cookbooks_multiple_servers
    push_jobs
    quick_start
    recipes
-   reporting
    release_notes
    release_notes_chef_automate
    release_notes_chefdk
-   release_notes_server
    release_notes_push_jobs
+   release_notes_server
+   reporting
    resource
    resource_apt_package
    resource_apt_preference
@@ -796,6 +815,7 @@ Addenda
    resource_public_key
    resource_python
    resource_reboot
+   resource_reference
    resource_registry_key
    resource_remote_directory
    resource_remote_file
@@ -838,12 +858,12 @@ Addenda
    resource_yum_repository
    resource_zypper_package
    resource_zypper_repository
-   resource_reference
    roles
    ruby
    run_lists
-   runners
    runbook
+   runners
+   scaling_capacity_planning_chef_automate
    search_query_chef_automate
    secrets
    server_backup_restore
@@ -870,6 +890,7 @@ Addenda
    server_tuning
    server_users
    setup_build_node
+   stream_data_chef_automate
    style_guide
    supermarket
    supermarket_api
@@ -894,21 +915,4 @@ Addenda
    windows
    windows_knife_intro
    workflow
-   actions
-   analytics
-   analytics_monitor
-   analytics_nodes_view
-   analytics_rules
-   analytics_splunk
-   analytics_webui_tasks
-   api_analytics
-   chef_client_analytics
-   config_rb_analytics
-   ctl_analytics
-   dsl_recipe_analytics
-   install_analytics
-   install_reporting
-   install_server_pre
-   plugin_knife_analytics
-   release_notes_analytics
-   upgrade_analytics
+

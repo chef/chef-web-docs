@@ -391,16 +391,6 @@ If a hostname is not resolvable, refer to a local systems administrator for spec
 
 .. end_tag
 
-Chef Analytics
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The hostname for the Chef Analytics server may be specified using a FQDN or an IP address. This hostname must be resolvable. For example, a Chef Analytics server that is running in a production environment with a resolvable FQDN hostname can be added to the DNS system. But when deploying Chef Analytics into a testing environment, adding the hostname to the ``/etc/hosts`` file is enough to ensure that the hostname is resolvable.
-
-* **FQDN Hostnames** When the hostname for the Chef Analytics server is a FQDN be sure to include the domain suffix. For example, something like ``myanalyticsserver.example.com`` (and not something like ``myanalyticsserver``).
-
-The ``analytics_fqdn`` setting must be added to the opscode-analytics.rb file (it is not there by default). Its value should be equal to the FQDN or IP address for the service URI used by the Chef Analytics server. For example: ``analytics_fqdn "chef-analytics.example.com"`` or ``analytics_fqdn 123.45.67.890``.
-
-.. warning:: The FQDN for the Chef Analytics server should not exceed 64 characters when using OpenSSL. OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters. By default, Chef Analytics uses the FQDN of the server to determine the common name (``CN``). If the FQDN of the Chef Analytics server is longer than 64 characters, the ``chef-server-ctl reconfigure`` command will not fail, but an empty certificate file will be created. Nginx will not start if a certificate file is empty.
-
 Mail Relay
 -----------------------------------------------------
 The Chef server server uses email to send notifications for various events:

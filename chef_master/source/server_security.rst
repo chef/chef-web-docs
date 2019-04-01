@@ -171,36 +171,6 @@ The following example shows how the Chef server sets up and configures SSL certi
      end
    end
 
-Chef Analytics
------------------------------------------------------
-The Chef Analytics server can be configured to use SSL certificates by adding the following settings in the server configuration file:
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Setting
-     - Description
-   * - ``ssl['certificate']``
-     - The SSL certificate used to verify communication over HTTPS.
-   * - ``ssl['certificate_key']``
-     - The certificate key used for SSL communication.
-
-and then setting their values to define the paths to the certificate and key.
-
-For example:
-
-.. code-block:: ruby
-
-   ssl['certificate']  = "/etc/pki/tls/certs/your-host.crt"
-   ssl['certificate_key']  = "/etc/pki/tls/private/your-host.key"
-
-Save the file, and then run the following command:
-
-.. code-block:: bash
-
-   $ sudo opscode-analytics-ctl reconfigure
-
 Knife, chef-client
 -----------------------------------------------------
 .. tag server_security_ssl_cert_client
@@ -313,7 +283,7 @@ Chef Server Credentials Management
 =====================================================
 **New in Chef server 12.14:** Chef server limits where it writes service passwords and keys to disk. In the default configuration, credentials are only written to files in ``/etc/opscode``.
 
-By default, Chef server still writes service credentials to multiple locations inside ``/etc/opscode``.  This is designed to maintain compatibility with add-ons. Chef server 12.14 introduces the ``insecure_addon_compat`` configuration option in ``/etc/opscode/chef-server.rb``, which allows you to further restrict where credentials are written.  ``insecure_addon_compat`` can be used if you are not using add-ons, or if you are using the latest add-on versions. However, ``insecure_addon_compat`` **cannot** be used with Analytics. Setting ``insecure_addon_compat`` to ``false`` writes credentials to only one location: ``/etc/opscode/private-chef-secrets.json``.
+By default, Chef server still writes service credentials to multiple locations inside ``/etc/opscode``.  This is designed to maintain compatibility with add-ons. Chef server 12.14 introduces the ``insecure_addon_compat`` configuration option in ``/etc/opscode/chef-server.rb``, which allows you to further restrict where credentials are written.  ``insecure_addon_compat`` can be used if you are not using add-ons, or if you are using the latest add-on versions. Setting ``insecure_addon_compat`` to ``false`` writes credentials to only one location: ``/etc/opscode/private-chef-secrets.json``.
 
 User-provided secrets (such as the password for an external PostgreSQL instance) can still be set in ``/etc/opscode/chef-server.rb`` or via the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.  These commands allow you to provide external passwords without including them in your configuration file.
 
@@ -336,8 +306,6 @@ The following table lists which add-on versions support the more restrictive ``i
      - 2.2.0
    * - Reporting
      - 1.7.0
-   * - Analytics
-     - *none*
 
 These newer add-ons will also write all of their secrets to ``/etc/opscode/private-chef-secrets.json``. Older versions of the add-ons will still write their configuration to locations in ``/etc`` and ``/var/opt``.
 

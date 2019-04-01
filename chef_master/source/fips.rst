@@ -36,7 +36,6 @@ FIPS mode is not supported for Chef Server add-ons. This includes:
 
 * Chef Compliance (standalone)
 * Chef Manage
-* Analytics
 * Push Jobs
 * Reporting
 
