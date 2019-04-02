@@ -888,7 +888,6 @@ Addenda
    upgrade_client
    upgrade_server
    upgrade_server_ha_v2
-   upgrade_server_notes
    upgrade_server_open_source_notes
    versions
    visibility
