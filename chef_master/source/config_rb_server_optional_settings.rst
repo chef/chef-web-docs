@@ -44,7 +44,7 @@ This configuration file has the following general settings:
    The version of the Chef server. Default value: ``'12.0.0'``.
 
 ``default_orgname``
-   The Chef server API used by the Open Source Chef server does not have an ``/organizations/ORG_NAME`` endpoint. Use this setting to ensure that migrated Open Source Chef servers are able to connect to the Chef server API. This value should be the same as the name of the organization that was created during the upgrade from Open Source Chef version 11 to Chef server version 12, which means it will be identical to the ``ORG_NAME`` part of the ``/organizations`` endpoint in Chef server version 12. Default value: the name of the organization specified during the upgrade process from Open Source Chef 11 to Chef server 12.
+    The ``ORG_NAME`` part of the ``/organizations`` endpoint in Chef Server.
 
 ``flavor``
    Default value: ``'cs'``.
