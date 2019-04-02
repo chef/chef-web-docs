@@ -75,7 +75,7 @@ This argument has the following options:
              .. end_tag
 
 ``-p FILE``, ``--public-key FILE``
-   The path to a file that contains the public key. This option may not be passed in the same command with ``--prevent-keygen``. When using Open Source Chef a default key is generated if this option is not passed in the command. For Chef server version 12.x, see the ``--prevent-keygen`` option.
+   The path to a file that contains the public key. This option may not be passed in the same command with ``--prevent-keygen``. When using Chef a default key is generated if this option is not passed in the command. For Chef server version 12.x, see the ``--prevent-keygen`` option.
 
 ``--validator``
    Create the client as the chef-validator. Default value: ``true``.
