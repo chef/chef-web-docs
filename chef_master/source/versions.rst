@@ -3,30 +3,30 @@ Supported Versions
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/versions.rst>`__
 
-Supported Versions
-==============================================
-
-This section lists the versions of the OSS and commercial Chef products we currently support as well as the support level (expressed as a lifecycle status) for each product. The lifecycle status defines the involvement by Chef Software in updating and maintaining each product in the list below.
+This section lists the free and commercial Chef products and versions we currently support. The lifecycle stage defines the involvement by Chef Software in updating and maintaining each product.
 
 Lifecycle Definitions
+==============================================
+
+Generally Available (GA)
 ----------------------------------------------
 
-**Generally Available (GA)**
-
-This stage indicates that an application or version is in active development or is considered feature complete.
+This stage indicates that the product or version is in active development and/or maintenance.
 
 * Chef continues to provide releases to the application or version in response to customer needs and security vulnerabilities
 * Chef welcomes customer feature requests for the product roadmap for the application
 
-**Deprecated**
+Deprecated
+----------------------------------------------
 
-This stage indicates that an application or version is no longer in active development and will eventually move to end of life status.  Chef continues to provide support `according to our SLAs <https://www.chef.io/service-level-agreement/>`_.
+This stage indicates that an application or version is no longer in active development and will eventually move to end of life status. Chef continues to provide support `according to our SLAs <https://www.chef.io/service-level-agreement/>`_.
 
 * Chef no longer provides scheduled releases
 * Customers should use the GA alternative to these products; contact us for help with product selection and deployment
 * Chef may provide a release for a critical defect or security vulnerability
 
-**End of Life (EOL)**
+End of Life (EOL)
+----------------------------------------------
 
 This stage indicates that Chef has set a date after which the application or version will no longer be supported or recommended for use by customers.
 
@@ -36,9 +36,63 @@ This stage indicates that Chef has set a date after which the application or ver
 
 Versions and Status
 ----------------------------------------------
+
 .. important:: Unless otherwise stated, versions older than those listed below are EOL.
 
-**Premium Supported Open Source**
+Supported Commercial Distributions
+==============================================
+
+.. list-table::
+   :header-rows: 1
+   :widths: 150, 250, 200, 200
+
+   * - Product
+     - Version
+     - Lifecycle Status
+     - EOL Date
+   * - Chef Automate
+     - 2.x
+     - GA
+     - n/a
+   * - Chef Infra Client
+     - 15.x
+     - Releasing Soon
+     - n/a
+   * - Chef Infra Server
+     - 13.x
+     - Releasing Soon
+     - n/a
+   * - Chef Habitat
+     - 0.8
+     - Releasing Soon
+     - n/a
+   * - Chef InSpec
+     - 4.x
+     - Releasing Soon
+     - n/a
+   * - Chef Workstation
+     - 0.3
+     - Releasing Soon
+     - n/a
+   * - ChefDK
+     - 4.x
+     - Releasing Soon
+     - n/a
+   * - Supermarket
+     - 4.x
+     - Releasing Soon
+     - n/a
+   * - Chef Backend
+     - 3.x
+     - Releasing Soon
+     - n/a
+   * - Push Jobs
+     - 3.x
+     - Releasing Soon
+     - n/a
+
+Supported Free Distributions
+==============================================
 
 .. list-table::
    :header-rows: 1
@@ -51,54 +105,26 @@ Versions and Status
    * - Chef Client
      - 14.x
      - GA
-     - n/a
-   * - Chef Client
-     - 13.x
-     - Deprecated
-     - April 30, 2019
-   * - Chef Client
-     - 12.x
-     - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
-     - April 30, 2018
+     - April 30, 2020
    * - ChefDK
      - 3.x
      - GA
-     - n/a
-   * - ChefDK
-     - 2.x
-     - Deprecated
-     - April 30, 2019
-   * - ChefDK
-     - 1.x
-     - `EOL <https://www.chef.io/eol-chef12-and-chefdk1/>`__
-     - April 30, 2018
-   * - Chef Server
-     - 12.x
-     - GA
-     - n/a
-   * - Chef Provisioning
-     - 1.6.0 or later
-     - Deprecated
-     - August 31, 2019
+     - April 30, 2020
    * - InSpec
-     - Latest
+     - 3.x
      - GA
-     - n/a
-   * - Habitat Supervisor
-     - Latest
+     - April 30, 2020
+   * - Push Jobs
+     - 2.5.x
      - GA
-     - n/a
-   * - | Push Jobs Client
-       | Push Jobs Server
-     - 2.1.0 or later
-     - GA
-     - n/a
+     - April 30, 2020
    * - Supermarket
-     - 2.2.1 or later
+     - 3.x
      - GA
-     - n/a
+     - April 30, 2020
 
-**Commercial**
+Deprecated Products and Versions
+===================================================
 
 .. list-table::
    :header-rows: 1
@@ -109,31 +135,62 @@ Versions and Status
      - Lifecycle Status
      - EOL Date
    * - Chef Automate
-     - 0.8.5 or later
-     - GA
-     - n/a
-   * - Chef Backend
-     - Latest
-     - GA
-     - n/a
+     - 1.x
+     - Deprecated
+     - December 31, 2019
+   * - Chef Client
+     - 13.x
+     - Deprecated
+     - April 30, 2019
+   * - ChefDK
+     - 2.x
+     - Deprecated
+     - April 30, 2019
    * - Chef Manage
-     - 2.1.0 or later
-     - GA
-     - n/a
+     - 2.5.x
+     - Deprecated
+     - TBD
+   * - Chef Provisioning
+     - All
+     - Deprecated
+     - August 31, 2019
+   * - Chef Workflow
+     - 2.x
+     - Deprecated
+     - TBD
+   * - InSpec
+     - 1.x
+     - Deprecated
+     - December 31, 2019
+   * - InSpec
+     - 2.x
+     - Deprecated
+     - December 31, 2019
+
+End of Life (EOL) Products
+===================================================
+
+.. list-table::
+   :header-rows: 1
+   :widths: 150, 250, 200, 200
+
+   * - Product
+     - Version
+     - Lifecycle Status
+     - EOL Date
+   * - Analytics
+     - All
+     - EOL
+     - December 31, 2018
    * - Chef Compliance
-     - 0.9.0 or later
+     - All
      - EOL
      - December 31, 2018
    * - Enterprise Chef
-     - 11.2.2 or later
+     - All
      - EOL
      - December 31, 2018
    * - Reporting
-     - 1.5.5 or later
+     - All
      - EOL
      - December 31, 2018
-   * - Analytics
-     - 1.5.0 or later
-     - EOL
-     - December 31, 2018
-
