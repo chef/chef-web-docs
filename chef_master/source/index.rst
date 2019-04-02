@@ -106,7 +106,7 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__  | `Integrate Chef Compliance with Chef Server </integrate_compliance_chef_server.html>`__
+**Server**: `Hosted Chef Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -329,7 +329,6 @@ Chef Automate
 `Telemetry <https://automate.chef.io/docs/telemetry/>`__ |
 `Event Feed <https://automate.chef.io/docs/event-feed/>`__ |
 `Client Runs <https://automate.chef.io/docs/client-runs/>`__ |
-`Compliance <https://automate.chef.io/docs/compliance/>`__ |
 `Scan Jobs <https://automate.chef.io/docs/scan-jobs/>`__ |
 `Nodes API <https://automate.chef.io/docs/nodes/>`__ |
 `Cloud Integrations <https://automate.chef.io/docs/integrations/>`__ |
@@ -405,25 +404,13 @@ Chef Automate 1
 
 **Managing the Server**: `Backups </delivery_server_backup.html>`__ | `Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ | `Disaster Recovery </delivery_server_disaster_recovery.html>`__ | `Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ | `Secrets </delivery_manage_secrets.html>`__ | `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ | `Tuning </delivery_server_tuning.html>`__ | `Users and Roles </delivery_users_and_roles.html>`__
 
-**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Chef Compliance API </api_compliance.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
+**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
 
 **Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__
 
 **AWS OpsWorks for Chef Automate**: `AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
 
 **Troubleshooting**: `Troubleshooting </troubleshooting_chef_automate.html>`__
-
-Compliance scanner
------------------------------------------------------
-
-`Overview </chef_compliance.html>`__ |
-`Installation Guide </install_chef_compliance.html>`__ |
-`Integrate w/Chef Server </integrate_compliance_chef_server.html>`__ |
-`Integrate w/Chef Automate </integrate_compliance_server_chef_automate.html>`__ |
-`Upgrade Compliance </upgrade_compliance.html>`__ |
-`chef-compliance.rb </config_rb_compliance.html>`__ |
-`Profile Store </profile_store.html>`__
-`Chef Compliance for Microsoft Azure </compliance_azure.html>`__
 
 Extension APIs
 =====================================================
@@ -475,7 +462,6 @@ Addenda
    about_chefdk
    api_automate
    api_chef_server
-   api_compliance
    api_omnitruck
    api_push_jobs
    attributes
@@ -500,7 +486,6 @@ Addenda
    chef_automate_compliance
    chef_client_overview
    chef_client_security
-   chef_compliance
    chef_deprecations_client
    chef_license
    chef_overview
@@ -517,11 +502,9 @@ Addenda
    community
    community_contributions
    community_guidelines
-   compliance_azure
    config_json_delivery
    config_rb
    config_rb_client
-   config_rb_compliance
    config_rb_delivery
    config_rb_delivery_optional_settings
    config_rb_manage
@@ -633,7 +616,6 @@ Addenda
    install_bootstrap
    install_chef_air_gap
    install_chef_automate
-   install_chef_compliance
    install_dk
    install_omnibus
    install_push_jobs
@@ -648,8 +630,6 @@ Addenda
    install_supermarket
    install_windows
    integrate_chef_automate_saml
-   integrate_compliance_chef_server
-   integrate_compliance_server_chef_automate
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
@@ -906,8 +886,6 @@ Addenda
    uninstall
    upgrade_chef_automate
    upgrade_client
-   upgrade_client_notes
-   upgrade_compliance
    upgrade_server
    upgrade_server_ha_v2
    upgrade_server_notes
