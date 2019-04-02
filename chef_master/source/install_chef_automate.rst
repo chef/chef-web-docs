@@ -404,7 +404,7 @@ Profiles
 
 Chef Automate contains a compliance profiles asset store that provides several built-in profiles covering baseline security checks through CIS benchmarks across multiple operating systems.
 
-In Chef Automate 0.8.5 or later, the compliance profiles asset store is enabled by default. You can manage your profiles through the `Chef Automate API </api_automate.html>`_ as well as through the Chef Automate UI. See `An Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information on the new integrated compliance functionality.
+ The compliance profiles asset store is enabled by default. You can manage your profiles through the `Chef Automate API </api_automate.html>`_ as well as through the Chef Automate UI. See `An Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information on the new integrated compliance functionality.
 
 Scanning
 ------------------------------------------------------------

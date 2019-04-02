@@ -39,7 +39,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Chef Docs'
-copyright = u'This work is licensed under a Creative Commons Attribution 3.0 Unported License.'
+copyright = u'2019 Chef Software, Inc.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -142,7 +142,7 @@ html_context = {
 # hack that achieved the desired behavior. Plus, there's 0% chance that we'll
 # ever want to insert a datetime stamp in the docs.
 
-html_last_updated_fmt = 'current version of Chef'
+html_last_updated_fmt = 'Current version of Chef'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.

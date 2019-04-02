@@ -506,36 +506,6 @@ These groups do not exist by default, even after Chef push jobs has been install
 
 .. end_tag
 
-Reporting Groups
------------------------------------------------------
-.. tag reporting_summary
-
-Use Reporting to keep track of what happens during the execution of chef-client runs across all of the machines that are under management by Chef. Reports can be generated for the entire organization and they can be generated for specific nodes.
-
-Reporting data is collected during the chef-client run and the results are posted to the Chef server at the end of the chef-client run at the same time the node object is uploaded to the Chef server.
-
-.. end_tag
-
-A chef-client on which Reporting is configured always sends data to the Chef server. Users of the Chef management console web user interface must belong to the following group:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Group
-     - Description
-   * - ``reporting_readers``
-     - Use to view and configure reports.
-
-This group does not exist by default, even after Reporting has been installed to the Chef server. If this group is not created, all members of the organization will be unable to view reports.
-
-.. SAVE FOR LATER
-..
-.. must belong to one (or both) of the following groups:
-..
-..   * - ``reporting_writers``
-..     - (This group is not used by the current version of Reporting.)
-
 Server Admins
 =====================================================
 .. tag server_rbac_server_admins

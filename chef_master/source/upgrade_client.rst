@@ -25,9 +25,9 @@ The `chef_client_updater <https://supermarket.chef.io/cookbooks/chef_client_upda
 Considerations
 =====================================================
 
-Preparing your chef-client system before upgrading to Chef server will enhance your Chef experience.  During a Chef server upgrade, all of the data is extracted, converted to a new format, and then uploaded. A large amount of data (cookbooks, nodes, etc.,) can increase the upgrade process significantly and extend your downtime.
+Preparing your chef-client system before upgrading to Chef server will enhance your Chef experience. During a Chef server upgrade, all of the data is extracted, converted to a new format, and then uploaded. A large amount of data (cookbooks, nodes, etc.,) can increase the upgrade process significantly and extend your downtime.
 
-Managing your data prior to upgrading will improve experience upgrading and using Chef server and client. Following this list of client-based tasks prior to upgrading will expedite the upgrade process and mitigate many common issues.  For more information on upgrading to Chef server, see `Enterprise Chef to Chef 12 Upgrades. </upgrade_server_notes.html>`__
+Managing your data prior to upgrading will improve experience upgrading and using Chef server and client. Following this list of client-based tasks prior to upgrading will expedite the upgrade process and mitigate many common issues.
 
 Install the version of chef client you plan on using after the upgrade on a small number of test nodes and verify:
  * All nodes can authenticate and converge successfully.

@@ -210,7 +210,7 @@ install
 =====================================================
 .. tag ctl_chef_server_install
 
-The ``install`` subcommand is used to install premium features of the Chef server: Chef management console, Chef Analytics, chef-client run reporting, high availability configurations, Chef push jobs, and Chef server replication.
+The ``install`` subcommand is used to install premium features of the Chef server: Chef management console and chef-client run reporting, high availability configurations, Chef push jobs, and Chef server replication.
 
 .. end_tag
 
@@ -1494,12 +1494,10 @@ This subcommand has the following syntax:
 
 **Options**
 
-.. note:: Options for the ``upgrade`` subcommand may only be used when upgrading from Open Source Chef 11 to Chef server 12.
-
 This subcommand has the following options:
 
 ``-d DIRECTORY``, ``--chef11-data-dir DIRECTORY``
-   The directory in which Open Source Chef 11 data is located. Default value: a temporary directory.
+   The directory in which Chef 11 data is located. Default value: a temporary directory.
 
 ``-e DIRECTORY``, ``--chef12-data-dir DIRECTORY``
    The directory in which Chef server 12 data is located. Default value: a temporary directory.
@@ -1511,19 +1509,19 @@ This subcommand has the following options:
    Use to show help for the ``chef-server-ctl upgrade`` subcommand.
 
 ``-k KEY_PATH``, ``--key KEY_PATH``
-   The Open Source Chef 11 ``admin.pem`` key for the API client. This is the key used to download Open Source Chef 11 data. Default value: ``/etc/chef-server/admin.pem``.
+   The Chef 11 ``admin.pem`` key for the API client. This is the key used to download Chef 11 data. Default value: ``/etc/chef-server/admin.pem``.
 
 ``-o ORG_NAME``, ``--org-name ORG_NAME``
    The name of the Chef server organization. The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``chef``. If this option is not specified, the ``upgrade`` command will prompt for it.
 
 ``-s URL``, ``--chef11-server-url URL``
-   The URL for the Open Source Chef or Enterprise Chef server, version 11. Default value: ``https://localhost``.
+   The URL for the Chef server, version 11. Default value: ``https://localhost``.
 
 ``-t NUMBER``, ``--upload-threads NUMBER``
    The number of threads to use when migrating cookbooks. Default value: ``10``.
 
 ``-u USER``, ``--user``
-   Create a client as an admin client. This is required for any user to access Open Source Chef as an administrator.
+   Create a client as an admin client. This is required for any user to access Chef as an administrator.
 
 ``-x URL``, ``--chef12-server-url URL``
    The URL for the Chef server, version 12. Default value: ``https://localhost``.

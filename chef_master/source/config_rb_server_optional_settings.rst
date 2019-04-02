@@ -9,12 +9,6 @@ The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configu
 
 .. end_tag
 
-.. note:: .. tag notes_config_rb_server_was_private_chef_rb
-
-          This file was named private-chef.rb in previous versions of Enterprise Chef. After an upgrade to Chef server 12 from Enterprise Chef, the private-chef.rb file is symlinked to chef-server.rb. The private-chef.rb file is deprecated, starting with Chef server 12.
-
-          .. end_tag
-
 Settings
 =====================================================
 The following sections describe the various settings that are available in the chef-server.rb file.
@@ -44,13 +38,13 @@ This configuration file has the following general settings:
 
    .. code-block:: ruby
 
-      %w{opscode-reporting chef-manage opscode-analytics opscode-push-jobs-server}
+      %w{opscode-reporting chef-manage opscode-push-jobs-server}
 
 ``api_version``
    The version of the Chef server. Default value: ``'12.0.0'``.
 
 ``default_orgname``
-   The Chef server API used by the Open Source Chef server does not have an ``/organizations/ORG_NAME`` endpoint. Use this setting to ensure that migrated Open Source Chef servers are able to connect to the Chef server API. This value should be the same as the name of the organization that was created during the upgrade from Open Source Chef version 11 to Chef server version 12, which means it will be identical to the ``ORG_NAME`` part of the ``/organizations`` endpoint in Chef server version 12. Default value: the name of the organization specified during the upgrade process from Open Source Chef 11 to Chef server 12.
+    The ``ORG_NAME`` part of the ``/organizations`` endpoint in Chef Server.
 
 ``flavor``
    Default value: ``'cs'``.
@@ -61,7 +55,7 @@ This configuration file has the following general settings:
 .. _config_rb_server_insecure_addon_compat:
 
 ``insecure_addon_compat``
-   Set to ``true`` to keep Chef server compatible with older add-on versions by rendering secrets and credentials to ``/etc/opscode/chef-server-running.json`` and other files in ``/etc/opscode/`` (and ``/etc/opscode-analytics``). When set to ``false``, secrets are **only** written to ``/etc/opscode/private-chef-secrets.json`` and **not** to any other files. Default value: ``true``.
+   Set to ``true`` to keep Chef server compatible with older add-on versions by rendering secrets and credentials to ``/etc/opscode/chef-server-running.json`` and other files in ``/etc/opscode/``. When set to ``false``, secrets are **only** written to ``/etc/opscode/private-chef-secrets.json`` and **not** to any other files. Default value: ``true``.
 
    See `Add-on Compatibility </server_security.html#add-on-compatibility>`_ for the minimum add-on versions supporting ``insecure_addon_compat false``.
 
@@ -849,7 +843,7 @@ oc-id
 -----------------------------------------------------
 .. tag server_services_oc_id
 
-The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket and Chef Analytics. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
 .. end_tag
 
@@ -873,15 +867,6 @@ This configuration file has the following settings for ``oc-id``:
          }
 
    .. end_tag
-
-   To define OAuth 2 information for Chef Analytics, create a Hash similar to:
-
-      .. code-block:: ruby
-
-         oc_id['applications'] ||= {}
-         oc_id['applications']['analytics'] = {
-           'redirect_uri' => 'https://analytics.rhel.aws'
-         }
 
 ``oc_id['db_pool_size']``
    The number of open connections to PostgreSQL that are maintained by the service. Default value: ``'20'``.
@@ -1418,7 +1403,7 @@ rabbitmq
 -----------------------------------------------------
 .. tag server_services_rabbitmq
 
-The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search. When Chef Analytics is configured, the **rabbitmq** service is also used to send data from the Chef server to the Chef Analytics server.
+The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
 
 .. end_tag
 
@@ -1485,8 +1470,6 @@ This configuration file has the following settings for ``rabbitmq``:
 
 ``rabbitmq['node_ip_address']``
    The bind IP address for RabbitMQ. Default value: ``'127.0.0.1'``.
-
-   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to ``0.0.0.0``.
 
 ``rabbitmq['node_port']``
    The port on which the service is to listen. Default value: ``'5672'``.
@@ -1555,8 +1538,6 @@ This configuration file has the following settings for ``rabbitmq``:
 
 ``rabbitmq['vip']``
    The virtual IP address. Default value: ``'127.0.0.1'``.
-
-   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, this value should be updated to be the backend VIP address for the Chef server.
 
 redis_lb
 -----------------------------------------------------

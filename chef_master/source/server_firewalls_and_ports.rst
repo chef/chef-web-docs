@@ -78,7 +78,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket and Chef Analytics. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -126,7 +126,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search. When Chef Analytics is configured, the **rabbitmq** service is also used to send data from the Chef server to the Chef Analytics server.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
 
        .. end_tag
 
@@ -193,7 +193,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket and Chef Analytics. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -278,7 +278,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket and Chef Analytics. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -336,7 +336,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search. When Chef Analytics is configured, the **rabbitmq** service is also used to send data from the Chef server to the Chef Analytics server.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
 
        .. end_tag
 
@@ -408,7 +408,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket and Chef Analytics. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -493,7 +493,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search. When Chef Analytics is configured, the **rabbitmq** service is also used to send data from the Chef server to the Chef Analytics server.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
 
        .. end_tag
 
@@ -538,40 +538,6 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
      -
 
 .. end_tag
-
-Chef Analytics
-=====================================================
-The following sections describe the ports that are required by Chef Analytics:
-
-For communication between Chef Analytics and the Chef server, ensure that ports marked as external (``yes``) are open and accessible via any firewalls that are in use:
-
-.. list-table::
-   :widths: 60 420 60
-   :header-rows: 1
-
-   * - Port
-     - Service
-     - External
-   * - 80
-     - **nginx**
-     - yes
-   * - 443
-     - **nginx**
-     - yes
-   * - 5672
-     - **rabbitmq**
-
-       .. note:: The RabbitMQ port on the Chef server must allow inbound traffic from Chef Analytics.
-     - no
-   * - 10011
-     - actions
-     - no
-   * - 10012
-     - actions_messages
-     - no
-   * - 10013
-     - notifier_config
-     - no
 
 Chef Push Jobs
 =====================================================
