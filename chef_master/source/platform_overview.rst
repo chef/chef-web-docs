@@ -115,8 +115,6 @@ Compliance
 
 Chef Automate creates customizable reports that identify compliance issues, security risks, and outdated software. You can write your own compliance rules in InSpec, or you can get started quickly by using built-in profiles, which are predefined rule sets for a variety of security frameworks, such as Center for Internet Security (CIS) benchmarks, included as part of Chef Automate.
 
-Compliance reporting is currently done through the integrated compliance reporting in Chef Automate 0.8.5.
-
 For information on the integrated reporting capabilities in Chef Automate, see `Compliance Overview </chef_automate_compliance.html>`__.
 
 High availability
