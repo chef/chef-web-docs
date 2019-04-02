@@ -5972,7 +5972,7 @@ knife client create
 This argument has the following options:
 
 ``-a``, ``--admin``
-   Create a client as an admin client. This is required for any user to access Open Source Chef as an administrator.  This option only works when used with the open source Chef server and will have no effect when used with Enterprise Chef or Chef server 12.x.
+   Create a client as an admin client.
 
 ``-f FILE``, ``--file FILE``
    Save a private key to the specified file name.

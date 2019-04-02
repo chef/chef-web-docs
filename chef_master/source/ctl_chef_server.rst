@@ -1517,7 +1517,7 @@ This subcommand has the following options:
    The name of the Chef server organization. The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``chef``. If this option is not specified, the ``upgrade`` command will prompt for it.
 
 ``-s URL``, ``--chef11-server-url URL``
-   The URL for the Open Source Chef or Enterprise Chef server, version 11. Default value: ``https://localhost``.
+   The URL for the Open Source Chef server, version 11. Default value: ``https://localhost``.
 
 ``-t NUMBER``, ``--upload-threads NUMBER``
    The number of threads to use when migrating cookbooks. Default value: ``10``.

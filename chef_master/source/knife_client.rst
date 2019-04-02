@@ -60,7 +60,7 @@ Options
 This argument has the following options:
 
 ``-a``, ``--admin``
-   Create a client as an admin client. This is required for any user to access Open Source Chef as an administrator.  This option only works when used with the open source Chef server and will have no effect when used with Enterprise Chef or Chef server 12.x.
+   Create a client as an admin client.
 
 ``-f FILE``, ``--file FILE``
    Save a private key to the specified file name.
@@ -99,14 +99,6 @@ To create a chef-client that can access the Chef server API as an administrator-
 .. code-block:: bash
 
    $ knife client create exampleorg -a -f "/etc/chef/client.pem"
-
-**Create an admin client for Enterprise Chef**
-
-When running the ``create`` argument, be sure to omit the ``-a`` option:
-
-.. code-block:: bash
-
-   $ knife client create exampleorg -f "/etc/chef/client.pem"
 
 delete
 =====================================================

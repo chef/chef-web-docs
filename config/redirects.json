@@ -191,7 +191,6 @@
   "essentials_search.html": "/chef_search.html",
   "plugin_knife_pushy.html": "/plugin_knife_push_jobs.html",
   "migrate_to_hosted.html": "/upgrade_server.html",
-  "migrate_to_enterprise.html": "/upgrade_server.html",
   "server_types.html": "/chef_overview.html",
   "hwrp.html": "/custom_resources.html",
   "just_enough_ruby_for_chef.html": "/ruby.html",
