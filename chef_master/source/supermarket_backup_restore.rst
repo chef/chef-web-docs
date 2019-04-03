@@ -12,7 +12,7 @@ Backup
 Cookbook Backup
 -----------------------------------------------------
 
-If Supermarket is not configured to use AWS S3 storage for cookbooks, then the local cookbook storage location on the Supermarket server will also need to be backed up. 
+If Supermarket is not configured to use AWS S3 storage for cookbooks, then the local cookbook storage location on the Supermarket server will need to be backed up. 
 
 The default location is: ``/var/opt/supermarket/data/cookbook_versions``.
 
