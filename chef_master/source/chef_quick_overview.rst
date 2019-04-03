@@ -19,7 +19,7 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 Chef Components
 =====================================================
-The following diagram shows the relationships between the various elements of a very simple organization, including the hosted Enterprise Chef server, a workstations, the chef-repo, and some simple nodes that exist either in VirtualBox or Amazon Web Services (AWS).
+The following diagram shows the relationships between the various elements of a very simple organization, including the hosted server, a workstation, the chef-repo, and some simple nodes that exist either in VirtualBox or Amazon Web Services (AWS).
 
 .. image:: ../../images/overview_chef_quick.png
 
@@ -75,7 +75,7 @@ The chef-repo is the repository structure in which cookbooks are authored, teste
 
 .. end_tag
 
-git is the most commonly-used location to store a chef-repo that is used with a hosted Enterprise Chef account, but git is not required.
+git is the most commonly-used location to store a chef-repo, but git is not required.
 
 .. tag chef_repo_structure
 

@@ -20,7 +20,7 @@ A value passed via the command line will override a value in the config.rb file;
 The following list describes all of the optional settings that can be added to the configuration file:
 
 ``knife[:admin]``
-   Create a client as an admin client. This is required for any user to access Open Source Chef as an administrator.
+   Create a client as an admin client.
 
 ``knife[:admin_client_key]``
 

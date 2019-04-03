@@ -9,12 +9,6 @@ The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configu
 
 .. end_tag
 
-.. note:: .. tag notes_config_rb_server_was_private_chef_rb
-
-          This file was named private-chef.rb in previous versions of Enterprise Chef. After an upgrade to Chef server 12 from Enterprise Chef, the private-chef.rb file is symlinked to chef-server.rb. The private-chef.rb file is deprecated, starting with Chef server 12.
-
-          .. end_tag
-
 Use Conditions
 =====================================================
 .. tag config_add_condition
@@ -292,25 +286,5 @@ The following setting is often modified from the default as part of the tuning e
    .. code-block:: ruby
 
       550 = 350 + [(4 - 2) * (25 * 4)]
-
-.. end_tag
-
-rabbitmq
------------------------------------------------------
-.. tag server_tuning_rabbitmq
-
-.. note:: Chef Analytics has been replaced by Chef Automate.
-
-The following settings must be modified when the Chef Analytics server is configured as a standalone server:
-
-``rabbitmq['node_ip_address']``
-   The bind IP address for RabbitMQ. Default value: ``"127.0.0.1"``.
-
-   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to ``0.0.0.0``.
-
-``rabbitmq['vip']``
-   The virtual IP address. Default value: ``"127.0.0.1"``.
-
-   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to the backend VIP address for the Chef server.
 
 .. end_tag

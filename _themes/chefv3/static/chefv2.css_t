@@ -88,9 +88,7 @@ table {
  * Sphinx stylesheet -- chefv2 theme.  Originally created by
  * Chef for docs.chef.io.
  *
- * :copyright: None.
- * :license: This work is licensed under a Creative Commons 
- * Attribution 3.0 Unported License
+ * :copyright: 2019 Chef Software, Inc.
  *
  */
 /* -- the background color for the whole page and the borders for the topic page, header, footer */

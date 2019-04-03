@@ -308,7 +308,7 @@ The following table lists the commercially-supported platforms for the Chef push
      - ``14.04``, ``16.04``
 
 Chef Backend
-------------
+----------------------------------------------------
 
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -332,39 +332,9 @@ The following table lists the commercially-supported platforms for Chef Backend,
      - ``x86_64``
      - ``14.04``, ``16.04``
 
-Chef Compliance Server
-----------------------
-
-.. tag EOL_compliance_server
-
-.. warning:: The standalone Chef Compliance server is deprecated. The standalone Chef Compliance server's end-of-life date is December 31, 2018. `Chef Automate 2 <https://automate.chef.io/>`__ has all of the functionality of Chef Compliance Server and also includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features not found in Chef Compliance Server.
-
-.. end_tag
-
-Commercial Support
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-The following table lists the commercially-supported platforms for Chef Compliance Server:
-
-.. list-table::
-   :widths: 280 100 120
-   :header-rows: 1
-
-   * - Platform
-     - Architecture
-     - Version
-   * - CentOS
-     - ``x86_64``
-     - ``6.x``, ``7.x``
-   * - Red Hat Enterprise Linux
-     - ``x86_64``
-     - ``6.x``, ``7.x``
-   * - Ubuntu (LTS releases)
-     - ``x86_64``
-     - ``14.04``, ``16.04``
 
 Chef Manage
------------
+---------------------------------------------------
 
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++

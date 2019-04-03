@@ -51,7 +51,7 @@ Properties
 This resource has the following properties:
 
 ``admin``
-   Create a client as an admin client. This is required for any user to access Open Source Chef as an administrator.
+   Create a client as an admin client. This is required for any user to access Chef as an administrator.
 
 ``chef_server``
    The URL for the Chef server.

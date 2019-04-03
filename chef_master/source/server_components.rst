@@ -118,7 +118,6 @@ Several factors may influence server scalability. All server sizing recommendati
 * Search and ``partial_search`` are utilized, but not heavily
 * The number of cookbooks per organization, across all versions, on the Chef server is under 500. (Multiple organizations with fewer than 500 cookbooks each, that still add up to a total of more than 500 cookbooks server-wide, is fine.)
 * The default maximum allowable size for a node object is 1MB, although it is rare for nodes to exceed 150KB. Though compressed, this data is replicated twice, once in Apache Solr, and once in PostgreSQL. In practice, allowing a conservative 2MB of storage on the disk partition per node should be sufficient
-* Disk space estimates assume that the Reporting add-on is not installed
 
 Host Specifications
 -----------------------------------------------------
