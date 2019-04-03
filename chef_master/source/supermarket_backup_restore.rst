@@ -37,12 +37,12 @@ For example, a database export in a .dump format can be made with the following 
 
 
 where, in a typical installation:
-  * ``/opt/supermarket/embedded/bin/pg_dump`` is the path to the database export utility included in the Supermarket installation.
+  * ``/opt/supermarket/embedded/bin/pg_dump`` is the path to the database export utility included in the Supermarket installation
   * ``localhost`` may alternatively be 127.0.0.1 
-  * ``15432`` is the PostgreSQL port number, which may need to be modified.
+  * ``15432`` is the PostgreSQL port number, which may need to be modified
   * ``--format c`` sets the output to PostgreSQL's "custom" binary file format
 
-Be sure to update the various local values in the `pg_dump` command as necessary to match your infrastructure. For documentation about the pg_dump utility, see: https://www.postgresql.org/docs/9.3/app-pgdump.html
+Be sure to update the various local values in the ``pg_dump`` command as necessary to match your infrastructure. For documentation about the pg_dump utility, see: https://www.postgresql.org/docs/9.3/app-pgdump.html
 
 To find local variables, look at ``/etc/supermarket/supermarket-running.json``. This file lives next to ``supermarket.rb`` and ``supermarket.json`` where their configuration is set. ``supermarket-running.json`` contains the final values the system is operating with after running ``sudo supermarket-ctl reconfigure``.
 
