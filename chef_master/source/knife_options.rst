@@ -54,7 +54,7 @@ The following options can be run with all knife subcommands and plug-ins:
    The version of the chef-client.
 
 ``-V``, ``--verbose``
-   Set for more verbose outputs. Use ``-VV`` for much more verbose outputs. Use ``-VVV`` for maximum verbosity and may provide more information than is actually helpful.
+   Set for more verbose outputs. Use ``-VV`` for much more verbose outputs. Use ``-VVV`` for maximum verbosity, which may provide more information than is actually helpful.
 
 ``-y``, ``--yes``
    Respond to all confirmation prompts with "Yes".
