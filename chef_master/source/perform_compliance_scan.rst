@@ -55,7 +55,7 @@ To make this change you'll add the following configuration options to ``/etc/ops
 .. code-block:: ruby
 
   opscode_erchef['max_request_size'] = '10000000'
-  nginx['client_max_body_size'] = '2500m'
+  nginx['client_max_body_size'] = '250m'
 
 After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
 

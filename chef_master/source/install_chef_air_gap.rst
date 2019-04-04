@@ -609,4 +609,4 @@ Additional configuration options include:
    min}``.
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed
    to exist before it is terminated, specified as an Erlang tuple. Default: ``{70, sec}``.
- * ``opscode_erchef['max_request_size']``: When the request body size is greater than this value, a ``413 Request Entity Too Large`` error   is returned. Default value: ``1000000``.
+ * ``opscode_erchef['max_request_size']``: When the request body size is greater than this value, a ``413 Request Entity Too Large`` error   is returned. Default value: ``2000000``.
