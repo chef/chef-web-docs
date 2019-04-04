@@ -1088,7 +1088,7 @@ This configuration file has the following settings for ``opscode-erchef``:
    Default value: ``10000``.
 
 ``opscode_erchef['max_request_size']``
-   When the request body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``1000000``.
+   When the request body size is greater than this value, a ``413 Request Entity Too Large`` error is returned. Default value: ``2000000``.
 
 ``opscode_erchef['nginx_bookshelf_caching']``
    Whether Nginx is used to cache cookbooks. When ``:on``, Nginx serves up the cached content instead of forwarding the request. Default value: ``:off``.
