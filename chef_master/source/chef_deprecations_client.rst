@@ -165,7 +165,7 @@ All Deprecations
     - 15.0
   * - `CHEF-27 </deprecations_locale_lc_all.html>`__
     - Deprecation of lc_all from locale resource
-    - 14.12
+    - 15.0
     - 16.0
   * - `CHEF-3694 </deprecations_resource_cloning.html>`__
     - Resource Cloning will no longer work.
