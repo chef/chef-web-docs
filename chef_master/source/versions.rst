@@ -110,6 +110,10 @@ Supported Free Distributions
      - 3.x
      - GA
      - April 30, 2020
+   * - Chef Server
+     - 12.x
+     - GA
+     - April 30, 2020
    * - InSpec
      - 3.x
      - GA
