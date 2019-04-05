@@ -80,7 +80,7 @@ For example, to restore your cookbook files, run:
 .. code-block:: bash
 
       $ cd /var/opt/supermarket/data/ 
-      $ tar cvzf /supermarket_cookbook_versions.tar.gz
+      $ tar xvzf /supermarket_cookbook_versions.tar.gz
 
 
 Database Restore
