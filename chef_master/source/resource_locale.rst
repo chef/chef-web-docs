@@ -14,8 +14,8 @@ The locale resource has the following syntax:
 .. code-block:: ruby
 
   locale 'name' do
-    lang        String # default value: "en_US.utf8"
-    lc_all      String # default value: "en_US.utf8"
+    lang        String
+    lc_env      Hash
     action      Symbol # defaults to :update if not specified
   end
 
@@ -24,7 +24,7 @@ where:
 * ``locale`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``lang`` and ``lc_all`` are the properties available to this resource.
+* ``lang`` and ``lc_env`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -47,14 +47,26 @@ Properties
 The locale resource has the following properties:
 
 ``lang``
-   **Ruby Type:** String | **Default Value:** ``"en_US.utf8"``
+   **Ruby Type:** String
 
    Sets the default system language.
 
-``lc_all``
-   **Ruby Type:** String | **Default Value:** ``"en_US.utf8"``
+``lc_env``
+   **Ruby Type:** Hash
 
-   Sets the fallback system language.
+   Sets the locale category that corresponds to environment variable.
+
+   * *lc_env* is a hash of LC_* env variables in the form of ({'LC_ENV_VARIABLE' => 'VALUE'}).
+   * Valid values that can be used to set *LC_ENV_VARIABLE* are: LC_ADDRESS, LC_COLLATE, LC_CTYPE, LC_IDENTIFICATION, LC_MEASUREMENT, LC_MESSAGES, LC_MONETARY, LC_NAME, LC_NUMERIC, LC_PAPER, LC_TELEPHONE and LC_TIME.
+
+For example:
+
+.. code-block:: ruby
+
+  lc_env ({"LC_TIME" => "en_US.UTF8"})
+
+.. warning:: By not including a value for a property, the local variable becomes unset in the system.
+
 
 Common Resource Functionality
 =====================================================
