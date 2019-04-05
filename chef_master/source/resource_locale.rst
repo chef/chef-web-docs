@@ -65,7 +65,7 @@ For example:
 
   lc_env ({"LC_TIME" => "en_US.UTF8"})
 
-.. note:: These properties can also be used to unset the system locale by not passing their value or simply by ommitting the property itself.
+.. warning:: By not including a value for a property, the local variable becomes unset in the system.
 
 
 Common Resource Functionality
