@@ -110,24 +110,39 @@ This command has the following options:
 ``-c VERSION``, ``--chef-version VERSION``
    Use to specify the chef version to evaluate against instead of Foodcritic's default.
 
+``-r``, ``--rule-file PATH``
+   Specify file with rules to be used or ignored.
+
 ``-B PATH``, ``--cookbook-path PATH``
    Use to specify the path to a cookbook to check
 
 ``-C``, ``--[no-]context``
    Use to show lines matched against Foodcritic rules, rather than the default summary.
+   
+``-E``, ``--environment-path PATH``      
+   Environment path(s) to check.
+      
+``-G``, ``--search-gems``
+   Search rubygems for rule files with the path foodcritic/rules/**/*.rb
 
 ``-I PATH``, ``--include PATH``
    Use to specify the path to a file that contains additional Foodcritic rules.
 
-``-r``, ``--[no-]repl``
-   Use to drop into a REPL for interactive rule editing.
+``-P``, ``--[no-]progress``
+   Show progress of files being checked.
+
+``-R``, ``--role-path PATH``
+   Role path(s) to check.
 
 ``-S PATH``, ``--search-grammar PATH``
    Use to specify the path to a file that contains additional grammar used when validating search syntax.
 
-
 ``-V``, ``--version``
    Use to display the version of Foodcritic.
+   
+``-X``, ``--exclude PATH``
+   Exclude path(s) from being linted. PATH is relative to the cookbook, not an absolute PATH.
+   Default test/**/*,spec/**/*,features/**/*  
 
 For more information ...
 =====================================================
