@@ -1,1870 +1,1541 @@
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!--
 <%
     site.pages.findAll { it.layout }.each {
 %>
     <url>
-        <loc>${site.url}${it.url}</loc>
+        <loc>https://docs.chef.io/${site.url}${it.url}</loc>
         <lastmod>${toXmlTime(it.updated)}</lastmod>
     </url>
 <% } %>
 -->
 
 
+
 <url>
-<loc>https://docs.chef.io/actions.html</loc>
+  <loc>https://docs.chef.io/about_chefdk.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/analytics_monitor.html</loc>
+  <loc>https://docs.chef.io/api_chef_server.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/analytics_rules.html</loc>
+  <loc>https://docs.chef.io/api_omnitruck.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/analytics_webui_tasks.html</loc>
+  <loc>https://docs.chef.io/api_push_jobs.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/analytics.html</loc>
+  <loc>https://docs.chef.io/attributes.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/api_analytics.html</loc>
+  <loc>https://docs.chef.io/audit_cookbook.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/api_chef_server.html</loc>
+  <loc>https://docs.chef.io/auth.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/api_compliance.html</loc>
+  <loc>https://docs.chef.io/aws_marketplace.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/api_cookbooks_site.html</loc>
+  <loc>https://docs.chef.io/aws_opsworks_chef_automate.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/api_omnitruck.html</loc>
+  <loc>https://docs.chef.io/azure_chef_cli.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/api_push_jobs.html</loc>
+  <loc>https://docs.chef.io/azure_cwa_cloud_shell.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/api_reporting.html</loc>
+  <loc>https://docs.chef.io/azure_portal.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/attributes.html</loc>
+  <loc>https://docs.chef.io/azure_powershell.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/auth_authentication.html</loc>
+  <loc>https://docs.chef.io/backend_failure_recovery.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/auth_authorization.html</loc>
+  <loc>https://docs.chef.io/berkshelf.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/auth.html</loc>
+  <loc>https://docs.chef.io/chef_client_overview.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/aws_marketplace.html</loc>
+  <loc>https://docs.chef.io/chef_client_security.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/azure_portal.html</loc>
+  <loc>https://docs.chef.io/chef_deprecations_client.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/berkshelf.html</loc>
+  <loc>https://docs.chef.io/chef_license.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/chef_client_security.html</loc>
+  <loc>https://docs.chef.io/chef_overview.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_client.html</loc>
+  <loc>https://docs.chef.io/chef_private_keys.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_cookbooks.html</loc>
+  <loc>https://docs.chef.io/chef_quick_overview.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/chef_dk.html</loc>
+  <loc>https://docs.chef.io/chef_repo.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_overview.html</loc>
+  <loc>https://docs.chef.io/chef_search.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_private_keys.html</loc>
+  <loc>https://docs.chef.io/chef_shell.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/chef_quick_overview.html</loc>
+  <loc>https://docs.chef.io/chef_solo.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_repo.html</loc>
+  <loc>https://docs.chef.io/chef_system_requirements.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_search.html</loc>
+  <loc>https://docs.chef.io/chef_vault.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/chef_server.html</loc>
+  <loc>https://docs.chef.io/chefdk_setup.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_shell.html</loc>
+  <loc>https://docs.chef.io/chefspec.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_solo.html</loc>
+  <loc>https://docs.chef.io/community.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/chef_system_requirements.html</loc>
+  <loc>https://docs.chef.io/community_contributions.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chef_vault.html</loc>
+  <loc>https://docs.chef.io/community_guidelines.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/chefspec.html</loc>
+  <loc>https://docs.chef.io/config_rb.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/community_contributions.html</loc>
+  <loc>https://docs.chef.io/config_rb_client.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/community_guidelines.html</loc>
+  <loc>https://docs.chef.io/config_rb_metadata.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/community.html</loc>
+  <loc>https://docs.chef.io/config_rb_optional_settings.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/compliance.html</loc>
+  <loc>https://docs.chef.io/config_rb_policyfile.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/conf.py
-	config_rb_analytics.html</loc>
+  <loc>https://docs.chef.io/config_rb_push_jobs_client.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_chef_sync.html</loc>
+  <loc>https://docs.chef.io/config_rb_push_jobs_server.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/config_rb_client.html</loc>
+  <loc>https://docs.chef.io/config_rb_server.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_knife_optional_settings.html</loc>
+  <loc>https://docs.chef.io/config_rb_server_optional_settings.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_knife.html</loc>
+  <loc>https://docs.chef.io/config_rb_solo.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/config_rb_manage.html</loc>
+  <loc>https://docs.chef.io/config_rb_supermarket.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_metadata.html</loc>
+  <loc>https://docs.chef.io/config_yml_kitchen.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_policyfile.html</loc>
+  <loc>https://docs.chef.io/cookbook_repo.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/config_rb_push_jobs_server.html</loc>
+  <loc>https://docs.chef.io/cookbook_versioning.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_reporting.html</loc>
+  <loc>https://docs.chef.io/cookbooks.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_server_optional_settings.html</loc>
+  <loc>https://docs.chef.io/cookstyle.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/config_rb_server.html</loc>
+  <loc>https://docs.chef.io/ctl_chef.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_solo.html</loc>
+  <loc>https://docs.chef.io/ctl_chef_apply.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_rb_supermarket.html</loc>
+  <loc>https://docs.chef.io/ctl_chef_backend.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/config_rb.html</loc>
+  <loc>https://docs.chef.io/ctl_chef_client.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/config_yml_kitchen.html</loc>
+  <loc>https://docs.chef.io/ctl_chef_server.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/containers.html</loc>
+  <loc>https://docs.chef.io/ctl_chef_solo.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/cookbook_repo.html</loc>
+  <loc>https://docs.chef.io/ctl_kitchen.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/cookbook_versions.html</loc>
+  <loc>https://docs.chef.io/ctl_manage.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/cookbooks.html</loc>
+  <loc>https://docs.chef.io/ctl_ohai.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/ctl_analytics.html</loc>
+  <loc>https://docs.chef.io/ctl_push_jobs_client.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_chef_apply.html</loc>
+  <loc>https://docs.chef.io/ctl_supermarket.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_chef_client.html</loc>
+  <loc>https://docs.chef.io/custom_resources.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/ctl_chef_init.html</loc>
+  <loc>https://docs.chef.io/custom_resources_notes.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_chef_server.html</loc>
+  <loc>https://docs.chef.io/data_bags.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_chef_shell.html</loc>
+  <loc>https://docs.chef.io/debug.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/ctl_chef_solo.html</loc>
+  <loc>https://docs.chef.io/definitions.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_chef_sync.html</loc>
+  <loc>https://docs.chef.io/deprecations_attributes.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_chef.html</loc>
+  <loc>https://docs.chef.io/deprecations_chef_gem_compile_time.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/ctl_delivery.html</loc>
+  <loc>https://docs.chef.io/deprecations_chef_platform_methods.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_inspec.html</loc>
+  <loc>https://docs.chef.io/deprecations_chef_rest.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_kitchen.html</loc>
+  <loc>https://docs.chef.io/deprecations_chocolatey_uninstall.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/ctl_manage.html</loc>
+  <loc>https://docs.chef.io/deprecations_custom_resource_cleanups.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_ohai.html</loc>
+  <loc>https://docs.chef.io/deprecations_deploy_resource.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_opscode_expander.html</loc>
+  <loc>https://docs.chef.io/deprecations_dnf_package_allow_downgrade.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/ctl_push_jobs_client.html</loc>
+  <loc>https://docs.chef.io/deprecations_easy_install.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_reporting.html</loc>
+  <loc>https://docs.chef.io/deprecations_epic_fail.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ctl_supermarket.html</loc>
+  <loc>https://docs.chef.io/deprecations_erl_call_resource.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/custom_resources.html</loc>
+  <loc>https://docs.chef.io/deprecations_exit_code.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/data_bags.html</loc>
+  <loc>https://docs.chef.io/deprecations_internal_api.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/debug.html</loc>
+  <loc>https://docs.chef.io/deprecations_json_auto_inflate.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/definitions.html</loc>
+  <loc>https://docs.chef.io/deprecations_launchd_hash_property.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/delivery_cookbooks.html</loc>
+  <loc>https://docs.chef.io/deprecations_legacy_hwrp_mixins.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/delivery_users_and_roles.html</loc>
+  <loc>https://docs.chef.io/deprecations_local_listen.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/delivery.html</loc>
+  <loc>https://docs.chef.io/deprecations_map_collision.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/dsl_compliance.html</loc>
+  <loc>https://docs.chef.io/deprecations_namespace_collisions.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/dsl_custom_resource.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_amazon_linux.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/dsl_delivery.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_cloud.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/dsl_handler.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_cloud_v2.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/dsl_recipe.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_digitalocean.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/environment_variables.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_filesystem.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/environments.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_filesystem_v2.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/error_messages.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_ipscopes.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/errors.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_legacy_config.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/feedback.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_libvirt_plugin.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/files.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_run_command_helpers.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/foodcritic.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_sigar_plugins.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/glossary.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_v6_plugins.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/handlers.html</loc>
+  <loc>https://docs.chef.io/deprecations_ohai_windows_cpu.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/index.html</loc>
+  <loc>https://docs.chef.io/deprecations_property_name_collision.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_apache_conf.html</loc>
+  <loc>https://docs.chef.io/deprecations_resource_cloning.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_apt.html</loc>
+  <loc>https://docs.chef.io/deprecations_run_command.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_audit_policy.html</loc>
+  <loc>https://docs.chef.io/deprecations_shell_out.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_auditd_conf.html</loc>
+  <loc>https://docs.chef.io/deprecations_supports_property.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_auditd_rules.html</loc>
+  <loc>https://docs.chef.io/deprecations_verify_file.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_bond.html</loc>
+  <loc>https://docs.chef.io/depreciations_ohai_system_profile.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_bridge.html</loc>
+  <loc>https://docs.chef.io/dk_windows.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_command.html</loc>
+  <loc>https://docs.chef.io/dsl_audit.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_csv.html</loc>
+  <loc>https://docs.chef.io/dsl_custom_resource.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_directory.html</loc>
+  <loc>https://docs.chef.io/dsl_handler.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_etc_group.html</loc>
+  <loc>https://docs.chef.io/dsl_recipe.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_etc_passwd.html</loc>
+  <loc>https://docs.chef.io/environment_variables.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_file.html</loc>
+  <loc>https://docs.chef.io/environments.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_gem.html</loc>
+  <loc>https://docs.chef.io/error_messages.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_group.html</loc>
+  <loc>https://docs.chef.io/errors.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_host.html</loc>
+  <loc>https://docs.chef.io/feedback.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_inetd_conf.html</loc>
+  <loc>https://docs.chef.io/files.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_interface.html</loc>
+  <loc>https://docs.chef.io/fips.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_iptables.html</loc>
+  <loc>https://docs.chef.io/foodcritic.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_json.html</loc>
+  <loc>https://docs.chef.io/glossary.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_kernel_module.html</loc>
+  <loc>https://docs.chef.io/google.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_kernel_parameter.html</loc>
+  <loc>https://docs.chef.io/handlers.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_limits_conf.html</loc>
+  <loc>https://docs.chef.io/index.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_login_def.html</loc>
+  <loc>https://docs.chef.io/install_bootstrap.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_mysql_conf.html</loc>
+  <loc>https://docs.chef.io/install_chef_air_gap.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_mysql_session.html</loc>
+  <loc>https://docs.chef.io/install_dk.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_npm.html</loc>
+  <loc>https://docs.chef.io/install_omnibus.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_ntp_conf.html</loc>
+  <loc>https://docs.chef.io/install_push_jobs.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_oneget.html</loc>
+  <loc>https://docs.chef.io/install_server.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_os_env.html</loc>
+  <loc>https://docs.chef.io/install_server_ha.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_os.html</loc>
+  <loc>https://docs.chef.io/install_server_ha_aws.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_package.html</loc>
+  <loc>https://docs.chef.io/install_server_ha_drbd.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_parse_config_file.html</loc>
+  <loc>https://docs.chef.io/install_server_post.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_parse_config.html</loc>
+  <loc>https://docs.chef.io/install_server_pre.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_pip.html</loc>
+  <loc>https://docs.chef.io/install_supermarket.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_port.html</loc>
+  <loc>https://docs.chef.io/install_windows.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_postgres_conf.html</loc>
+  <loc>https://docs.chef.io/kitchen.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_postgres_session.html</loc>
+  <loc>https://docs.chef.io/knife.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_process.html</loc>
+  <loc>https://docs.chef.io/knife_azure.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_reference.html</loc>
+  <loc>https://docs.chef.io/knife_azurerm.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_registry_key.html</loc>
+  <loc>https://docs.chef.io/knife_bootstrap.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_script.html</loc>
+  <loc>https://docs.chef.io/knife_client.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_security_policy.html</loc>
+  <loc>https://docs.chef.io/knife_configure.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_service.html</loc>
+  <loc>https://docs.chef.io/knife_cookbook.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_ssh_config.html</loc>
+  <loc>https://docs.chef.io/knife_cookbook_site.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_sshd_config.html</loc>
+  <loc>https://docs.chef.io/knife_data_bag.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_user.html</loc>
+  <loc>https://docs.chef.io/knife_delete.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_windows_feature.html</loc>
+  <loc>https://docs.chef.io/knife_deps.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/inspec_yaml.html</loc>
+  <loc>https://docs.chef.io/knife_diff.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/inspec_yum.html</loc>
+  <loc>https://docs.chef.io/knife_download.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_analytics.html</loc>
+  <loc>https://docs.chef.io/knife_edit.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_bootstrap.html</loc>
+  <loc>https://docs.chef.io/knife_environment.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/install_compliance.html</loc>
+  <loc>https://docs.chef.io/knife_exec.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_delivery.html</loc>
+  <loc>https://docs.chef.io/knife_list.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_dk.html</loc>
+  <loc>https://docs.chef.io/knife_node.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/install_omnibus.html</loc>
+  <loc>https://docs.chef.io/knife_options.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_push_jobs.html</loc>
+  <loc>https://docs.chef.io/knife_raw.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_reporting.html</loc>
+  <loc>https://docs.chef.io/knife_recipe_list.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/install_server_ha_aws.html</loc>
+  <loc>https://docs.chef.io/knife_role.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_server_ha_drbd.html</loc>
+  <loc>https://docs.chef.io/knife_search.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_server_post.html</loc>
+  <loc>https://docs.chef.io/knife_serve.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/install_server_pre.html</loc>
+  <loc>https://docs.chef.io/https://docs.chef.io/knife_setup.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_server_tiered.html</loc>
+  <loc>https://docs.chef.io/knife_show.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install_server.html</loc>
+  <loc>https://docs.chef.io/knife_ssh.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/install_windows.html</loc>
+  <loc>https://docs.chef.io/knife_ssl_check.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/install.html</loc>
+  <loc>https://docs.chef.io/knife_ssl_fetch.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/junos.html</loc>
+  <loc>https://docs.chef.io/knife_status.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/kitchen.html</loc>
+  <loc>https://docs.chef.io/knife_supermarket.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_bootstrap.html</loc>
+  <loc>https://docs.chef.io/knife_tag.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_client.html</loc>
+  <loc>https://docs.chef.io/knife_upload.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_common_options.html</loc>
+  <loc>https://docs.chef.io/knife_user.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_configure.html</loc>
+  <loc>https://docs.chef.io/knife_windows.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_cookbook_site.html</loc>
+  <loc>https://docs.chef.io/knife_xargs.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_cookbook.html</loc>
+  <loc>https://docs.chef.io/libraries.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_data_bag.html</loc>
+  <loc>https://docs.chef.io/nodes.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_delete.html</loc>
+  <loc>https://docs.chef.io/ohai.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_deps.html</loc>
+  <loc>https://docs.chef.io/ohai_custom.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_diff.html</loc>
+  <loc>https://docs.chef.io/packages.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_download.html</loc>
+  <loc>https://docs.chef.io/platforms.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_edit.html</loc>
+  <loc>https://docs.chef.io/plugin_community.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_environment.html</loc>
+  <loc>https://docs.chef.io/plugin_kitchen_vagrant.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_exec.html</loc>
+  <loc>https://docs.chef.io/plugin_knife.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_list.html</loc>
+  <loc>https://docs.chef.io/plugin_knife_custom.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_node.html</loc>
+  <loc>https://docs.chef.io/plugin_knife_push_jobs.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_raw.html</loc>
+  <loc>https://docs.chef.io/plugin_knife_spork.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_recipe_list.html</loc>
+  <loc>https://docs.chef.io/policy.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_role.html</loc>
+  <loc>https://docs.chef.io/policyfile.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_search.html</loc>
+  <loc>https://docs.chef.io/profile_store.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_serve.html</loc>
+  <loc>https://docs.chef.io/provisioning.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_show.html</loc>
+  <loc>https://docs.chef.io/provisioning_aws.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_ssh.html</loc>
+  <loc>https://docs.chef.io/provisioning_fog.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_ssl_check.html</loc>
+  <loc>https://docs.chef.io/provisioning_vagrant.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_ssl_fetch.html</loc>
+  <loc>https://docs.chef.io/proxies.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_status.html</loc>
+  <loc>https://docs.chef.io/push_jobs.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_tag.html</loc>
+  <loc>https://docs.chef.io/recipes.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_upload.html</loc>
+  <loc>https://docs.chef.io/release_notes.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife_user.html</loc>
+  <loc>https://docs.chef.io/release_notes_chefdk.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_using.html</loc>
+  <loc>https://docs.chef.io/release_notes_push_jobs.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/knife_xargs.html</loc>
+  <loc>https://docs.chef.io/release_notes_server.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/knife.html</loc>
+  <loc>https://docs.chef.io/resource.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/libraries.html</loc>
+  <loc>https://docs.chef.io/resource_apt_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/manage.html</loc>
+  <loc>https://docs.chef.io/resource_apt_preference.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/nodes.html</loc>
+  <loc>https://docs.chef.io/resource_apt_repository.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ohai_custom.html</loc>
+  <loc>https://docs.chef.io/resource_apt_update.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/ohai.html</loc>
+  <loc>https://docs.chef.io/resource_bash.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/openstack_architecture.html</loc>
+  <loc>https://docs.chef.io/resource_batch.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/openstack_cookbooks.html</loc>
+  <loc>https://docs.chef.io/resource_bff_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/openstack_deploy.html</loc>
+  <loc>https://docs.chef.io/resource_breakpoint.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/openstack_develop.html</loc>
+  <loc>https://docs.chef.io/resource_build_essential.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/openstack_example.html</loc>
+  <loc>https://docs.chef.io/resource_cab_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/openstack_install.html</loc>
+  <loc>https://docs.chef.io/resource_chef_acl.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/openstack_repository.html</loc>
+  <loc>https://docs.chef.io/resource_chef_client.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/openstack.html</loc>
+  <loc>https://docs.chef.io/resource_chef_container.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/page_not_found.html</loc>
+  <loc>https://docs.chef.io/resource_chef_data_bag.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/plugin_community.html</loc>
+  <loc>https://docs.chef.io/resource_chef_data_bag_item.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_kitchen_vagrant.html</loc>
+  <loc>https://docs.chef.io/resource_chef_environment.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_analytics.html</loc>
+  <loc>https://docs.chef.io/resource_chef_gem.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/plugin_knife_authenticated_requests.html</loc>
+  <loc>https://docs.chef.io/resource_chef_group.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_azure.html</loc>
+  <loc>https://docs.chef.io/resource_chef_handler.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_bluebox.html</loc>
+  <loc>https://docs.chef.io/resource_chef_mirror.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/plugin_knife_bluelock.html</loc>
+  <loc>https://docs.chef.io/resource_chef_node.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_custom.html</loc>
+  <loc>https://docs.chef.io/resource_chef_organization.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_ec2.html</loc>
+  <loc>https://docs.chef.io/resource_chef_role.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/plugin_knife_eucalyptus.html</loc>
+  <loc>https://docs.chef.io/resource_chef_user.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_google.html</loc>
+  <loc>https://docs.chef.io/resource_chocolatey_config.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_hp.html</loc>
+  <loc>https://docs.chef.io/resource_chocolatey_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/plugin_knife_linode.html</loc>
+  <loc>https://docs.chef.io/resource_chocolatey_source.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_openstack.html</loc>
+  <loc>https://docs.chef.io/resource_common.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_push_jobs.html</loc>
+  <loc>https://docs.chef.io/resource_cookbook_file.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/plugin_knife_rackspace.html</loc>
+  <loc>https://docs.chef.io/resource_cron.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_reporting.html</loc>
+  <loc>https://docs.chef.io/resource_cron_access.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_supermarket.html</loc>
+  <loc>https://docs.chef.io/resource_cron_d.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/plugin_knife_terremark.html</loc>
+  <loc>https://docs.chef.io/resource_csh.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_vcloud.html</loc>
+  <loc>https://docs.chef.io/resource_deploy.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/plugin_knife_windows.html</loc>
+  <loc>https://docs.chef.io/resource_directory.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/plugin_knife.html</loc>
+  <loc>https://docs.chef.io/resource_dmg_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/policy.html</loc>
+  <loc>https://docs.chef.io/resource_dnf_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/provisioning.html</loc>
+  <loc>https://docs.chef.io/resource_dpkg_package.html</loc>
 </url>
 
 <url>
-<loc>https://docs.chef.io/proxies.html</loc>
+  <loc>https://docs.chef.io/resource_dsc_resource.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/push_jobs.html</loc>
+  <loc>https://docs.chef.io/resource_dsc_script.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/quick_start.html</loc>
+  <loc>https://docs.chef.io/resource_erlang_call.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/recipes.html</loc>
+  <loc>https://docs.chef.io/resource_examples.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/release_notes.html</loc>
+  <loc>https://docs.chef.io/resource_execute.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/releases.html</loc>
+  <loc>https://docs.chef.io/resource_file.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/reporting.html</loc>
+  <loc>https://docs.chef.io/resource_freebsd_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_apt_package.html</loc>
+  <loc>https://docs.chef.io/resource_gem_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_bash.html</loc>
+  <loc>https://docs.chef.io/resource_git.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_batch.html</loc>
+  <loc>https://docs.chef.io/resource_group.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_bff_package.html</loc>
+  <loc>https://docs.chef.io/resource_homebrew_cask.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_breakpoint.html</loc>
+  <loc>https://docs.chef.io/resource_homebrew_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_acl.html</loc>
+  <loc>https://docs.chef.io/resource_homebrew_tap.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_chef_client.html</loc>
+  <loc>https://docs.chef.io/resource_hostname.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_container.html</loc>
+  <loc>https://docs.chef.io/resource_http_request.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_data_bag_item.html</loc>
+  <loc>https://docs.chef.io/resource_ifconfig.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_chef_data_bag.html</loc>
+  <loc>https://docs.chef.io/resource_ips_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_environment.html</loc>
+  <loc>https://docs.chef.io/resource_kernel_module.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_gem.html</loc>
+  <loc>https://docs.chef.io/resource_ksh.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_chef_group.html</loc>
+  <loc>https://docs.chef.io/resource_launchd.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_handler.html</loc>
+  <loc>https://docs.chef.io/resource_link.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_mirror.html</loc>
+  <loc>https://docs.chef.io/resource_load_balancer.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_chef_node.html</loc>
+  <loc>https://docs.chef.io/resource_locale.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_organization.html</loc>
+  <loc>https://docs.chef.io/resource_log.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_chef_role.html</loc>
+  <loc>https://docs.chef.io/resource_machine.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_chef_user.html</loc>
+  <loc>https://docs.chef.io/resource_machine_batch.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_common.html</loc>
+  <loc>https://docs.chef.io/resource_machine_execute.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_cookbook_file.html</loc>
+  <loc>https://docs.chef.io/resource_machine_file.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_cron.html</loc>
+  <loc>https://docs.chef.io/resource_machine_image.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_csh.html</loc>
+  <loc>https://docs.chef.io/resource_macos_userdefaults.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_deploy.html</loc>
+  <loc>https://docs.chef.io/resource_macports_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_directory.html</loc>
+  <loc>https://docs.chef.io/resource_mdadm.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_dpkg_package.html</loc>
+  <loc>https://docs.chef.io/resource_mount.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_dsc_resource.html</loc>
+  <loc>https://docs.chef.io/resource_msu_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_dsc_script.html</loc>
+  <loc>https://docs.chef.io/resource_ohai.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_easy_install_package.html</loc>
+  <loc>https://docs.chef.io/resource_ohai_hint.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_env.html</loc>
+  <loc>https://docs.chef.io/resource_openbsd_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_erlang_call.html</loc>
+  <loc>https://docs.chef.io/resource_openssl_dhparam.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_examples.html</loc>
+  <loc>https://docs.chef.io/resource_openssl_ec_private_key.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_execute.html</loc>
+  <loc>https://docs.chef.io/resource_openssl_ec_public_key.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_file.html</loc>
+  <loc>https://docs.chef.io/resource_openssl_rsa_private_key.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_freebsd_package.html</loc>
+  <loc>https://docs.chef.io/resource_openssl_rsa_public_key.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_gem_package.html</loc>
+  <loc>https://docs.chef.io/resource_openssl_x509_certificate.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_git.html</loc>
+  <loc>https://docs.chef.io/resource_openssl_x509_crl.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_group.html</loc>
+  <loc>https://docs.chef.io/resource_openssl_x509_request.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_homebrew_package.html</loc>
+  <loc>https://docs.chef.io/resource_osx_profile.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_http_request.html</loc>
+  <loc>https://docs.chef.io/resource_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_ifconfig.html</loc>
+  <loc>https://docs.chef.io/resource_pacman_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_ips_package.html</loc>
+  <loc>https://docs.chef.io/resource_paludis_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_link.html</loc>
+  <loc>https://docs.chef.io/resource_perl.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_load_balancer.html</loc>
+  <loc>https://docs.chef.io/resource_portage_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_log.html</loc>
+  <loc>https://docs.chef.io/resource_powershell_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_machine_batch.html</loc>
+  <loc>https://docs.chef.io/resource_powershell_package_source.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_machine_execute.html</loc>
+  <loc>https://docs.chef.io/resource_powershell_script.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_machine_file.html</loc>
+  <loc>https://docs.chef.io/resource_private_key.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_machine_image.html</loc>
+  <loc>https://docs.chef.io/resource_public_key.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_machine.html</loc>
+  <loc>https://docs.chef.io/resource_python.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_macports_package.html</loc>
+  <loc>https://docs.chef.io/resource_reboot.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_mdadm.html</loc>
+  <loc>https://docs.chef.io/resource_reference.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_mount.html</loc>
+  <loc>https://docs.chef.io/resource_registry_key.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_ohai.html</loc>
+  <loc>https://docs.chef.io/resource_remote_directory.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_openbsd_package.html</loc>
+  <loc>https://docs.chef.io/resource_remote_file.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_package.html</loc>
+  <loc>https://docs.chef.io/resource_rhsm_errata.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_pacman_package.html</loc>
+  <loc>https://docs.chef.io/resource_rhsm_errata_level.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_paludis_package.html</loc>
+  <loc>https://docs.chef.io/resource_rhsm_register.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_perl.html</loc>
+  <loc>https://docs.chef.io/resource_rhsm_repo.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_portage_package.html</loc>
+  <loc>https://docs.chef.io/resource_rhsm_subscription.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_powershell_script.html</loc>
+  <loc>https://docs.chef.io/resource_route.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_private_key.html</loc>
+  <loc>https://docs.chef.io/resource_rpm_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_public_key.html</loc>
+  <loc>https://docs.chef.io/resource_ruby.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_python.html</loc>
+  <loc>https://docs.chef.io/resource_ruby_block.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_reboot.html</loc>
+  <loc>https://docs.chef.io/resource_script.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_registry_key.html</loc>
+  <loc>https://docs.chef.io/resource_service.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_remote_directory.html</loc>
+  <loc>https://docs.chef.io/resource_smartos_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_remote_file.html</loc>
+  <loc>https://docs.chef.io/resource_solaris_package.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_route.html</loc>
+  <loc>https://docs.chef.io/resource_ssh_known_hosts_entry.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_rpm_package.html</loc>
+  <loc>https://docs.chef.io/resource_subversion.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_ruby_block.html</loc>
+  <loc>https://docs.chef.io/resource_sudo.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_ruby.html</loc>
+  <loc>https://docs.chef.io/resource_swap_file.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_script.html</loc>
+  <loc>https://docs.chef.io/resource_sysctl.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_service.html</loc>
+  <loc>https://docs.chef.io/resource_systemd_unit.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_smartos_package.html</loc>
+  <loc>https://docs.chef.io/resource_template.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_solaris_package.html</loc>
+  <loc>https://docs.chef.io/resource_timezone.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_subversion.html</loc>
+  <loc>https://docs.chef.io/resource_user.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_template.html</loc>
+  <loc>https://docs.chef.io/resource_windows_ad_join.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_user.html</loc>
+  <loc>https://docs.chef.io/resource_windows_auto_run.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_windows_package.html</loc>
+  <loc>https://docs.chef.io/resource_windows_certificate.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resource_windows_service.html</loc>
+  <loc>https://docs.chef.io/resource_windows_env.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource_yum.html</loc>
+  <loc>https://docs.chef.io/resource_windows_feature.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/resource.html</loc>
+  <loc>https://docs.chef.io/resource_windows_feature_dism.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/resources.html</loc>
+  <loc>https://docs.chef.io/resource_windows_feature_powershell.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/roles.html</loc>
+  <loc>https://docs.chef.io/resource_windows_firewall_rule.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/rubocop.html</loc>
+  <loc>https://docs.chef.io/resource_windows_font.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/ruby.html</loc>
+  <loc>https://docs.chef.io/resource_windows_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/run_lists.html</loc>
+  <loc>https://docs.chef.io/resource_windows_pagefile.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/runbook.html</loc>
+  <loc>https://docs.chef.io/resource_windows_path.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/security_notes.html</loc>
+  <loc>https://docs.chef.io/resource_windows_printer.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_backup_restore.html</loc>
+  <loc>https://docs.chef.io/resource_windows_printer_port.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_components.html</loc>
+  <loc>https://docs.chef.io/resource_windows_service.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/server_data.html</loc>
+  <loc>https://docs.chef.io/resource_windows_share.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_firewalls_and_ports.html</loc>
+  <loc>https://docs.chef.io/resource_windows_shortcut.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_high_availability.html</loc>
+  <loc>https://docs.chef.io/resource_windows_task.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/server_ldap.html</loc>
+  <loc>https://docs.chef.io/resource_windows_workgroup.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_logs.html</loc>
+  <loc>https://docs.chef.io/resource_yum_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_manage_clients.html</loc>
+  <loc>https://docs.chef.io/resource_yum_repository.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/server_manage_cookbooks.html</loc>
+  <loc>https://docs.chef.io/resource_zypper_package.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_manage_data_bags.html</loc>
+  <loc>https://docs.chef.io/resource_zypper_repository.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_manage_environments.html</loc>
+  <loc>https://docs.chef.io/roles.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/server_manage_nodes.html</loc>
+  <loc>https://docs.chef.io/ruby.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_manage_reports.html</loc>
+  <loc>https://docs.chef.io/run_lists.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_manage_roles.html</loc>
+  <loc>https://docs.chef.io/runbook.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/server_monitor.html</loc>
+  <loc>https://docs.chef.io/runners.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_orgs.html</loc>
+  <loc>https://docs.chef.io/scaling_capacity_planning_chef_automate.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_replication.html</loc>
+  <loc>https://docs.chef.io/search_query_chef_automate.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/server_security.html</loc>
+  <loc>https://docs.chef.io/secrets.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_services.html</loc>
+  <loc>https://docs.chef.io/server_backup_restore.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_tuning.html</loc>
+  <loc>https://docs.chef.io/server_components.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/server_users.html</loc>
+  <loc>https://docs.chef.io/server_configure_saml.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/server_webui_tasks.html</loc>
+  <loc>https://docs.chef.io/server_data.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/simple_walkthrough.html</loc>
+  <loc>https://docs.chef.io/server_firewalls_and_ports.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/slides.html</loc>
+  <loc>https://docs.chef.io/server_high_availability.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/style_guide.html</loc>
+  <loc>https://docs.chef.io/server_ldap.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/supermarket.html</loc>
+  <loc>https://docs.chef.io/server_logs.html</loc>
 </url>
-
 
 <url>
-<loc>https://docs.chef.io/platforms.html</loc>
+  <loc>https://docs.chef.io/server_orgs.html</loc>
 </url>
 
-
 <url>
-<loc>https://docs.chef.io/templates.html</loc>
+  <loc>https://docs.chef.io/server_replication.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/server_security.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/uninstall.html</loc>
+  <loc>https://docs.chef.io/server_sent_events.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/server_services.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/upgrade_analytics.html</loc>
+  <loc>https://docs.chef.io/server_tuning.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/server_users.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/upgrade_client_notes.html</loc>
+  <loc>https://docs.chef.io/style_guide.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/supermarket.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/upgrade_client.html</loc>
+  <loc>https://docs.chef.io/supermarket_api.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/supermarket_backup_restore.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/upgrade_server_notes.html</loc>
+  <loc>https://docs.chef.io/supermarket_logs.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/supermarket_monitor.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/upgrade_server_open_source_notes.html</loc>
+  <loc>https://docs.chef.io/supermarket_share_cookbook.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/templates.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/upgrade_server.html</loc>
+  <loc>https://docs.chef.io/uninstall.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/upgrade_client.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/verify_packages.html</loc>
+  <loc>https://docs.chef.io/upgrade_client_notes.html</loc>
 </url>
 
 
 <url>
-<loc>https://docs.chef.io/windows.html</loc>
+  <loc>https://docs.chef.io/upgrade_server_notes.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/vmware.html</loc>
+</url>
 
 <url>
-<loc>https://docs.chef.io/workstation.html</loc>
+  <loc>https://docs.chef.io/windows.html</loc>
 </url>
 
+<url>
+  <loc>https://docs.chef.io/windows_knife_intro.html</loc>
+</url>
 
 </urlset>

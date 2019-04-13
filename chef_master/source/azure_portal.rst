@@ -1,537 +1,183 @@
 =====================================================
-|microsoft| Azure Portal
+Microsoft Azure Portal
+=====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/azure_portal.rst>`__
+
+.. tag cloud_azure_portal
+
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. Through the Azure Marketplace and the `Azure portal <https://portal.azure.com/>`_, virtual machines can be bootstrapped and ready to run Chef Automate and Chef Client.
+
+.. end_tag
+
+Virtual Machines running Chef client
 =====================================================
 
-.. include:: ../../includes_cloud/includes_cloud_azure_portal.rst
+.. tag cloud_azure_portal_platforms
 
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_platforms.rst
+Through the Azure portal, you can provision a virtual machine with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
 
-|azure marketplace|
-=====================================================
+.. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
 
-|chef server_title|
------------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_server_marketplace.rst
+.. end_tag
 
-|chef compliance|
------------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_compliance_marketplace.rst
+.. tag cloud_azure_portal_settings_chef_client
 
-|chef client_title| Settings
-=====================================================
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_settings_chef_client.rst
+Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
 
-Set up Virtual Machines
-=====================================================
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_virtual_machines.rst
+* The ``chef_server_url`` and ``validation_client_name``. These are settings in the `client.rb file </config_rb_client.html>`__.
 
+* The file for the `validator key </chef_private_keys.html>`__.
 
-|azure extension chef|
-=====================================================
-The |azure extension chef| is an extension for |azure| to enable |chef| on virtual machine instances. The extension makes available two |windows powershell| cmdlets and two |azure| CLI commands.
+.. end_tag
 
-Azure CLI
------------------------------------------------------
-If the |azure| `cross-platform command line tool (Xplat-CLI) <https://github.com/Azure/azure-xplat-cli>`__ is installed on the workstation, along with the |azure extension chef|, the ``get-chef`` and ``set-chef`` extensions may be used to manage |chef| running on virtual machines in |azure|.
+.. tag cloud_azure_portal_virtual_machines
 
-get-chef
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``get-chef`` command to get the details for the |azure extension chef| that is running on the named virtual machine.
+Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef using the following steps:
 
-Syntax
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This command has the following syntax:
+#. Sign in to the `Azure portal <https://portal.azure.com/>`_ and authenticate using your Microsoft Azure account credentials.
 
-.. code-block:: bash
+#. Choose **Virtual Machines** in the left pane of the portal.
 
-   $ azure vm extension get-chef VM_NAME
+#. Click the **Add** option at the top of the blade.
 
+#. Select either **Windows Server** or **Ubuntu Server** in the **Recommended** category.
 
-set-chef
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``set-chef`` command to enable |chef| on any virtual machine running on |azure|.
+   .. note:: The Chef extension on the Azure portal may be used on the following platforms:
 
-Syntax
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This command has the following syntax:
+      * Windows Server 2008 R2 SP1, 2012, 2012 R2, 2016
+      * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 16.10
+      * CentOS 6.5+
+      * RHEL 6+
+      * Debian 7, 8
 
-.. code-block:: bash
+#. In the next blade, select the sku/version of the OS that you would like to use on your VM and click **Create**.
 
-   $ azure vm extension set-chef VM_NAME (options)
+#. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on.
 
-Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This command has the following options:
+   .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
 
-``-a``, ``--auto-update-client``
-   |azure autoupdate_client| Default value: ``false``.
+#. In Step 3 on the portal UI, open the **Extensions** blade and click ``Add extension``.
 
-``-b``, ``--disable``
-   |azure disable_extension|
+#. Depending on the OS you selected earlier, select either **Windows Chef Extension** or **Linux Chef Extension** and then **Create**.
 
-``-c PATH_TO_CONFIG``, ``--client-config PATH_TO_CONFIG``
-   |azure client_rb_path|
+#. Using the ``chef-repo/.chef/config.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
 
-``-C CLIENT_PEM``, ``--client-pem CLIENT_PEM``
-   |client_key| Default value: ``/etc/chef/client.pem``.
+#. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).
 
-``-D``, ``--delete-chef-config``
-   |azure disable_extension|
+#. Upload it through the portal in the **Validation Key** field.
 
-``-j JSON``, ``--bootstrap-options JSON``
-   |json first_run_string| For example:
+   .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box.
 
-   .. code-block:: bash
+#. For **Client Configuration File**, browse to the ``chef-repo/.chef/config.rb`` file and upload it through your web browser.
 
-      -j '{"chef_node_name":"test_node"}'
+   .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box. Also, the ``config.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
 
-   |azure bootstrap_json|
+#. Optional. `Use a run-list </run_lists.html>`__ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
-``-O VALIDATOR_PEM``, ``--validation-pem VALIDATOR_PEM``
-   |validation_key| Default value: ``/etc/chef/validation.pem``.
+   .. code-block:: ruby
 
-``-R RUN_LIST``, ``--run-list RUN_LIST``
-   |run_list|
+      iis
 
-``-u``, ``--uninstall``
-   |azure uninstall|
+   or:
 
-``-V NUMBER``, ``--version NUMBER``
-   |azure version number|
+   .. code-block:: ruby
 
+      iis::default
 
-Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following examples show how to use this |knife| subcommand:
+   or:
 
-**Create a virtual machine**
+   .. code-block:: ruby
 
-.. code-block:: bash
+      recipe['iis']
 
-   $ azure vm create your-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 yourusername yourpassword --location "West US" -r
+   A run-list can also be built using a role. For example, if a role named ``backend_server`` is defined on the Chef server, the run-list would look like:
 
-**Set the Chef extension without a run-list**
+   .. code-block:: ruby
 
-.. code-block:: bash
+      role['backend_server']
 
-   $ azure vm extension set-chef your-vm-name --validation-pem ~/chef-repo/.chef/testorg-validator.pem --client-config ~/chef-repo/.chef/client.rb --version "1201.12"
+   Even without a run-list, the virtual machine will periodically check with the Chef server to see if the configuration requirements change. This means that the run-list can be updated later, by editing the run-list to add the desired run-list items by using the Chef server web user interface or by using the knife command line tool.
 
-**Set the Chef extension with a run-list**
+   .. note:: A run-list may only refer to roles and/or recipes that have already been uploaded to the Chef server.
 
-.. code-block:: bash
+#. Click **OK** to complete the page. Click **OK** in the Extensions blade and the rest of the setup blades. Provisioning will begin and the portal will the blade for your new VM.
 
-   $ azure vm extension set-chef your-vm-name --validation-pem ~/chef-repo/.chef/testorg-validator.pem --client-config ~/chef-repo/.chef/client.rb --version "1201.12" -R 'recipe[your_cookbook_name::your_recipe_name]'
+After the process is complete, the virtual machine will be registered with the Chef server and it will have been provisioned with the configuration (applications, services, etc.) from the specified run-list. The Chef server can now be used to perform all ongoing management of the virtual machine node.
 
-
-
-PowerShell Cmdlets
------------------------------------------------------
-If |windows powershell| is installed on the workstation, along with the |azure extension chef|, the ``Get-AzureVMChefExtension`` and ``Set-AzureVMChefExtension`` extensions may be used to manage |chef| running on virtual machines in |azure|.
-
-Get-AzureVMChefExtension
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``Get-AzureVMChefExtension`` cmdlet to get the details for the |azure extension chef| that is running on the named virtual machine.
-
-Syntax
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This cmdlet has the following syntax:
-
-.. code-block:: bash
-
-   Get-AzureVMChefExtension -VM <string>
-
-Example
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following examples show how to use the ``Get-AzureVMChefExtension`` cmdlet:
-
-**Get details for a virtual machine**
-
-.. code-block:: bash
-
-   $ Get-AzureVM -ServiceName cloudservice1 -Name azurevm1 | Get-AzureVMExtension
-
-
-Set-AzureVMChefExtension
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``Set-AzureVMChefExtension`` cmdlet to enable |chef| on any virtual machine running on |azure|.
-
-Syntax
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This cmdlet has the following syntax.
-
-For |windows|:
-
-.. code-block:: bash
-
-   Set-AzureVMChefExtension -ValidationPem <String> -VM <IPersistentVM> -Windows [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
-
-For |linux|:
-
-.. code-block:: bash
-
-   Set-AzureVMChefExtension -Linux -ValidationPem <String> -VM <IPersistentVM> [-ChefServerUrl <String> ] [-ClientRb <String> ] [-OrganizationName <String> ] [-RunList <String> ] [-ValidationClientName <String> ] [-Version <String> ] [ <CommonParameters>]
-
-
-Options
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-This cmdlet has the following options:
-
-``-AutoUpdateChefClient``
-   |azure autoupdate_client|
-
-``-BootstrapOptions <string>``
-   |json first_run_string| For example:
-
-   .. code-block:: bash
-
-      -BootstrapOptions '{"chef_node_name":"test_node"}'
-
-   |azure bootstrap_json|
-
-``-ChefServerUrl <string>``
-   |url chef_server|
-
-``-ClientRb <string>``
-   |azure client_rb_path|
-
-``-DeleteChefConfig``
-   |azure disable_extension|
-
-``-Linux``
-   |azure set_linux|
-
-``-OrganizationName <string>``
-   |name chef_organization|
-
-``-RunList <string>``
-   |run_list|
-
-``-ValidationClientName <string>``
-   |validation_client_name|
-
-``-ValidationPem  <string>``
-   |validation_key| Default value: ``/etc/chef/validation.pem``.
-
-``-Version <string>``
-   |azure version number|
-
-``-Windows``
-   |azure set_windows|
-
-
-Examples
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-The following examples show how to use the ``Set-AzureVMChefExtension`` cmdlet:
-
-**Create Windows virtual machine**
-
-.. code-block:: bash
-
-   $vm1 = "azurechefwin"
-   $svc = "azurechefwin"
-   $username = 'azure'
-   $password = 'azure@123'
-
-   $img = "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201406.01-en.us-127GB.vhd"
-
-   $vmObj1 = New-AzureVMConfig -Name $vm1 -InstanceSize Small -ImageName $img
-
-   $vmObj1 = Add-AzureProvisioningConfig -VM $vmObj1 -Password $password -AdminUsername $username –Windows
-
-   # set azure chef extension
-   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb 
-   "C:\\users\\azure\\client.rb" -RunList "getting-started" -Windows
-
-   New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
-
-
-**Create CentOS virtual machine**
-
-.. code-block:: bash
-
-   $vm1 = "azurecheflnx"
-   $svc = "azurecheflnx"
-   $username = 'azure'
-   $password = 'azure@123'
-
-   # CentOS image id
-   $img = "5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-71-20150605"
-
-   $vmObj1 = New-AzureVMConfig -Name $vm1 -InstanceSize Small -ImageName $img
-
-   $vmObj1 = Add-AzureProvisioningConfig -VM $vmObj1 -Password $password -Linux -LinuxUser $username
-
-   # set azure chef extension
-   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb 
-   "C:\\users\\azure\\client.rb" -RunList "getting-started" -Linux
-
-   New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
-
-
-**Create Ubuntu virtual machine**
-
-.. code-block:: bash
-
-   $vm1 = "azurecheflnx"
-   $svc = "azurecheflnx"
-   $username = 'azure'
-   $password = 'azure@123'
-
-   $img = "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-12_04_5-LTS-amd64-server-20150127-en-us-30GB"
-
-   $vmObj1 = New-AzureVMConfig -Name $vm1 -InstanceSize Small -ImageName $img
-
-   $vmObj1 = Add-AzureProvisioningConfig -VM $vmObj1 -Password $password -Linux -LinuxUser $username
-
-   # set azure chef extension
-   $vmObj1 = Set-AzureVMChefExtension -VM $vmObj1 -ValidationPem "C:\\users\\azure\\msazurechef-validator.pem" -ClientRb 
-   "C:\\users\\azure\\client.rb" -RunList "getting-started" -Linux
-
-   New-AzureVM -Location 'West US' -ServiceName $svc -VM $vmObj1
-
-
-knife azure server create
------------------------------------------------------
-If ``knife azure`` plugin is installed on the workstation, along with the |azure extension chef|, the ``server create`` |knife| plugin may be used to manage |chef| running on virtual machines in |azure|.
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This command has the following syntax:
-
-.. code-block:: bash
-
-   $ knife azure server create (options)
-
-Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This command has the following options:
-
-``--auto-update-client``
-   |azure autoupdate_client|
-
-``--azure-extension-client-config``
-   |azure client_rb_path|
-
-``--bootstrap-version``
-   |ubuntu| and |centos| only.    |bootstrap version|
-
-``--delete-chef-extension-config``
-   |azure disable_extension|
-
-``-j``,  ``--json-attributes``
-   |json first_run_string| For example:
-
-   .. code-block:: bash
-
-      -j '{"chef_node_name":"test_node"}'
-
-   Supported options: ``--bootstrap-version``, ``--environment``, ``--[no-]node-verify-api-cert``, ``--node-name``, ``--node-ssl-verify-mode``, ``--secret-file``, and ``--server-url`` (required).
-
-``-r``, ``--run-list``
-   |run_list|
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples show how to use the ``knife azure server create`` command:
-
-**Create Windows virtual machine**
-
-.. code-block:: bash
-
-   $ knife azure server create -I "123abc__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd"\n
-                             --azure-vm-size Medium -x 'azureuser' -P 'azure@123' --bootstrap-protocol\n
-                             'cloud-api' -c '~/chef-repo/.chef/knife.rb' -r 'recipe[getting-started]'\n
-                             --azure-service-location "West US" -VV
-
-
-**Create Linux virtual machine**
-
-.. code-block:: bash
-
-   $ knife azure server create -I "123abc__Ubuntu_DAILY_BUILD-trusty-14_04_1-LTS-amd64-server-etc"\n
-                               --azure-vm-size Medium -x 'azureuser' -P 'azure@123' --bootstrap-protocol 'cloud-api'\n
-                               -c '~/chef-repo/.chef/knife.rb' -r 'recipe[getting-started]'\n
-                               --azure-service-location "West US" -VV
-
-Azure Resource Manager (ARM) Templates
------------------------------------------------------
-If you are using Azure Resource Manager templates to create your infrastructure you can use the Chef extension to have Azure handle the bootstraping/configuration of your node to your Chef Server.
-
-Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The extension has the following options that can be provided in the `settings` hash.
-
-``runlist``
-   |run_list|
-
-``client_rb``
-   |azure client_rb_content|
-
-``validation_key_format``
-   |azure validation_key_format|
-
-..note:: If using the Chef extension in an ARM template, it is recommended that you base64 encode your validation key and set this option to ``base64encoded``
-
-``bootstrap_version``
-   |azure bootstrap_version|
-
-..note:: Due to constraints in Azure, the ``bootstrap_version`` option is only available on the ``LinuxChefClient`` extension.
-
-``bootstrap_options``
-   |azure bootstrap_options|
-
-..note:: Options that are supplied in the bootstrap items will take presidence over any conflicts found in the client.rb
-
-``chef_node_name``
-   |name node_client_rb|
-
-``chef_server_url``
-   |chef_server_url|
-
-``environment``
-   |azure chef_environment|
-
-``secret``
-   |secret|
-
-``validation_client_name``
-   |validation_client_name|
-
-``node_ssl_verify_mode``
-   |ssl_verify_mode|
-
-``node_verify_api_cert``
-   |ssl_verify_mode_verify_api_cert|
-
-**Protected Settings**
-[
-The following options can be provided to the extension through the ``protectedSettings`` hash.
-
-``validation_key``
-   |azure validation_key_content|
-
-``chef_server_crt``
-   |azure chef_server_crt|
-
-``client_pem``
-   |azure client_pem|
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples show how the |chef client| can be installed and configured from an ARM template.
-
-**Installing the Azure Chef extension on a Linux system**
-
-.. code-block:: javascript
-
-   {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "myVirtualMachine/LinuxChefClient",
-      "apiVersion": "2015-05-01-preview",
-      "location": "westus",
-      "properties": {
-        "publisher": "Chef.Bootstrap.WindowsAzure",
-        "type": "LinuxChefClient",
-        "typeHandlerVersion": "1210.12",
-        "settings": {
-          "bootstrap_options": {
-            "chef_node_name": "node1",
-            "chef_server_url": "https://api.chef.io/organizations/my-chef-organization",
-            "validation_client_name": "my-chef-organization-validator"
-          },
-          "runlist": "recipe[awesome_customers_rhel],recipe[yum],role[base]",
-          "validation_key_format": "plaintext"
-        },
-        "protectedSettings": {
-          "validation_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIB..\n67VT3Dg=\n-----END RSA PRIVATE KEY-----"
-        }
-      }
-    }
-
-
-**Installing the Azure Chef extension on a Windows system**
-
-.. code-block:: javascript
-
-   {
-     "type": "Microsoft.Compute/virtualMachines/extensions",
-     "name": "myVirtualMachine/ChefClient",
-     "apiVersion": "2015-05-01-preview",
-     "location": "westus",
-     "properties": {
-       "publisher": "Chef.Bootstrap.WindowsAzure",
-       "type": "ChefClient",
-       "typeHandlerVersion": "1210.12",
-       "settings": {
-         "bootstrap_options": {
-           "chef_node_name": "node12",
-           "chef_server_url": "https://api.chef.io/organizations/my-chef-organization",
-           "validation_client_name": "my-chef-organization-validator"
-         },
-         "runlist": "recipe[awesome_customers_windows],recipe[iis],role[windows_base]",
-         "validation_key_format": "plaintext"
-       },
-       "protectedSettings": {
-         "validation_key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpQIB..\n67VT3Dg=\n-----END RSA PRIVATE KEY-----"
-       }
-     }
-   }
-
-
-**Installing the Azure Chef extension on a Linux system with SSL peer verification turned off and given a data bag secret**
-
-.. code-block:: javascript
-
-   {
-      "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "myVirtualMachine/LinuxChefClient",
-      "apiVersion": "2015-05-01-preview",
-      "location": "westus",
-      "properties": {
-        "publisher": "Chef.Bootstrap.WindowsAzure",
-        "type": "LinuxChefClient",
-        "typeHandlerVersion": "1210.12",
-        "settings": {
-          "bootstrap_options": {
-            "chef_node_name": "node1",
-            "chef_server_url": "https://api.chef.io/organizations/my-chef-organization",
-            "validation_client_name": "my-chef-organization-validator",
-            "node_ssl_verify_mode": "none",
-            "secret": "KCYWGXxSrkgR..."
-          },
-          "runlist": "recipe[awesome_customers_rhel],recipe[yum],role[base]",
-          "validation_key_format": "base64encoded"
-        },
-        "protectedSettings": {
-          "validation_key": "LS0tLS1CRUdJTiBSU0EgUFJ...FIEtFWS0tLS0t"
-        }
-      }
-    }
-
-
-.. note:: Here we're also base64 encoding our validator key which is a recommended approach when using the Azure Chef extension in an ARM template
+.. end_tag
 
 Log Files
 =====================================================
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_log_files.rst
+.. tag cloud_azure_portal_log_files
 
-From the |azure portal|
------------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_log_files_azure_portal.rst
+If the Azure portal displays an error in dashboard, check the log files. The log files are created by the chef-client. The log files can be accessed from within the Azure portal or by running the chef-client on the node itself and then reproducing the issue interactively.
 
-From the |chef client_title|
+.. end_tag
+
+From the Azure portal
 -----------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_log_files_chef_client.rst
+.. tag cloud_azure_portal_log_files_azure_portal
+
+Log files are available from within the Azure portal:
+
+#. Select **Virtual Machines** in the left pane of the Azure portal.
+
+#. Select the virtual machine that has the error status.
+
+#. Click the **Connect** button at the bottom of the portal to launch a Windows Remote Desktop session, and then log in to the virtual machine.
+
+#. Start up a Windows PowerShell command shell.
+
+   .. code-block:: bash
+
+      $ cd c:\windowsazure\logs
+        ls –r chef*.log
+
+#. This should display the log files, including the chef-client log file.
+
+.. end_tag
+
+From the chef-client
+-----------------------------------------------------
+.. tag cloud_azure_portal_log_files_chef_client
+
+The chef-client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then running the chef-client:
+
+#. Log into the virtual machine.
+
+#. Start up a Windows PowerShell command shell.
+
+#. Run the following command:
+
+   .. code-block:: bash
+
+      $ chef-client -l debug
+
+#. View the logs. On a linux system, the Chef client logs are saved to ``/var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/<extension-version-number>/chef-client.log`` and can be viewed using the following command:
+
+   .. code-block:: bash
+
+      $ tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
+
+.. end_tag
 
 Troubleshoot Log Files
 -----------------------------------------------------
-.. include:: ../../includes_cloud/includes_cloud_azure_portal_log_files_troubleshoot.rst
+.. tag cloud_azure_portal_log_files_troubleshoot
+
+After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
+
+* Connectivity errors with the Chef server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
+* An invalid validator key has been specified. This will prevent the chef-client from authenticating to the Chef server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
+* The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
+* An error in one the run-list. The log file will specify the details about errors related to the run-list.
+
+.. end_tag
 
 For more information ...
 =====================================================
-For more information about |azure| and how to use it with |chef|:
+For more information about Microsoft Azure and how to use it with Chef:
 
-* `Microsoft Azure Documentation <http://www.windowsazure.com/en-us/documentation/services/virtual-machines/>`_
-* `Chef Documentation <https://docs.chef.io>`_
-* `knife azure Plugin <https://docs.chef.io/plugin_knife_azure.html>`_
+* `Microsoft Azure Documentation <https://azure.microsoft.com/en-us/documentation/services/virtual-machines/>`_
+* `knife azure Plugin <https://github.com/chef/knife-azure>`_
 * `azure-cookbook <https://github.com/chef-partners/azure-cookbook>`_

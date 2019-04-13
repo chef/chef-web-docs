@@ -105,24 +105,6 @@ var pageSetup = function() {
     $(this).addClass("is-active");
   });
 
-  // Version Picker Dropdown 
-  $(".dropdown-select").click(function () {
-    $(this).parent(".dropdown-wrapper").toggleClass("is-open");
-  });
-
-  $("html").click(function(event) {
-    if ($(".dropdown-wrapper").hasClass("is-open") && !($(event.target).parents(".dropdown-wrapper").length)) {  
-      $(".dropdown-wrapper").removeClass("is-open");
-    }
-    })
-  
-  $(".dropdown-wrapper .has-sub-items").click(function() {
-    if (!largeScreen) {
-      $(this).toggleClass("is-open");
-      $(this).find(".dropdown-sub-items").toggleClass("is-open");
-    }
-  });
-
   // Add Active State to Docs Nav for Sub-pages
   var currentUrl = location.pathname + location.hash;
   var $docsNavLinks = $(".nav-docs-link");

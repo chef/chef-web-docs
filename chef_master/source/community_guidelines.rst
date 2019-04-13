@@ -1,14 +1,15 @@
 =====================================================
 Community Guidelines
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/community_guidelines.rst>`__
 
-The |chef| community is a mixture of professionals and volunteers who come from all over the world and work together to make |chef| better. Community members fulfill many roles, including mentoring, teaching, and connecting with other members of the community.
+The Chef community is a mixture of professionals and volunteers who come from all over the world and work together to make Chef better. Community members fulfill many roles, including mentoring, teaching, and connecting with other members of the community.
 
 Diversity is one of our biggest strengths, but it can also bring increased communication challenges at times.
 
 Be careful in the words that you choose. Be kind to others. Do not insult or put down others. Remember that sexist, racist, and other exclusionary jokes can be offensive to those around you. If you think your conversation is making another community member uncomfortable, try to make amends and move forward.
 
-Our community convenes in many physical and virtual spaces. These guidelines may be used in any location where the |chef| community has gathered or is working. However, events that take place in public spaces, such as conferences and meetup groups, will generally have their own code of conduct or similar community guidelines. As such, the guidelines for a specific event should be followed.
+Our community convenes in many physical and virtual spaces. These guidelines may be used in any location where the Chef community has gathered or is working. However, events that take place in public spaces, such as conferences and meetup groups, will generally have their own code of conduct or similar community guidelines. As such, the guidelines for a specific event should be followed.
 
 As you are working with other members of the community, please keep in mind the following guidelines, which apply equally to founders, mentors, those who submit new features and pull requests, and to anyone who is seeking help and guidance.
 
@@ -21,7 +22,7 @@ The following list isn't exhaustive; it is intended to help all of us communicat
 * **Be careful in the words that you choose.**
 * **When we disagree, let's all work together to understand why.**
 
-The previous list applies to all forms of communication: IRC, the mailing list, the issue tracker, and any other forum that is used by the community.
+The previous list applies to all forms of communication: slack, the mailing list, the issue tracker, and any other forum that is used by the community.
 
 Please keep in mind that:
 
@@ -54,7 +55,7 @@ Roles
 =====================================================
 * The **Decider** has final say on community guidelines and final authority on punitive actions and appeals. As per the `Chef RFC process <https://github.com/chef/chef-rfc/blob/master/rfc000-rfc-process.md>`__, the top-level decider is Adam Jacob (adam @ chef.io).
 * The **Community Ombudsperson** guides and meets regularly with community advocates, helps enforce punitive actions, hears appeals, is responsible for maintaining a list of incidents, and ensures pertinent information is shared with necessary parties. The community ombudsperson is appointed by the decider.
-* **Community Advocates** may be assigned for each area where the community convenes online (IRC, email list, |github|, etc.). Advocates are responsible for helping enforce the community guidelines.
+* **Community Advocates** may be assigned for each area where the community convenes online (slack, email list, GitHub, etc.). Advocates are responsible for helping enforce the community guidelines.
 * A **Community Member** is anyone who participates with the community whether in-person or via online channels. Community members are responsible for following the community guidelines, suggesting updates to the guidelines when warranted, and helping enforce community guidelines.
 
 Community advocates must be agreed on by the community: a simple majority of other advocates must approve. The decider retains veto power. Create a pull request against this document to volunteer or nominate someone as a community advocate for a particular area. Create a pull request against this document to propose an area that needs coverage.
@@ -65,7 +66,7 @@ Incident Handling
 
 Disagreements, both social and technical, happen all the time. When they occur, we seek to resolve disagreements and differing views constructively and with the help of the community and community processes. When disagreements escalate, we ask our community advocates to step in to moderate, mediate, and help resolve tense situations.
 
-The |chef| community advocates are well informed on how to deal with incidents. Report the incident (preferably in writing) to one of the community advocates listed below.
+The Chef community advocates are well informed on how to deal with incidents. Report the incident (preferably in writing) to one of the community advocates listed below.
 
 .. list-table::
    :widths: 60 420
@@ -74,15 +75,15 @@ The |chef| community advocates are well informed on how to deal with incidents. 
    * - Role
      - Advocates
    * - Decider
-     - Adam Jacob - adam @ chef.io; IRC - holoway
+     - Adam Jacob - adam @ chef.io
    * - Ombudsperson
-     - Nathen Harvey - nharvey @ chef.io; phone - +1 202-368-7264; IRC - nathenharvey
+     - Mandi Walls - mandi @ chef.io; phone - +1 703-582-7396; slack - lnxchk
    * - Advocates
-     - The `list of advocates <https://github.com/chef/chef-rfc/blob/master/rfc020-community-guidelines.md>`__ for the various locations in which |chef| community discussions take place is maintained in the RFC.
+     - The `list of advocates <https://github.com/chef/chef-rfc/blob/master/rfc020-community-guidelines.md>`__ for the various locations in which Chef community discussions take place is maintained in the RFC.
 
 The important information to report consists of:
 
-* Identifying information (name, email address, IRC nick, etc.) of the person doing the harassing
+* Identifying information (name, email address, slack name, etc.) of the person doing the harassing
 * The behavior that was in violation
 * The approximate time of the behavior
 * The circumstances surrounding the incident
@@ -90,7 +91,7 @@ The important information to report consists of:
 
 If you feel your safety is in jeopardy please do not hesitate to contact local law enforcement.
 
-.. note:: Incidents that violate the community guidelines are extremely damaging to the community, and they will not be tolerated. The silver lining is that, in many cases, these incidents present a chance for the community as a whole to grow, learn, and become better. The community advocate team requests that they be your first resource when reporting a |chef| community-related incident, so that they may enforce the community guidelines and take quick action toward a resolution.
+.. note:: Incidents that violate the community guidelines are extremely damaging to the community, and they will not be tolerated. The silver lining is that, in many cases, these incidents present a chance for the community as a whole to grow, learn, and become better. The community advocate team requests that they be your first resource when reporting a Chef community-related incident, so that they may enforce the community guidelines and take quick action toward a resolution.
 
 Documenting Incidents
 =====================================================
@@ -111,7 +112,7 @@ When punitive action is warranted, a community advocate may use one or more of t
 
 Appeals
 =====================================================
-People subjected to punitive action may appeal the action by contacting a community advocate, ombudsperson, or the decider. An appeal will be acknoweldged within 48 hours and processed within seven days.
+People subjected to punitive action may appeal the action by contacting a community advocate, ombudsperson, or the decider. An appeal will be acknowledged within 48 hours and processed within seven days.
 
 Influences
 -----------------------------------------------------

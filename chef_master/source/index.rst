@@ -1,343 +1,416 @@
 =====================================================
 Site Map
 =====================================================
-This is the documentation for 
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/index.rst>`__
 
-- Chef, including the Chef server, the Chef client, the Chef
-  development kit (Chef DK) and related tools
-- Habitat 
-- InSpec
-- Chef Automate 
+This is the documentation for:
+
+* Chef, including the Chef server, the Chef client, the Chef
+  development kit (ChefDK) and related tools
+* Chef Automate
+
+For information on Habitat and InSpec, see their respective documentation:
+
+* `Habitat documentation <https://www.habitat.sh/docs/>`_
+* `InSpec documentation <https://www.inspec.io/docs/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If you need documenation for previous versions, you can use the dropdown
-box labeled "Filter by product and version" to select the particular
-component and version you want.
+If you are new to Chef, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef to familarize yourself with Chef concepts.
 
-If this is your first visit, we recommend reading `how to learn Chef <https://learn.chef.io/skills/how-to-learn-chef>`_.
+If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
 
 Overview
 =====================================================
 
-Platform Overview
+Chef Platform Overview
 -----------------------------------------------------
 
-:doc:`Platform Overview </platform_overview>` 
+`Platform Overview </platform_overview.html>`__
 
 Community
 -----------------------------------------------------
 
-:doc:`About the Community </community>` |
-:doc:`Contributing </community_contributions>` |
-:doc:`Guidelines </community_guidelines>` |
-:doc:`Docs Style Guide </style_guide>`
- 
-Packages and Platforms
+`About the Community </community.html>`__ |
+`Contributing </community_contributions.html>`__ |
+`Guidelines </community_guidelines.html>`__ |
+`Docs Style Guide </style_guide.html>`__
+
+Packages and Platform Support
 -----------------------------------------------------
-:doc:`Packages </packages>` |
-:doc:`Platforms </platforms>` |
-:doc:`Omnitruck API </api_omnitruck>` |
-:doc:`Licensing </chef_license>` 
+`Licensing </chef_license.html>`__ |
+`Packages </packages.html>`__ |
+`Platforms </platforms.html>`__ |
+`Supported Versions </versions.html>`__ |
+`Omnitruck API </api_omnitruck.html>`__
+
 
 Chef
 =====================================================
 
 Getting Started
 -----------------------------------------------------
-:doc:`Chef Overview </chef_overview>` |
-:doc:`Quick Start </quick_start>` |
-:doc:`System Requirements </chef_system_requirements>` 
+`Chef Overview </chef_overview.html>`__ |
+`Quick Start </quick_start.html>`__ |
+`System Requirements </chef_system_requirements.html>`__
+
+**Chef Workstation**:
+`Chef Workstation <https://www.chef.sh/>`__ |
+`Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
-:doc:`Chef Client </release_notes>` |
-:doc:`Chef Server </release_notes_server>` 
+`Chef Client </release_notes.html>`__ |
+`Chef Development Kit </release_notes_chefdk.html>`__ |
+`Chef Server </release_notes_server.html>`__ |
+`Chef Push Jobs </release_notes_push_jobs.html>`__ |
 
-Tutorials
------------------------------------------------------
-
- `Learn the Basics <https://learn.chef.io/tutorials/#learn-the-basics>`_ |
- `Manage a Node <https://learn.chef.io/tutorials/#manage-a-node>`_ |
- `Local Development <https://learn.chef.io/tutorials/#local-development>`_ |
- `Manage a Web App <https://learn.chef.io/tutorials/#manage-a-web-app>`_ |
- `Test Your Infrastructure <https://learn.chef.io/tutorials/#test-your-infrastructure-code>`_ |
- `Install Chef Server <https://learn.chef.io/tutorials/#install-and-manage-your-own-chef-server>`_ 
+`Deprecations </chef_deprecations_client.html>`__
 
 Concepts
 -----------------------------------------------------
 
-:doc:`Workstation </workstation>` |
-:doc:`chef-repo </chef_repo>` |
-:doc:`Nodes </nodes>` |
-:doc:`chef-client </chef_client>` |
-:doc:`Server </server_components>` |
-:doc:`Search </chef_search>` |
-:doc:`Cookbooks </cookbooks>` |
-:doc:`Handlers </handlers>` |
-:doc:`Management Console </manage>` 
+`Workstation </workstation.html>`__ |
+`chef-repo </chef_repo.html>`__ |
+`Nodes </nodes.html>`__ |
+`Chef Client Overview </chef_client_overview.html>`__ |
+`Server </server_components.html>`__ |
+`Search </chef_search.html>`__ |
+`Cookbooks </cookbooks.html>`__ |
+`Handlers </handlers.html>`__ |
+`Management Console </manage.html>`__
 
-**Policy**: :doc:`About Policy </policy>` | :doc:`Data Bags </data_bags>` | :doc:`Environments </environments>` | :doc:`Roles </roles>` 
+**Policy**: `About Policy </policy.html>`__ | `Data Bags </data_bags.html>`__ | `Environments </environments.html>`__ | `Roles </roles.html>`__
 
-:doc:`Push Jobs </push_jobs>` |
-:doc:`Reporting </reporting>` |
-:doc:`Run-lists </run_lists>` 
+`Push Jobs </push_jobs.html>`__ |
+`Run-lists </run_lists.html>`__
 
-**Security**:`Authentication <http://docs.chef.io/auth.html#authentication>`_ | `Authorization <http://docs.chef.io/auth.html#authorization>`_ | :doc:`Private Keys </chef_private_keys>` | `FIPS-mode <http://docs.chef.io/ctl_chef_client.html#run-in-fips-mode>`_ 
+**Security**: `Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `Private Keys </chef_private_keys.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
 
-**Supermarket**: `Public Supermarket (overview) <http://docs.chef.io/supermarket.html#public-supermarket>`_ | `Private Supermarket (overview) <http://docs.chef.io/supermarket.html#private-supermarket>`_
+**Supermarket**: `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
 
-:doc:`Microsoft Windows </windows>` 
+**Appendix**: `Env Variables </environment_variables.html>`__ | `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
+
+Guides
+-----------------------------------------------------
+
+**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__ 
+
+**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
 Setup
 -----------------------------------------------------
-:doc:`Proxies </proxies>` |
-:doc:`Workstation </install_dk>` 
+`Proxies </proxies.html>`__ |
+`Installing Chef on Windows </dk_windows.html>`__ |
+`Workstation </install_dk.html>`__
 
-**Nodes**::doc:`Install via Bootstrap </install_bootstrap>` | :doc:`Install via URL </install_omnibus>` | :doc:`Install on Windows </install_windows>` | :doc:`Install on Junos OS </junos>` | :doc:`chef-client (executable) </ctl_chef_client>` | :doc:`client.rb </config_rb_client>` | :doc:`Upgrades </upgrade_client>` | :doc:`Security </chef_client_security>` 
+**Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Server <https://manage.chef.io/signup>`_ | `Install Standalone <http://docs.chef.io/install_server.html#standalone>`_ | :doc:`Install High Availability </install_server_ha>` | :doc:`AWS Marketplace </aws_marketplace>` | :doc:`Microsoft Azure </azure_portal>` | :doc:`Openstack </openstack>`
+**Server**: `Hosted Chef Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
 
-**Supermarket**: `Public Supermarket <https://supermarket.chef.io>`_ | :doc:`Install Private Supermarket </install_supermarket>` | `Customize Supermarket <http://docs.chef.io/install_supermarket.html#customize-supermarket>`_ | `Run in Kitchen <http://docs.chef.io/install_supermarket.html#run-supermarket-in-kitchen>`_
+**Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
+`Management Console </ctl_chef_server.html#install.html>`__ | `Push Jobs </install_push_jobs.html>`__
 
-`Management Console <http://docs.chef.io/ctl_chef_server.html#install>`_ |
-:doc:`Push Jobs </install_push_jobs>` |
-:doc:`Reporting </install_reporting>` 
+**Integrations**: `AWS Marketplace </aws_marketplace.html>`__ |  `Microsoft Azure </azure_portal.html>`__ | `Google Cloud Platform </google.html>`__ | `VMware </vmware.html>`__
 
-**Integrations**: :doc:`w/Chef Compliance </integrate_compliance_chef_server>`
-
-:doc:`Uninstall </uninstall>` 
+`Air-gapped Installation </install_chef_air_gap.html>`__ |
+`Microsoft Windows </windows.html>`__ |
+`Uninstall </uninstall.html>`__
 
 Cookbook Reference
 -----------------------------------------------------
-:doc:`About Cookbooks </cookbooks>` |
-:doc:`Attributes </attributes>` |
-:doc:`Definitions </definitions>` |
-:doc:`Files </files>` |
-:doc:`Libraries </libraries>` 
+`About Cookbooks </cookbooks.html>`__ |
+`Attributes </attributes.html>`__ |
+`Files </files.html>`__ |
+`Libraries </libraries.html>`__
 
-**Recipes**: :doc:`About Recipes </recipes>` | :doc:`Debug Recipes, Client Runs </debug>` 
+**Recipes**: `About Recipes </recipes.html>`__ | `Debug Recipes, Client Runs </debug.html>`__
 
-**Resources**: :doc:`About Resources </resource>` | :doc:`Common Functionality </resource_common>` | :doc:`All Resources (Single Page) </resources>` | :doc:`apt_package </resource_apt_package>` | :doc:`apt_update </resource_apt_update>` | :doc:`bash </resource_bash>` | :doc:`batch </resource_batch>` | :doc:`bff_package </resource_bff_package>` | :doc:`breakpoint </resource_breakpoint>` | :doc:`chef_gem </resource_chef_gem>` | :doc:`chef_handler </resource_chef_handler>` | :doc:`chocolatey_package </resource_chocolatey_package>` | :doc:`cookbook_file </resource_cookbook_file>` | :doc:`cron </resource_cron>` | :doc:`csh </resource_csh>` | :doc:`deploy </resource_deploy>` | :doc:`directory </resource_directory>` | :doc:`dpkg_package </resource_dpkg_package>` | :doc:`dsc_resource </resource_dsc_resource>` | :doc:`dsc_script </resource_dsc_script>` | :doc:`easy_install_package </resource_easy_install_package>` | :doc:`env </resource_env>` | :doc:`erl_call </resource_erlang_call>` | :doc:`execute </resource_execute>` | :doc:`file </resource_file>` | :doc:`freebsd_package </resource_freebsd_package>` | :doc:`gem_package </resource_gem_package>` | :doc:`git </resource_git>` | :doc:`group </resource_group>` | :doc:`homebrew_package </resource_homebrew_package>` | :doc:`http_request </resource_http_request>` | :doc:`ifconfig </resource_ifconfig>` | :doc:`ips_package </resource_ips_package>` | :doc:`ksh </resource_ksh>` | :doc:`launchd </resource_launchd>` | :doc:`link </resource_link>` | :doc:`log </resource_log>` | :doc:`macports_package </resource_macports_package>` | :doc:`mdadm </resource_mdadm>` | :doc:`mount </resource_mount>` | :doc:`ohai </resource_ohai>` | :doc:`openbsd_package </resource_openbsd_package>` | :doc:`osx_profile </resource_osx_profile>` | :doc:`package </resource_package>` | :doc:`pacman_package </resource_pacman_package>` | :doc:`paludis_package </resource_paludis_package>` | :doc:`perl </resource_perl>` | :doc:`portage_package </resource_portage_package>` | :doc:`powershell_script </resource_powershell_script>` | :doc:`python </resource_python>` | :doc:`reboot </resource_reboot>` | :doc:`registry_key </resource_registry_key>` | :doc:`remote_directory </resource_remote_directory>` | :doc:`remote_file </resource_remote_file>` | :doc:`route </resource_route>` | :doc:`rpm_package </resource_rpm_package>` | :doc:`ruby </resource_ruby>` | :doc:`ruby_block </resource_ruby_block>` | :doc:`script </resource_script>` | :doc:`service </resource_service>` | :doc:`smartos_package </resource_smartos_package>` | :doc:`solaris_package </resource_solaris_package>` | :doc:`subversion </resource_subversion>` | :doc:`template </resource_template>` | :doc:`user </resource_user>` | :doc:`windows_package </resource_windows_package>` | :doc:`windows_service </resource_windows_service>` | :doc:`yum_package </resource_yum>` | :doc:`Examples (by Resource) </resource_examples>` 
+**Resources**:
+`About Resources </resource.html>`__ |
+`Common Functionality </resource_common.html>`__ |
+`Custom Resources </custom_resources.html>`__ |
+`All Resources (Single Page) </resource_reference.html>`__ |
+`Examples (by Resource) </resource_examples.html>`__
 
-**Resources for Chef**: :doc:`chef_acl </resource_chef_acl>` | :doc:`chef_client </resource_chef_client>` | :doc:`chef_container </resource_chef_container>` | :doc:`chef_data_bag_item </resource_chef_data_bag_item>` | :doc:`chef_data_bag </resource_chef_data_bag>` | :doc:`chef_environment </resource_chef_environment>` | :doc:`chef_group </resource_chef_group>` | :doc:`chef_mirror </resource_chef_mirror>` | :doc:`chef_node </resource_chef_node>` | :doc:`chef_organization </resource_chef_organization>` | :doc:`chef_role </resource_chef_role>` | :doc:`chef_user </resource_chef_user>` | :doc:`private_key </resource_private_key>` | :doc:`public_key </resource_public_key>` 
+`apt_package </resource_apt_package.html>`__ |
+`apt_preference </resource_apt_preference.html>`__ |
+`apt_repository </resource_apt_repository.html>`__ |
+`apt_update </resource_apt_update.html>`__ |
+`bash </resource_bash.html>`__ |
+`batch </resource_batch.html>`__ |
+`bff_package </resource_bff_package.html>`__ |
+`breakpoint </resource_breakpoint.html>`__ |
+`build_essential </resource_build_essential.html>`__ |
+`cab_package </resource_cab_package.html>`__ |
+`chef_acl </resource_chef_acl.html>`__ |
+`chef_client </resource_chef_client.html>`__ |
+`chef_container </resource_chef_container.html>`__ |
+`chef_data_bag </resource_chef_data_bag.html>`__ |
+`chef_data_bag_item </resource_chef_data_bag_item.html>`__ |
+`chef_environment </resource_chef_environment.html>`__ |
+`chef_gem </resource_chef_gem.html>`__ |
+`chef_group </resource_chef_group.html>`__ |
+`chef_handler </resource_chef_handler.html>`__ |
+`chef_mirror </resource_chef_mirror.html>`__ |
+`chef_node </resource_chef_node.html>`__ |
+`chef_organization </resource_chef_organization.html>`__ |
+`chef_role </resource_chef_role.html>`__ |
+`chef_user </resource_chef_user.html>`__ |
+`chocolatey_config </resource_chocolatey_config.html>`__
+`chocolatey_package </resource_chocolatey_package.html>`__
+`chocolatey_source </resource_chocolatey_source.html>`__
+`cookbook_file </resource_cookbook_file.html>`__ |
+`cron </resource_cron.html>`__ |
+`cron_d </resource_cron_d.html>`__ |
+`cron_access </resource_cron_access.html>`__ |
+`csh </resource_csh.html>`__ |
+`deploy </resource_deploy.html>`__ |
+`directory </resource_directory.html>`__ |
+`dmg_package </resource_dmg_package.html>`__ |
+`dpkg_package </resource_dpkg_package.html>`__ |
+`dsc_resource </resource_dsc_resource.html>`__ |
+`dsc_script </resource_dsc_script.html>`__ |
+`erl_call </resource_erlang_call.html>`__ |
+`execute </resource_execute.html>`__ |
+`file </resource_file.html>`__ |
+`freebsd_package </resource_freebsd_package.html>`__ |
+`gem_package </resource_gem_package.html>`__ |
+`git </resource_git.html>`__ |
+`group </resource_group.html>`__ |
+`homebrew_cask </resource_homebrew_cask.html>`__ |
+`homebrew_package </resource_homebrew_package.html>`__ |
+`homebrew_tap </resource_homebrew_tap.html>`__ |
+`hostname </resource_hostname.html>`__ |
+`http_request </resource_http_request.html>`__ |
+`ifconfig </resource_ifconfig.html>`__ |
+`ips_package </resource_ips_package.html>`__ |
+`kernel_module </resource_kernel_module.html>`__ |
+`ksh </resource_ksh.html>`__ |
+`launchd </resource_launchd.html>`__ |
+`link </resource_link.html>`__ |
+`log </resource_log.html>`__ |
+`locale </resource_locale.html>`__ |
+`macos_userdefaults </resource_macos_userdefaults.html>`__ |
+`macports_package </resource_macports_package.html>`__ |
+`mdadm </resource_mdadm.html>`__ |
+`mount </resource_mount.html>`__ |
+`ohai </resource_ohai.html>`__ |
+`ohai_hint </resource_ohai_hint.html>`__ |
+`openbsd_package </resource_openbsd_package.html>`__ |
+`openssl_dhparam </resource_openssl_dhparam.html>`__ |
+`openssl_ec_private_key </resource_openssl_ec_private_key.html>`__ |
+`openssl_ec_public_key </resource_openssl_ec_public_key.html>`__ |
+`openssl_rsa_private_key </resource_openssl_rsa_private_key.html>`__ |
+`openssl_rsa_public_key </resource_openssl_rsa_public_key.html>`__ |
+`openssl_x509_certificate </resource_openssl_x509_certificate.html>`__ |
+`openssl_x509_crl </resource_openssl_x509_crl.html>`__ |
+`openssl_x509_request </resource_openssl_x509_request.html>`__ |
+`osx_profile </resource_osx_profile.html>`__ |
+`package </resource_package.html>`__ |
+`pacman_package </resource_pacman_package.html>`__ |
+`paludis_package </resource_paludis_package.html>`__ |
+`perl </resource_perl.html>`__ |
+`portage_package </resource_portage_package.html>`__ |
+`powershell_package </resource_powershell_package.html>`__ |
+`powershell_package_source </resource_powershell_package_source.html>`__ |
+`powershell_script </resource_powershell_script.html>`__ |
+`private_key </resource_private_key.html>`__ |
+`public_key </resource_public_key.html>`__ |
+`python </resource_python.html>`__ |
+`reboot </resource_reboot.html>`__ |
+`registry_key </resource_registry_key.html>`__ |
+`remote_directory </resource_remote_directory.html>`__ |
+`remote_file </resource_remote_file.html>`__ |
+`route </resource_route.html>`__ |
+`rpm_package </resource_rpm_package.html>`__ |
+`ruby </resource_ruby.html>`__ |
+`ruby_block </resource_ruby_block.html>`__ |
+`script </resource_script.html>`__ |
+`rhsm_errata </resource_rhsm_errata.html>`__ |
+`rhsm_errata_level </resource_rhsm_errata_level.html>`__ |
+`rhsm_register </resource_rhsm_register.html>`__ |
+`rhsm_repo </resource_rhsm_repo.html>`__ |
+`rhsm_subscription </resource_rhsm_subscription.html>`__ |
+`service </resource_service.html>`__ |
+`smartos_package </resource_smartos_package.html>`__ |
+`solaris_package </resource_solaris_package.html>`__ |
+`ssh_known_hosts_entry </resource_ssh_known_hosts_entry.html>`__ |
+`subversion </resource_subversion.html>`__ |
+`sudo </resource_sudo.html>`__ |
+`swap_file </resource_swap_file.html>`__ |
+`sysctl </resource_sysctl.html>`__ |
+`systemd_unit </resource_systemd_unit.html>`__ |
+`template </resource_template.html>`__ |
+`user </resource_user.html>`__ |
+`windows_ad_join </resource_windows_ad_join.html>`__ |
+`windows_auto_run </resource_windows_auto_run.html>`__ |
+`windows_certificate </resource_windows_certificate.html>`__ |
+`windows_env </resource_windows_env.html>`__ |
+`windows_feature </resource_windows_feature.html>`__ |
+`windows_feature_dism </resource_windows_feature_dism.html>`__ |
+`windows_feature_powershell </resource_windows_feature_powershell.html>`__ |
+`windows_firewall_rule </resource_windows_firewall_rule.html>`__ |
+`windows_font </resource_windows_font.html>`__ |
+`windows_package </resource_windows_package.html>`__ |
+`windows_printer </resource_windows_printer.html>`__ |
+`windows_printer_port </resource_windows_printer_port.html>`__ |
+`windows_service </resource_windows_service.html>`__ |
+`windows_share </resource_windows_share.html>`__ |
+`windows_shortcut </resource_windows_shortcut.html>`__ |
+`windows_task </resource_windows_task.html>`__ |
+`windows_workgroup </resource_windows_workgroup.html>`__ |
+`yum_package </resource_yum_package.html>`__ |
+`yum_repository </resource_yum_repository.html>`__ |
+`dnf_package </resource_dnf_package.html>`__ |
+`zypper_package </resource_zypper_package.html>`__ |
+`zypper_repository </resource_zypper_repository.html>`__
 
-:doc:`Templates </templates>` |
-:doc:`Cookbook Repo </cookbook_repo>` |
-:doc:`metadata.rb </config_rb_metadata>` |
-:doc:`Cookbook Versions </cookbook_versions>` |
-:doc:`Ruby </ruby>` 
 
-**Chef Cookbooks**: :doc:`Chef-maintained </chef_cookbooks>` | `chef-handler (cookbook) <http://docs.chef.io/handlers.html#handlers-and-cookbooks>`_ 
+`Templates </templates.html>`__ |
+`Cookbook Repo </cookbook_repo.html>`__ |
+`metadata.rb </config_rb_metadata.html>`__ |
+`Cookbook Versioning </cookbook_versioning.html>`__ |
+`Ruby </ruby.html>`__
 
-**Chef Automate Cookbooks**: :doc:`build-cookbook (cookbook) </delivery_build_cookbook>` | :doc:`delivery-truck (cookbook) </delivery_truck>` 
+**Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__
 
-Chef DK
+ChefDK
 -----------------------------------------------------
 
-:doc:`Berkshelf </berkshelf>` |
-:doc:`chef-apply (executable) </ctl_chef_apply>` 
-:doc:`chef-shell (executable) </chef_shell>` 
+`About ChefDK </about_chefdk.html>`__ |
+`Berkshelf </berkshelf.html>`__ |
+`chef-apply (executable) </ctl_chef_apply.html>`__ |
+`chef-shell (executable) </chef_shell.html>`__
 
-**chef (executable)**:`chef env <http://docs.chef.io/ctl_chef.html#chef-env>`_ | `chef exec <http://docs.chef.io/ctl_chef.html#chef-exec>`_ | `chef gem <http://docs.chef.io/ctl_chef.html#chef-gem>`_ | `chef generate app <http://docs.chef.io/ctl_chef.html#chef-generate-app>`_ | `chef generate attribute <http://docs.chef.io/ctl_chef.html#chef-generate-attribute>`_ | `chef generate cookbook <http://docs.chef.io/ctl_chef.html#chef-generate-cookbook>`_ | `chef generate file <http://docs.chef.io/ctl_chef.html#chef-generate-file>`_ | `chef generate lwrp <http://docs.chef.io/ctl_chef.html#chef-generate-lwrp>`_ | `chef generate recipe <http://docs.chef.io/ctl_chef.html#chef-generate-recipe>`_ | `chef generate repo <http://docs.chef.io/ctl_chef.html#chef-generate-repo>`_ | `chef generate template <http://docs.chef.io/ctl_chef.html#chef-generate-template>`_ | `chef provision <http://docs.chef.io/ctl_chef.html#chef-provision>`_ | `chef shell-init <http://docs.chef.io/ctl_chef.html#chef-shell-init>`_ | `chef verify <http://docs.chef.io/ctl_chef.html#chef-verify>`_ 
+**chef (executable)**: `chef env </ctl_chef.html#chef-env>`__ | `chef exec </ctl_chef.html#chef-exec>`__ | `chef gem </ctl_chef.html#chef-gem>`__ | `chef generate app </ctl_chef.html#chef-generate-app>`__ | `chef generate attribute </ctl_chef.html#chef-generate-attribute>`__ | `chef generate cookbook </ctl_chef.html#chef-generate-cookbook>`__ | `chef generate build-cookbook </ctl_chef.html#chef-generate-build-cookbook>`__ | `chef generate file </ctl_chef.html#chef-generate-file>`__ | `chef generate resource </ctl_chef.html#chef-generate-resource>`__ | `chef generate recipe </ctl_chef.html#chef-generate-recipe>`__ | `chef generate repo </ctl_chef.html#chef-generate-repo>`__ | `chef generate template </ctl_chef.html#chef-generate-template>`__ | `chef provision </ctl_chef.html#chef-provision>`__ | `chef shell-init </ctl_chef.html#chef-shell-init>`__
 
-**Chef Solo**: :doc:`About Chef Solo </chef_solo>` | :doc:`chef-solo (executable) </ctl_chef_solo>` | :doc:`solo.rb </config_rb_solo>` 
+**Chef Solo**: `About Chef Solo </chef_solo.html>`__ | `chef-solo (executable) </ctl_chef_solo.html>`__ | `solo.rb </config_rb_solo.html>`__ |
+`chef-zero (local mode) </ctl_chef_client.html#run-in-local-mode>`_ |
+`chef-vault </chef_vault.html>`__ |
+`ChefSpec </chefspec.html>`__
 
-:doc:`chef-shell (executable) </ctl_chef_shell>` |
-`chef-zero (local mode) <http://docs.chef.io/ctl_chef_client.html#run-in-local-mode>`_ |
-:doc:`chef-vault </chef_vault>` |
-:doc:`ChefSpec </chefspec>` 
+**Configuration**: `config.rb </config_rb.html>`__ | `Multiple Config Files </config_rb_client.html#d-directories.html>`__ | `cookstyle </cookstyle.html>`__ |
+`Delivery CLI </delivery_cli.html>`__ |
+`Foodcritic </foodcritic.html>`__
 
-**Configuration**: :doc:`config.rb </config_rb>` | `Multiple Config Files <http://docs.chef.io/config_rb_client.html#d-directories>`_ 
+**Kitchen**: `About Kitchen </kitchen.html>`__ | `kitchen (executable) </ctl_kitchen.html>`__ | `.kitchen.yml </config_yml_kitchen.html>`__ `kitchen-vagrant </plugin_kitchen_vagrant.html>`__
 
+**Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife supermarket </knife_supermarket.html>`_ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__ | `knife azure </knife_azure.html>`__ | `knife_azurerm <knife_azurerm.html>`__ | `knife windows <knife_windows.html>`__
 
-:doc:`cookstyle </cookstyle>` |
-:doc:`Workflow CLI </ctl_delivery>` |
-:doc:`Foodcritic </foodcritic>` 
+**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `config.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__ | `knife spork </plugin_knife_spork.html>`__
 
-**Kitchen**: :doc:`About Kitchen </kitchen>` | :doc:`kitchen (executable) </ctl_kitchen>` | :doc:`.kitchen.yml </config_yml_kitchen>` | :doc:`kitchen-inspec </plugin_kitchen_inspec>` | :doc:`kitchen-vagrant </plugin_kitchen_vagrant>` 
+**Ohai**: `About Ohai </ohai.html>`__ | `ohai (executable) </ctl_ohai.html>`__
 
+**Policyfile**: `About Policyfile </policyfile.html>`__ | `Policyfile.rb </config_rb_policyfile.html>`__
 
-**Knife**: :doc:`About Knife </knife>` | :doc:`Common Options </knife_common_options>` | :doc:`Using Knife </knife_using>` | :doc:`knife.rb </config_rb_knife>` | :doc:`knife bootstrap </knife_bootstrap>` | :doc:`knife client </knife_client>` | :doc:`knife configure </knife_configure>` | :doc:`knife cookbook </knife_cookbook>` | :doc:`knife cookbook site </knife_cookbook_site>` | :doc:`knife data bag </knife_data_bag>` | :doc:`knife delete </knife_delete>` | :doc:`knife deps </knife_deps>` | :doc:`knife diff </knife_diff>` | :doc:`knife download </knife_download>` | :doc:`knife edit </knife_edit>` | :doc:`knife environment </knife_environment>` | :doc:`knife exec </knife_exec>` | :doc:`knife list </knife_list>` | :doc:`knife node </knife_node>` | :doc:`knife raw </knife_raw>` | :doc:`knife recipe list </knife_recipe_list>` | :doc:`knife role </knife_role>` | :doc:`knife search </knife_search>` | :doc:`knife serve </knife_serve>` | :doc:`knife show </knife_show>` | :doc:`knife ssh </knife_ssh>` | :doc:`knife ssl_check </knife_ssl_check>` | :doc:`knife ssl_fetch </knife_ssl_fetch>` | :doc:`knife status </knife_status>` | :doc:`knife tag </knife_tag>` | :doc:`knife upload </knife_upload>` | :doc:`knife user </knife_user>` | :doc:`knife xargs </knife_xargs>` 
+`push-jobs-client (executable) </ctl_push_jobs_client.html>`__
 
-:doc:`knife spork </plugin_knife_spork>` |
+**Managing the Server**: `Runbook (Single Page) </runbook.html>`__ | `Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ | `Backup and Restore </server_backup_restore.html>`__ | `Data Storage </server_data.html>`__ | `Firewalls and Ports </server_firewalls_and_ports.html>`__ | `Active Directory and LDAP </server_ldap.html>`__ | `Log Files </server_logs.html>`__ | `Monitor </server_monitor.html>`__ | `Organizations and Groups </server_orgs.html>`__ | `Secrets </secrets.html>`__ | `Security </server_security.html>`__ | `Services </server_services.html>`__ | `Tuning </server_tuning.html>`__ | `Upgrades </upgrade_server.html>`__ | `Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ | `Users </server_users.html>`__ | `chef-server-ctl </ctl_chef_server.html>`__ | `chef-backend-ctl </ctl_chef_backend.html>`__ | `chef-server.rb </config_rb_server.html>`__ | `opscode-expander-ctl </ctl_opscode_expander.html>`__ | `Chef Server API </api_chef_server.html>`__
 
-**knife supermarket**: `supermarket download <http://docs.chef.io/plugin_knife_supermarket.html#download>`_ | `supermarket install <http://docs.chef.io/plugin_knife_supermarket.html#install>`_ | `supermarket list <http://docs.chef.io/plugin_knife_supermarket.html#list>`_ | `supermarket search <http://docs.chef.io/plugin_knife_supermarket.html#search>`_ | `supermarket share <http://docs.chef.io/plugin_knife_supermarket.html#share>`_ | `supermarket show <http://docs.chef.io/plugin_knife_supermarket.html#show>`_ | `supermarket unshare <http://docs.chef.io/plugin_knife_supermarket.html#unshare>`_ 
+**Push Jobs**: `knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
 
-**Ohai**: :doc:`About Ohai </ohai>` | :doc:`ohai (executable) </ctl_ohai>` 
+**Supermarket**: `Log Files </supermarket_logs.html>`__ | `Backup and Restore </supermarket_backup_restore.html>`__ | `Monitoring </supermarket_monitor.html>`__ | `supermarket.rb </config_rb_supermarket.html>`__ | `knife supermarket </knife_supermarket.html>`__ | `supermarket-ctl </ctl_supermarket.html>`__ | `Supermarket API </supermarket_api.html>`__
 
-**Policyfile**: :doc:`About Policyfile </policyfile>` | :doc:`Policyfile.rb </config_rb_policyfile>` 
+**Management Console**: `Configure SAML </server_configure_saml.html>`__ | `Clients </server_manage_clients.html>`__ | `Cookbooks </server_manage_cookbooks.html>`__ | `Data Bags </server_manage_data_bags.html>`__ | `Environments </server_manage_environments.html>`__ | `Nodes </server_manage_nodes.html>`__ | `Roles </server_manage_roles.html>`__ | `Users </server_users.html#chef-manage.html>`__ | `manage.rb </config_rb_manage.html>`__ | `chef-manage-ctl </ctl_manage.html>`__
 
-**Provisioning**: :doc:`About Provisioning </provisioning>` | :doc:`load_balancer resource </resource_load_balancer>` | :doc:`machine resource </resource_machine>` | :doc:`machine_batch resource </resource_machine_batch>` | :doc:`machine_execute resource </resource_machine_execute>` | :doc:`machine_file resource </resource_machine_file>` | :doc:`machine_image resource </resource_machine_image>` | :doc:`AWS Driver Resources </provisioning_aws>` | :doc:`Fog Driver Resources </provisioning_fog>` | :doc:`Vagrant Driver Resources </provisioning_vagrant>` 
-
-:doc:`push-jobs-client (executable) </ctl_push_jobs_client>` |
-:doc:`Rubocop </rubocop>`
-
-
-Managing the Server
------------------------------------------------------
-
-:doc:`Runbook (Single Page) </runbook>` |
-:doc:`Backup and Restore </server_backup_restore>` |
-:doc:`Data Storage </server_data>` |
-:doc:`Firewalls and Ports </server_firewalls_and_ports>` |
-:doc:`Active Directory and LDAP </server_ldap>` |
-:doc:`Log Files </server_logs>` |
-:doc:`Monitor </server_monitor>` |
-:doc:`Organizations and Groups </server_orgs>` |
-:doc:`Secrets </secrets>` |
-:doc:`Security </server_security>` |
-:doc:`Services </server_services>` |
-:doc:`Tuning </server_tuning>` |
-:doc:`Upgrades </upgrade_server>` |
-:doc:`Upgrade HA Cluster </upgrade_server_ha_v2>` |
-:doc:`Users </server_users>` |
-:doc:`chef-server-ctl </ctl_chef_server>` |
-:doc:`chef-backend-ctl </ctl_chef_backend>` |
-:doc:`chef-server.rb </config_rb_server>` |
-:doc:`opscode-expander-ctl </ctl_opscode_expander>` |
-:doc:`Chef Server API </api_chef_server>` 
-
-**Push Jobs**::doc:`knife push jobs </plugin_knife_push_jobs>` | :doc:`push-jobs-client </ctl_push_jobs_client>` | :doc:`push-jobs-client.rb </config_rb_push_jobs_client>` | :doc:`push-jobs-server.rb </config_rb_push_jobs_server>` | :doc:`Push Jobs API </api_push_jobs>` 
-
-
-**Reporting**::doc:`View Reports </server_manage_reports>` | :doc:`knife reporting </plugin_knife_reporting>` | :doc:`opscode-reporting-ctl </ctl_reporting>` | :doc:`Reporting API </api_reporting>` 
-
-**Supermarket**::doc:`Log Files </supermarket_logs>` | :doc:`Monitoring </supermarket_monitor>` | :doc:`supermarket.rb </config_rb_supermarket>` | :doc:`knife supermarket </plugin_knife_supermarket>` | :doc:`supermarket-ctl </ctl_supermarket>` | :doc:`Cookbooks Site API </api_cookbooks_site>` 
-
-**Management Console**: :doc:`Configure SAML </server_configure_saml>` | :doc:`Clients </server_manage_clients>` | :doc:`Cookbooks </server_manage_cookbooks>` | :doc:`Data Bags </server_manage_data_bags>` | :doc:`Environments </server_manage_environments>` | :doc:`Nodes </server_manage_nodes>` | :doc:`Roles </server_manage_roles>` | `Users <http://docs.chef.io/server_users.html#chef-manage-title>`_ | :doc:`manage.rb </config_rb_manage>` | :doc:`chef-manage-ctl </ctl_manage>` 
+Chef Automate
+=====================================================
+`Chef Automate Documentation <https://automate.chef.io/docs/>`__ |
+`Quick Start Demo <https://automate.chef.io/docs/quickstart/>`__ |
+`System Requirements <https://automate.chef.io/docs/system-requirements/>`__ |
+`Upgrade from Chef Automate One <https://automate.chef.io/docs/upgrade/>`__ |
+`Installation Guide <https://automate.chef.io/docs/install/>`__ |
+`Backup and Restore <https://automate.chef.io/docs/backup/>`__ |
+`Configuration <https://automate.chef.io/docs/configuration/>`__ |
+`Data Collection <https://automate.chef.io/docs/data-collection/>`__ |
+`Log Management <https://automate.chef.io/docs/log-management/>`__ |
+`Telemetry <https://automate.chef.io/docs/telemetry/>`__ |
+`Event Feed <https://automate.chef.io/docs/event-feed/>`__ |
+`Client Runs <https://automate.chef.io/docs/client-runs/>`__ |
+`Scan Jobs <https://automate.chef.io/docs/scan-jobs/>`__ |
+`Nodes API <https://automate.chef.io/docs/nodes/>`__ |
+`Cloud Integrations <https://automate.chef.io/docs/integrations/>`__ |
+`Asset Store <https://automate.chef.io/docs/asset-store/>`__ |
+`Admin Panel <https://automate.chef.io/docs/admin/>`__ |
+`Credentials <https://automate.chef.io/docs/credentials/>`__ |
+`Notifications <https://automate.chef.io/docs/notifications/>`__ |
+`Node Integrations <https://automate.chef.io/docs/integrations-ui/>`__ |
+`Authorization <https://automate.chef.io/docs/authorization/>`__ |
+`Users and Teams <https://automate.chef.io/docs/users-and-teams/>`__ |
+`API Tokens <https://automate.chef.io/docs/api-tokens/>`__ |
+`Default Policies <https://automate.chef.io/docs/default-policies/>`__ |
+`LDAP Integration <https://automate.chef.io/docs/ldap/>`__ |
+`Architecture <https://automate.chef.io/docs/architectural-overview/>`__ |
+`Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate/>`__ |
+`ServiceNow Integration <https://automate.chef.io/docs/servicenow-integration-install/>`__ |
+`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__ 
 
 Habitat
 =====================================================
 
-Habitat Overview
------------------------------------------------------
+**Documentation**: `Habitat Documentation <https://www.habitat.sh/docs/>`__
 
-:doc:`Habitat Overview </habitat>`
-
-Tutorials
------------------------------------------------------
-
- `Getting started <https://www.habitat.sh/tutorials/getting-started-overview>`_
+**Tutorials**: `Habitat Tutorials <https://www.habitat.sh/tutorials/>`_
 
 InSpec
 =====================================================
 
-InSpec Overview
------------------------------------------------------
+**Documentation**: `InSpec Documentation <https://www.inspec.io/docs/>`_
 
-:doc:`InSpec Overview </inspec>` 
+**Tutorials**: `InSpec Tutorials <https://www.inspec.io/tutorials/>`_
 
-inspec (executable)
------------------------------------------------------
 
-`inspec check <http://docs.chef.io/ctl_inspec.html#inspec-check>`_ | `inspec detect <http://docs.chef.io/ctl_inspec.html#inspec-detect>`_ | `inspec exec <http://docs.chef.io/ctl_inspec.html#inspec-exec>`_ | `inspec json <http://docs.chef.io/ctl_inspec.html#inspec-json>`_ | `inspec shell <http://docs.chef.io/ctl_inspec.html#inspec-shell>`_ | `inspec version <http://docs.chef.io/ctl_inspec.html#inspec-version>`_
-
-kitchen-inspec
------------------------------------------------------
-
-:doc:`kitchen-inspec </plugin_kitchen_inspec>` 
-
-Audit resources
------------------------------------------------------
-
-:doc:`All Resources (Single Page) </inspec_reference>` | :doc:`apache_conf </inspec_apache_conf>` | :doc:`apt </inspec_apt>` | :doc:`audit_policy </inspec_audit_policy>` | :doc:`auditd_conf </inspec_auditd_conf>` | :doc:`auditd_rules </inspec_auditd_rules>` | :doc:`bash </inspec_bash>` | :doc:`bond </inspec_bond>` | :doc:`bridge </inspec_bridge>` | :doc:`command </inspec_command>` | :doc:`csv </inspec_csv>` | :doc:`directory </inspec_directory>` | :doc:`etc_group </inspec_etc_group>` | :doc:`file </inspec_file>` | :doc:`gem </inspec_gem>` | :doc:`group </inspec_group>` | :doc:`host </inspec_host>` | :doc:`inetd_conf </inspec_inetd_conf>` | :doc:`interface </inspec_interface>` | :doc:`iptables </inspec_iptables>` | :doc:`json </inspec_json>` | :doc:`kernel_module </inspec_kernel_module>` | :doc:`kernel_parameter </inspec_kernel_parameter>` | :doc:`limits_conf </inspec_limits_conf>` | :doc:`login_defs </inspec_login_def>` | :doc:`mount </inspec_mount>` | :doc:`mysql_conf </inspec_mysql_conf>` | :doc:`mysql_session </inspec_mysql_session>` | :doc:`npm </inspec_npm>` | :doc:`ntp_conf </inspec_ntp_conf>` | :doc:`oneget </inspec_oneget>` | :doc:`os </inspec_os>` | :doc:`os_env </inspec_os_env>` | :doc:`package </inspec_package>` | :doc:`parse_config </inspec_parse_config>` | :doc:`parse_config_file </inspec_parse_config_file>` | :doc:`passwd </inspec_etc_passwd>` | :doc:`pip </inspec_pip>` | :doc:`port </inspec_port>` | :doc:`postgres_conf </inspec_postgres_conf>` | :doc:`postgres_session </inspec_postgres_session>` | :doc:`processes </inspec_process>` | :doc:`registry_key </inspec_registry_key>` | :doc:`script </inspec_script>` | :doc:`security_policy </inspec_security_policy>` | :doc:`service </inspec_service>` | :doc:`ssh_config </inspec_ssh_config>` | :doc:`sshd_config </inspec_sshd_config>` | :doc:`user </inspec_user>` | :doc:`windows_feature </inspec_windows_feature>` | :doc:`yaml </inspec_yaml>` | :doc:`yum </inspec_yum>` 
-
-Custom Audit Resources
------------------------------------------------------
-
-`Custom Audit Resources <http://docs.chef.io/dsl_inspec.html#custom-audit-resources>`_ 
-
-Chef Automate
+Legacy
 =====================================================
 
-Getting Started
+Chef Automate 1
 -----------------------------------------------------
 
-:doc:`Chef Automate Overview </chef_automate>` |
-:doc:`Installation Guide </install_chef_automate>` 
+**Overview**:
+`Chef Automate Overview </chef_automate.html>`__ |
+`Workflow Overview </workflow.html>`__ |
+`Nodes Overview </visibility.html>`__ |
+`Compliance Overview </chef_automate_compliance.html>`__ |
+`Administration Overview </automate_admin.html>`__
 
-Tutorials
------------------------------------------------------
+**Getting Started**:
+`Installation Guide </install_chef_automate.html>`__ |
+`Configure a Pipeline </delivery_pipeline.html>`__ |
+`Configure a Project </config_json_delivery.html>`__ |
+`Configure Data Collection </data_collection.html>`__ |
+`Data Collection and Chef HA </data_collection_ha.html>`__ |
+`Data Collection without Chef Server </data_collection_without_server.html>`__ |
+`Stream Data </stream_data_chef_automate.html>`__ |
+`Upgrades </upgrade_chef_automate.html>`_
 
-`Install Chef Automate <https://learn.chef.io/automate/install>`_ |
-`Visibility into Infrastructure <https://learn.chef.io/automate/visibility>`_ |
-`Deploy with Chef Automate <https://learn.chef.io/automate/deploy-cookbook>`_ |
-`Assess for Compliance <https://learn.chef.io/tutorials/#compliance-assess>`_ |
-`Remediate Compliance Failures <https://learn.chef.io/tutorials/#compliance-remediate>`_ 
+**Release Notes**: `Release Notes </release_notes_chef_automate.html>`__
 
-Setup
------------------------------------------------------
-:doc:`Configure a Pipeline </delivery_pipeline>` |
-:doc:`Configure a Project </config_json_delivery>` |
-:doc:`Enable Visibility </setup_visibility_chef_automate>`
+**Nodes**:
+`Node Notifications w/Slack </integrate_node_notifications_slack.html>`__ |
+`Node Notifications w/Webhooks </integrate_node_notifications_webhook.html>`__ |
+`Node Search Reference </search_query_chef_automate.html>`__
 
-Concepts
------------------------------------------------------
+**Compliance**:
+`Reporting </automate_compliance_reporting.html>`__ |
+`Scanner </automate_compliance_scanner.html>`__ |
+`Profile Store </profile_store.html>`__ |
+`Credentials </automate_compliance_credentials.html>`__
 
-**Workflow**: :doc:`Workflow Overview </workflow>` | :doc:`Manage Dependencies </delivery_manage_dependencies>`
+**Workflow**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__ | `Runners </runners.html>`__ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ | `Workflow w/GitHub </integrate_delivery_github.html>`__ | `Workflow w/Slack </integrate_delivery_slack.html>`__
 
-:doc:`Visibility Overview </visibility>` |
-:doc:`Compliance Overview </compliance>` 
+**Admin**: `Authentication w/LDAP </integrate_delivery_ldap.html>`__ | `Authentication w/SAML </integrate_chef_automate_saml.html>`__
 
-Integrations
------------------------------------------------------
-:doc:`w/Bitbucket </integrate_delivery_bitbucket>` |
-:doc:`w/Email (SMTP) </integrate_delivery_smtp>` |
-:doc:`w/GitHub </integrate_delivery_github>` |
-:doc:`w/LDAP </integrate_delivery_ldap>` |
-:doc:`w/SAML </integrate_chef_automate_saml>` |
-:doc:`w/Slack </integrate_delivery_slack>` 
+**Managing the Server**: `Backups </delivery_server_backup.html>`__ | `Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ | `Disaster Recovery </delivery_server_disaster_recovery.html>`__ | `Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ | `Secrets </delivery_manage_secrets.html>`__ | `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ | `Tuning </delivery_server_tuning.html>`__ | `Users and Roles </delivery_users_and_roles.html>`__
 
-Managing the Server
------------------------------------------------------
+**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
 
-:doc:`Upgrades </upgrade_chef_automate>` |
-:doc:`Disaster Recovery </delivery_server_disaster_recovery>` |
-:doc:`Secrets </delivery_manage_secrets>` |
-:doc:`Tuning </delivery_server_tuning>` |
-:doc:`Users and Roles </delivery_users_and_roles>` |
-:doc:`Ingest Data </ingest_data_chef_automate>` |
-:doc:`Stream Data </stream_data_chef_automate>` |
-`backup-data <http://docs.chef.io/ctl_delivery_server.html#backup-data>`_ |
-`cleanse <http://docs.chef.io/ctl_delivery_server.html#cleanse>`_ |
-`create-enterprise <http://docs.chef.io/ctl_delivery_server.html#create-enterprise>`_ |
-`create-user <http://docs.chef.io/ctl_delivery_server.html#create-user>`_ |
-`delete-application <http://docs.chef.io/ctl_delivery_server.html#delete-application>`_ |
-`delete-enterprise <http://docs.chef.io/ctl_delivery_server.html#delete-enterprise>`_ |
-`delete-project <http://docs.chef.io/ctl_delivery_server.html#delete-project>`_ |
-`delete-user <http://docs.chef.io/ctl_delivery_server.html#delete-user>`_ |
-`list-applications <http://docs.chef.io/ctl_delivery_server.html#list-applications>`_ |
-`list-enterprises <http://docs.chef.io/ctl_delivery_server.html#list-enterprises>`_ |
-`list-users <http://docs.chef.io/ctl_delivery_server.html#list-users>`_ |
-`migrate-change-description <http://docs.chef.io/ctl_delivery_server.html#migrate-change-description>`_ |
-`migrate-patchset-diffs <http://docs.chef.io/ctl_delivery_server.html#migrate-patchset-diffs>`_ |
-`reconfigure <http://docs.chef.io/ctl_delivery_server.html#reconfigure>`_ |
-`rename-enterprise <http://docs.chef.io/ctl_delivery_server.html#rename-enterprise>`_ |
-`restore-data <http://docs.chef.io/ctl_delivery_server.html#restore-data>`_ |
-`revoke-token <http://docs.chef.io/ctl_delivery_server.html#revoke-token>`_ |
-`show-config <http://docs.chef.io/ctl_delivery_server.html#show-config>`_ |
-`uninstall <http://docs.chef.io/ctl_delivery_server.html#uninstall>`_ |
-`update-project-hooks <http://docs.chef.io/ctl_delivery_server.html#update-project-hooks>`_ |
-:doc:`delivery.rb </config_rb_delivery>` |
-:doc:`Delivery API </api_delivery>` |
-:doc:`Node Search Reference </search_query_chef_automate>`
+**Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__
 
-Compliance scanner
------------------------------------------------------
-:doc:`Overview </compliance>` |
-:doc:`Installation Guide </install_compliance>` |
-:doc:`Integrate w/Chef Server </integrate_compliance_chef_server>` |
-:doc:`Upgrade Compliance </upgrade_compliance>` |
-:doc:`chef-compliance.rb </config_rb_compliance>` |
-:doc:`Compliance DSL </dsl_compliance>` |
-:doc:`Chef Compliance API </api_compliance>` 
+**AWS OpsWorks for Chef Automate**: `AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
 
-Troubleshooting
------------------------------------------------------
-
-:doc:`Troubleshooting </troubleshooting_chef_automate>` 
+**Troubleshooting**: `Troubleshooting </troubleshooting_chef_automate.html>`__
 
 Extension APIs
 =====================================================
@@ -345,251 +418,231 @@ Extension APIs
 Resources
 -----------------------------------------------------
 
-:doc:`Custom Resources </custom_resources>` 
+**Recipe DSL**: `attribute? </dsl_recipe.html#attribute>`_ | `control </dsl_recipe.html#control>`_ | `control_group </dsl_recipe.html#control-group>`_ | `cookbook_name </dsl_recipe.html#cookbook-name>`_ | `data_bag </dsl_recipe.html#data-bag>`_ | `data_bag_item </dsl_recipe.html#data-bag-item>`_ | `platform? </dsl_recipe.html#platform>`_ | `platform_family? </dsl_recipe.html#platform-family>`_ | `reboot_pending? </dsl_recipe.html#reboot-pending>`_ | `recipe_name </dsl_recipe.html#recipe-name>`_ | `registry_data_exists? </dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys </dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values </dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? </dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? </dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? </dsl_recipe.html#registry-value-exists>`_ | `resources </dsl_recipe.html#resources>`_ | `search </dsl_recipe.html#search>`_ | `shell_out </dsl_recipe.html#shell-out>`_ | `shell_out! </dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale </dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag </dsl_recipe.html#tag-tagged-untag>`_ | `tagged? </dsl_recipe.html#tag-tagged-untag>`_ | `untag </dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform </dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family </dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers </dsl_recipe.html#helpers>`_
 
-**Recipe DSL**: `attribute? <http://docs.chef.io/dsl_recipe.html#attribute>`_ | `control <http://docs.chef.io/dsl_recipe.html#control>`_ | `control_group <http://docs.chef.io/dsl_recipe.html#control-group>`_ | `cookbook_name <http://docs.chef.io/dsl_recipe.html#cookbook-name>`_ | `data_bag <http://docs.chef.io/dsl_recipe.html#data-bag>`_ | `data_bag_item <http://docs.chef.io/dsl_recipe.html#data-bag-item>`_ | `platform? <http://docs.chef.io/dsl_recipe.html#platform>`_ | `platform_family? <http://docs.chef.io/dsl_recipe.html#platform-family>`_ | `reboot_pending? <http://docs.chef.io/dsl_recipe.html#reboot-pending>`_ | `recipe_name <http://docs.chef.io/dsl_recipe.html#recipe-name>`_ | `registry_data_exists? <http://docs.chef.io/dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys <http://docs.chef.io/dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values <http://docs.chef.io/dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? <http://docs.chef.io/dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? <http://docs.chef.io/dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? <http://docs.chef.io/dsl_recipe.html#registry-value-exists>`_ | `resources <http://docs.chef.io/dsl_recipe.html#resources>`_ | `search <http://docs.chef.io/dsl_recipe.html#search>`_ | `shell_out <http://docs.chef.io/dsl_recipe.html#shell-out>`_ | `shell_out! <http://docs.chef.io/dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale <http://docs.chef.io/dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `tagged? <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `untag <http://docs.chef.io/dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform <http://docs.chef.io/dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family <http://docs.chef.io/dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers <http://docs.chef.io/dsl_recipe.html#helpers>`_ 
-
- `Community Resources <https://supermarket.chef.io>`_ 
-
-Compliance DSL
------------------------------------------------------
-
-:doc:`Compliance DSL </dsl_compliance>` 
-
-InSpec DSL
------------------------------------------------------
-
-:doc:`InSpec DSL </dsl_inspec>` 
-
-Workflow DSL
------------------------------------------------------
-
-:doc:`Workflow DSL </dsl_delivery>` 
+ `Community Resources <https://supermarket.chef.io>`__
 
 Handlers
 -----------------------------------------------------
-`Custom Handlers <http://docs.chef.io/handlers.html#custom-handlers>`_ |
-:doc:`Handler DSL </dsl_handler>` |
-`Community Handlers <http://docs.chef.io/plugin_community.html#handlers>`_ 
+`Custom Handlers </handlers.html#custom-handlers>`_ |
+`Handler DSL </dsl_handler.html>`__ |
+`Community Handlers </plugin_community.html#handlers>`_
 
 Knife Plugins
 -----------------------------------------------------
 
-:doc:`About Cloud Plugins </plugin_knife>` |
-:doc:`Custom Plugins </plugin_knife_custom>` |
-`Community Plugins (knife) <http://docs.chef.io/plugin_community.html#knife-title>`_ 
+`About Cloud Plugins </plugin_knife.html>`__ |
+`Custom Plugins </plugin_knife_custom.html>`__ |
+`Community Plugins (knife) </plugin_community.html#knife>`_
 
 Ohai Plugins
 -----------------------------------------------------
-:doc:`Custom Plugins </ohai_custom>` | `Community Plugins <http://docs.chef.io/plugin_community.html#ohai>`_ 
+`Custom Plugins </ohai_custom.html>`__ | `Community Plugins </plugin_community.html#ohai.html>`__
 
 Chef Client Plugins
 -----------------------------------------------------
 
-`Chef Client Plugins <http://docs.chef.io/plugin_community.html#chef-client-title>`_ 
+`Chef Client Plugins </plugin_community.html#chef-client>`_
 
 Addenda
 =====================================================
 
-`Available on Github <https://github.com/chef/chef-web-docs>`_ |
-`Get Chef <https://www.chef.io/get-chef>`_ |
-:doc:`Send Feedback </feedback>` |
+`Available on GitHub <https://github.com/chef/chef-web-docs>`_ |
+`Get Chef <https://www.chef.io/chef/get-chef>`_ |
+`Send Feedback </feedback.html>`__ |
 `Support <https://www.chef.io/support>`_ |
-`Site Map <https://docs.chef.io/index.html>`_
-
+`Site Map </index.html>`__ |
+`Archive <https://docs-archive.chef.io/index.html>`_
 
 .. Hide the TOC from this file.
 
 .. toctree::
    :hidden:
 
+   about_chefdk
+   api_automate
    api_chef_server
-   api_compliance
-   api_cookbooks_site
-   api_delivery
    api_omnitruck
    api_push_jobs
-   api_reporting
    attributes
+   audit_cookbook
    auth
+   automate_admin
+   automate_azure
+   automate_compliance_credentials
+   automate_compliance_profile_store
+   automate_compliance_reporting
+   automate_compliance_scanner
+   automate_nodes
    aws_marketplace
+   aws_opsworks_chef_automate
+   azure_chef_cli
+   azure_cwa_cloud_shell
    azure_portal
+   azure_powershell
+   backend_failure_recovery
    berkshelf
    chef_automate
-   chef_client
+   chef_automate_compliance
+   chef_client_overview
    chef_client_security
-   chef_cookbooks
+   chef_deprecations_client
    chef_license
    chef_overview
    chef_private_keys
    chef_quick_overview
    chef_repo
    chef_search
-   chef_server
    chef_shell
    chef_solo
    chef_system_requirements
    chef_vault
+   chefdk_setup
    chefspec
    community
    community_contributions
    community_guidelines
-   compliance
    config_json_delivery
    config_rb
-   config_rb_chef_sync
    config_rb_client
-   config_rb_compliance
    config_rb_delivery
    config_rb_delivery_optional_settings
-   config_rb_knife
-   config_rb_knife_optional_settings
    config_rb_manage
    config_rb_metadata
    config_rb_metadata
+   config_rb_optional_settings
    config_rb_policyfile
    config_rb_push_jobs_client
    config_rb_push_jobs_server
-   config_rb_reporting
    config_rb_server
    config_rb_server_optional_settings
    config_rb_solo
    config_rb_supermarket
    config_yml_kitchen
    cookbook_repo
-   cookbook_versions
+   cookbook_versioning
    cookbooks
    cookstyle
+   ctl_automate_server
    ctl_chef
    ctl_chef_apply
    ctl_chef_backend
    ctl_chef_client
    ctl_chef_server
-   ctl_chef_shell
    ctl_chef_solo
-   ctl_chef_sync
-   ctl_delivery
-   ctl_delivery_server
-   ctl_inspec
    ctl_kitchen
    ctl_manage
    ctl_ohai
    ctl_opscode_expander
    ctl_push_jobs_client
-   ctl_reporting
    ctl_supermarket
    custom_resources
    custom_resources_notes
    data_bags
-   stream_data_chef_automate
+   data_collection
+   data_collection_ha
+   data_collection_without_server
+   data_retention_chef_automate
    debug
    definitions
-   delivery_pipeline
    delivery_build_cookbook
+   delivery_cli
    delivery_manage_dependencies
    delivery_manage_secrets
+   delivery_pipeline
+   delivery_server_backup
    delivery_server_disaster_recovery
    delivery_server_tuning
    delivery_truck
    delivery_users_and_roles
-   dsl_compliance
+   deprecations_attributes
+   deprecations_chef_gem_compile_time
+   deprecations_chef_platform_methods
+   deprecations_chef_rest
+   deprecations_chocolatey_uninstall
+   deprecations_custom_resource_cleanups
+   deprecations_deploy_resource
+   deprecations_dnf_package_allow_downgrade
+   deprecations_easy_install
+   deprecations_epic_fail
+   deprecations_erl_call_resource
+   deprecations_exit_code
+   deprecations_internal_api
+   deprecations_json_auto_inflate
+   deprecations_launchd_hash_property
+   deprecations_legacy_hwrp_mixins
+   deprecations_local_listen
+   deprecations_locale_lc_all
+   deprecations_map_collision
+   deprecations_namespace_collisions
+   deprecations_ohai_amazon_linux
+   deprecations_ohai_cloud
+   deprecations_ohai_cloud_v2
+   deprecations_ohai_digitalocean
+   deprecations_ohai_filesystem
+   deprecations_ohai_filesystem_v2
+   deprecations_ohai_ipscopes
+   deprecations_ohai_legacy_config
+   deprecations_ohai_libvirt_plugin
+   deprecations_ohai_run_command_helpers
+   deprecations_ohai_sigar_plugins
+   deprecations_ohai_v6_plugins
+   deprecations_ohai_windows_cpu
+   deprecations_property_name_collision
+   deprecations_resource_cloning
+   deprecations_run_command
+   deprecations_shell_out
+   deprecations_supports_property
+   deprecations_verify_file
+   depreciations_ohai_system_profile
+   dk_windows
+   dsl_audit
    dsl_custom_resource
    dsl_delivery
    dsl_handler
-   dsl_inspec
    dsl_recipe
+   elasticsearch_and_kibana_auth
    environment_variables
    environments
-   errors
    error_messages
+   errors
    feedback
    files
+   filter_compliance_scan
+   fips
    foodcritic
    glossary
-   habitat
+   google
    handlers
-   ingest_data_chef_automate
-   inspec
-   inspec_reference
-   inspec_apache_conf
-   inspec_apt
-   inspec_audit_policy
-   inspec_auditd_conf
-   inspec_auditd_rules
-   inspec_bash
-   inspec_bond
-   inspec_bridge
-   inspec_command
-   inspec_csv
-   inspec_directory
-   inspec_etc_group
-   inspec_etc_passwd
-   inspec_file
-   inspec_gem
-   inspec_group
-   inspec_host
-   inspec_inetd_conf
-   inspec_interface
-   inspec_iptables
-   inspec_json
-   inspec_kernel_module
-   inspec_kernel_parameter
-   inspec_limits_conf
-   inspec_login_def
-   inspec_mount
-   inspec_mysql_conf
-   inspec_mysql_session
-   inspec_npm
-   inspec_ntp_conf
-   inspec_oneget
-   inspec_os_env
-   inspec_os
-   inspec_package
-   inspec_parse_config_file
-   inspec_parse_config
-   inspec_pip
-   inspec_port
-   inspec_postgres_conf
-   inspec_postgres_session
-   inspec_process
-   inspec_registry_key
-   inspec_script
-   inspec_security_policy
-   inspec_service
-   inspec_ssh_config
-   inspec_sshd_config
-   inspec_user
-   inspec_windows_feature
-   inspec_yaml
-   inspec_yum
-   install
-   install_chef_automate
    install_bootstrap
-   install_compliance
+   install_chef_air_gap
+   install_chef_automate
    install_dk
    install_omnibus
    install_push_jobs
-   install_reporting
    install_server
    install_server_ha
    install_server_ha_aws
    install_server_ha_drbd
    install_server_post
    install_server_pre
+   install_server_pre
    install_server_tiered
    install_supermarket
    install_windows
    integrate_chef_automate_saml
-   integrate_compliance_chef_server
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
    integrate_delivery_slack
    integrate_delivery_smtp
+   integrate_node_notifications_slack
+   integrate_node_notifications_webhook
    junos
    kitchen
    knife
-   knife_common_options
+   knife_azure
+   knife_azurerm
    knife_bootstrap
    knife_client
    knife_configure
@@ -605,64 +658,69 @@ Addenda
    knife_exec
    knife_list
    knife_node
+   knife_options
    knife_raw
    knife_recipe_list
    knife_role
    knife_search
    knife_serve
+   knife_setup
    knife_show
    knife_ssh
    knife_ssl_check
    knife_ssl_fetch
    knife_status
+   knife_supermarket
    knife_tag
    knife_upload
    knife_user
-   knife_using
+   knife_windows
    knife_xargs
-   install_delivery_aws_legacy
-   install_delivery_ssh_legacy
    libraries
    manage
    nodes
    ohai
    ohai_custom
-   openstack
    packages
    page_not_found
+   perform_compliance_scan
    platform_overview
    platforms
    plugin_community
-   plugin_kitchen_inspec
    plugin_kitchen_vagrant
    plugin_knife
    plugin_knife_custom
+   plugin_knife_opc
    plugin_knife_push_jobs
-   plugin_knife_reporting
    plugin_knife_spork
-   plugin_knife_supermarket
-   plugin_knife_windows
    policy
    policyfile
-   proxies
+   profile_store
    provisioning
    provisioning_aws
    provisioning_fog
    provisioning_vagrant
+   proxies
+   publish_cookbooks_multiple_servers
    push_jobs
    quick_start
    recipes
-   reporting
    release_notes
+   release_notes_chef_automate
+   release_notes_chefdk
+   release_notes_push_jobs
    release_notes_server
-   releases
    resource
    resource_apt_package
+   resource_apt_preference
+   resource_apt_repository
    resource_apt_update
    resource_bash
    resource_batch
    resource_bff_package
    resource_breakpoint
+   resource_build_essential
+   resource_cab_package
    resource_chef_acl
    resource_chef_client
    resource_chef_container
@@ -684,11 +742,11 @@ Addenda
    resource_csh
    resource_deploy
    resource_directory
+   resource_dmg_package
+   resource_dnf_package
    resource_dpkg_package
    resource_dsc_resource
    resource_dsc_script
-   resource_easy_install_package
-   resource_env
    resource_erlang_call
    resource_examples
    resource_execute
@@ -697,7 +755,10 @@ Addenda
    resource_gem_package
    resource_git
    resource_group
+   resource_homebrew_cask
    resource_homebrew_package
+   resource_homebrew_tap
+   resource_hostname
    resource_http_request
    resource_ifconfig
    resource_ips_package
@@ -711,25 +772,43 @@ Addenda
    resource_machine_execute
    resource_machine_file
    resource_machine_image
+   resource_macos_userdefaults
    resource_macports_package
    resource_mdadm
    resource_mount
+   resource_msu_package
    resource_ohai
+   resource_ohai_hint
    resource_openbsd_package
+   resource_openssl_dhparam
+   resource_openssl_ec_private_key
+   resource_openssl_ec_public_key
+   resource_openssl_rsa_private_key
+   resource_openssl_rsa_public_key
+   resource_openssl_x509_certificate
+   resource_openssl_x509_crl
+   resource_openssl_x509_request
    resource_osx_profile
    resource_package
    resource_pacman_package
    resource_paludis_package
    resource_perl
    resource_portage_package
+   resource_powershell_package
    resource_powershell_script
    resource_private_key
    resource_public_key
    resource_python
    resource_reboot
+   resource_reference
    resource_registry_key
    resource_remote_directory
    resource_remote_file
+   resource_rhsm_errata
+   resource_rhsm_errata_level
+   resource_rhsm_register
+   resource_rhsm_repo
+   resource_rhsm_subscription
    resource_route
    resource_rpm_package
    resource_ruby
@@ -739,20 +818,39 @@ Addenda
    resource_smartos_package
    resource_solaris_package
    resource_subversion
+   resource_sudo
+   resource_swap_file
+   resource_sysctl
+   resource_systemd_unit
    resource_template
+   resource_timezone
    resource_user
+   resource_windows_ad_join
+   resource_windows_auto_run
+   resource_windows_env
+   resource_windows_feature
+   resource_windows_feature_dism
+   resource_windows_feature_powershell
+   resource_windows_font
    resource_windows_package
+   resource_windows_path
+   resource_windows_printer
+   resource_windows_printer_port
    resource_windows_service
-   resource_yum
-   resources
+   resource_windows_shortcut
+   resource_windows_task
+   resource_yum_package
+   resource_yum_repository
+   resource_zypper_package
+   resource_zypper_repository
    roles
-   rubocop
    ruby
    run_lists
    runbook
+   runners
+   scaling_capacity_planning_chef_automate
    search_query_chef_automate
    secrets
-   security_notes
    server_backup_restore
    server_components
    server_configure_saml
@@ -766,36 +864,35 @@ Addenda
    server_manage_data_bags
    server_manage_environments
    server_manage_nodes
-   server_manage_reports
    server_manage_roles
    server_monitor
    server_orgs
    server_replication
    server_security
+   server_sent_events
    server_services
    server_tuning
    server_users
-   server_webui_tasks
-   setup_visibility_chef_automate
-   simple_walkthrough
-   slides
+   setup_build_node
+   stream_data_chef_automate
    style_guide
    supermarket
+   supermarket_api
+   supermarket_backup_restore
    supermarket_logs
    supermarket_monitor
+   supermarket_share_cookbook
    templates
    troubleshooting_chef_automate
    uninstall
    upgrade_chef_automate
    upgrade_client
-   upgrade_client_notes
-   upgrade_compliance
    upgrade_server
    upgrade_server_ha_v2
-   upgrade_server_notes
-   upgrade_server_open_source_notes
-   verify_packages
+   versions
    visibility
+   vmware
    windows
+   windows_knife_intro
    workflow
-   workstation
+

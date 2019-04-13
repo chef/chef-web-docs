@@ -1,33 +1,89 @@
 =====================================================
 knife list
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_list.rst>`__
 
-.. include:: ../../includes_knife/includes_knife_list.rst
+.. tag knife_list_summary
+
+Use the ``knife list`` subcommand to view a list of objects on the Chef server. This subcommand works similar to ``knife cookbook list``, ``knife data bag list``, ``knife environment list``, ``knife node list``, and ``knife role list``, but with a single verb (and a single action).
+
+.. end_tag
 
 Syntax
 =====================================================
-.. include:: ../../includes_knife/includes_knife_list_syntax.rst
+This subcommand has the following syntax:
+
+.. code-block:: bash
+
+   $ knife list [PATTERN...] (options)
 
 Options
 =====================================================
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
+.. note:: .. tag knife_common_see_common_options_link
 
-.. include:: ../../includes_knife/includes_knife_list_options.rst
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
+          .. end_tag
+
+This subcommand has the following options:
+
+``-1``
+   Show only one column of results. Default: ``false``.
+
+``--chef-repo-path PATH``
+   The path to the chef-repo. This setting will override the default path to the chef-repo. Default: same value as specified by ``chef_repo_path`` in client.rb.
+
+``--concurrency``
+   The number of allowed concurrent connections. Default: ``10``.
+
+``-d``
+   Prevent a directory's children from showing when a directory matches a pattern. Default value: ``false``.
+
+``-f``, ``--flat``
+   Show a list of file names. Set to ``false`` to view ``ls``-like output. Default: ``false``.
+
+``--local``
+   Return only the contents of the local directory. Default: ``false``.
+
+``-p``
+   Show directories with trailing slashes (/). Default: ``false``.
+
+``-R``
+   List directories recursively. Default: ``false``.
+
+``--repo-mode MODE``
+   The layout of the local chef-repo. Possible values: ``static``, ``everything``, or ``hosted_everything``. Use ``static`` for just roles, environments, cookbooks, and data bags. By default, ``everything`` and ``hosted_everything`` are dynamically selected depending on the server type. Default: ``everything`` / ``hosted_everything``.
+
+.. note:: .. tag knife_common_see_all_config_options
+
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
+
+          .. end_tag
 
 Examples
 =====================================================
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **List roles**
 
-.. include:: ../../step_knife/step_knife_list_roles.rst
+For example, to view a list of roles on the Chef server:
+
+.. code-block:: bash
+
+   $ knife list roles/
 
 **List roles and environments**
 
-.. include:: ../../step_knife/step_knife_list_roles_and_environments.rst
+To view a list of roles and environments on the Chef server:
+
+.. code-block:: bash
+
+   $ knife list roles/ environments/
 
 **List everything**
 
-.. include:: ../../step_knife/step_knife_list_everything.rst
+To view a list of absolutely everything on the Chef server:
+
+.. code-block:: bash
+
+   $ knife list -R /

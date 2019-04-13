@@ -1,170 +1,344 @@
 =====================================================
-knife environment 
+knife environment
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_environment.rst>`__
 
-.. include:: ../../includes_environment/includes_environment.rst
+.. tag environment
 
-.. include:: ../../includes_knife/includes_knife_environment.rst
+An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef server. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments. Generally, an environment is also associated with one (or more) cookbook versions.
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
+.. end_tag
+
+.. tag knife_environment_summary
+
+Use the ``knife environment`` subcommand to manage environments within a single organization on the Chef server.
+
+.. end_tag
+
+.. note:: .. tag knife_common_see_common_options_link
+
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
+
+          .. end_tag
 
 compare
 =====================================================
-.. include:: ../../includes_knife/includes_knife_environment_compare.rst
+Use the ``compare`` argument to compare the cookbook version constraints that are set on one (or more) environments.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_compare_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife environment compare [ENVIRONMENT_NAME...] (options)
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_compare_options.rst
+This argument has the following options:
+
+``-a``, ``--all``
+   Upload all environments found at the specified path.
+
+``-m``, ``--mismatch``
+   Show only matching versions.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Compare cookbook versions in a single environment**
 
-.. include:: ../../step_knife/step_knife_environment_compare_single.rst
+To compare cookbook versions for a single environment:
+
+.. code-block:: bash
+
+   $ knife environment compare development
+
+to return something similar to:
+
+.. code-block:: bash
+
+              development
+   apache     2.3.1
+   windows    4.1.2
 
 **Compare cookbook versions for multiple environments**
 
-.. include:: ../../step_knife/step_knife_environment_compare_multiple.rst
+To compare cookbook versions for multiple environments:
+
+.. code-block:: bash
+
+   $ knife environment compare development staging
+
+to return something similar to:
+
+.. code-block:: bash
+
+                 development    staging
+   apache        2.3.1          1.2.2
+   windows       4.1.2          1.0.0
+   postgresql    1.0.0          1.0.0
 
 **Compare cookbook versions for all environments**
 
-.. include:: ../../step_knife/step_knife_environment_compare_all.rst
+To compare all cookbook versions for all environments:
+
+.. code-block:: bash
+
+   $ knife environment compare --all
+
+to return something similar to:
+
+.. code-block:: bash
+
+                      staging  development
+   ulimit             latest   latest
+   redisio            latest   latest
+   journly            latest   latest
+   aws                latest   latest
+   test               latest   latest
+   unicorn            latest   latest
+   sensu              latest   latest
+   runit              latest   latest
+   templater          latest   latest
+   powershell         latest   latest
+   openssl            latest   latest
+   rbenv              latest   latest
+   rabbitmq           latest   latest
+   postgresql         latest   latest
+   mysql              latest   latest
+   ohai               latest   latest
+   git                latest   latest
+   erlang             latest   latest
+   ssh_known_hosts    latest   latest
+   nginx              latest   latest
+   database           latest   latest
+   yum                latest   latest
+   xfs                latest   latest
+   apt                latest   latest
+   dmg                latest   latest
+   chef_handler       latest   latest
+   windows            1.0.0    4.1.2
 
 create
 =====================================================
-.. include:: ../../includes_knife/includes_knife_environment_create.rst
+Use the ``create`` argument to add an environment object to the Chef server. When this argument is run, knife will open $EDITOR to enable editing of the ``ENVIRONMENT`` description field (unless a description is specified as part of the command). When finished, knife will add the environment to the Chef server.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_create_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife environment create ENVIRONMENT_NAME -d --description ENVIRONMENT_DESCRIPTION
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_create_options.rst
+This argument has the following options:
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
+``--description DESCRIPTION``
+   The description of the environment. This value populates the description field for the environment on the Chef server.
+
+.. note:: .. tag knife_common_see_all_config_options
+
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
+
+          .. end_tag
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Create an environment**
 
-.. include:: ../../step_knife/step_knife_environment_create.rst
+To create an environment named ``dev`` with a description of ``The development environment.``:
 
+.. code-block:: bash
+
+   $ knife environment create dev -d --description "The development environment."
 
 delete
 =====================================================
-.. include:: ../../includes_knife/includes_knife_environment_delete.rst
+Use the ``delete`` argument to delete an environment from a Chef server.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_delete_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife environment delete ENVIRONMENT_NAME
 
 Options
 -----------------------------------------------------
-|no_options|
+This command does not have any specific options.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Delete an environment**
 
-.. include:: ../../step_knife/step_knife_environment_delete.rst
+To delete an environment named ``dev``, enter:
 
+.. code-block:: bash
+
+   $ knife environment delete dev
+
+Type ``Y`` to confirm a deletion.
 
 edit
 =====================================================
-.. include:: ../../includes_knife/includes_knife_environment_edit.rst
+Use the ``edit`` argument to edit the attributes of an environment. When this argument is run, knife will open $EDITOR to enable editing of ``ENVIRONMENT`` attributes. When finished, knife will update the Chef server with those changes.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_edit_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife environment edit ENVIRONMENT_NAME
 
 Options
 -----------------------------------------------------
-|no_options|
+This command does not have any specific options.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Edit an environment**
 
-.. include:: ../../step_knife/step_knife_environment_edit.rst
+To edit an environment named ``devops``, enter:
 
+.. code-block:: bash
+
+   $ knife environment edit devops
 
 from file
 =====================================================
-.. include:: ../../includes_knife/includes_knife_environment_from_file.rst
+Use the ``from file`` argument to add or update an environment using a JSON or Ruby DSL description.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_from_file_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife environment from file FILE (options)
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_from_file_options.rst
+This argument has the following options:
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
+``-a``, ``--all``
+   Upload all environments found at the specified path.
+
+.. note:: .. tag knife_common_see_all_config_options
+
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
+
+          .. end_tag
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Create an environment from a JSON file**
 
-.. include:: ../../step_knife/step_knife_environment_from_file.rst
+To add an environment using data contained in a JSON file:
 
+.. code-block:: bash
+
+   $ knife environment from file "path to JSON file"
 
 list
 =====================================================
-.. include:: ../../includes_knife/includes_knife_environment_list.rst
+Use the ``list`` argument to list all of the environments that are currently available on the Chef server.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_list_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife environment list -w
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_list_options.rst
+This argument has the following options:
+
+``-w``, ``--with-uri``
+   Show the corresponding URIs.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **View a list of environments**
 
-.. include:: ../../step_knife/step_knife_environment_list.rst
+To view a list of environments:
 
+.. code-block:: bash
+
+   $ knife environment list -w
 
 show
 =====================================================
-.. include:: ../../includes_knife/includes_knife_environment_show.rst
+Use the ``show`` argument to display information about the specified environment.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_show_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife environment show ENVIRONMENT_NAME
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_environment_show_options.rst
+This argument has the following options:
+
+``-a ATTR``, ``--attribute ATTR``
+   The attribute (or attributes) to show.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Show environments**
 
-.. include:: ../../step_knife/step_knife_environment_show.rst
+To view information about the ``dev`` environment enter:
+
+.. code-block:: bash
+
+   $ knife environment show dev
+
+to return:
+
+.. code-block:: bash
+
+   % knife environment show dev
+   chef_type:            environment
+   cookbook_versions:
+   default_attributes:
+   description:
+   json_class:           Chef::Environment
+   name:                 dev
+   override_attributes:
+
+   \\
+   \\
+   \\
+   \\
 
 **Show environments as JSON**
 
-.. include:: ../../step_knife/step_knife_environment_show_json.rst
+To view information in JSON format, use the ``-F`` common option as part of the command like this:
+
+.. code-block:: bash
+
+   $ knife environment show devops -F json
+
+Other formats available include ``text``, ``yaml``, and ``pp``.

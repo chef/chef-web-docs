@@ -1,161 +1,307 @@
 =====================================================
-knife role 
+knife role
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_role.rst>`__
 
-.. include:: ../../includes_role/includes_role.rst
+.. tag role
 
-.. include:: ../../includes_knife/includes_knife_role.rst
+A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a chef-client runs, it merges its own attributes and run-lists with those contained within each assigned role.
 
-.. note:: To add a role to a node and then build out the run-list for that node, use the :doc:`knife node </knife_node>` subcommand and its ``run_list add`` argument.
+.. end_tag
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_common_options_link.rst
+.. tag knife_role_summary
+
+Use the ``knife role`` subcommand to manage the roles that are associated with one or more nodes on a Chef server.
+
+.. end_tag
+
+.. note:: To add a role to a node and then build out the run-list for that node, use the `knife node </knife_node.html>`__ subcommand and its ``run_list add`` argument.
+
+.. note:: .. tag knife_common_see_common_options_link
+
+          Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
+
+          .. end_tag
 
 bulk delete
 =====================================================
-.. include:: ../../includes_knife/includes_knife_role_bulk_delete.rst
+Use the ``bulk delete`` argument to delete one or more roles that match a pattern defined by a regular expression. The regular expression must be within quotes and not be surrounded by forward slashes (/).
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_bulk_delete_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife role bulk delete REGEX
 
 Options
 -----------------------------------------------------
-|no_options|
+This command does not have any specific options.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Bulk delete roles**
 
-.. include:: ../../step_knife/step_knife_role_bulk_delete.rst
+Use a regular expression to define the pattern used to bulk delete roles:
+
+.. code-block:: bash
+
+   $ knife role bulk delete "^[0-9]{3}$"
 
 create
 =====================================================
-.. include:: ../../includes_knife/includes_knife_role_create.rst
+Use the ``create`` argument to add a role to the Chef server. Role data is saved as JSON on the Chef server.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_create_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife role create ROLE_NAME (options)
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_create_options.rst
+This argument has the following options:
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
+``--description DESCRIPTION``
+   The description of the role. This value populates the description field for the role on the Chef server.
+
+.. note:: .. tag knife_common_see_all_config_options
+
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
+
+          .. end_tag
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Create a role**
 
-.. include:: ../../step_knife/step_knife_role_create.rst
+To add a role named ``role1``, enter:
+
+.. code-block:: bash
+
+   $ knife role create role1
+
+In the $EDITOR enter the role data in JSON:
+
+.. code-block:: javascript
+
+   {
+      "name": "role1",
+      "default_attributes": {
+      },
+      "json_class": "Chef::Role",
+      "run_list": ["recipe[cookbook_name::recipe_name]",
+                    "role[role_name]"
+      ],
+      "description": "",
+      "chef_type": "role",
+      "override_attributes": {
+      }
+   }
+
+When finished, save it.
 
 delete
 =====================================================
-.. include:: ../../includes_knife/includes_knife_role_delete.rst
+Use the ``delete`` argument to delete a role from the Chef server.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_delete_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife role delete ROLE_NAME
 
 Options
 -----------------------------------------------------
-|no_options|
+This command does not have any specific options.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Delete a role**
 
-.. include:: ../../step_knife/step_knife_role_delete.rst
+.. To delete a role:
+
+.. code-block:: bash
+
+   $ knife role delete devops
+
+Type ``Y`` to confirm a deletion.
 
 edit
 =====================================================
-.. include:: ../../includes_knife/includes_knife_role_edit.rst
+Use the ``edit`` argument to edit role details on the Chef server.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_edit_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife role edit ROLE_NAME
 
 Options
 -----------------------------------------------------
-|no_options|
+This command does not have any specific options.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Edit a role**
 
-.. include:: ../../step_knife/step_knife_role_edit.rst
+To edit the data for a role named ``role1``, enter:
+
+.. code-block:: bash
+
+   $ knife role edit role1
+
+Update the role data in JSON:
+
+.. code-block:: javascript
+
+   {
+      "name": "role1",
+      "description": "This is the description for the role1 role.",
+      "json_class": "Chef::Role",
+      "default_attributes": {
+      },
+      "override_attributes": {
+      },
+      "chef_type": "role",
+      "run_list": ["recipe[cookbook_name::recipe_name]",
+                   "role[role_name]"
+      ],
+      "env_run_lists": {
+      },
+   }
+
+When finished, save it.
 
 from file
 =====================================================
-.. include:: ../../includes_knife/includes_knife_role_from_file.rst
+Use the ``from file`` argument to create a role using existing JSON data as a template.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_from_file_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife role from file FILE
 
 Options
 -----------------------------------------------------
-|no_options|
+This command does not have any specific options.
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
+.. note:: .. tag knife_common_see_all_config_options
+
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
+
+          .. end_tag
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Create a role using JSON data**
 
-.. include:: ../../step_knife/step_knife_role_from_file.rst
+To view role details based on the values contained in a JSON file:
+
+.. code-block:: bash
+
+   $ knife role from file "path to JSON file"
 
 list
 =====================================================
-.. include:: ../../includes_knife/includes_knife_role_list.rst
+Use the ``list`` argument to view a list of roles that are currently available on the Chef server.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_list_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife role list
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_list_options.rst
+This argument has the following options:
+
+``-w``, ``--with-uri``
+   Show the corresponding URIs.
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **View a list of roles**
 
-.. include:: ../../step_knife/step_knife_role_list.rst
+To view a list of roles on the Chef server and display the URI for each role returned, enter:
+
+.. code-block:: bash
+
+   $ knife role list -w
 
 show
 =====================================================
-.. include:: ../../includes_knife/includes_knife_role_show.rst
+Use the ``show`` argument to view the details of a role.
 
 Syntax
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_show_syntax.rst
+This argument has the following syntax:
+
+.. code-block:: bash
+
+   $ knife role show ROLE_NAME
 
 Options
 -----------------------------------------------------
-.. include:: ../../includes_knife/includes_knife_role_show_options.rst
+This argument has the following options:
 
-.. note:: .. include:: ../../includes_knife/includes_knife_common_see_all_config_options.rst
+``-a ATTR``, ``--attribute ATTR``
+   The attribute (or attributes) to show.
+
+.. note:: .. tag knife_common_see_all_config_options
+
+          See `config.rb </config_rb_optional_settings.html>`__ for more information about how to add certain knife options as settings in the config.rb file.
+
+          .. end_tag
 
 Examples
 -----------------------------------------------------
-The following examples show how to use this |knife| subcommand:
+The following examples show how to use this knife subcommand:
 
 **Show as JSON data**
 
-.. include:: ../../step_knife/step_knife_role_show_json.rst
+To view information in JSON format, use the ``-F`` common option as part of the command like this:
+
+.. code-block:: bash
+
+   $ knife role show devops -F json
+
+Other formats available include ``text``, ``yaml``, and ``pp``.
 
 **Show as raw JSON data**
 
-.. include:: ../../step_knife/step_knife_role_show_json_raw.rst
+To view node information in raw JSON, use the ``-l`` or ``--long`` option:
+
+.. code-block:: bash
+
+   knife role show -l -F json <role_name>
+
+and/or:
+
+.. code-block:: bash
+
+   knife role show -l --format=json <role_name>

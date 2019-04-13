@@ -1,4 +1,0 @@
-.. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-
-An automatic attribute is data that must be understood, but not modified. Automatic attributes are detected by |ohai| before every |chef client| run. For example, the IP address of a node, a host name, or the number of loaded kernel modules. When the |chef client| makes changes to a system during a |chef client| run, automatic attributes are used to ensure that the |chef client| does not make changes to the larger environment in which a node is running. An automatic attribute always has the highest attribute precedence and is saved to the |chef server| at the conclusion of every |chef client| run so that it may be indexed for search. 

@@ -1,8 +1,9 @@
 =====================================================
-Errors
+Troubleshooting
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/errors.rst>`__
 
-The following sections describe how to troubleshoot some common errors and problems.
+The following sections describe how to troubleshoot the Chef server, Chef client and ChefDK.
 
 401 Unauthorized
 =====================================================
@@ -10,7 +11,7 @@ There are multiple causes of the Chef 401 "Unauthorized" error, so please use th
 
 Failed to authenticate as ORGANIZATION-validator
 -----------------------------------------------------
-If you're receiving an error like the following it most likely means you'll need to regenerate the |organization pem| file:
+If you're receiving an error like the following it most likely means you'll need to regenerate the ORGANIZATION-validator.pem file:
 
 .. code-block:: bash
 
@@ -21,23 +22,23 @@ If you're receiving an error like the following it most likely means you'll need
 
 **Troubleshooting Steps**
 
-#. Check if the |organization pem| file exists in one of the following locations::
-   
+#. Check if the ORGANIZATION-validator.pem file exists in one of the following locations::
+
       ~/.chef
       ~/projects/current_project/.chef
       /etc/chef
-   
+
    If one is present, verify that it has the correct read permissions.
 
-#. If there's no |organization pem| file, regenerate it. 
-   
-   Recreate this file by going to the |chef manage| web user interface and selecting **Organizations** in the upper right side of the screen.
-   
+#. If there's no ORGANIZATION-validator.pem file, regenerate it.
+
+   Recreate this file by going to the Chef management console web user interface and selecting **Organizations** in the upper right side of the screen.
+
    You can then select **Reset Validation Key** next to the organization for which the key is to be reset.
 
 Failed to authenticate to https://api.opscode.com
 -----------------------------------------------------
-When the values for certain settings in the |client rb| file---``node_name`` and ``client_key``---are incorrect, it will not be possible to authenticate to the |chef server|. An error similar to the following is shown:
+When the values for certain settings in the client.rb file---``node_name`` and ``client_key``---are incorrect, it will not be possible to authenticate to the Chef server. An error similar to the following is shown:
 
 .. code-block:: bash
 
@@ -46,23 +47,45 @@ When the values for certain settings in the |client rb| file---``node_name`` and
 
 **Troubleshooting Steps**
 
-* Verify you have the correct values in your |knife rb| file, especially for the ``node_name`` and ``client_key`` settings.
+* Verify you have the correct values in your config.rb file, especially for the ``node_name`` and ``client_key`` settings.
 
-* Check if the file referenced in the ``client_key`` setting (usually |user pem|) exists. Some common locations include::
-   
+* Check if the file referenced in the ``client_key`` setting (usually USER.pem) exists. Some common locations include::
+
       ~/.chef
       ~/projects/current_project/.chef
       /etc/chef
-   
+
    If one is present, verify that it has the correct read permissions.
 
-* If there's no |client rb| file, regenerate it and ensure the values for the ``node_name`` and ``client_key`` settings are correct.
+* If there's no client.rb file, regenerate it and ensure the values for the ``node_name`` and ``client_key`` settings are correct.
 
-Organization not found 
+Organization not found
 -----------------------------------------------------
-If you see this error when trying to recreate the |organization pem|, it's possible that the |chef client| itself was deleted. In this situation, the |organization pem| will need to be recreated. In these directions, ``ORGANIZATION`` should be replaced with the name of your organization.
+If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that the chef-client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, ``ORGANIZATION`` should be replaced with the name of your organization.
 
-.. include:: ../../step_manage_webui/step_manage_webui_policy_validation_reset_key.rst
+.. tag manage_webui_policy_validation_reset_key
+
+To reset a chef-validator key:
+
+#. Open the Chef management console.
+#. Click **Policy**.
+#. Click **Clients**.
+#. Select a chef-validator key.
+#. Click the **Details** tab.
+#. Click **Reset Key**.
+#. In the **Reset Key** dialog box, confirm that the key should be regenerated and click the **Reset Key** button:
+
+   .. image:: ../../images/step_manage_webui_admin_organization_reset_key.png
+
+#. Copy the private key:
+
+   .. image:: ../../images/step_manage_webui_policy_client_reset_key_copy.png
+
+   or download and save the private key locally:
+
+   .. image:: ../../images/step_manage_webui_policy_client_reset_key_download.png
+
+.. end_tag
 
 Synchronize the clock on your host
 -----------------------------------------------------
@@ -84,50 +107,50 @@ The general ``Net::HTTPServerException: 401 "Unauthorized"`` error will usually 
 **Troubleshooting Steps**
 
 #. Make sure your ``client.pem`` is valid.
-   
+
    This can be fixed by deleting ``client.pem`` in ``/etc/chef`` and deleting the client and node with knife.
-   
+
    On a management station:
 
    .. code-block:: bash
 
       # Dump the current node to JSON
       $ knife node show NODE_NAME -fJ > NODE_NAME.json
-      
+
       $ knife client delete FQDN -y
       $ knife node delete FQDN -y
 
    On an affected node (as root):
-   
+
    .. code-block:: bash
-   
+
       $ rm /etc/chef/client.pem
       $ chef-client
-   
-   When the |chef client| runs, it will register the API client and generate the correct key.
-   
-   After successfully running the |chef client| on the node, reload the ``run_list`` and node attributes:
-   
+
+   When the chef-client runs, it will register the API client and generate the correct key.
+
+   After successfully running the chef-client on the node, reload the ``run_list`` and node attributes:
+
    .. code-block:: bash
-   
+
       $ knife node from file NODE_NAME.json
 
-#. Make sure to use the same ``node_name`` as the initial |chef client| run.
-   
-   This can happen for a number of reasons. For example, if the |client rb| file does not specify the correct node name and the system's hostname has changed.
-   
-   Running ``chef-client -l debug`` will identify the node name being used by the |chef client| for authentication attempts:
-   
+#. Make sure to use the same ``node_name`` as the initial chef-client run.
+
+   This can happen for a number of reasons. For example, if the client.rb file does not specify the correct node name and the system's hostname has changed.
+
+   Running ``chef-client -l debug`` will identify the node name being used by the chef-client for authentication attempts:
+
    .. code-block:: bash
-   
+
       DEBUG: Signing the request as SOME_NODE_NAME
-   
-   This can be fixed this by explicitly setting ``node_name`` in the |client rb| file to match the name originally used to register.
-   
+
+   This can be fixed this by explicitly setting ``node_name`` in the client.rb file to match the name originally used to register.
+
    .. code-block:: ruby
-   
+
    node_node 'mynode.mycompany.com'
-   
+
    Alternatively, re-register the node using the method described previously.
 
 403 Forbidden
@@ -139,11 +162,11 @@ If you're seeing output like this:
    FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
    FATAL: Net::HTTPServerException: 403 "Forbidden"
 
-this is an indication that there is an issue with permissions on the |chef server|.
+this is an indication that there is an issue with permissions on the Chef server.
 
 **Troubleshooting Steps**
 
-In |chef|, there are two different types of permissions issues, object specific and global permissions. To figure out which type of permission issue you're experiencing, run the |chef client| again using the ``-l debug`` options to see debugging output.
+In Chef, there are two different types of permissions issues, object specific and global permissions. To figure out which type of permission issue you're experiencing, run the chef-client again using the ``-l debug`` options to see debugging output.
 
 You should see something like this up the stack trace:
 
@@ -156,7 +179,7 @@ The URL will help identify the type of permission issue. If the URL is an index 
 
 To fix the global permissions:
 
-#. Log in to the |chef manage| and click on the failing object type (most likely **Nodes**).
+#. Log in to the Chef management console and click on the failing object type (most likely **Nodes**).
 
 #. Click on the **Permissions** sub-tab. Which permission it needs, depends on which request that failed:
 
@@ -167,7 +190,7 @@ To fix the global permissions:
 
 To fix object permissions:
 
-#. Log in to the |chef manage| and click on the failing object type (most likely **Nodes**).
+#. Log in to the Chef management console and click on the failing object type (most likely **Nodes**).
 
 #. Click on the object in the list that is causing the error.
 
@@ -181,18 +204,18 @@ To fix object permissions:
 
 500 (Unexpected)
 =====================================================
-HTTP 500 is a non-speciﬁc error message. The full error message for the error the |chef client| is receiving can be found in one of the following log ﬁles:
+HTTP 500 is a non-specific error message. The full error message for the error the chef-client is receiving can be found in one of the following log ﬁles:
 
-* ``/var/log/opscode/opscode-account/current`` 
+* ``/var/log/opscode/opscode-account/current``
 * ``/var/log/opscode/opscode-erchef/current``
 
-The error will likely found in a stacktrace from the application error. In some cases the error message will clearly indicate a problem with another service which can be investigated further. For non-obvious errors, please contact |company_name| and attach the log files.
+The error will likely found in a stacktrace from the application error. In some cases the error message will clearly indicate a problem with another service which can be investigated further. For non-obvious errors, please contact Chef and attach the log files.
 
 502 / 504 (Gateway)
 =====================================================
 .. see: includes_server_monitor_application_nginx
 
-Determine which API service is returning 504s using the |nginx| access logs. API requests returning 504 can be found with the following command on a frontend:
+Determine which API service is returning 504s using the Nginx access logs. API requests returning 504 can be found with the following command on a frontend:
 
 .. code-block:: bash
 
@@ -212,11 +235,11 @@ In a large installation, you may need to restrict this to a subset of the reques
 
 You can also use the ``ntail`` utility.
 
-If the problematic service is a |ruby|-based service and the frontend machines have free RAM or CPU, consider increasing the number of worker processes. If the problematic service is |service erchef|, use the request log to determine whether a particular component of requests is slow.
+If the problematic service is a Ruby-based service and the frontend machines have free RAM or CPU, consider increasing the number of worker processes. If the problematic service is **opscode-erchef**, use the request log to determine whether a particular component of requests is slow.
 
 Workflow Problems
 =====================================================
-In working with |chef|, you'll most likely encounter issues in your regular workflow. This page is a collection of common errors our users have reported while working with |chef|. Please use the accordion below to select the error message that most closely matches your output. If you are unable to find a matching error, or if the provided steps are unhelpful, please `file a help ticket <https://getchef.zendesk.com/hc/en-us>`_.
+In working with Chef, you'll most likely encounter issues in your regular workflow. This page is a collection of common errors our users have reported while working with Chef. Please use the accordion below to select the error message that most closely matches your output. If you are unable to find a matching error, or if the provided steps are unhelpful, please `file a help ticket <https://getchef.zendesk.com/hc/en-us>`_.
 
 No such file or directory
 -----------------------------------------------------
@@ -225,17 +248,17 @@ If you're seeing an error like:
 .. code-block:: bash
 
    Client key /etc/chef/client.pem is notresent - registering
-   WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validaton.pem>
+   WARN: Failed to read the private key /etc/che/validation.pem: #<Errno::ENOENT: No such file or directory - /etc/chef/validation.pem>
    FATAL: Stacktrace dumped to /etc/chef/cache/chef-stacktrace.out
    FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests
 
-it means that the |chef client| could not find your validation.pem.
+it means that the chef-client could not find your validation.pem.
 
 **Troubleshooting Steps**
 
 #. Make sure your ``validation.pem`` or ``ORGANIZATION-validator.pem`` is downloaded and accessible by the current user.
 
-#. Make sure your |client rb| points to the location of your validator pem.
+#. Make sure your client.rb points to the location of your validator pem.
 
 Commit or stash your changes
 -----------------------------------------------------
@@ -258,7 +281,7 @@ Solve this by committing the cookbook changes. For example, the following comman
 
    $ git commit -am "Updating so I can install a site cookbook"
 
-Re-run the ``knife cookbook site install`` subcommand again to install the community cookbook.
+Re-run the ``knife supermarket install`` subcommand again to install the community cookbook.
 
 Cannot find config file
 -----------------------------------------------------
@@ -274,8 +297,26 @@ If you're seeing an error like:
 
 **Troubleshooting Steps**
 
-Work around this issue by supplying the full path to the |client rb| file:
+Work around this issue by supplying the full path to the client.rb file:
 
 .. code-block:: bash
 
    $ chef-client -c /etc/chef/client.rb
+
+Pivotal.rb does not exist
+-----------------------------------------------------
+If you're seeing an error like: 
+
+.. code-block:: bash
+
+   $ ERROR: CONFIGURATION ERROR:Specified config file /etc/opscode/pivotal.rb does not exist
+
+**Troubleshooting Steps**
+
+Run the following to restart all of the services:
+
+   .. code-block:: bash
+
+      $ chef-server-ctl reconfigure
+
+Because the Chef server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.

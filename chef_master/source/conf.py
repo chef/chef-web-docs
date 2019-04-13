@@ -39,7 +39,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Chef Docs'
-copyright = u'This work is licensed under a Creative Commons Attribution 3.0 Unported License.'
+copyright = u'2019 Chef Software, Inc.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -122,12 +122,19 @@ html_title = "Chef Docs"
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = "chef.ico"
+html_favicon = "../../favicon.ico"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_context = {
+    'css_files': [
+        '_static/code-preview.css',  # overrides code example BG color
+        ],
+    }
+
 
 # This setting is being used by Chef to override a version # stamp inserted
 # at every page bottom, using a string. For example: chef-client 11.6.x. Or:
@@ -135,7 +142,7 @@ html_static_path = ['_static']
 # hack that achieved the desired behavior. Plus, there's 0% chance that we'll
 # ever want to insert a datetime stamp in the docs.
 
-html_last_updated_fmt = 'current version of Chef'
+html_last_updated_fmt = 'Current version of Chef'
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -149,7 +156,7 @@ html_sidebars = {
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
 html_additional_pages = {
-    'search': 'chef_search.html',
+    'search': 'search.html',
 }
 
 # If false, no module index is generated.

@@ -1,15 +1,20 @@
 =====================================================
-About |knife_title| Cloud Plugins
+About Knife Cloud Plugins
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife.rst>`__
 
-.. include:: ../../includes_plugin_knife/includes_plugin_knife.rst
+.. tag plugin_knife_summary
 
-* The same :doc:`common options </knife_common_options>` used by |knife| subcommands can also be used by |knife| plug-ins
-* A |knife| plugin can make authenticated API requests to the |chef server|
+A knife plugin is a set of one (or more) subcommands that can be added to knife to support additional functionality that is not built-in to the base set of knife subcommands. Many of the knife plugins are built by members of the Chef community and several of them are built and maintained by Chef.
 
-Build a :doc:`custom plugin </plugin_knife_custom>` or use one of the following plugins that are maintained by |company_name|:
+.. end_tag
 
-The following |knife| plug-ins are maintained by |company_name|: 
+* The same `common options </knife_options.html>`__ used by knife subcommands can also be used by knife plug-ins
+* A knife plugin can make authenticated API requests to the Chef server
+
+Build a `custom plugin </plugin_knife_custom.html>`__ or use one of the following plugins that are maintained by Chef:
+
+The following knife plug-ins are maintained by Chef:
 
 .. list-table::
    :widths: 150 450
@@ -18,30 +23,25 @@ The following |knife| plug-ins are maintained by |company_name|:
    * - Subcommand
      - Description
    * - `knife-azure <https://github.com/chef/knife-azure>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_azure.rst
+     - .. tag knife_azure
+
+       Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines for Linux and Windows Server, cloud and database services, and more. Use the ``knife azure`` subcommand to manage API-driven cloud servers hosted by Microsoft Azure.
+
+       .. end_tag
+
    * - `knife-bluebox <https://github.com/chef/knife-bluebox>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_bluebox.rst
+     - Blue Box provides on-demand computing that is backed by a proprietary cloud operating system. The ``knife bluebox`` subcommand is used to manage API-driven cloud servers that are hosted by Blue Box.
    * - `knife-ec2 <https://github.com/chef/knife-ec2>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_ec2.rst
+     - Amazon EC2 is a web service that provides resizable compute capacity in the cloud, based on preconfigured operating systems and virtual application software using Amazon Machine Images (AMI). The ``knife ec2`` subcommand is used to manage API-driven cloud servers that are hosted by Amazon EC2.
    * - `knife-eucalyptus <https://github.com/chef/knife-eucalyptus>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_eucalyptus.rst
+     - Eucalyptus is an infrastructure as a service (IaaS) platform that supports hybrid-IaaS configurations that allow data to move between hosted and on-premise data centers. The ``knife eucalyptus`` subcommand is used to manage API-driven cloud servers that are hosted by Eucalyptus.
    * - `knife-google <https://github.com/chef/knife-google>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_google.rst
-   * - `knife-hp <https://github.com/chef/knife-hp>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_hp.rst
+     - Google Compute Engine is a cloud hosting platform that offers scalable and flexible virtual machine computing. The ``knife google`` subcommand is used to manage API-driven cloud servers that are hosted by Google Compute Engine.
    * - `knife-linode <https://github.com/chef/knife-linode>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_linode.rst
+     - Linode is a cloud hosting platform that provides virtual private server hosting with full root access and the ability to use your own kernel. The ``knife linode`` subcommand is used to manage API-driven cloud servers that are hosted by Linode.
    * - `knife-openstack <https://github.com/chef/knife-openstack>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_openstack.rst
+     - The ``knife openstack`` subcommand is used to manage API-driven cloud servers that are hosted by OpenStack.
    * - `knife-rackspace <https://github.com/chef/knife-rackspace>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_rackspace.rst
+     - Rackspace is a cloud-driven platform of virtualized servers that provide services for storage and data, platform and networking, and cloud computing. The ``knife rackspace`` subcommand is used to manage API-driven cloud servers that are hosted by Rackspace cloud services.
    * - `knife-terremark <https://github.com/chef/knife-terremark>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_terremark.rst
-   * - `knife-vcloud <https://github.com/chef/knife-vcloud>`__
-     - .. include:: ../../includes_plugin_knife/includes_plugin_knife_windows.rst
-
-Authenticated API Requests
-=====================================================
-.. include:: ../../includes_plugin_knife/includes_plugin_knife.rst
-
-.. include:: ../../includes_plugin_knife/includes_plugin_knife_using_authenticated_requests.rst
+     - Terremark is a cloud hosting platform that provides cloud, IT infrastructure, and managed hosting services. The ``knife terremark`` subcommand is used to manage API-driven cloud servers that are hosted by Terremark.

@@ -1,4 +1,0 @@
-.. The contents of this file may be included in multiple topics (using the includes directive).
-.. The contents of this file should be modified in a way that preserves its ability to appear in multiple topics.
-
-The **Management Console** allows users to manage groups. Users, clients, and groups can be organized into groups for easier management of permissions. When a Hosted Chef organization is created, there are three default groups within the org: admins, users, and clients. By default, all associated users get added to the users group, all existing and new clients get added to the clients group; and the user who created the organization account belongs to the admins group. Users with appropriate permissions can create new groups, edit existing groups, view current groups, and change the permissions bestowed by membership in the groups.

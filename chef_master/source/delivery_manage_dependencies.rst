@@ -1,8 +1,9 @@
 =======================================================
 Managing Run-time Dependencies
 =======================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_manage_dependencies.rst>`__
 
-A run-time dependency in |automate| is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running. This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in |automate| because it is not safe to deploy a project in an inter-dependent test environment if other related projects are failing.
+A run-time dependency in Chef Automate is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running. This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in Chef Automate because it is not safe to deploy a project in an inter-dependent test environment if other related projects are failing.
 
 Declare Dependencies
 =======================================================
@@ -20,11 +21,27 @@ If neither the **Dependencies** or **Required By** tabs are visible, then that p
 
 Configure Dependencies
 -----------------------------------------------------
-.. include:: ../../includes_delivery_config/includes_delivery_config_example_dependencies_on_master.rst
+.. tag delivery_config_example_dependencies_on_master
+
+The following example shows a run-time dependency against the master branch of a project named ``BackendAPI``:
+
+.. code-block:: javascript
+
+   {
+     "version": "2",
+     "build_cookbook": {
+       "name": "build-cookbook",
+       "path": ".delivery/build-cookbook"
+     },
+     "skip_phases": [],
+     "dependencies": ["BackendAPI"]
+   }
+
+.. end_tag
 
 Dependencies and Promotion
 ==========================================================
-A key thing to remember is that dependencies impact two or more projects. Those projects have their own pipelines up through Acceptance, but when a project's tests are run in the shared Union, Rehearsal, and Delivered pipeline for the organization, tests for all projects which depend on the currently-tested project will also run as part of the Union stage. This is to ensure that no cross-project bugs were introduced, such as a breaking API change. Also, you should still run smoke and functional tests on a project that depends on other project(s) during the Acceptance stage (because you know what those dependencies are); however, you may not know which projects depend on *your* project. |automate| uses the Union stage to runs tests against projects that depend on *your* project.
+A key thing to remember is that dependencies impact two or more projects. Those projects have their own pipelines up through Acceptance, but when a project's tests are run in the shared Union, Rehearsal, and Delivered pipeline for the organization, tests for all projects which depend on the currently-tested project will also run as part of the Union stage. This is to ensure that no cross-project bugs were introduced, such as a breaking API change. Also, you should still run smoke and functional tests on a project that depends on other project(s) during the Acceptance stage (because you know what those dependencies are); however, you may not know which projects depend on *your* project. Chef Automate uses the Union stage to runs tests against projects that depend on *your* project.
 
 .. image::  ../../images/consumer_tests.png
    :width: 700px
@@ -33,17 +50,15 @@ In this example, you can see that a change on the project Eegah is in Union, and
 
 If any tests fail for either project, the entire Union run will fail and neither project will be automatically promoted. Additionally, if there's another failed Union run before the first one fails which includes some of the same projects, then all the projects from both Union runs must pass their tests before anything can be promoted.
 
-It's important to note that you may have a situation where some projects are entirely independent and have no dependencies on other projects. In this case, it does not matter what state those other projects are in. If their tests pass, |automate| will allow their changes to promote through.
+It's important to note that you may have a situation where some projects are entirely independent and have no dependencies on other projects. In this case, it does not matter what state those other projects are in. If their tests pass, Chef Automate will allow their changes to promote through.
 
 Handle Failures
 -----------------------------------------------------
-As described above, dependency failures are breakages in your dependency graph, which keep the current project's pipeline from being able to ship safely. You can see such failures as warnings on the change view in the |automate| server web UI. These failures are tracked because they allow |automate| to know which changes are safe to promote.
-
-
+As described above, dependency failures are breakages in your dependency graph, which keep the current project's pipeline from being able to ship safely. You can see such failures as warnings on the change view in the Chef Automate server web UI. These failures are tracked because they allow Chef Automate to know which changes are safe to promote.
 
 Examples
 ==========================================================
-To understand how dependency failures can affect a given project (or set of projects), here are some examples of different dependency failures. They progress from basic to complex and should give you an idea of how dependency graphs are constructed in |automate|.
+To understand how dependency failures can affect a given project (or set of projects), here are some examples of different dependency failures. They progress from basic to complex and should give you an idea of how dependency graphs are constructed in Chef Automate.
 
 Assume we have some projects with the following dependencies:
 
@@ -59,8 +74,6 @@ Here it is represented graphically:
    :width: 700px
 
 All the examples below are represented in graphical table form, where projects are denoted by uppercase letters and a test failure corresponding to a project is denoted by with a lowercase "x". For example, Bx would represent a test failure in project B.
-
-`Dependency Management Scenarios <http://docs.chef.io/decks/manage_dependencies.html>`_ also provides a visual representation of these examples.
 
 Simple Break and Clear
 -----------------------------------------------------------

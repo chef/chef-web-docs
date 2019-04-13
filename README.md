@@ -1,92 +1,107 @@
-# chef-docs
+# chef-web-docs
 
-The source of the Chef documentation, located at https://docs.chef.io/
+This repo is the source of the Chef reference documentation located at
+https://docs.chef.io/
 
-This README focuses on people who want to contribute to the Chef documentation.
+## The fastest way to contribute
 
-NOTE: A recent change to the chef-docs repo archived the commit history into the chef-web-docs-2016 repo. This is the active repo that is being used to build documentation for Chef. chef-web-docs-2016 contains the history of Chef documentation prior to Feburary 12, 2016.
+If you spot something in the docs that needs to be fixed, the fastest way to get in the change is to edit the file on the GitHub website using the GitHub UI.
 
-## Sending Feedback
+To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at the top ofthe page you want to edit. The link takes you to that topic's GitHub page. In GitHub, click on the pencil icon and make your changes. You can preview how they'll look right on the page ("Preview Changes" tab).
 
-There are several ways to get feedback about Chef documentation:
+We no longer use "swaps" and include files, so you'll be able to see
+all of text in one place for each topic. If you need tips on the
+source language, check out these
+[instructions](https://docs.chef.io/style_guide.html).
 
-1. Email --- Send an email to docs@chef.io for documentation bugs, ideas, thoughts, and suggestions. Typos and little errors and quick fixes will be fixed quickly and without fuss. This email address is not a support email address, however.
-2. Github issues --- Use the https://github.com/chef/chef/issues page for issues specific to Chef itself. Any documentation bug filed here will make its way to the documentation. This is a good place for "important" documentation bugs that may need visibility among a larger group, especially in situations where a doc bug may also surface a product bug.
-3. Pull request and/or issue -- The documentation repository is here: https://github.com/chef/chef-web-docs. A CLA is not required to submit pull requests to this repo. If you are wondering what is going on in that repository, in terms of structure and what-goes-where, send an email to docs@chef.io.
-4. chef@lists.opscode.com --- Improvements to the documentation are made because of conversations that happen on this mailing list. That said, relying solely on the mailing list is the least effective way to get feedback to Chef about the documentation.
+When you're done editing, press the "Propose file change" button at
+the bottom of the page and confirm your pull request. The CI system
+will do some checks and add a comment to your PR with the results.
 
-Thanks in advance for any feedback you choose to send.
+The Chef docs team can normally merge pull requests within a day or
+two. We'll fix build errors before we merge, so you don't have to
+worry about passing all of the CI checks, but it might add an extra
+few days. The important part is submitting your change.
 
+## Local Development Environment
 
+The docs website is built using Sphinx in a local docker container
+to minimize python environment issues.
+You'll need a minimum version of Docker 18.03 installed and running.
 
-## Getting Started
+To build the docs:
 
-Sphinx is the authoring tool: http://sphinx-doc.org/
+- Run `make docker-build`
 
-reStructuredText (RST) is the authoring format. Only a subset of the formatting options are used, plus there are some specific approaches to what type of formatting goes where, so please review the style guide: https://docs.chef.io/style_guide.html
+To (build and) preview locally:
 
-There are several ways to provide feedback about the Chef documentation. See https://docs.chef.io/feedback.html or read [CONTRIBUTING](CONTRIBUTING).
+- Run `make docker-preview`
+- go to http://localhost:8000
 
+To check dtags:
 
+- Run `make docker-dtags` (this will drop you in a shell at the correct location)
+- cd to the appropriate directories
+- run `dtags replicate <options>` as needed (see the [readme](doctools/dtags_readme.md) and [help](doctools/dtags_help.md) for more information)
 
+To clean your local development environment:
 
-## Submitting PRs (or "Where do I make changes?")
+- Run `make clean`
 
-To determine the location of the actual content on a page:
+If you need tips on the source language for the docs, check out the
+[instructions](https://docs.chef.io/style_guide.html). We use a subset
+of restructuredText that's similar in scope to markdown.
 
-1. Find the URL of that page on the root of docs.chef.io. For example, the template resource: https://docs.chef.io/resource_template.html
-2. In the chef-docs repo on Github (https://github.com/chef/chef-web-docs), open the `chef_master` directory and find the .rst file in that directory that corresponds exactly to the file on the docs site: resource_template.rst
-3. Open that file and view it in its raw text format. For example: https://raw.githubusercontent.com/chef/chef-web-docs/master/chef_master/source/resource_template.rst
-4. Find the section in which the change is to be made. In nearly every case that section is included using a pattern similar to: .. include:: ../../includes_resources/includes_resource_template_attributes.rst.
-5. In the chef-docs repo, follow that path to the directory, and then the specific file.
-6. Open that file and make your changes.
+## Tagged regions
 
-See https://docs.chef.io/style_guide.html for any questions about the structure and formatting of the individual topics.
+We studied how to make contributing to this doc set as easy as
+possible. We ended up choosing an approach that uses tagged regions
+delimited by `.. tag` and `.. end_tag` lines to denote shared blocks
+of text. The tagged regions act like include files, but they're
+visible inline and therefore easier to edit.
 
-## Setting Up
+For more information about how tagged regions work and how our new
+`dtags` tool helps manage them, see the
+[`dtags` README file](doctools/dtags_readme.md) and
+[`dtags` help](doctools/dtags_help.md).
 
+## Sending feedback
 
-Fork and clone the chef-docs repo to your own account://
+We love getting feedback. You can use:
 
-    git clone https://github.com/chef/chef-web-docs.git
-    # will take a while, repo is very large
-
-You may wish to use [virtualenv](http://www.virtualenv.org/) & [virtualenvwrapper](http://virtualenvwrapper.readthedocs.org/) (similar to rvm or rbenv), to isolate this Python environment from others, so start out like so:
-
-    mkvirtualenv chef-docs
-    workon chef-docs
-    echo chef-docs > .venv # personal preference, can hook into other control projects later
-
-If you don't use this and want to install into your system Python, prepend this command with `sudo`:
-
-    pip install sphinx
-
-Will install all the dependencies you should need.
-
-
-## Building Docs
-
-There's a `Makefile` in the root of the repo, that should have the majority of the tasks you'll ever need.
-
-Run:
-
-    make release
-
-This will build *all* the documentation into HTML, and place it inside `./build/chef/`.
-Open `./build/chef/index.html` to view the rendered files locally.
-
-IMPORTANT: Depending on what has changed since the last time a build was run, the build process can take anywhere from a few minutes to a few hours. The make file gets changed a lot because Chef uses this file to manage how the docs get published to our website. For your local builds, you may want to edit the make file prior to building to only use the chef_master build, which is the build to use for the current version of Chef.
-
-The first time you run the build, it will take longer (45-75 mins), as it has to generate _every_ file from scratch. (This time estimate assumes that you're building only the chef_master docs collection; additional docs collections will take additional time.)
-
-This will also apply when you've run the `make clean` command, which effectively resets your working environment or if files located in the `/swaps` folder are changed.
-
-Subsequent runs of `make release` should be relatively fast (2-5 mins), and you can use subsets. For example: `master` for the main docs build, `server` for the Chef server, `client` for the chef-client, and so on. The full list is available at the top of the `makefile`.
+- Email --- Send an email to docs@chef.io for documentation bugs,
+  ideas, thoughts, and suggestions. This email address is not a
+  support email address, however. If you need support, contact Chef
+  support.
+- Pull request --- Submit a PR to this repo using either of the two
+  methods described above.
+- GitHub issues --- Use the https://github.com/chef/chef/issues page
+  for issues specific to Chef itself. This is a good place for
+  "important" documentation bugs that may need visibility among a
+  larger group, especially in situations where a doc bug may also
+  surface a product bug. You can also use
+  [chef-web-docs issues](https://github.com/chef/chef-web-docs/issues),
+  especially for docs feature requests and minor docs bugs.
+- https://discourse.chef.io/ --- This is a great place to interact with Chef and others.
 
 ## License
 
 [Creative Commons Attribution 3.0 Unported License](http://creativecommons.org/licenses/by/3.0/)
 
-## Questions?
+## Documentation snapshots
 
-Open an [Issue](https://github.com/chef/chef-web-docs/issues) and ask. Or send email to docs@chef.io.
+The previous scoped doc sets that were found off of https://docs.chef.io/release/ are no longer available in this repo. Instead,
+those doc sets are located at https://docs-archive.chef.io/. The index page on the docs archive site provides links to them. The doc sets retain their unique
+left nav and can be used to view content at a particular point in time for a given release. In the future, snapshots
+will be added for major releases of products/projects or for products/projects/components that are no longer supported.
+
+## Archive of pre-2016 commit history
+
+Commit history of this repo prior to February 12, 2016 has been
+archived to the chef/chef-web-docs-2016 repo to save space. No changes
+to the archive repo will be merged; it's just for historical purposes.
+
+## Questions
+
+Open an [issue](https://github.com/chef/chef-web-docs/issues) and
+ask. Or send email to docs@chef.io.

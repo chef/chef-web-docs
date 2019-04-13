@@ -1,40 +1,50 @@
 =====================================================
-Integrate Chef Automate with SAML
+Integrate Chef Automate with SAML for Authentication
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_chef_automate_saml.rst>`__
 
-.. include:: ../../includes_chef_automate/includes_chef_automate_mark.rst 
+.. tag chef_automate_mark
 
-Security Assertion Markup Language (SAML) is an XML-based, open-standard data format for exchanging authentication and authorization data 
-between parties, in particular, between an identity provider and a service provider. Chef Automate supports SAML-backed Single Sign On (SSO) as a 
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
+
+.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+
+.. end_tag
+
+Security Assertion Markup Language (SAML) is an XML-based, open-standard data format for exchanging authentication and authorization data
+between parties, in particular, between an identity provider and a service provider. Chef Automate supports SAML-backed Single Sign On (SSO) as a
 service provider, integrating with your chosen identity provider.
 
 Configuring SAML for your Chef Automate enterprise
 =====================================================
 
-As an enterprise admin, you can configure a SAML Service to enable single sign on. To do this from the Chef Automate UI, 
-click on the ``Admin`` menu item. From the ``Admin`` screen, navigate to the SAML Setup tab. Once you are on the SAML Setup tab, you can configure the details 
+As an enterprise admin, you can configure a SAML Service to enable single sign on. To do this from the Chef Automate UI,
+click on the ``Admin`` menu item. From the ``Admin`` screen, navigate to the SAML Setup tab. Once you are on the SAML Setup tab, you can configure the details
 necessary to integrate Chef Automate and SAML.
 
-This can either be done by supplying Chef Automate with your Identity Provider's metadata endpoint, or by manually entering the required 
+This can either be done by supplying Chef Automate with your Identity Provider's metadata endpoint, or by manually entering the required
 fields. Please note that both options require you to set a NameID Policy (explained below).
+
+A Default Role for new users must be set in order to successfully set up a SAML service. Any combination of roles may be selected in the SCM Setup tab; all auto-provisioned users will be assigned these permissions when they first log in to Chef Automate.
 
 .. note:: Metadata-driven SAML configuration enables Chef Automate to periodically update its SAML certificates from this metadata, enabling certificate rolling for signed SAML assertions.
 
 Automatic SAML configuration through Identity Provider metadata
 -----------------------------------------------------------------
 
-To make Chef Automate configure SAML automatically from the metadata published by your Identity Provider, check the `Import Metadata` box and 
-enter its URL in the text field. For example, the metadata endpoint for Azure AD deployments is of the form ``https://login.microsoftonline.com/SOMEHASH/federationmetadata/2007-06/federationmetadata.xml``, 
-and Okta's metadata is similar to ``https://CORP.okta.com/app/SOMEHASH/sso/saml/metadata``. You should be able to look at the XML document served there, 
+To make Chef Automate configure SAML automatically from the metadata published by your Identity Provider, check the `Import Metadata` box and
+enter its URL in the text field. For example, the metadata endpoint for Azure AD deployments is of the form ``https://login.microsoftonline.com/SOMEHASH/federationmetadata/2007-06/federationmetadata.xml``,
+and Okta's metadata is similar to ``https://CORP.okta.com/app/SOMEHASH/sso/saml/metadata``. You should be able to look at the XML document served there,
 and find that it starts with the following:
 
 .. code-block:: xml
 
    <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" ID="_f4168057-a418-4b84-a250-29b25e927b73" entityID="https://sts.windows.net/1b218ca8-3694-4fcb-ac12-d2112c657830/">
 
-Since it is uncommon to use CA-signed certificates for this, and the set of certificates retrieved from that endpoint is trusted in the 
+Since it is uncommon to use CA-signed certificates for this, and the set of certificates retrieved from that endpoint is trusted in the
 verification of SAML logins, it is crucial for establishing trust to use HTTPS for retrieving the metadata file.
-Chef Automate will default to verifying the HTTPS endpoints certificate using your operating system's trusted certificate bundle. See the Trust SSL Certificate section of :doc:`Integrate Chef Automate with BitBucket </integrate_delivery_bitbucket>` for more information.
+Chef Automate will default to verifying the HTTPS endpoints certificate using your operating system's trusted certificate bundle. See the Trust SSL Certificate section of `Integrate Chef Automate with BitBucket </integrate_delivery_bitbucket.html>`__ for more information.
 
 The periodic refresh can be controlled through ``delivery.rb``. The following are the default settings:
 
@@ -43,8 +53,8 @@ The periodic refresh can be controlled through ``delivery.rb``. The following ar
    auth['saml_metadata_refresh_interval'] = '1d'
    auth['saml_metadata_retry_interval'] = '1m'
 
-With these settings, the Identity Provider's metadata will be refreshed every day (`1d`), and if this request fails, Chef Automate will 
-wait one minute (`1m`) before trying again. On failure, a retry will be attempted five times total. If the retries don't succeed, the next 
+With these settings, the Identity Provider's metadata will be refreshed every day (`1d`), and if this request fails, Chef Automate will
+wait one minute (`1m`) before trying again. On failure, a retry will be attempted five times total. If the retries don't succeed, the next
 attempt to fetch the metadata will be at the next refresh interval.
 
 Manual SAML configuration
@@ -91,7 +101,7 @@ Fill out the following fields to configure SAML SSO. These details can often be 
 Removing SAML configuration
 -----------------------------------------------
 
-The SAML configuration UI also allows for the removal of SAML configuration from the system. In order to remove the configuration, navigate to the SAML Setup tab, and then click on the `Remove Configuration` button. After a confirmation prompt, the SAML configuration will be removed from Chef Automate. Once the configuration is removed, SAML users will no longer be able to log into Chef Automate. 
+The SAML configuration UI also allows for the removal of SAML configuration from the system. In order to remove the configuration, navigate to the SAML Setup tab, and then click on the `Remove Configuration` button. After a confirmation prompt, the SAML configuration will be removed from Chef Automate. Once the configuration is removed, SAML users will no longer be able to log into Chef Automate.
 
 .. note:: The SAML type accounts that may have been created will still continue to exist even after the SAML configuration has been removed.
 
@@ -104,21 +114,21 @@ To configure your IdP to accept SAML requests, you need the following:
 
    .. code-block:: none
 
-      https://<yourChef AutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
+      https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
 
 * Assertion Consumer Service / Reply URL. This is where Chef Automate receives SAML assertions from the Identity Provider:
 
    .. code-block:: none
 
-      https://<yourChef AutomateDomain>/api/v0/e/<yourEnterprise>/saml/consume
+      https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/consume
 
 * Audience. This will be the metadata URL for Chef Automate:
 
    .. code-block:: none
 
-      https://<yourChef AutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
+      https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
 
-Chef Automate currently only supports a subset of existing SAML communication schemes. To ensure this works with your IdP, please 
+Chef Automate currently only supports a subset of existing SAML communication schemes. To ensure this works with your IdP, please
 ensure these configuration options are set up:
 
 * Check that the identity provider endpoints are configured to accept ``HTTP-Redirect`` from the service provider.
@@ -127,26 +137,26 @@ ensure these configuration options are set up:
 Enabling users to authenticate through SAML
 =====================================================
 
-By default, any users that authenticate successfully with the configured Identity Provider will be logged in: both users with 
-existing user accounts in Chef Automate that are set up for SAML authentication, and users hitherto unknown to Chef Automate, 
+By default, any users that authenticate successfully with the configured Identity Provider will be logged in: both users with
+existing user accounts in Chef Automate that are set up for SAML authentication, and users hitherto unknown to Chef Automate,
 which then get a user account created in Chef Automate automatically. It is also possible to migrate existing users, or to
 create SAML users manually.
 
 Auto-provisioned users
 ----------------------------------------------------
 
-The new user's name will match their NameId value as reported by the Identity Provider (see below for the possible options). 
-Also note that changing the NameId Policy settings after users have been created automatically will lead to new user accounts being 
+The new user's name will match their NameId value as reported by the Identity Provider (see below for the possible options).
+Also note that changing the NameId Policy settings after users have been created automatically will lead to new user accounts being
 created -- since their NameId no longer matches a user's username in Chef Automate.
 
-These users get the "observer" role within their enterprise.
+These users will be assigned the default role(s) selected as part of the SAML configuration within the enterprise.
 
 Migrating existing users and manual user creation
 ----------------------------------------------------
 
-To use SAML for exising users, they can be migrated from Chef Automate or LDAP authentication. This can also be used to create SAML 
-users in Chef Automate before they have logged with SAML for the first time (triggering auto-provisioning). For example, this allows you to grant a 
-user more roles in their enterprise. The username in Chef Automate must match the NameId, such as email address, of the user in their 
+To use SAML for existing users, they can be migrated from Chef Automate or LDAP authentication. This can also be used to create SAML
+users in Chef Automate before they have logged with SAML for the first time (triggering auto-provisioning). For example, this allows you to grant a
+user more roles in their enterprise. The username in Chef Automate must match the NameId, such as email address, of the user in their
 Identity Provider. See `Notes on NameId Policy <#notes-on-nameid-policy>`_ for more information.
 
 To migrate an account:
@@ -245,7 +255,7 @@ An alternate location can be configured in ``/etc/delivery/delivery.rb``:
 
    auth['oidc_signing_private_key'] = '/etc/delivery/oidc_signing_private_key.pem' # this is the default
 
-If the file does not exist, a 2048-bit RSA key will be generated using OpenSSL (when running ``delivery-ctl reconfigure``). You can also provide that RSA private key in PEM format yourself:
+If the file does not exist, a 2048-bit RSA key will be generated using OpenSSL (when running ``automate-ctl reconfigure``). You can also provide that RSA private key in PEM format yourself:
 
 .. code-block:: none
 
@@ -301,9 +311,9 @@ Configuration of Chef Server
 -----------------------------------------------------
 
 Note that all of the client-related values need to match the configuration in the Chef Server management console.
-See :doc:`Configuring for SAML Authentication </server_configure_saml>` for more details.
+See `Configuring for SAML Authentication </server_configure_saml.html>`__ for more details.
 
 Troubleshooting
 ===================================================================
 
-If you have problems with SAML configuration and integration, see the SAML section of :doc:`Troubleshooting Chef Automate Deployments </troubleshooting_chef_automate>` for debugging tips.
+If you have problems with SAML configuration and integration, see the SAML section of `Troubleshooting Chef Automate Deployments </troubleshooting_chef_automate.html>`__ for debugging tips.

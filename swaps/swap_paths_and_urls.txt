@@ -1,45 +1,21 @@
 .. Templates for use elsewhere (if helpful)
 ..
 
-.. Paths that exist in the Chef environment(s)
-..
 
-.. |path attributes default rb| replace:: ``attributes/default.rb``
-.. |path chef etc| replace:: ``/etc/chef``
-.. |path chef etc validation| replace:: ``/etc/chef/validation.pem``
-.. |path chef client rb| replace:: ``/etc/chef/client.rb``
-.. |path chef client rb windows| replace:: ``C:\chef\client.rb``
-.. |path chef server chef server rb| replace:: ``/etc/chef-server/chef-server.rb``
-.. |path chef server enterprise chef server rb| replace:: ``/etc/opscode/private-chef.rb``
-.. |path chef server chef rb| replace:: ``/etc/chef/chef-server.rb``
-.. |path chef server rb| replace:: ``/etc/chef/server.rb``
-.. |path chef solo rb| replace:: ``/etc/chef/solo.rb``
-.. |path chef solr rb| replace:: ``/etc/chef/solr.rb``
-.. |path chef deploy cache file| replace:: ``/var/chef/cache/revision-deploys/APPNAME/``
-.. |path chef private etc| replace:: ``/etc/opscode/private-chef.rb``
-.. |path chef private key| replace:: ``/etc/chef/client.pem``
-.. |path chef private key admin| replace:: ``~/.chef/client_name.pem``
-.. |path chef rake rb| replace:: ``/config/rake.rb``
-.. |path cookbook library| replace:: ``/libraries/library_name.rb``
-.. |path cookbook library rb| replace:: ``/library_name.rb``
-.. |path encrypted data bag secret| replace:: ``/etc/chef/encrypted_data_bag_secret``
-.. |path etc sudoers| replace:: ``/etc/sudoers``
-.. |path etc sudoers d| replace:: ``/etc/sudoers.d``
-.. |path knife plugins| replace:: ``~/.chef/plugins/knife/``
-.. |path knife rb| replace:: ``~/chef-repo/.chef/knife.rb``
-.. |path knife rb windows| replace:: ``c:\Users\username\.chef``
-.. |path knife rb secondary| replace:: ``.chef/knife.rb``
-.. |path omnibus install_client| replace:: ``/opt/chef/``
-.. |path recipes default rb| replace:: ``/recipes/default.rb``
-.. |path trusted_certs| replace:: ``/.chef/trusted_certs``
-.. |path user sendmail| replace:: ``/usr/sbin/sendmail``
+
+.. |use null_character| replace:: Show a ``NULL`` character (``\0``) instead of white space as the separator.
+
+
+.. Unicode characters
+
+.. |nbsp| unicode:: U+00A0
+   :trim:
 
 
 .. URLs that exist in the Chef environment(s).
 ..
 
 .. |url api_chef_server| replace:: https://api.opscode.com
-.. |url api_cookbooks| replace:: https://supermarket.chef.io/api/v1/cookbooks
 .. |url azure_preview| replace:: https://portal.azure.com
 .. |url azure_production| replace:: https://portal.azure.com/
 .. |url azure_marketplace| replace:: https://azure.microsoft.com/en-us/marketplace/partners/chef-software/chef-server/
@@ -49,8 +25,6 @@
 .. |url chef_install| replace:: https://downloads.chef.io/
 .. |url chef_install_oec| replace:: https://www.chef.io/chef/
 .. |url chef_repo| replace:: https://github.com/chef/chef-repo
-.. |url community| replace:: https://supermarket.chef.io
-.. |url community_cookbooks| replace:: https://supermarket.chef.io/cookbooks
 .. |url community_lists| replace:: https://discourse.chef.io/
 .. |url download_delivery| replace:: https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.dmg
 .. |url download_delivery_windows| replace:: https://s3.amazonaws.com/delivery-packages/cli/delivery-cli-latest.msi
@@ -61,6 +35,10 @@
 .. |url docs_knife_png| replace:: https://github.com/chef/quick-reference/blob/master/qr_knife_web.png
 .. |url docs_repo| replace:: https://github.com/chef/quick-reference
 .. |url docs_repo_qr| replace:: https://github.com/chef/quick-reference
+.. |url exit codes| raw:: html
+
+    <a href="https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use" target="_blank">stardardized exit codes</a>
+
 .. |url get_chef| replace:: https://www.chef.io/chef/choose-your-version/
 .. |url msdn_registry_key| replace:: http://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx
 .. |url msdn_file_redirection| replace:: https://msdn.microsoft.com/en-us/library/windows/desktop/aa384187(v=vs.85).aspx
@@ -72,66 +50,5 @@
 .. |url ruby_power_of_chef| replace:: http://blog.loftninjas.org/2011/02/16/the-power-of-chef-and-ruby/
 .. |url rabbitmqssl| replace:: https://www.rabbitmq.com/ssl.html
 .. |url supermarket| replace:: https://supermarket.chef.io
-
-.. URLs that exist in slide decks ONLY.
-..
-
-.. |url slides_chef_slides| raw:: html
-
-    <a href="https://github.com/chef/chef-slides/" target="_blank">https://github.com/chef/chef-slides/</a>
-
-.. |url slides_chef_io| raw:: html
-
-    <a href="https://chef.io" target="_blank">https://chef.io</a>
-
-.. |url slides_docs_chef_io| raw:: html
-
-    <a href="https://docs.chef.io" target="_blank">https://docs.chef.io</a>
-
-.. |url slides_learn_chef_io| raw:: html
-
-    <a href="https://learn.chef.io" target="_blank">https://learn.chef.io</a>
-
-.. |url slides_supermarket_chef_io| raw:: html
-
-    <a href="https://supermarket.chef.io" target="_blank">https://supermarket.chef.io</a>
-
-.. |url slides_chef_lists| raw:: html
-
-    <a href="http://lists.chef.io/sympa" target="_blank">http://lists.chef.io/sympa</a>
-
-.. |url slides_chef_youtube| raw:: html
-
-    <a href="http://youtube.com/getchef" target="_blank">http://youtube.com/getchef</a>
-
-.. |url slides_foodcritic| raw:: html
-
-    <a href="http://acrmp.github.io/foodcritic/" target="_blank">http://acrmp.github.io/foodcritic/</a>
-
-.. |url slides_docs_foodcritic| raw:: html
-
-    <a href="https://docs.chef.io/devkit/foodcritic.html" target="_blank">https://docs.chef.io/devkit/foodcritic.html</a>
-
-.. |url slides_kitchen| raw:: html
-
-    <a href="http://kitchen.ci" target="_blank">http://kitchen.ci</a>
-
-.. |url slides_docs_kitchen| raw:: html
-
-    <a href="https://docs.chef.io/devkit/kitchen.html" target="_blank">https://docs.chef.io/devkit/kitchen.html</a>
-
-.. |url slides_serverspec| raw:: html
-
-    <a href="http://serverspec.org/" target="_blank">http://serverspec.org/</a>
-
-.. |url slides_docs_resources| raw:: html
-
-    <a href="https://docs.chef.io/resources.html" target="_blank">https://docs.chef.io/resources.html</a>
-
-.. |url slides_chefspec| raw:: html
-
-    <a href="https://github.com/sethvargo/chefspec" target="_blank">https://github.com/sethvargo/chefspec</a>
-
-.. |url slides_docs_chefspec| raw:: html
-
-    <a href="https://docs.chef.io/devkit/chefspec.html" target="_blank">https://docs.chef.io/devkit/chefspec.html</a>
+.. |url supermarket_api| replace:: https://supermarket.chef.io/api/v1
+.. |url supermarket_cookbooks| replace:: https://supermarket.chef.io/cookbooks

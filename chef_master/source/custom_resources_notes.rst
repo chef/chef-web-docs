@@ -1,8 +1,9 @@
 =====================================================
 Custom Resources Notes
 =====================================================
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources_notes.rst>`__
 
-.. warning:: This page mentions multiple ways of building custom resources. |company_name| recommends you try the approach outlined at https://docs.chef.io/custom_resources.html first before trying the resource/provider pair (older approach), or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, please ask for help in https://discourse.chef.io or file a bug with the |chef client| https://github.com/chef/chef.
+.. warning:: This page mentions multiple ways of building custom resources. Chef recommends you try the approach outlined in the `Custom Resource documentation </custom_resources.html>`__ first, before trying the resource/provider pair (older approach) or library type (pure Ruby) approaches. If you run into issues while designing 12.5-style custom resources, please ask for help in the `Chef Mailing List <https://discourse.chef.io>`__ or `file a bug <https://github.com/chef/chef/issues/new>`__ for the Chef Client.
 
 .. adapted literally from this gist: https://gist.github.com/lamont-granquist/8cda474d6a31fadd3bb3b47a66b0ae78
 
@@ -10,8 +11,7 @@ Custom Resources 12.5-style
 =====================================================
 This is the recommended way of writing resources for all users. There are two gotchas which we're working through:
 
-#. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an ``action_class do ... end`` block.
-#. The 12.5 resources allow for a shorthand notation in provider code where you can refer to properties by their bare name ``my_property`` and it works most of the time.  Since it does not work all the time (because of the way |ruby| scopes things), its recommended to stick to referring to properties by ``new_resource.my_property``.
+#. For helper functions that you used to write in your provider code or used to mixin to your provider code, you have to use an ``action_class.class_eval do ... end`` block.
 
 You cannot subclass, and must use mixins for code-sharing (which is really a best practice anyway -- e.g. see languages like rust which do not support subclassing).
 
@@ -21,17 +21,10 @@ in ``resources/whatever.rb``:
 
    resource_name :my_resource
    provides :my_resource
-   
+
    property :foo, String, name_property: true
    extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
-   
-   action_class do
-     include MyProviderHelperFunctions
-   
-     def a_helper
-     end
-   end
-   
+
    action :run do
      # helpers must be defined inside the action_class block
      a_helper()
@@ -41,10 +34,16 @@ in ``resources/whatever.rb``:
      puts new_resource.foo
    end
 
+   action_class.class_eval do
+     include MyProviderHelperFunctions
+
+     def a_helper
+     end
+   end
 
 "Old school" LWRPS
 =====================================================
-This method is preferable to writing library providers. It has the same functionality as library providers, only you cannot subclass and must use mixins for code sharing (which is good).
+This method is not recommended, but is preferable to writing library resources/providers (as described below). It has the same functionality as library providers, only you cannot subclass and must use mixins for code sharing (which is good).
 
 in ``resources/my_resource.rb``:
 
@@ -52,7 +51,7 @@ in ``resources/my_resource.rb``:
 
    resource_name :my_resource
    provides :my_resource
-   
+
    property :foo, String, name_property: true
    extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
 
@@ -60,30 +59,27 @@ in ``providers/my_resource.rb``:
 
 .. code-block:: ruby
 
-   use_inline_resources  # you still have to do this, if you don't notifications off of this resource will be broken
-
    # you have to worry about this
    def whyrun_supported?
      true
    end
-   
+
    include MyProviderHelperFunctions
-   
+
    def a_helper
    end
-   
+
    action :run do
      a_helper()
      # here you have to use new_resource.foo
      puts new_resource.foo
    end
 
-
 Library Resources/Providers
 =====================================================
-Library resources are discouraged since you can more easily shoot yourself in the foot. They used to be encouraged back before |chef| 12.0 ``provides`` was introduced since it allowed for renaming the resource so that it didn't have to be prefixed by the cookbook name.
+Library resources are discouraged since you can more easily shoot yourself in the foot. They used to be encouraged back before Chef 12.0 ``provides`` was introduced since it allowed for renaming the resource so that it didn't have to be prefixed by the cookbook name.
 
-There are many ways to go wrong writing library providers. One of the biggest issues is that internal |chef client| code superficially looks like a library provider, but is not. |company_name| internal resources do not inherit from ``LWRPBase`` and we've had to manually create resources directly through ``Chef::Resource::File.new()``, we also have not been able to ``use_inline_resources`` and not had access to other niceties that cookbook authors have had access to for years now. We've got some modernization of internal |chef| cookbook code now and resources like ``apt_update`` and ``apt_repository`` in core have started to be written more like cookbook code should be written, but core resources are actually behind the curve and are bad code examples.
+There are many ways to go wrong writing library providers. One of the biggest issues is that internal chef-client code superficially looks like a library provider, but is not. Chef internal resources do not inherit from ``LWRPBase`` and we've had to manually create resources directly through ``Chef::Resource::File.new()``, we also have not been able to ``use_inline_resources`` and not had access to other niceties that cookbook authors have had access to for years now. We've got some modernization of internal Chef cookbook code now and resources like ``apt_update`` and ``apt_repository`` in core have started to be written more like cookbook code should be written, but core resources are actually behind the curve and are bad code examples.
 
 in ``libraries/resource_my_resource.rb``:
 
@@ -94,7 +90,7 @@ in ``libraries/resource_my_resource.rb``:
        class MyResource < Chef::Resource::LWRPBase  # it is very important to inherit from LWRPBase
          resource_name :my_resource
          provides :my_resource
-   
+
          property :foo, String, name_property: true
          extend MyResourceHelperFunctions  # probably only used for common properties which is why you extend with class methods
        end
@@ -108,19 +104,17 @@ in ``libraries/resource_my_resource.rb``:
    class MyBaseClass
      class Resource
        class MyProvider < Chef::Provider::LWRPBase  # it is very important to inherit from LWRPBase
-   
-         use_inline_resources  # you still have to do this, if you don't notifications off of this resource will be broken
-       
+
          # you have to worry about this
          def whyrun_supported?
            true
          end
-     
+
          include MyProviderHelperFunctions
-   
+
          def a_helper
          end
-   
+
          # NEVER use `def action_run` here -- you defeat use_inline_resources and will break notifications if you (and recent foodcritic will tell you that you are wrong)
          # If you don't understand how use_inline_resources is built and why you have to use the `action` method, and what the implications are and how resource notifications
          # break if use_inline_resources is not used and/or is broken, then you should really not be using library providers+resources.  You might feel "closer to the metal",
@@ -134,10 +128,9 @@ in ``libraries/resource_my_resource.rb``:
      end
    end
 
-
 updated_by_last_action
 =====================================================
-Modern |chef client| code (since version 11.0.0) should never have provider code which directly sets ``updated_by_last_action`` itself.
+Modern chef-client code (since version 11.0.0) should never have provider code which directly sets ``updated_by_last_action`` itself.
 
 THIS CODE IS WRONG:
 
@@ -152,38 +145,34 @@ THIS CODE IS WRONG:
      t.new_resource.updated_by_last_action(true) if t.updated_by_last_action?
    end
 
-That used to be kinda-correct-code-with-awful-edge-cases back in |chef| version 10. If you're not using that version of |chef|, please stop writing actions this way.
+That used to be kinda-correct-code-with-awful-edge-cases back in Chef version 10. If you're not using that version of Chef, please stop writing actions this way.
 
 THIS IS CORRECT:
 
 .. code-block:: ruby
 
-   use_inline_resources
-
    def whyrun_supported?
      true
    end
-   
+
    action :run do
      file "/tmp/foo" do
        content "foo"
      end
    end
 
-That is the magic of ``use_inline_resources`` (and why ``use_inline_resources`` is turned on by default in |chef| 12.5 resources)  The sub-resources are defined in a sub-resource collection which is compiled and converged as part of the provider executing. Any resources that update in the sub-resource collection cause the resource itself to be updated automatically. Notifications then fire normally off the resource. It also works to arbitrary levels of nesting of sub-sub-sub-resources being updating causing the wrapping resources to update and fire notifications.
+That is the magic of ``use_inline_resources`` (and why ``use_inline_resources`` is turned on by default in Chef 12.5 resources)  The sub-resources are defined in a sub-resource collection which is compiled and converged as part of the provider executing. Any resources that update in the sub-resource collection cause the resource itself to be updated automatically. Notifications then fire normally off the resource. It also works to arbitrary levels of nesting of sub-sub-sub-resources being updating causing the wrapping resources to update and fire notifications.
 
-This also gets the |whyrun| case correct. If all the work that you do in your resource is done by calling sub-resources, then |whyrun| should work automatically. All your sub-resources will be NO-OP'd and will report what they would have done instead of doing it.
+This also gets the why-run case correct. If all the work that you do in your resource is done by calling sub-resources, then why-run should work automatically. All your sub-resources will be NO-OP'd and will report what they would have done instead of doing it.
 
-If you do need to write code which mutates the system through pure-|ruby| then you should do so like this:
+If you do need to write code which mutates the system through pure-Ruby then you should do so like this:
 
 .. code-block:: ruby
 
-   use_inline_resources
-   
    def whyrun_supported?
      true
    end
-   
+
    action :run do
      unless File.exist?("/tmp/foo")
        converge_by("touch /tmp/foo") do
@@ -192,9 +181,11 @@ If you do need to write code which mutates the system through pure-|ruby| then y
      end
    end
 
-The ``converge_by`` block gets |whyrun| correct and will just touch "/tmp/foo" instead of actually doing it. The ``converge_by`` block is also responsible for setting ``update_by_last_action``.
+When the ``converge_by`` block is run in why-run mode, it will only log ``touch "/tmp/foo"`` and will not run the code inside the block. 
 
-In order to use ``converge_by`` correctly you must ensure that you wrap the ``converge_by`` with an idempotency check otherwise your resource will be updated every time it is used and will always fire notifications on every run.
+A ``converge_by`` block that is not wrapped in an idempotency check will always cause the resource to be updated,
+and will always cause notifications to fire.  To prevent this, a properly written resource should wrap all
+``converge_by`` checks with an  idempotency check.  The [``converge_if_changed``](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst#converge_if_changed) block may be used instead  which will wrap a ``converge_by`` block with an idempotency check for you.
 
 .. code-block:: ruby
 
@@ -208,7 +199,7 @@ In order to use ``converge_by`` correctly you must ensure that you wrap the ``co
      end
    end
 
-Of course it is vastly simpler to just use |chef client| resources when you can. Compare the equivalent implementations:
+Of course it is vastly simpler to just use chef-client resources when you can. Compare the equivalent implementations:
 
 .. code-block:: ruby
 
@@ -228,11 +219,8 @@ is basically the same as this:
      end
    end
 
-You may see a lot of ``converge_by`` and ``updated_by_last_action`` in the core chef resources. This is sometimes due to the fact that |chef| is written as a declarative language with an imperative language, which means someone has to take the first step and write the declarative file resources in imperative |ruby|. As such, core |chef| resources may not represent ideal code examples with regard to what custom resources should look like.
+You may see a lot of ``converge_by`` and ``updated_by_last_action`` in the core chef resources. This is sometimes due to the fact that Chef is written as a declarative language with an imperative language, which means someone has to take the first step and write the declarative file resources in imperative Ruby. As such, core Chef resources may not represent ideal code examples with regard to what custom resources should look like.
 
 compat_resources Cookbook
 =====================================================
 Use the ``compat_resources`` cookbook (https://github.com/chef-cookbooks/compat_resource) to assist in converting cookbooks that use the pre-12.5 custom resource model to the new one. Please see the readme in that cookbook for the steps needed.
-
-
-
