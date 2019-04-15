@@ -214,9 +214,9 @@ This command has the following options:
       * - Setting
         - Description
       * - ``policy_group``
-        - The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file.
-      * - ``policy_name``
         - The name of a policy group that exists on the Chef server.
+      * - ``policy_name``
+        - The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file.
 
    For example:
 
