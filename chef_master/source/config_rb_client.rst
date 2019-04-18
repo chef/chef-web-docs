@@ -280,10 +280,10 @@ This configuration file has the following settings:
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
 
 ``policy_group``
-   The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file. ``policy_name`` must also be specified.
+   The name of a policy group that exists on the Chef server. ``policy_name`` must also be specified.
 
 ``policy_name``
-   The name of a policy group that exists on the Chef server. ``policy_group`` must also be specified.
+   The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file. ``policy_group`` must also be specified.
 
 ``rest_timeout``
    The time (in seconds) after which an HTTP REST request is to time out. Default value: ``300``.
