@@ -5388,9 +5388,9 @@ Or use the following settings to specify a policy revision in the client.rb file
    * - Setting
      - Description
    * - ``policy_group``
-     - The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file.
-   * - ``policy_name``
      - The name of a policy group that exists on the Chef server.
+   * - ``policy_name``
+     - The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file.
 
 New Configuration Settings
 -----------------------------------------------------
@@ -5405,9 +5405,9 @@ The following settings are new for the client.rb file and enable the use of poli
    * - ``named_run_list``
      - The run-list associated with a policy file.
    * - ``policy_group``
-     - The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file. (See "Specify Policy Revision" in this readme for more information.)
-   * - ``policy_name``
      - The name of a policy group that exists on the Chef server. (See "Specify Policy Revision" in this readme for more information.)
+   * - ``policy_name``
+     - The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file. (See "Specify Policy Revision" in this readme for more information.)
 
 chef-client Options
 -----------------------------------------------------
@@ -5430,9 +5430,9 @@ The following options are new or updated for the chef-client executable and enab
       * - Setting
         - Description
       * - ``policy_group``
-        - The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file.
-      * - ``policy_name``
         - The name of a policy group that exists on the Chef server.
+      * - ``policy_name``
+        - The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file.
 
    For example:
 
