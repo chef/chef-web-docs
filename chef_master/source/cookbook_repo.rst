@@ -25,7 +25,7 @@ To create a cookbook (including all default components), run the following comma
 
 .. code-block:: bash
 
-   $ knife cookbook create COOKBOOK_NAME
+   $ chef generate cookbook COOKBOOK_NAME
 
 where ``COOKBOOK_NAME`` is the name of the cookbook that will be created. Any unneeded directory components can be left unused or deleted, if preferred.
 
