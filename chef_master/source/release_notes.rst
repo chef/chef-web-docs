@@ -18,10 +18,10 @@ What’s New in 14.12
 
 * **Updated Components**
 
-- nokogiri 1.10.1 -> 1.10.2
-- ruby 2.5.3 -> 2.5.5
-- InSpec 3.7.1 -> 3.9.0
-- The unused windows-api gem is no longer bundled with Chef on Windows hosts
+  - nokogiri 1.10.1 -> 1.10.2
+  - ruby 2.5.3 -> 2.5.5
+  - InSpec 3.7.1 -> 3.9.0
+  - The unused windows-api gem is no longer bundled with Chef on Windows hosts
 
 What’s New in 14.11
 =====================================================
@@ -29,45 +29,45 @@ What’s New in 14.11
 * **Updated Resources**
 
   * **chocolatey_package**
-    The `chocolatey_package </resource_chocolatey_package.html>`__ resource now uses the provided options to fetch information on available packages, which allows installation packages from private sources. Thanks `@astoltz <https://github.com/astoltz>`__ for reporting this issue.
+      The `chocolatey_package </resource_chocolatey_package.html>`__ resource now uses the provided options to fetch information on available packages, which allows installation packages from private sources. Thanks `@astoltz <https://github.com/astoltz>`__ for reporting this issue.
 
   * **openssl_dhparam**
-    The `openssl_dhparam </resource_openssl_dhparam.html>`__ resource now supports updating the dhparam file's mode on subsequent chef-client runs. Thanks `@anewb <https://github.com/anewb>`__ for the initial work on this fix.
+      The `openssl_dhparam </resource_openssl_dhparam.html>`__ resource now supports updating the dhparam file's mode on subsequent chef-client runs. Thanks `@anewb <https://github.com/anewb>`__ for the initial work on this fix.
 
   * **mount**
-    The `mount </resource_mount.html>`__ resource now properly adds a blank line between entries in fstab to prevent mount failures on AIX.
+      The `mount </resource_mount.html>`__ resource now properly adds a blank line between entries in fstab to prevent mount failures on AIX.
 
   * **windows_certificate**
-    The `windows_certificate </resource_windows_certificate.html>`__ resource now supports importing Base64 encoded CER certificates and nested P7B certificates. Additionally, private keys in PFX certificates are now imported along with the certificate.
+      The `windows_certificate </resource_windows_certificate.html>`__ resource now supports importing Base64 encoded CER certificates and nested P7B certificates. Additionally, private keys in PFX certificates are now imported along with the certificate.
 
   * **windows_share**
-    The `windows_share </resource_windows_share.html>`__ resource has improved logic to compare the desired share path vs. the current path, which prevents the resource from incorrectly converging during each Chef run. Thanks `@xorima <https://github.com/xorima>`__ for this fix.
+      The `windows_share </resource_windows_share.html>`__ resource has improved logic to compare the desired share path vs. the current path, which prevents the resource from incorrectly converging during each Chef run. Thanks `@xorima <https://github.com/xorima>`__ for this fix.
 
   * **windows_task**
-    The `windows_task </resource_windows_task.html>`__ resource now properly clears out arguments that are no longer present when updating a task. Thanks `@nmcspadden <https://github.com/nmcspadden>`__ for reporting this.
+      The `windows_task </resource_windows_task.html>`__ resource now properly clears out arguments that are no longer present when updating a task. Thanks `@nmcspadden <https://github.com/nmcspadden>`__ for reporting this.
 
 * **InSpec 3.7.1**
 
-  InSpec has been updated from 3.4.1 to 3.7.1. This new release contains improvements to the plugin system, a new config file system, and improvements to multiple resources. Additionally, profile attributes have also been renamed to inputs to prevent confusion with Chef attributes, which weren't actually related in any way.
+    InSpec has been updated from 3.4.1 to 3.7.1. This new release contains improvements to the plugin system, a new config file system, and improvements to multiple resources. Additionally, profile attributes have also been renamed to inputs to prevent confusion with Chef attributes, which weren't actually related in any way.
 
 * **Updated Components**
-  * bundler 1.16.1 -> 1.17.3
-  * libxml2 2.9.7 -> 2.9.9
-  * ca-certs updated to 2019-01-22 for new roots
+    * bundler 1.16.1 -> 1.17.3
+    * libxml2 2.9.7 -> 2.9.9
+    * ca-certs updated to 2019-01-22 for new roots
 
 * **Security Updates**
 
   * **OpenSSL**
-    OpenSSL has been updated to 1.0.2r in order to resolve [CVE-2019-1559](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1559)
+    OpenSSL has been updated to 1.0.2r in order to resolve `CVE-2019-1559 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1559>`__
 
   * **RubyGems**
-    RubyGems has been updated to 2.7.9 in order to resolve the following CVEs:
-      * [CVE-2019-8320](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8320): Delete directory using symlink when decompressing tar
-      * [CVE-2019-8321](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8321): Escape sequence injection vulnerability in verbose
-      * [CVE-2019-8322](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8322): Escape sequence injection vulnerability in gem owner
-      * [CVE-2019-8323](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8323): Escape sequence injection vulnerability in API response handling
-      * [CVE-2019-8324](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8324): Installing a malicious gem may lead to arbitrary code execution
-      * [CVE-2019-8325](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8325): Escape sequence injection vulnerability in errors
+      RubyGems has been updated to 2.7.9 in order to resolve the following CVEs:
+          * `CVE-2019-8320 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8320>`__: Delete directory using symlink when decompressing tar
+          * `CVE-2019-8321 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8321>`__: Escape sequence injection vulnerability in verbose
+          * `CVE-2019-8322 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8322>`__: Escape sequence injection vulnerability in gem owner
+          * `CVE-2019-8323 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8323>`__: Escape sequence injection vulnerability in API response handling
+          * `CVE-2019-8324 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8324>`__: Installing a malicious gem may lead to arbitrary code execution
+          * `CVE-2019-8325 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-8325>`__: Escape sequence injection vulnerability in errors
 
 What’s New in 14.10
 =====================================================
@@ -84,6 +84,7 @@ What’s New in 14.10
       The `git </resource_git.html>`__ resource no longer displays the URL of the repository if the sensitive property is set.
 
 * **InSpec 3.4.1**
+
   InSpec has been updated from 3.2.6 to 3.4.1. This new release adds new aws_billing_report / aws_billing_reports resources, resolves multiple bugs, and includes tons of under the hood improvements.
 
 * **New Deprecations**
