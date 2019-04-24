@@ -138,6 +138,7 @@ Cookbook Reference
 `apt_preference </resource_apt_preference.html>`__ |
 `apt_repository </resource_apt_repository.html>`__ |
 `apt_update </resource_apt_update.html>`__ |
+`archive_file </resource_archive_file.html>`__ |
 `bash </resource_bash.html>`__ |
 `batch </resource_batch.html>`__ |
 `bff_package </resource_bff_package.html>`__ |
@@ -235,6 +236,7 @@ Cookbook Reference
 `rhsm_subscription </resource_rhsm_subscription.html>`__ |
 `service </resource_service.html>`__ |
 `smartos_package </resource_smartos_package.html>`__ |
+`snap_package </resource_snap_package.html>`__ |
 `solaris_package </resource_solaris_package.html>`__ |
 `ssh_known_hosts_entry </resource_ssh_known_hosts_entry.html>`__ |
 `subversion </resource_subversion.html>`__ |
@@ -901,4 +903,3 @@ Addenda
    windows
    windows_knife_intro
    workflow
-
