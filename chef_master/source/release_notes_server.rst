@@ -2454,7 +2454,7 @@ The following items are new for Chef server 12:
 * **High availability using Amazon Web Services** Amazon Web Services (AWS) is a supported high availability configuration option for the Chef server. Machines are stored as Amazon Elastic Block Store (EBS) volumes. A passive node monitors the availabilty of the active node, and will take over if required.
 * **Chef server replication** Chef replication provides a way to asynchronously distribute cookbook, environment, role, and data bag data from a single, primary Chef server to one (or more) replicas of that Chef server.
 * **New chef-server-ctl command line tool** The chef-server-ctl command line tool is an update of the private-chef-ctl command line tool. All of the previous functionality remains, with some new commands added that are specific to Chef server version 12.
-* **New command for installing features of the Chef server** The ``install`` subcommand may be used to install Chef management console, Chef push jobs, Chef replication, and Reporting.
+* **New command for installing features of the Chef server** The ``install`` subcommand may be used to install Chef management console, Chef Push Jobs, Chef replication, and Reporting.
 * **New commands for managing organizations** New subcommands for the chef-server-ctl command line tool: ``org-user-add``, ``org-create``, ``org-delete``, ``org-user-remove``, ``org-list``, and ``org-show``.
 * **New commands for managing users** New subcommands for the chef-server-ctl command line tool: ``user-create``, ``user-delete``, ``user-edit``, ``user-list``, and ``user-show``.
 * **New command for log files** Use the ``gather-logs`` command to create a tarball of important log files and system information.
@@ -2532,7 +2532,7 @@ In addition, the ``install`` subcommand is added, plus two new subcommand groupi
 install Command
 -----------------------------------------------------
 
-The ``install`` subcommand is used to install premium features of the Chef server: Chef management console and chef-client run reporting, high availability configurations, Chef push jobs, and Chef server replication.
+The ``install`` subcommand is used to install premium features of the Chef server: Chef management console and chef-client run reporting, high availability configurations, Chef Push Jobs, and Chef server replication.
 
 **Syntax**
 
