@@ -51,7 +51,7 @@ Chef has the following major components:
 
        Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users). The full power of Ruby is available for when you need a programming language.
 
-       Often, a workstation is configured to use ChefDK as the development toolkit. ChefDK is a package from Chef that provides a recommended set of tooling, including Chef itself, the chef command line tool, Test Kitchen, ChefSpec, and more.
+       Often, a workstation is configured to use Chef Workstation as the development toolkit. Chef Workstation is a package from Chef that provides a recommended set of tooling, including Chef itself, the chef command line tool, Test Kitchen, ChefSpec, and more.
 
    * - .. image:: ../../images/icon_node.svg
           :width: 100px
@@ -105,7 +105,7 @@ The workstation is where users do most of their work, including:
 
 `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
 
-Workstation Components and Tools
+Chef Workstation Components and Tools
 -----------------------------------------------------
 Some important tools and components of Chef Workstation include:
 
@@ -126,7 +126,7 @@ Some important tools and components of Chef Workstation include:
        * Chef Infra Client
        * chef and knife command line tools
        * Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
-       * InSpec
+       * Chef InSpec
        * Everything else needed to author cookbooks and upload them to the Chef server
 
        .. end_tag
@@ -141,11 +141,11 @@ Some important tools and components of Chef Workstation include:
 
      - Chef Workstation includes important command-line tools:
 
-       * Chef: Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef server
-       * Knife: Use the knife command-line tool to interact with nodes or work with objects on the Chef server
+       * Chef Infra: Use the chef command-line tool to work with items in a chef-repo, which is the primary location in which cookbooks are authored, tested, and maintained, and from which policy is uploaded to the Chef Infra Server
+       * Knife: Use the knife command-line tool to interact with nodes or work with objects on the Chef Infra Server
        * Chef Infra Client: an agent that configures your nodes
        * Test Kitchen: a testing harness for rapid validation of Chef code
-       * InSpec: Chef's open source security & compliance automation framework
+       * Chef InSpec: Chef's open source security & compliance automation framework
        * chef-run: a tool for running ad-hoc tasks
        * Chef Workstation App: for updating and managing your chef tools
 

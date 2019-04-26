@@ -103,7 +103,7 @@ Which returns the versions of all installed Chef tools:
    chef-client version: 14.4.56
    berks version: 7.0.6
    kitchen version: 1.23.2
-   InSpecversion: 2.2.70
+   InSpec version: 2.2.70
 
 Spaces and Directories
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

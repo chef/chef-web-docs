@@ -125,8 +125,8 @@ Installation
 
 These instructions assume you are using the following versions or newer:
 
-- chef-server  : 12.5.0
-- chef-backend : 0.8.0
+- Chef Server  : 12.5.0
+- Chef Backend : 0.8.0
 
 Download `Chef Infra Server <https://downloads.chef.io/chef-server/>`_ and `Chef High Availability (chef-backend) <https://downloads.chef.io/chef-backend/>`_ if you do not have them already.
 
@@ -156,7 +156,7 @@ node used to bootstrap the cluster will be the cluster leader when the
 cluster comes online. After bootstrap completes this node is no
 different from any other back-end node.
 
-#. Install the chef-backend package on the first backend node as root.
+#. Install the Chef Backend package on the first backend node as root.
 
 #. Update ``/etc/chef-backend/chef-backend.rb`` with the following
    content:
@@ -631,7 +631,7 @@ Chef HA backend leader health status settings
 * ``leaderl.health_check.max_pgsql_failures`` Number of PostgreSQL connection failures allowed before health check fails. 5 by default.
 * ``leaderl.health_check.fatal_system_checks`` Whether or not system check failures (such as disk space failures) will result in the node being marked ineligible for leadership. ``false`` by default. **Added in Chef Backend 1.4.**
 * ``leaderl.health_check.disk_paths`` An array containing the paths to check for sufficient disk space. ``[/var/log/chef-backend, /var/opt/chef-backend]`` by default. **Added in Chef Backend 1.4.**
-* ``leaderl.health_check.disk_min_space_mb`` The minimum amount of disk space (in megabytes) required for a disk health check to pass. ``250`` by default. **Added in Backend 1.4.**
+* ``leaderl.health_check.disk_min_space_mb`` The minimum amount of disk space (in megabytes) required for a disk health check to pass. ``250`` by default. **Added in Chef Backend 1.4.**
 
 Chef HA backend leader connection pool settings
 ----------------------------------------------------------------

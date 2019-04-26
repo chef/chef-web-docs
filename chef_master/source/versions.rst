@@ -68,7 +68,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - 0.8
      - Releasing Soon
      - n/a
-   * - InSpec
+   * - Chef InSpec
      - 4.x
      - Releasing Soon
      - n/a
@@ -118,7 +118,7 @@ Use of the following distributions is governed by the Apache License, version 2.
      - 12.x
      - GA
      - April 30, 2020
-   * - InSpec
+   * - Chef InSpec
      - 3.x
      - GA
      - April 30, 2020
@@ -168,11 +168,11 @@ The following products are deprecated or end of life. Users are advised to use n
      - 2.x
      - Deprecated
      - TBD
-   * - InSpec
+   * - Chef InSpec
      - 1.x
      - Deprecated
      - December 31, 2019
-   * - InSpec
+   * - Chef InSpec
      - 2.x
      - Deprecated
      - December 31, 2019

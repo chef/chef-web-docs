@@ -245,7 +245,7 @@ Now that ``knife`` is configured, copy the SSL certificates from your Chef Infra
 
 Private Supermarket
 =====================================================
-Private Supermarket allows you to host your own internal version of the `Chef supermarket <https://supermarket.chef.io>`__ within your air-gapped network.
+Private Supermarket allows you to host your own internal version of the `Chef Supermarket <https://supermarket.chef.io>`__ within your air-gapped network.
 
 Requirements
 -----------------------------------------------------
@@ -299,7 +299,7 @@ First, you'll configure Chef Identity credentials for Supermarket. Chef Identity
 
 #. Retrieve Supermarket's OAuth 2.0 client credentials:
 
-   Depending on your Chef Server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
+   Depending on your Chef Infra Server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
    .. code-block:: javascript
 

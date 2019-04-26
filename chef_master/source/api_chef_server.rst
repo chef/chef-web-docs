@@ -15,7 +15,6 @@ Requirements
 
 The Chef Infra Server API has the following requirements:
 
-* Access to Chef Server running version 0.10.x or above.
 * The ``Accept`` header must be set to ``application/json``.
 * For ``PUT`` and ``POST`` requests, the ``Content-Type`` header must be set to ``application/json``.
 * The ``X-Chef-Version`` header must be set to the version of the Chef Infra Server API that is being used.

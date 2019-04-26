@@ -82,7 +82,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
 #. Retrieve Supermarket's OAuth 2.0 client credentials:
 
-   Depending on your Chef Server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
+   Depending on your Chef Infra Server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
    .. code-block:: javascript
 

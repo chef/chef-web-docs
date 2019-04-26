@@ -29,7 +29,7 @@ Using the workstation
 -----------------------------------------------------
 You create and test your code on your workstation before you deploy it to other environments. Your workstation is the computer where you author your cookbooks and administer your infrastructure. It's typically the machine you use everyday. It can be any OS you choose, whether it's Linux, macOS, or Windows.
 
-You'll need to install a text editor (whichever you like) to write code and ChefDK to get the tools to test your code. The primary testing tools you'll use are Cookstyle, Foodcritic, ChefSpec, InSpec, and Test Kitchen. With them, you can make sure your Chef code does what you intended before you deploy it to environments used by others, such as staging or production.
+You'll need to install a text editor (whichever you like) to write code and ChefDK to get the tools to test your code. The primary testing tools you'll use are Cookstyle, Foodcritic, ChefSpec, Chef InSpec, and Test Kitchen. With them, you can make sure your Chef code does what you intended before you deploy it to environments used by others, such as staging or production.
 
 When you write your code, you use resources to describe your infrastructure. A resource corresponds to some piece of infrastructure, such as a file, a template, or a package. Each resource declares what state a part of the system should be in, but not how to get there. Chef handles these complexities for you. Chef provides many resources that are ready for you to use. You can also utilize resources shipped in community cookbooks, or write your own resources specific to your infrastructure.
 
@@ -56,16 +56,16 @@ Chef Habitat offers a new approach to deploying applications called application 
 Chef Habitat is comprised of a packaging format and a supervisor. The format defines Chef Habitat packages, which are isolated, immutable, and auditable. The Chef Habitat supervisor knows how to take the packages and run them. It's aware of the package's peer relationships, its upgrade strategy and security policies.
 To learn everything about Chef Habitat, go to the Chef Habitat web site at `https://www.habitat.sh <https://www.habitat.sh/>`__.
 
-InSpec
+Chef InSpec
 =====================================================
 
-InSpecis an open-source testing framework with a human- and machine-readable language for specifying compliance, security and policy requirements. When compliance is expressed as code, you can integrate it into your deployment pipeline and automatically test for adherence to security policies.
+Chef InSpec is an open-source testing framework with a human- and machine-readable language for specifying compliance, security and policy requirements. When compliance is expressed as code, you can integrate it into your deployment pipeline and automatically test for adherence to security policies.
 
-InSpeccode can run in multiple platforms. You can execute the same set of tests locally, with remote commands that use SSH or WinRM, or with external mechanisms such as the Docker API.
+Chef InSpec code can run in multiple platforms. You can execute the same set of tests locally, with remote commands that use SSH or WinRM, or with external mechanisms such as the Docker API.
 
-With InSpec, you can do more than ensure that your physical servers are in compliance. You can, for example, assess data in a database or inspect the configuration of virtual resources by using their API.
+With Chef InSpec, you can do more than ensure that your physical servers are in compliance. You can, for example, assess data in a database or inspect the configuration of virtual resources by using their API.
 
-To get a sense of how the InSpeclanguage works, here are some examples. This InSpecrule ensures that insecure services and protocols, such as telnet, are not used.
+To get a sense of how the Chef InSpec language works, here are some examples. This Chef InSpec rule ensures that insecure services and protocols, such as telnet, are not used.
 
 .. code-block:: ruby
 
@@ -80,7 +80,7 @@ To get a sense of how the InSpeclanguage works, here are some examples. This InS
 Chef Automate
 =====================================================
 
-Chef Automate provides a full suite of enterprise capabilities for workflow, node visibility and compliance. Chef Automate integrates with the open-source products Chef, Chef InSpec and Habitat. Chef Automate comes with comprehensive 24x7 support services for the entire platform, including open source components.
+Chef Automate provides a full suite of enterprise capabilities for workflow, node visibility and compliance. Chef Automate integrates with the open-source products Chef Infra, Chef InSpec and Chef Habitat. Chef Automate comes with comprehensive 24x7 support services for the entire platform, including open source components.
 
 Chef Automate gives you a full-stack continuous deployment pipeline, automated testing for compliance and security, as well as visibility into everything that's happening as you move your applications and infrastructure through the pipeline and then when they're in production.
 
@@ -113,7 +113,7 @@ Here is an example of the Chef Automate dashboard.
 Compliance
 -----------------------------------------------------
 
-Chef Automate creates customizable reports that identify compliance issues, security risks, and outdated software. You can write your own compliance rules in InSpec, or you can get started quickly by using built-in profiles, which are predefined rule sets for a variety of security frameworks, such as Center for Internet Security (CIS) benchmarks, included as part of Chef Automate.
+Chef Automate creates customizable reports that identify compliance issues, security risks, and outdated software. You can write your own compliance rules in Chef InSpec, or you can get started quickly by using built-in profiles, which are predefined rule sets for a variety of security frameworks, such as Center for Internet Security (CIS) benchmarks, included as part of Chef Automate.
 
 For information on the integrated reporting capabilities in Chef Automate, see `Compliance Overview </chef_automate_compliance.html>`__.
 
@@ -125,4 +125,4 @@ Chef Automate includes a high-availability Chef Infra Server with fault toleranc
 More Resources
 =====================================================
 
-If you're interested in getting hands-on experience, go to https://learn.chef.io/ for tutorials, information about formal training classes and community resources. The Habitat web site at https://www.habitat.sh/ has Habitat tutorials, along with documentation and other resources.
+If you're interested in getting hands-on experience, go to https://learn.chef.io/ for tutorials, information about formal training classes and community resources. The Chef Habitat web site at https://www.habitat.sh/ has Habitat tutorials, along with documentation and other resources.

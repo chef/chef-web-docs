@@ -13,7 +13,7 @@ Chef Automate
 .. end_tag
 
 Chef Automate provides a full suite of enterprise capabilities for workflow, node visibility and compliance.
-Chef Automate integrates with the open-source products Chef Server, InSpec, and Chef Habitat. Chef Automate comes with
+Chef Automate integrates with the open-source products Chef Server, Chef InSpec, and Chef Habitat. Chef Automate comes with
 comprehensive 24×7 support services for the entire platform, including open source components.
 
 .. image:: ../../images/automate_architecture.svg

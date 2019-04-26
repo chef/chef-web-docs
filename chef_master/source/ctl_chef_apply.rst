@@ -5,7 +5,7 @@ chef-apply (executable)
 
 chef-apply is an executable program that runs a single recipe from the command line:
 
-* Is part of ChefDK
+* Is part of Chef Workstation
 * A great way to explore resources
 * Is **NOT** how Chef is run in production
 
