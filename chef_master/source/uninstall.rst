@@ -9,7 +9,7 @@ Chef Server
 =====================================================
 .. tag ctl_chef_server_uninstall
 
-The ``uninstall`` subcommand is used to remove the Chef server application, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
+The ``uninstall`` subcommand is used to remove the Chef Infra Server application, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
 
 This subcommand has the following syntax:
 
@@ -51,7 +51,7 @@ Reporting
 =====================================================
 .. tag ctl_reporting_uninstall
 
-The ``uninstall`` subcommand is used to remove the Reporting add-on to the Chef server, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
+The ``uninstall`` subcommand is used to remove the Reporting add-on to the Chef Infra Server, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
 
 This subcommand has the following syntax:
 
@@ -65,10 +65,10 @@ This subcommand has the following syntax:
 
 Chef Push Jobs
 =====================================================
-To uninstall Chef push jobs, do the following:
+To uninstall Chef Push Jobs, do the following:
 
-#. Shut down the Chef push jobs service.
-#. Uninstall the Chef push jobs package.
+#. Shut down the Chef Push Jobs service.
+#. Uninstall the Chef Push Jobs package.
 #. Run the following command:
 
    .. code-block:: bash
@@ -79,13 +79,13 @@ To uninstall Chef push jobs, do the following:
 
 push-jobs-client
 -----------------------------------------------------
-Use the package manager for the platform on which Chef push jobs is installed to uninstall Chef push jobs.
+Use the package manager for the platform on which Chef Push Jobs is installed to uninstall Chef Push Jobs.
 
 ChefDK
 =====================================================
 .. tag uninstall_chef_dk
 
-The Chef development kit can be uninstalled using the steps below that are appropriate for the platform on which the Chef development kit is installed.
+ChefDK can be uninstalled using the steps below that are appropriate for the platform on which ChefDK is installed.
 
 .. end_tag
 
@@ -93,7 +93,7 @@ Debian
 -----------------------------------------------------
 .. tag uninstall_chef_dk_ubuntu
 
-Use the following command to remove the Chef development kit on Debian-based platforms:
+Use the following command to remove ChefDK on Debian-based platforms:
 
 .. code-block:: bash
 
@@ -105,7 +105,7 @@ macOS
 -----------------------------------------------------
 .. tag uninstall_chef_dk_mac
 
-Use the following commands to remove the Chef development kit on macOS.
+Use the following commands to remove ChefDK on macOS.
 
 To remove installed files:
 
@@ -121,13 +121,13 @@ To remove the system installation entry:
 
 To remove symlinks:
 
-* For chef-client version 12.x, under ``/usr/local/bin``:
+* For Chef Client 12.x, under ``/usr/local/bin``:
 
   .. code-block:: bash
 
      $ sudo find /usr/local/bin -lname '/opt/chefdk/*' -delete
 
-* For chef-client version 11.x, under ``/usr/bin``:
+* For Chef Client 11.x, under ``/usr/bin``:
 
   .. code-block:: bash
 
@@ -139,7 +139,7 @@ Red Hat Enterprise Linux
 -----------------------------------------------------
 .. tag uninstall_chef_dk_redhat
 
-Use the following commands to remove the Chef development kit on Red Hat Enterprise Linux-based platforms:
+Use the following commands to remove ChefDK on Red Hat Enterprise Linux-based platforms:
 
 .. code-block:: bash
 
@@ -152,7 +152,6 @@ Microsoft Windows
 -----------------------------------------------------
 .. tag uninstall_chef_dk_windows
 
-Use **Add / Remove Programs** to remove the Chef development kit on the Microsoft Windows platform.
+Use **Add / Remove Programs** to remove ChefDK on the Microsoft Windows platform.
 
 .. end_tag
-

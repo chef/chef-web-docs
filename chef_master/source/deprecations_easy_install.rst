@@ -9,7 +9,7 @@ The Python community recommends that users prefer ``pip`` rather than ``easy_ins
 
 .. end_tag
 
-The ``easy_install`` resource was deprecated in 12.10, and will be removed in Chef 13.
+The ``easy_install`` resource was deprecated in Chef Client 12.10, and will be removed in Chef Client 13.
 
 Remediation
 ===============

@@ -5,7 +5,7 @@ chef-backend-ctl
 
 .. tag ctl_chef_backend_summary
 
-The Chef server backend HA cluster includes a command-line utility named chef-backend-ctl. This command-line tool is used to manage the Chef server backend HA cluster, start and stop individual services, and tail Chef server log files.
+The Chef Infra Server backend HA cluster includes a command-line utility named chef-backend-ctl. This command-line tool is used to manage the Chef Infra Server backend HA cluster, start and stop individual services, and tail Chef Infra Server log files.
 
 .. end_tag
 
@@ -101,7 +101,7 @@ cleanse
 =====================================================
 .. tag ctl_chef_backend_cleanse
 
-The ``cleanse`` subcommand is used to re-set a machine in the Chef server backend HA cluster to the state it was in prior to the first time the ``reconfigure`` subcommand is run. This command will destroy all data, configuration files, and logs. The software that was put on-disk by the package installation will remain; re-run ``chef-backend-ctl reconfigure`` to recreate the default data and configuration files.
+The ``cleanse`` subcommand is used to re-set a machine in the Chef Infra Server backend HA cluster to the state it was in prior to the first time the ``reconfigure`` subcommand is run. This command will destroy all data, configuration files, and logs. The software that was put on-disk by the package installation will remain; re-run ``chef-backend-ctl reconfigure`` to recreate the default data and configuration files.
 
 .. end_tag
 
@@ -240,7 +240,7 @@ gather-logs
 =====================================================
 .. tag ctl_chef_backend_gather_logs
 
-Use the ``gather-logs`` subcommand to gather the log files for a machine in the Chef server backend HA cluster into a tarball that contains all of the important log files and system information.
+Use the ``gather-logs`` subcommand to gather the log files for a machine in the Chef Infra Server backend HA cluster into a tarball that contains all of the important log files and system information.
 
 This subcommand has the following syntax:
 
@@ -401,7 +401,7 @@ Configure the Front End
 
       $ chef-backend-ctl gen-server-config FQDN -f chef-server.rb.fqdn
 
-   where ``FQDN`` is the FQDN for the frontend machine. The generated ``chef-server.rb`` file will contain all of the values necessary for any frontend Chef server to connect to and bootstrap against the backend HA cluster.
+   where ``FQDN`` is the FQDN for the frontend machine. The generated ``chef-server.rb`` file will contain all of the values necessary for any frontend Chef Infra Server to connect to and bootstrap against the backend HA cluster.
 
 #. On each frontend machine, install the ``chef-server-core`` package (version 12.4.0 or higher).
 #. On each frontend machine, copy the generated ``chef-server.rb``.fqdn to ``/etc/opscode/chef-server.rb``.
@@ -439,7 +439,7 @@ The following example shows the results of running the ``chef-backend-ctl gen-se
    opscode_erchef['nginx_bookshelf_caching'] = :on
    opscode_erchef['s3_url_expiry_window_size'] = '50%'
 
-.. note:: The ``opscode_solr4``, ``postgresql``, and ``rabbitmq`` services are disabled in this configuration file for the frontend machines when running the Chef server with a backend HA cluster.
+.. note:: The ``opscode_solr4``, ``postgresql``, and ``rabbitmq`` services are disabled in this configuration file for the frontend machines when running the Chef Infra Server with a backend HA cluster.
 
 .. end_tag
 
@@ -556,7 +556,7 @@ reconfigure
 =====================================================
 .. tag ctl_chef_backend_reconfigure
 
-Use the ``reconfigure`` subcommand to reconfigure a machine in the Chef server backend HA cluster. This subcommand will also restart any services for which the ``service_name['enabled']`` setting is set to ``true``.
+Use the ``reconfigure`` subcommand to reconfigure a machine in the Chef Infra Server backend HA cluster. This subcommand will also restart any services for which the ``service_name['enabled']`` setting is set to ``true``.
 
 This subcommand has the following syntax:
 
@@ -769,7 +769,7 @@ uninstall
 =====================================================
 .. tag ctl_chef_backend_uninstall
 
-The ``uninstall`` subcommand is used to remove the Chef server application from a machine in the backend HA cluster, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
+The ``uninstall`` subcommand is used to remove the Chef Infra Server application from a machine in the backend HA cluster, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
 
 This subcommand has the following syntax:
 
@@ -789,13 +789,13 @@ This command has a built in process supervisor that ensures all of the required 
 
 .. end_tag
 
-.. warning:: The following commands are disabled when an external PostgreSQL database is configured for the Chef server: ``hup``, ``int``, ``kill``, ``once``, ``restart``, ``service-list``, ``start``, ``stop``, ``tail``, and ``term``.
+.. warning:: The following commands are disabled when an external PostgreSQL database is configured for the Chef Infra Server: ``hup``, ``int``, ``kill``, ``once``, ``restart``, ``service-list``, ``start``, ``stop``, ``tail``, and ``term``.
 
 hup
 -----------------------------------------------------
 .. tag ctl_chef_backend_hup
 
-Use the ``hup`` subcommand to send a ``SIGHUP`` to all services on a machine in the Chef server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
+Use the ``hup`` subcommand to send a ``SIGHUP`` to all services on a machine in the Chef Infra Server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -811,7 +811,7 @@ int
 -----------------------------------------------------
 .. tag ctl_chef_backend_int
 
-Use the ``int`` subcommand to send a ``SIGINT`` to all services on a machine in the Chef server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
+Use the ``int`` subcommand to send a ``SIGINT`` to all services on a machine in the Chef Infra Server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -827,7 +827,7 @@ kill
 -----------------------------------------------------
 .. tag ctl_chef_backend_kill
 
-Use the ``kill`` subcommand to send a ``SIGKILL`` to all services on a machine in the Chef server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
+Use the ``kill`` subcommand to send a ``SIGKILL`` to all services on a machine in the Chef Infra Server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -843,7 +843,7 @@ once
 -----------------------------------------------------
 .. tag ctl_chef_backend_once
 
-The supervisor for a machine in the Chef server backend HA cluster is configured to restart any service that fails, unless that service has been asked to change its state. The ``once`` subcommand is used to tell the supervisor to not attempt to restart any service that fails.
+The supervisor for a machine in the Chef Infra Server backend HA cluster is configured to restart any service that fails, unless that service has been asked to change its state. The ``once`` subcommand is used to tell the supervisor to not attempt to restart any service that fails.
 
 This command is useful when troubleshooting configuration errors that prevent a service from starting. Run the ``once`` subcommand followed by the ``status`` subcommand to look for services in a down state and/or to identify which services are in trouble. This command can also be run for an individual service by specifying the name of the service in the command.
 
@@ -861,9 +861,9 @@ restart
 -----------------------------------------------------
 .. tag ctl_chef_backend_restart
 
-Use the ``restart`` subcommand to restart all services enabled on a machine in the Chef server backend HA cluster, or to restart an individual service by specifying the name of that service in the command.
+Use the ``restart`` subcommand to restart all services enabled on a machine in the Chef Infra Server backend HA cluster, or to restart an individual service by specifying the name of that service in the command.
 
-.. warning:: When running the Chef server in a high availability configuration, restarting all services may trigger failover.
+.. warning:: When running the Chef Infra Server in a high availability configuration, restarting all services may trigger failover.
 
 This subcommand has the following syntax:
 
@@ -883,7 +883,7 @@ service-list
 -----------------------------------------------------
 .. tag ctl_chef_backend_service_list
 
-Use the ``service-list`` subcommand to display a list of all available services on a machine in the Chef server backend HA cluster. A service that is enabled is labeled with an asterisk (*).
+Use the ``service-list`` subcommand to display a list of all available services on a machine in the Chef Infra Server backend HA cluster. A service that is enabled is labeled with an asterisk (*).
 
 This subcommand has the following syntax:
 
@@ -897,7 +897,7 @@ start
 -----------------------------------------------------
 .. tag ctl_chef_backend_start
 
-Use the ``start`` subcommand to start all services that are enabled on a machine in the Chef server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
+Use the ``start`` subcommand to start all services that are enabled on a machine in the Chef Infra Server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -911,7 +911,7 @@ where ``SERVICE_NAME`` represents the name of any service that is listed after r
 
    $ ok: run: service_name: (pid 12345) 1s
 
-The supervisor for a machine in the Chef server backend HA cluster is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
+The supervisor for a machine in the Chef Infra Server backend HA cluster is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
 
 .. end_tag
 
@@ -919,7 +919,7 @@ stop
 -----------------------------------------------------
 .. tag ctl_chef_backend_stop
 
-Use the ``stop`` subcommand to stop all services enabled on the Chef server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
+Use the ``stop`` subcommand to stop all services enabled on the Chef Infra Server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -952,7 +952,7 @@ tail
 -----------------------------------------------------
 .. tag ctl_chef_backend_tail
 
-Use the ``tail`` subcommand to follow all of the logs for all services on a machine in the Chef server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
+Use the ``tail`` subcommand to follow all of the logs for all services on a machine in the Chef Infra Server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -968,7 +968,7 @@ term
 -----------------------------------------------------
 .. tag ctl_chef_backend_term
 
-Use the ``term`` subcommand to send a ``SIGTERM`` to all services on a machine in the Chef server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
+Use the ``term`` subcommand to send a ``SIGTERM`` to all services on a machine in the Chef Infra Server backend HA cluster. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 

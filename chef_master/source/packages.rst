@@ -105,8 +105,8 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
    Note that the ``yum-config-manager`` command requires the ``yum-utils`` package, which is not installed on CentOS by default. You can install the package by running ``sudo yum install yum-utils``, or you can use the ``mv`` command to add the repository to the ``/etc/yum.repos.d/`` directory:
 
-   .. code-block:: bash		     
-  		  
+   .. code-block:: bash
+
       $ sudo mv chef-stable.repo /etc/yum.repos.d/
 
 Chef Install Script
@@ -185,13 +185,13 @@ Examples
 
 The following examples show how to use the install script.
 
-To install chef-client version 14.4.56:
+To install Chef Client 14.4.56:
 
 .. code-block:: bash
 
    $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 14.4.56
 
-To install the latest version of the Chef development kit on Microsoft Windows from the ``current`` channel:
+To install the latest version of ChefDK on Microsoft Windows from the ``current`` channel:
 
 .. code-block:: none
 

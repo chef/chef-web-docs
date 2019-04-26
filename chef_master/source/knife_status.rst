@@ -5,7 +5,7 @@ knife status
 
 .. tag knife_status_summary
 
-Use the ``knife status`` subcommand to display a brief summary of the nodes on a Chef server, including the time of the most recent successful chef-client run.
+Use the ``knife status`` subcommand to display a brief summary of the nodes on a Chef Infra Server, including the time of the most recent successful Chef Infra Client run.
 
 .. end_tag
 
@@ -28,13 +28,13 @@ Options
 This subcommand has the following options:
 
 ``QUERY``
-   The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
+   The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
 
 ``--hide-by-mins``
-   Hide nodes that have performed a successful chef-client run within the last specified number of minutes. The number of minutes to hide is provided as an integer, such as ``--hide-by-mins 10``. 
+   Hide nodes that have performed a successful Chef Infra Client run within the last specified number of minutes. The number of minutes to hide is provided as an integer, such as ``--hide-by-mins 10``. 
 
 ``-H``, ``--hide-healthy``
-   Hide nodes on which a chef-client run has occurred within the previous hour.
+   Hide nodes on which a Chef Infra Client run has occurred within the previous hour.
 
    Deprecated in favor of the ``--hide-by-mins`` option in Chef Client 12.6 and above.
    
@@ -82,7 +82,7 @@ to return something like:
 
 **View status using a time range**
 
-To show the status of nodes on which the chef-client did not run successfully within the past hour, enter:
+To show the status of nodes on which the Chef Infra Client did not run successfully within the past hour, enter:
 
 .. code-block:: bash 
 

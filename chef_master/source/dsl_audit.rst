@@ -5,7 +5,7 @@ About the Audit Mode DSL
 
 .. tag dsl_recipe_summary
 
-The Recipe DSL is a Ruby DSL that is primarily used to declare resources from within a recipe. The Recipe DSL also helps ensure that recipes interact with nodes (and node properties) in the desired manner. Most of the methods in the Recipe DSL are used to find a specific parameter and then tell the chef-client what action(s) to take, based on whether that parameter is present on a node.
+The Recipe DSL is a Ruby DSL that is primarily used to declare resources from within a recipe. The Recipe DSL also helps ensure that recipes interact with nodes (and node properties) in the desired manner. Most of the methods in the Recipe DSL are used to find a specific parameter and then tell the Chef Infra Client what action(s) to take, based on whether that parameter is present on a node.
 
 .. end_tag
 
@@ -140,7 +140,7 @@ where:
 * ``control_group`` groups one (or more) ``control`` blocks
 * ``control 'name' do`` defines an individual audit
 * Each ``control`` block must define at least one validation
-* Each ``it`` statement defines a single validation. ``it`` statements are processed individually when the chef-client is run in audit-mode
+* Each ``it`` statement defines a single validation. ``it`` statements are processed individually when the Chef Infra Client is run in audit-mode
 * An ``expect(something).to/.to_not be_something`` is a statement that represents the individual test. In other words, this statement tests if something is expected to be (or not be) something. For example, a test that expects the PostgreSQL pacakge to not be installed would be similar to ``expect(package('postgresql')).to_not be_installed`` and a test that ensures a service is enabled would be similar to ``expect(service('init')).to be_enabled``
 * An ``it`` statement may contain multiple ``expect`` statements
 
@@ -604,7 +604,7 @@ For example, a package is installed:
      end
    end
 
-The ``control_group`` block is processed when the chef-client run is run in audit-mode. If the audit was successful, the chef-client will return output similar to:
+The ``control_group`` block is processed when the Chef Infra Client run is run in audit-mode. If the audit was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -612,7 +612,7 @@ The ``control_group`` block is processed when the chef-client run is run in audi
      mysql package
        should be installed
 
-If an audit was unsuccessful, the chef-client will return output similar to:
+If an audit was unsuccessful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -672,7 +672,7 @@ A package that is not installed:
      end
    end
 
-If the audit was successful, the chef-client will return output similar to:
+If the audit was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -703,7 +703,7 @@ A service that is enabled and running:
      end
    end
 
-If the audit was successful, the chef-client will return output similar to:
+If the audit was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -778,7 +778,7 @@ The following example shows how to verify that a file has the desired permission
      end
    end
 
-If the audit was successful, the chef-client will return output similar to:
+If the audit was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -832,7 +832,7 @@ The syntax for the ``control_group`` method is as follows:
 where:
 
 * ``control_group`` groups one (or more) ``control`` blocks
-* ``'name'`` is the unique name for the ``control_group``; the chef-client will raise an exception if duplicate ``control_group`` names are present
+* ``'name'`` is the unique name for the ``control_group``; the Chef Infra Client will raise an exception if duplicate ``control_group`` names are present
 * ``control`` defines each individual audit within the ``control_group`` block. There is no limit to the number of ``control`` blocks that may defined within a ``control_group`` block
 
 .. end_tag
@@ -896,7 +896,7 @@ The following ``control_group`` ensures that MySQL is installed, that PostgreSQL
 
    end
 
-The ``control_group`` block is processed when the chef-client is run in audit-mode. If the chef-client run was successful, the chef-client will return output similar to:
+The ``control_group`` block is processed when the Chef Infra Client is run in audit-mode. If the Chef Infra Client run was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -915,7 +915,7 @@ The ``control_group`` block is processed when the chef-client is run in audit-mo
        should exist with correct permissions
        should contain required configuration
 
-If an audit was unsuccessful, the chef-client will return output similar to:
+If an audit was unsuccessful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -997,7 +997,7 @@ If an audit was unsuccessful, the chef-client will return output similar to:
 
 .. tag dsl_recipe_control_group_duplicate_names
 
-If two ``control_group`` blocks have the same name, the chef-client will raise an exception. For example, the following ``control_group`` blocks exist in different cookbooks:
+If two ``control_group`` blocks have the same name, the Chef Infra Client will raise an exception. For example, the following ``control_group`` blocks exist in different cookbooks:
 
 .. code-block:: ruby
 
@@ -1015,7 +1015,7 @@ If two ``control_group`` blocks have the same name, the chef-client will raise a
      end
    end
 
-Because the two ``control_group`` block names are identical, the chef-client will return an exception similar to:
+Because the two ``control_group`` block names are identical, the Chef Infra Client will return an exception similar to:
 
 .. code-block:: ruby
 

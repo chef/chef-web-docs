@@ -16,9 +16,9 @@ Since a variety of different practices are used to create an air-gapped network,
 * You have a private Ruby gem mirror to supply gems as needed
 * You have an artifact store for file downloads. At a minimum, it should have the following packages available:
     * ChefDK
-    * Chef client
+    * Chef Infra Client
     * Chef Supermarket
-    * An `install script </install_chef_air_gap.html#create-an-install-script>`__ for Chef client
+    * An `install script </install_chef_air_gap.html#create-an-install-script>`__ for Chef Infra Client
 
 Required cookbooks
 -----------------------------------------------------
@@ -48,7 +48,7 @@ These should be accessible from your Gem mirror.
 
 Create an install script
 -----------------------------------------------------
-An install script is used to install Chef client when bootstrapping a new node. It simply pulls the Chef client package from your artifact store, and then installs it. For example, on Debian-based Linux systems, it would look similar to this:
+An install script is used to install Chef Infra Client when bootstrapping a new node. It simply pulls the Chef Infra Client package from your artifact store, and then installs it. For example, on Debian-based Linux systems, it would look similar to this:
 
 .. code-block:: bash
 
@@ -62,18 +62,18 @@ The install script should be accessible from your artifact store.
 
 Chef server
 =====================================================
-In this section you'll install the Chef server, and create your organization and user.  Note that in order to configure Supermarket later in this guide, you will need a user that is a member of the ``admins`` group.
+In this section you'll install the Chef Infra Server, and create your organization and user.  Note that in order to configure Supermarket later in this guide, you will need a user that is a member of the ``admins`` group.
 
 .. note:: If you intend to use Chef Automate, create the ``delivery`` user and add it to your organization during this step.
 
 #. Download the package from https://downloads.chef.io/chef-server/.
-#. Upload the package to the machine that will run the Chef server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
+#. Upload the package to the machine that will run the Chef Infra Server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.
 
 #. .. tag install_chef_server_install_package
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Infra Server applications.
 
-   As a root user, install the Chef server package on the server, using the name of the package provided by Chef. For Red Hat Enterprise Linux and CentOS:
+   As a root user, install the Chef Infra Server package on the server, using the name of the package provided by Chef. For Red Hat Enterprise Linux and CentOS:
 
    .. code-block:: bash
 
@@ -85,7 +85,7 @@ In this section you'll install the Chef server, and create your organization and
 
       $ sudo dpkg -i /tmp/chef-server-core-<version>.deb
 
-   After a few minutes, the Chef server will be installed.
+   After a few minutes, the Chef Infra Server will be installed.
 
    .. end_tag
 
@@ -95,7 +95,7 @@ In this section you'll install the Chef server, and create your organization and
 
       $ chef-server-ctl reconfigure
 
-   Because the Chef server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
+   Because the Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
 
 #. .. tag ctl_chef_server_user_create_admin
 
@@ -133,13 +133,13 @@ In this section you'll install the Chef server, and create your organization and
 
    The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``'Fourth Coffee, Inc.'``.
 
-   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
+   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef Infra Server.
 
    An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
    .. end_tag
 
-Chef workstation
+Chef Workstation
 =====================================================
 
 Install ChefDK
@@ -218,7 +218,7 @@ By default, ``knife bootstrap`` uses the ``chef-full`` template to bootstrap a n
 
 Configure knife
 -----------------------------------------------------
-Within the ``.chef`` directory, create a ``config.rb`` file and replace ``USER`` and ``ORGANIZATION`` with the user and organization that you created on your Chef server; replace ``chef-server.example.com`` with your Chef server URL:
+Within the ``.chef`` directory, create a ``config.rb`` file and replace ``USER`` and ``ORGANIZATION`` with the user and organization that you created on your Chef Infra Server; replace ``chef-server.example.com`` with your Chef Infra Server URL:
 
 .. code-block:: ruby
 
@@ -237,7 +237,7 @@ Within the ``.chef`` directory, create a ``config.rb`` file and replace ``USER``
 
 The ``knife[:bootstrap_template]`` option in this example allows you to specify the template that ``knife bootstrap`` will use by default when bootstrapping a node. It should point to your custom template within the ``bootstrap`` directory.
 
-Now that ``knife`` is configured, copy the SSL certificates from your Chef server to your trusted certificates:
+Now that ``knife`` is configured, copy the SSL certificates from your Chef Infra Server to your trusted certificates:
 
 .. code-block:: ruby
 
@@ -263,19 +263,19 @@ The following Gems must be accessible via your Gem mirror:
 
 Your ``cookbooks`` directory must have all three of these cookbooks installed before you will be able to use the Supermarket cookbook wrapper. In addition the necessary cookbooks, a private Chef Supermarket has the following requirements:
 
-* An operational Chef server (version 12.0 or higher) to act as the OAuth 2.0 provider
-* A user account on the Chef server with ``admins`` privileges
+* An operational Chef Infra Server (version 12.0 or higher) to act as the OAuth 2.0 provider
+* A user account on the Chef Infra Server with ``admins`` privileges
 * A key for the user account on the Chef server
 * An x86_64 compatible Linux host with at least 1 GB memory
-* System clocks synchronized on the Chef server and Supermarket hosts
+* System clocks synchronized on the Chef Infra Server and Supermarket hosts
 * Sufficient disk space to meet project cookbook storage capacity or credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
 Configure credentials
 -----------------------------------------------------
 
-First, you'll configure Chef Identity credentials for Supermarket. Chef Identity is an OAuth 2.0 service packaged with the Chef server, that allows you to use the same credentials to access both server and Supermarket.
+First, you'll configure Chef Identity credentials for Supermarket. Chef Identity is an OAuth 2.0 service packaged with the Chef Infra Server, that allows you to use the same credentials to access both server and Supermarket.
 
-#. Log on to the Chef server via SSH and elevate to an admin-level user. If running a multi-node Chef server cluster, log on to the node acting as the primary node in the cluster.
+#. Log on to the Chef Infra Server via SSH and elevate to an admin-level user. If running a multi-node Chef Infra Server cluster, log on to the node acting as the primary node in the cluster.
 #. Update the ``/etc/opscode/chef-server.rb`` configuration file.
 
    .. tag config_ocid_application_hash_supermarket
@@ -291,7 +291,7 @@ First, you'll configure Chef Identity credentials for Supermarket. Chef Identity
 
    .. end_tag
 
-#. Reconfigure the Chef server.
+#. Reconfigure the Chef Infra Server.
 
    .. code-block:: bash
 
@@ -299,7 +299,7 @@ First, you'll configure Chef Identity credentials for Supermarket. Chef Identity
 
 #. Retrieve Supermarket's OAuth 2.0 client credentials:
 
-   Depending on your Chef server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
+   Depending on your Chef Server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
    .. code-block:: javascript
 
@@ -343,7 +343,7 @@ Create a Wrapper
 
 Define Attributes
 -----------------------------------------------------
-Define the attributes for the Chef Supermarket installation and how it connects to the Chef server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a `data bag </data_bags.html>`__, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``. The following attributes are required:
+Define the attributes for the Chef Supermarket installation and how it connects to the Chef Infra Server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a `data bag </data_bags.html>`__, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``. The following attributes are required:
 
 * ``chef_server_url``: the url for your chef server.
 * ``chef_oauth2_app_id``: the Chef Identity uid from ``/etc/opscode/oc-id-applications/supermarket.json``
@@ -393,7 +393,7 @@ To define these attributes, do the following:
 
 #. Save and close the ``recipes/default.rb`` file.
 
-#. Upload all of your cookbooks to the Chef server:
+#. Upload all of your cookbooks to the Chef Infra Server:
 
    .. code-block:: ruby
 
@@ -423,13 +423,13 @@ When the bootstrap operation is finished, do the following:
 
    where ``supermarket-node`` is the name of the node that was just bootstrapped.
 
-#. Start the chef-client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
+#. Start the Chef Infra Client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
 
    .. code-block:: bash
 
       $ ssh ubuntu@your-supermarket-node-public-dns
 
-#. After accessing the Chef Supermarket node, run the chef-client:
+#. After accessing the Chef Supermarket node, run the Chef Infra Client:
 
    .. code-block:: bash
 
@@ -441,7 +441,7 @@ To reach the newly spun up private Chef Supermarket, the hostname must be resolv
 
 #. Visit the Chef Supermarket hostname in the browser. A private Chef Supermarket will generate and use a self-signed certificate, if a certificate is not supplied as part of the installation process (via the wrapper cookbook).
 #. If an SSL notice is shown due to your self-signed certificate while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
-#. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown. Authorize the Chef Supermarket to use the Chef server account for authentication. **Important:** If you intend to use Supermarket in conjunction with Chef Automate, you should log into to Supermarket as the ``delivery`` user.
+#. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef Infra Server is shown. Authorize the Chef Supermarket to use the Chef Infra Server account for authentication. **Important:** If you intend to use Supermarket in conjunction with Chef Automate, you should log into to Supermarket as the ``delivery`` user.
 
 .. note:: The redirect URL specified for Chef Identity **MUST** match the FQDN hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
@@ -507,7 +507,7 @@ Installation
 
    Please refer to the troubleshooting section for more information about the error codes and remediation steps.
 
-#. Ensure that the Chef Automate license file and the ``delivery`` user key you created earlier in the Chef Server setup are located on the Chef Automate server.
+#. Ensure that the Chef Automate license file and the ``delivery`` user key you created earlier in the Chef Infra Server setup are located on the Chef Automate server.
 
 #. Run the ``automate-ctl setup`` command with the ``--supermarket-fqdn`` option to specify the URL of your private Supermarket. This command requires root user privileges.
 
@@ -519,9 +519,9 @@ Installation
 
    * The full path and file name of your Chef Automate license file. For example: ``/root/automate.license``.
 
-   * The ``delivery`` user key that you created on your Chef server. For example: ``/root/delivery.pem``.
+   * The ``delivery`` user key that you created on your Chef Infra Server. For example: ``/root/delivery.pem``.
 
-   * The URL of your Chef server, which contains the fully-qualified domain name of the Chef server and the name of the organization you created when you created the ``delivery`` user.
+   * The URL of your Chef Infra Server, which contains the fully-qualified domain name of the Chef Infra Server and the name of the organization you created when you created the ``delivery`` user.
 
    * The external fully-qualified domain name of the Chef Automate server. This is just the name of the system, not a URL. For example: ``host.4thcoffee.co``.
 
@@ -540,7 +540,7 @@ run setup and applied configuration at that time. You can bypass this prompt by 
 
 .. note:: Your Chef Automate server will not be available for use until you either agree to apply the configuration, or manually run ``sudo automate-ctl reconfigure``.
 
-If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. In addition to installing runners during setup, you can also install push jobs-based build nodes after your Chef Automate setup completes using the command ``sudo automate-ctl install-build-node``. If you need to install additional runners, run ``sudo automate-ctl install-runner``. These commands can be run each time you want to install a new build node or runner. See the next section for installation instructions.
+If you've applied the configuration, you will also be prompted to set up a Chef Automate runner and submit additional information. In addition to installing runners during setup, you can also install Push Jobs-based build nodes after your Chef Automate setup completes using the command ``sudo automate-ctl install-build-node``. If you need to install additional runners, run ``sudo automate-ctl install-runner``. These commands can be run each time you want to install a new build node or runner. See the next section for installation instructions.
 
 After setup successfully completes and a configuration has been applied, login credentials are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
 
@@ -570,10 +570,10 @@ To set your own token, add the following to your ``/etc/delivery/delivery.rb`` f
 If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
 
 
-Configure your Chef server to point to Chef Automate
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+Configure your Chef Infra Server to point to Chef Automate
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
+In addition to forwarding Chef run data to Automate, Chef Infra Server will send messages to Chef Automate whenever an action is taken on a Chef Infra Server object, such as when a cookbook is uploaded to the Chef Infra Server or when a user edits a role.
 
 To enable this feature on Chef Server versions 12.14 and later, channel the token setting through our veil secrets library because the token is considered a secret and, as such, cannot appear in ``/etc/opscode/chef-server.rb``. On Chef Server versions 12.14 and above, you must make the following to change the data collector token:
 
@@ -582,7 +582,7 @@ To enable this feature on Chef Server versions 12.14 and later, channel the toke
    chef-server-ctl set-secret data_collector token 'TOKEN'
    chef-server-ctl restart nginx
 
-To enable this feature on Chef Server versions 12.13 and earlier, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef server:
+To enable this feature on Chef Server versions 12.13 and earlier, add the following settings to ``/etc/opscode/chef-server.rb`` on the Chef Infra Server:
 
 .. code-block:: ruby
 
@@ -598,13 +598,13 @@ Additional configuration options include:
 
  * ``data_collector['timeout']``: timeout in milliseconds to abort an attempt to send a message to the
    Chef Automate server. Default: ``30000``.
- * ``data_collector['http_init_count']``: number of Chef Automate HTTP workers Chef server should start.
+ * ``data_collector['http_init_count']``: number of Chef Automate HTTP workers Chef Infra Server should start.
    Default: ``25``.
- * ``data_collector['http_max_count']``: maximum number of Chef Automate HTTP workers Chef server should
+ * ``data_collector['http_max_count']``: maximum number of Chef Automate HTTP workers Chef Infra Server should
    allow to exist at any time. Default: ``100``.
  * ``data_collector['http_max_age']``: maximum age a Chef Automate HTTP worker should be allowed to live,
    specified as an Erlang tuple. Default: ``{70, sec}``.
- * ``data_collector['http_cull_interval']``: how often Chef server should cull aged-out Chef Automate
+ * ``data_collector['http_cull_interval']``: how often Chef Infra Server should cull aged-out Chef Automate
    HTTP workers that have exceeded their ``http_max_age``, specified as an Erlang tuple. Default: ``{1,
    min}``.
  * ``data_collector['http_max_connection_duration']``: maximum duration an HTTP connection is allowed

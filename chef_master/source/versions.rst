@@ -68,7 +68,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - 0.8
      - Releasing Soon
      - n/a
-   * - Chef InSpec
+   * - InSpec
      - 4.x
      - Releasing Soon
      - n/a

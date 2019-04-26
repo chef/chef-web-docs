@@ -3,17 +3,17 @@ Chef Replication (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_replication.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef server.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef Server.
 
 .. note:: This topic is meant to support existing customers using Chef replication. The capabilities of Chef replication can be reproduced using the features of Chef Automate workflow and we encourage customers to adopt Chef Automate going forward.
 
 .. tag server_replication_summary
 
-Chef replication provides a way to asynchronously distribute cookbook, environment, role, and data bag data from a single, primary Chef server to one (or more) replicas of that Chef server.
+Chef replication provides a way to asynchronously distribute cookbook, environment, role, and data bag data from a single, primary Chef Server to one (or more) replicas of that Chef Server.
 
 .. end_tag
 
-.. note:: Chef replication requires Chef server version 12.
+.. note:: Chef replication requires Chef Server version 12.
 
 .. note:: .. tag chef_subscriptions
 
@@ -27,11 +27,11 @@ Scenarios
 
 Replication is configured on a per-organization and also a per-replica basis. Each organization must be configured to synchronize with each replica instance. Each organization may be configured to synchronize with all, some, or none of the available replica instances.
 
-For example, a single primary Chef server and a single replica:
+For example, a single primary Chef Server and a single replica:
 
 .. image:: ../../images/chef_server_replication.png
 
-and for example, a single primary Chef server and multiple replicas:
+and for example, a single primary Chef Server and multiple replicas:
 
 .. image:: ../../images/chef_server_replication_many.png
 
@@ -39,7 +39,7 @@ Chef replication should not be used for:
 
 * Disaster recovery or backup/restore processes. The replication process is read-only and cannot be changed to read-write
 * Synchronizing a replica instance with another replica instance
-* Node re-registration. A node may be associated only with a single Chef server
+* Node re-registration. A node may be associated only with a single Chef Server
 
 .. end_tag
 
@@ -47,7 +47,7 @@ How Replication Works
 =====================================================
 .. tag server_replication_how_it_works
 
-A daemon named **ec-syncd** runs on each of the replica instances of the Chef server and periodically polls the primary Chef server via the ``updated_since`` endpoint in the Chef server API. The **ec-syncd** daemon requests a list of objects that have been updated since the last successful synchronization time. If there are updates, the **ec-syncd** daemon then pulls down the updated data from the primary Chef server to the replica.
+A daemon named **ec-syncd** runs on each of the replica instances of the Chef Server and periodically polls the primary Chef Server via the ``updated_since`` endpoint in the Chef Server API. The **ec-syncd** daemon requests a list of objects that have been updated since the last successful synchronization time. If there are updates, the **ec-syncd** daemon then pulls down the updated data from the primary Chef Server to the replica.
 
 .. image:: ../../images/chef_server_replication_sequence.png
 
@@ -55,9 +55,9 @@ A daemon named **ec-syncd** runs on each of the replica instances of the Chef se
 
 Configure Chef Replication
 =====================================================
-To configure replication of Chef server data, first install Chef replication, then configure the primary Chef server, then configure the replica Chef server, and then start the synchronization process.
+To configure replication of Chef Server data, first install Chef replication, then configure the primary Chef Server, then configure the replica Chef Server, and then start the synchronization process.
 
-#. To install Chef replication, run the following on all servers in the Chef server configuration. For dpkg:
+#. To install Chef replication, run the following on all servers in the Chef Server configuration. For dpkg:
 
    .. code-block:: bash
 
@@ -69,33 +69,33 @@ To configure replication of Chef server data, first install Chef replication, th
 
       $ rpm -Uvh chef-sync-<version>.rpm
 
-#. On the primary Chef server, create the chef-sync.rb file in the ``/etc/chef-sync/`` directory, and then add the following setting:
+#. On the primary Chef Server, create the chef-sync.rb file in the ``/etc/chef-sync/`` directory, and then add the following setting:
 
    .. code-block:: ruby
 
       role :master
 
-#. On the primary Chef server, run the following command:
+#. On the primary Chef Server, run the following command:
 
    .. code-block:: bash
 
       $ chef-sync-ctl reconfigure
 
-#. On the primary Chef server, run the following command:
+#. On the primary Chef Server, run the following command:
 
    .. code-block:: bash
 
       $ chef-server-ctl reconfigure
 
-#. On the primary Chef server, run the following command:
+#. On the primary Chef Server, run the following command:
 
    .. code-block:: bash
 
       $ chef-sync-ctl prepare-org SOURCE_ORG_NAME
 
-#. For each replica Chef server, move the ``/etc/chef-sync/ec_sync_user.pem`` file from the primary Chef server to the ``/etc/chef-sync`` directory on the replica. (This file is created automatically on the primary Chef server.)
+#. For each replica Chef Server, move the ``/etc/chef-sync/ec_sync_user.pem`` file from the primary Chef Server to the ``/etc/chef-sync`` directory on the replica. (This file is created automatically on the primary Chef Server.)
 
-#. For each replica Chef server, create the chef-sync.rb file in the ``/etc/chef-sync/`` directory, and then add the following setting:
+#. For each replica Chef Server, create the chef-sync.rb file in the ``/etc/chef-sync/`` directory, and then add the following setting:
 
    .. code-block:: ruby
 
@@ -113,21 +113,21 @@ To configure replication of Chef server data, first install Chef replication, th
                       }
                     ]
 
-   where ``DEST_ORG_NAME`` is an organization on the replica Chef server and ``SOURCE_ORG_NAME`` is an organization on the primary Chef server. Both of these organizations must already exist.
+   where ``DEST_ORG_NAME`` is an organization on the replica Chef Server and ``SOURCE_ORG_NAME`` is an organization on the primary Chef Server. Both of these organizations must already exist.
 
-#. For each replica Chef server, run the following command:
+#. For each replica Chef Server, run the following command:
 
    .. code-block:: bash
 
       $ chef-sync-ctl reconfigure
 
-#. For each replica Chef server, run the following command:
+#. For each replica Chef Server, run the following command:
 
    .. code-block:: bash
 
       $ chef-sync-ctl prepare-org DEST_ORG_NAME
 
-#. For each replica Chef server, run the following command:
+#. For each replica Chef Server, run the following command:
 
    .. code-block:: bash
 
@@ -135,7 +135,7 @@ To configure replication of Chef server data, first install Chef replication, th
 
 chef-sync-ctl (executable)
 =====================================================
-chef-sync-ctl is the command line tool for Chef replication, which allows asynchronous replication of cookbook content across Chef server organizations. This is done from a single, primary Chef server organization to one (or more) replicas of that Chef server.
+chef-sync-ctl is the command line tool for Chef replication, which allows asynchronous replication of cookbook content across Chef Server organizations. This is done from a single, primary Chef Server organization to one (or more) replicas of that Chef Server.
 
 manager-log
 -----------------------------------------------------
@@ -149,7 +149,7 @@ This option has the following syntax:
 
 prepare-org
 -----------------------------------------------------
-Use to prepare the specified organization for synchronization by associating the synchronizing user, and then making that user an administrator. This subcommand must be run on both the single, primary Chef server organization and all replica organizations.
+Use to prepare the specified organization for synchronization by associating the synchronizing user, and then making that user an administrator. This subcommand must be run on both the single, primary Chef Server organization and all replica organizations.
 
 This option has the following syntax:
 
@@ -220,7 +220,7 @@ Settings
 This configuration file has the following settings:
 
 ``bootstrap``
-   Indicates whether an attempt to bootstrap the Chef server is made. Generally only enabled on systems that have bootstrap enabled via a ``server`` entry. Default value: ``true``.
+   Indicates whether an attempt to bootstrap the Chef Server is made. Generally only enabled on systems that have bootstrap enabled via a ``server`` entry. Default value: ``true``.
 
 ``chef_base_path``
    Default value: ``'/opt/opscode'``.
@@ -232,7 +232,7 @@ This configuration file has the following settings:
    Enable a service. Default value: ``true``.
 
 ``ec_sync_client['ha']``
-   Run the Chef server in a high availability topology. Default value: ``false``.
+   Run the Chef Server in a high availability topology. Default value: ``false``.
 
 ``ec_sync_client['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``'/var/log/opscode/chef-sync/client'``.
@@ -271,7 +271,7 @@ This configuration file has the following settings:
    Enable a service. Default value: ``true``.
 
 ``ec_sync_server['ha']``
-   Run the Chef server in a high availability topology. Default value: ``false``.
+   Run the Chef Server in a high availability topology. Default value: ``false``.
 
 ``ec_sync_server['listen']``
    The IP address on which the service is to listen. Default value: ``'127.0.0.1'``.
@@ -292,7 +292,7 @@ This configuration file has the following settings:
    Default value: ``'/opt/chef-sync'``.
 
 ``master``
-   Use to specify the root URL for the master Chef server.
+   Use to specify the root URL for the master Chef Server.
 
 ``name``
    Default value: ``'sync'``.
@@ -301,29 +301,29 @@ This configuration file has the following settings:
    An array that specifies the source and destination organization pairs for synchronization.
 
 ``replica``
-   Use to specify the root URL for the replica Chef server.
+   Use to specify the root URL for the replica Chef Server.
 
 ``role``
-   Use to specify if ``chef-sync`` is installed as a master Chef server, a replica Chef server, or both. Possible values: ``:master``, ``:master_and_replica``, ``:replica``. Default value: ``:replica``.
+   Use to specify if ``chef-sync`` is installed as a master Chef Server, a replica Chef Server, or both. Possible values: ``:master``, ``:master_and_replica``, ``:replica``. Default value: ``:replica``.
 
 ``user['home']``
-   The home directory for the user under which Chef server services run. Default value: ``'/opt/opscode/embedded'``.
+   The home directory for the user under which Chef Server services run. Default value: ``'/opt/opscode/embedded'``.
 
 ``user['shell']``
-   The shell for the user under which Chef server services run. Default value: ``'/bin/sh'``.
+   The shell for the user under which Chef Server services run. Default value: ``'/bin/sh'``.
 
 ``user['username']``
-   The user name under which Chef server services run. Default value: ``opscode``.
+   The user name under which Chef Server services run. Default value: ``opscode``.
 
-Chef server API Endpoint
+Chef Server API Endpoint
 =====================================================
-The following Chef server API endpoint supports Chef replication.
+The following Chef Server API endpoint supports Chef replication.
 
 /updated_since
 -----------------------------------------------------
 .. tag api_chef_server_endpoint_org_name_updated_since
 
-The ``/updated_since`` endpoint ensures that replica instances of the Chef server are able to synchronize with the primary Chef server. The ``/organizations/NAME/updated_since`` endpoint has the following methods: ``GET``.
+The ``/updated_since`` endpoint ensures that replica instances of the Chef Server are able to synchronize with the primary Chef Server. The ``/organizations/NAME/updated_since`` endpoint has the following methods: ``GET``.
 
 .. end_tag
 
@@ -388,4 +388,3 @@ The response will return an array of paths for objects that have been created, u
      - Not found. The requested object does not exist.
 
 .. end_tag
-

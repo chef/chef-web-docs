@@ -5,7 +5,7 @@ chef-solo
 
 .. tag chef_solo_summary
 
-chef-solo is a command that executes chef-client in a way that does not require the Chef server in order to converge cookbooks. chef-solo uses chef-client's `Chef local mode </ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in chef-client / server configurations:
+chef-solo is a command that executes Chef Infra Client in a way that does not require the Chef Infra Server in order to converge cookbooks. chef-solo uses Chef Infra Client's `Chef local mode </ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in Chef Infra Client / server configurations:
 
 * Centralized distribution of cookbooks
 * A centralized API that interacts with and integrates infrastructure components
@@ -47,11 +47,11 @@ When the tar.gz archive contains all of the cookbooks required by chef-solo, upl
 
 Nodes
 =====================================================
-Unlike chef-client, where the node object is stored on the Chef server, chef-solo stores its node objects as JSON files on local disk. By default, chef-solo stores these files in a ``nodes`` folder in the same directory as your ``cookbooks`` directory. You can control the location of this directory via the ``node_path`` value in your configuration file.
+Unlike Chef Infra Client, where the node object is stored on the Chef Infra Server, chef-solo stores its node objects as JSON files on local disk. By default, chef-solo stores these files in a ``nodes`` folder in the same directory as your ``cookbooks`` directory. You can control the location of this directory via the ``node_path`` value in your configuration file.
 
 Attributes
 =====================================================
-chef-solo does not interact with the Chef server. Consequently, node-specific attributes must be located in a JSON file on the target system, a remote location (such as Amazon Simple Storage Service (S3)), or a web server on the local network.
+chef-solo does not interact with the Chef Infra Server. Consequently, node-specific attributes must be located in a JSON file on the target system, a remote location (such as Amazon Simple Storage Service (S3)), or a web server on the local network.
 
 The JSON file must also specify the recipes that are part of the run-list. For example:
 
@@ -205,23 +205,23 @@ This command has the following options:
 ``-d``, ``--daemonize``
    Run the executable as a daemon. This option may not be used in the same command with the ``--[no-]fork`` option.
 
-   This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a chef-client service under Microsoft Windows using the Windows Service Wrapper.
+   This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a Chef Infra Client service under Microsoft Windows using the Windows Service Wrapper.
 
 ``-E ENVIRONMENT_NAME``, ``--environment ENVIRONMENT_NAME``
    The name of the environment.
 
 ``-f``, ``--[no-]fork``
-   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This option helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the chef-client in fork node. Default value: ``--fork``. This option may not be used in the same command with the ``--daemonize`` and ``--interval`` options.
+   Contain the Chef Infra Client run in a secondary process with dedicated RAM. When the Chef Infra Client run is complete, the RAM is returned to the master process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the Chef Infra Client in fork node. Default value: ``--fork``. This option may not be used in the same command with the ``--daemonize`` and ``--interval`` options.
 
 ``-F FORMAT``, ``--format FORMAT``
    .. tag ctl_chef_client_options_format
 
    The output format: ``doc`` (default) or ``min``.
 
-   * Use ``doc`` to print the progress of the chef-client run using full strings that display a summary of updates as they occur.
-   * Use ``min`` to print the progress of the chef-client run using single characters.
+   * Use ``doc`` to print the progress of the Chef Infra Client run using full strings that display a summary of updates as they occur.
+   * Use ``min`` to print the progress of the Chef Infra Client run using single characters.
 
-   A summary of updates is printed at the end of the chef-client run. A dot (``.``) is printed for events that do not have meaningful status information, such as loading a file or synchronizing a cookbook. For resources, a dot (``.``) is printed when the resource is up to date, an ``S`` is printed when the resource is skipped by ``not_if`` or ``only_if``, and a ``U`` is printed when the resource is updated.
+   A summary of updates is printed at the end of the Chef Infra Client run. A dot (``.``) is printed for events that do not have meaningful status information, such as loading a file or synchronizing a cookbook. For resources, a dot (``.``) is printed when the resource is up to date, an ``S`` is printed when the resource is skipped by ``not_if`` or ``only_if``, and a ``U`` is printed when the resource is updated.
 
    Other formatting options are available when those formatters are configured in the client.rb file using the ``add_formatter`` option.
 
@@ -240,7 +240,7 @@ This command has the following options:
    Show help for the command.
 
 ``-i SECONDS``, ``--interval SECONDS``
-   The frequency (in seconds) at which the chef-client runs. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run. This option may not be used in the same command with the ``--[no-]fork`` option.
+   The frequency (in seconds) at which the Chef Infra Client runs. When the Chef Infra Client is run at intervals, ``--splay`` and ``--interval`` values are applied before the Chef Infra Client run. This option may not be used in the same command with the ``--[no-]fork`` option.
 
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data.
@@ -308,7 +308,7 @@ This command has the following options:
    The location of the log file. This is recommended when starting any executable as a daemon.
 
 ``--legacy-mode``
-   Cause the chef-client to not use chef local mode, but rather the original chef-solo mode. This is not recommended unless really required.
+   Cause the Chef Infra Client to not use chef local mode, but rather the original chef-solo mode. This is not recommended unless really required.
 
    Removed in Chef Client 14.
 
@@ -330,19 +330,19 @@ This command has the following options:
    In Chef Client 14, the short ``-r`` form will be removed, as it conflicts with the ability to specify a run list.
 
 ``--run-lock-timeout SECONDS``
-   The amount of time (in seconds) to wait for a chef-client lock file to be deleted. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
+   The amount of time (in seconds) to wait for a Chef Infra Client lock file to be deleted. Default value: not set (indefinite). Set to ``0`` to cause a second Chef Infra Client to exit immediately.
 
 ``-s SECONDS``, ``--splay SECONDS``
-   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. When the chef-client is run at intervals, ``--splay`` and ``--interval`` values are applied before the chef-client run.
+   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs are not occurring at the same interval. When the Chef Infra Client is run at intervals, ``--splay`` and ``--interval`` values are applied before the Chef Infra Client run.
 
 ``-u USER``, ``--user USER``
    The user that owns a process. This is required when starting any executable as a daemon.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 ``-W``, ``--why-run``
-   Run the executable in why-run mode, which is a type of chef-client run that does everything except modify the system. Use why-run mode to understand why the chef-client makes the decisions that it makes and to learn more about the current and proposed state of the system.
+   Run the executable in why-run mode, which is a type of Chef Infra Client run that does everything except modify the system. Use why-run mode to understand why the Chef Infra Client makes the decisions that it makes and to learn more about the current and proposed state of the system.
 
 .. end_tag
 

@@ -5,7 +5,7 @@ About Berkshelf
 
 .. tag berkshelf_summary
 
-Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in the Chef Development Kit.
+Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in ChefDK.
 
 .. note:: For new users, we strongly recommend using `Policyfiles </policyfile.html>`__ rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production.
 
@@ -43,7 +43,7 @@ Now, when you run ``berks install``, the apt cookbook will be downloaded from Su
 
 In this example, the ``compat_resource`` cookbook is also installed since it's a dependency of the ``apt`` cookbook. Running the install command also creates a ``Berksfile.lock``, which represents exactly which cookbook versions Berkshelf installed. This file ensures that someone else can check the cookbook out of git and get exactly the same dependencies as you.
 
-You can now upload all cookbooks to your Chef server with ``berks upload``:
+You can now upload all cookbooks to your Chef Infra Server with ``berks upload``:
 
 .. code-block:: shell
 
@@ -76,22 +76,22 @@ A Berksfile is a Ruby file, in which sources, dependencies, and options may be s
 Source Keyword
 +++++++++++++++
 
-A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public `Supermarket </supermarket.html>`__, Chef Server, or local Chef repository.
+A source defines where Berkshelf should look for cookbooks. Sources are processed in the order that they are defined in, and processing stops as soon as a suitable cookbook is found. Locations include a private or public `Supermarket </supermarket.html>`__, Chef Infra Server, or local Chef repository.
 
-By default, a Berksfile has a source for Chef's public supermarket:
+By default, a Berksfile has a source for Chef's public Supermarket:
 
 .. code-block:: ruby
 
    source "https://supermarket.chef.io"
 
-To add a private supermarket, which will be preferred:
+To add a private Supermarket, which will be preferred:
 
 .. code-block:: ruby
 
    source "https://supermarket.example.com"
    source "https://supermarket.chef.io"
 
-To add a Chef Server:
+To add a Chef Infra Server:
 
 .. code-block:: ruby
 
@@ -105,7 +105,7 @@ To add a local Chef repository:
    source "https://supermarket.chef.io"
    source chef_repo: ".."
 
-The location and authentication details for the Chef Server will be taken from the user's ``config.rb`` by default.
+The location and authentication details for the Chef Infra Server will be taken from the user's ``config.rb`` by default.
 
 To add multiple Chef Servers:
 
@@ -235,7 +235,7 @@ It is possible to configure which engine to use for the `solve <https://github.c
 
 By default, the solver selection depends on your environment. When the ``dep_selector`` gem is installed, as in the case of ChefDK, the ``gecode`` solver is used. Otherwise, the ``ruby`` solver is utilized by default.
 
-The ``gecode`` solver matches the engine used by the Chef Server, so will more closely reflect the behavior of the Chef Server in selecting cookbooks:
+The ``gecode`` solver matches the engine used by the Chef Infra Server, so will more closely reflect the behavior of the Chef Infra Server in selecting cookbooks:
 
 .. code-block:: ruby
 
@@ -268,7 +268,7 @@ Common Options
 
 berks apply
 -----------------------------------------------------
-Use ``berks apply`` to apply Berksfile version locks to the named environment on the Chef server.
+Use ``berks apply`` to apply Berksfile version locks to the named environment on the Chef Infra Server.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -526,7 +526,7 @@ This command has the following options:
 
 berks upload
 -----------------------------------------------------
-Use ``berks upload`` to upload the named cookbook to the Chef server.
+Use ``berks upload`` to upload the named cookbook to the Chef Infra Server.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -547,10 +547,10 @@ This command has the following options:
    An array of cookbook groups that will not be uploaded.
 
 ``--force``
-   Use to upload any named cookbook even if that cookbook exists on the Chef server and is frozen.
+   Use to upload any named cookbook even if that cookbook exists on the Chef Infra Server and is frozen.
 
 ``--halt-on-frozen``
-   Use to exit the command with a non-zero exit code if this version of a cookbook already exists on the Chef server.
+   Use to exit the command with a non-zero exit code if this version of a cookbook already exists on the Chef Infra Server.
 
 ``-o [GROUP, GROUP, ...]``, ``--only [GROUP, GROUP, ...]``
    An array of cookbook groups to be uploaded. When this option is used, cookbooks that exist in groups not listed will not be uploaded.
@@ -559,10 +559,10 @@ This command has the following options:
    A frozen cookbook requires changes to that cookbook to be submitted as a new version of that cookbook. Use this option to prevent this cookbook from being frozen. Default value: ``false`` (i.e. "frozen").
 
 ``--ssl-verify``
-   Use to enable (``true``) or disable (``false``) SSL verification when uploading cookbooks to the Chef server.
+   Use to enable (``true``) or disable (``false``) SSL verification when uploading cookbooks to the Chef Infra Server.
 
 ``-s``, ``--skip-syntax-check``
-   Use to skip Ruby syntax checking when uploading a cookbook to the Chef server. Default value: ``false``.
+   Use to skip Ruby syntax checking when uploading a cookbook to the Chef Infra Server. Default value: ``false``.
 
 berks vendor
 -----------------------------------------------------

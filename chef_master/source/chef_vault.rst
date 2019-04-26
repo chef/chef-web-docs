@@ -3,17 +3,17 @@
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_vault.rst>`__
 
-``chef-vault`` is a Ruby Gem that is included in Chef Workstation and the chef-client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
+``chef-vault`` is a Ruby Gem that is included in Chef Workstation and the Chef Infra Client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
 
 .. note:: ``chef-vault`` does not currently support alternate keying mechanisms like GPG and Amazon KMS.
 
 * For more information about using the ``chef-vault`` cookbook, its helper methods and resources, see https://github.com/chef-cookbooks/chef-vault
 
-The ``chef-vault cookbook`` is maintained by Chef. Use it along with ``chef-vault`` itself. This cookbook adds the ``chef_vault_item`` helper method to the Recipe DSL and the ``chef_vault_secret`` resource. Use them both in recipes to work with data bag secrets.
+The ``chef-vault cookbook`` is maintained by Chef Software. Use it along with ``chef-vault`` itself. This cookbook adds the ``chef_vault_item`` helper method to the Recipe DSL and the ``chef_vault_secret`` resource. Use them both in recipes to work with data bag secrets.
 
 .. warning::
 
-   Chef vault requires the use of chef-client configured to use public/private key pairs. Chef vault is incompatible with the practice of using chef-client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef server database. To update existing nodes to use ``chef-vault``, first re-register your chef-client nodes with the Chef server, which will generate public/private key pairs, and then install Chef vault on each node. Chef vault will generate the following error if used with a chef-client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef server database:
+   Chef vault requires the use of Chef Infra Client configured to use public/private key pairs. Chef vault is incompatible with the practice of using Chef Infra Client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef Infra Server database. To update existing nodes to use ``chef-vault``, first re-register your Chef Infra Client nodes with the Chef Infra Server, which will generate public/private key pairs, and then install Chef vault on each node. Chef vault will generate the following error if used with a Chef Infra Client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef Infra Server database:
 
    .. code-block:: none
 
@@ -82,7 +82,7 @@ Vault Common Options
       Chef users to be added as admins
 
 ``-s``, ``--server-url URL``
-      Chef Server URL
+      Chef Infra Server URL
 
 ``--chef-zero-host HOST``
       Host to start chef-zero on
@@ -501,7 +501,7 @@ Global Options
      - all
    * - ``-S`` ``SEARCH``
      - ``--search SEARCH``
-     - Chef Server SOLR Search Of Nodes
+     - Chef Infra Server SOLR Search Of Nodes
      - none
      - none
      - ``create``, ``remove`` , ``update``
@@ -674,7 +674,7 @@ recipe code, for example some other script where you want to protect a
 password.
 
 It does still require that the data bag has been encrypted for the user's or
-client's pem and pushed to the Chef server. It mixes Chef into the gem and
+client's pem and pushed to the Chef Infra Server. It mixes Chef into the gem and
 uses it to go grab the data bag.
 
 Use ``chef-vault --help`` to see all all available options

@@ -25,7 +25,7 @@ Chef Client
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms and versions for Chef Client:
+The following table lists the commercially-supported platforms and versions for Chef Infra Client:
 
 .. list-table::
    :widths: 280 100 120
@@ -142,7 +142,7 @@ ChefDK
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms and versions for the Chef Development Kit (ChefDK):
+The following table lists the commercially-supported platforms and versions for ChefDK:
 
 .. list-table::
    :widths: 280 100 120
@@ -192,7 +192,7 @@ Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag adopted_platforms_server
 
-The following table lists the commercially-supported platforms and versions for the Chef Server:
+The following table lists the commercially-supported platforms and versions for the Chef Infra Server:
 
 .. list-table::
    :widths: 280 100 120
@@ -215,7 +215,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
      - ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``, ``18.04`` 
+     - ``14.04``, ``16.04``, ``18.04``
 
 .. end_tag
 
@@ -283,7 +283,7 @@ Chef Push Jobs Client
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms for the Chef push jobs client:
+The following table lists the commercially-supported platforms for the Chef Push Jobs client:
 
 .. list-table::
    :widths: 280 100 120
@@ -316,7 +316,7 @@ Chef Push Jobs Server
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms for the Chef push jobs server:
+The following table lists the commercially-supported platforms for the Chef Push Jobs server:
 
 .. list-table::
    :widths: 280 100 120
@@ -341,7 +341,7 @@ Chef Backend
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms for Chef Backend, the high-availability solution for Chef Server:
+The following table lists the commercially-supported platforms for Chef Backend, the high-availability solution for Chef Infra Server:
 
 .. list-table::
    :widths: 280 100 120

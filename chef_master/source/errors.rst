@@ -3,7 +3,7 @@ Troubleshooting
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/errors.rst>`__
 
-The following sections describe how to troubleshoot the Chef server, Chef client and ChefDK.
+The following sections describe how to troubleshoot the Chef Infra Server, Chef Infra Client, and ChefDK.
 
 401 Unauthorized
 =====================================================
@@ -38,7 +38,7 @@ If you're receiving an error like the following it most likely means you'll need
 
 Failed to authenticate to https://api.opscode.com
 -----------------------------------------------------
-When the values for certain settings in the client.rb file---``node_name`` and ``client_key``---are incorrect, it will not be possible to authenticate to the Chef server. An error similar to the following is shown:
+When the values for certain settings in the client.rb file---``node_name`` and ``client_key``---are incorrect, it will not be possible to authenticate to the Chef Infra Server. An error similar to the following is shown:
 
 .. code-block:: bash
 
@@ -61,7 +61,7 @@ When the values for certain settings in the client.rb file---``node_name`` and `
 
 Organization not found
 -----------------------------------------------------
-If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that the chef-client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, ``ORGANIZATION`` should be replaced with the name of your organization.
+If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that the Chef Infra Client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, ``ORGANIZATION`` should be replaced with the name of your organization.
 
 .. tag manage_webui_policy_validation_reset_key
 
@@ -127,19 +127,19 @@ The general ``Net::HTTPServerException: 401 "Unauthorized"`` error will usually 
       $ rm /etc/chef/client.pem
       $ chef-client
 
-   When the chef-client runs, it will register the API client and generate the correct key.
+   When the Chef Infra Client runs, it will register the API client and generate the correct key.
 
-   After successfully running the chef-client on the node, reload the ``run_list`` and node attributes:
+   After successfully running the Chef Infra Client on the node, reload the ``run_list`` and node attributes:
 
    .. code-block:: bash
 
       $ knife node from file NODE_NAME.json
 
-#. Make sure to use the same ``node_name`` as the initial chef-client run.
+#. Make sure to use the same ``node_name`` as the initial Chef Infra Client run.
 
    This can happen for a number of reasons. For example, if the client.rb file does not specify the correct node name and the system's hostname has changed.
 
-   Running ``chef-client -l debug`` will identify the node name being used by the chef-client for authentication attempts:
+   Running ``chef-client -l debug`` will identify the node name being used by the Chef Infra Client for authentication attempts:
 
    .. code-block:: bash
 
@@ -162,11 +162,11 @@ If you're seeing output like this:
    FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
    FATAL: Net::HTTPServerException: 403 "Forbidden"
 
-this is an indication that there is an issue with permissions on the Chef server.
+this is an indication that there is an issue with permissions on the Chef Infra Server.
 
 **Troubleshooting Steps**
 
-In Chef, there are two different types of permissions issues, object specific and global permissions. To figure out which type of permission issue you're experiencing, run the chef-client again using the ``-l debug`` options to see debugging output.
+In Chef, there are two different types of permissions issues, object specific and global permissions. To figure out which type of permission issue you're experiencing, run the Chef Infra Client again using the ``-l debug`` options to see debugging output.
 
 You should see something like this up the stack trace:
 
@@ -204,7 +204,7 @@ To fix object permissions:
 
 500 (Unexpected)
 =====================================================
-HTTP 500 is a non-specific error message. The full error message for the error the chef-client is receiving can be found in one of the following log ﬁles:
+HTTP 500 is a non-specific error message. The full error message for the error the Chef Infra Client is receiving can be found in one of the following log ﬁles:
 
 * ``/var/log/opscode/opscode-account/current``
 * ``/var/log/opscode/opscode-erchef/current``
@@ -252,7 +252,7 @@ If you're seeing an error like:
    FATAL: Stacktrace dumped to /etc/chef/cache/chef-stacktrace.out
    FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests
 
-it means that the chef-client could not find your validation.pem.
+it means that the Chef Infra Client could not find your validation.pem.
 
 **Troubleshooting Steps**
 
@@ -305,7 +305,7 @@ Work around this issue by supplying the full path to the client.rb file:
 
 Pivotal.rb does not exist
 -----------------------------------------------------
-If you're seeing an error like: 
+If you're seeing an error like:
 
 .. code-block:: bash
 
@@ -319,4 +319,4 @@ Run the following to restart all of the services:
 
       $ chef-server-ctl reconfigure
 
-Because the Chef server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
+Because the Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.

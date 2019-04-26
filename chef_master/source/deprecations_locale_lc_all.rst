@@ -7,7 +7,7 @@ Deprecation: Deprecation of lc_all from locale resource (CHEF-27)
 
 Setting the ``LC_ALL`` variable is NOT recommended. As a system-wide setting, ``LANG`` should provide the desired behavior. ``LC_ALL`` is intended to be used for temporarily troubleshooting issues rather than an everyday system setting.
 Changing ``LC_ALL`` can break Chef's parsing of command output in unexpected ways. Use one of the more specific ``LC_`` properties as needed.
-This deprecation warning was added in Chef 15.0. Support for property ``lc_all`` will be removed for Chef 16.0.
+This deprecation warning was added in Chef Client 15.0. Support for property ``lc_all`` will be removed for Chef Client 16.0.
 
 .. end_tag
 
@@ -47,4 +47,3 @@ Where ``path_to_file`` could be any one of:
 Setting **LC_** variables varies by platform, but these are the common locations to configure **LC_** variables.
 
 .. warning:: Using the **file** Resource or other manual management method of LC configuration may overwrite settings from this resource and break your system.
-

@@ -5,13 +5,13 @@ knife role
 
 .. tag role
 
-A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a chef-client runs, it merges its own attributes and run-lists with those contained within each assigned role.
+A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a Chef Infra Client runs, it merges its own attributes and run-lists with those contained within each assigned role.
 
 .. end_tag
 
 .. tag knife_role_summary
 
-Use the ``knife role`` subcommand to manage the roles that are associated with one or more nodes on a Chef server.
+Use the ``knife role`` subcommand to manage the roles that are associated with one or more nodes on a Chef Infra Server.
 
 .. end_tag
 
@@ -53,7 +53,7 @@ Use a regular expression to define the pattern used to bulk delete roles:
 
 create
 =====================================================
-Use the ``create`` argument to add a role to the Chef server. Role data is saved as JSON on the Chef server.
+Use the ``create`` argument to add a role to the Chef Infra Server. Role data is saved as JSON on the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -68,7 +68,7 @@ Options
 This argument has the following options:
 
 ``--description DESCRIPTION``
-   The description of the role. This value populates the description field for the role on the Chef server.
+   The description of the role. This value populates the description field for the role on the Chef Infra Server.
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -110,7 +110,7 @@ When finished, save it.
 
 delete
 =====================================================
-Use the ``delete`` argument to delete a role from the Chef server.
+Use the ``delete`` argument to delete a role from the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -140,7 +140,7 @@ Type ``Y`` to confirm a deletion.
 
 edit
 =====================================================
-Use the ``edit`` argument to edit role details on the Chef server.
+Use the ``edit`` argument to edit role details on the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -224,7 +224,7 @@ To view role details based on the values contained in a JSON file:
 
 list
 =====================================================
-Use the ``list`` argument to view a list of roles that are currently available on the Chef server.
+Use the ``list`` argument to view a list of roles that are currently available on the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -247,7 +247,7 @@ The following examples show how to use this knife subcommand:
 
 **View a list of roles**
 
-To view a list of roles on the Chef server and display the URI for each role returned, enter:
+To view a list of roles on the Chef Infra Server and display the URI for each role returned, enter:
 
 .. code-block:: bash
 

@@ -223,7 +223,7 @@ The following examples show how to specify the location of the ``build-cookbook`
 
 .. tag delivery_config_example_build_cookbook_server
 
-.. To specify a build-cookbook located on a Chef server:
+.. To specify a build-cookbook located on a Chef Infra Server:
 
 .. code-block:: javascript
 

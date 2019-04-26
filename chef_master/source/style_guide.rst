@@ -194,7 +194,7 @@ Use this approach to show code blocks that use Ruby::
 
 Bash
 -----------------------------------------------------
-Use this approach to show code blocks that use any type of shell command, such as for Knife or the chef-client or for any other command-line example that may be required::
+Use this approach to show code blocks that use any type of shell command, such as for Knife or the Chef Infra Client or for any other command-line example that may be required::
 
    .. code-block:: bash
 
@@ -306,7 +306,7 @@ https://github.com/chef/chef-web-docs
 
 The ``build`` directory contains the output of the ``make`` command.
 
-In the past, the chef-web-docs repo contained documentation for prior verions of Chef components. Currently, the repo is limited to the current major versions of Chef components.
+In the past, the chef-web-docs repo contained documentation for prior versions of Chef components. Currently, the repo is limited to the current major versions of Chef components.
 
 When submitting a GitHub pull request or issue to chef-web-docs, remember:
 
@@ -319,9 +319,11 @@ Official Names
 =====================================================
 For Chef applications and components, use:
 
-* ``Chef`` for Chef, the company, and for the Chef client, server and development kit .
-* ``Chef server`` for the Chef server
-* ``chef-client`` for the Chef client
+* ``Chef Software`` for Chef, the company
+* ``Chef Server`` for the Chef Infra Server up to version 12.x
+* ``Chef Infra Server`` for the Chef Server version 13 and above
+* ``Chef Client`` for the Chef client up to version 14.x
+* ``Chef Infra Client`` for the Chef client version 15 and above
 * ``Chef Automate`` for the Chef Automate product
 
 TOC Trees
@@ -382,4 +384,3 @@ Chef has added this configuration setting to every conf.py file to help streamli
    .. include:: ../../swaps/swap_descriptions.txt
    .. include:: ../../swaps/swap_names.txt
    """
-

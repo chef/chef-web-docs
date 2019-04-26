@@ -5,7 +5,7 @@ client.rb
 
 .. tag config_rb_client_summary
 
-A client.rb file is used to specify the configuration details for the chef-client.
+A client.rb file is used to specify the configuration details for the Chef Infra Client.
 
 * This file is loaded every time this executable is run
 * On UNIX- and Linux-based machines, the default location for this file is ``/etc/chef/client.rb``; on Microsoft Windows machines, the default location for this file is ``C:\chef\client.rb``; use the ``--config`` option from the command line to change this location
@@ -22,13 +22,13 @@ This configuration file has the following settings:
    A 3rd-party formatter. (See `nyan-cat <https://github.com/andreacampi/nyan-cat-chef-formatter>`_ for an example of a 3rd-party formatter.) Each formatter requires its own entry.
 
 ``authentication_protocol_version``
-  Sets the authentication protocol that is used to communicate with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
+  Sets the authentication protocol that is used to communicate with Chef Infra Server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
 
    .. code-block:: ruby
 
       knife[:authentication_protocol_version] = '1.3'
 
-   .. note:: Authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
+   .. note:: Authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
 
 ``automatic_attribute_blacklist``
    A hash that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
@@ -41,10 +41,10 @@ This configuration file has the following settings:
    *New in Chef Client 13.0.*
 
 ``cache_path``
-   The home directory for the user that is running the chef-client as a non-root user.
+   The home directory for the user that is running the Chef Infra Client as a non-root user.
 
 ``checksum_path``
-   The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
+   The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef Infra Server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
 
 ``chef_guid``
    The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node.
@@ -53,10 +53,10 @@ This configuration file has the following settings:
    Used to accept the Chef license. Performs a no-op on versions where the license is not required. Can be set to ``accept`` or ``accept-no-persist``.
 
 ``chef_repo_path``
-   The path to the chef-repo. chef-solo sources cookbooks and roles from this directory when running the chef-client.
+   The path to the chef-repo. chef-solo sources cookbooks and roles from this directory when running the Chef Infra Client.
 
 ``chef_server_url``
-   The URL for the Chef server. For example:
+   The URL for the Chef Infra Server. For example:
 
    .. code-block:: ruby
 
@@ -66,10 +66,10 @@ This configuration file has the following settings:
    Enable chef-zero. This setting requires ``local_mode`` to be set to ``true``. Default value: ``false``.
 
 ``chef_zero.port``
-   The port on which chef-zero is to listen. This value may be specified as a range; the chef-client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
+   The port on which chef-zero is to listen. This value may be specified as a range; the Chef Infra Client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
 
 ``client_fork``
-   Contain the chef-client run in a secondary process with dedicated RAM. When the chef-client run is complete, the RAM is returned to the master process. This setting helps ensure that a chef-client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the chef-client in fork node.
+   Contain the Chef Infra Client run in a secondary process with dedicated RAM. When the Chef Infra Client run is complete, the RAM is returned to the master process. This setting helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the Chef Infra Client in fork node.
 
    .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Client configuration file necessary.
 
@@ -77,19 +77,19 @@ This configuration file has the following settings:
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``.
 
 ``client_registration_retries``
-   The number of times a chef-client is to attempt to register with a Chef server. Default value: ``5``.
+   The number of times a Chef Infra Client is to attempt to register with a Chef Infra Server. Default value: ``5``.
 
 ``client_d_dir``
-   A directory that contains additional configuration scripts to load for chef-client.
+   A directory that contains additional configuration scripts to load for Chef Infra Client.
 
 ``cookbook_path``
-   The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
+   The sub-directory for cookbooks on the Chef Infra Client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 
 ``cookbook_sync_threads``
-   The number of helper threads available for parallel cookbook synchronization. Increasing this value **may** increase the frequency of gateway errors from the Chef server (503 and 504 errors). Decreasing this number reduces the frequency of gateway errors, if present. Default value: ``10``.
+   The number of helper threads available for parallel cookbook synchronization. Increasing this value **may** increase the frequency of gateway errors from the Chef Infra Server (503 and 504 errors). Decreasing this number reduces the frequency of gateway errors, if present. Default value: ``10``.
 
 ``data_bag_decrypt_minimum_version``
-   The minimum required version of data bag encryption. Possible values: ``0``, ``1``, and ``2``. When all of the machines in an organization are running chef-client version 11.6 (or higher), it is recommended that this value be set to ``2``.
+   The minimum required version of data bag encryption. Possible values: ``0``, ``1``, and ``2``. When all of the machines in an organization are running Chef Client 11.6 (or higher), it is recommended that this value be set to ``2``.
 
 ``data_bag_path``
    The location from which a data bag is loaded. Default value: ``/var/chef/data_bags``.
@@ -101,10 +101,10 @@ This configuration file has the following settings:
    The shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject.
 
 ``data_collector.mode``
-   The chef-client mode in which the Data Collector will be enabled. Possible values: ``:solo``, ``:client``, or ``:both``. The ``:solo`` value is used for Chef operating in Chef Solo Mode or Chef Solo Legacy Mode. Default value: ``both``.
+   The Chef Infra Client mode in which the Data Collector will be enabled. Possible values: ``:solo``, ``:client``, or ``:both``. The ``:solo`` value is used for Chef operating in Chef Solo Mode or Chef Solo Legacy Mode. Default value: ``both``.
 
 ``data_collector.raise_on_failure``
-   When enabled the chef-client will raise an error if it is unable to successfully POST to the data collector server. Default value: ``false``.
+   When enabled the Chef Infra Client will raise an error if it is unable to successfully POST to the data collector server. Default value: ``false``.
 
 ``default_attribute_blacklist``
    A hash that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
@@ -117,25 +117,25 @@ This configuration file has the following settings:
    *New in Chef Client 13.0.*
 
 ``diff_disabled``
-   Cause the chef-client to create a diff when changes are made to a file. Default value: ``false``.
+   Cause the Chef Infra Client to create a diff when changes are made to a file. Default value: ``false``.
 
 ``diff_filesize_threshold``
-   The maximum size (in bytes) of a file for which the chef-client can create a diff. Default value: ``10000000``.
+   The maximum size (in bytes) of a file for which the Chef Infra Client can create a diff. Default value: ``10000000``.
 
 ``diff_output_threshold``
-   The maximum size (in bytes) of a diff file created by the chef-client. Default value: ``1000000``.
+   The maximum size (in bytes) of a diff file created by the Chef Infra Client. Default value: ``1000000``.
 
 ``disable_event_logger``
-   Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a chef-client run, and also if a chef-client run fails. Set to ``true`` to disable event logging. Default value: ``false``.
+   Enable or disable sending events to the Microsoft Windows "Application" event log. When ``false``, events are sent to the Microsoft Windows "Application" event log at the start and end of a Chef Infra Client run, and also if a Chef Infra Client run fails. Set to ``true`` to disable event logging. Default value: ``false``.
 
 ``enable_reporting``
-   Cause the chef-client to send run data to the Automate server.
+   Cause the Chef Infra Client to send run data to the Automate server.
 
 ``enable_reporting_url_fatals``
-   Cause the chef-client run to fail when run data cannot be sent to the Automate server (for any reason).
+   Cause the Chef Infra Client run to fail when run data cannot be sent to the Automate server (for any reason).
 
 ``enable_selinux_file_permission_fixup``
-   SELinux environments only. Cause the chef-client to attempt to apply the correct file permissions to an updated file via the ``restorecon`` command. Set this value to ``false`` to prevent the chef-client from attempting this action.
+   SELinux environments only. Cause the Chef Infra Client to attempt to apply the correct file permissions to an updated file via the ``restorecon`` command. Set this value to ``false`` to prevent the Chef Infra Client from attempting this action.
 
 ``encrypted_data_bag_secret``
    The subdirectory in which encrypted data bag secrets are located.
@@ -150,11 +150,11 @@ This configuration file has the following settings:
    The path to the environment. Default value: ``/var/chef/environments``.
 
 ``exit_status``
-   When set to ``:enabled``, chef-client will use `standardized exit codes <https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use>`_ for Chef client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
+   When set to ``:enabled``, Chef Infra Client will use `standardized exit codes <https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use>`_ for Chef Infra Client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` which preserves the old behavior of using non-standardized exit codes and skips the deprecation warnings. Default value: ``nil``.
 
-   .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In the 13.x release of Chef Client and beyond, using standardized exit codes is the default behavior and cannot be changed with this config item.
+   .. note:: The behavior with the default value consists of a warning on the use of deprecated and non-standard exit codes. In the release of Chef Client 13.x and beyond, using standardized exit codes is the default behavior and cannot be changed with this config item.
 
-   In Chef Client 13.x, you will also need to set ``client_fork false`` in the Chef Client config file in order to capture the standard return code. Otherwise, you will be gathering the exit status of the master process, and not that of the forked chef-client process that did the actual run. Chef 14.x allows the standard return codes to be returned to the calling shell in both forking and non-forking mode.
+   In Chef Client 13.x, you will also need to set ``client_fork false`` in the Chef Infra Client config file in order to capture the standard return code. Otherwise, you will be gathering the exit status of the master process, and not that of the forked Chef Infra Client process that did the actual run. Chef Client 14.x allows the standard return codes to be returned to the calling shell in both forking and non-forking mode.
 
 ``file_atomic_update``
    Apply atomic file updates to all resources. Set to ``true`` for global atomic file updates. Set to ``false`` for global non-atomic file updates. (Use the ``atomic_update`` setting on a per-resource basis to override this setting.) Default value: ``true``.
@@ -171,9 +171,9 @@ This configuration file has the following settings:
    How file staging (via temporary files) is done. When ``true``, temporary files are created in the directory in which files will reside. When ``false``, temporary files are created under ``ENV['TMP']``. Default value: ``true``.
 
 ``fips``
-   Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
+   Allows OpenSSL to enforce FIPS-validated security during the Chef Infra Client run. Set to ``true`` to enable FIPS-validated security.
 
-   Changed in Chef server 12.13 to expose FIPS runtime flag on RHEL.
+   Changed in Chef Server 12.13 to expose FIPS runtime flag on RHEL.
 
 ``force_formatter``
    Using `force_formatter` causes chef to default to formatter output when STDOUT is not a tty
@@ -218,7 +218,7 @@ This configuration file has the following settings:
    The user name for the proxy server when the proxy server is using an HTTPS connection. Default value: ``nil``.
 
 ``interval``
-   The frequency (in seconds) at which the chef-client runs. Default value: ``1800``.
+   The frequency (in seconds) at which the Chef Infra Client runs. Default value: ``1800``.
 
 ``json_attribs``
    The path to a file that contains JSON data.
@@ -227,13 +227,13 @@ This configuration file has the following settings:
    Run chef-zero in socketless mode. Set to ``false`` to disable port binding and HTTP requests on localhost.
 
 ``local_key_generation``
-   Whether the Chef server or chef-client generates the private/public key pair. When ``true``, the chef-client generates the key pair, and then sends the public key to the Chef server. Default value: ``true``.
+   Whether the Chef Infra Server or Chef Infra Client generates the private/public key pair. When ``true``, the Chef Infra Client generates the key pair, and then sends the public key to the Chef Infra Server. Default value: ``true``.
 
 ``local_mode``
-   Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
+   Run the Chef Infra Client in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo.
 
 ``lockfile``
-   The location of the chef-client lock file. This value is typically platform-dependent, so should be a location defined by ``file_cache_path``. The default location of a lock file should not on an NF mount. Default value: a location defined by ``file_cache_path``.
+   The location of the Chef Infra Client lock file. This value is typically platform-dependent, so should be a location defined by ``file_cache_path``. The default location of a lock file should not on an NF mount. Default value: a location defined by ``file_cache_path``.
 
 ``log_level``
    The level of logging to be stored in a log file. Possible levels: ``:auto`` (default), ``:debug``, ``:info``, ``:warn``, ``:error``, or ``:fatal``. Default value: ``:warn`` (when a terminal is available) or ``:info`` (when a terminal is not available).
@@ -248,16 +248,16 @@ This configuration file has the following settings:
    The run-list associated with a policy file.
 
 ``no_lazy_load``
-   Download all cookbook files and templates at the beginning of the chef-client run. Default value: ``true``.
+   Download all cookbook files and templates at the beginning of the Chef Infra Client run. Default value: ``true``.
 
 ``no_proxy``
    A comma-separated list of URLs that do not need a proxy. Default value: ``nil``.
 
 ``node_name``
-   The name of the node. Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a Chef server. The default value is the FQDN of the chef-client, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the ``node_name`` during each chef-client run.
+   The name of the node. Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a Chef Infra Server. The default value is the FQDN of the Chef Infra Client, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the ``node_name`` during each Chef Infra Client run.
 
 ``node_path``
-   The location in which nodes are stored when the chef-client is run in local mode. Default value: ``/var/chef/node``.
+   The location in which nodes are stored when the Chef Infra Client is run in local mode. Default value: ``/var/chef/node``.
 
 ``normal_attribute_blacklist``
    A hash that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
@@ -298,13 +298,13 @@ This configuration file has the following settings:
     The location to source rubygems. It can be set to a string or array of strings for URIs to set as rubygems sources. This allows individuals to setup an internal mirror of rubygems for "airgapped" environments. Default value: ``https://www.rubygems.org``. If a ``source`` is specified in either ``gem_package`` of ``chef_gem`` resources it will be added to the values provided here.
 
 ``run_lock_timeout``
-   The amount of time (in seconds) to wait for a chef-client lock file to be deleted. A chef-client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending chef-client run will exit. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
+   The amount of time (in seconds) to wait for a Chef Infra Client lock file to be deleted. A Chef Infra Client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending Chef Infra Client run will exit. Default value: not set (indefinite). Set to ``0`` to cause a second Chef Infra Client to exit immediately.
 
 ``script_path``
    An array of paths to search for knife exec scripts if they aren't in the current directory
 
 ``splay``
-   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef server by ensuring that many chef-client runs are not occurring at the same interval. Default value: ``nil``.
+   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs are not occurring at the same interval. Default value: ``nil``.
 
 ``stream_execute_output``
    Always stream the output of ``execute`` resources even if the ``live_stream`` property isn't set to true. Default value: ``false``
@@ -316,22 +316,22 @@ This configuration file has the following settings:
    When ``show_download_progress`` is set to true this is the interval in seconds to write out download progress. Default value: ``10``
 
 ``ssl_ca_file``
-   The file in which the OpenSSL key is saved. This setting is generated automatically by the chef-client and most users do not need to modify it.
+   The file in which the OpenSSL key is saved. This setting is generated automatically by the Chef Infra Client and most users do not need to modify it.
 
 ``ssl_ca_path``
-   The path to where the OpenSSL key is located. This setting is generated automatically by the chef-client and most users do not need to modify it.
+   The path to where the OpenSSL key is located. This setting is generated automatically by the Chef Infra Client and most users do not need to modify it.
 
 ``ssl_client_cert``
-   The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef server. Default value: ``nil``.
+   The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: ``nil``.
 
 ``ssl_client_key``
-   The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef server. Default value: ``nil``.
+   The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: ``nil``.
 
 ``ssl_verify_mode``
    Set the verify mode for HTTPS requests.
 
    * Use ``:verify_none`` to do no validation of SSL certificates.
-   * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
+   * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the Chef Infra Client run. This is the recommended setting.
 
    Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
 
@@ -339,25 +339,25 @@ This configuration file has the following settings:
    The file mode creation mask, or umask. Default value: ``0022``.
 
 ``use_policyfile``
-  The chef-client automatically checks the configuration, node JSON, and the stored node on the Chef server to determine if Policyfile files are being used, and then automatically updates this flag. Default value: ``false``.
+  The Chef Infra Client automatically checks the configuration, node JSON, and the stored node on the Chef Infra Server to determine if Policyfile files are being used, and then automatically updates this flag. Default value: ``false``.
 
 ``user``
    The user that owns a process. This is required when starting any executable as a daemon. Default value: ``nil``.
 
 ``validation_client_name``
-   The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run.
+   The name of the chef-validator key that is used by the Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run.
 
 ``validation_key``
-   The location of the file that contains the key used when a chef-client is registered with a Chef server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
+   The location of the file that contains the key used when a Chef Infra Client is registered with a Chef Infra Server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
 
 ``verbose_logging``
-   Set the log level. Options: ``true``, ``nil``, and ``false``. When this is set to ``false``, notifications about individual resources being processed are suppressed (and are output at the ``:info`` logging level). Setting this to ``false`` can be useful when a chef-client is run as a daemon. Default value: ``nil``.
+   Set the log level. Options: ``true``, ``nil``, and ``false``. When this is set to ``false``, notifications about individual resources being processed are suppressed (and are output at the ``:info`` logging level). Setting this to ``false`` can be useful when a Chef Infra Client is run as a daemon. Default value: ``nil``.
 
 ``verify_api_cert``
-   Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
+   Verify the SSL certificate on the Chef Infra Server. When ``true``, the Chef Infra Client always verifies the SSL certificate. When ``false``, the Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
 ``whitelist``
-   A hash that contains the whitelist used by Chef push jobs. For example:
+   A hash that contains the whitelist used by Chef Push Jobs. For example:
 
    .. code-block:: ruby
 
@@ -369,18 +369,18 @@ This configuration file has the following settings:
 
    A job entry may also be ``'job-name' => {:lock => true}``, which will check the ``lockfile`` setting in the client.rb file before starting the job.
 
-   .. warning:: The ``whitelist`` setting is available only when using Chef push jobs, a tool that runs jobs against nodes in an organization.
+   .. warning:: The ``whitelist`` setting is available only when using Chef Push Jobs, a tool that runs jobs against nodes in an organization.
 
    *New in Chef Client 13.0.*
 
 ``windows_service.watchdog_timeout``
-   The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
+   The maximum amount of time (in seconds) available to the Chef Infra Client run when the Chef Infra Client is run as a service on the Microsoft Windows platform. If the Chef Infra Client run does not complete within the specified timeframe, the Chef Infra Client run is terminated. Default value: ``2 * (60 * 60)``.
 
 Automatic Proxy Config
 -----------------------------------------------------
 .. tag proxy_env
 
-If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file and is not already set in the ``ENV``, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
+If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file and is not already set in the ``ENV``, the Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
 
 .. code-block:: ruby
 
@@ -406,7 +406,7 @@ will be set to:
 =====================================================
 .. tag config_rb_client_dot_d_directories
 
-The chef-client supports reading multiple configuration files by putting them inside a ``.d`` configuration directory. For example: ``/etc/chef/client.d``. All files that end in ``.rb`` in the ``.d`` directory are loaded; other non-``.rb`` files are ignored.
+The Chef Infra Client supports reading multiple configuration files by putting them inside a ``.d`` configuration directory. For example: ``/etc/chef/client.d``. All files that end in ``.rb`` in the ``.d`` directory are loaded; other non-``.rb`` files are ignored.
 
 ``.d`` directories may exist in any location where the ``client.rb``, ``config.rb``, or ``solo.rb`` files are present, such as:
 
@@ -472,7 +472,7 @@ Ohai configuration settings can be added to the client.rb file.
         'my_ohai_6_plugin'
       ]
 
-   When a plugin is disabled, the chef-client log file will contain entries similar to:
+   When a plugin is disabled, the Chef Infra Client log file will contain entries similar to:
 
    .. code-block:: ruby
 
@@ -506,7 +506,7 @@ Ohai configuration settings can be added to the client.rb file.
 ``ohai.version``
    The version of Ohai.
 
-.. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the chef-client.
+.. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the Chef Infra Client.
 
 .. end_tag
 

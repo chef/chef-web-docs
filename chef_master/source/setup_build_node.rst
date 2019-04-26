@@ -3,7 +3,7 @@ Set up a build node
 ===========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/setup_build_node.rst>`__
 
-Push job-based build nodes can be used by Chef Automate to build, test, and deploy your components within Chef Automate and your infrastructure; however, if you are creating new nodes for this purpose, then you should use the SSH-based job dispatch system that uses runners to perform these tasks. The instructions below are for customers who have a hard requirement to use the previous push jobs-based system.
+Push job-based build nodes can be used by Chef Automate to build, test, and deploy your components within Chef Automate and your infrastructure; however, if you are creating new nodes for this purpose, then you should use the SSH-based job dispatch system that uses runners to perform these tasks. The instructions below are for customers who have a hard requirement to use the previous Push Jobs-based system.
 
 The following steps should be performed on a Chef Automate server:
 
@@ -42,6 +42,6 @@ The following steps should be performed on a Chef Automate server:
 
    You can view the logs at ``/var/log/automate-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
 
-   Any existing nodes with the same name as your build node's FQDN will be overwritten on the Chef server. This will remove any previous run lists or Chef Server configuration on this node. This is done in case this hostname was previously being used for something else. Setting the ``--[no]-overwrite-registration`` flag when calling ``install-build-node`` will allow you to avoid that prompt.
+   Any existing nodes with the same name as your build node's FQDN will be overwritten on the Chef Infra Server. This will remove any previous run lists or Chef Infra Server configuration on this node. This is done in case this hostname was previously being used for something else. Setting the ``--[no]-overwrite-registration`` flag when calling ``install-build-node`` will allow you to avoid that prompt.
 
 .. note:: Certain sensitive files are copied over to a temporary directory on the build node. In the event of failure after these files have been copied, the installer will attempt to remove them. If it is unable to do so, it will provide you with instructions for doing so manually.

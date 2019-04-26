@@ -38,7 +38,7 @@ Options
 This command has the following options:
 
 ``-a``, ``--auto-update-client``
-   Auto-update the chef-client. Set to ``true`` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published. Default value: ``false``.
+   Auto-update the Chef Infra Client. Set to ``true`` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published. Default value: ``false``.
 
 ``-b``, ``--disable``
    Disable the Azure Chef Extension extension.
@@ -53,7 +53,7 @@ This command has the following options:
    Disable the Azure Chef Extension extension.
 
 ``-j JSON``, ``--bootstrap-options JSON``
-   A JSON string that is added to the first run of a chef-client. For example:
+   A JSON string that is added to the first run of a Chef Infra Client. For example:
 
    .. code-block:: bash
 
@@ -62,7 +62,7 @@ This command has the following options:
    Supported options: ``"chef_node_name"``, ``"chef_server_url"`` (required), ``"environment"``, ``"secret"``, and ``"validation_client_name"`` (required).
 
 ``-O VALIDATOR_PEM``, ``--validation-pem VALIDATOR_PEM``
-   The location of the file that contains the key used when a chef-client is registered with a Chef server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
+   The location of the file that contains the key used when a Chef Infra Client is registered with a Chef Infra Server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
 
 ``-R RUN_LIST``, ``--run-list RUN_LIST``
    A comma-separated list of roles and/or recipes to be applied.
@@ -98,7 +98,7 @@ The following examples show how to use this knife subcommand:
 
 Azure Resource Manager (ARM) Templates
 -----------------------------------------------------
-If you are using Azure Resource Manager templates to create your infrastructure you can use the Chef extension to have Azure handle the bootstrapping/configuration of your node to your Chef Server.
+If you are using Azure Resource Manager templates to create your infrastructure you can use the Chef extension to have Azure handle the bootstrapping/configuration of your node to your Chef Infra Server.
 
 Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -116,7 +116,7 @@ The extension has the following options that can be provided in the `settings` h
    .. note:: If using the Chef extension in an ARM template, it is recommended that you base64 encode your validation key and set this option to ``base64encoded``
 
 ``bootstrap_version``
-   The version of chef-client that will be installed on the system. **linux only**
+   The version of Chef Infra Client that will be installed on the system. **linux only**
 
    .. note:: Due to constraints in Azure, the ``bootstrap_version`` option is only available on the ``LinuxChefClient`` extension.
 
@@ -126,25 +126,25 @@ The extension has the following options that can be provided in the `settings` h
    .. note:: Options that are supplied in the bootstrap items will take precedence over any conflicts found in the ``client.rb`` file.
 
 ``chef_node_name``
-   Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a Chef server. The default value is the FQDN of the chef-client, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the ``node_name`` during each chef-client run.
+   Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a Chef Infra Server. The default value is the FQDN of the Chef Infra Client, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the ``node_name`` during each Chef Infra Client run.
 
 ``chef_server_url``
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``environment``
-   The environment this machine will be placed in on your Chef server.
+   The environment this machine will be placed in on your Chef Infra Server.
 
 ``secret``
    The encryption key that is used for values contained within a data bag item.
 
 ``validation_client_name``
-   The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run.
+   The name of the chef-validator key that is used by the Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run.
 
 ``node_ssl_verify_mode``
    Set the verify mode for HTTPS requests.
 
 ``node_verify_api_cert``
-   Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification.
+   Verify the SSL certificate on the Chef Infra Server. When ``true``, the Chef Infra Client always verifies the SSL certificate. When ``false``, the Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification.
 
 **Protected Settings**
 
@@ -154,14 +154,14 @@ The following options can be provided to the extension through the ``protectedSe
    The contents of your organization validator key, the format is dependent on ``validation_key_format``.
 
 ``chef_server_crt``
-   The SSL certificate of your Chef server that will be added to the trusted certificates.
+   The SSL certificate of your Chef Infra Server that will be added to the trusted certificates.
 
 ``client_pem``
-   A client key that will be used to communication with the Chef server.
+   A client key that will be used to communication with the Chef Infra Server.
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples show how the chef-client can be installed and configured from an ARM template.
+The following examples show how the Chef Infra Client can be installed and configured from an ARM template.
 
 **Installing the Azure Chef extension on a Linux system**
 

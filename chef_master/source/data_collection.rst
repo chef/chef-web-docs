@@ -16,14 +16,14 @@ Configure Data Collection
 Automatic Node Run Data Collection with Chef Server
 =======================================================
 
-.. note:: Requires Chef Client 12.16.42 or greater, and Chef server 12.11.0 or greater.
+.. note:: Requires Chef Client 12.16.42 or greater, and Chef Server 12.11.0 or greater.
 
-Nodes can send their run data to Chef Automate through the Chef server automatically. To enable this functionality, you must perform the following steps:
+Nodes can send their run data to Chef Automate through the Chef Infra Server automatically. To enable this functionality, you must perform the following steps:
 
  * `Configure a Data Collector token in Chef Automate </data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate>`__
- * `Configure your Chef server to point to Chef Automate <https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate>`__
+ * `Configure your Chef Infra Server to point to Chef Automate <https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate>`__
 
-Multiple Chef servers can send data to a single Chef Automate server.
+Multiple Chef Servers can send data to a single Chef Automate server.
 
 Step 1: Configure a Data Collector token in Chef Automate
 ------------------------------------------------------------
@@ -48,11 +48,11 @@ To apply the changes, run:
 
 If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
 
-Step 2: Configure your Chef server to point to Chef Automate
------------------------------------------------------------------
-In addition to forwarding Chef run data to Automate, Chef server will send messages to Chef Automate whenever an action is taken on a Chef server object, such as when a cookbook is uploaded to the Chef server or when a user edits a role.
+Step 2: Configure your Chef Infra Server to point to Chef Automate
+-------------------------------------------------------------------
+In addition to forwarding Chef run data to Automate, Chef Infra Server will send messages to Chef Automate whenever an action is taken on a Chef Infra Server object, such as when a cookbook is uploaded to the Chef Infra Server or when a user edits a role.
 
-.. warning:: If running chef-client releases prior to Chef 14, please disable the Ohai Passwd and Sessions plugins on your nodes in ``/etc/chef/client.rb`` or using the chef-client cookbook to keep the data sent to your Automate system to a minimum. This improves search performance and reduces disk space requirements.
+.. warning:: If running Chef Client releases prior to Chef Client 14, please disable the Ohai Passwd and Sessions plugins on your nodes in ``/etc/chef/client.rb`` or using the Chef Infra Client cookbook to keep the data sent to your Automate system to a minimum. This improves search performance and reduces disk space requirements.
 
    .. code-block:: shell
 
@@ -60,7 +60,7 @@ In addition to forwarding Chef run data to Automate, Chef server will send messa
 
 `Ohai Plugin Detail </ohai.html#ohai-settings-in-client-rb>`__
 
-Setting up data collection on Chef server versions 12.14 and higher
+Setting up data collection on Chef Server versions 12.14 and higher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Channel the token setting through the veil secrets library because the token is considered a secret, and cannot appear in ``/etc/opscode/chef-server.rb``:
 
@@ -70,7 +70,7 @@ Channel the token setting through the veil secrets library because the token is 
       sudo chef-server-ctl restart nginx
       sudo chef-server-ctl restart opscode-erchef
 
-Then add the following setting to ``/etc/opscode/chef-server.rb`` on the Chef server:
+Then add the following setting to ``/etc/opscode/chef-server.rb`` on the Chef Infra Server:
 
    .. code-block:: ruby
 
@@ -88,7 +88,7 @@ To apply the changes, run:
 
 where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server.
 
-Setting up data collection on Chef server versions 12.13 and lower
+Setting up data collection on Chef Server versions 12.13 and lower
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 On versions 12.13 and prior, simply add the ``'root_url'`` and ``token`` values in ``/etc/opscode/chef-server.rb``:
 
@@ -124,16 +124,16 @@ Additional options
      - Timeout in milliseconds to abort an attempt to send a message to the Chef Automate server.
      - Default: ``30000``.
    * - ``data_collector['http_init_count']``
-     - Number of Chef Automate HTTP workers Chef server should start.
+     - Number of Chef Automate HTTP workers Chef Infra Server should start.
      - Default: ``25``.
    * - ``data_collector['http_max_count']``
-     - Maximum number of Chef Automate HTTP workers Chef server should allow to exist at any time.
+     - Maximum number of Chef Automate HTTP workers Chef Infra Server should allow to exist at any time.
      - Default: ``100``.
    * - ``data_collector['http_max_age']``
      - Maximum age a Chef Automate HTTP worker should be allowed to live, specified as an Erlang tuple.
      - Default: ``{70, sec}``.
    * - ``data_collector['http_cull_interval']``
-     - How often Chef server should cull aged-out Chef Automate HTTP workers that have exceeded their ``http_max_age``, specified as an Erlang tuple.
+     - How often Chef Infra Server should cull aged-out Chef Automate HTTP workers that have exceeded their ``http_max_age``, specified as an Erlang tuple.
      - Default: ``{1, min}``.
    * - ``data_collector['http_max_connection_duration']``
      - Maximum duration an HTTP connection is allowed to exist before it is terminated, specified as an Erlang tuple.
@@ -198,4 +198,4 @@ Next Steps
 ============================
    * `Perform a Compliance Scan </perform_compliance_scan.html>`__
    * `Data Collection with a Chef HA Cluster </data_collection_ha.html>`__
-   * `Data Collection without Chef Server </data_collection_without_server.html>`__
+   * `Data Collection without Chef Infra Server </data_collection_without_server.html>`__

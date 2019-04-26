@@ -17,7 +17,7 @@ Use the ``knife user`` subcommand to manage the list of users and their associat
 
 create
 =====================================================
-Use the ``create`` argument to create a user. This process will generate an RSA key pair for the named user. The public key will be stored on the Chef server and the private key will be displayed on ``STDOUT`` or written to a named file.
+Use the ``create`` argument to create a user. This process will generate an RSA key pair for the named user. The public key will be stored on the Chef Infra Server and the private key will be displayed on ``STDOUT`` or written to a named file.
 
 * For the user, the private key should be copied to the system as ``/etc/chef/client.pem``.
 * For knife, the private key is typically copied to ``~/.chef/client_name.pem`` and referenced in the config.rb configuration file.
@@ -44,7 +44,7 @@ This argument has the following options:
    The user password.
 
 ``--user-key FILE_NAME``
-   The path to a file that contains the public key.  If this option is not specified, the Chef server will generate a public/private key pair.
+   The path to a file that contains the public key.  If this option is not specified, the Chef Infra Server will generate a public/private key pair.
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -94,7 +94,7 @@ The following examples show how to use this knife subcommand:
 
 edit
 =====================================================
-Use the ``edit`` argument to edit the details of a user. When this argument is run, knife will open $EDITOR. When finished, knife will update the Chef server with those changes.
+Use the ``edit`` argument to edit the details of a user. When this argument is run, knife will open $EDITOR. When finished, knife will update the Chef Infra Server with those changes.
 
 Syntax
 -----------------------------------------------------
@@ -148,7 +148,7 @@ This argument has the following options:
    The name of the public key.
 
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
-   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef server will generate a public/private key pair.
+   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
 .. end_tag
 
@@ -213,13 +213,13 @@ This argument has the following options:
    The expiration date for the public key, specified as an ISO 8601 formatted string: ``YYYY-MM-DDTHH:MM:SSZ``. If this option is not specified, the public key will not have an expiration date. For example: ``2013-12-24T21:00:00Z``.
 
 ``-f FILE``, ``--file FILE``
-   Save a private key to the specified file name. If the ``--public-key`` option is not specified the Chef server will generate a private key.
+   Save a private key to the specified file name. If the ``--public-key`` option is not specified the Chef Infra Server will generate a private key.
 
 ``-k NAME``, ``--key-name NAME``
    The name of the public key.
 
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
-   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef server will generate a public/private key pair.
+   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
 .. end_tag
 
@@ -317,9 +317,9 @@ None.
 
 reregister
 =====================================================
-Use the ``reregister`` argument to regenerate an RSA key pair for a user. The public key will be stored on the Chef server and the private key will be displayed on ``STDOUT`` or written to a named file.
+Use the ``reregister`` argument to regenerate an RSA key pair for a user. The public key will be stored on the Chef Infra Server and the private key will be displayed on ``STDOUT`` or written to a named file.
 
-.. note:: Running this argument will invalidate the previous RSA key pair, making it unusable during authentication to the Chef server.
+.. note:: Running this argument will invalidate the previous RSA key pair, making it unusable during authentication to the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------

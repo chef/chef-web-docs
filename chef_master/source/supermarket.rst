@@ -88,7 +88,7 @@ To configure config.rb for the private Chef Supermarket, do the following:
 
 Create a Cookbook
 -----------------------------------------------------
-The following examples show how to create a simple cookbook by using the chef command that is built into the the Chef Development Kit.
+The following examples show how to create a simple cookbook by using the chef command that is built into ChefDK.
 
 **Generate a chef-repo**
 
@@ -193,7 +193,7 @@ If an SSL error is returned similar to:
 
    ERROR: Error uploading cookbook my_cookbook to the Opscode Cookbook Site: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed. Increase log verbosity (-VV) for more information.
 
-this is because Chef server version 12.0 (and higher) enforces SSL by default when sharing cookbooks. A private Chef Supermarket uses self-signed certificates by default. Use the ``knife ssl fetch`` and ``knife ssl check`` commands to resolve this error.
+this is because Chef Server version 12.0 (and higher) enforces SSL by default when sharing cookbooks. A private Chef Supermarket uses self-signed certificates by default. Use the ``knife ssl fetch`` and ``knife ssl check`` commands to resolve this error.
 
 First fetch the SSL certificate for the private Chef Supermarket:
 
