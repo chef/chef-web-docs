@@ -3,26 +3,26 @@ High Availability (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_high_availability.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef server. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef Server. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
 
-The Chef server can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture. This type of configuration typically splits the servers into two segments: front-end and back-end machines:
+The Chef Server can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture. This type of configuration typically splits the servers into two segments: front-end and back-end machines:
 
 .. image:: ../../images/chef_server_ha.svg
    :width: 600px
    :align: center
 
-Front-end machines handle requests to the Chef server API and access to the web user interface. Front-end machines should be load balanced and scaled horizontally by increasing the number of servers available to handle requests.
+Front-end machines handle requests to the Chef Server API and access to the web user interface. Front-end machines should be load balanced and scaled horizontally by increasing the number of servers available to handle requests.
 
 Back-end machines handle data storage and retrieval, messaging and routing, analytics processing, and search. Back-end machines should be configured for failover using block level replication.
 
-For Chef server 12, the following high availability configurations are supported:
+For Chef Server 12, the following high availability configurations are supported:
 
 * DRBD
 * AWS
 
 DRBD
 =====================================================
-DRBD is a supported high availability configuration option for the Chef server.
+DRBD is a supported high availability configuration option for the Chef Server.
 
 .. image:: ../../images/chef_server_ha_drbd.svg
    :width: 600px
@@ -30,29 +30,29 @@ DRBD is a supported high availability configuration option for the Chef server.
 
 Front-end machines are scaled horizontally, and then load balanced using a hardware load balancer, SSL off-loading, and round-robin as the load balancing algorithm.
 
-Back-end machines are scaled vertically by adding memory, processing power, and faster disks to increase throughput, by adding faster disks and dedicated network interface cards to increase the reliability of DRBD and the responsiveness of the Chef server. Failover is achieved using:
+Back-end machines are scaled vertically by adding memory, processing power, and faster disks to increase throughput, by adding faster disks and dedicated network interface cards to increase the reliability of DRBD and the responsiveness of the Chef Server. Failover is achieved using:
 
 * Asynchronous block level replication of logical volume managers, positioned between the two back-end machines
 * A primary and backup cluster election using VRRP over unicast TCP/IP and Keepalived
-* A virtual IP address to the primary Chef server that is maintained based on the results of the election done by Keepalived
+* A virtual IP address to the primary Chef Server that is maintained based on the results of the election done by Keepalived
 
-When the primary Chef server in the cluster fails, the VRRP heartbeat will stop. At this point, the backup server will begin transitioning to the primary state by:
+When the primary Chef Server in the cluster fails, the VRRP heartbeat will stop. At this point, the backup server will begin transitioning to the primary state by:
 
-#. Assigning the virtual IP address and sending a ``proxy-arp``; this step transitions the virtual IP address, which means traffic will flow to the back-end Chef server while it makes the transition to becoming the primary Chef server.
-#. Attempting to take over as the primary Chef server for the DRBD device.
+#. Assigning the virtual IP address and sending a ``proxy-arp``; this step transitions the virtual IP address, which means traffic will flow to the back-end Chef Server while it makes the transition to becoming the primary Chef Server.
+#. Attempting to take over as the primary Chef Server for the DRBD device.
 #. Starting all of the back-end services.
 
 For more information about DRBD, see http://www.drbd.org.
 
 Graceful Transitions
 -----------------------------------------------------
-The Keepalived service manages the VRRP and cluster transitions. It should be running on both the primary and secondary servers. To transition from the primary to the secondary, simply run the following command on the primary Chef server:
+The Keepalived service manages the VRRP and cluster transitions. It should be running on both the primary and secondary servers. To transition from the primary to the secondary, simply run the following command on the primary Chef Server:
 
 .. code-block:: bash
 
    $ chef-server-ctl stop keepalived
 
-This will initiate a failover from the primary to the secondary Chef server and will cause the current primary Chef server to remove the virtual IP address, stop all services, unmount the DRBD device, and then become the secondary Chef server for the DRBD device. Meanwhile, the secondary Chef server will undergo a similar process, but become the primary Chef server.
+This will initiate a failover from the primary to the secondary Chef Server and will cause the current primary Chef Server to remove the virtual IP address, stop all services, unmount the DRBD device, and then become the secondary Chef Server for the DRBD device. Meanwhile, the secondary Chef Server will undergo a similar process, but become the primary Chef Server.
 
 To view the progress of this transition, use the following command:
 
@@ -76,7 +76,7 @@ Custom Handlers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 DRBD configuration allows for custom handlers when a ``split-brain`` event happens. The basic handler sends a notification email to a configurable email address so the issue can be investigated.
 
-The ``drbd.conf`` file that is used with the Chef server specifies other built-in actions that may be taken in certain fault scenarios:
+The ``drbd.conf`` file that is used with the Chef Server specifies other built-in actions that may be taken in certain fault scenarios:
 
 .. code-block:: none
 
@@ -92,9 +92,9 @@ What this means:
 
 Assumptions
 -----------------------------------------------------
-The following assumptions exist when the Chef server is deployed in a high availability topology:
+The following assumptions exist when the Chef Server is deployed in a high availability topology:
 
-* The back-end processes run on two hosts: ``BE1`` and ``BE2``. ``BE1`` is the DRBD primary and the master Chef server; ``BE2`` is the DRBD secondary and the Chef server backup
+* The back-end processes run on two hosts: ``BE1`` and ``BE2``. ``BE1`` is the DRBD primary and the master Chef Server; ``BE2`` is the DRBD secondary and the Chef Server backup
 * The back-end uses Keepalived and a dedicated network interface for heartbeat
 * The back-end uses DRBD for file redundancy
 
@@ -128,7 +128,7 @@ The following four common scenarios are discussed:
 #. Back-end server #2 hard fails badly (unsynced data)
 #. Back-end server #1 fails gracefully (all data is synced)
 #. Back-end server #1 hard fails badly (unsynced data)
-#. Both hosts are up as secondary, and the Chef server is unhappy
+#. Both hosts are up as secondary, and the Chef Server is unhappy
 
 Scenarios 1 and 2
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -186,7 +186,7 @@ and for the primary, something like the following:
            [==========>.........] sync'ed: 57.3% (1121600/2613068)K
            finish: 0:00:32 speed: 34,328 (21,304) K/sec
 
-Eventually the hosts will quiesce and report ``ds:UpToDate/UpToDate``. Depending on how long the secondary was down, how much data was written to the primary in the interim, and the speed of the shared network, this process could be nearly instantaneous, or could take several minutes. The processes used to manage the Chef server should not require manipulation in any way during this recovery.
+Eventually the hosts will quiesce and report ``ds:UpToDate/UpToDate``. Depending on how long the secondary was down, how much data was written to the primary in the interim, and the speed of the shared network, this process could be nearly instantaneous, or could take several minutes. The processes used to manage the Chef Server should not require manipulation in any way during this recovery.
 
 If the secondary host is lost completely, a new host can be installed in its place, the device built, and then DRBD started. The new host will pair with the existing primary, sync data, and be ready to take over if necessary.
 
@@ -222,17 +222,17 @@ at that point the status will change to something like the following:
     0: cs:WFConnection ro:Primary/Unknown ds:UpToDate/DUnknown C r-----
        ns:0 nr:3505480 dw:4938128 dr:672 al:0 bm:290 lo:0 pe:0 ua:0 ap:0 ep:1 wo:f oos:0
 
-Notice that ``ro`` is now ``ro:Primary/Unknown``. The Chef server can now be recovered by entering the following command:
+Notice that ``ro`` is now ``ro:Primary/Unknown``. The Chef Server can now be recovered by entering the following command:
 
 .. code-block:: bash
 
    $ chef-server-ctl master-recover
 
-This will start up the configured services and the Chef server will be master on this host.
+This will start up the configured services and the Chef Server will be master on this host.
 
-If the original primary can be brought back online, the cluster management script run by Keepalived will try to do a DRBD takeover, based on that host's original primary Chef server master status.
+If the original primary can be brought back online, the cluster management script run by Keepalived will try to do a DRBD takeover, based on that host's original primary Chef Server master status.
 
-The first thing it will do is attempt to promote itself to DRBD primary, which will fail if the disk has been written to at all while this host was down, and Keepalived will be unable to transition back to the original master. This leaves the pair of servers in a good state, with the second back-end box as the DRBD primary Chef server master.
+The first thing it will do is attempt to promote itself to DRBD primary, which will fail if the disk has been written to at all while this host was down, and Keepalived will be unable to transition back to the original master. This leaves the pair of servers in a good state, with the second back-end box as the DRBD primary Chef Server master.
 
 DRBD on the first back-end server will sync to the second back-end server and will become the clean secondary FQDN.
 
@@ -249,11 +249,11 @@ If you get to a situation in which the primary host is lost and unrecoverable, b
    0: cs:WFConnection ro:Secondary/Unknown ds:Inconsistent/DUnknown C r-----
       ns:0 nr:210572 dw:210572 dr:0 al:0 bm:13 lo:0 pe:0 ua:0 ap:0 ep:1 wo:b oos:40552
 
-As long as good source code management is practiced with cookbooks and other files in the chef-repo, any missing bits can be re-uploaded after there is a working cluster. In some cases, newly-created users or organizations will need to be re-created. Other actions, such as chef-client runs and uploads may fail while the cluster is in an ``Inconsistent`` state, but will be fine after there is a working cluster.
+As long as good source code management is practiced with cookbooks and other files in the chef-repo, any missing bits can be re-uploaded after there is a working cluster. In some cases, newly-created users or organizations will need to be re-created. Other actions, such as Chef Client runs and uploads may fail while the cluster is in an ``Inconsistent`` state, but will be fine after there is a working cluster.
 
-When the primary back-end server has been lost while the secondary back-end server is in an ``Inconsistent`` state and it's not going to be back online quickly, the best thing to do is to provision another host to become the new Chef server cluster partner for the secondary back-end server, and then build it out. If the new host has an IP address that is different from the primary back-end server, change the configuration on the secondary back-end server, and then reconfigure.
+When the primary back-end server has been lost while the secondary back-end server is in an ``Inconsistent`` state and it's not going to be back online quickly, the best thing to do is to provision another host to become the new Chef Server cluster partner for the secondary back-end server, and then build it out. If the new host has an IP address that is different from the primary back-end server, change the configuration on the secondary back-end server, and then reconfigure.
 
-In this situation, the Chef server may be freaking out a bit, so turn off the daemons using the ``chef-server-ctl stop`` command.
+In this situation, the Chef Server may be freaking out a bit, so turn off the daemons using the ``chef-server-ctl stop`` command.
 
 Once the new host is identified and the DRBD devices on that host are ready, bring up DRBD and get it talking to the secondary back-end server. This secondary server should not want to be the primary server; it should be waiting for the old primary server to return. Start up DRBD on the new host and verify that it is listening on the correct port and that the status in ``/proc/drbd`` is reporting that the host is up, but in the ``WFConnect: waiting for connection`` state.
 
@@ -269,7 +269,7 @@ and:
 
    $ drbdadm connect pc0
 
-At this point, the new host should be synchronizing with the secondary back-end server. The secondary back-end server will forget all about the data it was missing from the now-gone primary back-end server, and the process of bringing the Chef server back online can begin.
+At this point, the new host should be synchronizing with the secondary back-end server. The secondary back-end server will forget all about the data it was missing from the now-gone primary back-end server, and the process of bringing the Chef Server back online can begin.
 
 Running a fast network between the primary and secondary hosts, and keeping it full throttle for DRBD transfers, will go a long way to mitigating the any damage that may be done in the event of a loss of the primary from an un-synced cluster.
 
@@ -295,7 +295,7 @@ AWS
 =====================================================
 .. tag server_ha_aws
 
-Amazon Web Services (AWS) is a supported high availability configuration option for the Chef server.
+Amazon Web Services (AWS) is a supported high availability configuration option for the Chef Server.
 
 .. image:: ../../images/chef_server_ha_aws.svg
    :width: 600px
@@ -307,7 +307,7 @@ For more information about Amazon Elastic Block Store (EBS), see http://aws.amaz
 
 .. end_tag
 
-View the topic `High Availability: AWS </install_server_ha_aws.html>`__ for more information about how to set up the Chef server for high availability in Amazon Web Services (AWS).
+View the topic `High Availability: AWS </install_server_ha_aws.html>`__ for more information about how to set up the Chef Server for high availability in Amazon Web Services (AWS).
 
 .. note:: .. tag chef_subscriptions
 
@@ -371,4 +371,3 @@ The response will return something like the following:
           }
 
 .. end_tag
-

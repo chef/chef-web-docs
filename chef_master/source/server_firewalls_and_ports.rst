@@ -5,7 +5,7 @@ Firewalls and Ports
 
 .. tag server_firewalls_and_ports_summary
 
-All of the ports used by the Chef server are TCP ports. Refer to the operating system's manual or site systems administrators for instructions on how to enable changes to ports, if necessary.
+All of the ports used by the Chef Infra Server are TCP ports. Refer to the operating system's manual or site systems administrators for instructions on how to enable changes to ports, if necessary.
 
 .. end_tag
 
@@ -19,17 +19,17 @@ All services must be listening on the appropriate ports. Most monitoring systems
 
 .. end_tag
 
-.. note:: An "external" port is external from the perspective of a workstation (such as knife), a machine (the chef-client), or any other user that accesses the Chef server via the Chef server API.
+.. note:: An "external" port is external from the perspective of a workstation (such as knife), a machine (the Chef Infra Client), or any other user that accesses the Chef Infra Server via the Chef Infra Server API.
 
 Standalone
 =====================================================
-The following sections describe the ports that are required by the Chef server in a standalone configuration:
+The following sections describe the ports that are required by the Chef Infra Server in a standalone configuration:
 
 .. image:: ../../images/chef_server_ports_standalone.png
 
 .. tag server_firewalls_and_ports_loopback
 
-A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef server, in the event that the Chef server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
+A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef Infra Server, in the event that the Chef Infra Server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
 
 .. end_tag
 
@@ -57,7 +57,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Infra Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -68,7 +68,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
        .. end_tag
 
@@ -78,7 +78,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef Infra Server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -88,7 +88,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
        * Cookbooks
        * Data bags
@@ -106,7 +106,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_solr4
 
-       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef server API; data that is used by the Chef platform is stored in PostgreSQL.)
+       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef Infra Server API; data that is used by the Chef platform is stored in PostgreSQL.)
 
        .. end_tag
 
@@ -126,7 +126,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef Infra Server to get search data to Apache Solr so that it can be indexed for search.
 
        .. end_tag
 
@@ -136,7 +136,7 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
        .. tag server_services_redis
 
-       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef server.
+       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef Infra Server.
 
        .. end_tag
 
@@ -144,13 +144,13 @@ For a standalone installation, ensure that ports marked as external (marked as `
 
 High Availability
 =====================================================
-The following sections describe the ports that are required by the Chef server in a high availability configuration that is running DRBD and Keepalived to manage the active/passive backend servers:
+The following sections describe the ports that are required by the Chef Infra Server in a high availability configuration that is running DRBD and Keepalived to manage the active/passive backend servers:
 
 .. image:: ../../images/chef_server_ports_ha_drbd.png
 
 .. tag server_firewalls_and_ports_loopback
 
-A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef server, in the event that the Chef server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
+A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef Infra Server, in the event that the Chef Infra Server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
 
 .. end_tag
 
@@ -172,7 +172,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Infra Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -183,7 +183,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
        .. end_tag
 
@@ -193,7 +193,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef Infra Server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -203,7 +203,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
        * Cookbooks
        * Data bags
@@ -257,7 +257,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Infra Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -268,7 +268,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
        .. end_tag
 
@@ -278,7 +278,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef Infra Server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -288,7 +288,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
        * Cookbooks
        * Data bags
@@ -316,7 +316,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_solr4
 
-       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef server API; data that is used by the Chef platform is stored in PostgreSQL.)
+       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef Infra Server API; data that is used by the Chef platform is stored in PostgreSQL.)
 
        .. end_tag
 
@@ -336,7 +336,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef Infra Server to get search data to Apache Solr so that it can be indexed for search.
 
        .. end_tag
 
@@ -346,7 +346,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_redis
 
-       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef server.
+       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef Infra Server.
 
        .. end_tag
 
@@ -359,13 +359,13 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
 Tiered
 =====================================================
-The following sections describe the ports that are required by the Chef server in a tiered configuration:
+The following sections describe the ports that are required by the Chef Infra Server in a tiered configuration:
 
 .. image:: ../../images/chef_server_ports_tiered.png
 
 .. tag server_firewalls_and_ports_loopback
 
-A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef server, in the event that the Chef server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
+A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef Infra Server, in the event that the Chef Infra Server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
 
 .. end_tag
 
@@ -387,7 +387,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Infra Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -398,7 +398,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
        .. end_tag
 
@@ -408,7 +408,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef Infra Server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -418,7 +418,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
        * Cookbooks
        * Data bags
@@ -438,7 +438,7 @@ Back End
 -----------------------------------------------------
 .. tag server_firewalls_and_ports_tiered
 
-For back-end servers in a tiered Chef server installation, ensure that ports marked as external (marked as ``yes`` in the **External** column) are open and accessible via any firewalls that are in use:
+For back-end servers in a tiered Chef Infra Server installation, ensure that ports marked as external (marked as ``yes`` in the **External** column) are open and accessible via any firewalls that are in use:
 
 .. list-table::
    :widths: 60 420 60
@@ -452,7 +452,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Infra Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -463,7 +463,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
        .. end_tag
 
@@ -473,7 +473,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_solr4
 
-       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef server API; data that is used by the Chef platform is stored in PostgreSQL.)
+       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef Infra Server API; data that is used by the Chef platform is stored in PostgreSQL.)
 
        .. end_tag
 
@@ -493,7 +493,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef Infra Server to get search data to Apache Solr so that it can be indexed for search.
 
        .. end_tag
 
@@ -503,7 +503,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_redis
 
-       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef server.
+       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef Infra Server.
 
        .. end_tag
 
@@ -523,7 +523,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
        * Cookbooks
        * Data bags
@@ -543,7 +543,7 @@ Chef Push Jobs
 =====================================================
 .. tag server_firewalls_and_ports_push_jobs
 
-TCP protocol ports 10000 and 10002. TCP/10000 is the default heartbeat port. TCP/10002 is the command port. It may be configured in the Chef push jobs configuration file . This port allows Chef push jobs clients to communicate with the Chef push jobs server. In a configuration with both front and back ends, this port only needs to be open on the back end servers. The Chef push jobs server waits for connections from the Chef push jobs client, and never initiates a connection to a Chef push jobs client.
+TCP protocol ports 10000 and 10002. TCP/10000 is the default heartbeat port. TCP/10002 is the command port. It may be configured in the Chef Push Jobs configuration file . This port allows Chef Push Jobs clients to communicate with the Chef Push Jobs server. In a configuration with both front and back ends, this port only needs to be open on the back end servers. The Chef Push Jobs server waits for connections from the Chef Push Jobs client, and never initiates a connection to a Chef Push Jobs client.
 
 .. end_tag
 

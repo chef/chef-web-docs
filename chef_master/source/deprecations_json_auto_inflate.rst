@@ -9,12 +9,12 @@ Internally, the ``Chef::REST`` class attempts to guess which Chef class a JSON d
 
 .. end_tag
 
-This deprecation warning was added in Chef 12.7.2, and JSON auto inflation will be removed permanently in Chef 13.
+This deprecation warning was added in Chef Client 12.7.2, and JSON auto inflation will be removed permanently in Chef Client 13.
 
 Example
 =====================================================
 
-When loading an environment from the Chef Server, you might previously have written:
+When loading an environment from the Chef Infra Server, you might previously have written:
 
 .. code-block:: ruby
 
@@ -32,4 +32,3 @@ You now need to explicitly create a new object of the desired type.
 
   name = "my_environment"
   Chef::Environment.from_hash chef_server_rest.get("environments/#{name}")
-

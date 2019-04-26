@@ -5,14 +5,13 @@ Site Map
 
 This is the documentation for:
 
-* Chef, including the Chef server, the Chef client, the Chef
-  development kit (ChefDK) and related tools
+* Chef, including the Chef Infra Server, the Chef Infra Client, ChefDK, and related tools
 * Chef Automate
 
-For information on Habitat and InSpec, see their respective documentation:
+For information on Chef Habitat and InSpec, see their respective documentation:
 
-* `Habitat documentation <https://www.habitat.sh/docs/>`_
-* `InSpec documentation <https://www.inspec.io/docs/>`_
+* `Chef Habitat documentation <https://www.habitat.sh/docs/>`_
+* `InSpecdocumentation <https://www.inspec.io/docs/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
@@ -60,9 +59,9 @@ Getting Started
 `Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
-`Chef Client </release_notes.html>`__ |
-`Chef Development Kit </release_notes_chefdk.html>`__ |
-`Chef Server </release_notes_server.html>`__ |
+`Chef Infra Client </release_notes.html>`__ |
+`ChefDK </release_notes_chefdk.html>`__ |
+`Chef Infra Server </release_notes_server.html>`__ |
 `Chef Push Jobs </release_notes_push_jobs.html>`__ |
 
 `Deprecations </chef_deprecations_client.html>`__
@@ -73,7 +72,7 @@ Concepts
 `Workstation </workstation.html>`__ |
 `chef-repo </chef_repo.html>`__ |
 `Nodes </nodes.html>`__ |
-`Chef Client Overview </chef_client_overview.html>`__ |
+`Chef Infra Client Overview </chef_client_overview.html>`__ |
 `Server </server_components.html>`__ |
 `Search </chef_search.html>`__ |
 `Cookbooks </cookbooks.html>`__ |
@@ -94,9 +93,9 @@ Concepts
 Guides
 -----------------------------------------------------
 
-**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__ 
+**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__
 
-**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
+**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Infra Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
 Setup
 -----------------------------------------------------
@@ -106,7 +105,7 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -307,7 +306,7 @@ ChefDK
 
 `push-jobs-client (executable) </ctl_push_jobs_client.html>`__
 
-**Managing the Server**: `Runbook (Single Page) </runbook.html>`__ | `Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ | `Backup and Restore </server_backup_restore.html>`__ | `Data Storage </server_data.html>`__ | `Firewalls and Ports </server_firewalls_and_ports.html>`__ | `Active Directory and LDAP </server_ldap.html>`__ | `Log Files </server_logs.html>`__ | `Monitor </server_monitor.html>`__ | `Organizations and Groups </server_orgs.html>`__ | `Secrets </secrets.html>`__ | `Security </server_security.html>`__ | `Services </server_services.html>`__ | `Tuning </server_tuning.html>`__ | `Upgrades </upgrade_server.html>`__ | `Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ | `Users </server_users.html>`__ | `chef-server-ctl </ctl_chef_server.html>`__ | `chef-backend-ctl </ctl_chef_backend.html>`__ | `chef-server.rb </config_rb_server.html>`__ | `opscode-expander-ctl </ctl_opscode_expander.html>`__ | `Chef Server API </api_chef_server.html>`__
+**Managing the Server**: `Runbook (Single Page) </runbook.html>`__ | `Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ | `Backup and Restore </server_backup_restore.html>`__ | `Data Storage </server_data.html>`__ | `Firewalls and Ports </server_firewalls_and_ports.html>`__ | `Active Directory and LDAP </server_ldap.html>`__ | `Log Files </server_logs.html>`__ | `Monitor </server_monitor.html>`__ | `Organizations and Groups </server_orgs.html>`__ | `Secrets </secrets.html>`__ | `Security </server_security.html>`__ | `Services </server_services.html>`__ | `Tuning </server_tuning.html>`__ | `Upgrades </upgrade_server.html>`__ | `Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ | `Users </server_users.html>`__ | `chef-server-ctl </ctl_chef_server.html>`__ | `chef-backend-ctl </ctl_chef_backend.html>`__ | `chef-server.rb </config_rb_server.html>`__ | `opscode-expander-ctl </ctl_opscode_expander.html>`__ | `Chef Infra Server API </api_chef_server.html>`__
 
 **Push Jobs**: `knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
 
@@ -345,7 +344,7 @@ Chef Automate
 `Architecture <https://automate.chef.io/docs/architectural-overview/>`__ |
 `Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate/>`__ |
 `ServiceNow Integration <https://automate.chef.io/docs/servicenow-integration-install/>`__ |
-`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__ 
+`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__
 
 Habitat
 =====================================================
@@ -357,9 +356,9 @@ Habitat
 InSpec
 =====================================================
 
-**Documentation**: `InSpec Documentation <https://www.inspec.io/docs/>`_
+**Documentation**: `Chef InSpec Documentation <https://www.inspec.io/docs/>`_
 
-**Tutorials**: `InSpec Tutorials <https://www.inspec.io/tutorials/>`_
+**Tutorials**: `Chef InSpec Tutorials <https://www.inspec.io/tutorials/>`_
 
 
 Legacy
@@ -381,7 +380,7 @@ Chef Automate 1
 `Configure a Project </config_json_delivery.html>`__ |
 `Configure Data Collection </data_collection.html>`__ |
 `Data Collection and Chef HA </data_collection_ha.html>`__ |
-`Data Collection without Chef Server </data_collection_without_server.html>`__ |
+`Data Collection without Chef Infra Server </data_collection_without_server.html>`__ |
 `Stream Data </stream_data_chef_automate.html>`__ |
 `Upgrades </upgrade_chef_automate.html>`_
 
@@ -439,10 +438,10 @@ Ohai Plugins
 -----------------------------------------------------
 `Custom Plugins </ohai_custom.html>`__ | `Community Plugins </plugin_community.html#ohai.html>`__
 
-Chef Client Plugins
+Chef Infra Client Plugins
 -----------------------------------------------------
 
-`Chef Client Plugins </plugin_community.html#chef-client>`_
+`Chef Infra Client Plugins </plugin_community.html#chef-client>`_
 
 Addenda
 =====================================================
@@ -895,4 +894,3 @@ Addenda
    windows
    windows_knife_intro
    workflow
-

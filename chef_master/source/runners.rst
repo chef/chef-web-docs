@@ -32,7 +32,7 @@ Adding a Runner
 
 You can add a new runner via ``automate-ctl`` from your Chef Automate server. Log in to your Chef Automate server and run the `install-runner </ctl_automate_server.html#install-runner>`__ command.
 
-.. note:: You can pin to a specific ChefDK version through the ``--chefdk-version`` option on the ``install-runner`` command or by using a version of ChefDK that you have installed locally on your Chef Automate server using the ``-I`` option. As an example, this is useful if you have not upgraded your cookbooks to be Chef 13 compliant and the latest version of ChefDK installs Chef 13 on your runner.
+.. note:: You can pin to a specific ChefDK version through the ``--chefdk-version`` option on the ``install-runner`` command or by using a version of ChefDK that you have installed locally on your Chef Automate server using the ``-I`` option. As an example, this is useful if you have not upgraded your cookbooks to be Chef Client 13 compliant and the latest version of ChefDK installs Chef Client 13 on your runner.
 
 After the `install-runner </ctl_automate_server.html#install-runner>`__ command succeeds, the new runner should show up in the UI under ``Workflow -> Runners -> Manage Runners``. If you see it there, click the ``Test`` button. That will test an ssh connection to your runner to verify that jobs can be dispatched to it. If there are any issues, you should get an error in the UI.
 
@@ -71,7 +71,7 @@ Typically, we recommend re-running the ``install-runner`` command rather than ma
 Configuring Chef Automate Projects
 ===================================
 
-Chef Automate 0.6 or later can use runners, and when setting up a project using ``delivery setup``, ChefDK v1.1.16 or later specifies the use of runners in the ``./delivery/config.json`` file. If you are running an older version of ChefDK, or your ``config.json`` was set up to use push jobs-based build nodes, you must edit the file in the following manner:
+Chef Automate 0.6 or later can use runners, and when setting up a project using ``delivery setup``, ChefDK v1.1.16 or later specifies the use of runners in the ``./delivery/config.json`` file. If you are running an older version of ChefDK, or your ``config.json`` was set up to use Push Jobs-based build nodes, you must edit the file in the following manner:
 
 At the bare minimum, you must set the version to v2:
 

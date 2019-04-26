@@ -18,10 +18,10 @@ This configuration file has the following settings:
    A 3rd-party formatter. (See `nyan-cat <https://github.com/andreacampi/nyan-cat-chef-formatter>`_ for an example of a 3rd-party formatter.) Each formatter requires its own entry.
 
 ``checksum_path``
-   The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
+   The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef Infra Server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
 
 ``cookbook_path``
-   The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
+   The sub-directory for cookbooks on the Chef Infra Client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 
 ``data_bag_path``
    The location from which a data bag is loaded. Default value: ``/var/chef/data_bags``.
@@ -42,7 +42,7 @@ This configuration file has the following settings:
    The path to a file that contains JSON data.
 
 ``lockfile``
-   The location of the chef-client lock file. This value is typically platform-dependent, so should be a location defined by ``file_cache_path``. The default location of a lock file should not on an NF mount. Default value: a location defined by ``file_cache_path``.
+   The location of the Chef Infra Client lock file. This value is typically platform-dependent, so should be a location defined by ``file_cache_path``. The default location of a lock file should not on an NF mount. Default value: a location defined by ``file_cache_path``.
 
 ``log_level``
    The level of logging to be stored in a log file. Possible levels: ``:auto`` (default), ``debug``, ``info``, ``warn``, ``error``, or ``fatal``.
@@ -66,13 +66,13 @@ This configuration file has the following settings:
    The location in which role files are located. Default value: ``/var/chef/roles``.
 
 ``run_lock_timeout``
-   The amount of time (in seconds) to wait for a chef-client lock file to be deleted. A chef-client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending chef-client run will exit. Default value: not set (indefinite). Set to ``0`` to cause a second chef-client to exit immediately.
+   The amount of time (in seconds) to wait for a Chef Infra Client lock file to be deleted. A Chef Infra Client run will not start when a lock file is present. If a lock file is not deleted before this time expires, the pending Chef Infra Client run will exit. Default value: not set (indefinite). Set to ``0`` to cause a second Chef Infra Client to exit immediately.
 
 ``sandbox_path``
    The location in which cookbook files are stored (temporarily) during upload.
 
 ``solo``
-   Run the chef-client in chef-solo mode. This setting determines if the chef-client is to attempt to communicate with the Chef server. Default value: ``false``.
+   Run the Chef Infra Client in chef-solo mode. This setting determines if the Chef Infra Client is to attempt to communicate with the Chef Infra Server. Default value: ``false``.
 
 ``syntax_check_cache_path``
    All files in a cookbook must contain valid Ruby syntax. Use this setting to specify the location in which knife caches information about files that have been checked for valid Ruby syntax.
@@ -81,7 +81,7 @@ This configuration file has the following settings:
    The file mode creation mask, or umask. Default value: ``0022``.
 
 ``verbose_logging``
-   Set the log level. Options: ``true``, ``nil``, and ``false``. When this is set to ``false``, notifications about individual resources being processed are suppressed (and are output at the ``:info`` logging level). Setting this to ``false`` can be useful when a chef-client is run as a daemon. Default value: ``nil``.
+   Set the log level. Options: ``true``, ``nil``, and ``false``. When this is set to ``false``, notifications about individual resources being processed are suppressed (and are output at the ``:info`` logging level). Setting this to ``false`` can be useful when a Chef Infra Client is run as a daemon. Default value: ``nil``.
 
 Examples
 =====================================================

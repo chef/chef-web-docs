@@ -12,11 +12,11 @@ Use ChefSpec to simulate the convergence of resources on a node:
 
 .. end_tag
 
-ChefSpec is a framework that tests resources and recipes as part of a simulated chef-client run. ChefSpec tests execute very quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
+ChefSpec is a framework that tests resources and recipes as part of a simulated Chef Infra Client run. ChefSpec tests execute very quickly. When used as part of the cookbook authoring workflow, ChefSpec tests are often the first indicator of problems that may exist within a cookbook.
 
 Run ChefSpec
 =====================================================
-ChefSpec is packaged as part of the Chef development kit. To run ChefSpec:
+ChefSpec is packaged as part of ChefDK. To run ChefSpec:
 
 .. code-block:: bash
 
@@ -143,7 +143,7 @@ A ChefSpec unit test must contain the following statement at the top of the test
 
 Examples
 =====================================================
-The ChefSpec repo on github has `an impressive collection of examples <https://github.com/sethvargo/chefspec/tree/master/examples>`_. For all of the core chef-client resources, for guards, attributes, multiple actions, and so on. Take a look at those examples and use them as a starting point for building your own unit tests. Some of them are included below, for reference here.
+The ChefSpec repo on github has `an impressive collection of examples <https://github.com/sethvargo/chefspec/tree/master/examples>`_. For all of the core Chef Infra Client resources, for guards, attributes, multiple actions, and so on. Take a look at those examples and use them as a starting point for building your own unit tests. Some of them are included below, for reference here.
 
 file Resource
 -----------------------------------------------------

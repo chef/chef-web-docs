@@ -5,16 +5,16 @@ Microsoft Azure Portal
 
 .. tag cloud_azure_portal
 
-Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. Through the Azure Marketplace and the `Azure portal <https://portal.azure.com/>`_, virtual machines can be bootstrapped and ready to run Chef Automate and Chef Client.
+Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual machines and integrated services for you to use with your cloud and hybrid applications. Through the Azure Marketplace and the `Azure portal <https://portal.azure.com/>`_, virtual machines can be bootstrapped and ready to run Chef Automate and Chef Infra Client.
 
 .. end_tag
 
-Virtual Machines running Chef client
+Virtual Machines running Chef Infra Client
 =====================================================
 
 .. tag cloud_azure_portal_platforms
 
-Through the Azure portal, you can provision a virtual machine with chef-client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef server.
+Through the Azure portal, you can provision a virtual machine with Chef Infra Client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef Infra Server.
 
 .. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
 
@@ -22,7 +22,7 @@ Through the Azure portal, you can provision a virtual machine with chef-client r
 
 .. tag cloud_azure_portal_settings_chef_client
 
-Before virtual machines can be created using the Azure portal, some chef-client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the chef-client configuration settings:
+Before virtual machines can be created using the Azure portal, some Chef Infra Client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the Chef Infra Client configuration settings:
 
 * The ``chef_server_url`` and ``validation_client_name``. These are settings in the `client.rb file </config_rb_client.html>`__.
 
@@ -54,13 +54,13 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. Fill in the virtual machine configuration information, such as machine name, credentials, VM size, and so on.
 
-   .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef server.
+   .. note:: It's best to use a new computer name each time through this workflow. This will help to avoid conflicts with virtual machine names that may have been previously registered on the Chef Infra Server.
 
 #. In Step 3 on the portal UI, open the **Extensions** blade and click ``Add extension``.
 
 #. Depending on the OS you selected earlier, select either **Windows Chef Extension** or **Linux Chef Extension** and then **Create**.
 
-#. Using the ``chef-repo/.chef/config.rb`` file you downloaded during your Chef server setup, enter values for the Chef server URL and the validation client name. You can also use this file to help you find the location of your validation key.
+#. Using the ``chef-repo/.chef/config.rb`` file you downloaded during your Chef Infra Server setup, enter values for the Chef Infra Server URL and the validation client name. You can also use this file to help you find the location of your validation key.
 
 #. Browse on your local machine and find your validation key (``chef-repo/.chef/<orgname>-validator.pem``).
 
@@ -70,7 +70,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 #. For **Client Configuration File**, browse to the ``chef-repo/.chef/config.rb`` file and upload it through your web browser.
 
-   .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box. Also, the ``config.rb`` file must be correctly configured to communicate to the Chef server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
+   .. note:: Because the ``.chef`` directory is considered a hidden directory, you may have to copy this file out to a non-hidden directory on disk before you can upload it through the open file dialog box. Also, the ``config.rb`` file must be correctly configured to communicate to the Chef Infra Server. Specifically, it must have valid values for the following two settings: ``chef_server_url`` and ``validation_client_name``.
 
 #. Optional. `Use a run-list </run_lists.html>`__ to specify what should be run when the virtual machine is provisioned, such as using the run-list to provision a virtual machine with Internet Information Services (IIS). Use the ``iis`` cookbook and the default recipe to build a run-list. For example:
 
@@ -90,19 +90,19 @@ Once this information has been identified, launch the Azure portal, start the vi
 
       recipe['iis']
 
-   A run-list can also be built using a role. For example, if a role named ``backend_server`` is defined on the Chef server, the run-list would look like:
+   A run-list can also be built using a role. For example, if a role named ``backend_server`` is defined on the Chef Infra Server, the run-list would look like:
 
    .. code-block:: ruby
 
       role['backend_server']
 
-   Even without a run-list, the virtual machine will periodically check with the Chef server to see if the configuration requirements change. This means that the run-list can be updated later, by editing the run-list to add the desired run-list items by using the Chef server web user interface or by using the knife command line tool.
+   Even without a run-list, the virtual machine will periodically check with the Chef Infra Server to see if the configuration requirements change. This means that the run-list can be updated later, by editing the run-list to add the desired run-list items by using the Chef Infra Server web user interface or by using the knife command line tool.
 
-   .. note:: A run-list may only refer to roles and/or recipes that have already been uploaded to the Chef server.
+   .. note:: A run-list may only refer to roles and/or recipes that have already been uploaded to the Chef Infra Server.
 
 #. Click **OK** to complete the page. Click **OK** in the Extensions blade and the rest of the setup blades. Provisioning will begin and the portal will the blade for your new VM.
 
-After the process is complete, the virtual machine will be registered with the Chef server and it will have been provisioned with the configuration (applications, services, etc.) from the specified run-list. The Chef server can now be used to perform all ongoing management of the virtual machine node.
+After the process is complete, the virtual machine will be registered with the Chef Infra Server and it will have been provisioned with the configuration (applications, services, etc.) from the specified run-list. The Chef Infra Server can now be used to perform all ongoing management of the virtual machine node.
 
 .. end_tag
 
@@ -110,7 +110,7 @@ Log Files
 =====================================================
 .. tag cloud_azure_portal_log_files
 
-If the Azure portal displays an error in dashboard, check the log files. The log files are created by the chef-client. The log files can be accessed from within the Azure portal or by running the chef-client on the node itself and then reproducing the issue interactively.
+If the Azure portal displays an error in dashboard, check the log files. The log files are created by the Chef Infra Client. The log files can be accessed from within the Azure portal or by running the Chef Infra Client on the node itself and then reproducing the issue interactively.
 
 .. end_tag
 
@@ -133,15 +133,15 @@ Log files are available from within the Azure portal:
       $ cd c:\windowsazure\logs
         ls –r chef*.log
 
-#. This should display the log files, including the chef-client log file.
+#. This should display the log files, including the Chef Infra Client log file.
 
 .. end_tag
 
-From the chef-client
+From the Chef Infra Client
 -----------------------------------------------------
 .. tag cloud_azure_portal_log_files_chef_client
 
-The chef-client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then running the chef-client:
+The Chef Infra Client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then running the Chef Infra Client:
 
 #. Log into the virtual machine.
 
@@ -153,7 +153,7 @@ The chef-client can be run interactively by using Windows Remote Desktop to conn
 
       $ chef-client -l debug
 
-#. View the logs. On a linux system, the Chef client logs are saved to ``/var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/<extension-version-number>/chef-client.log`` and can be viewed using the following command:
+#. View the logs. On a linux system, the Chef Infra Client logs are saved to ``/var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/<extension-version-number>/chef-client.log`` and can be viewed using the following command:
 
    .. code-block:: bash
 
@@ -167,8 +167,8 @@ Troubleshoot Log Files
 
 After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
 
-* Connectivity errors with the Chef server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
-* An invalid validator key has been specified. This will prevent the chef-client from authenticating to the Chef server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
+* Connectivity errors with the Chef Infra Server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
+* An invalid validator key has been specified. This will prevent the Chef Infra Client from authenticating to the Chef Infra Server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
 * The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
 * An error in one the run-list. The log file will specify the details about errors related to the run-list.
 

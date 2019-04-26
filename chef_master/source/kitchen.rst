@@ -18,10 +18,10 @@ Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data a
 The key concepts in Kitchen are:
 
 * A platform is the operating system or target environment on which a cookbook is to be tested
-* A suite is the chef-client configuration, a run-list, and (optionally) node attributes
+* A suite is the Chef Infra Client configuration, a run-list, and (optionally) node attributes
 * An instance is the combination of a specific platform and a specific suite, with each instance being assigned an auto-generated name
-* A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what is needed to converge on that instance (such as installing the chef-client, uploading cookbooks, starting the chef-client run, and so on), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance
-* A provisioner is the component on which the chef-client code will be run, either using chef-zero or chef-solo via the ``chef_zero`` and ``chef_solo`` provisioners, respectively
+* A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what is needed to converge on that instance (such as installing the Chef Infra Client, uploading cookbooks, starting the Chef Infra Client run, and so on), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance
+* A provisioner is the component on which the Chef Infra Client code will be run, either using chef-zero or chef-solo via the ``chef_zero`` and ``chef_solo`` provisioners, respectively
 
 Bento
 =====================================================
@@ -112,7 +112,7 @@ Drivers
 
 Kitchen uses a driver plugin architecture to enable Kitchen to simulate testing on cloud providers, such as Amazon EC2, OpenStack, and Rackspace, and also on non-cloud platforms, such as Microsoft Windows. Each driver is responsible for managing a virtual instance of that platform so that it may be used by Kitchen during cookbook testing.
 
-.. note:: The Chef development kit includes the ``kitchen-vagrant`` driver.
+.. note:: ChefDK includes the ``kitchen-vagrant`` driver.
 
 Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
 
@@ -155,7 +155,7 @@ Some popular drivers:
    * - `kitchen-terraform <https://github.com/newcontext-oss/kitchen-terraform>`__
      - A driver for Terraform.
    * - `kitchen-vagrant <https://github.com/test-kitchen/kitchen-vagrant>`__
-     - A driver for Vagrant. The default driver packaged with the Chef development kit.
+     - A driver for Vagrant. The default driver packaged with ChefDK.
 
 .. end_tag
 
@@ -163,7 +163,7 @@ kitchen (executable)
 =====================================================
 .. tag ctl_kitchen_summary
 
-kitchen is the command-line tool for Kitchen, an integration testing tool used by the chef-client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
+kitchen is the command-line tool for Kitchen, an integration testing tool used by the Chef Infra Client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
 
 .. note:: Any Kitchen subcommand that does not specify an instance will be applied to all instances.
 
@@ -226,11 +226,11 @@ The basic structure of a kitchen.yml file is as follows:
 where:
 
 * ``driver_name`` is the name of a driver that will be used to create platform instances used during cookbook testing. This is the default driver used for all platforms and suites **unless** a platform or suite specifies a ``driver`` to override the default driver for that platform or suite; a driver specified for a suite will override a driver set for a platform
-* ``provisioner_name`` specifies how the chef-client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
+* ``provisioner_name`` specifies how the Chef Infra Client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
 * ``verifier_name`` specifies which application to use when running tests, such as ``inspec``
 * ``transport_name`` specifies which transport to use when executing commands remotely on the test instance. ``winrm`` is the default transport on Windows. The ``ssh`` transport is the default on all other operating systems.
 * ``platform-version`` is the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
-* ``platforms`` may define Chef server attributes that are common to the collection of test suites
+* ``platforms`` may define Chef Infra Server attributes that are common to the collection of test suites
 * ``suites`` is a collection of test suites, with each ``suite_name`` grouping defining an aspect of a cookbook to be tested. Each ``suite_name`` must specify a run-list, for example:
 
   .. code-block:: ruby
@@ -278,7 +278,7 @@ Work with Proxies
 --------------------------------------------------------------------------
 .. tag test_kitchen_yml_syntax_proxy
 
-The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
+The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, the Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
 
 .. code-block:: ruby
 

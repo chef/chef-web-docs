@@ -1,11 +1,11 @@
 =====================================================
-Chef Server API
+Chef Infra Server API
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_chef_server.rst>`__
 
 .. tag api_chef_server_summary
 
-The Chef server API is a REST API that provides access to objects on the Chef server, including nodes, environments, roles, cookbooks (and cookbook versions), and to manage an API client list and the associated RSA public key-pairs.
+The Chef Infra Server API is a REST API that provides access to objects on the Chef Infra Server, including nodes, environments, roles, cookbooks (and cookbook versions), and to manage an API client list and the associated RSA public key-pairs.
 
 .. end_tag
 
@@ -13,12 +13,12 @@ Requirements
 =====================================================
 .. tag api_chef_server_requirements
 
-The Chef server API has the following requirements:
+The Chef Infra Server API has the following requirements:
 
-* Access to a Chef server running version 0.10.x or above.
+* Access to Chef Server running version 0.10.x or above.
 * The ``Accept`` header must be set to ``application/json``.
 * For ``PUT`` and ``POST`` requests, the ``Content-Type`` header must be set to ``application/json``.
-* The ``X-Chef-Version`` header must be set to the version of the Chef server API that is being used.
+* The ``X-Chef-Version`` header must be set to the version of the Chef Infra Server API that is being used.
 * A request must be signed using ``Mixlib::Authentication``.
 * A request must be well-formatted. The easiest way to ensure a well-formatted request is to use the ``Chef::REST`` library.
 
@@ -28,9 +28,9 @@ Authentication Headers
 =====================================================
 .. tag api_chef_server_headers
 
-Authentication to the Chef server occurs when a specific set of HTTP headers are signed using a private key that is associated with the machine from which the request is made. The request is authorized if the Chef server can verify the signature using the public key. Only authorized actions are allowed.
+Authentication to the Chef Infra Server occurs when a specific set of HTTP headers are signed using a private key that is associated with the machine from which the request is made. The request is authorized if the Chef Infra Server can verify the signature using the public key. Only authorized actions are allowed.
 
-.. note:: Most authentication requests made to the Chef server are abstracted from the user. Such as when using knife or the Chef server user interface. In some cases, such as when using the ``knife exec`` subcommand, the authentication requests need to be made more explicitly, but still in a way that does not require authentication headers. In a few cases, such as when using arbitrary Ruby code or cURL, it may be necessary to include the full authentication header as part of the request to the Chef server.
+.. note:: Most authentication requests made to the Chef Infra Server are abstracted from the user. Such as when using knife or the Chef Infra Server user interface. In some cases, such as when using the ``knife exec`` subcommand, the authentication requests need to be made more explicitly, but still in a way that does not require authentication headers. In a few cases, such as when using arbitrary Ruby code or cURL, it may be necessary to include the full authentication header as part of the request to the Chef Infra Server.
 
 .. end_tag
 
@@ -54,11 +54,11 @@ where:
 * ``HASHED_PATH`` is the path of the request: ``/organizations/NAME/name_of_endpoint``. The ``HASHED_PATH`` must be hashed using SHA-1 and encoded using Base64, must not have repeated forward slashes (``/``), must not end in a forward slash (unless the path is ``/``), and must not include a query string.
 * The private key must be an RSA key in the SSL ``.pem`` file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
 
-The Chef server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the chef-client.
+The Chef Infra Server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the Chef Infra Client.
 
 Enable SHA-256
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Chef server versions 12.4.0 and above support signing protocol version 1.3, which adds support for SHA-256 algorithms. It can be enabled on Chef client via the ``client.rb`` file:
+Chef Server versions 12.4.0 and above support signing protocol version 1.3, which adds support for SHA-256 algorithms. It can be enabled on Chef Infra Client via the ``client.rb`` file:
 
 .. code-block:: ruby
 
@@ -85,14 +85,14 @@ The following authentication headers are required:
    * - ``Accept``
      - .. tag api_chef_server_headers_accept
 
-       The format in which response data from the Chef server is provided. This header must be set to ``application/json``.
+       The format in which response data from the Chef Infra Server is provided. This header must be set to ``application/json``.
 
        .. end_tag
 
    * - ``Content-Type``
      - .. tag api_chef_server_headers_content_type
 
-       The format in which data is sent to the Chef server. This header is required for ``PUT`` and ``POST`` requests and must be set to ``application/json``.
+       The format in which data is sent to the Chef Infra Server. This header is required for ``PUT`` and ``POST`` requests and must be set to ``application/json``.
 
        .. end_tag
 
@@ -106,7 +106,7 @@ The following authentication headers are required:
    * - ``X-Chef-Version``
      - .. tag api_chef_server_headers_x_chef_version
 
-       The version of the chef-client executable from which a request is made. This header ensures that responses are in the correct format. For example: ``12.0.2`` or ``11.16.x``.
+       The version of the Chef Infra Client executable from which a request is made. This header ensures that responses are in the correct format. For example: ``12.0.2`` or ``11.16.x``.
 
        .. end_tag
 
@@ -127,7 +127,7 @@ The following authentication headers are required:
    * - ``X-Ops-Server-API-Version``
      - .. tag api_chef_server_headers_x_ops_server_api_version
 
-       Use ``X-Ops-Server-API-Version`` to specify the version of the Chef server API. For example: ``X-Ops-Server-API-Version: 1``. ``X-Ops-Server-API-Version: 0`` is supported for use with the version 12 Chef server, but will be deprecated as part of the next major release.
+       Use ``X-Ops-Server-API-Version`` to specify the version of the Chef Infra Server API. For example: ``X-Ops-Server-API-Version: 1``. ``X-Ops-Server-API-Version: 0`` is supported for use with Chef Server version 12, but will be deprecated as part of the next major release.
 
        .. end_tag
 
@@ -152,7 +152,7 @@ The following authentication headers are required:
 
        .. end_tag
 
-.. note:: Use ``X-Ops-Server-API-Info`` to identify the version of the Chef server API.
+.. note:: Use ``X-Ops-Server-API-Info`` to identify the version of the Chef Infra Server API.
 
 Example
 -----------------------------------------------------
@@ -192,7 +192,7 @@ A knife plugin is a set of one (or more) subcommands that can be added to knife 
 
 .. tag plugin_knife_using_authenticated_requests
 
-A knife plugin can be used to make authenticated API requests to the Chef server using the following methods:
+A knife plugin can be used to make authenticated API requests to the Chef Infra Server using the following methods:
 
 .. list-table::
    :widths: 60 420
@@ -201,13 +201,13 @@ A knife plugin can be used to make authenticated API requests to the Chef server
    * - Method
      - Description
    * - ``rest.delete_rest``
-     - Use to delete an object from the Chef server.
+     - Use to delete an object from the Chef Infra Server.
    * - ``rest.get_rest``
-     - Use to get the details of an object on the Chef server.
+     - Use to get the details of an object on the Chef Infra Server.
    * - ``rest.post_rest``
-     - Use to add an object to the Chef server.
+     - Use to add an object to the Chef Infra Server.
    * - ``rest.put_rest``
-     - Use to update an object on the Chef server.
+     - Use to update an object on the Chef Infra Server.
 
 For example:
 
@@ -240,19 +240,19 @@ Global Endpoints
 =====================================================
 .. tag api_chef_server_endpoints_global
 
-A global endpoint may be used to access all of the organizations on the Chef server.
+A global endpoint may be used to access all of the organizations on the Chef Infra Server.
 
 .. end_tag
 
 /license
 -----------------------------------------------------
-.. note:: This endpoint is used for information purposes only and to trigger a notification in the Chef management console about the number of licenses owned vs. the number of licenses that should be owned. No other action is taken and the functionality and behavior of the Chef server and any added component does not change.
+.. note:: This endpoint is used for information purposes only and to trigger a notification in the Chef management console about the number of licenses owned vs. the number of licenses that should be owned. No other action is taken and the functionality and behavior of the Chef Infra Server and any added component does not change.
 
 The ``/license`` endpoint has the following methods: ``GET``.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to get license information for the Chef server.
+The ``GET`` method is used to get license information for the Chef Infra Server.
 
 This method has no parameters.
 
@@ -309,15 +309,15 @@ The chef-server.rb file contains settings that can be used to edit the number of
 
 /organizations
 -----------------------------------------------------
-The Chef server may contain multiple organizations.
+The Chef Infra Server may contain multiple organizations.
 
 The ``/organizations`` endpoint has the following methods: ``GET`` and ``POST``.
 
-.. warning:: This endpoint may only be accessed by the ``pivotal`` user, which is created as part of the installation process for the Chef server. (See the "Query for Users and Orgs" example below for an example of how to access this endpoint with the ``pivotal`` user.)
+.. warning:: This endpoint may only be accessed by the ``pivotal`` user, which is created as part of the installation process for the Chef Infra Server. (See the "Query for Users and Orgs" example below for an example of how to access this endpoint with the ``pivotal`` user.)
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to get a list of organizations on the Chef server.
+The ``GET`` method is used to get a list of organizations on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -354,7 +354,7 @@ The response is similar to:
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create an organization on the Chef server.
+The ``POST`` method is used to create an organization on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -407,7 +407,7 @@ The response is similar to:
 
 /organizations/NAME
 -----------------------------------------------------
-An organization is a single instance of a Chef server, including all of the nodes that are managed by that Chef server and each of the workstations that will run knife and access the Chef server using the Chef server API.
+An organization is a single instance of a Chef Infra Server, including all of the nodes that are managed by that Chef Infra Server and each of the workstations that will run knife and access the Chef Infra Server using the Chef Infra Server API.
 
 The ``/organizations/NAME`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``.
 
@@ -530,18 +530,18 @@ The response will return the JSON for the updated organization.
 
 /users
 -----------------------------------------------------
-A user is an individual account that is created to allow access to the Chef server. For example:
+A user is an individual account that is created to allow access to the Chef Infra Server. For example:
 
-* A hosted Chef server account
-* The user that operates the workstation from which a Chef server will be managed
+* A hosted Chef Infra Server account
+* The user that operates the workstation from which a Chef Infra Server will be managed
 
 The ``/users`` endpoint has the following methods: ```GET`` and ``POST``.
 
-.. warning:: This endpoint may only be accessed by the ``pivotal`` user, which is created as part of the installation process for the Chef server. (See the "Query for Users and Orgs" example below for an example of how to access this endpoint with the ``pivotal`` user.)
+.. warning:: This endpoint may only be accessed by the ``pivotal`` user, which is created as part of the installation process for the Chef Infra Server. (See the "Query for Users and Orgs" example below for an example of how to access this endpoint with the ``pivotal`` user.)
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to get a list of users on the Chef server.
+The ``GET`` method is used to get a list of users on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -590,11 +590,11 @@ The response is similar to:
 
    GET /users?external_authentication_uid=jane%40doe.com
 
-*New in Chef server 12.7.*
+*New in Chef Server 12.7.*
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create a user on the Chef server.
+The ``POST`` method is used to create a user on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -797,7 +797,7 @@ The response is similar to:
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``PUT`` method is used to update a specific user. If values are not specified for the ``PUT`` method, the Chef server will use the existing values rather than assign default values.
+The ``PUT`` method is used to update a specific user. If values are not specified for the ``PUT`` method, the Chef Infra Server will use the existing values rather than assign default values.
 
 .. note:: ``PUT`` supports renames. If ``PUT /users/foo`` is requested with ``{ "name: "bar""}``, then it will rename ``foo`` to ``bar`` and all of the content previously associated with ``foo`` will be associated with ``bar``.
 
@@ -1139,7 +1139,7 @@ where ``ORG_NAME`` is the name of the organization.
 
 /association_requests
 -----------------------------------------------------
-Users may be invited to join organizations via the web user interface in the Chef management console or via the ``POST`` endpoint in the Chef server API.
+Users may be invited to join organizations via the web user interface in the Chef management console or via the ``POST`` endpoint in the Chef Infra Server API.
 
 The ``/association_requests`` endpoint has the following methods: ``DELETE``, ``GET``, and ``POST``.
 
@@ -1268,7 +1268,7 @@ The ``/authenticate_user`` endpoint has the following methods: ``POST``.
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to authenticate a user. This endpoint is used by the Chef Identity Service to authenticate users of Chef Supermarket to the Chef server.
+The ``POST`` method is used to authenticate a user. This endpoint is used by the Chef Identity Service to authenticate users of Chef Supermarket to the Chef Infra Server.
 
 This method has no parameters.
 
@@ -1572,11 +1572,11 @@ The response contains the updated inforamtion for the key, and is similar to:
 -----------------------------------------------------
 Use the ``/clients`` endpoint to manage an API client list and their associated RSA public key-pairs. The ``/clients`` endpoint has the following methods: ``GET`` and ``POST``.
 
-.. note:: The API client list should be managed using knife or the Chef server management console, as opposed to the Chef server API.
+.. note:: The API client list should be managed using knife or the Chef Infra Server management console, as opposed to the Chef Infra Server API.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to return the API client list on the Chef server, including nodes that have been registered with the Chef server, the chef-validator clients, and the chef-server-webui clients for the entire organization.
+The ``GET`` method is used to return the API client list on the Chef Infra Server, including nodes that have been registered with the Chef Infra Server, the chef-validator clients, and the chef-server-webui clients for the entire organization.
 
 This method has no parameters.
 
@@ -1651,7 +1651,7 @@ The response is similar to:
        "private_key": "-----BEGIN RSA PRIVATE KEY-----"
    }
 
-Store the private key in a safe place. It will be required later (along with the client name) to access the Chef server when using the Chef server API.
+Store the private key in a safe place. It will be required later (along with the client name) to access the Chef Infra Server when using the Chef Infra Server API.
 
 **Response Codes**
 
@@ -1762,7 +1762,7 @@ The response is similar to:
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``PUT`` method is used to update a specific API client. If values are not specified for the ``PUT`` method, the Chef server will use the existing values rather than assign default values.
+The ``PUT`` method is used to update a specific API client. If values are not specified for the ``PUT`` method, the Chef Infra Server will use the existing values rather than assign default values.
 
 .. note:: ``PUT`` supports renames. If ``PUT /user/foo`` is requested with ``{ "name: "bar""}``, then it will rename ``foo`` to ``bar`` and all of the content previously associated with ``foo`` will be associated with ``bar``.
 
@@ -1882,7 +1882,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 
 .. end_tag
 
-When a cookbook is uploaded, only files that are new or updated will be included. This approach minimizes the amount of storage and time that is required during the modify-upload-test cycle. To keep track of which files have already been uploaded, the chef-client uses a checksum and assigns a checksum to each file. These checksums are used in the cookbook version manifest, alongside the same records that store the file description (name, specificity, and so on), as well as the checksum and the URL from which the file's contents can be retrieved.
+When a cookbook is uploaded, only files that are new or updated will be included. This approach minimizes the amount of storage and time that is required during the modify-upload-test cycle. To keep track of which files have already been uploaded, the Chef Infra Client uses a checksum and assigns a checksum to each file. These checksums are used in the cookbook version manifest, alongside the same records that store the file description (name, specificity, and so on), as well as the checksum and the URL from which the file's contents can be retrieved.
 
 The ``/cookbooks`` endpoint has the following methods: ``GET``.
 
@@ -1967,7 +1967,7 @@ This method has no parameters.
 
 **Response**
 
-For example, if cookbooks ``foo`` and ``bar`` both exist on the Chef server and both with versions ``0.1.0`` and ``0.2.0``, the response is similar to:
+For example, if cookbooks ``foo`` and ``bar`` both exist on the Chef Infra Server and both with versions ``0.1.0`` and ``0.2.0``, the response is similar to:
 
 .. code-block:: javascript
 
@@ -2091,7 +2091,7 @@ The response is similar to:
 
 A cookbook version represents a set of functionality that is different from the cookbook on which it is based. A version may exist for many reasons, such as ensuring the correct use of a third-party component, updating a bug fix, or adding an improvement. A cookbook version is defined using syntax and operators, may be associated with environments, cookbook metadata, and/or run-lists, and may be frozen (to prevent unwanted updates from being made).
 
-A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef server, and how the chef-client applies that cookbook when configuring nodes.
+A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef Infra Server, and how the Chef Infra Client applies that cookbook when configuring nodes.
 
 .. end_tag
 
@@ -2359,7 +2359,7 @@ with a request body similar to:
      "chef_type": "cookbook_version"
    }
 
-where the ``checksum`` values must have already been uploaded to the Chef server using the sandbox endpoint. Once a file with a particular checksum has been uploaded by the user, redundant uploads are not necessary. Unused ``checksum`` values will be garbage collected.
+where the ``checksum`` values must have already been uploaded to the Chef Infra Server using the sandbox endpoint. Once a file with a particular checksum has been uploaded by the user, redundant uploads are not necessary. Unused ``checksum`` values will be garbage collected.
 
 **Response**
 
@@ -2394,7 +2394,7 @@ The ``/data`` endpoint has the following methods: ``GET`` and ``POST``.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to return a list of all data bags on the Chef server.
+The ``GET`` method is used to return a list of all data bags on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -2434,7 +2434,7 @@ shown as a list of key-value pairs, where (in the example above) ``users`` and `
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create a new data bag on the Chef server.
+The ``POST`` method is used to create a new data bag on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -2830,7 +2830,7 @@ The response is similar to:
 -----------------------------------------------------
 .. tag environment
 
-An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef server. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments. Generally, an environment is also associated with one (or more) cookbook versions.
+An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments. Generally, an environment is also associated with one (or more) cookbook versions.
 
 .. end_tag
 
@@ -2934,7 +2934,7 @@ The ``/environments/_default`` endpoint has the following methods: ``GET``.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to get information about the ``_default`` environment on the Chef server.
+The ``GET`` method is used to get information about the ``_default`` environment on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -3079,7 +3079,7 @@ The response is similar to:
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``PUT`` method is used to update the details of an environment on the Chef server.
+The ``PUT`` method is used to update the details of an environment on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -3711,7 +3711,7 @@ The response is similar to:
      ]
    }
 
-The chef-client will pick up the ``_default`` run-list if ``env_run_list[environment_name]`` is null or nonexistent.
+The Chef Infra Client will pick up the ``_default`` run-list if ``env_run_list[environment_name]`` is null or nonexistent.
 
 **Response Codes**
 
@@ -3736,7 +3736,7 @@ The ``/groups`` endpoint has the following methods: ``GET`` and ``POST``.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to get a list of groups on the Chef server for a single organization.
+The ``GET`` method is used to get a list of groups on the Chef Infra Server for a single organization.
 
 This method has no parameters.
 
@@ -3849,7 +3849,7 @@ The ``/nodes`` endpoint has the following methods: ``GET`` and ``POST``.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to return a hash of URIs for nodes on the Chef server.
+The ``GET`` method is used to return a hash of URIs for nodes on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -4111,7 +4111,7 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag api_chef_server_endpoint_policies_get
 
-The ``GET`` method is used to get a list of policies (including policy revisions) from the Chef server.
+The ``GET`` method is used to get a list of policies (including policy revisions) from the Chef Infra Server.
 
 This method has no parameters.
 
@@ -4177,7 +4177,7 @@ The ``/policy_groups`` endpoint has the following methods: ``GET``.
 
 .. tag policy_group_relates_to_nodes
 
-Each node has a 1:many relationship with policy settings stored on the Chef server. This relationship is based on the policy group to which the node is associated, and then the policy settings assigned to that group:
+Each node has a 1:many relationship with policy settings stored on the Chef Infra Server. This relationship is based on the policy group to which the node is associated, and then the policy settings assigned to that group:
 
 * A policy is typically named after the functional role ahost performs, such as "application server", "chat server", "load balancer", and so on
 * A policy group defines a set of hosts in a deployed units, typically mapped to organizational requirements such as "dev", "test", "staging", and "production", but can also be mapped to more detailed requirements as needed
@@ -4249,7 +4249,7 @@ and for a client, similar to:
 -----------------------------------------------------
 .. tag role
 
-A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a chef-client runs, it merges its own attributes and run-lists with those contained within each assigned role.
+A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a Chef Infra Client runs, it merges its own attributes and run-lists with those contained within each assigned role.
 
 .. end_tag
 
@@ -4294,7 +4294,7 @@ The response is similar to:
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create a new role on the Chef server.
+The ``POST`` method is used to create a new role on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -4356,7 +4356,7 @@ The ``/roles/NAME`` endpoint has the following methods: ``GET``, ``DELETE``, and
 
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``DELETE`` method is used to delete a role on the Chef server.
+The ``DELETE`` method is used to delete a role on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -4451,7 +4451,7 @@ The response is similar to:
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``PUT`` method is used to update a role on the Chef server.
+The ``PUT`` method is used to update a role on the Chef Infra Server.
 
 This method has no parameters.
 
@@ -4721,19 +4721,19 @@ The response is similar to:
 -----------------------------------------------------
 .. tag search
 
-Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
+Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef Infra Server API. The search engine is based on Apache Solr and is run from the Chef Infra Server.
 
 .. end_tag
 
 The ``/search`` endpoint allows nodes, roles, data bags, environments to be searched. This endpoint has the following methods: ``GET``.
 
-.. note:: At the end of every chef-client run, the node object is saved to the Chef server. From the Chef server, each node object is then added to the Apache Solr search index. This process is asynchronous. By default, node objects are committed to the search index every 60 seconds or per 1000 node objects, whichever occurs first.
+.. note:: At the end of every Chef Infra Client run, the node object is saved to the Chef Infra Server. From the Chef Infra Server, each node object is then added to the Apache Solr search index. This process is asynchronous. By default, node objects are committed to the search index every 60 seconds or per 1000 node objects, whichever occurs first.
 
-.. note:: This endpoint does not have any ACL restrictions, which means it may be used by any user or client that is able to make the request to the Chef server.
+.. note:: This endpoint does not have any ACL restrictions, which means it may be used by any user or client that is able to make the request to the Chef Infra Server.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``GET`` method is used to return a data structure that contains links to each available search index. By default, the ``role``, ``node``, ``client``, and ``data bag`` indexes will always be available (where the ``data bag`` index is the name of the data bag on the Chef server). Search indexes may lag behind the most current data at any given time. If a situation occurs where data needs to be written and then immediately searched, an artificial delay (of at least 10 seconds) is recommended.
+The ``GET`` method is used to return a data structure that contains links to each available search index. By default, the ``role``, ``node``, ``client``, and ``data bag`` indexes will always be available (where the ``data bag`` index is the name of the data bag on the Chef Infra Server). Search indexes may lag behind the most current data at any given time. If a situation occurs where data needs to be written and then immediately searched, an artificial delay (of at least 10 seconds) is recommended.
 
 This method has no parameters.
 
@@ -4775,7 +4775,7 @@ The response is similar to:
 
 /search/INDEX
 -----------------------------------------------------
-Use the ``/search/INDEX`` endpoint to access the search indexes on the Chef server. The ``/search/INDEX`` endpoint has the following methods: ``GET`` and ``POST``.
+Use the ``/search/INDEX`` endpoint to access the search indexes on the Chef Infra Server. The ``/search/INDEX`` endpoint has the following methods: ``GET`` and ``POST``.
 
 .. tag search_query_syntax
 
@@ -4785,7 +4785,7 @@ A search query is comprised of two parts: the key and the search pattern. A sear
 
    key:search_pattern
 
-where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
+where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef Infra Server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
 
 .. end_tag
 
@@ -4802,7 +4802,7 @@ This method has the following parameters:
    * - Parameter
      - Description
    * - ``q``
-     - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
+     - The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
    * - ``rows``
      - The number of rows to be returned.
    * - ``start``
@@ -4855,7 +4855,7 @@ The response contains the total number of rows that match the request and is sim
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-A partial search query allows a search query to be made against specific attribute keys that are stored on the Chef server. A partial search query can search the same set of objects on the Chef server as a full search query, including specifying an object index and providing a query that can be matched to the relevant index. While a full search query will return an array of objects that match (each object containing a full set of attributes for the node), a partial search query will return only the values for the attributes that match. One primary benefit of using a partial search query is that it requires less memory and network bandwidth while the chef-client processes the search results.
+A partial search query allows a search query to be made against specific attribute keys that are stored on the Chef Infra Server. A partial search query can search the same set of objects on the Chef Infra Server as a full search query, including specifying an object index and providing a query that can be matched to the relevant index. While a full search query will return an array of objects that match (each object containing a full set of attributes for the node), a partial search query will return only the values for the attributes that match. One primary benefit of using a partial search query is that it requires less memory and network bandwidth while the Chef Infra Client processes the search results.
 
 To create a partial search query, use the ``search`` method, and then specify the key paths for the attributes to be returned. Each key path should be specified as an array of strings and is mapped to an arbitrary short name. For example:
 
@@ -4872,7 +4872,7 @@ To create a partial search query, use the ``search`` method, and then specify th
      puts result['kernel_version']
    end
 
-In the previous example, two attributes will be extracted (on the Chef server) from any node that matches the search query. The result will be a simple hash with keys ``name``, ``ip``, and ``kernel_version``.
+In the previous example, two attributes will be extracted (on the Chef Infra Server) from any node that matches the search query. The result will be a simple hash with keys ``name``, ``ip``, and ``kernel_version``.
 
 The ``POST`` method is used to return partial search results. For example, if a node has the following:
 
@@ -4898,7 +4898,7 @@ This method has the following parameters:
    * - Parameter
      - Description
    * - ``q``
-     - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
+     - The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
    * - ``rows``
      - The number of rows to be returned.
    * - ``start``
@@ -5082,11 +5082,11 @@ The response will return an embedded hash, with the name of each cookbook as a t
 -----------------------------------------------------
 .. tag api_chef_server_endpoint_org_name_updated_since
 
-The ``/updated_since`` endpoint ensures that replica instances of the Chef server are able to synchronize with the primary Chef server. The ``/organizations/NAME/updated_since`` endpoint has the following methods: ``GET``.
+The ``/updated_since`` endpoint ensures that replica instances of the Chef Infra Server are able to synchronize with the primary Chef Infra Server. The ``/organizations/NAME/updated_since`` endpoint has the following methods: ``GET``.
 
 .. end_tag
 
-.. warning:: This update is available after Chef replication is installed on the Chef server.
+.. warning:: This update is available after Chef replication is installed on the Chef Infra Server.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -5152,11 +5152,11 @@ The response will return an array of paths for objects that have been created, u
 
 Examples
 =====================================================
-The following sections show examples of using the Chef server API.
+The following sections show examples of using the Chef Infra Server API.
 
 Query for Users and Orgs
 -----------------------------------------------------
-The following example shows how to query the Chef server API for a listing of organizations and users. The ``/organizations`` and ``/users`` endpoints may only be accessed by the ``pivotal`` user, which is a user account that is created by Chef during the installation of the Chef server.
+The following example shows how to query the Chef Infra Server API for a listing of organizations and users. The ``/organizations`` and ``/users`` endpoints may only be accessed by the ``pivotal`` user, which is a user account that is created by Chef during the installation of the Chef Infra Server.
 
 Run the following from a ``.chef`` directory that contains a ``pivotal.rb`` file:
 
@@ -5190,4 +5190,4 @@ An example of a ``.chef/pivotal.rb`` file is shown below:
    chef_server_root "https://192.0.2.0:443"
    client_key "#{current_dir}/pivotal.pem"
 
-.. note:: The ``pivotal.pem`` file must exist in the specified location and the IP addresses must be correct for the Chef server.
+.. note:: The ``pivotal.pem`` file must exist in the specified location and the IP addresses must be correct for the Chef Infra Server.

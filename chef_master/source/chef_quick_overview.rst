@@ -37,7 +37,7 @@ Workstations
 =====================================================
 .. tag workstation_summary
 
-A workstation is a computer running Chef Workstation that is used to author cookbooks, interact with the Chef server, and interact with nodes.
+A workstation is a computer running Chef Workstation that is used to author cookbooks, interact with the Chef Infra Server, and interact with nodes.
 
 The workstation is where users do most of their work, including:
 
@@ -53,13 +53,13 @@ Knife
 -----------------------------------------------------
 .. tag knife_summary
 
-knife is a command-line tool that provides an interface between a local chef-repo and the Chef server. knife helps users to manage:
+knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. knife helps users to manage:
 
 * Nodes
 * Cookbooks and recipes
 * Roles, Environments, and Data Bags
 * Resources within various cloud environments
-* The installation of the chef-client onto nodes
+* The installation of the Chef Infra Client onto nodes
 * Searching of indexed data on the Chef server
 
 .. end_tag
@@ -87,11 +87,11 @@ The Hosted Chef Server
 =====================================================
 .. tag chef_server
 
-The Chef server acts as a hub for configuration data. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions. The chef-client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef server). This scalable approach distributes the configuration effort throughout the organization.
+The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the Chef Infra Client. Nodes use the Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions. The Chef Infra Client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef Infra Server). This scalable approach distributes the configuration effort throughout the organization.
 
 .. end_tag
 
-The hosted Chef server is a version of the Chef server that is hosted by Chef. The hosted Chef server is cloud-based, scalable, and available (24x7/365), with resource-based access control. The hosted Chef server has the same automation capabilities of any Chef server, but without requiring it to be set up and managed from behind the firewall.
+The hosted Chef Infra Server is a version of the Chef Infra Server that is hosted by Chef. The hosted Chef Infra Server is cloud-based, scalable, and available (24x7/365), with resource-based access control. The hosted Chef Infra Server has the same automation capabilities of any Chef Infra Server, but without requiring it to be set up and managed from behind the firewall.
 
 Cookbooks
 -----------------------------------------------------
@@ -107,7 +107,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 
 .. end_tag
 
-The chef-client uses Ruby as its reference language for creating cookbooks and defining recipes, with an extended DSL for specific resources. The chef-client provides a reasonable set of resources, enough to support many of the most common infrastructure automation scenarios; however, this DSL can also be extended when additional resources and capabilities are required.
+The Chef Infra Client uses Ruby as its reference language for creating cookbooks and defining recipes, with an extended DSL for specific resources. The Chef Infra Client provides a reasonable set of resources, enough to support many of the most common infrastructure automation scenarios; however, this DSL can also be extended when additional resources and capabilities are required.
 
 Conclusion
 =====================================================

@@ -66,7 +66,7 @@ Supported Commercial Distributions
      - 0.8
      - Releasing Soon
      - n/a
-   * - Chef InSpec
+   * - InSpec
      - 4.x
      - Releasing Soon
      - n/a

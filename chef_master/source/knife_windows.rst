@@ -23,7 +23,7 @@ To install the ``knife windows`` plugin using RubyGems, run the following comman
 
    $ /opt/chef/embedded/bin/gem install knife-windows
 
-where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located. If the chef-client was installed using RubyGems, omit the path in the previous example.
+where ``/opt/chef/embedded/bin/`` is the path to the location where the Chef Infra Client expects knife plugins to be located. If the Chef Infra Client was installed using RubyGems, omit the path in the previous example.
 
 .. end_tag
 
@@ -46,7 +46,7 @@ The following WinRM configuration settings should be updated:
    * - Setting
      - Description
    * - ``MaxMemoryPerShellMB``
-     - The chef-client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
+     - The Chef Infra Client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
    * - ``MaxTimeoutms``
      - A bootstrap command can take longer than allowed by the default setting. Increase this value to ``1800000`` (30 minutes).
 
@@ -62,7 +62,7 @@ and then:
 
    $ winrm set winrm/config '@{MaxTimeoutms="1800000"}'
 
-Ensure that the Windows Firewall is configured to allow WinRM connections between the workstation and the Chef server. For example:
+Ensure that the Windows Firewall is configured to allow WinRM connections between the workstation and the Chef Infra Server. For example:
 
 .. code-block:: bash
 
@@ -127,7 +127,7 @@ bootstrap windows ssh
 =====================================================
 .. tag knife_windows_bootstrap_windows_ssh
 
-Use the ``bootstrap windows ssh`` argument to bootstrap chef-client installations in a Microsoft Windows environment, using a command shell that is native to Microsoft Windows.
+Use the ``bootstrap windows ssh`` argument to bootstrap Chef Infra Client installations in a Microsoft Windows environment, using a command shell that is native to Microsoft Windows.
 
 .. end_tag
 
@@ -173,7 +173,7 @@ This argument has the following options:
     The maximum time in minutes to wait for authentication over the transport to the node to succeed. Default: ``2``.
 
 ``--bootstrap-install-command COMMANDS``
-    Custom command to install chef-client
+    Custom command to install Chef Infra Client
 
 ``--bootstrap-no-proxy [NO_PROXY_URL|NO_PROXY_IP]``
     A URL or IP address that specifies a location that should not be proxied.
@@ -191,7 +191,7 @@ This argument has the following options:
   A JSON string with the vault(s) and item(s) to be updated.
 
 ``--bootstrap-version VERSION``
-    The version of the Chef Client to install.
+    The version of the Chef Infra Client to install.
 
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
     The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
@@ -206,16 +206,16 @@ This argument has the following options:
     The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``--install-as-service``
-    Install the Chef Client as a Windows service. Default: ``false``.
+    Install the Chef Infra Client as a Windows service. Default: ``false``.
 
 ``-j JSON_ATTRIBS``, ``--json-attributes``
-    A JSON string that is added to the first Chef Client run.
+    A JSON string that is added to the first Chef Infra Client run.
 
 ``--json-attribute-file FILE``
-    A JSON file that is used in the first Chef Client run.
+    A JSON file that is used in the first Chef Infra Client run.
 
 ``--msi-url URL``
-    Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
+    Location of the Chef Infra Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
 
 ``-N NAME``, ``--node-name NAME``
     The name of the node.
@@ -224,7 +224,7 @@ This argument has the following options:
     Whether or not to verify the SSL cert for all requests.
 
 ``--[no-]node-verify-api-cert``
-    Verify the SSL cert for HTTPS requests to the Chef Server. Default: ``true``.
+    Verify the SSL cert for HTTPS requests to the Chef Infra Server. Default: ``true``.
 
 ``-p PORT``, ``--ssh-port PORT``
     The SSH port.
@@ -251,7 +251,7 @@ This argument has the following options:
     A file containing the secret key to use to encrypt data bag item values. Will be rendered on the node at ``c:/chef/encrypted_data_bag_secret`` and set in the rendered client config.
 
 ``--server-url URL``
-    Chef Server URL.
+    Chef Infra Server URL.
 
 ``--tags``
     Comma separated list of tags to apply to the node. default: [].
@@ -264,7 +264,7 @@ This argument has the following options:
 
 bootstrap windows winrm
 =====================================================
-Use the ``bootstrap windows winrm`` argument to bootstrap chef-client installations in a Microsoft Windows environment, using WinRM and the WS-Management protocol for communication. This argument requires the FQDN of the host machine to be specified. The Microsoft Installer Package (MSI) run silently during the bootstrap operation (using the ``/qn`` option).
+Use the ``bootstrap windows winrm`` argument to bootstrap Chef Infra Client installations in a Microsoft Windows environment, using WinRM and the WS-Management protocol for communication. This argument requires the FQDN of the host machine to be specified. The Microsoft Installer Package (MSI) run silently during the bootstrap operation (using the ``/qn`` option).
 
 Syntax
 -----------------------------------------------------
@@ -303,7 +303,7 @@ This argument has the following options:
    The amount of time (in minutes) to wait for authentication to succeed. Default: ``2``.
 
 ``--bootstrap-install-command COMMANDS``
-    Custom command to install chef-client.
+    Custom command to install Chef Infra Client.
 
 ``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
    A URL or IP address that specifies a location that should not be proxied.
@@ -321,7 +321,7 @@ This argument has the following options:
   A JSON string with the vault(s) and item(s) to be updated.
 
 ``--bootstrap-version VERSION``
-   The version of the chef-client to install.
+   The version of the Chef Infra Client to install.
 
 ``-C``, ``--concurrency NUM``
     The number of allowed concurrent connections
@@ -339,16 +339,16 @@ This argument has the following options:
    Indicates the client should be installed as a Windows Service.
 
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
-   A JSON string that is added to the first run of a chef-client.
+   A JSON string that is added to the first run of a Chef Infra Client.
 
 ``--json-attribute-file FILE``
-    A JSON file used at the first chef-client run.
+    A JSON file used at the first Chef Infra Client run.
 
 ``-m``, ``--manual-list``
     Returns a space-separated list of servers.
 
 ``--msi-url URL``
-    Location of the Chef Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
+    Location of the Chef Infra Client MSI. The default templates prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
 
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
@@ -614,11 +614,11 @@ To find the uptime of all web servers, enter:
 
 .. end_tag
 
-**Force a chef-client run**
+**Force a Chef Infra Client run**
 
 .. tag knife_windows_winrm_force_chef_run
 
-To force a chef-client run:
+To force a Chef Infra Client run:
 
 .. code-block:: bash
 

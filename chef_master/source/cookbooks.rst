@@ -15,7 +15,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 
 .. end_tag
 
-The chef-client uses Ruby as its reference language for creating cookbooks and defining recipes, with an extended DSL for specific resources. The chef-client provides a reasonable set of resources, enough to support many of the most common infrastructure automation scenarios; however, this DSL can also be extended when additional resources and capabilities are required.
+The Chef Infra Client uses Ruby as its reference language for creating cookbooks and defining recipes, with an extended DSL for specific resources. The Chef Infra Client provides a reasonable set of resources, enough to support many of the most common infrastructure automation scenarios; however, this DSL can also be extended when additional resources and capabilities are required.
 
 Components
 =====================================================
@@ -30,7 +30,7 @@ Some important components of cookbooks include:
    * - `Attributes </attributes.html>`__
      - .. tag cookbooks_attribute
 
-       An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a chef-client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, the chef-client will apply those new settings and values during the chef-client run on the node.
+       An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, the Chef Infra Client will apply those new settings and values during the Chef Infra Client run on the node.
 
        .. end_tag
 
@@ -46,12 +46,12 @@ Some important components of cookbooks include:
        * May be included in another recipe
        * May use the results of a search query and read the contents of a data bag (including an encrypted data bag)
        * May have a dependency on one (or more) recipes
-       * Must be added to a run-list before it can be used by the chef-client
+       * Must be added to a run-list before it can be used by the Chef Infra Client
        * Is always executed in the same order as listed in a run-list
 
        .. end_tag
 
-The chef-client will run a recipe only when asked. When the chef-client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the chef-client won't change anything.
+The Chef Infra Client will run a recipe only when asked. When the Chef Infra Client runs the same recipe more than once, the results will be the same system state each time. When a recipe is run against a system, but nothing has changed on either the system or in the recipe, the Chef Infra Client won't change anything.
 
 In addition to attributes and recipes, the following items are also part of cookbooks:
 
@@ -64,13 +64,13 @@ In addition to attributes and recipes, the following items are also part of cook
    * - `Files </files.html>`__
      - A file distribution is a specific type of resource that tells a cookbook how to distribute files, including by node, by platform, or by file version.
    * - `Libraries </libraries.html>`__
-     - A library allows the use of arbitrary Ruby code in a cookbook, either as a way to extend the chef-client language or to implement a new class.
+     - A library allows the use of arbitrary Ruby code in a cookbook, either as a way to extend the Chef Infra Client language or to implement a new class.
    * - `Custom Resources </custom_resources.html>`__
      - A custom resource is an abstract approach for defining a set of actions and (for each action) a set of properties and validation parameters.
    * - `Metadata </cookbook_repo.html>`__
      - A metadata file is used to ensure that each cookbook is correctly deployed to each node.\
    * - `Resources </resource.html>`__
-     - A resource instructs the chef-client to complete various tasks like installing packages, running Ruby code, or accessing directories and file systems. The chef-client includes built-in resources that cover many common scenarios. For the full list of resources that are built-in to the chef-client, see our `Resources Reference </resource_reference.html>`__.
+     - A resource instructs the Chef Infra Client to complete various tasks like installing packages, running Ruby code, or accessing directories and file systems. The Chef Infra Client includes built-in resources that cover many common scenarios. For the full list of resources that are built-in to the Chef Infra Client, see our `Resources Reference </resource_reference.html>`__.
    * - `Templates </templates.html>`__
      - A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.
    * - `Cookbook Versioning </cookbook_versioning.html>`__
@@ -78,7 +78,7 @@ In addition to attributes and recipes, the following items are also part of cook
 
        A cookbook version represents a set of functionality that is different from the cookbook on which it is based. A version may exist for many reasons, such as ensuring the correct use of a third-party component, updating a bug fix, or adding an improvement. A cookbook version is defined using syntax and operators, may be associated with environments, cookbook metadata, and/or run-lists, and may be frozen (to prevent unwanted updates from being made).
 
-       A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef server, and how the chef-client applies that cookbook when configuring nodes.
+       A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef Infra Server, and how the Chef Infra Client applies that cookbook when configuring nodes.
 
        .. end_tag
 

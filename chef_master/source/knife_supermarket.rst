@@ -5,14 +5,14 @@ knife supermarket
 
 The ``knife supermarket`` subcommand is used to interact with cookbooks that are located in on the public Supermarket as well as private Chef Supermarket sites. A user account is required for any community actions that write data to the Chef Supermarket; however, the following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
-.. note:: If you are interested in uploading to the supermarket as a company you might be interested
+.. note:: If you are interested in uploading to the Supermarket as a company you might be interested
           in looking at the `Chef Partner Cookbook Program <https://www.chef.io/partners/cookbooks/>`__
           which can help validate and verify your company cookbook. A selection of Certified Partner Cookbooks can
           be found `here <https://supermarket.chef.io/cookbooks?utf8=✓&q=&badges%5B%5D=partner&platforms%5B%5D=>`__.
 
 .. note:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef Development Kit. For more information about the Chef Development Kit, see `About ChefDK </about_chefdk.html>`__.
+          Please consider managing community cookbooks using the version of Berkshelf that ships with ChefDK For more information about the ChefDK, see `About ChefDK </about_chefdk.html>`__.
 
           .. end_tag
 

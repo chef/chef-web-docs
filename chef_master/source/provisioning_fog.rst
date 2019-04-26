@@ -5,11 +5,11 @@ Fog Driver Resources
 
 .. tag provisioning_summary
 
-Chef provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the chef-client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
+Chef provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
 
 Chef provisioning is built around two major components: the **machine** resource and drivers.
 
-Chef provisioning is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+Chef provisioning is packaged in ChefDK. Chef provisioning is a framework that allows clusters to be managed by the Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
 
 .. end_tag
 

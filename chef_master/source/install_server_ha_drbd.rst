@@ -1,13 +1,13 @@
-.. This page is the Chef 12 server install page, for high availability in AWS.
+.. This page is the Chef Server 12 install page, for high availability in AWS.
 
 =====================================================
 High Availability: DRBD (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_ha_drbd.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef servver. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
+.. warning:: This topic is deprecated as of the release of Chef Server 12.9. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
 
-This topic describes how to set up the Chef server for high availability using physical machines and DRBD.
+This topic describes how to set up the Chef Server for high availability using physical machines and DRBD.
 
 .. image:: ../../images/chef_server_ha_drbd.svg
    :width: 600px
@@ -15,18 +15,18 @@ This topic describes how to set up the Chef server for high availability using p
 
 Prerequisites
 =====================================================
-Before installing the Chef server software, perform the following steps:
+Before installing the Chef Server software, perform the following steps:
 
 * Backend servers `should have a dedicated connection <http://www.drbd.org/users-guide/s-prepare-network.html>`_. This is required for replication between the two servers.
-* Backend servers will share a virtual IP address that must also be accessible from each frontend server. This virtual IP address is created and managed by the Chef server, but will also need to be added to the DNS so that all servers in the high availability configuration may access it.
-* Persistent data on backend servers of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server.
+* Backend servers will share a virtual IP address that must also be accessible from each frontend server. This virtual IP address is created and managed by the Chef Server, but will also need to be added to the DNS so that all servers in the high availability configuration may access it.
+* Persistent data on backend servers of the Chef Server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef Server.
 * Load-balancing should be used with frontend machines, along with a DNS entry for the virtual IP address used for load balancing. This virtual IP address is added to the chef-server.rb file as the ``api_fqdn``.
-* All required ports must be open. See the Firewalls section (below) for the list of ports. All connections to and from the Chef server are accomplished via TCP. Refer to the operating system's manual or your systems administrators for instructions on how to configure to ports, if necessary.
-* The hostname for the Chef server must be an FQDN, including the domain suffix, and must be resolvable by the other backend and frontend servers. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information.
+* All required ports must be open. See the Firewalls section (below) for the list of ports. All connections to and from the Chef Server are accomplished via TCP. Refer to the operating system's manual or your systems administrators for instructions on how to configure to ports, if necessary.
+* The hostname for the Chef Server must be an FQDN, including the domain suffix, and must be resolvable by the other backend and frontend servers. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information.
 
 Disk Configuration
 =====================================================
-Persistent data on a backend Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should:
+Persistent data on a backend Chef Server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef Server. These disks should:
 
 * Utilize hardware RAID
 * Be configured in either RAID1 or RAID5
@@ -38,7 +38,7 @@ The recommended configuration utilizes the Linux logical volume manager (LVM) as
 * The disk space presents as a single device, ``/dev/sdb``
 * The storage is added to a volume group named ``opscode``
 * The storage is added in a logical volume group named ``drbd``
-* The volume group should have adequate space to enable logical volume manager (LVM) snapshots to be used for backups; this amount depends on many factors, including how much changes in-between snapshots, how long the snapshots will be kept, and the (eventual) size of the Chef server database; a decent starting point when sizing logical volume manager (LVM) snapshots is ~10% of the raw, unpartitioned disk space
+* The volume group should have adequate space to enable logical volume manager (LVM) snapshots to be used for backups; this amount depends on many factors, including how much changes in-between snapshots, how long the snapshots will be kept, and the (eventual) size of the Chef Server database; a decent starting point when sizing logical volume manager (LVM) snapshots is ~10% of the raw, unpartitioned disk space
 
 The following commands would properly set up the backend disk configuration for DRBD:
 
@@ -62,7 +62,7 @@ and:
 
 chef-server.rb
 =====================================================
-Each Chef server in a high availability configuration must have an identical chef-server.rb file that is located in the ``/etc/opscode/`` directory on each server. This file describes the topology of the high availability configuration. On the primary backend server, create a file named chef-server.rb and save it in the ``/etc/opscode/`` directory.
+Each Chef Server in a high availability configuration must have an identical chef-server.rb file that is located in the ``/etc/opscode/`` directory on each server. This file describes the topology of the high availability configuration. On the primary backend server, create a file named chef-server.rb and save it in the ``/etc/opscode/`` directory.
 
 Add the following settings to the chef-server.rb file:
 
@@ -82,7 +82,7 @@ Add the following settings to the chef-server.rb file:
         :bootstrap => true,
         :cluster_ipaddress => "CLUSTER_IPADDRESS"
 
-   Replace ``FQDN`` with the FQDN of the server and ``IP_ADDRESS`` with the IP address of the server. The role is a backend server is ``"backend"``. If the backend server is used to bootstrap the Chef server installation, replace ``CLUSTER_IPADDRESS`` with the IP address of the interface that is used for cluster communications. For example, the same IP address that is used by Keepalived and DRBD. If the Chef server is not used to bootstrap the Chef server installation, exclude the ``:cluster_ipaddress`` entry.
+   Replace ``FQDN`` with the FQDN of the server and ``IP_ADDRESS`` with the IP address of the server. The role is a backend server is ``"backend"``. If the backend server is used to bootstrap the Chef Server installation, replace ``CLUSTER_IPADDRESS`` with the IP address of the interface that is used for cluster communications. For example, the same IP address that is used by Keepalived and DRBD. If the Chef Server is not used to bootstrap the Chef Server installation, exclude the ``:cluster_ipaddress`` entry.
 
 #. Define the secondary backend server:
 
@@ -123,13 +123,13 @@ Add the following settings to the chef-server.rb file:
 
       api_fqdn "FQDN"
 
-   Replace ``FQDN`` with the FQDN of the load balanced virtual IP address, which should be equal to the FQDN for the service URI that is used by the Chef server.
+   Replace ``FQDN`` with the FQDN of the load balanced virtual IP address, which should be equal to the FQDN for the service URI that is used by the Chef Server.
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -140,7 +140,7 @@ Add the following settings to the chef-server.rb file:
 
 Primary Backend
 =====================================================
-Use the following steps to set up the primary backend Chef server:
+Use the following steps to set up the primary backend Chef Server:
 
 #. Download the packages from https://downloads.chef.io/chef-server/. For Red Hat and CentOS 6:
 
@@ -154,7 +154,7 @@ Use the following steps to set up the primary backend Chef server:
 
       $ dpkg -i /tmp/chef-server-core-<version>.deb
 
-   After a few minutes, the Chef server will be installed.
+   After a few minutes, the Chef Server will be installed.
 
 #. Create a file named chef-server.rb that is located in the ``/etc/opscode/`` directory. See the chef-server.rb section below for an example of the settings and values that are required.
 
@@ -254,9 +254,9 @@ Use the following steps to set up the primary backend Chef server:
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -279,7 +279,7 @@ Use the following steps to set up the primary backend Chef server:
 
 Secondary Backend
 =====================================================
-Use the following steps to set up the secondary backend Chef server:
+Use the following steps to set up the secondary backend Chef Server:
 
 #. Repeat the same steps as described for the primary backend server.
 
@@ -287,9 +287,9 @@ Use the following steps to set up the secondary backend Chef server:
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -389,7 +389,7 @@ To establish failover between the two backend servers, do the following:
 
       $ touch /var/opt/opscode/drbd/drbd_ready
 
-#. Reconfigure the primary Chef server:
+#. Reconfigure the primary Chef Server:
 
    .. code-block:: bash
 
@@ -401,7 +401,7 @@ To establish failover between the two backend servers, do the following:
 
       $ touch /var/opt/opscode/drbd/drbd_ready
 
-#. Reconfigure the secondary Chef server:
+#. Reconfigure the secondary Chef Server:
 
    .. code-block:: bash
 
@@ -409,9 +409,9 @@ To establish failover between the two backend servers, do the following:
 
 Frontend
 =====================================================
-For each frontend server, use the following steps to set up the Chef server:
+For each frontend server, use the following steps to set up the Chef Server:
 
-#. Install the Chef server package. For Red Hat and CentOS 6:
+#. Install the Chef Server package. For Red Hat and CentOS 6:
 
    .. code-block:: bash
 
@@ -423,15 +423,15 @@ For each frontend server, use the following steps to set up the Chef server:
 
       $ dpkg -i /tmp/chef-server-core-<version>.deb
 
-   After a few minutes, the Chef server will be installed.
+   After a few minutes, the Chef Server will be installed.
 
 #. Create the ``/etc/opscode/`` directory, and then copy the entire contents of the ``/etc/opscode`` directory from the primary backend server, including all certificates and the chef-server.rb file.
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -442,9 +442,9 @@ For each frontend server, use the following steps to set up the Chef server:
 
 #. .. tag install_chef_server_start
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Start the Chef server:
+   Start the Chef Server:
 
    .. code-block:: bash
 
@@ -488,7 +488,7 @@ For each frontend server, use the following steps to set up the Chef server:
 
    The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``'Fourth Coffee, Inc.'``.
 
-   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
+   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef Server.
 
    An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -496,9 +496,9 @@ For each frontend server, use the following steps to set up the Chef server:
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -511,7 +511,7 @@ Enable Features
 =====================================================
 .. tag ctl_chef_server_install_features
 
-Enable additional features of the Chef server! The packages may be downloaded directly as part of the installation process or they may be first downloaded to a local directory, and then installed.
+Enable additional features of the Chef Server! The packages may be downloaded directly as part of the installation process or they may be first downloaded to a local directory, and then installed.
 
 .. end_tag
 
@@ -524,7 +524,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 Chef Manage
    Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
-   On each front end server in the Chef server configuration, run:
+   On each front end server in the Chef Server configuration, run:
 
    .. code-block:: bash
 
@@ -542,7 +542,7 @@ Chef Manage
 
       $ chef-manage-ctl reconfigure
 
-   This updates the Chef server and creates the ``/etc/opscode-manage/secrets.rb`` file. When running the Chef management console 1.11 (or higher), copy the ``secrets.rb`` file in the ``/etc/opscode-manage`` directory on one of the frontend servers to the same directory on each of the other frontend servers, and then rerun ``chef-manage-ctl reconfigure`` so the copied ``/etc/opscode-manage/secrets.rb`` file gets used correctly.
+   This updates the Chef Server and creates the ``/etc/opscode-manage/secrets.rb`` file. When running the Chef management console 1.11 (or higher), copy the ``secrets.rb`` file in the ``/etc/opscode-manage`` directory on one of the frontend servers to the same directory on each of the other frontend servers, and then rerun ``chef-manage-ctl reconfigure`` so the copied ``/etc/opscode-manage/secrets.rb`` file gets used correctly.
 
    .. note:: .. tag chef_license_reconfigure_manage
 
@@ -576,15 +576,15 @@ The ``chef-server-ctl`` command will install the first ``chef-manage`` package f
 
 .. tag install_push_jobs_server_ha
 
-To set up the Chef push jobs server for a high availability configuration:
+To set up the Chef Push Jobs server for a high availability configuration:
 
-#. Install the package on all servers that are running the Chef server. For example on Ubuntu:
+#. Install the package on all servers that are running the Chef Server. For example on Ubuntu:
 
    .. code-block:: bash
 
       $ sudo dpkg -i opscode-push-jobs-server_2.1.0-1_amd64.deb
 
-#. Reconfigure the primary backend Chef push jobs server:
+#. Reconfigure the primary backend Chef Push Jobs server:
 
    .. code-block:: bash
 
@@ -602,9 +602,9 @@ To set up the Chef push jobs server for a high availability configuration:
 
       $ scp -r /etc/opscode-push-jobs-server <each servers IP>:/etc
 
-#. TCP protocol ports 10000 and 10003 must be open. These are the heartbeat and command ports respectively. They allow the Chef push jobs server to communicate with the Chef push jobs clients. In a configuration with both frontend and backend servers, these ports only need to be open on the backend servers. The Chef push jobs server waits for connections from the Chef push jobs client (and never makes a connection to a Chef push jobs client).
+#. TCP protocol ports 10000 and 10003 must be open. These are the heartbeat and command ports respectively. They allow the Chef Push Jobs server to communicate with the Chef Push Jobs clients. In a configuration with both frontend and backend servers, these ports only need to be open on the backend servers. The Chef Push Jobs server waits for connections from the Chef Push Jobs client (and never makes a connection to a Chef Push Jobs client).
 
-#. Reconfigure the remaining Chef push jobs servers:
+#. Reconfigure the remaining Chef Push Jobs servers:
 
    .. code-block:: bash
 
@@ -616,9 +616,9 @@ To set up the Chef push jobs server for a high availability configuration:
 
       $ chef-server-ctl reconfigure
 
-   This ensures that the Keepalived scripts are regenerated so they are aware of Chef push jobs.
+   This ensures that the Keepalived scripts are regenerated so they are aware of Chef Push Jobs.
 
-#. Restart all servers on which Chef push jobs will run:
+#. Restart all servers on which Chef Push Jobs will run:
 
    .. code-block:: bash
 
@@ -634,11 +634,11 @@ To set up the Chef push jobs server for a high availability configuration:
 
 Reference
 =====================================================
-The following sections show an example chef-server.rb file and a list of the ports that are required by the Chef server.
+The following sections show an example chef-server.rb file and a list of the ports that are required by the Chef Server.
 
 chef-server.rb
 -----------------------------------------------------
-A completed chef-server.rb configuration file for a four server tiered Chef server cluster, consisting of:
+A completed chef-server.rb configuration file for a four server tiered Chef Server cluster, consisting of:
 
 .. list-table::
    :widths: 100 150 150 100
@@ -716,7 +716,7 @@ Firewalls and Ports
 -----------------------------------------------------
 .. tag server_firewalls_and_ports_summary
 
-All of the ports used by the Chef server are TCP ports. Refer to the operating system's manual or site systems administrators for instructions on how to enable changes to ports, if necessary.
+All of the ports used by the Chef Server are TCP ports. Refer to the operating system's manual or site systems administrators for instructions on how to enable changes to ports, if necessary.
 
 .. end_tag
 
@@ -732,7 +732,7 @@ All services must be listening on the appropriate ports. Most monitoring systems
 
 .. tag server_firewalls_and_ports_loopback
 
-A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef server, in the event that the Chef server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
+A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef Server, in the event that the Chef Server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
 
 .. end_tag
 
@@ -774,7 +774,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -785,7 +785,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Server is authorized.
 
        .. end_tag
 
@@ -795,7 +795,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef Server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -805,7 +805,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Server API requests to the following areas within the Chef Server:
 
        * Cookbooks
        * Data bags
@@ -833,7 +833,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_solr4
 
-       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef server API; data that is used by the Chef platform is stored in PostgreSQL.)
+       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef Server API; data that is used by the Chef platform is stored in PostgreSQL.)
 
        .. end_tag
 
@@ -853,7 +853,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef Server to get search data to Apache Solr so that it can be indexed for search.
 
        .. end_tag
 
@@ -863,7 +863,7 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
 
        .. tag server_services_redis
 
-       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef server.
+       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef Server.
 
        .. end_tag
 
@@ -892,7 +892,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -903,7 +903,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Server is authorized.
 
        .. end_tag
 
@@ -913,7 +913,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef Server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -923,7 +923,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Server API requests to the following areas within the Chef Server:
 
        * Cookbooks
        * Data bags
@@ -943,7 +943,7 @@ GRE Tunnels
 -----------------------------------------------------
 .. tag install_server_ha_drbd_gre_tunnels
 
-.. warning:: This option is sometimes necessary when the Chef server is configured for high availability using DRBD.
+.. warning:: This option is sometimes necessary when the Chef Server is configured for high availability using DRBD.
 
 Occasionally, a GRE tunnel will be required to handle the VRRP traffic. To accomplish this, set the following in ``/var/opt/opscode/keepalived/bin/tunnel.sh`` on the back-end server that will be used for bootstrapping:
 
@@ -970,4 +970,3 @@ Set the following in ``/etc/opscode/chef-server.rb``:
 And set the Keepalived unicast addresses to the GRE tunnel addresses.
 
 .. end_tag
-

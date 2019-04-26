@@ -3,16 +3,16 @@ Chef for Microsoft Windows
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/windows.rst>`__
 
-The chef-client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
+The Chef Infra Client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
 
-* The chef-client is `installed on a machine <https://downloads.chef.io/chef>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
-* Over a dozen resources dedicated to the Microsoft Windows platform are built into the chef-client.
+* The Chef Infra Client is `installed on a machine <https://downloads.chef.io/chef>`_ running Microsoft Windows by using a Microsoft Installer Package (MSI)
+* Over a dozen resources dedicated to the Microsoft Windows platform are built into the Chef Infra Client.
 * Use the **dsc_resource** to use PowerShell DSC resources in Chef!
 * Two knife plugins dedicated to the Microsoft Windows platform are available: ``knife azure`` is used to manage virtual instances in Microsoft Azure; ``knife windows`` is used to interact with and manage physical nodes that are running Microsoft Windows, such as desktops and servers
 * Many community cookbooks on Supermarket provide Windows specific support. Chef maintains cookbooks for `PowerShell <https://github.com/chef-cookbooks/powershell>`_, `IIS <https://github.com/chef-cookbooks/iis>`_, `SQL Server <https://github.com/chef-cookbooks/database>`_, and `Windows <https://github.com/chef-cookbooks/windows>`_.
 * Two community provisioners for Kitchen: `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`_ and `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`_
 
-The most popular core resources in the chef-client---`cookbook_file </resource_cookbook_file.html>`__, `directory </resource_directory.html>`__, `env </resource_env.html>`__, `execute </resource_execute.html>`__, `file </resource_file.html>`__, `group </resource_group.html>`__, `http_request </resource_http_request.html>`__, `link </resource_link.html>`__, `mount </resource_mount.html>`__, `package </resource_package.html>`__, `remote_directory </resource_remote_directory.html>`__, `remote_file </resource_remote_file.html>`__, `ruby_block </resource_ruby_block.html>`__, `service </resource_service.html>`__, `template </resource_template.html>`__, and `user </resource_user.html>`__---work the same way in Microsoft Windows as they do on any UNIX- or Linux-based platform.
+The most popular core resources in the Chef Infra Client---`cookbook_file </resource_cookbook_file.html>`__, `directory </resource_directory.html>`__, `env </resource_env.html>`__, `execute </resource_execute.html>`__, `file </resource_file.html>`__, `group </resource_group.html>`__, `http_request </resource_http_request.html>`__, `link </resource_link.html>`__, `mount </resource_mount.html>`__, `package </resource_package.html>`__, `remote_directory </resource_remote_directory.html>`__, `remote_file </resource_remote_file.html>`__, `ruby_block </resource_ruby_block.html>`__, `service </resource_service.html>`__, `template </resource_template.html>`__, and `user </resource_user.html>`__---work the same way in Microsoft Windows as they do on any UNIX- or Linux-based platform.
 
 The file-based resources---**cookbook_file**, **file**, **remote_file**, and **template**---have attributes that support unique requirements within the Microsoft Windows platform, including ``inherits`` (for file inheritance), ``mode`` (for octal modes), and ``rights`` (for access control lists, or ACLs).
 
@@ -20,21 +20,21 @@ The file-based resources---**cookbook_file**, **file**, **remote_file**, and **t
 
 The following sections are pulled in from the larger |url docs| site and represents the documentation that is specific to the Microsoft Windows platform, compiled here into a single-page reference.
 
-Install the chef-client on Windows
+Install the Chef Infra Client on Windows
 =====================================================
 .. tag windows_install_overview
 
-The chef-client can be installed on machines running Microsoft Windows in the following ways:
+The Chef Infra Client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using `knife windows </knife_windows.html>`__ to bootstrap the chef-client; this process requires the target node be available via the WinRM port (typically port 5985)
-* By downloading the chef-client to the target node, and then running the Microsoft Installer Package (MSI) locally
+* By using `knife windows </knife_windows.html>`__ to bootstrap the Chef Infra Client; this process requires the target node be available via the WinRM port (typically port 5985)
+* By downloading the Chef Infra Client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
-To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a service or as a scheduled task. (The chef-client can be configured to run as a service during the setup process.)
+To run the Chef Infra Client at periodic intervals (so that it can check in with the Chef Infra Server automatically), configure the Chef Infra Client to run as a service or as a scheduled task. (The Chef Infra Client can be configured to run as a service during the setup process.)
 
 .. end_tag
 
-The chef-client can be used to manage machines that run on the following versions of Microsoft Windows:
+The Chef Infra Client can be used to manage machines that run on the following versions of Microsoft Windows:
 
 .. list-table::
    :widths: 200 200 200
@@ -47,11 +47,11 @@ The chef-client can be used to manage machines that run on the following version
      - 2008 R2, 2012, 2012 R2, 2016
      - x86_64
 
-(The recommended amount of RAM available to the chef-client during a chef-client run is 512MB. Each node and workstation must have access to the Chef server via HTTPS.)
+(The recommended amount of RAM available to the Chef Infra Client during a Chef Infra Client run is 512MB. Each node and workstation must have access to the Chef Infra Server via HTTPS.)
 
 The Microsoft Installer Package (MSI) for Microsoft Windows is available at https://downloads.chef.io/chef.
 
-After the chef-client is installed, it is located at ``C:\chef``. The main configuration file for the chef-client is located at ``C:\chef\client.rb``.
+After the Chef Infra Client is installed, it is located at ``C:\chef``. The main configuration file for the Chef Infra Client is located at ``C:\chef\client.rb``.
 
 Set the System Ruby
 -----------------------------------------------------
@@ -77,7 +77,7 @@ Top-level Directory Names
 -----------------------------------------------------
 .. tag windows_top_level_directory_names
 
-Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install the Chef development kit on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.
+Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install ChefDK on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.
 
 .. end_tag
 
@@ -103,13 +103,13 @@ Msiexec.exe
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec
 
-Msiexec.exe is used to install the chef-client on a node as part of a bootstrap operation. The actual command that is run by the default bootstrap script is:
+Msiexec.exe is used to install the Chef Infra Client on a node as part of a bootstrap operation. The actual command that is run by the default bootstrap script is:
 
 .. code-block:: bash
 
    $ msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
 
-where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which the chef-client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/bootstrap/windows-chef-client-msi.erb>`_ bootstrap template. See http://msdn.microsoft.com/en-us/library/aa367988%28v=vs.85%29.aspx for more information about the options available to Msiexec.exe.
+where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which the Chef Infra Client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/bootstrap/windows-chef-client-msi.erb>`_ bootstrap template. See http://msdn.microsoft.com/en-us/library/aa367988%28v=vs.85%29.aspx for more information about the options available to Msiexec.exe.
 
 .. end_tag
 
@@ -117,7 +117,7 @@ ADDLOCAL Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec_addlocal
 
-The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-client. These options can be passed along with an Msiexec.exe command:
+The ``ADDLOCAL`` parameter adds two setup options that are specific to the Chef Infra Client. These options can be passed along with an Msiexec.exe command:
 
 .. list-table::
    :widths: 60 420
@@ -126,13 +126,13 @@ The ``ADDLOCAL`` parameter adds two setup options that are specific to the chef-
    * - Option
      - Description
    * - ``ChefClientFeature``
-     - Use to install the chef-client.
+     - Use to install the Chef Infra Client.
    * - ``ChefSchTaskFeature``
-     - Use to configure the chef-client as a scheduled task in Microsoft Windows.
+     - Use to configure the Chef Infra Client as a scheduled task in Microsoft Windows.
    * - ``ChefPSModuleFeature``
      - Used to install the chef PowerShell module. This will enable chef command line utilities within PowerShell.
 
-First install the chef-client, and then enable it to run as a scheduled task. For example:
+First install the Chef Infra Client, and then enable it to run as a scheduled task. For example:
 
 .. code-block:: bash
 
@@ -142,13 +142,13 @@ First install the chef-client, and then enable it to run as a scheduled task. Fo
 
 Use MSI Installer
 -----------------------------------------------------
-A Microsoft Installer Package (MSI) is available for installing the chef-client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/>`__.
+A Microsoft Installer Package (MSI) is available for installing the Chef Infra Client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/>`__.
 
 Enable as a Scheduled Task
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag install_chef_client_windows_as_scheduled_task
 
-To run the chef-client at periodic intervals (so that it can check in with the Chef server automatically), configure the chef-client to run as a scheduled task. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Client Scheduled Task** option on the **Custom Setup** page or by running the following command after the chef-client is installed:
+To run the Chef Infra Client at periodic intervals (so that it can check in with the Chef Infra Server automatically), configure the Chef Infra Client to run as a scheduled task. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Infra Client Scheduled Task** option on the **Custom Setup** page or by running the following command after the Chef Infra Client is installed:
 
 For example:
 
@@ -158,7 +158,7 @@ For example:
 
 Refer `Schedule a Task <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc748993(v=ws.11)>`_ for more details.
 
-After the chef-client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
+After the Chef Infra Client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
 
 .. end_tag
 
@@ -166,7 +166,7 @@ Use an Existing Process
 -----------------------------------------------------
 .. tag windows_install_system_center
 
-Many organizations already have processes in place for managing the applications and settings on various Microsoft Windows machines. For example, System Center. The chef-client can be installed using this method.
+Many organizations already have processes in place for managing the applications and settings on various Microsoft Windows machines. For example, System Center. The Chef Infra Client can be installed using this method.
 
 .. end_tag
 
@@ -174,12 +174,12 @@ PATH System Variable
 -----------------------------------------------------
 .. tag windows_environment_variable_path
 
-On Microsoft Windows, the chef-client must have two entries added to the ``PATH`` environment variable:
+On Microsoft Windows, the Chef Infra Client must have two entries added to the ``PATH`` environment variable:
 
 * ``C:\opscode\chef\bin``
 * ``C:\opscode\chef\embedded\bin``
 
-This is typically done during the installation of the chef-client automatically. If these values (for any reason) are not in the ``PATH`` environment variable, the chef-client will not run properly.
+This is typically done during the installation of the Chef Infra Client automatically. If these values (for any reason) are not in the ``PATH`` environment variable, the Chef Infra Client will not run properly.
 
 .. image:: ../../images/includes_windows_environment_variable_path.png
 
@@ -293,7 +293,7 @@ ACLs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag resources_common_windows_security_acl
 
-The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; the chef-client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
+The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; the Chef Infra Client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
 
 .. code-block:: ruby
 
@@ -309,7 +309,7 @@ where
    (For those who know the Microsoft Windows API: ``:read`` corresponds to ``GENERIC_READ``; ``:write`` corresponds to ``GENERIC_WRITE``; ``:read_execute`` corresponds to ``GENERIC_READ`` and ``GENERIC_EXECUTE``; ``:modify`` corresponds to ``GENERIC_WRITE``, ``GENERIC_READ``, ``GENERIC_EXECUTE``, and ``DELETE``; ``:full_control`` corresponds to ``GENERIC_ALL``, which allows a user to change the owner and other metadata about a file.)
 
 ``principal``
-   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. The chef-client does not need to know if a principal is a user or a group.
+   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. The Chef Infra Client does not need to know if a principal is a user or a group.
 
 ``option_type``
    A hash that contains advanced rights options. For example, the rights to a directory that only applies to the first level of children might look something like: ``rights :write, 'domain\group_name', :one_level_deep => true``. Possible option types:
@@ -349,7 +349,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified.
+* If rights are not specified, nothing will be changed. The Chef Infra Client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
@@ -376,7 +376,7 @@ Inheritance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag resources_common_windows_security_inherits
 
-By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell the chef-client to apply (or not apply) inherited rights from its parent directory.
+By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell the Chef Infra Client to apply (or not apply) inherited rights from its parent directory.
 
 For example, the following example specifies the rights for a directory:
 
@@ -416,7 +416,7 @@ but then not use the ``inherits`` property to deny those rights on a child direc
      deny_rights :read, 'MORDOR\Minions' # Oops, not specific enough
    end
 
-Because the ``inherits`` property is not specified, the chef-client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
+Because the ``inherits`` property is not specified, the Chef Infra Client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
 
 .. end_tag
 
@@ -435,7 +435,7 @@ This resource has the following attributes:
    * - ``inherits``
      - Microsoft Windows only. Whether a file inherits rights from its parent directory. Default value: ``true``.
    * - ``mode``
-     - If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
+     - If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the Chef Infra Client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the Chef Infra Client uses the default value of ``'0755'``.
 
        Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
    * - ``owner``
@@ -443,7 +443,7 @@ This resource has the following attributes:
    * - ``path``
      - The full path to the file, including the file name and its extension.
 
-       Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
+       Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the Chef Infra Client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
    * - ``rights``
      - Microsoft Windows only. The permissions for users and groups in a Microsoft Windows environment. For example: ``rights <permissions>, <principal>, <options>`` where ``<permissions>`` specifies the rights granted to the principal, ``<principal>`` is the group or user name, and ``<options>`` is a Hash with one (or more) advanced rights options.
 
@@ -457,7 +457,7 @@ Atomic updates are used with **file**-based resources to help ensure that file u
 
 Atomic updates are enabled by default. They can be managed globally using the ``file_atomic_update`` setting in the client.rb file. They can be managed on a per-resource basis using the ``atomic_update`` property that is available with the **cookbook_file**, **file**, **remote_file**, and **template** resources.
 
-.. note:: On certain platforms, and after a file has been moved into place, the chef-client may modify file permissions to support features specific to those platforms. On platforms with SELinux enabled, the chef-client will fix up the security contexts after a file has been moved into the correct location by running the ``restorecon`` command. On the Microsoft Windows platform, the chef-client will create files so that ACL inheritance works as expected.
+.. note:: On certain platforms, and after a file has been moved into place, the Chef Infra Client may modify file permissions to support features specific to those platforms. On platforms with SELinux enabled, the Chef Infra Client will fix up the security contexts after a file has been moved into the correct location by running the ``restorecon`` command. On the Microsoft Windows platform, the Chef Infra Client will create files so that ACL inheritance works as expected.
 
 .. end_tag
 
@@ -515,7 +515,7 @@ where:
 
 * ``batch`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``creates``, ``cwd``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``timeout``, `user``, `password`` and `domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -529,7 +529,7 @@ The batch resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -548,7 +548,7 @@ The batch resource has the following properties:
 ``architecture``
    **Ruby Type:** Symbol
 
-   The architecture of the process under which a script is executed. If a value is not provided, the chef-client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
+   The architecture of the process under which a script is executed. If a value is not provided, the Chef Infra Client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
 
 ``code``
    **Ruby Type:** String | ``REQUIRED``
@@ -615,7 +615,7 @@ The batch resource has the following properties:
    **Ruby Type:** String
 
    *Windows only*: The domain of the user user specified by the `user` property.
-   If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
+   If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef Infra Client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 .. note:: See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd for more information about the cmd.exe interpreter.
 
@@ -673,7 +673,7 @@ dsc_resource
 
 .. tag resources_common_generic
 
-A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
+A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the Chef Infra Client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 
@@ -696,11 +696,11 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
              * Windows Management Framework (WMF) 5.0 February Preview (or higher), which includes Windows PowerShell 5.0.10018.0 (or higher).
              * The ``RefreshMode`` configuration setting in the Local Configuration Manager must be set to ``Disabled``.
 
-               **NOTE:** Starting with the chef-client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode.
+               **NOTE:** Starting with the Chef Client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the Chef Infra Client from running in non-disabled refresh mode.
 
              * The **dsc_script** resource  may not be used in the same run-list with the **dsc_resource**. This is because the **dsc_script** resource requires that ``RefreshMode`` in the Local Configuration Manager be set to ``Push``, whereas the **dsc_resource** resource requires it to be set to ``Disabled``.
 
-               **NOTE:** Starting with the chef-client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``.
+               **NOTE:** Starting with the Chef Client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the Chef Infra Client from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``.
 
              * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
 
@@ -751,8 +751,8 @@ where:
 
 * ``dsc_resource`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
+* ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the Chef Infra Client
 * ``module_name``, ``module_version``, ``property``, ``reboot_action``, ``resource``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -805,7 +805,7 @@ The dsc_resource resource has the following properties:
       * - ``True``
         - ``bool($true)``
 
-   These are converted into the corresponding Windows PowerShell type during the chef-client run.
+   These are converted into the corresponding Windows PowerShell type during the Chef Infra Client run.
 
    .. end_tag
 
@@ -856,7 +856,7 @@ The dsc_resource resource has the following properties:
       * - ``:windowsprocess``
         - Use to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
 
-   Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
+   Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the Chef Infra Client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
    .. end_tag
 
@@ -984,7 +984,7 @@ dsc_script
 
 .. tag resources_common_generic
 
-A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
+A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the Chef Infra Client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 
@@ -1055,7 +1055,7 @@ where:
 
 * ``dsc_script`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Client will take to bring the node into the desired state.
 * ``code``, ``command``, ``configuration_data``, ``configuration_data_script``, ``configuration_name``, ``cwd``, ``environment``, ``flags``, ``imports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1070,7 +1070,7 @@ The dsc_script resource has the following actions:
 
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -1395,7 +1395,7 @@ where
 
 * ``windows_env`` is the resource
 * ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the Chef Infra Client will take to bring the node into the desired state
 * ``delim``, ``key_name``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1418,7 +1418,7 @@ The windows_env resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -1524,7 +1524,7 @@ where:
 * ``powershell_script`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run.
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies the steps the Chef Infra Client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1552,7 +1552,7 @@ The powershell_script resource has the following properties:
 ``architecture``
    **Ruby Type:** Symbol
 
-   The architecture of the process under which a script is executed. If a value is not provided, the chef-client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
+   The architecture of the process under which a script is executed. If a value is not provided, the Chef Infra Client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
 
 ``code``
    **Ruby Type:** String | ``REQUIRED``
@@ -1648,7 +1648,7 @@ The powershell_script resource has the following properties:
    **Ruby Type:** String
 
    *Windows only*: The domain of the user specified by the `user` property.
-   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
+   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef Infra Client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
     **Ruby Type:**  true, false
@@ -1803,7 +1803,7 @@ where
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 
   .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the Chef Infra Client will take to bring the node into the desired state
 * ``architecture``, ``key``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -1836,7 +1836,7 @@ Recipe DSL Methods
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_recipe_method_windows_methods
 
-Six methods are present in the Recipe DSL to help verify the registry during a chef-client run on the Microsoft Windows platform---``registry_data_exists?``, ``registry_get_subkeys``, ``registry_get_values``, ``registry_has_subkeys?``, ``registry_key_exists?``, and ``registry_value_exists?``---these helpers ensure the **powershell_script** resource is idempotent.
+Six methods are present in the Recipe DSL to help verify the registry during a Chef Infra Client run on the Microsoft Windows platform---``registry_data_exists?``, ``registry_get_subkeys``, ``registry_get_values``, ``registry_has_subkeys?``, ``registry_key_exists?``, and ``registry_value_exists?``---these helpers ensure the **powershell_script** resource is idempotent.
 
 .. end_tag
 
@@ -1873,7 +1873,7 @@ where:
 * ``KEY_PATH`` is the path to the registry key value. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 * ``{ name: 'NAME', type: TYPE, data: DATA }`` is a hash that contains the expected name, type, and data of the registry key value
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
 
@@ -1906,7 +1906,7 @@ The syntax for the ``registry_get_subkeys`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This returns an array of registry key values.
 
@@ -1939,7 +1939,7 @@ The syntax for the ``registry_get_values`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This returns an array of registry key values.
 
@@ -1972,7 +1972,7 @@ The syntax for the ``registry_has_subkeys?`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
 
@@ -2005,7 +2005,7 @@ The syntax for the ``registry_key_exists?`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``. (Any registry key values that are associated with this registry key are ignored.)
 
@@ -2044,7 +2044,7 @@ where:
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 * ``{ name: 'NAME' }`` is a hash that contains the name of the registry key value; if either ``type:`` or ``:value`` are specified in the hash, they are ignored
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
 
@@ -2077,13 +2077,13 @@ The registry_key resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
 .. note:: .. tag notes_registry_key_resource_recursive
 
-          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the chef-client.
+          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
           .. end_tag
 
@@ -2098,9 +2098,9 @@ The registry_key resource has the following properties:
 ``architecture``
    **Ruby Type:** Symbol | **Default Value:** ``:machine``
 
-   The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the chef-client determine the architecture during the chef-client run).
+   The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the Chef Infra Client determine the architecture during the Chef Infra Client run).
 
-   In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+   In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
    .. note:: .. tag notes_registry_key_architecture
 
@@ -2121,7 +2121,7 @@ The registry_key resource has the following properties:
 
    .. note:: .. tag notes_registry_key_resource_recursive
 
-             Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the chef-client.
+             Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
              .. end_tag
 
@@ -2272,7 +2272,7 @@ where:
 
 * ``windows_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``response_file``, ``response_file_variables``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 .. end_tag
@@ -2289,7 +2289,7 @@ The windows_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -2307,7 +2307,7 @@ The windows_package resource has the following properties:
 ``checksum``
    **Ruby Type:** String
 
-   The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
+   The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the Chef Infra Client does not download it. Use when a URL is specified by the ``source`` property.
 
 ``installer_type``
    **Ruby Type:** Symbol
@@ -2368,7 +2368,7 @@ This resource has the following providers:
 .. tag resource_package_windows_providers
 
 ``Chef::Provider::Package``, ``package``
-   When this short name is used, the chef-client will attempt to determine the correct provider during the chef-client run.
+   When this short name is used, the Chef Infra Client will attempt to determine the correct provider during the Chef Infra Client run.
 
 ``Chef::Provider::Package::Windows``, ``windows_package``
    The provider for the Microsoft Windows platform.
@@ -2529,7 +2529,7 @@ where:
 
 * ``windows_service`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -2544,7 +2544,7 @@ The windows_service resource has the following actions:
    Configure a pre-existing service.
 
    *New in Chef Client 14.0.*
-   
+
 ``:configure_startup``
    Configure a service based on the value of the ``startup_type`` property.
 
@@ -2582,7 +2582,7 @@ The windows_service resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -2697,7 +2697,7 @@ The windows_service resource has the following properties:
 ``supports``
    **Ruby Type:** Hash
 
-   A list of properties that controls how the chef-client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the chef-client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the chef-client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
+   A list of properties that controls how the Chef Infra Client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the Chef Infra Client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the Chef Infra Client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
 
 ``timeout``
    **Ruby Type:** Integer | **Default Value:** ``60``
@@ -2745,7 +2745,7 @@ Recipe DSL Methods
 =====================================================
 .. tag dsl_recipe_method_windows_methods
 
-Six methods are present in the Recipe DSL to help verify the registry during a chef-client run on the Microsoft Windows platform---``registry_data_exists?``, ``registry_get_subkeys``, ``registry_get_values``, ``registry_has_subkeys?``, ``registry_key_exists?``, and ``registry_value_exists?``---these helpers ensure the **powershell_script** resource is idempotent.
+Six methods are present in the Recipe DSL to help verify the registry during a Chef Infra Client run on the Microsoft Windows platform---``registry_data_exists?``, ``registry_get_subkeys``, ``registry_get_values``, ``registry_has_subkeys?``, ``registry_key_exists?``, and ``registry_value_exists?``---these helpers ensure the **powershell_script** resource is idempotent.
 
 .. end_tag
 
@@ -2782,7 +2782,7 @@ where:
 * ``KEY_PATH`` is the path to the registry key value. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 * ``{ name: 'NAME', type: TYPE, data: DATA }`` is a hash that contains the expected name, type, and data of the registry key value
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
 
@@ -2815,7 +2815,7 @@ The syntax for the ``registry_get_subkeys`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This returns an array of registry key values.
 
@@ -2848,7 +2848,7 @@ The syntax for the ``registry_get_values`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This returns an array of registry key values.
 
@@ -2881,7 +2881,7 @@ The syntax for the ``registry_has_subkeys?`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
 
@@ -2914,7 +2914,7 @@ The syntax for the ``registry_key_exists?`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``. (Any registry key values that are associated with this registry key are ignored.)
 
@@ -2953,7 +2953,7 @@ where:
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 * ``{ name: 'NAME' }`` is a hash that contains the name of the registry key value; if either ``type:`` or ``:value`` are specified in the hash, they are ignored
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 This method will return ``true`` or ``false``.
 
@@ -3114,11 +3114,11 @@ The previous example is from the `ms_dotnet2 cookbook <https://github.com/julian
 
 .. end_tag
 
-chef-client
+Chef Infra Client
 =====================================================
 .. tag chef_client_summary
 
-A chef-client is an agent that runs locally on every node that is under management by Chef. When a chef-client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
+A Chef Infra Client is an agent that runs locally on every node that is under management by Chef. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
 
 * Registering and authenticating the node with the Chef server
 * Building the node object
@@ -3138,12 +3138,12 @@ This command has the following syntax:
 This command has the following options specific to Microsoft Windows:
 
 ``-A``, ``--fatal-windows-admin-check``
-   Cause a chef-client run to fail when the chef-client does not have administrator privileges in Microsoft Windows.
+   Cause a Chef Infra Client run to fail when the Chef Infra Client does not have administrator privileges in Microsoft Windows.
 
 ``-d``, ``--daemonize``
    Run the executable as a daemon.
 
-   This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a chef-client service under Microsoft Windows using the Windows Service Wrapper.
+   This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a Chef Infra Client service under Microsoft Windows using the Windows Service Wrapper.
 
 .. note:: chef-solo also uses the ``--daemonize`` setting for Microsoft Windows.
 
@@ -3151,17 +3151,17 @@ Run w/Elevated Privileges
 -----------------------------------------------------
 .. tag ctl_chef_client_elevated_privileges
 
-The chef-client may need to be run with elevated privileges in order to get a recipe to converge correctly. On UNIX and UNIX-like operating systems this can be done by running the command as root. On Microsoft Windows this can be done by running the command prompt as an administrator.
+The Chef Infra Client may need to be run with elevated privileges in order to get a recipe to converge correctly. On UNIX and UNIX-like operating systems this can be done by running the command as root. On Microsoft Windows this can be done by running the command prompt as an administrator.
 
 .. end_tag
 
 .. tag ctl_chef_client_elevated_privileges_windows
 
-On Microsoft Windows, running without elevated privileges (when they are necessary) is an issue that fails silently. It will appear that the chef-client completed its run successfully, but the changes will not have been made. When this occurs, do one of the following to run the chef-client as the administrator:
+On Microsoft Windows, running without elevated privileges (when they are necessary) is an issue that fails silently. It will appear that the Chef Infra Client completed its run successfully, but the changes will not have been made. When this occurs, do one of the following to run the Chef Infra Client as the administrator:
 
 * Log in to the administrator account. (This is not the same as an account in the administrator's security group.)
 
-* Run the chef-client process from the administrator account while being logged into another account. Run the following command:
+* Run the Chef Infra Client process from the administrator account while being logged into another account. Run the following command:
 
    .. code-block:: bash
 
@@ -3169,7 +3169,7 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 
    This will prompt for the administrator account password.
 
-* Open a command prompt by right-clicking on the command prompt application, and then selecting **Run as administrator**. After the command window opens, the chef-client can be run as the administrator
+* Open a command prompt by right-clicking on the command prompt application, and then selecting **Run as administrator**. After the command window opens, the Chef Infra Client can be run as the administrator
 
 .. end_tag
 

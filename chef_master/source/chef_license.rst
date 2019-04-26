@@ -15,7 +15,7 @@ Apache 2.0
 
 .. no swaps used for the "such as ..." section to ensure the correct legal name and not the names for these products as otherwise used globally in the documentation.
 
-All open source Chef products---such as the Chef client, the Chef server, or InSpec---are governed by the `Apache 2.0 license <https://www.apache.org/licenses/LICENSE-2.0>`__.
+All open source Chef products---such as the Chef Infra Client, the Chef Infra Server, or InSpec---are governed by the `Apache 2.0 license <https://www.apache.org/licenses/LICENSE-2.0>`__.
 
 .. end_tag
 

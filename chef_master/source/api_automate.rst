@@ -165,7 +165,7 @@ For the primary server in a disaster recovery pair, the response will be similar
 
 In this configuration, the ``postgres`` and ``lsyncd`` upstreams will indicate the current state of disaster recovery replication.  For PostgreSQL, it will both indicate that it knows what the standby IP is supposed to be and the current ``location``. If the PostgreSQL replication is working correctly, it should match the value of the PostgreSQL ``xlog`` location reported by the standby (see below).
 
-For ``lsyncd``, if the replication is up-to-date, ``latency`` should return 0; it may be above zero if changes have been queued up for replication, but it should quickly drop back down once the ``lsyncd`` server syncs changes (which should happen either after a fixed delay or when a certain number of changes have queued up). If it instead maintains a number above zero (or even continues to grow), that would indicate that there's an issue replicating git data in Chef Automate.
+For ``lsyncd``, if the replication is up-to-date, ``latency`` should return 0; it may be above zero if changes have been queued up for replication, but it should quickly drop back down once the ``lsyncd`` server syncs changes (which should happen either after a fixed delay or when a certain number of changes have queued up). If it instead maintains a number above zero (or even continues to grow), that would indicate that there's an issue replicating Git data in Chef Automate.
 
 For the standby server in a disaster recovery pair, the response will be similar to:
 

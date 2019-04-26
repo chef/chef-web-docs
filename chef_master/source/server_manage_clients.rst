@@ -7,7 +7,7 @@ Manage Client Keys
 
 .. tag server_rbac_clients
 
-A client is an actor that has permission to access the Chef server. A client is most often a node (on which the chef-client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef server API. Each request to the Chef server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef server.
+A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.
 
 .. end_tag
 
@@ -88,13 +88,13 @@ Permissions
 -----------------------------------------------------
 .. tag server_rbac_permissions
 
-Permissions are used in the Chef server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
+Permissions are used in the Chef Infra Server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
 
 .. end_tag
 
 .. tag server_rbac_permissions_object
 
-The Chef server includes the following object permissions:
+The Chef Infra Server includes the following object permissions:
 
 .. list-table::
    :widths: 60 420
@@ -103,13 +103,13 @@ The Chef server includes the following object permissions:
    * - Permission
      - Description
    * - **Delete**
-     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Grant**
      - Use the **Grant** permission to define which users and groups may configure permissions on an object. This permission is required for any user who configures permissions using the **Administration** tab in the Chef management console.
    * - **Read**
-     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Update**
-     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef server and for any chef-client to save node data to the Chef server at the conclusion of a chef-client run.
+     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef Infra Server and for any Chef Infra Client to save node data to the Chef Infra Server at the conclusion of a Chef Infra Client run.
 
 .. end_tag
 
@@ -155,17 +155,17 @@ chef-validator Keys
 =====================================================
 .. tag security_chef_validator
 
-Every request made by the chef-client to the Chef server must be an authenticated request using the Chef server API and a private key. When the chef-client makes a request to the Chef server, the chef-client authenticates each request using a private key located in ``/etc/chef/client.pem``.
+Every request made by the Chef Infra Client to the Chef Infra Server must be an authenticated request using the Chef Infra Server API and a private key. When the Chef Infra Client makes a request to the Chef Infra Server, the Chef Infra Client authenticates each request using a private key located in ``/etc/chef/client.pem``.
 
 .. end_tag
 
 .. tag security_chef_validator_context
 
-However, during the first chef-client run, this private key does not exist. Instead, the chef-client will attempt to use the private key assigned to the chef-validator, located in ``/etc/chef/validation.pem``. (If, for any reason, the chef-validator is unable to make an authenticated request to the Chef server, the initial chef-client run will fail.)
+However, during the first Chef Infra Client run, this private key does not exist. Instead, the Chef Infra Client will attempt to use the private key assigned to the chef-validator, located in ``/etc/chef/validation.pem``. (If, for any reason, the chef-validator is unable to make an authenticated request to the Chef Infra Server, the initial Chef Infra Client run will fail.)
 
-During the initial chef-client run, the chef-client will register with the Chef server using the private key assigned to the chef-validator, after which the chef-client will obtain a ``client.pem`` private key for all future authentication requests to the Chef server.
+During the initial Chef Infra Client run, the Chef Infra Client will register with the Chef Infra Server using the private key assigned to the chef-validator, after which the Chef Infra Client will obtain a ``client.pem`` private key for all future authentication requests to the Chef Infra Server.
 
-After the initial chef-client run has completed successfully, the chef-validator is no longer required and may be deleted from the node. Use the ``delete_validation`` recipe found in the ``chef-client`` cookbook (https://github.com/chef-cookbooks/chef-client) to remove the chef-validator.
+After the initial Chef Infra Client run has completed successfully, the chef-validator is no longer required and may be deleted from the node. Use the ``delete_validation`` recipe found in the ``chef-client`` cookbook (https://github.com/chef-cookbooks/chef-client) to remove the chef-validator.
 
 .. end_tag
 
@@ -245,13 +245,13 @@ Permissions
 -----------------------------------------------------
 .. tag server_rbac_permissions
 
-Permissions are used in the Chef server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
+Permissions are used in the Chef Infra Server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
 
 .. end_tag
 
 .. tag server_rbac_permissions_object
 
-The Chef server includes the following object permissions:
+The Chef Infra Server includes the following object permissions:
 
 .. list-table::
    :widths: 60 420
@@ -260,13 +260,13 @@ The Chef server includes the following object permissions:
    * - Permission
      - Description
    * - **Delete**
-     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Grant**
      - Use the **Grant** permission to define which users and groups may configure permissions on an object. This permission is required for any user who configures permissions using the **Administration** tab in the Chef management console.
    * - **Read**
-     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Update**
-     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef server and for any chef-client to save node data to the Chef server at the conclusion of a chef-client run.
+     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef Infra Server and for any Chef Infra Client to save node data to the Chef Infra Server at the conclusion of a Chef Infra Client run.
 
 .. end_tag
 

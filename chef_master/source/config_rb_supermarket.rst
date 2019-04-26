@@ -28,7 +28,7 @@ This configuration file has the following general settings:
    Default value: ``"#{node['supermarket']['install_directory']}/embedded/service/supermarket"``.
 
 ``default['supermarket']['chef_server_url']``
-   The URL of the Chef server.
+   The URL of the Chef Infra Server.
 
 ``default['supermarket']['config_directory']``
    The directory that is used to store Supermarket configuration files. Default value: ``'/etc/supermarket'``.
@@ -311,19 +311,19 @@ This configuration file has the following settings for nginx:
 
 Oauth2
 -----------------------------------------------------
-This configuration file has the following settings for the Chef server identity service:
+This configuration file has the following settings for the Chef Infra Server identity service:
 
 ``default['supermarket']['chef_oauth2_app_id']``
-   The `Chef Identity </install_supermarket.html#chef-identity>`__ application ID created for Supermarket on the Chef server. See the `Chef Identity configuration </install_supermarket.html#configure>`__ section of the Supermarket installation guide for additional details.
+   The `Chef Identity </install_supermarket.html#chef-identity>`__ application ID created for Supermarket on the Chef Infra Server. See the `Chef Identity configuration </install_supermarket.html#configure>`__ section of the Supermarket installation guide for additional details.
 
 ``default['supermarket']['chef_oauth2_secret']``
-   The `Chef Identity </install_supermarket.html#chef-identity>`__ application secret created for Supermarket on the Chef server. See the `Chef Identity configuration </install_supermarket.html#configure>`__ section of the Supermarket installation guide for additional details.
+   The `Chef Identity </install_supermarket.html#chef-identity>`__ application secret created for Supermarket on the Chef Infra Server. See the `Chef Identity configuration </install_supermarket.html#configure>`__ section of the Supermarket installation guide for additional details.
 
 ``default['supermarket']['chef_oauth2_url']``
-   The URL of the Chef server that Supermarket connects to. Default value: ``node['supermarket']['chef_server_url']``.
+   The URL of the Chef Infra Server that Supermarket connects to. Default value: ``node['supermarket']['chef_server_url']``.
 
 ``default['supermarket']['chef_oauth2_verify_ssl']``
-   Determines whether or not Supermarket performs SSL verification. Default value: ``true``. If your Chef server is using a self-signed certificate without a properly configured certificate authority, this must be set to ``false``.
+   Determines whether or not Supermarket performs SSL verification. Default value: ``true``. If your Chef Infra Server is using a self-signed certificate without a properly configured certificate authority, this must be set to ``false``.
 
 PostgreSQL
 -----------------------------------------------------
@@ -499,7 +499,7 @@ This configuration file has the following settings for SSL:
    Default value: ``"#{node['supermarket']['install_directory']}/embedded/bin/openssl"``.
 
 ``default['supermarket']['ssl']['organizational_unit_name']``
-   The organization or group within your company that is running the Chef server. Default value: ``'Operations'``.
+   The organization or group within your company that is running the Chef Infra Server. Default value: ``'Operations'``.
 
 ``default['supermarket']['ssl']['session_cache']``
    Default value: ``'shared:SSL:4m'``.
@@ -547,7 +547,7 @@ Use these settings to replace ``chef.io`` URLs with your own internal mirrors or
    The root domain that is used by all Chef URLs. Most of the settings in this section rely upon this setting. Default value: ``'chef.io'``.
 
 ``default['supermarket']['chef_identity_url']``
-   The URL that is used to interact with Chef Identity on the Chef server. Default value: ``"#{node['supermarket']['chef_server_url']}/id"``.
+   The URL that is used to interact with Chef Identity on the Chef Infra Server. Default value: ``"#{node['supermarket']['chef_server_url']}/id"``.
 
 ``default['supermarket']['chef_profile_url']``
    The URL that is used to log in to your Chef profile. Default value: ``node['supermarket']['chef_server_url']``.

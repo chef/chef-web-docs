@@ -9,7 +9,7 @@ The ``user`` resource previously allowed a cookbook author to set policy for the
 
 .. end_tag
 
-The ``supports`` metaproperty was deprecated in Chef 12.14 and will be removed in Chef 13.
+The ``supports`` metaproperty was deprecated in Chef Client 12.14 and will be removed in Chef Client 13.
 
 Example
 ===========
@@ -34,4 +34,3 @@ Make the ``manage_home`` and ``non_unique`` settings properties rather than part
     manage_home true
     non_unique true
   end
-

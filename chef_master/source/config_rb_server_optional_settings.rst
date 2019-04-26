@@ -5,7 +5,7 @@ chef-server.rb Optional Settings
 
 .. tag config_rb_server_summary
 
-The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef server. The default settings are built into the Chef server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
+The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef Infra Server. The default settings are built into the Chef Infra Server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
 
 .. end_tag
 
@@ -15,7 +15,7 @@ The following sections describe the various settings that are available in the c
 
 .. note:: .. tag notes_config_rb_server_must_reconfigure
 
-          When changes are made to the chef-server.rb file the Chef server must be reconfigured by running the following command:
+          When changes are made to the chef-server.rb file the Chef Infra Server must be reconfigured by running the following command:
 
           .. code-block:: bash
 
@@ -41,10 +41,10 @@ This configuration file has the following general settings:
       %w{opscode-reporting chef-manage opscode-push-jobs-server}
 
 ``api_version``
-   The version of the Chef server. Default value: ``'12.0.0'``.
+   The version of the Chef Infra Server. Default value: ``'12.0.0'``.
 
 ``default_orgname``
-    The ``ORG_NAME`` part of the ``/organizations`` endpoint in Chef Server.
+    The ``ORG_NAME`` part of the ``/organizations`` endpoint in Chef Infra Server.
 
 ``flavor``
    Default value: ``'cs'``.
@@ -55,12 +55,12 @@ This configuration file has the following general settings:
 .. _config_rb_server_insecure_addon_compat:
 
 ``insecure_addon_compat``
-   Set to ``true`` to keep Chef server compatible with older add-on versions by rendering secrets and credentials to ``/etc/opscode/chef-server-running.json`` and other files in ``/etc/opscode/``. When set to ``false``, secrets are **only** written to ``/etc/opscode/private-chef-secrets.json`` and **not** to any other files. Default value: ``true``.
+   Set to ``true`` to keep Chef Infra Server compatible with older add-on versions by rendering secrets and credentials to ``/etc/opscode/chef-server-running.json`` and other files in ``/etc/opscode/``. When set to ``false``, secrets are **only** written to ``/etc/opscode/private-chef-secrets.json`` and **not** to any other files. Default value: ``true``.
 
    See `Add-on Compatibility </server_security.html#add-on-compatibility>`_ for the minimum add-on versions supporting ``insecure_addon_compat false``.
 
 ``install_path``
-   The directory in which the Chef server is installed. Default value: ``'/opt/opscode'``.
+   The directory in which the Chef Infra Server is installed. Default value: ``'/opt/opscode'``.
 
 ``from_email``
    The email address from which invitations to the Chef management console are sent. Default value: ``'"Opscode" <donotreply@chef.io>'``.
@@ -75,10 +75,10 @@ This configuration file has the following general settings:
    The email addressed to which email notifications are sent. Default value: ``'pc-default@opscode.com'``.
 
 ``role``
-   The configuration type of the Chef server. Possible values: ``backend``, ``frontend``, or ``standalone``. Default value: ``'standalone'``.
+   The configuration type of the Chef Infra Server. Possible values: ``backend``, ``frontend``, or ``standalone``. Default value: ``'standalone'``.
 
 ``topology``
-   The topology of the Chef server. Possible values: ``ha``, ``manual``, ``standalone``, and ``tier``. Default value: ``'standalone'``.
+   The topology of the Chef Infra Server. Possible values: ``ha``, ``manual``, ``standalone``, and ``tier``. Default value: ``'standalone'``.
 
 bookshelf
 -----------------------------------------------------
@@ -97,7 +97,7 @@ The **bookshelf** service is an Amazon Simple Storage Service (S3)-compatible se
 This configuration file has the following settings for ``bookshelf``:
 
 ``bookshelf['access_key_id']``
-  The access key identifier. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: **generated**. As of Chef server 12.14, this is no longer the preferred command.
+  The access key identifier. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: **generated**. As of Chef Server 12.14, this is no longer the preferred command.
 
   Please use ``chef-server-ctl set-secret bookshelf access_key_id`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
@@ -113,13 +113,13 @@ This configuration file has the following settings for ``bookshelf``:
 ``bookshelf['enable_request_logging']``
    Use to configure request logging for the bookshelf service. Default value: ``false``.
 
-   New in Chef server 12.17.15.
+   New in Chef Server 12.17.15.
 
 ``bookshelf['external_url']``
    The base URL to which the service is to return links to API resources. Use ``:host_header`` to ensure the URL is derived from the host header of the incoming HTTP request. Default value: ``:host_header``.
 
 ``bookshelf['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``bookshelf['listen']``
    The IP address on which the service is to listen. Default value: ``127.0.0.1``.
@@ -138,7 +138,7 @@ This configuration file has the following settings for ``bookshelf``:
    The port on which the service is to listen. Default value: ``4321``.
 
 ``bookshelf['secret_access_key']``
-   The secret key. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: **generated**. As of Chef server 12.14, this is no longer the preferred command.
+   The secret key. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: **generated**. As of Chef Server 12.14, this is no longer the preferred command.
 
    Please use ``chef-server-ctl set-secret bookshelf secret_access_key`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
@@ -152,7 +152,7 @@ This configuration file has the following settings for ``bookshelf``:
       bookshelf['storage_type'] = :sql
 
 ``bookshelf['stream_download']``
-   Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between the chef-client and the Chef server. Default value: ``true``.
+   Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between the Chef Infra Client and the Chef Infra Server. Default value: ``true``.
 
 ``bookshelf['vip']``
    The virtual IP address. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: ``127.0.0.1``.
@@ -162,7 +162,7 @@ bootstrap
 This configuration file has the following settings for ``bootstrap``:
 
 ``bootstrap['enable']``
-   Indicates whether an attempt to bootstrap the Chef server is made. Generally only enabled on systems that have bootstrap enabled via a ``server`` entry. Default value: ``true``.
+   Indicates whether an attempt to bootstrap the Chef Infra Server is made. Generally only enabled on systems that have bootstrap enabled via a ``server`` entry. Default value: ``true``.
 
 compliance forwarding
 -----------------------------------------------------
@@ -191,7 +191,7 @@ This configuration file has the following settings for ``dark_launch``:
    Default value: ``false``.
 
 ``dark_launch['reporting']``
-   Enable Reporting, which performs data collection during a chef-client run. Default value: ``true``.
+   Enable Reporting, which performs data collection during a Chef Infra Client run. Default value: ``true``.
 
 ``dark_launch['sql_users']``
    Default value: ``true``.
@@ -206,10 +206,10 @@ This configuration file has the following settings for ``data_collector``:
    ``http://my_automate_server.example.org/data-collector/v0/``.
 
 ``data_collector['proxy']``
-   If set to ``true``, Chef server will proxy all requests sent to ``/data-collector`` to the configured Chef Automate ``data_collector['root_url']``. Note that *this route* does not check the request signature and add the right data_collector token, but just proxies the Automate endpoint **as-is**. Default value: ``nil``.
+   If set to ``true``, Chef Infra Server will proxy all requests sent to ``/data-collector`` to the configured Chef Automate ``data_collector['root_url']``. Note that *this route* does not check the request signature and add the right data_collector token, but just proxies the Automate endpoint **as-is**. Default value: ``nil``.
 
 ``data_collector['token']``
-   Legacy configuration for shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject. As of Chef server 12.14, this is no longer the preferred command.
+   Legacy configuration for shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject. As of Chef Server 12.14, this is no longer the preferred command.
 
    Please use ``chef-server-ctl set-secret data_collector token`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
@@ -258,7 +258,7 @@ This configuration file has the following settings for ``jetty``:
    Enable a service. Default value: ``'false'``. This value should not be modified.
 
 ``jetty['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``'false'``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``'false'``.
 
 ``jetty['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value:
@@ -366,10 +366,10 @@ This configuration file has the following settings for ``lb``:
    Default value: ``false``.
 
 ``lb['chef_max_version']``
-   The maximum version of the chef-client that is allowed to access the Chef server via the Chef server API. Default value: ``11``.
+   The maximum version of the Chef Infra Client that is allowed to access the Chef Infra Server via the Chef Infra Server API. Default value: ``11``.
 
 ``lb['chef_min_version']``
-   The minimum version of the chef-client that is allowed to access the Chef server via the Chef server API. Default value: ``10``.
+   The minimum version of the Chef Infra Client that is allowed to access the Chef Infra Server via the Chef Infra Server API. Default value: ``10``.
 
 ``lb['chef_server_webui']``
    Default value: ``127.0.0.1``.
@@ -476,7 +476,7 @@ This configuration file has the following settings for ``ldap``:
    Default value: ``nil``.
 
 ``ldap['bind_dn']``
-   The distinguished name used to bind to the LDAP server. The user the Chef server will use to perform LDAP searches. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. The Chef server must do an LDAP search before any user can log in. Many Active Directory and LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the ``bind_dn`` and ``bind_password`` settings blank. If anonymous bind is not allowed, a user with ``READ`` access to the directory is required. This user must be specified as an LDAP distinguished name similar to:
+   The distinguished name used to bind to the LDAP server. The user the Chef Infra Server will use to perform LDAP searches. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. The Chef Infra Server must do an LDAP search before any user can log in. Many Active Directory and LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the ``bind_dn`` and ``bind_password`` settings blank. If anonymous bind is not allowed, a user with ``READ`` access to the directory is required. This user must be specified as an LDAP distinguished name similar to:
 
    .. code-block:: ruby
 
@@ -491,7 +491,7 @@ This configuration file has the following settings for ``ldap``:
    Default value: ``nil``.
 
 ``ldap['bind_password']``
-   Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``. As of Chef server 12.14, this is no longer the preferred command.
+   Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``. As of Chef Server 12.14, this is no longer the preferred command.
 
    Please use ``chef-server-ctl set-secret ldap bind_password`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
@@ -515,25 +515,25 @@ This configuration file has the following settings for ``ldap``:
       ldap['group_dn'] = 'CN=abcxyz,OU=users,DC=company,DC=com'
 
 ``ldap['host']``
-   The name (or IP address) of the LDAP server. The hostname of the LDAP or Active Directory server. Be sure the Chef server is able to resolve any host names. Default value: ``ldap-server-host``.
+   The name (or IP address) of the LDAP server. The hostname of the LDAP or Active Directory server. Be sure the Chef Infra Server is able to resolve any host names. Default value: ``ldap-server-host``.
 
 ``ldap['login_attribute']``
-   The LDAP attribute that holds the user's login name. Use to specify the Chef server user name for an LDAP user. Default value: ``sAMAccountName``.
+   The LDAP attribute that holds the user's login name. Use to specify the Chef Infra Server user name for an LDAP user. Default value: ``sAMAccountName``.
 
 ``ldap['port']``
    An integer that specifies the port on which the LDAP server listens. The default value is an appropriate value for most configurations. Default value: ``389`` or ``636`` when ``ldap['encryption']`` is set to ``:simple_tls``.
 
 ``ldap['ssl_enabled']``
-   Cause the Chef server to connect to the LDAP server using SSL. Default value: ``false``. Must be ``false`` when ``ldap['tls_enabled']`` is ``true``.
+   Cause the Chef Infra Server to connect to the LDAP server using SSL. Default value: ``false``. Must be ``false`` when ``ldap['tls_enabled']`` is ``true``.
 
    .. note:: It's recommended that you enable SSL for Active Directory.
 
-   .. note:: Previous versions of the Chef server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
+   .. note:: Previous versions of the Chef Infra Server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
 
 ``ldap['system_adjective']``
-   A descriptive name for the login system that is displayed to users in the Chef server management console. If a value like "corporate" is used, then the Chef management console user interface will display strings like "the corporate login server", "corporate login", or "corporate password." Default value: ``AD/LDAP``.
+   A descriptive name for the login system that is displayed to users in the Chef Infra Server management console. If a value like "corporate" is used, then the Chef management console user interface will display strings like "the corporate login server", "corporate login", or "corporate password." Default value: ``AD/LDAP``.
 
-   .. warning:: This setting is **not** used by the Chef server. It is used only by the Chef management console.
+   .. warning:: This setting is **not** used by the Chef Infra Server. It is used only by the Chef management console.
 
 ``ldap['timeout']``
    The amount of time (in seconds) to wait before timing out. Default value: ``60000``.
@@ -541,7 +541,7 @@ This configuration file has the following settings for ``ldap``:
 ``ldap['tls_enabled']``
    Enable TLS. When enabled, communication with the LDAP server is done via a secure SSL connection on a dedicated port. When ``true``, ``ldap['port']`` is also set to ``636``. Default value: ``false``. Must be ``false`` when ``ldap['ssl_enabled']`` is ``true``.
 
-   .. note:: Previous versions of the Chef server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
+   .. note:: Previous versions of the Chef Infra Server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
 
 .. end_tag
 
@@ -597,7 +597,7 @@ This configuration file has the following settings for ``nginx``:
         ]
 
 ``nginx['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``nginx['keepalive_timeout']``
    The amount of time (in seconds) to wait for requests on a Keepalived connection. Default value: ``65``.
@@ -646,7 +646,7 @@ This configuration file has the following settings for ``nginx``:
    The city in which your company is located. Default value: ``Seattle``.
 
 ``nginx['ssl_organizational_unit_name']``
-   The organization or group within your company that is running the Chef server. Default value: ``Operations``.
+   The organization or group within your company that is running the Chef Infra Server. Default value: ``Operations``.
 
 ``nginx['ssl_port']``
    Default value: ``443``.
@@ -666,7 +666,7 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['strict_host_header']``
    Whether nginx should only respond to requests where the Host header matches one of the configured FQDNs. Default value: ``false``.
 
-   New in Chef server 12.17
+   New in Chef Server 12.17
 
 ``nginx['stub_status']['allow_list']``
    The IP address on which accessing the ``stub_status`` endpoint is allowed. Default value: ``["127.0.0.1"]``.
@@ -692,12 +692,12 @@ This configuration file has the following settings for ``nginx``:
 ``nginx['use_implicit_hosts']``
    Automatically add `localhost` and any local IP addresses to the configured FQDNs. Useful in combination with ``nginx['strict_host_header']``. Default value: ``true``.
 
-   New in Chef server 12.17
+   New in Chef Server 12.17
 
 ``nginx['show_welcome_page']``
    Determines whether or not the default nginx welcome page is shown. Default value: ``true``.
 
-   New in Chef server 12.17.15.
+   New in Chef Server 12.17.15.
 
 ``nginx['worker_connections']``
    The maximum number of simultaneous clients. Use with ``nginx['worker_processes']`` to determine the maximum number of allowed clients. Default value: ``10240``.
@@ -706,13 +706,13 @@ This configuration file has the following settings for ``nginx``:
    The number of allowed worker processes. Use with ``nginx['worker_connections']`` to determine the maximum number of allowed clients. Default value: ``node['cpu']['total'].to_i``.
 
 ``nginx['x_forwarded_proto']``
-   The protocol used to connect to the server. Possible values: ``http`` and ``https``. This is the protocol used to connect to the Chef server by a chef-client or a workstation. Default value: ``'https'``.
+   The protocol used to connect to the server. Possible values: ``http`` and ``https``. This is the protocol used to connect to the Chef Infra Server by a Chef Infra Client or a workstation. Default value: ``'https'``.
 
 oc_bifrost
 -----------------------------------------------------
 .. tag server_services_bifrost
 
-The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
 .. end_tag
 
@@ -730,13 +730,13 @@ This configuration file has the following settings for ``oc_bifrost``:
 ``oc_bifrost['enable_request_logging']``
    Use to configure request logging for the ``oc_bifrost`` service. Default value: ``true``.
 
-   New in Chef server 12.17.15.
+   New in Chef Server 12.17.15.
 
 ``oc_bifrost['extended_perf_log']``
    Default value: ``true``.
 
 ``oc_bifrost['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``.
 
 ``oc_bifrost['listen']``
    The IP address on which the service is to listen. Default value: ``'127.0.0.1'``.
@@ -780,7 +780,7 @@ oc_chef_authz
 -----------------------------------------------------
 .. tag server_services_authz
 
-The **opscode-authz** service is used to handle authorization requests to the Chef server.
+The **opscode-authz** service is used to handle authorization requests to the Chef Infra Server.
 
 .. end_tag
 
@@ -843,14 +843,14 @@ oc-id
 -----------------------------------------------------
 .. tag server_services_oc_id
 
-The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+The **oc-id** service enables OAuth 2.0 authentication to the Chef Infra Server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
 .. end_tag
 
 This configuration file has the following settings for ``oc-id``:
 
 ``oc_id['administrators']``
-   An array of Chef server user names who may add applications to the identity service. For example, ``['user1', 'user2']``. Default value: ``[ ]``.
+   An array of Chef Infra Server user names who may add applications to the identity service. For example, ``['user1', 'user2']``. Default value: ``[ ]``.
 
 ``oc_id['applications']``
    A Hash that contains OAuth 2 application information. Default value: ``{ }``.
@@ -878,12 +878,12 @@ This configuration file has the following settings for ``oc-id``:
    Enable a service. Default value: ``true``.
 
 ``oc_id['email_from_address']``
-   New in Chef server 12.12.
+   New in Chef Server 12.12.
 
    Outbound email address. Defaults to the ``'from_email'`` value.
 
 ``oc_id['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``oc_id['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``'/var/opt/opscode/oc_id'``.
@@ -896,9 +896,9 @@ This configuration file has the following settings for ``oc-id``:
       { 'file_maxbytes' => 104857600, 'num_to_keep' => 10 }
 
 ``oc_id['origin']``
-   New in Chef server 12.12.
+   New in Chef Server 12.12.
 
-   The FQDN for the server that is sending outbound email. Defaults to the ``'api_fqdn'`` value, which is the FQDN for the Chef server.
+   The FQDN for the server that is sending outbound email. Defaults to the ``'api_fqdn'`` value, which is the FQDN for the Chef Infra Server.
 
 ``oc_id['num_to_keep']``
    The number of log files to keep. Default value: ``10``.
@@ -951,7 +951,7 @@ This configuration file has the following settings for ``opscode-chef-mover``:
    Enable a service. Default value: ``true``.
 
 ``opscode_chef_mover['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``opscode_chef_mover['ibrowse_max_pipeline_size']``
    Default value: ``1``.
@@ -1001,7 +1001,7 @@ opscode-erchef
 -----------------------------------------------------
 .. tag server_services_erchef
 
-The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
 * Cookbooks
 * Data bags
@@ -1028,7 +1028,7 @@ This configuration file has the following settings for ``opscode-erchef``:
    The base URL to which the service is to return links to API resources. Use ``:host_header`` to ensure the URL is derived from the host header of the incoming HTTP request. Default value: ``:host_header``.
 
 ``opscode_erchef['bulk_fetch_batch_size']``
-   The number of nodes that may be deserialized. Currently only applies to the ``/search`` endpoint in the Chef server API. The default value is the recommended value. Default value: ``5``.
+   The number of nodes that may be deserialized. Currently only applies to the ``/search`` endpoint in the Chef Infra Server API. The default value is the recommended value. Default value: ``5``.
 
 ``opscode_erchef['cache_ttl']``
    Default value: ``3600``.
@@ -1055,15 +1055,15 @@ This configuration file has the following settings for ``opscode-erchef``:
    Enable a service. Default value: ``true``.
 
 ``opscode_erchef['enable_actionlog']``
-   Use to enable Chef actions, a premium feature of the Chef server. Default value: ``false``.
+   Use to enable Chef actions, a premium feature of the Chef Infra Server. Default value: ``false``.
 
 ``opscode_erchef['enable_request_logging']``
    Use to configure request logging for the ``opscode_erchef`` service. Default value: ``true``.
 
-   New in Chef server 12.17.15.
+   New in Chef Server 12.17.15.
 
 ``opscode_erchef['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``opscode_erchef['ibrowse_max_pipeline_size']``
    Default value: ``1``.
@@ -1131,7 +1131,7 @@ This configuration file has the following settings for ``opscode-erchef``:
 
    Use to specify that search results only return objects to which an actor (user, client, etc.) has read access, as determined by ACL settings. This affects all searches. When ``true``, the performance of the Chef management console may increase because it enables the Chef management console to skip redundant ACL checks. To ensure the Chef management console is configured properly, after this setting has been applied with a ``chef-server-ctl reconfigure`` run ``chef-manage-ctl reconfigure`` to ensure the Chef management console also picks up the setting. Default value: ``false``.
 
-   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during chef-client runs if a chef-client does not have permission to read the information.
+   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during Chef Infra Client runs if a Chef Infra Client does not have permission to read the information.
 
    .. end_tag
 
@@ -1171,7 +1171,7 @@ This configuration file has the following settings for ``opscode-expander``:
    Enable a service. Default value: ``true``.
 
 ``opscode_expander['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``opscode_expander['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value:
@@ -1201,7 +1201,7 @@ opscode-solr4
 -----------------------------------------------------
 .. tag server_services_solr4
 
-The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef server API; data that is used by the Chef platform is stored in PostgreSQL.)
+The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef Infra Server API; data that is used by the Chef platform is stored in PostgreSQL.)
 
 .. end_tag
 
@@ -1231,7 +1231,7 @@ This configuration file has the following settings for ``opscode-solr4``:
    Enable a service. Default value: ``true``.
 
 ``opscode_solr4['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``opscode_solr4['heap_size']``
    The amount of memory (in MBs) available to Apache Solr. If there is not enough memory available, search queries made by nodes to Apache Solr may fail. The amount of memory that must be available also depends on the number of nodes in the organization, the frequency of search queries, and other characteristics that are unique to each organization. In general, as the number of nodes increases, so does the amount of memory. The default value should work for many organizations with fewer than 25 nodes. For an organization with several hundred nodes, the amount of memory that is required often exceeds 3GB. Default value: ``nil``, which is equivalent to 25% of the system memory or 1024 (MB, but this setting is specified as an integer number of MB in EC11), whichever is smaller.
@@ -1250,7 +1250,7 @@ This configuration file has the following settings for ``opscode-solr4``:
       /var/log/opscode/opscode-solr4
 
 ``opscode_solr4['log_gc']``
-   New in Chef server 12.12.
+   New in Chef Server 12.12.
 
    Enable or disable GC logging. Default is ``true``.
 
@@ -1334,7 +1334,7 @@ This configuration file has the following settings for ``postgresql``:
    Enable a service. Default value: ``true``.
 
 ``postgresql['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``postgresql['home']``
    The home directory for PostgreSQL. Default value: ``/var/opt/opscode/postgresql``.
@@ -1403,7 +1403,7 @@ rabbitmq
 -----------------------------------------------------
 .. tag server_services_rabbitmq
 
-The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search.
+The **rabbitmq** service is used to provide the message queue that is used by the Chef Infra Server to get search data to Apache Solr so that it can be indexed for search.
 
 .. end_tag
 
@@ -1442,7 +1442,7 @@ This configuration file has the following settings for ``rabbitmq``:
    Enable a service. Default value: ``true``.
 
 ``rabbitmq['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``rabbitmq['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``'/var/log/opscode/rabbitmq'``.
@@ -1483,10 +1483,10 @@ This configuration file has the following settings for ``rabbitmq``:
    To override the default value, use the  `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ command: ``chef-server-ctl set-secret rabbitmq password``.
 
 ``rabbitmq['prevent_erchef_startup_on_full_capacity']``
-   Specify if the Chef server will start when the monitored RabbitMQ queue is full. Default value: ``false``.
+   Specify if the Chef Infra Server will start when the monitored RabbitMQ queue is full. Default value: ``false``.
 
 ``rabbitmq['queue_at_capacity_affects_overall_status']``
-   Specify if the ``_status`` endpoint in the Chef server API will fail if the monitored queue is at capacity. Default value: ``false``.
+   Specify if the ``_status`` endpoint in the Chef Infra Server API will fail if the monitored queue is at capacity. Default value: ``false``.
 
 ``rabbitmq['queue_length_monitor_enabled']``
    Specify if the queue length monitor is enabled. Default value: ``true``.
@@ -1495,7 +1495,7 @@ This configuration file has the following settings for ``rabbitmq``:
    The frequency (in milliseconds) at which the length of the RabbitMQ queue is checked. Default value: ``30000``.
 
 ``rabbitmq['queue_length_monitor_timeout_millis']``
-   The timeout (in milliseconds) at which calls to the queue length monitor will stop if the Chef server is overloaded. Default value: ``5000``.
+   The timeout (in milliseconds) at which calls to the queue length monitor will stop if the Chef Infra Server is overloaded. Default value: ``5000``.
 
 ``rabbitmq['queue_length_monitor_queue']``
    The RabbitMQ queue that is observed by queue length monitor. Default value: ``'alaska'``.
@@ -1543,7 +1543,7 @@ redis_lb
 -----------------------------------------------------
 .. tag server_services_redis
 
-Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef server.
+Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef Infra Server.
 
 .. end_tag
 
@@ -1580,7 +1580,7 @@ This configuration file has the following settings for ``redis_lb``:
    Enable a service. Default value: ``true``.
 
 ``redis_lb['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``redis_lb['keepalive']``
    The amount of time (in seconds) to wait for requests on a connection. Default value: ``'60'``.
@@ -1639,19 +1639,19 @@ user
 This configuration file has the following settings for ``user``:
 
 ``user['home']``
-   The home directory for the user under which Chef server services run. Default value: ``/opt/opscode/embedded``.
+   The home directory for the user under which Chef Infra Server services run. Default value: ``/opt/opscode/embedded``.
 
 ``user['shell']``
-   The shell for the user under which Chef server services run. Default value: ``/bin/sh``.
+   The shell for the user under which Chef Infra Server services run. Default value: ``/bin/sh``.
 
 ``user['username']``
-   The user name under which Chef server services run. Default value: ``opscode``.
+   The user name under which Chef Infra Server services run. Default value: ``opscode``.
 
 
 required_recipe
 -----------------------------------------------------
 
-``required_recipe`` is a feature in Chef server versions 12.15.0 and above that allows an administrator to specify a recipe that will be run by all Chef Clients that connect to it, regardless of the node's run list. This feature is targeted at expert level practitioners who are delivering isolated configuration changes to the target systems, such as self-contained agent software. Further explanation of the feature can be found in RFC_089_.
+``required_recipe`` is a feature in Chef Server versions 12.15.0 and above that allows an administrator to specify a recipe that will be run by all Chef Clients that connect to it, regardless of the node's run list. This feature is targeted at expert level practitioners who are delivering isolated configuration changes to the target systems, such as self-contained agent software. Further explanation of the feature can be found in RFC_089_.
 
 .. _RFC_089: https://github.com/chef/chef-rfc/blob/master/rfc089-server-enforced-recipe.md
 

@@ -3,7 +3,7 @@ Users
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_users.rst>`__
 
-The following tasks are available for user management in Chef server:
+The following tasks are available for user management in Chef Infra Server:
 
 * Creating users
 * Editing a user's profile
@@ -16,7 +16,7 @@ chef-server-ctl
 =====================================================
 .. tag ctl_chef_server_summary
 
-The Chef server includes a command-line utility named chef-server-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef server, run chef-pedant, and then tail Chef server log files.
+The Chef Infra Server includes a command-line utility named chef-server-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Infra Server, run chef-pedant, and then tail Chef Infra Server log files.
 
 .. end_tag
 
@@ -89,7 +89,7 @@ org-list
 -----------------------------------------------------
 .. tag ctl_chef_server_org_list
 
-The ``org-list`` subcommand is used to list all of the organizations currently present on the Chef server.
+The ``org-list`` subcommand is used to list all of the organizations currently present on the Chef Infra Server.
 
 .. end_tag
 
@@ -141,7 +141,7 @@ This subcommand has the following syntax:
 
 org-user-add
 -----------------------------------------------------
-.. warning:: Early RC candidates for the Chef server 12 release named this command ``org-associate``. This is the same command, with the exception of the ``--admin`` flag, which is added to the command (along with the rename) for the upcoming final release of Chef server 12.
+.. warning:: Early RC candidates for the Chef Server 12 release named this command ``org-associate``. This is the same command, with the exception of the ``--admin`` flag, which is added to the command (along with the rename) for the upcoming final release of Chef Server 12.
 
 .. tag ctl_chef_server_org_user_add
 
@@ -351,7 +351,7 @@ To invite a user to an organization:
 #. Click **Administration**.
 #. Click **Organizations**.
 #. Click **Invite User**.
-#. In the **Invite User** dialog box, enter the Chef server user name for the user to be invited, and then click the **Invite** button:
+#. In the **Invite User** dialog box, enter the Chef Infra Server user name for the user to be invited, and then click the **Invite** button:
 
    .. image:: ../../images/step_manage_webui_admin_organization_invite_user.png
 

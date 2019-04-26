@@ -3,11 +3,11 @@ Server Data Storage
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_data.rst>`__
 
-Managing how data is stored on the Chef server is sometimes necessary, such as resizing DRBD logical volumes, volume groups, and space available on the primary backend machine.
+Managing how data is stored on the Chef Infra Server is sometimes necessary, such as resizing DRBD logical volumes, volume groups, and space available on the primary backend machine.
 
 Resize DRBD
 =====================================================
-DRBD may be resized online. First, make a `backup </server_backup_restore.html>`__ of the Chef server data.
+DRBD may be resized online. First, make a `backup </server_backup_restore.html>`__ of the Chef Infra Server data.
 
 * The mounted filesystem on the primary backend server is ``ext4``
 * The backing device for the mounted ``ext4`` filesystem is an LVM2 volume named ``/dev/opscode/drbd``
@@ -16,7 +16,7 @@ DRBD may be resized online. First, make a `backup </server_backup_restore.html>`
 
 Devices
 -----------------------------------------------------
-After backing up the Chef server data, make a note of the current size of the ``/dev/opscode/drbd`` logical volume and mountpoint. Run the following commands:
+After backing up the Chef Infra Server data, make a note of the current size of the ``/dev/opscode/drbd`` logical volume and mountpoint. Run the following commands:
 
 .. code-block:: bash
 

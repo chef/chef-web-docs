@@ -41,13 +41,13 @@ The following list describes all of the optional settings that can be added to t
 ``knife[:attribute_from_cli]``
 
 ``knife[:authentication_protocol_version]``
-   Sets the authentication protocol that is used to communicate with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
+   Sets the authentication protocol that is used to communicate with Chef Infra Server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
 
    .. code-block:: ruby
 
       knife[:authentication_protocol_version] = '1.3'
 
-   Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
+   Note that authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
 
 ``knife[:bare_directories]``
    Prevent a directory's children from showing when a directory matches a pattern.
@@ -58,7 +58,7 @@ The following list describes all of the optional settings that can be added to t
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
 ``knife[:bootstrap_install_command]``
-   Execute a custom installation command sequence for the chef-client. This option may not be used in the same command with ``--bootstrap-curl-options``, ``--bootstrap-install-sh``, or ``--bootstrap-wget-options``.
+   Execute a custom installation command sequence for the Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options``, ``--bootstrap-install-sh``, or ``--bootstrap-wget-options``.
 
 ``knife[:bootstrap_no_proxy]``
    A URL or IP address that specifies a location that should not be proxied.
@@ -89,7 +89,7 @@ The following list describes all of the optional settings that can be added to t
    .. end_tag
 
 ``knife[:bootstrap_version]``
-   The version of the chef-client to install.
+   The version of the Chef Infra Client to install.
 
 ``knife[:bootstrap_wget_options]``
    Arbitrary options to be added to the bootstrap command when using GNU Wget. This option may not be used in the same command with ``--bootstrap-install-command``.
@@ -192,7 +192,7 @@ The following list describes all of the optional settings that can be added to t
 ``knife[:help]``
 
 ``knife[:hide_healthy]``
-   Hide nodes on which a chef-client run has occurred within the previous hour.
+   Hide nodes on which a Chef Infra Client run has occurred within the previous hour.
 
 ``knife[:hints]``
    An Ohai hint to be set on the target node.
@@ -206,7 +206,7 @@ The following list describes all of the optional settings that can be added to t
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``knife[:initial]``
-   Create a API client, typically an administrator client on a freshly-installed Chef server.
+   Create a API client, typically an administrator client on a freshly-installed Chef Infra Server.
 
 ``knife[:input]``
    The name of a file to be used with the ``PUT`` or a ``POST`` request.
@@ -245,7 +245,7 @@ The following list describes all of the optional settings that can be added to t
    Ensure that all cookbooks to which the installed cookbook has a dependency are not installed.
 
 ``knife[:node_name]``
-   The name of the node. This may be a username with permission to authenticate to the Chef server or it may be the name of the machine from which knife is run. For example:
+   The name of the node. This may be a username with permission to authenticate to the Chef Infra Server or it may be the name of the machine from which knife is run. For example:
 
    .. code-block:: ruby
 
@@ -279,10 +279,10 @@ The following list describes all of the optional settings that can be added to t
    Show data after a destructive operation.
 
 ``knife[:proxy_auth]``
-   Enable proxy authentication to the Chef server web user interface.
+   Enable proxy authentication to the Chef Infra Server web user interface.
 
 ``knife[:purge]``
-   Entirely remove a cookbook (or cookbook version) from the Chef server. Use this action carefully because only one copy of any single file is stored on the Chef server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
+   Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 ``knife[:query]``
 
@@ -321,7 +321,7 @@ The following list describes all of the optional settings that can be added to t
    The path to the file that contains the encryption key.
 
 ``knife[:server_name]``
-   Same as node_name. Recommended configuration is to allow Ohai to collect this value during each chef-client run.
+   Same as node_name. Recommended configuration is to allow Ohai to collect this value during each Chef Infra Client run.
 
 ``knife[:ssh_attribute]``
    The attribute used when opening an SSH connection.
@@ -361,7 +361,7 @@ The following list describes all of the optional settings that can be added to t
 ``knife[:use_sudo_password]``
 
 ``knife[:user]`` and/or ``knife[:user_home]``
-   The user name used by knife to sign requests made by the API client to the Chef server. Authentication fails if the user name does not match the private key.
+   The user name used by knife to sign requests made by the API client to the Chef Infra Server. Authentication fails if the user name does not match the private key.
 
 ``knife[:user_key]``
    Save a public key to the specified file name.

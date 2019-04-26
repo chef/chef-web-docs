@@ -3,9 +3,9 @@ High Availability: AWS (DEPRECATED)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_ha_aws.rst>`__
 
-.. warning:: This topic is deprecated as of the 12.9 release of the Chef server. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
+.. warning:: This topic is deprecated as of the 12.9 release of the Chef Server. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
 
-This topic describes how to set up the Chef server for high availability in Amazon Web Services (AWS).
+This topic describes how to set up the Chef Server for high availability in Amazon Web Services (AWS).
 
 .. image:: ../../images/chef_server_ha_aws.svg
    :width: 600px
@@ -19,19 +19,19 @@ This topic describes how to set up the Chef server for high availability in Amaz
 
 Prerequisites
 =====================================================
-Before installing the Chef server software, perform the following steps:
+Before installing the Chef Server software, perform the following steps:
 
 #. Use an Amazon Virtual Private Cloud (VPC). Amazon EC2-Classic is not supported.
-#. Create appropriate security groups to contain the backend instances. The only requirement for the Chef server is that ICMP is permitted between the two backend instances; Keepalived requires it for communication and heartbeat.
-#. Launch two servers, one for the primary backend Chef server and the other for the secondary backend Chef server. Use the same Amazon Machine Images (AMI) so that both backend servers have identical platform and versions. The servers must be in the same availability zones.
+#. Create appropriate security groups to contain the backend instances. The only requirement for the Chef Server is that ICMP is permitted between the two backend instances; Keepalived requires it for communication and heartbeat.
+#. Launch two servers, one for the primary backend Chef Server and the other for the secondary backend Chef Server. Use the same Amazon Machine Images (AMI) so that both backend servers have identical platform and versions. The servers must be in the same availability zones.
 #. Create an Amazon Elastic Block Store (EBS) volume to store the Chef server's data. It is recommended that you use an EBS Provisioned IOPS volume type, with the maximum IOPS ratio for the size of volume.
-#. Choose an IP address for the backend virtual IP (VIP). It must reside in the same network segment as the backend instances and must be `assignable as a secondary private IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/MultipleIP.html>`__ to the primary backend Chef server. The IP address is specified in the chef-server.rb file. During installation, the high-availability plugin will automatically assign the VIP to the elastic network interface (ENI) for the primary instance.
+#. Choose an IP address for the backend virtual IP (VIP). It must reside in the same network segment as the backend instances and must be `assignable as a secondary private IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/MultipleIP.html>`__ to the primary backend Chef Server. The IP address is specified in the chef-server.rb file. During installation, the high-availability plugin will automatically assign the VIP to the elastic network interface (ENI) for the primary instance.
 #. Create an Identity and Access Management (IAM) user with at least the permissions documented in the reference section. Record this user's access and secret keys; these will be used in the chef-server.rb configuration file.
 #. Enable sticky sessions on the load balancer. Configure all instances of the Chef management console to point to one Redis load balancer instance.
 
 Primary Backend
 =====================================================
-Use the following steps to set up the primary backend Chef server:
+Use the following steps to set up the primary backend Chef Server:
 
 #. Create an Amazon Elastic Block Store (EBS) volume and attach it to the primary backend.
 #. Download https://downloads.chef.io/chef-server/. You will also need the chef-ha package; however, that can no longer be downloaded from https://downloads.chef.io.
@@ -47,7 +47,7 @@ Use the following steps to set up the primary backend Chef server:
 
       $ dpkg -i /tmp/chef-server-core-<version>.deb
 
-   After a few minutes, the Chef server will be installed.
+   After a few minutes, the Chef Server will be installed.
 #. Install ``chef-ha`` package. For Red Hat and CentOS 6:
 
    .. code-block:: bash
@@ -112,9 +112,9 @@ Use the following steps to set up the primary backend Chef server:
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -123,7 +123,7 @@ Use the following steps to set up the primary backend Chef server:
 
    .. end_tag
 
-   This will reconfigure the Chef server, start Keepalived, assign the VIP IP address as a secondary address on the elastic network interface (ENI), and then configure the machine as the primary backend server.
+   This will reconfigure the Chef Server, start Keepalived, assign the VIP IP address as a secondary address on the elastic network interface (ENI), and then configure the machine as the primary backend server.
 
 #. Verify the machine is the primary backend server:
 
@@ -143,7 +143,7 @@ Use the following steps to set up the primary backend Chef server:
 
 chef-server.rb
 =====================================================
-Each Chef server in a high availability configuration must have an identical chef-server.rb file that is located in the ``/etc/opscode/`` directory on each server. This file describes the topology of the high availability configuration. On the primary backend server, create a file named chef-server.rb and save it in the ``/etc/opscode/`` directory.
+Each Chef Server in a high availability configuration must have an identical chef-server.rb file that is located in the ``/etc/opscode/`` directory on each server. This file describes the topology of the high availability configuration. On the primary backend server, create a file named chef-server.rb and save it in the ``/etc/opscode/`` directory.
 
 Add the following settings to the chef-server.rb file:
 
@@ -163,7 +163,7 @@ Add the following settings to the chef-server.rb file:
         :bootstrap => true,
         :cluster_ipaddress => "CLUSTER_IPADDRESS"
 
-   Replace ``FQDN`` with the FQDN of the server and ``IP_ADDRESS`` with the IP address of the server. The role is a backend server is ``"backend"``. If the backend server is used to bootstrap the Chef server installation, replace ``CLUSTER_IPADDRESS`` with the IP address of the interface that is used for cluster communications. For example, the same IP address that is used by Keepalived and DRBD. If the Chef server is not used to bootstrap the Chef server installation, exclude the ``:cluster_ipaddress`` entry.
+   Replace ``FQDN`` with the FQDN of the server and ``IP_ADDRESS`` with the IP address of the server. The role is a backend server is ``"backend"``. If the backend server is used to bootstrap the Chef Server installation, replace ``CLUSTER_IPADDRESS`` with the IP address of the interface that is used for cluster communications. For example, the same IP address that is used by Keepalived and DRBD. If the Chef Server is not used to bootstrap the Chef Server installation, exclude the ``:cluster_ipaddress`` entry.
 
 #. Define the secondary backend server:
 
@@ -204,13 +204,13 @@ Add the following settings to the chef-server.rb file:
 
       api_fqdn "FQDN"
 
-   Replace ``FQDN`` with the FQDN of the load balanced virtual IP address, which should be equal to the FQDN for the service URI that is used by the Chef server.
+   Replace ``FQDN`` with the FQDN of the load balanced virtual IP address, which should be equal to the FQDN for the service URI that is used by the Chef Server.
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -221,7 +221,7 @@ Add the following settings to the chef-server.rb file:
 
 Secondary Backend
 =====================================================
-Use the following steps to set up the secondary backend Chef server:
+Use the following steps to set up the secondary backend Chef Server:
 
 #. Install the ``chef-server-core`` package. For Red Hat and CentOS 6:
 
@@ -235,7 +235,7 @@ Use the following steps to set up the secondary backend Chef server:
 
       $ dpkg -i /tmp/chef-server-core-<version>.deb
 
-   After a few minutes, the Chef server will be installed.
+   After a few minutes, the Chef Server will be installed.
 #. Install ``chef-ha`` package. For Red Hat and CentOS 6:
 
    .. code-block:: bash
@@ -264,9 +264,9 @@ Use the following steps to set up the secondary backend Chef server:
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -275,7 +275,7 @@ Use the following steps to set up the secondary backend Chef server:
 
    .. end_tag
 
-   This will reconfigure the Chef server, start Keepalived, and configure it as the secondary backend server.
+   This will reconfigure the Chef Server, start Keepalived, and configure it as the secondary backend server.
 
 #. Verify the secondary backend server:
 
@@ -315,7 +315,7 @@ To verify that failover is working, stop Keepalived on the primary server.
 
 Frontend Installation
 =====================================================
-Use the following steps to set up each frontend Chef server:
+Use the following steps to set up each frontend Chef Server:
 
 #. Install the ``chef-server-core`` package. For Red Hat and CentOS 6:
 
@@ -329,15 +329,15 @@ Use the following steps to set up each frontend Chef server:
 
       $ dpkg -i /tmp/chef-server-core-<version>.deb
 
-   After a few minutes, the Chef server will be installed. The Chef high availability package is **not** required on front end machines.
+   After a few minutes, the Chef Server will be installed. The Chef high availability package is **not** required on front end machines.
 
 #. Create the ``/etc/opscode/`` directory, and then copy the entire contents of the ``/etc/opscode`` directory from the primary backend server, including all certificates and the chef-server.rb file.
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -388,7 +388,7 @@ Use the following steps to set up each frontend Chef server:
 
    The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``'Fourth Coffee, Inc.'``.
 
-   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
+   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef Server.
 
    An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -396,9 +396,9 @@ Use the following steps to set up each frontend Chef server:
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -411,7 +411,7 @@ Enable Features
 =====================================================
 .. tag ctl_chef_server_install_features
 
-Enable additional features of the Chef server! The packages may be downloaded directly as part of the installation process or they may be first downloaded to a local directory, and then installed.
+Enable additional features of the Chef Server! The packages may be downloaded directly as part of the installation process or they may be first downloaded to a local directory, and then installed.
 
 .. end_tag
 
@@ -424,7 +424,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 Chef Manage
    Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
-   On each front end server in the Chef server configuration, run:
+   On each front end server in the Chef Server configuration, run:
 
    .. code-block:: bash
 
@@ -442,7 +442,7 @@ Chef Manage
 
       $ chef-manage-ctl reconfigure
 
-   This updates the Chef server and creates the ``/etc/opscode-manage/secrets.rb`` file. When running the Chef management console 1.11 (or higher), copy the ``secrets.rb`` file in the ``/etc/opscode-manage`` directory on one of the frontend servers to the same directory on each of the other frontend servers, and then rerun ``chef-manage-ctl reconfigure`` so the copied ``/etc/opscode-manage/secrets.rb`` file gets used correctly.
+   This updates the Chef Server and creates the ``/etc/opscode-manage/secrets.rb`` file. When running the Chef management console 1.11 (or higher), copy the ``secrets.rb`` file in the ``/etc/opscode-manage`` directory on one of the frontend servers to the same directory on each of the other frontend servers, and then rerun ``chef-manage-ctl reconfigure`` so the copied ``/etc/opscode-manage/secrets.rb`` file gets used correctly.
 
    .. note:: .. tag chef_license_reconfigure_manage
 
@@ -476,15 +476,15 @@ The ``chef-server-ctl`` command will install the first ``chef-manage`` package f
 
 .. tag install_push_jobs_server_ha
 
-To set up the Chef push jobs server for a high availability configuration:
+To set up the Chef Push Jobs server for a high availability configuration:
 
-#. Install the package on all servers that are running the Chef server. For example on Ubuntu:
+#. Install the package on all servers that are running the Chef Server. For example on Ubuntu:
 
    .. code-block:: bash
 
       $ sudo dpkg -i opscode-push-jobs-server_2.1.0-1_amd64.deb
 
-#. Reconfigure the primary backend Chef push jobs server:
+#. Reconfigure the primary backend Chef Push Jobs server:
 
    .. code-block:: bash
 
@@ -502,9 +502,9 @@ To set up the Chef push jobs server for a high availability configuration:
 
       $ scp -r /etc/opscode-push-jobs-server <each servers IP>:/etc
 
-#. TCP protocol ports 10000 and 10003 must be open. These are the heartbeat and command ports respectively. They allow the Chef push jobs server to communicate with the Chef push jobs clients. In a configuration with both frontend and backend servers, these ports only need to be open on the backend servers. The Chef push jobs server waits for connections from the Chef push jobs client (and never makes a connection to a Chef push jobs client).
+#. TCP protocol ports 10000 and 10003 must be open. These are the heartbeat and command ports respectively. They allow the Chef Push Jobs server to communicate with the Chef Push Jobs clients. In a configuration with both frontend and backend servers, these ports only need to be open on the backend servers. The Chef Push Jobs server waits for connections from the Chef Push Jobs client (and never makes a connection to a Chef Push Jobs client).
 
-#. Reconfigure the remaining Chef push jobs servers:
+#. Reconfigure the remaining Chef Push Jobs servers:
 
    .. code-block:: bash
 
@@ -516,9 +516,9 @@ To set up the Chef push jobs server for a high availability configuration:
 
       $ chef-server-ctl reconfigure
 
-   This ensures that the Keepalived scripts are regenerated so they are aware of Chef push jobs.
+   This ensures that the Keepalived scripts are regenerated so they are aware of Chef Push Jobs.
 
-#. Restart all servers on which Chef push jobs will run:
+#. Restart all servers on which Chef Push Jobs will run:
 
    .. code-block:: bash
 
@@ -594,4 +594,4 @@ The following example shows Identity and Access Management (IAM) access manageme
      ]
    }
 
-It is possible to further restrict access using a more sophisticated policy document. For example, administrators may choose to permit the Identity and Access Management (IAM) user only to attach/detach the volume ID associated with the Chef server data volume, and not all volumes.
+It is possible to further restrict access using a more sophisticated policy document. For example, administrators may choose to permit the Identity and Access Management (IAM) user only to attach/detach the volume ID associated with the Chef Server data volume, and not all volumes.
