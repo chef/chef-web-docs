@@ -727,7 +727,7 @@ The ``node-summary`` subcommand produces a summary of the nodes that are known t
 
 New in Chef Automate 0.5.328.
 
-The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via the Chef Infra Client, InSpec, or the liveness agent.
+The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via the Chef Infra Client, Chef InSpec, or the liveness agent.
 
 **Syntax**
 

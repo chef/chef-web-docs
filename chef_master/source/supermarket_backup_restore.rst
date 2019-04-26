@@ -12,7 +12,7 @@ Backup
 Cookbook Backup
 -----------------------------------------------------
 
-If Supermarket is not configured to use AWS S3 storage for cookbooks, then the local cookbook storage location on the Supermarket server will need to be backed up. 
+If Supermarket is not configured to use AWS S3 storage for cookbooks, then the local cookbook storage location on the Supermarket server will need to be backed up.
 
 The default location is: ``/var/opt/supermarket/data/cookbook_versions``.
 
@@ -27,7 +27,7 @@ For example, a cookbook backup command:
 Database Backup
 -----------------------------------------------------
 
-A database export can be made in several formats. 
+A database export can be made in several formats.
 
 For example, a database export in a .dump format can be made with the following syntax:
 
@@ -73,7 +73,7 @@ Restore
 Cookbook Restore
 -----------------------------------------------------
 
-When restoring cookbooks, **make sure the cookbook directory is writable by the supermarket user.**
+When restoring cookbooks, **make sure the cookbook directory is writable by the Supermarket user.**
 
 For example, to restore your cookbook files, run:
 
@@ -90,9 +90,8 @@ Database Restore
 
     The restore does not support transferring backups across different versions of Supermarket. Backups taken must be restored to the same version of Supermarket that was in use when they were created.
 
-For example, to restore a backup in a .dump format, run: 
+For example, to restore a backup in a .dump format, run:
 
 .. code-block:: bash
 
       $ pg_restore --host localhost --port 15432 --clean --no-acl --no-owner --dbname supermarket_production --verbose supermarket_database_backup.dump
-

@@ -398,7 +398,7 @@ The following is a basic ``.kitchen.yml`` example:
           cpus: 4
           memory: 4096
 
-InSpec
+Chef InSpec
 =====================================================
 
 The Chef InSpec VMware plugin is used to verify the vCenter and ESXi VMware stack.

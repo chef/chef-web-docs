@@ -164,7 +164,7 @@ A truncated version of the bootstrap output is shown below:
 
    localhost Running handlers:
    localhost [2017-05-17T21:11:07+00:00] INFO: Running report handlers
-   localhost [2017-05-17T21:11:07+00:00] INFO: Initialize Chef InSpec 1.24.0
+   localhost [2017-05-17T21:11:07+00:00] INFO: Initialize InSpec 1.24.0
    localhost [2017-05-17T21:11:08+00:00] INFO: Running tests from: [{:name=>"DevSec Linux Security Baseline", :compliance=>"admin/linux-baseline"}, {:name=>"DevSec Windows Security Baseline", :compliance=>"admin/ssh-baseline"}]
    localhost [2017-05-17T21:11:11+00:00] INFO: Reporting to chef-server-automate
    localhost [2017-05-17T21:11:11+00:00] WARN: enriched_report: unsupported data type(Array) for attribute

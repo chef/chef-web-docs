@@ -31,7 +31,7 @@ To upgrade to Chef Server 12 from a standalone Chef Server, do the following:
 
       $ chef-server-ctl reconfigure
 
-#. Download the desired Chef Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page.
+#. Download the desired Chef Infra Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page.
 
 #. Stop the server:
 
@@ -85,7 +85,7 @@ To upgrade to Chef Server 12 from a high availability Chef Infra Server configur
 
       $ chef-server-ctl reconfigure
 
-#. Download the desired Chef Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page, then copy it to each server.
+#. Download the desired Chef Infra Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page, then copy it to each server.
 
 #. Stop all of the front end servers:
 
@@ -190,7 +190,7 @@ To upgrade to Chef Server 12 from a tiered Chef Infra Server configuration, do t
 
       $ chef-server-ctl reconfigure
 
-#. Download the desired Chef Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page, then copy it to each server.
+#. Download the desired Chef Infra Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page, then copy it to each server.
 
 #. Stop all of the front end servers:
 
