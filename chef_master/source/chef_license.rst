@@ -7,7 +7,7 @@ About Chef Licenses
 
 All Chef products have a license that governs the entire product, while some have separate licenses for the project source code and the distribution that we build from it. Third-party software included in our distributions may have individual licenses, which are listed in the ``/opt/<PRODUCT-NAME>/LICENSE`` file. Individual copies of all referenced licenses can be found in the ``/opt/<PRODUCT-NAME>/LICENSES`` directory.
 
-In April 2019 many of our software distributions switched to being goverend under the Chef EULA, while the software projects remained governed by the Apache 2.0 license. To understand which license applies to those distributions, see the `versions page </versions.html>`__. General information about this change can be found in our `announcement <https://blog.chef.io/2019/04/02/chef-software-announces-the-enterprise-automation-stack/>`__.
+In April 2019 many of our software distributions switched to being governed under the Chef EULA, while the software projects remained governed by the Apache 2.0 license. To understand which license applies to those distributions, see the `versions page </versions.html>`__. General information about this change can be found in our `announcement <https://blog.chef.io/2019/04/02/chef-software-announces-the-enterprise-automation-stack/>`__.
 
 .. end_tag
 
