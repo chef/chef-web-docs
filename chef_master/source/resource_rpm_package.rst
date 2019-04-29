@@ -71,7 +71,7 @@ Properties
 This resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Downgrade a package to satisfy requested version requirements.
 

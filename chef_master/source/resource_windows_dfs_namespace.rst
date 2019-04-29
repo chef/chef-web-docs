@@ -1,53 +1,45 @@
 =====================================================
-solaris_package resource
+windows_dfs_namespace resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_solaris_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_dfs_namespace.rst>`__
 
-The **solaris_package** resource is used to manage packages for the Solaris platform.
+Creates a share and DFS namespace on the local server.
 
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 15.0.**
 
 Syntax
 =====================================================
-A **solaris_package** resource block manages a package on a node, typically by installing it. The simplest use of the **solaris_package** resource is:
+The windows_dfs_namespace resource has the following syntax:
 
 .. code-block:: ruby
 
-   solaris_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **solaris_package** resource is:
-
-.. code-block:: ruby
-
-  solaris_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+  windows_dfs_namespace 'name' do
+    change_users        Array # default value: []
+    description         String
+    full_users          Array # default value: ["BUILTIN\\administrators"]
+    namespace_name      String # default value: 'name' unless specified
+    read_users          Array # default value: []
+    root                String # default value: "C:\\DFSRoots"
+    action              Symbol # defaults to :install if not specified
   end
 
 where:
 
-* ``solaris_package`` is the resource.
+* ``windows_dfs_namespace`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``change_users``, ``description``, ``full_users``, ``namespace_name``, ``read_users``, and ``root`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The solaris_package resource has the following actions:
+The windows_dfs_namespace resource has the following actions:
+
+``:delete``
+    Deletes a DFS Namespace including the directory on disk.
 
 ``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+    Creates the dfs namespace on the server. Default.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -56,38 +48,40 @@ The solaris_package resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
 Properties
 =====================================================
 
-The solaris_package resource has the following properties:
+The windows_dfs_namespace resource has the following properties:
 
-``source``
-   **Ruby Type:** String
+``change_users``
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
-   Required. The path to a package in the local file system.
+    Determines which users should have change access to the share.
 
-``options``
-   **Ruby Type:** String
+``description``
+   **Ruby Type:** String | ``REQUIRED``
 
-   One (or more) additional options that are passed to the command.
+   Description of the share.
 
-``package_name``
-   **Ruby Type:** String, Array
+``full_users``
+   **Ruby Type:** Array | **Default Value:** ``["BUILTIN\\administrators"]``
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   Determines which users should have full access to the share.
 
-``timeout``
-   **Ruby Type:** String, Integer
+``namespace_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   The amount of time (in seconds) to wait before timing out.
+   The name of the namespace to create.
 
-``version``
-   **Ruby Type:** String, Array
+``read_users``
+   **Ruby Type:** Array | **Default Value:** ``[]``
 
-   The version of a package to be installed or upgraded.
+   Determines which users should have read access to the share.
+
+``root``
+   **Ruby Type:** String | **Default Value:** ``"C:\\DFSRoots"``
+
+   The root from which to create the DFS tree. Defaults to C:\DFSRoots.
 
 Common Resource Functionality
 =====================================================
@@ -125,7 +119,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -231,24 +224,5 @@ The following properties can be used to define a guard that is evaluated during 
 
 ``only_if``
   Allow a resource to execute only if the condition returns ``true``.
-
-.. end_tag
-
-Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes:
-
-**Install a package**
-
-.. tag resource_solaris_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   solaris_package 'name of package' do
-     source '/packages_directory'
-     action :install
-   end
 
 .. end_tag

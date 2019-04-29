@@ -1,53 +1,43 @@
 =====================================================
-solaris_package resource
+archive_file resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_solaris_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_archive_file.rst>`__
 
-The **solaris_package** resource is used to manage packages for the Solaris platform.
+Use the **archive_file** resource to extract archive files to disk. This resource uses the libarchive library to extract multiple archive formats including tar, gzip, bzip, and zip formats.
 
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 15.0.**
 
 Syntax
 =====================================================
-A **solaris_package** resource block manages a package on a node, typically by installing it. The simplest use of the **solaris_package** resource is:
+The archive_file resource has the following syntax:
 
 .. code-block:: ruby
 
-   solaris_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **solaris_package** resource is:
-
-.. code-block:: ruby
-
-  solaris_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+  archive_file 'name' do
+    destination      String
+    group            String
+    mode             String, Integer # default value: "755"
+    options          Array, Symbol
+    overwrite        true, false, auto # default value: false
+    owner            String
+    path             String # default value: 'name' unless specified
+    action           Symbol # defaults to :extract if not specified
   end
 
 where:
 
-* ``solaris_package`` is the resource.
+* ``archive_file`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``destination``, ``group``, ``mode``, ``options``, ``overwrite``, ``owner``, and ``path`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The solaris_package resource has the following actions:
+The archive_file resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+``:extract``
+    Extract and archive file.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -56,38 +46,45 @@ The solaris_package resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
 Properties
 =====================================================
 
-The solaris_package resource has the following properties:
+The archive_file resource has the following properties:
 
-``source``
+``destination``
+   **Ruby Type:** String | ``REQUIRED``
+
+   The file path to extract the archive file to.
+
+``group``
    **Ruby Type:** String
 
-   Required. The path to a package in the local file system.
+   The group of the extracted files.
+
+``mode``
+   **Ruby Type:** String, Integer | **Default Value:** ``"755"``
+
+   The mode of the extracted files.
 
 ``options``
+   **Ruby Type:** Array, Symbol
+
+   An array of symbols representing extraction flags. Example: ``:no_overwrite`` to prevent overwriting files on disk. By default, this properly sets ``:time``, which preserves the modification timestamps of files in the archive when writing them to disk.
+
+``overwrite``
+   **Ruby Type:** true, false, auto | **Default Value:** ``false``
+
+   Should the resource overwrite the destination file contents if they already exist? If set to ``:auto``, the date stamp of files within the archive will be compared to those on disk, and disk contents will be overwritten if they differ. This may cause unintended consequences if disk date stamps are changed between runs, which will result in the files being overwritten during each client run. Make sure to properly test any change to this property.
+
+``owner``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   The owner of the extracted files.
 
-``package_name``
-   **Ruby Type:** String, Array
+``path``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
-
-``timeout``
-   **Ruby Type:** String, Integer
-
-   The amount of time (in seconds) to wait before timing out.
-
-``version``
-   **Ruby Type:** String, Array
-
-   The version of a package to be installed or upgraded.
+   An optional property to set the file path to the archive to extract if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
@@ -125,7 +122,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -235,20 +231,4 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes:
-
-**Install a package**
-
-.. tag resource_solaris_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   solaris_package 'name of package' do
-     source '/packages_directory'
-     action :install
-   end
-
-.. end_tag
+==========================================
