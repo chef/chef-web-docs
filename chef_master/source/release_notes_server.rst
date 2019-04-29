@@ -434,11 +434,8 @@ The following items are new for Chef server 12.6:
 
 About Chef Licenses
 -----------------------------------------------------
-.. tag chef_license_summary
 
 All Chef products have a license that governs the entire product and includes links to license files for any third-party software included in Chef packages. The ``/opt/<PRODUCT-NAME>/LICENSES`` directory contains individual copies of all referenced licenses.
-
-.. end_tag
 
 .. warning:: .. tag chef_license_note_current
 
@@ -448,13 +445,11 @@ All Chef products have a license that governs the entire product and includes li
 
 Apache 2.0
 -----------------------------------------------------
-.. tag chef_license_apache
 
 .. no swaps used for the "such as ..." section to ensure the correct legal name and not the names for these products as otherwise used globally in the documentation.
 
 All open source Chef products---such as the Chef client, the Chef server, or InSpec---are governed by the `Apache 2.0 license <https://www.apache.org/licenses/LICENSE-2.0>`__.
 
-.. end_tag
 
 What's New in 12.5
 =====================================================
