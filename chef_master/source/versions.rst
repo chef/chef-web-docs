@@ -96,7 +96,7 @@ Use of these and later versions of these distributions must be in accordance wit
 Supported Free Distributions
 ==============================================
 
-Use of the following distributions are governed by the Apache License, version 2.0.
+Use of the following distributions is governed by the Apache License, version 2.0.
 
 .. list-table::
    :header-rows: 1
