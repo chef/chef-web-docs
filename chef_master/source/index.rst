@@ -723,6 +723,7 @@ Addenda
    resource_apt_preference
    resource_apt_repository
    resource_apt_update
+   resource_archive_file
    resource_bash
    resource_batch
    resource_bff_package
@@ -824,6 +825,7 @@ Addenda
    resource_script
    resource_service
    resource_smartos_package
+   resource_snap_package
    resource_solaris_package
    resource_subversion
    resource_sudo
@@ -835,6 +837,11 @@ Addenda
    resource_user
    resource_windows_ad_join
    resource_windows_auto_run
+   resource_windows_dfs_folder
+   resource_windows_dfs_namespace
+   resource_windows_dfs_server
+   resource_windows_dns_record
+   resource_windows_dns_zone
    resource_windows_env
    resource_windows_feature
    resource_windows_feature_dism
@@ -847,6 +854,7 @@ Addenda
    resource_windows_service
    resource_windows_shortcut
    resource_windows_task
+   resource_windows_uac
    resource_yum_package
    resource_yum_repository
    resource_zypper_package
