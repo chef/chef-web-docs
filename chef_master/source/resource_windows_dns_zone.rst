@@ -33,10 +33,10 @@ Actions
 The windows_dns_zone resource has the following actions:
 
 ``:create``
-    Description here.
+    Creates and updates a DNS Zone. Default
 
 ``:delete``
-    Description here.
+    Deletes a DNS Zone.
 
 ``:nothing``
    .. tag resources_common_actions_nothing

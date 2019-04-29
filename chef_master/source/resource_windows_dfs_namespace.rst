@@ -36,10 +36,10 @@ Actions
 The windows_dfs_namespace resource has the following actions:
 
 ``:delete``
-    Description here.
+    Deletes a DFS Namespace including the directory on disk.
 
 ``:install``
-    Description here.
+    Creates the dfs namespace on the server. Default
 
 ``:nothing``
    .. tag resources_common_actions_nothing

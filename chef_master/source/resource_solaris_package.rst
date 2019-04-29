@@ -28,8 +28,6 @@ The full syntax for all of the properties that are available to the **solaris_pa
   solaris_package 'name' do
     options                      String, Array
     package_name                 String, Array
-    response_file                String
-    response_file_variables      Hash
     source                       String
     timeout                      String, Integer
     version                      String, Array
@@ -41,7 +39,7 @@ where:
 * ``solaris_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================

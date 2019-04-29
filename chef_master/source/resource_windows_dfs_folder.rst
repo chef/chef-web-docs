@@ -34,10 +34,10 @@ Actions
 The windows_dfs_folder resource has the following actions:
 
 ``:delete``
-    Description here.
+    Deletes the folder in the dfs namespace.
 
 ``:install``
-    Description here.
+    Creates the folder in dfs namespace. Default
 
 ``:nothing``
    .. tag resources_common_actions_nothing

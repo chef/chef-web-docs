@@ -34,25 +34,25 @@ Actions
 The snap_package resource has the following actions:
 
 ``:install``
-    Description here.
+   Default. Install a package. If a version is specified, install the specified version of the package.
 
 ``:lock``
-    Description here.
+   Locks the apt package to a specific version.
 
 ``:purge``
-    Description here.
+   Purge a package. This action typically removes the configuration files as well as the package.
 
 ``:reconfig``
-    Description here.
+   Reconfigure a package. This action requires a response file.
 
 ``:remove``
-    Description here.
+   Remove a package.
 
 ``:unlock``
-    Description here.
+   Unlocks the apt package so that it can be upgraded to a newer version.
 
 ``:upgrade``
-    Description here.
+   Install a package and/or ensure that a package is the latest version.
 
 ``:nothing``
    .. tag resources_common_actions_nothing

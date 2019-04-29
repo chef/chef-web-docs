@@ -34,10 +34,10 @@ Actions
 The windows_dns_record resource has the following actions:
 
 ``:create``
-    Description here.
+    Creates and updates the DNS entry.
 
 ``:delete``
-    Description here.
+    Deletes a DNS entry.
 
 ``:nothing``
    .. tag resources_common_actions_nothing

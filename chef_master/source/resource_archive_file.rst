@@ -37,7 +37,7 @@ Actions
 The archive_file resource has the following actions:
 
 ``:extract``
-    Description here.
+    Extract and archive file.
 
 ``:nothing``
    .. tag resources_common_actions_nothing

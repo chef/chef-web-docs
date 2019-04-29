@@ -35,7 +35,7 @@ Actions
 The windows_dfs_server resource has the following actions:
 
 ``:configure``
-    Description here.
+    Configure DFS settings
 
 ``:nothing``
    .. tag resources_common_actions_nothing
