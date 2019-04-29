@@ -134,7 +134,7 @@ Use of the following distributions is governed by the Apache License, version 2.
 Deprecated Products and Versions
 ===================================================
 
-The following products are deprecated or end of life. Users are advised to newer versions or products.
+The following products are deprecated or end of life. Users are advised to use newer versions or products.
 
 .. list-table::
    :header-rows: 1
