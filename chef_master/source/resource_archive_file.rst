@@ -69,12 +69,12 @@ The archive_file resource has the following properties:
 ``options``
    **Ruby Type:** Array, Symbol
 
-   An array of symbols representing extraction flags. Example: :no_overwrite to prevent overwriting files on disk. By default this properly sets :time which preserves the modification timestamps of files in the archive when writing them to disk.
+   An array of symbols representing extraction flags. Example: ``:no_overwrite`` to prevent overwriting files on disk. By default, this properly sets ``:time``, which preserves the modification timestamps of files in the archive when writing them to disk.
 
 ``overwrite``
    **Ruby Type:** true, false, auto | **Default Value:** ``false``
 
-   Should the resource overwrite the destination file contents if they already exist? If set to :auto the date stamp of files within the archive will be compared to those on disk and disk contents will be overwritten if they differ. This may cause unintented consequences if on disk date stamps are changed between runs, which will result in the files being overwritten during each client run. Make sure to properly test any change to this property.
+   Should the resource overwrite the destination file contents if they already exist? If set to ``:auto``, the date stamp of files within the archive will be compared to those on disk, and disk contents will be overwritten if they differ. This may cause unintended consequences if disk date stamps are changed between runs, which will result in the files being overwritten during each client run. Make sure to properly test any change to this property.
 
 ``owner``
    **Ruby Type:** String

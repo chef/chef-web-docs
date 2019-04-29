@@ -39,7 +39,7 @@ The windows_dfs_namespace resource has the following actions:
     Deletes a DFS Namespace including the directory on disk.
 
 ``:install``
-    Creates the dfs namespace on the server. Default
+    Creates the dfs namespace on the server. Default.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -56,7 +56,7 @@ The windows_dfs_namespace resource has the following properties:
 ``change_users``
    **Ruby Type:** Array | **Default Value:** ``[]``
 
-    Which users should have change access to the share.
+    Determines which users should have change access to the share.
 
 ``description``
    **Ruby Type:** String | ``REQUIRED``
@@ -66,7 +66,7 @@ The windows_dfs_namespace resource has the following properties:
 ``full_users``
    **Ruby Type:** Array | **Default Value:** ``["BUILTIN\\administrators"]``
 
-   Which users should have full access to the share.
+   Determines which users should have full access to the share.
 
 ``namespace_name``
    **Ruby Type:** String | **Default Value:** ``'name'``
@@ -76,12 +76,12 @@ The windows_dfs_namespace resource has the following properties:
 ``read_users``
    **Ruby Type:** Array | **Default Value:** ``[]``
 
-   Which users should have read access to the share.
+   Determines which users should have read access to the share.
 
 ``root``
    **Ruby Type:** String | **Default Value:** ``"C:\\DFSRoots"``
 
-   The root from which to create the DFS tree, defaults to C:\DFSRoots.
+   The root from which to create the DFS tree. Defaults to C:\DFSRoots.
 
 Common Resource Functionality
 =====================================================

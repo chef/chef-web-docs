@@ -33,7 +33,7 @@ Actions
 The windows_dns_zone resource has the following actions:
 
 ``:create``
-    Creates and updates a DNS Zone. Default
+    Creates and updates a DNS Zone. Default.
 
 ``:delete``
     Deletes a DNS Zone.
@@ -53,7 +53,7 @@ The windows_dns_zone resource has the following properties:
 ``replication_scope``
    **Ruby Type:** String | **Default Value:** ``"Domain"``
 
-   The replication scope for the zone, required if server_type set to 'Domain'
+   The replication scope for the zone, required if server_type set to 'Domain'.
 
 ``server_type``
    **Ruby Type:** String | **Default Value:** ``"Domain"``

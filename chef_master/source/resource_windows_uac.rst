@@ -36,7 +36,7 @@ Actions
 The windows_uac resource has the following actions:
 
 ``:configure``
-    Configures UAC by setting registry keys at HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
+    Configures UAC by setting registry keys at HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
