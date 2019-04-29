@@ -1,53 +1,41 @@
 =====================================================
-solaris_package resource
+windows_dfs_server resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_solaris_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_dfs_server.rst>`__
 
-The **solaris_package** resource is used to manage packages for the Solaris platform.
+The **windows_dfs_server** resource sets system-wide DFS settings.
 
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 15.0.**
 
 Syntax
 =====================================================
-A **solaris_package** resource block manages a package on a node, typically by installing it. The simplest use of the **solaris_package** resource is:
+The windows_dfs_server resource has the following syntax:
 
 .. code-block:: ruby
 
-   solaris_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **solaris_package** resource is:
-
-.. code-block:: ruby
-
-  solaris_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+  windows_dfs_server 'name' do
+    enable_site_costed_referrals      true, false # default value: false
+    ldap_timeout_secs                 Integer # default value: 30
+    prefer_login_dc                   true, false # default value: false
+    sync_interval_secs                Integer # default value: 3600
+    use_fqdn                          true, false # default value: false
+    action                            Symbol # defaults to :configure if not specified
   end
 
 where:
 
-* ``solaris_package`` is the resource.
+* ``windows_dfs_server`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``enable_site_costed_referrals``, ``ldap_timeout_secs``, ``prefer_login_dc``, ``sync_interval_secs``, and ``use_fqdn`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The solaris_package resource has the following actions:
+The windows_dfs_server resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+``:configure``
+    Configure DFS settings
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -56,38 +44,27 @@ The solaris_package resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
 Properties
 =====================================================
 
-The solaris_package resource has the following properties:
+The windows_dfs_server resource has the following properties:
 
-``source``
-   **Ruby Type:** String
+``enable_site_costed_referrals``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Required. The path to a package in the local file system.
+``ldap_timeout_secs``
+   **Ruby Type:** Integer | **Default Value:** ``30``
 
-``options``
-   **Ruby Type:** String
+``prefer_login_dc``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   One (or more) additional options that are passed to the command.
+``sync_interval_secs``
+   **Ruby Type:** Integer | **Default Value:** ``3600``
 
-``package_name``
-   **Ruby Type:** String, Array
+``use_fqdn``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
-
-``timeout``
-   **Ruby Type:** String, Integer
-
-   The amount of time (in seconds) to wait before timing out.
-
-``version``
-   **Ruby Type:** String, Array
-
-   The version of a package to be installed or upgraded.
+   Indicates whether a DFS namespace server uses FQDNs in referrals. If this parameter has a value of true, the server uses FQDNs in referrals. If this parameter has a value of false, the server uses NetBIOS names.
 
 Common Resource Functionality
 =====================================================
@@ -125,7 +102,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -231,24 +207,5 @@ The following properties can be used to define a guard that is evaluated during 
 
 ``only_if``
   Allow a resource to execute only if the condition returns ``true``.
-
-.. end_tag
-
-Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes:
-
-**Install a package**
-
-.. tag resource_solaris_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   solaris_package 'name of package' do
-     source '/packages_directory'
-     action :install
-   end
 
 .. end_tag

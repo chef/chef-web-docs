@@ -1,53 +1,43 @@
 =====================================================
-solaris_package resource
+windows_dns_record resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_solaris_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_dns_record.rst>`__
 
-The **solaris_package** resource is used to manage packages for the Solaris platform.
+The **windows_dns_record** resource creates a DNS record for the given domain.
 
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 15.0.**
 
 Syntax
 =====================================================
-A **solaris_package** resource block manages a package on a node, typically by installing it. The simplest use of the **solaris_package** resource is:
+The windows_dns_record resource has the following syntax:
 
 .. code-block:: ruby
 
-   solaris_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **solaris_package** resource is:
-
-.. code-block:: ruby
-
-  solaris_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+  windows_dns_record 'name' do
+    record_name      String # default value: 'name' unless specified
+    record_type      String # default value: "ARecord"
+    target           String
+    zone             String
+    action           Symbol # defaults to :create if not specified
   end
 
 where:
 
-* ``solaris_package`` is the resource.
+* ``windows_dns_record`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``record_name``, ``record_type``, ``target``, and ``zone`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The solaris_package resource has the following actions:
+The windows_dns_record resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+``:create``
+    Creates and updates the DNS entry.
+
+``:delete``
+    Deletes a DNS entry.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -56,38 +46,30 @@ The solaris_package resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
 Properties
 =====================================================
 
-The solaris_package resource has the following properties:
+The windows_dns_record resource has the following properties:
 
-``source``
-   **Ruby Type:** String
+``record_name``
+   **Ruby Type:** String | **Default Value:** ``'name'``
 
-   Required. The path to a package in the local file system.
+   The name of the record to create.
 
-``options``
-   **Ruby Type:** String
+``record_type``
+   **Ruby Type:** String | **Default Value:** ``"ARecord"``
 
-   One (or more) additional options that are passed to the command.
+   The type of record to create, can be either ARecord, CNAME or PTR.
 
-``package_name``
-   **Ruby Type:** String, Array
+``target``
+   **Ruby Type:** String | ``REQUIRED``
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The target for the record.
 
-``timeout``
-   **Ruby Type:** String, Integer
+``zone``
+   **Ruby Type:** String | ``REQUIRED``
 
-   The amount of time (in seconds) to wait before timing out.
-
-``version``
-   **Ruby Type:** String, Array
-
-   The version of a package to be installed or upgraded.
+   The zone to create the record in.
 
 Common Resource Functionality
 =====================================================
@@ -125,7 +107,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -231,24 +212,5 @@ The following properties can be used to define a guard that is evaluated during 
 
 ``only_if``
   Allow a resource to execute only if the condition returns ``true``.
-
-.. end_tag
-
-Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes:
-
-**Install a package**
-
-.. tag resource_solaris_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   solaris_package 'name of package' do
-     source '/packages_directory'
-     action :install
-   end
 
 .. end_tag
