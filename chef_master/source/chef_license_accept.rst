@@ -115,11 +115,14 @@ specify the `CHEF_LICENSE` environment variable, specify the `chef_license` conf
 
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-You can pin to a specific version of chef in your kitchen.yml::
-    provisioner:
-      name: chef_zero
-      product_name: chef
-      product_version: 14.12.3
+You can pin to a specific version of chef in your kitchen.yml:
+
+.. code-block:: none
+
+  provisioner:
+    name: chef_zero
+    product_name: chef
+    product_version: 14.12.3
 
 `knife bootstrap`
 -----------------------------------------------------
@@ -130,31 +133,39 @@ perform the same license acceptance flow as the Chef Infra product.
 
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Specify the following argument::
+Specify the following argument:
+
+.. code-block:: none
+
   knife bootstrap --bootstrap-version 14.12.3
 
 Vagrant
 -----------------------------------------------------
-This can be done via the arguments API::
-     config.vm.provision "chef_zero" do |chef|
-       chef.arguments = "--chef-license accept"
-       ...
-     end
+This can be done via the arguments API:
 
-See https://www.vagrantup.com/docs/provisioning/chef_common.html#arguments for details. This argument is not backwards
-compatible so instead users can use the `custom config path
-<https://www.vagrantup.com/docs/provisioning/chef_common.html#custom_config_path>`__ and point at a local file which
-specifies the `chef_license` config. The environment variable is not currently supported.
+.. code-block:: none
+
+   config.vm.provision "chef_zero" do |chef|
+     chef.arguments = "--chef-license accept"
+     ...
+   end
+
+
+See `<https://www.vagrantup.com/docs/provisioning/chef_common.html#arguments>`__ for details. This argument is not backwards compatible so instead users can use the `custom config path <https://www.vagrantup.com/docs/provisioning/chef_common.html#custom_config_path>`__ and point at a local file, which specifies the `chef_license` config. The environment variable is not currently supported.
+
 
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This can be done via the version API::
-     config.vm.provision "chef_zero" do |chef|
-       chef.version = "14.12.3"
-       ...
-     end
+This can be done via the version API:
 
-https://www.vagrantup.com/docs/provisioning/chef_common.html#version
+.. code-block:: none
+
+   config.vm.provision "chef_zero" do |chef|
+     chef.version = "14.12.3"
+     ...
+   end
+
+See `<https://www.vagrantup.com/docs/provisioning/chef_common.html#version>`__
 
 Chef Terraform Provisioner
 -----------------------------------------------------
@@ -162,12 +173,16 @@ Documentation coming soon.
 
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In your provisioner config::
+In your provisioner config:
+
+.. code-block:: none
 
     provisioner "chef" {
       ...
       version         = "14.12.3"
     }
+
+Try this to work
 
 Habitat Terraform Provisioner
 -----------------------------------------------------
