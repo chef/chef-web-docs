@@ -15,7 +15,7 @@ Chef EULA
 =====================================================
 .. tag chef_license_eula
 
-The commercial distributions of our products---such as Chef Infra Client, Chef Habitat, or Chef InSpec--- are goverened by either the `Chef End User License Agreement (Chef EULA) <https://www.chef.io/end-user-license-agreement/>`__ or your commercial agreement with Chef Software, Inc. as a customer. You are required to accept these terms when using the distributions for the first time. For additional information on how to accept the license, see the `Chef embedded license </chef_license_embedded.html>`__ documentation.
+The commercial distributions of our products---such as Chef Infra Client, Chef Habitat, or Chef InSpec--- are goverened by either the `Chef End User License Agreement (Chef EULA) <https://www.chef.io/end-user-license-agreement/>`__ or your commercial agreement with Chef Software, Inc. as a customer. You are required to accept these terms when using the distributions for the first time. For additional information on how to accept the license, see `Accepting the Chef License </chef_license_accept.html>`__ documentation.
 
 .. end_tag
 
@@ -25,6 +25,7 @@ Chef MLSA
 
 Distributions of older proprietary Chef products---such as Chef Automate 1.x and the Chef Management Console---are governed by the `Chef Master License and Services Agreement (Chef MLSA) <https://www.chef.io/online-master-agreement/>`__, which must be accepted as part of any install or upgrade process.
 
+TODO put into acceptance file
 Accept the Chef MLSA
 -----------------------------------------------------
 There are three ways to accept the Chef MLSA:
@@ -44,4 +45,3 @@ Apache 2.0
 All open source Chef projects---such as the Chef Infra Client, Chef Automate, or Chef InSpec---are governed by the `Apache 2.0 license <https://www.apache.org/licenses/LICENSE-2.0>`__.
 
 .. end_tag
-
