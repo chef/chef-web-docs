@@ -632,7 +632,6 @@ Addenda
    install_server
    install_server_ha
    install_server_ha_aws
-   install_server_ha_drbd
    install_server_post
    install_server_pre
    install_server_pre
@@ -873,7 +872,6 @@ Addenda
    server_configure_saml
    server_data
    server_firewalls_and_ports
-   server_high_availability
    server_ldap
    server_logs
    server_manage_clients

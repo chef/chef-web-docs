@@ -242,16 +242,6 @@ For back-end servers, ensure that ports marked as external (marked as ``yes`` in
        .. end_tag
 
      - yes
-   * - 112
-     - **keepalived**
-
-       .. tag server_services_keepalived
-
-       The **keepalived** service manages the virtual IP address (VIP) between the backend machines in a high availability topology that uses DRBD.
-
-       .. end_tag
-
-     - yes
    * - 80, 443, 9683
      - **nginx**
 

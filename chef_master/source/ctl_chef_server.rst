@@ -99,8 +99,6 @@ backup-recover
 =====================================================
 The ``backup-recover`` subcommand is used to force the Chef server to attempt to become the backup server. This is the opposite of the ``master-recover`` subcommand.
 
-.. warning:: If this command is run on both back-end servers, it will put the back-end cluster into a state where no server holds the DRBD resource.
-
 This subcommand has the following syntax:
 
 .. code-block:: bash

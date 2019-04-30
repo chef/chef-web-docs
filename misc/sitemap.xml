@@ -530,10 +530,6 @@
 </url>
 
 <url>
-  <loc>https://docs.chef.io/install_server_ha_drbd.html</loc>
-</url>
-
-<url>
   <loc>https://docs.chef.io/install_server_post.html</loc>
 </url>
 
@@ -1435,10 +1431,6 @@
 
 <url>
   <loc>https://docs.chef.io/server_firewalls_and_ports.html</loc>
-</url>
-
-<url>
-  <loc>https://docs.chef.io/server_high_availability.html</loc>
 </url>
 
 <url>
