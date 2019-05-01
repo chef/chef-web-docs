@@ -25,17 +25,6 @@ Chef MLSA
 
 Distributions of older proprietary Chef products---such as Chef Automate 1.x and the Chef Management Console---are governed by the `Chef Master License and Services Agreement (Chef MLSA) <https://www.chef.io/online-master-agreement/>`__, which must be accepted as part of any install or upgrade process.
 
-TODO put into acceptance file
-Accept the Chef MLSA
------------------------------------------------------
-There are three ways to accept the Chef MLSA:
-
-#. When running ``chef-<PRODUCT-NAME>-ctl reconfigure`` the Chef MLSA is printed. Type ``yes`` to accept it. Anything other than typing ``yes`` rejects the Chef MLSA and the upgrade process will exit. Typing ``yes`` adds a ``.license.accepted`` file to the ``/var/opt/<PRODUCT-NAME>/`` directory. As long as this file exists in this directory, the Chef MLSA is accepted and the reconfigure process will not prompt for ``yes``.
-
-#. Run the ``chef-<PRODUCT-NAME>-ctl reconfigure`` command using the ``--accept-license`` option. This automatically types ``yes`` and skips printing the Chef MLSA.
-
-#. Add a ``.license.accepted`` file to the ``/var/opt/<PRODUCT-NAME>/`` directory. The contents of this file do not matter. As long as this file exists in this directory, the Chef MLSA is accepted and the reconfigure process will not prompt for ``yes``.
-
 Apache 2.0
 =====================================================
 .. tag chef_license_apache
