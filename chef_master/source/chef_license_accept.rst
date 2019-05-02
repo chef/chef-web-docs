@@ -58,14 +58,14 @@ Products with specific features or differences from this general behavior are do
 
 Chef Workstation
 -----------------------------------------------------
-Chef Workstation contains multiple chef products.
-When invoking the ``chef`` command line tool and accepting the license, users are required to accept the license for all the embedded products as well.
-The same license applies to all products, but each product must have its own license acceptance.
-``chef --chef-license accept`` will accept the license for Chef Workstation, Chef Infra, Chef InSpec, and Push Jobs Client.
+Chef Workstation contains multiple Chef Software products. When invoking the ``chef`` command line tool and accepting the license
+users are required to accept the license for all the embedded products as well. The same license applies to all products,
+but each product must have its own license acceptance. ``chef --chef-license accept`` will accept the license for Chef
+Workstation, Chef Infra Client, Chef InSpec, and Push Jobs Client.
 
-Chef Infra
+Chef Infra Client
 -----------------------------------------------------
-In addition to the above methods, users can specify ``chef_license = 'accept'`` in their Chef config.
+In addition to the above methods, users can specify ``chef_license = 'accept'`` in their Chef Infra Client and Chef Infra Server config.
 On a workstation, this can be specified in ``~/.chef/config.rb`` or ``~/.chef/knife.rb``, and on a node, it can be specified in ``/etc/chef/client.rb``.
 This method of license acceptance is backwards-compatible to non-EULA versions of Chef Infra.
 
@@ -85,9 +85,9 @@ Server Products
 * Chef Automate
 * Supermarket
 
-Server products are typically installed and managed by some kind of supervisor instead of a user on a workstation.
-Because of this, there is no interactive option for accepting the license.
-Instead, the license is accepted during the ``reconfigure`` command or ``upgrade`` command for the Omnibus ctl command.
+Server products are typically installed and managed by some kind of process supervisor. Chef Software server products do
+not allow interactive license acceptance because process supervisors do not easily allow interactivity. Instead, the
+license is accepted during the ``reconfigure`` command or ``upgrade`` command for the Omnibus ctl command.
 For example:
 
 * ``chef-server-ctl reconfigure --chef-license=accept``
