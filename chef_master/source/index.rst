@@ -496,6 +496,7 @@ Addenda
    chef_client_security
    chef_deprecations_client
    chef_license
+   chef_license_accept
    chef_overview
    chef_private_keys
    chef_quick_overview

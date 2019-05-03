@@ -49,6 +49,9 @@ This configuration file has the following settings:
 ``chef_guid``
    The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node.
 
+``chef_license``
+   Used to accept the Chef license. Performs a no-op on versions where the license is not required. Can be set to ``accept`` or ``accept-no-persist``.
+
 ``chef_repo_path``
    The path to the chef-repo. chef-solo sources cookbooks and roles from this directory when running the chef-client.
 

@@ -15,7 +15,7 @@ Chef EULA
 =====================================================
 .. tag chef_license_eula
 
-The commercial distributions of our products---such as Chef Infra Client, Chef Habitat, or Chef InSpec--- are goverened by either the `Chef End User License Agreement (Chef EULA) <https://www.chef.io/end-user-license-agreement/>`__ or your commercial agreement with Chef Software, Inc. as a customer. You are required to accept these terms when using the distributions for the first time. For additional information on how to accept the license, see the `Chef embedded license </chef_license_embedded.html>`__ documentation.
+The commercial distributions of our products---such as Chef Infra Client, Chef Habitat, or Chef InSpec--- are goverened by either the `Chef End User License Agreement (Chef EULA) <https://www.chef.io/end-user-license-agreement/>`__ or your commercial agreement with Chef Software, Inc. as a customer. You are required to accept these terms when using the distributions for the first time. For additional information on how to accept the license, see `Accepting the Chef License </chef_license_accept.html>`__ documentation.
 
 .. end_tag
 
@@ -24,16 +24,6 @@ Chef MLSA
 .. no swaps used for the "such as ..." section to ensure the correct legal name and not the names for these products as otherwise used globally in the documentation.
 
 Distributions of older proprietary Chef products---such as Chef Automate 1.x and the Chef Management Console---are governed by the `Chef Master License and Services Agreement (Chef MLSA) <https://www.chef.io/online-master-agreement/>`__, which must be accepted as part of any install or upgrade process.
-
-Accept the Chef MLSA
------------------------------------------------------
-There are three ways to accept the Chef MLSA:
-
-#. When running ``chef-<PRODUCT-NAME>-ctl reconfigure`` the Chef MLSA is printed. Type ``yes`` to accept it. Anything other than typing ``yes`` rejects the Chef MLSA and the upgrade process will exit. Typing ``yes`` adds a ``.license.accepted`` file to the ``/var/opt/<PRODUCT-NAME>/`` directory. As long as this file exists in this directory, the Chef MLSA is accepted and the reconfigure process will not prompt for ``yes``.
-
-#. Run the ``chef-<PRODUCT-NAME>-ctl reconfigure`` command using the ``--accept-license`` option. This automatically types ``yes`` and skips printing the Chef MLSA.
-
-#. Add a ``.license.accepted`` file to the ``/var/opt/<PRODUCT-NAME>/`` directory. The contents of this file do not matter. As long as this file exists in this directory, the Chef MLSA is accepted and the reconfigure process will not prompt for ``yes``.
 
 Apache 2.0
 =====================================================
@@ -44,4 +34,3 @@ Apache 2.0
 All open source Chef projects---such as the Chef Infra Client, Chef Automate, or Chef InSpec---are governed by the `Apache 2.0 license <https://www.apache.org/licenses/LICENSE-2.0>`__.
 
 .. end_tag
-
