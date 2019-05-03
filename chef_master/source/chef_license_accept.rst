@@ -51,17 +51,17 @@ Two methods are generally used to accept the license for these products:
 If no command line argument or environment variable is set, these products will attempt to request acceptance through an interactive prompt.
 If the prompt cannot be displayed, then the product will fail with an exit code 172.
 
-If the product attempts to persist the accepted license and fails, a message will be sent to STDOUT, but product invocation will continue successfully. 
+If the product attempts to persist the accepted license and fails, a message will be sent to STDOUT, but product invocation will continue successfully.
 In a future invocation, however, the license would need to be accepted again.
 
 Products with specific features or differences from this general behavior are documented below.
 
 Chef Workstation
 -----------------------------------------------------
-Chef Workstation contains multiple Chef Software products. When invoking the ``chef`` command line tool and accepting the license
-users are required to accept the license for all the embedded products as well. The same license applies to all products,
-but each product must have its own license acceptance. ``chef --chef-license accept`` will accept the license for Chef
-Workstation, Chef Infra Client, Chef InSpec, and Push Jobs Client.
+Chef Workstation contains multiple Chef Software products.
+When invoking the ``chef`` command line tool and accepting the license, users are required to accept the license for all the embedded products as well.
+The same license applies to all products, but each product must have its own license acceptance.
+``chef --chef-license accept`` will accept the license for Chef Workstation, Chef Infra Client, Chef InSpec, and Push Jobs Client.
 
 Chef Infra Client
 -----------------------------------------------------
@@ -85,9 +85,9 @@ Server Products
 * Chef Automate
 * Supermarket
 
-Server products are typically installed and managed by some kind of process supervisor. Chef Software server products do
-not allow interactive license acceptance because process supervisors do not easily allow interactivity. Instead, the
-license is accepted during the ``reconfigure`` command or ``upgrade`` command for the Omnibus ctl command.
+Server products are typically installed and managed by some kind of process supervisor.
+Chef Software server products do not allow interactive license acceptance because process supervisors do not easily allow interactivity.
+Instead, the license is accepted during the ``reconfigure`` command or ``upgrade`` command for the Omnibus ctl command.
 For example:
 
 * ``chef-server-ctl reconfigure --chef-license=accept``
@@ -114,13 +114,12 @@ Remote Management Products
 
 These products install or manage Chef on a remote instance.
 If a user has accepted the appropriate product license locally, it will be automatically transferred to the remote instance.
-This means that if a user has accepted the Chef Infra license locally and converges a Test Kitchen instance with the Chef provisioner, it will succeed by copying the acceptance to the remote instance.
+For example, if a user has accepted the Chef Infra license locally and converges a Test Kitchen instance with the Chef provisioner, it will succeed by copying the acceptance to the remote instance.
 We aim to support this behavior, so Workstation users do not have their workflow affected, but any differences from that behavior are documented below.
 
 Test Kitchen
 -----------------------------------------------------
-Test Kitchen is not owned by or covered by the Chef license, but installing Chef Client on a test instance is covered by
-the EULA.
+Test Kitchen is not owned by or covered by the Chef license, but installing Chef Client on a test instance is covered by the EULA.
 Without accepting the license, the converge will fail on the test instance.
 
 The Chef provisioner in Test Kitchen >= 2.3 has been updated to simplify accepting this license on behalf of the test instance.
@@ -147,7 +146,7 @@ You can pin to a specific version of chef in your kitchen.yml:
 ``knife bootstrap``
 -----------------------------------------------------
 ``knife bootstrap`` requires users to accept the Chef Infra license locally before bootstrapping a remote instance.
-In most usage cases (via Chef Workstation),  this license will already have been accepted and will transfer across transparently.
+In most usage cases (via Chef Workstation), this license will already have been accepted and will transfer across transparently.
 But if a user installs Chef Workstation and the first command they ever run is ``knife bootstrap``, ``knife bootstrap`` will perform the same license acceptance flow as the Chef Infra product.
 
 Pin to Chef 14
@@ -160,7 +159,7 @@ Specify the following argument:
 
 Vagrant
 -----------------------------------------------------
-This can be done via the arguments API:
+This license acceptance can be done via the arguments API:
 
 .. code-block:: ruby
 
@@ -175,7 +174,7 @@ The environment variable is not currently supported.
 
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-This can be done via the version API:
+This version pinning can be done via the version API:
 
 .. code-block:: ruby
 
@@ -273,5 +272,4 @@ This environment variable is ignored by non-EULA products, and so is backwards-c
 For users that manage their Chef Infra installation using the ``chef-client`` cookbook, we added a new attribute that can be specified.
 Specify the node attribute ``node['chef_client']['chef_license'] = 'accept'`` when running the cookbook to apply the license acceptance in a backwards-compatible way.
 
-This allows users to set that attribute for a Chef Infra 14 install, upgrade to Chef 15, and have the product continue to
-work correctly.
+This functionality allows users to set that attribute for a Chef Infra 14 install, upgrade to Chef 15, and have the product continue to work correctly.
