@@ -89,7 +89,6 @@ Both the ``knife-push`` library and the Chef Push Jobs API provide options to di
    $ knife job output --channel stdout 26e98ba162fa7ba6fb2793125553c7ae node1
    foobar
 
-
 Environment Control
 =====================================================
 The user has a lot more control over the execution environment of the remote command with three new options available to the ``knife push jobs start`` command.

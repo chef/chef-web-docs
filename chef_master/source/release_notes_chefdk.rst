@@ -444,7 +444,6 @@ What's New in 2.5.3
   * test-kitchen 1.19.2 -> 1.20.0
   * chef-provisioning-azure has been removed as it used deprecated Azure APIs
 
-
 What's New in 2.4.17
 =====================================================
 * **Improved performance downloading cookbooks from a Chef server**
@@ -463,7 +462,6 @@ What's New in 2.4.17
       chef_server_artifact: "https://chef.example/organizations/myorg",
       identifier: "09d43fad354b3efcc5b5836fef5137131f60f974"
 
-
 * **Added include_policy directive**
 
   Policyfile can use the ``include_policy`` directive as described in `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__. This directive's purpose is to allow the inclusion policyfile locks to the current policyfile. In this iteration, we support sourcing lock files from a local path or a Chef server. Below is a simple example of how the ``include_policy`` directive can be used:
@@ -479,7 +477,6 @@ What's New in 2.4.17
      run_list 'motd'
 
      cookbook 'motd', '~> 0.6.0'
-
 
   Run:
 
@@ -510,7 +507,6 @@ What's New in 2.4.17
 
       include_policy 'base', path: './base.lock.json'
 
-
   Run:
 
   .. code-block:: none
@@ -526,7 +522,6 @@ What's New in 2.4.17
 
       Lockfile written to /home/jaym/workspace/chef-dk/users.lock.json
       Policy revision id: 20fac68f987152f62a2761e1cfc7f1dc29b598303bfb2d84a115557e2a4a8f27
-
 
   This will produce a ``users.lock.json`` file that has the ``base`` policyfile lock merged in.
 
@@ -593,7 +588,6 @@ ChefDK 2.2.1 includes:
 * Chef Vault 3.3.0
 * Foodcritic 11.3.1
 * Test Kitchen 1.17.0
-
 
 What's New in 2.1.11
 =====================================================
@@ -668,7 +662,6 @@ Cookstyle 2.0
 -----------------------------------------------------
 Cookstyle 2.0 is based on Rubocop 0.49.1, which changed a large number of rule names.
 
-
 What's New in 1.6.11
 =====================================================
 This release contains only dependency updates, including several security fixes:
@@ -724,7 +717,6 @@ InSpec 1.25.1
 Cookstyle 1.3.1
 ---------------
 * Disabled Style/DoubleNegation rule, which can be necessary in not_if / only_if blocks
-
 
 What's New in 1.3
 =====================================================
@@ -951,7 +943,6 @@ What's New in 1.0
 Version 1.0!
 -----------------------------------------------------
 
-We're recognizing ChefDK's continued stability with the honor of a 1.0 tag. There
 is nothing in this release that breaks backwards compatibility with previous
 installations of ChefDK: it is simply a formal recognition of the stability of
 the product.
@@ -1016,7 +1007,6 @@ Notable Upgraded Gems
 - knife-windows ``1.6.0`` -> ``1.7.0``
 - mixlib-install ``2.0.1`` -> ``2.1.1``
 - winrm ``2.0.3`` -> ``2.1.0``
-
 
 Changelog
 =====================================================

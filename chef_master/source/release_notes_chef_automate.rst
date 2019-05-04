@@ -3,17 +3,12 @@ Release Notes: Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chef_automate.rst>`__
 
-.. tag chef_automate_mark
-
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 
 .. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
 
-.. end_tag
-
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
-
 
 What's New in 1.8.96
 =====================================================
@@ -30,7 +25,6 @@ Resolved Issues
 -----------------------------------------------------
 * Resolved an issue with Workflow jobs becoming stuck
 * Corrected the release metadata on a number of profiles so the profiles are compatible with target hosts.
-
 
 What's New in 1.8.85
 =====================================================
@@ -127,7 +121,6 @@ Resolved Issues
 * Stale Elasticsearch lock files can be cleaned after a crash with ``automate-ctl delete-elasticsearch-lock --stale-lock-only``
 * Fixed CA certificate path location on SuSE
 * The data collector API now returns a 503 when Automate is in maintenance mode
-* The Elasticsearch API now returns 400 if sent a HTML script tag to prevent XSS attacks
 
 What's New in 1.7.114
 =====================================================
@@ -222,7 +215,6 @@ Resolved Issues
 * OpsWorks for Chef Automate and the cloud marketplace instances of Chef Automate rely on self-signed SSL certificates. As of Chrome 58, self-signed certificates with x509 version 3 without the SubjectAltName extension are invalid. We added the correct extension for the self-signed cert.
 * Bitbucket integration now works with usernames containing the @ symbol.
 
-
 What's New in 1.7.10
 =====================================================
 
@@ -248,7 +240,6 @@ Chef Automate Statistics
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 The new ``automate-ctl data-summary`` command gives the total number of Chef client run records and compliance scan records, as well as how much storage is being consumed. For more information, see the `automate-ctl documentation </ctl_automate_server.html#data-summary>`__
 
-
 Command Line Option for Reaper
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 Override Reaper settings to run a manual Reaper job to remove data from Elasticsearch. Specify a retention period for a single reaper job from the command line. For more details, see `Data Retention Management in Chef Automate <https://docs.chef.io/data_retention_chef_automate.html>`__.
@@ -257,7 +248,6 @@ Removed Legacy Compliance Views
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The original compliance data views under the Nodes tab have been accessible via the ``legacy`` flag since the release of Chef Automate 1.5 in July.  With this release those views have been removed from the product, and data is no longer written to the underlying data indices.  Both historical and new compliance data is stored in new indices.  To remove the legacy data and reduce storage volume, see `Data Retention Management in Chef Automate <https://docs.chef.io/data_retention_chef_automate.html>`__.
-
 
 Resolved Issues
 -----------------------------------------------------
@@ -291,7 +281,6 @@ Resolved Issues
 * Resolved an issue where ``automate-ctl delete-node`` was not removing nodes from the compliance UI
 * Corrected a regression with the ``mark-nodes-missing`` script; nodes will now be set to missing if they have not checked in for 12 hours
 * Upgraded Ruby to version 2.4.2 to address multiple CVEs
-
 
 What's New in 1.6.99
 =====================================================
@@ -346,7 +335,6 @@ If you plan to upgrade to Chef Automate 1.6.87 by restoring a backup from an exi
    .. code-block:: bash
 
       automate-ctl restore-backup my-backup
-
 
 New Features
 -----------------------------------------------------
@@ -437,7 +425,6 @@ Resolved Issues
 * Fixed an issue that limited the list of compliance profiles in the report to 10
 * Small UI fixes in the compliance view around scan results filter, profile suggestions, and reports with multiple scan results
 
-
 What's New in 1.5.46
 =====================================================
 
@@ -513,7 +500,6 @@ Resolved Issues
 * In **Workflow**, under the **Review** tab, the expandable comments below a change in diff view will now display properly
 * Default permissions for Chef Automate’s primary configuration file ``/etc/delivery/delivery.rb`` have been tightened from 0644 to 0640 so that the file is no longer world readable
 
-
 What's New in 0.8.5
 =====================================================
 
@@ -551,7 +537,6 @@ SUSE Linux Enterprise Server Support
 
 Chef Automate can now be installed on SUSE Linux Enterprise Server (SLES) 11 SP4 and 12 SP2 or above.
 
-
 Resolved Issues
 -----------------------------------------------------
 
@@ -559,7 +544,6 @@ Resolved Issues
 * Added retries to RabbitMQ service on startup to correct a problem reported in OpsWorks for Chef Automate.
 * Corrected a bug with failing to connect to Bitbucket when using a lengthy URL for the Bitbucket server.
 * Corrected an issue with pagination when several pages of run history are displayed.
-
 
 What's New in 0.7.239
 =====================================================

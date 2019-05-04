@@ -270,7 +270,6 @@ The only supported systems at this time for FIPS mode are RHEL. Packages for
 other systems will be missing the required OpenSSL FIPS module and will fail
 to start if reconfigured with ``fips true``.
 
-
 What's New in 12.12
 =====================================================
 The following items are new for Chef server 12.12:
@@ -308,7 +307,6 @@ You can now set the following options in ``/etc/opscode/chef-server.rb``:
    oc_id['email_from_address'] = "oc_id@example.com"
    # defaults to the api_fqdn
    oc_id['origin'] = "mail.yourco.io"
-
 
 What's New in 12.11
 =====================================================
@@ -437,11 +435,7 @@ About Chef Licenses
 
 All Chef products have a license that governs the entire product and includes links to license files for any third-party software included in Chef packages. The ``/opt/<PRODUCT-NAME>/LICENSES`` directory contains individual copies of all referenced licenses.
 
-.. warning:: .. tag chef_license_note_current
-
              The ``chef-server-ctl install`` command no longer works in the 12.5 (and earlier) versions of the Chef server due to a change in how packages are downloaded from Chef.
-
-             .. end_tag
 
 Apache 2.0
 -----------------------------------------------------
@@ -449,7 +443,6 @@ Apache 2.0
 .. no swaps used for the "such as ..." section to ensure the correct legal name and not the names for these products as otherwise used globally in the documentation.
 
 All open source Chef products---such as the Chef client, the Chef server, or InSpec---are governed by the `Apache 2.0 license <https://www.apache.org/licenses/LICENSE-2.0>`__.
-
 
 What's New in 12.5
 =====================================================
@@ -459,7 +452,6 @@ The following items are new for Chef server 12.5:
 
 public_key_read_access
 -----------------------------------------------------
-.. tag server_rbac_permissions_default_public_key_read_access
 
 The ``public_key_read_access`` group controls which users and clients have `read permissions to the following endpoints </api_chef_server.html>`__:
 
@@ -499,8 +491,6 @@ By default, the ``public_key_read_access`` assigns all members of the ``users`` 
      - yes
      - yes
 
-.. end_tag
-
 What's New in 12.4
 =====================================================
 The following items are new for Chef server 12.4:
@@ -511,17 +501,13 @@ The following items are new for Chef server 12.4:
 
 /universe
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_universe
 
 Use the ``/universe`` endpoint to retrieve the known collection of cookbooks, and then use it with Berkshelf and Chef Supermarket.
 
 The ``/universe`` endpoint has the following methods: ``GET``.
 
-.. end_tag
-
 GET
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_universe_get
 
 The ``GET`` method is used to retrieve the universe data.
 
@@ -579,19 +565,13 @@ The response will return an embedded hash, with the name of each cookbook as a t
    * - ``200``
      - OK. The request was successful. One (or more) cookbooks and associated cookbook version information was returned.
 
-.. end_tag
-
 Server Admins
 -----------------------------------------------------
-.. tag server_rbac_server_admins
 
 The ``server-admins`` group is a global group that grants its members permission to create, read, update, and delete user accounts, with the exception of superuser accounts. The ``server-admins`` group is useful for users who are responsible for day-to-day administration of the Chef server, especially user management via the ``knife user`` subcommand. Before members can be added to the ``server-admins`` group, they must already have a user account on the Chef server.
 
-.. end_tag
-
 Scenario
 -----------------------------------------------------
-.. tag server_rbac_server_admins_scenario
 
 The following user accounts exist on the Chef server: ``pivotal`` (a superuser account), ``alice``, ``bob``, ``carol``, and ``dan``. Run the following command to view a list of users on the Chef server:
 
@@ -667,11 +647,8 @@ For example, Alice runs the following command:
 
 and the $EDITOR opens in which Alice makes changes, and then saves them.
 
-.. end_tag
-
 Superuser Accounts
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag server_rbac_server_admins_superusers
 
 Superuser accounts may not be managed by users who belong to the ``server-admins`` group. For example, Alice attempts to delete the ``pivotal`` superuser account:
 
@@ -689,11 +666,8 @@ and the following error is returned:
 
 Alice's action is unauthorized even with membership in the ``server-admins`` group.
 
-.. end_tag
-
 Manage server-admins Group
 -----------------------------------------------------
-.. tag ctl_chef_server_server_admin
 
 Membership of the ``server-admins`` group is managed with a set of ``chef-server-ctl`` subcommands:
 
@@ -701,11 +675,8 @@ Membership of the ``server-admins`` group is managed with a set of ``chef-server
 * ``chef-server-ctl list-server-admins``
 * ``chef-server-ctl remove-server-admin-permissions``
 
-.. end_tag
-
 Add Members
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_server_admin_grant_user
 
 The ``grant-server-admin-permissions`` subcommand is used to add a user to the ``server-admins`` group. Run the command once per user added.
 
@@ -731,11 +702,8 @@ returns:
    read, and create users (even for orgs they are not members of)
    for this Chef Server.
 
-.. end_tag
-
 Remove Members
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_server_admin_remove_user
 
 The ``remove-server-admin-permissions`` subcommand is used to remove a user from the ``server-admins`` group. Run the command once per user removed.
 
@@ -761,11 +729,8 @@ returns:
    list, read, and create users for this Chef Server except for where
    they have default permissions (such as within an org).
 
-.. end_tag
-
 List Membership
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_server_admin_list
 
 The ``list-server-admins`` subcommand is used to return a list of users who are members of the ``server-admins`` group.
 
@@ -784,8 +749,6 @@ and will return a list of users similar to:
    bob
    carol
    dan
-
-.. end_tag
 
 What's New in 12.3
 =====================================================
@@ -815,13 +778,9 @@ The following configuration settings are new and enable the Nginx ``stub_status`
 
 RabbitMQ Queues
 -----------------------------------------------------
-.. tag server_tuning_rabbitmq_analytics_queue
 
 If the RabbitMQ queue that is used by Chef Analytics stops consuming messages, the Chef server data partition will fill up and may affect the overall performance of the Chef server application itself. The settings for the RabbitMQ queue are tunable, including for queue length monitoring, queue capacity, maximum number of messages that can be in the queue before messages are dropped, the point at which messages are dropped, for settings used by the rabbitmq-management plugin, and so on.
 
-.. end_tag
-
-.. tag server_tuning_rabbitmq_analytics_queue_settings
 
 The following settings may be used for tuning RabbitMQ queues used by Chef Analytics and the Chef server:
 
@@ -888,8 +847,6 @@ The following settings may be used for tuning RabbitMQ queues used by Chef Analy
 ``rabbitmq['ssl_versions']``
    The SSL versions used by the rabbitmq-management plugin. (See `RabbitMQ TLS Support <https://www.rabbitmq.com/ssl.html>`_ for more details.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
 
-.. end_tag
-
 What's New
 -----------------------------------------------------
 The following items are new for Chef server 12.2:
@@ -902,17 +859,13 @@ The following items are new for Chef server 12.2:
 
 Solr => Solr 4 Changes
 -----------------------------------------------------
-.. tag 2_solr_to_solr4
 
 Chef server version 12 is upgraded to Apache Solr 4. If Apache Solr options were added to the private-chef.rb file under ``opscode_solr`` for Enterprise Chef, those configuration options are now stored under ``opscode_solr4`` in the chef-server.rb file for Chef server version 12.
 
 Some ``opscode_solr`` settings are imported automatically, such as heap, new size, and Java options, but many settings are ignored. If your Enterprise Chef configuration is highly tuned for Apache Solr, review `these configuration settings </config_rb_server_optional_settings.html#opscode-solr4>`__ before re-tuning Apache Solr for Chef server version 12.
 
-.. end_tag
-
 External PostgreSQL
 -----------------------------------------------------
-.. tag server_ha_external_postgresql
 
 The following diagram highlights the specific changes that occur when PostgreSQL is configured and managed independently of the Chef server configuration.
 
@@ -930,15 +883,9 @@ The following table describes the components in an external PostgreSQL configura
    * - Chef Server
      - The Chef server configuration file is updated to point to an independently configured set of servers for PostgreSQL.
    * - PostgreSQL
-     - .. tag chef_server_component_postgresql
-
-       PostgreSQL is the data storage repository for the Chef server.
-
-       .. end_tag
+     - PostgreSQL is the data storage repository for the Chef server.
 
        This represents the independently configured set of servers that are running PostgreSQL and are configured to act as the data store for the Chef server.
-
-.. end_tag
 
 .. note:: The following ``chef-server-ctl`` subcommands for managing services are disabled when an external PostgreSQL database is configured for the Chef server: ``hup``, ``int``, ``kill``, ``once``, ``restart``, ``start``, ``stop``, ``tail``, and ``term``.
 
@@ -970,7 +917,6 @@ Use the following commands to manage backups of Chef server data, and then to re
 
 backup
 -----------------------------------------------------
-.. tag ctl_chef_server_backup
 
 The ``backup`` subcommand is used to back up all Chef server data. This subcommand:
 
@@ -979,22 +925,14 @@ The ``backup`` subcommand is used to back up all Chef server data. This subcomma
 * Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
 * Puts the initial backup in the ``/var/opt/chef-backup`` directory as a tar.gz file; move this backup to a new location for safe keeping
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_backup_options
 
 This subcommand has the following options:
 
 ``-y``, ``--yes``
    Use to specify if the Chef server can go offline during tar.gz-based backups.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_backup_syntax
 
 This subcommand has the following syntax:
 
@@ -1002,11 +940,8 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl backup
 
-.. end_tag
-
 restore
 -----------------------------------------------------
-.. tag ctl_chef_server_restore
 
 The ``restore`` subcommand is used to restore Chef server data from a backup that was created by the ``backup`` subcommand. This subcommand may also be used to add Chef server data to a newly-installed server. This subcommand:
 
@@ -1016,11 +951,7 @@ The ``restore`` subcommand is used to restore Chef server data from a backup tha
 
 .. note :: The ``restore`` command does not support transferring backups across different versions of Chef server. Backups taken with the ``backup`` command must restore to the same version of Chef server that was in use when they were created.
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_restore_options
 
 This subcommand has the following options:
 
@@ -1030,19 +961,13 @@ This subcommand has the following options:
 ``-d DIRECTORY``, ``--staging-dir DIRECTORY``
    Use to specify that the path to an empty directory to be used during the restore process. This directory must have enough disk space to expand all data in the backup archive.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_restore_syntax
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
    $ chef-server-ctl restore PATH_TO_BACKUP (options)
-
-.. end_tag
 
 **Examples**
 
@@ -1052,7 +977,6 @@ This subcommand has the following syntax:
 
 psql
 -----------------------------------------------------
-.. tag ctl_chef_server_psql
 
 The ``psql`` subcommand is used to log into the PostgreSQL database associated with the named service. This subcommand:
 
@@ -1061,11 +985,7 @@ The ``psql`` subcommand is used to log into the PostgreSQL database associated w
 * Is the recommended way to interact with any PostgreSQL database that is part of the Chef server
 * Automatically handles authentication
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_psql_syntax
 
 This subcommand has the following syntax:
 
@@ -1073,22 +993,15 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl psql SERVICE_NAME (options)
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_psql_options
 
 This subcommand has the following options:
 
 ``--write``
    Use to enable write access to the PostgreSQL database.
 
-.. end_tag
-
 reindex Options
 -----------------------------------------------------
-.. tag ctl_chef_server_reindex_options
 
 This subcommand has the following options:
 
@@ -1104,19 +1017,14 @@ This subcommand has the following options:
 ``-w``, ``--wait``
    Use to wait for the reindexing queue to clear before exiting. This option only works when run on a standalone Chef server, or on a primary backend Chef server within a legacy tier or DRBD HA system. This option should not be used on a HA frontend.
 
-.. end_tag
-
 Chef server API Endpoints
 -----------------------------------------------------
 The following endpoints have been added to the Chef server API:
 
 /policy_groups/NAME
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_policy_groups
 
 The ``/policy_groups`` endpoint has the following methods: ``GET``.
-
-.. end_tag
 
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1516,23 +1424,16 @@ The ``knife user`` and ``knife client`` subcommands support key rotation. Use th
 
 X-Ops-Server-API-Version
 -----------------------------------------------------
-.. tag api_chef_server_headers_x_ops_server_api_version
 
 Use ``X-Ops-Server-API-Version`` to specify the version of the Chef server API. For example: ``X-Ops-Server-API-Version: 1``. ``X-Ops-Server-API-Version: 0`` is supported for use with the version 12 Chef server, but will be deprecated as part of the next major release.
 
-.. end_tag
-
 /clients/CLIENT/keys/
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_keys_clients
 
 The ``/clients/CLIENT/keys`` endpoint has the following methods: ``GET`` and ``POST``.
 
-.. end_tag
-
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_keys_clients_get
 
 The ``GET`` method is used to retrieve all of the named client's key identifiers, associated URIs, and expiry states.
 
@@ -1576,11 +1477,8 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_keys_clients_post
 
 The ``POST`` method is used to add a key for the specified client.
 
@@ -1629,19 +1527,13 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 /clients/CLIENT/keys/KEY
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_key_client
 
 The ``/clients/CLIENT/keys/KEY`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``.
 
-.. end_tag
-
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_client_delete
 
 The ``DELETE`` method is used to delete the specified key for the specified client.
 
@@ -1682,11 +1574,8 @@ The response returns the information about the deleted key and is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_client_get
 
 The ``GET`` method is used to return details for a specific key for a specific client.
 
@@ -1727,11 +1616,8 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_client_put
 
 The ``PUT`` method is used to update one or more properties for a specific key for a specific client.
 
@@ -1784,19 +1670,13 @@ The response contains the updated inforamtion for the key, and is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 /user/USER/keys/
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_keys_users
 
 The ``/users/USER/keys`` endpoint has the following methods: ``GET`` and ``POST``.
 
-.. end_tag
-
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_keys_users_get
 
 The ``GET`` method is used to retrieve all of the named user's key identifiers, associated URIs, and expiry states.
 
@@ -1840,11 +1720,8 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_keys_users_post
 
 The ``POST`` method is used to add a key for the specified user.
 
@@ -1893,19 +1770,13 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 /user/USER/keys/KEY
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_key_user
 
 The ``/users/USER/keys/KEY`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``.
 
-.. end_tag
-
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_user_delete
 
 The ``DELETE`` method is used to delete the specified key for the specified user.
 
@@ -1946,11 +1817,8 @@ The response returns the information about the deleted key and is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_user_get
 
 The ``GET`` method is used to return details for a specific key for a specific user.
 
@@ -1991,11 +1859,8 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_user_put
 
 The ``PUT`` method is used to update one or more properties for a specific key for a specific user.
 
@@ -2048,19 +1913,13 @@ The response contains the updated inforamtion for the key, and is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
-
 /policies
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_policies
 
 The ``/policies`` endpoint has the following methods: ``GET``.
 
-.. end_tag
-
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_policies_get
 
 The ``GET`` method is used to get a list of policies (including policy revisions) from the Chef server.
 
@@ -2116,24 +1975,16 @@ The response groups policies by name and revision and is similar to:
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
 
-.. end_tag
-
 /policy_groups
 -----------------------------------------------------
-.. tag api_chef_server_endpoint_policy_groups
 
 The ``/policy_groups`` endpoint has the following methods: ``GET``.
 
-.. end_tag
-
-.. tag policy_group_relates_to_nodes
 
 Each node has a 1:many relationship with policy settings stored on the Chef server. This relationship is based on the policy group to which the node is associated, and then the policy settings assigned to that group:
 
 * A policy is typically named after the functional role ahost performs, such as "application server", "chat server", "load balancer", and so on
 * A policy group defines a set of hosts in a deployed units, typically mapped to organizational requirements such as "dev", "test", "staging", and "production", but can also be mapped to more detailed requirements as needed
-
-.. end_tag
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2196,14 +2047,10 @@ The response is similar to:
 -----------------------------------------------------
 The ``/policies/NAME`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``. These endpoints enable the management of policies as they relate to a specific policy group.
 
-.. tag policy_group_relates_to_nodes
-
 Each node has a 1:many relationship with policy settings stored on the Chef server. This relationship is based on the policy group to which the node is associated, and then the policy settings assigned to that group:
 
 * A policy is typically named after the functional role ahost performs, such as "application server", "chat server", "load balancer", and so on
 * A policy group defines a set of hosts in a deployed units, typically mapped to organizational requirements such as "dev", "test", "staging", and "production", but can also be mapped to more detailed requirements as needed
-
-.. end_tag
 
 Each policy group and individual policy are separate objects for the purposes of authentication. This enables each policy and policy group to have restricted access, such as for specific nodes that handle sensitive data or for specific production groups that require sign-off as part of organizational requirements.
 
@@ -2628,7 +2475,6 @@ Upgrades to Chef server 12 are supported for both Enterprise Chef and Open Sourc
 
 HA using AWS
 -----------------------------------------------------
-.. tag server_ha_aws
 
 Amazon Web Services (AWS) is a supported high availability configuration option for the Chef server.
 
@@ -2640,21 +2486,14 @@ Backend servers make use of a single Amazon Elastic Block Store (EBS) volume.
 
 For more information about Amazon Elastic Block Store (EBS), see http://aws.amazon.com/ebs/.
 
-.. end_tag
-
 View the topic `High Availability: AWS </install_server_ha_aws.html>`__ for more information about how to set up the Chef server for high availability in Amazon Web Services (AWS).
 
 Chef Replication
 -----------------------------------------------------
-.. tag server_replication_summary
 
 Chef replication provides a way to asynchronously distribute cookbook, environment, role, and data bag data from a single, primary Chef server to one (or more) replicas of that Chef server.
 
-.. end_tag
-
 **Scenarios**
-
-.. tag server_replication_scenarios
 
 Replication is configured on a per-organization and also a per-replica basis. Each organization must be configured to synchronize with each replica instance. Each organization may be configured to synchronize with all, some, or none of the available replica instances.
 
@@ -2672,17 +2511,11 @@ Chef replication should not be used for:
 * Synchronizing a replica instance with another replica instance
 * Node re-registration. A node may be associated only with a single Chef server
 
-.. end_tag
-
 **How Replication Works**
-
-.. tag server_replication_how_it_works
 
 A daemon named **ec-syncd** runs on each of the replica instances of the Chef server and periodically polls the primary Chef server via the ``updated_since`` endpoint in the Chef server API. The **ec-syncd** daemon requests a list of objects that have been updated since the last successful synchronization time. If there are updates, the **ec-syncd** daemon then pulls down the updated data from the primary Chef server to the replica.
 
 .. image:: ../../images/chef_server_replication_sequence.png
-
-.. end_tag
 
 View the topic `Chef Replication </server_replication.html>`__ for more information about how to set up the Chef server for replication.
 
@@ -2698,15 +2531,10 @@ In addition, the ``install`` subcommand is added, plus two new subcommand groupi
 
 install Command
 -----------------------------------------------------
-.. tag ctl_chef_server_install
 
 The ``install`` subcommand is used to install premium features of the Chef server: Chef management console and chef-client run reporting, high availability configurations, Chef push jobs, and Chef server replication.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_install_syntax
 
 This subcommand has the following syntax:
 
@@ -2716,22 +2544,14 @@ This subcommand has the following syntax:
 
 where ``name_of_addon`` represents the command line value associated with the add-on or premium feature.
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_install_options
 
 This subcommand has the following options:
 
 ``--path PATH``
    Use to specify the location of a package. This option is not required when packages are downloaded from https://packages.chef.io/.
 
-.. end_tag
-
 **Use Downloads**
-
-.. tag ctl_chef_server_install_features_download
 
 The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.
 
@@ -2762,17 +2582,10 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
           $ sudo chef-manage-ctl reconfigure
 
-       .. note:: .. tag chef_license_reconfigure_manage
-
                  Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
-                 .. end_tag
-
-.. end_tag
 
 **Use Local Packages**
-
-.. tag ctl_chef_server_install_features_manual
 
 The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are behind a firewall (and may not have connectivity to packages.chef.io), these packages can be downloaded from https://downloads.chef.io/chef-manage/, and then installed manually. First download the package that is appropriate for the platform, save it to a local path, and then run the ``install`` command using the ``--path`` option to specify the directory in which the package is located:
 
@@ -2788,11 +2601,8 @@ For example:
 
 The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 
-.. end_tag
-
 gather-logs Command
 -----------------------------------------------------
-.. tag ctl_chef_server_gather_logs
 
 The ``gather-logs`` subcommand is used to gather the Chef server log files into a tarball that contains all of the important log files and system information.
 
@@ -2802,23 +2612,16 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl gather-logs
 
-.. end_tag
-
 user-* Commands
 -----------------------------------------------------
 The following subcommands can be used to manage users:
 
 user-create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_user_create
 
 The ``user-create`` subcommand is used to create a user. (The validation key for the organization may be returned to ``STDOUT`` when creating a user with this command.)
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_user_create_syntax
 
 This subcommand has the following syntax:
 
@@ -2826,18 +2629,12 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl user-create USER_NAME FIRST_NAME [MIDDLE_NAME] LAST_NAME EMAIL 'PASSWORD' (options)
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_user_create_options
 
 This subcommand has the following options:
 
 ``-f FILE_NAME``, ``--filename FILE_NAME``
    Write the USER.pem to a file instead of ``STDOUT``.
-
-.. end_tag
 
 **Examples**
 
@@ -2855,23 +2652,16 @@ This subcommand has the following options:
 
 user-delete
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_user_delete
 
 The ``user-delete`` subcommand is used to delete a user.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_user_delete_syntax
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
    $ chef-server-ctl user-delete USER_NAME
-
-.. end_tag
 
 **Examples**
 
@@ -2885,23 +2675,16 @@ This subcommand has the following syntax:
 
 user-edit
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_user_edit
 
 The ``user-edit`` subcommand is used to edit the details for a user. The data will be made available in the $EDITOR for editing.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_user_edit_syntax
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
    $ chef-server-ctl user-edit USER_NAME
-
-.. end_tag
 
 **Examples**
 
@@ -2915,15 +2698,10 @@ This subcommand has the following syntax:
 
 user-list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_user_list
 
 The ``user-list`` subcommand is used to view a list of users.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_user_list_syntax
 
 This subcommand has the following syntax:
 
@@ -2931,30 +2709,19 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl user-list (options)
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_user_list_options
 
 This subcommand has the following options:
 
 ``-w``, ``--with-uri``
    Show the corresponding URIs.
 
-.. end_tag
-
 user-show
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_user_show
 
 The ``user-show`` subcommand is used to show the details for a user.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_user_show_syntax
 
 This subcommand has the following syntax:
 
@@ -2962,18 +2729,12 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl user-show USER_NAME (options)
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_user_show_options
 
 This subcommand has the following options:
 
 ``-l``, ``--with-orgs``
    Show all organizations.
-
-.. end_tag
 
 org-* Commands
 -----------------------------------------------------
@@ -2981,15 +2742,10 @@ The following subcommands can be used to manage organizations:
 
 org-create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_org_create
 
 The ``org-create`` subcommand is used to create an organization. (The validation key for the organization is returned to ``STDOUT`` when creating an organization with this command.)
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_org_create_syntax
 
 This subcommand has the following syntax:
 
@@ -3002,11 +2758,7 @@ where:
 * The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``chef``.
 * The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``"Chef Software, Inc."``.
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_org_create_options
 
 This subcommand has the following options:
 
@@ -3015,8 +2767,6 @@ This subcommand has the following options:
 
 ``-f FILE_NAME``, ``--filename FILE_NAME``
    Write the ORGANIZATION-validator.pem to ``FILE_NAME`` instead of printing it to ``STDOUT``.
-
-.. end_tag
 
 **Examples**
 
@@ -3034,23 +2784,16 @@ This subcommand has the following options:
 
 org-delete
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_org_delete
 
 The ``org-delete`` subcommand is used to delete an organization.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_org_delete_syntax
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
    $ chef-server-ctl org-delete ORG_NAME
-
-.. end_tag
 
 **Examples**
 
@@ -3064,15 +2807,10 @@ This subcommand has the following syntax:
 
 org-list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_org_list
 
 The ``org-list`` subcommand is used to list all of the organizations currently present on the Chef server.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_org_list_syntax
 
 This subcommand has the following syntax:
 
@@ -3080,11 +2818,7 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl org-list (options)
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_org_list_options
 
 This subcommand has the following options:
 
@@ -3094,19 +2828,12 @@ This subcommand has the following options:
 ``-w``, ``--with-uri``
    Show the corresponding URIs.
 
-.. end_tag
-
 org-show
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_org_show
 
 The ``org-show`` subcommand is used to show the details for an organization.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_org_show_syntax
 
 This subcommand has the following syntax:
 
@@ -3114,21 +2841,13 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl org-show ORG_NAME
 
-.. end_tag
-
 org-user-add
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. warning:: Early RC candidates for the Chef server 12 release named this command ``org-associate``. This is the same command, with the exception of the ``--admin`` flag, which is added to the command (along with the rename) for the upcoming final release of Chef server 12.
 
-.. tag ctl_chef_server_org_user_add
-
 The ``org-user-add`` subcommand is used to add a user to an organization.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_org_user_add_syntax
 
 This subcommand has the following syntax:
 
@@ -3136,18 +2855,12 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl org-user-add ORG_NAME USER_NAME (options)
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_org_user_add_options
 
 This subcommand has the following options:
 
 ``--admin``
    Add the user to the ``admins`` group.
-
-.. end_tag
 
 **Examples**
 
@@ -3167,23 +2880,15 @@ org-user-remove
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. warning:: Early RC candidates for the Chef server 12 release named this command ``org-disociate``. This is the same command, but renamed for the upcoming final release of Chef server 12.
 
-.. tag ctl_chef_server_org_user_remove
-
 The ``org-user-remove`` subcommand is used to remove a user from an organization.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_org_user_remove_syntax
 
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
    $ chef-server-ctl org-user-remove ORG_NAME USER_NAME (options)
-
-.. end_tag
 
 **Examples**
 
@@ -3238,13 +2943,9 @@ The following configuration settings are new in Chef server version 12.0.5:
 
 oc_chef_authz
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag server_services_authz
 
 The **opscode-authz** service is used to handle authorization requests to the Chef server.
 
-.. end_tag
-
-.. tag config_rb_server_settings_oc_chef_authz
 
 This configuration file has the following settings for ``oc_chef_authz``:
 
@@ -3265,8 +2966,6 @@ This configuration file has the following settings for ``oc_chef_authz``:
 
 ``oc_chef_authz['ibrowse_options']``
    The amount of time (in milliseconds) to wait for a connection to be established. Default value: ``'[{connect_timeout, 5000}]'``.
-
-.. end_tag
 
 Data Bag Policy Changes
 -----------------------------------------------------
@@ -3319,15 +3018,10 @@ Use the following commands to manage public and private key rotation for users a
 
 add-client-key
 -----------------------------------------------------
-.. tag ctl_chef_server_add_client_key
 
 Use the ``add-client-key`` subcommand to add a client key.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_add_client_key_syntax
 
 This subcommand has the following syntax:
 
@@ -3337,11 +3031,7 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_add_client_key_options
 
 This subcommand has the following options:
 
@@ -3360,19 +3050,12 @@ This subcommand has the following options:
 ``-p PATH`` ``--public-key-path PATH``
    The location to a file containing valid PKCS#1 public key to be added. If not passed, then the server will generate a new one for you and return the private key to STDOUT.
 
-.. end_tag
-
 add-user-key
 -----------------------------------------------------
-.. tag ctl_chef_server_add_user_key
 
 Use the ``add-user-key`` subcommand to add a user key.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_add_user_key_syntax
 
 This subcommand has the following syntax:
 
@@ -3382,11 +3065,7 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_add_user_key_options
 
 This subcommand has the following options:
 
@@ -3402,19 +3081,12 @@ This subcommand has the following options:
 ``USER_NAME``
    The user name for the user for which a key is added.
 
-.. end_tag
-
 delete-client-key
 -----------------------------------------------------
-.. tag ctl_chef_server_delete_client_key
 
 Use the ``delete-client-key`` subcommand to delete a client key.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_delete_client_key_syntax
 
 This subcommand has the following syntax:
 
@@ -3422,11 +3094,7 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_delete_client_key_options
 
 This subcommand has the following arguments:
 
@@ -3439,19 +3107,12 @@ This subcommand has the following arguments:
 ``KEY_NAME``
    The unique name to be assigned to the key you wish to delete.
 
-.. end_tag
-
 delete-user-key
 -----------------------------------------------------
-.. tag ctl_chef_server_delete_user_key
 
 Use the ``delete-user-key`` subcommand to delete a user key.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_delete_user_key_syntax
 
 This subcommand has the following syntax:
 
@@ -3461,11 +3122,7 @@ This subcommand has the following syntax:
 
 .. warning:: The parameters for this subcommand must be in the order specified above.
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_delete_user_key_options
 
 This subcommand has the following arguments:
 
@@ -3475,19 +3132,12 @@ This subcommand has the following arguments:
 ``KEY_NAME``
    The unique name to be assigned to the key you wish to delete.
 
-.. end_tag
-
 list-client-key
 -----------------------------------------------------
-.. tag ctl_chef_server_list_client_keys
 
 Use the ``list-client-keys`` subcommand to list client keys.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_list_client_keys_syntax
 
 This subcommand has the following syntax:
 
@@ -3497,11 +3147,7 @@ This subcommand has the following syntax:
 
 .. warning::  All options for this subcommand must follow all arguments.
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_list_client_keys_options
 
 This subcommand has the following options:
 
@@ -3514,19 +3160,12 @@ This subcommand has the following options:
 ``--verbose``
    Use to show the full public key strings in command output.
 
-.. end_tag
-
 list-user-key
 -----------------------------------------------------
-.. tag ctl_chef_server_list_user_keys
 
 Use the ``list-user-keys`` subcommand to list client keys.
 
-.. end_tag
-
 **Syntax**
-
-.. tag ctl_chef_server_list_user_keys_syntax
 
 This subcommand has the following syntax:
 
@@ -3536,11 +3175,7 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
-
 **Options**
-
-.. tag ctl_chef_server_list_user_keys_options
 
 This subcommand has the following options:
 
@@ -3549,8 +3184,6 @@ This subcommand has the following options:
 
 ``--verbose``
    Use to show the full public key strings in command output.
-
-.. end_tag
 
 **Example**
 
