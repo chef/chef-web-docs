@@ -1,53 +1,42 @@
 =====================================================
-solaris_package resource
+windows_uac resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_solaris_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_uac.rst>`__
 
-The **solaris_package** resource is used to manage packages for the Solaris platform.
+The **windows_uac** resource configures UAC on Windows hosts by setting registry keys at 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
 
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+**New in Chef Client 15.0.**
 
 Syntax
 =====================================================
-A **solaris_package** resource block manages a package on a node, typically by installing it. The simplest use of the **solaris_package** resource is:
+The windows_uac resource has the following syntax:
 
 .. code-block:: ruby
 
-   solaris_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The full syntax for all of the properties that are available to the **solaris_package** resource is:
-
-.. code-block:: ruby
-
-  solaris_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+  windows_uac 'name' do
+    consent_behavior_admins       Symbol # default value: :prompt_for_consent_non_windows_binaries
+    consent_behavior_users        Symbol # default value: :prompt_for_creds
+    detect_installers             true, false
+    enable_uac                    true, false # default value: true
+    prompt_on_secure_desktop      true, false # default value: true
+    require_signed_binaries       true, false # default value: false
+    action                        Symbol # defaults to :configure if not specified
   end
 
 where:
 
-* ``solaris_package`` is the resource.
+* ``windows_uac`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``consent_behavior_admins``, ``consent_behavior_users``, ``detect_installers``, ``enable_uac``, ``prompt_on_secure_desktop``, and ``require_signed_binaries`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The solaris_package resource has the following actions:
+The windows_uac resource has the following actions:
 
-``:install``
-   Default. Install a package. If a version is specified, install the specified version of the package.
+``:configure``
+    Configures UAC by setting registry keys at HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -56,38 +45,40 @@ The solaris_package resource has the following actions:
 
    .. end_tag
 
-``:remove``
-   Remove a package.
-
 Properties
 =====================================================
 
-The solaris_package resource has the following properties:
+The windows_uac resource has the following properties:
 
-``source``
-   **Ruby Type:** String
+``consent_behavior_admins``
+   **Ruby Type:** Symbol | **Default Value:** ``:prompt_for_consent_non_windows_binaries``
 
-   Required. The path to a package in the local file system.
+   Behavior of the elevation prompt for administrators in Admin Approval Mode. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ConsentPromptBehaviorAdmin.
 
-``options``
-   **Ruby Type:** String
+``consent_behavior_users``
+   **Ruby Type:** Symbol | **Default Value:** ``:prompt_for_creds``
 
-   One (or more) additional options that are passed to the command.
+   Behavior of the elevation prompt for standard users. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ConsentPromptBehaviorUser.
 
-``package_name``
-   **Ruby Type:** String, Array
+``detect_installers``
+   **Ruby Type:** true, false
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   Detect application installations and prompt for elevation. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\EnableInstallerDetection.
 
-``timeout``
-   **Ruby Type:** String, Integer
+``enable_uac``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   The amount of time (in seconds) to wait before timing out.
+   Enable or disable UAC Admin Approval Mode. If this is changed a system restart is required. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA.
 
-``version``
-   **Ruby Type:** String, Array
+``prompt_on_secure_desktop``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   The version of a package to be installed or upgraded.
+   Switch to the secure desktop when prompting for elevation. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\PromptOnSecureDesktop.
+
+``require_signed_binaries``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Only elevate executables that are signed and validated. Sets HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System\EnableLUA\ValidateAdminCodeSignatures.
 
 Common Resource Functionality
 =====================================================
@@ -125,7 +116,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -231,24 +221,5 @@ The following properties can be used to define a guard that is evaluated during 
 
 ``only_if``
   Allow a resource to execute only if the condition returns ``true``.
-
-.. end_tag
-
-Examples
-=====================================================
-The following examples demonstrate various approaches for using resources in recipes:
-
-**Install a package**
-
-.. tag resource_solaris_package_install
-
-.. To install a package:
-
-.. code-block:: ruby
-
-   solaris_package 'name of package' do
-     source '/packages_directory'
-     action :install
-   end
 
 .. end_tag

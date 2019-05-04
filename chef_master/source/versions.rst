@@ -42,6 +42,8 @@ Versions and Status
 Supported Commercial Distributions
 ==============================================
 
+Use of these and later versions of these distributions must be in accordance with the `Chef End User License Agreement <https://www.chef.io/end-user-license-agreement/>`__ or a commercial agreement with Chef. Additional information is available in `this announcement <https://blog.chef.io/2019/04/02/chef-software-announces-the-enterprise-automation-stack/>`__.
+
 .. list-table::
    :header-rows: 1
    :widths: 150, 250, 200, 200
@@ -94,6 +96,8 @@ Supported Commercial Distributions
 Supported Free Distributions
 ==============================================
 
+Use of the following distributions is governed by the Apache License, version 2.0.
+
 .. list-table::
    :header-rows: 1
    :widths: 150, 250, 200, 200
@@ -129,6 +133,8 @@ Supported Free Distributions
 
 Deprecated Products and Versions
 ===================================================
+
+The following products are deprecated or end of life. Users are advised to use newer versions or products.
 
 .. list-table::
    :header-rows: 1

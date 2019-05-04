@@ -137,6 +137,7 @@ Cookbook Reference
 `apt_preference </resource_apt_preference.html>`__ |
 `apt_repository </resource_apt_repository.html>`__ |
 `apt_update </resource_apt_update.html>`__ |
+`archive_file </resource_archive_file.html>`__ |
 `bash </resource_bash.html>`__ |
 `batch </resource_batch.html>`__ |
 `bff_package </resource_bff_package.html>`__ |
@@ -234,6 +235,7 @@ Cookbook Reference
 `rhsm_subscription </resource_rhsm_subscription.html>`__ |
 `service </resource_service.html>`__ |
 `smartos_package </resource_smartos_package.html>`__ |
+`snap_package </resource_snap_package.html>`__ |
 `solaris_package </resource_solaris_package.html>`__ |
 `ssh_known_hosts_entry </resource_ssh_known_hosts_entry.html>`__ |
 `subversion </resource_subversion.html>`__ |
@@ -247,6 +249,11 @@ Cookbook Reference
 `windows_auto_run </resource_windows_auto_run.html>`__ |
 `windows_certificate </resource_windows_certificate.html>`__ |
 `windows_env </resource_windows_env.html>`__ |
+`windows_dfs_folder </resource_windows_dfs_folder.html>`__ |
+`windows_dfs_namespace </resource_windows_dfs_namespace.html>`__ |
+`windows_dfs_server </resource_windows_dfs_server.html>`__ |
+`windows_dns_record </resource_windows_dns_record.html>`__ |
+`windows_dns_zone </resource_windows_dns_zone.html>`__ |
 `windows_feature </resource_windows_feature.html>`__ |
 `windows_feature_dism </resource_windows_feature_dism.html>`__ |
 `windows_feature_powershell </resource_windows_feature_powershell.html>`__ |
@@ -259,6 +266,7 @@ Cookbook Reference
 `windows_share </resource_windows_share.html>`__ |
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
+`windows_uac </resource_windows_uac.html>`__ |
 `windows_workgroup </resource_windows_workgroup.html>`__ |
 `yum_package </resource_yum_package.html>`__ |
 `yum_repository </resource_yum_repository.html>`__ |
@@ -487,6 +495,7 @@ Addenda
    chef_client_security
    chef_deprecations_client
    chef_license
+   chef_license_accept
    chef_overview
    chef_private_keys
    chef_quick_overview
@@ -714,6 +723,7 @@ Addenda
    resource_apt_preference
    resource_apt_repository
    resource_apt_update
+   resource_archive_file
    resource_bash
    resource_batch
    resource_bff_package
@@ -815,6 +825,7 @@ Addenda
    resource_script
    resource_service
    resource_smartos_package
+   resource_snap_package
    resource_solaris_package
    resource_subversion
    resource_sudo
@@ -826,6 +837,11 @@ Addenda
    resource_user
    resource_windows_ad_join
    resource_windows_auto_run
+   resource_windows_dfs_folder
+   resource_windows_dfs_namespace
+   resource_windows_dfs_server
+   resource_windows_dns_record
+   resource_windows_dns_zone
    resource_windows_env
    resource_windows_feature
    resource_windows_feature_dism
@@ -838,6 +854,7 @@ Addenda
    resource_windows_service
    resource_windows_shortcut
    resource_windows_task
+   resource_windows_uac
    resource_yum_package
    resource_yum_repository
    resource_zypper_package

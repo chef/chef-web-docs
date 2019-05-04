@@ -1,34 +1,18 @@
 =====================================================
-zypper_package resource
+snap_package resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_zypper_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_snap_package.rst>`__
 
-Use the **zypper_package** resource to install, upgrade, and remove packages with Zypper for the SUSE Enterprise and OpenSUSE platforms.
-
-.. note:: .. tag notes_resource_based_on_package
-
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-
-          .. end_tag
+Use the **snap_package** resource to manage snap packages on Debian and Ubuntu platforms.
 
 Syntax
 =====================================================
-A **zypper_package** resource block manages a package on a node, typically by installing it. The simplest use of the **zypper_package** resource is:
+The snap_package resource has the following syntax:
 
 .. code-block:: ruby
 
-   zypper_package 'package_name'
-
-which will install the named package using all of the default options and the default action (``:install``).
-
-The zypper_package resource has the following syntax:
-
-.. code-block:: ruby
-
-  zypper_package 'name' do
-    allow_downgrade              true, false # default value: false
-    global_options               String, Array
-    gpg_check                    true, false # default value: "true"
+  snap_package 'name' do
+    channel                      String # default value: "stable"
     options                      String, Array
     package_name                 String, Array
     source                       String
@@ -39,28 +23,21 @@ The zypper_package resource has the following syntax:
 
 where:
 
-* ``zypper_package`` is the resource.
+* ``snap_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``allow_downgrade``, ``global_options``, ``gpg_check``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``channel``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The zypper_package resource has the following actions:
+The snap_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
 
 ``:lock``
-   Locks the zypper package to a specific version.
-
-``:nothing``
-   .. tag resources_common_actions_nothing
-
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
-
-   .. end_tag
+   Locks the apt package to a specific version.
 
 ``:purge``
    Purge a package. This action typically removes the configuration files as well as the package.
@@ -72,7 +49,7 @@ The zypper_package resource has the following actions:
    Remove a package.
 
 ``:unlock``
-   Unlocks the zypper package so that it can be upgraded to a newer version.
+   Unlocks the apt package so that it can be upgraded to a newer version.
 
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
@@ -87,42 +64,27 @@ The zypper_package resource has the following actions:
 Properties
 =====================================================
 
-The zypper_package resource has the following properties:
+The snap_package resource has the following properties:
 
-``allow_downgrade``
-   **Ruby Type:** true, false | **Default Value:** ``true``
+``channel``
+   **Ruby Type:** String | **Default Value:** ``"stable"``
 
-   Allow downgrading a package to satisfy requested version requirements.
-
-   *New in Chef Client 13.6.*
-
-``global_options``
-   **Ruby Type:** String, Array
-
-   One (or more) additional options that are passed to the package resource other than options to the command.
-
-   *New in Chef Client 14.6.*
-
-``gpg_check``
-   **Ruby Type:** true, false | **Default Value:** ``true``
-
-   Verify the package's GPG signature. Can also be controlled site-wide using the ``zypper_check_gpg`` config option.
-
+   The default channel. For example: stable.
 
 ``options``
    **Ruby Type:** String, Array
 
-   One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Defaults to the name of the resource block unless specified.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   The direct path to a the package on the host.
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer
@@ -133,69 +95,6 @@ The zypper_package resource has the following properties:
    **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
-
-Multiple Packages
------------------------------------------------------
-.. tag resources_common_multiple_packages
-
-A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
-
-* Download the specified packages and versions via a single HTTP transaction
-* Update or install multiple packages with a single resource during the chef-client run
-
-For example, installing multiple packages:
-
-.. code-block:: ruby
-
-   package %w(package1 package2)
-
-Installing multiple packages with versions:
-
-.. code-block:: ruby
-
-   package %w(package1 package2) do
-     version [ '1.3.4-2', '4.3.6-1']
-   end
-
-Upgrading multiple packages:
-
-.. code-block:: ruby
-
-   package %w(package1 package2)  do
-     action :upgrade
-   end
-
-Removing multiple packages:
-
-.. code-block:: ruby
-
-   package %w(package1 package2)  do
-     action :remove
-   end
-
-Purging multiple packages:
-
-.. code-block:: ruby
-
-   package %w(package1 package2)  do
-     action :purge
-   end
-
-Notifications, via an implicit name:
-
-.. code-block:: ruby
-
-   package %w(package1 package2)  do
-     action :nothing
-   end
-
-   log 'call a notification' do
-     notifies :install, 'package[package1, package2]', :immediately
-   end
-
-.. note:: Notifications and subscriptions do not need to be updated when packages and versions are added or removed from the ``package_name`` or ``version`` properties.
-
-.. end_tag
 
 Common Resource Functionality
 =====================================================
@@ -342,52 +241,4 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
-.. tag resources_common_examples_intro
-
-The following examples demonstrate various approaches for using resources in recipes:
-
-.. end_tag
-
-**Install a package using package manager**
-
-.. tag resource_zypper_package_install_package
-
-.. To install a package using package manager:
-
-.. code-block:: ruby
-
-   zypper_package 'name of package' do
-     action :install
-   end
-
-.. end_tag
-
-**Install a package using local file**
-
-.. tag resource_zypper_package_install_package_using_local_file
-
-.. To install a package using local file:
-
-.. code-block:: ruby
-
-   zypper_package 'jwhois' do
-     action :install
-     source '/path/to/jwhois.rpm'
-   end
-
-.. end_tag
-
-**Install without using recommend packages as a dependency**
-
-.. tag resource_zypper_package_install_without_recommends_suggests
-
-.. To install without using recommend packages as a dependency:
-
-.. code-block:: ruby
-
-   package 'apache2' do
-     options '--no-recommends'
-   end
-
-.. end_tag
+==========================================
