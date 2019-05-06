@@ -416,11 +416,7 @@ The response will return details for a cookbook version, including the license u
 /search
 -----------------------------------------------------
 
-.. tag search
-
-Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
-
-.. end_tag
+Search performs a fuzzy, keyword search on cookbook names, cookbook descriptions, and the cookbook owners' usernames.
 
 The ``/search`` endpoint has the following methods: ``GET``.
 
