@@ -7,15 +7,23 @@ For the quickest way to get started using Chef:
 
 #. Install the Chef development kit: https://downloads.chef.io/chefdk/.
 
+#. Update your ``PATH`` variable to include the Chef ``bin`` directory.
+
+#. Create a ``cookbooks`` direectory.
+
+   .. code-block:: bash
+
+      $ mkdir cookbooks
+
 #. Generate a cookbook:
 
    .. code-block:: bash
 
-      $ chef generate cookbook first_cookbook
+      $ chef generate cookbook cookbooks/first_cookbook
 
    where ``first_cookbook`` is an arbitrary cookbook name.
 
-#. Navigate to the ``first_cookbook`` directory.
+#. Navigate to the ``cookbooks/first_cookbook`` directory.
 
 #. Update the ``cookbooks/first_cookbook/recipes/default.rb`` recipe in the generated cookbook to contain:
 
