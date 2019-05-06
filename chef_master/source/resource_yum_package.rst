@@ -32,7 +32,7 @@ The yum_package resource has the following syntax:
 .. code-block:: ruby
 
    yum_package 'name' do
-     allow_downgrade            true, false # default value: false
+     allow_downgrade            true, false # default value: true
      arch                       String, Array
      flush_cache                Hash # default value: {"before"=>false, "after"=>false}
      options                    String, Array
@@ -87,7 +87,7 @@ Properties
 The yum_package resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Downgrade a package to satisfy requested version requirements.
 
@@ -461,21 +461,6 @@ or:
 
    yum_package 'netpbm' do
      version '10.35.58-8.el5'
-   end
-
-.. end_tag
-
-**To install a specific version (even when older than the current)**
-
-.. tag resource_yum_package_install_specific_version
-
-.. To install a specific version (even if it is older than the version currently installed):
-
-.. code-block:: ruby
-
-   yum_package 'tzdata' do
-     version '2011b-1.el5'
-     allow_downgrade true
    end
 
 .. end_tag

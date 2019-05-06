@@ -240,7 +240,7 @@ Properties
 This resource has the following attributes:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    **yum_package** resource only. Downgrade a package to satisfy requested version requirements.
 

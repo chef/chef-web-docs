@@ -1300,6 +1300,16 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_windows_certificate.rst
 
+.. include:: resource_windows_dfs_folder.rst
+
+.. include:: resource_windows_dfs_namespace.rst
+
+.. include:: resource_windows_dfs_server.rst
+
+.. include:: resource_windows_dns_record.rst
+
+.. include:: resource_windows_dns_zone.rst
+
 .. include:: resource_windows_env.rst
 
 .. include:: resource_windows_feature.rst
@@ -1329,6 +1339,8 @@ The following resources are built into the Chef Client:
 .. include:: resource_windows_shortcut.rst
 
 .. include:: resource_windows_task.rst
+
+.. include:: resource_windows_uac.rst
 
 .. include:: resource_windows_workgroup.rst
 
