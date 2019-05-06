@@ -7458,15 +7458,15 @@ The following client.rb settings are new:
 ``chef_gem_compile_time``
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Recommended value: ``false``.
 
-             .. This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
+   .. note:: This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
 
-             To suppress warnings for cookbooks authored prior to chef-client 12.1, use a ``respond_to?`` check to ensure backward compatibility. For example:
+   To suppress warnings for cookbooks authored prior to chef-client 12.1, use a ``respond_to?`` check to ensure backward compatibility. For example:
 
-             .. code-block:: ruby
+   .. code-block:: ruby
 
-                chef_gem 'aws-sdk' do
-                  compile_time false if respond_to?(:compile_time)
-                end
+      chef_gem 'aws-sdk' do
+        compile_time false if respond_to?(:compile_time)
+      end
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the chef-client run when the chef-client is run as a service on the Microsoft Windows platform. If the chef-client run does not complete within the specified timeframe, the chef-client run is terminated. Default value: ``2 * (60 * 60)``.
