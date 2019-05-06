@@ -943,6 +943,7 @@ What's New in 1.0
 Version 1.0!
 -----------------------------------------------------
 
+We're recognizing ChefDK's continued stability with the honor of a 1.0 tag. There 
 is nothing in this release that breaks backwards compatibility with previous
 installations of ChefDK: it is simply a formal recognition of the stability of
 the product.

@@ -121,6 +121,7 @@ Resolved Issues
 * Stale Elasticsearch lock files can be cleaned after a crash with ``automate-ctl delete-elasticsearch-lock --stale-lock-only``
 * Fixed CA certificate path location on SuSE
 * The data collector API now returns a 503 when Automate is in maintenance mode
+* The Elasticsearch API now returns 400 if sent a HTML script tag to prevent XSS attacks
 
 What's New in 1.7.114
 =====================================================
