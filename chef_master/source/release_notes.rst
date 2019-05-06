@@ -4108,11 +4108,11 @@ The ksh resource has the following properties:
    The group name or group ID that must be changed before running a command.
 
 ``path``
+     .. warning:: The ``path`` property has been deprecated and will throw an exception in Chef Client 12 or later. We recommend you use the ``environment`` property instead.
+
    **Ruby Type:** Array
 
    An array of paths to use when searching for a command. These paths are not added to the command's environment $PATH. The default value uses the system path.
-
-                The ``path`` property has been deprecated and will throw an exception in Chef Client 12 or later. We recommend you use the ``environment`` property instead.
 
       For example:
 
@@ -5615,7 +5615,7 @@ This argument has the following options:
 ``-k``, ``--prevent-keygen``
    Create a user without a public key. This key may be managed later by using the ``knife user key`` subcommands.
 
-             This option is valid only with Chef server API, version 1.0, which was released with Chef server 12.1. If this option or the ``--user-key`` option are not passed in the command, the Chef server will create a user with a public key named ``default`` and will return the private key. For the Chef server versions earlier than 12.1, this option will not work; a public key is always generated unless ``--user-key`` is passed in the command.
+   .. note:: This option is valid only with Chef server API, version 1.0, which was released with Chef server 12.1. If this option or the ``--user-key`` option are not passed in the command, the Chef server will create a user with a public key named ``default`` and will return the private key. For the Chef server versions earlier than 12.1, this option will not work; a public key is always generated unless ``--user-key`` is passed in the command.
 
 ``-p FILE``, ``--public-key FILE``
    The path to a file that contains the public key. This option may not be passed in the same command with ``--prevent-keygen``. When using Chef a default key is generated if this option is not passed in the command. For Chef server version 12.x, see the ``--prevent-keygen`` option.
@@ -5636,7 +5636,7 @@ This argument has the following options:
 ``-k``, ``--prevent-keygen``
    Create a user without a public key. This key may be managed later by using the ``knife user key`` subcommands.
 
-             This option is valid only with Chef server API, version 1.0, which was released with Chef server 12.1. If this option or the ``--user-key`` option are not passed in the command, the Chef server will create a user with a public key named ``default`` and will return the private key. For the Chef server versions earlier than 12.1, this option will not work; a public key is always generated unless ``--user-key`` is passed in the command.
+   .. note:: This option is valid only with Chef server API, version 1.0, which was released with Chef server 12.1. If this option or the ``--user-key`` option are not passed in the command, the Chef server will create a user with a public key named ``default`` and will return the private key. For the Chef server versions earlier than 12.1, this option will not work; a public key is always generated unless ``--user-key`` is passed in the command.
 
 ``-p PASSWORD``, ``--password PASSWORD``
    The user password. This option only works when used with the open source Chef server and will have no effect when used with Enterprise Chef or Chef server 12.x.
@@ -5726,20 +5726,13 @@ Desired State Configuration (DSC) is a feature of Windows PowerShell that provid
 The **dsc_resource** resource allows any DSC resource to be used in a Chef recipe, as well as any custom resources that have been added to your Windows PowerShell environment. Microsoft `frequently adds new resources <https://github.com/powershell/DscResources>`_ to the DSC resource collection.
 
 
-             Using the **dsc_resource** has the following requirements:
+Using the **dsc_resource** has the following requirements:
 
-             * Windows Management Framework (WMF) 5.0 February Preview (or higher), which includes Windows PowerShell 5.0.10018.0 (or higher).
-             * The ``RefreshMode`` configuration setting in the Local Configuration Manager must be set to ``Disabled``.
-
-               **NOTE:** Starting with the chef-client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode.
-
-             * The **dsc_script** resource  may not be used in the same run-list with the **dsc_resource**. This is because the **dsc_script** resource requires that ``RefreshMode`` in the Local Configuration Manager be set to ``Push``, whereas the **dsc_resource** resource requires it to be set to ``Disabled``.
-
-               **NOTE:** Starting with the chef-client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``.
-
-             * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
-
-               This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
+   * Windows Management Framework (WMF) 5.0 February Preview (or higher), which includes Windows PowerShell 5.0.10018.0 (or higher).
+   * The ``RefreshMode`` configuration setting in the Local Configuration Manager must be set to ``Disabled``.
+      .. note:: Starting with the chef-client 12.6 release, the ``RefreshMode: Disabled`` requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode.
+   * The **dsc_script** resource  may not be used in the same run-list with the **dsc_resource**. This is because the **dsc_script** resource requires that ``RefreshMode`` in the Local Configuration Manager be set to ``Push``, whereas the **dsc_resource** resource requires it to be set to ``Disabled``.
+   * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used. This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -7099,7 +7092,7 @@ The following attribute is new for the **chef_gem** resource:
 ``compile_time``
    Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
-   .. This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
+   .. note::  This topic is hooked into client.rb topics, starting with 12.1, in addition to the resource reference pages.
 
    To suppress warnings for cookbooks authored prior to chef-client 12.1, use a ``respond_to?`` check to ensure backward compatibility. For example:
 
