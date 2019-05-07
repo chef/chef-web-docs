@@ -108,6 +108,34 @@ The following platforms are supported only via the community:
      - ``x86_64``
      - ``Windows Server, Semi-annual channel (SAC) (Server Core only)``
 
+Chef Workstation
+------------------------------------------------------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms and versions for the Chef Workstation:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - macOS
+     -
+     - ``10.12``, ``10.13``, ``10.14``
+   * - Red Hat Enterprise Linux
+     -
+     - ``6.x``, ``7.x``
+   * - Ubuntu
+     -
+     - ``14.04``, ``16.04``, ``18.04``
+   * - Microsoft Windows
+     -
+     - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
+     
 ChefDK
 ------------------------------------------------------
 
