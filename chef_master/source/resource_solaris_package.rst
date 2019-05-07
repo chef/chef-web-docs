@@ -26,12 +26,12 @@ The full syntax for all of the properties that are available to the **solaris_pa
 .. code-block:: ruby
 
   solaris_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    options           String, Array
+    package_name      String, Array
+    source            String
+    timeout           String, Integer
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
   end
 
 where:

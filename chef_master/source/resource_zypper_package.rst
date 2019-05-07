@@ -26,15 +26,15 @@ The zypper_package resource has the following syntax:
 .. code-block:: ruby
 
   zypper_package 'name' do
-    allow_downgrade              true, false # default value: false
-    global_options               String, Array
-    gpg_check                    true, false # default value: "true"
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    allow_downgrade      true, false # default value: true
+    global_options       String, Array
+    gpg_check            true, false # default value: "true"
+    options              String, Array
+    package_name         String, Array
+    source               String
+    timeout              String, Integer
+    version              String, Array
+    action               Symbol # defaults to :install if not specified
   end
 
 where:
