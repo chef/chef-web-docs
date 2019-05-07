@@ -52,6 +52,9 @@ The openssl_x509_crl resource has the following actions:
 
 Properties
 =====================================================
+
+The openssl_x509_crl resource has the following properties:
+
 ``ca_cert_file``
    **Ruby Type:** String | ``REQUIRED``
 

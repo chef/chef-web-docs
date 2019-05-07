@@ -92,7 +92,7 @@ The windows_package resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Defaults to the name of the resource block unless specified.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``remote_file_attributes``
    **Ruby Type:** Hash

@@ -95,9 +95,9 @@ The powershell_script resource has the following properties:
    A quoted (" ") string of code to be executed.
 
 ``command``
-   **Ruby Type:** String, Array
+   **Ruby Type:** String, Array | **Default Value:** ``The resource block's name``
 
-   The name of the command to be executed. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the command to be executed if it differs from the resource block's name.
 
 ``convert_boolean_return``
    **Ruby Type:** true, false | **Default Value:** ``false``
@@ -126,17 +126,17 @@ The powershell_script resource has the following properties:
 ``creates``
    **Ruby Type:** String
 
-   Inherited from **execute** resource. Prevent a command from creating a file when that file already exists.
+   Prevent a command from creating a file when that file already exists.
 
 ``cwd``
    **Ruby Type:** String
 
-   Inherited from **execute** resource. The current working directory from which a command is run.
+   The current working directory from which the command will be run.
 
 ``environment``
    **Ruby Type:** Hash
 
-   Inherited from **execute** resource. A Hash of environment variables in the form of ``({"ENV_VARIABLE" => "VALUE"})``. (These variables must exist for a command to be run successfully.)
+   A Hash of environment variables in the form of ({'ENV_VARIABLE' => 'VALUE'}).
 
 ``flags``
    **Ruby Type:** String
@@ -146,7 +146,7 @@ The powershell_script resource has the following properties:
 ``group``
    **Ruby Type:** String, Integer
 
-   Inherited from **execute** resource. The group name or group ID that must be changed before running a command.
+   The group name or group ID that must be changed before running a command.
 
 ``guard_interpreter``
    **Ruby Type:** Symbol | **Default Value:** ``:powershell_script``
@@ -166,10 +166,10 @@ The powershell_script resource has the following properties:
 ``timeout``
    **Ruby Type:** Integer, Float
 
-   Inherited from **execute** resource. The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+   The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
-   **Ruby Type:** String | **Default Value:** ``nil``
+   **Ruby Type:** String
 
    The user name of the user identity with which to launch the new process. The user name may optionally be specified with a domain, i.e. `domain\\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 

@@ -57,9 +57,9 @@ The windows_dfs_folder resource has the following properties:
    Description for the share.
 
 ``folder_path``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The path of the folder to create.
+   An optional property to set the path of the dfs folder if it differs from the resource block's name.
 
 ``namespace_name``
    **Ruby Type:** String | ``REQUIRED``

@@ -99,7 +99,7 @@ The zypper_package resource has the following properties:
 ``global_options``
    **Ruby Type:** String, Array
 
-   One (or more) additional options that are passed to the package resource other than options to the command.
+   One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
 
    *New in Chef Client 14.6.*
 
@@ -112,17 +112,17 @@ The zypper_package resource has the following properties:
 ``options``
    **Ruby Type:** String, Array
 
-   One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Defaults to the name of the resource block unless specified.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   The direct path to a the package on the host.
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer

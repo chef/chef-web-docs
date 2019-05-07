@@ -52,7 +52,7 @@ where:
 * ``gem_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``clear_sources``, ``include_default_source``, ``gem_binary``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``clear_sources``, ``gem_binary``, ``include_default_source``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Gem Package Options
 =====================================================

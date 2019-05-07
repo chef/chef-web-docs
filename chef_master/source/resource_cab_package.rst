@@ -20,7 +20,7 @@ where:
 
 * ``cab_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into t
+* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 
 * ``source`` is the local path or URL for the cabinet package
 
@@ -41,7 +41,7 @@ Properties
 The cab_package resource has the following properties:
 
 ``source``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``"The package name."``
 
    The local file path or URL for the CAB package.
 

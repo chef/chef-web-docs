@@ -74,19 +74,20 @@ Properties
 The dpkg_package resource has the following properties:
 
 ``options``
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
-``source``
+
+``response_file``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The direct path to the file used to pre-seed a package.
 
 ``response_file_variables``
    **Ruby Type:** Hash

@@ -170,7 +170,7 @@ The openssl_x509_certificate resource has the following properties:
 ``path``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The path to write the file to if it differs from the resource name.
+   An optional property for specifying the path to write the file to if it differs from the resource block's name.
 
 ``state``
    **Ruby Type:** String
