@@ -24,7 +24,7 @@ The openssl_x509_certificate resource has the following syntax:
     email                 String
     expire                Integer # default value: 365
     extensions            Hash
-    group                 String
+    group                 String, Integer
     key_curve             String # default value: "prime256v1"
     key_file              String
     key_length            Integer # default value: 2048
@@ -33,7 +33,7 @@ The openssl_x509_certificate resource has the following syntax:
     mode                  Integer, String
     org                   String
     org_unit              String
-    owner                 String
+    owner                 String, Integer
     path                  String # default value: 'name' unless specified
     state                 String
     subject_alt_name      Array
@@ -118,7 +118,7 @@ The openssl_x509_certificate resource has the following properties:
    Hash of X509 Extensions entries, in format ``{ 'keyUsage' => { 'values' => %w( keyEncipherment digitalSignature), 'critical' => true } }``.
 
 ``group``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The group ownership applied to all files created by the resource.
 
@@ -163,7 +163,7 @@ The openssl_x509_certificate resource has the following properties:
    Value for the ``OU`` certificate field.
 
 ``owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The owner applied to all files created by the resource.
 

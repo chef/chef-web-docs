@@ -18,9 +18,9 @@ The openssl_x509_crl resource has the following syntax:
     ca_key_file            String
     ca_key_pass            String
     expire                 Integer # default value: 8
-    group                  String
+    group                  String, Integer
     mode                   Integer, String
-    owner                  String
+    owner                  String, Integer
     path                   String # default value: 'name' unless specified
     renewal_threshold      Integer # default value: 1
     revocation_reason      Integer # default value: 0
@@ -76,7 +76,7 @@ The openssl_x509_crl resource has the following properties:
    Value representing the number of days from now through which the issued CRL will remain valid. The CRL will expire after this period.
 
 ``group``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The group permission for the CRL file.
 
@@ -86,7 +86,7 @@ The openssl_x509_crl resource has the following properties:
    The permission mode of the CRL file.
 
 ``owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The owner permission for the CRL file.
 

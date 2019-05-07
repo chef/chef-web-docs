@@ -23,7 +23,7 @@ The dmg_package resource has the following syntax:
     dmg_passphrase       String
     file                 String
     headers              Hash
-    owner                String
+    owner                String, Integer
     package_id           String
     source               String
     type                 String # default value: "app"
