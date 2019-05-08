@@ -239,7 +239,7 @@ provisioner config <https://www.terraform.io/docs/provisioners/chef.html#version
 
 Terraform Habitat Provisioner
 -----------------------------------------------------
-Documentation coming soon.
+Default behavior of this provisioner is to install the latest version of Habitat. `Documentation for this provisioner <https://www.terraform.io/docs/provisioners/habitat.html>`__ will be updated in the near future once the provisioner is updated with options to accept license. In the time being, the provisioner can be pinned to a prior Habitat version as below.
 
 Pin to Habitat 0.79
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
