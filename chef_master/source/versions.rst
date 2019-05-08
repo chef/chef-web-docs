@@ -70,7 +70,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - n/a
    * - Chef InSpec
      - 4.x
-     - Releasing Soon
+     - GA
      - n/a
    * - Chef Workstation
      - 0.3
