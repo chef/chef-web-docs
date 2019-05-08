@@ -515,7 +515,7 @@ This configuration file has the following settings for ``nginx``:
    Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``nginx['keepalive_timeout']``
-   The amount of time (in seconds) to wait for requests on a Keepalived connection. Default value: ``65``.
+   The amount of time (in seconds) to wait for requests on a HTTP keepalive connection. Default value: ``65``.
 
 ``nginx['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``/var/log/opscode/nginx``.

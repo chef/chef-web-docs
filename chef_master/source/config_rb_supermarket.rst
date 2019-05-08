@@ -253,10 +253,10 @@ This configuration file has the following settings for nginx:
    Determines whether or not the ``Vary: Accept-Encoding`` response header field is inserted when the following directives are active: ``gzip``,``gzip_static``, or ``gunzip``. Default value: ``'off'``.
 
 ``default['supermarket']['nginx']['keepalive']``
-   Use to enable `Keepalived <http://www.keepalived.org/documentation.html>`__. Default value: ``'on'``.
+   Use to enable HTTP keepalive. Default value: ``'on'``.
 
 ``default['supermarket']['nginx']['keepalive_timeout']``
-   The amount of time (in seconds) to wait for requests on a ``Keepalived`` connection. Default value: ``65``.
+   The amount of time (in seconds) to wait for requests on a HTTP keepalive connection. Default value: ``65``.
 
 ``default['supermarket']['nginx']['log_dir']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``node['supermarket']['nginx']['log_directory']``.
