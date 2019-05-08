@@ -47,7 +47,7 @@ This subcommand has the following options:
 
    *New in Chef Client 13.0.*
 
-``-i IDENTITY_FILE``, ``--identity-file IDENTIFY_FILE``
+``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTIFY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``-m``, ``--manual-list``
