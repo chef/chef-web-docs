@@ -145,12 +145,9 @@ High Availability
 The following links describe how to configure the Chef server for high availability. The **Backend Cluster** setup is strongly recommended for new installations:
 
 * `High Availability using Backend Cluster </install_server_ha.html>`__
-* `High Availability using Amazon Web Services (DEPRECATED) </install_server_ha_aws.html>`__
-* `High Availability using DRBD (DEPRECATED) </install_server_ha_drbd.html>`__
-
 
 Tiered (Single Backend)
 =====================================================
 The following link describes how to configure the Chef server with a single backend machine and multiple frontend machines. Note that this process has been deprecated in favor of a `Backend Cluster </install_server_ha.html>`__ setup:
 
-* `Tiered Installation (DEPRECATED) </install_server_tiered.html>`__
+* `Tiered Installation </install_server_tiered.html>`__

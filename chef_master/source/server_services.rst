@@ -186,23 +186,6 @@ By default, runit will restart services automatically when the services fail. Th
 
 .. end_tag
 
-High Availability
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_status_ha
-
-On back-end servers in a high availability topology, Keepalived is used by the clustering service to determine whether a service should be running. If the ``status`` subcommand is run against any of these nodes, a few things change:
-
-* On the back-end node that is currently the backup server, it is normal to see only one running process: Keepalived
-* On the back-end node that is currently the master server, it is normal to see all services running. It is also normal to see some services in a down state if the server, on reboot, did not attempt to start the services because Keepalived determines which services are restarted based on the state of the cluster
-
-A sample status line for a service that is running on the master server in a high availability topology:
-
-.. code-block:: bash
-
-   run: opscode-solr4: (pid 25341) 239s, normally down; run: log: (pid 5700) 145308s
-
-.. end_tag
-
 Log Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag ctl_chef_server_status_logs
@@ -311,7 +294,6 @@ The following services are part of the Chef server:
 
 * bifrost
 * bookshelf
-* keepalived
 * nginx
 * opscode-erchef
 * opscode-expander
@@ -472,27 +454,19 @@ To follow the logs for the service:
 
    $ chef-server-ctl tail bookshelf
 
-keepalived
------------------------------------------------------
-.. tag server_services_keepalived
-
-The **keepalived** service manages the virtual IP address (VIP) between the backend machines in a high availability topology that uses DRBD.
-
-.. end_tag
-
 status
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status keepalived
+   $ chef-server-ctl status postgresql
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: keepalived: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   $ run: postgresql: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -500,7 +474,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start keepalived
+   $ chef-server-ctl start postgresql
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -508,7 +482,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop keepalived
+   $ chef-server-ctl stop postgresql
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -516,13 +490,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart keepalived
+   $ chef-server-ctl restart postgresql
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: keepalived: (pid 1234) 1234s
+   $ ok: run: postgresql: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -530,7 +504,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill keepalived
+   $ chef-server-ctl kill postgresql
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -538,7 +512,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once keepalived
+   $ chef-server-ctl once postgresql
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -546,7 +520,7 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail keepalived
+   $ chef-server-ctl tail postgresql
 
 nginx
 -----------------------------------------------------

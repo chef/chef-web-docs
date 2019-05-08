@@ -314,11 +314,6 @@ These newer add-ons will also write all of their secrets to ``/etc/opscode/priva
 
 While the file does not contain passwords in plaintext, it is not safe to share with untrusted users. The format of the secrets file allows Chef server deployments to conform to regulations that forbid the appearance of sensitive data in plain text in configuration files; however, it does not make the file meaningfully more secure.
 
-DRBD and Keepalived
------------------------------------------------------
-
-In the DRBD-based HA configuration, Chef server will render passwords for keepalived and DRBD to configuration files in ``/var/opt/opscode``.
-
 Key Rotation
 =====================================================
 See the `chef-server-ctl key rotation commands </ctl_chef_server.html#key-rotation>`__ for more information about user key management.
