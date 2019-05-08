@@ -698,7 +698,8 @@ oc_chef_authz
 -----------------------------------------------------
 .. tag server_services_authz
 
-The **opscode-authz** service is used to handle authorization requests to the Chef server.
+The **opscode-authz** service is used to handle authorization requests
+from oc_erchef to oc_bifrost in the Chef server.
 
 .. end_tag
 
