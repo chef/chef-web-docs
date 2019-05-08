@@ -153,3 +153,30 @@ Once you've resolved the issue and can run the ``pgsql-follow`` command successf
 
    rm /var/opt/chef-backend/leaderl/data/unsynced
    chef-backend-ctl start leaderl
+
+General Follower Recovery Process
+=====================================
+
+Initial attempts to recover should follow this general pattern and use the scenarios and tools shown above to assist in the recovery steps
+
+1. Take a filesystem level backup of all backend nodes with the cluster down
+2. Check the health of the leader and repair if necessary. If the /var/log/chef-backend/leaderl/current logs do not show leadership changes and the `chef-backend-ctl cluster-status` shows a solid etcd/pgsql leader, then you are good to go. Any leadership repair process often involves removing an internal pgsql lock file that prevents promotion of what we think was the last leader. This file is placed automatically by leaderl when it demotes a leader `/var/opt/chef-backend/leaderl/data/no-start-pgsql`. Refer to the Promoting a Previous Leader section above for more detail. This is a very dangerous step that can result in data loss. We recommend opening a ticket with Support to go over any cluster leadership issue. www.chef.io/support/get-started
+3. If necessary, promote what we think was the most recent leader. Refer to the Promoting a Previous Leader section above for more detail
+4. Sync the followers from the leader using a full basebackup because the WAL entries have likely already rotated. When this happens, the followers will complain in /var/log/chef-backend/postgresql/X.Y/current about being unable to synch and just the `--recovery` flag will result in timeouts of the `chef-backend-ctl join-cluster` command. It's impossible for a follower to sync and rejoin while in this state. It doesn't have current enough info.
+
+.. code-block:: none
+
+   2018-04-25_16:36:29.42242 FATAL:  the database system is starting up
+   2018-04-25_16:36:30.90058 LOG:  started streaming WAL from primary at 16F3/2D000000 on timeline 88
+   2018-04-25_16:36:30.90124 FATAL:  could not receive data from WAL stream: ERROR:  requested WAL segment     00000058000016F30000002D has already been removed
+   2018-04-25_16:36:30.90125
+ 
+
+In a Chef Backend High Availability deployment, the etcd service is extremely sensitive and can get into a bad state across backend nodes due to disk and/or network latency. When this happens, it is common for the cluster to be unable to automatically failover/recover. To attempt manual recovery on a follower that exhibits the symptoms previously shown, try issuing the following commands on problematic followers that will not sync. Do this on one follower at a time. You can check `chef-backend cluster-status` output periodically to watch the state of the cluster change:
+
+.. code-block:: none
+
+    chef-backend-ctl stop leaderl
+    chef-backend-ctl cluster-status
+    PSQL_INTERNAL_OK=true chef-backend-ctl pgsql-follow --force-basebackup --verbose LAST_LEADER_IP
+    chef-backend-ctl start
