@@ -46,6 +46,7 @@ where:
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+
 .. end_tag
 
 Actions
