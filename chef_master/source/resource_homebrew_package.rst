@@ -96,17 +96,17 @@ The homebrew_package resource has the following properties:
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer

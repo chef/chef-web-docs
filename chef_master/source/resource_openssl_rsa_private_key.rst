@@ -17,12 +17,12 @@ The openssl_rsa_private_key resource has the following syntax:
 
   openssl_rsa_private_key 'name' do
     force           true, false # default value: false
-    group           String
+    group           String, Integer
     key_cipher      String # default value: "des3"
     key_length      Integer # default value: 2048
     key_pass        String
     mode            Integer, String # default value: "0600"
-    owner           String
+    owner           String, Integer
     path            String # default value: 'name' unless specified
     action          Symbol # defaults to :create if not specified
   end
@@ -60,7 +60,7 @@ The openssl_rsa_private_key resource has the following properties:
    Force creation of the key even if the same key already exists on the node.
 
 ``group``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The group ownership applied to all files created by the resource.
 
@@ -85,7 +85,7 @@ The openssl_rsa_private_key resource has the following properties:
    The permission mode applied to all files created by the resource.
 
 ``owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The owner applied to all files created by the resource.
 

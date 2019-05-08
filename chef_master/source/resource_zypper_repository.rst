@@ -135,7 +135,7 @@ The zypper_repository resource has the following properties:
 ``repo_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Specifies the repository name if it differs from the resource name.
+   An optional property to set the repository name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String

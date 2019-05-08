@@ -211,7 +211,8 @@ A recipe can be built that does the following:
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -237,7 +238,8 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following attributes:
+
+The package resource has the following properties:
 
 ``allow_downgrade``
    **Ruby Type:** true, false | **Default Value:** ``true``

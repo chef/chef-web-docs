@@ -36,6 +36,7 @@ The windows_task resource has the following syntax:
     run_level                           Symbol # default value: :limited
     start_day                           String
     start_time                          String
+    start_when_available                true, false # default value: false
     stop_if_going_on_batteries          true, false # default value: false
     task_name                           String # default value: 'name' unless specified
     user                                String # default value: The localized SYSTEM user for the node.
@@ -47,7 +48,7 @@ where:
 * ``windows_task`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``command``, ``cwd``, ``day``, ``description``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``stop_if_going_on_batteries``, ``task_name``, and ``user`` are the properties available to this resource.
+* ``command``, ``cwd``, ``day``, ``description``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``start_when_available``, ``stop_if_going_on_batteries``, ``task_name``, and ``user`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -198,6 +199,13 @@ The windows_task resource has the following properties:
    **Ruby Type:** String
 
    Specifies the start time to run the task, in **HH:mm** format.
+
+``start_when_available``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   To start the task at any time after its scheduled time has passed.
+
+   *New in Chef Client 15.0.*
 
 ``stop_if_going_on_batteries``
    **Ruby Type:** true, false | **Default Value:** ``false``

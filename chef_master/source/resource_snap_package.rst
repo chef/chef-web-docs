@@ -12,13 +12,13 @@ The snap_package resource has the following syntax:
 .. code-block:: ruby
 
   snap_package 'name' do
-    channel                      String # default value: "stable"
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    channel           String # default value: "stable"
+    options           String, Array
+    package_name      String, Array
+    source            Strings
+    timeout           String, Integer
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
   end
 
 where:

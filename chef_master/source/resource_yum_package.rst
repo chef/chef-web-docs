@@ -31,25 +31,25 @@ The yum_package resource has the following syntax:
 
 .. code-block:: ruby
 
-   yum_package 'name' do
-     allow_downgrade            true, false # default value: true
-     arch                       String, Array
-     flush_cache                Hash # default value: {"before"=>false, "after"=>false}
-     options                    String, Array
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     yum_binary                 String
-     action                     Symbol # defaults to :install if not specified
-   end
+  yum_package 'name' do
+    allow_downgrade      true, false # default value: true
+    arch                 String, Array
+    flush_cache          Hash # default value: {"before"=>false, "after"=>false}
+    options              String, Array
+    package_name         String, Array
+    source               String
+    timeout              String, Integer
+    version              String, Array
+    yum_binary           String
+    action               Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``yum_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
+* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
 
 Actions
 =====================================================

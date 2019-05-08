@@ -26,12 +26,12 @@ The full syntax for all of the properties that are available to the **solaris_pa
 .. code-block:: ruby
 
   solaris_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    options           String, Array
+    package_name      String, Array
+    source            String
+    timeout           String, Integer
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
   end
 
 where:
@@ -72,12 +72,12 @@ The solaris_package resource has the following properties:
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``timeout``
    **Ruby Type:** String, Integer
