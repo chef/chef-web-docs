@@ -65,8 +65,8 @@ Use of these and later versions of these distributions must be in accordance wit
      - Releasing Soon
      - n/a
    * - Chef Habitat
-     - 0.80
-     - Releasing Soon
+     - 0.81
+     - GA
      - n/a
    * - Chef InSpec
      - 4.x
