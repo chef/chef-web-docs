@@ -78,7 +78,7 @@ This configuration file has the following general settings:
    The configuration type of the Chef server. Possible values: ``backend``, ``frontend``, or ``standalone``. Default value: ``'standalone'``.
 
 ``topology``
-   The topology of the Chef server. Possible values: ``ha``, ``manual``, ``standalone``, and ``tier``. Default value: ``'standalone'``.
+   The topology of the Chef server. Possible values: ``manual``, ``standalone``, and ``tier``. Default value: ``'standalone'``.
 
 bookshelf
 -----------------------------------------------------
@@ -256,9 +256,6 @@ This configuration file has the following settings for ``jetty``:
 
 ``jetty['enable']``
    Enable a service. Default value: ``'false'``. This value should not be modified.
-
-``jetty['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``'false'``.
 
 ``jetty['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value:

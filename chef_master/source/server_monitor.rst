@@ -34,52 +34,9 @@ The following components should be monitored for signs that disks may be rapidly
 * **Log files** If ``/var/log/opscode`` is taking up a lot of disk space, ensure that the Chef server log rotation cron job is running without errors. These errors can be found in ``/var/log/messages``, ``/var/log/syslog`` and/or the root user's local mail.
 * **Deleted file handles** Running processes with file handles associated with one (or more) deleted files will prevent the disk space being used by the deleted files from being reclaimed. Use the ``sudo lsof | grep '(deleted)'`` command to find all deleted file handles.
 
-High Availability
------------------------------------------------------
-All components of computer systems fail, and ethernet networks, while being generally very robust, are no exception. A high availability configuration of the Chef server that uses DRBD depends on a functioning network to begin and maintain replication between the back end servers on which the Chef server is running.
-
-To become aware of failure at the earliest opportunity, the ``/proc/drbd`` pseudo file should be monitored for signs
-that cluster replication has stopped or is falling behind:
-
-.. code-block:: bash
-
-   $ cat /proc/drbd
-
-A healthy connection state is similar to:
-
-.. code-block:: bash
-
-   version: 8.4.0 (api:1/proto:86-100)
-   GIT-hash: 09b6d528b3b3de50462cd7831c0a3791abc665c3 build by linbit@buildsystem.linbit, 2011-10-12 09:07:35
-    0: cs:Connected ro:Secondary/Secondary ds:UpToDate/UpToDate C r-----
-       ns:0 nr:0 dw:0 dr:656 al:0 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:b oos:0
-
-An unhealthy connection state from the perspective of the initial primary machine is similar to:
-
-.. code-block:: bash
-
-   version: 8.4.0 (api:1/proto:86-100)
-   GIT-hash: 09b6d528b3b3de50462cd7831c0a3791abc665c3 build by linbit@buildsystem.linbit, 2011-10-12 09:07:35
-    0: cs:WFConnection ro:Primary/Secondary ds:UpToDate/Unknown C r---
-       ns:0 nr:0 dw:0 dr:0 al:0 bm:0 lo:0 pe:0 ua:0 ap:0 ep:1 wo:b oos:54192
-
-where this shows lost communication with the secondary machine and ``oos:`` at non-zero (and increasing). This connection state is not fatal, but does represent a degraded state for the cluster where the machines are no longer in sync and are building up a queue of unwritten writes on the originating side that must eventually be synchronized to the secondary machine after the network stabilizes.
-
 Application Checks
 =====================================================
 Application-level checks should be done periodically to ensure that there is enough disk space, enough memory, and that the front-end and back-end services are communicating.
-
-DRBD
------------------------------------------------------
-Drbdadm is the management tool for DRBD. It can be used to obtain status information and to alter the state of the DRBD cluster. For more information about Drbdadm, see http://www.drbd.org/users-guide/re-drbdadm.html.
-
-``/proc/drbd`` is a virtual file that displays real-time status information about all currently-configured DRBD resources. Use the following command to view the contents of this virtual file:
-
-.. code-block:: bash
-
-   $ cat /proc/drbd
-
-Use ``chef-server-ctl ha-status`` along with ``/proc/drbd`` to help evaluate the current state of the cluster. Follow the split-brain recovery procedures for DRBD if the cluster becomes two unconnected pieces.
 
 Erlang
 -----------------------------------------------------
@@ -305,7 +262,7 @@ For example, a 2GB search index will require about 2GB of free space available i
 
 System Checks
 =====================================================
-System-level checks should be done for the following components: ports, services, and high availability status.
+System-level checks should be done for the ports and services status.
 
 chef-backend-ctl status
 -----------------------------------------------------
@@ -333,62 +290,6 @@ It will also check on the status of other nodes in the cluster, from the current
    disks /var/log/chef-backend: OK; /var/opt/chef-backend: OK health: green; healthy    nodes: 3/3
 
 More information about each service can be found in the individual service logs in ``/var/opt/chef-backend/``. 
-
-ha-status
------------------------------------------------------
-The ``ha-status`` subcommand is used to check the status of services running in the (deprecated as of Chef Server 12.9.0) DRBD high availability topology. This command will verify the following:
-
-       * The Keepalived daemon is enabled in the config
-       * The DRBD process is enabled in the config
-       * The underlying block device or logical volume for DRBD has been created and configured
-       * The DRBD device exists
-       * The current state of the server is ``master`` or ``backup``; any migration processes have completed
-       * The failover virtual IP address is correctly attached to only the ``master`` node
-       * The DRBD state is correct based on the state of the server being ``master`` or ``backup``
-       * The DRBD mount point is correctly mounted to only the ``master`` node
-       * The DRBD replication IP addresses are pingable
-       * The ``runit`` status of the services are correct (up or down) based on the ``master`` or ``backup`` state of the server
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ private-chef-ctl ha-status
-
-If this command runs successfully, it will return the following:
-
-.. code-block:: bash
-
-   $ [OK] all checks passed.
-
-Otherwise it will print out a list of errors, similar to the following:
-
-.. code-block:: bash
-
-   ...
-   [OK] nginx is running correctly, and I am master.
-   [ERROR] nrpe is not running.
-   [OK] opscode-account is running correctly, and I am master.
-   ...
-   [ERROR] ERRORS WERE DETECTED.
-
-For example:
-
-.. code-block:: bash
-
-   [OK] keepalived HA services enabled
-   [OK] DRBD disk replication enabled
-   [OK] DRBD partition /dev/opscode/drbd found
-   [OK] DRBD device /dev/drbd0 found
-   [OK] cluster status = master
-   [OK] found VIP IP address and I am master
-   [OK] found VRRP communications interface eth1
-   [OK] my DRBD status is Connected/Primary/UpToDate and I am master
-   [OK] my DRBD partition is mounted and I am master
-   [OK] DRBD primary IP address pings
-   [OK] DRBD secondary IP address pings
-   ...
-   [OK] all checks passed.
 
 opscode-authz
 -----------------------------------------------------

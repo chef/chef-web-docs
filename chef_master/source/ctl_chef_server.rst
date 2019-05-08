@@ -95,16 +95,6 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl restore /path/to/tar/archive.tar.gz
 
-backup-recover
-=====================================================
-The ``backup-recover`` subcommand is used to force the Chef server to attempt to become the backup server. This is the opposite of the ``master-recover`` subcommand.
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef-server-ctl backup-recover
-
 cleanse
 =====================================================
 The ``cleanse`` subcommand is used to re-set the Chef server to the state it was in prior to the first time the ``reconfigure`` subcommand is run. This command will destroy all data, configuration files, and logs. The software that was put on-disk by the package installation will remain; re-run ``chef-server-ctl reconfigure`` to recreate the default data and configuration files.
@@ -808,16 +798,6 @@ This subcommand has the following options:
    Removes internal tracking tables used during the cleanup process.  Manual cleanup of these tables is only required if the cleanup command is killed unexpectedly.
 ``--batch-size`` 
    The number of orphaned authorization actors to delete at a time.
-
-master-recover
-=====================================================
-The ``master-recover`` subcommand is used to force the Chef server to attempt to become the master server. This command is typically run in tandem with the ``backup-recover`` subcommand on the back-end peer, unless the back-end peer is no longer available.
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef-server-ctl master-recover
 
 Organization Management
 =====================================================
