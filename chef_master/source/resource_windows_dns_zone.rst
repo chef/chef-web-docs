@@ -61,9 +61,9 @@ The windows_dns_zone resource has the following properties:
    The type of DNS server, Domain or Standalone.
 
 ``zone_name``
-   **Ruby Type:** String | **Default Value:** ``'name'``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the zone to create.
+   An optional property to set the dns zone name if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================

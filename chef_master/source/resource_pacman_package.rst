@@ -30,11 +30,9 @@ The full syntax for all of the properties that are available to the **pacman_pac
 .. code-block:: ruby
 
    pacman_package 'name' do
-     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
      action                     Symbol # defaults to :install if not specified
@@ -45,11 +43,12 @@ where:
 * ``pacman_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
-This resource has the following actions:
+
+The pacman_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -72,22 +71,23 @@ This resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The pacman_package resource has the following properties:
 
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer

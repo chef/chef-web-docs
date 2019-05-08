@@ -18,7 +18,7 @@ The homebrew_cask resource has the following syntax:
     homebrew_path      String # default value: "/usr/local/bin/brew"
     install_cask       true, false # default value: true
     options            String
-    owner              String
+    owner              String, Integer
     action             Symbol # defaults to :install if not specified
   end
 
@@ -73,7 +73,7 @@ The homebrew_cask resource has the following properties:
    Options to pass to the ``brew`` command during installation.
 
 ``owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The owner of the Homebrew installation.
 

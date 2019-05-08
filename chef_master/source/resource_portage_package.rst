@@ -30,12 +30,12 @@ The portage_package resource has the following syntax:
 .. code-block:: ruby
 
   portage_package 'name' do
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer # default value: 3600
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    options           String, Array
+    package_name      String, Array
+    source            String
+    timeout           String, Integer # default value: 3600
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
   end
 
 where:
