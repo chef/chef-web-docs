@@ -40,7 +40,7 @@ Two methods are generally used to accept the license for these products:
 
 #. ``--chef-license <value>`` argument passed to the command line invocation.
 
-#. ``CHEF_LICENSE=<value>`` as an environment variable.
+#. ``CHEF_LICENSE="<value>"`` as an environment variable.
 
 ``<value>`` can be specified as one of the following:
 
@@ -77,7 +77,7 @@ This method of license acceptance is backwards-compatible to non-EULA versions o
 
 Habitat
 -----------------------------------------------------
-The Habitat license can be accepted by setting the environment variable ``HAB_LICENSE=accept``, or by setting ``HAB_LICENSE=accept-no-persist`` or by executing ``hab license accept``.
+The Habitat license can be accepted by setting the environment variable ``HAB_LICENSE="accept"``, or by setting ``HAB_LICENSE="accept-no-persist"`` or by executing ``hab license accept``.
 If neither of these are set, the first ``hab`` invocation will ask the user to accept the license through an interactive prompt.
 
 This applies for accepting the Habitat license. Chef Software products are also distributed as Habitat packages. Client
@@ -103,7 +103,7 @@ Instead, the license is accepted during the ``reconfigure`` command or ``upgrade
 For example:
 
 * ``chef-server-ctl reconfigure --chef-license=accept``
-* ``CHEF_LICENSE=accept-no-persist supermarket-ctl reconfigure``
+* ``CHEF_LICENSE="accept-no-persist" supermarket-ctl reconfigure``
 
 In addition, the Chef license can be accepted via the omnibus configuration file.
 Specify ``chef_license 'accept'`` in the ``chef-server.rb`` or ``supermarket.rb`` configuration.
