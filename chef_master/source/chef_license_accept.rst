@@ -28,12 +28,12 @@ Products below are split below into two categories: workstation and server. Affe
 Workstation Products
 =====================================================
 * Chef Workstation >= 0.4, which also contains
-    * Chef Infra
+    * Chef Infra Client
     * Chef InSpec
     * Push Jobs Client
-* Chef Infra >= 15.0
+* Chef Infra Client >= 15.0
 * Chef InSpec >= 4.0
-* Habitat >= 0.80
+* Chef Habitat >= 0.80
 
 These products are typically installed on a user's workstation.
 Two methods are generally used to accept the license for these products:
@@ -241,7 +241,7 @@ Terraform Habitat Provisioner
 -----------------------------------------------------
 Default behavior of this provisioner is to install the latest version of Habitat. `Documentation for this provisioner <https://www.terraform.io/docs/provisioners/habitat.html>`__ will be updated in the near future once the provisioner is updated with options to accept license. In the time being, the provisioner can be pinned to a prior Habitat version as below.
 
-Pin to Habitat 0.79
+Pin to Chef Habitat 0.79
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In your `Terraform provisioner config <https://www.terraform.io/docs/provisioners/habitat.html#version-string->`__:
 
