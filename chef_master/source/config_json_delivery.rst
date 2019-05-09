@@ -431,7 +431,7 @@ The following examples show how to specify the location of the ``build-cookbook`
 
 .. tag delivery_config_example_build_cookbook_git
 
-.. To specify a build-cookbook located at a Git source:
+.. To specify a build-cookbook located at a git source:
 
 .. code-block:: javascript
 

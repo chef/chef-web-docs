@@ -230,17 +230,17 @@ Tagged Regions
 -----------------------------------------------------
 Chef docs uses tags to indicate text that is used in more than one topic::
 
-   .. tag chef
+    .. tag chef
 
-   Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+    Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
-   This diagram shows how you develop, test, and deploy your Chef code.
+    This diagram shows how you develop, test, and deploy your Chef code.
 
-   .. image:: ../../images/start_chef.svg
-      :width: 700px
-      :align: center
+    .. image:: ../../images/start_chef.svg
+       :width: 700px
+       :align: center
 
-   .. end_tag
+    .. end_tag
 
 The docs will only build if all tagged regions with the same tag name have the same content. The ``dtags`` utility is included to help synchronize tagged regions. Refer to the `README.md <https://github.com/chef/chef-web-docs/blob/master/README.md>`__ file in the `chef/chef-web-docs <https://github.com/chef/chef-web-docs>`__ repo for more information.
 

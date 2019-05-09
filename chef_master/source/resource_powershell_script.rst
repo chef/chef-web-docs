@@ -59,7 +59,7 @@ where:
 * ``powershell_script`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run.
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies the steps the Chef Infra Client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -87,7 +87,7 @@ The powershell_script resource has the following properties:
 ``architecture``
    **Ruby Type:** Symbol
 
-   The architecture of the process under which a script is executed. If a value is not provided, the chef-client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
+   The architecture of the process under which a script is executed. If a value is not provided, the Chef Infra Client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
 
 ``code``
    **Ruby Type:** String | ``REQUIRED``
@@ -183,7 +183,7 @@ The powershell_script resource has the following properties:
    **Ruby Type:** String
 
    *Windows only*: The domain of the user specified by the `user` property.
-   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
+   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef Infra Client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
     **Ruby Type:**  true, false

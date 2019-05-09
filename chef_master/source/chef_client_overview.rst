@@ -17,9 +17,9 @@ Chef Infra Client Overview
 
      - .. tag chef_client_summary
 
-       A Chef Infra Client is an agent that runs locally on every node that is under management by Chef. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
+       Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
 
-       * Registering and authenticating the node with the Chef server
+       * Registering and authenticating the node with the Chef Infra Server
        * Building the node object
        * Synchronizing cookbooks
        * Compiling the resource collection by loading each of the required cookbooks, including recipes, attributes, and all other dependencies
@@ -402,7 +402,7 @@ The Chef installer puts everything into a unique directory (``/opt/chef/``) so t
 
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the Chef Infra Client on a target system so that it can run as a Chef Infra Client and communicate with a Chef Infra Server. There are two ways to do this:
+A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap installs Chef Infra Client on a target system so that it can run as a client and communicate with Chef Infra Server. There are two ways to do this:
 
 * Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM

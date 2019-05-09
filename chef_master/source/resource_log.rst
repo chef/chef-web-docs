@@ -15,7 +15,7 @@ Syntax
 =====================================================
 .. tag resource_log_syntax
 
-A **log** resource block adds messages to the log file based on events that occur during the Chef Client run:
+A **log** resource block adds messages to the log file based on events that occur during the Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -38,7 +38,7 @@ where:
 
 * ``log`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``level`` and ``message`` are the properties available to this resource.
 
 .. end_tag
@@ -52,7 +52,7 @@ The log resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -83,7 +83,7 @@ Chef::Log Entries
 =====================================================
 .. tag ruby_style_basics_chef_log
 
-``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the Chef Client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
+``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the Chef Infra Client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
 
 The following log levels are supported:
 

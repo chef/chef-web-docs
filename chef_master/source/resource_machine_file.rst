@@ -31,10 +31,10 @@ The syntax for using the **machine_file** resource in a recipe is as follows:
 
 where
 
-* ``machine_file`` tells the chef-client to use the ``Chef::Provider::MachineFile`` provider during the chef-client run
+* ``machine_file`` tells the Chef Infra Client to use the ``Chef::Provider::MachineFile`` provider during the Chef Infra Client run
 * ``name`` is the name of the resource block; when the ``path`` property is not specified as part of a recipe, ``name`` is also the path to a file
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
 .. end_tag
 
@@ -53,7 +53,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -71,7 +71,7 @@ This resource has the following properties:
 ``chef_server``
    **Ruby Type:** Hash
 
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``content``
    A string that is written to the file. The contents of this property replace any previous content when this property has something other than the default value. The default behavior will not modify content.
@@ -99,7 +99,7 @@ This resource has the following properties:
 ``mode``
    **Ruby Type:** String
 
-   If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
+   If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the Chef Infra Client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the Chef Infra Client uses the default value of ``'0755'``.
 
    The behavior is different depending on the platform.
 

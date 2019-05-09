@@ -7,7 +7,7 @@ Welcome to Chef!
 
 .. tag chef
 
-Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
 This diagram shows how you develop, test, and deploy your Chef code.
 
@@ -60,7 +60,7 @@ knife is a command-line tool that provides an interface between a local chef-rep
 * Roles, Environments, and Data Bags
 * Resources within various cloud environments
 * The installation of the Chef Infra Client onto nodes
-* Searching of indexed data on the Chef server
+* Searching of indexed data on the Chef Infra Server
 
 .. end_tag
 

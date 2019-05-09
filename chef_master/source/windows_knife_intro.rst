@@ -181,7 +181,7 @@ knife bootstrap
 -----------------------------------------------------
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the Chef Infra Client on a target system so that it can run as a Chef Infra Client and communicate with a Chef Infra Server. There are two ways to do this:
+A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap installs Chef Infra Client on a target system so that it can run as a client and communicate with Chef Infra Server. There are two ways to do this:
 
 * Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
@@ -362,7 +362,7 @@ This subcommand has the following options:
    Use to preserve the non-root user's ``HOME`` environment.
 
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
-   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the Chef Infra Client using the Chef Infra installer on all supported platforms.
+   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs Chef Infra Client using the Chef Infra installer on all supported platforms.
 
 ``--use-sudo-password``
    Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.

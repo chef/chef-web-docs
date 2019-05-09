@@ -654,7 +654,7 @@ returns:
 
    User bob was added to server-admins. This user can now list,
    read, and create users (even for orgs they are not members of)
-   for this Chef Server.
+   for this Chef Infra Server.
 
 .. end_tag
 

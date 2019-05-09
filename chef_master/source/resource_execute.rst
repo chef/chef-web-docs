@@ -698,7 +698,7 @@ where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
 * the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
-* the **template** resource tells the chef-client which template to use
+* the **template** resource tells the Chef Infra Client which template to use
 
 .. end_tag
 

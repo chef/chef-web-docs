@@ -121,13 +121,13 @@ Some important tools and components of Chef Workstation include:
 
      - .. tag chef_dk
 
-       ChefDK is a package that contains everything that is needed to start using Chef:
+       ChefDK, short for Chef Development Kit, is a package that contains everything that is needed to start using Chef:
 
        * Chef Infra Client
        * chef and knife command line tools
        * Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
        * Chef InSpec
-       * Everything else needed to author cookbooks and upload them to the Chef server
+       * Everything else needed to author cookbooks and upload them to the Chef Infra Server
 
        .. end_tag
 
@@ -394,9 +394,9 @@ The key components of nodes that are under management by Chef include:
 
      - .. tag chef_client_summary
 
-       A Chef Infra Client is an agent that runs locally on every node that is under management by Chef. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
+       Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
 
-       * Registering and authenticating the node with the Chef server
+       * Registering and authenticating the node with the Chef Infra Server
        * Building the node object
        * Synchronizing cookbooks
        * Compiling the resource collection by loading each of the required cookbooks, including recipes, attributes, and all other dependencies

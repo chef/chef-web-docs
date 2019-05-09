@@ -560,7 +560,7 @@ override
 -----------------------------------------------------
 .. tag dsl_custom_resource_method_provides_override
 
-Chef will warn you if the Recipe DSL is provided by another custom resource or built-in resource. For example:
+Chef Infra Client will warn you if the Recipe DSL is provided by another custom resource or built-in resource. For example:
 
 .. code-block:: ruby
 

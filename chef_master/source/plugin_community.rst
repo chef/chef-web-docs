@@ -16,7 +16,7 @@ knife is a command-line tool that provides an interface between a local chef-rep
 * Roles, Environments, and Data Bags
 * Resources within various cloud environments
 * The installation of the Chef Infra Client onto nodes
-* Searching of indexed data on the Chef server
+* Searching of indexed data on the Chef Infra Server
 
 .. end_tag
 
