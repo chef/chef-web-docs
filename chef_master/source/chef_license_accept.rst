@@ -58,7 +58,7 @@ In a future invocation, however, the license would need to be accepted again.
 
 Please see `License File Persistence <https://github.com/chef/license-acceptance#license-file-persistence>`__ for details about persisted marker files.
 
-The ``--chef-license`` command line argument is not backwards compatiable to older non-EULA versions. If you are managing a multi-version environment we recommend using the environment variable as that is ignored by older versions.
+The ``--chef-license`` command line argument is not backwards compatiable to older non-EULA versions. If you are managing a multi-version environment, we recommend using the environment variable as that is ignored by older versions.
 
 Products with specific features or differences from this general behavior are documented below.
 
@@ -80,14 +80,13 @@ Habitat
 The Habitat license can be accepted by setting the environment variable ``HAB_LICENSE="accept"``, or by setting ``HAB_LICENSE="accept-no-persist"`` or by executing ``hab license accept``.
 If neither of these are set, the first ``hab`` invocation will ask the user to accept the license through an interactive prompt.
 
-This applies for accepting the Habitat license. Chef Software products are also distributed as Habitat packages. Client
-products distributed as Habitat packages (Chef Infra Client, InSpec, etc.) request license acceptance at product usage
-time. Whether they are installed as system packages or Habitat packages does not change the way users accept their
-license.
+This applies for accepting the Habitat license. Chef Software products are also distributed as Habitat packages. 
+Client products distributed as Habitat packages (Chef Infra Client, InSpec, etc.) request license acceptance at product usage time. 
+Whether they are installed as system packages or Habitat packages does not change the way users accept their license.
 
-Server products distributed as Habitat packages are ran using Habitat as a supervisor. There are currently two products
-distributed this way: Chef Automate and Chef Infra Server. See the below sections for information on how to accept the
-license for these products when they are distributed as habitat packages.
+Server products distributed as Habitat packages are ran using Habitat as a supervisor. 
+There are currently two products distributed this way: Chef Automate and Chef Infra Server. 
+See the below sections for information on how to accept the license for these products when they are distributed as Habitat packages.
 
 Server Products
 =====================================================
@@ -120,9 +119,9 @@ Chef Infra Server
 When installed as a system package users accept the license with the ctl command, EG ``chef-server-ctl reconfigure --chef-license=accept``.
 Acceptance can also be set in the configuration file ``chef-server.rb`` as ``chef_license "accept"``.
 
-Chef Infra Server is also distributed as a Habitat package and ran using the Habitat supervisor. In this mode users accept the license by setting the correct Habitat configuration values. The key is ``chef_license.acceptance``.
+Chef Infra Server is also distributed as a Habitat package and ran using the Habitat supervisor. In this mode, users accept the license by setting the correct Habitat configuration values. The key is ``chef_license.acceptance``.
 
-For example: against a supervisor running Chef Infra Server run ``echo "chef_license.acceptance = accept" | hab config apply server.default 100``. See the Habitat `config updates <https://www.habitat.sh/docs/using-habitat/#config-updates>`__ documentation for more information about how to apply this configuration to a service group.
+For example: Against a supervisor running Chef Infra Server, run ``echo "chef_license.acceptance = accept" | hab config apply server.default 100``. See the `Habitat config updates documentation <https://www.habitat.sh/docs/using-habitat/#config-updates>`__ for more information about how to apply this configuration to a service group.
 
 Push Jobs Server
 -----------------------------------------------------
@@ -170,11 +169,13 @@ You can pin to a specific version of chef in your kitchen.yml:
 
 ``knife bootstrap``
 -----------------------------------------------------
-``knife`` usage does not require accepting the EULA. However, using ``knife bootstrap`` to manage a Chef Infra Client instance which does require EULA acceptance will prompt to accept the license locally before bootstrapping the remote instance.
+``knife`` usage does not require accepting the EULA.
+A Chef Infra Client instance does require EULA acceptance.
+Using ``knife bootstrap`` to manage a Chef Infra Client instance will prompt a user to accept the license locally before allowing for bootstrapping the remote instance.
 Without this, ``knife bootstrap`` would fail.
 
 In most usage cases via Chef Workstation, this license will already have been accepted and will transfer across transparently.
-But if a user installs Chef Workstation and the first command they ever run is ``knife bootstrap`` it will perform the same license acceptance flow as the Chef Infra Client product.
+But if a user installs Chef Workstation and the first command they ever run is ``knife bootstrap``, it will perform the same license acceptance flow as the Chef Infra Client product.
 
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -187,7 +188,7 @@ Specify the following argument:
 Packer
 -----------------------------------------------------
 Use a custom `Chef configuration template <https://www.packer.io/docs/provisioners/chef-client.html#chef-configuration>`__.
-In your provisioners config:
+In your provisioners config, include:
 
 .. code-block:: json
 
@@ -196,7 +197,7 @@ In your provisioners config:
       "config_template": "path/to/client.rb"
     }
 
-In ``path/to/client.rb``:
+In ``path/to/client.rb``, include:
 
 .. code-block:: ruby
 
@@ -206,7 +207,7 @@ You may also add it to the `execute_command <https://www.packer.io/docs/provisio
 
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In your `Packer provisioners config <https://www.packer.io/docs/provisioners/chef-client.html#install_command>`__:
+In your `Packer provisioners config <https://www.packer.io/docs/provisioners/chef-client.html#install_command>`__, include:
 
 .. code-block:: json
 
@@ -217,8 +218,7 @@ In your `Packer provisioners config <https://www.packer.io/docs/provisioners/che
 
 Terraform Chef Provisioner
 -----------------------------------------------------
-The license can be accepted via the Chef Infra Client config file, which is specified by the ``client_options`` `Terraform
-provisioner config <https://www.terraform.io/docs/provisioners/chef.html#client_options-array->`__:
+The license can be accepted via the Chef Infra Client config file, which is specified by the ``client_options`` `Terraform provisioner config <https://www.terraform.io/docs/provisioners/chef.html#client_options-array->`__:
 
 .. code-block:: none
 
@@ -228,8 +228,7 @@ provisioner config <https://www.terraform.io/docs/provisioners/chef.html#client_
 
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In your `Terraform
-provisioner config <https://www.terraform.io/docs/provisioners/chef.html#version-string->`__:
+In your `Terraform provisioner config <https://www.terraform.io/docs/provisioners/chef.html#version-string->`__, include:
 
 .. code-block:: none
 
@@ -239,11 +238,11 @@ provisioner config <https://www.terraform.io/docs/provisioners/chef.html#version
 
 Terraform Habitat Provisioner
 -----------------------------------------------------
-Default behavior of this provisioner is to install the latest version of Habitat. `Documentation for this provisioner <https://www.terraform.io/docs/provisioners/habitat.html>`__ will be updated in the near future once the provisioner is updated with options to accept license. In the time being, the provisioner can be pinned to a prior Habitat version as below.
+Default behavior of this provisioner is to install the latest version of Habitat. `Documentation for this provisioner <https://www.terraform.io/docs/provisioners/habitat.html>`__ will be updated in the near future once the provisioner is updated with options to accept license. For the time being, the provisioner can be pinned to a prior Habitat version as below.
 
 Pin to Chef Habitat 0.79
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In your `Terraform provisioner config <https://www.terraform.io/docs/provisioners/habitat.html#version-string->`__:
+In your `Terraform provisioner config <https://www.terraform.io/docs/provisioners/habitat.html#version-string->`__, include:
 
 .. code-block:: none
 
