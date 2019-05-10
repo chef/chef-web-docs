@@ -147,9 +147,9 @@ New Features
 
 * **Performance Improvements for Compliance Profiles**
 
-  Windows performance has been considerably improved with the release of `audit cookbook v6 <https://supermarket.chef.io/cookbooks/audit>`__, which leverages new mechanisms in InSpec and Train to speed up all tests. This is achieved with a caching approach that allows for considerably faster execution of all calls and resources on Microsoft Windows. On average, we found the CIS Windows benchmarks for execution time were reduced by 90%, allowing for a significant increase in speed. CIS for Linux benchmarks saw an average of 30% reduction in execution time.
+  Windows performance has been considerably improved with the release of `audit cookbook v6 <https://supermarket.chef.io/cookbooks/audit>`__, which leverages new mechanisms in Chef InSpec and Train to speed up all tests. This is achieved with a caching approach that allows for considerably faster execution of all calls and resources on Microsoft Windows. On average, we found the CIS Windows benchmarks for execution time were reduced by 90%, allowing for a significant increase in speed. CIS for Linux benchmarks saw an average of 30% reduction in execution time.
 
-  By default, caching is now enabled with audit cookbook v6. Please update it alongside Chef Automate and InSpec on your nodes to fully leverage these performance gains.
+  By default, caching is now enabled with audit cookbook v6. Please update it alongside Chef Automate and Chef InSpec on your nodes to fully leverage these performance gains.
 
 * **Performance Improvements for Compliance Reporting**
 
@@ -224,7 +224,7 @@ New Features
 
 Compliance Scanner Open Beta
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-Previously, the only way to orchestrate remote InSpec runs was through the use of Chef Compliance, a standalone application which does not report data to Chef Automate. The compliance scanner, now available as an open beta feature in Chef Automate, allows you to add nodes and execute ad hoc remote compliance scans from within Chef Automate. In a future release we will add the ability to set up scheduled scan jobs.
+Previously, the only way to orchestrate remote Chef InSpec runs was through the use of Chef Compliance, a standalone application which does not report data to Chef Automate. The compliance scanner, now available as an open beta feature in Chef Automate, allows you to add nodes and execute ad hoc remote compliance scans from within Chef Automate. In a future release we will add the ability to set up scheduled scan jobs.
 
 Remote scans provide an important capability for any systems that may not have an agent installed, as well as for other endpoints and devices. The scanner, combined with existing reporting capabilities and profiles, offers a major enhancement to remote compliance testing with Chef Automate.
 
@@ -435,7 +435,7 @@ New Features
 Compliance GA
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-With this release, we are moving to a new view for InSpec data in Chef Automate. It provides better insights for common user queries around the compliance state of nodes and the state of profiles and their controls, with powerful search queries to see the right sets of data. After a beta period since the last release it is now the new default view for all compliance and InSpec data.
+With this release, we are moving to a new view for Chef InSpec data in Chef Automate. It provides better insights for common user queries around the compliance state of nodes and the state of profiles and their controls, with powerful search queries to see the right sets of data. After a beta period since the last release it is now the new default view for all compliance and InSpec data.
 
 The previous **Compliance** sub-tab in the **Nodes** tab has been replaced with a new tab on the top-level navigation bar. This new **Compliance** tab provides access to both profiles and reporting capabilities.
 
@@ -510,11 +510,11 @@ New Features
 Compliance in Chef Automate - Open Beta
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-With this release we have brought compliance capabilities into Chef Automate, without the need to install and operate a standalone compliance server. You can now manage InSpec compliance profiles in Chef Automate with features such as:
+With this release we have brought compliance capabilities into Chef Automate, without the need to install and operate a standalone compliance server. You can now manage Chef InSpec compliance profiles in Chef Automate with features such as:
 
 * Compliance profile installation and updates, when new versions become available
 * 80 pre-shipped compliance profiles for all major operating systems
-* View profiles, their metadata and controls, as well as InSpec code
+* View profiles, their metadata and controls, as well as Chef InSpec code
 * Search for profiles to view and install them
 * Add custom profiles
 * API endpoints to query profile contents

@@ -5,13 +5,13 @@ knife environment
 
 .. tag environment
 
-An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef server. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments. Generally, an environment is also associated with one (or more) cookbook versions.
+An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments. Generally, an environment is also associated with one (or more) cookbook versions.
 
 .. end_tag
 
 .. tag knife_environment_summary
 
-Use the ``knife environment`` subcommand to manage environments within a single organization on the Chef server.
+Use the ``knife environment`` subcommand to manage environments within a single organization on the Chef Infra Server.
 
 .. end_tag
 
@@ -123,7 +123,7 @@ to return something similar to:
 
 create
 =====================================================
-Use the ``create`` argument to add an environment object to the Chef server. When this argument is run, knife will open $EDITOR to enable editing of the ``ENVIRONMENT`` description field (unless a description is specified as part of the command). When finished, knife will add the environment to the Chef server.
+Use the ``create`` argument to add an environment object to the Chef Infra Server. When this argument is run, knife will open $EDITOR to enable editing of the ``ENVIRONMENT`` description field (unless a description is specified as part of the command). When finished, knife will add the environment to the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -138,7 +138,7 @@ Options
 This argument has the following options:
 
 ``--description DESCRIPTION``
-   The description of the environment. This value populates the description field for the environment on the Chef server.
+   The description of the environment. This value populates the description field for the environment on the Chef Infra Server.
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -160,7 +160,7 @@ To create an environment named ``dev`` with a description of ``The development e
 
 delete
 =====================================================
-Use the ``delete`` argument to delete an environment from a Chef server.
+Use the ``delete`` argument to delete an environment from a Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -190,7 +190,7 @@ Type ``Y`` to confirm a deletion.
 
 edit
 =====================================================
-Use the ``edit`` argument to edit the attributes of an environment. When this argument is run, knife will open $EDITOR to enable editing of ``ENVIRONMENT`` attributes. When finished, knife will update the Chef server with those changes.
+Use the ``edit`` argument to edit the attributes of an environment. When this argument is run, knife will open $EDITOR to enable editing of ``ENVIRONMENT`` attributes. When finished, knife will update the Chef Infra Server with those changes.
 
 Syntax
 -----------------------------------------------------
@@ -255,7 +255,7 @@ To add an environment using data contained in a JSON file:
 
 list
 =====================================================
-Use the ``list`` argument to list all of the environments that are currently available on the Chef server.
+Use the ``list`` argument to list all of the environments that are currently available on the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------

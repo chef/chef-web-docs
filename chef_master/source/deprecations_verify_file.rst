@@ -9,7 +9,7 @@ The ``verify`` metaproperty allows the user to specify a ``{path}`` variable tha
 
 .. end_tag
 
-The ``{file}`` expansion was deprecated in Chef 12.5, and will be removed in Chef 13.
+The ``{file}`` expansion was deprecated in Chef Client 12.5, and will be removed in Chef Client 13.
 
 Example
 ==========

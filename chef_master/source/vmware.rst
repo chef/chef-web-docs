@@ -72,7 +72,7 @@ Usage Examples
 
    $ knife vsphere vm delete MACHINENAME
 
-This command can be used with the ``-P`` option to remove the machine from the Chef server.
+This command can be used with the ``-P`` option to remove the machine from the Chef Infra Server.
 
 knife-vcenter
 -----------------------------------------------------
@@ -398,10 +398,10 @@ The following is a basic ``.kitchen.yml`` example:
           cpus: 4
           memory: 4096
 
-InSpec
+Chef InSpec
 =====================================================
 
-The InSpec VMware plugin is used to verify the vCenter and ESXi VMware stack.
+The Chef InSpec VMware plugin is used to verify the vCenter and ESXi VMware stack.
 
 inspec-vmware
 -----------------------------------------------------

@@ -31,10 +31,10 @@ The syntax for using the **machine_execute** resource in a recipe is as follows:
 
 where
 
-* ``machine_execute`` tells the chef-client to use the ``Chef::Provider::MachineExecute`` provider during the chef-client run
+* ``machine_execute`` tells the Chef Infra Client to use the ``Chef::Provider::MachineExecute`` provider during the Chef Infra Client run
 * ``name`` is the name of the resource block; when the ``command`` property is not specified as part of a recipe, ``name`` is also the command to be run
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
 .. end_tag
 
@@ -47,7 +47,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -65,7 +65,7 @@ This resource has the following properties:
 ``chef_server``
    **Ruby Type:** Hash
 
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``command``
    **Ruby Type:** String

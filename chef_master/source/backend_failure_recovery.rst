@@ -5,7 +5,7 @@ Chef Backend Failure Recovery
 
 This document contains the recommended actions for responding to failures in your Chef Backend cluster.
 
-.. note:: If you have concerns about applying the Backend recovery process to your cluster, please consult with Support before taking the steps outlined in this guide.
+.. note:: If you have concerns about applying the Chef Backend recovery process to your cluster, please consult with Support before taking the steps outlined in this guide.
 
 Assumptions
 =====================================================
@@ -115,7 +115,7 @@ Elasticsearch
 -----------------------------------------------------
 * Elasticsearch manages its own availability. 1 of the 3 nodes can have a service-level Elasticsearch failure without affecting the availability of the cluster.
 
-* Elasticsearch failovers are independent of PostgreSQL failovers; however, since the Chef Server can only talk to a single Elasticsearch instance, if Elasticsearch fails on the leader node, Leaderl will failover (including a PostgreSQL failover) to another node.
+* Elasticsearch failovers are independent of PostgreSQL failovers; however, since the Chef Infra Server can only talk to a single Elasticsearch instance, if Elasticsearch fails on the leader node, Leaderl will failover (including a PostgreSQL failover) to another node.
 
 * Once the root cause of the service-level problems has been identified and solved, the failed node should be able to rejoin the cluster.
 

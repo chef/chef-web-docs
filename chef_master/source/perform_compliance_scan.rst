@@ -12,9 +12,9 @@ Perform a Compliance Scan in Chef Automate
 
 .. end_tag
 
-Scanning nodes in your Chef Automate cluster is enabled through the ``audit`` cookbook. This cookbook allows you to run InSpec profiles as part of a chef-client run. It downloads configured profiles from various sources like a standalone Chef Compliance server, Chef Automate, Chef Supermarket, or Git, and reports audit runs to Chef Compliance or Chef Automate.
+Scanning nodes in your Chef Automate cluster is enabled through the ``audit`` cookbook. This cookbook allows you to run Chef InSpec profiles as part of a Chef Infra Client run. It downloads configured profiles from various sources like a standalone Chef Compliance server, Chef Automate, Chef Supermarket, or Git, and reports audit runs to Chef Compliance or Chef Automate.
 
-This flexibility means chef-client runs using the audit cookbook can be performed in several different usage scenarios; however, this topic describes how to use the audit cookbook with the integrated profile storage and audit reporting functionality of Chef Automate to perform compliance testing.
+This flexibility means Chef Infra Client runs using the audit cookbook can be performed in several different usage scenarios; however, this topic describes how to use the audit cookbook with the integrated profile storage and audit reporting functionality of Chef Automate to perform compliance testing.
 
 The examples shown in this topic are meant to provide a quick way for you to see compliance data show up in Chef Automate. You could also wrap the audit cookbook in an existing cookbook, but this example will simply use the default recipe in the audit cookbook to run a profile against a node in your cluster. For more information and examples on how to use the audit cookbook, see the `audit project repo in GitHub <https://github.com/chef-cookbooks/audit>`_.
 
@@ -23,17 +23,17 @@ Prerequisites
 
 The following are required when using the built-in compliance capabilities of Chef Automate:
 
-* Chef client 12.16.42 or later must be installed on your nodes
+* Chef Client 12.16.42 or later must be installed on your nodes
 * Chef Automate server
-* Chef server 12.11.1 or later
+* Chef Server 12.11.1 or later
 * The audit cookbook 4.0 or later
 * ChefDK 1.4.3 or later installed on your workstation
-* InSpec 1.25.1 or later installed by the audit cookbook
+* Chef InSpec 1.25.1 or later installed by the audit cookbook
 
-Configure Data Collection on Chef server
+Configure Data Collection on Chef Infra Server
 -------------------------------------------------------
 
-To send node data through Chef server to Chef Automate, you must update the ``/etc/opscode/chef-server.rb`` file on your Chef server. This is needed for converge status and general node data, but it is also true for sending audit run data from nodes back to Chef Automate.
+To send node data through Chef Infra Server to Chef Automate, you must update the ``/etc/opscode/chef-server.rb`` file on your Chef Infra Server. This is needed for converge status and general node data, but it is also true for sending audit run data from nodes back to Chef Automate.
 
 Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token values and general data collection setup instructions are described in `Configure Data Collection </data_collection.html>`__.
 
@@ -48,9 +48,9 @@ After you have finished editing the file, run ``chef-server-ctl reconfigure`` to
 Optional: Tune the Chef Server
 -------------------------------------------------------
 
-For larger Inspec profiles, the Chef Server may need to be configured to accept increased request sizes. If you receive the error ``413 Request Entity Too Large`` on your chef-client run, you can increase these settings from their default values to allow the Chef server to ingest more data from a chef-client run.
+For larger Chef InSpec profiles, the Chef Infra Server may need to be configured to accept increased request sizes. If you receive the error ``413 Request Entity Too Large`` on your Chef Infra Client run, you can increase these settings from their default values to allow the Chef Infra Server to ingest more data from a Chef Infra Client run.
 
-To make this change you'll add the following configuration options to ``/etc/opscode/chef-server.rb``. Further details about configuring and tuning your Chef server are described in `Server Tuning </server_tuning.html>`__.
+To make this change you'll add the following configuration options to ``/etc/opscode/chef-server.rb``. Further details about configuring and tuning your Chef Infra Server are described in `Server Tuning </server_tuning.html>`__.
 
 .. code-block:: ruby
 

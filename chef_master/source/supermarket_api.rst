@@ -431,7 +431,7 @@ The ``GET`` method is used to get a list of cookbooks that match a search query.
    * - Parameter
      - Description
    * - ``q``
-     - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
+     - The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
    * - ``start``
      - The row at which return results begin.
    * - ``items``
@@ -554,7 +554,7 @@ The response will return the name of the tool, a type, description, owner, sourc
           "tool_name": "ChefAPI",
           "tool_type": "chef_tool",
           "tool_source_url": "https://github.com/sethvargo/chef-api",
-          "tool_description": "ChefAPI is a dependency-minimal Ruby client for interacting with a Chef Server. It adopts many patterns and principles from Rails",
+          "tool_description": "ChefAPI is a dependency-minimal Ruby client for interacting with a Chef Infra Server. It adopts many patterns and principles from Rails",
           "tool_owner": "sethvargo",
           "tool": "https://supermarket.chef.io/api/v1/tools/chef-api"
         }
@@ -585,7 +585,7 @@ The ``GET`` method is used to get a list of tools that match a search query. Use
    * - Parameter
      - Description
    * - ``q``
-     - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
+     - The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
    * - ``start``
      - The row at which return results begin.
    * - ``items``

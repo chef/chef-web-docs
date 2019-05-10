@@ -3,14 +3,14 @@ config.rb
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb.rst>`__
 
-.. warning:: The config.rb file is a replacement for the knife.rb file, starting with the chef-client 12.0 release. The config.rb file has identical settings and behavior to the knife.rb file. The chef-client will first look for the presence of the config.rb file and if it is not found, will look for the knife.rb file.
+.. warning:: The config.rb file is a replacement for the knife.rb file, starting with the Chef Client 12.0 release. The config.rb file has identical settings and behavior to the knife.rb file. The Chef Infra Client will first look for the presence of the config.rb file and if it is not found, will look for the knife.rb file.
 
 A config.rb file is used to specify configuration details for knife.
 
 A config.rb file:
 
 * Is loaded every time the knife executable is run
-* The default location in which the chef-client expects to find this file is ``~/.chef/config.rb``; use the ``--config`` option from the command line to change this location
+* The default location in which the Chef Infra Client expects to find this file is ``~/.chef/config.rb``; use the ``--config`` option from the command line to change this location
 * Is not created by default
 * Is located by default at ``~/.chef/config.rb`` (UNIX and Linux platforms) or ``c:\Users\username\.chef`` (Microsoft Windows platform, use the ``--config`` option from the command line to change this location
 * Will override the default configuration when a config.rb file exists at the default path or the path specified by the ``--config`` option
@@ -27,7 +27,7 @@ This configuration file has the following settings:
    The path to a template file to be used during a bootstrap operation.
 
 ``chef_server_url``
-   The URL for the Chef server. For example:
+   The URL for the Chef Infra Server. For example:
 
    .. code-block:: ruby
 
@@ -48,7 +48,7 @@ This configuration file has the following settings:
       chef_zero[:port] 8889
 
 ``client_d_dir``
-   A directory that contains additional configuration scripts to load for chef-client.
+   A directory that contains additional configuration scripts to load for Chef Infra Client.
 
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``. For example:
@@ -67,7 +67,7 @@ This configuration file has the following settings:
    The type of license under which a cookbook is distributed: ``apachev2``, ``gplv2``, ``gplv3``, ``mit``, or ``none`` (default). This option places the appropriate license notice in the pre-created files: ``Apache v2.0`` (for ``apachev2``), ``GPL v2`` (for ``gplv2``), ``GPL v3`` (for ``gplv3``), ``MIT`` (for ``mit``), or ``license 'Proprietary - All Rights Reserved`` (for ``none``). Be aware of the licenses for files inside of a cookbook and be sure to follow any restrictions they describe.
 
 ``cookbook_path``
-   The sub-directory for cookbooks on the chef-client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications. For example:
+   The sub-directory for cookbooks on the Chef Infra Client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications. For example:
 
    .. code-block:: ruby
 
@@ -77,37 +77,37 @@ This configuration file has the following settings:
       ]
 
 ``data_bag_encrypt_version``
-   The minimum required version of data bag encryption. Possible values: ``1`` or ``2``. When all of the machines in an organization are running chef-client version 11.6 (or higher), it is recommended that this value be set to ``2``. For example:
+   The minimum required version of data bag encryption. Possible values: ``1`` or ``2``. When all of the machines in an organization are running Chef Client 11.6 (or higher), it is recommended that this value be set to ``2``. For example:
 
    .. code-block:: ruby
 
       data_bag_encrypt_version 2
 
 ``fips``
-  Allows OpenSSL to enforce FIPS-validated security during the chef-client run. Set to ``true`` to enable FIPS-validated security.
+  Allows OpenSSL to enforce FIPS-validated security during the Chef Infra Client run. Set to ``true`` to enable FIPS-validated security.
 
-  FIPS support is available in Chef client versions 12.8 and above. The following operating systems are supported:
+  FIPS support is available in Chef Client versions 12.8 and above. The following operating systems are supported:
 
   * Red Hat Enterprise Linux
   * Oracle Enterprise Linux
   * CentOS
   * Windows
 
-  Support for FIPS was introduced in Chef server version 12.13. The following operating systems are supported:
+  Support for FIPS was introduced in Chef Server version 12.13. The following operating systems are supported:
 
   * Red Hat Enterprise Linux
   * Oracle Enterprise Linux
   * CentOS
 
 ``local_mode``
-   Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo. For example:
+   Run the Chef Infra Client in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo. For example:
 
    .. code-block:: ruby
 
       local_mode true
 
 ``node_name``
-   The name of the node. This may be a username with permission to authenticate to the Chef server or it may be the name of the machine from which knife is run. For example:
+   The name of the node. This may be a username with permission to authenticate to the Chef Infra Server or it may be the name of the machine from which knife is run. For example:
 
    .. code-block:: ruby
 
@@ -140,7 +140,7 @@ This configuration file has the following settings:
    Set the verify mode for HTTPS requests.
 
    * Use ``:verify_none`` to do no validation of SSL certificates.
-   * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
+   * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the Chef Infra Client run. This is the recommended setting.
 
    Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
 
@@ -151,24 +151,24 @@ This configuration file has the following settings:
    Split the Tmux window. Default value: ``false``.
 
 ``validation_client_name``
-   The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run. For example:
+   The name of the chef-validator key that is used by the Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run. For example:
 
    .. code-block:: ruby
 
       validation_client_name 'chef-validator'
 
 ``validation_key``
-   The location of the file that contains the key used when a chef-client is registered with a Chef server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``. For example:
+   The location of the file that contains the key used when a Chef Infra Client is registered with a Chef Infra Server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``. For example:
 
    .. code-block:: ruby
 
       validation_key '/etc/chef/validation.pem'
 
 ``verify_api_cert``
-   Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
+   Verify the SSL certificate on the Chef Infra Server. When ``true``, the Chef Infra Client always verifies the SSL certificate. When ``false``, the Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
 ``versioned_cookbooks``
-   Append cookbook versions to cookbooks. Set to ``false`` to hide cookbook versions: ``cookbooks/apache``. Set to ``true`` to show cookbook versions: ``cookbooks/apache-1.0.0`` and/or ``cookbooks/apache-1.0.1``. When this setting is ``true``, ``knife download`` downloads ALL cookbook versions, which can be useful if a full-fidelity backup of data on the Chef server is required. For example:
+   Append cookbook versions to cookbooks. Set to ``false`` to hide cookbook versions: ``cookbooks/apache``. Set to ``true`` to show cookbook versions: ``cookbooks/apache-1.0.0`` and/or ``cookbooks/apache-1.0.1``. When this setting is ``true``, ``knife download`` downloads ALL cookbook versions, which can be useful if a full-fidelity backup of data on the Chef Infra Server is required. For example:
 
    .. code-block:: ruby
 
@@ -196,9 +196,9 @@ Proxy Settings
 -----------------------------------------------------
 .. tag config_rb_knife_settings_proxy
 
-In certain situations the proxy used by the Chef server requires authentication. In this situation, three settings must be added to the configuration file. Which settings to add depends on the protocol used to access the Chef server: HTTP or HTTPS.
+In certain situations the proxy used by the Chef Infra Server requires authentication. In this situation, three settings must be added to the configuration file. Which settings to add depends on the protocol used to access the Chef Infra Server: HTTP or HTTPS.
 
-If the Chef server is configured to use HTTP, add the following settings:
+If the Chef Infra Server is configured to use HTTP, add the following settings:
 
 ``http_proxy``
    The proxy server for HTTP connections. Default value: ``nil``. For example:
@@ -213,10 +213,10 @@ If the Chef server is configured to use HTTP, add the following settings:
 ``http_proxy_pass``
    The password for the proxy server when the proxy server is using an HTTP connection. Default value: ``nil``.
 
-If the Chef server is configured to use HTTPS (such as the hosted Chef server), add the following settings:
+If the Chef Infra Server is configured to use HTTPS (such as the hosted Chef Infra Server), add the following settings:
 
 ``https_proxy``
-   The proxy server for HTTPS connections. (The hosted Chef server uses an HTTPS connection.) Default value: ``nil``.
+   The proxy server for HTTPS connections. (The hosted Chef Infra Server uses an HTTPS connection.) Default value: ``nil``.
 
 ``https_proxy_user``
    The user name for the proxy server when the proxy server is using an HTTPS connection. Default value: ``nil``.
@@ -235,7 +235,7 @@ Use the following setting to specify URLs that do not need a proxy:
 =====================================================
 .. tag config_rb_client_dot_d_directories
 
-The chef-client supports reading multiple configuration files by putting them inside a ``.d`` configuration directory. For example: ``/etc/chef/client.d``. All files that end in ``.rb`` in the ``.d`` directory are loaded; other non-``.rb`` files are ignored.
+The Chef Infra Client supports reading multiple configuration files by putting them inside a ``.d`` configuration directory. For example: ``/etc/chef/client.d``. All files that end in ``.rb`` in the ``.d`` directory are loaded; other non-``.rb`` files are ignored.
 
 ``.d`` directories may exist in any location where the ``client.rb``, ``config.rb``, or ``solo.rb`` files are present, such as:
 
@@ -302,7 +302,7 @@ Some of the optional config.rb settings are used often, such as the template fil
    The path to a template file to be used during a bootstrap operation.
 
 ``knife[:bootstrap_version]``
-   The version of the chef-client to install.
+   The version of the Chef Infra Client to install.
 
 ``knife[:editor]``
    The $EDITOR that is used for all interactive commands.
@@ -335,10 +335,10 @@ Some organizations choose to have all data bags use the same secret and secret f
 ``knife[:secret_file]``
    The path to the file that contains the encryption key.
 
-Some settings are better left to Ohai, which will get the value at the start of the chef-client run:
+Some settings are better left to Ohai, which will get the value at the start of the Chef Infra Client run:
 
 ``knife[:server_name]``
-   Same as node_name. Recommended configuration is to allow Ohai to collect this value during each chef-client run.
+   Same as node_name. Recommended configuration is to allow Ohai to collect this value during each Chef Infra Client run.
 
 ``node_name``
    See the description above for this setting.

@@ -26,7 +26,7 @@ Optional components include:
 
 * **Push jobs server**
 
-  Runs push jobs, which is used to create infrastructure nodes for deployment testing and is also needed if you use push jobs-based build nodes as part of your testing and deployment process
+  Runs Push Jobs, which is used to create infrastructure nodes for deployment testing and is also needed if you use Push Jobs-based build nodes as part of your testing and deployment process
 
 * **Runners/build nodes**
 
@@ -63,7 +63,7 @@ Chef Automate deployments have the following hardware requirements:
        - 4
        - 16GB\*
        - 80GB
-     * - Chef server version 12.11.1 or above.
+     * - Chef Server version 12.11.1 or above.
        - 4
        - 8GB
        - 80GB
@@ -120,7 +120,7 @@ Chef Automate has the following network and port requirements. At a minimum the 
      - LISTEN
    * - 443
      - TCP HTTP Secure
-     - Chef server, Chef Automate server
+     - Chef Infra Server, Chef Automate server
      - LISTEN
    * - 22
      - TCP SSH
@@ -128,20 +128,20 @@ Chef Automate has the following network and port requirements. At a minimum the 
      - LISTEN
    * - 80
      - TCP HTTP
-     - Chef server, Chef Automate server
+     - Chef Infra Server, Chef Automate server
      - LISTEN
 
 .. note:: Any build nodes/runners must be accessible from the Chef Automate server over SSH and they must have a user account configured that has sudo privileges.
 
-Chef Server Configuration
+Chef Infra Server Configuration
 =====================================================
-Chef Automate associates with a Chef server for application/cookbook building and testing, as well as for the proxying of cluster data from nodes for visualization purposes. Because of the hardware requirements for both Chef server and Chef Automate, it is recommended that Chef server is installed on a separate node from Chef Automate server.
+Chef Automate associates with a Chef Infra Server for application/cookbook building and testing, as well as for the proxying of cluster data from nodes for visualization purposes. Because of the hardware requirements for both Chef Infra Server and Chef Automate, it is recommended that Chef Infra Server is installed on a separate node from Chef Automate server.
 
-If you have an existing Chef server installation, it is recommended that you have a separate organization for use with Chef Automate. This keeps any existing production organizations separate from the organization used by runners and infrastructure nodes in your Chef Automate cluster. Instructions for creating a new organization can be found in the `next section </install_chef_automate.html#create-a-user-and-organization-to-manage-your-cluster>`__.
+If you have an existing Chef Infra Server installation, it is recommended that you have a separate organization for use with Chef Automate. This keeps any existing production organizations separate from the organization used by runners and infrastructure nodes in your Chef Automate cluster. Instructions for creating a new organization can be found in the `next section </install_chef_automate.html#create-a-user-and-organization-to-manage-your-cluster>`__.
 
-If you already have an existing Chef server and wish to manage infrastructure nodes for deployment testing (or want to use push jobs-based build nodes), update it with the `push jobs server add-on </install_chef_automate.html#push-jobs-server-installation>`_.
+If you already have an existing Chef Infra Server and wish to manage infrastructure nodes for deployment testing (or want to use Push Jobs-based build nodes), update it with the `push jobs server add-on </install_chef_automate.html#push-jobs-server-installation>`_.
 
-If you don't have an existing Chef server installed and configured, follow the initial steps for your desired installation method (`standalone </install_server.html#standalone>`__ or `high availability </install_server_ha.html>`__) and then proceed to the `next section </install_chef_automate.html#create-a-user-and-organization-to-manage-your-cluster>`__ to create a user and organization for use with Chef Automate.
+If you don't have an existing Chef Infra Server installed and configured, follow the initial steps for your desired installation method (`standalone </install_server.html#standalone>`__ or `high availability </install_server_ha.html>`__) and then proceed to the `next section </install_chef_automate.html#create-a-user-and-organization-to-manage-your-cluster>`__ to create a user and organization for use with Chef Automate.
 
 Create a User and Organization to Manage Your Cluster
 -------------------------------------------------------
@@ -165,7 +165,7 @@ As noted above, it's a best practice to use a separate organization when managin
 
    The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``'Fourth Coffee, Inc.'``.
 
-   The ``--association_user`` (``-a``) option will associate the ``delivery`` user with the ``admins`` security group on the Chef server.
+   The ``--association_user`` (``-a``) option will associate the ``delivery`` user with the ``admins`` security group on the Chef Infra Server.
 
    An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -174,15 +174,15 @@ As noted above, it's a best practice to use a separate organization when managin
 Push Jobs Server Installation (Optional)
 ------------------------------------------------------
 
-Chef Automate, through the delivery-truck cookbook, can use push jobs to spin up infrastructure environments for deployment testing and can also be used to coordinate build jobs across build nodes when using the push jobs-based job dispatch system.
+Chef Automate, through the delivery-truck cookbook, can use Push Jobs to spin up infrastructure environments for deployment testing and can also be used to coordinate build jobs across build nodes when using the Push Jobs-based job dispatch system.
 
-Push jobs server is available as an add-on to Chef server. If you only wish to use push jobs for deployment testing, you can use runners and the new job dispatch system in conjunction with Push jobs server.
+Push jobs server is available as an add-on to Chef Infra Server. If you only wish to use Push Jobs for deployment testing, you can use runners and the new job dispatch system in conjunction with Push jobs server.
 
 .. note:: Chef Automate is fully compatible with Push jobs server 1.x and 2.x. Please use 2.x for new installations. Information about upgrading from Push jobs server version 1.x to 2.x can be be found `here </release_notes_push_jobs.html#upgrading-chef-automate-installation-to-use-push-jobs-server-2-1>`_.
 
-Download the appropriate package for your platform from `<https://downloads.chef.io/push-jobs-server/>`_  and copy it to the Chef server.  The location that it's been saved to is referred to as `PATH_TO_DOWNLOADED_PACKAGE`.
+Download the appropriate package for your platform from `<https://downloads.chef.io/push-jobs-server/>`_  and copy it to the Chef Infra Server.  The location that it's been saved to is referred to as `PATH_TO_DOWNLOADED_PACKAGE`.
 
-Run the command below on the Chef server:
+Run the command below on the Chef Infra Server:
 
 .. code-block:: bash
 
@@ -197,19 +197,19 @@ After it has been installed, you must reconfigure it to complete your setup of P
 Completing Setup
 -----------------------------------------------------
 
-Run the following command on the Chef server node to complete setup and
-configuration of Chef server.
+Run the following command on the Chef Infra Server node to complete setup and
+configuration of Chef Infra Server.
 
 .. code-block:: bash
 
    sudo chef-server-ctl reconfigure
 
-Running this ``reconfigure`` command may trigger a brief restart of your Chef server.  This will typically fall within the standard retry window for Chef clients, so no significant interruption of service is expected.
+Running this ``reconfigure`` command may trigger a brief restart of your Chef Infra Server.  This will typically fall within the standard retry window for Chef Infra Clients, so no significant interruption of service is expected.
 
 Chef Automate Server Installation and Configuration
 ========================================================
 
-Now that you have your Chef server set up, install and configure Chef Automate by doing the following:
+Now that you have your Chef Infra Server set up, install and configure Chef Automate by doing the following:
 
 .. note:: If you plan to use a private Supermarket with your Chef Automate server, please make sure it is set up correctly by following the steps in `Install Private Supermarket </install_supermarket.html>`_.
 
@@ -242,7 +242,7 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    Please refer to the troubleshooting section for more information about the error codes and remediation steps.
 
-#. Ensure that the Chef Automate license file and the ``delivery`` user key you created earlier in the Chef Server setup are located on the Chef Automate server.
+#. Ensure that the Chef Automate license file and the ``delivery`` user key you created earlier in the Chef Infra Server setup are located on the Chef Automate server.
 
 #. Run the ``setup`` command. This command requires root user privileges. Any unsupplied arguments will be prompted for.
 
@@ -261,9 +261,9 @@ Now that you have your Chef server set up, install and configure Chef Automate b
 
    .. note:: After your Chef Automate server is successfully setup, this file will be copied into the ``/var/opt/delivery/license`` directory as ``delivery.license``.
 
-   ``AUTOMATE_CHEF_USER_KEY`` is the ``delivery`` user key that you created on your Chef server. For example: ``/root/delivery.pem``.
+   ``AUTOMATE_CHEF_USER_KEY`` is the ``delivery`` user key that you created on your Chef Infra Server. For example: ``/root/delivery.pem``.
 
-   The ``--server-url`` is the URL of your Chef server, which contains the fully-qualified domain name of the Chef server and the name of the organization you created when you created the ``delivery`` user.
+   The ``--server-url`` is the URL of your Chef Infra Server, which contains the fully-qualified domain name of the Chef Infra Server and the name of the organization you created when you created the ``delivery`` user.
 
    ``AUTOMATE_SERVER_FQDN`` is the external fully-qualified domain name of the Chef Automate server. This is just the name of the system, not a URL. For example: ``host.4thcoffee.co``.
 
@@ -299,7 +299,7 @@ If you've applied the configuration, you will also be prompted to set up a Chef 
 
 After setup successfully completes and a configuration has been applied, login credentials are reported in the completion output; however, they are also saved to ``/etc/delivery/ENTERPRISE_NAME-admin-credentials``.
 
-And if you don't have DNS, specify the fully-qualified domain names for your Chef server and Chef Automate server in ``/etc/hosts``:
+And if you don't have DNS, specify the fully-qualified domain names for your Chef Infra Server and Chef Automate server in ``/etc/hosts``:
 
    .. code-block:: none
 
@@ -313,7 +313,7 @@ For more information about ``automate-ctl`` and how to use it, see `automate-ctl
 Configure node data collection
 ------------------------------------------------------------
 
-After you have set up your Chef Server and Chef Automate server, you must perform some simple configuration steps to visualize node data in Chef Automate. This process, along with more advanced data configuration scenarios, is detailed in `Configure Data Collection </data_collection.html>`__.
+After you have set up your Chef Infra Server and Chef Automate server, you must perform some simple configuration steps to visualize node data in Chef Automate. This process, along with more advanced data configuration scenarios, is detailed in `Configure Data Collection </data_collection.html>`__.
 
 Set up a build node/runner (Optional)
 ------------------------------------------------------------
@@ -326,7 +326,7 @@ Chef Automate's workflow engine automatically creates phase jobs as project code
 
 .. end_tag
 
-The following steps show how to set up a runner from a Chef Automate server. While push jobs-based build nodes are still supported, the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment. For instructions on how to set up a push jobs-based build node, see `Set up a build node </setup_build_node.html>`_.
+The following steps show how to set up a runner from a Chef Automate server. While Push Jobs-based build nodes are still supported, the new SSH-based system using runners is the default job dispatch system and should be used for any new deployment. For instructions on how to set up a Push Jobs-based build node, see `Set up a build node </setup_build_node.html>`_.
 
 #. If you have an on-premises Supermarket installation, copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt``.
 
@@ -348,7 +348,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
    The ``SSH_USERNAME`` provided must have ``sudo`` access on the intended runner, and at least one of ``--password PASSWORD`` or ``--ssh-identity-file FILE`` is required by Chef Automate in order to communicate with it.
 
-   If you require a specific version of ChefDK to be downloaded and installed on your runners, you can specify it in the ``--chefdk-version`` option. This is useful if your cookbooks are not compatible the Chef client that comes with the latest version of ChefDK.
+   If you require a specific version of ChefDK to be downloaded and installed on your runners, you can specify it in the ``--chefdk-version`` option. This is useful if your cookbooks are not compatible the Chef Infra Client that comes with the latest version of ChefDK.
 
    For more ``install-runner`` usage examples, see `install-runner </ctl_automate_server.html#install-runner>`__, and for more information on runners and the SSH-based job dispatch system, see `Runners </runners.html>`_.
 
@@ -360,11 +360,11 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
    Depending on whether you created runners or build nodes, you can view the logs at either ``/var/log/delivery-ctl/runner-install_$RUNNER_FDQN.log`` or ``/var/log/delivery-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
 
-   Any existing nodes with the same name as your runner's FQDN will be overwritten on the Chef server. This will remove any previous run lists or Chef Server configuration on this node. This is done in case the hostname was previously being used for something else. When calling ``install-runner``, it will give you a warning if you will overwrite a node before installation begins, which you can bypass by passing ``--yes``.
+   Any existing nodes with the same name as your runner's FQDN will be overwritten on the Chef Infra Server. This will remove any previous run lists or Chef Infra Server configuration on this node. This is done in case the hostname was previously being used for something else. When calling ``install-runner``, it will give you a warning if you will overwrite a node before installation begins, which you can bypass by passing ``--yes``.
 
 .. note:: Certain sensitive files are copied over to a temporary directory on the build node/runner. In the event of failure after these files have been copied, the installer will attempt to remove them. If it is unable to do so, it will provide you with instructions for doing so manually.
 
-.. note:: Setting up a build node or a runner involves a Chef client run on the target node. This requires the target node to be able to reach your installation's Chef server. Especially in setups that involve proxies, connectivity issues abound and lead to hard-to-spot errors. One indicator of not having interacted with the Chef server is this output in your Chef client run (note the "Server Response" section):
+.. note:: Setting up a build node or a runner involves a Chef Infra Client run on the target node. This requires the target node to be able to reach your installation's Chef Infra Server. Especially in setups that involve proxies, connectivity issues abound and lead to hard-to-spot errors. One indicator of not having interacted with the Chef Infra Server is this output in your Chef Infra Client run (note the "Server Response" section):
 
    .. code-block:: none
 
@@ -390,7 +390,7 @@ The ``http_proxy``, ``https_proxy`` and ``no_proxy`` environment variables will 
 to complete successfully. These can be set in the environment directly, or added to a config.rb file (for example, in ``/root/.chef/config.rb``).
 
 Any host that needs to make outgoing http or https connections will require these settings as well. For example, the Chef Automate server
-(which makes knife calls to Chef server) and Chef server (for push jobs) should have these configured. To update the Chef Automate server, update ``/etc/delivery/delivery.rb`` on your Chef Automate server with the values specified in `Proxy Settings </config_rb_delivery.html#proxy-settings>`_. After you have configured your settings, run ``sudo automate-ctl reconfigure``.
+(which makes knife calls to Chef Infra Server) and Chef Infra Server (for Push Jobs) should have these configured. To update the Chef Automate server, update ``/etc/delivery/delivery.rb`` on your Chef Automate server with the values specified in `Proxy Settings </config_rb_delivery.html#proxy-settings>`_. After you have configured your settings, run ``sudo automate-ctl reconfigure``.
 
 For general information on proxy settings, please see `Working with Proxies </proxies.html>`__.
 
@@ -409,7 +409,7 @@ Chef Automate contains a compliance profiles asset store that provides several b
 Scanning
 ------------------------------------------------------------
 
-Allows nodes to execute infrastructure tests or compliance profiles as part of the chef-client runs. For more details, see `Perform a Compliance Scan in Chef Automate </perform_compliance_scan.html>`_.
+Allows nodes to execute infrastructure tests or compliance profiles as part of the Chef Infra Client runs. For more details, see `Perform a Compliance Scan in Chef Automate </perform_compliance_scan.html>`_.
 
 Troubleshooting
 ===================================================================

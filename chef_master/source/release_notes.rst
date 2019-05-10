@@ -3123,7 +3123,7 @@ The launchd resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 
 Properties
@@ -3593,7 +3593,7 @@ This resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 ``:purge``
    Purge a package. This action typically removes the configuration files as well as the package.
@@ -3787,7 +3787,7 @@ The osx_profile resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 ``:remove``
    Remove the specified configuration profile.
@@ -3932,7 +3932,7 @@ The apt_update resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 ``:periodic``
    Update the Apt repository at the interval specified by the ``frequency`` property.
@@ -7162,7 +7162,7 @@ This resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 ``:remove``
    Remove a package.
@@ -7332,7 +7332,7 @@ The openbsd_package resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 ``:remove``
    Remove a package.
@@ -8244,7 +8244,7 @@ The bff_package resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 ``:purge``
    Purge a package. This action typically removes the configuration files as well as the package.
@@ -8437,7 +8437,7 @@ The homebrew_package resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 ``:purge``
    Purge a package. This action typically removes the configuration files as well as the package.
@@ -8646,7 +8646,7 @@ The reboot resource has the following actions:
 
 ``:nothing``
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
 ``:reboot_now``
    Reboot a node so that the chef-client may continue the installation process.

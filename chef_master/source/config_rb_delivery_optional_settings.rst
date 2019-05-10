@@ -86,8 +86,8 @@ This configuration file has the following settings for ``backup``:
    Back up Chef Automate Census data. Default value: ``true``.
 
 ``backup['chef_server_config']``
-   Back up the Chef server configuration directory.  Usefull for instances
-   when Chef Automate and Chef server are installed on a single node. Default
+   Back up the Chef Infra Server configuration directory.  Usefull for instances
+   when Chef Automate and Chef Infra Server are installed on a single node. Default
    value: ``false``.
 
 ``backup['compliance_profiles']['enabled']``
@@ -760,7 +760,7 @@ This configuration file has the following settings for ``nginx``:
       ]
 
 ``nginx['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``nginx['keepalive_timeout']``
    The amount of time (in seconds) to wait for requests on a Keepalived connection. Default value: ``65``.
@@ -803,7 +803,7 @@ This configuration file has the following settings for ``nginx``:
    The city in which your company is located. Default value: "Seattle".
 
 ``nginx['ssl_organizational_unit_name']``
-   The organization or group within your company that is running the Chef server. Default value: "Engineering".
+   The organization or group within your company that is running the Chef Infra Server. Default value: "Engineering".
 
 ``nginx['ssl_port']``
    Default value: ``443``.
@@ -908,7 +908,7 @@ This configuration file has the following settings for ``postgresql``:
    Enable a service. Default value: ``true``.
 
 ``postgresql['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``postgresql['home']``
    The home directory for PostgreSQL. Default value: ``"/var/opt/delivery/postgresql"``.

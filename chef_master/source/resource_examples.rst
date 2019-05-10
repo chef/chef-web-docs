@@ -873,7 +873,7 @@ breakpoint
 =====================================================
 .. tag resource_breakpoint_summary
 
-Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in chef-client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the chef-client during an actual chef-client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef server.
+Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in Chef Infra Client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the Chef Infra Client during an actual Chef Infra Client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef Infra Server.
 
 .. end_tag
 
@@ -1067,7 +1067,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 .. tag handler_custom_example_cookbook_versions
 
-Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during the chef-client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
+Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during the Chef Infra Client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
 
 .. end_tag
 
@@ -1075,7 +1075,7 @@ cookbook_versions.rb:
 
 .. tag handler_custom_example_cookbook_versions_handler
 
-The following custom handler defines how cookbooks and cookbook versions that are used during the chef-client run will be compiled into a report using the ``Chef::Log`` class in the chef-client:
+The following custom handler defines how cookbooks and cookbook versions that are used during the Chef Infra Client run will be compiled into a report using the ``Chef::Log`` class in the Chef Infra Client:
 
 .. code-block:: ruby
 
@@ -1097,7 +1097,7 @@ default.rb:
 
 .. tag handler_custom_example_cookbook_versions_recipe
 
-The following recipe is added to the run-list for every node on which a list of cookbooks and versions will be generated as report output after every chef-client run.
+The following recipe is added to the run-list for every node on which a list of cookbooks and versions will be generated as report output after every Chef Infra Client run.
 
 .. code-block:: ruby
 
@@ -1134,7 +1134,7 @@ This recipe will generate report output similar to the following:
 
 The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb>`_ handler is available from the **chef_handler** cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the chef-client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -1184,9 +1184,9 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 .. tag handler_custom_example_error_report
 
-The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into the chef-client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
+The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into the Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the chef-client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -1242,7 +1242,7 @@ cookbook_file
 =====================================================
 .. tag resource_cookbook_file_summary
 
-Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the chef-client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
+Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
 
 .. end_tag
 
@@ -2424,7 +2424,7 @@ where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
 * the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
-* the **template** resource tells the chef-client which template to use
+* the **template** resource tells the Chef Infra Client which template to use
 
 .. end_tag
 
@@ -3603,7 +3603,7 @@ ohai
 =====================================================
 .. tag resource_ohai_summary
 
-Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the chef-client run.
+Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the Chef Infra Client run.
 
 .. end_tag
 
@@ -4677,7 +4677,7 @@ or a single-quoted string:
 
 .. note:: .. tag notes_registry_key_resource_recursive
 
-          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the chef-client.
+          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
           .. end_tag
 

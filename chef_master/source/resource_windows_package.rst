@@ -42,7 +42,7 @@ where:
 
 * ``windows_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra will take to bring the node into the desired state.
 * ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 .. end_tag
@@ -59,7 +59,7 @@ The windows_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -77,7 +77,7 @@ The windows_package resource has the following properties:
 ``checksum``
    **Ruby Type:** String
 
-   The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
+   The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the Chef Infra Client does not download it. Use when a URL is specified by the ``source`` property.
 
 ``installer_type``
    **Ruby Type:** Symbol

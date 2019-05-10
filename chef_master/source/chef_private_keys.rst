@@ -5,7 +5,7 @@ Public and Private Keys
 
 .. tag security_chef_validator
 
-Every request made by the chef-client to the Chef server must be an authenticated request using the Chef server API and a private key. When the chef-client makes a request to the Chef server, the chef-client authenticates each request using a private key located in ``/etc/chef/client.pem``.
+Every request made by the Chef Infra Client to the Chef Infra Server must be an authenticated request using the Chef Infra Server API and a private key. When the Chef Infra Client makes a request to the Chef Infra Server, the Chef Infra Client authenticates each request using a private key located in ``/etc/chef/client.pem``.
 
 .. end_tag
 
@@ -13,19 +13,19 @@ How are Keys Used?
 =====================================================
 .. tag chef_auth_authentication
 
-The authentication process ensures the Chef server responds only to requests made by trusted users. Public key encryption is used by the Chef server. When a node and/or a workstation is configured to run the chef-client, both public and private keys are created. The public key is stored on the Chef server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
+The authentication process ensures the Chef Infra Server responds only to requests made by trusted users. Public key encryption is used by the Chef Infra Server. When a node and/or a workstation is configured to run the Chef Infra Client, both public and private keys are created. The public key is stored on the Chef Infra Server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
 
-Both the chef-client and knife use the Chef server API when communicating with the Chef server. The chef-validator uses the Chef server API, but only during the first chef-client run on a node.
+Both the Chef Infra Client and knife use the Chef Infra Server API when communicating with the Chef Infra Server. The chef-validator uses the Chef Infra Server API, but only during the first Chef Infra Client run on a node.
 
-Each request to the Chef server from those executables sign a special group of HTTP headers with the private key. The Chef server then uses the public key to verify the headers and verify the contents.
+Each request to the Chef Infra Server from those executables sign a special group of HTTP headers with the private key. The Chef Infra Server then uses the public key to verify the headers and verify the contents.
 
 .. end_tag
 
-chef-client
+Chef Infra Client
 -----------------------------------------------------
 .. tag security_key_pairs_chef_client
 
-RSA public key-pairs are used to authenticate the chef-client with the Chef server every time a chef-client needs access to data that is stored on the Chef server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef server can be managed.
+RSA public key-pairs are used to authenticate the Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
 
 .. end_tag
 
@@ -33,21 +33,21 @@ Knife
 -----------------------------------------------------
 .. tag security_key_pairs_knife
 
-RSA public key-pairs are used to authenticate knife with the Chef server every time knife attempts to access the Chef server. This ensures that each instance of knife is properly registered with the Chef server and that only trusted users can make changes to the data.
+RSA public key-pairs are used to authenticate knife with the Chef Infra Server every time knife attempts to access the Chef Infra Server. This ensures that each instance of knife is properly registered with the Chef Infra Server and that only trusted users can make changes to the data.
 
 .. end_tag
 
-knife can also use the ``knife exec`` subcommand to make specific, authenticated requests to the Chef server. knife plugins can also make authenticated requests to the Chef server by leveraging the ``knife exec`` subcommand.
+knife can also use the ``knife exec`` subcommand to make specific, authenticated requests to the Chef Infra Server. knife plugins can also make authenticated requests to the Chef Infra Server by leveraging the ``knife exec`` subcommand.
 
 chef-validator
 -----------------------------------------------------
 .. tag security_chef_validator_context
 
-However, during the first chef-client run, this private key does not exist. Instead, the chef-client will attempt to use the private key assigned to the chef-validator, located in ``/etc/chef/validation.pem``. (If, for any reason, the chef-validator is unable to make an authenticated request to the Chef server, the initial chef-client run will fail.)
+However, during the first Chef Infra Client run, this private key does not exist. Instead, the Chef Infra Client will attempt to use the private key assigned to the chef-validator, located in ``/etc/chef/validation.pem``. (If, for any reason, the chef-validator is unable to make an authenticated request to the Chef Infra Server, the initial Chef Infra Client run will fail.)
 
-During the initial chef-client run, the chef-client will register with the Chef server using the private key assigned to the chef-validator, after which the chef-client will obtain a ``client.pem`` private key for all future authentication requests to the Chef server.
+During the initial Chef Infra Client run, the Chef Infra Client will register with the Chef Infra Server using the private key assigned to the chef-validator, after which the Chef Infra Client will obtain a ``client.pem`` private key for all future authentication requests to the Chef Infra Server.
 
-After the initial chef-client run has completed successfully, the chef-validator is no longer required and may be deleted from the node. Use the ``delete_validation`` recipe found in the ``chef-client`` cookbook (https://github.com/chef-cookbooks/chef-client) to remove the chef-validator.
+After the initial Chef Infra Client run has completed successfully, the chef-validator is no longer required and may be deleted from the node. Use the ``delete_validation`` recipe found in the ``chef-client`` cookbook (https://github.com/chef-cookbooks/chef-client) to remove the chef-validator.
 
 .. end_tag
 
@@ -57,11 +57,11 @@ Keys are stored in different locations, depending on if the location is a node o
 
 Nodes
 -----------------------------------------------------
-Each node stores its private key locally. This private key is generated as part of the bootstrap process that initially installs the chef-client on the node. The first time chef-client runs on that node, it uses the chef-validator to authenticate, but then on each subsequent run it uses the private key generated for that client by the Chef server.
+Each node stores its private key locally. This private key is generated as part of the bootstrap process that initially installs the Chef Infra Client on the node. The first time Chef Infra Client runs on that node, it uses the chef-validator to authenticate, but then on each subsequent run it uses the private key generated for that client by the Chef Infra Server.
 
 Workstations
 -----------------------------------------------------
-Each workstation stores its private key in the chef-repo. This private key is generated by the Chef server and must be download from the server and copied to the ``.chef`` directory in the chef-repo. If a new private key is required, simply regenerate it from the Chef server and re-copy it to the chef-repo.
+Each workstation stores its private key in the chef-repo. This private key is generated by the Chef Infra Server and must be download from the server and copied to the ``.chef`` directory in the chef-repo. If a new private key is required, simply regenerate it from the Chef Infra Server and re-copy it to the chef-repo.
 
 .. tag chef_repo_description
 
@@ -74,7 +74,7 @@ The chef-repo is a directory on your workstation that stores:
 
 The chef-repo directory should be synchronized with a version control system, such as git. All of the data in the chef-repo should be treated like source code.
 
-knife is used to upload data to the Chef server from the chef-repo directory. Once uploaded, that data is used by the chef-client to manage all of the nodes that are registered with the Chef server and to ensure that the correct cookbooks, environments, roles, and other settings are applied to nodes correctly.
+knife is used to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, that data is used by the Chef Infra Client to manage all of the nodes that are registered with the Chef Infra Server and to ensure that the correct cookbooks, environments, roles, and other settings are applied to nodes correctly.
 
 .. end_tag
 
@@ -86,4 +86,4 @@ The .chef directory is a hidden directory that is used to store validation key f
 
 Generating Keys
 =====================================================
-The Chef server generates two types of private keys: one for nodes and workstations (typically referred to as a "client key") and the other for the organization. If (for any reason) a new key is required, the Chef server can re-generate these keys.
+The Chef Infra Server generates two types of private keys: one for nodes and workstations (typically referred to as a "client key") and the other for the organization. If (for any reason) a new key is required, the Chef Infra Server can re-generate these keys.

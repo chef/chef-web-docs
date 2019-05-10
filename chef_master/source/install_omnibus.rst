@@ -77,13 +77,13 @@ Examples
 
 The following examples show how to use the install script.
 
-To install chef-client version 14.4.56:
+To install Chef Client 14.4.56:
 
 .. code-block:: bash
 
    $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 14.4.56
 
-To install the latest version of the Chef development kit on Microsoft Windows from the ``current`` channel:
+To install the latest version of ChefDK on Microsoft Windows from the ``current`` channel:
 
 .. code-block:: none
 

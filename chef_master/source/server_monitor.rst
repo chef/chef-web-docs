@@ -3,17 +3,17 @@ Monitor
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_monitor.rst>`__
 
-Monitoring the Chef server involves two types of checks: application and system. In addition monitoring the HTTP requests that workstations and nodes are making to the Chef server and per-disk data storage volumes is recommended.
+Monitoring the Chef Infra Server involves two types of checks: application and system. In addition monitoring the HTTP requests that workstations and nodes are making to the Chef Infra Server and per-disk data storage volumes is recommended.
 
 Monitoring Priorities
 =====================================================
-The following sections describe the priorities for monitoring of the Chef server. In particular, running out of disk space is the primary cause of failure.
+The following sections describe the priorities for monitoring of the Chef Infra Server. In particular, running out of disk space is the primary cause of failure.
 
 Disks
 -----------------------------------------------------
-Over time, and with enough data, disks will fill up or exceed the per-disk quotas that may have been set for them and they will not be able to write data. A disk that is not able to write data will not be able to support certain components of the Chef server, such as PostgreSQL, RabbitMQ, service log files, and deleted file handles. Monitoring disk usage is the best way to ensure that disks don't fill up or exceed their quota.
+Over time, and with enough data, disks will fill up or exceed the per-disk quotas that may have been set for them and they will not be able to write data. A disk that is not able to write data will not be able to support certain components of the Chef Infra Server, such as PostgreSQL, RabbitMQ, service log files, and deleted file handles. Monitoring disk usage is the best way to ensure that disks don't fill up or exceed their quota.
 
-Use the following commands to monitor global disk usage on a Chef server with a typical installation:
+Use the following commands to monitor global disk usage on a Chef Infra Server with a typical installation:
 
 .. code-block:: bash
 
@@ -25,13 +25,13 @@ and:
 
    $ du -sh /var/log/opscode
 
-To keep the Chef server healthy, both ``/var/opt/opscode`` and ``/var/log/opscode`` should never exceed 80% use. In situations where disk space grows at a rapid pace, it may be preferable to shut down the Chef server and contact Chef support.
+To keep the Chef Infra Server healthy, both ``/var/opt/opscode`` and ``/var/log/opscode`` should never exceed 80% use. In situations where disk space grows at a rapid pace, it may be preferable to shut down the Chef Infra Server and contact Chef support.
 
 The following components should be monitored for signs that disks may be rapidly filling up:
 
-* **PostgreSQL** PostgreSQL is the data store for the Chef server.
+* **PostgreSQL** PostgreSQL is the data store for the Chef Infra Server.
 * **RabbitMQ** The RabbitMQ data folder can fill up if the **opscode-expander** service is not able to keep up with the data being moved into the search database by RabbitMQ. When the **opscode-expander** service falls behind, RabbitMQ will start storing the individual messages on-disk while it waits for the **opscode-expander** service to catch up. If the RabbitMQ disk fills up completely, RabbitMQ will need to be restarted to free up the disk space and any data that was stored on-disk will be lost.
-* **Log files** If ``/var/log/opscode`` is taking up a lot of disk space, ensure that the Chef server log rotation cron job is running without errors. These errors can be found in ``/var/log/messages``, ``/var/log/syslog`` and/or the root user's local mail.
+* **Log files** If ``/var/log/opscode`` is taking up a lot of disk space, ensure that the Chef Infra Server log rotation cron job is running without errors. These errors can be found in ``/var/log/messages``, ``/var/log/syslog`` and/or the root user's local mail.
 * **Deleted file handles** Running processes with file handles associated with one (or more) deleted files will prevent the disk space being used by the deleted files from being reclaimed. Use the ``sudo lsof | grep '(deleted)'`` command to find all deleted file handles.
 
 Application Checks
@@ -40,7 +40,7 @@ Application-level checks should be done periodically to ensure that there is eno
 
 Erlang
 -----------------------------------------------------
-Many components of the Chef server are written using Erlang and run on the BEAM virtual machine. One feature of Erlang and BEAM is the ability to interact with the running service using a command shell. For example:
+Many components of the Chef Infra Server are written using Erlang and run on the BEAM virtual machine. One feature of Erlang and BEAM is the ability to interact with the running service using a command shell. For example:
 
 .. code-block:: bash
 
@@ -87,13 +87,13 @@ Some commands should not be entered when interacting with a running service whil
 
 ``eper`` tools
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-As root on the Chef server, point to the bundled ``eper`` package of debugging tools. Replace the 2nd and 5th path entries and the ``X.XX.X`` value in the following path with the items that occur on the system.
+As root on the Chef Infra Server, point to the bundled ``eper`` package of debugging tools. Replace the 2nd and 5th path entries and the ``X.XX.X`` value in the following path with the items that occur on the system.
 
 .. code-block:: bash
 
    $ export ERL_LIB=:/opt/{chef-server,opscode}/embedded/service/{erchef,opscode-erchef}/lib/eper-X.XX.X/ebin/
 
-Open an Erlang command shell to begin diagnosing service issues on the Chef server:
+Open an Erlang command shell to begin diagnosing service issues on the Chef Infra Server:
 
 .. code-block:: bash
 
@@ -191,7 +191,7 @@ to return something similar to:
 
 Redis
 -----------------------------------------------------
-The **redis_lb** service located on the back end machine handles requests that are made from the Nginx service that is located on all front end machines in a Chef server cluster.
+The **redis_lb** service located on the back end machine handles requests that are made from the Nginx service that is located on all front end machines in a Chef Infra Server cluster.
 
 In the event of a disk full condition for the Redis data store, the ``dump.rdb`` (the primary data store ``.rdb`` used by Redis) can become corrupt and saved as a zero byte file.
 
@@ -237,7 +237,7 @@ This situation is caused by a bug in Redis where saves are allowed to succeed ev
       less /var/log/opscode/redis_lb/current
       2015-03-23_17:05:18.82516 [28676] 23 Mar 17:05:18.825 * The server is now ready to accept connections on port 16379
 
-4. Reconfigure the Chef server to re-populate Redis:
+4. Reconfigure the Chef Infra Server to re-populate Redis:
 
    .. code-block:: bash
 
@@ -252,13 +252,13 @@ This situation is caused by a bug in Redis where saves are allowed to succeed ev
 
 Apache Solr
 -----------------------------------------------------
-The **opscode-solr4** service located on the primary back end machine handles requests that are made from the Erchef service that is located on all front end machines in a Chef server cluster.
+The **opscode-solr4** service located on the primary back end machine handles requests that are made from the Erchef service that is located on all front end machines in a Chef Infra Server cluster.
 
 Under normal circumstances, opscode-solr4 will need access to a total of 2x the space used for the index.
 
-The thread at http://comments.gmane.org/gmane.comp.jakarta.lucene.solr.user/99149 explains more fully, including describing an extreme case where it's possible that 3x the storage might be necessary. Chef server usage of Apache Solr via the **opscode-solr4** service will generally only require the used storage for the index + 1x that amount of storage in free space.
+The thread at http://comments.gmane.org/gmane.comp.jakarta.lucene.solr.user/99149 explains more fully, including describing an extreme case where it's possible that 3x the storage might be necessary. Chef Infra Server usage of Apache Solr via the **opscode-solr4** service will generally only require the used storage for the index + 1x that amount of storage in free space.
 
-For example, a 2GB search index will require about 2GB of free space available in the **opscode-solr4** service's storage area. The standard storage area for the **opscode-solr4** service in a standalone topology Chef server install is ``/var/opt/opscode/opscode-solr4/data``.
+For example, a 2GB search index will require about 2GB of free space available in the **opscode-solr4** service's storage area. The standard storage area for the **opscode-solr4** service in a standalone topology Chef Infra Server install is ``/var/opt/opscode/opscode-solr4/data``.
 
 System Checks
 =====================================================
@@ -268,28 +268,28 @@ chef-backend-ctl status
 -----------------------------------------------------
 The ``chef-backend-ctl status`` subcommand is used to check the status of services running in the `Chef Backend server topology </install_server_ha.html>`__. This command will verify the status of the following services on the node it is run on:
 
-* ``leaderl`` 
-* ``postgresql`` 
+* ``leaderl``
+* ``postgresql``
 * ``etcd``
-*  ``epmd`` 
+*  ``epmd``
 * ``elasticsearch``
 
 It will also check on the status of other nodes in the cluster, from the current node's perspective. For example:
 
 .. code-block:: bash
 
-   $ chef-backend-ctl status 
-   Service Local Status Time in State Distributed Node Status 
-   leaderl running (pid 1191) 53d 15h 11m 12s leader: 1; waiting: 0; follower: 2;    total: 3 
-   epmd running (pid 1195) 53d 15h 11m 12s status: local-only 
-   etcd running (pid 1189) 53d 15h 11m 12s health: green; healthy nodes: 3/3 
-   postgresql running (pid 40686) 0d 12h 36m 23s leader: 1; offline: 0; syncing: 0;    synced: 2 
+   $ chef-backend-ctl status
+   Service Local Status Time in State Distributed Node Status
+   leaderl running (pid 1191) 53d 15h 11m 12s leader: 1; waiting: 0; follower: 2;    total: 3
+   epmd running (pid 1195) 53d 15h 11m 12s status: local-only
+   etcd running (pid 1189) 53d 15h 11m 12s health: green; healthy nodes: 3/3
+   postgresql running (pid 40686) 0d 12h 36m 23s leader: 1; offline: 0; syncing: 0;    synced: 2
    elasticsearch running (pid 47423) 0d 12h 18m 6s state: green; nodes online: 3/3
-   
-   System Local Status Distributed Node Status 
+
+   System Local Status Distributed Node Status
    disks /var/log/chef-backend: OK; /var/opt/chef-backend: OK health: green; healthy    nodes: 3/3
 
-More information about each service can be found in the individual service logs in ``/var/opt/chef-backend/``. 
+More information about each service can be found in the individual service logs in ``/var/opt/chef-backend/``.
 
 opscode-authz
 -----------------------------------------------------
@@ -328,11 +328,11 @@ For each of the upstream services, ``pong`` or ``fail`` is returned. The possibl
 * ``chef_sql`` (for the **postgresql** service)
 * ``oc_chef_authz`` (for the **opscode-authz** service)
 
-If any of the status values return ``fail``, this typically means the Chef server is unavailable for that service.
+If any of the status values return ``fail``, this typically means the Chef Infra Server is unavailable for that service.
 
 opscode-expander
 -----------------------------------------------------
-As the queue depth increases it may take longer for updates posted to the Chef server by each chef-client to be added to the search indexes on the Chef server. The depth of this queue should be monitored using the following command:
+As the queue depth increases it may take longer for updates posted to the Chef Infra Server by each Chef Infra Client to be added to the search indexes on the Chef Infra Server. The depth of this queue should be monitored using the following command:
 
 .. code-block:: bash
 
@@ -343,7 +343,7 @@ Search Indexes
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search
 
-Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
+Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef Infra Server API. The search engine is based on Apache Solr and is run from the Chef Infra Server.
 
 .. end_tag
 
@@ -423,4 +423,3 @@ to return something similar to:
 Nodes, Workstations
 =====================================================
 If a client makes an HTTP request to the server that returns a non-specific error message, this is typically an issue with the **opscode-chef** or **opscode-erchef** services. View the full error message for these services in their respective log files. The error is most often a stacktrace from the application error. In some cases, the error message will clearly indicate a problem with another service, which can then be investigated further. For non-obvious errors, please contact Chef support services.
-

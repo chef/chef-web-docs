@@ -3,11 +3,11 @@ AWS Marketplace
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/aws_marketplace.rst>`__
 
-Chef provides Amazon Machine Images (AMIs) for Chef Automate and Chef server that can be launched from the `AWS Marketplace <https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c>`__. Hourly metered billing and Bring Your Own License (BYOL) options are available.
+Chef provides Amazon Machine Images (AMIs) for Chef Automate and Chef Infra Server that can be launched from the `AWS Marketplace <https://aws.amazon.com/marketplace/seller-profile/ref=srh_res_product_vendor?ie=UTF8&id=e7b7691e-634a-4d35-b729-a8b576175e8c>`__. Hourly metered billing and Bring Your Own License (BYOL) options are available.
 
 Metered AMI
 -----------------------------------------------------
-The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef server on a single instance. When using the metered billing AMI, an hourly aggregate of your Chef Automate usage is calculated and billed through your Amazon Web Services (AWS) account. Follow the steps in the sections below to use the Chef Automate metered billing AMI:
+The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef Infra Server on a single instance. When using the metered billing AMI, an hourly aggregate of your Chef Automate usage is calculated and billed through your Amazon Web Services (AWS) account. Follow the steps in the sections below to use the Chef Automate metered billing AMI:
 
 Accept software terms
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -75,7 +75,7 @@ Launch the Metered AMI
 
 Bring Your Own License (BYOL) AMI
 -----------------------------------------------------
-The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef server on a single instance. The BYOL image includes a 30 day trial license, but it can also be configured to use an existing Chef Automate license that you have procured from Chef.  Follow the steps in the sections below to use the Chef Automate metered billing AMI:
+The Chef Automate Amazon Machine Image (AMI) is preinstalled with Chef Automate and Chef Infra Server on a single instance. The BYOL image includes a 30 day trial license, but it can also be configured to use an existing Chef Automate license that you have procured from Chef.  Follow the steps in the sections below to use the Chef Automate metered billing AMI:
 
 Accept software terms
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -151,11 +151,11 @@ Launch the BYOL AMI
 
 Install Chef Workstation
 -----------------------------------------------------
-While the Amazon Machine Images (AMI) for Chef Automate is provisioning, download and install Chef Workstation. Chef Workstation is a collection of tools and libraries that are packaged together to make it easy to develop cookbooks and resources for a Chef / Chef Automate environment. You'll need this to interact with Chef Automate and Chef server from the command line.
+While the Amazon Machine Images (AMI) for Chef Automate is provisioning, download and install Chef Workstation. Chef Workstation is a collection of tools and libraries that are packaged together to make it easy to develop cookbooks and resources for a Chef / Chef Automate environment. You'll need this to interact with Chef Automate and Chef Infra Server from the command line.
 
 Configure Chef Automate
 -----------------------------------------------------
-After the instance has been provisioned and initial configuration has completed (usually 10 to 13 minutes) finish configuring Chef Automate and Chef server.
+After the instance has been provisioned and initial configuration has completed (usually 10 to 13 minutes) finish configuring Chef Automate and Chef Infra Server.
 
 #. Access the intial configuration page by loading ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the IP address or public hostname that was automatically assigned to the instance when the Amazon Machine Images (AMI) was launched.  For example, ``https://<fqdn>/biscotti/setup``. If you used the BYOL image, the CloudFormation stack will have the setup URL in the ``Outputs`` section.
 
@@ -185,7 +185,7 @@ Configure the workstation
 
 #. .. tag install_aws_chef_server_knife_client_list
 
-   Run ``knife client list`` to test the connection to the Chef server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization that was created previously.
+   Run ``knife client list`` to test the connection to the Chef Infra Server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization that was created previously.
 
    .. end_tag
 
@@ -229,9 +229,9 @@ To update the hostname, do the following:
 
       $ echo 'api_fqdn "<new.fully.qualified.hostname.com>"' | sudo tee -a /etc/chef-marketplace/marketplace.rb
 
-#. Run ``chef-marketplace-ctl reconfigure`` to update Chef Automate and Chef server configuration.
+#. Run ``chef-marketplace-ctl reconfigure`` to update Chef Automate and Chef Infra Server configuration.
 
-#. Run ``chef-server-ctl stop`` to stop Chef server.
+#. Run ``chef-server-ctl stop`` to stop Chef Infra Server.
 
 #. Run ``automate-ctl stop`` to stop Chef Automate.
 
@@ -239,7 +239,7 @@ To update the hostname, do the following:
 
 #. Run ``automate-ctl reconfigure`` to ensure Chef Automate has been correctly configured with the new hostname.
 
-#. Run ``chef-server-ctl reconfigure`` to ensure Chef server has been correctly configured with the new hostname.
+#. Run ``chef-server-ctl reconfigure`` to ensure Chef Infra Server has been correctly configured with the new hostname.
 
 #. Run ``automate-ctl restart`` to restart Chef Automate
 
@@ -255,7 +255,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
       $ ssh -i /path/to/ssh_key.pem ec2-user@<instance IP address>
 
-#. Stop the Chef server services:
+#. Stop the Chef Infra Server services:
 
    .. code-block:: bash
 
@@ -335,13 +335,13 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
 #. .. tag install_aws_chef_server_knife_ssl_fetch
 
-   Run ``knife ssl fetch`` to add the Chef server SSL certificate as a trusted SSL certificate.
+   Run ``knife ssl fetch`` to add the Chef Infra Server SSL certificate as a trusted SSL certificate.
 
    .. end_tag
 
 #. .. tag install_aws_chef_server_knife_client_list
 
-   Run ``knife client list`` to test the connection to the Chef server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization that was created previously.
+   Run ``knife client list`` to test the connection to the Chef Infra Server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization that was created previously.
 
    .. end_tag
 
@@ -355,9 +355,9 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
 Upgrade Chef Automate
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The Chef Automate Amazon Machine Images (AMI) can perform in-place upgrades of all of the pre-bundled software. This makes it easy to stay up-to-date with the latest version of Chef Automate, the Chef server and Chef Marketplace, while not requiring data to be migrated to the latest published Amazon Machine Images (AMI).
+The Chef Automate Amazon Machine Images (AMI) can perform in-place upgrades of all of the pre-bundled software. This makes it easy to stay up-to-date with the latest version of Chef Automate, the Chef Infra Server and Chef Marketplace, while not requiring data to be migrated to the latest published Amazon Machine Images (AMI).
 
-There are three options: upgrade Chef Automate, upgrade Chef server, upgrade Chef Marketplace; upgrade everything.
+There are three options: upgrade Chef Automate, upgrade Chef Infra Server, upgrade Chef Marketplace; upgrade everything.
 
 To upgrade, do one of the following:
 
@@ -367,15 +367,15 @@ To upgrade, do one of the following:
 
      $ sudo chef-marketplace-ctl upgrade --automate
 
-  .. note:: Chef Automate and Chef server services will be unavailable while the software is updated.
+  .. note:: Chef Automate and Chef Infra Server services will be unavailable while the software is updated.
 
-* Upgrade the Chef server package by using the following command:
+* Upgrade the Chef Infra Server package by using the following command:
 
   .. code-block:: bash
 
      $ sudo chef-marketplace-ctl upgrade --server
 
-  .. note:: Chef server services will be unavailable while the software is updated.
+  .. note:: Chef Infra Server services will be unavailable while the software is updated.
 
 * Upgrade the Chef Marketplace package by using the following command:
 
@@ -391,15 +391,15 @@ To upgrade, do one of the following:
 
 Migrate to Chef Automate on AWS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The process of migrating from an existing Chef server installation to the Amazon Machine Images (AMI) differs depending on which software version is being used and the location in which it is deployed. In all scenarios, data is first migrated to the latest Chef server schema, after which it is migrated to the Amazon Machine Images (AMI).
+The process of migrating from an existing Chef Infra Server installation to the Amazon Machine Images (AMI) differs depending on which software version is being used and the location in which it is deployed. In all scenarios, data is first migrated to the latest Chef Infra Server schema, after which it is migrated to the Amazon Machine Images (AMI).
 
-* Verify that the latest version of the Chef server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade </upgrade_server.html#from-chef-server-12>`_ to the latest version.
+* Verify that the latest version of the Chef Infra Server is installed by using the platform package manager: ``rpm -qa | grep chef-server-core`` and compare the result to the latest version available on the `downloads site <https://downloads.chef.io/>`__. If this is not the latest version, download the package, and then `upgrade </upgrade_server.html#from-chef-server-12>`_ to the latest version.
 
-After verifying that your existing Chef server installation is up to date, do the following to migrate to the Amazon Machine Images (AMI) instance:
+After verifying that your existing Chef Infra Server installation is up to date, do the following to migrate to the Amazon Machine Images (AMI) instance:
 
 #. .. tag chef_server_backup_for_automate
 
-   Backup the data on the Chef server using ``knife ec backup``. This method will export all of your existing Chef server data as JSON. We'll then re-import the same data into a new Chef Automate cluster. We use the JSON based backup and restore procedure because the Chef server data on the Chef Automate Marketplace AMI is stored in shared databases so copying of binary files won't work.
+   Backup the data on the Chef Infra Server using ``knife ec backup``. This method will export all of your existing Chef Infra Server data as JSON. We'll then re-import the same data into a new Chef Automate cluster. We use the JSON based backup and restore procedure because the Chef Infra Server data on the Chef Automate Marketplace AMI is stored in shared databases so copying of binary files won't work.
 
    .. code-block:: bash
 
@@ -415,7 +415,7 @@ After verifying that your existing Chef server installation is up to date, do th
 
       $ scp /tmp/chef-backup.tgz ec2-user@<MARKETPLACE AMI IP ADDRESS>:/tmp/
 
-#. Login to the Amazon Machine Images (AMI) and ensure that it is running the latest version of the Chef server:
+#. Login to the Amazon Machine Images (AMI) and ensure that it is running the latest version of the Chef Infra Server:
 
    .. code-block:: bash
 
@@ -423,7 +423,7 @@ After verifying that your existing Chef server installation is up to date, do th
 
 #. .. tag chef_automate_reconfigure_for_marketplace
 
-   Reconfigure Chef Automate and the Chef server:
+   Reconfigure Chef Automate and the Chef Infra Server:
 
    .. code-block:: bash
 
@@ -472,13 +472,13 @@ After verifying that your existing Chef server installation is up to date, do th
 
 #. .. tag install_aws_chef_server_knife_ssl_fetch
 
-   Run ``knife ssl fetch`` to add the Chef server SSL certificate as a trusted SSL certificate.
+   Run ``knife ssl fetch`` to add the Chef Infra Server SSL certificate as a trusted SSL certificate.
 
    .. end_tag
 
 #. .. tag install_aws_chef_server_knife_client_list
 
-   Run ``knife client list`` to test the connection to the Chef server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization that was created previously.
+   Run ``knife client list`` to test the connection to the Chef Infra Server. The command should return ``<orgname>-validator``, where ``<orgname>`` is the name of the organization that was created previously.
 
    .. end_tag
 

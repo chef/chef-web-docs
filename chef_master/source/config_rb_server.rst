@@ -5,7 +5,7 @@ chef-server.rb Settings
 
 .. tag config_rb_server_summary
 
-The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef server. The default settings are built into the Chef server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
+The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef Infra Server. The default settings are built into the Chef Infra Server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
 
 .. end_tag
 
@@ -34,7 +34,7 @@ Recommended Settings
 The following settings are typically added to the server configuration file (no equal sign is necessary to set the value):
 
 ``api_fqdn``
-   The FQDN for the Chef server. This setting is not in the server configuration file by default. When added, its value should be equal to the FQDN for the service URI used by the Chef server. For example: ``api_fqdn "chef.example.com"``.
+   The FQDN for the Chef Infra Server. This setting is not in the server configuration file by default. When added, its value should be equal to the FQDN for the service URI used by the Chef Infra Server. For example: ``api_fqdn "chef.example.com"``.
 
 ``bootstrap``
    Default value: ``true``.
@@ -51,7 +51,7 @@ SSL Protocols
 -----------------------------------------------------
 .. tag server_tuning_nginx
 
-The following settings are often modified from the default as part of the tuning effort for the **nginx** service and to configure the Chef server to use SSL certificates:
+The following settings are often modified from the default as part of the tuning effort for the **nginx** service and to configure the Chef Infra Server to use SSL certificates:
 
 ``nginx['ssl_certificate']``
    The SSL certificate used to verify communication over HTTPS. Default value: ``nil``.
@@ -70,7 +70,7 @@ The following settings are often modified from the default as part of the tuning
                                !PSK"
 
 ``nginx['ssl_protocols']``
-   The SSL protocol versions that are enabled. SSL 3.0 is supported by the Chef server; however, SSL 3.0 is an obsolete and insecure protocol. Transport Layer Security (TLS)---TLS 1.0, TLS 1.1, and TLS 1.2---has effectively replaced SSL 3.0, which provides for authenticated version negotiation between the chef-client and Chef server, which ensures the latest version of the TLS protocol is used. For the highest possible security, it is recommended to disable SSL 3.0 and allow all versions of the TLS protocol.  For example:
+   The SSL protocol versions that are enabled. SSL 3.0 is supported by the Chef Infra Server; however, SSL 3.0 is an obsolete and insecure protocol. Transport Layer Security (TLS)---TLS 1.0, TLS 1.1, and TLS 1.2---has effectively replaced SSL 3.0, which provides for authenticated version negotiation between the Chef Infra Client and Chef Infra Server, which ensures the latest version of the TLS protocol is used. For the highest possible security, it is recommended to disable SSL 3.0 and allow all versions of the TLS protocol.  For example:
 
    .. code-block:: ruby
 
@@ -78,7 +78,7 @@ The following settings are often modified from the default as part of the tuning
 
 .. note:: See https://wiki.mozilla.org/Security/Server_Side_TLS for more information about the values used with the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings.
 
-For example, after copying the SSL certificate files to the Chef server, update the ``nginx['ssl_certificate']`` and ``nginx['ssl_certificate_key']`` settings to specify the paths to those files, and then (optionally) update the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings to reflect the desired level of hardness for the Chef server:
+For example, after copying the SSL certificate files to the Chef Infra Server, update the ``nginx['ssl_certificate']`` and ``nginx['ssl_certificate_key']`` settings to specify the paths to those files, and then (optionally) update the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings to reflect the desired level of hardness for the Chef Infra Server:
 
 .. code-block:: ruby
 
@@ -91,11 +91,11 @@ For example, after copying the SSL certificate files to the Chef server, update 
 
 Optional Settings
 =====================================================
-The following settings are often used for performance tuning of the Chef server in larger installations.
+The following settings are often used for performance tuning of the Chef Infra Server in larger installations.
 
 .. note:: .. tag notes_config_rb_server_must_reconfigure
 
-          When changes are made to the chef-server.rb file the Chef server must be reconfigured by running the following command:
+          When changes are made to the chef-server.rb file the Chef Infra Server must be reconfigured by running the following command:
 
           .. code-block:: bash
 
@@ -139,14 +139,14 @@ The following settings are often modified from the default as part of the tuning
    The number of open connections to PostgreSQL that are maintained by the service. If failures indicate that the **opscode-erchef** service ran out of connections, try increasing the ``postgresql['max_connections']`` setting. If failures persist, then increase this value (in small increments) and also increase the value for ``postgresql['max_connections']``. Default value: ``20``.
 
 ``opscode_erchef['s3_url_ttl']``
-   The amount of time (in seconds) before connections to the server expire. If chef-client runs are timing out, increase this setting to ``3600``, and then adjust again if necessary. Default value: ``900``.
+   The amount of time (in seconds) before connections to the server expire. If Chef Infra Client runs are timing out, increase this setting to ``3600``, and then adjust again if necessary. Default value: ``900``.
 
 ``opscode_erchef['strict_search_result_acls']``
    .. tag settings_strict_search_result_acls
 
    Use to specify that search results only return objects to which an actor (user, client, etc.) has read access, as determined by ACL settings. This affects all searches. When ``true``, the performance of the Chef management console may increase because it enables the Chef management console to skip redundant ACL checks. To ensure the Chef management console is configured properly, after this setting has been applied with a ``chef-server-ctl reconfigure`` run ``chef-manage-ctl reconfigure`` to ensure the Chef management console also picks up the setting. Default value: ``false``.
 
-   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during chef-client runs if a chef-client does not have permission to read the information.
+   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during Chef Infra Client runs if a Chef Infra Client does not have permission to read the information.
 
    .. end_tag
 
@@ -166,7 +166,7 @@ opscode-expander
 The following setting is often modified from the default as part of the tuning effort for the **opscode-expander** service:
 
 ``opscode_expander['nodes']``
-   The number of allowed worker processes. The **opscode-expander** service runs on the back-end and feeds data to the **opscode-solr** service, which creates and maintains search data used by the Chef server. Additional memory may be required by these worker processes depending on the frequency and volume of chef-client runs across the organization, but only if the back-end machines have available CPU and RAM. Default value: ``2``.
+   The number of allowed worker processes. The **opscode-expander** service runs on the back-end and feeds data to the **opscode-solr** service, which creates and maintains search data used by the Chef Infra Server. Additional memory may be required by these worker processes depending on the frequency and volume of Chef Infra Client runs across the organization, but only if the back-end machines have available CPU and RAM. Default value: ``2``.
 
 .. end_tag
 
@@ -242,7 +242,7 @@ Update Frequency
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag server_tuning_solr_update_frequency
 
-At the end of every chef-client run, the node object is saved to the Chef server. From the Chef server, each node object is then added to the ``SOLR`` search index. This process is asynchronous. By default, node objects are committed to the search index every 60 seconds or per 1000 node objects, whichever occurs first.
+At the end of every Chef Infra Client run, the node object is saved to the Chef Infra Server. From the Chef Infra Server, each node object is then added to the ``SOLR`` search index. This process is asynchronous. By default, node objects are committed to the search index every 60 seconds or per 1000 node objects, whichever occurs first.
 
 When data is committed to the Apache Solr index, all incoming updates are blocked. If the duration between updates is too short, it is possible for the rate at which updates are asked to occur to be faster than the rate at which objects can be actually committed.
 
@@ -269,7 +269,7 @@ The following setting is often modified from the default as part of the tuning e
 
    * Each front end machine always runs the **oc_bifrost** and **opscode-erchef** services.
    * The Reporting add-on adds the **reporting** service.
-   * The Chef push jobs service adds the **push_jobs** service.
+   * The Chef Push Jobs service adds the **push_jobs** service.
 
    Each of these services requires 25 connections, above the default value.
 

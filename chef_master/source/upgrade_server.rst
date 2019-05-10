@@ -3,27 +3,27 @@ Upgrade to Chef Server 12
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_server.rst>`__
 
-The following sections describe the upgrade process for Chef server 12.
+The following sections describe the upgrade process for Chef Server 12.
 
-.. note:: Be sure to back up the Chef server data before starting the upgrade process.
+.. note:: Be sure to back up the Chef Infra Server data before starting the upgrade process.
 
 From Chef Server 12
 =====================================================
-There are three upgrade scenarios for upgrades from earlier versions of Chef server 12 to a newer version of Chef server 12:
+There are three upgrade scenarios for upgrades from earlier versions of Chef Server 12 to a newer version of Chef Server 12:
 
 * `Standalone </upgrade_server.html#standalone>`__
 * `High availability </upgrade_server.html#high-availability>`__
 * `Tiered </upgrade_server.html#tiered>`__
 
-.. note:: As of version 12.14, Chef server will not render passwords outside of the ``/etc/opscode`` directory by default. If you are not using any Chef server add-ons, or you're using the latest add-on versions, you can set ``insecure_addon_compat`` to ``false`` in ``/etc/opscode/chef-server.rb``. With this option set to ``false``, Chef server writes all credentials to a single location. Note that this setting should only be applied after both the Chef server and its add-ons have been upgraded to compatible versions.
+.. note:: As of version 12.14, Chef Server will not render passwords outside of the ``/etc/opscode`` directory by default. If you are not using any Chef Infra Server add-ons, or you're using the latest add-on versions, you can set ``insecure_addon_compat`` to ``false`` in ``/etc/opscode/chef-server.rb``. With this option set to ``false``, Chef Infra Server writes all credentials to a single location. Note that this setting should only be applied after both the Chef Infra Server and its add-ons have been upgraded to compatible versions.
 
-        For additional information on this change, including a list of supported add-on versions, see `Chef Server Credentials Management </server_security.html#chef-server-credentials-management>`_.
+        For additional information on this change, including a list of supported add-on versions, see `Chef Infra Server Credentials Management </server_security.html#chef-server-credentials-management>`_.
 
 Standalone
 -----------------------------------------------------
 This section describes the upgrade process for a standalone configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
 
-To upgrade to Chef server 12 from a standalone Chef server, do the following:
+To upgrade to Chef Server 12 from a standalone Chef Server, do the following:
 
 #. Run the following command to make sure all services are in a sane state.
 
@@ -31,7 +31,7 @@ To upgrade to Chef server 12 from a standalone Chef server, do the following:
 
       $ chef-server-ctl reconfigure
 
-#. Download the desired Chef server version from the `Chef Server Downloads <https://downloads.chef.io/chef-server>`__ page.
+#. Download the desired Chef Infra Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page.
 
 #. Stop the server:
 
@@ -39,7 +39,7 @@ To upgrade to Chef server 12 from a standalone Chef server, do the following:
 
       $ chef-server-ctl stop
 
-#. Run dpkg or RPM Package Manager. 
+#. Run dpkg or RPM Package Manager.
 
    For dpkg:
 
@@ -59,13 +59,13 @@ To upgrade to Chef server 12 from a standalone Chef server, do the following:
 
       $ chef-server-ctl upgrade
 
-#. Start Chef server 12:
+#. Start Chef Server 12:
 
    .. code-block:: bash
 
       $ chef-server-ctl start
 
-#. `Upgrade <upgrade_server.html#upgrading-add-ons>`__ the Chef server add-ons. 
+#. `Upgrade <upgrade_server.html#upgrading-add-ons>`__ the Chef Infra Server add-ons.
 
 #. After the upgrade process is complete and everything is tested and verified to be working properly, clean up the server by removing all of the old data:
 
@@ -85,9 +85,9 @@ Tiered
 -----------------------------------------------------
 This section describes the upgrade process from a tiered server configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
 
-.. note:: These instructions are primarily intended for existing users of the ``tier`` Chef server topology. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__
+.. note:: These instructions are primarily intended for existing users of the ``tier`` Chef Infra Server topology. For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__
 
-To upgrade to Chef server 12 from a tiered Chef server configuration, do the following:
+To upgrade to Chef Server 12 from a tiered Chef Infra Server configuration, do the following:
 
 #. Run the following on all servers to make sure all services are in a sane state.
 
@@ -95,7 +95,7 @@ To upgrade to Chef server 12 from a tiered Chef server configuration, do the fol
 
       $ chef-server-ctl reconfigure
 
-#. Download the desired Chef server version from the `Chef Server Downloads <https://downloads.chef.io/chef-server>`__ page, then copy it to each server.
+#. Download the desired Chef Infra Server version from the `Chef Infra Server Downloads <https://downloads.chef.io/chef-server>`__ page, then copy it to each server.
 
 #. Stop all of the front end servers:
 
@@ -103,7 +103,7 @@ To upgrade to Chef server 12 from a tiered Chef server configuration, do the fol
 
       $ chef-server-ctl stop
 
-#. Run dpkg or RPM Package Manager on all servers. 
+#. Run dpkg or RPM Package Manager on all servers.
 
    For dpkg:
 
@@ -147,7 +147,7 @@ To upgrade to Chef server 12 from a tiered Chef server configuration, do the fol
 
       $ chef-server-ctl start
 
-#. `Upgrade <upgrade_server.html#upgrading-add-ons>`__ the Chef server add-ons on each server.
+#. `Upgrade <upgrade_server.html#upgrading-add-ons>`__ the Chef Infra Server add-ons on each server.
 
 #. After the upgrade process is complete, the state of the system after the upgrade has been tested and verified, and everything looks satisfactory, remove old data, services, and configuration by running the following command on each server:
 
@@ -157,7 +157,7 @@ To upgrade to Chef server 12 from a tiered Chef server configuration, do the fol
 
 Upgrading Add-ons
 =====================================================
-This section details the process for upgrading additional features after the Chef server has been upgraded. 
+This section details the process for upgrading additional features after the Chef Infra Server has been upgraded.
 
    **Use Downloads**
 
@@ -174,7 +174,7 @@ This section details the process for upgrading additional features after the Che
       * - Chef Manage
         - Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
-          On the Chef server, run:
+          On the Chef Infra Server, run:
 
           .. code-block:: bash
 

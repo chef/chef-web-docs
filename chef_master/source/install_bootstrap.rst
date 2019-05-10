@@ -5,7 +5,7 @@ Bootstrap a Node
 
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
+A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap installs Chef Infra Client on a target system so that it can run as a client and communicate with Chef Infra Server. There are two ways to do this:
 
 * Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
@@ -16,21 +16,21 @@ knife bootstrap
 =====================================================
 .. tag install_chef_client
 
-The ``knife bootstrap`` command is a common way to install the chef-client on a node. The default for this approach assumes that a node can access the Chef website so that it may download the chef-client package from that location.
+The ``knife bootstrap`` command is a common way to install the Chef Infra Client on a node. The default for this approach assumes that a node can access the Chef website so that it may download the Chef Infra Client package from that location.
 
-The Chef installer will detect the version of the operating system, and then install the appropriate version of the chef-client using a single command to install the chef-client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities.
+The Chef installer will detect the version of the operating system, and then install the appropriate version of the Chef Infra Client using a single command to install the Chef Infra Client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities.
 
-The Chef installer puts everything into a unique directory (``/opt/chef/``) so that the chef-client will not interfere with other applications that may be running on the target machine. Once installed, the chef-client requires a few more configuration steps before it can perform its first chef-client run on a node.
+The Chef installer puts everything into a unique directory (``/opt/chef/``) so that the Chef Infra Client will not interfere with other applications that may be running on the target machine. Once installed, the Chef Infra Client requires a few more configuration steps before it can perform its first Chef Infra Client run on a node.
 
 .. end_tag
 
 **Run the bootstrap command**
 
-The ``knife bootstrap`` subcommand is used to run a bootstrap operation that installs the chef-client on the target node. The following steps describe how to bootstrap a node using knife.
+The ``knife bootstrap`` subcommand is used to run a bootstrap operation that installs the Chef Infra Client on the target node. The following steps describe how to bootstrap a node using knife.
 
 #. Identify the FQDN or IP address of the target node. The ``knife bootstrap`` command requires the FQDN or the IP address for the node in order to complete the bootstrap operation.
 
-#. Once the workstation machine is configured, it can be used to install the chef-client on one (or more) nodes across the organization using a knife bootstrap operation. The ``knife bootstrap`` command is used to SSH into the target machine, and then do what is needed to allow the chef-client to run on the node. It will install the chef-client executable (if necessary), generate keys, and register the node with the Chef server. The bootstrap operation requires the IP address or FQDN of the target system, the SSH credentials (username, password or identity file) for an account that has root access to the node, and (if the operating system is not Ubuntu, which is the default distribution used by ``knife bootstrap``) the operating system running on the target system.
+#. Once the workstation machine is configured, it can be used to install the Chef Infra Client on one (or more) nodes across the organization using a knife bootstrap operation. The ``knife bootstrap`` command is used to SSH into the target machine, and then do what is needed to allow the Chef Infra Client to run on the node. It will install the Chef Infra Client executable (if necessary), generate keys, and register the node with the Chef Infra Server. The bootstrap operation requires the IP address or FQDN of the target system, the SSH credentials (username, password or identity file) for an account that has root access to the node, and (if the operating system is not Ubuntu, which is the default distribution used by ``knife bootstrap``) the operating system running on the target system.
 
    In a command window, enter the following:
 
@@ -75,13 +75,13 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
       123.45.6.789 [Fri, 07 Sep 2012 11:05:19 -0700] INFO: Report handlers complete
       123.45.6.789
 
-#. After the bootstrap operation has finished, verify that the node is recognized by the Chef server. To show only the node that was just bootstrapped, run the following command:
+#. After the bootstrap operation has finished, verify that the node is recognized by the Chef Infra Server. To show only the node that was just bootstrapped, run the following command:
 
    .. code-block:: bash
 
       $ knife client show name_of_node
 
-   where ``name_of_node`` is the name of the node that was just bootstrapped. The Chef server will return something similar to:
+   where ``name_of_node`` is the name of the node that was just bootstrapped. The Chef Infra Server will return something similar to:
 
    .. code-block:: bash
 
@@ -91,13 +91,13 @@ The ``knife bootstrap`` subcommand is used to run a bootstrap operation that ins
       name:        name_of_node
       public_key:
 
-   and to show the full list of nodes (and workstations) that are registered with the Chef server, run the following command:
+   and to show the full list of nodes (and workstations) that are registered with the Chef Infra Server, run the following command:
 
    .. code-block:: bash
 
       knife client list
 
-   The Chef server will return something similar to:
+   The Chef Infra Server will return something similar to:
 
    .. code-block:: bash
 
@@ -113,7 +113,7 @@ Validatorless Bootstrap
 =====================================================
 .. tag knife_bootstrap_no_validator
 
-The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef server during the initial chef-client run. Starting with Chef client 12.1, it is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
+The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef Infra Server during the initial Chef Infra Client run. Starting with Chef Client 12.1, it is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
 
 To create a node via the USER.pem file, simply delete the ORGANIZATION-validator.pem file on the workstation. For example:
 
@@ -170,7 +170,7 @@ Use the following options with a validatorless bootstrap to specify items that a
 
 Examples
 =====================================================
-The ``--bootstrap-vault-*`` options add the client identify of the bootstrapping node to the permissions list of the specified vault item. This enables the newly-bootstrapped chef-client to be able to read items from the vault. Only a single client is authorized at a time for acces to the vault. (The ``-S`` search query option with the ``knife vault create`` subcommand does the same.)
+The ``--bootstrap-vault-*`` options add the client identify of the bootstrapping node to the permissions list of the specified vault item. This enables the newly-bootstrapped Chef Infra Client to be able to read items from the vault. Only a single client is authorized at a time for access to the vault. (The ``-S`` search query option with the ``knife vault create`` subcommand does the same.)
 
 Recreate a data bag item
 -----------------------------------------------------
@@ -305,7 +305,7 @@ During the above run, the ``sea:power`` vault item was updated with the ``ubuntu
    search_query: role:stuff
    some:         secret stuff for them
 
-Then, let's check the ``ubuntu-12.04`` client. Install the ``chef-vault`` gem in the embedded chef-client:
+Then, let's check the ``ubuntu-12.04`` client. Install the ``chef-vault`` gem in the embedded Chef Infra Client:
 
 .. code-block:: bash
 
@@ -371,17 +371,17 @@ Use the ``sea:power`` re-creation step above first, to follow the difference in 
 
 Unattended Installs
 =====================================================
-The chef-client can be installed using an unattended bootstrap. This allows the chef-client to be installed from itself, without using SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like ``knife bootstrap`` or ``knife CLOUD_PLUGIN create`` is not practical because the machines are created automatically and someone cannot always be on-hand to initiate the bootstrap process.
+The Chef Infra Client can be installed using an unattended bootstrap. This allows the Chef Infra Client to be installed from itself, without using SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like ``knife bootstrap`` or ``knife CLOUD_PLUGIN create`` is not practical because the machines are created automatically and someone cannot always be on-hand to initiate the bootstrap process.
 
-When the chef-client is installed using an unattended bootstrap, remember that the chef-client:
+When the Chef Infra Client is installed using an unattended bootstrap, remember that the Chef Infra Client:
 
 * Must be able to authenticate to the Chef server
 * Must be able to configure a run-list
 * May require custom attributes, depending on the cookbooks that are being used
 * Must be able to access the chef-validator.pem so that it may create a new identity on the Chef server
-* Must have a unique node name; the chef-client will use the FQDN for the host system by default
+* Must have a unique node name; the Chef Infra Client will use the FQDN for the host system by default
 
-When the chef-client is installed using an unattended bootstrap, it may be built into an image that starts the chef-client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
+When the Chef Infra Client is installed using an unattended bootstrap, it may be built into an image that starts the Chef Infra Client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
 
 Bootstrapping with User Data
 -----------------------------------------------------
@@ -399,12 +399,12 @@ PowerShell User Data
    $file = "C:\Windows\System32\drivers\etc\hosts"
    $hosts | Add-Content $file
 
-   ## Download the Chef client
+   ## Download the Chef Client
    $clientURL = "https://packages.chef.io/files/stable/chef/12.19.36/windows/2012/chef-client-<version-here>.msi"
    $clientDestination = "C:\chef-client.msi"
    Invoke-WebRequest $clientURL -OutFile $clientDestination
 
-   ## Install the chef-client
+   ## Install the Chef Client
    Start-Process msiexec.exe -ArgumentList @('/qn', '/lv C:\Windows\Temp\chef-log.txt', '/i C:\chef-client.msi', 'ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"') -Wait
 
    ## Create first-boot.json
@@ -478,7 +478,7 @@ It is important that settings in the `client.rb file </config_rb_client.html>`__
 
 .. tag ctl_chef_client_bootstrap_initial_run_list
 
-A node's initial run-list is specified using a JSON file on the host system. When running the chef-client as an executable, use the ``-j`` option to tell the chef-client which JSON file to use. For example:
+A node's initial run-list is specified using a JSON file on the host system. When running the Chef Infra Client as an executable, use the ``-j`` option to tell the Chef Infra Client which JSON file to use. For example:
 
 .. code-block:: bash
 

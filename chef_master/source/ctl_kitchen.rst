@@ -5,13 +5,13 @@ kitchen (executable)
 
 .. tag ctl_kitchen_summary
 
-kitchen is the command-line tool for Kitchen, an integration testing tool used by the chef-client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
+kitchen is the command-line tool for Kitchen, an integration testing tool used by the Chef Infra Client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
 
 .. note:: Any Kitchen subcommand that does not specify an instance will be applied to all instances.
 
 .. end_tag
 
-.. note:: This topic details functionality that is packaged with Chef development kit. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
+.. note:: This topic details functionality that is packaged with ChefDK. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
 
 Fuzzy Matching
 =====================================================
@@ -80,9 +80,9 @@ will return something similar to:
 
 kitchen converge
 =====================================================
-Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file. This process will install the chef-client on an instance using the Chef installer, upload cookbook files and minimal configuration to the instance, and then start a chef-client run using the run-list and attributes specified in the .kitchen.yml file.
+Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file. This process will install the Chef Infra Client on an instance using the Chef installer, upload cookbook files and minimal configuration to the instance, and then start a Chef Infra Client run using the run-list and attributes specified in the .kitchen.yml file.
 
-Kitchen will skip unnecessary steps. For example, if the chef-client is already installed to the instance, Kitchen will not re-install the chef-client. That said, Kitchen will always upload the cookbook files and minimal configuration. This ensures that cookbook testing is being done correctly.
+Kitchen will skip unnecessary steps. For example, if the Chef Infra Client is already installed to the instance, Kitchen will not re-install the Chef Infra Client. That said, Kitchen will always upload the cookbook files and minimal configuration. This ensures that cookbook testing is being done correctly.
 
 The following exit codes are used by Kitchen:
 
@@ -139,7 +139,7 @@ To converge the default CentOS instance, run the following:
 
    $ kitchen converge default-centos-71
 
-The chef-client is downloaded the first time this command is run. The output of the command is similar to:
+The Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
 .. code-block:: bash
 
@@ -197,7 +197,7 @@ To converge the default Ubuntu instance, run the following:
 
    $ kitchen converge default-ubuntu-1404
 
-The chef-client is downloaded the first time this command is run. The output of the command is similar to:
+The Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
 .. code-block:: bash
 

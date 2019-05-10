@@ -127,13 +127,13 @@ Manage Permissions
 =====================================================
 .. tag server_rbac_permissions
 
-Permissions are used in the Chef server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
+Permissions are used in the Chef Infra Server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
 
 .. end_tag
 
 .. tag server_rbac_permissions_object
 
-The Chef server includes the following object permissions:
+The Chef Infra Server includes the following object permissions:
 
 .. list-table::
    :widths: 60 420
@@ -142,13 +142,13 @@ The Chef server includes the following object permissions:
    * - Permission
      - Description
    * - **Delete**
-     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Grant**
      - Use the **Grant** permission to define which users and groups may configure permissions on an object. This permission is required for any user who configures permissions using the **Administration** tab in the Chef management console.
    * - **Read**
-     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Update**
-     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef server and for any chef-client to save node data to the Chef server at the conclusion of a chef-client run.
+     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef Infra Server and for any Chef Infra Client to save node data to the Chef Infra Server at the conclusion of a Chef Infra Client run.
 
 .. end_tag
 

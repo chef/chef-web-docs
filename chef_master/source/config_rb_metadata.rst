@@ -5,7 +5,7 @@ metadata.rb
 
 .. tag cookbooks_metadata
 
-Every cookbook requires a small amount of metadata. A file named metadata.rb is located at the top of every cookbook directory structure. The contents of the metadata.rb file provides information that helps Chef Client and Server correctly deploy cookbooks to each node.
+Every cookbook requires a small amount of metadata. A file named metadata.rb is located at the top of every cookbook directory structure. The contents of the metadata.rb file provides information that helps Chef Infra Client and Server correctly deploy cookbooks to each node.
 
 .. end_tag
 
@@ -14,13 +14,13 @@ Every cookbook requires a small amount of metadata. A file named metadata.rb is 
 A metadata.rb file is:
 
 * Located at the top level of a cookbook's directory structure.
-* Compiled whenever a cookbook is uploaded to the Chef server or when the ``knife cookbook metadata`` subcommand is run, and then stored as JSON data.
+* Compiled whenever a cookbook is uploaded to the Chef Infra Server or when the ``knife cookbook metadata`` subcommand is run, and then stored as JSON data.
 * Created automatically by knife whenever the ``knife cookbook create`` subcommand is run.
-* Edited using a text editor, and then re-uploaded to the Chef server as part of a cookbook upload.
+* Edited using a text editor, and then re-uploaded to the Chef Infra Server as part of a cookbook upload.
 
 .. end_tag
 
-.. note:: A metadata.json file can be edited directly, should temporary changes be required. Any subsequent upload or action that generates metadata will cause the existing metadata.json file to be overwritten with the newly generated metadata. Therefore, any permanent changes to cookbook metadata should be done in the metadata.rb file, and then re-uploaded to the Chef server.
+.. note:: A metadata.json file can be edited directly, should temporary changes be required. Any subsequent upload or action that generates metadata will cause the existing metadata.json file to be overwritten with the newly generated metadata. Therefore, any permanent changes to cookbook metadata should be done in the metadata.rb file, and then re-uploaded to the Chef Infra Server.
 
 Version Constraints
 ====================
@@ -59,18 +59,18 @@ This configuration file has the following settings:
 
 ``chef_version``
 
-   A range of chef-client versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
+   A range of Chef Client versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
 
 
    .. tag config_rb_metadata_settings_example_chef_version
 
-   For example, to match any 14.x version of the chef-client, but not 13.x or 15.x:
+   For example, to match any 14.x version of the Chef Client, but not 13.x or 15.x:
 
    .. code-block:: ruby
 
       chef_version '~> 14.0'
 
-   A more complex example where you set both a lower and upper bound of the chef-client version:
+   A more complex example where you set both a lower and upper bound of the Chef Client version:
 
    .. code-block:: ruby
 
@@ -79,7 +79,7 @@ This configuration file has the following settings:
    .. end_tag
 
 ``depends``
-   This field requires that a cookbook with a matching name and version exists on the Chef server. When the match exists, the Chef server includes the dependency as part of the set of cookbooks that are sent to the node when the chef-client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the chef-client may not be able to complete the configuration of the system. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
+   This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when the Chef Infra Client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the Chef Infra Client may not be able to complete the configuration of the system. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
 
    For example, to set a dependency a cookbook named ``cats``:
 
@@ -105,7 +105,7 @@ This configuration file has the following settings:
 ``gem``
    .. tag config_rb_metadata_settings_gem
 
-   Specifies a gem dependency for installation into the chef-client through bundler. The gem installation occurs after all cookbooks are synchronized but before loading any other cookbooks. Use this attribute one time for each gem dependency. For example:
+   Specifies a gem dependency for installation into the Chef Infra Client through bundler. The gem installation occurs after all cookbooks are synchronized but before loading any other cookbooks. Use this attribute one time for each gem dependency. For example:
 
    .. code-block:: ruby
 
@@ -114,17 +114,17 @@ This configuration file has the following settings:
 
    .. end_tag
 
-   .. warning:: 
+   .. warning::
 
-    Use the ``gem`` setting only for making external chef libraries shipped as gems accessible in the chef-client run for libraries and attribute files.
+    Use the ``gem`` setting only for making external chef libraries shipped as gems accessible in the Chef Infra Client run for libraries and attribute files.
     The ``gem`` setting in ``metadata.rb`` allows for the early installation of this specific type of gem, with the fundamental limitation that it cannot install native gems.
 
     Do not install native gems with the ``gem`` setting in ``metadata.rb`` .
     The ``gem`` setting is not a general purpose replacement for the `chef_gem resource </resource_chef_gem.html>`__, and does not internally re-use the ``chef_gem`` resource.
-    Native gems require C compilation and must not be installed with ``metadata.rb`` because ``metadata.rb`` runs before any recipe code runs. Consequently, the chef-client cannot install the C compilers before the gem installation occurs.
+    Native gems require C compilation and must not be installed with ``metadata.rb`` because ``metadata.rb`` runs before any recipe code runs. Consequently, the Chef Infra Client cannot install the C compilers before the gem installation occurs.
     Instead, install native gems with the ``chef_gem`` resource called from the recipe code.
     You'll also need to use the ``build_essential`` resource in the recipe code to install the prerequisite compilers onto the system.
-    
+
     Pure ruby gems can also be installed with metadata.rb.
 
 ``issues_url``
@@ -245,8 +245,8 @@ This configuration file has the following settings:
    .. note:: This setting is not visible in Chef Supermarket.
 
 ``privacy``
-   Specify a cookbook as private. 
-   
+   Specify a cookbook as private.
+
    For example:
 
    .. code-block:: ruby
@@ -270,7 +270,7 @@ This configuration file has the following settings:
       provides 'service[snuggle]'
 
 ``recipe``
-   A description for a recipe, mostly for cosmetic value within the Chef server user interface.
+   A description for a recipe, mostly for cosmetic value within the Chef Infra Server user interface.
 
    For example:
 

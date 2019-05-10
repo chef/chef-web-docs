@@ -17,7 +17,7 @@ Chef Manage can support logging in users via SAML authentication. In order to do
 Configuring Chef Manage
 =====================================================
 
-To configure the Chef server management console, first add the following code to ``/etc/chef-manage/manage.rb``:
+To configure the Chef Infra Server management console, first add the following code to ``/etc/chef-manage/manage.rb``:
 
 .. code-block:: ruby
 

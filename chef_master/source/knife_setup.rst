@@ -3,7 +3,7 @@ Setting up Knife
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_setup.rst>`__
 
-The knife command line tool must be configured to communicate with the Chef Server as well as any other infrastructure within your organization. This is done initially during the workstation setup, but subsequent modifications can be made using the config.rb configuration file.
+The knife command line tool must be configured to communicate with the Chef Infra Server as well as any other infrastructure within your organization. This is done initially during the workstation setup, but subsequent modifications can be made using the config.rb configuration file.
 
 config.rb Configuration File
 =====================================================

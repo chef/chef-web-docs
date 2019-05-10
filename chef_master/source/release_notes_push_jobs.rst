@@ -3,9 +3,9 @@ Release Notes: Chef Push Jobs 1.0 - 2.5
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_push_jobs.rst>`__
 
-Chef push jobs is an extension of the Chef server that allows jobs to be run against nodes independently of a chef-client run. A job is an action or a command to be executed against a subset of nodes; the nodes against which a job is run are determined by the results of a search query made to the Chef server.
+Chef Push Jobs is an extension of the Chef server that allows jobs to be run against nodes independently of a chef-client run. A job is an action or a command to be executed against a subset of nodes; the nodes against which a job is run are determined by the results of a search query made to the Chef server.
 
-Chef push jobs uses the Chef server API and a Ruby client to initiate all connections to the Chef server. Connections use the same authentication and authorization model as any other request made to the Chef server. A knife plugin is used to initiate job creation and job tracking.
+Chef Push Jobs uses the Chef server API and a Ruby client to initiate all connections to the Chef server. Connections use the same authentication and authorization model as any other request made to the Chef server. A knife plugin is used to initiate job creation and job tracking.
 
 What's New in 2.5
 =====================================================
@@ -28,7 +28,7 @@ Push Jobs Client 2.4.8
 
 What's New in 2.2
 =====================================================
-The following items are new for Chef push jobs:
+The following items are new for Chef Push Jobs:
 
 * Uses Chef Server >12.14.0 `consolidated credentials <https://docs.chef.io/server_security.html#chef-server-credentials-management>`_ removing credentials stored in Push Server's configuration files.
 
@@ -38,9 +38,9 @@ Important Notes
 
 What's New in 2.1
 =====================================================
-The following items are new for Chef push jobs:
+The following items are new for Chef Push Jobs:
 
-* **Push Jobs client 2.1** is backwards-compatible with the Chef push jobs 1.x server when the ``allow_unencrypted`` option to be set to ``true`` in ``/etc/chef/push-jobs-client.rb``.
+* **Push Jobs client 2.1** is backwards-compatible with the Chef Push Jobs 1.x server when the ``allow_unencrypted`` option to be set to ``true`` in ``/etc/chef/push-jobs-client.rb``.
 * Allow the job execution environment to be set. This includes user, working directory, environment variables and a data file to be set.
 * STDOUT/STDERR can now optionally be captured from job execution and return it to the server. Users can retrieve the output via the ``knife job output`` command.
 * We now provide two SSE feed endpoints; one provides fine grained per-job events, while the other provides a per-org feed of jobs starting and completing.
