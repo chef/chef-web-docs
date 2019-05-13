@@ -80,12 +80,12 @@ Habitat
 The Habitat license can be accepted by setting the environment variable ``HAB_LICENSE="accept"``, or by setting ``HAB_LICENSE="accept-no-persist"`` or by executing ``hab license accept``.
 If neither of these are set, the first ``hab`` invocation will ask the user to accept the license through an interactive prompt.
 
-This applies for accepting the Habitat license. Chef Software products are also distributed as Habitat packages. 
-Client products distributed as Habitat packages (Chef Infra Client, InSpec, etc.) request license acceptance at product usage time. 
+This applies for accepting the Habitat license. Chef Software products are also distributed as Habitat packages.
+Client products distributed as Habitat packages (Chef Infra Client, InSpec, etc.) request license acceptance at product usage time.
 Whether they are installed as system packages or Habitat packages does not change the way users accept their license.
 
-Server products distributed as Habitat packages are ran using Habitat as a supervisor. 
-There are currently two products distributed this way: Chef Automate and Chef Infra Server. 
+Server products distributed as Habitat packages are ran using Habitat as a supervisor.
+There are currently two products distributed this way: Chef Automate and Chef Infra Server.
 See the below sections for information on how to accept the license for these products when they are distributed as Habitat packages.
 
 Server Products
@@ -261,7 +261,7 @@ This license acceptance can be done via the arguments API:
    end
 
 See `<https://www.vagrantup.com/docs/provisioning/chef_common.html#arguments>`__ for details.
-This argument is not backwards-compatible so instead users can use the `custom config path <https://www.vagrantup.com/docs/provisioning/chef_common.html#custom_config_path>`__ and point at a local file, which specifies the ``chef_license`` config.
+The ``--chef-license`` argument is not backwards-compatible to non-EULA Chef Infra Client versions so instead users can use the `custom config path <https://www.vagrantup.com/docs/provisioning/chef_common.html#custom_config_path>`__ and point at a local file, which specifies the ``chef_license`` config.
 The environment variable is not currently supported.
 
 Pin to Chef 14
