@@ -116,7 +116,7 @@ Please follow the in-product prompts.
 
 Chef Infra Server
 -----------------------------------------------------
-When installed as a system package users accept the license with the ctl command, EG ``chef-server-ctl reconfigure --chef-license=accept``.
+When installed as a system package users accept the license with the ctl command, E.G. ``chef-server-ctl reconfigure --chef-license=accept``.
 Acceptance can also be set in the configuration file ``chef-server.rb`` as ``chef_license "accept"``.
 
 Chef Infra Server is also distributed as a Habitat package and ran using the Habitat supervisor. In this mode, users accept the license by setting the correct Habitat configuration values. The key is ``chef_license.acceptance``.
