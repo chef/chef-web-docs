@@ -20,7 +20,7 @@ The windows_dfs_namespace resource has the following syntax:
     namespace_name      String # default value: 'name' unless specified
     read_users          Array # default value: []
     root                String # default value: "C:\\DFSRoots"
-    action              Symbol # defaults to :install if not specified
+    action              Symbol # defaults to :create if not specified
   end
 
 where:
@@ -38,7 +38,7 @@ The windows_dfs_namespace resource has the following actions:
 ``:delete``
     Deletes a DFS Namespace including the directory on disk.
 
-``:install``
+``:create``
     Creates the dfs namespace on the server. Default.
 
 ``:nothing``
