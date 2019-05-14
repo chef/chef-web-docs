@@ -116,7 +116,7 @@ Please follow the in-product prompts.
 
 Chef Infra Server
 -----------------------------------------------------
-When installed as a system package users accept the license with the ctl command, E.G. ``chef-server-ctl reconfigure --chef-license=accept``.
+When installed as a system package, users accept the license with the ctl command, e.g. ``chef-server-ctl reconfigure --chef-license=accept``.
 Acceptance can also be set in the configuration file ``chef-server.rb`` as ``chef_license "accept"``.
 
 Chef Infra Server is also distributed as a Habitat package and ran using the Habitat supervisor. In this mode, users accept the license by setting the correct Habitat configuration values. The key is ``chef_license.acceptance``.
@@ -261,7 +261,7 @@ This license acceptance can be done via the arguments API:
    end
 
 See `<https://www.vagrantup.com/docs/provisioning/chef_common.html#arguments>`__ for details.
-The ``--chef-license`` argument is not backwards-compatible to non-EULA Chef Infra Client versions so instead users can use the `custom config path <https://www.vagrantup.com/docs/provisioning/chef_common.html#custom_config_path>`__ and point at a local file, which specifies the ``chef_license`` config.
+The ``--chef-license`` argument is not backwards-compatible to non-EULA Chef Infra Client versions. So instead, users can use the `custom config path <https://www.vagrantup.com/docs/provisioning/chef_common.html#custom_config_path>`__ and point at a local file, which specifies the ``chef_license`` config.
 The environment variable is not currently supported.
 
 Pin to Chef 14
