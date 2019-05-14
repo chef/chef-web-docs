@@ -78,7 +78,12 @@ This method of license acceptance is backwards-compatible to non-EULA versions o
 Habitat
 -----------------------------------------------------
 The Habitat license can be accepted by setting the environment variable ``HAB_LICENSE="accept"``, or by setting ``HAB_LICENSE="accept-no-persist"`` or by executing ``hab license accept``.
-If neither of these are set, the first ``hab`` invocation will ask the user to accept the license through an interactive prompt.
+
+Both ``HAB_LICENSE="accept"`` and ``hab license accept`` will write a file to the filesystem that will be seen by Habitat on subsequent invocations, and users will not be prompted to accept the license again. ``HAB_LICENSE="accept-no-persist"`` will only accept the license for the scope of that environment variable, and the user will be prompted for license acceptance again in the future if that variable is not present.
+
+If none of these are set, the first ``hab`` invocation will ask the user to accept the license through an interactive prompt.
+
+In addition, it's possible to create an empty file on the filesystem at ``/hab/accepted-licenses/habitat`` (if your hab commands run as root) or at ``$HOME/.hab/accepted-licenses/habitat`` (if your hab commands run as a user other than root). If you have hab commands that run as multiple users, it's a good idea to create both files.
 
 This applies for accepting the Habitat license. Chef Software products are also distributed as Habitat packages.
 Client products distributed as Habitat packages (Chef Infra Client, InSpec, etc.) request license acceptance at product usage time.
