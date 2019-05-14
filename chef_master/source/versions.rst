@@ -65,12 +65,12 @@ Use of these and later versions of these distributions must be in accordance wit
      - Releasing Soon
      - n/a
    * - Chef Habitat
-     - 0.8
-     - Releasing Soon
+     - 0.81
+     - GA
      - n/a
    * - Chef InSpec
      - 4.x
-     - Releasing Soon
+     - GA
      - n/a
    * - Chef Workstation
      - 0.3
