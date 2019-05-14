@@ -16,6 +16,7 @@ Use the ``knife cookbook site`` subcommand to interact with cookbooks that are a
 .. end_tag
 
 .. warning::
+
   ``knife cookbook site`` has been deprecated in favor of the `knife supermarket </knife_supermarket.html>`__ command.
 
 .. warning:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
