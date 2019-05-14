@@ -123,10 +123,6 @@ Chef Infra Server is also distributed as a Habitat package and ran using the Hab
 
 For example: Against a supervisor running Chef Infra Server, run ``echo "chef_license.acceptance = accept" | hab config apply server.default 100``. See the `Habitat config updates documentation <https://www.habitat.sh/docs/using-habitat/#config-updates>`__ for more information about how to apply this configuration to a service group.
 
-Push Jobs Server
------------------------------------------------------
-TODO
-
 Remote Management Products
 =====================================================
 * Test Kitchen
