@@ -15,11 +15,7 @@ Chef EULA
 =====================================================
 .. tag chef_license_eula
 
-<<<<<<< HEAD
 The commercial distributions of our products---such as Chef Infra Client, Chef Habitat, or Chef InSpec--- are goverened by either the `Chef End User License Agreement (Chef EULA) <https://www.chef.io/end-user-license-agreement/>`__ or your commercial agreement with Chef Software, Inc. as a customer. You are required to accept these terms when using the distributions for the first time. For additional information on how to accept the license, see `Accepting the Chef License </chef_license_accept.html>`__ documentation.
-=======
-All open source Chef products---such as the Chef Infra Client, the Chef Infra Server, or Chef InSpec---are governed by the `Apache 2.0 license <https://www.apache.org/licenses/LICENSE-2.0>`__.
->>>>>>> Update Chef product names to Chef InSpec, Chef Habitat, etc...
 
 .. end_tag
 
