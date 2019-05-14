@@ -71,7 +71,7 @@ The same license applies to all products, but each product must have its own lic
 
 Chef Infra Client
 -----------------------------------------------------
-In addition to the above methods, users can specify ``chef_license = 'accept'`` in their Chef Infra Client and Chef Infra Server config.
+In addition to the above methods, users can specify ``chef_license 'accept'`` in their Chef Infra Client and Chef Infra Server config.
 On a workstation, this can be specified in ``~/.chef/config.rb`` or ``~/.chef/knife.rb``, and on a node, it can be specified in ``/etc/chef/client.rb``.
 This method of license acceptance is backwards-compatible to non-EULA versions of Chef Infra Client.
 

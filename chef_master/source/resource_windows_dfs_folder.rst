@@ -18,7 +18,7 @@ The windows_dfs_folder resource has the following syntax:
     folder_path         String # default value: 'name' unless specified
     namespace_name      String
     target_path         String
-    action              Symbol # defaults to :install if not specified
+    action              Symbol # defaults to :create if not specified
   end
 
 where:
@@ -36,7 +36,7 @@ The windows_dfs_folder resource has the following actions:
 ``:delete``
     Deletes the folder in the dfs namespace.
 
-``:install``
+``:create``
     Creates the folder in dfs namespace. Default.
 
 ``:nothing``
