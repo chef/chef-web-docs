@@ -88,7 +88,9 @@ table {
  * Sphinx stylesheet -- chefv2 theme.  Originally created by
  * Chef for docs.chef.io.
  *
- * :copyright: 2019 Chef Software, Inc.
+ * :copyright: None.
+ * :license: This work is licensed under a Creative Commons 
+ * Attribution 3.0 Unported License
  *
  */
 /* -- the background color for the whole page and the borders for the topic page, header, footer */
@@ -167,7 +169,8 @@ div.related ul li a:hover {
   color: #f18b21; }
 
 div.sphinxsidebarwrapper {
-  padding: 0; }
+  padding: 0;
+  position: fixed; }
 
 div.sphinxsidebarwrapper > ul > li {
   list-style-type: none; }
@@ -498,7 +501,8 @@ div.viewcode-block:target {
   border-bottom: 1px solid #ffffff; }
 
 .downloads .nav-main {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+  position: fixed; }
 
 nav.nav-main {
   width: 100%;
