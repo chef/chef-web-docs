@@ -169,8 +169,12 @@ div.related ul li a:hover {
   color: #f18b21; }
 
 div.sphinxsidebarwrapper {
-  padding: 0;
-  position: fixed; }
+  padding: 0; }
+
+div.sidebarinner {
+  position: fixed;
+  height: calc(100vh - 53px);
+  overflow: scroll; }
 
 div.sphinxsidebarwrapper > ul > li {
   list-style-type: none; }
@@ -501,8 +505,7 @@ div.viewcode-block:target {
   border-bottom: 1px solid #ffffff; }
 
 .downloads .nav-main {
-  margin-bottom: 20px;
-  position: fixed; }
+  margin-bottom: 20px; }
 
 nav.nav-main {
   width: 100%;
@@ -524,8 +527,9 @@ nav.nav-main {
       color: #f18b21; }
   @media (min-width: 730px) {
     nav.nav-main {
-      position: relative;
-      padding: 11px 20px; }
+      position: fixed;
+      padding: 11px 20px;
+      z-index: 5; }
       nav.nav-main h1 {
         padding: 5px 0; } }
 
@@ -625,7 +629,8 @@ nav.nav-main {
       right: 0; } }
 
 .document {
-  position: relative; }
+  position: relative;
+  margin-top: 53px; }
 
 @media (min-width: 730px) {
   .documentwrapper {
@@ -643,9 +648,11 @@ nav.nav-main {
   @media (min-width: 730px) {
     .nav-docs {
       display: block;
-      position: absolute;
+      position: fixed;
       width: 260px;
-      left: 0;
+      top: 53px;
+      height: calc(100vh - 53px);
+      overflow: scroll;
       right: auto;
       bottom: 0; } }
   .nav-docs ul, .nav-docs li {

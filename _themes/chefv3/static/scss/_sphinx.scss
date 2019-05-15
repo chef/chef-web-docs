@@ -110,12 +110,15 @@ div.related ul li a:hover {
     color: #f18b21;
 }
 
-
 div.sphinxsidebarwrapper {
     padding: 0;
-    position: fixed;
 }
 
+div.sidebarinner {
+  position: fixed;
+  height: calc(100vh - 53px);
+  overflow: scroll;
+}
 div.sphinxsidebarwrapper > ul > li {
     list-style-type: none;
 }
