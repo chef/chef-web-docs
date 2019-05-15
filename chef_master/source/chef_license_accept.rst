@@ -1,7 +1,7 @@
 =====================================================
 Accepting the Chef License
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_license_embedded.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_license_accept.rst>`__
 
 This page aims to document how to accept the Chef license for all Chef Software products.
 For an overview of the license, see the `Chef license </chef_license.html>`__ documentation.
