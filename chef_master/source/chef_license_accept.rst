@@ -1,7 +1,7 @@
 =====================================================
 Accepting the Chef License
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_license_embedded.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_license_accept.rst>`__
 
 This page aims to document how to accept the Chef license for all Chef Software products.
 For an overview of the license, see the `Chef license </chef_license.html>`__ documentation.
@@ -22,6 +22,8 @@ There are three ways to accept the Chef MLSA:
 -----------------------------------------------------
  Accept the Chef EULA
 -----------------------------------------------------
+
+.. note:: As of May 15, 2019, we have released Chef Infra Client version 15, which requires accepting the new EULA. However, we are still in the process of releasing the rest of our product portfolio. As of today, the recommendation is to pin Chef Infra Client to version 14 until we add support to the rest of our tooling. You can see the version of products that will require accepting the EULA at `Supported Versions <https://docs.chef.io/versions.html>`__. For example, the version of Test Kitchen embedded in ChefDK 3.9 does not yet know how to accept the Chef Infra Client EULA if installing version 15 on a test node. Instead, we recommend pinning the installed version to 14. Work is actively ongoing to get the rest of our product portfolio released as soon as possible.
 
 Products below are split below into two categories: workstation and server. Affected product versions which require accepting the EULA to use are shown. Versions before this do not require accepting the EULA. More information on supported versions can be seen at the `Supported Versions <https://docs.chef.io/versions.html>`__ documentation.
 
