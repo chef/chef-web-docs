@@ -3,14 +3,14 @@ Release Notes: Chef Development Kit 0.19 - 3.10
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
-Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes, see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
 What's new in 3.10
 =====================================================
 
 * **New Policy File Functionality**
 
-  `include_policy` now supports `:remote` policy files. This new functionality allows you to include policy files over http. Remote policy files require remote cookbooks and `install` will fail otherwise if the included policy file includes cookbooks with paths. Thanks [@mattray](https://github.com/mattray)!
+  `include_policy` now supports `:remote` policy files. This new functionality allows you to include policy files over http. Remote policy files require remote cookbooks and `install` will fail otherwise if the included policy file includes cookbooks with paths. Thanks `mattray <https://github.com/mattray>`__!
 
 * **Other updates**
 
@@ -25,11 +25,11 @@ What's new in 3.9
 
     * **Chef 14.12.3**
 
-        ChefDK now ships with Chef 14.12.3. See <https://docs.chef.io/release_notes.html> for more information on what's new.
+        ChefDK now ships with Chef 14.12.3. See `Chef 14.12 release notes <https://docs.chef.io/release_notes.html#whats-new-in-14-12>`__ for more information on what's new.
 
     * **InSpec 3.9.0**
 
-        ChefDK now ships with Inspec 3.9.0. See <https://github.com/inspec/inspec/releases/tag/v3.9.0> for more information on what's new.
+        ChefDK now ships with InSpec 3.9.0. See `InSpec 3.9.0 release details <https://github.com/inspec/inspec/releases/tag/v3.9.0>`__ for more information on what's new.
 
     * **Ruby 2.5.5**
 
@@ -41,7 +41,7 @@ What's new in 3.9
 
     * **kitchen-vagrant**
 
-        kitchen-vagrant has been updated to 1.5.1 which adds support for using the new bento/amazonlinux-2 box when setting the platform to amazonlinux-2.
+        kitchen-vagrant has been updated to 1.5.1, which adds support for using the new bento/amazonlinux-2 box when setting the platform to amazonlinux-2.
 
     * **kitchen-ec2**
 
@@ -53,7 +53,7 @@ What's new in 3.9
 
     * **Push Jobs Client**
 
-        Push Jobs Client has been updated to 2.5.6 which includes a significant optimizations and minor bug fixes.
+        Push Jobs Client has been updated to 2.5.6, which includes a significant optimizations and minor bug fixes.
 
 * **Security Updates**
 
@@ -75,7 +75,7 @@ What's New in 3.8
 
     * **InSpec 3.6.6**
 
-        ChefDK now ships with Inspec 3.6.6. See <https://github.com/inspec/inspec/releases/tag/v3.6.6> for more information on what's new.
+        ChefDK now ships with Inspec 3.6.6. See `<https://github.com/inspec/inspec/releases/tag/v3.6.6>`__ for more information on what's new.
 
     * **Fauxhai 6.11.0**
 
