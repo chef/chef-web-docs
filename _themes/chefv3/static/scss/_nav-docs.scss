@@ -2,6 +2,7 @@ $nav-docs-width: 260px;
 
 .document {
   position: relative;
+  margin-top: 53px;
 }
 
 @media (min-width: $nav-breakpoint) {
@@ -23,9 +24,11 @@ $nav-docs-width: 260px;
   font-family: $primary;
   @media (min-width: $nav-breakpoint) {
     display: block;
-    position: absolute;
+    position: fixed;
     width: $nav-docs-width;
-    left: 0;
+    top: 53px;
+    height: calc(100vh - 53px);
+    overflow: scroll;
     right: auto;
     bottom: 0;
   }

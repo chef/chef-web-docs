@@ -32,8 +32,9 @@ nav.nav-main {
     }
   }
   @media (min-width: $nav-breakpoint) {
-    position: relative;
+    position: fixed;
     padding: 11px 20px;
+    z-index: 5;
     h1 {
       padding: 5px 0;
     }
