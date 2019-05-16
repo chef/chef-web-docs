@@ -1,16 +1,79 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 3.8
+Release Notes: Chef Development Kit 0.19 - 3.10
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's new in 3.10
+=====================================================
+
+* **New Policy File Functionality**
+
+  `include_policy` now supports `:remote` policy files. This new functionality allows you to include policy files over http. Remote policy files require remote cookbooks and `install` will fail otherwise if the included policy file includes cookbooks with paths. Thanks [@mattray](https://github.com/mattray)!
+
+* **Other updates**
+
+    * `kitchen-vagrant`: 1.5.1 -> 1.5.2
+    * `mixlib-install`: 3.11.12 -> 3.11.18
+    * `ohai`: 14.8.11 -> 14.8.12
+
+What's new in 3.9
+=====================================================
+
+* **Updated Tooling**
+
+    * **Chef 14.12.3**
+
+        ChefDK now ships with Chef 14.12.3. See <https://docs.chef.io/release_notes.html> for more information on what's new.
+
+    * **InSpec 3.9.0**
+
+        ChefDK now ships with Inspec 3.9.0. See <https://github.com/inspec/inspec/releases/tag/v3.9.0> for more information on what's new.
+
+    * **Ruby 2.5.5**
+
+        Ruby has been updated from 2.5.3 to 2.5.5, which includes a large number of bug fixes.
+
+    * **kitchen-hyperv**
+
+        kitchen-hyperv has been updated to 0.5.3 which now automatically disables snapshots on the VMs and properly waits for the IP to be set.
+
+    * **kitchen-vagrant**
+
+        kitchen-vagrant has been updated to 1.5.1 which adds support for using the new bento/amazonlinux-2 box when setting the platform to amazonlinux-2.
+
+    * **kitchen-ec2**
+
+        kitchen-ec2 has been updated to 2.5.0 with support for Amazon Linux 2.0 image searching using the platform 'amazon2'. This release also adds supports Windows Server 1709 and 1803 image searching.
+
+    * **knife-vsphere**
+
+        knife-vsphere has been updated to 2.1.3, which adds support for knife's `bootstrap_template` flag and removes the legacy `distro` and `template_file` flags.
+
+    * **Push Jobs Client**
+
+        Push Jobs Client has been updated to 2.5.6 which includes a significant optimizations and minor bug fixes.
+
+* **Security Updates**
+
+    * **Rubygems 2.7.9**
+
+        Rubygems has been updated from 2.7.8 to 2.7.9 to resolves the following CVEs:
+
+        * CVE-2019-8320: Delete directory using symlink when decompressing tar
+        * CVE-2019-8321: Escape sequence injection vulnerability in verbose
+        * CVE-2019-8322: Escape sequence injection vulnerability in gem owner
+        * CVE-2019-8323: Escape sequence injection vulnerability in API response handling
+        * CVE-2019-8324: Installing a malicious gem may lead to arbitrary code execution
+        * CVE-2019-8325: Escape sequence injection vulnerability in errors
 
 What's New in 3.8
 =====================================================
 
 * **Updated Tooling**
 
-    * **InSpec 3.4.1**
+    * **InSpec 3.6.6**
 
         ChefDK now ships with Inspec 3.6.6. See <https://github.com/inspec/inspec/releases/tag/v3.6.6> for more information on what's new.
 
