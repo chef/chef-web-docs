@@ -79,24 +79,51 @@ This method of license acceptance is backwards-compatible to non-EULA versions o
 
 Habitat
 -----------------------------------------------------
-The Habitat license can be accepted by setting the environment variable ``HAB_LICENSE="accept"``, or by setting ``HAB_LICENSE="accept-no-persist"`` or by executing ``hab license accept``.
-If neither of these are set, the first ``hab`` invocation will ask the user to accept the license through an interactive prompt.
 
-This applies for accepting the Habitat license. Chef Software products are also distributed as Habitat packages.
-Client products distributed as Habitat packages (Chef Infra Client, InSpec, etc.) request license acceptance at product usage time.
-Whether they are installed as system packages or Habitat packages does not change the way users accept their license.
+Two methods are generally used to accept the Chef Habitat license:
 
-Server products distributed as Habitat packages are ran using Habitat as a supervisor.
-There are currently two products distributed this way: Chef Automate and Chef Infra Server.
-See the below sections for information on how to accept the license for these products when they are distributed as Habitat packages.
+#. Users can pass the ``hab license accept`` or ``hab license accept-no-persist`` argument in the command line.
+
+#. Alternatively, users can set ``HAB_LICENSE="<value>"`` as an environment variable.
+
+``<value>`` can be specified as one of the following:
+
+#. ``accept`` - Accepts the license and persists a marker file locally. Future invocations do not require accepting the license again.
+
+#. ``accept-no-persist`` -  accepts the license without persisting a marker file. Future invocation will require accepting the license again.
+
+If the license isn't accepted through either of these methods, Habitat will request acceptance through an interactive prompt.
+
+Errors
++++++++++++++++++++++++++++++++++++++++++++
+If the Chef Habitat License prompt cannot be displayed, then the product fails with an exit code 172.
+If Chef Habitat cannot persist the accepted license, it sends a message STDOUT, but the product invocation will continue successfully.
+In a future invocation, however, the user will need to accept the license again.
+
+Chef as Habitat packages
++++++++++++++++++++++++++++++++++++++++++++
+Chef Software products are also distributed as Habitat packages, such as Chef Infra Client, Chef InSpec, etc.
+When Chef products are installed as Habitat, the products request license acceptance at product usage time.
+Whether installed as system packages or as Habitat packages, users accept the licenses in the same way detailed above.
 
 Server Products
 =====================================================
-* Chef Infra Server >= 13.0, which also contains
-    * Push Jobs Server
-* Chef Automate >= 2.0
-* Push Jobs Server >= 3.0
-* Supermarket >= 4.0
+Some Chef products distributed as Habitat packages contain servers. In these cases, Habitat runs the server products as a supervisor.
+See the below sections for information on how to accept the license for these products when they are distributed as Habitat packages.
+
+.. list-table::
+   :header-rows: 1
+
+* - Product
+  - Version
+* - Chef Infra Server 
+  - >= 13.0, which also contains Push Jobs Server
+* - Chef Automate 
+  - >= 2.0
+* - Push Jobs Server 
+  - >= 3.0
+* - Supermarket 
+  - >= 4.0
 
 Server products are typically installed and managed by some kind of process supervisor.
 Chef Software server products do not allow interactive license acceptance because process supervisors do not easily allow interactivity.
