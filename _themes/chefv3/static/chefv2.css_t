@@ -173,6 +173,7 @@ div.sphinxsidebarwrapper {
 
 div.sidebarinner {
   position: fixed;
+  padding-top: 51px;
   height: calc(100vh - 53px);
   overflow: scroll; }
 
@@ -272,6 +273,7 @@ em {
 /* -- header styles, basically Opscode blue with colored underlines and decreasing border bottom sizes */
 .chef-docs h1 {
   padding: 0.5em 0 0.3em 0;
+  padding-top: 53px;
   font-size: 1.75em;
   font-weight: bold;
   color: #3f5364;
