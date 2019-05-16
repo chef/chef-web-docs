@@ -53,7 +53,7 @@ What's New in 3.9
 
     * **Push Jobs Client**
 
-        Push Jobs Client has been updated to 2.5.6, which includes a significant optimizations and minor bug fixes.
+        Push Jobs Client has been updated to 2.5.6, which includes significant optimizations and minor bug fixes.
 
 * **Security Updates**
 
