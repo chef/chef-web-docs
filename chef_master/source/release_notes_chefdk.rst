@@ -5,7 +5,7 @@ Release Notes: Chef Development Kit 0.19 - 3.10
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes, see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
-What's new in 3.10
+What's New in 3.10
 =====================================================
 
 * **New Policy File Functionality**
@@ -18,7 +18,7 @@ What's new in 3.10
     * `mixlib-install`: 3.11.12 -> 3.11.18
     * `ohai`: 14.8.11 -> 14.8.12
 
-What's new in 3.9
+What's New in 3.9
 =====================================================
 
 * **Updated Tooling**
@@ -37,7 +37,7 @@ What's new in 3.9
 
     * **kitchen-hyperv**
 
-        kitchen-hyperv has been updated to 0.5.3 which now automatically disables snapshots on the VMs and properly waits for the IP to be set.
+        kitchen-hyperv has been updated to 0.5.3, which now automatically disables snapshots on the VMs and properly waits for the IP to be set.
 
     * **kitchen-vagrant**
 
