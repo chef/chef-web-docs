@@ -94,6 +94,8 @@ Two methods are generally used to accept the Chef Habitat license:
 
 If the license isn't accepted through either of these methods, Habitat will request acceptance through an interactive prompt.
 
+Additionally, to accepting the license in CI or other automation, user may choose to create an empty file on the filesystem at ``/hab/accepted-licenses/habitat`` (if your hab commands run as root) or at ``$HOME/.hab/accepted-licenses/habitat`` (if your hab commands run as a user other than root). For situations where hab commands run as multiple users, it is advisable to create both files.
+
 Errors
 +++++++++++++++++++++++++++++++++++++++++++
 If the Chef Habitat License prompt cannot be displayed, then the product fails with an exit code 172.
