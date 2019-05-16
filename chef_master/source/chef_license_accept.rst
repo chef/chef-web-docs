@@ -82,7 +82,7 @@ Habitat
 
 Two methods are generally used to accept the Chef Habitat license:
 
-#. Users can pass the ``hab license accept`` or ``hab license accept-no-persist`` argument in the command line.
+#. Users can execute ``hab license accept`` on the command line.
 
 #. Alternatively, users can set ``HAB_LICENSE="<value>"`` as an environment variable.
 
