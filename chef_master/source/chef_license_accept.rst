@@ -97,13 +97,13 @@ If the license isn't accepted through either of these methods, Habitat will requ
 Additionally, to accepting the license in CI or other automation, user may choose to create an empty file on the filesystem at ``/hab/accepted-licenses/habitat`` (if your hab commands run as root) or at ``$HOME/.hab/accepted-licenses/habitat`` (if your hab commands run as a user other than root). For situations where hab commands run as multiple users, it is advisable to create both files.
 
 Errors
-+++++++++++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If the Chef Habitat License prompt cannot be displayed, then the product fails with an exit code 172.
 If Chef Habitat cannot persist the accepted license, it sends a message STDOUT, but the product invocation will continue successfully.
 In a future invocation, however, the user will need to accept the license again.
 
 Chef as Habitat packages
-+++++++++++++++++++++++++++++++++++++++++++
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Chef Software products are also distributed as Habitat packages, such as Chef Infra Client, Chef InSpec, etc.
 When Chef products are installed as Habitat, the products request license acceptance at product usage time.
 Whether installed as system packages or as Habitat packages, users accept the licenses in the same way detailed above.
@@ -114,18 +114,19 @@ Some Chef products distributed as Habitat packages contain servers. In these cas
 See the below sections for information on how to accept the license for these products when they are distributed as Habitat packages.
 
 .. list-table::
+   :widths: 100 380
    :header-rows: 1
 
-* - Product
-  - Version
-* - Chef Infra Server 
-  - >= 13.0, which also contains Push Jobs Server
-* - Chef Automate 
-  - >= 2.0
-* - Push Jobs Server 
-  - >= 3.0
-* - Supermarket 
-  - >= 4.0
+   * - Product
+     - Version
+   * - Chef Infra Server
+     - >= 13.0, which also contains Push Jobs Server
+   * - Chef Automate
+     - >= 2.0
+   * - Push Jobs Server
+     - >= 3.0
+   * - Supermarket
+     - >= 4.0
 
 Server products are typically installed and managed by some kind of process supervisor.
 Chef Software server products do not allow interactive license acceptance because process supervisors do not easily allow interactivity.
@@ -189,10 +190,10 @@ You can pin to a specific version of chef in your kitchen.yml:
 
 .. code-block:: none
 
-  provisioner:
-    name: chef_zero
-    product_name: chef
-    product_version: 14.12.3
+   provisioner:
+     name: chef_zero
+     product_name: chef
+     product_version: 14.12.3
 
 ``knife bootstrap``
 -----------------------------------------------------
