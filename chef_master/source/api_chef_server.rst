@@ -259,7 +259,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /organizations/NAME/license
+   GET /license
 
 **Response**
 
@@ -324,7 +324,7 @@ This method has no parameters.
 
 .. code-block:: none
 
-   GET /organizations/NAME/organizations
+   GET /organizations
 
 **Response**
 
@@ -333,9 +333,8 @@ The response is similar to:
 .. code-block:: none
 
    {
-     "org_name1"=>"https://url/for/org_name1"
-     "org_name2"=>"https://url/for/org_name2"
-	 ...
+     "org_name1": https://url/for/org_name1",
+     "org_name2": https://url/for/org_name2"
    }
 
 **Response Codes**
@@ -557,9 +556,8 @@ The response is similar to:
 .. code-block:: none
 
    {
-     "user1"=> "https://url/for/user1"
-     "user2"=> "https://url/for/user2"
-	 ...
+     "user1": "https://url/for/user1",
+     "user2": "https://url/for/user2"
    }
 
 **Response Codes**
