@@ -692,15 +692,11 @@ This configuration file has the following settings for ``oc_bifrost``:
    The virtual IP address. Default value: ``'127.0.0.1'``.
 
 oc_chef_authz
------------------------------------------------------
-.. tag server_services_authz
-
+----------------------------------------------------
 The **opscode-authz** service is used to handle authorization requests
 from oc_erchef to oc_bifrost in the Chef Infra Server.
 
-.. end_tag
 
-.. tag config_rb_server_settings_oc_chef_authz
 
 This configuration file has the following settings for ``oc_chef_authz``:
 
@@ -722,7 +718,7 @@ This configuration file has the following settings for ``oc_chef_authz``:
 ``oc_chef_authz['ibrowse_options']``
    The amount of time (in milliseconds) to wait for a connection to be established. Default value: ``'[{connect_timeout, 5000}]'``.
 
-.. end_tag
+
 
 oc-chef-pedant
 -----------------------------------------------------

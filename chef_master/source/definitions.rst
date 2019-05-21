@@ -130,20 +130,16 @@ A definition that reopens resources would look something like:
 
 Definition vs. Resource
 =====================================================
-.. tag definition_example
-
 The following examples show:
 
 #. A definition
 #. The same definition rewritten as a custom resource
 #. The same definition, rewritten again to use a `common resource property </resource_common.html>`__
 
-.. end_tag
+
 
 As a Definition
------------------------------------------------------
-.. tag definition_example_as_definition
-
+----------------------------------------------------
 The following definition processes unique hostnames and ports, passed on as parameters:
 
 .. code-block:: ruby
@@ -160,12 +156,10 @@ The following definition processes unique hostnames and ports, passed on as para
      end
    end
 
-.. end_tag
+
 
 As a Resource
------------------------------------------------------
-.. tag definition_example_as_resource
-
+----------------------------------------------------
 The definition is improved by rewriting it as a custom resource:
 
 .. code-block:: ruby
@@ -201,12 +195,10 @@ or:
      port 4001
    end
 
-.. end_tag
+
 
 Use Common Properties
------------------------------------------------------
-.. tag definition_example_as_resource_with_common_properties
-
+----------------------------------------------------
 Unlike definitions, custom resources are able to use `common resource properties </resource_common.html>`__. For example, ``only_if``:
 
 .. code-block:: ruby
@@ -216,4 +208,4 @@ Unlike definitions, custom resources are able to use `common resource properties
      only_if '{ node['hostname'] == 'foo.bar.com' }'
    end
 
-.. end_tag
+

@@ -250,8 +250,6 @@ The following optional settings are also available and may require modification 
 
 External PostgreSQL
 =====================================================
-.. tag server_ha_external_postgresql
-
 The following diagram highlights the specific changes that occur when PostgreSQL is configured and managed independently of the Chef Infra Server configuration.
 
 .. image:: ../../images/server_components_postgresql.svg
@@ -276,14 +274,12 @@ The following table describes the components in an external PostgreSQL configura
 
        This represents the independently configured set of servers that are running PostgreSQL and are configured to act as the data store for the Chef Infra Server.
 
-.. end_tag
+
 
 .. DO NOT CHANGE THE FOLLOWING TITLE BECAUSE IT IS LINKED FROM THE ERROR MESSAGES IN THE CODE FOR THESE SETTINGS.
 
 PostgreSQL Settings
------------------------------------------------------
-.. tag server_ha_external_postgresql_settings
-
+----------------------------------------------------
 Use the following configuration settings in the chef-server.rb file to configure PostgreSQL for use with the Chef Infra Server:
 
 .. list-table::
@@ -305,7 +301,7 @@ Use the following configuration settings in the chef-server.rb file to configure
    * - ``postgresql['vip']``
      - Required when ``postgresql['external']`` is set to ``true``. The virtual IP address. The host for this IP address must be online and reachable from the Chef Infra Server via the port specified by ``postgresql['port']``. Set this value to the IP address or hostname for the machine on which external PostgreSQL is located when ``postgresql['external']`` is set to ``true``.
 
-.. end_tag
+
 
 .. note:: See the list of `error messages that may be present </error_messages.html#external-postgresql>`_ when configuring the Chef Infra Server to use a remote PostgreSQL server.
 

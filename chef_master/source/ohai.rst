@@ -409,9 +409,7 @@ Use the **ohai** resource to reload the Ohai configuration on a node. This allow
 .. end_tag
 
 Syntax
------------------------------------------------------
-.. tag resource_ohai_syntax
-
+----------------------------------------------------
 A **ohai** resource block reloads the Ohai configuration on a node:
 
 .. code-block:: ruby
@@ -439,7 +437,7 @@ where
 * ``action`` identifies the steps the Chef Infra Client will take to bring the node into the desired state
 * ``name`` and ``plugin`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
+
 
 Actions
 -----------------------------------------------------

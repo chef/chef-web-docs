@@ -18,8 +18,6 @@ knife is a command-line tool that provides an interface between a local chef-rep
 
 The Knife Quick Reference provides an all-in-one quick reference of knife commands. You can view the `overview <https://github.com/chef/quick-reference/blob/master/qr_knife_web.png>`_ or download the `source files <https://github.com/chef/quick-reference>`_.
 
-.. tag knife_index
-
 .. list-table::
    :widths: 150 450
    :header-rows: 1
@@ -35,7 +33,7 @@ The Knife Quick Reference provides an all-in-one quick reference of knife comman
    * - `config.rb Optional Settings </config_rb_optional_settings.html>`_
      - Additional options for your ``config.rb`` file
 
-.. end_tag
+
 
 Knife Subcommands
 =====================================================
@@ -244,11 +242,10 @@ Built-in Subcommands
        .. end_tag
 
    * - `knife supermarket </knife_supermarket.html>`_
-     - .. tag knife_supermarket
 
-       Use the ``knife supermarket`` subcommand to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
+     - Use the ``knife supermarket`` subcommand to interact with cookbooks that are available in the `Chef Supermarket <https://supermarket.chef.io/>`__. A user account is required for any community actions that write data to this site. The following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
-       .. end_tag
+
 
    * - `knife upload </knife_upload.html>`_
      - .. tag knife_upload_summary

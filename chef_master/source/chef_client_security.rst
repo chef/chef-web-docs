@@ -73,9 +73,7 @@ This is by design and will occur until a verifiable certificate is added to the 
 .. end_tag
 
 Changes Prior to Chef Client 12
------------------------------------------------------
-.. tag 12_ssl_changes
-
+----------------------------------------------------
 The following changes were made during certain Chef Client release prior to the Chef Client 12 release:
 
 * In the Chef Client 11.8 release, the ``verify_api_cert`` setting was added to the client.rb file with a default value of ``false``.
@@ -92,7 +90,7 @@ The following changes were made during certain Chef Client release prior to the 
 
 Starting with Chef Client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary `part of the setup process </install_dk.html#get-ssl-certificates>`__ for every workstation.
 
-.. end_tag
+
 
 ``/.chef/trusted_certs``
 -----------------------------------------------------

@@ -12,15 +12,11 @@ Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual
 Virtual Machines running Chef Infra Client
 =====================================================
 
-.. tag cloud_azure_portal_platforms
-
 Through the Azure portal, you can provision a virtual machine with Chef Infra Client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef Infra Server.
 
 .. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
 
-.. end_tag
 
-.. tag cloud_azure_portal_settings_chef_client
 
 Before virtual machines can be created using the Azure portal, some Chef Infra Client-specific settings will need to be identified so they can be provided to the Azure portal during the virtual machine creation workflow. These settings are available from the Chef Infra Client configuration settings:
 
@@ -28,9 +24,7 @@ Before virtual machines can be created using the Azure portal, some Chef Infra C
 
 * The file for the `validator key </chef_private_keys.html>`__.
 
-.. end_tag
 
-.. tag cloud_azure_portal_virtual_machines
 
 Once this information has been identified, launch the Azure portal, start the virtual machine creation workflow, and then bootstrap virtual machines with Chef using the following steps:
 
@@ -104,20 +98,16 @@ Once this information has been identified, launch the Azure portal, start the vi
 
 After the process is complete, the virtual machine will be registered with the Chef Infra Server and it will have been provisioned with the configuration (applications, services, etc.) from the specified run-list. The Chef Infra Server can now be used to perform all ongoing management of the virtual machine node.
 
-.. end_tag
+
 
 Log Files
 =====================================================
-.. tag cloud_azure_portal_log_files
-
 If the Azure portal displays an error in dashboard, check the log files. The log files are created by the Chef Infra Client. The log files can be accessed from within the Azure portal or by running the Chef Infra Client on the node itself and then reproducing the issue interactively.
 
-.. end_tag
+
 
 From the Azure portal
------------------------------------------------------
-.. tag cloud_azure_portal_log_files_azure_portal
-
+----------------------------------------------------
 Log files are available from within the Azure portal:
 
 #. Select **Virtual Machines** in the left pane of the Azure portal.
@@ -135,12 +125,10 @@ Log files are available from within the Azure portal:
 
 #. This should display the log files, including the Chef Infra Client log file.
 
-.. end_tag
+
 
 From the Chef Infra Client
------------------------------------------------------
-.. tag cloud_azure_portal_log_files_chef_client
-
+----------------------------------------------------
 The Chef Infra Client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then running the Chef Infra Client:
 
 #. Log into the virtual machine.
@@ -159,12 +147,10 @@ The Chef Infra Client can be run interactively by using Windows Remote Desktop t
 
       $ tail -f /var/log/azure/Chef.Bootstrap.WindowsAzure.LinuxChefClient/1210.12.102.1000/chef-client.log
 
-.. end_tag
+
 
 Troubleshoot Log Files
------------------------------------------------------
-.. tag cloud_azure_portal_log_files_troubleshoot
-
+----------------------------------------------------
 After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
 
 * Connectivity errors with the Chef Infra Server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
@@ -172,7 +158,7 @@ After the log files have been located, open them using a text editor to view the
 * The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
 * An error in one the run-list. The log file will specify the details about errors related to the run-list.
 
-.. end_tag
+
 
 For more information ...
 =====================================================

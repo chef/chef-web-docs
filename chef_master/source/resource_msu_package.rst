@@ -208,8 +208,6 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
-.. tag msu_package_examples
-
 **Using local path in source**
 
 .. code-block:: ruby
@@ -242,4 +240,4 @@ Examples
      action :remove
    end
 
-.. end_tag
+

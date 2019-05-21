@@ -171,8 +171,7 @@ After the instance has been provisioned and initial configuration has completed 
 
 Configure the workstation
 -----------------------------------------------------
-#. .. tag install_aws_chef_automate_starter_kit
-
+#.
    Download and extract the ``starter_kit.zip`` file to a directory on the workstation. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit. For example:
 
    .. code-block:: bash
@@ -181,7 +180,7 @@ Configure the workstation
       $ unzip starter_kit.zip
       $ cd starter_kit/chef-repo
 
-   .. end_tag
+   
 
 #. .. tag install_aws_chef_server_knife_client_list
 
@@ -314,8 +313,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
    .. end_tag
 
-#. .. tag install_update_aws_pivotal_rb
-
+#.
    Open ``.chef/pivotal.rb`` in a text editor and modify the ``chef_server_url`` and ``chef_server_root`` with your new public DNS. For example:
 
    .. code-block:: bash
@@ -331,7 +329,7 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
       chef_server_root "<YOUR NEW PUBLIC DNS>"
       client_key       ::File.join(::File.dirname(__FILE__), "pivotal.pem")
 
-   .. end_tag
+   
 
 #. .. tag install_aws_chef_server_knife_ssl_fetch
 
@@ -397,8 +395,7 @@ The process of migrating from an existing Chef Infra Server installation to the 
 
 After verifying that your existing Chef Infra Server installation is up to date, do the following to migrate to the Amazon Machine Images (AMI) instance:
 
-#. .. tag chef_server_backup_for_automate
-
+#.
    Backup the data on the Chef Infra Server using ``knife ec backup``. This method will export all of your existing Chef Infra Server data as JSON. We'll then re-import the same data into a new Chef Automate cluster. We use the JSON based backup and restore procedure because the Chef Infra Server data on the Chef Automate Marketplace AMI is stored in shared databases so copying of binary files won't work.
 
    .. code-block:: bash
@@ -407,7 +404,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
       $ /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
       $ tar -czvf chef-backup.tgz -C /tmp/chef-backup
 
-   .. end_tag
+   
 
 #. Copy the resulting tarball to your Amazon Machine Images (AMI) instance:
 

@@ -30,8 +30,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_service_reboot_actions
-
 The reboot resource has the following actions:
 
 ``:cancel``
@@ -50,7 +48,6 @@ The reboot resource has the following actions:
 ``:request_reboot``
    Reboot a node at the end of a chef-client run.
 
-.. end_tag
 
 Properties
 =====================================================

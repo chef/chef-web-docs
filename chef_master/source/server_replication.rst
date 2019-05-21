@@ -7,11 +7,9 @@ Chef Replication (DEPRECATED)
 
 .. note:: This topic is meant to support existing customers using Chef replication. The capabilities of Chef replication can be reproduced using the features of Chef Automate workflow and we encourage customers to adopt Chef Automate going forward.
 
-.. tag server_replication_summary
-
 Chef replication provides a way to asynchronously distribute cookbook, environment, role, and data bag data from a single, primary Chef Server to one (or more) replicas of that Chef Server.
 
-.. end_tag
+
 
 .. note:: Chef replication requires Chef Server version 12.
 
@@ -23,8 +21,6 @@ Chef replication provides a way to asynchronously distribute cookbook, environme
 
 Scenarios
 =====================================================
-.. tag server_replication_scenarios
-
 Replication is configured on a per-organization and also a per-replica basis. Each organization must be configured to synchronize with each replica instance. Each organization may be configured to synchronize with all, some, or none of the available replica instances.
 
 For example, a single primary Chef Server and a single replica:
@@ -41,17 +37,15 @@ Chef replication should not be used for:
 * Synchronizing a replica instance with another replica instance
 * Node re-registration. A node may be associated only with a single Chef Server
 
-.. end_tag
+
 
 How Replication Works
 =====================================================
-.. tag server_replication_how_it_works
-
 A daemon named **ec-syncd** runs on each of the replica instances of the Chef Server and periodically polls the primary Chef Server via the ``updated_since`` endpoint in the Chef Server API. The **ec-syncd** daemon requests a list of objects that have been updated since the last successful synchronization time. If there are updates, the **ec-syncd** daemon then pulls down the updated data from the primary Chef Server to the replica.
 
 .. image:: ../../images/chef_server_replication_sequence.png
 
-.. end_tag
+
 
 Configure Chef Replication
 =====================================================

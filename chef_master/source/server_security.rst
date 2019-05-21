@@ -12,8 +12,6 @@ Initial configuration of the Chef Infra Server is done automatically using a sel
 Automatic Installation (recommended)
 -----------------------------------------------------
 
-.. tag server_security_ssl_cert_custom
-
 The Chef Infra Server can be configured to use SSL certificates by adding the following settings to the server configuration file:
 
 .. list-table::
@@ -29,7 +27,7 @@ The Chef Infra Server can be configured to use SSL certificates by adding the fo
 
 and then setting their values to define the paths to the certificate and key.
 
-.. end_tag
+
 
 For example:
 
@@ -71,11 +69,9 @@ Because the FQDN has already been configured, do the following:
 
       $ chef-server-ctl restart nginx
 
-.. tag server_openssl_fqdn
-
 .. warning:: The FQDN for the Chef Infra Server should be resolvable, lowercase, and have fewer than 64 characters including the domain suffix, when using OpenSSL, as OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
 
-.. end_tag
+
 
 SSL Protocols
 -----------------------------------------------------

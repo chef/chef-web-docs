@@ -28,11 +28,10 @@ The following steps should be performed on a Chef Automate server:
 
    .. end_tag
 
-   .. tag chef_automate_build_nodes_with_full_ohai
-
+  
    .. note:: If ``--full-ohai`` flag is set, Chef runs with full Ohai plugins. By default, Chef runs with bare Ohai plugins that are required for the node.
 
-   .. end_tag
+   
 
    .. tag delivery_ctl_note
 

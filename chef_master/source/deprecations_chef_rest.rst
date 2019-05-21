@@ -3,11 +3,9 @@ Deprecation: Chef REST (CHEF-9)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chef_rest.rst>`__
 
-.. tag deprecation_chef_rest
-
 The ``Chef::REST`` class will be removed.
 
-.. end_tag
+
 
 ``Chef::REST`` was deprecated in Chef Client 12.7.2, and will be removed in Chef Client 13.
 

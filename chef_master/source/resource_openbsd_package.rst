@@ -17,8 +17,6 @@ Use the **openbsd_package** resource to manage packages for the OpenBSD platform
 
 Syntax
 =====================================================
-.. tag resource_package_openbsd_syntax
-
 A **openbsd_package** resource block manages a package on a node, typically by installing it. The simplest use of the **openbsd_package** resource is:
 
 .. code-block:: ruby
@@ -47,12 +45,10 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_openbsd_actions
-
 The openbsd_package resource has the following actions:
 
 ``:install``
@@ -68,7 +64,7 @@ The openbsd_package resource has the following actions:
 ``:remove``
    Remove a package.
 
-.. end_tag
+
 
 Properties
 =====================================================

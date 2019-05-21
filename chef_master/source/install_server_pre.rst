@@ -37,16 +37,14 @@ The following table lists the commercially-supported platforms and versions for 
 .. end_tag
 
 Untested Platforms
------------------------------------------------------
-.. tag adopted_platforms_server_other
-
+----------------------------------------------------
 The following platforms are not tested by Chef Software:
 
 * Any Linux or UNIX distribution that is not listed as a Foundational platform.
 * Microsoft Windows
 * 32-bit architectures
 
-.. end_tag
+
 
 Capacity Planning
 =====================================================
@@ -385,11 +383,9 @@ If a hostname is not resolvable, refer to a local systems administrator for spec
 .. code-block:: bash
 
    $ echo -e "127.0.0.2 `hostname` `hostname -s`" | sudo tee -a /etc/hosts
-
-.. tag server_openssl_fqdn_pre
 .. warning:: The FQDN for the Chef Infra Server should be resolvable, lowercase, and should not exceed 64 characters when using OpenSSL, as OpenSSL requires the ``CN`` in a certificate to be no longer than 64 characters.
 
-.. end_tag
+
 
 Mail Relay
 -----------------------------------------------------

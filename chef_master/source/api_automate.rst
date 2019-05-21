@@ -57,39 +57,30 @@ The following authentication headers are required:
    * - Feature
      - Description
    * - ``chef-delivery-enterprise``
-     - .. tag api_chef_automate_headers_enterprise
 
-       The name of the Chef Automate enterprise to use.
-
-       .. end_tag
+     - The name of the Chef Automate enterprise to use.
 
    * - ``chef-delivery-user``
-     - .. tag api_chef_automate_headers_delivery_user
 
-       The Chef Automate user to use for the API calls.
+     - The Chef Automate user to use for the API calls.
 
-       .. end_tag
+
 
    * - ``chef-delivery-token``
-     - .. tag api_chef_automate_headers_delivery_token
 
-       The Chef Automate user token used in conjunction with ``chef-delivery-user``.
+     - The Chef Automate user token used in conjunction with ``chef-delivery-user``.
 
-       .. end_tag
+
 
    * - ``x-data-collector-auth``
-     - .. tag api_chef_automate_headers_data_collector_auth
 
-       Set this to ``version=1.0`` in order to use the long-lived ``data_collector`` authentication instead of authenticating via ``chef-delivery-user`` and ``chef-delivery-token``.
+     - Set this to ``version=1.0`` in order to use the long-lived ``data_collector`` authentication instead of authenticating via ``chef-delivery-user`` and ``chef-delivery-token``.
 
-       .. end_tag
+
 
    * - ``x-data-collector-token``
-     - .. tag api_chef_automate_headers_data_collector_token
 
-       The value of the ``data_collector`` token as set in ``/etc/delivery/delivery.rb`` if ``x-data-collector-auth`` is used.
-
-       .. end_tag
+     - The value of the ``data_collector`` token as set in ``/etc/delivery/delivery.rb`` if ``x-data-collector-auth`` is used.
 
 
 The Chef Automate API is located at ``https://hostname`` and has the following endpoints:

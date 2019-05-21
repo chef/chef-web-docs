@@ -514,8 +514,6 @@ where:
 
 **Run a command as an alternate user**
 
-.. tag resource_powershell_script_alternate_user
-
 *Note*: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
 This right can be added and checked in a recipe using this example:
@@ -574,4 +572,4 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
     elevated true
    end
 
-.. end_tag
+

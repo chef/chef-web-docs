@@ -219,9 +219,7 @@ For a more complete version of the previous example, see the default recipe in t
 
 
 declare_resource
------------------------------------------------------
-.. tag dsl_recipe_method_declare_resource
-
+----------------------------------------------------
 Use the ``declare_resource`` method to instantiate a resource and then add it to the resource collection.
 
 The syntax for the ``declare_resource`` method is as follows:
@@ -252,12 +250,10 @@ is equivalent to:
      action :delete
    end
 
-.. end_tag
+
 
 delete_resource
------------------------------------------------------
-.. tag dsl_recipe_method_delete_resource
-
+----------------------------------------------------
 Use the ``delete_resource`` method to find a resource in the resource collection, and then delete it.
 
 The syntax for the ``delete_resource`` method is as follows:
@@ -277,12 +273,10 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
-.. end_tag
+
 
 delete_resource!
------------------------------------------------------
-.. tag dsl_recipe_method_delete_resource_bang
-
+----------------------------------------------------
 Use the ``delete_resource!`` method to find a resource in the resource collection, and then delete it. If the resource is not found, an exception is returned.
 
 The syntax for the ``delete_resource!`` method is as follows:
@@ -302,12 +296,10 @@ For example:
 
    delete_resource!(:file, '/x/file.txt')
 
-.. end_tag
+
 
 edit_resource
------------------------------------------------------
-.. tag dsl_recipe_method_edit_resource
-
+----------------------------------------------------
 Use the ``edit_resource`` method to:
 
 * Find a resource in the resource collection, and then edit it.
@@ -344,12 +336,10 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
-.. end_tag
+
 
 edit_resource!
------------------------------------------------------
-.. tag dsl_recipe_method_edit_resource_bang
-
+----------------------------------------------------
 Use the ``edit_resource!`` method to:
 
 * Find a resource in the resource collection, and then edit it.
@@ -375,12 +365,10 @@ For example:
 
    edit_resource!(:file, '/x/y.rst')
 
-.. end_tag
+
 
 find_resource
------------------------------------------------------
-.. tag dsl_recipe_method_find_resource
-
+----------------------------------------------------
 Use the ``find_resource`` method to:
 
 * Find a resource in the resource collection.
@@ -414,12 +402,10 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
-.. end_tag
+
 
 find_resource!
------------------------------------------------------
-.. tag dsl_recipe_method_find_resource_bang
-
+----------------------------------------------------
 Use the ``find_resource!`` method to find a resource in the resource collection. If the resource is not found, an exception is returned.
 
 The syntax for the ``find_resource!`` method is as follows:
@@ -439,7 +425,7 @@ For example:
 
    find_resource!(:template, '/x/y.erb')
 
-.. end_tag
+
 
 platform?
 -----------------------------------------------------
@@ -1075,9 +1061,7 @@ where
 .. end_tag
 
 shell_out
------------------------------------------------------
-.. tag dsl_recipe_method_shell_out
-
+----------------------------------------------------
 The ``shell_out`` method can be used to run a command against the node, and then display the output to the console when the log level is set to ``debug``.
 
 The syntax for the ``shell_out`` method is as follows:
@@ -1088,12 +1072,10 @@ The syntax for the ``shell_out`` method is as follows:
 
 where ``command_args`` is the command that is run against the node.
 
-.. end_tag
+
 
 shell_out!
------------------------------------------------------
-.. tag dsl_recipe_method_shell_out_bang
-
+----------------------------------------------------
 The ``shell_out!`` method can be used to run a command against the node, display the output to the console when the log level is set to ``debug``, and then raise an error when the method returns ``false``.
 
 The syntax for the ``shell_out!`` method is as follows:
@@ -1104,12 +1086,10 @@ The syntax for the ``shell_out!`` method is as follows:
 
 where ``command_args`` is the command that is run against the node. This method will return ``true`` or ``false``.
 
-.. end_tag
+
 
 shell_out_with_systems_locale
------------------------------------------------------
-.. tag dsl_recipe_method_shell_out_with_systems_locale
-
+----------------------------------------------------
 The ``shell_out_with_systems_locale`` method can be used to run a command against the node (via the ``shell_out`` method), but using the ``LC_ALL`` environment variable.
 
 The syntax for the ``shell_out_with_systems_locale`` method is as follows:
@@ -1120,7 +1100,7 @@ The syntax for the ``shell_out_with_systems_locale`` method is as follows:
 
 where ``command_args`` is the command that is run against the node.
 
-.. end_tag
+
 
 tag, tagged?, untag
 -----------------------------------------------------
@@ -1322,9 +1302,7 @@ The following example will set ``package`` to ``httpd-devel`` for the Red Hat En
    )
 
 with_run_context
------------------------------------------------------
-.. tag dsl_recipe_method_with_run_context
-
+----------------------------------------------------
 Use the ``with_run_context`` method to define a block that has a pointer to a location in the ``run_context`` hierarchy. Resources in recipes always run at the root of the ``run_context`` hierarchy, whereas custom resources and notification blocks always build a child ``run_context`` which contains their sub-resources.
 
 The syntax for the ``with_run_context`` method is as follows:
@@ -1356,7 +1334,7 @@ For example:
      end
    end
 
-.. end_tag
+
 
 Windows Platform
 =====================================================
