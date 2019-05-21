@@ -887,7 +887,7 @@ Other Changes
         yum_package "perl(Git)"
 
 * **powershell_exec Mixin**
-     Since our supported Windows platforms can all run .NET Framework 4.0 and PowerShell 4.0, we have taken time to add a new helper that will allow for faster and safer interactions with the system PowerShell. You will be able to use the ``powershell_exe``c mixin in most places where you would have previously used ``powershell_out``. For comparison, a basic benchmark test to return the ``$PSVersionTable`` 100 times completed 7.3X faster compared to the ``powershell_out`` method. The majority of the time difference is because of less time spent in invocation. We believe it has great potential where multiple calls to PowerShell are required inside (for example) a custom resource. Many core Chef resources will be updated to use this new mixin in future releases.
+     Since our supported Windows platforms can all run .NET Framework 4.0 and PowerShell 4.0, we have taken time to add a new helper that will allow for faster and safer interactions with the system PowerShell. You will be able to use the ``powershell_exe`` mixin in most places where you would have previously used ``powershell_out``. For comparison, a basic benchmark test to return the ``$PSVersionTable`` 100 times completed 7.3X faster compared to the ``powershell_out`` method. The majority of the time difference is because of less time spent in invocation. We believe it has great potential where multiple calls to PowerShell are required inside (for example) a custom resource. Many core Chef resources will be updated to use this new mixin in future releases.
 
 * **Logging Improvements**
      Chef now includes a new log level of ``:trace`` in addition to the existing ``:info``, ``:warn``, and ``:debug`` levels. With the introduction of trace-level logging we've moved a large amount of logging that is more useful for Chef developers from debug to trace. This makes it easier for Chef Cookbook developers to use debug level to get useful information.
@@ -1681,7 +1681,7 @@ Exceptions not descending from StandardError (e.g. LoadError, SecurityError, Sys
 
 Removed deprecated ``method_missing`` access from the Chef::Node object
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Previously, the syntax ``node.foo.bar`` could be used to mean ``node["foo"]["bar"]``, but this API had sharp edges where methods collided with the core ruby Object class (e.g. ``node.class`) and where it collided with our own ability to extend the ``Chef::Node`` API.  This method access has been deprecated for some time, and has been removed in Chef-13.
+Previously, the syntax ``node.foo.bar`` could be used to mean ``node["foo"]["bar"]``, but this API had sharp edges where methods collided with the core ruby Object class (e.g. ``node.class``) and where it collided with our own ability to extend the ``Chef::Node`` API.  This method access has been deprecated for some time, and has been removed in Chef-13.
 
 Changed ``declare_resource`` API
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1715,7 +1715,7 @@ Defining a property that overrides methods defined on the base ruby ``Object`` o
 
 ``chef-shell`` now supports solo and legacy solo modes
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Running ``chef-shell -s`` or ``chef-shell --solo`` will give you an experience consistent with ``chef-solo``. ``chef-shell --solo-legacy-mode` will give you an experience consistent with ``chef-solo --legacy-mode``.
+Running ``chef-shell -s`` or ``chef-shell --solo`` will give you an experience consistent with ``chef-solo``. ``chef-shell --solo-legacy-mode`` will give you an experience consistent with ``chef-solo --legacy-mode``.
 
 Chef::Platform.set and related methods have been removed
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1740,7 +1740,7 @@ Support for actions with spaces and hyphens in the action name has been dropped.
 ``easy_install`` resource has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The Python ``easy_install`` package installer has been deprecated for many years, so we have removed support for it. No specific replacement for ``pip`` is being included with Chef at this time, but a ``pip`-based ``python_package`` resource is available in the `poise-python <https://github.com/poise/poise-python>`__ cookbooks.
+The Python ``easy_install`` package installer has been deprecated for many years, so we have removed support for it. No specific replacement for ``pip`` is being included with Chef at this time, but a ``pip``-based ``python_package`` resource is available in the `poise-python <https://github.com/poise/poise-python>`__ cookbooks.
 
 Removal of run_command and popen4 APIs
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1804,7 +1804,7 @@ The result is that the above resource will be named ``some_resource[name_two]`` 
 
 ``use_inline_resources`` is always enabled
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``use_inline_resources`` provider mode is always enabled when using the ``action :name do `` syntax. You can remove the ``use_inline_resources`` line.
+The ``use_inline_resources`` provider mode is always enabled when using the ``action :name do ... end`` syntax. You can remove the ``use_inline_resources`` line.
 
 ``knife cookbook site vendor`` has been removed
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
