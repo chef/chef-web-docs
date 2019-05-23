@@ -58,7 +58,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - n/a
    * - Chef Infra Client
      - 15.x
-     - Releasing Soon
+     - GA
      - n/a
    * - Chef Infra Server
      - 13.x
