@@ -123,7 +123,7 @@ This command has the following options:
    Environment path(s) to check.
       
 ``-G``, ``--search-gems``
-   Search rubygems for rule files with the path foodcritic/rules/**/*.rb
+   Search rubygems for rule files with the path ``foodcritic/rules/**/*.rb``.
 
 ``-I PATH``, ``--include PATH``
    Use to specify the path to a file that contains additional Foodcritic rules.
@@ -142,7 +142,7 @@ This command has the following options:
    
 ``-X``, ``--exclude PATH``
    Exclude path(s) from being linted. PATH is relative to the cookbook, not an absolute PATH.
-   Default test/**/*,spec/**/*,features/**/*  
+   Default ``test/**/*,spec/**/*,features/**/*``.
 
 For more information ...
 =====================================================
