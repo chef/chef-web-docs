@@ -582,20 +582,16 @@ or:
 
 Change Attributes
 =====================================================
-.. tag node_attribute_change
-
 Starting with Chef Client 12.0, attribute precedence levels may be
 
 * Removed for a specific, named attribute precedence level
 * Removed for all attribute precedence levels
 * Fully assigned attributes
 
-.. end_tag
+
 
 Remove Precedence Level
------------------------------------------------------
-.. tag node_attribute_change_remove_level
-
+----------------------------------------------------
 A specific attribute precedence level for default, normal, and override attributes may be removed by using one of the following syntax patterns.
 
 For default attributes:
@@ -612,12 +608,10 @@ For override attributes:
 
 These patterns return the computed value of the key being deleted for the specified precedence level.
 
-.. end_tag
+
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag node_attribute_change_remove_level_examples
-
 The following examples show how to remove a specific, named attribute precedence level.
 
 **Delete a default value when only default values exist**
@@ -756,24 +750,20 @@ The other attribute precedence levels are unaffected:
 
    node.rm_default("no", "such", "thing") #=> nil
 
-.. end_tag
+
 
 Remove All Levels
------------------------------------------------------
-.. tag node_attribute_change_remove_all
-
+----------------------------------------------------
 All attribute precedence levels may be removed by using the following syntax pattern:
 
 * ``node.rm('foo', 'bar')``
 
 .. note:: Using ``node['foo'].delete('bar')`` will throw an exception that points to the new API.
 
-.. end_tag
+
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag node_attribute_change_remove_all_examples
-
 The following examples show how to remove all attribute precedence levels.
 
 **Delete all attribute precedence levels**
@@ -816,12 +806,10 @@ Looking at ``'foo'``, all that's left is the ``'bat'`` entry:
 
    node.rm_default("no", "such", "thing") #=> nil
 
-.. end_tag
+
 
 Full Assignment
------------------------------------------------------
-.. tag node_attribute_change_full_assignment
-
+----------------------------------------------------
 Use ``!`` to clear out the key for the named attribute precedence level, and then complete the write by using one of the following syntax patterns:
 
 * ``node.default!['foo']['bar'] = {...}``
@@ -830,12 +818,10 @@ Use ``!`` to clear out the key for the named attribute precedence level, and the
 * ``node.override!['foo']['bar'] = {...}``
 * ``node.force_override!['foo']['bar'] = {...}``
 
-.. end_tag
+
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag node_attribute_change_full_assignment_examples
-
 The following examples show how to remove all attribute precedence levels.
 
 **Just one component**
@@ -947,7 +933,7 @@ the difference is:
    node.attributes.combined_override['foo'] #=> {'bar' => {'baz' => 99}}
    node['foo']['bar'] #=> {'baz' => 99}
 
-.. end_tag
+
 
 About Deep Merge
 =====================================================

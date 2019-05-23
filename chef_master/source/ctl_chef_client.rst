@@ -136,8 +136,7 @@ This command has the following options:
 
    **Environments**
 
-   .. tag ctl_chef_client_environment
-
+  
    Use this option to set the ``chef_environment`` value for a node.
 
    .. note:: Any environment specified for ``chef_environment`` by a JSON file will take precedence over an environment specified by the ``--environment`` option when both options are part of the same command.
@@ -158,7 +157,7 @@ This command has the following options:
 
    This will set the environment for the node to ``pre-production``.
 
-   .. end_tag
+   
 
    **All attributes are normal attributes**
 
@@ -203,8 +202,7 @@ This command has the following options:
 
    **Specify a policy**
 
-   .. tag policy_ctl_run_list
-
+  
    Use this option to use policy files by specifying a JSON file that contains the following settings:
 
    .. list-table::
@@ -227,7 +225,7 @@ This command has the following options:
         "policy_group": "staging"
       }
 
-   .. end_tag
+   
 
 ``-k KEY_FILE``, ``--client_key KEY_FILE``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``.
@@ -276,8 +274,7 @@ This command has the following options:
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
 
 ``--profile-ruby``
-   .. tag ctl_chef_client_profile_ruby
-
+  
    Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``. Use the graph output to help identify, and then resolve performance bottlenecks in a Chef Infra Client run. This option:
 
    * Generates a large amount of data about the Chef Infra Client run.
@@ -285,7 +282,7 @@ This command has the following options:
    * Increases the amount of time required to complete the Chef Infra Client run.
    * Should not be used in a production environment.
 
-   .. end_tag
+   
 
 ``-r RUN_LIST_ITEM``, ``--runlist RUN_LIST_ITEM``
    Permanently replace the current run-list with the specified run-list items.
@@ -530,26 +527,20 @@ This approach can work very well on a case-by-case basis. The challenge with thi
 
 Run on IBM AIX
 =====================================================
-.. tag ctl_chef_client_aix
-
 The Chef Infra Client may now be used to configure nodes that are running on the AIX platform, versions 6.1 (TL6 or higher, recommended) and 7.1 (TL0 SP3 or higher, recommended). The **service** resource supports starting, stopping, and restarting services that are managed by System Resource Controller (SRC), as well as managing all service states with BSD-based init systems.
 
-.. end_tag
+
 
 **System Requirements**
-
-.. tag ctl_chef_client_aix_requirements
 
 The Chef Infra Client has the `same system requirements </chef_system_requirements.html#chef-client>`_ on the AIX platform as any other platform, with the following notes:
 
 * Expand the file system on the AIX platform using ``chfs`` or by passing the ``-X`` flag to ``installp`` to automatically expand the logical partition (LPAR)
 * The EN_US (UTF-8) character set should be installed on the logical partition prior to installing the Chef Infra Client
 
-.. end_tag
+
 
 **Install the Chef Infra Client on the AIX platform**
-
-.. tag ctl_chef_client_aix_setup
 
 The Chef Infra Client is distributed as a Backup File Format (BFF) binary and is installed on the AIX platform using the following command run as a root user:
 
@@ -557,11 +548,9 @@ The Chef Infra Client is distributed as a Backup File Format (BFF) binary and is
 
    # installp -aYgd chef-12.0.0-1.powerpc.bff all
 
-.. end_tag
+
 
 **Increase system process limits**
-
-.. tag ctl_chef_client_aix_system_process_limits
 
 The out-of-the-box system process limits for maximum process memory size (RSS) and number of open files are typically too low to run the Chef Infra Client on a logical partition (LPAR). When the system process limits are too low, the Chef Infra Client will not be able to create threads. To increase the system process limits:
 
@@ -603,11 +592,9 @@ When the system process limits are too low, an error is returned similar to:
    -----------------
    ThreadError: can't create Thread: Resource temporarily unavailable
 
-.. end_tag
+
 
 **Install the UTF-8 character set**
-
-.. tag install_chef_client_aix_en_us
 
 The Chef Infra Client uses the EN_US (UTF-8) character set. By default, the AIX base operating system does not include the EN_US (UTF-8) character set and it must be installed prior to installing the Chef Infra Client. The EN_US (UTF-8) character set may be installed from the first disc in the AIX media or may be copied from ``/installp/ppc/*EN_US*`` to a location on the logical partition (LPAR). This topic assumes this location to be ``/tmp/rte``.
 
@@ -670,11 +657,9 @@ Remember to point ``INPUT device/directory`` to ``/tmp/rte`` when not installing
 
 #. Press ``Enter`` to apply and install the language set.
 
-.. end_tag
+
 
 **Providers**
-
-.. tag ctl_chef_client_aix_providers
 
 The **service** resource has the following providers to support the AIX platform:
 
@@ -692,7 +677,7 @@ The **service** resource has the following providers to support the AIX platform
      - ``service``
      -  The provider that is used to manage BSD-based init services on AIX.
 
-.. end_tag
+
 
 **Enable a service on AIX using the mkitab command**
 

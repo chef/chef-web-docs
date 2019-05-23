@@ -372,8 +372,6 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
-.. tag windows_task_examples
-
 **Create a scheduled task to run every 15 minutes as the Administrator user**
 
 .. code-block:: ruby
@@ -490,4 +488,4 @@ Examples
      action :disable
    end
 
-.. end_tag
+

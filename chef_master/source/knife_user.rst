@@ -114,28 +114,22 @@ None.
 
 key create
 =====================================================
-.. tag knife_user_key_create
-
 Use the ``key create`` argument to create a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_create_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key create USER_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_user_key_create_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-e DATE``, ``--expiration-date DATE``
@@ -150,7 +144,7 @@ This argument has the following options:
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
    The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -158,23 +152,19 @@ None.
 
 key delete
 =====================================================
-.. tag knife_user_key_delete
-
 Use the ``key delete`` argument to delete a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_delete_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key delete USER_NAME KEY_NAME
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -182,28 +172,22 @@ None.
 
 key edit
 =====================================================
-.. tag knife_user_key_edit
-
 Use the ``key edit`` argument to modify or rename a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_edit_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key edit USER_NAME KEY_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_user_key_edit_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-c``, ``--create-key``
@@ -221,7 +205,7 @@ This argument has the following options:
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
    The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -229,28 +213,22 @@ None.
 
 key list
 =====================================================
-.. tag knife_user_key_list
-
 Use the ``key list`` argument to view a list of public keys for the named user.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_list_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key list USER_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_user_key_list_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-e``, ``--only-expired``
@@ -262,7 +240,7 @@ This argument has the following options:
 ``-w``, ``--with-details``
    Show a list of public keys, including URIs and expiration status.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -270,23 +248,19 @@ None.
 
 key show
 =====================================================
-.. tag knife_user_key_show
-
 Use the ``key show`` argument to view details for a specific public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_show_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key show USER_NAME KEY_NAME
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------

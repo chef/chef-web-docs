@@ -17,8 +17,6 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
 
 Syntax
 =====================================================
-.. tag resource_package_paludis_syntax
-
 A **paludis_package** resource block manages a package on a node, typically by installing it. The simplest use of the **paludis_package** resource is:
 
 .. code-block:: ruby
@@ -47,12 +45,10 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_paludis_actions
-
 The paludis_package resource has the following actions:
 
 ``:install``
@@ -71,7 +67,6 @@ The paludis_package resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
-.. end_tag
 
 Properties
 =====================================================

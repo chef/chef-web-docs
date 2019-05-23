@@ -3,8 +3,6 @@ Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
 
-.. tag custom_resources_summary
-
 A custom resource:
 
 * Is a simple extension of Chef Infra Client that adds your own resources
@@ -15,14 +13,12 @@ A custom resource:
 
 For example, Chef Infra Client includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
 
-.. end_tag
+
 
 Custom resources were introduced in Chef Client version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the Chef Client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__.
 
 Syntax
 =====================================================
-.. tag custom_resources_syntax
-
 A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file
 
 * Declares the properties of the custom resource
@@ -53,12 +49,10 @@ where the first action listed is the default action.
    Do not use existing keywords from the Chef Infra Client resource system in a custom resource, like "name". For example, ``property :property_name`` in the following invalid syntax:
    ``property :name, String, default: 'thename'``.
 
-.. end_tag
+
 
 Example
------------------------------------------------------
-.. tag custom_resources_syntax_example
-
+----------------------------------------------------
 This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built in Chef Infra Client resources, besides defining the property and actions, the code is very similar to that of a recipe.
 
 .. code-block:: ruby
@@ -105,7 +99,7 @@ and to delete the exampleco website, do the following:
      action :delete
    end
 
-.. end_tag
+
 
 resource_name
 -----------------------------------------------------
@@ -479,9 +473,7 @@ Custom Resource DSL
 The following sections describe additional Custom Resource DSL methods that were not used in the preceding scenario:
 
 action_class
------------------------------------------------------
-.. tag dsl_custom_resource_block_action_class
-
+----------------------------------------------------
 Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
 
 Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
@@ -519,7 +511,7 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    end
 
-.. end_tag
+
 
 converge_if_changed
 -----------------------------------------------------

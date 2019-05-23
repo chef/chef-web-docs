@@ -84,9 +84,7 @@ If you have FIPS compliance enabled at the kernel level then Chef Infra Client w
 default to running in FIPS mode. Otherwise you can add ``fips true`` to the
 ``/etc/chef/client.rb`` or ``C:\\chef\\client.rb``.
 
-.. tag chef_client_fips_mode
 
-.. end_tag
 
 **Bootstrap a node using FIPS**
 

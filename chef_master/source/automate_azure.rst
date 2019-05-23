@@ -27,11 +27,10 @@ Chef provides a fully functional Chef Automate server that can be launched from 
 
 #. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef Infra Server. Access the initial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when the VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
 
-   .. note:: .. tag notes_chef_azure_ssl
-
+   .. note::
              In order to use TLS/SSL for the Chef Automate Web UI, the VM will automatically create and use a self-signed SSL certificate. Modern web browsers typically warn about self-signed certificates during login; however, in this case, you can ignore the warning and accept the certificate.
 
-             .. end_tag
+             
 
 #. Fill out the setup form and submit it.
 
@@ -63,8 +62,7 @@ The process of migrating from an existing Chef Infra Server installation to the 
 
 After verifying that your existing Chef Infra Server installation is up to date, do the following to migrate to the Chef Automate Azure VM:
 
-#. .. tag chef_server_backup_for_automate_azure
-
+#.
    Backup the data on the Chef Infra Server using ``knife ec backup``. This backup method will export all Chef Infra Server data into nested JSON files that can be used to import into the Chef Automate Azure VM. We must use the JSON-based backup and restore procedure because the Chef Infra Server data on the Chef Automate VM image is stored in a combined configuration with Chef Automate, therefore, using file based backups from your existing Chef Infra Server is not supported.
 
    .. note:: The Chef Infra Server services must be online for the entire duration of the backup.
@@ -75,7 +73,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
       $ /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
       $ tar -czvf chef-backup.tgz -C /tmp/chef-backup
 
-   .. end_tag
+   
 
 #. Using the Admin Username and FQDN that you choose when provisioning the Chef Automate Azure VM from the Azure portal, copy the resulting tarball to your Azure VM:
 
@@ -116,8 +114,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
    .. end_tag
 
-#. .. tag install_update_azure_knife_rb
-
+#.
    Update your workstation knife configuration. Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
 
    .. code-block:: bash
@@ -138,7 +135,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
       chef_server_url          'https://<FQDN>/organizations/your_org'
       cookbook_path            ["#{current_dir}/../cookbooks"]
 
-   .. end_tag
+   
 
 #. .. tag install_aws_chef_server_knife_ssl_fetch
 

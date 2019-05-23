@@ -11,8 +11,6 @@ The Chef Infra Server API is a REST API that provides access to objects on the C
 
 Requirements
 =====================================================
-.. tag api_chef_server_requirements
-
 The Chef Infra Server API has the following requirements:
 
 * The ``Accept`` header must be set to ``application/json``.
@@ -21,7 +19,7 @@ The Chef Infra Server API has the following requirements:
 * A request must be signed using ``Mixlib::Authentication``.
 * A request must be well-formatted. The easiest way to ensure a well-formatted request is to use the ``Chef::REST`` library.
 
-.. end_tag
+
 
 Authentication Headers
 =====================================================
@@ -89,11 +87,10 @@ The following authentication headers are required:
        .. end_tag
 
    * - ``Content-Type``
-     - .. tag api_chef_server_headers_content_type
 
-       The format in which data is sent to the Chef Infra Server. This header is required for ``PUT`` and ``POST`` requests and must be set to ``application/json``.
+     - The format in which data is sent to the Chef Infra Server. This header is required for ``PUT`` and ``POST`` requests and must be set to ``application/json``.
 
-       .. end_tag
+
 
    * - ``Host``
      - .. tag api_chef_server_headers_host
@@ -124,11 +121,10 @@ The following authentication headers are required:
        .. end_tag
 
    * - ``X-Ops-Server-API-Version``
-     - .. tag api_chef_server_headers_x_ops_server_api_version
 
-       Use ``X-Ops-Server-API-Version`` to specify the version of the Chef Infra Server API. For example: ``X-Ops-Server-API-Version: 1``. ``X-Ops-Server-API-Version: 0`` is supported for use with Chef Server version 12, but will be deprecated as part of the next major release.
+     - Use ``X-Ops-Server-API-Version`` to specify the version of the Chef Infra Server API. For example: ``X-Ops-Server-API-Version: 1``. ``X-Ops-Server-API-Version: 0`` is supported for use with Chef Server version 12, but will be deprecated as part of the next major release.
 
-       .. end_tag
+
 
    * - ``X-Ops-Sign``
      - .. tag api_chef_server_headers_x_ops_sign
@@ -237,11 +233,9 @@ For example:
 
 Global Endpoints
 =====================================================
-.. tag api_chef_server_endpoints_global
-
 A global endpoint may be used to access all of the organizations on the Chef Infra Server.
 
-.. end_tag
+
 
 /license
 -----------------------------------------------------
@@ -857,17 +851,13 @@ If a new private key was generated, both the private and public keys are returne
      - Request entity too large. A request may not be larger than 1000000 bytes.
 
 /users/USER/keys/
------------------------------------------------------
-.. tag api_chef_server_endpoint_keys_users
-
+----------------------------------------------------
 The ``/users/USER/keys`` endpoint has the following methods: ``GET`` and ``POST``.
 
-.. end_tag
+
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_keys_users_get
-
 The ``GET`` method is used to retrieve all of the named user's key identifiers, associated URIs, and expiry states.
 
 This method has no parameters.
@@ -910,12 +900,10 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_keys_users_post
-
 The ``POST`` method is used to add a key for the specified user.
 
 This method has no parameters.
@@ -963,20 +951,16 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 /users/USER/keys/KEY
------------------------------------------------------
-.. tag api_chef_server_endpoint_key_user
-
+----------------------------------------------------
 The ``/users/USER/keys/KEY`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``.
 
-.. end_tag
+
 
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_user_delete
-
 The ``DELETE`` method is used to delete the specified key for the specified user.
 
 This method has no parameters.
@@ -1016,12 +1000,10 @@ The response returns the information about the deleted key and is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_user_get
-
 The ``GET`` method is used to return details for a specific key for a specific user.
 
 This method has no parameters.
@@ -1061,12 +1043,10 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_user_put
-
 The ``PUT`` method is used to update one or more properties for a specific key for a specific user.
 
 This method has no parameters.
@@ -1118,7 +1098,7 @@ The response contains the updated inforamtion for the key, and is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 Organization Endpoints
 =====================================================
@@ -1302,17 +1282,13 @@ This method has no response body.
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
 
 /clients/CLIENT/keys/
------------------------------------------------------
-.. tag api_chef_server_endpoint_keys_clients
-
+----------------------------------------------------
 The ``/clients/CLIENT/keys`` endpoint has the following methods: ``GET`` and ``POST``.
 
-.. end_tag
+
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_keys_clients_get
-
 The ``GET`` method is used to retrieve all of the named client's key identifiers, associated URIs, and expiry states.
 
 This method has no parameters.
@@ -1355,12 +1331,10 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_keys_clients_post
-
 The ``POST`` method is used to add a key for the specified client.
 
 This method has no parameters.
@@ -1408,20 +1382,16 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 /clients/CLIENT/keys/KEY
------------------------------------------------------
-.. tag api_chef_server_endpoint_key_client
-
+----------------------------------------------------
 The ``/clients/CLIENT/keys/KEY`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``.
 
-.. end_tag
+
 
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_client_delete
-
 The ``DELETE`` method is used to delete the specified key for the specified client.
 
 This method has no parameters.
@@ -1461,12 +1431,10 @@ The response returns the information about the deleted key and is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_client_get
-
 The ``GET`` method is used to return details for a specific key for a specific client.
 
 This method has no parameters.
@@ -1506,12 +1474,10 @@ The response is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_key_client_put
-
 The ``PUT`` method is used to update one or more properties for a specific key for a specific client.
 
 This method has no parameters.
@@ -1563,7 +1529,7 @@ The response contains the updated inforamtion for the key, and is similar to:
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 /clients
 -----------------------------------------------------
@@ -4097,17 +4063,13 @@ The response will return the updated node.
      - Request entity too large. A request may not be larger than 1000000 bytes.
 
 /policies
------------------------------------------------------
-.. tag api_chef_server_endpoint_policies
-
+----------------------------------------------------
 The ``/policies`` endpoint has the following methods: ``GET``.
 
-.. end_tag
+
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_policies_get
-
 The ``GET`` method is used to get a list of policies (including policy revisions) from the Chef Infra Server.
 
 This method has no parameters.
@@ -4162,24 +4124,20 @@ The response groups policies by name and revision and is similar to:
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
 
-.. end_tag
+
 
 /policy_groups
------------------------------------------------------
-.. tag api_chef_server_endpoint_policy_groups
-
+----------------------------------------------------
 The ``/policy_groups`` endpoint has the following methods: ``GET``.
 
-.. end_tag
 
-.. tag policy_group_relates_to_nodes
 
 Each node has a 1:many relationship with policy settings stored on the Chef Infra Server. This relationship is based on the policy group to which the node is associated, and then the policy settings assigned to that group:
 
 * A policy is typically named after the functional role ahost performs, such as "application server", "chat server", "load balancer", and so on
 * A policy group defines a set of hosts in a deployed units, typically mapped to organizational requirements such as "dev", "test", "staging", and "production", but can also be mapped to more detailed requirements as needed
 
-.. end_tag
+
 
 /principals/NAME
 -----------------------------------------------------
@@ -4947,9 +4905,7 @@ The response is similar to:
      - Request entity too large. A request may not be larger than 1000000 bytes.
 
 _status
------------------------------------------------------
-.. tag api_chef_server_endpoint_status
-
+----------------------------------------------------
 The ``/_status`` endpoint can be used to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers.
 
 **Request**
@@ -5001,22 +4957,18 @@ The response will return something like the following:
               }
           }
 
-.. end_tag
+
 
 /universe
------------------------------------------------------
-.. tag api_chef_server_endpoint_universe
-
+----------------------------------------------------
 Use the ``/universe`` endpoint to retrieve the known collection of cookbooks, and then use it with Berkshelf and Chef Supermarket.
 
 The ``/universe`` endpoint has the following methods: ``GET``.
 
-.. end_tag
+
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_universe_get
-
 The ``GET`` method is used to retrieve the universe data.
 
 This method has no parameters.
@@ -5073,7 +5025,7 @@ The response will return an embedded hash, with the name of each cookbook as a t
    * - ``200``
      - OK. The request was successful. One (or more) cookbooks and associated cookbook version information was returned.
 
-.. end_tag
+
 
 /updated_since
 -----------------------------------------------------

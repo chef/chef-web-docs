@@ -19,13 +19,11 @@ ChefDK, short for Chef Development Kit, is a package that contains everything th
 
 Getting Started
 =====================================================
-.. tag chef_index
-
 .. This page is used as the short overview on the index page at docs.chef.io
 
 Chef Infra is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) ChefDK installations, a single server, and every node that will be configured and maintained by the Chef Infra Client. Cookbooks (and recipes) are used to tell the Chef Infra Client how each node in your organization should be configured. The Chef Infra Client (which is installed on every node) does the actual configuration.
 
-.. end_tag
+
 
 * `An Overview of Chef </chef_overview.html>`_
 * `Install ChefDK </install_dk.html>`_

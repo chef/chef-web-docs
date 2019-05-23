@@ -21,8 +21,6 @@ Settings
 =====================================================
 This configuration file has the following settings:
 
-.. tag config_rb_knife_settings
-
 ``bootstrap_template``
    The path to a template file to be used during a bootstrap operation.
 
@@ -190,12 +188,10 @@ This configuration file has the following settings:
 
       config_log_location "/path/to/log_location"   # Please make sure that the path exists
 
-.. end_tag
+
 
 Proxy Settings
------------------------------------------------------
-.. tag config_rb_knife_settings_proxy
-
+----------------------------------------------------
 In certain situations the proxy used by the Chef Infra Server requires authentication. In this situation, three settings must be added to the configuration file. Which settings to add depends on the protocol used to access the Chef Infra Server: HTTP or HTTPS.
 
 If the Chef Infra Server is configured to use HTTP, add the following settings:
@@ -229,7 +225,7 @@ Use the following setting to specify URLs that do not need a proxy:
 ``no_proxy``
    A comma-separated list of URLs that do not need a proxy. Default value: ``nil``.
 
-.. end_tag
+
 
 .d Directories
 =====================================================

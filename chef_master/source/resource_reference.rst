@@ -45,8 +45,6 @@ The following examples show how to use common actions in a recipe.
 
 Properties
 =====================================================
-.. tag resources_common_attributes
-
 The following properties are common to every resource:
 
 ``ignore_failure``
@@ -70,7 +68,7 @@ The following properties are common to every resource:
   Ensure that sensitive resource data is not logged by the chef-client.
 
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------

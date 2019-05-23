@@ -277,9 +277,7 @@ Chef Automate Job Runners are supported on the Commercial Support platforms for 
      - ``10.12``
 
 Chef Push Jobs Client
------------------------------------------------------
-.. tag adopted_platforms_push_jobs
-
+----------------------------------------------------
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -308,7 +306,7 @@ The following table lists the commercially-supported platforms for the Chef Push
      - ``x86``, ``x86_64``
      - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
-.. end_tag
+
 
 Chef Push Jobs Server
 -----------------------------------------------------

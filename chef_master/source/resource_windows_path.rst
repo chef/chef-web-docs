@@ -194,8 +194,6 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
-.. tag windows_path_examples
-
 **Add Sysinternals to the system path**
 
 .. code-block:: ruby
@@ -212,4 +210,4 @@ Examples
      action :remove
    end
 
-.. end_tag
+

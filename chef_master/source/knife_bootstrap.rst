@@ -321,8 +321,6 @@ which shows something similar to:
 
 Custom Templates
 =====================================================
-.. tag knife_bootstrap_template
-
 The default ``chef-full`` template uses the Chef installer. For most bootstrap operations, regardless of the platform on which the target node is running, using the ``chef-full`` distribution is the best approach for installing the Chef Infra Client on a target node. In some situations, a custom template may be required.
 
 For example, the default bootstrap operation relies on an Internet connection to get the distribution to the target node. If a target node cannot access the Internet, then a custom template can be used to define a specific location for the distribution so that the target node may access it during the bootstrap operation. The example below will show you how to create a bootstrap template that uses a custom artifact store for Chef packages and installation scripts, as well as a RubyGem mirror:
@@ -371,7 +369,7 @@ For example, the default bootstrap operation relies on an Internet connection to
 
    This appends the appropriate ``rubygems_url`` setting to the ``/etc/chef/client.rb`` file that is created during bootstrap, which ensures that your nodes use your internal gem mirror.
 
-.. end_tag
+
 
 Bootstrap a Custom Template
 -----------------------------------------------------
