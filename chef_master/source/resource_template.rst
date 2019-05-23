@@ -222,8 +222,7 @@ The template resource has the following properties:
 
    A block or a string that returns ``true`` or ``false``. A string, when ``true`` is executed as a system command.
 
-   .. tag resource_template_attributes_verify
-
+  
    A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block is ``true``, the chef-client will continue to update the file as appropriate.
 
    For example, this should return ``true``:
@@ -280,7 +279,7 @@ The template resource has the following properties:
 
    If a string or a block return ``false``, the chef-client run will stop and an error is returned.
 
-   .. end_tag
+   
 
 Atomic File Updates
 -----------------------------------------------------

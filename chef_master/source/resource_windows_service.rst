@@ -395,8 +395,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create a service**
 
-.. tag resource_service_windows_create
-
 .. To create service with 'name':
 
 .. code-block:: ruby
@@ -459,11 +457,9 @@ Create service with a description:
      description "Chef client as service"
    end
 
-.. end_tag
+
 
 **Delete a service**
-
-.. tag resource_service_windows_delete
 
 Delete service with the ``'name'`` of ``chef-client``:
 
@@ -482,11 +478,9 @@ Delete service with ``'service_name'``:
      service_name "chef-client"
    end
 
-.. end_tag
+
 
 **Configure a service**
-
-.. tag resource_service_windows_configure
 
 Change an existing service from automatic to manual startup:
 
@@ -498,4 +492,4 @@ Change an existing service from automatic to manual startup:
      startup_type :manual
    end
 
-.. end_tag
+

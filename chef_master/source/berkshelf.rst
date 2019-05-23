@@ -3,13 +3,11 @@ About Berkshelf
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst>`__
 
-.. tag berkshelf_summary
-
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in ChefDK.
 
 .. note:: For new users, we strongly recommend using `Policyfiles </policyfile.html>`__ rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production.
 
-.. end_tag
+
 
 Quick Start
 ===============
@@ -56,11 +54,9 @@ You can now upload all cookbooks to your Chef Infra Server with ``berks upload``
 The Berksfile
 ==============
 
-.. tag berksfile_summary
-
 A Berksfile describes the set of sources and dependencies needed to use a cookbook. It is used in conjunction with the ``berks`` command.
 
-.. end_tag
+
 
 Syntax
 -------

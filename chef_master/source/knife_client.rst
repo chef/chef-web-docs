@@ -54,9 +54,7 @@ This argument has the following syntax:
    $ knife client create CLIENT_NAME (options)
 
 Options
------------------------------------------------------
-.. tag knife_client_create_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-a``, ``--admin``
@@ -68,11 +66,10 @@ This argument has the following options:
 ``-k``, ``--prevent-keygen``
    Create a user without a public key. This key may be managed later by using the ``knife user key`` subcommands.
 
-   .. note:: .. tag notes_knife_prevent_keygen
-
+   .. note::
              This option is valid only with Chef Infra Server API, version 1.0, which was released with Chef Server 12.1. If this option or the ``--user-key`` option are not passed in the command, the Chef Infra Server will create a user with a public key named ``default`` and will return the private key. For the Chef Server versions earlier than 12.1, this option will not work; a public key is always generated unless ``--user-key`` is passed in the command.
 
-             .. end_tag
+             
 
 ``-p FILE``, ``--public-key FILE``
    The path to a file that contains the public key. This option may not be passed in the same command with ``--prevent-keygen``. When using Chef a default key is generated if this option is not passed in the command. For Chef Server version 12.x, see the ``--prevent-keygen`` option.
@@ -80,7 +77,7 @@ This argument has the following options:
 ``--validator``
    Create the client as the chef-validator. Default value: ``true``.
 
-.. end_tag
+
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -163,28 +160,22 @@ To edit a client with the name "exampleorg", enter:
 
 key create
 =====================================================
-.. tag knife_client_key_create
-
 Use the ``key create`` argument to create a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_create_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key create CLIENT_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_client_key_create_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-e DATE``, ``--expiration-date DATE``
@@ -199,7 +190,7 @@ This argument has the following options:
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
    The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -207,23 +198,19 @@ None.
 
 key delete
 =====================================================
-.. tag knife_client_key_delete
-
 Use the ``key delete`` argument to delete a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_delete_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key delete CLIENT_NAME KEY_NAME
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -231,28 +218,22 @@ None.
 
 key edit
 =====================================================
-.. tag knife_client_key_edit
-
 Use the ``key edit`` argument to modify or rename a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_edit_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key edit CLIENT_NAME KEY_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_client_key_edit_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-c``, ``--create-key``
@@ -270,7 +251,7 @@ This argument has the following options:
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
    The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -278,28 +259,22 @@ None.
 
 key list
 =====================================================
-.. tag knife_client_key_list
-
 Use the ``key list`` argument to view a list of public keys for the named client.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_list_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key list CLIENT_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_client_key_list_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-e``, ``--only-expired``
@@ -311,7 +286,7 @@ This argument has the following options:
 ``-w``, ``--with-details``
    Show a list of public keys, including URIs and expiration status.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -319,23 +294,19 @@ None.
 
 key show
 =====================================================
-.. tag knife_client_key_show
-
 Use the ``key show`` argument to view details for a specific public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_show_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key show CLIENT_NAME KEY_NAME
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------

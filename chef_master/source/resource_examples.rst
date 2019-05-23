@@ -557,8 +557,6 @@ Use the **apt_package** resource to manage packages on Debian and Ubuntu platfor
 
 **Install a package using local file**
 
-.. tag resource_apt_package_install_package_using_local_file
-
 .. To install a package using local file:
 
 .. code-block:: ruby
@@ -568,7 +566,7 @@ Use the **apt_package** resource to manage packages on Debian and Ubuntu platfor
      source '/path/to/jwhois.deb'
    end
 
-.. end_tag
+
 
 **Install without using recommend packages as a dependency**
 
@@ -3357,11 +3355,9 @@ Use the **macports_package** resource to manage packages for the macOS platform.
 
 mdadm
 =====================================================
-.. tag resource_mdadm_summary
-
 Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** resource to create a file systems table (fstab) entry.
 
-.. end_tag
+
 
 **Create and assemble a RAID 0 array**
 
@@ -3423,11 +3419,9 @@ The mdadm command can be used to create RAID arrays. For example, a RAID 5 array
 
 mount
 =====================================================
-.. tag resource_mount_summary
-
 Use the **mount** resource to manage a mounted file system.
 
-.. end_tag
+
 
 **Mount a labeled file system**
 
@@ -3883,8 +3877,6 @@ To install a package with a ``response_file``:
 
 **Install a package using a specific provider**
 
-.. tag resource_package_install_with_specific_provider
-
 .. To install a package using a specific provider:
 
 .. code-block:: ruby
@@ -3895,7 +3887,7 @@ To install a package with a ``response_file``:
      provider Chef::Provider::Package::Rpm
    end
 
-.. end_tag
+
 
 **Install a specified architecture using a named provider**
 
@@ -3970,8 +3962,6 @@ To install a package with a ``response_file``:
 
 **Use the provider common attribute**
 
-.. tag resource_package_use_provider_attribute
-
 .. To use the ``:provider`` common attribute in a recipe:
 
 .. code-block:: ruby
@@ -3980,7 +3970,7 @@ To install a package with a ``response_file``:
      provider Chef::Provider::Package::Rubygems
    end
 
-.. end_tag
+
 
 **Avoid unnecessary string interpolation**
 
@@ -5518,11 +5508,9 @@ and then the methods in the recipe may refer to these values. A recipe that is u
 
 service
 =====================================================
-.. tag resource_service_summary
-
 Use the **service** resource to manage a service.
 
-.. end_tag
+
 
 **Start a service**
 
@@ -5599,8 +5587,6 @@ Use the **service** resource to manage a service.
 
 **Use the retries and provider common attributes**
 
-.. tag resource_service_use_provider_and_supports_properties
-
 .. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
 .. code-block:: ruby
@@ -5611,7 +5597,7 @@ Use the **service** resource to manage a service.
      retries 3
    end
 
-.. end_tag
+
 
 **Manage a service, depending on the node platform**
 
@@ -5942,11 +5928,9 @@ Use the **smartos_package** resource to manage packages for the SmartOS platform
 
 solaris_package
 =====================================================
-.. tag resource_package_solaris
-
 The **solaris_package** resource is used to manage packages for the Solaris platform.
 
-.. end_tag
+
 
 **Install a package**
 
@@ -5965,11 +5949,9 @@ The **solaris_package** resource is used to manage packages for the Solaris plat
 
 subversion
 =====================================================
-.. tag resource_scm_subversion
-
 Use the **subversion** resource to manage source control resources that exist in a Subversion repository.
 
-.. end_tag
+
 
 **Get the latest version of an application**
 
@@ -6598,8 +6580,6 @@ The following example shows how to create a system user. In this instance, the `
 
 **Use SALTED-SHA512 passwords**
 
-.. tag resource_user_password_shadow_hash_salted_sha512
-
 macOS 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for macOS 10.7:
 
 .. code-block:: ruby
@@ -6617,7 +6597,7 @@ Use the calculated password shadow hash with the **user** resource:
      password 'c9b3bd....d843'  # Length: 136
    end
 
-.. end_tag
+
 
 **Use SALTED-SHA512-PBKDF2 passwords**
 

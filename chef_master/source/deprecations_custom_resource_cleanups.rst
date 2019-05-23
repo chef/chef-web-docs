@@ -3,11 +3,9 @@ Deprecation: Custom Resource Cleanups (CHEF-5)
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_custom_resource_cleanups.rst>`__
 
-.. tag deprecations_custom_resource_cleanups
-
 We are continuously improving and streamlining the way custom resources work in Chef, to make it easier for cookbook authors and Chef developers to build resources.
 
-.. end_tag
+
 
 This page documents many deprecations over the course of many Chef releases.
 

@@ -15,11 +15,10 @@ Use the **gem_package** resource to manage gem packages that are only included i
 
 .. end_tag
 
-.. note:: .. tag notes_resource_gem_package
-
+.. note::
           The **gem_package** resource must be specified as ``gem_package`` and cannot be shortened to ``package`` in a recipe.
 
-          .. end_tag
+          
 
 Syntax
 =====================================================

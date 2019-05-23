@@ -78,8 +78,6 @@ Use `the chef generate repo </ctl_chef.html#chef-generate-repo>`__ to create the
 Create .chef Directory
 -----------------------------------------------------
 
-.. tag install_chef_client_repo_manual_chef_directory
-
 The ``.chef`` directory is used to store three files:
 
 * ``config.rb``
@@ -115,7 +113,7 @@ To create the ``.chef`` directory:
 
       $ echo '.chef' >> ~/chef-repo/.gitignore
 
-.. end_tag
+
 
 Starter Kit
 -----------------------------------------------------

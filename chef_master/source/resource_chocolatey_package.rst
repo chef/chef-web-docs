@@ -9,18 +9,15 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
 
 .. end_tag
 
-.. warning:: .. tag notes_resource_chocolatey_package
-
+.. warning::
              The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
 
-             .. end_tag
+
 
 **New in Chef Client 12.7.**
 
 Syntax
 =====================================================
-.. tag resource_package_chocolatey_syntax
-
 A **chocolatey_package** resource manages packages using Chocolatey on the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
 
 .. code-block:: ruby
@@ -50,11 +47,10 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_chocolatey_actions
 
 The chocolatey_package resource has the following actions:
 
@@ -85,12 +81,9 @@ The chocolatey_package resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
-.. end_tag
 
 Properties
 =====================================================
-.. tag resource_package_chocolatey_properties
-
 The chocolatey_package resource has the following properties:
 
 ``options``
@@ -129,7 +122,7 @@ The chocolatey_package resource has the following properties:
 
    The version of a package to be installed or upgraded.
 
-.. end_tag
+
 
 
 Common Resource Functionality

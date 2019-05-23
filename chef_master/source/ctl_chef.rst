@@ -942,8 +942,6 @@ Examples
 
 **Set PowerShell**
 
-.. tag ruby_set_system_ruby_as_chefdk_ruby_windows
-
 You can use the ``chef shell-init`` command with Windows PowerShell to add the appropriate variables to your environment.
 
 To try it in your current session:
@@ -958,11 +956,9 @@ To enable it permanently:
 
    "chef shell-init powershell | Invoke-Expression" >> $PROFILE
 
-.. end_tag
+
 
 **Set the execution policy on new machines**
-
-.. tag ruby_set_system_ruby_as_chefdk_ruby_windows_admin
 
 On new Windows machines, PowerShell scripts will not work until an administrator runs the following command:
 
@@ -970,11 +966,9 @@ On new Windows machines, PowerShell scripts will not work until an administrator
 
    Set-ExecutionPolicy RemoteSigned
 
-.. end_tag
+
 
 **Create a $PROFILE on new machines**
-
-.. tag ruby_set_system_ruby_as_chefdk_ruby_windows_user_profile
 
 On new Windows machines, commands cannot be appended to ``$PROFILE`` if the folder does not exist, or if there is a new user profile. This will result in an error similar to the following:
 
@@ -995,7 +989,7 @@ In this situation, run the following ``chef shell-init`` command instead:
 
    if(Test-Path $PROFILE){ chef shell-init powershell | Add-Content $PROFILE } else { New-Item -Force -ItemType File $PROFILE; chef shell-init powershell | Add-Content $PROFILE }
 
-.. end_tag
+
 
 Policyfile Commands
 =====================================================
