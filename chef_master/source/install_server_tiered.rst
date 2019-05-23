@@ -201,8 +201,7 @@ For each frontend server, use the following steps to set up the Chef Infra Serve
 
    .. end_tag
 
-#. .. tag install_chef_server_start
-
+#.
    .. This topic is hooked in globally to install topics for Chef Infra Server applications.
 
    Start the Chef Infra Server:
@@ -211,7 +210,7 @@ For each frontend server, use the following steps to set up the Chef Infra Serve
 
       $ chef-server-ctl start
 
-   .. end_tag
+
 
 On a single frontend server, create an administrator and an organization:
 
@@ -259,15 +258,11 @@ On a single frontend server, create an administrator and an organization:
 
 Enable Features
 =====================================================
-.. tag ctl_chef_server_install_features
-
 Enable additional features of the Chef Infra Server! The packages may be downloaded directly as part of the installation process or they may be first downloaded to a local directory, and then installed.
 
-.. end_tag
+
 
 **Use Downloads**
-
-.. tag ctl_chef_server_install_features_download_ha
 
 The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), the Chef management console package can be installed as described below:
 
@@ -300,7 +295,7 @@ Chef Manage
 
              .. end_tag
 
-.. end_tag
+
 
 **Use Local Packages**
 

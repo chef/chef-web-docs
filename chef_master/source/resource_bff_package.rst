@@ -19,8 +19,6 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
 
 Syntax
 =====================================================
-.. tag resource_package_bff_syntax
-
 A **bff_package** resource manages a package on a node, typically by installing it. The simplest use of the **bff_package** resource is:
 
 .. code-block:: ruby
@@ -49,12 +47,10 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_bff_actions
-
 The bff_package resource has the following actions:
 
 ``:install``
@@ -73,7 +69,7 @@ The bff_package resource has the following actions:
 ``:remove``
    Remove a package.
 
-.. end_tag
+
 
 Properties
 =====================================================

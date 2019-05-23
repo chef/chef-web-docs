@@ -116,8 +116,6 @@ This subcommand has the following syntax:
 
 gather-logs
 =====================================================
-.. tag ctl_chef_server_gather_logs
-
 The ``gather-logs`` subcommand is used to gather the Chef Infra Server log files into a tarball that contains all of the important log files and system information.
 
 This subcommand has the following syntax:
@@ -126,7 +124,7 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl gather-logs
 
-.. end_tag
+
 
 help
 =====================================================
@@ -140,21 +138,16 @@ This subcommand has the following syntax:
 
 install
 =====================================================
-.. tag ctl_chef_server_install
-
 The ``install`` subcommand is used to install premium features of the Chef Infra Server: Chef management console and Chef Infra Client run reporting, high availability configurations, Chef Push Jobs, and Chef Infra Server replication.
 
-.. end_tag
 
-.. warning:: .. tag chef_license_note_current
 
+.. warning::
              The ``chef-server-ctl install`` command no longer works in the 12.5 (and earlier) versions of the Chef Infra Server due to a change in how packages are downloaded from Chef.
 
-             .. end_tag
+             
 
 **Syntax**
-
-.. tag ctl_chef_server_install_syntax
 
 This subcommand has the following syntax:
 
@@ -164,18 +157,16 @@ This subcommand has the following syntax:
 
 where ``name_of_addon`` represents the command line value associated with the add-on or premium feature.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_install_options
 
 This subcommand has the following options:
 
 ``--path PATH``
    Use to specify the location of a package. This option is not required when packages are downloaded from https://packages.chef.io/.
 
-.. end_tag
+
 
 Use Downloads
 -----------------------------------------------------
@@ -243,16 +234,12 @@ Key Rotation
 Use the following commands to manage public and private key rotation for users and clients.
 
 add-client-key
------------------------------------------------------
-.. tag ctl_chef_server_add_client_key
-
+----------------------------------------------------
 Use the ``add-client-key`` subcommand to add a client key.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_add_client_key_syntax
 
 This subcommand has the following syntax:
 
@@ -262,11 +249,9 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_add_client_key_options
 
 This subcommand has the following options:
 
@@ -285,19 +270,15 @@ This subcommand has the following options:
 ``-p PATH`` ``--public-key-path PATH``
    The location to a file containing valid PKCS#1 public key to be added. If not passed, then the server will generate a new one for you and return the private key to STDOUT.
 
-.. end_tag
+
 
 add-user-key
------------------------------------------------------
-.. tag ctl_chef_server_add_user_key
-
+----------------------------------------------------
 Use the ``add-user-key`` subcommand to add a user key.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_add_user_key_syntax
 
 This subcommand has the following syntax:
 
@@ -307,11 +288,9 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_add_user_key_options
 
 This subcommand has the following options:
 
@@ -327,19 +306,15 @@ This subcommand has the following options:
 ``USER_NAME``
    The user name for the user for which a key is added.
 
-.. end_tag
+
 
 delete-client-key
------------------------------------------------------
-.. tag ctl_chef_server_delete_client_key
-
+----------------------------------------------------
 Use the ``delete-client-key`` subcommand to delete a client key.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_delete_client_key_syntax
 
 This subcommand has the following syntax:
 
@@ -347,11 +322,9 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_delete_client_key_options
 
 This subcommand has the following arguments:
 
@@ -364,19 +337,15 @@ This subcommand has the following arguments:
 ``KEY_NAME``
    The unique name to be assigned to the key you wish to delete.
 
-.. end_tag
+
 
 delete-user-key
------------------------------------------------------
-.. tag ctl_chef_server_delete_user_key
-
+----------------------------------------------------
 Use the ``delete-user-key`` subcommand to delete a user key.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_delete_user_key_syntax
 
 This subcommand has the following syntax:
 
@@ -386,11 +355,9 @@ This subcommand has the following syntax:
 
 .. warning:: The parameters for this subcommand must be in the order specified above.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_delete_user_key_options
 
 This subcommand has the following arguments:
 
@@ -400,19 +367,15 @@ This subcommand has the following arguments:
 ``KEY_NAME``
    The unique name to be assigned to the key you wish to delete.
 
-.. end_tag
+
 
 list-client-keys
------------------------------------------------------
-.. tag ctl_chef_server_list_client_keys
-
+----------------------------------------------------
 Use the ``list-client-keys`` subcommand to list client keys.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_list_client_keys_syntax
 
 This subcommand has the following syntax:
 
@@ -422,11 +385,9 @@ This subcommand has the following syntax:
 
 .. warning::  All options for this subcommand must follow all arguments.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_list_client_keys_options
 
 This subcommand has the following options:
 
@@ -439,19 +400,15 @@ This subcommand has the following options:
 ``--verbose``
    Use to show the full public key strings in command output.
 
-.. end_tag
+
 
 list-user-keys
------------------------------------------------------
-.. tag ctl_chef_server_list_user_keys
-
+----------------------------------------------------
 Use the ``list-user-keys`` subcommand to list client keys.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_list_user_keys_syntax
 
 This subcommand has the following syntax:
 
@@ -461,11 +418,9 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_list_user_keys_options
 
 This subcommand has the following options:
 
@@ -475,11 +430,9 @@ This subcommand has the following options:
 ``--verbose``
    Use to show the full public key strings in command output.
 
-.. end_tag
+
 
 **Example**
-
-.. tag ctl_chef_server_list_user_keys_summary
 
 To view a list of user keys (including public key output):
 
@@ -519,7 +472,7 @@ Returns:
    2wIDAQAB
    -----END PUBLIC KEY-----
 
-.. end_tag
+
 
 .. _ctl_chef_server_secrets_management:
 
@@ -572,15 +525,13 @@ There are various ways to pass the secret to this command:
 
 **Options**
 
-.. tag ctl_chef_server_set_secret_options
-
 This subcommand has the following options:
 
 ``--with-restart``
     If any services depend on the secret being changed, attempt to restart them
     after changing the secret. Added in Chef Server 12.16.2.
 
-.. end_tag
+
 
 .. _ctl_chef_server_remove_secret:
 
@@ -1096,8 +1047,6 @@ to return:
 
 psql
 =====================================================
-.. tag ctl_chef_server_psql
-
 The ``psql`` subcommand is used to log into the PostgreSQL database associated with the named service. This subcommand:
 
 * Uses ``psql`` (the interactive terminal for PostgreSQL)
@@ -1105,11 +1054,9 @@ The ``psql`` subcommand is used to log into the PostgreSQL database associated w
 * Is the recommended way to interact with any PostgreSQL database that is part of the Chef server
 * Automatically handles authentication
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_psql_syntax
 
 This subcommand has the following syntax:
 
@@ -1117,18 +1064,16 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl psql SERVICE_NAME (options)
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_psql_options
 
 This subcommand has the following options:
 
 ``--write``
    Use to enable write access to the PostgreSQL database.
 
-.. end_tag
+
 
 reconfigure
 =====================================================
@@ -1152,8 +1097,6 @@ This subcommand has the following syntax:
 
 **Options**
 
-.. tag ctl_chef_server_reindex_options
-
 This subcommand has the following options:
 
 ``-a``, ``--all-orgs``
@@ -1168,7 +1111,7 @@ This subcommand has the following options:
 ``-w``, ``--wait``
    Use to wait for the reindexing queue to clear before exiting. This option only works when run on a standalone Chef Infra Server or on a primary backend Chef server within a legacy tier.
 
-.. end_tag
+
 
 Server Admins
 =====================================================

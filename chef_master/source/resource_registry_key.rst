@@ -9,8 +9,7 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 
 .. end_tag
 
-.. note:: .. tag notes_registry_key_redirection
-
+.. note::
           64-bit versions of Microsoft Windows have a 32-bit compatibility layer in the registry that reflects and redirects certain keys (and their values) into specific locations (or logical views) of the registry hive.
 
           The chef-client can access any reflected or redirected registry key. The machine architecture of the system on which the chef-client is running is used as the default (non-redirected) location. Access to the ``SysWow64`` location is redirected must be specified. Typically, this is only necessary to ensure compatibility with 32-bit applications that are running on a 64-bit operating system.
@@ -19,7 +18,7 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 
           For more information, see: `Registry Reflection <https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx>`_.
 
-          .. end_tag
+          
 
 Syntax
 =====================================================

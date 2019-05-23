@@ -17,8 +17,6 @@ Use the **homebrew_package** resource to manage packages for the macOS platform.
 
 Syntax
 =====================================================
-.. tag resource_package_homebrew_syntax
-
 A **homebrew_package** resource block manages a package on a node, typically by installing it. The simplest use of the **homebrew_package** resource is:
 
 .. code-block:: ruby
@@ -48,12 +46,10 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``homebrew_user``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_homebrew_actions
-
 The homebrew_package resource has the following actions:
 
 ``:install``
@@ -75,7 +71,7 @@ The homebrew_package resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
-.. end_tag
+
 
 Properties
 =====================================================
@@ -87,11 +83,10 @@ The homebrew_package resource has the following properties:
 
    The name of the Homebrew owner to be used by the chef-client when executing a command.
 
-   .. tag resource_package_homebrew_user
 
    The chef-client, by default, will attempt to execute a Homebrew command as the owner of ``/usr/local/bin/brew``. If that executable does not exist, the chef-client will attempt to find the user by executing ``which brew``. If that executable cannot be found, the chef-client will print an error message: ``Could not find the "brew" executable in /usr/local/bin or anywhere on the path.``. Use the ``homebrew_user`` attribute to specify the Homebrew owner for situations where the chef-client cannot automatically detect the correct owner.
 
-   .. end_tag
+
 
 ``options``
    **Ruby Type:** String

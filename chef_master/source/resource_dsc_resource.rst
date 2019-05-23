@@ -413,8 +413,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create and register a windows service**
 
-.. tag resource_dsc_resource_windows_service
-
 .. To create a windows service:
 
 The following example creates a windows service, defines it's execution path, and prevents windows from starting the service
@@ -431,7 +429,7 @@ in case the executable is not at the defined location:
     property :state, 'Stopped'
   end
 
-.. end_tag
+
 
 **Create a test message queue**
 

@@ -54,16 +54,14 @@ The Microsoft Installer Package (MSI) for Microsoft Windows is available at http
 After the Chef Infra Client is installed, it is located at ``C:\chef``. The main configuration file for the Chef Infra Client is located at ``C:\chef\client.rb``.
 
 Set the System Ruby
------------------------------------------------------
-.. tag windows_set_system_ruby
-
+----------------------------------------------------
 To set the system Ruby for the Microsoft Windows platform `the steps described for all platforms are true </install_dk.html#set-system-ruby>`_, but then require the following manual edits to the ``chef shell-init bash`` output for the Microsoft Windows platform:
 
 #. Add quotes around the variable assignment strings.
 #. Convert ``C:/`` to ``/c/``.
 #. Save those changes.
 
-.. end_tag
+
 
 Spaces and Directories
 -----------------------------------------------------
@@ -1370,8 +1368,6 @@ This resource was previously called the **env** resource; its name was updated i
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_env_syntax
-
 A **windows_env** resource block manages environment keys in Microsoft Windows:
 
 .. code-block:: ruby
@@ -1398,7 +1394,7 @@ where
 * ``action`` identifies the steps the Chef Infra Client will take to bring the node into the desired state
 * ``delim``, ``key_name``, and ``value`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
+
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2058,8 +2054,6 @@ This method will return ``true`` or ``false``.
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_registry_key_actions
-
 The registry_key resource has the following actions:
 
 ``:create``
@@ -2087,7 +2081,7 @@ The registry_key resource has the following actions:
 
           .. end_tag
 
-.. end_tag
+
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -2363,15 +2357,13 @@ Providers
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 This resource has the following providers:
 
-.. tag resource_package_windows_providers
-
 ``Chef::Provider::Package``, ``package``
    When this short name is used, the Chef Infra Client will attempt to determine the correct provider during the Chef Infra Client run.
 
 ``Chef::Provider::Package::Windows``, ``windows_package``
    The provider for the Microsoft Windows platform.
 
-.. end_tag
+
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

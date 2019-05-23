@@ -341,8 +341,6 @@ The ``clients`` group is assigned the following:
 
 public_key_read_access
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag server_rbac_permissions_default_public_key_read_access
-
 The ``public_key_read_access`` group controls which users and clients have `read permissions to the following endpoints </api_chef_server.html>`__:
 
 * GET /clients/CLIENT/keys
@@ -381,7 +379,7 @@ By default, the ``public_key_read_access`` assigns all members of the ``users`` 
      - yes
      - yes
 
-.. end_tag
+
 
 users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

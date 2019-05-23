@@ -3,15 +3,13 @@ knife opc
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_opc.rst>`__
 
-.. tag plugin_knife_opc_summary
-
 The ``knife opc`` subcommand is used to manage organizations and users in Chef Server 12.
 
 .. note:: Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef Infra Server. `See chef-server-ctl for details </ctl_chef_server.html>`__.
 
 .. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
-.. end_tag
+
 
 .. _plugin_knife_opc-knife-rb-configuration:
 

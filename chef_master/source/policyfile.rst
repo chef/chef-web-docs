@@ -84,15 +84,13 @@ Policyfile replaces the environment cookbook pattern that is often required by B
 
 Knife Commands
 =====================================================
-.. tag set_policy_group_and_name
-
 The following knife commands used to set the policy group and policy name on the Chef Infra Server. For example:
 
 .. code-block:: bash
 
    $ knife node policy set test-node 'test-policy-group-name' 'test-policy-name'
 
-.. end_tag
+
 
 
 Policyfile.rb

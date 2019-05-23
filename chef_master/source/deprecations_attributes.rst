@@ -3,11 +3,9 @@ Deprecation: Some Attribute Methods (CHEF-4)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_attributes.rst>`__
 
-.. tag deprecations_attributes
-
 We are continuously improving and streamlining the way attributes work in Chef, to make it easier for users to reason about and safely configure their servers.
 
-.. end_tag
+
 
 This page documents many deprecations over the course of many Chef releases.
 

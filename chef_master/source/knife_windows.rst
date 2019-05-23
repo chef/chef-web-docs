@@ -14,9 +14,7 @@ The ``knife windows`` subcommand is used to configure and interact with nodes th
 .. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
 Install Knife Windows
-------------------------------------------------------
-.. tag knife_windows_install_rubygem
-
+-----------------------------------------------------
 To install the ``knife windows`` plugin using RubyGems, run the following command:
 
 .. code-block:: bash
@@ -25,12 +23,10 @@ To install the ``knife windows`` plugin using RubyGems, run the following comman
 
 where ``/opt/chef/embedded/bin/`` is the path to the location where the Chef Infra Client expects knife plugins to be located. If the Chef Infra Client was installed using RubyGems, omit the path in the previous example.
 
-.. end_tag
+
 
 Requirements
-------------------------------------------------------
-.. tag knife_windows_winrm_requirements
-
+-----------------------------------------------------
 This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management and/or https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
 
 .. code-block:: bash
@@ -68,12 +64,10 @@ Ensure that the Windows Firewall is configured to allow WinRM connections betwee
 
    $ netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
 
-.. end_tag
+
 
 Negotiate, NTLM
------------------------------------------------------
-.. tag knife_windows_winrm_requirements_nltm
-
+----------------------------------------------------
 When knife is executed from a Microsoft Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for ``winrm quickconfig``. This is because ``knife windows`` supports the Microsoft Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
 
 .. note:: To use Negotiate or NTLM to authenticate as the user specified by the ``--winrm-user`` option, include the user's Microsoft Windows domain, using the format ``domain\user``, where the backslash (``\``) separates the domain from the user.
@@ -90,12 +84,10 @@ and:
 
    $ knife bootstrap windows winrm db1.cloudapp.net -r 'server::db' -x '.\localadmin' -P 'password'
 
-.. end_tag
+
 
 Domain Authentication
------------------------------------------------------
-.. tag knife_windows_winrm_domain_authentication
-
+----------------------------------------------------
 The ``knife windows`` plugin supports Microsoft Windows domain authentication. This requires:
 
 * An SSL certificate on the target node
@@ -121,27 +113,23 @@ and then run a command similar to the following:
 
    $ knife bootstrap windows winrm 'node1.domain.com' -r 'role[webserver]' -x domain\\administrator -P 'password' -p 5986
 
-.. end_tag
+
 
 bootstrap windows ssh
 =====================================================
-.. tag knife_windows_bootstrap_windows_ssh
-
 Use the ``bootstrap windows ssh`` argument to bootstrap Chef Infra Client installations in a Microsoft Windows environment, using a command shell that is native to Microsoft Windows.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_windows_bootstrap_windows_ssh_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife bootstrap windows ssh (options)
 
-.. end_tag
+
 
 .. warning:: .. tag knife_common_windows_ampersand
 
@@ -510,11 +498,9 @@ This argument has the following options:
 
 winrm
 =====================================================
-.. tag knife_windows_winrm
-
 Use the ``winrm`` argument to create a connection to one or more remote machines. As each connection is created, a password must be provided. This argument uses the same syntax as the ``search`` subcommand.
 
-.. end_tag
+
 
 .. tag knife_windows_winrm_ports
 
@@ -523,21 +509,17 @@ WinRM requires that a target node be accessible via the ports configured to supp
 .. end_tag
 
 Syntax
------------------------------------------------------
-.. tag knife_windows_winrm_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife winrm SEARCH_QUERY SSH_COMMAND (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_windows_winrm_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-a ATTR``, ``--attribute ATTR``
@@ -597,14 +579,12 @@ This argument has the following options:
 ``-x USERNAME``, ``--winrm-user USERNAME``
    The WinRM user name.
 
-.. end_tag
+
 
 Examples
 =====================================================
 
 **Find Uptime for Web Servers**
-
-.. tag knife_windows_winrm_find_uptime
 
 To find the uptime of all web servers, enter:
 
@@ -612,11 +592,9 @@ To find the uptime of all web servers, enter:
 
    $ knife winrm "role:web" "net stats srv" -x Administrator -P password
 
-.. end_tag
+
 
 **Force a Chef Infra Client run**
-
-.. tag knife_windows_winrm_force_chef_run
 
 To force a Chef Infra Client run:
 
@@ -632,11 +610,9 @@ To force a Chef Infra Client run:
 
 Where in the examples above, ``[date]`` represents the date and time the long entry was created. For example: ``[Fri, 04 Mar 2011 22:00:53 +0000]``.
 
-.. end_tag
+
 
 **Bootstrap a Windows machine using SSH**
-
-.. tag knife_windows_bootstrap_ssh
 
 To bootstrap a Microsoft Windows machine using SSH:
 
@@ -644,11 +620,9 @@ To bootstrap a Microsoft Windows machine using SSH:
 
    $ knife bootstrap windows ssh ec2-50-xx-xx-124.compute-1.amazonaws.com -r 'role[webserver],role[production]' -x Administrator -i ~/.ssh/id_rsa
 
-.. end_tag
+
 
 **Bootstrap a Windows machine using Windows Remote Management**
-
-.. tag knife_windows_bootstrap_winrm
 
 To bootstrap a Microsoft Windows machine using WinRM:
 
@@ -656,7 +630,7 @@ To bootstrap a Microsoft Windows machine using WinRM:
 
    $ knife bootstrap windows winrm ec2-50-xx-xx-124.compute-1.amazonaws.com -r 'role[webserver],role[production]' -x Administrator -P 'super_secret_password'
 
-.. end_tag
+
 
 **Generate an SSL certificate, and then create a listener**
 

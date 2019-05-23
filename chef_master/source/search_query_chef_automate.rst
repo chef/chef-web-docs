@@ -27,11 +27,9 @@ defined set of filters. You can search on the following terms:
   * Resource Name
   * Role
 
-.. tag legacy_note
-
 .. note:: The functionality described in this topic is for the search bar in Chef Automate 1.6.87 or later. If you need to continue using the previous search bar that was in earlier versions of Chef Automate, you can enable this view easily. We have included a new feature flag to activate the old search bar by typing ``legacy`` in the UI and toggling on this view in the menu. If you have trouble with the new search bar and find yourself continuing to use the legacy version, please `contact us <https://feedback.chef.io/>`_ with your feedback. Also, the legacy search bar will only be supported for 90 days.
 
-.. end_tag
+
 
 Applying a filter
 -----------------------------------------

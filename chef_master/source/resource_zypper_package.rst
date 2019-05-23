@@ -351,8 +351,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package using package manager**
 
-.. tag resource_zypper_package_install_package
-
 .. To install a package using package manager:
 
 .. code-block:: ruby
@@ -361,11 +359,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+
 
 **Install a package using local file**
-
-.. tag resource_zypper_package_install_package_using_local_file
 
 .. To install a package using local file:
 
@@ -376,11 +372,9 @@ The following examples demonstrate various approaches for using resources in rec
      source '/path/to/jwhois.rpm'
    end
 
-.. end_tag
+
 
 **Install without using recommend packages as a dependency**
-
-.. tag resource_zypper_package_install_without_recommends_suggests
 
 .. To install without using recommend packages as a dependency:
 
@@ -390,4 +384,4 @@ The following examples demonstrate various approaches for using resources in rec
      options '--no-recommends'
    end
 
-.. end_tag
+

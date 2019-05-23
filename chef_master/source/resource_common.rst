@@ -3,11 +3,9 @@ Common Functionality
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_common.rst>`__
 
-.. tag resources_common_intro
-
 All resources (including custom resources) share a set of common actions, properties, conditional executions, notifications, and relative path options.
 
-.. end_tag
+
 
 .. _resource_common_actions:
 
@@ -123,8 +121,7 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
-.. note:: .. tag resources_common_guards_execute_resource
-
+.. note::
           When using the ``not_if`` and ``only_if`` guards with the **execute** resource, the guard's environment is inherited from the resource's environment. For example:
 
           .. code-block:: ruby
@@ -134,7 +131,7 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
                not_if 'bundle check' # This is run from /myapp
              end
 
-          .. end_tag
+          
 
 Attributes
 -----------------------------------------------------

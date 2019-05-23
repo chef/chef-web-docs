@@ -32,8 +32,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_osx_profile_actions
-
 The osx_profile resource has the following actions:
 
 ``:install``
@@ -49,12 +47,10 @@ The osx_profile resource has the following actions:
 ``:remove``
    Remove the specified configuration profile.
 
-.. end_tag
+
 
 Properties
 =====================================================
-.. tag resource_osx_profile_properties
-
 The osx_profile resource has the following properties:
 
 ``identifier``
@@ -78,7 +74,7 @@ The osx_profile resource has the following properties:
 
    Use to specify the name of the profile, if different from the name of the resource block.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================

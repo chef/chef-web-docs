@@ -3,13 +3,11 @@ Deprecation: Use of property_name inside of actions (CHEF-19)
 ==================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_namespace_collisions.rst>`__
 
-.. tag deprecations_namespace_collisions
-
 In Chef Client 12.5.1, the custom resources API allowed specifying property names as the short form of ``property_name`` inside of actions, instead of the long form of
 ``new_resource.property_name`` (as was previously required in provider code in LWRPs/HWRPs/etc).  That change caused unsolvable namespace clashes and will be
 removed in Chef Client 14.0, and it will become mandatory to refer to properties as ``new_resource.property_name`` in actions.
 
-.. end_tag
+
 
 Example
 ==========

@@ -3,14 +3,12 @@ Deprecation: Resource Cloning (CHEF-3694)
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_resource_cloning.rst>`__
 
-.. tag deprecations_resource_cloning
-
 Chef allows resources to be created with duplicate names, rather than treating that as an error. This means that several cookbooks can request the same package be installed, without needing to carefully create unique names.
 This is problematic because having multiple resources with the same name makes it impossible to safely deliver notifications to the right resource.
 
 In Chef Client 13, resources with the same name will be treated as entirely separate, without any cloning of properties.
 
-.. end_tag
+
 
 The behavior in Chef Client 12 and earlier, which is now deprecated, is that we will try to clone the existing resource, and then apply any properties from the new resource. For example:
 

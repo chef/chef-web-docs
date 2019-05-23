@@ -49,8 +49,6 @@ This subcommand has the following syntax:
 
 Reporting
 =====================================================
-.. tag ctl_reporting_uninstall
-
 The ``uninstall`` subcommand is used to remove the Reporting add-on to the Chef Infra Server, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
 
 This subcommand has the following syntax:
@@ -61,7 +59,7 @@ This subcommand has the following syntax:
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
-.. end_tag
+
 
 Chef Push Jobs
 =====================================================
@@ -83,28 +81,22 @@ Use the package manager for the platform on which Chef Push Jobs is installed to
 
 ChefDK
 =====================================================
-.. tag uninstall_chef_dk
-
 ChefDK can be uninstalled using the steps below that are appropriate for the platform on which ChefDK is installed.
 
-.. end_tag
+
 
 Debian
------------------------------------------------------
-.. tag uninstall_chef_dk_ubuntu
-
+----------------------------------------------------
 Use the following command to remove ChefDK on Debian-based platforms:
 
 .. code-block:: bash
 
    $ dpkg -P chefdk
 
-.. end_tag
+
 
 macOS
------------------------------------------------------
-.. tag uninstall_chef_dk_mac
-
+----------------------------------------------------
 Use the following commands to remove ChefDK on macOS.
 
 To remove installed files:
@@ -133,12 +125,10 @@ To remove symlinks:
 
      $ sudo find /usr/bin -lname '/opt/chefdk/*' -delete
 
-.. end_tag
+
 
 Red Hat Enterprise Linux
------------------------------------------------------
-.. tag uninstall_chef_dk_redhat
-
+----------------------------------------------------
 Use the following commands to remove ChefDK on Red Hat Enterprise Linux-based platforms:
 
 .. code-block:: bash
@@ -146,12 +136,10 @@ Use the following commands to remove ChefDK on Red Hat Enterprise Linux-based pl
    $ rpm -qa *chefdk*
    $ sudo yum remove -y <package>
 
-.. end_tag
+
 
 Microsoft Windows
------------------------------------------------------
-.. tag uninstall_chef_dk_windows
-
+----------------------------------------------------
 Use **Add / Remove Programs** to remove ChefDK on the Microsoft Windows platform.
 
-.. end_tag
+

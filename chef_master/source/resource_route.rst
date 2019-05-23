@@ -267,8 +267,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Add a default route**
 
-.. tag resource_route_add_default_route
-
 .. To add a default route:
 
 .. code-block:: ruby
@@ -277,7 +275,7 @@ The following examples demonstrate various approaches for using resources in rec
      gateway '10.0.0.20'
    end
 
-.. end_tag
+
 
 **Delete a network route**
 
