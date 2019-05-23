@@ -58,6 +58,77 @@ Generating a config.rb File
 
 The knife command `knife configure` can be used to generate your initial config.rb configuration file in your home directory. See `knife configure </knife_configure.html>`_ for details
 
+Knife Profiles
+=====================================================
+
+Profile support since Chef 13.7
+
+Knife profiles provide an alternative to using the ``config.rb`` files for configuring your knife client, making it easier to switch knife between multiple Chef Infra Servers or between multiple organizations on the same Chef Infra Server. Configure knife profiles by adding them to the  ``.chef/credentials``  file in your home directory on your workstation. The ``credentials`` file is TOML formatted. Each profile is listed as a separate 'table' name of your choice, and is followed by key-value pairs. The keys correspond to any setting permitted in the [config.rb](https://docs.chef.io/config_rb.html) file.
+
+File paths, such as ``client_key`` or ``validator_key``, will be relative to ``~/.chef`` unless absolute paths are given. Clients can be identified with either ``node_name`` or ``client_name``, with ``client_name`` being preferred.
+
+Credentials for use with Target Mode (e.g. ``chef-client --target switch.example.org``) can also be stored as a separate profile in the credentials file. The name of the profile should match the DNS name of the target, and must be surrounded by single quotes when the name contains a period. For example: ``['switch.example.org']``. Keys that are valid configuration options will be passed to train, such as `port`.
+
+```
+# Example .chef/credentials file
+[default]
+node_name = "barney"
+client_key = "barney_rubble.pem"
+chef_server_url = "https://api.chef.io/organisations/bedrock"
+
+[dev]
+client_name = "admin"
+client_key = "admin.pem"
+validator_key = "test-validator.pem"
+chef_server_url = "https://api.chef-server.dev/organizations/test"
+
+['web.preprod']
+node_name = "brubble"
+client_key = "preprod-brubble.pem"
+chef_server_url = "https://preprod.chef-server.dev/organizations/preprod"
+
+['switch.example.org']
+user = "cisco"
+password = "cisco"
+enable_password = "cisco"
+```
+
+There are four ways to select which profile to use and are listed in priority order:
+1. Pass the `--profile` option to knife, e.g. `knife node list --profile dev`.
+1. Set the profile name in the `CHEF_PROFILE` environment variable.
+1. Write the profile name to the `~/.chef/context` file.
+1. Otherwise, knife will use the 'default' profile.
+
+knife config support since Chef 14.4
+
+As of Chef Infra Client 14.4, you can manage your profiles with the `knife config` command.
+
+You can list your profiles using ``knife config list-profiles``, for example:
+
+
+.. table-list
+Profile             Client   Key                          Server                                               
+----------------------------------------------------------------------------------------------------------------
+ default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organisations/bedrock            
+*dev                 admin    ~/.chef/admin.pem            https://api.chef-server.dev/organizations/test       
+ web.preprod         brubble  ~/.chef/preprod-brubble.pem  https://preprod.chef-server.dev/organizations/preprod
+ switch.example.org  btm      ~/.chef/btm.pem              https://localhost:443    
+```
+
+The line that begins with the asterisk is the currently selected profile.
+
+To change the current profile, run ``knife config use-profile NAME``, which will write the profile name to the ``~/.chef/context`` file.
+
+Running ``knife config get-profile`` will print out the name of the currently selected profile.
+
+If you need to troubleshoot any settings you can verify the value that knife is using with ``knife config get KEY``, for example:
+
+.. code-block: bash
+$ knife config get chef_server_url
+Loading from credentials file /home/barney/.chef/credentials
+chef_server_url: https://api.chef-server.dev/organizations/test
+
+
 Setting Your Text Editor
 =====================================================
 
