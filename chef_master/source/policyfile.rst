@@ -37,13 +37,13 @@ When running Chef without Policyfile, the exact set of cookbooks that are applie
 
 * The node's ``run_list`` property
 * Any roles that are present in the node's run-list or recursively included by those roles
-* The environment, which restricts the set of valid cookbook versions for a node based on a variety of constraint operators
+* The environment, which may restrict the set of valid cookbook versions for a node based on a variety of constraint operators
 * Dependencies, as defined by each cookbook's metadata
 * Dependency resolution picks the "best" set of cookbooks that meet dependency and environment criteria
 
 These conditions are re-evaluated every time the Chef Infra Client runs, which can make it harder to know which cookbooks will be run by the Chef Infra Client or what the effects of updating a role or uploading a new cookbook will be.
 
-Policyfile simplifies this behavior by computing the cookbook set on the workstation, and then producing a readable document of that solution: a ``Policyfile.lock.json`` file. This pre-computed file is uploaded to the Chef Infra Server, and is then used by all of the Chef Infra Client runs that are managed by that particular policy group.
+Policyfile simplifies this behavior by computing the cookbook set on the workstation, and then producing a readable document of that solution: a ``Policyfile.lock.json`` file. This pre-computed file is uploaded to the Chef Infra Server, and is then used by all of the Chef Infra Client runs that are managed by that particular policy name and policy group.
 
 Less Expensive Computation
 -----------------------------------------------------
@@ -51,11 +51,11 @@ When running Chef without Policyfile, the Chef Infra Server loads dependency dat
 
 Policyfile moves this computation to the workstation, where it is done less frequently.
 
-Role Mutability
+Role and Environment Mutability
 -----------------------------------------------------
-When running Chef without Policyfile roles are global objects. Changes to roles are applied immediately to any node that contains that role in its run-list. This can make it hard to update roles and in some use cases discourages using roles at all.
+When running Chef without Policyfile roles and environments are global objects. Changes to roles and environments are applied immediately to any node that contains that role in its run-list or belong to a particular environment. This can make it hard to update roles and environments and in some use cases discourages using them at all.
 
-Policyfile effectively replaces roles. Policyfile files are versioned automatically and new versions are applied to systems only when promoted.
+Policyfile effectively replaces roles and environments. Policyfile files are versioned automatically and new versions are applied to systems only when promoted.
 
 Cookbook Mutability
 -----------------------------------------------------
@@ -217,7 +217,7 @@ A ``Policyfile.rb`` file may contain the following settings:
       named_run_list :update_app, "my_app_cookbook::default"
 
 ``include_policy "NAME", *args``
-   **New in ChefDK 2.4** Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from a local file or from Chef Infra Server. When the policyfile lock is included, its run-lists will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
+   **New in ChefDK 2.4, updated in 3.10** Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from a local or remote file, from a Chef Infra Server, or from a git repository. When the policyfile lock is included, its run-list will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
 
 
   Pull the policyfile lock from ``./NAME.lock.json``:
@@ -231,6 +231,24 @@ A ``Policyfile.rb`` file may contain the following settings:
   .. code-block:: ruby
 
      include_policy "NAME", path: "./foo.lock.json"
+
+  Pull the policyfile lock from ``./bar.lock.json`` with revision ID 'revision1'.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", path: "./bar.lock.json"
+
+  Pull the policyfile lock from a remote server ``https://internal.example.com/foo.lock.json``.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", remote: "https://internal.example.com/foo.lock.json"
+
+  Pull the policyfile lock from a remote server ``https://internal.example.com/bar.lock.json`` and with revision ID 'revision1'.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", remote: "https://internal.example.com/foo.lock.json"
 
   Pull the policy ``NAME`` with revision ID ``revision1`` from the ``http://chef-server.example`` Chef Infra Server:
 
