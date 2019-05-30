@@ -73,25 +73,27 @@ Use of these and later versions of these distributions must be in accordance wit
      - GA
      - n/a
    * - Chef Workstation
-     - 0.3
+     - 0.4
      - Releasing Soon
      - n/a
    * - ChefDK
      - 4.x
-     - Releasing Soon
+     - GA
      - n/a
-   * - Supermarket
+   * - Supermarket¹
      - 4.x
      - Releasing Soon
      - n/a
-   * - Chef Backend
+   * - Chef Backend¹
      - 3.x
      - Releasing Soon
      - n/a
-   * - Push Jobs
+   * - Push Jobs¹
      - 3.x
      - Releasing Soon
      - n/a
+
+1. These distributions do not directly require acceptance of the Chef EULA, but have functionality that requires its acceptance in other products.
 
 Supported Free Distributions
 ==============================================
@@ -108,6 +110,10 @@ Use of the following distributions is governed by the Apache License, version 2.
      - EOL Date
    * - Chef Client
      - 14.x
+     - GA
+     - April 30, 2020
+   * - Chef Workstation
+     - 0.3
      - GA
      - April 30, 2020
    * - ChefDK
@@ -148,16 +154,8 @@ The following products are deprecated or end of life. Users are advised to use n
      - 1.x
      - Deprecated
      - December 31, 2019
-   * - Chef Client
-     - 13.x
-     - Deprecated
-     - April 30, 2019
-   * - ChefDK
-     - 2.x
-     - Deprecated
-     - April 30, 2019
    * - Chef Manage
-     - 2.5.x
+     - All
      - Deprecated
      - TBD
    * - Chef Provisioning
@@ -188,6 +186,14 @@ End of Life (EOL) Products
      - Version
      - Lifecycle Status
      - EOL Date
+   * - Chef Client
+     - 13 and under
+     - EOL
+     - April 30, 2019
+   * - ChefDK
+     - 2 and under
+     - EOL
+     - April 30, 2019
    * - Analytics
      - All
      - EOL
