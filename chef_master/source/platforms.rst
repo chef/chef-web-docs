@@ -225,7 +225,7 @@ Chef Automate Server
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Commercial support for the `Chef Automate 2 Server <https://automate.chef.io/docs/system-requirements/>`_ is available for platforms that use
+Commercial support for the `Chef Automate 2 Server <https://automate.chef.io/docs/system-requirements/>`_ is available for platforms that use:
 
 * a Linux kernel version of 3.2 or greater
 * ``systemd`` as the init system
