@@ -66,6 +66,9 @@ The following table lists the commercially-supported platforms and versions for 
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x86_64``
+     - ``16.04``, ``18.04``
+   * - Microsoft Windows
+     - ``x86_64``
      - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
 Community Support
@@ -301,9 +304,9 @@ The following table lists the commercially-supported platforms for the Chef Push
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
-     - ``16.04``
+     - ``16.04``, ``18.04``
    * - Microsoft Windows
-     - ``x86``, ``x86_64``
+     - ``x86_64``
      - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 
@@ -331,7 +334,7 @@ The following table lists the commercially-supported platforms for the Chef Push
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``16.04``
+     - ``16.04``, ``18.04``
 
 Chef Backend
 ----------------------------------------------------
@@ -356,7 +359,7 @@ The following table lists the commercially-supported platforms for Chef Backend,
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``16.04``
+     - ``16.04``, ``18.04``
 
 
 Chef Manage
@@ -382,7 +385,7 @@ The following table lists the commercially-supported platforms for Chef Manage:
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``16.04``
+     - ``16.04``, ``18.04``
 
 Platform End-of-Life Policy
 ===========================
