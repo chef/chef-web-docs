@@ -31,8 +31,8 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
-     - ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``, ``18.04``
+     - ``x86_64``,
+     - ``16.04``, ``18.04``
 
 .. end_tag
 
