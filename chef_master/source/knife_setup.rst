@@ -61,7 +61,7 @@ The knife command `knife configure` can be used to generate your initial config.
 Knife Profiles
 =====================================================
 
-Profile support since Chef 13.7
+**Profile Support since Chef 13.7**
 
 Knife profiles provide an alternative to using the ``config.rb`` files for configuring your knife client, making it easier to switch knife between multiple Chef Infra Servers or between multiple organizations on the same Chef Infra Server. Configure knife profiles by adding them to the  ``.chef/credentials``  file in your home directory on your workstation. The ``credentials`` file is TOML formatted. Each profile is listed as a separate 'table' name of your choice, and is followed by key-value pairs. The keys correspond to any setting permitted in the [config.rb](https://docs.chef.io/config_rb.html) file.
 
@@ -76,9 +76,30 @@ node_name = "barney"
 client_key = "barney_rubble.pem"
 chef_server_url = "https://api.chef.io/organisations/bedrock"
 
+# a 'config context' such as knife can be is configured as a separate table
+[default.knife]
+ssh_user = 'ubuntu' # this would have been knife[:ssh_user] in your config.rb
+aws_profile = 'engineering'
+use_sudo = true
+
+# a client_key may also be specified inline as in this example
 [dev]
 client_name = "admin"
-client_key = "admin.pem"
+client_key = """
+-----BEGIN RSA PRIVATE KEY-----
+MIICXAIBAAKBgQCqGKukO1De7zhZj6+H0qtjTkVxwTCpvKe4eCZ0FPqri0cb2JZfXJ/DgYSF6vUp
+wmJG8wVQZKjeGcjDOL5UlsuusFncCzWBQ7RKNUSesmQRMSGkVb1/3j+skZ6UtW+5u09lHNsj6tQ5
+1s1SPrCBkedbNf0Tp0GbMJDyR4e9T04ZZwIDAQABAoGAFijko56+qGyN8M0RVyaRAXz++xTqHBLh
+3tx4VgMtrQ+WEgCjhoTwo23KMBAuJGSYnRmoBZM3lMfTKevIkAidPExvYCdm5dYq3XToLkkLv5L2
+pIIVOFMDG+KESnAFV7l2c+cnzRMW0+b6f8mR1CJzZuxVxx6xx2fvLi55/mbSYxECQQDeAw6fiIQX
+GukBI4eMZZt4nscy2o12KyYner3VpoeE+Np2q+Z3pvAMd/aNzQ/W9WaI+NRfcxUJrmfPwIGm63il
+AkEAxCL5HQb2bQr4ByorcMWm/hEP2MZzROV73yF41hPsRC9m66KrheO9HPTJuo3/9s5p+sqGxOlF
+L0NDt4SkosjgGwJAFklyR1uZ/wPJjj611cdBcztlPdqoxssQGnh85BzCj/u3WqBpE2vjvyyvyI5k
+X6zk7S0ljKtt2jny2+00VsBerQJBAJGC1Mg5Oydo5NwD6BiROrPxGo2bpTbu/fhrT8ebHkTz2epl
+U9VQQSQzY1oZMVX8i1m5WUTLPz2yLJIBQVdXqhMCQBGoiuSoSjafUhV7i1cEGpb88h5NBYZzWXGZ
+37sJ5QsW+sJyoNde3xH8vdXhzU7eT82D6X/scw9RZz+/6rCJ4p0=
+-----END RSA PRIVATE KEY-----
+"""
 validator_key = "test-validator.pem"
 chef_server_url = "https://api.chef-server.dev/organizations/test"
 
@@ -99,9 +120,9 @@ There are four ways to select which profile to use and are listed in priority or
 1. Write the profile name to the `~/.chef/context` file.
 1. Otherwise, knife will use the 'default' profile.
 
-knife config support since Chef 14.4
+**knife config support since Chef 14.4**
 
-As of Chef Infra Client 14.4, you can manage your profiles with the `knife config` command.
+Your knife profiles can be managed with the `knife config` command.
 
 You can list your profiles using ``knife config list-profiles``, for example:
 
