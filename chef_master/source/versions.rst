@@ -186,22 +186,22 @@ End of Life (EOL) Products
      - Version
      - Lifecycle Status
      - EOL Date
-   * - Chef Client
-     - 13 and under
-     - EOL
-     - April 30, 2019
-   * - ChefDK
-     - 2 and under
-     - EOL
-     - April 30, 2019
    * - Analytics
      - All
      - EOL
      - December 31, 2018
+   * - Chef Client
+     - 13 and under
+     - EOL
+     - April 30, 2019
    * - Chef Compliance
      - All
      - EOL
      - December 31, 2018
+   * - ChefDK
+     - 2 and under
+     - EOL
+     - April 30, 2019
    * - Enterprise Chef
      - All
      - EOL
