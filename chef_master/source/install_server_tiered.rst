@@ -285,13 +285,13 @@ Chef Manage
 
       $ chef-manage-ctl reconfigure
 
+   To accept the `Chef MLSA </chef_license.html>`__:
+       
+   .. code-block:: bash
+
+      $ sudo chef-manage-ctl reconfigure --accept-license
+
    This updates the Chef Infra Server and creates the ``/etc/opscode-manage/secrets.rb`` file. When running the Chef management console 1.11 (or higher), copy the ``secrets.rb`` file in the ``/etc/opscode-manage`` directory on one of the frontend servers to the same directory on each of the other frontend servers, and then rerun ``chef-manage-ctl reconfigure`` so the copied ``/etc/opscode-manage/secrets.rb`` file gets used correctly.
-
-   .. note:: .. tag chef_license_reconfigure_manage
-
-             Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
-
-             .. end_tag
 
 **Use Local Packages**
 

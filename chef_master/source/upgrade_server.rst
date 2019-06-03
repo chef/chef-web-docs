@@ -192,11 +192,11 @@ This section details the process for upgrading additional features after the Che
 
              $ sudo chef-manage-ctl reconfigure
 
-          .. note:: .. tag chef_license_reconfigure_manage
+          to accept the `Chef MLSA </chef_license.html>`__:
 
-                    Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+          .. code-block:: bash
 
-                    .. end_tag
+             $ sudo chef-manage-ctl reconfigure --accept-license
 
    .. end_tag
 
