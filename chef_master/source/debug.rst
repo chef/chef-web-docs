@@ -797,6 +797,9 @@ All resources share a set of common actions, attributes, and so on. Use the foll
 
 chef-solo
 -----------------------------------------------------
+
+See `chef-solo (executable) </ctl_chef_solo.html>`__ for complete CTL documentation.
+
 .. tag chef_solo_summary
 
 chef-solo is a command that executes Chef Infra Client in a way that does not require the Chef Infra Server in order to converge cookbooks. chef-solo uses Chef Infra Client's `Chef local mode </ctl_chef_client.html#run-in-local-mode>`_, and **does not support** the following functionality present in Chef Infra Client / server configurations:
@@ -811,4 +814,4 @@ The chef-solo executable is run as a command-line tool.
 
 .. end_tag
 
-See `chef-solo (executable) </ctl_chef_solo>`__ for complete CTL documentation.
+See `chef-solo (executable) </ctl_chef_solo.html>`__ for complete CTL documentation.

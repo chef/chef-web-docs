@@ -184,4 +184,4 @@ and like the following in the Ruby DSL:
 chef-solo (executable)
 =====================================================
 
-See `chef-solo (executable) </ctl_chef_solo>`__ for complete CTL documentation.
+See `chef-solo (executable) </ctl_chef_solo.html>`__ for complete CTL documentation.
