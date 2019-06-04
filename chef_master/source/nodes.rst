@@ -47,8 +47,6 @@ The types of nodes that can be managed by Chef include, but are not limited to, 
 
 .. end_tag
 
-.. tag node_components
-
 The key components of nodes that are under management by Chef include:
 
 .. list-table::
@@ -104,8 +102,6 @@ The key components of nodes that are under management by Chef include:
        Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the Chef Infra Client to ensure that these attributes remain unchanged after the Chef Infra Client is done configuring the node.
 
        .. end_tag
-
-.. end_tag
 
 About Run-lists
 -----------------------------------------------------
