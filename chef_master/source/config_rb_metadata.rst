@@ -9,8 +9,6 @@ Every cookbook requires a small amount of metadata. A file named metadata.rb is 
 
 .. end_tag
 
-.. tag config_rb_metadata_summary
-
 A metadata.rb file is:
 
 * Located at the top level of a cookbook's directory structure.
@@ -18,14 +16,14 @@ A metadata.rb file is:
 * Created automatically by knife whenever the ``knife cookbook create`` subcommand is run.
 * Edited using a text editor, and then re-uploaded to the Chef Infra Server as part of a cookbook upload.
 
-.. end_tag
+Error Messages
+-----------------------------------------------------
+The Chef Infra Server will only try to distribute the cookbooks that are needed to configure an individual node. This is determined by identifying the roles and recipes that are assigned directly to that system, and then to expand the list of dependencies, and then to deliver that entire set to the node. In some cases, if the dependency is not specified in the cookbook's metadata, the Chef Infra Server may not treat that dependency as a requirement, which will result in an error message. If an error message is received from the Chef Infra Server about cookbook distribution, verify the ``depends`` entries in the metadata.rb file, and then try again.
 
 .. note:: A metadata.json file can be edited directly, should temporary changes be required. Any subsequent upload or action that generates metadata will cause the existing metadata.json file to be overwritten with the newly generated metadata. Therefore, any permanent changes to cookbook metadata should be done in the metadata.rb file, and then re-uploaded to the Chef Infra Server.
 
 Version Constraints
-====================
-
-.. _cookbook_version_constraints:
+-----------------------------------------------------
 
 Many fields in a cookbook's metadata allow the user to constrain versions. There are a set of operators common to all fields:
 
@@ -50,19 +48,13 @@ Many fields in a cookbook's metadata allow the user to constrain versions. There
 
 .. note:: Pessimistic locking is enabled by proper `semantic versioning <https://semver.org>`__ of cookbooks. If we're on version 2.2.3 of a cookbook, we know that the API will be stable until the 3.0.0 release. Using traditional operators, we'd write this as ``>= 2.2.0, < 3.0``. Instead, we can write this by combining a tilde "~" and right angle bracket ">"--often called a tilde-rocket or "twiddle-wakka"--followed by the major and minor version numbers.  For example: ``~> 2.2``
 
-
 Settings
-==========================================================================
-.. tag config_rb_metadata_settings
+-----------------------------------------------------
 
 This configuration file has the following settings:
 
 ``chef_version``
-
    A range of Chef Client versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
-
-
-   .. tag config_rb_metadata_settings_example_chef_version
 
    For example, to match any 14.x version of the Chef Client, but not 13.x or 15.x:
 
@@ -75,8 +67,6 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       chef_version ">= 14.2.1", "< 14.5.1"
-
-   .. end_tag
 
 ``depends``
    This field requires that a cookbook with a matching name and version exists on the Chef Infra Server. When the match exists, the Chef Infra Server includes the dependency as part of the set of cookbooks that are sent to the node when the Chef Infra Client runs. It is very important that the ``depends`` field contain accurate data. If a dependency statement is inaccurate, the Chef Infra Client may not be able to complete the configuration of the system. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
@@ -103,16 +93,12 @@ This configuration file has the following settings:
       description 'A fancy cookbook that manages a herd of cats!'
 
 ``gem``
-   .. tag config_rb_metadata_settings_gem
-
    Specifies a gem dependency for installation into the Chef Infra Client through bundler. The gem installation occurs after all cookbooks are synchronized but before loading any other cookbooks. Use this attribute one time for each gem dependency. For example:
 
    .. code-block:: ruby
 
       gem "poise"
       gem "chef-sugar"
-
-   .. end_tag
 
    .. warning::
 
@@ -232,15 +218,11 @@ This configuration file has the following settings:
 ``ohai_version``
    A range of Ohai versions that are supported by this cookbook. All `version constraint operators </config_rb_metadata.html#cookbook-version-constraints>`__ are applicable to this field.
 
-   .. tag config_rb_metadata_settings_example_ohai_version
-
    For example, to match any 8.x version of Ohai, but not 7.x or 9.x:
 
    .. code-block:: ruby
 
       ohai_version "~> 8"
-
-   .. end_tag
 
    .. note:: This setting is not visible in Chef Supermarket.
 
@@ -330,5 +312,3 @@ This configuration file has the following settings:
    .. code-block:: ruby
 
       version '2.0.0'
-
-.. end_tag
