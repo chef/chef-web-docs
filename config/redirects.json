@@ -6,6 +6,7 @@
   "resource_env.html": "/resource_windows_env.html",
   "resources.html": "/resource_reference.html",
   "resource_yum.html": "/resource_yum_package.html",
+  "install_server_post.html":"/server_ldap.html",
   "habitat.html": "https://www.habitat.sh/docs/",
   "inspec.html": "https://www.inspec.io/docs/",
   "ctl_delivery.html": "/delivery_cli.html",

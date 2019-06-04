@@ -260,8 +260,6 @@ Enable Features
 =====================================================
 Enable additional features of the Chef Infra Server! The packages may be downloaded directly as part of the installation process or they may be first downloaded to a local directory, and then installed.
 
-
-
 **Use Downloads**
 
 The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), the Chef management console package can be installed as described below:
@@ -294,8 +292,6 @@ Chef Manage
              Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
              .. end_tag
-
-
 
 **Use Local Packages**
 

@@ -13,17 +13,12 @@ chef-solo is a command that executes Chef Infra Client in a way that does not re
 
 .. note:: chef-solo can be run as a daemon.
 
-.. end_tag
-
-.. tag ctl_chef_solo_summary
-
 The chef-solo executable is run as a command-line tool.
 
 .. end_tag
 
 Options
 =====================================================
-.. tag ctl_chef_solo_options
 
 This command has the following syntax:
 
@@ -177,8 +172,6 @@ This command has the following options:
 
 ``-W``, ``--why-run``
    Run the executable in why-run mode, which is a type of Chef Infra Client run that does everything except modify the system. Use why-run mode to understand why the Chef Infra Client makes the decisions that it makes and to learn more about the current and proposed state of the system.
-
-.. end_tag
 
 Run as Non-root User
 =====================================================
