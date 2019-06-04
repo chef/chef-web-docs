@@ -201,7 +201,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
           $ sudo chef-manage-ctl reconfigure
 
-       to accept the `Chef MLSA </chef_license.html>`__:
+       To accept the `Chef MLSA </chef_license.html>`__:
 
        .. code-block:: bash
 

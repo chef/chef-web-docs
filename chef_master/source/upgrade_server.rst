@@ -192,7 +192,7 @@ This section details the process for upgrading additional features after the Che
 
              $ sudo chef-manage-ctl reconfigure
 
-          to accept the `Chef MLSA </chef_license.html>`__:
+          To accept the `Chef MLSA </chef_license.html>`__:
 
           .. code-block:: bash
 
