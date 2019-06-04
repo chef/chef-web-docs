@@ -44,6 +44,8 @@ Attribute Types
 
 The Chef Infra Client uses six types of attributes to determine the value that is applied to a node during the Chef Infra Client run. In addition, the Chef Infra Client sources attribute values from up to five locations. The combination of attribute types and sources allows for up to 15 different competing values to be available to the Chef Infra Client during the Chef Infra Client run:
 
+.. end_tag
+
 .. list-table::
    :widths: 200 300
    :header-rows: 1
@@ -58,7 +60,12 @@ The Chef Infra Client uses six types of attributes to determine the value that i
        .. end_tag
 
    * - ``force_default``
-     - Use the ``force_default`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over a ``default`` attribute set by a role or an environment.
+     - .. tag node_attribute_type_force_default
+     
+       Use the ``force_default`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over a ``default`` attribute set by a role or an environment.
+
+       .. end_tag
+
    * - ``normal``
      - .. tag node_attribute_type_normal
 
@@ -74,15 +81,18 @@ The Chef Infra Client uses six types of attributes to determine the value that i
        .. end_tag
 
    * - ``force_override``
-     - Use the ``force_override`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over an ``override`` attribute set by a role or an environment.
+     - .. tag node_attribute_type_force_override
+
+       Use the ``force_override`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over an ``override`` attribute set by a role or an environment.
+
+       .. end_tag
+
    * - ``automatic``
      - .. tag node_attribute_type_automatic
 
        An ``automatic`` attribute contains data that is identified by Ohai at the beginning of every Chef Infra Client run. An ``automatic`` attribute cannot be modified and always has the highest attribute precedence.
 
        .. end_tag
-
-.. end_tag
 
 Attribute Sources
 =====================================================
