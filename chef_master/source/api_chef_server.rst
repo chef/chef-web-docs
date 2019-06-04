@@ -361,8 +361,8 @@ with a request body similar to:
 .. code-block:: javascript
 
    {
-     "name": "chef",
-     "full_name": "Chef Software, Inc.",
+     "name": "org_name1",
+     "full_name": "Org_name1 Full Name"
    }
 
 where:
@@ -378,7 +378,11 @@ The response is similar to:
 
 .. code-block:: javascript
 
-   { "org_name": "https://url/for/org_name" }
+   {
+     "clientname": "org_name1-validator",
+     "private_key": "-----BEGIN RSA PRIVATE KEY----- MIIEpQIBAAKCAQEAx2uyX ...",
+     "uri": "https://url/for/org_name1"
+   }
 
 **Response Codes**
 
@@ -388,14 +392,14 @@ The response is similar to:
 
    * - Response Code
      - Description
-   * - ``200``
-     - OK. The request was successful.
+   * - ``201``
+     - Created. The request was successful. The organization was created.
    * - ``400``
      - Bad request. The contents of the request are not formatted correctly.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
    * - ``409``
-     - Unauthorized. The user who made the request is not authorized to perform the action.
+     - Conflict. The organization already exists.
 
 /organizations/NAME
 -----------------------------------------------------
