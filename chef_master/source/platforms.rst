@@ -65,9 +65,6 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86``, ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
-     - ``x86``, ``x86_64``
-     - ``16.04``, ``18.04``
-   * - Microsoft Windows
      - ``x86_64``
      - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
@@ -138,7 +135,7 @@ The following table lists the commercially-supported platforms and versions for 
    * - Microsoft Windows
      -
      - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
-     
+
 ChefDK
 ------------------------------------------------------
 
