@@ -13,10 +13,6 @@ chef-solo is a command that executes Chef Infra Client in a way that does not re
 
 .. note:: chef-solo can be run as a daemon.
 
-.. end_tag
-
-.. tag ctl_chef_solo_summary
-
 The chef-solo executable is run as a command-line tool.
 
 .. end_tag
