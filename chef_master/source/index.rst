@@ -630,8 +630,6 @@ Addenda
    install_push_jobs
    install_server
    install_server_ha
-   install_server_post
-   install_server_pre
    install_server_pre
    install_server_tiered
    install_supermarket
