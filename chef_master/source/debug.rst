@@ -871,8 +871,6 @@ This command has the following options:
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data.
 
-   .. tag node_ctl_run_list
-
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
    .. code-block:: javascript
@@ -887,8 +885,6 @@ This command has the following options:
    may be used by running ``chef-client -j path/to/file.json``.
 
    In certain situations this option may be used to update ``normal`` attributes.
-
-   .. end_tag
 
    .. warning:: .. tag node_ctl_attribute
 
