@@ -20,38 +20,38 @@ What's New in 4.0
 
   * ** knife bootstrap against cloud providers**
 
-    `knife bootstrap` was `rewritten <https://github.com/chef/chef/blob/cfbb01cb5648297835941679bc9638d3a823ad5e/RELEASE_NOTES.md#knife-bootstrap>`__ in Chef Infra Client 15. The `knife-*` cloud providers need to be updated to use this new API. As of ChefDK 4.0, `knife bootstrap` functionality against the cloud providers will be broken. We will fix this ASAP in a ChefDK 4.1 release. The only gem *not* affected is the `knife-windows` gem. It has already been re-written to leverage the new bootstrap library.
+    ``knife bootstrap`` was `rewritten <https://github.com/chef/chef/blob/cfbb01cb5648297835941679bc9638d3a823ad5e/RELEASE_NOTES.md#knife-bootstrap>`__ in Chef Infra Client 15. The ``knife-*`` cloud providers need to be updated to use this new API. As of ChefDK 4.0, ``knife bootstrap`` functionality against the cloud providers will be broken. We will fix this ASAP in a ChefDK 4.1 release. The only gem *not* affected is the ``knife-windows`` gem. It has already been re-written to leverage the new bootstrap library.
 
     Affected gems:
 
-    * `knife-ec2`
-    * `knife-google`
-    * `knife-vsphere`
+    * ``knife-ec2``
+    * ``knife-google``
+    * ``knife-vsphere``
 
     If you leverage this functionality, please wait to update ChefDK until 4.1 is released with fixes for these gems.
 
 * **Improved Chef Generate command**
 
-  The `chef generate` command has been updated to produce cookbooks and repositories that match Chef's best practices.
+  The ``chef generate`` command has been updated to produce cookbooks and repositories that match Chef's best practices.
 
-  * `chef generate repo` now generates a Chef repository with Policyfiles by default. You can revert to the previous roles / environment behavior with the `--roles` flag.
-  * `chef generate cookbook` now generates a cookbook with a Policyfile and no Berksfile by default. You can revert to the previous behavior with the `--berks` flag.
-  * `chef generate cookbook` now includes ChefSpecs that utilize the ChefSpec 7.3+ format. This is a much simpler syntax that requires less updating of specs as older platforms are deprecated.
-  * `chef generate cookbook` no longer creates cookboook files with the unnecessary `frozen_string_literal: true` comments.
-  * `chef generate cookbook` no longer generates a full Workflow (Delivery) build cookbook by default. A new `--workflow` flag has been added to allow generating the build cookbook. This flag replaces the previously unused `--delivery` flag.
-  * `chef generate cookbook` now generates cookbooks with metadata requiring Chef 14 or later.
-  * `chef generate cookbook --kitchen dokken` now generates a fully working kitchen-dokken config.
-  * `chef generate cookbook` now generates Test Kitchen configs with the `product_name`/`product_version` method of specifying Chef Infra Client releases as `require_chef_omnibus` will be removed in the next major Test Kitchen release.
-  * `chef generate cookbook_file` no longer places the specified file in a "default" folder as these aren't needed in Chef Infra Client 12 and later.
-  * `chef generate repo` no longer outputs the full Chef Infra Client run information while generating the repository. Similar to the `cookbook` command you can view this verbose output with the `--verbose` flag.
+  * ``chef generate repo`` now generates a Chef repository with Policyfiles by default. You can revert to the previous roles / environment behavior with the ``--roles`` flag.
+  * ``chef generate cookbook`` now generates a cookbook with a Policyfile and no Berksfile by default. You can revert to the previous behavior with the ``--berks`` flag.
+  * ``chef generate cookbook`` now includes ChefSpecs that utilize the ChefSpec 7.3+ format. This is a much simpler syntax that requires less updating of specs as older platforms are deprecated.
+  * ``chef generate cookbook`` no longer creates cookboook files with the unnecessary ``frozen_string_literal: true`` comments.
+  * ``chef generate cookbook`` no longer generates a full Workflow (Delivery) build cookbook by default. A new ``--workflow`` flag has been added to allow generating the build cookbook. This flag replaces the previously unused ``--delivery`` flag.
+  * ``chef generate cookbook`` now generates cookbooks with metadata requiring Chef 14 or later.
+  * ``chef generate cookbook --kitchen dokken`` now generates a fully working kitchen-dokken config.
+  * ``chef generate cookbook`` now generates Test Kitchen configs with the ``product_name``/``product_version`` method of specifying Chef Infra Client releases as ``require_chef_omnibus`` will be removed in the next major Test Kitchen release.
+  * ``chef generate cookbook_file`` no longer places the specified file in a "default" folder as these aren't needed in Chef Infra Client 12 and later.
+  * ``chef generate repo`` no longer outputs the full Chef Infra Client run information while generating the repository. Similar to the `cookbook` command you can view this verbose output with the ``--verbose`` flag.
 
 * **Chef InSpec 4**
 
-  Chef InSpec has been updated to 4.3.2 which includes the new InSpec AWS resource pack with **59** new AWS resources, multi-region support, and named credentials support. This release also includes support for auditing systems that use `ed25519` SSH keys.
+  Chef InSpec has been updated to 4.3.2 which includes the new InSpec AWS resource pack with **59** new AWS resources, multi-region support, and named credentials support. This release also includes support for auditing systems that use ``ed25519`` SSH keys.
 
 * **Chef Infra Client 15**
 
-  Chef Infra Client has been updated to Chef 15 with **8** new resources, target mode prototype functionality, `ed25519` SSH key support, and more. See the `Chef Infra Client 15 Release Notes <https://github.com/chef/chef/blob/master/RELEASE_NOTES.md#chef-infra-client-150293>`__ for more details.
+  Chef Infra Client has been updated to Chef 15 with **8** new resources, target mode prototype functionality, ``ed25519`` SSH key support, and more. See the `Chef Infra Client 15 Release Notes <https://github.com/chef/chef/blob/master/RELEASE_NOTES.md#chef-infra-client-150293>`__ for more details.
 
 * **Fauxhai 7.3**
 
@@ -65,11 +65,11 @@ What's New in 4.0
 
 * **Test Kitchen 2.2**
 
-  Test Kitchen has been updated from 1.24 to 2.2.5. This update adds support for accepting the Chef Infra Client and Chef InSpec EULAs during testing, as well as support for newer `ed25519` format SSH keys on guests. The newer release does remove support for the legacy Librarian depsolver and testing of Chef Infra Client 10/11 releases in some scenarios. See the `Test Kitchen Release Notes <https://github.com/test-kitchen/test-kitchen/blob/master/RELEASE_NOTES.md#test-kitchen-22-release-notes>`__ for additional details on this release.
+  Test Kitchen has been updated from 1.24 to 2.2.5. This update adds support for accepting the Chef Infra Client and Chef InSpec EULAs during testing, as well as support for newer ``ed25519`` format SSH keys on guests. The newer release does remove support for the legacy Librarian depsolver and testing of Chef Infra Client 10/11 releases in some scenarios. See the `Test Kitchen Release Notes <https://github.com/test-kitchen/test-kitchen/blob/master/RELEASE_NOTES.md#test-kitchen-22-release-notes>`__ for additional details on this release.
 
 * **Kitchen-ec2 3.0**
 
-  Kitchen-ec2 has been updated to 3.0, which uses the newer `aws-sdk-v3` and includes a large number of improvements to the driver including improved hostname detection, backoff retries, additional security group configuration options, and more. See the `kitchen-ec2 Changelog <https://github.com/test-kitchen/kitchen-ec2/blob/master/CHANGELOG.md#v300-2019-05-01>`__ for additional details.
+  Kitchen-ec2 has been updated to 3.0, which uses the newer ``aws-sdk-v3`` and includes a large number of improvements to the driver including improved hostname detection, backoff retries, additional security group configuration options, and more. See the `kitchen-ec2 Changelog <https://github.com/test-kitchen/kitchen-ec2/blob/master/CHANGELOG.md#v300-2019-05-01>`__ for additional details.
 
 * **kitchen-dokken 2.6.9**
 
@@ -95,15 +95,16 @@ What's New in 3.11
   Test Kitchen has been updated to 1.25 with backports of many non-breaking Test Kitchen 2.0 features:
 
     * Support for accepting the Chef 15 license in Test Kitchen runs. See `Accepting the Chef License <https://docs.chef.io/chef_license_accept.html>`__ for usage details.
-    * A new `--fail-fast` command line flag for use with the `concurrency` flag. With this flag set, Test Kitchen will immediately fail when any converge fails instead of continuing to test additional instances.
-    * The `policyfile_path` config option now accepts relative paths.
-    * A new `berksfile_path` config option allows specifying Berkshelf files in non-standard locations.
+    * A new ``--fail-fast`` command line flag for use with the `concurrency` flag. With this flag set, Test Kitchen will immediately fail when any converge fails instead of continuing to test additional instances.
+    * The ``policyfile_path`` config option now accepts relative paths.
+    * A new ``berksfile_path`` config option allows specifying Berkshelf files in non-standard locations.
     * Retries are now honored when using SSH proxies
 
 * **kitchen-dokken 2.7.0**
-  * The Chef Docker image is now pulled by default so that locally cached `latest` or `current` container versions will be compared to those available on DockerHub. See the `readme <https://github.com/someara/kitchen-dokken#disable-pulling-chef-docker-images>`__ for instructions on reverting to the previous behavior.
-  * User namespace mode can be disabled when running privileged containers with a new `userns_host` config option. See the `readme <https://github.com/someara/kitchen-dokken#running-with-user-namespaces-enabled>`__ for details.
-  * You can now disable pulling the platform Docker images for local platform image testing or air gapped testing. See the `readme <https://github.com/someara/kitchen-dokken#disable-pulling-platform-docker-images>`__ for details.
+
+    * The Chef Docker image is now pulled by default so that locally cached `latest` or `current` container versions will be compared to those available on DockerHub. See the `readme <https://github.com/someara/kitchen-dokken#disable-pulling-chef-docker-images>`__ for instructions on reverting to the previous behavior.
+    * User namespace mode can be disabled when running privileged containers with a new ``userns_host`` config option. See the `readme <https://github.com/someara/kitchen-dokken#running-with-user-namespaces-enabled>`__ for details.
+    * You can now disable pulling the platform Docker images for local platform image testing or air gapped testing. See the `readme <https://github.com/someara/kitchen-dokken#disable-pulling-platform-docker-images>`__ for details.
 
 * **Other Updated Components**
 
@@ -125,13 +126,13 @@ What's New in 3.10
 
 * **New Policy File Functionality**
 
-  `include_policy` now supports `:remote` policy files. This new functionality allows you to include policy files over http. Remote policy files require remote cookbooks and `install` will fail otherwise if the included policy file includes cookbooks with paths. Thanks `mattray <https://github.com/mattray>`__!
+  ``include_policy`` now supports ``:remote`` policy files. This new functionality allows you to include policy files over http. Remote policy files require remote cookbooks and ``install`` will fail otherwise if the included policy file includes cookbooks with paths. Thanks `mattray <https://github.com/mattray>`__!
 
 * **Other updates**
 
-    * `kitchen-vagrant`: 1.5.1 -> 1.5.2
-    * `mixlib-install`: 3.11.12 -> 3.11.18
-    * `ohai`: 14.8.11 -> 14.8.12
+    * ``kitchen-vagrant``: 1.5.1 -> 1.5.2
+    * ``mixlib-install``: 3.11.12 -> 3.11.18
+    * ``ohai``: 14.8.11 -> 14.8.12
 
 What's New in 3.9
 =====================================================
