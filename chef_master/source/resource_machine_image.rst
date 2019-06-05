@@ -109,8 +109,7 @@ This resource has the following properties:
    Use to add a role to the run-list for the machine image.
 
 ``run_list``
-   Use to specify the run-list to be applied to the machine image.
-   See `About Run Lists </run_lists.html>`__ for more information.
+   Use to specify the run-list to be applied to the machine image. See `About Run Lists </run_lists.html>`__ for more information.
 
 ``tags``
    Use to specify the list of tags to be applied to the machine image. Any tag not specified in this list will be removed.
