@@ -7,7 +7,6 @@ The Chef Infra Server supports Active Directory and LDAP authentication, which e
 
 Configure LDAP
 =====================================================
-.. tag install_server_ldap
 
 The Chef Infra Server supports using Active Directory or LDAP for any user that has an email address in the LDAP directory. This allows those users to log in to the Chef Infra Server by using their corporate credentials instead of having a separate username and password.
 
@@ -137,8 +136,6 @@ To configure the Chef Infra Server to use Active Directory or LDAP do the follow
    .. end_tag
 
 At this point, all users should be able to use their Active Directory or LDAP usernames and passwords to log in to the Chef Infra Server.
-
-.. end_tag
 
 Test LDAP Connectivity
 =====================================================

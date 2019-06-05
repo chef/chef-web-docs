@@ -62,10 +62,10 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu (LTS releases)
-     - ``x86``, ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``, ``18.04``
-   * - Microsoft Windows
      - ``x86``, ``x86_64``
+     - ``16.04``, ``18.04``
+   * - Microsoft Windows
+     - ``x86_64``
      - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
 Community Support
@@ -131,11 +131,11 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - Ubuntu
      -
-     - ``14.04``, ``16.04``, ``18.04``
+     - ``16.04``, ``18.04``
    * - Microsoft Windows
      -
      - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
-     
+
 ChefDK
 ------------------------------------------------------
 
@@ -162,7 +162,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
      -
-     - ``14.04``, ``16.04``, ``18.04``
+     - ``16.04``, ``18.04``
    * - Microsoft Windows
      -
      - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
@@ -214,8 +214,8 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
-     - ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``, ``18.04``
+     - ``x86_64``
+     - ``16.04``, ``18.04``
 
 .. end_tag
 
@@ -255,7 +255,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``11 SP4``, ``12 SP2``
    * - Ubuntu
      - ``x86_64``
-     - ``14.04``, ``16.04``, ``18.04``
+     - ``16.04``, ``18.04``
 
 Chef Automate Job Runners
 ----------------------------------------------------
@@ -301,9 +301,9 @@ The following table lists the commercially-supported platforms for the Chef Push
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86``, ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``16.04``, ``18.04``
    * - Microsoft Windows
-     - ``x86``, ``x86_64``
+     - ``x86_64``
      - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 
@@ -331,7 +331,7 @@ The following table lists the commercially-supported platforms for the Chef Push
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``16.04``, ``18.04``
 
 Chef Backend
 ----------------------------------------------------
@@ -356,7 +356,7 @@ The following table lists the commercially-supported platforms for Chef Backend,
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``16.04``, ``18.04``
 
 
 Chef Manage
@@ -382,7 +382,7 @@ The following table lists the commercially-supported platforms for Chef Manage:
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``16.04``, ``18.04``
 
 Platform End-of-Life Policy
 ===========================

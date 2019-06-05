@@ -5,22 +5,11 @@ chef_organization
 
 .. warning:: .. tag notes_provisioning
 
-             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+             This functionality was available with Chef provisioning and was packaged in the Chef development kit.
+
+             Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
              .. end_tag
-
-.. tag chef_client_summary
-
-Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
-
-* Registering and authenticating the node with the Chef Infra Server
-* Building the node object
-* Synchronizing cookbooks
-* Compiling the resource collection by loading each of the required cookbooks, including recipes, attributes, and all other dependencies
-* Taking the appropriate and required actions to configure the node
-* Looking for exceptions and notifications, handling each as required
-
-.. end_tag
 
 Use the **chef_organization** resource to interact with organization objects that exist on the Chef server.
 
