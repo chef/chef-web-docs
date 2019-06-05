@@ -110,39 +110,7 @@ This resource has the following properties:
 
 ``run_list``
    Use to specify the run-list to be applied to the machine image.
-
-   .. tag node_run_list
-
-   A run-list defines all of the information necessary for Chef to configure a node into the desired state. A run-list is:
-
-   * An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the Chef Infra Client will not run it twice
-   * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
-   * Stored as part of the node object on the Chef server
-   * Maintained using knife and then uploaded from the workstation to the Chef Infra Server, or maintained using Chef Automate
-
-   .. end_tag
-
-   .. tag node_run_list_format
-
-   A run-list must be in one of the following formats: fully qualified, cookbook, or default. Both roles and recipes must be in quotes, for example:
-
-   .. code-block:: ruby
-
-      'role[NAME]'
-
-   or
-
-   .. code-block:: ruby
-
-      'recipe[COOKBOOK::RECIPE]'
-
-   Use a comma to separate roles and recipes when adding more than one item the run-list:
-
-   .. code-block:: ruby
-
-      'recipe[COOKBOOK::RECIPE],COOKBOOK::RECIPE,role[NAME]'
-
-   .. end_tag
+   See `About Run Lists </run_lists.html>`__ for more information.
 
 ``tags``
    Use to specify the list of tags to be applied to the machine image. Any tag not specified in this list will be removed.
