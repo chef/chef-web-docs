@@ -70,7 +70,7 @@ Actions
 The cron_d resource has the following actions:
 
 ``:create``
-   Default. "Add a cron definition file to /etc/cron.d, but do not update an existing file.
+   Default. Add a cron definition file to /etc/cron.d, and update an existing file.
 
 ``:delete``
    Remove a cron definition file from /etc/cron.d if it exists.
