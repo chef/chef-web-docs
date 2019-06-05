@@ -9,19 +9,21 @@ Chef Infra Client 15.0.300
 =====================================================
 
 This release includes critical bugfixes for the 15.0 release:
-  * Fix ``knife bootstrap`` over SSH when ``requiretty`` is configured on the host.
-  * Added the ``--chef-license`` CLI flag to ``chef-apply`` and ``chef-solo`` commands.
+
+* Fix ``knife bootstrap`` over SSH when ``requiretty`` is configured on the host.
+* Added the ``--chef-license`` CLI flag to ``chef-apply`` and ``chef-solo`` commands.
 
 Chef Infra Client 15.0.298
 =====================================================
 
 This release includes critical bugfixes for the 15.0 release:
-  * Allow accepting the license on non-interactive Windows sessions
-  * Resolve license acceptance failures on Windows 2012 R2
-  * Improve some knife and chef-client help text
-  * Properly handle session_timeout default value in ``knife bootstrap``
-  * Avoid failures due to Train::Transports::SSHFailed class not being loaded in ``knife bootstrap``
-  * Resolve failures using the ca_trust_file option with ``knife bootstrap``
+
+* Allow accepting the license on non-interactive Windows sessions
+* Resolve license acceptance failures on Windows 2012 R2
+* Improve some knife and chef-client help text
+* Properly handle session_timeout default value in ``knife bootstrap``
+* Avoid failures due to Train::Transports::SSHFailed class not being loaded in ``knife bootstrap``
+* Resolve failures using the ca_trust_file option with ``knife bootstrap``
 
 Chef Infra Client 15.0.293
 =====================================================
@@ -49,41 +51,41 @@ New Features / Functionality
 -----------------------------------------------------
 
 * **Target Mode Prototype**
-    Chef Infra Client 15 adds a prototype for a new method of executing resources called Target Mode. Target Mode allows a Chef Infra Client run to manage a remote system over SSH or another protocol supported by the Train library. This support includes platforms that we currently support like Ubuntu Linux, but also allows for configuring other architectures and platforms, such as switches that do not have native builds of Chef Infra Client. Target Mode maintains a separate node object for each target and allows you to manage that node using existing patterns that you currently use. 
-    
+    Chef Infra Client 15 adds a prototype for a new method of executing resources called Target Mode. Target Mode allows a Chef Infra Client run to manage a remote system over SSH or another protocol supported by the Train library. This support includes platforms that we currently support like Ubuntu Linux, but also allows for configuring other architectures and platforms, such as switches that do not have native builds of Chef Infra Client. Target Mode maintains a separate node object for each target and allows you to manage that node using existing patterns that you currently use.
+
     As of this release, only the ``execute`` resource and guards are supported, but modifying existing resources or writing new resources to support Target Mode is relatively easy. Using Target Mode is as easy as running ``chef-client --target hostname``. The authentication credentials should be stored in your local ``~/.chef/credentials`` file with the hostname of the target node as the profile name. Each key/value pair is passed to Train for authentication.
-    
+
 * **Data Collection Ground-Up Refactor**
     Chef Infra Client's Data Collection subsystem is used to report node changes during client runs to Chef Automate or other reporting systems. For Chef Infra Client 15, we performed a ground-up rewrite of this subsystem, which greatly improves the data reported to Chef Automate and ensures data is delivered even in the toughest of failure conditions.
-    
+
 * **copy_properties_from in Custom Resources**
-    A new ``copy_properties_from`` method for custom resources allows you to copy properties from your custom resource into other resources you are calling, so you can avoid unnecessarily repeating code. 
-    
+    A new ``copy_properties_from`` method for custom resources allows you to copy properties from your custom resource into other resources you are calling, so you can avoid unnecessarily repeating code.
+
     To inherit all the properties of another resource:
 
       .. code-block:: ruby
 
        resource_name :my_resource
-         
+
        property :mode, String, default: '777'
        property :owner, String, default: 'app_user'
        property :group, String, default: 'admins'
-          
+
        directory '/etc/myapp' do
           copy_properties_from new_resource
           recursive true
        end
 
     To selectively inherit certain properties from a resource:
-      
+
       .. code-block:: ruby
 
        resource_name :my_resource
-          
+
        property :mode, String, default: '777'
        property :owner, String, default: 'app_user'
        property :group, String, default: 'admins'
-          
+
        directory '/etc/myapp' do
           copy_properties_from(new_resource, :owner, :group, :mode)
           mode '755'
@@ -92,7 +94,7 @@ New Features / Functionality
 
 * **ed25519 SSH key support**
     Our underlying SSH implementation has been updated to support the new ed25519 SSH key format. This means you will be able to use ``knife bootstrap`` and ``knife ssh`` on hosts that only support this new key format.
-    
+
 * **Allow Using --delete-entire-chef-repo in Chef Local Mode**
     Chef Solo's ``--delete-entire-chef-repo`` option has been extended to work in Local Mode as well. Be warned that this flag does exactly what it states, and when used incorrectly, can result in loss of work.
 
@@ -107,19 +109,19 @@ New Resources
 
 * **windows_dfs_folder resource**
     Use the ``windows_dfs_folder`` resource to create and delete Windows DFS folders. See the `windows_dfs_folder <https://docs.chef.io/resource_windows_dfs_folder.html>`__ documentation for more information.
-    
-* **windows_dfs_namespace resources** 
+
+* **windows_dfs_namespace resources**
     Use the ``windows_dfs_namespace`` resource to create and delete Windows DFS namespaces. See the `windows_dfs_namespace <https://docs.chef.io/resource_windows_dfs_namespace.html>`__ documentation for more information.
 
 * **windows_dfs_server resources**
     Use the ``windows_dfs_server`` resource to configure Windows DFS server settings. See the `windows_dfs_server <https://docs.chef.io/resource_windows_dfs_server.html>`__ documentation for more information.
-    
+
 * **windows_dns_record resource**
     Use the ``windows_dns_record`` resource to create or delete DNS records. See the `windows_dns_record <https://docs.chef.io/resource_windows_dns_record.html>`__ documentation for more information.
-    
+
 * **windows_dns_zone resource**
     Use the ``windows_dns_zone`` resource to create or delete DNS zones. See the `windows_dns_zone <https://docs.chef.io/resource_windows_dns_zone.html>`__ documentation for more information.
-    
+
 * **snap_package resource**
     Use the ``snap_package`` resource to install snap packages on Ubuntu hosts. See the `snap_package <https://docs.chef.io/resource_snap_package.html>`__ documentation for more information.
 
@@ -137,9 +139,9 @@ Resource Improvements
 
 * **windows_service**
     The ``windows_service`` resource has been improved to prevent accidentally reverting a service back to default settings in a subsequent definition.
-    
+
     This example will no longer result in the MyApp service reverting to default RunAsUser:
-       
+
    .. code-block:: ruby
 
     windows_service 'MyApp' do
@@ -163,7 +165,7 @@ Ohai Improvements
 
 * **Improved Linux Platform / Platform Family Detection**
     ``Platform`` and ``platform_family`` detection on Linux has been rewritten to utilize the latest config files on modern Linux distributions before falling back to slower and fragile legacy detection methods. Ohai will now begin by parsing the contents of ``/etc/os-release`` for OS information if available. This feature improves the reliability of detection on modern distros and allows detection of new distros as they are released.
-    
+
     With this change, we now detect ``sles_sap`` as a member of the ``suse`` ``platform_family``. Additionally, this change corrects our detection of the ``platform_version`` on Cisco Nexus switches where previously the build number was incorrectly appended to the version string.
 
 * **Improved Virtualization Detection**
@@ -172,7 +174,7 @@ Ohai Improvements
 * **Fix Windows 2016 FQDN Detection**
     Ohai 14 incorrectly detected a Windows 2016 node's ``fqdn`` as the node's ``hostname``. Ohai 15 now correctly reports the FQDN value.
 
-* **Improved Memory Usage** 
+* **Improved Memory Usage**
     Ohai now uses less memory due to internal optimization of how we track plugin information.
 
 * **FIPS Detection Improvements**
@@ -184,15 +186,15 @@ New Deprecations
 * **knife cookbook site deprecated in favor of knife supermarket**
     The ``knife cookbook site`` command has been deprecated in favor of the ``knife supermarket`` command. ``knife cookbook site`` will now produce a warning message. In Chef Infra Client 16, we will remove the ``knife cookbook site`` command entirely.
 
-* **locale LC_ALL property** 
+* **locale LC_ALL property**
     The ``LC_ALL`` property in the ``locale`` resource has been deprecated as the usage of this environmental variable is not recommended by distribution maintainers.
 
 Breaking Changes
 -----------------------------------------------------
 
-* **Knife Bootstrap** 
+* **Knife Bootstrap**
     Knife bootstrap has been entirely rewritten. Native support for Windows bootstrapping is now a part of the main ``knife bootstrap`` command. This marks the deprecation of the ``knife-windows`` plugin's ``bootstrap`` behavior. This change also addresses `CVE-2015-8559 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-8559>`__: *The ``knife bootstrap`` command in chef leaks the validator.pem private RSA key to /var/log/messages*.
-    
+
     **Important**: ``knife bootstrap`` can bootstrap all supported versions of Chef Infra Client. Older versions may continue to work as far back as 12.20.
 
     In order to accommodate a combined bootstrap that supports both SSH and WinRM, some CLI flags have been added, removed, or changed. Using the changed options will result in deprecation warnings, but ``knife bootstrap`` will accept those options unless otherwise noted. Using removed options will cause the command to fail.
@@ -231,25 +233,25 @@ Changed Flags
      - Notes
    * - ``--[no-]host-key-verify``
      - ``--ssh-verify-host-key VALUE``
-     - See above for valid values. 
+     - See above for valid values.
    * - ``--forward-agent``
      - ``--ssh-forward-agent``
      -
-   * - ``--session-timeout MINUTES`` 
+   * - ``--session-timeout MINUTES``
      - ``--session-timeout SECONDS``
      - New for ssh, existing for winrm. The unit has changed from MINUTES to SECONDS for consistency with other timeouts.
    * - ``--ssh-password``
      - ``--connection-password``
      -
    * - ``--ssh-port``
-     - ``--connection-port`` 
+     - ``--connection-port``
      - ``knife[:ssh_port]`` config setting remains available.
    * - ``--ssh-user``
      - ``--connection-user``
      - ``knife[:ssh_user]`` config setting remains available.
    * - ``--ssl-peer-fingerprint``
      - ``--winrm-ssl-peer-fingerprint``
-     - 
+     -
    * - ``--prerelease``
      - ``--channel CHANNEL``
      - This now allows you to specify the channel that Chef Infra Client gets installed from. Valid values are _stable_,   _current_, and _unstable_. 'current' has the same effect as using the old --prerelease.
@@ -258,17 +260,17 @@ Changed Flags
      - Valid values: _plaintext_, _kerberos_, _ssl_, _negotiate_
    * - ``--winrm-password``
      - ``--connection-password``
-     - 
+     -
    * - ``--winrm-port``
      - ``--connection-port``
      - ``knife[:winrm_port]`` config setting remains available.
-   * - ``--winrm-ssl-verify-mode MODE`` 
+   * - ``--winrm-ssl-verify-mode MODE``
      - ``--winrm-no-verify-cert``
      - Mode is not accepted. When flag is present, SSL cert will  not be verified. Same as original mode of 'verify\_none'. [1]
    * - ``--winrm-transport TRANSPORT``
      - ``--winrm-ssl``
      - Use this flag if the target host is accepts WinRM connections  over SSL. [1]
-   * - ``--winrm-user`` 
+   * - ``--winrm-user``
      - ``--connection-user``
      - ``knife[:winrm_user]`` config setting remains available.
    * - ``--winrm-session-timeout``
@@ -308,21 +310,21 @@ Removed Flags
 
 * **Chef Infra Client packages remove /opt/chef before installation**
    Upon upgrading Chef Infra Client packages, the ``/opt/chef`` directory is removed. This ensures any ``chef_gem`` installed gem versions and other modifications to ``/opt/chef`` will removed to prevent upgrade issues. Due to technical details with rpm script execution order, the implementation involves a a pre-installation script that wipes ``/opt/chef`` before every install, and is done consistently this way on every package manager.
-   
+
    Users who are properly managing customizations to ``/opt/chef`` through Chef recipes would not be affected, because their customizations will still be installed by the new package.
-   
+
    You will see a warning that the ``/opt/chef`` directory will be removed during the package installation process.
 
 * **powershell_script now allows overriding the default flags**
    We now append ``powershell_script`` user flags to the default flags rather than the other way around, which made user flags override the defaults. This is the correct behavior, but it may cause scripts to execute differently than in previous Chef Client releases.
 
 * **Package provider allow_downgrade is now true by default**
-   We reversed the default behavior to ``allow_downgrade true`` for our package providers. To override this setting to prevent downgrades, use the ``allow_downgrade false`` flag. This behavior change will mostly affect users of the rpm and zypper package providers. 
-   
+   We reversed the default behavior to ``allow_downgrade true`` for our package providers. To override this setting to prevent downgrades, use the ``allow_downgrade false`` flag. This behavior change will mostly affect users of the rpm and zypper package providers.
+
    In this example, the code below should now read as asserting that the package `foo` must be version ``1.2.3`` after that resource is run.:
 
    .. code-block:: ruby
-      
+
        package "foo" do
           version "1.2.3"
        end
@@ -349,7 +351,7 @@ Removed Flags
        => nil
       chef (15.0.53)> node["foo"]
        => nil
-      
+
 
    In prior versions of ``chef-client``, the ``nil`` set in the override level would be completely ignored and the value of ``node["foo"]`` would have been "bar".
 
