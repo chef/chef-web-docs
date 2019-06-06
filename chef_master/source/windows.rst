@@ -2054,6 +2054,8 @@ This method will return ``true`` or ``false``.
 
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag resource_registry_key_actions
+
 The registry_key resource has the following actions:
 
 ``:create``
@@ -2081,7 +2083,7 @@ The registry_key resource has the following actions:
 
           .. end_tag
 
-
+.. end_tag
 
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
