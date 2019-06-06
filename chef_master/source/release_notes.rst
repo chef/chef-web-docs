@@ -254,10 +254,10 @@ Changed Flags
      -
    * - ``--prerelease``
      - ``--channel CHANNEL``
-     - This now allows you to specify the channel that Chef Infra Client gets installed from. Valid values are _stable_,   _current_, and _unstable_. 'current' has the same effect as using the old --prerelease.
+     - This now allows you to specify the channel that Chef Infra Client gets installed from. Valid values are *stable*,  *current*, and *unstable*. 'current' has the same effect as using the old --prerelease.
    * - ``--winrm-authentication-protocol=PROTO``
      - ``--winrm-auth-method=AUTH-METHOD``
-     - Valid values: _plaintext_, _kerberos_, _ssl_, _negotiate_
+     - Valid values: *plaintext*, *kerberos*, *ssl*, *negotiate*
    * - ``--winrm-password``
      - ``--connection-password``
      -
@@ -266,10 +266,10 @@ Changed Flags
      - ``knife[:winrm_port]`` config setting remains available.
    * - ``--winrm-ssl-verify-mode MODE``
      - ``--winrm-no-verify-cert``
-     - Mode is not accepted. When flag is present, SSL cert will  not be verified. Same as original mode of 'verify\_none'. [1]
+     - Mode is not accepted. When flag is present, SSL cert will not be verified. Same as original mode of 'verify\_none'. [1]
    * - ``--winrm-transport TRANSPORT``
      - ``--winrm-ssl``
-     - Use this flag if the target host is accepts WinRM connections  over SSL. [1]
+     - Use this flag if the target host is accepts WinRM connections over SSL. [1]
    * - ``--winrm-user``
      - ``--connection-user``
      - ``knife[:winrm_user]`` config setting remains available.
@@ -432,6 +432,44 @@ Removed Flags
 
 * **Ohai Microsoft VirtualPC / VirtualServer detection removal**
    The ``Virtualization`` plugin will no longer detect systems running on the circa ~2005 VirtualPC or VirtualServer hypervisors. These hypervisors were long ago deprecated by Microsoft and support can no longer be tested.
+
+What’s New in 14.13
+=====================================================
+
+Updated Resources
+-----------------------------------------------------
+
+* **directory**
+   The ``directory`` has been updated to properly set the ``deny_rights`` permission on Windows. Thanks `merlinjim <https://github.com/merlinjim>`__ for reporting this issue.
+* **service**
+   The ``service`` resource is now idempotent on SLES 11 systems. Thanks `gsingla294 <https://github.com/gsingla294>`__ for reporting this issue.
+* **cron**
+   The ``cron`` resource has been updated to advise users to use the specify properties rather than passing values in as part of the ``environment`` property. This avoids a situation where a user could pass the differing values in both locations and receive unexpected results.
+* **link**
+   The ``link`` resource includes improved logging upon failure to help you debug what has failed. Thanks `jaymzh <https://github.com/jaymzh>`__ for this improvement.
+* **template**
+   The ``template`` resource now includes additional information when templating failures, which is particularly useful in ChefSpec. Thanks `brodock <https://github.com/brodock>`__ for this improvement.
+
+delete_resource Fix
+-----------------------------------------------------
+
+The ``delete_resource`` helper now works properly when the resource you are attempting to delete has multiple providers. Thanks `artem-sidorenko <https://github.com/artem-sidorenko>`__ for this fix.
+
+Helpers Help Everywhere
+-----------------------------------------------------
+
+Various helpers have been moved into Chef Infra Client's `universal` class, which makes them available anywhere in your cookbook, not just recipes. If you've ever been confused why something like ``search``, ``powershell_out``, or ``data_bag_item`` didn't work somewhere in your code, that should be resolved now.
+
+Deprecations
+-----------------------------------------------------
+
+The ``CHEF-25`` deprecation for resource collisions between cookbooks and resources in Chef Infra Client has been removed. Instead, you will see a log warning that a collision has occurred, which advises you to update your run_list or cookbooks.
+
+Updated Components
+-----------------------------------------------------
+
+* openssl 1.0.2r -> 1.0.2s (bugfix only release)
+* cacerts 2019-01-23 -> 2019-05-15
 
 What’s New in 14.12
 =====================================================

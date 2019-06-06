@@ -51,7 +51,7 @@ What's New in 4.0
 
 * **Chef Infra Client 15**
 
-  Chef Infra Client has been updated to Chef 15 with **8** new resources, target mode prototype functionality, ``ed25519`` SSH key support, and more. See the `Chef Infra Client 15 Release Notes <https://github.com/chef/chef/blob/master/RELEASE_NOTES.md#chef-infra-client-150293>`__ for more details.
+  Chef Infra Client has been updated to Chef 15 with **8** new resources, target mode prototype functionality, ``ed25519`` SSH key support, and more. See the `Chef Infra Client 15 Release Notes <https://docs.chef.io/release_notes.html#chef-infra-client-15-0-293>`__ for more details.
 
 * **Fauxhai 7.3**
 
