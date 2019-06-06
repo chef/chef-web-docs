@@ -155,7 +155,7 @@ The following products are deprecated or end of life. Users are advised to use n
      - Deprecated
      - December 31, 2019
    * - Chef Manage
-     - All
+     - 2.5.x
      - Deprecated
      - TBD
    * - Chef Provisioning
