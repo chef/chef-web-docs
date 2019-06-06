@@ -18,7 +18,7 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 
           For more information, see: `Registry Reflection <https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx>`_.
 
-          
+
 
 Syntax
 =====================================================
@@ -324,48 +324,34 @@ This method will return ``true`` or ``false``.
 
 Actions
 =====================================================
-.. tag resource_registry_key_properties
+.. tag resource_registry_key_actions
 
-The registry_key resource has the following properties:
+The registry_key resource has the following actions:
 
-``architecture``
-   **Ruby Type:** Symbol | **Default Value:** ``:machine``
+``:create``
+   Default. Create a registry key. If a registry key already exists (but does not match), update that registry key to match.
 
-   The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the Chef Infra Client determine the architecture during the Chef Infra Client run).
+``:create_if_missing``
+   Create a registry key if it does not exist. Also, create a registry key value if it does not exist.
 
-   In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
+``:delete``
+   Delete the specified values for a registry key.
 
-   .. note:: .. tag notes_registry_key_architecture
+``:delete_key``
+   Delete the specified registry key and all of its subkeys.
 
-             The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
+``:nothing``
+   .. tag resources_common_actions_nothing
 
-             .. end_tag
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
-``key``
-   **Ruby Type:** String | **Default Value:** ``The resource block's name``
+   .. end_tag
 
-   The path to the location in which a registry key is to be created or from which a registry key is to be deleted. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
-   The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
+.. note:: .. tag notes_registry_key_resource_recursive
 
-``recursive``
-   **Ruby Type:** true, false | **Default Value:** ``false``
+          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
-   When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
-
-   .. note:: .. tag notes_registry_key_resource_recursive
-
-             Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
-
-             .. end_tag
-
-``values``
-   **Ruby Type:** Hash, Array
-
-   An array of hashes, where each Hash contains the values that are to be set under a registry key. Each Hash must contain ``name:``, ``type:``, and ``data:`` (and must contain no other key values).
-
-   ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-
-   .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
+          .. end_tag
 
 .. end_tag
 
