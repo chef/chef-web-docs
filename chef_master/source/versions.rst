@@ -53,7 +53,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - Lifecycle Status
      - EOL Date
    * - Chef Automate
-     - 2.x
+     - 2
      - GA
      - n/a
    * - Chef Infra Client
@@ -65,7 +65,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - Releasing Soon
      - n/a
    * - Chef Habitat
-     - 0.81
+     - 0.81+
      - GA
      - n/a
    * - Chef InSpec
