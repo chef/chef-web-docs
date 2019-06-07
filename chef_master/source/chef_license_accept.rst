@@ -23,8 +23,6 @@ There are three ways to accept the Chef MLSA:
  Accept the Chef EULA
 -----------------------------------------------------
 
-.. note:: As of May 15, 2019, we have released Chef Infra Client version 15, which requires accepting the new EULA. However, we are still in the process of releasing the rest of our product portfolio. As of today, the recommendation is to pin Chef Infra Client to version 14 until we add support to the rest of our tooling. You can see the version of products that will require accepting the EULA at `Supported Versions <https://docs.chef.io/versions.html>`__. For example, the version of Test Kitchen embedded in ChefDK 3.9 does not yet know how to accept the Chef Infra Client EULA if installing version 15 on a test node. Instead, we recommend pinning the installed version to 14. Work is actively ongoing to get the rest of our product portfolio released as soon as possible.
-
 Products below are split below into two categories: workstation and server. Affected product versions which require accepting the EULA to use are shown. Versions before this do not require accepting the EULA. More information on supported versions can be seen at the `Supported Versions <https://docs.chef.io/versions.html>`__ documentation.
 
 Workstation Products
@@ -159,6 +157,7 @@ Remote Management Products
 =====================================================
 * Test Kitchen
 * ``knife bootstrap`` in Chef Infra Client
+* ``chef-run`` in Chef Workstation
 * Packer
 * Terraform Chef Provisioner
 * Terraform Habitat Provisioner
@@ -205,6 +204,11 @@ Without this, ``knife bootstrap`` would fail.
 In most usage cases via Chef Workstation, this license will already have been accepted and will transfer across transparently.
 But if a user installs Chef Workstation and the first command they ever run is ``knife bootstrap``, it will perform the same license acceptance flow as the Chef Infra Client product.
 
+``knife bootstrap`` in Chef Infra Client 14
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+``knife bootstrap`` in Chef Infra Client 14 cannot accept the Chef Infra Client 15 EULA on remote nodes unless you use a `custom template <https://docs.chef.io/knife_bootstrap.html#custom-templates>`__ and add chef_license "accept" to the client.rb.
+This applies to workstations who have Chef Infra Client <= 14.x, ChefDK <= 3.x or Chef Workstation <= 0.3 installed.
+
 Pin to Chef 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Specify the following argument:
@@ -212,6 +216,19 @@ Specify the following argument:
 .. code-block:: bash
 
   knife bootstrap --bootstrap-version 14.12.3
+
+``chef-run``
+-----------------------------------------------------
+``chef-run`` in Chef Workstation >= 0.3 has been updated to add support for accepting the license locally when remotely running Chef Infra Client 15.
+As of Chef Workstation <= 0.4 there is no way to manage the version of Chef Infra Client installed on the remote node.
+It defaults to the latest stable version available.
+
+To accept the license, complete one of the following three tasks. Either pass the ``--chef-license`` command line flag, set the ``CHEF_LICENSE`` environment variable, or add the following to your ``~/.chef-workstation/config.toml`` file:
+
+.. code-block:: none
+
+    [chef]
+    chef_license = "accept"
 
 Packer
 -----------------------------------------------------
