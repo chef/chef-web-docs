@@ -1,59 +1,173 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 3.10
+Release Notes: Chef Development Kit 0.19 - 4.0
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes, see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 4.0
+=====================================================
+
+* **Breaking Changes**
+
+  * **Chef EULA**
+
+    Usage of ChefDK 4.0, Chef Infra Client 15, and InSpec 4 requires accepting the `Chef EULA <https://docs.chef.io/chef_license.html#chef-eula>`__. See the `frequently asked questions <https://www.chef.io/bmc-faq/>`__ for information about the license update and the associated business model change.
+
+  * **Chef Provisioning**
+
+    Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019. The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard GitHub organization and will not be further maintained. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
+
+  * ** knife bootstrap against cloud providers**
+
+    ``knife bootstrap`` was `rewritten <https://github.com/chef/chef/blob/cfbb01cb5648297835941679bc9638d3a823ad5e/RELEASE_NOTES.md#knife-bootstrap>`__ in Chef Infra Client 15. The ``knife-*`` cloud providers need to be updated to use this new API. As of ChefDK 4.0, ``knife bootstrap`` functionality against the cloud providers will be broken. We will fix this ASAP in a ChefDK 4.1 release. The only gem *not* affected is the ``knife-windows`` gem. It has already been re-written to leverage the new bootstrap library.
+
+    Affected gems:
+
+    * ``knife-ec2``
+    * ``knife-google``
+    * ``knife-vsphere``
+
+    If you leverage this functionality, please wait to update ChefDK until 4.1 is released with fixes for these gems.
+
+* **Improved Chef Generate command**
+
+  The ``chef generate`` command has been updated to produce cookbooks and repositories that match Chef's best practices.
+
+  * ``chef generate repo`` now generates a Chef repository with Policyfiles by default. You can revert to the previous roles / environment behavior with the ``--roles`` flag.
+  * ``chef generate cookbook`` now generates a cookbook with a Policyfile and no Berksfile by default. You can revert to the previous behavior with the ``--berks`` flag.
+  * ``chef generate cookbook`` now includes ChefSpecs that utilize the ChefSpec 7.3+ format. This is a much simpler syntax that requires less updating of specs as older platforms are deprecated.
+  * ``chef generate cookbook`` no longer creates cookboook files with the unnecessary ``frozen_string_literal: true`` comments.
+  * ``chef generate cookbook`` no longer generates a full Workflow (Delivery) build cookbook by default. A new ``--workflow`` flag has been added to allow generating the build cookbook. This flag replaces the previously unused ``--delivery`` flag.
+  * ``chef generate cookbook`` now generates cookbooks with metadata requiring Chef 14 or later.
+  * ``chef generate cookbook --kitchen dokken`` now generates a fully working kitchen-dokken config.
+  * ``chef generate cookbook`` now generates Test Kitchen configs with the ``product_name``/``product_version`` method of specifying Chef Infra Client releases as ``require_chef_omnibus`` will be removed in the next major Test Kitchen release.
+  * ``chef generate cookbook_file`` no longer places the specified file in a "default" folder as these aren't needed in Chef Infra Client 12 and later.
+  * ``chef generate repo`` no longer outputs the full Chef Infra Client run information while generating the repository. Similar to the `cookbook` command you can view this verbose output with the ``--verbose`` flag.
+
+* **Chef InSpec 4**
+
+  Chef InSpec has been updated to 4.3.2 which includes the new InSpec AWS resource pack with **59** new AWS resources, multi-region support, and named credentials support. This release also includes support for auditing systems that use ``ed25519`` SSH keys.
+
+* **Chef Infra Client 15**
+
+  Chef Infra Client has been updated to Chef 15 with **8** new resources, target mode prototype functionality, ``ed25519`` SSH key support, and more. See the `Chef Infra Client 15 Release Notes <https://docs.chef.io/release_notes.html#chef-infra-client-15-0-293>`__ for more details.
+
+* **Fauxhai 7.3**
+
+  Fauxhai has been updated from 6.11 to 7.3. This removes all platforms that were previously marked as deprecated. So if you've noticed deprecation warnings during your ChefSpec tests, you will need to update those specs for the latest `supported Faxhai platforms <https://github.com/chefspec/fauxhai/blob/master/PLATFORMS.md>`__. This release also adds the following new platform releases for testing in ChefSpec:
+
+  * RHEL 6.10 and 8.0
+  * openSUSE 15.0
+  * CentOS 6.10
+  * Debian 9.8 / 9.9
+  * Oracle Linux 6.10, 7.5, and 7.6
+
+* **Test Kitchen 2.2**
+
+  Test Kitchen has been updated from 1.24 to 2.2.5. This update adds support for accepting the Chef Infra Client and Chef InSpec EULAs during testing, as well as support for newer ``ed25519`` format SSH keys on guests. The newer release does remove support for the legacy Librarian depsolver and testing of Chef Infra Client 10/11 releases in some scenarios. See the `Test Kitchen Release Notes <https://github.com/test-kitchen/test-kitchen/blob/master/RELEASE_NOTES.md#test-kitchen-22-release-notes>`__ for additional details on this release.
+
+* **Kitchen-ec2 3.0**
+
+  Kitchen-ec2 has been updated to 3.0, which uses the newer ``aws-sdk-v3`` and includes a large number of improvements to the driver including improved hostname detection, backoff retries, additional security group configuration options, and more. See the `kitchen-ec2 Changelog <https://github.com/test-kitchen/kitchen-ec2/blob/master/CHANGELOG.md#v300-2019-05-01>`__ for additional details.
+
+* **kitchen-dokken 2.6.9**
+
+  Kitchen-dokken has been updated to 2.6.9 with a new config option `pull_platform_image`, which allows you to disable pulling the platform Docker image on every Test Kitchen converge / test. This is particularly useful for local platform image testing.
+
+  kitchen.yml example:
+
+  .. code-block:: none
+
+      driver:
+        name: dokken
+        pull_platform_image: false
+
+What's New in 3.11
+=====================================================
+
+* **Chef Infra Client 14.13.11**
+
+  Chef Infra Client has been updated to 14.13.11 with resource improvements and bug fixes. See the `Release Notes <https://github.com/chef/chef/blob/chef-14/RELEASE_NOTES.md#chef-client-release-notes-1413>`__ for a detailed list of changes.
+
+* **Test Kitchen 1.25**
+
+  Test Kitchen has been updated to 1.25 with backports of many non-breaking Test Kitchen 2.0 features:
+
+    * Support for accepting the Chef 15 license in Test Kitchen runs. See `Accepting the Chef License <https://docs.chef.io/chef_license_accept.html>`__ for usage details.
+    * A new ``--fail-fast`` command line flag for use with the `concurrency` flag. With this flag set, Test Kitchen will immediately fail when any converge fails instead of continuing to test additional instances.
+    * The ``policyfile_path`` config option now accepts relative paths.
+    * A new ``berksfile_path`` config option allows specifying Berkshelf files in non-standard locations.
+    * Retries are now honored when using SSH proxies
+
+* **kitchen-dokken 2.7.0**
+
+    * The Chef Docker image is now pulled by default so that locally cached `latest` or `current` container versions will be compared to those available on DockerHub. See the `readme <https://github.com/someara/kitchen-dokken#disable-pulling-chef-docker-images>`__ for instructions on reverting to the previous behavior.
+    * User namespace mode can be disabled when running privileged containers with a new ``userns_host`` config option. See the `readme <https://github.com/someara/kitchen-dokken#running-with-user-namespaces-enabled>`__ for details.
+    * You can now disable pulling the platform Docker images for local platform image testing or air gapped testing. See the `readme <https://github.com/someara/kitchen-dokken#disable-pulling-platform-docker-images>`__ for details.
+
+* **Other Updated Components**
+
+  * openssl 1.0.2r -> 1.0.2s (bugfix only release)
+  * cacerts 2019-01-23 -> 2019-05-15
+
+* **Security Updates**
+
+    * **curl 7.65.0**
+
+      * CVE-2019-5435: Integer overflows in curl_url_set
+      * CVE-2019-5436: tftp: use the current blksize for recvfrom()
+      * CVE-2018-16890: NTLM type-2 out-of-bounds buffer read
+      * CVE-2019-3822: NTLMv2 type-3 header stack buffer overflow
+      * CVE-2019-3823: SMTP end-of-response out-of-bounds read
 
 What's New in 3.10
 =====================================================
 
 * **New Policy File Functionality**
 
-  `include_policy` now supports `:remote` policy files. This new functionality allows you to include policy files over http. Remote policy files require remote cookbooks and `install` will fail otherwise if the included policy file includes cookbooks with paths. Thanks `mattray <https://github.com/mattray>`__!
+  ``include_policy`` now supports ``:remote`` policy files. This new functionality allows you to include policy files over http. Remote policy files require remote cookbooks and ``install`` will fail otherwise if the included policy file includes cookbooks with paths. Thanks `mattray <https://github.com/mattray>`__!
 
 * **Other updates**
 
-    * `kitchen-vagrant`: 1.5.1 -> 1.5.2
-    * `mixlib-install`: 3.11.12 -> 3.11.18
-    * `ohai`: 14.8.11 -> 14.8.12
+    * ``kitchen-vagrant``: 1.5.1 -> 1.5.2
+    * ``mixlib-install``: 3.11.12 -> 3.11.18
+    * ``ohai``: 14.8.11 -> 14.8.12
 
 What's New in 3.9
 =====================================================
 
-* **Updated Tooling**
+* **Chef 14.12.3**
 
-    * **Chef 14.12.3**
+    ChefDK now ships with Chef 14.12.3. See `Chef 14.12 release notes <https://docs.chef.io/release_notes.html#whats-new-in-14-12>`__ for more information on what's new.
 
-        ChefDK now ships with Chef 14.12.3. See `Chef 14.12 release notes <https://docs.chef.io/release_notes.html#whats-new-in-14-12>`__ for more information on what's new.
+* **InSpec 3.9.0**
 
-    * **InSpec 3.9.0**
+    ChefDK now ships with InSpec 3.9.0. See `InSpec 3.9.0 release details <https://github.com/inspec/inspec/releases/tag/v3.9.0>`__ for more information on what's new.
 
-        ChefDK now ships with InSpec 3.9.0. See `InSpec 3.9.0 release details <https://github.com/inspec/inspec/releases/tag/v3.9.0>`__ for more information on what's new.
+* **Ruby 2.5.5**
 
-    * **Ruby 2.5.5**
+    Ruby has been updated from 2.5.3 to 2.5.5, which includes a large number of bug fixes.
 
-        Ruby has been updated from 2.5.3 to 2.5.5, which includes a large number of bug fixes.
+* **kitchen-hyperv**
 
-    * **kitchen-hyperv**
+    kitchen-hyperv has been updated to 0.5.3, which now automatically disables snapshots on the VMs and properly waits for the IP to be set.
 
-        kitchen-hyperv has been updated to 0.5.3, which now automatically disables snapshots on the VMs and properly waits for the IP to be set.
+* **kitchen-vagrant**
 
-    * **kitchen-vagrant**
+    kitchen-vagrant has been updated to 1.5.1, which adds support for using the new bento/amazonlinux-2 box when setting the platform to amazonlinux-2.
 
-        kitchen-vagrant has been updated to 1.5.1, which adds support for using the new bento/amazonlinux-2 box when setting the platform to amazonlinux-2.
+* **kitchen-ec2**
 
-    * **kitchen-ec2**
+    kitchen-ec2 has been updated to 2.5.0 with support for Amazon Linux 2.0 image searching using the platform 'amazon2'. This release also adds supports Windows Server 1709 and 1803 image searching.
 
-        kitchen-ec2 has been updated to 2.5.0 with support for Amazon Linux 2.0 image searching using the platform 'amazon2'. This release also adds supports Windows Server 1709 and 1803 image searching.
+* **knife-vsphere**
 
-    * **knife-vsphere**
+    knife-vsphere has been updated to 2.1.3, which adds support for knife's `bootstrap_template` flag and removes the legacy `distro` and `template_file` flags.
 
-        knife-vsphere has been updated to 2.1.3, which adds support for knife's `bootstrap_template` flag and removes the legacy `distro` and `template_file` flags.
+* **Push Jobs Client**
 
-    * **Push Jobs Client**
-
-        Push Jobs Client has been updated to 2.5.6, which includes significant optimizations and minor bug fixes.
+    Push Jobs Client has been updated to 2.5.6, which includes significant optimizations and minor bug fixes.
 
 * **Security Updates**
 
@@ -125,7 +239,7 @@ What's New in 3.7
 
 * **Deprecations**
 
-    chef provision - Chef Provisioning has been in maintenance mode since 2015 and due to the age of its dependencies it cannot be included in ChefDK 4 which is scheduled for an April 2019 release.
+    Chef Provisioning has been in maintenance mode since 2015 and due to the age of its dependencies it cannot be included in ChefDK 4 which is scheduled for an April 2019 release.
 
 What's New in 3.6
 =====================================================
@@ -1006,10 +1120,7 @@ What's New in 1.0
 Version 1.0!
 -----------------------------------------------------
 
-We're recognizing ChefDK's continued stability with the honor of a 1.0 tag. There 
-is nothing in this release that breaks backwards compatibility with previous
-installations of ChefDK: it is simply a formal recognition of the stability of
-the product.
+We're recognizing ChefDK's continued stability with the honor of a 1.0 tag. There is nothing in this release that breaks backwards compatibility with previous installations of ChefDK: it is simply a formal recognition of the stability of the product.
 
 Foodcritic
 -----------------------------------------------------

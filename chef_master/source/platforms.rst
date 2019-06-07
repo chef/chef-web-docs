@@ -136,6 +136,39 @@ The following table lists the commercially-supported platforms and versions for 
      -
      - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
 
+Chef InSpec
+------------------------------------------------------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms and versions for Chef InSpec:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - macOS
+     - ``x86_64``
+     - ``10.12``, ``10.13``, ``10.14``
+   * - Red Hat Enterprise Linux
+     - ``x86_64``
+     - ``6.x``, ``7.x``
+   * - SUSE Enterprise Linux Server
+     - ``x86_64``
+     - ``11 SP4``, ``12 SP1+``
+   * - Ubuntu
+     - ``x86_64``
+     - ``16.04``, ``18.04``
+   * - Microsoft Windows
+     - ``x86_64``
+     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``
+
+InSpec Target Mode (``inspec --target``) may be functional on additional platforms, versions, and architectures but are not validated by Chef Software, Inc.
+
 ChefDK
 ------------------------------------------------------
 
