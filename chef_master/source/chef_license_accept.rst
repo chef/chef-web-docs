@@ -223,7 +223,7 @@ Specify the following argument:
 As of Chef Workstation <= 0.4 there is no way to manage the version of Chef Infra Client installed on the remote node.
 It defaults to the latest stable version available.
 
-To accept the license pass the command line flag, set the environment variable or add the following to your ``~/.chef-workstation/config.toml``:
+To accept the license, complete one of the following three tasks. Either pass the ``--chef-license`` command line flag, set the ``CHEF_LICENSE`` environment variable, or add the following to your ``~/.chef-workstation/config.toml`` file:
 
 .. code-block:: none
 
