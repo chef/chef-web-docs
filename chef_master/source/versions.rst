@@ -53,7 +53,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - Lifecycle Status
      - EOL Date
    * - Chef Automate
-     - 2.x
+     - 2
      - GA
      - n/a
    * - Chef Infra Client
@@ -65,7 +65,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - Releasing Soon
      - n/a
    * - Chef Habitat
-     - 0.81
+     - 0.81+
      - GA
      - n/a
    * - Chef InSpec
@@ -155,7 +155,7 @@ The following products are deprecated or end of life. Users are advised to use n
      - Deprecated
      - December 31, 2019
    * - Chef Manage
-     - All
+     - 2.5.x
      - Deprecated
      - TBD
    * - Chef Provisioning
