@@ -117,7 +117,7 @@ The following properties are common to every resource:
   The retry delay (in seconds).
 
 ``sensitive``
-  **Ruby Type:** true, false | **Default Value:** ``false``
+  **Ruby Type:** true, false | **Default Value:** ``true``
 
   Ensure that sensitive resource data is not logged by the chef-client.
 
