@@ -449,7 +449,7 @@ Ohai Plugins
 Chef Infra Client Plugins
 -----------------------------------------------------
 
-`Chef Infra Client Plugins </plugin_community.html#chef-client>`_
+`Chef Infra Client Plugins </plugin_community.html#chef-infra-client>`_
 
 Addenda
 =====================================================
