@@ -1503,7 +1503,7 @@ Use the ``registry_value_exists?`` method to find out if a registry key value ex
 
           .. end_tag
 
-The syntax for the ``registry_value_exists?`` method is as follows:
+The syntax for the ``registry_dvalue_exists?`` method is as follows:
 
 .. code-block:: ruby
 
