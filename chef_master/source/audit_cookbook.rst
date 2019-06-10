@@ -1,3 +1,4 @@
+=======================================================================
 Sending Compliance Data to Chef Automate with Audit Cookbook
 =======================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/audit_cookbook.rst>`__

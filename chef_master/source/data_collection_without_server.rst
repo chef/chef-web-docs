@@ -1,3 +1,4 @@
+==============================================================
 Data Collection without Chef Server
 ==============================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_without_server.rst>`__
