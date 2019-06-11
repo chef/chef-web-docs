@@ -233,7 +233,7 @@ If you are using LDAP integration, external postgresql, or other Chef server fea
 
 For further information see:
 
-See `Chef Server Credentials Management </server_security.html#chef-server-credentials-management>`_ for more details.
+See `Chef Server Credentials Management </server_security.html#chef-infra-server-credentials-management>`_ for more details.
 
 What's New in 12.13
 =====================================================
