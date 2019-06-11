@@ -2486,7 +2486,7 @@ Backend servers make use of a single Amazon Elastic Block Store (EBS) volume.
 
 For more information about Amazon Elastic Block Store (EBS), see http://aws.amazon.com/ebs/.
 
-View the topic `High Availability: AWS </install_server_ha_aws.html>`__ for more information about how to set up the Chef server for high availability in Amazon Web Services (AWS).
+View the topic `High Availability: Backend Cluster </install_server_ha.html>`__ for more information about how to set up the Chef server for high availability in Amazon Web Services (AWS).
 
 Chef Replication
 -----------------------------------------------------

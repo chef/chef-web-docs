@@ -526,10 +526,6 @@
 </url>
 
 <url>
-  <loc>https://docs.chef.io/install_server_ha_aws.html</loc>
-</url>
-
-<url>
   <loc>https://docs.chef.io/install_server_pre.html</loc>
 </url>
 
@@ -1419,10 +1415,6 @@
 
 <url>
   <loc>https://docs.chef.io/server_configure_saml.html</loc>
-</url>
-
-<url>
-  <loc>https://docs.chef.io/server_data.html</loc>
 </url>
 
 <url>
