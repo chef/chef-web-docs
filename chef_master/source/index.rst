@@ -474,13 +474,11 @@ Addenda
    attributes
    audit_cookbook
    auth
-   automate_admin
    automate_azure
    automate_compliance_credentials
    automate_compliance_profile_store
    automate_compliance_reporting
    automate_compliance_scanner
-   automate_nodes
    aws_marketplace
    aws_opsworks_chef_automate
    azure_chef_cli
