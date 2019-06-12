@@ -17,7 +17,7 @@ There are three upgrade scenarios for upgrades from earlier versions of Chef Ser
 
 .. note:: As of version 12.14, Chef Server will not render passwords outside of the ``/etc/opscode`` directory by default. If you are not using any Chef Infra Server add-ons, or you're using the latest add-on versions, you can set ``insecure_addon_compat`` to ``false`` in ``/etc/opscode/chef-server.rb``. With this option set to ``false``, Chef Infra Server writes all credentials to a single location. Note that this setting should only be applied after both the Chef Infra Server and its add-ons have been upgraded to compatible versions.
 
-        For additional information on this change, including a list of supported add-on versions, see `Chef Infra Server Credentials Management </server_security.html#chef-server-credentials-management>`_.
+        For additional information on this change, including a list of supported add-on versions, see `Chef Infra Server Credentials Management </server_security.html#chef-infra-server-credentials-management>`_.
 
 Standalone
 -----------------------------------------------------
