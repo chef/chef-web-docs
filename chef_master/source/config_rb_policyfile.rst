@@ -148,6 +148,24 @@ A ``Policyfile.rb`` file may contain the following settings:
 
      include_policy "NAME", path: "./foo.lock.json"
 
+  Pull the policyfile lock from ``./bar.lock.json`` with revision ID 'revision1'.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", path: "./bar.lock.json"
+
+  Pull the policyfile lock from a remote server ``https://internal.example.com/foo.lock.json``.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", remote: "https://internal.example.com/foo.lock.json"
+
+  Pull the policyfile lock from a remote server ``https://internal.example.com/bar.lock.json`` and with revision ID 'revision1'.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", remote: "https://internal.example.com/foo.lock.json"
+
   Pull the policy ``NAME`` with revision ID ``revision1`` from the ``http://chef-server.example`` Chef Infra Server:
 
   .. code-block:: ruby
