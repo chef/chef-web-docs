@@ -166,7 +166,7 @@ Initial attempts to recover should follow this general pattern and use the scena
    
    Any leadership repair process often involves removing an internal pgsql lock file that prevents promotion of what is thought as the last leader. This file is placed automatically by leaderl when it demotes a leader ``/var/opt/chef-backend/leaderl/data/no-start-pgsql``. Refer to the `Promoting a Previous Leader section </backend_failure_recovery.html#promoting-a-previous-leader>`__ for more details. 
 #. If necessary, promote what is thought as the most recent leader. Refer to the `Promoting a Previous Leader section </backend_failure_recovery.html#promoting-a-previous-leader>`__ for more detail.
-#. Sync the followers from the leader using a full basebackup because the WAL entries have likely already rotated. When this happens, the followers will complain in ``/var/log/chef-backend/postgresql/X.Y/current`` about being unable to sync. Using just the `--recovery` flag will result in timeouts of the ``chef-backend-ctl join-cluster`` command. It's impossible for a follower to sync and rejoin while in this state because it doesn't have current enough info.
+#. Sync the followers from the leader using a full basebackup because the WAL entries have likely already rotated. When the WAL entries have already roated away, the followers will complain in the ``/var/log/chef-backend/postgresql/X.Y/current`` logfile about being unable to sync. Using just the `--recovery` flag will result in timeouts of the ``chef-backend-ctl join-cluster`` command. It's impossible for a follower to sync and rejoin while in this state because it doesn't have current enough info. Below is an example error message highlighting followers being unable to rejoin:
 
     .. code-block:: none
 
