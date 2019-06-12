@@ -35,7 +35,7 @@ The following table lists the commercially-supported platforms and versions for 
      - Architecture
      - Version
    * - AIX
-     - ``ppc64``
+     - ``powerpc``
      - ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
    * - Amazon Linux
      -
@@ -56,16 +56,16 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
      - ``6.x``, ``7.x``
    * - Solaris
-     - ``sparc``, ``x86``
+     - ``sparc``, ``i86pc``
      - ``11.2``, ``11.3``, ``11.4``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu (LTS releases)
-     - ``x86``, ``x86_64``
+     - ``i386``, ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
-     - ``x86_64``
+     - ``x86``, ``x64``
      - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
 Community Support
@@ -99,13 +99,13 @@ The following platforms are supported only via the community:
      -
      - ``42.x``
    * - Scientific Linux
-     - ``x86-64``
+     - ``x86_64``
      - ``6.x``, ``7.x``
    * - Ubuntu
-     - ``x86``, ``x86_64``
+     - ``i386``, ``x86_64``
      - Current non-LTS releases
    * - Windows
-     - ``x86_64``
+     - ``x64``
      - ``Windows Server, Semi-annual channel (SAC) (Server Core only)``
 
 Chef Workstation
@@ -124,16 +124,16 @@ The following table lists the commercially-supported platforms and versions for 
      - Architecture
      - Version
    * - macOS
-     -
+     - ``x86_64``
      - ``10.12``, ``10.13``, ``10.14``
    * - Red Hat Enterprise Linux
-     -
+     - ``x86_64``
      - ``6.x``, ``7.x``
    * - Ubuntu
-     -
+     - ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
-     -
+     - ``x64``
      - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
 
 Chef InSpec
@@ -185,19 +185,19 @@ The following table lists the commercially-supported platforms and versions for 
      - Architecture
      - Version
    * - macOS
-     -
+     - ``x86_64``
      - ``10.12``, ``10.13``, ``10.14``
    * - Red Hat Enterprise Linux
-     -
+     - ``x86_64``
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
-     -
+     - ``x86_64``
      - ``11 SP4``, ``12 SP1+``
    * - Ubuntu
-     -
+     - ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
-     -
+     - ``x86``, ``x64``
      - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
 
 Community Support
@@ -212,10 +212,10 @@ The following platforms are supported only via the community:
      - Architecture
      - Version
    * - Debian
-     -
+     - ``x86_64``
      - ``8.x``, ``9.x``
    * - Scientific Linux
-     - ``x86-64``
+     - ``x86_64``
      - ``6.x``, ``7.x``
 
 Chef Server
@@ -333,10 +333,10 @@ The following table lists the commercially-supported platforms for the Chef Push
      - ``x86_64``
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
-     - ``x86``, ``x86_64``
+     - ``i386``, ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
-     - ``x86_64``
+     - ``x86``, ``x64``
      - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
 
