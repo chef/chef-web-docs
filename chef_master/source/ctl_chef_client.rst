@@ -533,7 +533,7 @@ The Chef Infra Client may now be used to configure nodes that are running on the
 
 **System Requirements**
 
-The Chef Infra Client has the `same system requirements </chef_system_requirements.html#chef-client>`_ on the AIX platform as any other platform, with the following notes:
+The Chef Infra Client has the `same system requirements </chef_system_requirements.html#chef-infra-client>`_ on the AIX platform as any other platform, with the following notes:
 
 * Expand the file system on the AIX platform using ``chfs`` or by passing the ``-X`` flag to ``installp`` to automatically expand the logical partition (LPAR)
 * The EN_US (UTF-8) character set should be installed on the logical partition prior to installing the Chef Infra Client

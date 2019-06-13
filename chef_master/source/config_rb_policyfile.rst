@@ -133,7 +133,7 @@ A ``Policyfile.rb`` file may contain the following settings:
       named_run_list :update_app, "my_app_cookbook::default"
 
 ``include_policy "NAME", *args``
-   **New in ChefDK 2.4** Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from a local file or from Chef Infra Server. When the policyfile lock is included, its run-lists will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
+    Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from a local or remote file, from a Chef Infra Server, or from a git repository. When the policyfile lock is included, its run-list will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
 
 
   Pull the policyfile lock from ``./NAME.lock.json``:
@@ -147,6 +147,24 @@ A ``Policyfile.rb`` file may contain the following settings:
   .. code-block:: ruby
 
      include_policy "NAME", path: "./foo.lock.json"
+
+  Pull the policyfile lock from ``./bar.lock.json`` with revision ID 'revision1'.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", path: "./bar.lock.json"
+
+  Pull the policyfile lock from a remote server ``https://internal.example.com/foo.lock.json``.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", remote: "https://internal.example.com/foo.lock.json"
+
+  Pull the policyfile lock from a remote server ``https://internal.example.com/bar.lock.json`` and with revision ID 'revision1'.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", remote: "https://internal.example.com/foo.lock.json"
 
   Pull the policy ``NAME`` with revision ID ``revision1`` from the ``http://chef-server.example`` Chef Infra Server:
 
