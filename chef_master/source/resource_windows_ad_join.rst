@@ -97,8 +97,6 @@ Chef resources include common properties, notifications, and resource guards.
 Common Properties
 -----------------------------------------------------
 
-.. tag resources_common_properties
-
 The following properties are common to every resource:
 
 ``ignore_failure``
@@ -120,8 +118,6 @@ The following properties are common to every resource:
   **Ruby Type:** true, false | **Default Value:** ``true``
 
   Ensure that sensitive resource data is not logged by the chef-client.
-
-.. end_tag
 
 Notifications
 -----------------------------------------------------
