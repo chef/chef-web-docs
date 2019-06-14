@@ -3,8 +3,6 @@ Tiered Installation
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_tiered.rst>`__
 
-.. warning:: For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
-
 This topic describes how to set up the Chef Infra Server with a single back end and multiple load-balanced frontend servers.
 
 .. image:: ../../images/chef_server_tiered.png

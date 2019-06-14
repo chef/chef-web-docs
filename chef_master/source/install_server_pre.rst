@@ -1,9 +1,9 @@
 =====================================================
-Prerequisites
+Chef Infra Server Prerequisites
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_pre.rst>`__
 
-The following prerequisites apply to every installation of the Chef Infra Server.
+The following is a detailed discussion of the prerequisites for every installation of the Chef Infra Server. See `Install Chef Infra Server </install_server.html>` for installation instructions.
 
 Platforms
 =====================================================

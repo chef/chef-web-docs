@@ -11,8 +11,6 @@ In addition to the default settings in a knife config.rb file, there are other s
 
 A value passed via the command line will override a value in the config.rb file; a value in a config.rb file will override a default value.
 
-
-
 .. warning:: Many optional settings should not be added to the config.rb file. The reasons for not adding them can vary. For example, using ``--yes`` as a default in the config.rb file will cause knife to always assume that "Y" is the response to any prompt, which may lead to undesirable outcomes. Other settings, such as ``--hide-healthy`` (used only with the ``knife status`` subcommand) or ``--bare-directories`` (used only with the ``knife list`` subcommand) probably aren't used often enough (and in the same exact way) to justify adding them to the config.rb file. In general, if the optional settings are not listed on `the main config.rb topic </config_rb.html>`__, then add settings only after careful consideration. Do not use optional settings in a production environment until after the setting's performance has been validated in a safe testing environment.
 
 The following list describes all of the optional settings that can be added to the configuration file:

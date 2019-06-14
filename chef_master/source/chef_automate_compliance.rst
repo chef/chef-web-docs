@@ -36,8 +36,6 @@ Chef Automate provides the ability to filter on the compliance status of the nod
 
 .. image:: ../../images/automate_compliance_filter.png
 
-See `Filter Compliance Scans in Chef Automate </filter_compliance_scan.html>`_ for more information.
-
 Profile Store
 =====================================================
 

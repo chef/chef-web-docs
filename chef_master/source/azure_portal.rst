@@ -22,7 +22,7 @@ Before virtual machines can be created using the Azure portal, some Chef Infra C
 
 * The ``chef_server_url`` and ``validation_client_name``. These are settings in the `client.rb file </config_rb_client.html>`__.
 
-* The file for the `validator key </chef_private_keys.html>`__.
+* The file for the `validator key </auth.html>`__.
 
 
 
