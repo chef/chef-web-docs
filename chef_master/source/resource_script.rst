@@ -567,7 +567,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
 
    git "#{Chef::Config[:file_cache_path]}/ruby-build" do
      repository 'git://github.com/sstephenson/ruby-build.git'
-     reference 'master'
+     revision 'master'
      action :sync
    end
 
