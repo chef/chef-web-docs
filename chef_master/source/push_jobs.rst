@@ -5,62 +5,62 @@ Chef Push Jobs
 
 .. tag push_jobs_summary
 
-Chef push jobs is an extension of the Chef server that allows jobs to be run against nodes independently of a chef-client run. A job is an action or a command to be executed against a subset of nodes; the nodes against which a job is run are determined by the results of a search query made to the Chef server.
+Chef Push Jobs is an extension of the Chef Infra Server that allows jobs to be run against nodes independently of a Chef Infra Client run. A job is an action or a command to be executed against a subset of nodes; the nodes against which a job is run are determined by the results of a search query made to the Chef Infra Server.
 
-Chef push jobs uses the Chef server API and a Ruby client to initiate all connections to the Chef server. Connections use the same authentication and authorization model as any other request made to the Chef server. A knife plugin is used to initiate job creation and job tracking.
+Chef Push Jobs uses the Chef Infra Server API and a Ruby client to initiate all connections to the Chef Infra Server. Connections use the same authentication and authorization model as any other request made to the Chef Infra Server. A knife plugin is used to initiate job creation and job tracking.
 
 .. end_tag
 
-Install `Push Jobs </install_push_jobs.html>`__ using the **push-jobs** cookbook and a chef-client run on each of the target nodes.
+Install `Push Jobs </install_push_jobs.html>`__ using the **push-jobs** cookbook and a Chef Infra Client run on each of the target nodes.
 
 Requirements
 =====================================================
-Chef push jobs has the following requirements:
+Chef Push Jobs has the following requirements:
 
-* An on-premises Chef server version 11.0.1 (or later); Chef push jobs is not supported when running Chef with the hosted Chef server
-* To use the **push-jobs** cookbook to configure the Chef push jobs client, the chef-client must also be present on the node (because only the chef-client can use a cookbook to configure a node)
+* An on-premises Chef Server version 11.0.1 (or later); Chef Push Jobs is not supported when running Chef with the hosted Chef server
+* To use the **push-jobs** cookbook to configure the Chef Push Jobs client, the Chef Infra Client must also be present on the node (because only the Chef Infra Client can use a cookbook to configure a node)
 * .. tag server_firewalls_and_ports_push_jobs
 
-  TCP protocol ports 10000 and 10002. TCP/10000 is the default heartbeat port. TCP/10002 is the command port. It may be configured in the Chef push jobs configuration file . This port allows Chef push jobs clients to communicate with the Chef push jobs server. In a configuration with both front and back ends, this port only needs to be open on the back end servers. The Chef push jobs server waits for connections from the Chef push jobs client, and never initiates a connection to a Chef push jobs client.
+  TCP protocol ports 10000 and 10002. TCP/10000 is the default heartbeat port. TCP/10002 is the command port. It may be configured in the Chef Push Jobs configuration file . This port allows Chef Push Jobs clients to communicate with the Chef Push Jobs server. In a configuration with both front and back ends, this port only needs to be open on the back end servers. The Chef Push Jobs server waits for connections from the Chef Push Jobs client, and never initiates a connection to a Chef Push Jobs client.
 
   .. end_tag
 
 Components
 =====================================================
-Chef push jobs has three main components: jobs (managed by the Chef push jobs server), a client that is installed on every node in the organization, and one (or more) workstations from which job messages are initiated.
+Chef Push Jobs has three main components: jobs (managed by the Chef Push Jobs server), a client that is installed on every node in the organization, and one (or more) workstations from which job messages are initiated.
 
 All communication between these components is done with the following:
 
-* A heartbeat message between the Chef push jobs server and each managed node
+* A heartbeat message between the Chef Push Jobs server and each managed node
 * A knife plugin named ``knife push jobs`` with four subcommands: ``job list``, ``job start``, ``job status``, and ``node status``
-* Various job messages sent from a workstation to the Chef push jobs server
-* A single job message that is sent (per job) from the Chef push jobs server to one (or more) nodes that are being managed by the Chef server
+* Various job messages sent from a workstation to the Chef Push Jobs server
+* A single job message that is sent (per job) from the Chef Push Jobs server to one (or more) nodes that are being managed by the Chef server
 
-The following diagram shows the various components of Chef push jobs:
+The following diagram shows the various components of Chef Push Jobs:
 
 .. image:: ../../images/overview_push_jobs_states.png
 
 Jobs
 -----------------------------------------------------
-The Chef push jobs server is used to send job messages to one (or more) managed nodes and also to manage the list of jobs that are available to be run against nodes.
+The Chef Push Jobs server is used to send job messages to one (or more) managed nodes and also to manage the list of jobs that are available to be run against nodes.
 
-A heartbeat message is used to let all of the nodes in an organization know that the Chef push jobs server is available. The Chef push jobs server listens for heartbeat messages from each Chef push jobs client. If there is no heartbeat from a Chef push jobs client, the Chef push jobs server will mark that node as unavailable for job messages until the heartbeat resumes.
+A heartbeat message is used to let all of the nodes in an organization know that the Chef Push Jobs server is available. The Chef Push Jobs server listens for heartbeat messages from each Chef Push Jobs client. If there is no heartbeat from a Chef Push Jobs client, the Chef Push Jobs server will mark that node as unavailable for job messages until the heartbeat resumes.
 
 Nodes
 -----------------------------------------------------
-The Chef push jobs client is used to receive job messages from the Chef push jobs server and to verify the heartbeat status. The Chef push jobs client uses the same authorization / authentication model as the chef-client. The Chef push jobs client listens for heartbeat messages from the Chef push jobs server. If there is no heartbeat from the Chef push jobs server, the Chef push jobs client will finish its current job, but then stop accepting any new jobs until the heartbeat from the Chef push jobs server resumes.
+The Chef Push Jobs client is used to receive job messages from the Chef Push Jobs server and to verify the heartbeat status. The Chef Push Jobs client uses the same authorization / authentication model as the Chef Infra Client. The Chef Push Jobs client listens for heartbeat messages from the Chef Push Jobs server. If there is no heartbeat from the Chef Push Jobs server, the Chef Push Jobs client will finish its current job, but then stop accepting any new jobs until the heartbeat from the Chef Push Jobs server resumes.
 
 Workstations
 -----------------------------------------------------
-A workstation is used to manage Chef push jobs jobs, including maintaining the **push-jobs** cookbook, using knife to start and stop jobs, view job status, and to manage job lists.
+A workstation is used to manage Chef Push Jobs jobs, including maintaining the **push-jobs** cookbook, using knife to start and stop jobs, view job status, and to manage job lists.
 
 **push-jobs** Cookbook
 =====================================================
-The **push-jobs** cookbook contains attributes that are used to configure the Chef push jobs client. In addition, Chef push jobs relies on the ``whitelist`` attribute to manage the list of jobs (and commands) that are available to Chef push jobs.
+The **push-jobs** cookbook contains attributes that are used to configure the Chef Push Jobs client. In addition, Chef Push Jobs relies on the ``whitelist`` attribute to manage the list of jobs (and commands) that are available to Chef Push Jobs.
 
 Whitelist
 -----------------------------------------------------
-A whitelist is a list of jobs and commands that are used by Chef push jobs. A whitelist is saved as an attribute in the **push-jobs** cookbook. For example:
+A whitelist is a list of jobs and commands that are used by Chef Push Jobs. A whitelist is saved as an attribute in the **push-jobs** cookbook. For example:
 
 .. code-block:: ruby
 
@@ -96,13 +96,13 @@ where ``["ntpdate"] = "ntpdate -u time"`` is added to the whitelist:
 
 Reference
 =====================================================
-The following sections describe the knife subcommands, the Push Jobs API, and configuration settings used by Chef push jobs.
+The following sections describe the knife subcommands, the Push Jobs API, and configuration settings used by Chef Push Jobs.
 
 knife push jobs
 =====================================================
 .. tag plugin_knife_push_jobs_summary
 
-The ``knife push jobs`` subcommand is used by Chef push jobs to start jobs, view job status, view job lists, and view node status.
+The ``knife push jobs`` subcommand is used by Chef Push Jobs to start jobs, view job status, view job lists, and view node status.
 
 .. end_tag
 
@@ -112,7 +112,7 @@ job list
 -----------------------------------------------------
 .. tag plugin_knife_push_jobs_job_list
 
-Use the ``job list`` argument to view a list of Chef push jobs jobs.
+Use the ``job list`` argument to view a list of Chef Push Jobs jobs.
 
 .. end_tag
 
@@ -136,7 +136,7 @@ job start
 -----------------------------------------------------
 .. tag plugin_knife_push_jobs_job_start
 
-Use the ``job start`` argument to start a Chef push jobs job.
+Use the ``job start`` argument to start a Chef Push Jobs job.
 
 .. end_tag
 
@@ -225,7 +225,7 @@ job status
 -----------------------------------------------------
 .. tag plugin_knife_push_jobs_job_status
 
-Use the ``job status`` argument to view the status of Chef push jobs jobs. Each job is always in one of the following states:
+Use the ``job status`` argument to view the status of Chef Push Jobs jobs. Each job is always in one of the following states:
 
 ``new``
   New job status.
@@ -295,7 +295,7 @@ node status
 -----------------------------------------------------
 .. tag plugin_knife_push_jobs_node_status
 
-Use the ``node status`` argument to identify nodes that Chef push jobs may interact with. Each node is always in one of the following states:
+Use the ``node status`` argument to identify nodes that Chef Push Jobs may interact with. Each node is always in one of the following states:
 
 ``new``
   Node has neither committed nor refused to run the command.
@@ -350,7 +350,7 @@ This command does not have any specific options.
 
 Push Jobs API
 =====================================================
-The Push Jobs API is used to create jobs and retrieve status using Chef push jobs, a tool that pushes jobs against a set of nodes in the organization. All requests are signed using the Chef server API and the validation key on the workstation from which the requests are made. All commands are sent to the Chef server using the ``knife exec`` subcommand.
+The Push Jobs API is used to create jobs and retrieve status using Chef Push Jobs, a tool that pushes jobs against a set of nodes in the organization. All requests are signed using the Chef Infra Server API and the validation key on the workstation from which the requests are made. All commands are sent to the Chef Infra Server using the ``knife exec`` subcommand.
 
 Each authentication request must include ``/organizations/organization_name/pushy/`` as part of the name for the endpoint. For example: ``/organizations/organization_name/pushy/jobs/ID`` or ``/organizations/organization_name/pushy/node_states``.
 
@@ -746,7 +746,7 @@ push-jobs-client
 =====================================================
 .. tag ctl_push_jobs_client_summary
 
-The Chef push jobs executable can be run as a command-line tool.
+The Chef Push Jobs executable can be run as a command-line tool.
 
 .. end_tag
 
@@ -759,7 +759,7 @@ This command has the following syntax::
 This command has the following options:
 
 ``-c CONFIG``, ``--config CONFIG``
-   The configuration file to use. The chef-client and Chef push jobs client use the same configuration file: client.rb. Default value: ``Chef::Config.platform_specific_path("/etc/chef/client.rb")``.
+   The configuration file to use. The Chef Infra Client and Chef Push Jobs client use the same configuration file: client.rb. Default value: ``Chef::Config.platform_specific_path("/etc/chef/client.rb")``.
 
 ``-h``, ``--help``
    Show help for the command.
@@ -777,16 +777,16 @@ This command has the following options:
    The name of the node.
 
 ``-S URL``, ``--server URL``
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``-v``, ``--version``
-   The version of Chef push jobs.
+   The version of Chef Push Jobs.
 
 opscode-push-jobs-server.rb
 =====================================================
 .. tag config_rb_push_jobs_server_summary
 
-The opscode-push-jobs-server.rb file is used to specify the configuration settings used by the Chef push jobs server.
+The opscode-push-jobs-server.rb file is used to specify the configuration settings used by the Chef Push Jobs server.
 
 This file is the default configuration file and is located at: ``/etc/opscode-push-jobs-server``.
 
@@ -797,16 +797,16 @@ Settings
 This configuration file has the following settings:
 
 ``command_port``
-   The port on which a Chef push jobs server listens for requests that are to be executed on managed nodes. Default value: ``10002``.
+   The port on which a Chef Push Jobs server listens for requests that are to be executed on managed nodes. Default value: ``10002``.
 
 ``heartbeat_interval``
-   The frequency of the Chef push jobs server heartbeat message. Default value: ``1000`` (milliseconds).
+   The frequency of the Chef Push Jobs server heartbeat message. Default value: ``1000`` (milliseconds).
 
 ``server_heartbeat_port``
-   The port on which the Chef push jobs server receives heartbeat messages from each Chef push jobs client. (This port is the ``ROUTER`` half of the ZeroMQ DEALER / ROUTER pattern.) Default value: ``10000``.
+   The port on which the Chef Push Jobs server receives heartbeat messages from each Chef Push Jobs client. (This port is the ``ROUTER`` half of the ZeroMQ DEALER / ROUTER pattern.) Default value: ``10000``.
 
 ``server_name``
-   The name of the Chef push jobs server.
+   The name of the Chef Push Jobs server.
 
 ``zeromq_listen_address``
    The IP address used by ZeroMQ. Default value: ``tcp://*``.

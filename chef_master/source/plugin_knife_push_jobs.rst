@@ -5,7 +5,7 @@ knife push jobs
 
 .. tag plugin_knife_push_jobs_summary
 
-The ``knife push jobs`` subcommand is used by Chef push jobs to start jobs, view job status, view job lists, and view node status.
+The ``knife push jobs`` subcommand is used by Chef Push Jobs to start jobs, view job status, view job lists, and view node status.
 
 .. end_tag
 
@@ -15,7 +15,7 @@ job list
 =====================================================
 .. tag plugin_knife_push_jobs_job_list
 
-Use the ``job list`` argument to view a list of Chef push jobs jobs.
+Use the ``job list`` argument to view a list of Chef Push Jobs jobs.
 
 .. end_tag
 
@@ -67,7 +67,7 @@ job start
 =====================================================
 .. tag plugin_knife_push_jobs_job_start
 
-Use the ``job start`` argument to start a Chef push jobs job.
+Use the ``job start`` argument to start a Chef Push Jobs job.
 
 .. end_tag
 
@@ -171,7 +171,7 @@ job status
 =====================================================
 .. tag plugin_knife_push_jobs_job_status
 
-Use the ``job status`` argument to view the status of Chef push jobs jobs. Each job is always in one of the following states: 
+Use the ``job status`` argument to view the status of Chef Push Jobs jobs. Each job is always in one of the following states:
 
 ``new``
   New job status.
@@ -241,7 +241,7 @@ node status
 =====================================================
 .. tag plugin_knife_push_jobs_node_status
 
-Use the ``node status`` argument to identify nodes that Chef push jobs may interact with. Each node is always in one of the following states:
+Use the ``node status`` argument to identify nodes that Chef Push Jobs may interact with. Each node is always in one of the following states:
 
 ``new``
   Node has neither committed nor refused to run the command.

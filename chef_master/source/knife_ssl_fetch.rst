@@ -5,7 +5,7 @@ knife ssl_fetch
 
 .. tag knife_ssl_fetch_summary
 
-Use the ``knife ssl fetch`` subcommand to copy SSL certificates from an HTTPS server to the ``trusted_certs_dir`` directory that is used by knife and the chef-client to store trusted SSL certificates. When these certificates match the hostname of the remote server, running ``knife ssl fetch`` is the only step required to verify a remote server that is accessed by either knife or the chef-client.
+Use the ``knife ssl fetch`` subcommand to copy SSL certificates from an HTTPS server to the ``trusted_certs_dir`` directory that is used by knife and the Chef Infra Client to store trusted SSL certificates. When these certificates match the hostname of the remote server, running ``knife ssl fetch`` is the only step required to verify a remote server that is accessed by either knife or the Chef Infra Client.
 
 .. warning:: It is the user's responsibility to verify the authenticity of every SSL certificate before downloading it to the ``/.chef/trusted_certs`` directory. knife will use any certificate in that directory as if it is a 100% trusted and authentic SSL certificate. knife will not be able to determine if any certificate in this directory has been tampered with, is forged, malicious, or otherwise harmful. Therefore it is essential that users take the proper steps before downloading certificates into this directory.
 
@@ -24,7 +24,7 @@ Options
 This subcommand has the following options:
 
 ``URL_or_URI``
-   The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef server, as defined in the config.rb file.
+   The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef Infra Server, as defined in the config.rb file.
 
 Examples
 =====================================================
@@ -59,9 +59,9 @@ The response is similar to:
 
 .. tag knife_ssl_fetch_verify_certificate
 
-The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory should be verified to ensure that it is, in fact, the same certificate as the one located on the Chef server. This can be done by comparing the SHA-256 checksums.
+The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory should be verified to ensure that it is, in fact, the same certificate as the one located on the Chef Infra Server. This can be done by comparing the SHA-256 checksums.
 
-#. View the checksum on the Chef server:
+#. View the checksum on the Chef Infra Server:
 
    .. code-block:: bash
 

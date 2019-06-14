@@ -5,9 +5,8 @@ Integrate Chef Automate with SAML for Authentication
 
 .. tag chef_automate_mark
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
 
 .. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
 
@@ -244,7 +243,7 @@ The Workflow CLI in Chef Automate (``delivery-cli``) can be used with SAML-authe
 Enabling SAML proxying for Chef Server
 =====================================================
 
-The integration between the management console in Chef Server and Chef Automate's SAML capabilities is done using OpenID Connect.
+The integration between the management console in Chef Infra Server and Chef Automate's SAML capabilities is done using OpenID Connect.
 
 OpenID Connect Signing Key
 -----------------------------------------------------
@@ -292,10 +291,10 @@ You can verify that Chef Automate can read and parse your key by accessing ``htt
 
 If no key is configured or the key file can't be read, the keys array will be empty: ``[]``.
 
-Chef Server as OpenID Connect client
+Chef Infra Server as OpenID Connect client
 ---------------------------------------------------
 
-To allow Chef Server to act as an OpenID Connect client to Chef Automate, it needs to be known to Chef Automate. To achieve this, add the following to your ``/etc/delivery/delivery.rb``
+To allow Chef Infra Server to act as an OpenID Connect client to Chef Automate, it needs to be known to Chef Automate. To achieve this, add the following to your ``/etc/delivery/delivery.rb``
 
 .. code-block:: ruby
 
@@ -306,12 +305,12 @@ To allow Chef Server to act as an OpenID Connect client to Chef Automate, it nee
       }
    }
 
-In the above snippet, the 'manage-client-id' should be a unique string for each Chef Server whose management console will authenticate through SAML. Also, if you have multiple Chef Servers that will authenticate through SAML, you will need to create additional entries for the client id, the client secret and the client redirect URI in the section above for each one.
+In the above snippet, the 'manage-client-id' should be a unique string for each Chef Infra Server whose management console will authenticate through SAML. Also, if you have multiple Chef Servers that will authenticate through SAML, you will need to create additional entries for the client id, the client secret and the client redirect URI in the section above for each one.
 
 Configuration of Chef Server
 -----------------------------------------------------
 
-Note that all of the client-related values need to match the configuration in the Chef Server management console.
+Note that all of the client-related values need to match the configuration in the Chef Infra Server management console.
 See `Configuring for SAML Authentication </server_configure_saml.html>`__ for more details.
 
 Troubleshooting

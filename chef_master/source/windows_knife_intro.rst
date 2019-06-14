@@ -7,14 +7,14 @@ Knife
 =====================================================
 .. tag knife_summary
 
-knife is a command-line tool that provides an interface between a local chef-repo and the Chef server. knife helps users to manage:
+knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. knife helps users to manage:
 
 * Nodes
 * Cookbooks and recipes
 * Roles, Environments, and Data Bags
 * Resources within various cloud environments
-* The installation of the chef-client onto nodes
-* Searching of indexed data on the Chef server
+* The installation of the Chef Infra Client onto nodes
+* Searching of indexed data on the Chef Infra Server
 
 .. end_tag
 
@@ -111,7 +111,7 @@ Import-Module chef
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag knife_common_windows_quotes_module
 
-The chef-client version 12.4 release adds an optional feature to the Microsoft Installer Package (MSI) for Chef. This feature enables the ability to pass quoted strings from the Windows PowerShell command line without the need for triple single quotes (``''' '''``). This feature installs a Windows PowerShell module (typically in ``C:\opscode\chef\modules``) that is also appended to the ``PSModulePath`` environment variable. This feature is not enabled by default. To activate this feature, run the following command from within Windows PowerShell:
+The Chef Client 12.4 release adds an optional feature to the Microsoft Installer Package (MSI) for Chef. This feature enables the ability to pass quoted strings from the Windows PowerShell command line without the need for triple single quotes (``''' '''``). This feature installs a Windows PowerShell module (typically in ``C:\opscode\chef\modules``) that is also appended to the ``PSModulePath`` environment variable. This feature is not enabled by default. To activate this feature, run the following command from within Windows PowerShell:
 
 .. code-block:: bash
 
@@ -181,7 +181,7 @@ knife bootstrap
 -----------------------------------------------------
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap is a process that installs the chef-client on a target system so that it can run as a chef-client and communicate with a Chef server. There are two ways to do this:
+A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap installs Chef Infra Client on a target system so that it can run as a client and communicate with Chef Infra Server. There are two ways to do this:
 
 * Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
 * Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
@@ -190,11 +190,11 @@ A node is any physical, virtual, or cloud machine that is configured to be maint
 
 .. tag knife_bootstrap_summary
 
-Use the ``knife bootstrap`` subcommand to run a bootstrap operation that installs the chef-client on the target system. The bootstrap operation must specify the IP address or FQDN of the target system.
+Use the ``knife bootstrap`` subcommand to run a bootstrap operation that installs the Chef Infra Client on the target system. The bootstrap operation must specify the IP address or FQDN of the target system.
 
 .. end_tag
 
-.. note:: To bootstrap the chef-client on Microsoft Windows machines, the `knife-windows </knife_windows.html>`__ plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
+.. note:: To bootstrap the Chef Infra Client on Microsoft Windows machines, the `knife-windows </knife_windows.html>`__ plugins is required, which includes the necessary bootstrap scripts that are used to do the actual installation.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -223,7 +223,7 @@ This subcommand has the following options:
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
 ``--bootstrap-install-command COMMAND``
-   Execute a custom installation command sequence for the chef-client. This option may not be used in the same command with ``--bootstrap-curl-options`` or ``--bootstrap-wget-options``.
+   Execute a custom installation command sequence for the Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options`` or ``--bootstrap-wget-options``.
 
 ``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
    A URL or IP address that specifies a location that should not be proxied.
@@ -231,7 +231,7 @@ This subcommand has the following options:
    .. note:: This option is used internally by Chef to help verify bootstrap operations during testing and should never be used during an actual bootstrap operation.
 
 ``--bootstrap-preinstall-command COMMANDS``
-   Custom commands to run before installing chef-client
+   Custom commands to run before installing Chef Infra Client
 
 ``--bootstrap-proxy-pass PROXY_PASS``
    The proxy authentication password for the node being bootstrapped
@@ -262,7 +262,7 @@ This subcommand has the following options:
    .. end_tag
 
 ``--bootstrap-version VERSION``
-   The version of the chef-client to install.
+   The version of the Chef Infra Client to install.
 
 ``--bootstrap-wget-options OPTIONS``
    Arbitrary options to be added to the bootstrap command when using GNU Wget. This option may not be used in the same command with ``--bootstrap-install-command``.
@@ -312,30 +312,30 @@ This subcommand has the following options:
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
-   A JSON string that is added to the first run of a chef-client.
+   A JSON string that is added to the first run of a Chef Infra Client.
 
 ``--json-attribute-file FILE``
-   A JSON file to be added to the first run of chef-client.
+   A JSON file to be added to the first run of Chef Infra Client.
 
 ``-N NAME``, ``--node-name NAME``
    The name of the node.
 
    .. note:: This option is required for a validatorless bootstrap.
 ``--[no-]fips``
-  Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
+  Allows OpenSSL to enforce FIPS-validated security during the Chef Infra Client run.
 
 ``--[no-]host-key-verify``
    Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
 
 ``--[no-]node-verify-api-cert``
-   Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
+   Verify the SSL certificate on the Chef Infra Server. When ``true``, the Chef Infra Client always verifies the SSL certificate. When ``false``, the Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
 
 ``--node-ssl-verify-mode MODE``
    Set the verify mode for HTTPS requests. Options: ``none`` or ``peer``.
 
    Use ``none`` to do no validation of SSL certificates.
 
-   Use ``peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
+   Use ``peer`` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the Chef Infra Client run. This is the recommended setting.
 
 ``-p PORT``, ``--ssh-port PORT``
    The SSH port.
@@ -362,16 +362,16 @@ This subcommand has the following options:
    Use to preserve the non-root user's ``HOME`` environment.
 
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
-   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs the chef-client using the Chef installer on all supported platforms.
+   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs Chef Infra Client using the Chef Infra installer on all supported platforms.
 
 ``--use-sudo-password``
    Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.
 
 ``-V -V``
-   Run the initial chef-client run at the ``debug`` log-level (e.g. ``chef-client -l debug``).
+   Run the initial Chef Infra Client run at the ``debug`` log-level (e.g. ``chef-client -l debug``).
 
 ``-V -V -V``
-   Run the initial chef-client run at the ``trace`` log-level (e.g. ``chef-client -l trace``). This was added in Chef Client 14.
+   Run the initial Chef Infra Client run at the ``trace`` log-level (e.g. ``chef-client -l trace``). This was added in Chef Client 14.
 
 ``-x USERNAME``, ``--ssh-user USERNAME``
    The SSH user name.

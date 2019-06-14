@@ -32,8 +32,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_osx_profile_actions
-
 The osx_profile resource has the following actions:
 
 ``:install``
@@ -42,19 +40,17 @@ The osx_profile resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
 ``:remove``
    Remove the specified configuration profile.
 
-.. end_tag
+
 
 Properties
 =====================================================
-.. tag resource_osx_profile_properties
-
 The osx_profile resource has the following properties:
 
 ``identifier``
@@ -78,7 +74,7 @@ The osx_profile resource has the following properties:
 
    Use to specify the name of the profile, if different from the name of the resource block.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================

@@ -3,11 +3,9 @@ dnf_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dnf_package.rst>`__
 
-.. tag resource_package_dnf
-
 Use the **dnf_package** resource to install, upgrade, and remove packages with DNF for Fedora platforms. The **dnf_package** resource is able to resolve ``provides`` data for packages much like DNF can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
-.. end_tag
+
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -61,7 +59,7 @@ The dnf_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -92,11 +90,10 @@ The dnf_package resource has the following properties:
 
    Flush the in-memory cache before or after a DNF operation that installs, upgrades, or removes a package. Default value: ``[ :before, :after ]``. The value may also be a Hash: ``( { :before => true/false, :after => true/false } )``.
 
-   .. tag resources_common_package_dnf_cache
-
+  
    DNF automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
 
-   .. end_tag
+   
 
    As an array:
 
@@ -359,19 +356,15 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install an exact version**
 
-.. tag resource_dnf_package_install_exact_version
-
 .. To install an exact version:
 
 .. code-block:: ruby
 
    dnf_package 'netpbm = 10.35.58-8.el5'
 
-.. end_tag
+
 
 **Install a minimum version**
-
-.. tag resource_dnf_package_install_minimum_version
 
 .. To install a minimum version:
 
@@ -379,11 +372,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    dnf_package 'netpbm >= 10.35.58-8.el5'
 
-.. end_tag
+
 
 **Install a minimum version using the default action**
-
-.. tag resource_dnf_package_install_package_using_default_action
 
 .. To install the same package using the default action:
 
@@ -391,11 +382,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    dnf_package 'netpbm'
 
-.. end_tag
+
 
 **To install a package**
-
-.. tag resource_dnf_package_install_package
 
 .. To install a package:
 
@@ -405,11 +394,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+
 
 **To install a partial minimum version**
-
-.. tag resource_dnf_package_install_partial_minimum_version
 
 .. To install a partial minimum version:
 
@@ -417,11 +404,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    dnf_package 'netpbm >= 10'
 
-.. end_tag
+
 
 **To install a specific architecture**
-
-.. tag resource_dnf_package_install_specific_architecture
 
 .. To install a specific architecture:
 
@@ -437,11 +422,9 @@ or:
 
    dnf_package 'netpbm.x86_64'
 
-.. end_tag
+
 
 **To install a specific version-release**
-
-.. tag resource_dnf_package_install_specific_version_release
 
 .. To install a specific version-release:
 
@@ -451,11 +434,9 @@ or:
      version '10.35.58-8.el5'
    end
 
-.. end_tag
+
 
 **To install a specific version (even when older than the current)**
-
-.. tag resource_dnf_package_install_specific_version
 
 .. To install a specific version (even if it is older than the version currently installed):
 
@@ -465,11 +446,9 @@ or:
      version '2011b-1.el5'
    end
 
-.. end_tag
+
 
 **Handle cookbook_file and dnf_package resources in the same recipe**
-
-.. tag resource_dnf_package_handle_cookbook_file_and_dnf_package
 
 .. To handle cookbook_file and dnf_package when both called in the same recipe
 
@@ -487,4 +466,4 @@ When a **cookbook_file** resource and a **dnf_package** resource are both called
      flush_cache [ :before ]
    end
 
-.. end_tag
+

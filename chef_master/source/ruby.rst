@@ -15,6 +15,12 @@ Ruby is also a powerful and complete programming language:
 * Use the Ruby programming language to make decisions about what should happen to specific resources and recipes
 * Extend Chef in any manner that your organization requires
 
+To learn more about Ruby, see:
+
+* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
+* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
+* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
+
 .. end_tag
 
 As of Chef Client 14.0, Chef ships with Ruby 2.5.
@@ -231,7 +237,7 @@ Wrong:
 
 **Example**
 
-WiX includes several tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the InSpec ``file`` audit resource to verify if these three tools are present:
+WiX includes several tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the Chef InSpec ``file`` audit resource to verify if these three tools are present:
 
 .. code-block:: ruby
 
@@ -413,7 +419,7 @@ Use ``:include`` to include another Ruby class. For example:
 
    ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 
-In non-Chef Ruby, the syntax is ``include`` (without the ``:`` prefix), but without the ``:`` prefix the chef-client will try to find a provider named ``include``. Using the ``:`` prefix tells the chef-client to look for the specified class that follows.
+In non-Chef Ruby, the syntax is ``include`` (without the ``:`` prefix), but without the ``:`` prefix the Chef Infra Client will try to find a provider named ``include``. Using the ``:`` prefix tells the Chef Infra Client to look for the specified class that follows.
 
 Include a Parameter
 -----------------------------------------------------
@@ -454,7 +460,7 @@ Use of Hyphens
 -----------------------------------------------------
 .. tag ruby_style_patterns_hyphens
 
-Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The chef-client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
 .. end_tag
 
@@ -536,7 +542,7 @@ Wrong:
 
 Specify Resource Action?
 -----------------------------------------------------
-A resource declaration does not require the action to be specified because the chef-client will apply the default action for a resource automatically if it's not specified within the resource block. For example:
+A resource declaration does not require the action to be specified because the Chef Infra Client will apply the default action for a resource automatically if it's not specified within the resource block. For example:
 
 .. code-block:: ruby
 
@@ -612,13 +618,13 @@ Constructs to Avoid
 -----------------------------------------------------
 Avoid the following patterns:
 
-* ``node.set`` / ``normal_attributes`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
-* ``node.set_unless`` - Can lead to weird behavior if the node object had something set. Avoid unless altogether necessary (one example where it's necessary is in ``node['postgresql']['server']['password']``)
+* ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
+* ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
 * if ``node.run_list.include?('foo')`` i.e. branching in recipes based on what's in the node's run-list. Better and more readable to use a feature flag and set its precedence appropriately.
-* ``node['foo']['bar']`` i.e. setting normal attributes without specifying precedence. This is deprecated in Chef 11, so either use ``node.set['foo']['bar']`` to replace its precedence in-place or choose the precedence to suit.
 
 Recipes
 -----------------------------------------------------
+
 A recipe should be clean and well-commented. For example:
 
 .. code-block:: ruby
@@ -764,9 +770,9 @@ node.set
 -----------------------------------------------------
 Use ``node.default`` (or maybe ``node.override``) instead of ``node.set`` because ``node.set`` is an alias for ``node.normal``. Normal data is persisted on the node object. Therefore, using ``node.set`` will persist data in the node object. If the code that uses ``node.set`` is later removed, if that data has already been set on the node, it will remain.
 
-Default and override attributes are cleared at the start of the chef-client run, and are then rebuilt as part of the run based on the code in the cookbooks and recipes at that time.
+Default and override attributes are cleared at the start of the Chef Infra Client run, and are then rebuilt as part of the run based on the code in the cookbooks and recipes at that time.
 
-``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first chef-client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
+``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first Chef Infra Client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
 
 Cookbook Linting with Chef Workstation Tools
 =====================================================
@@ -792,10 +798,4 @@ All cookbooks should pass Cookstyle rules before being uploaded.
 
 should return ``no offenses detected``
 
-More about Ruby
-=====================================================
-To learn more about Ruby, see the following:
 
-* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
-* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
-* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_

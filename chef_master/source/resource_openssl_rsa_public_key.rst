@@ -14,9 +14,9 @@ The openssl_rsa_public_key resource has the following syntax:
 .. code-block:: ruby
 
   openssl_rsa_public_key 'name' do
-    group                    String
+    group                    String, Integer
     mode                     Integer, String # default value: "0640"
-    owner                    String
+    owner                    String, Integer
     path                     String # default value: 'name' unless specified
     private_key_content      String
     private_key_pass         String
@@ -42,7 +42,7 @@ The openssl_rsa_public_key resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -52,7 +52,7 @@ Properties
 The openssl_rsa_public_key resource has the following properties:
 
 ``group``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The group ownership applied to all files created by the resource.
 
@@ -62,7 +62,7 @@ The openssl_rsa_public_key resource has the following properties:
    The permission mode applied to all files created by the resource.
 
 ``owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The owner applied to all files created by the resource.
 

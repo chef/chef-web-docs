@@ -28,11 +28,11 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
              * Windows Management Framework (WMF) 5.0 February Preview (or higher), which includes Windows PowerShell 5.0.10018.0 (or higher).
              * The ``RefreshMode`` configuration setting in the Local Configuration Manager must be set to ``Disabled``.
 
-               **NOTE:** Starting with the chef-client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode.
+               **NOTE:** Starting with the Chef Client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the Chef Infra Client from running in non-disabled refresh mode.
 
              * The **dsc_script** resource  may not be used in the same run-list with the **dsc_resource**. This is because the **dsc_script** resource requires that ``RefreshMode`` in the Local Configuration Manager be set to ``Push``, whereas the **dsc_resource** resource requires it to be set to ``Disabled``.
 
-               **NOTE:** Starting with the chef-client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``.
+               **NOTE:** Starting with the Chef Client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the Chef Infra Client from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``.
 
              * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
 
@@ -83,8 +83,8 @@ where:
 
 * ``dsc_resource`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
+* ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the Chef Infra Client
 * ``module_name``, ``module_version``, ``property``, ``reboot_action``, ``resource``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -98,7 +98,7 @@ The dsc_resource resource has the following actions:
 
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -153,7 +153,7 @@ The dsc_resource resource has the following properties:
       * - ``True``
         - ``bool($true)``
 
-   These are converted into the corresponding Windows PowerShell type during the chef-client run.
+   These are converted into the corresponding Windows PowerShell type during the Chef Infra Client run.
 
    .. end_tag
 
@@ -204,7 +204,7 @@ The dsc_resource resource has the following properties:
       * - ``:windowsprocess``
         - Use to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
 
-   Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
+   Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the Chef Infra Client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
    .. end_tag
 
@@ -413,8 +413,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create and register a windows service**
 
-.. tag resource_dsc_resource_windows_service
-
 .. To create a windows service:
 
 The following example creates a windows service, defines it's execution path, and prevents windows from starting the service
@@ -431,7 +429,7 @@ in case the executable is not at the defined location:
     property :state, 'Stopped'
   end
 
-.. end_tag
+
 
 **Create a test message queue**
 

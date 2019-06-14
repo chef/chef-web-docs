@@ -110,11 +110,17 @@ div.related ul li a:hover {
     color: #f18b21;
 }
 
-
 div.sphinxsidebarwrapper {
     padding: 0;
+    position: fixed;
 }
 
+div.sidebarinner {
+  position: fixed;
+  padding-top: 51px;
+  height: calc(100vh - 53px);
+  overflow: scroll;
+}
 div.sphinxsidebarwrapper > ul > li {
     list-style-type: none;
 }
@@ -238,6 +244,7 @@ em {
 
 .chef-docs h1 {
     padding: 0.5em 0 0.3em 0;
+    padding-top: 53px;
     font-size: 1.75em;
     font-weight: bold;
     color: #3f5364;

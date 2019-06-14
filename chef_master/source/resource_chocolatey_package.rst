@@ -9,18 +9,15 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
 
 .. end_tag
 
-.. warning:: .. tag notes_resource_chocolatey_package
-
+.. warning::
              The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
 
-             .. end_tag
+
 
 **New in Chef Client 12.7.**
 
 Syntax
 =====================================================
-.. tag resource_package_chocolatey_syntax
-
 A **chocolatey_package** resource manages packages using Chocolatey on the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
 
 .. code-block:: ruby
@@ -48,13 +45,12 @@ where:
 * ``chocolatey_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``options``, ``package_name``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_chocolatey_actions
 
 The chocolatey_package resource has the following actions:
 
@@ -64,7 +60,7 @@ The chocolatey_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -85,12 +81,9 @@ The chocolatey_package resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
-.. end_tag
 
 Properties
 =====================================================
-.. tag resource_package_chocolatey_properties
-
 The chocolatey_package resource has the following properties:
 
 ``options``
@@ -129,7 +122,7 @@ The chocolatey_package resource has the following properties:
 
    The version of a package to be installed or upgraded.
 
-.. end_tag
+
 
 
 Common Resource Functionality

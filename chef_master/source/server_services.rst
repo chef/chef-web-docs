@@ -3,7 +3,7 @@ Services
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_services.rst>`__
 
-The Chef server has a built in process supervisor, which ensures that all of the required services are in the appropriate state at any given time. The supervisor starts two processes per service.
+The Chef Infra Server has a built in process supervisor, which ensures that all of the required services are in the appropriate state at any given time. The supervisor starts two processes per service.
 
 Service Subcommands
 =====================================================
@@ -65,7 +65,7 @@ once
 -----------------------------------------------------
 .. tag ctl_chef_server_once
 
-The supervisor for the Chef server is configured to restart any service that fails, unless that service has been asked to change its state. The ``once`` subcommand is used to tell the supervisor to not attempt to restart any service that fails.
+The supervisor for the Chef Infra Server is configured to restart any service that fails, unless that service has been asked to change its state. The ``once`` subcommand is used to tell the supervisor to not attempt to restart any service that fails.
 
 This command is useful when troubleshooting configuration errors that prevent a service from starting. Run the ``once`` subcommand followed by the ``status`` subcommand to look for services in a down state and/or to identify which services are in trouble. This command can also be run for an individual service by specifying the name of the service in the command.
 
@@ -83,9 +83,9 @@ restart
 -----------------------------------------------------
 .. tag ctl_chef_server_restart
 
-The ``restart`` subcommand is used to restart all services enabled on the Chef server or to restart an individual service by specifying the name of that service in the command.
+The ``restart`` subcommand is used to restart all services enabled on the Chef Infra Server or to restart an individual service by specifying the name of that service in the command.
 
-.. warning:: When running the Chef server in a high availability configuration, restarting all services may trigger failover.
+.. warning:: When running the Chef Infra Server in a high availability configuration, restarting all services may trigger failover.
 
 This subcommand has the following syntax:
 
@@ -119,7 +119,7 @@ start
 -----------------------------------------------------
 .. tag ctl_chef_server_start
 
-The ``start`` subcommand is used to start all services that are enabled in the Chef server. This command can also be run for an individual service by specifying the name of the service in the command.
+The ``start`` subcommand is used to start all services that are enabled in the Chef Infra Server. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -133,7 +133,7 @@ where ``SERVICE_NAME`` represents the name of any service that is listed after r
 
    $ ok: run: service_name: (pid 12345) 1s
 
-The supervisor for the Chef server is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
+The supervisor for the Chef Infra Server is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
 
 .. end_tag
 
@@ -141,7 +141,7 @@ status
 -----------------------------------------------------
 .. tag ctl_chef_server_status
 
-The ``status`` subcommand is used to show the status of all services available to the Chef server. The results will vary based on the configuration of a given server. This subcommand has the following syntax:
+The ``status`` subcommand is used to show the status of all services available to the Chef Infra Server. The results will vary based on the configuration of a given server. This subcommand has the following syntax:
 
 .. code-block:: bash
 
@@ -186,28 +186,11 @@ By default, runit will restart services automatically when the services fail. Th
 
 .. end_tag
 
-High Availability
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_status_ha
-
-On back-end servers in a high availability topology, Keepalived is used by the clustering service to determine whether a service should be running. If the ``status`` subcommand is run against any of these nodes, a few things change:
-
-* On the back-end node that is currently the backup server, it is normal to see only one running process: Keepalived
-* On the back-end node that is currently the master server, it is normal to see all services running. It is also normal to see some services in a down state if the server, on reboot, did not attempt to start the services because Keepalived determines which services are restarted based on the state of the cluster
-
-A sample status line for a service that is running on the master server in a high availability topology:
-
-.. code-block:: bash
-
-   run: opscode-solr4: (pid 25341) 239s, normally down; run: log: (pid 5700) 145308s
-
-.. end_tag
-
 Log Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag ctl_chef_server_status_logs
 
-A typical status line for a service that is running any of the Chef server front-end services is similar to the following:
+A typical status line for a service that is running any of the Chef Infra Server front-end services is similar to the following:
 
 .. code-block:: bash
 
@@ -237,7 +220,7 @@ stop
 -----------------------------------------------------
 .. tag ctl_chef_server_stop
 
-The ``stop`` subcommand is used to stop all services enabled on the Chef server. This command can also be run for an individual service by specifying the name of the service in the command.
+The ``stop`` subcommand is used to stop all services enabled on the Chef Infra Server. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -277,7 +260,7 @@ tail
 -----------------------------------------------------
 .. tag ctl_chef_server_tail
 
-The ``tail`` subcommand is used to follow all of the Chef server logs for all services. This command can also be run for an individual service by specifying the name of the service in the command.
+The ``tail`` subcommand is used to follow all of the Chef Infra Server logs for all services. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -307,11 +290,10 @@ where ``SERVICE_NAME`` represents the name of any service that is listed after r
 
 List of Services
 =====================================================
-The following services are part of the Chef server:
+The following services are part of the Chef Infra Server:
 
 * bifrost
 * bookshelf
-* keepalived
 * nginx
 * opscode-erchef
 * opscode-expander
@@ -324,7 +306,7 @@ bifrost
 -----------------------------------------------------
 .. tag server_services_bifrost
 
-The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
 .. end_tag
 
@@ -472,27 +454,19 @@ To follow the logs for the service:
 
    $ chef-server-ctl tail bookshelf
 
-keepalived
------------------------------------------------------
-.. tag server_services_keepalived
-
-The **keepalived** service manages the virtual IP address (VIP) between the backend machines in a high availability topology that uses DRBD.
-
-.. end_tag
-
 status
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 To view the status for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl status keepalived
+   $ chef-server-ctl status postgresql
 
 to return something like:
 
 .. code-block:: bash
 
-   $ run: keepalived: (pid 1234) 123456s; run: log: (pid 5678) 789012s
+   $ run: postgresql: (pid 1234) 123456s; run: log: (pid 5678) 789012s
 
 start
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -500,7 +474,7 @@ To start the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl start keepalived
+   $ chef-server-ctl start postgresql
 
 stop
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -508,7 +482,7 @@ To stop the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl stop keepalived
+   $ chef-server-ctl stop postgresql
 
 restart
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -516,13 +490,13 @@ To restart the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl restart keepalived
+   $ chef-server-ctl restart postgresql
 
 to return something like:
 
 .. code-block:: bash
 
-   $ ok: run: keepalived: (pid 1234) 1234s
+   $ ok: run: postgresql: (pid 1234) 1234s
 
 kill
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -530,7 +504,7 @@ To kill the service (send a ``SIGKILL`` command):
 
 .. code-block:: bash
 
-   $ chef-server-ctl kill keepalived
+   $ chef-server-ctl kill postgresql
 
 run once
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -538,7 +512,7 @@ To run the service, but not restart it (if the service fails):
 
 .. code-block:: bash
 
-   $ chef-server-ctl once keepalived
+   $ chef-server-ctl once postgresql
 
 tail
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -546,13 +520,13 @@ To follow the logs for the service:
 
 .. code-block:: bash
 
-   $ chef-server-ctl tail keepalived
+   $ chef-server-ctl tail postgresql
 
 nginx
 -----------------------------------------------------
 .. tag server_services_nginx
 
-The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+The **nginx** service is used to manage traffic to the Chef Infra Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
 .. end_tag
 
@@ -632,7 +606,7 @@ opscode-erchef
 -----------------------------------------------------
 .. tag server_services_erchef
 
-The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
 * Cookbooks
 * Data bags
@@ -792,7 +766,7 @@ opscode-solr4
 -----------------------------------------------------
 .. tag server_services_solr4
 
-The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef server API; data that is used by the Chef platform is stored in PostgreSQL.)
+The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef Infra Server API; data that is used by the Chef platform is stored in PostgreSQL.)
 
 .. end_tag
 
@@ -944,7 +918,7 @@ rabbitmq
 -----------------------------------------------------
 .. tag server_services_rabbitmq
 
-The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search. When Chef Analytics is configured, the **rabbitmq** service is also used to send data from the Chef server to the Chef Analytics server.
+The **rabbitmq** service is used to provide the message queue that is used by the Chef Infra Server to get search data to Apache Solr so that it can be indexed for search.
 
 .. end_tag
 
@@ -1020,7 +994,7 @@ redis
 -----------------------------------------------------
 .. tag server_services_redis
 
-Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef server.
+Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef Infra Server.
 
 .. end_tag
 

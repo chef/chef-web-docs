@@ -3,20 +3,18 @@ Deprecation: Some Attribute Methods (CHEF-4)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_attributes.rst>`__
 
-.. tag deprecations_attributes
+We are continuously improving and streamlining the way attributes work in Chef, to make it easier for users to reason about and safely configure their servers.
 
-We are continuously improving and streamlining the way attributes work in Chef, to make it easier for users to reason about and safely configure their servers. 
 
-.. end_tag
 
 This page documents many deprecations over the course of many Chef releases.
 
 Method Access
 ==========================
 
-Setting and accessing node attributes has been standardized on "bracket" syntax. The older "method" syntax is deprecated and will be removed in Chef 13.
+Setting and accessing node attributes has been standardized on "bracket" syntax. The older "method" syntax is deprecated and will be removed in Chef Client 13.
 
-Removal: Chef 13
+Removal: Chef Client 13
 
 Example
 --------
@@ -41,9 +39,9 @@ Convert method syntax to bracket syntax by using brackets to denote attribute na
 Set and Set_Unless
 =====================
 
-Setting node attributes with ``set`` or ``set_unless`` has been deprecated in favor of explicitly setting the precedence level. These methods will be removed in Chef 14.
+Setting node attributes with ``set`` or ``set_unless`` has been deprecated in favor of explicitly setting the precedence level. These methods will be removed in Chef Client 14.
 
-Removal: Chef 14
+Removal: Chef Client 14
 
 Example
 ---------
@@ -62,4 +60,3 @@ Choose the appropriate `precedence level </attributes.html#attribute-precedence>
 
   node.default['chef']['server'] =  "https://my.chef.server"
   node.default_unless['chef']['server'] =  "https://my.chef.server"
-

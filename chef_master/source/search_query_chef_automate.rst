@@ -5,9 +5,8 @@ Node Search Query Reference
 
 .. tag chef_automate_mark
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
 
 .. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
 
@@ -28,11 +27,9 @@ defined set of filters. You can search on the following terms:
   * Resource Name
   * Role
 
-.. tag legacy_note
-
 .. note:: The functionality described in this topic is for the search bar in Chef Automate 1.6.87 or later. If you need to continue using the previous search bar that was in earlier versions of Chef Automate, you can enable this view easily. We have included a new feature flag to activate the old search bar by typing ``legacy`` in the UI and toggling on this view in the menu. If you have trouble with the new search bar and find yourself continuing to use the legacy version, please `contact us <https://feedback.chef.io/>`_ with your feedback. Also, the legacy search bar will only be supported for 90 days.
 
-.. end_tag
+
 
 Applying a filter
 -----------------------------------------

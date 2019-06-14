@@ -11,8 +11,6 @@ Use the **apt_update** resource to manage APT repository updates on Debian and U
 
 Syntax
 =====================================================
-.. tag resource_apt_update_syntax
-
 An **apt_update** resource block defines the update frequency for APT repositories:
 
 .. code-block:: ruby
@@ -29,7 +27,7 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``frequency`` is the property available to this resource.
 
-.. end_tag
+
 
 Nameless
 =====================================================
@@ -48,14 +46,12 @@ will behave the same as:
 
 Actions
 =====================================================
-.. tag resource_apt_update_actions
-
 The apt_update resource has the following actions:
 
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -65,12 +61,10 @@ The apt_update resource has the following actions:
 ``:update``
    Update the Apt repository at the start of the chef-client run.
 
-.. end_tag
+
 
 Properties
 =====================================================
-.. tag resource_apt_update_properties
-
 The apt_update resource has the following properties:
 
 ``frequency``
@@ -78,7 +72,7 @@ The apt_update resource has the following properties:
 
    Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================

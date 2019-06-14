@@ -17,6 +17,7 @@ The group resource has the following syntax:
 
   group 'name' do
     append                true, false # default value: false
+    comment               String
     excluded_members      String, Array
     gid                   String, Integer
     group_name            String # default value: 'name' unless specified
@@ -31,7 +32,7 @@ where:
 * ``group`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``append``, ``excluded_members``, ``gid``, ``group_name``, ``members``, ``non_unique``, and ``system`` are the properties available to this resource.
+* ``append``, ``comment``, ``excluded_members``, ``gid``, ``group_name``, ``members``, ``non_unique``, and ``system`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -50,7 +51,7 @@ The group resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -66,6 +67,13 @@ The group resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    How members should be appended and/or removed from a group. When ``true``, ``members`` are appended and ``excluded_members`` are removed. When ``false``, group members are reset to the value of the ``members`` property.
+
+``comment``
+   **Ruby Type:** String
+
+   Specifies a comment to associate with the local group.
+
+   *New in Chef Client 14.9.*
 
 ``excluded_members``
    **Ruby Type:** String, Array

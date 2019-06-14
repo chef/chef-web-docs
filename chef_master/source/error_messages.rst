@@ -9,7 +9,7 @@ The following sections describe how to troubleshoot some common errors and probl
 
 External PostgreSQL
 =====================================================
-The following error messages may be present when configuring the Chef server to use a remote PostgreSQL server.
+The following error messages may be present when configuring the Chef Infra Server to use a remote PostgreSQL server.
 
 CSPG001 (changed setting)
 -----------------------------------------------------
@@ -39,7 +39,7 @@ Cannot connect to PostgreSQL on the remote server.
 * PostgreSQL is not running on the remote server
 * The port used by PostgreSQL is blocked by a firewall on the remote server
 * Network routing configuration is preventing access to the host
-* When using Amazon Web Services (AWS), rules for security groups are preventing the Chef server from communicating with PostgreSQL
+* When using Amazon Web Services (AWS), rules for security groups are preventing the Chef Infra Server from communicating with PostgreSQL
 
 CSPG011 (cannot authenticate)
 -----------------------------------------------------
@@ -66,7 +66,7 @@ Cannot connect to PostgreSQL on the remote server because rules in ``pg_hba`` ar
 
 **Resolution**
 
-* Entries in the ``pg_hba.conf`` file should allow all user names that originate from any Chef server instance using ``md5`` authentication. For example, a ``pg_hba.conf`` entry for a valid username and password from the 192.0.2.0 subnet:
+* Entries in the ``pg_hba.conf`` file should allow all user names that originate from any Chef Infra Server instance using ``md5`` authentication. For example, a ``pg_hba.conf`` entry for a valid username and password from the 192.0.2.0 subnet:
 
   .. code-block:: bash
 
@@ -89,7 +89,7 @@ Cannot connect to PostgreSQL on the remote server because rules in ``pg_hba`` ar
 
      host     postgres     @chef_users     192.168.93.0/24     md5
 
-  or, using the same ``$PGDATA/chef_users`` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of the Chef server. This approach requires more maintenance because the ``pg_hba.conf`` file must be updated when machines are added to or removed from the Chef server configuration. For example, a high availability configuration with four nodes: ``backend-1`` (192.0.2.100), ``backend-2`` (192.0.2.101), ``frontend-1`` (192.0.2.110), and ``frontend-2`` (192.0.2.111).
+  or, using the same ``$PGDATA/chef_users`` file (from the previous example), the following example shows a way to limit connections to specific nodes that are running components of the Chef Infra Server. This approach requires more maintenance because the ``pg_hba.conf`` file must be updated when machines are added to or removed from the Chef Infra Server configuration. For example, a high availability configuration with four nodes: ``backend-1`` (192.0.2.100), ``backend-2`` (192.0.2.101), ``frontend-1`` (192.0.2.110), and ``frontend-2`` (192.0.2.111).
 
   The corresponding ``pg_hba.conf`` entry is similar to:
 

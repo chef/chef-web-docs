@@ -5,19 +5,19 @@ Tiered Installation
 
 .. warning:: For the latest information on high availability and how to set up a highly-available server cluster, see `High Availability: Backend Cluster </install_server_ha.html>`__.
 
-This topic describes how to set up the Chef server with a single back end and multiple load-balanced frontend servers.
+This topic describes how to set up the Chef Infra Server with a single back end and multiple load-balanced frontend servers.
 
 .. image:: ../../images/chef_server_tiered.png
 
 Prerequisites
 =====================================================
-Before installing the Chef server software, perform the following steps:
+Before installing the Chef Infra Server software, perform the following steps:
 
-* The backend server must be accessible from each frontend server. A virtual IP address is created and managed by the Chef server, but will also need to be added to the DNS so that all machines in the tiered configuration may access it.
-* Persistent data on the backend Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server.
+* The backend server must be accessible from each frontend server. A virtual IP address is created and managed by the Chef Infra Server, but will also need to be added to the DNS so that all machines in the tiered configuration may access it.
+* Persistent data on the backend Chef Infra Server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef Infra Server.
 * Load-balancing should be used with frontend servers, along with a DNS entry for the virtual IP address used for load balancing. This virtual IP address is added to the chef-server.rb file as the ``api_fqdn``.
-* All required ports must be open. See the Firewalls section (below) for the list of ports. All connections to and from the Chef server are accomplished via TCP. Refer to the operating system's manual or your systems administrators for instructions on how to configure to ports, if necessary.
-* The hostname for the Chef server must be an FQDN, including the domain suffix, and must be resolvable by the backend and frontend servers. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information.
+* All required ports must be open. See the Firewalls section (below) for the list of ports. All connections to and from the Chef Infra Server are accomplished via TCP. Refer to the operating system's manual or your systems administrators for instructions on how to configure to ports, if necessary.
+* The hostname for the Chef Infra Server must be an FQDN, including the domain suffix, and must be resolvable by the backend and frontend servers. See `Hostnames, FQDNs </install_server_pre.html#hostnames>`_ for more information.
 * ``chef-server-ctl reconfigure`` will not bind the ``backend_vip`` to the backend server. The easiest thing to do is just define ``backend_vip`` as the already configured main IP address of the backend system. If you need to use an additional address, it will need to be configured and bound on the system before ``chef-server-ctl reconfigure`` is run.
 
 Basic Hardware Requirements
@@ -36,11 +36,11 @@ For a tiered deployment, your backend server should support the following hardwa
 
 Disk Configuration
 =====================================================
-Persistent data on the backend server of the Chef server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef server. These disks should be part of a SSD or hardware RAID-based solution that ensure redundancy and high IOPS. This configuration guide assumes that:
+Persistent data on the backend server of the Chef Infra Server is primarily composed of cookbook files and directories. Separate disks should be dedicated entirely to storing this data prior to installing the Chef Infra Server. These disks should be part of a SSD or hardware RAID-based solution that ensure redundancy and high IOPS. This configuration guide assumes that:
 
 * ~50GB of raw, unpartitioned disk space is available. Disk space should scale up with the number of nodes that the backend server is managing. A good rule to follow is to allocate 2 MB per node.
 * The disk space presents as a single device. For example: ``/dev/sdb``.
-* The storage is added to a volume group named ``opscode`` and is presented to the Chef server by mounting on ``/var/opt/opscode`` before a reconfiguration
+* The storage is added to a volume group named ``opscode`` and is presented to the Chef Infra Server by mounting on ``/var/opt/opscode`` before a reconfiguration
 
 The following commands properly set up disk configuration on the backend server:
 
@@ -84,7 +84,7 @@ To build and mount the storage device on the backend server, do the following:
 
 Backend
 =====================================================
-Use the following steps to set up the backend Chef server:
+Use the following steps to set up the backend Chef Infra Server:
 
 #. Download the packages from https://downloads.chef.io/chef-server/. For Red Hat and CentOS 6:
 
@@ -98,7 +98,7 @@ Use the following steps to set up the backend Chef server:
 
       $ dpkg -i /tmp/chef-server-core-<version>.deb
 
-   After a few minutes, the Chef server will be installed.
+   After a few minutes, the Chef Infra Server will be installed.
 
 #. Create a file named chef-server.rb that is located in the ``/etc/opscode/`` directory. See the chef-server.rb section below for an example of the settings and values that are required.
 
@@ -153,13 +153,13 @@ Add the following settings to the chef-server.rb file:
 
       api_fqdn "FQDN"
 
-   Replace ``FQDN`` with the FQDN of the load balanced virtual IP address, which should be equal to the FQDN for the service URI that is used by the Chef server.
+   Replace ``FQDN`` with the FQDN of the load balanced virtual IP address, which should be equal to the FQDN for the service URI that is used by the Chef Infra Server.
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Infra Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Infra Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -170,9 +170,9 @@ Add the following settings to the chef-server.rb file:
 
 Frontend
 =====================================================
-For each frontend server, use the following steps to set up the Chef server:
+For each frontend server, use the following steps to set up the Chef Infra Server:
 
-#. Install the Chef server package. For Red Hat and CentOS 6:
+#. Install the Chef Infra Server package. For Red Hat and CentOS 6:
 
    .. code-block:: bash
 
@@ -184,15 +184,15 @@ For each frontend server, use the following steps to set up the Chef server:
 
       $ dpkg -i /tmp/chef-server-core-<version>.deb
 
-   After a few minutes, the Chef server will be installed.
+   After a few minutes, the Chef Infra Server will be installed.
 
 #. Create the ``/etc/opscode/`` directory, and then copy the entire contents of the ``/etc/opscode`` directory from the primary backend server, including all certificates and the chef-server.rb file.
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Infra Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Infra Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -201,17 +201,16 @@ For each frontend server, use the following steps to set up the Chef server:
 
    .. end_tag
 
-#. .. tag install_chef_server_start
+#.
+   .. This topic is hooked in globally to install topics for Chef Infra Server applications.
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
-
-   Start the Chef server:
+   Start the Chef Infra Server:
 
    .. code-block:: bash
 
       $ chef-server-ctl start
 
-   .. end_tag
+
 
 On a single frontend server, create an administrator and an organization:
 
@@ -251,7 +250,7 @@ On a single frontend server, create an administrator and an organization:
 
    The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``'Fourth Coffee, Inc.'``.
 
-   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef server.
+   The ``--association_user`` option will associate the ``user_name`` with the ``admins`` security group on the Chef Infra Server.
 
    An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
@@ -259,22 +258,16 @@ On a single frontend server, create an administrator and an organization:
 
 Enable Features
 =====================================================
-.. tag ctl_chef_server_install_features
-
-Enable additional features of the Chef server! The packages may be downloaded directly as part of the installation process or they may be first downloaded to a local directory, and then installed.
-
-.. end_tag
+Enable additional features of the Chef Infra Server! The packages may be downloaded directly as part of the installation process or they may be first downloaded to a local directory, and then installed.
 
 **Use Downloads**
-
-.. tag ctl_chef_server_install_features_download_ha
 
 The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), the Chef management console package can be installed as described below:
 
 Chef Manage
    Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
-   On each front end server in the Chef server configuration, run:
+   On each front end server in the Chef Infra Server configuration, run:
 
    .. code-block:: bash
 
@@ -292,15 +285,13 @@ Chef Manage
 
       $ chef-manage-ctl reconfigure
 
-   This updates the Chef server and creates the ``/etc/opscode-manage/secrets.rb`` file. When running the Chef management console 1.11 (or higher), copy the ``secrets.rb`` file in the ``/etc/opscode-manage`` directory on one of the frontend servers to the same directory on each of the other frontend servers, and then rerun ``chef-manage-ctl reconfigure`` so the copied ``/etc/opscode-manage/secrets.rb`` file gets used correctly.
+   To accept the `Chef MLSA </chef_license.html>`__:
+       
+   .. code-block:: bash
 
-   .. note:: .. tag chef_license_reconfigure_manage
+      $ sudo chef-manage-ctl reconfigure --accept-license
 
-             Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
-
-             .. end_tag
-
-.. end_tag
+   This updates the Chef Infra Server and creates the ``/etc/opscode-manage/secrets.rb`` file. When running the Chef management console 1.11 (or higher), copy the ``secrets.rb`` file in the ``/etc/opscode-manage`` directory on one of the frontend servers to the same directory on each of the other frontend servers, and then rerun ``chef-manage-ctl reconfigure`` so the copied ``/etc/opscode-manage/secrets.rb`` file gets used correctly.
 
 **Use Local Packages**
 
@@ -322,75 +313,13 @@ The ``chef-server-ctl`` command will install the first ``chef-manage`` package f
 
 .. end_tag
 
-**Install Reporting**
-
-.. tag install_reporting_ha
-
-To set up the Reporting server:
-
-#. Install the package on each frontend and backend Chef server:
-
-   .. code-block:: bash
-
-      $ chef-server-ctl install opscode-reporting
-
-#. Reconfigure the Chef server on the backend primary server (bootstrap):
-
-   .. code-block:: bash
-
-      $ chef-server-ctl reconfigure
-
-#. Reconfigure the Reporting server on the backend primary server (bootstrap):
-
-   .. code-block:: bash
-
-      $ opscode-reporting-ctl reconfigure
-
-   .. note:: .. tag chef_license_reconfigure_reporting
-
-             Starting with Reporting 1.6.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``opscode-reporting-ctl reconfigure --accept-license`` to automatically accept the license.
-
-             .. end_tag
-
-#. Copy the entire ``/etc/opscode-reporting`` directory from the backend primary server to all frontend and backend servers. For example, from each server run:
-
-   .. code-block:: bash
-
-      $ scp -r <Bootstrap server IP>:/etc/opscode-reporting /etc
-
-   or from the backend primary server:
-
-   .. code-block:: bash
-
-      $ scp -r /etc/opscode-reporting <each servers IP>:/etc
-
-#. Reconfigure any Chef server on which Reporting services have been installed:
-
-   .. code-block:: bash
-
-      $ chef-server-ctl reconfigure
-
-#. Reconfigure Reporting services on each server:
-
-   .. code-block:: bash
-
-      $ opscode-reporting-ctl reconfigure
-
-#. Verify the installation:
-
-   .. code-block:: bash
-
-      $ opscode-reporting-ctl test
-
-.. end_tag
-
 Reference
 =====================================================
-The following sections show an example chef-server.rb file and a list of the ports that are required by the Chef server.
+The following sections show an example chef-server.rb file and a list of the ports that are required by the Chef Infra Server.
 
 chef-server.rb
 -----------------------------------------------------
-A completed chef-server.rb configuration file for a four server tiered Chef server configuration, consisting of:
+A completed chef-server.rb configuration file for a four server tiered Chef Infra Server configuration, consisting of:
 
 .. list-table::
    :widths: 100 150 150
@@ -451,7 +380,7 @@ Firewalls
 -----------------------------------------------------
 .. tag server_firewalls_and_ports_summary
 
-All of the ports used by the Chef server are TCP ports. Refer to the operating system's manual or site systems administrators for instructions on how to enable changes to ports, if necessary.
+All of the ports used by the Chef Infra Server are TCP ports. Refer to the operating system's manual or site systems administrators for instructions on how to enable changes to ports, if necessary.
 
 .. end_tag
 
@@ -467,7 +396,7 @@ All services must be listening on the appropriate ports. Most monitoring systems
 
 .. tag server_firewalls_and_ports_loopback
 
-A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef server, in the event that the Chef server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
+A single loopback interface should be configured using the ``127.0.0.1`` address. This ensures that all of the services are available to the Chef Infra Server, in the event that the Chef Infra Server attempts to contact itself from within a front or back end machine. All ports should be accessible through the loopback interface of their respective hosts.
 
 .. end_tag
 
@@ -475,7 +404,7 @@ Backend
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag server_firewalls_and_ports_tiered
 
-For back-end servers in a tiered Chef server installation, ensure that ports marked as external (marked as ``yes`` in the **External** column) are open and accessible via any firewalls that are in use:
+For back-end servers in a tiered Chef Infra Server installation, ensure that ports marked as external (marked as ``yes`` in the **External** column) are open and accessible via any firewalls that are in use:
 
 .. list-table::
    :widths: 60 420 60
@@ -489,7 +418,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Infra Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -500,7 +429,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
        .. end_tag
 
@@ -510,7 +439,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_solr4
 
-       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef server API; data that is used by the Chef platform is stored in PostgreSQL.)
+       The **opscode-solr4** service is used to create the search indexes used for searching objects like nodes, data bags, and cookbooks. (This service ensures timely search results via the Chef Infra Server API; data that is used by the Chef platform is stored in PostgreSQL.)
 
        .. end_tag
 
@@ -530,7 +459,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_rabbitmq
 
-       The **rabbitmq** service is used to provide the message queue that is used by the Chef server to get search data to Apache Solr so that it can be indexed for search. When Chef Analytics is configured, the **rabbitmq** service is also used to send data from the Chef server to the Chef Analytics server.
+       The **rabbitmq** service is used to provide the message queue that is used by the Chef Infra Server to get search data to Apache Solr so that it can be indexed for search.
 
        .. end_tag
 
@@ -540,7 +469,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_redis
 
-       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef server.
+       Key-value store used in conjunction with Nginx to route requests and populate request data used by the Chef Infra Server.
 
        .. end_tag
 
@@ -560,7 +489,7 @@ For back-end servers in a tiered Chef server installation, ensure that ports mar
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
        * Cookbooks
        * Data bags
@@ -594,7 +523,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_nginx
 
-       The **nginx** service is used to manage traffic to the Chef server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
+       The **nginx** service is used to manage traffic to the Chef Infra Server, including virtual hosts for internal and external API request/response routing, external add-on request routing, and routing between front- and back-end components.
 
        .. end_tag
 
@@ -605,7 +534,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_bifrost
 
-       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef server is authorized.
+       The **oc_bifrost** service ensures that every request to view or manage objects stored on the Chef Infra Server is authorized.
 
        .. end_tag
 
@@ -615,7 +544,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_oc_id
 
-       The **oc-id** service enables OAuth 2.0 authentication to the Chef server by external applications, including Chef Supermarket and Chef Analytics. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
+       The **oc-id** service enables OAuth 2.0 authentication to the Chef Infra Server by external applications, including Chef Supermarket. OAuth 2.0 uses token-based authentication, where external applications use tokens that are issued by the **oc-id** provider. No special credentials---``webui_priv.pem`` or privileged keys---are stored on the external application.
 
        .. end_tag
 
@@ -625,7 +554,7 @@ For front-end servers, ensure that ports marked as external (marked as ``yes`` i
 
        .. tag server_services_erchef
 
-       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef server API requests to the following areas within the Chef server:
+       The **opscode-erchef** service is an Erlang-based service that is used to handle Chef Infra Server API requests to the following areas within the Chef Infra Server:
 
        * Cookbooks
        * Data bags

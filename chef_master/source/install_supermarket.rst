@@ -9,7 +9,7 @@ Chef Supermarket is the site for community cookbooks. It provides an easily sear
 
 There are two ways to use Chef Supermarket:
 
-* The public Chef Supermarket is hosted by Chef and is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
+* The public Chef Supermarket is hosted by Chef Software and is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
 * A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private Chef Supermarket can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on the private Chef Supermarket").
 
 .. end_tag
@@ -33,11 +33,11 @@ Requirements
 =====================================================
 A private Chef Supermarket has the following requirements:
 
-* An operational Chef server (version 12.0 or higher) to act as the OAuth 2.0 provider
-* A user account on the Chef server with ``admins`` privileges
+* An operational Chef Infra Server (Chef Server version 12.0 or higher) to act as the OAuth 2.0 provider
+* A user account on the Chef Infra Server with ``admins`` privileges
 * A key for the user account on the Chef server
 * An x86_64 compatible Linux host with at least 1 GB memory
-* System clocks synchronized on the Chef server and Supermarket hosts
+* System clocks synchronized on the Chef Infra Server and Supermarket hosts
 * Sufficient disk space on host to meet project cookbook storage capacity **or** credentials to store cookbooks in an Amazon Simple Storage Service (S3) bucket
 
 **Considerations with regard to storage capacity:**
@@ -50,7 +50,7 @@ A private Chef Supermarket has the following requirements:
 
 Chef Identity
 =====================================================
-Chef Identity (also referred to as **oc-id**) is an OAuth 2.0 authentication and authorization service packaged with the Chef server. Chef Identity must be configured to run with a private Chef Supermarket, after which users may use the same credentials to access the Chef Supermarket as they do to access the Chef server.
+Chef Identity (also referred to as **oc-id**) is an OAuth 2.0 authentication and authorization service packaged with the Chef Infra Server. Chef Identity must be configured to run with a private Chef Supermarket, after which users may use the same credentials to access the Chef Supermarket as they do to access the Chef Infra Server.
 
 .. note:: The Chef Supermarket server must be able to reach (via HTTPS) the specified ``chef_server_url`` during OAuth 2.0 negotiation. This type of issue is typically with name resolution and firewall rules.
 
@@ -58,7 +58,7 @@ Configure
 -----------------------------------------------------
 To configure Chef Supermarket to use Chef Identity, do the following:
 
-#. Log on to the Chef server via SSH and elevate to an admin-level user. If running a multi-node Chef server cluster, log on to the node acting as the primary node in the cluster.
+#. Log on to the Chef Infra Server via SSH and elevate to an admin-level user. If running a multi-node Chef Infra Server cluster, log on to the node acting as the primary node in the cluster.
 #. Update the ``/etc/opscode/chef-server.rb`` configuration file.
 
    .. tag config_ocid_application_hash_supermarket
@@ -74,7 +74,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
    .. end_tag
 
-#. Reconfigure the Chef server.
+#. Reconfigure the Chef Infra Server.
 
    .. code-block:: bash
 
@@ -82,7 +82,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
 #. Retrieve Supermarket's OAuth 2.0 client credentials:
 
-   Depending on your Chef server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
+   Depending on your Chef Infra Server version and configuration (see `chef-server.rb </config_rb_server_optional_settings.html#config-rb-server-insecure-addon-compat>`__), this can be retrieved via `chef-server-ctl oc-id-show-app supermarket </ctl_chef_server.html#ctl-chef-server-oc-id-show-app>`__ or is located in ``/etc/opscode/oc-id-applications/supermarket.json``:
 
    .. code-block:: javascript
 
@@ -95,7 +95,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
    The ``uid`` and ``secret`` values will be needed later on during the setup process for Chef Supermarket.
 
-.. note:: Add as many Chef Identity applications to the ``/etc/opscode/chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef server front end group. The generated JSON files do not need to be copied anywhere.
+.. note:: Add as many Chef Identity applications to the ``/etc/opscode/chef-server.rb`` configuration file as necessary. A JSON file is generated for each application added, which contains the authentication tokens for that application. The secrets are added to the Chef Identity database and are available to all nodes in the Chef Infra Server front end group. The generated JSON files do not need to be copied anywhere.
 
 .. note:: The redirect URL specified **MUST** match the FQDN of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 
@@ -161,7 +161,7 @@ On your workstation, generate a new cookbook using the ``chef`` command line int
 
 Define Attributes
 -----------------------------------------------------
-Define the attributes for the Chef Supermarket installation and how it connects to the Chef server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a data bag, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``.
+Define the attributes for the Chef Supermarket installation and how it connects to the Chef Infra Server. One approach would be to hard-code attributes in the wrapper cookbook's ``default.rb`` recipe. A better approach is to place these attributes in a data bag, and then reference them from the recipe. For example, the data bag could be named ``apps`` and then a data bag item within the data bag could be named ``supermarket``.
 
 The following attribute values must be defined:
 
@@ -169,7 +169,7 @@ The following attribute values must be defined:
 * ``chef_oauth2_app_id``
 * ``chef_oauth2_secret``
 
-Once configured, you can get the ``chef_oauth2_app_id`` and ``chef_oauth2_secret`` values from your Chef server within ``/etc/opscode/oc-id-applications/supermarket.json``:
+Once configured, you can get the ``chef_oauth2_app_id`` and ``chef_oauth2_secret`` values from your Chef Infra Server within ``/etc/opscode/oc-id-applications/supermarket.json``:
 
 For ``chef_server_url``, enter in the url for your chef server.
 For ``chef_oauth2_app_id``, enter in the uid from ``/etc/opscode/oc-id-applications/supermarket.json``
@@ -213,7 +213,7 @@ To define these attributes, do the following:
 
 Upload the Wrapper
 -----------------------------------------------------
-The wrapper cookbook around the ``supermarket-omnibus-cookbook`` cookbook must be uploaded to the Chef server, along with any cookbooks against which the ``supermarket-omnibus-cookbook`` cookbook has dependencies.
+The wrapper cookbook around the ``supermarket-omnibus-cookbook`` cookbook must be uploaded to the Chef Infra Server, along with any cookbooks against which the ``supermarket-omnibus-cookbook`` cookbook has dependencies.
 
 To upload the cookbooks necessary to install Chef Supermarket, do the following:
 
@@ -229,7 +229,7 @@ To upload the cookbooks necessary to install Chef Supermarket, do the following:
 
       $ cd ~/.berkshelf/cookbooks
 
-#. Upload all cookbooks to the Chef server:
+#. Upload all cookbooks to the Chef Infra Server:
 
    .. code-block:: bash
 
@@ -241,7 +241,7 @@ To upload the cookbooks necessary to install Chef Supermarket, do the following:
 
       $ cd path/to/wrapper/cookbook/
 
-#. Upload the wrapper cookbook to the Chef server:
+#. Upload the wrapper cookbook to the Chef Infra Server:
 
    .. code-block:: bash
 
@@ -279,13 +279,13 @@ When the bootstrap operation is finished, do the following:
 	    "recipe[my_supermarket_wrapper::default]"
 	  ]
 
-#. Start the chef-client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
+#. Start the Chef Infra Client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
 
    .. code-block:: bash
 
       $ ssh ubuntu@your-supermarket-node-public-dns
 
-#. After accessing the Chef Supermarket node, run the chef-client:
+#. After accessing the Chef Supermarket node, run the Chef Infra Client:
 
    .. code-block:: bash
 
@@ -333,7 +333,7 @@ Before following these steps, be sure to complete the OAuth setup process detail
 
    Where:
 
-   * ``"chef_server_url"`` should contain the FQDN of your Chef server. Note that if you're using a non-standard SSL port, this much be appended to the URL. For example: ``https://chefserver.mycompany.com:65400``
+   * ``"chef_server_url"`` should contain the FQDN of your Chef Infra Server. Note that if you're using a non-standard SSL port, this much be appended to the URL. For example: ``https://chefserver.mycompany.com:65400``
    * ``"chef_oauth2_app_id"`` should contain the ``"uid"`` value from your OAuth credentials
    * ``"chef_oauth2_secret"`` should contain the ``"secret"`` value from your OAuth credentials
    * ``chef_oauth2_verify_ssl`` is set to false, which is necessary when using a self-signed certificate without a properly configured certificate authority
@@ -352,7 +352,7 @@ To reach the newly spun up private Chef Supermarket, the hostname must be resolv
 
 #. Visit the Chef Supermarket hostname in the browser. A private Chef Supermarket will generate and use a self-signed certificate, if a certificate is not supplied as part of the installation process (via the wrapper cookbook).
 #. If an SSL notice is shown while connecting to Chef Supermarket via a web browser, accept the SSL certificate. A trusted SSL certificate should be used for  private Chef Supermarket that is used in production.
-#. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef server is shown, but only if the user is not already logged in. Authorize the Chef Supermarket to use the Chef server account for authentication.
+#. After opening Chef Supermarket in a web browser, click the **Create Account** link. A prompt to log in to the Chef Infra Server is shown, but only if the user is not already logged in. Authorize the Chef Supermarket to use the Chef Infra Server account for authentication.
 
 .. note:: The redirect URL specified for Chef Identity **MUST** match the fqdn hostname of the Chef Supermarket server. The URI must also be correct: ``/auth/chef_oauth2/callback``. Otherwise, an error message similar to ``The redirect uri included is not valid.`` will be shown.
 

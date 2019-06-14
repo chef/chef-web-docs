@@ -11,7 +11,9 @@ Use the **machine_image** resource to define a machine image. This image may the
 
 .. warning:: .. tag notes_provisioning
 
-             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+             This functionality was available with Chef provisioning and was packaged in the Chef development kit.
+
+             Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
              .. end_tag
 
@@ -31,10 +33,10 @@ The syntax for using the **machine_image** resource in a recipe is as follows:
 
 where
 
-* ``machine_image`` tells the chef-client to use the ``Chef::Provider::MachineImage`` provider during the chef-client run
+* ``machine_image`` tells the Chef Infra Client to use the ``Chef::Provider::MachineImage`` provider during the Chef Infra Client run
 * ``name`` is the name of the resource block and also the name of the machine image
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
 .. end_tag
 
@@ -56,7 +58,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -107,40 +109,7 @@ This resource has the following properties:
    Use to add a role to the run-list for the machine image.
 
 ``run_list``
-   Use to specify the run-list to be applied to the machine image.
-
-   .. tag node_run_list
-
-   A run-list defines all of the information necessary for Chef to configure a node into the desired state. A run-list is:
-
-   * An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the chef-client will not run it twice
-   * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
-   * Stored as part of the node object on the Chef server
-   * Maintained using knife and then uploaded from the workstation to the Chef server, or maintained using Chef Automate
-
-   .. end_tag
-
-   .. tag node_run_list_format
-
-   A run-list must be in one of the following formats: fully qualified, cookbook, or default. Both roles and recipes must be in quotes, for example:
-
-   .. code-block:: ruby
-
-      'role[NAME]'
-
-   or
-
-   .. code-block:: ruby
-
-      'recipe[COOKBOOK::RECIPE]'
-
-   Use a comma to separate roles and recipes when adding more than one item the run-list:
-
-   .. code-block:: ruby
-
-      'recipe[COOKBOOK::RECIPE],COOKBOOK::RECIPE,role[NAME]'
-
-   .. end_tag
+   Use to specify the run-list to be applied to the machine image. See `About Run Lists </run_lists.html>`__ for more information.
 
 ``tags``
    Use to specify the list of tags to be applied to the machine image. Any tag not specified in this list will be removed.

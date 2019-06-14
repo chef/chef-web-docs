@@ -3,13 +3,12 @@ Active Directory and LDAP
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_ldap.rst>`__
 
-The Chef server supports Active Directory and LDAP authentication, which enables users to log in to the Chef server using their corporate credentials.
+The Chef Infra Server supports Active Directory and LDAP authentication, which enables users to log in to the Chef Infra Server using their corporate credentials.
 
 Configure LDAP
 =====================================================
-.. tag install_server_ldap
 
-The Chef server supports using Active Directory or LDAP for any user that has an email address in the LDAP directory. This allows those users to log in to the Chef server by using their corporate credentials instead of having a separate username and password.
+The Chef Infra Server supports using Active Directory or LDAP for any user that has an email address in the LDAP directory. This allows those users to log in to the Chef Infra Server by using their corporate credentials instead of having a separate username and password.
 
 .. warning:: The following attributes **MUST** be in the user LDAP record:
 
@@ -24,10 +23,10 @@ The Chef server supports using Active Directory or LDAP for any user that has an
    - ``c:``
    - ``l:``
 
-To configure the Chef server to use Active Directory or LDAP do the following:
+To configure the Chef Infra Server to use Active Directory or LDAP do the following:
 
 #. Install the Chef management console (if it is not already).
-#. Add the following settings to the ``/etc/opscode/chef-server.rb`` file. These settings must be added to the ``chef-server.rb`` file on each machine in the Chef server frontend deployment of a High Availability installation as well as on Chef servers in a standalone installation.
+#. Add the following settings to the ``/etc/opscode/chef-server.rb`` file. These settings must be added to the ``chef-server.rb`` file on each machine in the Chef Infra Server frontend deployment of a High Availability installation as well as on Chef servers in a standalone installation.
 
    .. tag config_rb_server_settings_ldap
 
@@ -52,7 +51,7 @@ To configure the Chef server to use Active Directory or LDAP do the following:
       Default value: ``nil``.
 
    ``ldap['bind_dn']``
-      The distinguished name used to bind to the LDAP server. The user the Chef server will use to perform LDAP searches. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. The Chef server must do an LDAP search before any user can log in. Many Active Directory and LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the ``bind_dn`` and ``bind_password`` settings blank. If anonymous bind is not allowed, a user with ``READ`` access to the directory is required. This user must be specified as an LDAP distinguished name similar to:
+      The distinguished name used to bind to the LDAP server. The user the Chef Infra Server will use to perform LDAP searches. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. The Chef Infra Server must do an LDAP search before any user can log in. Many Active Directory and LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the ``bind_dn`` and ``bind_password`` settings blank. If anonymous bind is not allowed, a user with ``READ`` access to the directory is required. This user must be specified as an LDAP distinguished name similar to:
 
       .. code-block:: ruby
 
@@ -67,7 +66,7 @@ To configure the Chef server to use Active Directory or LDAP do the following:
       Default value: ``nil``.
 
    ``ldap['bind_password']``
-      Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``. As of Chef server 12.14, this is no longer the preferred command.
+      Legacy configuration for the password of the binding user. The password for the user specified by ``ldap['bind_dn']``. Leave this value and ``ldap['bind_dn']`` unset if anonymous bind is sufficient. Default value: ``nil``. As of Chef Server 12.14, this is no longer the preferred command.
 
       Please use ``chef-server-ctl set-secret ldap bind_password`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
@@ -91,25 +90,25 @@ To configure the Chef server to use Active Directory or LDAP do the following:
          ldap['group_dn'] = 'CN=abcxyz,OU=users,DC=company,DC=com'
 
    ``ldap['host']``
-      The name (or IP address) of the LDAP server. The hostname of the LDAP or Active Directory server. Be sure the Chef server is able to resolve any host names. Default value: ``ldap-server-host``.
+      The name (or IP address) of the LDAP server. The hostname of the LDAP or Active Directory server. Be sure the Chef Infra Server is able to resolve any host names. Default value: ``ldap-server-host``.
 
    ``ldap['login_attribute']``
-      The LDAP attribute that holds the user's login name. Use to specify the Chef server user name for an LDAP user. Default value: ``sAMAccountName``.
+      The LDAP attribute that holds the user's login name. Use to specify the Chef Infra Server user name for an LDAP user. Default value: ``sAMAccountName``.
 
    ``ldap['port']``
       An integer that specifies the port on which the LDAP server listens. The default value is an appropriate value for most configurations. Default value: ``389`` or ``636`` when ``ldap['encryption']`` is set to ``:simple_tls``.
 
    ``ldap['ssl_enabled']``
-      Cause the Chef server to connect to the LDAP server using SSL. Default value: ``false``. Must be ``false`` when ``ldap['tls_enabled']`` is ``true``.
+      Cause the Chef Infra Server to connect to the LDAP server using SSL. Default value: ``false``. Must be ``false`` when ``ldap['tls_enabled']`` is ``true``.
 
       .. note:: It's recommended that you enable SSL for Active Directory.
 
-      .. note:: Previous versions of the Chef server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
+      .. note:: Previous versions of the Chef Infra Server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
 
    ``ldap['system_adjective']``
-      A descriptive name for the login system that is displayed to users in the Chef server management console. If a value like "corporate" is used, then the Chef management console user interface will display strings like "the corporate login server", "corporate login", or "corporate password." Default value: ``AD/LDAP``.
+      A descriptive name for the login system that is displayed to users in the Chef Infra Server management console. If a value like "corporate" is used, then the Chef management console user interface will display strings like "the corporate login server", "corporate login", or "corporate password." Default value: ``AD/LDAP``.
 
-      .. warning:: This setting is **not** used by the Chef server. It is used only by the Chef management console.
+      .. warning:: This setting is **not** used by the Chef Infra Server. It is used only by the Chef management console.
 
    ``ldap['timeout']``
       The amount of time (in seconds) to wait before timing out. Default value: ``60000``.
@@ -117,7 +116,7 @@ To configure the Chef server to use Active Directory or LDAP do the following:
    ``ldap['tls_enabled']``
       Enable TLS. When enabled, communication with the LDAP server is done via a secure SSL connection on a dedicated port. When ``true``, ``ldap['port']`` is also set to ``636``. Default value: ``false``. Must be ``false`` when ``ldap['ssl_enabled']`` is ``true``.
 
-      .. note:: Previous versions of the Chef server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
+      .. note:: Previous versions of the Chef Infra Server used the ``ldap['ssl_enabled']`` setting to first enable SSL, and then the ``ldap['encryption']`` setting to specify the encryption type. These settings are deprecated.
 
    .. end_tag
 
@@ -125,9 +124,9 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
 #. .. tag install_chef_server_reconfigure
 
-   .. This topic is hooked in globally to install topics for Chef server applications.
+   .. This topic is hooked in globally to install topics for Chef Infra Server applications.
 
-   Reconfigure the Chef server and the Chef management console (standalone and frontend group members
+   Reconfigure the Chef Infra Server and the Chef management console (standalone and frontend group members
      of a High Availabilty installation):
 
    .. code-block:: bash
@@ -136,21 +135,19 @@ To configure the Chef server to use Active Directory or LDAP do the following:
 
    .. end_tag
 
-At this point, all users should be able to use their Active Directory or LDAP usernames and passwords to log in to the Chef server.
-
-.. end_tag
+At this point, all users should be able to use their Active Directory or LDAP usernames and passwords to log in to the Chef Infra Server.
 
 Test LDAP Connectivity
 =====================================================
 .. tag server_ldap_test
 
-Use ``ldapsearch`` to test the ability of the Chef server to use Active Directory or LDAP. First, translate the Chef server LDAP settings into ``ldapsearch`` parameters:
+Use ``ldapsearch`` to test the ability of the Chef Infra Server to use Active Directory or LDAP. First, translate the Chef Infra Server LDAP settings into ``ldapsearch`` parameters:
 
 .. list-table::
    :widths: 200 200
    :header-rows: 1
 
-   * - Chef Server Setting
+   * - Chef Infra Server Setting
      - ``ldapsearch`` Parameter
    * - ``ldap['host']`` and ``ldap['port']``
      - ``-H [HOST:PORT]``
@@ -163,7 +160,7 @@ Use ``ldapsearch`` to test the ability of the Chef server to use Active Director
    * - ``ldap['login_attribute']``
      - Defaults to ``SAMAccountName``
 
-And then from a front end machine (in a high availability or tiered configuration) or from the Chef server in a standalone configuration, run the following command. Be sure to replace the uppercase placeholders with the values for your organization:
+And then from a front end machine (in a high availability or tiered configuration) or from the Chef Infra Server in a standalone configuration, run the following command. Be sure to replace the uppercase placeholders with the values for your organization:
 
 .. code-block:: bash
 
@@ -194,6 +191,6 @@ Output similar to the following is returned:
    distinguishedName: CN=Robert Forster,OU=Employees,OU=Domain users,DC=opscodecorp,DC
     =com
 
-.. note:: The ``ldapsearch`` command may need to be installed on the platform. It is not included as part of the Chef server package.
+.. note:: The ``ldapsearch`` command may need to be installed on the platform. It is not included as part of the Chef Infra Server package.
 
 .. end_tag

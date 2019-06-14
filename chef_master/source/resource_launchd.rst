@@ -78,8 +78,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_launchd_actions
-
 The launchd resource has the following actions:
 
 ``:create``
@@ -103,11 +101,11 @@ The launchd resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
-.. end_tag
+
 
 Properties
 =====================================================
@@ -531,8 +529,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create a Launch Daemon from a cookbook file**
 
-.. tag resource_launchd_create_from_cookbook
-
 .. Create a Launch Daemon from a cookbook file:
 
 .. code-block:: ruby
@@ -541,11 +537,9 @@ The following examples demonstrate various approaches for using resources in rec
      source 'com.chef.every15.plist'
    end
 
-.. end_tag
+
 
 **Create a Launch Daemon using keys**
-
-.. tag resource_launchd_create_using_keys
 
 .. Create a Launch Daemon using keys**
 
@@ -557,11 +551,9 @@ The following examples demonstrate various approaches for using resources in rec
      time_out 300
    end
 
-.. end_tag
+
 
 **Remove a Launch Daemon**
-
-.. tag resource_launchd_remove
 
 .. Remove a Launch Daemon:
 
@@ -570,5 +562,3 @@ The following examples demonstrate various approaches for using resources in rec
    launchd 'com.chef.every15' do
      action :delete
    end
-
-.. end_tag

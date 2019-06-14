@@ -33,7 +33,7 @@ The full syntax for all of the properties that are available to the **python** r
 
   python 'name' do
     code             String
-    command
+    command          String # default value: 'name' unless specified
     creates          String
     cwd              String
     default_env      true, false # default value: false

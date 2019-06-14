@@ -3,18 +3,16 @@ Deprecation: Use of property_name inside of actions (CHEF-19)
 ==================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_namespace_collisions.rst>`__
 
-.. tag deprecations_namespace_collisions
-
-In Chef 12.5.1, the custom resources API allowed specifying property names as the short form of ``property_name`` inside of actions, instead of the long form of
+In Chef Client 12.5.1, the custom resources API allowed specifying property names as the short form of ``property_name`` inside of actions, instead of the long form of
 ``new_resource.property_name`` (as was previously required in provider code in LWRPs/HWRPs/etc).  That change caused unsolvable namespace clashes and will be
-removed in Chef 14.0, and it will become mandatory to refer to properties as ``new_resource.property_name`` in actions.
+removed in Chef Client 14.0, and it will become mandatory to refer to properties as ``new_resource.property_name`` in actions.
 
-.. end_tag
+
 
 Example
 ==========
 
-This code worked in 12.5.1 and later revisions up to Chef 13.0:
+This code worked in Chef Client 12.5.1 and later revisions up to Chef Client 13.0:
 
 .. code-block:: ruby
 
@@ -68,7 +66,7 @@ The fact that this is confusing behavior to explain is why it is being removed.
 Rationale
 ===========
 
-The change in Chef 12.5.1 caused several insolvable problems.  One of the worst was that properties would override DSL commands so that (for example) if a user had a ``template``
+The change in Chef Client 12.5.1 caused several insolvable problems.  One of the worst was that properties would override DSL commands so that (for example) if a user had a ``template``
 property they could no longer use the `template` resource:
 
 .. code-block:: ruby
@@ -110,7 +108,7 @@ file subresource ``content`` property, or if it refers to the parent custom reso
   end
 
 In fact, the subprocess wins (because it has to) and this code will result in the content always being nil and the file being empty.  The output of the ``puts`` debugging will
-be correct, however, since ``content`` is being accessed outside of the file resource scope so it acquires it from the ``new_resource`` implicitly (in Chef 12.5.1 and Chef 13.x)
+be correct, however, since ``content`` is being accessed outside of the file resource scope so it acquires it from the ``new_resource`` implicitly (in Chef Client 12.5.1 and Chef Client 13.x)
 
 The way to remediate that is by specifying the ``new_resource``:
 
@@ -163,4 +161,3 @@ and will result in the custom resource failing.  This is avoided by the explicit
       content new_resource.spiffyness # we are always referring to the outer custom resource's spiffiness property
     end
   end
-

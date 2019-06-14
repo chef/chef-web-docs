@@ -5,9 +5,8 @@ Send Node Notifications to a Custom Webhook
 
 .. tag chef_automate_mark
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
 
 .. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
 
@@ -15,10 +14,10 @@ Send Node Notifications to a Custom Webhook
 
 Chef Automate can be configured to post JSON messages to any compatible webhook when it detects certain issues with the nodes you are managing. Currently, those messages include:
 
-* A Chef client run failure on any node in your fleet.
-* A critical InSpec compliance scan failure on any node in your fleet.
+* A Chef Infra Client run failure on any node in your fleet.
+* A critical Chef InSpec compliance scan failure on any node in your fleet.
 
-To use this Chef Automate integration, you need a webserver or service end-point that accepts POSTs and is accessible from Chef Automate. The message payload format is given below for both InSpec compliance and Chef client run failures. These webhook notifications sent by Chef Automate will respect any outbound proxy settings that you may have configured in your ``delivery.rb``. For more information on the proxy settings in Chef Automate, see `Proxy Settings <https://docs.chef.io/config_rb_delivery.html#proxy-settings>`_.
+To use this Chef Automate integration, you need a webserver or service end-point that accepts POSTs and is accessible from Chef Automate. The message payload format is given below for both Chef InSpec compliance and Chef Infra Client run failures. These webhook notifications sent by Chef Automate will respect any outbound proxy settings that you may have configured in your ``delivery.rb``. For more information on the proxy settings in Chef Automate, see `Proxy Settings <https://docs.chef.io/config_rb_delivery.html#proxy-settings>`_.
 
 .. note:: Notifications sent to custom webhooks by Chef Automate do not support retries; therefore, notifications sent while your particular webhook end-point is experiencing API issues, outages, or some other unplanned downtime may never be received. Undelivered notifications are not re-sent. Attempts to send notifications do generate log messages in your Chef Automate server.
 
@@ -28,7 +27,7 @@ To add a custom webhook for Chef Automate:
 
 #. On the Chef Automate server, select **Notifications** under the **Nodes** tab.
 #. Click **Create Notification** and select **Add webhook notification** from the drop-down menu.
-#. Pick the event you want to be notified about. Currently, you can choose to be notified on any Chef client run failures or any InSpec compliance scan failures.
+#. Pick the event you want to be notified about. Currently, you can choose to be notified on any Chef Infra Client run failures or any Chef InSpec compliance scan failures.
 #. Pick a meaningful name for the webhook, and then type in the URL of the webhook you wish to be notified at.
 #. Click **Send Test**. If a test notification is successful, click **Save**. If the test is unsuccessful, make sure the Slack webhook URL was copied correctly and then try sending a test notification again.
 
@@ -54,7 +53,7 @@ Custom Notification Schema
 
 Notifications will be sent as an HTTP POST to the given webhook URL. Examples of the POST body for each notification type are shown below. Also included is an example of a test message that can be sent when you configure your notification.
 
-**Chef Client Run Failure**
+**Chef Infra Client Run Failure**
 
 .. code-block:: json
 
@@ -63,7 +62,7 @@ Notifications will be sent as an HTTP POST to the given webhook URL. Examples of
 		"timestamp_utc": "2017-07-20T16:51:02.000000Z",
 		"start_time_utc": "2017-07-20T16:51:02.000000Z",
 		"node_name": "chef-client.solo",
-		"failure_snippet": "Chef client run failure on [localhost] chef-client.solo : https://automate.chef.io/viz/#/nodes/your_node_url\nError executing action `create` on resource 'directory[/tmp/exists/missing/missing]'\ndirectory[/tmp/exists/missing/missing] (test-cookbook::dir_recipe line 3) had an error: Chef::Exceptions::EnclosingDirectoryDoesNotExist: Parent directory /tmp/exists/missing does not exist, cannot create /tmp/exists/missing/missing \n",
+		"failure_snippet": "Chef Infra Client run failure on [localhost] Chef Infra Client.solo : https://automate.chef.io/viz/#/nodes/your_node_url\nError executing action `create` on resource 'directory[/tmp/exists/missing/missing]'\ndirectory[/tmp/exists/missing/missing] (test-cookbook::dir_recipe line 3) had an error: Chef::Exceptions::EnclosingDirectoryDoesNotExist: Parent directory /tmp/exists/missing does not exist, cannot create /tmp/exists/missing/missing \n",
 		"exception_title": "Error executing action `create` on resource 'directory[/tmp/exists/missing/missing]'",
 		"exception_message": "directory[/tmp/exists/missing/missing] (test-cookbook::dir_recipe line 3) had an error: Chef::Exceptions::EnclosingDirectoryDoesNotExist: Parent directory /tmp/exists/missing does not exist, cannot create /tmp/exists/missing/missing",
 		"exception_backtrace": "/opt/chefdk/embedded/lib/ruby/gems/2.3.0/gems/chef-12.18.31/lib/chef/mixin/why_run.rb:240:in `run'\n/opt/chefdk/embedded/lib/ruby/gems/2.3.0/gems/chef-12.18.31/lib/chef/mixin/why_run.rb:321:in `block in run'\n...",
@@ -72,7 +71,7 @@ Notifications will be sent as an HTTP POST to the given webhook URL. Examples of
 		"automate_failure_url": "https://automate.chef.io/viz/#/nodes/your_node_url"
 	}
 
-**InSpec Compliance Scan Failure**
+**Chef InSpec Compliance Scan Failure**
 
 .. code-block:: json
 
@@ -86,7 +85,7 @@ Notifications will be sent as an HTTP POST to the given webhook URL. Examples of
     "timestamp_utc": "2017-07-27T16:46:52.000000Z",
     "automate_fqdn": "automate.chef",
     "automate_failure_url": "https://automate.chef/viz/#/compliance/reporting/nodes",
-    "failure_snippet": "InSpec found a critical control failure on [chef-client.solo](https://automate.chef/viz/#/compliance/reporting/nodes)",
+    "failure_snippet": "Chef InSpec found a critical control failure on [chef-client.solo](https://automate.chef/viz/#/compliance/reporting/nodes)",
     "total_number_of_tests": 13,
     "total_number_of_skipped_tests": 3,
     "total_number_of_passed_tests": 2,
@@ -139,7 +138,7 @@ Notifications will be sent as an HTTP POST to the given webhook URL. Examples of
           "version": "2.7.0",
           "title": "Mylinux Failure Success",
           "name": "mylinux-failure-success",
-          "summary": "Demonstrates the use of InSpec Compliance Profile",
+          "summary": "Demonstrates the use of Chef InSpec Compliance Profile",
           "sha256": "fe62cb47135b12acb22d03a3ca80cb3015bb806ee0526e32a00ae07d026d88e8",
           "maintainer": "Chef Software, Inc.",
           "license": "Apache 2 license",

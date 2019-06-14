@@ -30,8 +30,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_service_reboot_actions
-
 The reboot resource has the following actions:
 
 ``:cancel``
@@ -40,7 +38,7 @@ The reboot resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -50,7 +48,6 @@ The reboot resource has the following actions:
 ``:request_reboot``
    Reboot a node at the end of a chef-client run.
 
-.. end_tag
 
 Properties
 =====================================================

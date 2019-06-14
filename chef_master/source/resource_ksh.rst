@@ -13,8 +13,6 @@ Use the **ksh** resource to execute scripts using the Korn shell (ksh) interpret
 
 Syntax
 =====================================================
-.. tag resource_script_ksh_syntax
-
 A **ksh** resource block executes scripts using ksh:
 
 .. code-block:: ruby
@@ -56,12 +54,10 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``path``, ``returns``, ``timeout``, ``user``, and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_script_ksh_actions
-
 The ksh resource has the following actions:
 
 ``:nothing``
@@ -70,12 +66,10 @@ The ksh resource has the following actions:
 ``:run``
    Default. Run a script.
 
-.. end_tag
+
 
 Properties
 =====================================================
-.. tag resource_script_ksh_properties
-
 The ksh resource has the following properties:
 
 ``code``
@@ -147,7 +141,6 @@ The ksh resource has the following properties:
 
    The file mode creation mask, or umask.
 
-.. end_tag
 
 Common Resource Functionality
 =====================================================

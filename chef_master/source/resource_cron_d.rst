@@ -70,7 +70,7 @@ Actions
 The cron_d resource has the following actions:
 
 ``:create``
-   Default. "Add a cron definition file to /etc/cron.d, but do not update an existing file.
+   Default. Add a cron definition file to /etc/cron.d.
 
 ``:delete``
    Remove a cron definition file from /etc/cron.d if it exists.
@@ -81,7 +81,7 @@ The cron_d resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 

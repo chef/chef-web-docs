@@ -1,29 +1,24 @@
 
 steps:
-
-  - command: .expeditor/buildkite/terraform.sh
-    label: ":terraform:"
+  - label: ":terraform:"
+    command: .expeditor/buildkite/terraform.sh
     concurrency: 1
     concurrency_group: chef-web-docs-master/deploy/$ENVIRONMENT
-    plugins:
-      docker#v1.1.1:
-        image: "chefes/buildkite"
-        environment:
-          - ENVIRONMENT
-          - CHEF_CD_AWS_ACCESS_KEY_ID
-          - CHEF_CD_AWS_SECRET_ACCESS_KEY
-          - CHEF_CI_GITHUB_TOKEN
+    expeditor:
+      accounts:
+        - aws/chef-cd
+        - github/chef-ci
+      executor:
+        docker:
 
   - wait
 
-  - command: .expeditor/buildkite/apply_redirects.sh
-    label: ":amazon-s3:"
+  - label: ":amazon-s3:"
+    command: .expeditor/buildkite/apply_redirects.sh
     concurrency: 1
     concurrency_group: chef-web-docs-master/deploy/$ENVIRONMENT
-    plugins:
-      docker#v1.1.1:
-        image: "chefes/buildkite"
-        environment:
-          - ENVIRONMENT
-          - CHEF_CD_AWS_ACCESS_KEY_ID
-          - CHEF_CD_AWS_SECRET_ACCESS_KEY
+    expeditor:
+      accounts:
+        - aws/chef-cd
+      executor:
+        docker:

@@ -24,7 +24,7 @@ The openssl_x509_certificate resource has the following syntax:
     email                 String
     expire                Integer # default value: 365
     extensions            Hash
-    group                 String
+    group                 String, Integer
     key_curve             String # default value: "prime256v1"
     key_file              String
     key_length            Integer # default value: 2048
@@ -33,7 +33,7 @@ The openssl_x509_certificate resource has the following syntax:
     mode                  Integer, String
     org                   String
     org_unit              String
-    owner                 String
+    owner                 String, Integer
     path                  String # default value: 'name' unless specified
     state                 String
     subject_alt_name      Array
@@ -58,7 +58,7 @@ The openssl_x509_certificate resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -118,7 +118,7 @@ The openssl_x509_certificate resource has the following properties:
    Hash of X509 Extensions entries, in format ``{ 'keyUsage' => { 'values' => %w( keyEncipherment digitalSignature), 'critical' => true } }``.
 
 ``group``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The group ownership applied to all files created by the resource.
 
@@ -163,14 +163,14 @@ The openssl_x509_certificate resource has the following properties:
    Value for the ``OU`` certificate field.
 
 ``owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The path to write the file to if it differs from the resource name.
+   An optional property for specifying the path to write the file to if it differs from the resource block's name.
 
 ``state``
    **Ruby Type:** String

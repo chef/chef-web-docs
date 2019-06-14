@@ -42,7 +42,7 @@ The sysctl resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -235,4 +235,28 @@ Note: This only removes the sysctl.d config for kernel.msgmax. The value will be
 
   sysctl 'kernel.msgmax' do
     action :remove
+  end
+
+**Converting sysctl settings from shell scripts**
+
+Example of existing settings:
+
+``fs.aio-max-nr = 1048576``
+``net.ipv4.ip_local_port_range = 9000 65500``
+``kernel.sem = 250 32000 100 128``
+
+Converted to sysctl resources:
+
+.. code-block:: ruby
+
+  sysctl 'fs.aio-max-nr' do
+    value '1048576'
+  end
+
+  sysctl 'net.ipv4.ip_local_port_range' do
+    value '9000 65500'
+  end
+  
+  sysctl 'kernel.sem' do
+    value '250 32000 100 128'
   end

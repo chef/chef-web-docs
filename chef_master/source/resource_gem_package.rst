@@ -15,11 +15,10 @@ Use the **gem_package** resource to manage gem packages that are only included i
 
 .. end_tag
 
-.. note:: .. tag notes_resource_gem_package
-
+.. note::
           The **gem_package** resource must be specified as ``gem_package`` and cannot be shortened to ``package`` in a recipe.
 
-          .. end_tag
+          
 
 Syntax
 =====================================================
@@ -52,7 +51,7 @@ where:
 * ``gem_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``clear_sources``, ``include_default_source``, ``gem_binary``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``clear_sources``, ``gem_binary``, ``include_default_source``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Gem Package Options
 =====================================================
@@ -184,7 +183,7 @@ The gem_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 

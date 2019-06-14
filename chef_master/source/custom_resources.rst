@@ -3,26 +3,22 @@ Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources.rst>`__
 
-.. tag custom_resources_summary
-
 A custom resource:
 
-* Is a simple extension of Chef that adds your own resources
+* Is a simple extension of Chef Infra Client that adds your own resources
 * Is implemented and shipped as part of a cookbook
 * Follows easy, repeatable syntax patterns
-* Effectively leverages resources that are built into Chef and/or custom Ruby code
-* Is reusable in the same way as resources that are built into Chef
+* Effectively leverages resources that are built into Chef Infra Client and/or custom Ruby code
+* Is reusable in the same way as resources that are built into Chef Client
 
-For example, Chef includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
+For example, Chef Infra Client includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
 
-.. end_tag
 
-Custom resources were introduced in Chef version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the chef-client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__.
+
+Custom resources were introduced in Chef Client version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the Chef Client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__.
 
 Syntax
 =====================================================
-.. tag custom_resources_syntax
-
 A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file
 
 * Declares the properties of the custom resource
@@ -49,17 +45,15 @@ The syntax for a custom resource is. For example:
 
 where the first action listed is the default action.
 
-.. warning:: 
-   Do not use existing keywords from the chef-client resource system in a custom resource, like "name". For example, ``property :property_name`` in the following invalid syntax: 
-   ``property :name, String, default: 'thename'``. 
+.. warning::
+   Do not use existing keywords from the Chef Infra Client resource system in a custom resource, like "name". For example, ``property :property_name`` in the following invalid syntax:
+   ``property :name, String, default: 'thename'``.
 
-.. end_tag
+
 
 Example
------------------------------------------------------
-.. tag custom_resources_syntax_example
-
-This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built in Chef resources, besides defining the property and actions, the code is very similar to that of a recipe.
+----------------------------------------------------
+This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``package`` resources, and includes ``:create`` and ``:delete`` actions. Since it uses built in Chef Infra Client resources, besides defining the property and actions, the code is very similar to that of a recipe.
 
 .. code-block:: ruby
 
@@ -86,7 +80,7 @@ This example ``site`` utilizes Chef's built in ``file``, ``service`` and ``packa
 where
 
 * ``homepage`` is a property that sets the default HTML for the ``index.html`` file with a default value of ``'<h1>Hello world!</h1>'``
-* the ``action`` block uses the built-in collection of resources to tell the chef-client how to install Apache, start the service, and then create the contents of the file located at ``/var/www/html/index.html``
+* the ``action`` block uses the built-in collection of resources to tell the Chef Infra Client how to install Apache, start the service, and then create the contents of the file located at ``/var/www/html/index.html``
 * ``action :create`` is the default resource, because it is listed first; ``action :delete`` must be called specifically (because it is not the default resource)
 
 Once built, the custom resource may be used in a recipe just like any of the resources that are built into Chef. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``exampleco`` with a custom resource named ``site.rb`` is used in a recipe like this:
@@ -105,13 +99,13 @@ and to delete the exampleco website, do the following:
      action :delete
    end
 
-.. end_tag
+
 
 resource_name
 -----------------------------------------------------
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The chef-client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 
@@ -192,7 +186,7 @@ This article assumes that a cookbook directory named ``website`` exists in a che
 
 You may use a cookbook that already exists or you may create a new cookbook.
 
-See /ctl_chef.html for more information about how to use the ``chef`` command-line tool that is packaged with the Chef development kit to build the chef-repo, plus related cookbook sub-directories.
+See /ctl_chef.html for more information about how to use the ``chef`` command-line tool that is packaged with ChefDK to build the chef-repo, plus related cookbook sub-directories.
 
 Objectives
 -----------------------------------------------------
@@ -201,8 +195,8 @@ Define a custom resource!
 A custom resource typically contains:
 
 * A list of defined custom properties (property values are specified in recipes)
-* At least one action (actions tell the chef-client what to do)
-* For each action, use a collection of resources that are built into Chef to define the steps required to complete the action
+* At least one action (actions tell the Chef Infra Client what to do)
+* For each action, use a collection of resources that are built into Chef Infra Client to define the steps required to complete the action
 
 What is needed?
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -219,7 +213,7 @@ Custom properties are defined in the resource. This custom resource needs two:
 * ``instance_name``
 * ``port``
 
-These properties are defined as variables in the ``httpd.conf.erb`` file. A **template** block in recipes will tell the chef-client how to apply these variables.
+These properties are defined as variables in the ``httpd.conf.erb`` file. A **template** block in recipes will tell the Chef Infra Client how to apply these variables.
 
 In the custom resource, add the following custom properties:
 
@@ -479,9 +473,7 @@ Custom Resource DSL
 The following sections describe additional Custom Resource DSL methods that were not used in the preceding scenario:
 
 action_class
------------------------------------------------------
-.. tag dsl_custom_resource_block_action_class
-
+----------------------------------------------------
 Use the ``action_class`` block to make methods available to the actions in the custom resource. Modules with helper methods created as files in the cookbook library directory may be included. New action methods may also be defined directly in the ``action_class`` block. Code in the ``action_class`` block has access to the new_resource properties.
 
 Assume a helper module has been created in the cookbook ``libraries/helper.rb`` file.
@@ -519,7 +511,7 @@ Methods may be made available to the custom resource actions by using an ``actio
 
    end
 
-.. end_tag
+
 
 converge_if_changed
 -----------------------------------------------------
@@ -539,7 +531,7 @@ To use the ``converge_if_changed`` method, wrap it around the part of a recipe o
 
    end
 
-For example, a custom resource defines two properties (``content`` and ``path``) and a single action (``:create``). Use the ``load_current_value`` method to load the property value to be compared, and then use the ``converge_if_changed`` method to tell the chef-client what to do if that value is not the desired value:
+For example, a custom resource defines two properties (``content`` and ``path``) and a single action (``:create``). Use the ``load_current_value`` method to load the property value to be compared, and then use the ``converge_if_changed`` method to tell the Chef Infra Client what to do if that value is not the desired value:
 
 .. code-block:: ruby
 
@@ -558,7 +550,7 @@ For example, a custom resource defines two properties (``content`` and ``path``)
      end
    end
 
-When the file does not exist, the ``IO.write(new_resource.path, new_resource.content)`` code is executed and the chef-client output will print something similar to:
+When the file does not exist, the ``IO.write(new_resource.path, new_resource.content)`` code is executed and the Chef Infra Client output will print something similar to:
 
 .. code-block:: bash
 
@@ -603,7 +595,7 @@ where
 * A ``converge_if_changed`` block tests only ``content``
 * A ``converge_if_changed`` block tests only ``mode``
 
-The chef-client will only update the property values that require updates and will not make changes when the property values are already in the desired state
+The Chef Infra Client will only update the property values that require updates and will not make changes when the property values are already in the desired state
 
 .. end_tag
 
@@ -661,13 +653,13 @@ Use the ``load_current_value`` method to guard against property values being rep
       if ::File.exist?('/var/www/html/index.html')
         homepage IO.read('/var/www/html/index.html')
       end
-      
+
       if ::File.exist?('/var/www/html/404.html')
         page_not_found IO.read('/var/www/html/404.html')
       end
     end
 
-This ensures the values for ``homepage`` and ``page_not_found`` are not changed to the default values when the chef-client configures the node.
+This ensures the values for ``homepage`` and ``page_not_found`` are not changed to the default values when the Chef Infra Client configures the node.
 
 .. end_tag
 
@@ -718,7 +710,7 @@ where the ``property :cwd``, ``property :environment``, ``property :user``, and 
    -------------
    wrong number of arguments (0 for 1)
 
-To prevent this behavior, use ``new_resource.`` to tell the chef-client to process the properties from the core resource instead of the properties in the custom resource. For example:
+To prevent this behavior, use ``new_resource.`` to tell the Chef Infra Client to process the properties from the core resource instead of the properties in the custom resource. For example:
 
 .. code-block:: ruby
 
@@ -824,7 +816,7 @@ sensitive
 
 A property can be marked sensitive by specifying ``sensitive: true`` on the property. This prevents the contents of the property from being exported to data collection and sent to an Automate server.
 
-Note: This feature was introduced in Chef 12.14.
+Note: This feature was introduced in Chef Client 12.14.
 
 validators
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -981,7 +973,7 @@ Use the ``property_is_set?`` method to check if the value for a property is set.
 
 The ``property_is_set?`` method will return ``true`` if the property is set.
 
-For example, the following custom resource creates and/or updates user properties, but not their password. The ``property_is_set?`` method checks if the user has specified a password and then tells the chef-client what to do if the password is not identical:
+For example, the following custom resource creates and/or updates user properties, but not their password. The ``property_is_set?`` method checks if the user has specified a password and then tells the Chef Infra Client what to do if the password is not identical:
 
 .. code-block:: ruby
 
@@ -1037,7 +1029,7 @@ override
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_custom_resource_method_provides_override
 
-Chef will warn you if the Recipe DSL is provided by another custom resource or built-in resource. For example:
+Chef Infra Client will warn you if the Recipe DSL is provided by another custom resource or built-in resource. For example:
 
 .. code-block:: ruby
 
@@ -1083,5 +1075,5 @@ coerce
 ``coerce`` is run in the context of the instance, which gives it access to other properties.
 
 .. code-block:: ruby
-    
+
     property :mode, coerce: proc { |m| m.is_a?(String) ? m.to_s(8) : m }

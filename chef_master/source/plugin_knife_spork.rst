@@ -3,7 +3,7 @@ knife-spork
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_spork.rst>`__
 
-The ``knife-spork`` plugin adds workflow that enables multiple developers to work on the same Chef server and repository, but without stepping on each other's toes. This plugin is designed around the workflow at Etsy, where several people work in the same repository and Chef server simultaneously. A quick overview of the arguments in this plugin (see the GitHub documentation for full details):
+The ``knife-spork`` plugin adds workflow that enables multiple developers to work on the same Chef Infra Server and repository, but without stepping on each other's toes. This plugin is designed around the workflow at Etsy, where several people work in the same repository and Chef Infra Server simultaneously. A quick overview of the arguments in this plugin (see the GitHub documentation for full details):
 
 ``knife spork bump``
    Version cookbooks without updating the metadata.rb file.
@@ -18,7 +18,7 @@ The ``knife-spork`` plugin adds workflow that enables multiple developers to wor
    A collection of wrappers around the ``knife environment`` group of commands. These behave exactly the same as the base commands, but also use the ``knife-spork`` API.
 
 ``knife spork environment check``
-   Validate that a local environment file is locked to versions that actually exist on the Chef server.
+   Validate that a local environment file is locked to versions that actually exist on the Chef Infra Server.
 
 ``knife spork info``
    View a list of currently-loaded knife plugins.
@@ -36,6 +36,6 @@ The ``knife-spork`` plugin adds workflow that enables multiple developers to wor
    A collection of wrappers around the ``knife role`` group of commands. These behave exactly the same as the base commands, but also use the ``knife-spork`` API.
 
 ``knife spork upload``
-   Upload a cookbook to the Chef server and freeze it.
+   Upload a cookbook to the Chef Infra Server and freeze it.
 
-.. warning:: This topic is about a Chef community-authored tool that is packaged as part of the Chef development kit. See https://github.com/jonlives/knife-spork for more information about the ``knife-spork`` plugin.
+.. warning:: This topic is about a Chef community-authored tool that is packaged as part of ChefDK. See https://github.com/jonlives/knife-spork for more information about the ``knife-spork`` plugin.

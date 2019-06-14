@@ -9,7 +9,7 @@ A knife plugin is a set of one (or more) subcommands that can be added to knife 
 
 .. end_tag
 
-The chef-client will load knife and knife plugin commands from the following locations:
+The Chef Infra Client will load knife and knife plugin commands from the following locations:
 
 * The home directory: ``~/.chef/plugins/knife/``
 * A ``.chef/plugins/knife`` directory in the cookbook repository
@@ -29,23 +29,24 @@ There are many ways to structure a knife plugin. The following syntax shows a ty
    module ModuleName
      class SubclassName < Chef::Knife
 
-     deps do
-       require 'chef/dependency'
-       # other dependencies, as needed
-     end
+       deps do
+         require 'chef/dependency'
+         # other dependencies, as needed
+       end
 
-     banner "knife subcommand argument VALUE (options)"
+       banner "knife subcommand argument VALUE (options)"
 
-     option :name_of_option,
-       :short => "-l VALUE",
-       :long => "--long-option-name VALUE",
-       :description => "The description for the option.",
-       :proc => Proc.new { code_to_run }
-       :boolean => true | false
-       :default => default_value
+       option :name_of_option,
+         :short => "-l VALUE",
+         :long => "--long-option-name VALUE",
+         :description => "The description for the option.",
+         :proc => Proc.new { code_to_run }
+         :boolean => true | false
+         :default => default_value
 
-     def run
-       # Ruby code goes here
+       def run
+         # Ruby code goes here
+       end
      end
    end
 
@@ -447,7 +448,7 @@ where
 
 Search
 -----------------------------------------------------
-Use the Chef server search capabilities from a plugin to return information about the infrastructure to that plugin. Use the ``require`` method to ensure that search functionality is available with the following:
+Use the Chef Infra Server search capabilities from a plugin to return information about the infrastructure to that plugin. Use the ``require`` method to ensure that search functionality is available with the following:
 
 .. code-block:: ruby
 
@@ -459,7 +460,7 @@ Create a search query object and assign it to a variable:
 
    variable_name = Chef::Search::Query.new
 
-After the search object is created it can be used by the plugin to execute search queries for objects on the Chef server. For example, using a variable named ``query_nodes`` a plugin could search for nodes with the ``webserver`` role and then return the name of each node found:
+After the search object is created it can be used by the plugin to execute search queries for objects on the Chef Infra Server. For example, using a variable named ``query_nodes`` a plugin could search for nodes with the ``webserver`` role and then return the name of each node found:
 
 .. code-block:: ruby
 

@@ -141,7 +141,7 @@ The ``create-backup`` subcommand is used to create Chef Automate backups. By def
 .. code-block:: none
 
    $ automate-ctl create-backup [NAME] [options]
-        --chef-server-config         Backup up the Chef Server config if present
+        --chef-server-config         Backup up the Chef Infra Server config if present
         --digest [int]               The SHA digest length to output. 256, 384, and 512 are valid
         --force                      Agree to all warnings and prompts
         --name [string]              The output name of the backup

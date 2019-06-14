@@ -21,20 +21,21 @@ The powershell_package resource has the following syntax:
 
 .. code-block:: ruby
 
-   powershell_package 'name' do
-
-     package_name               String, Array # defaults to 'name' if not specified
-     version                    String, Array
-     source                     String
-     action                     Symbol # defaults to :install if not specified
-   end
+  powershell_package 'name' do
+    package_name              String, Array
+    skip_publisher_check      true, false # default value: false
+    source                    String
+    timeout                   String, Integer
+    version                   String, Array
+    action                    Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``powershell_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``package_name``, ``version``, ``source``, ``notifies``, and ``subscribes`` are properties of this resource, with the Ruby type shown. See the "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``package_name``, ``skip_publisher_check``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -57,10 +58,12 @@ The powershell_package resource has the following properties:
 
    The name of the package. Default value: the name of the resource block.
 
-``version``
-   **Ruby Type:** String, Array
+``skip_publisher_check``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
-   The version of a package to be installed or upgraded.
+   Skip validating module author.
+
+   *New in Chef Client 14.3.*
 
 ``source``
    **Ruby Type:** String
@@ -69,6 +72,53 @@ The powershell_package resource has the following properties:
 
    *New in Chef Client 14.0.*
 
+``timeout``
+   **Ruby Type:** String, Integer
+
+   The amount of time (in seconds) to wait before timing out.
+
+
+``version``
+   **Ruby Type:** String, Array
+
+   The version of a package to be installed or upgraded.
+
+Common Resource Functionality
+=====================================================
+
+Chef resources include common properties, notifications, and resource guards.
+
+Common Properties
+-----------------------------------------------------
+
+.. tag resources_common_properties
+
+The following properties are common to every resource:
+
+``ignore_failure``
+  **Ruby Type:** true, false | **Default Value:** ``false``
+
+  Continue running a recipe if a resource fails for any reason.
+
+``retries``
+  **Ruby Type:** Integer | **Default Value:** ``0``
+
+  The number of attempts to catch exceptions and retry the resource.
+
+``retry_delay``
+  **Ruby Type:** Integer | **Default Value:** ``2``
+
+  The retry delay (in seconds).
+
+``sensitive``
+  **Ruby Type:** true, false | **Default Value:** ``false``
+
+  Ensure that sensitive resource data is not logged by the chef-client.
+
+.. end_tag
+
+Notifications
+-----------------------------------------------------
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -149,6 +199,31 @@ The syntax for ``subscribes`` is:
 .. code-block:: ruby
 
    subscribes :action, 'resource[name]', :timer
+
+.. end_tag
+
+Guards
+-----------------------------------------------------
+
+.. tag resources_common_guards
+
+A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+
+* A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
+* A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
+
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+
+.. end_tag
+.. tag resources_common_guards_properties
+
+The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+
+``not_if``
+  Prevent a resource from executing when the condition returns ``true``.
+
+``only_if``
+  Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
 

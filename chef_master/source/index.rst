@@ -5,19 +5,18 @@ Site Map
 
 This is the documentation for:
 
-* Chef, including the Chef server, the Chef client, the Chef
-  development kit (ChefDK) and related tools
+* Chef, including the Chef Infra Server, the Chef Infra Client, ChefDK, and related tools
 * Chef Automate
 
-For information on Habitat and InSpec, see their respective documentation:
+For information on Chef Habitat and Chef InSpec, see their respective documentation:
 
-* `Habitat documentation <https://www.habitat.sh/docs/>`_
-* `InSpec documentation <https://www.inspec.io/docs/>`_
+* `Chef Habitat documentation <https://www.habitat.sh/docs/>`_
+* `Chef InSpec documentation <https://www.inspec.io/docs/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If you are new to Chef, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef to familarize yourself with Chef concepts.
+If you are new to Chef Infra, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef to familiarize yourself with Chef Infra concepts.
 
 If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
 
@@ -39,10 +38,12 @@ Community
 
 Packages and Platform Support
 -----------------------------------------------------
+`Licensing </chef_license.html>`__ |
 `Packages </packages.html>`__ |
-`Platforms and Supported Versions </platforms.html>`__ |
-`Omnitruck API </api_omnitruck.html>`__ |
-`Licensing </chef_license.html>`__
+`Platforms </platforms.html>`__ |
+`Supported Versions </versions.html>`__ |
+`Omnitruck API </api_omnitruck.html>`__
+
 
 Chef
 =====================================================
@@ -58,9 +59,9 @@ Getting Started
 `Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
-`Chef Client </release_notes.html>`__ |
-`Chef Development Kit </release_notes_chefdk.html>`__ |
-`Chef Server </release_notes_server.html>`__ |
+`Chef Infra Client </release_notes.html>`__ |
+`ChefDK </release_notes_chefdk.html>`__ |
+`Chef Infra Server </release_notes_server.html>`__ |
 `Chef Push Jobs </release_notes_push_jobs.html>`__ |
 
 `Deprecations </chef_deprecations_client.html>`__
@@ -68,11 +69,11 @@ Getting Started
 Concepts
 -----------------------------------------------------
 
-`Workstation </workstation.html>`__ |
+`Chef Workstation </workstation.html>`__ |
 `chef-repo </chef_repo.html>`__ |
 `Nodes </nodes.html>`__ |
-`Chef Client Overview </chef_client_overview.html>`__ |
-`Server </server_components.html>`__ |
+`Chef Infra Client Overview </chef_client_overview.html>`__ |
+`Chef Infra Server </server_components.html>`__ |
 `Search </chef_search.html>`__ |
 `Cookbooks </cookbooks.html>`__ |
 `Handlers </handlers.html>`__ |
@@ -81,7 +82,6 @@ Concepts
 **Policy**: `About Policy </policy.html>`__ | `Data Bags </data_bags.html>`__ | `Environments </environments.html>`__ | `Roles </roles.html>`__
 
 `Push Jobs </push_jobs.html>`__ |
-`Reporting </reporting.html>`__ |
 `Run-lists </run_lists.html>`__
 
 **Security**: `Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `Private Keys </chef_private_keys.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
@@ -93,19 +93,19 @@ Concepts
 Guides
 -----------------------------------------------------
 
-**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__ 
+**Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__
 
-**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
+**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Infra Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
 Setup
 -----------------------------------------------------
 `Proxies </proxies.html>`__ |
 `Installing Chef on Windows </dk_windows.html>`__ |
-`Workstation </install_dk.html>`__
+`Chef Workstation </install_dk.html>`__
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__  | `Integrate Chef Compliance with Chef Server </integrate_compliance_chef_server.html>`__
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -137,6 +137,7 @@ Cookbook Reference
 `apt_preference </resource_apt_preference.html>`__ |
 `apt_repository </resource_apt_repository.html>`__ |
 `apt_update </resource_apt_update.html>`__ |
+`archive_file </resource_archive_file.html>`__ |
 `bash </resource_bash.html>`__ |
 `batch </resource_batch.html>`__ |
 `bff_package </resource_bff_package.html>`__ |
@@ -234,6 +235,7 @@ Cookbook Reference
 `rhsm_subscription </resource_rhsm_subscription.html>`__ |
 `service </resource_service.html>`__ |
 `smartos_package </resource_smartos_package.html>`__ |
+`snap_package </resource_snap_package.html>`__ |
 `solaris_package </resource_solaris_package.html>`__ |
 `ssh_known_hosts_entry </resource_ssh_known_hosts_entry.html>`__ |
 `subversion </resource_subversion.html>`__ |
@@ -247,6 +249,11 @@ Cookbook Reference
 `windows_auto_run </resource_windows_auto_run.html>`__ |
 `windows_certificate </resource_windows_certificate.html>`__ |
 `windows_env </resource_windows_env.html>`__ |
+`windows_dfs_folder </resource_windows_dfs_folder.html>`__ |
+`windows_dfs_namespace </resource_windows_dfs_namespace.html>`__ |
+`windows_dfs_server </resource_windows_dfs_server.html>`__ |
+`windows_dns_record </resource_windows_dns_record.html>`__ |
+`windows_dns_zone </resource_windows_dns_zone.html>`__ |
 `windows_feature </resource_windows_feature.html>`__ |
 `windows_feature_dism </resource_windows_feature_dism.html>`__ |
 `windows_feature_powershell </resource_windows_feature_powershell.html>`__ |
@@ -259,6 +266,7 @@ Cookbook Reference
 `windows_share </resource_windows_share.html>`__ |
 `windows_shortcut </resource_windows_shortcut.html>`__ |
 `windows_task </resource_windows_task.html>`__ |
+`windows_uac </resource_windows_uac.html>`__ |
 `windows_workgroup </resource_windows_workgroup.html>`__ |
 `yum_package </resource_yum_package.html>`__ |
 `yum_repository </resource_yum_repository.html>`__ |
@@ -306,7 +314,7 @@ ChefDK
 
 `push-jobs-client (executable) </ctl_push_jobs_client.html>`__
 
-**Managing the Server**: `Runbook (Single Page) </runbook.html>`__ | `Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ | `Backup and Restore </server_backup_restore.html>`__ | `Data Storage </server_data.html>`__ | `Firewalls and Ports </server_firewalls_and_ports.html>`__ | `Active Directory and LDAP </server_ldap.html>`__ | `Log Files </server_logs.html>`__ | `Monitor </server_monitor.html>`__ | `Organizations and Groups </server_orgs.html>`__ | `Secrets </secrets.html>`__ | `Security </server_security.html>`__ | `Services </server_services.html>`__ | `Tuning </server_tuning.html>`__ | `Upgrades </upgrade_server.html>`__ | `Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ | `Users </server_users.html>`__ | `chef-server-ctl </ctl_chef_server.html>`__ | `chef-backend-ctl </ctl_chef_backend.html>`__ | `chef-server.rb </config_rb_server.html>`__ | `opscode-expander-ctl </ctl_opscode_expander.html>`__ | `Chef Server API </api_chef_server.html>`__
+**Managing the Server**: `Runbook (Single Page) </runbook.html>`__ | `Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ | `Backup and Restore </server_backup_restore.html>`__ | `Firewalls and Ports </server_firewalls_and_ports.html>`__ | `Active Directory and LDAP </server_ldap.html>`__ | `Log Files </server_logs.html>`__ | `Monitor </server_monitor.html>`__ | `Organizations and Groups </server_orgs.html>`__ | `Secrets </secrets.html>`__ | `Security </server_security.html>`__ | `Services </server_services.html>`__ | `Tuning </server_tuning.html>`__ | `Upgrades </upgrade_server.html>`__ | `Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ | `Users </server_users.html>`__ | `chef-server-ctl </ctl_chef_server.html>`__ | `chef-backend-ctl </ctl_chef_backend.html>`__ | `chef-server.rb </config_rb_server.html>`__ | `opscode-expander-ctl </ctl_opscode_expander.html>`__ | `Chef Infra Server API </api_chef_server.html>`__
 
 **Push Jobs**: `knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
 
@@ -328,7 +336,6 @@ Chef Automate
 `Telemetry <https://automate.chef.io/docs/telemetry/>`__ |
 `Event Feed <https://automate.chef.io/docs/event-feed/>`__ |
 `Client Runs <https://automate.chef.io/docs/client-runs/>`__ |
-`Compliance <https://automate.chef.io/docs/compliance/>`__ |
 `Scan Jobs <https://automate.chef.io/docs/scan-jobs/>`__ |
 `Nodes API <https://automate.chef.io/docs/nodes/>`__ |
 `Cloud Integrations <https://automate.chef.io/docs/integrations/>`__ |
@@ -345,30 +352,25 @@ Chef Automate
 `Architecture <https://automate.chef.io/docs/architectural-overview/>`__ |
 `Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate/>`__ |
 `ServiceNow Integration <https://automate.chef.io/docs/servicenow-integration-install/>`__ |
-`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__ 
+`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__
 
-Habitat
+Chef Habitat
 =====================================================
 
-**Documentation**: `Habitat Documentation <https://www.habitat.sh/docs/>`__
+**Documentation**: `Chef Habitat Documentation <https://www.habitat.sh/docs/>`__
 
-**Tutorials**: `Habitat Tutorials <https://www.habitat.sh/tutorials/>`_
+**Tutorials**: `Chef Habitat Tutorials <https://www.habitat.sh/tutorials/>`_
 
-InSpec
+Chef InSpec
 =====================================================
 
-**Documentation**: `InSpec Documentation <https://www.inspec.io/docs/>`_
+**Documentation**: `Chef InSpec Documentation <https://www.inspec.io/docs/>`_
 
-**Tutorials**: `InSpec Tutorials <https://www.inspec.io/tutorials/>`_
+**Tutorials**: `Chef InSpec Tutorials <https://www.inspec.io/tutorials/>`_
 
 
 Legacy
 =====================================================
-
-Analytics
------------------------------------------------------
-
-`Overview </analytics.html>`__ | `Release Notes </release_notes_analytics.html>`__ | `Install Standalone </install_analytics.html>`__ | `Web UI </actions.html>`__ | `Management Console </analytics_webui_tasks.html>`__ | `Nodes View </analytics_nodes_view.html>`__ | `Integrations </analytics.html#integrations>`_ | `Splunk </analytics_splunk.html>`__ | `Rules </analytics_rules.html>`__ | `Monitor </analytics_monitor.html>`__ | `Upgrades </upgrade_analytics.html>`__ | `Chef Client for Analytics </chef_client_analytics.html>`__ | `opscode-analytics-ctl </ctl_analytics.html>`__ | `opscode-analytics.rb </config_rb_analytics.html>`__ | `knife-analytics </plugin_knife_analytics.html>`__ | `Analytics API </api_analytics.html>`__ | `Recipe DSL for Analytics </dsl_recipe_analytics.html>`__
 
 Chef Automate 1
 -----------------------------------------------------
@@ -386,7 +388,7 @@ Chef Automate 1
 `Configure a Project </config_json_delivery.html>`__ |
 `Configure Data Collection </data_collection.html>`__ |
 `Data Collection and Chef HA </data_collection_ha.html>`__ |
-`Data Collection without Chef Server </data_collection_without_server.html>`__ |
+`Data Collection without Chef Infra Server </data_collection_without_server.html>`__ |
 `Stream Data </stream_data_chef_automate.html>`__ |
 `Upgrades </upgrade_chef_automate.html>`_
 
@@ -409,36 +411,13 @@ Chef Automate 1
 
 **Managing the Server**: `Backups </delivery_server_backup.html>`__ | `Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ | `Disaster Recovery </delivery_server_disaster_recovery.html>`__ | `Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ | `Secrets </delivery_manage_secrets.html>`__ | `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ | `Tuning </delivery_server_tuning.html>`__ | `Users and Roles </delivery_users_and_roles.html>`__
 
-**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Chef Compliance API </api_compliance.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
+**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
 
 **Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__
 
 **AWS OpsWorks for Chef Automate**: `AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
 
 **Troubleshooting**: `Troubleshooting </troubleshooting_chef_automate.html>`__
-
-Compliance scanner
------------------------------------------------------
-
-`Overview </chef_compliance.html>`__ |
-`Installation Guide </install_chef_compliance.html>`__ |
-`Integrate w/Chef Server </integrate_compliance_chef_server.html>`__ |
-`Integrate w/Chef Automate </integrate_compliance_server_chef_automate.html>`__ |
-`Upgrade Compliance </upgrade_compliance.html>`__ |
-`chef-compliance.rb </config_rb_compliance.html>`__ |
-`Profile Store </profile_store.html>`__
-`Chef Compliance for Microsoft Azure </compliance_azure.html>`__
-
-Reporting
------------------------------------------------------
-
-`Overview </reporting.html>`__ |
-`Install Reporting </install_reporting.html>`__ |
-`View Reports </server_manage_reports.html>`__ |
-`knife reporting </plugin_knife_reporting.html>`__ |
-`opscode-reporting-ctl </ctl_reporting.html>`__ |
-`opscode-reporting.rb </config_rb_reporting.html>`__ |
-`Reporting API </api_reporting.html>`__
 
 Extension APIs
 =====================================================
@@ -467,10 +446,10 @@ Ohai Plugins
 -----------------------------------------------------
 `Custom Plugins </ohai_custom.html>`__ | `Community Plugins </plugin_community.html#ohai.html>`__
 
-Chef Client Plugins
+Chef Infra Client Plugins
 -----------------------------------------------------
 
-`Chef Client Plugins </plugin_community.html#chef-client>`_
+`Chef Infra Client Plugins </plugin_community.html#chef-infra-client>`_
 
 Addenda
 =====================================================
@@ -488,22 +467,18 @@ Addenda
    :hidden:
 
    about_chefdk
-   api_chef_server
-   api_compliance
    api_automate
+   api_chef_server
    api_omnitruck
    api_push_jobs
-   api_reporting
    attributes
    audit_cookbook
    auth
    automate_azure
-   automate_compliance_scanner
-   automate_compliance_reporting
-   automate_compliance_profile_store
    automate_compliance_credentials
-   automate_nodes
-   automate_admin
+   automate_compliance_profile_store
+   automate_compliance_reporting
+   automate_compliance_scanner
    aws_marketplace
    aws_opsworks_chef_automate
    azure_chef_cli
@@ -517,8 +492,8 @@ Addenda
    chef_client_overview
    chef_client_security
    chef_deprecations_client
-   chefdk_setup
    chef_license
+   chef_license_accept
    chef_overview
    chef_private_keys
    chef_quick_overview
@@ -528,16 +503,14 @@ Addenda
    chef_solo
    chef_system_requirements
    chef_vault
+   chefdk_setup
    chefspec
    community
    community_contributions
    community_guidelines
-   compliance_azure
-   chef_compliance
    config_json_delivery
    config_rb
    config_rb_client
-   config_rb_compliance
    config_rb_delivery
    config_rb_delivery_optional_settings
    config_rb_manage
@@ -547,7 +520,6 @@ Addenda
    config_rb_policyfile
    config_rb_push_jobs_client
    config_rb_push_jobs_server
-   config_rb_reporting
    config_rb_server
    config_rb_server_optional_settings
    config_rb_solo
@@ -557,20 +529,18 @@ Addenda
    cookbook_versioning
    cookbooks
    cookstyle
+   ctl_automate_server
    ctl_chef
    ctl_chef_apply
    ctl_chef_backend
    ctl_chef_client
    ctl_chef_server
    ctl_chef_solo
-   delivery_cli
-   ctl_automate_server
    ctl_kitchen
    ctl_manage
    ctl_ohai
    ctl_opscode_expander
    ctl_push_jobs_client
-   ctl_reporting
    ctl_supermarket
    custom_resources
    custom_resources_notes
@@ -578,15 +548,14 @@ Addenda
    data_collection
    data_collection_ha
    data_collection_without_server
-   scaling_capacity_planning_chef_automate
-   stream_data_chef_automate
    data_retention_chef_automate
    debug
    definitions
-   delivery_pipeline
    delivery_build_cookbook
+   delivery_cli
    delivery_manage_dependencies
    delivery_manage_secrets
+   delivery_pipeline
    delivery_server_backup
    delivery_server_disaster_recovery
    delivery_server_tuning
@@ -609,6 +578,7 @@ Addenda
    deprecations_launchd_hash_property
    deprecations_legacy_hwrp_mixins
    deprecations_local_listen
+   deprecations_locale_lc_all
    deprecations_map_collision
    deprecations_namespace_collisions
    deprecations_ohai_amazon_linux
@@ -617,20 +587,20 @@ Addenda
    deprecations_ohai_digitalocean
    deprecations_ohai_filesystem
    deprecations_ohai_filesystem_v2
+   deprecations_ohai_ipscopes
    deprecations_ohai_legacy_config
    deprecations_ohai_libvirt_plugin
    deprecations_ohai_run_command_helpers
    deprecations_ohai_sigar_plugins
    deprecations_ohai_v6_plugins
    deprecations_ohai_windows_cpu
-   deprecations_ohai_ipscopes
-   depreciations_ohai_system_profile
    deprecations_property_name_collision
    deprecations_resource_cloning
    deprecations_run_command
    deprecations_shell_out
    deprecations_supports_property
    deprecations_verify_file
+   depreciations_ohai_system_profile
    dk_windows
    dsl_audit
    dsl_custom_resource
@@ -640,8 +610,8 @@ Addenda
    elasticsearch_and_kibana_auth
    environment_variables
    environments
-   errors
    error_messages
+   errors
    feedback
    files
    filter_compliance_scan
@@ -650,26 +620,19 @@ Addenda
    glossary
    google
    handlers
-   install_chef_automate
    install_bootstrap
    install_chef_air_gap
-   install_chef_compliance
+   install_chef_automate
    install_dk
    install_omnibus
    install_push_jobs
-   install_reporting
    install_server
    install_server_ha
-   install_server_ha_aws
-   install_server_ha_drbd
-   install_server_post
    install_server_pre
    install_server_tiered
    install_supermarket
    install_windows
    integrate_chef_automate_saml
-   integrate_compliance_chef_server
-   integrate_compliance_server_chef_automate
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
@@ -682,7 +645,6 @@ Addenda
    knife
    knife_azure
    knife_azurerm
-   knife_options
    knife_bootstrap
    knife_client
    knife_configure
@@ -698,11 +660,13 @@ Addenda
    knife_exec
    knife_list
    knife_node
+   knife_options
    knife_raw
    knife_recipe_list
    knife_role
    knife_search
    knife_serve
+   knife_setup
    knife_show
    knife_ssh
    knife_ssl_check
@@ -712,7 +676,6 @@ Addenda
    knife_tag
    knife_upload
    knife_user
-   knife_setup
    knife_windows
    knife_xargs
    libraries
@@ -731,31 +694,30 @@ Addenda
    plugin_knife_custom
    plugin_knife_opc
    plugin_knife_push_jobs
-   plugin_knife_reporting
    plugin_knife_spork
    policy
    policyfile
    profile_store
-   proxies
    provisioning
    provisioning_aws
    provisioning_fog
    provisioning_vagrant
+   proxies
    publish_cookbooks_multiple_servers
    push_jobs
    quick_start
    recipes
-   reporting
    release_notes
    release_notes_chef_automate
    release_notes_chefdk
-   release_notes_server
    release_notes_push_jobs
+   release_notes_server
    resource
    resource_apt_package
    resource_apt_preference
    resource_apt_repository
    resource_apt_update
+   resource_archive_file
    resource_bash
    resource_batch
    resource_bff_package
@@ -841,6 +803,7 @@ Addenda
    resource_public_key
    resource_python
    resource_reboot
+   resource_reference
    resource_registry_key
    resource_remote_directory
    resource_remote_file
@@ -856,6 +819,7 @@ Addenda
    resource_script
    resource_service
    resource_smartos_package
+   resource_snap_package
    resource_solaris_package
    resource_subversion
    resource_sudo
@@ -867,6 +831,11 @@ Addenda
    resource_user
    resource_windows_ad_join
    resource_windows_auto_run
+   resource_windows_dfs_folder
+   resource_windows_dfs_namespace
+   resource_windows_dfs_server
+   resource_windows_dns_record
+   resource_windows_dns_zone
    resource_windows_env
    resource_windows_feature
    resource_windows_feature_dism
@@ -879,24 +848,23 @@ Addenda
    resource_windows_service
    resource_windows_shortcut
    resource_windows_task
+   resource_windows_uac
    resource_yum_package
    resource_yum_repository
    resource_zypper_package
    resource_zypper_repository
-   resource_reference
    roles
    ruby
    run_lists
-   runners
    runbook
+   runners
+   scaling_capacity_planning_chef_automate
    search_query_chef_automate
    secrets
    server_backup_restore
    server_components
    server_configure_saml
-   server_data
    server_firewalls_and_ports
-   server_high_availability
    server_ldap
    server_logs
    server_manage_clients
@@ -904,7 +872,6 @@ Addenda
    server_manage_data_bags
    server_manage_environments
    server_manage_nodes
-   server_manage_reports
    server_manage_roles
    server_monitor
    server_orgs
@@ -915,6 +882,7 @@ Addenda
    server_tuning
    server_users
    setup_build_node
+   stream_data_chef_automate
    style_guide
    supermarket
    supermarket_api
@@ -927,32 +895,11 @@ Addenda
    uninstall
    upgrade_chef_automate
    upgrade_client
-   upgrade_client_notes
-   upgrade_compliance
    upgrade_server
    upgrade_server_ha_v2
-   upgrade_server_notes
-   upgrade_server_open_source_notes
+   versions
    visibility
    vmware
    windows
    windows_knife_intro
    workflow
-   actions
-   analytics
-   analytics_monitor
-   analytics_nodes_view
-   analytics_rules
-   analytics_splunk
-   analytics_webui_tasks
-   api_analytics
-   chef_client_analytics
-   config_rb_analytics
-   ctl_analytics
-   dsl_recipe_analytics
-   install_analytics
-   install_reporting
-   install_server_pre
-   plugin_knife_analytics
-   release_notes_analytics
-   upgrade_analytics

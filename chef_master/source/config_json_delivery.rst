@@ -5,9 +5,8 @@ Configure a Project through config.json (Chef Automate)
 
 .. tag chef_automate_mark
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
 
 .. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
 
@@ -135,10 +134,10 @@ The behavior of pipeline phases can be customized using the project's ``config.j
            ...
         }
 
-     .. note:: If you omit this setting or set it to "v1", the previous job dispatch system using push jobs 1.x will be used instead.
+     .. note:: If you omit this setting or set it to "v1", the previous job dispatch system using Push Jobs 1.x will be used instead.
 
    * ``"filters"``
-     Similar to the former Chef push jobs-based dispatch system, you can set a variety of filters. Filters control which runners can run a job for a Chef Automate project. You can set filters for the entire project as well as specific filters per phase. You can also specify a matrix of filters to a run phase job repeatedly on multiple platform configurations.
+     Similar to the former Chef Push Jobs-based dispatch system, you can set a variety of filters. Filters control which runners can run a job for a Chef Automate project. You can set filters for the entire project as well as specific filters per phase. You can also specify a matrix of filters to a run phase job repeatedly on multiple platform configurations.
 
      The values you can filter on are ``os``, ``platform``, ``platform_family``, and ``platform_version``. If you omit a value, job dispatch will not filter on it.
 
@@ -271,7 +270,7 @@ Chef Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag delivery_config_json_setting_delivery_truck_publish_chef_server
 
-If the ``config.json`` file specifies the following cookbooks are published to the Chef server that is part of this Chef Automate configuration:
+If the ``config.json`` file specifies the following cookbooks are published to the Chef Infra Server that is part of this Chef Automate configuration:
 
 .. code-block:: javascript
 
@@ -297,7 +296,7 @@ If the ``config.json`` file specifies the following cookbooks are published to a
      }
    }
 
-This publishing option requires the ``git`` deploy key for that repository to be available from a data bag on the Chef server that is part of this Chef Automate configuration.
+This publishing option requires the ``git`` deploy key for that repository to be available from a data bag on the Chef Infra Server that is part of this Chef Automate configuration.
 
 .. end_tag
 
@@ -317,7 +316,7 @@ If the ``config.json`` file specifies the following cookbooks are published to a
 
 where ``"chef/chef-web-docs"`` represents the organization/repository to which the ``build-cookbook`` belongs.
 
-This publishing option requires the ``github`` deploy key for that repository to be available from a data bag on the Chef server that is part of this Chef Automate configuration.
+This publishing option requires the ``github`` deploy key for that repository to be available from a data bag on the Chef Infra Server that is part of this Chef Automate configuration.
 
 .. end_tag
 
@@ -367,7 +366,7 @@ Publish cookbooks to Chef Supermarket, but with custom credentials:
    }
 
 This ``publish`` option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the
-``delivery-secrets`` data bag on the Chef server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag,
+``delivery-secrets`` data bag on the Chef Infra Server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag,
 see `Handling Secrets <https://github.com/chef-cookbooks/delivery-sugar#handling-secrets-alpha>`_ in the ``delivery-sugar`` cookbook README file.
 
 .. end_tag
@@ -479,7 +478,7 @@ The following examples show how to specify the location of the ``build-cookbook`
 
 .. tag delivery_config_example_build_cookbook_server
 
-.. To specify a build-cookbook located on a Chef server:
+.. To specify a build-cookbook located on a Chef Infra Server:
 
 .. code-block:: javascript
 

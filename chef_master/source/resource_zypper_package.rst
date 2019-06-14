@@ -26,15 +26,15 @@ The zypper_package resource has the following syntax:
 .. code-block:: ruby
 
   zypper_package 'name' do
-    allow_downgrade              true, false # default value: false
-    global_options               String, Array
-    gpg_check                    true, false # default value: "true"
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    allow_downgrade      true, false # default value: true
+    global_options       String, Array
+    gpg_check            true, false # default value: "true"
+    options              String, Array
+    package_name         String, Array
+    source               String
+    timeout              String, Integer
+    version              String, Array
+    action               Symbol # defaults to :install if not specified
   end
 
 where:
@@ -58,7 +58,7 @@ The zypper_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -80,7 +80,7 @@ The zypper_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -90,7 +90,7 @@ Properties
 The zypper_package resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Allow downgrading a package to satisfy requested version requirements.
 
@@ -99,7 +99,7 @@ The zypper_package resource has the following properties:
 ``global_options``
    **Ruby Type:** String, Array
 
-   One (or more) additional options that are passed to the package resource other than options to the command.
+   One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
 
    *New in Chef Client 14.6.*
 
@@ -112,17 +112,17 @@ The zypper_package resource has the following properties:
 ``options``
    **Ruby Type:** String, Array
 
-   One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Defaults to the name of the resource block unless specified.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   The direct path to a the package on the host.
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer
@@ -351,8 +351,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package using package manager**
 
-.. tag resource_zypper_package_install_package
-
 .. To install a package using package manager:
 
 .. code-block:: ruby
@@ -361,11 +359,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+
 
 **Install a package using local file**
-
-.. tag resource_zypper_package_install_package_using_local_file
 
 .. To install a package using local file:
 
@@ -376,11 +372,9 @@ The following examples demonstrate various approaches for using resources in rec
      source '/path/to/jwhois.rpm'
    end
 
-.. end_tag
+
 
 **Install without using recommend packages as a dependency**
-
-.. tag resource_zypper_package_install_without_recommends_suggests
 
 .. To install without using recommend packages as a dependency:
 
@@ -390,4 +384,4 @@ The following examples demonstrate various approaches for using resources in rec
      options '--no-recommends'
    end
 
-.. end_tag
+

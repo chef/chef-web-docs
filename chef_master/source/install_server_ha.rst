@@ -3,20 +3,10 @@ High Availability: Backend Cluster
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_ha.rst>`__
 
-.. tag chef_automate_mark
-
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
-
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
-
-.. end_tag
-
 This topic introduces the underlying concepts behind the architecture
-of the highly available Chef server cluster. The topic then
+of the highly available Chef Infra Server cluster. The topic then
 describes the setup and installation process for a highly available
-Chef server cluster comprised of five total nodes (two frontend and three backend).
+Chef Infra Server cluster comprised of five total nodes (two frontend and three backend).
 
 .. note:: .. tag chef_subscriptions
 
@@ -27,15 +17,15 @@ Chef server cluster comprised of five total nodes (two frontend and three backen
 Overview
 =====================================================
 
-The Chef server can operate in a high availability configuration
+The Chef Infra Server can operate in a high availability configuration
 that provides automated load balancing and failover for stateful
 components in the system architecture. This type of configuration
 typically splits the servers into two segments: The backend cluster,
 and the frontend group.
 
 * The frontend group, comprised of one (or more) nodes running the
-  Chef server. Nodes in the frontend group handle requests to the
-  Chef server API and access to the Chef management console. Frontend group
+  Chef Infra Server. Nodes in the frontend group handle requests to the
+  Chef Infra Server API and access to the Chef management console. Frontend group
   nodes should be load balanced, and may be scaled horizontally by
   increasing the number of nodes available to handle requests.
 
@@ -51,22 +41,22 @@ and the frontend group.
 
 Key Differences From Standalone Chef server
 ----------------------------------------------------------------
-There are several key differences between the highly available Chef server cluster and a standalone Chef server instance.
+There are several key differences between the highly available Chef Infra Server cluster and a standalone Chef Infra Server instance.
 
-* While Apache Solr is used in standalone Chef server instances,
-  in the highly available Chef server cluster it is replaced with
+* While Apache Solr is used in standalone Chef Infra Server instances,
+  in the highly available Chef Infra Server cluster it is replaced with
   Elasticsearch. Elasticsearch provides more flexible clustering
   options while maintaining search API compatibility with Apache Solr.
 
 * Writes to the search engine and the database are handled
   asynchronously via RabbitMQ and chef-expander in standalone
-  Chef server instances. However, the highly available Chef server
+  Chef Infra Server instances. However, the highly available Chef server
   cluster writes to the search engine and the database
   simultaneously. As such the RabbitMQ and chef-expander services
-  are no longer present in the highly available Chef server cluster.
+  are no longer present in the highly available Chef Infra Server cluster.
 
-* Standalone Chef server instances write Bookshelf data to
-  the filesystem. In a highly available Chef server cluster, Bookshelf data is written to the database.
+* Standalone Chef Infra Server instances write Bookshelf data to
+  the filesystem. In a highly available Chef Infra Server cluster, Bookshelf data is written to the database.
 
 Recommended Cluster Topology
 =====================================================
@@ -97,7 +87,7 @@ The following are a list of general hardware requirements for both frontend and 
 * 8GB RAM
 * 50 GB/backend server (SSD if on premises, Premium Storage in Microsoft Azure, EBS-Optimized GP2 in AWS)
 
-.. warning:: The Chef server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
+.. warning:: The Chef Infra Server MUST NOT use a network file system of any type---virtual or physical---for backend storage. The Chef Infra Server database operates quickly. The behavior of operations, such as the writing of log files, will be unpredictable when run over a network file system.
 
 .. end_tag
 
@@ -135,12 +125,12 @@ Installation
 
 These instructions assume you are using the following versions or newer:
 
-- chef-server  : 12.5.0
-- chef-backend : 0.8.0
+- Chef Server  : 12.5.0
+- Chef Backend : 0.8.0
 
-Download `Chef server <https://downloads.chef.io/chef-server/>`_ and `Chef High Availability (chef-backend) <https://downloads.chef.io/chef-backend/>`_ if you do not have them already.
+Download `Chef Infra Server <https://downloads.chef.io/chef-server/>`_ and `Chef High Availability (chef-backend) <https://downloads.chef.io/chef-backend/>`_ if you do not have them already.
 
-Before creating the backend HA cluster and building at least one Chef server to be part of the frontend group, verify:
+Before creating the backend HA cluster and building at least one Chef Infra Server to be part of the frontend group, verify:
 
 * The user who will install and build the backend HA cluster and
   frontend group has root access to all nodes.
@@ -166,7 +156,7 @@ node used to bootstrap the cluster will be the cluster leader when the
 cluster comes online. After bootstrap completes this node is no
 different from any other back-end node.
 
-#. Install the chef-backend package on the first backend node as root.
+#. Install the Chef Backend package on the first backend node as root.
 
 #. Update ``/etc/chef-backend/chef-backend.rb`` with the following
    content:
@@ -258,8 +248,8 @@ to join nodes in parallel the cluster may fail to become available):
       leaderl        running (pid 6788)  1d 5h 59m 35s  leader: 1; waiting: 0; follower: 2; total: 3
       postgresql     running (pid 6640)  1d 5h 59m 43s  leader: 1; offline: 0; syncing: 0; synced: 2
 
-Step 4: Generate Chef server Configuration
---------------------------------------------
+Step 4: Generate Chef Infra Server Configuration
+-------------------------------------------------
 
 Log into the node from Step 1, and we will generate our chef-server frontend node configuration:
 
@@ -268,7 +258,7 @@ Log into the node from Step 1, and we will generate our chef-server frontend nod
     $ chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
     $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
 
-.. note:: ``/etc/chef-backend/chef-backend-secrets.json`` is *not* made available to Chef server frontend nodes.
+.. note:: ``/etc/chef-backend/chef-backend-secrets.json`` is *not* made available to Chef Infra Server frontend nodes.
 
 Step 5: Install and Configure First Frontend
 ---------------------------------------------
@@ -301,7 +291,7 @@ For each additional frontend node you wish to add to your cluster:
 
    .. note::
 
-      For Chef server versions prior to 12.14, you will also need to copy the key files:
+      For Chef Server versions prior to 12.14, you will also need to copy the key files:
 
         - /etc/opscode/webui_priv.pem
         - /etc/opscode/webui_pub.pem
@@ -314,7 +304,7 @@ For each additional frontend node you wish to add to your cluster:
 
 #. On the new frontend run ``chef-server-ctl reconfigure`` as root.
 
-Upgrading Chef Server on the Frontend Machines
+Upgrading Chef Infra Server on the Frontend Machines
 ----------------------------------------------------------------
 
 #. On one frontend server, follow the  `standalone upgrade process </upgrade_server.html#standalone>`_.
@@ -398,11 +388,11 @@ By service role, access requirements are as follows:
    * - Service
      - Access Requirements
    * - PostgreSQL
-     - All backend cluster members and all Chef server frontend group nodes.
+     - All backend cluster members and all Chef Infra Server frontend group nodes.
    * - Elasticsearch
-     - All backend cluster members and all Chef server frontend group nodes.
+     - All backend cluster members and all Chef Infra Server frontend group nodes.
    * - etcd
-     - All backend cluster members and all Chef server frontend group nodes.
+     - All backend cluster members and all Chef Infra Server frontend group nodes.
 
 Services and Secrets
 ----------------------------------------------------------------
@@ -449,7 +439,7 @@ The following services run on each node in the backend cluster. The user account
    * - ``epmd``
      - ``chef_pgsql`` (or first user launching an erlang process)
 
-Chef server frontend
+Chef Infra Server frontend
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``chef-backend-ctl gen-server-config`` command, which can be run as root from any node in the backend cluster, will automatically generate a configuration file containing the superuser database access credentials for the backend cluster PostgreSQL instance.
 
@@ -639,9 +629,9 @@ Chef HA backend leader health status settings
 * ``leaderl.health_check.max_elasticsearch_failures`` Number of Elastic Search API failures allowed before health check fails. 5 by default.
 * ``leaderl.health_check.max_etcd_failures`` Number of etcd failures allowed before health check fails. 5 by default.
 * ``leaderl.health_check.max_pgsql_failures`` Number of PostgreSQL connection failures allowed before health check fails. 5 by default.
-* ``leaderl.health_check.fatal_system_checks`` Whether or not system check failures (such as disk space failures) will result in the node being marked ineligible for leadership. ``false`` by default. **Added in Backend 1.4.**
-* ``leaderl.health_check.disk_paths`` An array containing the paths to check for sufficient disk space. ``[/var/log/chef-backend, /var/opt/chef-backend]`` by default. **Added in Backend 1.4.**
-* ``leaderl.health_check.disk_min_space_mb`` The minimum amount of disk space (in megabytes) required for a disk health check to pass. ``250`` by default. **Added in Backend 1.4.**
+* ``leaderl.health_check.fatal_system_checks`` Whether or not system check failures (such as disk space failures) will result in the node being marked ineligible for leadership. ``false`` by default. **Added in Chef Backend 1.4.**
+* ``leaderl.health_check.disk_paths`` An array containing the paths to check for sufficient disk space. ``[/var/log/chef-backend, /var/opt/chef-backend]`` by default. **Added in Chef Backend 1.4.**
+* ``leaderl.health_check.disk_min_space_mb`` The minimum amount of disk space (in megabytes) required for a disk health check to pass. ``250`` by default. **Added in Chef Backend 1.4.**
 
 Chef HA backend leader connection pool settings
 ----------------------------------------------------------------
@@ -671,4 +661,4 @@ If ``certificate`` and ``certificate_key`` are nil, the SSL Certificate will be 
 chef-backend-ctl
 =====================================================
 
-The Chef server backend HA cluster includes a command-line utility named chef-backend-ctl. This command-line tool is used to manage the Chef server backend HA cluster, start and stop individual services, and tail Chef server log files. For more information, see the `chef-backend-ctl documentation </ctl_chef_backend.html>`_.
+The Chef Infra Server backend HA cluster includes a command-line utility named chef-backend-ctl. This command-line tool is used to manage the Chef Infra Server backend HA cluster, start and stop individual services, and tail Chef Infra Server log files. For more information, see the `chef-backend-ctl documentation </ctl_chef_backend.html>`_.

@@ -7,7 +7,7 @@ This guide contains common configuration options used when setting up a new Chef
 
 Configure Ruby Environment
 =====================================================
-For many users of Chef, the version of Ruby that is included in the Chef development kit should be configured as the default version of Ruby.
+For many users of Chef, the version of Ruby that is included in ChefDK should be configured as the default version of Ruby.
 
 .. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby environment on Windows, see `ChefDK on Windows </dk_windows.html#configure-environment>`__.
 
@@ -18,7 +18,7 @@ For many users of Chef, the version of Ruby that is included in the Chef develop
       $ which ruby
 
    which will return something like ``/usr/bin/ruby``.
-#. To use the Chef development kit version of Ruby as the default Ruby, edit the ``$PATH`` and ``GEM`` environment variables to include paths to the Chef development kit. For example, on a machine that runs Bash, run:
+#. To use ChefDK version of Ruby as the default Ruby, edit the ``$PATH`` and ``GEM`` environment variables to include paths to ChefDK. For example, on a machine that runs Bash, run:
 
    .. code-block:: bash
 
@@ -34,12 +34,12 @@ For many users of Chef, the version of Ruby that is included in the Chef develop
 
 #. Run ``which ruby`` again. It should return ``/opt/chefdk/embedded/bin/ruby``.
 
-.. note:: Using the Chef development kit-provided Ruby as your system Ruby is optional. For many users, Ruby is primarily used for authoring Chef cookbooks and recipes. If that's true for you, then using the Chef Development Kit-provided Ruby is recommended.
+.. note:: Using ChefDK-provided Ruby as your system Ruby is optional. For many users, Ruby is primarily used for authoring Chef cookbooks and recipes. If that's true for you, then using the ChefDK-provided Ruby is recommended.
 
 
 Add Ruby to $PATH
 =====================================================
-The Chef Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running ChefDK. In a command window, type the following:
+The Chef Infra Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running ChefDK. In a command window, type the following:
 
 .. code-block:: bash
 
@@ -78,15 +78,13 @@ Use `the chef generate repo </ctl_chef.html#chef-generate-repo>`__ to create the
 Create .chef Directory
 -----------------------------------------------------
 
-.. tag install_chef_client_repo_manual_chef_directory
-
 The ``.chef`` directory is used to store three files:
 
 * ``config.rb``
 * ``ORGANIZATION-validator.pem``
 * ``USER.pem``
 
-Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for ChefDK to be able to connect to a Chef server.
+Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for ChefDK to be able to connect to a Chef Infra Server.
 
 To create the ``.chef`` directory:
 
@@ -115,11 +113,11 @@ To create the ``.chef`` directory:
 
       $ echo '.chef' >> ~/chef-repo/.gitignore
 
-.. end_tag
+
 
 Starter Kit
 -----------------------------------------------------
-If you have access to Chef server through Automate or Chef Manage, you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
+If you have access to Chef Infra Server through Automate or Chef Manage, you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
 
 Configure the Chef Repository
 =====================================================
@@ -131,7 +129,7 @@ Use the following steps to manually set up the chef-repo and to use the Chef man
 Get Config Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-For a ChefDK installation that will interact with the Chef server (including the hosted Chef server), log on and download the following files:
+For a ChefDK installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server), log on and download the following files:
 
 * ``config.rb``. This configuration file can be downloaded from the **Organizations** page.
 * ``ORGANIZATION-validator.pem``. This private key can be downloaded from the **Organizations** page.
@@ -140,7 +138,7 @@ For a ChefDK installation that will interact with the Chef server (including the
 Move Config Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem`` files must be moved to the ``.chef`` directory after they are downloaded from the Chef server.
+The ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem`` files must be moved to the ``.chef`` directory after they are downloaded from the Chef Infra Server.
 
 To move files to the ``.chef`` directory:
 
@@ -168,12 +166,12 @@ To move files to the ``.chef`` directory:
 
 Without WebUI
 -----------------------------------------------------
-Use the following steps to manually set up the Chef repository: On your Chef server, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool. Then, on your workstation create the ``config.rb`` file with the ``knife`` tool.
+Use the following steps to manually set up the Chef repository: On your Chef Infra Server, create the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files with the ``chef-server-ctl`` command line tool. Then, on your workstation create the ``config.rb`` file with the ``knife`` tool.
 
 Create an Organization
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-On the Chef server machine create the ``ORGANIZATION-validator.pem`` from the command line using ``chef-server-ctl``. Run the following command:
+On the Chef Infra Server machine create the ``ORGANIZATION-validator.pem`` from the command line using ``chef-server-ctl``. Run the following command:
 
 .. code-block:: bash
 
@@ -194,7 +192,7 @@ For example, an organization named ``chef``, with a full name of ``Chef Software
 Create a User
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-On the Chef server machine create the ``USER.pem`` from the command line using ``chef-server-ctl``. Run the following command:
+On the Chef Infra Server machine create the ``USER.pem`` from the command line using ``chef-server-ctl``. Run the following command:
 
 .. code-block:: bash
 
@@ -213,7 +211,7 @@ For example: a user named ``grantmc``, with a first and last name of ``Grant McL
 Move .pem Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Download the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files from the Chef Server and move them to the ``.chef`` directory.
+Download the ``ORGANIZATION-validator.pem`` and ``USER.pem`` files from the Chef Infra Server and move them to the ``.chef`` directory.
 
 To move files to the .chef directory:
 
@@ -254,30 +252,30 @@ Navigate to the ``~/chef-repo/.chef`` directory and create the ``config.rb`` usi
 
 At a minimum, you must update the following settings with the appropriate values:
 
-* ``client_key`` should point to the location of the Chef server user's ``.pem`` file on your ChefDK machine.
-* ``validation_client_name`` should be updated with the name of the desired organization that was created on the Chef server.
+* ``client_key`` should point to the location of the Chef Infra Server user's ``.pem`` file on your ChefDK machine.
+* ``validation_client_name`` should be updated with the name of the desired organization that was created on the Chef Infra Server.
 * ``validation_key`` should point to the location of your organization's ``.pem`` file on your ChefDK machine.
-* ``chef_server_url`` must be updated with the domain or IP address used to access the Chef server.
+* ``chef_server_url`` must be updated with the domain or IP address used to access the Chef Infra Server.
 
 See the `knife config.rb documentation </config_rb.html>`__ for more details.
 
 Get SSL Certificates
 =====================================================
-Chef server 12 enables SSL verification by default for all requests made to the server, such as those made by knife and the chef-client. The certificate that is generated during the installation of the Chef server is self-signed, which means there isn't a signing certificate authority (CA) to verify. In addition, this certificate must be downloaded to any machine from which knife and/or the chef-client will make requests to the Chef server.
+Chef Server 12 enables SSL verification by default for all requests made to the server, such as those made by knife and the Chef Infra Client. The certificate that is generated during the installation of the Chef Infra Server is self-signed, which means there isn't a signing certificate authority (CA) to verify. In addition, this certificate must be downloaded to any machine from which knife and/or the Chef Infra Client will make requests to the Chef Infra Server.
 
-Use the ``knife ssl fetch`` subcommand to pull the SSL certificate down from the Chef server:
+Use the ``knife ssl fetch`` subcommand to pull the SSL certificate down from the Chef Infra Server:
 
 .. code-block:: bash
 
    knife ssl fetch
 
-See `SSL Certificates </chef_client_security.html#ssl-certificates>`__ for more information about how knife and the chef-client use SSL certificates generated by the Chef server.
+See `SSL Certificates </chef_client_security.html#ssl-certificates>`__ for more information about how knife and the Chef Infra Client use SSL certificates generated by the Chef Infra Server.
 
 Verify Install
 =====================================================
-The ChefDK is installed correctly when it is able to use ``knife`` to communicate with the Chef server.
+The ChefDK is installed correctly when it is able to use ``knife`` to communicate with the Chef Infra Server.
 
-To verify that ChefDK can connect to the Chef server:
+To verify that ChefDK can connect to the Chef Infra Server:
 
 #. In a command window, navigate to the Chef repository:
 
@@ -291,7 +289,7 @@ To verify that ChefDK can connect to the Chef server:
 
       knife client list
 
-   to return a list of clients (registered nodes and ChefDK installations) that have access to the Chef server. For example:
+   to return a list of clients (registered nodes and ChefDK installations) that have access to the Chef Infra Server. For example:
 
    .. code-block:: bash
 

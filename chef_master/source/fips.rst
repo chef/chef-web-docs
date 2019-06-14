@@ -26,19 +26,16 @@ Supported Products
 **Supported:**
 
 * `Chef Automate </fips.html#how-to-enable-fips-mode-for-the-chef-automate-server>`__
-* `Chef Client </fips.html#how-to-enable-fips-mode-for-the-chef-client>`__
+* `Chef Infra Client </fips.html#how-to-enable-fips-mode-for-the-chef-client>`__
 * `ChefDK </fips.html#how-to-enable-fips-mode-for-workstations>`__
-* `Chef server </fips.html#how-to-enable-fips-mode-for-the-chef-server>`__
+* `Chef Infra Server </fips.html#how-to-enable-fips-mode-for-the-chef-server>`__
 
 **Unsupported:**
 
-FIPS mode is not supported for Chef Server add-ons. This includes:
+FIPS mode is not supported for Chef Infra Server add-ons. This includes:
 
-* Chef Compliance (standalone)
 * Chef Manage
-* Analytics
 * Push Jobs
-* Reporting
 
 How to enable FIPS mode in the Operating System
 ==================================================================
@@ -47,7 +44,7 @@ FIPS kernel settings
 ------------------------------------------------------------------
 Windows and Red Hat Enterprise Linux can both be configured for FIPS mode using a kernel-level setting. After FIPS mode is enabled at the kernel level, the operating system will only use FIPS approved algorithms and keys during operation.
 
-All of the tools Chef produces that have FIPS support read this kernel setting and default their mode of operation to match it with the exception of the workstation, which requires designating a port in the ``fips_git_port`` setting of the ``cli.toml``.  For the other Chef tools, Chef Client, for example, if ``chef-client`` is run on an  operating system configured into FIPS mode and you run, that Chef run will automatically be in FIPS mode unless the user disables it.
+All of the tools Chef produces that have FIPS support read this kernel setting and default their mode of operation to match it with the exception of the workstation, which requires designating a port in the ``fips_git_port`` setting of the ``cli.toml``.  For the other Chef tools, Chef Infra Client, for example, if ``chef-client`` is run on an  operating system configured into FIPS mode and you run, that Chef run will automatically be in FIPS mode unless the user disables it.
 
 To enable FIPS on your platform follow these instructions:
 
@@ -66,13 +63,13 @@ Prerequisites
 Configuration
 ------------------------------------------------------------------
 If you have FIPS compliance enabled at the kernel level and install or
-reconfigure the Chef Server then it will default to running in FIPS mode.
+reconfigure the Chef Infra Server then it will default to running in FIPS mode.
 
-To enable FIPS manually for the Chef Server, can add ``fips true`` to the
+To enable FIPS manually for the Chef Infra Server, can add ``fips true`` to the
 ``/etc/opscode/chef-server.rb`` and reconfigure.  For more configuration information see `Chef
 Server </config_rb_server_optional_settings.html>`_.
 
-How to enable FIPS mode for the Chef client
+How to enable FIPS mode for the Chef Client
 ==================================================================
 
 Prerequisites
@@ -83,13 +80,11 @@ Prerequisites
 Configuration
 ------------------------------------------------------------------
 
-If you have FIPS compliance enabled at the kernel level then chef-client will
+If you have FIPS compliance enabled at the kernel level then Chef Infra Client will
 default to running in FIPS mode. Otherwise you can add ``fips true`` to the
 ``/etc/chef/client.rb`` or ``C:\\chef\\client.rb``.
 
-.. tag chef_client_fips_mode
 
-.. end_tag
 
 **Bootstrap a node using FIPS**
 
@@ -157,7 +152,7 @@ If you are using a custom certificate authority or a self-signed certificate the
 How to enable FIPS mode for workstations
 ==================================================================
 
-A workstation is a computer running the Chef Development Kit (ChefDK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
+A workstation is a computer running ChefDK that is used to author cookbooks, interact with the Chef Infra Server, and interact with nodes.
 
 Prerequisites
 ------------------------------------------------------------------

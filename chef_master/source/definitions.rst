@@ -3,7 +3,7 @@ About Definitions
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/definitions.rst>`__
 
-.. warning:: Starting with chef-client 12.5, it is recommended to `build custom resources </custom_resources.html>`__ instead of definitions. While the use of definitions is not deprecated---all existing definitions will continue to work---it is recommended to also migrate existing definitions to the new custom resource patterns. This topic introduces definitions as they once were (and still can be, if desired), but deprecates all but one example of using them in favor of showing how to migrate an existing definition to the new custom resource pattern.
+.. warning:: Starting with Chef Client 12.5, it is recommended to `build custom resources </custom_resources.html>`__ instead of definitions. While the use of definitions is not deprecated---all existing definitions will continue to work---it is recommended to also migrate existing definitions to the new custom resource patterns. This topic introduces definitions as they once were (and still can be, if desired), but deprecates all but one example of using them in favor of showing how to migrate an existing definition to the new custom resource pattern.
 
 A definition behaves like a compile-time macro that is reusable across recipes. A definition is typically created by wrapping arbitrary code around resources that are declared as if they were in a recipe. A definition is then used in one (or more) actual recipes as if the definition were a resource.
 
@@ -97,9 +97,9 @@ The following examples show how to use cookbook definitions.
 
 Many Recipes, One Definition
 -----------------------------------------------------
-.. warning:: With the improved custom resource pattern available starting with chef-client 12.5, the need to use definitions is greatly minimized. In every case when considering to use a definition, first evaluate whether that definition is better represented as a custom resource.
+.. warning:: With the improved custom resource pattern available starting with Chef Client 12.5, the need to use definitions is greatly minimized. In every case when considering to use a definition, first evaluate whether that definition is better represented as a custom resource.
 
-Data can be passed to a definition from more than one recipe. Use a definition to create a compile-time macro that can be referenced by resources during the converge phase. For example, when both ``/etc/aliases`` and ``/etc/sudoers`` require updates from multiple recipes during a single chef-client run.
+Data can be passed to a definition from more than one recipe. Use a definition to create a compile-time macro that can be referenced by resources during the converge phase. For example, when both ``/etc/aliases`` and ``/etc/sudoers`` require updates from multiple recipes during a single Chef Infra Client run.
 
 A definition that reopens resources would look something like:
 
@@ -130,20 +130,16 @@ A definition that reopens resources would look something like:
 
 Definition vs. Resource
 =====================================================
-.. tag definition_example
-
 The following examples show:
 
 #. A definition
 #. The same definition rewritten as a custom resource
 #. The same definition, rewritten again to use a `common resource property </resource_common.html>`__
 
-.. end_tag
+
 
 As a Definition
------------------------------------------------------
-.. tag definition_example_as_definition
-
+----------------------------------------------------
 The following definition processes unique hostnames and ports, passed on as parameters:
 
 .. code-block:: ruby
@@ -160,12 +156,10 @@ The following definition processes unique hostnames and ports, passed on as para
      end
    end
 
-.. end_tag
+
 
 As a Resource
------------------------------------------------------
-.. tag definition_example_as_resource
-
+----------------------------------------------------
 The definition is improved by rewriting it as a custom resource:
 
 .. code-block:: ruby
@@ -201,12 +195,10 @@ or:
      port 4001
    end
 
-.. end_tag
+
 
 Use Common Properties
------------------------------------------------------
-.. tag definition_example_as_resource_with_common_properties
-
+----------------------------------------------------
 Unlike definitions, custom resources are able to use `common resource properties </resource_common.html>`__. For example, ``only_if``:
 
 .. code-block:: ruby
@@ -216,4 +208,4 @@ Unlike definitions, custom resources are able to use `common resource properties
      only_if '{ node['hostname'] == 'foo.bar.com' }'
    end
 
-.. end_tag
+

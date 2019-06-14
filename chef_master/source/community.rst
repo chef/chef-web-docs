@@ -38,8 +38,8 @@ Interact
 * `@opscode_status <https://twitter.com/opscode_status>`_
 * `Facebook <https://www.facebook.com/getchefdotcom>`_
 * `Chef Community Slack <https://community-slack.chef.io/>`_
-* Join the "Chef Users Group" on LinkedIn
-* `Chef Mailing List <https://discourse.chef.io>`_ (for discussion among users, developers, and other interested parties)
+* Join the "Chef Software Users Group" on LinkedIn
+* `Chef Software Mailing List <https://discourse.chef.io>`_ (for discussion among users, developers, and other interested parties)
 
 Read
 =====================================================

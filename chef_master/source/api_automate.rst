@@ -5,9 +5,8 @@ Chef Automate API
 
 .. tag chef_automate_mark
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
 
 .. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
 
@@ -58,39 +57,30 @@ The following authentication headers are required:
    * - Feature
      - Description
    * - ``chef-delivery-enterprise``
-     - .. tag api_chef_automate_headers_enterprise
 
-       The name of the Chef Automate enterprise to use.
-
-       .. end_tag
+     - The name of the Chef Automate enterprise to use.
 
    * - ``chef-delivery-user``
-     - .. tag api_chef_automate_headers_delivery_user
 
-       The Chef Automate user to use for the API calls.
+     - The Chef Automate user to use for the API calls.
 
-       .. end_tag
+
 
    * - ``chef-delivery-token``
-     - .. tag api_chef_automate_headers_delivery_token
 
-       The Chef Automate user token used in conjunction with ``chef-delivery-user``.
+     - The Chef Automate user token used in conjunction with ``chef-delivery-user``.
 
-       .. end_tag
+
 
    * - ``x-data-collector-auth``
-     - .. tag api_chef_automate_headers_data_collector_auth
 
-       Set this to ``version=1.0`` in order to use the long-lived ``data_collector`` authentication instead of authenticating via ``chef-delivery-user`` and ``chef-delivery-token``.
+     - Set this to ``version=1.0`` in order to use the long-lived ``data_collector`` authentication instead of authenticating via ``chef-delivery-user`` and ``chef-delivery-token``.
 
-       .. end_tag
+
 
    * - ``x-data-collector-token``
-     - .. tag api_chef_automate_headers_data_collector_token
 
-       The value of the ``data_collector`` token as set in ``/etc/delivery/delivery.rb`` if ``x-data-collector-auth`` is used.
-
-       .. end_tag
+     - The value of the ``data_collector`` token as set in ``/etc/delivery/delivery.rb`` if ``x-data-collector-auth`` is used.
 
 
 The Chef Automate API is located at ``https://hostname`` and has the following endpoints:
@@ -166,7 +156,7 @@ For the primary server in a disaster recovery pair, the response will be similar
 
 In this configuration, the ``postgres`` and ``lsyncd`` upstreams will indicate the current state of disaster recovery replication.  For PostgreSQL, it will both indicate that it knows what the standby IP is supposed to be and the current ``location``. If the PostgreSQL replication is working correctly, it should match the value of the PostgreSQL ``xlog`` location reported by the standby (see below).
 
-For ``lsyncd``, if the replication is up-to-date, ``latency`` should return 0; it may be above zero if changes have been queued up for replication, but it should quickly drop back down once the ``lsyncd`` server syncs changes (which should happen either after a fixed delay or when a certain number of changes have queued up). If it instead maintains a number above zero (or even continues to grow), that would indicate that there's an issue replicating git data in Chef Automate.
+For ``lsyncd``, if the replication is up-to-date, ``latency`` should return 0; it may be above zero if changes have been queued up for replication, but it should quickly drop back down once the ``lsyncd`` server syncs changes (which should happen either after a fixed delay or when a certain number of changes have queued up). If it instead maintains a number above zero (or even continues to grow), that would indicate that there's an issue replicating Git data in Chef Automate.
 
 For the standby server in a disaster recovery pair, the response will be similar to:
 

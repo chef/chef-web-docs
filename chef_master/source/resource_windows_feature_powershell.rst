@@ -46,7 +46,7 @@ The windows_feature_powershell resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -63,7 +63,7 @@ The windows_feature_powershell resource has the following properties:
 ``feature_name``
    **Ruby Type:** Array, String | **Default Value:** ``The resource block's name``
 
-   The name of the feature(s) or role(s) to install if it differs from the resource block's name.
+   The name of the feature(s) or role(s) to install if they differ from the resource block's name.
 
 ``management_tools``
    **Ruby Type:** true, false | **Default Value:** ``false``

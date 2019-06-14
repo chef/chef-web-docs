@@ -5,13 +5,13 @@ kitchen (executable)
 
 .. tag ctl_kitchen_summary
 
-kitchen is the command-line tool for Kitchen, an integration testing tool used by the chef-client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
+kitchen is the command-line tool for Kitchen, an integration testing tool used by the Chef Infra Client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
 
 .. note:: Any Kitchen subcommand that does not specify an instance will be applied to all instances.
 
 .. end_tag
 
-.. note:: This topic details functionality that is packaged with Chef development kit. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
+.. note:: This topic details functionality that is packaged with ChefDK. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
 
 Fuzzy Matching
 =====================================================
@@ -80,9 +80,9 @@ will return something similar to:
 
 kitchen converge
 =====================================================
-Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file. This process will install the chef-client on an instance using the Chef installer, upload cookbook files and minimal configuration to the instance, and then start a chef-client run using the run-list and attributes specified in the .kitchen.yml file.
+Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file. This process will install the Chef Infra Client on an instance using the Chef installer, upload cookbook files and minimal configuration to the instance, and then start a Chef Infra Client run using the run-list and attributes specified in the .kitchen.yml file.
 
-Kitchen will skip unnecessary steps. For example, if the chef-client is already installed to the instance, Kitchen will not re-install the chef-client. That said, Kitchen will always upload the cookbook files and minimal configuration. This ensures that cookbook testing is being done correctly.
+Kitchen will skip unnecessary steps. For example, if the Chef Infra Client is already installed to the instance, Kitchen will not re-install the Chef Infra Client. That said, Kitchen will always upload the cookbook files and minimal configuration. This ensures that cookbook testing is being done correctly.
 
 The following exit codes are used by Kitchen:
 
@@ -107,7 +107,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -139,7 +139,7 @@ To converge the default CentOS instance, run the following:
 
    $ kitchen converge default-centos-71
 
-The chef-client is downloaded the first time this command is run. The output of the command is similar to:
+The Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
 .. code-block:: bash
 
@@ -197,7 +197,7 @@ To converge the default Ubuntu instance, run the following:
 
    $ kitchen converge default-ubuntu-1404
 
-The chef-client is downloaded the first time this command is run. The output of the command is similar to:
+The Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
 .. code-block:: bash
 
@@ -266,7 +266,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -400,7 +400,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -448,7 +448,7 @@ This subcommand has the following options:
    Include instance diagnostics. Default: ``true``.
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``--loader``
    Include data loader diagnostics. Default: ``false``.
@@ -668,7 +668,7 @@ This subcommand has the following options:
    Add one (or more) Kitchen drivers to a RubyGems file. Default: ``kitchen-vagrant``.
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``-P``, ``--provisioner``
    The default provisioner that is used by Kitchen.
@@ -735,7 +735,7 @@ This subcommand has the following options:
    Print the name of each instance, one instance per line. Default: ``false``.
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -826,7 +826,7 @@ Options
 This subcommand has the following options:
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -883,7 +883,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -936,7 +936,7 @@ This subcommand has the following options:
    The destroy strategy used at the conclusion of a Kitchen run. Possible values: ``always`` (always destroy instances), ``never`` (never destroy instances), or ``passing`` (only destroy instances that passed). Default: ``passing``.
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
@@ -1069,7 +1069,7 @@ This subcommand has the following options:
    The number of allowed concurrent connections. Default: ``9999`` (all instances, effectively).
 
 ``-l``, ``--log-level``
-   The level of logging to be stored in a log file. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``. Default: ``info``.
+   The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
    Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
