@@ -15,8 +15,6 @@ The Chef Infra Client can be installed on machines running Microsoft Windows in 
 * By downloading Chef Infra Client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
-To run Chef Infra Client at periodic intervals (so that it can check in with Chef Infra Server automatically), configure Chef Infra Client to run as a service or as a scheduled task. (The Chef Infra Client can be configured to run as a service during the setup process.)
-
 .. end_tag
 
 Setting up Windows Workstations
