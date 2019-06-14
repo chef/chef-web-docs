@@ -2041,12 +2041,6 @@ The registry_key resource has the following actions:
 
    .. end_tag
 
-.. note:: .. tag notes_registry_key_resource_recursive
-
-          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
-
-          .. end_tag
-
 .. end_tag
 
 Properties
@@ -2071,13 +2065,7 @@ The registry_key resource has the following properties:
 ``recursive``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
-
-   .. note:: .. tag notes_registry_key_resource_recursive
-
-             Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
-
-             .. end_tag
+   When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``. Using the ``:delete_key`` action with the ``recursive`` attribute will delete the registry key, all of its values, and all of the names, types, and data associated with them. This cannot be undone by Chef Infra Client.
 
 ``values``
    **Ruby Type:** Hash, Array
