@@ -461,7 +461,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-   directory "C:\\tmp\\something.txt" do
+   directory "C:\\tmp\\something" do
      rights :full_control, "DOMAIN\\User"
      inherits false
      action :create
@@ -471,7 +471,7 @@ or:
 
 .. code-block:: ruby
 
-   directory 'C:\tmp\something.txt' do
+   directory 'C:\tmp\something' do
      rights :full_control, 'DOMAIN\User'
      inherits false
      action :create
