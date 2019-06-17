@@ -3,15 +3,23 @@ Chef Manage
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage.rst>`__
 
+.. tag chef_automate_mark
+
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
+
+.. end_tag
+
+.. tag EOL_manage
+
+.. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+.. end_tag
+
+
+
 The Chef management console enables the management of nodes, data bags, roles, environments, and cookbooks by using a web user interface. In addition, access to nodes, data bags, roles, environments, and cookbooks is configurable using role-based access control (RBAC).
 
-
-
-.. note:: .. tag chef_subscriptions
-
-          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
-
-          .. end_tag
 
 Nodes
 =====================================================
