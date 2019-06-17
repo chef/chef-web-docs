@@ -94,14 +94,6 @@
 </url>
 
 <url>
-  <loc>https://docs.chef.io/chef_private_keys.html</loc>
-</url>
-
-<url>
-  <loc>https://docs.chef.io/chef_quick_overview.html</loc>
-</url>
-
-<url>
   <loc>https://docs.chef.io/chef_repo.html</loc>
 </url>
 
@@ -455,10 +447,6 @@
 
 <url>
   <loc>https://docs.chef.io/environments.html</loc>
-</url>
-
-<url>
-  <loc>https://docs.chef.io/error_messages.html</loc>
 </url>
 
 <url>

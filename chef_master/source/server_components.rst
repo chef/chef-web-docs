@@ -303,7 +303,7 @@ Use the following configuration settings in the chef-server.rb file to configure
 
 
 
-.. note:: See the list of `error messages that may be present </error_messages.html#external-postgresql>`_ when configuring the Chef Infra Server to use a remote PostgreSQL server.
+.. note:: See the list of `error messages that may be present </errors.html#external-postgresql>`_ when configuring the Chef Infra Server to use a remote PostgreSQL server.
 
 Bookshelf Settings
 -----------------------------------------------------

@@ -80,7 +80,6 @@ This section describes the upgrade process from a high availability configuratio
 The DRBD/Keepalived based HA system is no longer supported in Chef Server 13. If a high availablity system is needed,
 backup and restore to a Chef Backend based installation.
 
-
 Tiered
 -----------------------------------------------------
 This section describes the upgrade process from a tiered server configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.

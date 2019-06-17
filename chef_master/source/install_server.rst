@@ -9,6 +9,37 @@ There are three configuration scenarios for the Chef Infra Server:
 * `High availability <install_server.html#high-availability>`__ (machines configured for front-end and back-end, allowing for failover on the back-end and load-balancing on the front-end, as required)
 * `Tiered <install_server.html#tiered-single-backend>`__ (machines configured for front-end and back-end, with a single back-end and load-balancing on the front-end, as required)
 
+Supported Platforms
+=====================================================
+.. tag adopted_platforms_server
+
+The following table lists the commercially-supported platforms and versions for the Chef Infra Server:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - CentOS
+     - ``x86_64``
+     - ``6.x``, ``7.x``
+   * - Oracle Enterprise Linux
+     - ``x86_64``
+     - ``6.x``, ``7.x``
+   * - Red Hat Enterprise Linux
+     - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
+     - ``6.x``, ``7.x``
+   * - SUSE Enterprise Linux Server
+     - ``x86_64``
+     - ``11 SP4``, ``12 SP1+``
+   * - Ubuntu
+     - ``x86_64``
+     - ``16.04``, ``18.04``
+
+.. end_tag
+
 Prerequisites
 =====================================================
 The Chef Infra Server has the following prerequisites:
@@ -28,7 +59,7 @@ Standalone
 =====================================================
 The standalone installation of Chef Infra Server creates a working installation on a single server. This installation is also useful when you are installing Chef Infra Server in a virtual machine, for proof-of-concept deployments, or as a part of a development or testing loop.
 
-To install Chef Server 12:
+To install Chef Server:
 
 #. Download the package from https://downloads.chef.io/chef-server/.
 #. Upload the package to the machine that will run the Chef Infra Server, and then record its location on the file system. The rest of these steps assume this location is in the ``/tmp`` directory.

@@ -118,9 +118,6 @@ This configuration file has the following settings for ``bookshelf``:
 ``bookshelf['external_url']``
    The base URL to which the service is to return links to API resources. Use ``:host_header`` to ensure the URL is derived from the host header of the incoming HTTP request. Default value: ``:host_header``.
 
-``bookshelf['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
-
 ``bookshelf['listen']``
    The IP address on which the service is to listen. Default value: ``127.0.0.1``.
 
@@ -511,9 +508,6 @@ This configuration file has the following settings for ``nginx``:
         'application/json'
         ]
 
-``nginx['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
-
 ``nginx['keepalive_timeout']``
    The amount of time (in seconds) to wait for requests on a HTTP keepalive connection. Default value: ``65``.
 
@@ -649,9 +643,6 @@ This configuration file has the following settings for ``oc_bifrost``:
 
 ``oc_bifrost['extended_perf_log']``
    Default value: ``true``.
-
-``oc_bifrost['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``.
 
 ``oc_bifrost['listen']``
    The IP address on which the service is to listen. Default value: ``'127.0.0.1'``.
@@ -794,9 +785,6 @@ This configuration file has the following settings for ``oc-id``:
 
    Outbound email address. Defaults to the ``'from_email'`` value.
 
-``oc_id['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
-
 ``oc_id['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``'/var/opt/opscode/oc_id'``.
 
@@ -861,9 +849,6 @@ This configuration file has the following settings for ``opscode-chef-mover``:
 
 ``opscode_chef_mover['enable']``
    Enable a service. Default value: ``true``.
-
-``opscode_chef_mover['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``opscode_chef_mover['ibrowse_max_pipeline_size']``
    Default value: ``1``.
@@ -974,9 +959,6 @@ This configuration file has the following settings for ``opscode-erchef``:
 
    New in Chef Server 12.17.15.
 
-``opscode_erchef['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
-
 ``opscode_erchef['ibrowse_max_pipeline_size']``
    Default value: ``1``.
 
@@ -1082,9 +1064,6 @@ This configuration file has the following settings for ``opscode-expander``:
 ``opscode_expander['enable']``
    Enable a service. Default value: ``true``.
 
-``opscode_expander['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
-
 ``opscode_expander['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value:
 
@@ -1141,9 +1120,6 @@ This configuration file has the following settings for ``opscode-solr4``:
 
 ``opscode_solr4['enable']``
    Enable a service. Default value: ``true``.
-
-``opscode_solr4['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``opscode_solr4['heap_size']``
    The amount of memory (in MBs) available to Apache Solr. If there is not enough memory available, search queries made by nodes to Apache Solr may fail. The amount of memory that must be available also depends on the number of nodes in the organization, the frequency of search queries, and other characteristics that are unique to each organization. In general, as the number of nodes increases, so does the amount of memory. The default value should work for many organizations with fewer than 25 nodes. For an organization with several hundred nodes, the amount of memory that is required often exceeds 3GB. Default value: ``nil``, which is equivalent to 25% of the system memory or 1024 (MB, but this setting is specified as an integer number of MB in EC11), whichever is smaller.
@@ -1244,9 +1220,6 @@ This configuration file has the following settings for ``postgresql``:
 
 ``postgresql['enable']``
    Enable a service. Default value: ``true``.
-
-``postgresql['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``postgresql['home']``
    The home directory for PostgreSQL. Default value: ``/var/opt/opscode/postgresql``.
@@ -1352,9 +1325,6 @@ This configuration file has the following settings for ``rabbitmq``:
 
 ``rabbitmq['enable']``
    Enable a service. Default value: ``true``.
-
-``rabbitmq['ha']``
-   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``rabbitmq['log_directory']``
    The directory in which log data is stored. The default value is the recommended value. Default value: ``'/var/log/opscode/rabbitmq'``.

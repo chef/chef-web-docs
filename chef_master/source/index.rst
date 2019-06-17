@@ -84,9 +84,9 @@ Concepts
 `Push Jobs </push_jobs.html>`__ |
 `Run-lists </run_lists.html>`__
 
-**Security**: `Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `Private Keys </chef_private_keys.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
+**Security**: `Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
 
-**Supermarket**: `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
+**Supermarket**: `Supermarket <supermarket.html>`__ | Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
 
 **Appendix**: `Env Variables </environment_variables.html>`__ | `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
 
@@ -105,7 +105,7 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -130,6 +130,7 @@ Cookbook Reference
 `About Resources </resource.html>`__ |
 `Common Functionality </resource_common.html>`__ |
 `Custom Resources </custom_resources.html>`__ |
+`Converting Definitions to Custom Resources </definitions.html>`__ |
 `All Resources (Single Page) </resource_reference.html>`__ |
 `Examples (by Resource) </resource_examples.html>`__
 
@@ -298,7 +299,7 @@ ChefDK
 `chef-vault </chef_vault.html>`__ |
 `ChefSpec </chefspec.html>`__
 
-**Configuration**: `config.rb </config_rb.html>`__ | `Multiple Config Files </config_rb_client.html#d-directories.html>`__ | `cookstyle </cookstyle.html>`__ |
+**Configuration**: `config.rb </config_rb.html>`__ | `Optional config.rb Settings </config_rb_optional_settings.html>`__ | `Multiple Config Files </config_rb_client.html#d-directories.html>`__ | `cookstyle </cookstyle.html>`__ |
 `Delivery CLI </delivery_cli.html>`__ |
 `Foodcritic </foodcritic.html>`__
 
@@ -314,7 +315,7 @@ ChefDK
 
 `push-jobs-client (executable) </ctl_push_jobs_client.html>`__
 
-**Managing the Server**: `Runbook (Single Page) </runbook.html>`__ | `Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ | `Backup and Restore </server_backup_restore.html>`__ | `Firewalls and Ports </server_firewalls_and_ports.html>`__ | `Active Directory and LDAP </server_ldap.html>`__ | `Log Files </server_logs.html>`__ | `Monitor </server_monitor.html>`__ | `Organizations and Groups </server_orgs.html>`__ | `Secrets </secrets.html>`__ | `Security </server_security.html>`__ | `Services </server_services.html>`__ | `Tuning </server_tuning.html>`__ | `Upgrades </upgrade_server.html>`__ | `Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ | `Users </server_users.html>`__ | `chef-server-ctl </ctl_chef_server.html>`__ | `chef-backend-ctl </ctl_chef_backend.html>`__ | `chef-server.rb </config_rb_server.html>`__ | `opscode-expander-ctl </ctl_opscode_expander.html>`__ | `Chef Infra Server API </api_chef_server.html>`__
+**Managing the Server**: `Runbook (Single Page) </runbook.html>`__ | `Backend Cluster Failure Recovery </backend_failure_recovery.html>`__ | `Backup and Restore </server_backup_restore.html>`__ | `Firewalls and Ports </server_firewalls_and_ports.html>`__ | `Active Directory and LDAP </server_ldap.html>`__ | `Log Files </server_logs.html>`__ | `Monitor </server_monitor.html>`__ | `Organizations and Groups </server_orgs.html>`__ | `Secrets </secrets.html>`__ | `Security </server_security.html>`__ | `Services </server_services.html>`__ | `Tuning </server_tuning.html>`__ | `Upgrades </upgrade_server.html>`__ | `Upgrade HA Cluster </upgrade_server_ha_v2.html>`__ | `Users </server_users.html>`__ | `chef-server-ctl </ctl_chef_server.html>`__ | `chef-backend-ctl </ctl_chef_backend.html>`__ | `chef-server.rb </config_rb_server.html>`__ | `Chef Server Optional Settings </config_rb_server_optional_settings.html>`__ | `opscode-expander-ctl </ctl_opscode_expander.html>`__ | `Chef Infra Server API </api_chef_server.html>`__
 
 **Push Jobs**: `knife push jobs </plugin_knife_push_jobs.html>`__ | `push-jobs-client </ctl_push_jobs_client.html>`__ | `push-jobs-client.rb </config_rb_push_jobs_client.html>`__ | `push-jobs-server.rb </config_rb_push_jobs_server.html>`__ | `Push Jobs API </api_push_jobs.html>`__ | `Server Sent Events </server_sent_events.html>`__
 
@@ -425,9 +426,7 @@ Extension APIs
 Resources
 -----------------------------------------------------
 
-**Recipe DSL**: `attribute? </dsl_recipe.html#attribute>`_ | `control </dsl_recipe.html#control>`_ | `control_group </dsl_recipe.html#control-group>`_ | `cookbook_name </dsl_recipe.html#cookbook-name>`_ | `data_bag </dsl_recipe.html#data-bag>`_ | `data_bag_item </dsl_recipe.html#data-bag-item>`_ | `platform? </dsl_recipe.html#platform>`_ | `platform_family? </dsl_recipe.html#platform-family>`_ | `reboot_pending? </dsl_recipe.html#reboot-pending>`_ | `recipe_name </dsl_recipe.html#recipe-name>`_ | `registry_data_exists? </dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys </dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values </dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? </dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? </dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? </dsl_recipe.html#registry-value-exists>`_ | `resources </dsl_recipe.html#resources>`_ | `search </dsl_recipe.html#search>`_ | `shell_out </dsl_recipe.html#shell-out>`_ | `shell_out! </dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale </dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag </dsl_recipe.html#tag-tagged-untag>`_ | `tagged? </dsl_recipe.html#tag-tagged-untag>`_ | `untag </dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform </dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family </dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers </dsl_recipe.html#helpers>`_
-
- `Community Resources <https://supermarket.chef.io>`__
+**Recipe DSL**: `attribute? </dsl_recipe.html#attribute>`_ | `control </dsl_recipe.html#control>`_ | `control_group </dsl_recipe.html#control-group>`_ | `cookbook_name </dsl_recipe.html#cookbook-name>`_ | `data_bag </dsl_recipe.html#data-bag>`_ | `data_bag_item </dsl_recipe.html#data-bag-item>`_ | `platform? </dsl_recipe.html#platform>`_ | `platform_family? </dsl_recipe.html#platform-family>`_ | `reboot_pending? </dsl_recipe.html#reboot-pending>`_ | `recipe_name </dsl_recipe.html#recipe-name>`_ | `registry_data_exists? </dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys </dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values </dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? </dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? </dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? </dsl_recipe.html#registry-value-exists>`_ | `resources </dsl_recipe.html#resources>`_ | `search </dsl_recipe.html#search>`_ | `shell_out </dsl_recipe.html#shell-out>`_ | `shell_out! </dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale </dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag </dsl_recipe.html#tag-tagged-untag>`_ | `tagged? </dsl_recipe.html#tag-tagged-untag>`_ | `untag </dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform </dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family </dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers </dsl_recipe.html#helpers>`_ | `Audit DSL </dsl_audit.html>`__ | `Custom Resource DSL </dsl_custom_resource>`__ | `Community Resources <https://supermarket.chef.io>`__
 
 Handlers
 -----------------------------------------------------
@@ -476,7 +475,6 @@ Addenda
    auth
    automate_azure
    automate_compliance_credentials
-   automate_compliance_profile_store
    automate_compliance_reporting
    automate_compliance_scanner
    aws_marketplace
@@ -495,8 +493,6 @@ Addenda
    chef_license
    chef_license_accept
    chef_overview
-   chef_private_keys
-   chef_quick_overview
    chef_repo
    chef_search
    chef_shell
@@ -610,7 +606,6 @@ Addenda
    elasticsearch_and_kibana_auth
    environment_variables
    environments
-   error_messages
    errors
    feedback
    files
@@ -684,7 +679,6 @@ Addenda
    ohai
    ohai_custom
    packages
-   page_not_found
    perform_compliance_scan
    platform_overview
    platforms
@@ -875,13 +869,11 @@ Addenda
    server_manage_roles
    server_monitor
    server_orgs
-   server_replication
    server_security
    server_sent_events
    server_services
    server_tuning
    server_users
-   setup_build_node
    stream_data_chef_automate
    style_guide
    supermarket
@@ -901,5 +893,4 @@ Addenda
    visibility
    vmware
    windows
-   windows_knife_intro
    workflow

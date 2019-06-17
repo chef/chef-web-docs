@@ -11,7 +11,6 @@ Disallow: /api_automate.html
 Disallow: /api_compliance.html
 Disallow: /api_reporting.html
 Disallow: /automate_compliance_credentials.html
-Disallow: /automate_compliance_profile_store.html
 Disallow: /automate_compliance_reporting.html
 Disallow: /automate_compliance_scanner.html
 Disallow: /automate_nodes.html
