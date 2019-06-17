@@ -74,7 +74,7 @@ This procedure only works currently if the administrator can take action before 
 
 #. Resolve the network partition. As the nodes come back online, they will all move into a ``waiting_for_leader`` state.
 
-#. On the node you would like to promote, run ``chef-backend-ctl create-cluster``
+#. To promote a node, run ``chef-backend-ctl promote NODE_NAME_OR_IP``
 
 Promoting a Previous Leader
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -96,7 +96,7 @@ If a recently deposed leader is likely the node with the most up-to-date data, y
 
    .. code-block:: none
 
-      chef-backend-ctl create-cluster
+      chef-backend-ctl promote NODE_NAME_OR_IP
 
 
 Service Level Failures
