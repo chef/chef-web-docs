@@ -1508,7 +1508,7 @@ Use the **directory** resource to manage a directory, which is a hierarchy of fo
 
 .. code-block:: ruby
 
-   directory "C:\\tmp\\something.txt" do
+   directory "C:\\tmp\\something" do
      rights :full_control, "DOMAIN\\User"
      inherits false
      action :create
@@ -1518,7 +1518,7 @@ or:
 
 .. code-block:: ruby
 
-   directory 'C:\tmp\something.txt' do
+   directory 'C:\tmp\something' do
      rights :full_control, 'DOMAIN\User'
      inherits false
      action :create
