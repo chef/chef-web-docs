@@ -16,11 +16,9 @@ A node is any machine---physical, virtual, cloud, network device, etc.---that is
 
 The Chef Infra Client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using `knife windows </knife_windows.html>`__ to bootstrap the Chef Infra Client; this process requires the target node be available via the WinRM port (typically port 5985)
-* By downloading the Chef Infra Client to the target node, and then running the Microsoft Installer Package (MSI) locally
+* By using `knife windows </knife_windows.html>`__ to bootstrap Chef Infra Client; this process requires the target node be available via the WinRM port (typically port 5985)
+* By downloading Chef Infra Client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
-
-To run the Chef Infra Client at periodic intervals (so that it can check in with the Chef Infra Server automatically), configure the Chef Infra Client to run as a service or as a scheduled task. (The Chef Infra Client can be configured to run as a service during the setup process.)
 
 .. end_tag
 
@@ -44,13 +42,13 @@ Msiexec.exe
 -----------------------------------------------------
 .. tag windows_msiexec
 
-Msiexec.exe is used to install the Chef Infra Client on a node as part of a bootstrap operation. The actual command that is run by the default bootstrap script is:
+Msiexec.exe is used to install Chef Infra Client on a node as part of a bootstrap operation. The actual command that is run by the default bootstrap script is:
 
 .. code-block:: bash
 
    $ msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
 
-where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which the Chef Infra Client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/bootstrap/windows-chef-client-msi.erb>`_ bootstrap template. See http://msdn.microsoft.com/en-us/library/aa367988%28v=vs.85%29.aspx for more information about the options available to Msiexec.exe.
+where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which Chef Infra Client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/bootstrap/windows-chef-client-msi.erb>`_ bootstrap template. See http://msdn.microsoft.com/en-us/library/aa367988%28v=vs.85%29.aspx for more information about the options available to Msiexec.exe.
 
 .. end_tag
 
@@ -58,7 +56,7 @@ ADDLOCAL Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec_addlocal
 
-The ``ADDLOCAL`` parameter adds two setup options that are specific to the Chef Infra Client. These options can be passed along with an Msiexec.exe command:
+The ``ADDLOCAL`` parameter adds two setup options specific to Chef Infra Client. These options can be passed along with an Msiexec.exe command:
 
 .. list-table::
    :widths: 60 420
@@ -67,13 +65,13 @@ The ``ADDLOCAL`` parameter adds two setup options that are specific to the Chef 
    * - Option
      - Description
    * - ``ChefClientFeature``
-     - Use to install the Chef Infra Client.
+     - Use to install Chef Infra Client.
    * - ``ChefSchTaskFeature``
-     - Use to configure the Chef Infra Client as a scheduled task in Microsoft Windows.
+     - Use to configure Chef Infra Client as a scheduled task in Microsoft Windows.
    * - ``ChefPSModuleFeature``
      - Used to install the chef PowerShell module. This will enable chef command line utilities within PowerShell.
 
-First install the Chef Infra Client, and then enable it to run as a scheduled task. For example:
+First install Chef Infra Client, and then enable it to run as a scheduled task. For example:
 
 .. code-block:: bash
 
@@ -98,7 +96,7 @@ Scheduled Task Options
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag install_chef_client_windows_as_scheduled_task
 
-To run the Chef Infra Client at periodic intervals (so that it can check in with the Chef Infra Server automatically), configure the Chef Infra Client to run as a scheduled task. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Infra Client Scheduled Task** option on the **Custom Setup** page or by running the following command after the Chef Infra Client is installed:
+To run Chef Infra Client at periodic intervals (so that it can check in with Chef Infra Server automatically), configure Chef Infra Client to run as a scheduled task. This can be done via the MSI, by selecting the **Chef Unattended Execution Options** --> **Chef Infra Client Scheduled Task** option on the **Custom Setup** page or by running the following command after Chef Infra Client is installed:
 
 For example:
 
@@ -108,7 +106,7 @@ For example:
 
 Refer `Schedule a Task <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc748993(v=ws.11)>`_ for more details.
 
-After the Chef Infra Client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
+After Chef Infra Client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
 
 .. end_tag
 
@@ -124,12 +122,12 @@ PATH System Variable
 -----------------------------------------------------
 .. tag windows_environment_variable_path
 
-On Microsoft Windows, the Chef Infra Client must have two entries added to the ``PATH`` environment variable:
+On Microsoft Windows, Chef Infra Client must have two entries added to the ``PATH`` environment variable:
 
 * ``C:\opscode\chef\bin``
 * ``C:\opscode\chef\embedded\bin``
 
-This is typically done during the installation of the Chef Infra Client automatically. If these values (for any reason) are not in the ``PATH`` environment variable, the Chef Infra Client will not run properly.
+This is typically done during the installation of Chef Infra Client automatically. If these values (for any reason) are not in the ``PATH`` environment variable, Chef Infra Client will not run properly.
 
 .. image:: ../../images/includes_windows_environment_variable_path.png
 

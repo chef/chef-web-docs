@@ -7,7 +7,7 @@ Chef Infra Client (executable)
 
 Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
 
-* Registering and authenticating the node with the Chef Infra Server
+* Registering and authenticating the node with Chef Infra Server
 * Building the node object
 * Synchronizing cookbooks
 * Compiling the resource collection by loading each of the required cookbooks, including recipes, attributes, and all other dependencies
@@ -470,11 +470,11 @@ Windows
 -----------------------------------------------------
 .. tag ctl_chef_client_elevated_privileges_windows
 
-On Microsoft Windows, running without elevated privileges (when they are necessary) is an issue that fails silently. It will appear that the Chef Infra Client completed its run successfully, but the changes will not have been made. When this occurs, do one of the following to run the Chef Infra Client as the administrator:
+On Microsoft Windows, running without elevated privileges (when they are necessary) is an issue that fails silently. It will appear that Chef Infra Client completed its run successfully, but the changes will not have been made. When this occurs, do one of the following to run Chef Infra Client as the administrator:
 
 * Log in to the administrator account. (This is not the same as an account in the administrator's security group.)
 
-* Run the Chef Infra Client process from the administrator account while being logged into another account. Run the following command:
+* Run Chef Infra Client process from the administrator account while being logged into another account. Run the following command:
 
    .. code-block:: bash
 
@@ -482,7 +482,7 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 
    This will prompt for the administrator account password.
 
-* Open a command prompt by right-clicking on the command prompt application, and then selecting **Run as administrator**. After the command window opens, the Chef Infra Client can be run as the administrator
+* Open a command prompt by right-clicking on the command prompt application, and then selecting **Run as administrator**. After the command window opens, Chef Infra Client can be run as the administrator
 
 .. end_tag
 
