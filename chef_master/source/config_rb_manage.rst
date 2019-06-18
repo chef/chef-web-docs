@@ -41,12 +41,6 @@ The manage.rb file is the default configuration file used by Chef management con
 
 The configuration file is located at: ``/etc/chef-manage/manage.rb``.
 
-.. note:: .. tag chef_subscriptions
-
-          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
-
-          .. end_tag
-
 Settings
 ==========================================================================
 
