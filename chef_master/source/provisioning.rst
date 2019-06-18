@@ -3,23 +3,29 @@ Chef Provisioning
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/provisioning.rst>`__
 
+.. tag EOL_provisioning
+
+This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+
+Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
+
+.. end_tag
+
 .. tag provisioning_summary
 
-Chef provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
+Chef Provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
 
-Chef provisioning is built around two major components: the **machine** resource and drivers.
+Chef Provisioning is built around two major components: the **machine** resource and drivers.
 
-Chef provisioning is packaged in ChefDK. Chef provisioning is a framework that allows clusters to be managed by the Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+Chef Provisioning is packaged in ChefDK. Chef Provisioning is a framework that allows clusters to be managed by the Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef Provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
 
 .. end_tag
 
 In-Parallel Processing
 =====================================================
-.. tag provisioning_parallel
+In certain situations Chef Provisioning will run multiple **machine** processes in-parallel, as long as each of the individual **machine** resources have the same declared action. The **machine_batch** resource is used to run in-parallel processes.
 
-In certain situations Chef provisioning will run multiple **machine** processes in-parallel, as long as each of the individual **machine** resources have the same declared action. The **machine_batch** resource is used to run in-parallel processes.
-
-Chef provisioning will processes resources in-parallel automatically, unless:
+Chef Provisioning will processes resources in-parallel automatically, unless:
 
 * The recipe contains complex scripts, such as when a **file** resource sits in-between two **machine** resources in a single recipe. In this situation, the resources will be run sequentially
 * The actions specified for each individual **machine** resource are not identical; for example, if resource A is set to ``:converge`` and resource B is set to ``:destroy``, then they may not be processed in-parallel
@@ -83,11 +89,9 @@ will show output similar to:
 
 At the end, it shows ``1/1 resources updated``. The three **machine** resources are replaced with a single **machine_batch** resource, which then runs each of the individual **machine** processes in-parallel.
 
-.. end_tag
-
 Drivers
 =====================================================
-The following drivers are available for Chef provisioning:
+The following drivers are available for Chef Provisioning:
 
 .. list-table::
    :widths: 120 400
@@ -96,34 +100,28 @@ The following drivers are available for Chef provisioning:
    * - Driver
      - Description
    * - `Amazon Web Services <https://github.com/chef/chef-provisioning-aws>`__
-     - A Chef provisioning driver for Amazon Web Services (AWS).
+     - A Chef Provisioning driver for Amazon Web Services (AWS).
    * - `Fog <https://github.com/chef/chef-provisioning-fog>`__
-     - A Chef provisioning driver for Fog.
+     - A Chef Provisioning driver for Fog.
    * - `OpenNebula <https://github.com/blackberry/chef-provisioning-opennebula>`__
-     - A Chef provisioning driver for OpenNebula.
+     - A Chef Provisioning driver for OpenNebula.
    * - `SSH <https://github.com/chef/chef-provisioning-ssh>`__
-     - A Chef provisioning driver for SSH.
+     - A Chef Provisioning driver for SSH.
    * - `vSphere <https://github.com/chef-partners/chef-provisioning-vsphere>`__
-     - A Chef provisioning driver for VMware vSphere.
+     - A Chef Provisioning driver for VMware vSphere.
 
 Driver-specific Resources
 -----------------------------------------------------
-.. tag resources_provisioning
-
 A driver-specific resource is a statement of configuration policy that:
 
-* Describes the desired state for a configuration item that is created using Chef provisioning
+* Describes the desired state for a configuration item that is created using Chef Provisioning
 * Declares the steps needed to bring that item to the desired state
 * Specifies a resource type---such as ``package``, ``template``, or ``service``
 * Lists additional details (also known as properties), as necessary
 * Are grouped into recipes, which describe working configurations
 
-.. end_tag
-
 Machine Resources
 =====================================================
-.. tag resources_common
-
 A resource is a statement of configuration policy that:
 
 * Describes the desired state for a configuration item
@@ -132,20 +130,12 @@ A resource is a statement of configuration policy that:
 * Lists additional details (also known as resource properties), as necessary
 * Are grouped into recipes, which describe working configurations
 
-.. end_tag
-
 load_balancer
 -----------------------------------------------------
-.. tag resource_load_balancer_summary
-
 Use the **load_balancer** resource to create or destroy a load balancer.
-
-.. end_tag
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_load_balancer_syntax
-
 The syntax for using the **load_balancer** resource in a recipe is as follows:
 
 .. code-block:: ruby
@@ -163,12 +153,8 @@ where
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
-.. end_tag
-
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_load_balancer_actions
-
 This resource has the following actions:
 
 ``:create``
@@ -183,12 +169,8 @@ This resource has the following actions:
 
    .. end_tag
 
-.. end_tag
-
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_load_balancer_attributes
-
 This resource has the following properties:
 
 ``driver``
@@ -207,22 +189,14 @@ This resource has the following properties:
 
    The name of the load balancer.
 
-.. end_tag
-
 machine
 -----------------------------------------------------
-.. tag resource_machine_summary
-
 Use the **machine** resource to define one (or more) machines, and then converge entire clusters of machines. This allows clusters to be maintained in a version control system and to be defined using multi-machine orchestration scenarios. For example, spinning up small test clusters and using them for continuous integration and local testing, building clusters that auto-scale, moving a set of machines in one cluster to another, building images, and so on.
 
 Each machine is declared as a separate application topology, defined using operating system- and provisioner-independent files. Recipes (defined in cookbooks) are used to manage them. The Chef Infra Client is used to converge the individual nodes (machines) within the cluster.
 
-.. end_tag
-
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_syntax
-
 The syntax for using the **machine** resource in a recipe is as follows:
 
 .. code-block:: ruby
@@ -240,12 +214,8 @@ where
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
-.. end_tag
-
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_actions
-
 This resource has the following actions:
 
 ``:allocate``
@@ -276,12 +246,8 @@ This resource has the following actions:
 ``:stop``
    Use to stop a machine.
 
-.. end_tag
-
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_attributes
-
 This resource has the following properties:
 
 ``admin``
@@ -496,14 +462,10 @@ This resource has the following properties:
 
    Use to specify if the Chef Infra Client is a chef-validator.
 
-.. end_tag
-
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 **Build machines dynamically**
-
-.. tag resource_machines_build_machines_dynamically
 
 .. To build machines dynamically:
 
@@ -524,11 +486,7 @@ Examples
      end
    end
 
-.. end_tag
-
 **Get a remote file onto a new machine**
-
-.. tag resource_machine_file_get_remote_file
 
 A deployment process requires more than just setting up machines. For example, files may need to be copied to machines from remote locations. The following example shows how to use the **remote_file** resource to grab a tarball from a URL, create a machine, copy that tarball to the machine, and then get that machine running by using a recipe that installs and configures that tarball on the machine:
 
@@ -553,11 +511,7 @@ A deployment process requires more than just setting up machines. For example, f
      action :converge
    end
 
-.. end_tag
-
 **Build machines that depend on each other**
-
-.. tag resource_machines_codependent_servers
 
 The following example shows how to create two identical machines, both of which cannot exist without the other. The first **machine** resource block creates the first machine by omitting the recipe that requires the other machine to be defined. The second resource block creates the second machine; because the first machine exists, both recipes can be run. The third resource block applies the second recipe to the first machine:
 
@@ -576,11 +530,7 @@ The following example shows how to create two identical machines, both of which 
      recipe 'theserver'
    end
 
-.. end_tag
-
 **Use a loop to build many machines**
-
-.. tag resource_machines_use_a_loop_to_create_many_machines
 
 .. To create multiple machines using a loop:
 
@@ -592,11 +542,7 @@ The following example shows how to create two identical machines, both of which 
      end
    end
 
-.. end_tag
-
 **Converge multiple machine types, in-parallel**
-
-.. tag resource_machine_batch_multiple_machine_types
 
 The **machine_batch** resource can be used to converge multiple machine types, in-parallel, even if each machine type has different drivers. For example:
 
@@ -613,11 +559,7 @@ The **machine_batch** resource can be used to converge multiple machine types, i
      end
    end
 
-.. end_tag
-
 **Build a machine from a machine image**
-
-.. tag resource_machine_image_add_apache_to_image
 
 .. To add Apache to a machine image, and then build a machine:
 
@@ -631,20 +573,12 @@ The **machine_batch** resource can be used to converge multiple machine types, i
     from_image 'web_image'
    end
 
-.. end_tag
-
 machine_batch
 -----------------------------------------------------
-.. tag resource_machine_batch_summary
-
 Use the **machine_batch** resource to explicitly declare a parallel process when building machines.
-
-.. end_tag
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_batch_syntax
-
 The syntax for using the **machine_batch** resource in a recipe is as follows:
 
 .. code-block:: ruby
@@ -662,12 +596,8 @@ where
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
-.. end_tag
-
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_batch_actions
-
 This resource has the following actions:
 
 ``:allocate``
@@ -692,12 +622,8 @@ This resource has the following actions:
 
 ``:stop``
 
-.. end_tag
-
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_batch_attributes
-
 This resource has the following attributes:
 
 ``chef_server``
@@ -725,14 +651,10 @@ This resource has the following attributes:
 ``max_simultaneous``
    ...
 
-.. end_tag
-
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 **Set up multiple machines, in-parallel**
-
-.. tag resource_machine_batch_setup_n_machines
 
 .. To setup multiple machines in-parallel:
 
@@ -743,11 +665,7 @@ Examples
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
-
 **Converge multiple machines, in-parallel**
-
-.. tag resource_machine_batch_converge_n_machines
 
 .. To converge multiple machines in-parallel:
 
@@ -758,11 +676,7 @@ Examples
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
-
 **Stop multiple machines, in-parallel**
-
-.. tag resource_machine_batch_stop_n_machines
 
 .. To stop multiple machines in-parallel:
 
@@ -773,11 +687,7 @@ Examples
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
-
 **Destroy multiple machines, in-parallel**
-
-.. tag resource_machine_batch_destroy_n_machines
 
 .. To delete multiple machines in-parallel:
 
@@ -788,11 +698,7 @@ Examples
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
-
 **Converge multiple machine types, in-parallel**
-
-.. tag resource_machine_batch_multiple_machine_types
 
 The **machine_batch** resource can be used to converge multiple machine types, in-parallel, even if each machine type has different drivers. For example:
 
@@ -809,20 +715,12 @@ The **machine_batch** resource can be used to converge multiple machine types, i
      end
    end
 
-.. end_tag
-
 machine_execute
 -----------------------------------------------------
-.. tag resource_machine_execute_summary
-
 Use the **machine_execute** resource to run a command on a remote machine in much the same way the **execute** resource is used to run a command on a local machine.
-
-.. end_tag
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_execute_syntax
-
 The syntax for using the **machine_execute** resource in a recipe is as follows:
 
 .. code-block:: ruby
@@ -840,12 +738,8 @@ where
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
-.. end_tag
-
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_execute_actions
-
 This resource has the following actions:
 
 ``:nothing``
@@ -858,12 +752,8 @@ This resource has the following actions:
 ``:run``
    Default. Use to run a machine.
 
-.. end_tag
-
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_execute_attributes
-
 This resource has the following properties:
 
 ``chef_server``
@@ -889,20 +779,12 @@ This resource has the following properties:
 
    Use to specify the machine type.
 
-.. end_tag
-
 machine_file
 -----------------------------------------------------
-.. tag resource_machine_file_summary
-
 Use the **machine_file** resource to manage a file on a remote machine in much the same way the **file** resource is used to manage a file on a local machine.
-
-.. end_tag
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_file_syntax
-
 The syntax for using the **machine_file** resource in a recipe is as follows:
 
 .. code-block:: ruby
@@ -920,12 +802,8 @@ where
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
-.. end_tag
-
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_file_actions
-
 This resource has the following actions:
 
 ``:delete``
@@ -944,12 +822,8 @@ This resource has the following actions:
 ``:upload``
    Default. Use to upload a file to a machine.
 
-.. end_tag
-
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_file_attributes
-
 This resource has the following properties:
 
 ``chef_server``
@@ -991,14 +865,10 @@ This resource has the following properties:
 
    Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
 
-.. end_tag
-
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 **Get a remote file onto a new machine**
-
-.. tag resource_machine_file_get_remote_file
 
 A deployment process requires more than just setting up machines. For example, files may need to be copied to machines from remote locations. The following example shows how to use the **remote_file** resource to grab a tarball from a URL, create a machine, copy that tarball to the machine, and then get that machine running by using a recipe that installs and configures that tarball on the machine:
 
@@ -1023,20 +893,12 @@ A deployment process requires more than just setting up machines. For example, f
      action :converge
    end
 
-.. end_tag
-
 machine_image
 -----------------------------------------------------
-.. tag resource_machine_image_summary
-
 Use the **machine_image** resource to define a machine image. This image may then be used by the **machine** resource when building machines.
-
-.. end_tag
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_image_syntax
-
 The syntax for using the **machine_image** resource in a recipe is as follows:
 
 .. code-block:: ruby
@@ -1054,12 +916,8 @@ where
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
-.. end_tag
-
 Actions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_image_actions
-
 This resource has the following actions:
 
 ``:archive``
@@ -1078,12 +936,8 @@ This resource has the following actions:
 
    .. end_tag
 
-.. end_tag
-
 Properties
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_machine_image_attributes
-
 This resource has the following properties:
 
 ``attributes``
@@ -1130,14 +984,10 @@ This resource has the following properties:
 ``tags``
    Use to specify the list of tags to be applied to the machine image. Any tag not specified in this list will be removed.
 
-.. end_tag
-
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 **Build a machine from a machine image**
-
-.. tag resource_machine_image_add_apache_to_image
 
 .. To add Apache to a machine image, and then build a machine:
 
@@ -1151,23 +1001,17 @@ Examples
     from_image 'web_image'
    end
 
-.. end_tag
-
 AWS Driver Resources
 =====================================================
-.. tag resources_provisioning
-
 A driver-specific resource is a statement of configuration policy that:
 
-* Describes the desired state for a configuration item that is created using Chef provisioning
+* Describes the desired state for a configuration item that is created using Chef Provisioning
 * Declares the steps needed to bring that item to the desired state
 * Specifies a resource type---such as ``package``, ``template``, or ``service``
 * Lists additional details (also known as properties), as necessary
 * Are grouped into recipes, which describe working configurations
 
-.. end_tag
-
-The following Chef provisioning driver-specific resources are available for Amazon Web Services (AWS):
+The following Chef Provisioning driver-specific resources are available for Amazon Web Services (AWS):
 
 * ``aws_auto_scaling_group``
 * ``aws_cache_cluster``
@@ -1200,19 +1044,15 @@ For more information about these driver-specific resources, see `AWS Driver Reso
 
 Fog Driver Resources
 =====================================================
-.. tag resources_provisioning
-
 A driver-specific resource is a statement of configuration policy that:
 
-* Describes the desired state for a configuration item that is created using Chef provisioning
+* Describes the desired state for a configuration item that is created using Chef Provisioning
 * Declares the steps needed to bring that item to the desired state
 * Specifies a resource type---such as ``package``, ``template``, or ``service``
 * Lists additional details (also known as properties), as necessary
 * Are grouped into recipes, which describe working configurations
 
-.. end_tag
-
-The following Chef provisioning driver-specific resources are available for Fog:
+The following Chef Provisioning driver-specific resources are available for Fog:
 
 * ``fog_key_pair``
 
