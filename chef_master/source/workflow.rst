@@ -140,7 +140,7 @@ Acceptance Stage
 -----------------------------------------------------
 Beginning with the Acceptance stage, the pipeline switches from analyzing the project's source code to verifying the set of artifacts that were produced in the Build stage. The goal of the Acceptance stage is for the team to make a decision about whether the change should go all the way out to production or not. There are four phases in Acceptance:
 
-* **Provision**. Provision infrastructure needed to test the artifact(s). Examples include instantiating new infrastructure with Chef provisioning (or another API-accessible mechanism) and manipulating Chef Infra Server environments to designate the nodes used by the current stage. Of course, what executes in any phase is up to you and determined by the project's build cookbook.
+* **Provision**. Provision infrastructure needed to test the artifact(s). Examples include instantiating new infrastructure with Chef Provisioning (or another API-accessible mechanism) and manipulating Chef Infra Server environments to designate the nodes used by the current stage. Of course, what executes in any phase is up to you and determined by the project's build cookbook.
 * **Deploy**. Deploy the artifacts published in the Build stage to the portion of your infrastructure that has been set aside for acceptance testing.
 * **Smoke**. Smoke tests should be relatively short-running tests that verify that the code that should have been deployed has indeed been deployed and that the system passes minimal health checks.
 * **Functional**. The functional tests should give you confidence that the system is meeting its business requirements.

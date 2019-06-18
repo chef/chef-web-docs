@@ -77,8 +77,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_dsc_script_actions
-
 The dsc_script resource has the following actions:
 
 ``:nothing``
@@ -91,8 +89,6 @@ The dsc_script resource has the following actions:
 
 ``:run``
    Default. Use to run the DSC configuration defined as defined in this resource.
-
-.. end_tag
 
 Properties
 =====================================================

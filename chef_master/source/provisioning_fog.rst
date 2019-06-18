@@ -3,13 +3,22 @@ Fog Driver Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/provisioning_fog.rst>`__
 
+.. tag EOL_provisioning
+
+This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+
+Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
+
+.. end_tag
+
+
 .. tag provisioning_summary
 
-Chef provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
+Chef Provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
 
-Chef provisioning is built around two major components: the **machine** resource and drivers.
+Chef Provisioning is built around two major components: the **machine** resource and drivers.
 
-Chef provisioning is packaged in ChefDK. Chef provisioning is a framework that allows clusters to be managed by the Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+Chef Provisioning is packaged in ChefDK. Chef Provisioning is a framework that allows clusters to be managed by the Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef Provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
 
 .. end_tag
 
@@ -17,7 +26,7 @@ Chef provisioning is packaged in ChefDK. Chef provisioning is a framework that a
 
 A driver-specific resource is a statement of configuration policy that:
 
-* Describes the desired state for a configuration item that is created using Chef provisioning
+* Describes the desired state for a configuration item that is created using Chef Provisioning
 * Declares the steps needed to bring that item to the desired state
 * Specifies a resource type---such as ``package``, ``template``, or ``service``
 * Lists additional details (also known as properties), as necessary
@@ -25,13 +34,13 @@ A driver-specific resource is a statement of configuration policy that:
 
 .. end_tag
 
-The following driver-specific resources are available for Fog and Chef provisioning:
+The following driver-specific resources are available for Fog and Chef Provisioning:
 
 * ``fog_key_pair``
 
 fog_key_pair
 =====================================================
-The ``fog_key_pair`` resource is a driver-specific resource used by Chef provisioning for use with Fog, a Ruby gem for interacting with various cloud providers, such as Amazon EC2, CloudStack, DigitalOcean, Google Cloud Platform, Joyent, OpenStack, Rackspace, SoftLayer, and vCloud Air.
+The ``fog_key_pair`` resource is a driver-specific resource used by Chef Provisioning for use with Fog, a Ruby gem for interacting with various cloud providers, such as Amazon EC2, CloudStack, DigitalOcean, Google Cloud Platform, Joyent, OpenStack, Rackspace, SoftLayer, and vCloud Air.
 
 Syntax
 -----------------------------------------------------
@@ -68,7 +77,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -83,7 +92,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``private_key_options``
      - **Ruby Type:** Hash
 
