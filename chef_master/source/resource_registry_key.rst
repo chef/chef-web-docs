@@ -302,7 +302,7 @@ The registry_key resource has the following actions:
    Delete the specified values for a registry key.
 
 ``:delete_key``
-   Delete the specified registry key and all of its subkeys. Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
+   Delete the specified registry key and all of its subkeys. The ``:delete_key`` action with the ``recursive`` attribute will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -335,7 +335,7 @@ The registry_key resource has the following properties:
 ``recursive``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``. Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
+   When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``. The ``:delete_key`` action with the ``recursive`` attribute will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
 ``values``
    **Ruby Type:** Hash, Array
