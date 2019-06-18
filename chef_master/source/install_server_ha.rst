@@ -8,12 +8,6 @@ of the highly available Chef Infra Server cluster. The topic then
 describes the setup and installation process for a highly available
 Chef Infra Server cluster comprised of five total nodes (two frontend and three backend).
 
-.. note:: .. tag chef_subscriptions
-
-          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
-
-          .. end_tag
-
 Overview
 =====================================================
 

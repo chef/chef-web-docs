@@ -108,39 +108,7 @@ This subcommand has the following options:
    The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
 
 ``--hint HINT_NAME[=HINT_FILE]``
-   An Ohai hint to be set on the target node.
-
-   .. tag ohai_hints
-
-   Ohai hints are used to tell Ohai something about the system that it is running on that it would not be able to discover itself. An Ohai hint exists if a JSON file exists in the hint directory with the same name as the hint. For example, calling ``hint?('antarctica')`` in an Ohai plugin would return an empty hash if the file ``antarctica.json`` existed in the hints directory, and return nil if the file does not exist.
-
-   .. end_tag
-
-   .. tag ohai_hints_json
-
-   If the hint file contains JSON content, it will be returned as a hash from the call to ``hint?``.
-
-   .. code-block:: javascript
-
-      {
-        "snow": true,
-        "penguins": "many"
-      }
-
-   .. code-block:: ruby
-
-      antarctica_hint = hint?('antarctica')
-      if antarctica_hint['snow']
-        "There are #{antarctica_hint['penguins']} penguins here."
-      else
-        'There is no snow here, and penguins like snow.'
-      end
-
-   Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the ``client.rb`` file to customize this location.
-
-   .. end_tag
-
-   ``HINT_FILE`` is the name of the JSON file. ``HINT_NAME`` is the name of a hint in a JSON file. Use multiple ``--hint`` options to specify multiple hints.
+   An Ohai hint to be set on the target node. See the `Ohai </ohai.html#hints>`__ documentation for more information. ``HINT_FILE`` is the name of the JSON file. ``HINT_NAME`` is the name of a hint in a JSON file. Use multiple ``--hint`` options to specify multiple hints.
 
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.

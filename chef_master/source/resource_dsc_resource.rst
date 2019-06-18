@@ -128,8 +128,6 @@ The dsc_resource resource has the following properties:
 
    The ``:dsc_property_name`` must be a symbol.
 
-   .. tag resource_dsc_resource_ruby_types
-
    Use the following Ruby types to define ``property_value``:
 
    .. list-table::
@@ -155,8 +153,6 @@ The dsc_resource resource has the following properties:
 
    These are converted into the corresponding Windows PowerShell type during the Chef Infra Client run.
 
-   .. end_tag
-
 ``reboot_action``
    **Ruby Type:** Symbol | **Default Value:** ``:nothing``
 
@@ -166,8 +162,6 @@ The dsc_resource resource has the following properties:
    **Ruby Type:** Symbol
 
    The name of the DSC resource. This value is case-insensitive and must be a symbol that matches the name of the DSC resource.
-
-   .. tag resource_dsc_resource_features
 
    For built-in DSC resources, use the following values:
 
@@ -205,8 +199,6 @@ The dsc_resource resource has the following properties:
         - Use to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
 
    Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the Chef Infra Client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
-
-   .. end_tag
 
 ``timeout``
    **Ruby Type:** Integer

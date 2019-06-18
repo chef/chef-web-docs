@@ -364,13 +364,8 @@ Custom Ohai plugins can be written to collect additional information from system
 
 Hints
 =====================================================
-.. tag ohai_hints
 
 Ohai hints are used to tell Ohai something about the system that it is running on that it would not be able to discover itself. An Ohai hint exists if a JSON file exists in the hint directory with the same name as the hint. For example, calling ``hint?('antarctica')`` in an Ohai plugin would return an empty hash if the file ``antarctica.json`` existed in the hints directory, and return nil if the file does not exist.
-
-.. end_tag
-
-.. tag ohai_hints_json
 
 If the hint file contains JSON content, it will be returned as a hash from the call to ``hint?``.
 
@@ -392,7 +387,6 @@ If the hint file contains JSON content, it will be returned as a hash from the c
 
 Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the ``client.rb`` file to customize this location.
 
-.. end_tag
 
 ohai Resource
 =====================================================
