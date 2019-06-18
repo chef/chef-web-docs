@@ -750,7 +750,7 @@ This subcommand has the following options:
 ``--batch-size``
    The number of orphaned authorization actors to delete at a time.
 
-Organization Management
+Manage Organizations
 =====================================================
 .. tag ctl_chef_server_org
 
@@ -1110,8 +1110,6 @@ This subcommand has the following options:
 
 ``-w``, ``--wait``
    Use to wait for the reindexing queue to clear before exiting. This option only works when run on a standalone Chef Infra Server or on a primary backend Chef server within a legacy tier.
-
-
 
 Server Admins
 =====================================================

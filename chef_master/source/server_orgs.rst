@@ -28,13 +28,9 @@ The Chef Infra Server uses organizations, groups, and users to define role-based
           :width: 100px
           :align: center
 
-     - .. tag server_rbac_groups
-
-       A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.
+     - A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.
 
        Individual users who are members of a group will inherit the permissions assigned to the group. The Chef Infra Server includes the following default groups: ``admins``, ``clients``, and ``users``. For users of the hosted Chef Infra Server, an additional default group is provided: ``billing_admins``.
-
-       .. end_tag
 
    * - .. image:: ../../images/icon_server_users.svg
           :width: 100px
@@ -45,11 +41,7 @@ The Chef Infra Server uses organizations, groups, and users to define role-based
           :width: 100px
           :align: center
 
-     - .. tag server_rbac_clients
-
-       A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.
-
-       .. end_tag
+     -  A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.
 
 .. end_tag
 
@@ -65,7 +57,7 @@ Permissions are managed using the Chef management console add-on in the Chef Inf
 
 .. end_tag
 
-Multiple Organizations
+Organizations
 =====================================================
 .. tag server_rbac_orgs_multi
 
@@ -91,7 +83,7 @@ Using multiple organizations within the Chef Infra Server ensures that the same 
 .. end_tag
 
 Permissions
-=====================================================
+-----------------------------------------------------
 .. tag server_rbac_permissions
 
 Permissions are used in the Chef Infra Server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
@@ -99,7 +91,7 @@ Permissions are used in the Chef Infra Server to define how users and groups can
 .. end_tag
 
 Object Permissions
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag server_rbac_permissions_object
 
 The Chef Infra Server includes the following object permissions:
@@ -122,7 +114,7 @@ The Chef Infra Server includes the following object permissions:
 .. end_tag
 
 Global Permissions
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag server_rbac_permissions_global
 
 The Chef Infra Server includes the following global permissions:
@@ -143,14 +135,8 @@ These permissions set the default permissions for the following Chef Infra Serve
 .. end_tag
 
 Client Key Permissions
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. note:: This is only necessary after migrating a client from one Chef Infra Server to another. Permissions must be reset for client keys after the migration.
-
-.. tag server_rbac_clients
-
-A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.
-
-.. end_tag
 
 .. tag server_rbac_permissions_key
 
@@ -185,34 +171,41 @@ Save it as a Ruby script---``chef_server_permissions.rb``, for example---in the 
 
 .. end_tag
 
-Default Permissions
------------------------------------------------------
-.. tag server_rbac_groups
-
-A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.
-
-Individual users who are members of a group will inherit the permissions assigned to the group. The Chef Infra Server includes the following default groups: ``admins``, ``clients``, and ``users``. For users of the hosted Chef Infra Server, an additional default group is provided: ``billing_admins``.
-
-.. end_tag
-
 Knife ACL
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The knife plugin `knife-acl <https://github.com/chef/knife-acl>`_ provides a fine-grained approach to modifying permissions, by wrapping API calls to the ``_acl`` endpoint and makes such permission changes easier to manage.
+
+.. tag EOL_manage
+
+.. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+.. end_tag
 
 `knife-acl` and the Chef Manage browser interface are incompatible. After engaging `knife-acl`, you will need to discontinue using the Chef Manage browser interface from that point forward due to possible incompatibilities.
 
 Groups
 =====================================================
-.. tag server_rbac_groups
+The Chef Infra Server includes the following default groups:
 
-A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.
+.. list-table::
+   :widths: 60 420
+   :header-rows: 1
 
-Individual users who are members of a group will inherit the permissions assigned to the group. The Chef Infra Server includes the following default groups: ``admins``, ``clients``, and ``users``. For users of the hosted Chef Infra Server, an additional default group is provided: ``billing_admins``.
+   * - Group
+     - Description
+   * - ``admins``
+     - The ``admins`` group defines the list of users who have administrative rights to all objects and object types for a single organization.
+   * - ``billing_admins``
+     - The ``billing_admins`` group defines the list of users who have permission to manage billing information. This permission exists only for the hosted Chef Infra Server.
+   * - ``clients``
+     - The ``clients`` group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---the Chef Infra Client, in nearly every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.
+   * - ``public_key_read_access``
+     - The ``public_key_read_access`` group defines which users and clients have read permissions to key-related endpoints in the Chef Infra Server API.
+   * - ``users``
+     - The ``users`` group defines the list of users who use knife and the Chef management console to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that is uploaded to and/or downloaded from the Chef server".
 
-.. end_tag
-
-Default Groups
+Example Default Permissions
 -----------------------------------------------------
 The following sections show the default permissions assigned by the Chef Infra Server to the ``admins``, ``billing_admins``, ``clients``, and ``users`` groups.
 
@@ -379,8 +372,6 @@ By default, the ``public_key_read_access`` assigns all members of the ``users`` 
      - yes
      - yes
 
-
-
 users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``users`` group is assigned the following:
@@ -451,7 +442,7 @@ The ``users`` group is assigned the following:
      - no
 
 chef-validator
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+-----------------------------------------------------
 .. tag security_chef_validator
 
 Every request made by the Chef Infra Client to the Chef Infra Server must be an authenticated request using the Chef Infra Server API and a private key. When the Chef Infra Client makes a request to the Chef Infra Server, the Chef Infra Client authenticates each request using a private key located in ``/etc/chef/client.pem``.

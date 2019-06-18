@@ -16,14 +16,9 @@ Manage Client Keys
 
 .. end_tag
 
-
 .. note:: This topic is about using the Chef management console to manage keys.
 
-.. tag server_rbac_clients
-
 A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.
-
-.. end_tag
 
 Use the Chef management console to create a key pair, download the private key, and then set permissions, to delete a key, or to reset a key.
 
