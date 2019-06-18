@@ -9,9 +9,9 @@ Use the **machine_batch** resource to explicitly declare a parallel process when
 
 .. end_tag
 
-.. warning:: .. tag notes_provisioning
+.. warning:: .. tag EOL_provisioning
 
-             This functionality was available with Chef provisioning and was packaged in the Chef development kit.
+             This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
 
              Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
@@ -42,8 +42,6 @@ where
 
 Actions
 =====================================================
-.. tag resource_machine_batch_actions
-
 This resource has the following actions:
 
 ``:allocate``
@@ -68,15 +66,13 @@ This resource has the following actions:
 
 ``:stop``
 
-.. end_tag
-
 In-Parallel Processing
 -----------------------------------------------------
 .. tag provisioning_parallel
 
-In certain situations Chef provisioning will run multiple **machine** processes in-parallel, as long as each of the individual **machine** resources have the same declared action. The **machine_batch** resource is used to run in-parallel processes.
+In certain situations Chef Provisioning will run multiple **machine** processes in-parallel, as long as each of the individual **machine** resources have the same declared action. The **machine_batch** resource is used to run in-parallel processes.
 
-Chef provisioning will processes resources in-parallel automatically, unless:
+Chef Provisioning will processes resources in-parallel automatically, unless:
 
 * The recipe contains complex scripts, such as when a **file** resource sits in-between two **machine** resources in a single recipe. In this situation, the resources will be run sequentially
 * The actions specified for each individual **machine** resource are not identical; for example, if resource A is set to ``:converge`` and resource B is set to ``:destroy``, then they may not be processed in-parallel

@@ -36,8 +36,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_env_actions
-
 The windows_env resource has the following actions:
 
 ``:create``
@@ -55,8 +53,6 @@ The windows_env resource has the following actions:
    This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
-
-.. end_tag
 
 Properties
 =====================================================

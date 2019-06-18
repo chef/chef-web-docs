@@ -904,16 +904,24 @@ A ``Policyfile.lock.json`` file is similar to:
 
 chef provision
 -----------------------------------------------------
+.. tag EOL_provisioning
+
+This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+
+Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
+
+.. end_tag
+
 .. tag ctl_chef_provision
 
-Use the ``chef provision`` subcommand to invoke an embedded Chef Infra Client run to provision machines using Chef provisioning. By default, this subcommand expects to find a cookbook named ``provision`` in the current working directory. The Chef Infra Client run will run a recipe in this cookbook that uses Chef provisioning to create one (or more) machines.
+Use the ``chef provision`` subcommand to invoke an embedded Chef Infra Client run to provision machines using Chef Provisioning. By default, this subcommand expects to find a cookbook named ``provision`` in the current working directory. The Chef Infra Client run will run a recipe in this cookbook that uses Chef Provisioning to create one (or more) machines.
 
 The ``chef provision`` subcommand is intended to:
 
 * Provide a provisioning mechanism that supports using ``Policyfile.rb`` files
-* Support naming conventions within Chef provisioning
-* Integrate Chef provisioning steps with the command-line tools that are packaged with ChefDK
-* Separate the configuration of provisioned machines from running Chef provisioning
+* Support naming conventions within Chef Provisioning
+* Integrate Chef Provisioning steps with the command-line tools that are packaged with ChefDK
+* Separate the configuration of provisioned machines from running Chef Provisioning
 * Allow provisioning to be managed as code and versioned (via ``Policyfile.rb`` files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
 
 .. end_tag

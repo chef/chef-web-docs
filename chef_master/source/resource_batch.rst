@@ -59,7 +59,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_batch_actions
 
 The batch resource has the following actions:
 
@@ -72,8 +71,6 @@ The batch resource has the following actions:
 
 ``:run``
    Run a batch file.
-
-.. end_tag
 
 Properties
 =====================================================
@@ -156,7 +153,6 @@ The batch resource has the following properties:
 .. note:: See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd for more information about the cmd.exe interpreter.
 
 .. end_tag
-
 
 Common Resource Functionality
 =====================================================

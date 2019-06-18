@@ -3,9 +3,9 @@ load_balancer
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_load_balancer.rst>`__
 
-.. warning:: .. tag notes_provisioning
+.. warning:: .. tag EOL_provisioning
 
-             This functionality was available with Chef provisioning and was packaged in the Chef development kit.
+             This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
 
              Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
@@ -42,8 +42,6 @@ where
 
 Actions
 =====================================================
-.. tag resource_load_balancer_actions
-
 This resource has the following actions:
 
 ``:create``
@@ -57,8 +55,6 @@ This resource has the following actions:
    This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
-
-.. end_tag
 
 Properties
 =====================================================

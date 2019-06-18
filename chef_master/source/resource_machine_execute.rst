@@ -9,9 +9,9 @@ Use the **machine_execute** resource to run a command on a remote machine in muc
 
 .. end_tag
 
-.. warning:: .. tag notes_provisioning
+.. warning:: .. tag EOL_provisioning
 
-             This functionality was available with Chef provisioning and was packaged in the Chef development kit.
+             This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
 
              Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
@@ -42,8 +42,6 @@ where
 
 Actions
 =====================================================
-.. tag resource_machine_execute_actions
-
 This resource has the following actions:
 
 ``:nothing``
@@ -55,8 +53,6 @@ This resource has the following actions:
 
 ``:run``
    Default. Use to run a machine.
-
-.. end_tag
 
 Properties
 =====================================================

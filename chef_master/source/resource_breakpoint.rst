@@ -25,7 +25,7 @@ where
 
 * ``:break`` will tell the Chef Infra Client to stop running a recipe; can only be used when the Chef Infra Client is being run in chef-shell mode
 
-.. end_tag 
+.. end_tag
 
 Actions
 =====================================================

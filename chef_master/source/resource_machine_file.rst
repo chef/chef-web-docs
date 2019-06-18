@@ -9,9 +9,9 @@ Use the **machine_file** resource to manage a file on a remote machine in much t
 
 .. end_tag
 
-.. warning:: .. tag notes_provisioning
+.. warning:: .. tag EOL_provisioning
 
-             This functionality was available with Chef provisioning and was packaged in the Chef development kit.
+             This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
 
              Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
@@ -42,8 +42,6 @@ where
 
 Actions
 =====================================================
-.. tag resource_machine_file_actions
-
 This resource has the following actions:
 
 ``:delete``
@@ -61,8 +59,6 @@ This resource has the following actions:
 
 ``:upload``
    Default. Use to upload a file to a machine.
-
-.. end_tag
 
 Properties
 =====================================================

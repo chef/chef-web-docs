@@ -49,8 +49,6 @@ where:
 
 Actions
 =====================================================
-.. tag resource_package_windows_actions
-
 The windows_package resource has the following actions:
 
 ``:install``
@@ -65,8 +63,6 @@ The windows_package resource has the following actions:
 
 ``:remove``
    Remove a package.
-
-.. end_tag
 
 Properties
 =====================================================

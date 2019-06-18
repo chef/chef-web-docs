@@ -3,13 +3,22 @@ AWS Driver Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/provisioning_aws.rst>`__
 
+.. tag EOL_provisioning
+
+This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+
+Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
+
+.. end_tag
+
+
 .. tag provisioning_summary
 
-Chef provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
+Chef Provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
 
-Chef provisioning is built around two major components: the **machine** resource and drivers.
+Chef Provisioning is built around two major components: the **machine** resource and drivers.
 
-Chef provisioning is packaged in ChefDK. Chef provisioning is a framework that allows clusters to be managed by the Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+Chef Provisioning is packaged in ChefDK. Chef Provisioning is a framework that allows clusters to be managed by the Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef Provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
 
 .. end_tag
 
@@ -17,7 +26,7 @@ Chef provisioning is packaged in ChefDK. Chef provisioning is a framework that a
 
 A driver-specific resource is a statement of configuration policy that:
 
-* Describes the desired state for a configuration item that is created using Chef provisioning
+* Describes the desired state for a configuration item that is created using Chef Provisioning
 * Declares the steps needed to bring that item to the desired state
 * Specifies a resource type---such as ``package``, ``template``, or ``service``
 * Lists additional details (also known as properties), as necessary
@@ -25,7 +34,7 @@ A driver-specific resource is a statement of configuration policy that:
 
 .. end_tag
 
-The following driver-specific resources are available for Amazon Web Services (AWS) and Chef provisioning:
+The following driver-specific resources are available for Amazon Web Services (AWS) and Chef Provisioning:
 
 * ``aws_auto_scaling_group``
 * ``aws_cache_cluster``
@@ -65,7 +74,7 @@ The following driver-specific resources are available for Amazon Web Services (A
 
 Common Actions
 =====================================================
-Every Chef provisioning Amazon Web Services (AWS) driver-specific resource has the following actions:
+Every Chef Provisioning Amazon Web Services (AWS) driver-specific resource has the following actions:
 
 .. list-table::
    :widths: 150 450
@@ -84,7 +93,7 @@ Every Chef provisioning Amazon Web Services (AWS) driver-specific resource has t
 
 aws_auto_scaling_group
 =====================================================
-The ``aws_auto_scaling_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_auto_scaling_group`` resource to manage auto scaling groups for Amazon EC2 instances. Auto Scaling ensures that the correct number of Amazon EC2 instances are available. Each auto scaling group is set to a minimum size, along with a maximum that a group does not exceed.
+The ``aws_auto_scaling_group`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_auto_scaling_group`` resource to manage auto scaling groups for Amazon EC2 instances. Auto Scaling ensures that the correct number of Amazon EC2 instances are available. Each auto scaling group is set to a minimum size, along with a maximum that a group does not exceed.
 
 Syntax
 -----------------------------------------------------
@@ -124,7 +133,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -166,7 +175,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``launch_configuration``
      - **Ruby Type:** String
 
@@ -252,7 +261,7 @@ The following example destroys an auto scaling group and the associated launch c
 
 aws_cache_cluster
 =====================================================
-The ``aws_cache_cluster`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cache_cluster`` resource to manage `cache clusters <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/WhatIs.html>`__ in Amazon ElastiCache.
+The ``aws_cache_cluster`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_cache_cluster`` resource to manage `cache clusters <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/WhatIs.html>`__ in Amazon ElastiCache.
 
 Syntax
 -----------------------------------------------------
@@ -299,7 +308,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -341,7 +350,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``engine``
      - **Ruby Type:** String
 
@@ -434,7 +443,7 @@ Examples
 
 aws_cache_replication_group
 =====================================================
-The ``aws_cache_replication_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cache_replication_group`` resource to manage `replication groups for cache clusters <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/WhatIs.html>`__ in Amazon ElastiCache. A replication group is a collection of nodes, with a primary read/write cluster and up to five secondary, read-only clusters.
+The ``aws_cache_replication_group`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_cache_replication_group`` resource to manage `replication groups for cache clusters <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/WhatIs.html>`__ in Amazon ElastiCache. A replication group is a collection of nodes, with a primary read/write cluster and up to five secondary, read-only clusters.
 
 Syntax
 -----------------------------------------------------
@@ -482,7 +491,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -524,7 +533,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``engine``
      - **Ruby Type:** String
 
@@ -595,7 +604,7 @@ Examples
 
 aws_cache_subnet_group
 =====================================================
-The ``aws_cache_subnet_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cache_subnet_group`` resource to manage a `cache subnet group <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/ManagingVPC.CreatingSubnetGroup.html>`__, which is a collection of subnets that may be designated for cache clusters in Amazon Virtual Private Cloud (VPC).
+The ``aws_cache_subnet_group`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_cache_subnet_group`` resource to manage a `cache subnet group <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/ManagingVPC.CreatingSubnetGroup.html>`__, which is a collection of subnets that may be designated for cache clusters in Amazon Virtual Private Cloud (VPC).
 
 Syntax
 -----------------------------------------------------
@@ -626,7 +635,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -664,7 +673,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``group_name``
      - **Ruby Type:** String
 
@@ -724,7 +733,7 @@ Examples
 
 aws_cloudsearch_domain
 =====================================================
-The ``aws_cloudsearch_domain`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cloudsearch_domain`` resource to manage `full-text searching for domains <https://aws.amazon.com/cloudsearch/>`__ in Amazon CloudSearch.
+The ``aws_cloudsearch_domain`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_cloudsearch_domain`` resource to manage `full-text searching for domains <https://aws.amazon.com/cloudsearch/>`__ in Amazon CloudSearch.
 
 Syntax
 -----------------------------------------------------
@@ -761,7 +770,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -780,7 +789,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``index_fields``
      - **Ruby Type:** Array
 
@@ -828,7 +837,7 @@ Examples
 
 aws_cloudwatch_alarm
 =====================================================
-The ``aws_cloudwatch_alarm`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_cloudwatch_alarm`` resource to manage `CloudWatch alarm <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-createalarm.html/>`__ in Amazon CloudWatch.
+The ``aws_cloudwatch_alarm`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_cloudwatch_alarm`` resource to manage `CloudWatch alarm <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-cloudwatch-createalarm.html/>`__ in Amazon CloudWatch.
 
 Syntax
 -----------------------------------------------------
@@ -874,7 +883,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -893,7 +902,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``metric_name``
      - **Ruby Type:** String
 
@@ -971,7 +980,7 @@ Examples
 
 aws_dhcp_options
 =====================================================
-The ``aws_dhcp_options`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_dhcp_options`` resource to manage the `option sets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html>`__ for the Dynamic Host Configuration Protocol (DHCP) protocol. Option sets are associated with the Amazon Web Services (AWS) account and may be used across all instances in Amazon Virtual Private Cloud (VPC).
+The ``aws_dhcp_options`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_dhcp_options`` resource to manage the `option sets <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_DHCP_Options.html>`__ for the Dynamic Host Configuration Protocol (DHCP) protocol. Option sets are associated with the Amazon Web Services (AWS) account and may be used across all instances in Amazon Virtual Private Cloud (VPC).
 
 Syntax
 -----------------------------------------------------
@@ -1009,7 +1018,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -1055,7 +1064,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -1105,7 +1114,7 @@ Examples
 
 aws_ebs_volume
 =====================================================
-The ``aws_ebs_volume`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_ebs_volume`` resource to manage a `block-level storage device <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html>`__ that is attached to an Amazon EC2 instance.
+The ``aws_ebs_volume`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_ebs_volume`` resource to manage a `block-level storage device <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumes.html>`__ that is attached to an Amazon EC2 instance.
 
 Syntax
 -----------------------------------------------------
@@ -1148,7 +1157,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -1190,7 +1199,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``encrypted``
      - **Ruby Type:** true, false
 
@@ -1210,7 +1219,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``name``
      - **Ruby Type:** String
 
-       Use to specify the name of the block-level storage device. Because the name of a Amazon Virtual Private Cloud (VPC) instance is not guaranteed to be unique for an account at Amazon Web Services (AWS), Chef provisioning will store the associated identifier on the Chef Infra Server using the ``data/aws_ebs_volume/<name>`` data bag.
+       Use to specify the name of the block-level storage device. Because the name of a Amazon Virtual Private Cloud (VPC) instance is not guaranteed to be unique for an account at Amazon Web Services (AWS), Chef Provisioning will store the associated identifier on the Chef Infra Server using the ``data/aws_ebs_volume/<name>`` data bag.
    * - ``size``
      - **Ruby Type:** Integer
 
@@ -1336,7 +1345,7 @@ The following example destroys an Amazon Elastic Block Store (EBS) volume for th
 
 aws_eip_address
 =====================================================
-The ``aws_eip_address`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_eip_address`` resource to manage `an elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__, a static IP address designed for dynamic cloud computing that is associated with an Amazon Web Services (AWS) account.
+The ``aws_eip_address`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_eip_address`` resource to manage `an elastic IP address <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html>`__, a static IP address designed for dynamic cloud computing that is associated with an Amazon Web Services (AWS) account.
 
 Syntax
 -----------------------------------------------------
@@ -1368,7 +1377,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -1387,7 +1396,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``machine``
      - **Ruby Type:** String, false
 
@@ -1451,7 +1460,7 @@ Examples
 
 aws_elasticsearch_domain
 =====================================================
-The ``aws_elasticsearch_domain`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_elasticsearch_domain`` resource to manage `an Elasticsearch domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html>`__, an Amazon Elasticsearch Service (Amazon ES) domain that encapsulates the Amazon ES engine instances associated with an Amazon Web Services (AWS) account.
+The ``aws_elasticsearch_domain`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_elasticsearch_domain`` resource to manage `an Elasticsearch domain <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-elasticsearch-domain.html>`__, an Amazon Elasticsearch Service (Amazon ES) domain that encapsulates the Amazon ES engine instances associated with an Amazon Web Services (AWS) account.
 
 Syntax
 -----------------------------------------------------
@@ -1487,7 +1496,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -1506,7 +1515,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``ebs_enabled``
      - **Ruby Type:** true, false
 
@@ -1542,7 +1551,7 @@ Examples
 
 aws_iam_instance_profile
 =====================================================
-The ``aws_iam_instance_profile`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_iam_instance_profile`` resource to manage `an IAM instance profile <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html>`__, An instance profile is a container for an IAM role that you can use to pass role information to an EC2 instance when the instance starts.
+The ``aws_iam_instance_profile`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_iam_instance_profile`` resource to manage `an IAM instance profile <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html>`__, An instance profile is a container for an IAM role that you can use to pass role information to an EC2 instance when the instance starts.
 
 Syntax
 -----------------------------------------------------
@@ -1572,7 +1581,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -1591,7 +1600,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``role``
      - **Ruby Type:** String, AwsIamRole, ::Aws::IAM::Role
 
@@ -1618,7 +1627,7 @@ Examples
 
 aws_iam_role
 =====================================================
-The ``aws_iam_role`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_iam_role`` resource to manage `an IAM Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html>`__, An IAM role is similar to a user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have any credentials (password or access keys) associated with it. Instead, if a user is assigned to a role, access keys are created dynamically and provided to the user.
+The ``aws_iam_role`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_iam_role`` resource to manage `an IAM Role <http://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html>`__, An IAM role is similar to a user, in that it is an AWS identity with permission policies that determine what the identity can and cannot do in AWS. However, instead of being uniquely associated with one person, a role is intended to be assumable by anyone who needs it. Also, a role does not have any credentials (password or access keys) associated with it. Instead, if a user is assigned to a role, access keys are created dynamically and provided to the user.
 
 Syntax
 -----------------------------------------------------
@@ -1650,7 +1659,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -1669,7 +1678,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``assume_role_policy_document``
      - **Ruby Type:** String
 
@@ -1766,7 +1775,7 @@ Examples
 
 machine_image
 =====================================================
-The ``machine_image`` resource is a driver-specific resource used by Chef provisioning. Use the ``machine_image`` resource to manage Amazon Machine Images (AMI) `images <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html>`__ that exist in Amazon EC2. An image includes a template for the root volume of an instance (operating system, application server, application, for example), launch permissions, and a block mapping device that attaches volumes to the instance when it is launched.
+The ``machine_image`` resource is a driver-specific resource used by Chef Provisioning. Use the ``machine_image`` resource to manage Amazon Machine Images (AMI) `images <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html>`__ that exist in Amazon EC2. An image includes a template for the root volume of an instance (operating system, application server, application, for example), launch permissions, and a block mapping device that attaches volumes to the instance when it is launched.
 
 Syntax
 -----------------------------------------------------
@@ -1794,7 +1803,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -1828,7 +1837,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``image_id``
      - **Ruby Type:** String
 
@@ -1895,7 +1904,7 @@ Examples
 
 machine
 =====================================================
-The ``machine`` resource is a driver-specific resource used by Chef provisioning. Use the ``machine`` resource to manage an instance in Amazon EC2.
+The ``machine`` resource is a driver-specific resource used by Chef Provisioning. Use the ``machine`` resource to manage an instance in Amazon EC2.
 
 Syntax
 -----------------------------------------------------
@@ -1923,7 +1932,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -1957,7 +1966,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``instance_id``
      - **Ruby Type:** String
 
@@ -2029,7 +2038,7 @@ Examples
 
 aws_internet_gateway
 =====================================================
-The ``aws_internet_gateway`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_internet_gateway`` resource to configure an internet gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
+The ``aws_internet_gateway`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_internet_gateway`` resource to configure an internet gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
 
 An internet gateway is a horizontally scaled, redundant, and highly available component within Amazon Virtual Private Cloud (VPC) that enables communication between instances within a defined virtual network and the Internet.
 
@@ -2060,7 +2069,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -2090,7 +2099,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``internet_gateway_id``
      - **Ruby Type:** String
 
@@ -2134,7 +2143,7 @@ Examples
 
 aws_key_pair
 =====================================================
-The ``aws_key_pair`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_key_pair`` resource to manage key pairs in Amazon EC2.
+The ``aws_key_pair`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_key_pair`` resource to manage key pairs in Amazon EC2.
 
 Syntax
 -----------------------------------------------------
@@ -2170,7 +2179,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -2208,7 +2217,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -2304,7 +2313,7 @@ The following example destroys an Amazon Elastic Block Store (EBS) volume for th
 
 aws_launch_configuration
 =====================================================
-The ``aws_launch_configuration`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_launch_configuration`` resource to manage Amazon Machine Images (AMI) `instance types <http://aws.amazon.com/amazon-linux-ami/instance-type-matrix/>`__, also known as pre-configured templates for instances in Amazon EC2.
+The ``aws_launch_configuration`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_launch_configuration`` resource to manage Amazon Machine Images (AMI) `instance types <http://aws.amazon.com/amazon-linux-ami/instance-type-matrix/>`__, also known as pre-configured templates for instances in Amazon EC2.
 
 Syntax
 -----------------------------------------------------
@@ -2336,7 +2345,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -2370,7 +2379,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``image``
      - **Ruby Type:** String, AWS::EC2::Image
 
@@ -2462,7 +2471,7 @@ The following example destroys an auto scaling group and the associated launch c
 
 aws_load_balancer
 =====================================================
-The ``aws_load_balancer`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_load_balancer`` resource to manage load balancers that exist in Amazon Elastic Load Balancing (ELB).
+The ``aws_load_balancer`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_load_balancer`` resource to manage load balancers that exist in Amazon Elastic Load Balancing (ELB).
 
 Syntax
 -----------------------------------------------------
@@ -2490,7 +2499,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -2524,7 +2533,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``load_balancer_id``
      - **Ruby Type:** String
 
@@ -2589,7 +2598,7 @@ Examples
 
 aws_nat_gateway
 =====================================================
-The ``aws_nat_gateway`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_nat_gateway`` resource to configure a NAT gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
+The ``aws_nat_gateway`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_nat_gateway`` resource to configure a NAT gateway for a defined virtual network within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
 
 An AWS nat gateway, enable instances in a private subnet to connect to the Internet or other AWS services, but prevent the Internet from initiating a connection with those instances.
 
@@ -2622,7 +2631,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -2652,7 +2661,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** ``Chef::Provisioning::Driver``
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``nat_gateway_id``
      - **Ruby Type:** String
 
@@ -2701,7 +2710,7 @@ Examples
 
 aws_network_acl
 =====================================================
-The ``aws_network_acl`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_network_acl`` resource to manage network ACLs.
+The ``aws_network_acl`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_network_acl`` resource to manage network ACLs.
 
 Syntax
 -----------------------------------------------------
@@ -2737,7 +2746,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -2771,7 +2780,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``inbound_rules``
      - **Ruby Type:** Array, Hash
 
@@ -3001,7 +3010,7 @@ Examples
 
 aws_network_interface
 =====================================================
-The ``aws_network_interface`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_network_interface`` resource to manage a network interface in Amazon EC2.
+The ``aws_network_interface`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_network_interface`` resource to manage a network interface in Amazon EC2.
 
 Syntax
 -----------------------------------------------------
@@ -3039,7 +3048,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3081,7 +3090,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``machine``
      - **Ruby Type:** String, false, AwsInstance, AWS::EC2::Instance
 
@@ -3130,7 +3139,7 @@ Examples
 
 aws_rds_instance
 =====================================================
-The ``aws_rds_instance`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_rds_instance`` resource to manage `a database instance <https://aws.amazon.com/rds/>`__ using Amazon Relational Database Service (RDS).
+The ``aws_rds_instance`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_rds_instance`` resource to manage `a database instance <https://aws.amazon.com/rds/>`__ using Amazon Relational Database Service (RDS).
 
 Syntax
 -----------------------------------------------------
@@ -3177,7 +3186,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3216,7 +3225,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``engine``
      - **Ruby Type:** String
 
@@ -3280,7 +3289,7 @@ Examples
 
 aws_rds_parameter_group
 =====================================================
-The ``aws_rds_parameter_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_rds_parameter_group`` resource to manage `a database parameter group <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html>`__ using Amazon Relational Database Service (RDS).
+The ``aws_rds_parameter_group`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_rds_parameter_group`` resource to manage `a database parameter group <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html>`__ using Amazon Relational Database Service (RDS).
 
 Syntax
 -----------------------------------------------------
@@ -3312,7 +3321,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3335,7 +3344,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -3363,7 +3372,7 @@ Examples
 
 aws_rds_subnet_group
 =====================================================
-The ``aws_rds_subnet_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_rds_subnet_group`` resource to manage `a collection of subnets <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html>`__ that exist in an Amazon Virtual Private Cloud (VPC) that is passed to the Amazon Relational Database Service (RDS) instance. At least two subnets must be specified.
+The ``aws_rds_subnet_group`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_rds_subnet_group`` resource to manage `a collection of subnets <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.html>`__ that exist in an Amazon Virtual Private Cloud (VPC) that is passed to the Amazon Relational Database Service (RDS) instance. At least two subnets must be specified.
 
 Syntax
 -----------------------------------------------------
@@ -3393,7 +3402,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3412,7 +3421,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -3443,7 +3452,7 @@ Examples
 
 aws_route53_hosted_zone
 =====================================================
-The ``aws_route53_hosted_zone`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_route53_hosted_zone`` resource to manage `a route53 hosted zone <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/AboutHZWorkingWith.html>`__ for a domain (such as example.com), and then you create resource record sets to tell the Domain Name System how you want traffic to be routed for that domain.
+The ``aws_route53_hosted_zone`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_route53_hosted_zone`` resource to manage `a route53 hosted zone <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/AboutHZWorkingWith.html>`__ for a domain (such as example.com), and then you create resource record sets to tell the Domain Name System how you want traffic to be routed for that domain.
 
 Syntax
 -----------------------------------------------------
@@ -3472,7 +3481,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3491,7 +3500,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -3521,7 +3530,7 @@ Examples
 
 aws_route53_record_set
 =====================================================
-The ``aws_route53_record_set`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_route53_record_set`` resource to manage `a route53 record sets <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrsets-working-with.html>`__ for a hosted zone.
+The ``aws_route53_record_set`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_route53_record_set`` resource to manage `a route53 record sets <http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/rrsets-working-with.html>`__ for a hosted zone.
 
 Syntax
 -----------------------------------------------------
@@ -3563,7 +3572,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3582,7 +3591,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -3619,7 +3628,7 @@ Examples
 
 aws_route_table
 =====================================================
-The ``aws_route_table`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_route_table`` resource to `define a route table <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
+The ``aws_route_table`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_route_table`` resource to `define a route table <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html>`__ within Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
 
 Syntax
 -----------------------------------------------------
@@ -3653,7 +3662,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3687,7 +3696,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``ignore_route_targets``
      - **Ruby Type:** String, Array
 
@@ -3707,7 +3716,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``routes``
      - **Ruby Type:** Hash
 
-       Use to specify a Hash that contains all of the routes associated with a route table. The destination (on the left side of the ``=>``) must be a classless inter-domain routing (CIDR) block. The target (on the right side of the ``=>``) may be the identifier for an internet gateway, an instance name, the identifier for network interface, a Chef provisioning machine name, or a Chef provisioning resource. For example:
+       Use to specify a Hash that contains all of the routes associated with a route table. The destination (on the left side of the ``=>``) must be a classless inter-domain routing (CIDR) block. The target (on the right side of the ``=>``) may be the identifier for an internet gateway, an instance name, the identifier for network interface, a Chef Provisioning machine name, or a Chef Provisioning resource. For example:
 
        .. code-block:: ruby
 
@@ -3777,7 +3786,7 @@ Examples
 
 aws_s3_bucket
 =====================================================
-The ``aws_s3_bucket`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_s3_bucket`` resource to create an Amazon Simple Storage Service (S3) bucket in which any amount of data is stored, retrievable at any time from anywhere.
+The ``aws_s3_bucket`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_s3_bucket`` resource to create an Amazon Simple Storage Service (S3) bucket in which any amount of data is stored, retrievable at any time from anywhere.
 
 Syntax
 -----------------------------------------------------
@@ -3810,7 +3819,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3844,7 +3853,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``enable_website_hosting``
      - **Ruby Type:** true, false | **Default Value:** ``false``
 
@@ -3904,7 +3913,7 @@ Examples
 
 aws_security_group
 =====================================================
-The ``aws_security_group`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_security_group`` resource to define and manage a security group in Amazon Web Services (AWS).
+The ``aws_security_group`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_security_group`` resource to define and manage a security group in Amazon Web Services (AWS).
 
 Syntax
 -----------------------------------------------------
@@ -3942,7 +3951,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -3972,7 +3981,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``inbound_rules``
      - **Ruby Type:** Array, Hash
 
@@ -4323,7 +4332,7 @@ Examples
 
 aws_server_certificate
 =====================================================
-The ``aws_server_certificate`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_server_certificate`` resource to `manage server certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html>`__ in Amazon EC2.
+The ``aws_server_certificate`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_server_certificate`` resource to `manage server certificates <http://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html>`__ in Amazon EC2.
 
 Syntax
 -----------------------------------------------------
@@ -4353,7 +4362,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -4391,7 +4400,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -4486,7 +4495,7 @@ Examples
 
 aws_sns_topic
 =====================================================
-The ``aws_sns_topic`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_sns_topic`` resource to create a topic in Amazon Simple Notification Service (SNS). A topic is a communication channel through which messages are sent and an access point through which publishers and subscribers communicate.
+The ``aws_sns_topic`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_sns_topic`` resource to create a topic in Amazon Simple Notification Service (SNS). A topic is a communication channel through which messages are sent and an access point through which publishers and subscribers communicate.
 
 Syntax
 -----------------------------------------------------
@@ -4514,7 +4523,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -4552,7 +4561,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -4588,7 +4597,7 @@ Examples
 
 aws_sqs_queue
 =====================================================
-The ``aws_sqs_queue`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_sqs_queue`` resource to create a queue in Amazon Simple Queue Service (SQS). Amazon Simple Queue Service (SQS) offers reliable and scalable hosted queues for storing messages as they travel between distributed components of applications and without requiring each component to be always available.
+The ``aws_sqs_queue`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_sqs_queue`` resource to create a queue in Amazon Simple Queue Service (SQS). Amazon Simple Queue Service (SQS) offers reliable and scalable hosted queues for storing messages as they travel between distributed components of applications and without requiring each component to be always available.
 
 Syntax
 -----------------------------------------------------
@@ -4616,7 +4625,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -4650,7 +4659,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -4692,7 +4701,7 @@ Examples
 
 aws_subnet
 =====================================================
-The ``aws_subnet`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_subnet`` resource to configure a subnet within a defined virtual network in Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
+The ``aws_subnet`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_subnet`` resource to configure a subnet within a defined virtual network in Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
 
 This defined virtual network is dedicated to a specific Amazon Web Services (AWS) account and is logically isolated from other defined virtual network in Amazon Web Services (AWS). One (or more) subnets may exist within this defined virtual network.
 
@@ -4732,7 +4741,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -4774,7 +4783,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
@@ -4936,7 +4945,7 @@ Examples
 
 aws_vpc
 =====================================================
-The ``aws_vpc`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_vpc`` resource to `launch resources into a defined virtual network <http://aws.amazon.com/documentation/vpc/>`__ with Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
+The ``aws_vpc`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_vpc`` resource to `launch resources into a defined virtual network <http://aws.amazon.com/documentation/vpc/>`__ with Amazon Virtual Private Cloud (VPC) (the networking layer of Amazon EC2).
 
 This defined virtual network is dedicated to a specific Amazon Web Services (AWS) account and is logically isolated from other defined virtual network in Amazon Web Services (AWS). Amazon EC2 instances may be launched into the defined virtual network and it may be configured for specific IP address ranges, subnets, routing tables, network gateways, and security settings.
 
@@ -4987,7 +4996,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -5029,7 +5038,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``enable_dns_hostnames``
      - **Ruby Type:** true
 
@@ -5055,7 +5064,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``main_routes``
      - **Ruby Type:** Hash
 
-       Use to specify a Hash that defines the routes for the main route table. The destination (on the left side of the ``=>``) must be a classless inter-domain routing (CIDR) block. The target (on the right side of the ``=>``) may be the identifier for an internet gateway, an instance name, the identifier for network interface, a Chef provisioning machine name, or a Chef provisioning resource.
+       Use to specify a Hash that defines the routes for the main route table. The destination (on the left side of the ``=>``) must be a classless inter-domain routing (CIDR) block. The target (on the right side of the ``=>``) may be the identifier for an internet gateway, an instance name, the identifier for network interface, a Chef Provisioning machine name, or a Chef Provisioning resource.
 
        For example:
 
@@ -5074,7 +5083,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``name``
      - **Ruby Type:** String
 
-       Use to specify the name of the defined virtual network. Because the name of a Amazon Virtual Private Cloud (VPC) instance is not guaranteed to be unique for an account at Amazon Web Services (AWS), Chef provisioning will store the associated identifier on the Chef Infra Server using the ``data/aws_vpc/<name>`` data bag.
+       Use to specify the name of the defined virtual network. Because the name of a Amazon Virtual Private Cloud (VPC) instance is not guaranteed to be unique for an account at Amazon Web Services (AWS), Chef Provisioning will store the associated identifier on the Chef Infra Server using the ``data/aws_vpc/<name>`` data bag.
    * - ``vpc_id``
      - **Ruby Type:** String
 
@@ -5264,7 +5273,7 @@ An Amazon Virtual Private Cloud (VPC) cannot be deleted when it has a non-main r
 
 aws_vpc_peering_connection
 =====================================================
-The ``aws_vpc_peering_connection`` resource is a driver-specific resource used by Chef provisioning. Use the ``aws_vpc_peering_connection`` resource to create a connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses.
+The ``aws_vpc_peering_connection`` resource is a driver-specific resource used by Chef Provisioning. Use the ``aws_vpc_peering_connection`` resource to create a connection between two VPCs that enables you to route traffic between them using private IPv4 addresses or IPv6 addresses.
 
 Syntax
 -----------------------------------------------------
@@ -5296,7 +5305,7 @@ where
 
 Properties
 -----------------------------------------------------
-This Chef provisioning driver-specific resource has the following properties:
+This Chef Provisioning driver-specific resource has the following properties:
 
 .. list-table::
    :widths: 150 450
@@ -5334,7 +5343,7 @@ This Chef provisioning driver-specific resource has the following properties:
    * - ``driver``
      - **Ruby Type:** Chef::Provisioning::Driver
 
-       The Chef provisioning driver.
+       The Chef Provisioning driver.
    * - ``managed_entry_store``
      - **Ruby Type:** Chef::Provisioning::ManagedEntryStore
 
