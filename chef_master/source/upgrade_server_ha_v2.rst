@@ -9,12 +9,6 @@ High Availability: Backend Cluster
 
 This topic describes the process of upgrading a highly available Chef Infra Server cluster.
 
-.. note:: .. tag chef_subscriptions
-
-          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
-
-          .. end_tag
-
 Overview
 =====================================================
 These instructions cover the process of upgrading a Chef Backend cluster. Please refer to the appropriate directions for the version of Chef Backend you are using, and the version you intend to upgrade to:
