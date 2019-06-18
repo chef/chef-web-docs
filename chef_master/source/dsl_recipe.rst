@@ -9,7 +9,7 @@ The Recipe DSL is a Ruby DSL that is primarily used to declare resources from wi
 
 .. end_tag
 
-Because the Recipe DSL is a Ruby DSL, anything that can be done using Ruby can also be done in a recipe or custom resource, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies. See the `Ruby </ruby.html>`_ guide for further information on built-in Ruby functionality.
+Because the Recipe DSL is a Ruby DSL, anything that can be done using Ruby can also be done in a recipe or custom resource, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies. See the `Ruby Guide </ruby.html>`_ for further information on built-in Ruby functionality.
 
 Include Recipes
 =====================================================
