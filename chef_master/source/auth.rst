@@ -1,5 +1,5 @@
 =====================================================
-Authentication, Authorization
+Authentication
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/auth.rst>`__
 
@@ -9,8 +9,6 @@ All communication with the Chef Infra Server must be authenticated using the Che
 
 .. end_tag
 
-Authentication
-=====================================================
 .. tag chef_auth_authentication
 
 The authentication process ensures the Chef Infra Server responds only to requests made by trusted users. Public key encryption is used by the Chef Infra Server. When a node and/or a workstation is configured to run the Chef Infra Client, both public and private keys are created. The public key is stored on the Chef Infra Server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
@@ -30,8 +28,8 @@ Every request made by the Chef Infra Client to the Chef Infra Server must be an 
 
 .. end_tag
 
-How are Keys Used?
-=====================================================
+Chef Infra Server Key Use
+-----------------------------------------------------
 .. tag chef_auth_authentication
 
 The authentication process ensures the Chef Infra Server responds only to requests made by trusted users. Public key encryption is used by the Chef Infra Server. When a node and/or a workstation is configured to run the Chef Infra Client, both public and private keys are created. The public key is stored on the Chef Infra Server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
@@ -43,7 +41,7 @@ Each request to the Chef Infra Server from those executables sign a special grou
 .. end_tag
 
 Chef Infra Client
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag security_key_pairs_chef_client
 
 RSA public key-pairs are used to authenticate the Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
@@ -51,17 +49,17 @@ RSA public key-pairs are used to authenticate the Chef Infra Client with the Che
 .. end_tag
 
 Knife
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag security_key_pairs_knife
 
 RSA public key-pairs are used to authenticate knife with the Chef Infra Server every time knife attempts to access the Chef Infra Server. This ensures that each instance of knife is properly registered with the Chef Infra Server and that only trusted users can make changes to the data.
 
 .. end_tag
 
-knife can also use the ``knife exec`` subcommand to make specific, authenticated requests to the Chef Infra Server. knife plugins can also make authenticated requests to the Chef Infra Server by leveraging the ``knife exec`` subcommand.
+Knife can also use the ``knife exec`` subcommand to make specific, authenticated requests to the Chef Infra Server. knife plugins can also make authenticated requests to the Chef Infra Server by leveraging the ``knife exec`` subcommand.
 
 chef-validator
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag security_chef_validator_context
 
 However, during the first Chef Infra Client run, this private key does not exist. Instead, the Chef Infra Client will attempt to use the private key assigned to the chef-validator, located in ``/etc/chef/validation.pem``. (If, for any reason, the chef-validator is unable to make an authenticated request to the Chef Infra Server, the initial Chef Infra Client run will fail.)
@@ -72,16 +70,16 @@ After the initial Chef Infra Client run has completed successfully, the chef-val
 
 .. end_tag
 
-Where are Keys Stored?
-=====================================================
+Chef Infra Server Key Storage
+-----------------------------------------------------
 Keys are stored in different locations, depending on if the location is a node or a workstation.
 
 Nodes
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Each node stores its private key locally. This private key is generated as part of the bootstrap process that initially installs the Chef Infra Client on the node. The first time Chef Infra Client runs on that node, it uses the chef-validator to authenticate, but then on each subsequent run it uses the private key generated for that client by the Chef Infra Server.
 
 Workstations
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Each workstation stores its private key in the chef-repo. This private key is generated by the Chef Infra Server and must be download from the server and copied to the ``.chef`` directory in the chef-repo. If a new private key is required, simply regenerate it from the Chef Infra Server and re-copy it to the chef-repo.
 
 .. tag chef_repo_description
@@ -105,28 +103,8 @@ The .chef directory is a hidden directory that is used to store validation key f
 
 .. end_tag
 
-Generating Keys
-=====================================================
-The Chef Infra Server generates two types of private keys: one for nodes and workstations (typically referred to as a "client key") and the other for the organization. If (for any reason) a new key is required, the Chef Infra Server can re-generate these keys.
-
-
-During a Chef Infra Client Run
+Chef Infra Server API Authentication
 -----------------------------------------------------
-.. tag security_key_pairs_chef_client
-
-RSA public key-pairs are used to authenticate the Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
-
-.. end_tag
-
-Knife
------------------------------------------------------
-.. tag security_key_pairs_knife
-
-RSA public key-pairs are used to authenticate knife with the Chef Infra Server every time knife attempts to access the Chef Infra Server. This ensures that each instance of knife is properly registered with the Chef Infra Server and that only trusted users can make changes to the data.
-
-.. end_tag
-
-knife can also use the ``knife exec`` subcommand to make specific, authenticated requests to the Chef Infra Server. knife plugins can also make authenticated requests to the Chef Infra Server by leveraging the ``knife exec`` subcommand.
 
 API Requests
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -183,15 +161,15 @@ For example:
 .. end_tag
 
 From the Web Interface
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The Chef Infra Server user interface uses the Chef Infra Server API to perform most operations. This ensures that authentication requests to the Chef Infra Server are authorized. This authentication process is handled automatically and is not something that users of the hosted Chef Infra Server will need to manage. For the on-premises Chef Infra Server, the authentication keys used by the web interface will need to be maintained by the individual administrators who are responsible for managing the server.
 
 Other Options
------------------------------------------------------
++++++++++++++++++++++++++++++++++++++++++++++++++++++
 The most common ways to interact with the Chef Infra Server using the Chef Infra Server API abstract the API from the user. That said, the Chef Infra Server API can be interacted with directly. The following sections describe a few of the ways that are available for doing that.
 
 cURL
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 An API request can be made using cURL, which is a Bash shell script that requires two utilities: awk and openssl. The following example shows how an authenticated request can be made using the Chef Infra Server API and cURL:
 
 .. code-block:: bash
@@ -281,7 +259,7 @@ After saving this shell script to a file named ``chef_api_request``, use it simi
    $ bash chef_api_request GET "/clients"
 
 PyChef
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 An API request can be made using PyChef, which is a Python library that meets the ``Mixlib::Authentication`` requirements so that it can easily interact with the Chef Infra Server. The following example shows how an authenticated request can be made using the Chef Infra Server API and PyChef:
 
 .. code-block:: python
@@ -306,7 +284,7 @@ and the following example shows how to make API calls directly:
 The previous examples assume that the current working directory is such that PyChef can find a valid configuration file in the same manner as the Chef Infra Client or knife. For more about PyChef, see: https://github.com/coderanger/pychef.
 
 Ruby
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 On a system with the Chef Infra Client installed, use Ruby to make an authenticated request to the Chef Infra Server:
 
 .. code-block:: ruby
@@ -446,395 +424,8 @@ If the authentication is happening on the node, there are a number of common cau
 
 Authorization
 =====================================================
-The Chef Infra Server uses a role-based access control (RBAC) model to ensure that users may only perform authorized actions.
+For more information about Chef Infra Server Authorization, see `Organizations and Groups </server_orgs.html>`__.
 
-Chef Server
------------------------------------------------------
-.. tag server_rbac
-
-The Chef Infra Server uses role-based access control (RBAC) to restrict access to objects---nodes, environments, roles, data bags, cookbooks, and so on. This ensures that only authorized user and/or Chef Infra Client requests to the Chef Infra Server are allowed. Access to objects on the Chef Infra Server is fine-grained, allowing access to be defined by object type, object, group, user, and organization. The Chef Infra Server uses permissions to define how a user may interact with an object, after they have been authorized to do so.
-
-.. end_tag
-
-.. tag server_rbac_components
-
-The Chef Infra Server uses organizations, groups, and users to define role-based access control:
-
-.. list-table::
-   :widths: 100 420
-   :header-rows: 1
-
-   * - Feature
-     - Description
-   * - .. image:: ../../images/icon_server_organization.svg
-          :width: 100px
-          :align: center
-
-     - An organization is the top-level entity for role-based access control in the Chef Infra Server. Each organization contains the default groups (``admins``, ``clients``, and ``users``, plus ``billing_admins`` for the hosted Chef Infra Server), at least one user and at least one node (on which the Chef Infra Client is installed). The Chef Infra Server supports multiple organizations. The Chef Infra Server includes a single default organization that is defined during setup. Additional organizations can be created after the initial setup and configuration of the Chef Infra Server.
-   * - .. image:: ../../images/icon_server_groups.svg
-          :width: 100px
-          :align: center
-
-     - .. tag server_rbac_groups
-
-       A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.
-
-       Individual users who are members of a group will inherit the permissions assigned to the group. The Chef Infra Server includes the following default groups: ``admins``, ``clients``, and ``users``. For users of the hosted Chef Infra Server, an additional default group is provided: ``billing_admins``.
-
-       .. end_tag
-
-   * - .. image:: ../../images/icon_server_users.svg
-          :width: 100px
-          :align: center
-
-     - A user is any non-administrator human being who will manage data that is uploaded to the Chef Infra Server from a workstation or who will log on to the Chef management console web user interface. The Chef Infra Server includes a single default user that is defined during setup and is automatically assigned to the ``admins`` group.
-   * - .. image:: ../../images/icon_chef_client.svg
-          :width: 100px
-          :align: center
-
-     - .. tag server_rbac_clients
-
-       A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.
-
-       .. end_tag
-
-.. end_tag
-
-.. tag server_rbac_workflow
-
-When a user makes a request to the Chef Infra Server using the Chef Infra Server API, permission to perform that action is determined by the following process:
-
-#. Check if the user has permission to the object type
-#. If no, recursively check if the user is a member of a security group that has permission to that object
-#. If yes, allow the user to perform the action
-
-Permissions are managed using the Chef management console add-on in the Chef Infra Server web user interface.
-
-.. end_tag
-
-Object Permissions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag server_rbac_permissions_object
-
-The Chef Infra Server includes the following object permissions:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Permission
-     - Description
-   * - **Delete**
-     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef Infra Server.
-   * - **Grant**
-     - Use the **Grant** permission to define which users and groups may configure permissions on an object. This permission is required for any user who configures permissions using the **Administration** tab in the Chef management console.
-   * - **Read**
-     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef Infra Server.
-   * - **Update**
-     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef Infra Server and for any Chef Infra Client to save node data to the Chef Infra Server at the conclusion of a Chef Infra Client run.
-
-.. end_tag
-
-Global Permissions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag server_rbac_permissions_global
-
-The Chef Infra Server includes the following global permissions:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Permission
-     - Description
-   * - **Create**
-     - Use the **Create** global permission to define which users and groups may create the following server object types: cookbooks, data bags, environments, nodes, roles, and tags. This permission is required for any user who uses the ``knife [object] create`` argument to interact with objects on the Chef Infra Server.
-   * - **List**
-     - Use the **List** global permission to define which users and groups may view the following server object types: cookbooks, data bags, environments, nodes, roles, and tags. This permission is required for any user who uses the ``knife [object] list`` argument to interact with objects on the Chef Infra Server.
-
-These permissions set the default permissions for the following Chef Infra Server object types: clients, cookbooks, data bags, environments, groups, nodes, roles, and sandboxes.
-
-.. end_tag
-
-Client Key Permissions
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. note:: This is only necessary after migrating a client from one Chef Infra Server to another. Permissions must be reset for client keys after the migration.
-
-.. tag server_rbac_clients
-
-A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.
-
-.. end_tag
-
-.. tag server_rbac_permissions_key
-
-Keys should have ``DELETE``, ``GRANT``, ``READ`` and ``UPDATE`` permissions.
-
-Use the following code to set the correct permissions:
-
-.. code-block:: ruby
-
-   #!/usr/bin/env ruby
-   require 'chef/knife'
-
-   #previously knife.rb
-   Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
-
-   rest = Chef::ServerAPI.new(Chef::Config[:chef_server_url])
-
-   Chef::Node.list.each do |node|
-     %w{read update delete grant}.each do |perm|
-       ace = rest.get("nodes/#{node[0]}/_acl")[perm]
-       ace['actors'] << node[0] unless ace['actors'].include?(node[0])
-       rest.put("nodes/#{node[0]}/_acl/#{perm}", perm => ace)
-       puts "Client \"#{node[0]}\" granted \"#{perm}\" access on node \"#{node[0]}\""
-     end
-   end
-
-Save it as a Ruby script---``chef_server_permissions.rb``, for example---in the ``.chef/scripts`` directory located in the chef-repo, and then run a knife command similar to:
-
-.. code-block:: bash
-
-   $ knife exec chef_server_permissions.rb
-
-.. end_tag
-
-Default Groups
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The Chef Infra Server includes the following default groups:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Group
-     - Description
-   * - ``admins``
-     - The ``admins`` group defines the list of users who have administrative rights to all objects and object types for a single organization.
-   * - ``billing_admins``
-     - The ``billing_admins`` group defines the list of users who have permission to manage billing information. This permission exists only for the hosted Chef Infra Server.
-   * - ``clients``
-     - The ``clients`` group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---the Chef Infra Client, in nearly every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.
-   * - ``public_key_read_access``
-     - The ``public_key_read_access`` group defines which users and clients have read permissions to key-related endpoints in the Chef Infra Server API.
-   * - ``users``
-     - The ``users`` group defines the list of users who use knife and the Chef management console to interact with objects and object types. In general, think of this permission as "all of the non-admin human actors who work with data that is uploaded to and/or downloaded from the Chef server".
-
-Multiple Organizations
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag server_rbac_orgs_multi
-
-A single instance of the Chef Infra Server can support many organizations. Each organization has a unique set of groups and users. Each organization manages a unique set of nodes, on which a Chef Infra Client is installed and configured so that it may interact with a single organization on the Chef Infra Server.
-
-.. image:: ../../images/server_rbac_orgs_groups_and_users.png
-
-A user may belong to multiple organizations under the following conditions:
-
-* Role-based access control is configured per-organization
-* For a single user to interact with the Chef Infra Server using knife from the same chef-repo, that user may need to edit their config.rb file prior to that interaction
-
-.. end_tag
-
-.. tag server_rbac_orgs_multi_use
-
-Using multiple organizations within the Chef Infra Server ensures that the same toolset, coding patterns and practices, physical hardware, and product support effort is being applied across the entire company, even when:
-
-* Multiple product groups must be supported---each product group can have its own security requirements, schedule, and goals
-* Updates occur on different schedules---the nodes in one organization are managed completely independently from the nodes in another
-* Individual teams have competing needs for object and object types---data bags, environments, roles, and cookbooks are unique to each organization, even if they share the same name
-
-.. end_tag
-
-Many Users, Same Repo
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-.. tag chef_repo_many_users_same_knife
-
-The config.rb configuration can include arbitrary Ruby code to extend configuration beyond static values. This can be used to load environmental variables from the workstation. This makes it possible to write a single config.rb file that can be used by all users within your organization. This single file can also be checked into your chef-repo, allowing users to load different config.rb files based on which chef-repo they execute the commands from. This can be especially useful when each chef-repo points to a different chef server or organization.
-
-Example config.rb:
-
-.. code-block:: none
-
-   current_dir = File.dirname(__FILE__)
-     user = ENV['OPSCODE_USER'] || ENV['USER']
-     node_name                user
-     client_key               "#{ENV['HOME']}/chef-repo/.chef/#{user}.pem"
-     validation_client_name   "#{ENV['ORGNAME']}-validator"
-     validation_key           "#{ENV['HOME']}/chef-repo/.chef/#{ENV['ORGNAME']}-validator.pem"
-     chef_server_url          "https://api.opscode.com/organizations/#{ENV['ORGNAME']}"
-     syntax_check_cache_path  "#{ENV['HOME']}/chef-repo/.chef/syntax_check_cache"
-     cookbook_path            ["#{current_dir}/../cookbooks"]
-     cookbook_copyright       "Your Company, Inc."
-     cookbook_license         "Apache-2.0"
-     cookbook_email           "cookbooks@yourcompany.com"
-
-     # Amazon AWS
-     knife[:aws_access_key_id] = ENV['AWS_ACCESS_KEY_ID']
-     knife[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY']
-.. end_tag
-
-Chef Infra Server API
+Chef Server API
 =====================================================
-.. tag api_chef_server_summary
-
-The Chef Infra Server API is a REST API that provides access to objects on the Chef Infra Server, including nodes, environments, roles, cookbooks (and cookbook versions), and to manage an API client list and the associated RSA public key-pairs.
-
-.. end_tag
-
-Authentication Headers
------------------------------------------------------
-.. tag api_chef_server_headers
-
-Authentication to the Chef Infra Server occurs when a specific set of HTTP headers are signed using a private key that is associated with the machine from which the request is made. The request is authorized if the Chef Infra Server can verify the signature using the public key. Only authorized actions are allowed.
-
-.. note:: Most authentication requests made to the Chef Infra Server are abstracted from the user. Such as when using knife or the Chef Infra Server user interface. In some cases, such as when using the ``knife exec`` subcommand, the authentication requests need to be made more explicitly, but still in a way that does not require authentication headers. In a few cases, such as when using arbitrary Ruby code or cURL, it may be necessary to include the full authentication header as part of the request to the Chef Infra Server.
-
-.. end_tag
-
-Header Format
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_headers_format
-
-By default, all hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
-
-.. code-block:: none
-
-   Method:HTTP_METHOD
-   Hashed Path:HASHED_PATH
-   X-Ops-Content-Hash:HASHED_BODY
-   X-Ops-Timestamp:TIME
-   X-Ops-UserId:USERID
-
-where:
-
-* ``HTTP_METHOD`` is the method used in the API request (``GET``, ``POST``, and so on)
-* ``HASHED_PATH`` is the path of the request: ``/organizations/NAME/name_of_endpoint``. The ``HASHED_PATH`` must be hashed using SHA-1 and encoded using Base64, must not have repeated forward slashes (``/``), must not end in a forward slash (unless the path is ``/``), and must not include a query string.
-* The private key must be an RSA key in the SSL ``.pem`` file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
-
-The Chef Infra Server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the Chef Infra Client.
-
-Enable SHA-256
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-Chef Server versions 12.4.0 and above support signing protocol version 1.3, which adds support for SHA-256 algorithms. It can be enabled on Chef Infra Client via the ``client.rb`` file:
-
-.. code-block:: ruby
-
-   authentication_protocol_version = '1.3'
-
-And on Chef knife via ``config.rb``:
-
-.. code-block:: ruby
-
-   knife[:authentication_protocol_version] = '1.3'
-
-.. end_tag
-
-Required Headers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following authentication headers are required:
-
-.. list-table::
-   :widths: 130 400
-   :header-rows: 1
-
-   * - Feature
-     - Description
-   * - ``Accept``
-     - .. tag api_chef_server_headers_accept
-
-       The format in which response data from the Chef Infra Server is provided. This header must be set to ``application/json``.
-
-       .. end_tag
-
-   * - ``Host``
-     - .. tag api_chef_server_headers_host
-
-       The host name (and port number) to which a request is sent. (Port number ``80`` does not need to be specified.) For example: ``api.opscode.com`` (which is the same as ``api.opscode.com:80``) or ``api.opscode.com:443``.
-
-       .. end_tag
-
-   * - ``X-Chef-Version``
-     - .. tag api_chef_server_headers_x_chef_version
-
-       The version of the Chef Infra Client executable from which a request is made. This header ensures that responses are in the correct format. For example: ``12.0.2`` or ``11.16.x``.
-
-       .. end_tag
-
-   * - ``X-Ops-Authorization-N``
-     - .. tag api_chef_server_headers_x_ops_authorization
-
-       One (or more) 60 character segments that comprise the canonical header. A canonical header is signed with the private key used by the client machine from which the request is sent, and is also encoded using Base64. If more than one segment is required, each should be named sequentially, e.g. ``X-Ops-Authorization-1``, ``X-Ops-Authorization-2``, ``X-Ops-Authorization-N``, where ``N`` represents the integer used by the last header that is part of the request.
-
-       .. end_tag
-
-   * - ``X-Ops-Content-Hash``
-     - .. tag api_chef_server_headers_x_ops_content_hash
-
-       The body of the request. The body should be hashed using SHA-1 and encoded using Base64. All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters.
-
-       .. end_tag
-
-   * - ``X-Ops-Sign``
-     - .. tag api_chef_server_headers_x_ops_sign
-
-       Set this header to the following value: ``version=1.0``.
-
-       .. end_tag
-
-   * - ``X-Ops-Timestamp``
-     - .. tag api_chef_server_headers_x_ops_timestamp
-
-       The timestamp, in ISO-8601 format and with UTC indicated by a trailing ``Z`` and separated by the character ``T``. For example: ``2013-03-10T14:14:44Z``.
-
-       .. end_tag
-
-   * - ``X-Ops-UserId``
-     - .. tag api_chef_server_headers_x_ops_userid
-
-       The name of the API client whose private key will be used to create the authorization header.
-
-       .. end_tag
-
-Example
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_headers_example
-
-The following example shows an authentication request:
-
-.. code-block:: none
-
-   GET /organizations/NAME/nodes HTTP/1.1
-     Accept: application/json
-     Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-     X-Ops-Sign: algorithm=sha1;version=1.0;
-     X-Ops-Userid: user_id
-     X-Ops-Timestamp: 2014-12-12T17:13:28Z
-     X-Ops-Content-Hash: 2jmj7l5rfasfgSw0ygaVb/vlWAghYkK/YBwk=
-     X-Ops-Authorization-1: BE3NnBritishaf3ifuwLSPCCYasdfXaRN5oZb4c6hbW0aefI
-     X-Ops-Authorization-2: sL4j1qtEZzi/2WeF67UuytdsdfgbOc5CjgECQwqrym9gCUON
-     X-Ops-Authorization-3: yf0p7PrLRCNasdfaHhQ2LWSea+kTcu0dkasdfvaTghfCDC57
-     X-Ops-Authorization-4: 155i+ZlthfasfasdffukusbIUGBKUYFjhbvcds3k0i0gqs+V
-     X-Ops-Authorization-5: /sLcR7JjQky7sdafIHNfsBQrISktNPower1236hbFIayFBx3
-     X-Ops-Authorization-6: nodilAGMb166@haC/fttwlWQ2N1LasdqqGomRedtyhSqXA==
-     Host: api.opscode.com:443
-     X-Ops-Server-API-Info: 1
-     X-Chef-Version: 12.0.2
-     User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
-
-.. end_tag
-
-Endpoints
------------------------------------------------------
-.. tag api_chef_server_endpoints
-
-Each organization-specific authentication request must include ``/organizations/NAME`` as part of the name for the endpoint. For example, the full endpoint for getting a list of roles:
-
-.. code-block:: none
-
-   GET /organizations/NAME/roles
-
-where ``ORG_NAME`` is the name of the organization.
-
-.. end_tag
-
-For more information about the Chef Infra Server API endpoints see the `Chef Infra Server API </api_chef_server.html>`_ documentation.
+For more information about using the Chef Infra Server API endpoints see `Chef Infra Server API </api_chef_server.html>`__.
