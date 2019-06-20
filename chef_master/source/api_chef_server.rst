@@ -712,8 +712,9 @@ with a request body similar to:
 
 where:
 
-* ``name`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
-* ``email``, ``name``, and ``password`` are all required to be present and have a value.
+* ``username`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
+* ``email`` and  ``username`` are both required to be present and have a value.
+* Either ``external_authentication_uid`` or ``password`` are required to be present and have a value.
 * During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Server versions.
 
 **Response**
@@ -722,7 +723,7 @@ The response is similar to:
 
 .. code-block:: javascript
 
-   { "user_name": "https://url/for/user_name" }
+   { -----BEGIN RSA PRIVATE KEY----- }  // TODO The private key is usually returned
 
 **Response Codes**
 
@@ -732,16 +733,14 @@ The response is similar to:
 
    * - Response Code
      - Description
-   * - ``200``
-     - OK. The request was successful.
+   * - ``201``
+     - OK. The user was created.
    * - ``400``
      - Bad request. The contents of the request are not formatted correctly.
    * - ``401``
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``404``
-     -  Not found. The requested object does not exist.
    * - ``409``
      - Conflict. The object already exists.
    * - ``413``
@@ -770,7 +769,6 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "name": "Grant McLennan",
    }
 
 **Response Codes**
@@ -885,7 +883,7 @@ The response is similar to:
    * - ``413``
      - Request entity too large. A request may not be larger than 1000000 bytes.
 
-PUT
+PUT - bad request block info
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``PUT`` method is used to update a specific user. If values are not specified for the ``PUT`` method, the Chef Infra Server will use the existing values rather than assign default values.
 
