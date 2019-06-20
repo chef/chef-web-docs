@@ -524,7 +524,7 @@ The response will return the JSON for the updated organization.
    * - ``410``
      - Gone. Unable to update private key.
 
-_status
+/_status
 ----------------------------------------------------
 The ``/_status`` endpoint can be used to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers.
 
