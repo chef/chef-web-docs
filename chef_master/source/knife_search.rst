@@ -5,13 +5,13 @@ knife search
 
 .. tag search
 
-Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
+Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef Infra Server API. The search engine is based on Apache Solr and is run from the Chef Infra Server.
 
 .. end_tag
 
 .. tag knife_search_summary
 
-Use the ``knife search`` subcommand to run a search query for information that is indexed on a Chef server.
+Use the ``knife search`` subcommand to run a search query for information that is indexed on a Chef Infra Server.
 
 .. end_tag
 
@@ -74,7 +74,7 @@ A search query is comprised of two parts: the key and the search pattern. A sear
 
    key:search_pattern
 
-where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
+where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef Infra Server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
 
 .. end_tag
 
@@ -82,7 +82,7 @@ Keys
 -----------------------------------------------------
 .. tag search_key
 
-A field name/description pair is available in the JSON object. Use the field name when searching for this information in the JSON object. Any field that exists in any JSON description for any role, node, chef-client, environment, or data bag can be searched.
+A field name/description pair is available in the JSON object. Use the field name when searching for this information in the JSON object. Any field that exists in any JSON description for any role, node, Chef Infra Client, environment, or data bag can be searched.
 
 .. end_tag
 
@@ -92,7 +92,7 @@ Nested Fields
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search_key_nested
 
-A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, the chef-client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
+A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, the Chef Infra Client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
 
 By combining wildcards with range-matching patterns and wildcard queries, it is possible to perform very powerful searches, such as using the vendor part of the MAC address to find every node that has a network card made by the specified vendor.
 
@@ -152,7 +152,7 @@ Consider the following snippet of JSON data:
          },
      //snipped...
 
-Before this data is indexed on the Chef server, the nested fields are extracted into the top level, similar to:
+Before this data is indexed on the Chef Infra Server, the nested fields are extracted into the top level, similar to:
 
 .. code-block:: none
 
@@ -277,7 +277,7 @@ About Patterns
 -----------------------------------------------------
 .. tag search_pattern
 
-A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query. There are four types of search patterns that can be used when searching the search indexes on the Chef server: exact, wildcard, range, and fuzzy.
+A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query. There are four types of search patterns that can be used when searching the search indexes on the Chef Infra Server: exact, wildcard, range, and fuzzy.
 
 .. end_tag
 
@@ -711,7 +711,7 @@ This subcommand has the following options:
    The number of rows to be returned.
 
 ``SEARCH_QUERY``
-   The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
+   The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
 
 Examples
 =====================================================

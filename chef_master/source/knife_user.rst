@@ -17,7 +17,7 @@ Use the ``knife user`` subcommand to manage the list of users and their associat
 
 create
 =====================================================
-Use the ``create`` argument to create a user. This process will generate an RSA key pair for the named user. The public key will be stored on the Chef server and the private key will be displayed on ``STDOUT`` or written to a named file.
+Use the ``create`` argument to create a user. This process will generate an RSA key pair for the named user. The public key will be stored on the Chef Infra Server and the private key will be displayed on ``STDOUT`` or written to a named file.
 
 * For the user, the private key should be copied to the system as ``/etc/chef/client.pem``.
 * For knife, the private key is typically copied to ``~/.chef/client_name.pem`` and referenced in the config.rb configuration file.
@@ -28,14 +28,14 @@ This argument has the following syntax:
 
 .. code-block:: bash
 
-   $ knife user create USER_NAME (options)
+   $ knife user create USERNAME DISPLAY_NAME FIRST_NAME LAST_NAME EMAIL PASSWORD (options)
 
 Options
 -----------------------------------------------------
 This argument has the following options:
 
 ``-a``, ``--admin``
-   Create a client as an admin client. This is required for any user to access Open Source Chef as an administrator. This option only works when used with the open source Chef server and will have no effect when used with Enterprise Chef or Chef server 12.x.
+   Create a client as an admin client.
 
 ``-f FILE_NAME``, ``--file FILE_NAME``
    Save a private key to the specified file name.
@@ -44,7 +44,7 @@ This argument has the following options:
    The user password.
 
 ``--user-key FILE_NAME``
-   The path to a file that contains the public key.  If this option is not specified, the Chef server will generate a public/private key pair.
+   The path to a file that contains the public key.  If this option is not specified, the Chef Infra Server will generate a public/private key pair.
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -58,11 +58,11 @@ The following examples show how to use this knife subcommand:
 
 **Create a user**
 
-.. To create a new user named "Radio Birdman" with a private key saved to "/keys/user_name", enter:
+.. To create a new user named "Radio Birdman" with a private key saved to "/keys/radio_birdman", enter:
 
 .. code-block:: bash
 
-   $ knife user create "Radio Birdman" -f /keys/user_name
+   $ knife user create rbirdman "Radio Birdman" Radio Birdman radio@bird.man -f /keys/radio_birdman
 
 delete
 =====================================================
@@ -94,7 +94,7 @@ The following examples show how to use this knife subcommand:
 
 edit
 =====================================================
-Use the ``edit`` argument to edit the details of a user. When this argument is run, knife will open $EDITOR. When finished, knife will update the Chef server with those changes.
+Use the ``edit`` argument to edit the details of a user. When this argument is run, knife will open $EDITOR. When finished, knife will update the Chef Infra Server with those changes.
 
 Syntax
 -----------------------------------------------------
@@ -114,28 +114,22 @@ None.
 
 key create
 =====================================================
-.. tag knife_user_key_create
-
 Use the ``key create`` argument to create a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_create_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key create USER_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_user_key_create_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-e DATE``, ``--expiration-date DATE``
@@ -148,9 +142,9 @@ This argument has the following options:
    The name of the public key.
 
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
-   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef server will generate a public/private key pair.
+   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -158,23 +152,19 @@ None.
 
 key delete
 =====================================================
-.. tag knife_user_key_delete
-
 Use the ``key delete`` argument to delete a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_delete_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key delete USER_NAME KEY_NAME
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -182,28 +172,22 @@ None.
 
 key edit
 =====================================================
-.. tag knife_user_key_edit
-
 Use the ``key edit`` argument to modify or rename a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_edit_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key edit USER_NAME KEY_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_user_key_edit_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-c``, ``--create-key``
@@ -213,15 +197,15 @@ This argument has the following options:
    The expiration date for the public key, specified as an ISO 8601 formatted string: ``YYYY-MM-DDTHH:MM:SSZ``. If this option is not specified, the public key will not have an expiration date. For example: ``2013-12-24T21:00:00Z``.
 
 ``-f FILE``, ``--file FILE``
-   Save a private key to the specified file name. If the ``--public-key`` option is not specified the Chef server will generate a private key.
+   Save a private key to the specified file name. If the ``--public-key`` option is not specified the Chef Infra Server will generate a private key.
 
 ``-k NAME``, ``--key-name NAME``
    The name of the public key.
 
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
-   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef server will generate a public/private key pair.
+   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -229,28 +213,22 @@ None.
 
 key list
 =====================================================
-.. tag knife_user_key_list
-
 Use the ``key list`` argument to view a list of public keys for the named user.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_list_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key list USER_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_user_key_list_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-e``, ``--only-expired``
@@ -262,7 +240,7 @@ This argument has the following options:
 ``-w``, ``--with-details``
    Show a list of public keys, including URIs and expiration status.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -270,23 +248,19 @@ None.
 
 key show
 =====================================================
-.. tag knife_user_key_show
-
 Use the ``key show`` argument to view details for a specific public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_user_key_show_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife user key show USER_NAME KEY_NAME
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -317,9 +291,9 @@ None.
 
 reregister
 =====================================================
-Use the ``reregister`` argument to regenerate an RSA key pair for a user. The public key will be stored on the Chef server and the private key will be displayed on ``STDOUT`` or written to a named file.
+Use the ``reregister`` argument to regenerate an RSA key pair for a user. The public key will be stored on the Chef Infra Server and the private key will be displayed on ``STDOUT`` or written to a named file.
 
-.. note:: Running this argument will invalidate the previous RSA key pair, making it unusable during authentication to the Chef server.
+.. note:: Running this argument will invalidate the previous RSA key pair, making it unusable during authentication to the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------

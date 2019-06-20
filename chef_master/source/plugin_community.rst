@@ -3,20 +3,20 @@ Community Plugins
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_community.rst>`__
 
-This page lists plugins for knife, Ohai, handlers, and the chef-client that are developed and maintained by the Chef community.
+This page lists plugins for knife, Ohai, handlers, and the Chef Infra Client that are developed and maintained by the Chef community.
 
 Knife
 =====================================================
 .. tag knife_summary
 
-knife is a command-line tool that provides an interface between a local chef-repo and the Chef server. knife helps users to manage:
+knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. knife helps users to manage:
 
 * Nodes
 * Cookbooks and recipes
 * Roles, Environments, and Data Bags
 * Resources within various cloud environments
-* The installation of the chef-client onto nodes
-* Searching of indexed data on the Chef server
+* The installation of the Chef Infra Client onto nodes
+* Searching of indexed data on the Chef Infra Server
 
 .. end_tag
 
@@ -49,7 +49,7 @@ The following table lists knife plugins built by the Chef community.
    * - `knife-cisco_asa <https://github.com/bflad/knife-cisco_asa>`_
      - Adds the ability to manage Cisco ASA devices.
    * - `knife-cleanup <https://github.com/mdxp/knife-cleanup>`_
-     - Adds the ability to remove unused versions of cookbooks that are hosted on the Chef server. (Cookbook versions that are removed are backed-up prior to deletion.)
+     - Adds the ability to remove unused versions of cookbooks that are hosted on the Chef Infra Server. (Cookbook versions that are removed are backed-up prior to deletion.)
    * - `knife-cloudstack-fog <https://github.com/fifthecho/knife-cloudstack-fog>`_
      - Adds the ability to create, bootstrap, and manage instances in CloudStack using Fog, a Ruby gem for interacting with various cloud providers.
    * - `knife-cloudstack <https://github.com/CloudStack-extras/knife-cloudstack>`_
@@ -85,7 +85,7 @@ The following table lists knife plugins built by the Chef community.
    * - `knife-kvm <https://github.com/rubiojr/knife-kvm>`_
      - Adds Linux support for KVM.
    * - `knife-lastrun <https://github.com/jgoulah/knife-lastrun>`_
-     - Adds key metrics from the last chef-client run on a given node.
+     - Adds key metrics from the last Chef Infra Client run on a given node.
    * - `knife-oci <https://github.com/oracle/knife-oci>`_
      - Adds support for Oracle Cloud Infrastructure.
    * - `knife-ohno <https://github.com/lnxchk/Ohno>`_
@@ -113,11 +113,11 @@ The following table lists knife plugins built by the Chef community.
    * - `knife-rvc <https://github.com/dougm/rvc-knife>`_
      - Integrates a subset of knife functionality with Ruby vSphere Console.
    * - `knife-santoku <https://github.com/knuckolls/knife-santoku>`_
-     - Adds the ability to build processes around the chef-client.
+     - Adds the ability to build processes around the Chef Infra Client.
    * - `knife-select <https://github.com/hpcloud/knife-select>`_
      - Adds the ability for selecting the chef server or organization to interact with.
    * - `knife-server <https://github.com/fnichol/knife-server>`_
-     - Adds the ability to manage a Chef server, including bootstrapping a Chef server on Amazon EC2 or a standalone server and backing up and/or restoring node, role, data bag, and environment data.
+     - Adds the ability to manage a Chef Infra Server, including bootstrapping a Chef Infra Server on Amazon EC2 or a standalone server and backing up and/or restoring node, role, data bag, and environment data.
    * - `knife-set-environment <https://gist.github.com/961827>`_
      - Adds the ability to set a node environment.
    * - `knife-skeleton <https://github.com/Numergy/knife-skeleton>`_
@@ -145,7 +145,7 @@ Ohai
 =====================================================
 .. tag ohai_summary
 
-Ohai is a tool that is used to collect system configuration data, which is provided to the chef-client for use within cookbooks. Ohai is run by the chef-client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
+Ohai is a tool that is used to collect system configuration data, which is provided to the Chef Infra Client for use within cookbooks. Ohai is run by the Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
 The types of attributes Ohai collects include but are not limited to:
 
@@ -160,7 +160,7 @@ The types of attributes Ohai collects include but are not limited to:
 * Virtualization
 * Cloud provider metadata
 
-Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the Chef Infra Client to ensure that these attributes remain unchanged after the Chef Infra Client is done configuring the node.
 
 .. end_tag
 
@@ -207,7 +207,7 @@ Handlers
 =====================================================
 .. tag handler
 
-Use a handler to identify situations that arise during a chef-client run, and then tell the chef-client how to handle these situations when they occur.
+Use a handler to identify situations that arise during a Chef Infra Client run, and then tell the Chef Infra Client how to handle these situations when they occur.
 
 .. end_tag
 
@@ -228,7 +228,7 @@ The following open source handlers are available from the Chef community:
    * - `Campfire <https://github.com/ampledata/chef-handler-campfire>`_
      - A handler that collects exception and report handler data and reports it to Campfire, a web-based group chat tool.
    * - `Datadog <https://github.com/DataDog/chef-handler-datadog>`_
-     - A handler that collects chef-client stats and sends them into a DATADOG newsfeed.
+     - A handler that collects Chef Infra Client stats and sends them into a DATADOG newsfeed.
    * - `Flowdock <https://github.com/mmarschall/chef-handler-flowdock>`_
      - A handler that collects exception and report handler data and sends it to users via the Flowdock API..
    * - `Graphite <https://github.com/imeyer/chef-handler-graphite/wiki>`_
@@ -240,9 +240,9 @@ The following open source handlers are available from the Chef community:
    * - `HipChat <https://github.com/mojotech/hipchat/blob/master/lib/hipchat/chef.rb>`_
      - A handler that collects exception handler data and sends it to HipChat, a hosted private chat service for companies and teams.
    * - `IRC Snitch <https://rubygems.org/gems/chef-irc-snitch>`_
-     - A handler that notifies administrators (via Internet Relay Chat (IRC)) when a chef-client run fails.
+     - A handler that notifies administrators (via Internet Relay Chat (IRC)) when a Chef Infra Client run fails.
    * - `Journald <https://github.com/marktheunissen/chef-handler-journald>`_
-     - A handler that logs an entry to the systemd journal with the chef-client run status, exception details, configurable priority, and custom details.
+     - A handler that logs an entry to the systemd journal with the Chef Infra Client run status, exception details, configurable priority, and custom details.
    * - `net/http <https://github.com/b1-systems/chef-handler-httpapi/>`_
      - A handler that reports the status of a Chef run to any API via net/HTTP.
    * - `Simple Email <https://rubygems.org/gems/chef-handler-mail>`_
@@ -252,21 +252,21 @@ The following open source handlers are available from the Chef community:
    * - `SNS <http://onddo.github.io/chef-handler-sns/>`_
      - A handler that notifies exception and report handler data and sends it to a SNS topic.
    * - `Slack <https://github.com/rackspace-cookbooks/chef-slack_handler>`_
-     - A handler to send chef-client run notifications to a Slack channel.
+     - A handler to send Chef Infra Client run notifications to a Slack channel.
    * - `Splunk Storm <http://ampledata.org/splunk_storm_chef_handler.html>`_
      - A handler that supports exceptions and reports for Splunk Storm.
    * - `Syslog <https://github.com/jblaine/syslog_handler>`_
-     - A handler that logs basic essential information, such as about the success or failure of a chef-client run.
+     - A handler that logs basic essential information, such as about the success or failure of a Chef Infra Client run.
    * - `Updated Resources <https://rubygems.org/gems/chef-handler-updated-resources>`_
-     - A handler that provides a simple way to display resources that were updated during a chef-client run.
+     - A handler that provides a simple way to display resources that were updated during a Chef Infra Client run.
    * - `ZooKeeper <http://onddo.github.io/chef-handler-zookeeper/>`_
      - A Chef report handler to send Chef run notifications to ZooKeeper.
 
 .. end_tag
 
-chef-client
+Chef Infra Client
 =====================================================
-The following plugins are available for the chef-client:
+The following plugins are available for the Chef Infra Client:
 
 .. list-table::
    :widths: 60 420
@@ -283,21 +283,21 @@ The following plugins are available for the chef-client:
    * - `chef-handler-librato <https://github.com/bscott/chef-handler-librato>`_
      - Adds a handler that sends metrics to Librato's Metrics.
    * - `chef-hatch-repo <https://github.com/xdissent/chef-hatch-repo>`_
-     - Adds a knife plugin and a Vagrant provisioner that can launch a self-managed Chef server in a virtual machine or Amazon EC2.
+     - Adds a knife plugin and a Vagrant provisioner that can launch a self-managed Chef Infra Server in a virtual machine or Amazon EC2.
    * - `chef-irc-snitch <https://rubygems.org/gems/chef-irc-snitch>`_
-     - Adds an exception handler for chef-client runs.
+     - Adds an exception handler for Chef Infra Client runs.
    * - `chef-jenkins <https://github.com/adamhjk/chef-jenkins>`_
      - Adds the ability to use Jenkins to drive continuous deployment and synchronization of environments from a git repository.
    * - `chef-rundeck <https://rubygems.org/gems/chef-rundeck>`_
      - Adds a resource endpoint for Rundeck.
    * - `chef-trac-hacks <http://trac-hacks.org/wiki/CloudPlugin>`_
-     - Adds the ability to fill a coordination gap between Amazon Web Services (AWS) and the chef-client.
+     - Adds the ability to fill a coordination gap between Amazon Web Services (AWS) and the Chef Infra Client.
    * - `chef-vim <https://github.com/t9md/vim-chef>`_
      - Adds a plugin that makes cookbook navigation quick and easy.
    * - `chef-vpc-toolkit <https://github.com/rackerlabs/chef_vpc_toolkit>`_
      - Adds a set of Rake tasks that provide a framework that helps automate the creation and configuration of identical virtual server groups in the cloud.
    * - `jclouds-chef <https://github.com/jclouds/jclouds-chef>`_
-     - Adds Java and Clojure components to the Chef server API REST API.
+     - Adds Java and Clojure components to the Chef Infra Server API REST API.
    * - `kitchenplan <https://github.com/kitchenplan/kitchenplan>`_
      - A utility for automating the installation and configuration of a workstation on macOS.
    * - `stove <https://github.com/sethvargo/stove>`_

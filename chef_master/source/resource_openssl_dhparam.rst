@@ -15,10 +15,10 @@ The openssl_dhparam resource has the following syntax:
 
   openssl_dhparam 'name' do
     generator       Integer # default value: 2
-    group           String
+    group           String, Integer
     key_length      Integer # default value: 2048
     mode            Integer, String # default value: "0640"
-    owner           String
+    owner           String, Integer
     path            String # default value: 'name' unless specified
     action          Symbol # defaults to :create if not specified
   end
@@ -41,7 +41,7 @@ The openssl_dhparam resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -56,7 +56,7 @@ The openssl_dhparam resource has the following properties:
    The desired Diffie-Hellmann generator; available options are ``2`` and ``5``.
 
 ``group``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The group ownership applied to all files created by the resource.
 
@@ -72,14 +72,14 @@ The openssl_dhparam resource has the following properties:
 
 
 ``owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The owner applied to all files created by the resource.
 
 ``path``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The path to write the file to if it's different than the resource name.
+   An optional property for specifying the path to write the file to if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================

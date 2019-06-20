@@ -40,7 +40,7 @@ This subcommand has the following options for use when configuring a config.rb f
    The path to the private key used by the client, typically a file named ``admin.pem``.
 
 ``-i``, ``--initial``
-   Create a API client, typically an administrator client on a freshly-installed Chef server.
+   Create a API client, typically an administrator client on a freshly-installed Chef Infra Server.
 
 ``-r REPO``, ``--repository REPO``
    The path to the chef-repo.

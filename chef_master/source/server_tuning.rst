@@ -3,7 +3,7 @@ Server Tuning
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_tuning.rst>`__
 
-The server configuration file contains a list of all configuration options that are available for the Chef server. Some of these values should be modified for large-scale installations.
+The server configuration file contains a list of all configuration options that are available for the Chef Infra Server. Some of these values should be modified for large-scale installations.
 
 .. note:: This topic contains general information about how settings can be tuned. In many cases, this topic suggests specific values to be used for tuning. That said, every organization and configuration is different, so please don't hesitate to contact Chef support to discuss your tuning effort so as to help ensure the right value is identified for any particular setting.
 
@@ -11,7 +11,7 @@ Customize the Config File
 =====================================================
 .. tag config_rb_server_summary
 
-The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef server. The default settings are built into the Chef server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
+The ``/etc/opscode/chef-server.rb`` file contains all of the non-default configuration settings used by the Chef Infra Server. The default settings are built into the Chef Infra Server configuration and should only be added to the ``chef-server.rb`` file to apply non-default values. These configuration settings are processed when the ``chef-server-ctl reconfigure`` command is run. The ``chef-server.rb`` file is a Ruby file, which means that conditional statements can be used within it.
 
 .. end_tag
 
@@ -40,7 +40,7 @@ Recommended Settings
 The following settings are typically added to the server configuration file (no equal sign is necessary to set the value):
 
 ``api_fqdn``
-   The FQDN for the Chef server. This setting is not in the server configuration file by default. When added, its value should be equal to the FQDN for the service URI used by the Chef server. For example: ``api_fqdn "chef.example.com"``.
+   The FQDN for the Chef Infra Server. This setting is not in the server configuration file by default. When added, its value should be equal to the FQDN for the service URI used by the Chef Infra Server. For example: ``api_fqdn "chef.example.com"``.
 
 ``bootstrap``
    Default value: ``true``.
@@ -57,7 +57,7 @@ SSL Protocols
 -----------------------------------------------------
 .. tag server_tuning_nginx
 
-The following settings are often modified from the default as part of the tuning effort for the **nginx** service and to configure the Chef server to use SSL certificates:
+The following settings are often modified from the default as part of the tuning effort for the **nginx** service and to configure the Chef Infra Server to use SSL certificates:
 
 ``nginx['ssl_certificate']``
    The SSL certificate used to verify communication over HTTPS. Default value: ``nil``.
@@ -76,7 +76,7 @@ The following settings are often modified from the default as part of the tuning
                                !PSK"
 
 ``nginx['ssl_protocols']``
-   The SSL protocol versions that are enabled. SSL 3.0 is supported by the Chef server; however, SSL 3.0 is an obsolete and insecure protocol. Transport Layer Security (TLS)---TLS 1.0, TLS 1.1, and TLS 1.2---has effectively replaced SSL 3.0, which provides for authenticated version negotiation between the chef-client and Chef server, which ensures the latest version of the TLS protocol is used. For the highest possible security, it is recommended to disable SSL 3.0 and allow all versions of the TLS protocol.  For example:
+   The SSL protocol versions that are enabled. SSL 3.0 is supported by the Chef Infra Server; however, SSL 3.0 is an obsolete and insecure protocol. Transport Layer Security (TLS)---TLS 1.0, TLS 1.1, and TLS 1.2---has effectively replaced SSL 3.0, which provides for authenticated version negotiation between the Chef Infra Client and Chef Infra Server, which ensures the latest version of the TLS protocol is used. For the highest possible security, it is recommended to disable SSL 3.0 and allow all versions of the TLS protocol.  For example:
 
    .. code-block:: ruby
 
@@ -84,7 +84,7 @@ The following settings are often modified from the default as part of the tuning
 
 .. note:: See https://wiki.mozilla.org/Security/Server_Side_TLS for more information about the values used with the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings.
 
-For example, after copying the SSL certificate files to the Chef server, update the ``nginx['ssl_certificate']`` and ``nginx['ssl_certificate_key']`` settings to specify the paths to those files, and then (optionally) update the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings to reflect the desired level of hardness for the Chef server:
+For example, after copying the SSL certificate files to the Chef Infra Server, update the ``nginx['ssl_certificate']`` and ``nginx['ssl_certificate_key']`` settings to specify the paths to those files, and then (optionally) update the ``nginx['ssl_ciphers']`` and ``nginx['ssl_protocols']`` settings to reflect the desired level of hardness for the Chef Infra Server:
 
 .. code-block:: ruby
 
@@ -97,11 +97,11 @@ For example, after copying the SSL certificate files to the Chef server, update 
 
 Optional Services Tuning
 =====================================================
-The following settings are often used to for performance tuning of the Chef server in larger installations.
+The following settings are often used to for performance tuning of the Chef Infra Server in larger installations.
 
 .. note:: .. tag notes_config_rb_server_must_reconfigure
 
-          When changes are made to the chef-server.rb file the Chef server must be reconfigured by running the following command:
+          When changes are made to the chef-server.rb file the Chef Infra Server must be reconfigured by running the following command:
 
           .. code-block:: bash
 
@@ -130,14 +130,14 @@ The following settings are often modified from the default as part of the tuning
    The number of open connections to PostgreSQL that are maintained by the service. If failures indicate that the **opscode-erchef** service ran out of connections, try increasing the ``postgresql['max_connections']`` setting. If failures persist, then increase this value (in small increments) and also increase the value for ``postgresql['max_connections']``. Default value: ``20``.
 
 ``opscode_erchef['s3_url_ttl']``
-   The amount of time (in seconds) before connections to the server expire. If chef-client runs are timing out, increase this setting to ``3600``, and then adjust again if necessary. Default value: ``900``.
+   The amount of time (in seconds) before connections to the server expire. If Chef Infra Client runs are timing out, increase this setting to ``3600``, and then adjust again if necessary. Default value: ``900``.
 
 ``opscode_erchef['strict_search_result_acls']``
    .. tag settings_strict_search_result_acls
 
    Use to specify that search results only return objects to which an actor (user, client, etc.) has read access, as determined by ACL settings. This affects all searches. When ``true``, the performance of the Chef management console may increase because it enables the Chef management console to skip redundant ACL checks. To ensure the Chef management console is configured properly, after this setting has been applied with a ``chef-server-ctl reconfigure`` run ``chef-manage-ctl reconfigure`` to ensure the Chef management console also picks up the setting. Default value: ``false``.
 
-   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during chef-client runs if a chef-client does not have permission to read the information.
+   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during Chef Infra Client runs if a Chef Infra Client does not have permission to read the information.
 
    .. end_tag
 
@@ -150,7 +150,7 @@ opscode-expander
 The following setting is often modified from the default as part of the tuning effort for the **opscode-expander** service:
 
 ``opscode_expander['nodes']``
-   The number of allowed worker processes. The **opscode-expander** service runs on the back-end and feeds data to the **opscode-solr** service, which creates and maintains search data used by the Chef server. Additional memory may be required by these worker processes depending on the frequency and volume of chef-client runs across the organization, but only if the back-end machines have available CPU and RAM. Default value: ``2``.
+   The number of allowed worker processes. The **opscode-expander** service runs on the back-end and feeds data to the **opscode-solr** service, which creates and maintains search data used by the Chef Infra Server. Additional memory may be required by these worker processes depending on the frequency and volume of Chef Infra Client runs across the organization, but only if the back-end machines have available CPU and RAM. Default value: ``2``.
 
 .. end_tag
 
@@ -193,7 +193,7 @@ The maximum field length setting for Apache Solr should be greater than any expe
 and
 
 ``opscode_erchef['max_request_size']``
-   When the request body size is greater than this value, a 413 Request Entity Too Large error is returned. Default value: ``1000000``.
+   When the request body size is greater than this value, a 413 Request Entity Too Large error is returned. Default value: ``2000000``.
 
 to ensure that those settings are not part of the reasons for incomplete indexing, and then update the following setting so that its value is greater than the expected node file sizes:
 
@@ -226,7 +226,7 @@ Update Frequency
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag server_tuning_solr_update_frequency
 
-At the end of every chef-client run, the node object is saved to the Chef server. From the Chef server, each node object is then added to the ``SOLR`` search index. This process is asynchronous. By default, node objects are committed to the search index every 60 seconds or per 1000 node objects, whichever occurs first.
+At the end of every Chef Infra Client run, the node object is saved to the Chef Infra Server. From the Chef Infra Server, each node object is then added to the ``SOLR`` search index. This process is asynchronous. By default, node objects are committed to the search index every 60 seconds or per 1000 node objects, whichever occurs first.
 
 When data is committed to the Apache Solr index, all incoming updates are blocked. If the duration between updates is too short, it is possible for the rate at which updates are asked to occur to be faster than the rate at which objects can be actually committed.
 
@@ -253,7 +253,7 @@ The following setting is often modified from the default as part of the tuning e
 
    * Each front end machine always runs the **oc_bifrost** and **opscode-erchef** services.
    * The Reporting add-on adds the **reporting** service.
-   * The Chef push jobs service adds the **push_jobs** service.
+   * The Chef Push Jobs service adds the **push_jobs** service.
 
    Each of these services requires 25 connections, above the default value.
 
@@ -272,102 +272,3 @@ The following setting is often modified from the default as part of the tuning e
       550 = 350 + [(4 - 2) * (25 * 4)]
 
 .. end_tag
-
-rabbitmq
------------------------------------------------------
-
-.. tag server_tuning_rabbitmq
-
-.. note:: Chef Analytics has been replaced by Chef Automate.
-
-The following settings must be modified when the Chef Analytics server is configured as a standalone server:
-
-``rabbitmq['node_ip_address']``
-   The bind IP address for RabbitMQ. Default value: ``"127.0.0.1"``.
-
-   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to ``0.0.0.0``.
-
-``rabbitmq['vip']``
-   The virtual IP address. Default value: ``"127.0.0.1"``.
-
-   Chef Analytics uses the same RabbitMQ service that is configured on the Chef server. When the Chef Analytics server is configured as a standalone server, the default settings for ``rabbitmq['node_ip_address']`` and ``rabbitmq['vip']`` must be updated. When the Chef Analytics server is configured as a standalone server, change this value to the backend VIP address for the Chef server.
-
-.. end_tag
-
-Analytics Queues
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag server_tuning_rabbitmq_analytics_queue
-
-If the RabbitMQ queue that is used by Chef Analytics stops consuming messages, the Chef server data partition will fill up and may affect the overall performance of the Chef server application itself. The settings for the RabbitMQ queue are tunable, including for queue length monitoring, queue capacity, maximum number of messages that can be in the queue before messages are dropped, the point at which messages are dropped, for settings used by the rabbitmq-management plugin, and so on.
-
-.. end_tag
-
-.. tag server_tuning_rabbitmq_analytics_queue_settings
-
-The following settings may be used for tuning RabbitMQ queues used by Chef Analytics and the Chef server:
-
-``rabbitmq['analytics_max_length']``
-   The maximum number of messages that can be queued before RabbitMQ automatically drops messages from the front of the queue to make room for new messages. Default value: ``10000``.
-
-``rabbitmq['drop_on_full_capacity']``
-   Specify if messages will stop being sent to the RabbitMQ queue when it is at capacity. Default value: ``true``.
-
-``rabbitmq['management_enabled']``
-   Specify if the rabbitmq-management plugin is enabled. Default value: ``true``.
-
-``rabbitmq['management_password']``
-   The rabbitmq-management plugin password. Default value: ``'chefrocks'``.
-
-``rabbitmq['management_port']``
-   The rabbitmq-management plugin port. Default value: ``15672``.
-
-``rabbitmq['management_user']``
-   The rabbitmq-management plugin user. Default value: ``'rabbitmgmt'``.
-
-``rabbitmq['prevent_erchef_startup_on_full_capacity']``
-   Specify if the Chef server will start when the monitored RabbitMQ queue is full. Default value: ``false``.
-
-``rabbitmq['queue_at_capacity_affects_overall_status']``
-   Specify if the ``_status`` endpoint in the Chef server API will fail if the monitored queue is at capacity. Default value: ``false``.
-
-``rabbitmq['queue_length_monitor_enabled']``
-   Specify if the queue length monitor is enabled. Default value: ``true``.
-
-``rabbitmq['queue_length_monitor_millis']``
-   The frequency (in milliseconds) at which the length of the RabbitMQ queue is checked. Default value: ``30000``.
-
-``rabbitmq['queue_length_monitor_timeout_millis']``
-   The timeout (in milliseconds) at which calls to the queue length monitor will stop if the Chef server is overloaded. Default value: ``5000``.
-
-``rabbitmq['queue_length_monitor_queue']``
-   The RabbitMQ queue that is observed by queue length monitor. Default value: ``'alaska'``.
-
-``rabbitmq['queue_length_monitor_vhost']``
-   The virtual host for the RabbitMQ queue that is observed by queue length monitor. Default value: ``'/analytics'``.
-
-``rabbitmq['rabbit_mgmt_http_cull_interval']``
-   The maximum cull interval (in seconds) for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``60``.
-
-``rabbitmq['rabbit_mgmt_http_init_count']``
-   The initial worker count for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``25``.
-
-``rabbitmq['rabbit_mgmt_http_max_age']``
-   The maximum connection worker age (in seconds) for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``70``.
-
-``rabbitmq['rabbit_mgmt_http_max_connection_duration']``
-   The maximum connection duration (in seconds) for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``70``.
-
-``rabbitmq['rabbit_mgmt_http_max_count']``
-   The maximum worker count for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``100``.
-
-``rabbitmq['rabbit_mgmt_ibrowse_options']``
-   An array of comma-separated key-value pairs of ibrowse options for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``'{connect_timeout, 10000}'``.
-
-``rabbitmq['rabbit_mgmt_timeout']``
-   The timeout for the HTTP connection pool that is used by the rabbitmq-management plugin. Default value: ``30000``.
-
-``rabbitmq['ssl_versions']``
-   The SSL versions used by the rabbitmq-management plugin. (See `RabbitMQ TLS Support <https://www.rabbitmq.com/ssl.html>`_ for more details.) Default value: ``['tlsv1.2', 'tlsv1.1']``.
-
-.. end_tag
-

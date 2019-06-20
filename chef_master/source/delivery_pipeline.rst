@@ -5,11 +5,15 @@ About Chef Automate Pipelines
 
 .. tag chef_automate_mark
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
 
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </https://docs.chef.io/versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -224,7 +228,7 @@ The following examples show how to specify the location of the ``build-cookbook`
 
 .. tag delivery_config_example_build_cookbook_server
 
-.. To specify a build-cookbook located on a Chef server:
+.. To specify a build-cookbook located on a Chef Infra Server:
 
 .. code-block:: javascript
 

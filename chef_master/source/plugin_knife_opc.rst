@@ -3,29 +3,27 @@ knife opc
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_opc.rst>`__
 
-.. tag plugin_knife_opc_summary
-
 The ``knife opc`` subcommand is used to manage organizations and users in Chef Server 12.
 
-.. note:: Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef server. `See chef-server-ctl for details </ctl_chef_server.html>`__.
+.. note:: Administrator permissions are required to add, remove, or edit users. To manage organizations, or change a user's assignment to an organization, the pivotal key is required. To grant a user administrator permissions, use ``chef-server-ctl grant-server-admin-permissions USER_NAME`` on the Chef Infra Server. `See chef-server-ctl for details </ctl_chef_server.html>`__.
 
 .. note:: Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
-.. end_tag
+
 
 .. _plugin_knife_opc-knife-rb-configuration:
 
 config.rb Configuration
 =====================================================
-Unlike other knife subcommands the subcommands in the knife-opc plugin make API calls against the root of your Chef server installation's API endpoint.
+Unlike other knife subcommands the subcommands in the knife-opc plugin make API calls against the root of your Chef Infra Server installation's API endpoint.
 
-Typically the ``chef_server_url`` for your Chef server installation may look like this:
+Typically the ``chef_server_url`` for your Chef Infra Server installation may look like this:
 
 .. code-block:: ruby
 
    chef_server_url 'https://chef.yourdomain.com/organizations/ORG_NAME'
 
-To configure knife-opc, set the ``chef_server_root`` option to the root of your Chef server installation:
+To configure knife-opc, set the ``chef_server_root`` option to the root of your Chef Infra Server installation:
 
 .. code-block:: ruby
 
@@ -33,13 +31,13 @@ To configure knife-opc, set the ``chef_server_root`` option to the root of your 
 
 If your ``chef_server_url`` configuration ends with ``/organizations/ORG_NAME`` (as shown above), this setting will default to ``https://chef.yourdomain.com/``.
 
-.. note:: On Chef server 12, the majority of the commands provided by this plugin can be accessed via ``chef-server-ctl`` wrapper commands. `See chef-server-ctl for details </ctl_chef_server.html>`__.
+.. note:: On Chef Server 12, the majority of the commands provided by this plugin can be accessed via ``chef-server-ctl`` wrapper commands. `See chef-server-ctl for details </ctl_chef_server.html>`__.
 
 .. _plugin_knife_opc-opc-user-list:
 
 opc user list
 =====================================================
-Show a list of all users in your Chef server installation.
+Show a list of all users in your Chef Infra Server installation.
 
 Syntax
 -----------------------------------------------------
@@ -71,7 +69,7 @@ Example
 
 opc user show
 =====================================================
-Shows the details of a user in your Chef server installation.
+Shows the details of a user in your Chef Infra Server installation.
 
 Syntax
 -----------------------------------------------------
@@ -110,7 +108,7 @@ Example
 
 opc user create
 =====================================================
-Creates a new user in your Chef server installation. The user's private key will be returned in response.
+Creates a new user in your Chef Infra Server installation. The user's private key will be returned in response.
 
 Syntax
 -----------------------------------------------------
@@ -174,7 +172,7 @@ Example
 
 opc user edit
 =====================================================
-Will open ``$EDITOR`` to edit a user. When finished editing, knife will update the given Chef server user.
+Will open ``$EDITOR`` to edit a user. When finished editing, knife will update the given Chef Infra Server user.
 
 Syntax
 -----------------------------------------------------
@@ -248,7 +246,7 @@ Example
 
 opc org list
 =====================================================
-Show a list of all organizations in your Chef server installation.
+Show a list of all organizations in your Chef Infra Server installation.
 
 Syntax
 -----------------------------------------------------
@@ -279,7 +277,7 @@ Example
 
 opc org show
 =====================================================
-Shows the details of an organization in your Chef server installation.
+Shows the details of an organization in your Chef Infra Server installation.
 
 Syntax
 -----------------------------------------------------
@@ -302,7 +300,7 @@ Example
 
 opc org create
 =====================================================
-Creates a new Chef server organization. The private key for the organization's validator client is returned.
+Creates a new Chef Infra Server organization. The private key for the organization's validator client is returned.
 
 Syntax
 -----------------------------------------------------
@@ -335,7 +333,7 @@ Example
 
 opc org delete
 =====================================================
-Deletes the given Chef server organization.
+Deletes the given Chef Infra Server organization.
 
 Syntax
 -----------------------------------------------------

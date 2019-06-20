@@ -557,8 +557,6 @@ Use the **apt_package** resource to manage packages on Debian and Ubuntu platfor
 
 **Install a package using local file**
 
-.. tag resource_apt_package_install_package_using_local_file
-
 .. To install a package using local file:
 
 .. code-block:: ruby
@@ -568,7 +566,7 @@ Use the **apt_package** resource to manage packages on Debian and Ubuntu platfor
      source '/path/to/jwhois.deb'
    end
 
-.. end_tag
+
 
 **Install without using recommend packages as a dependency**
 
@@ -708,7 +706,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
 
    git "#{Chef::Config[:file_cache_path]}/ruby-build" do
      repository 'git://github.com/sstephenson/ruby-build.git'
-     reference 'master'
+     revision 'master'
      action :sync
    end
 
@@ -873,7 +871,7 @@ breakpoint
 =====================================================
 .. tag resource_breakpoint_summary
 
-Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in chef-client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the chef-client during an actual chef-client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef server.
+Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in Chef Infra Client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the Chef Infra Client during an actual Chef Infra Client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef Infra Server.
 
 .. end_tag
 
@@ -1067,7 +1065,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 .. tag handler_custom_example_cookbook_versions
 
-Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during the chef-client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
+Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during the Chef Infra Client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
 
 .. end_tag
 
@@ -1075,7 +1073,7 @@ cookbook_versions.rb:
 
 .. tag handler_custom_example_cookbook_versions_handler
 
-The following custom handler defines how cookbooks and cookbook versions that are used during the chef-client run will be compiled into a report using the ``Chef::Log`` class in the chef-client:
+The following custom handler defines how cookbooks and cookbook versions that are used during the Chef Infra Client run will be compiled into a report using the ``Chef::Log`` class in the Chef Infra Client:
 
 .. code-block:: ruby
 
@@ -1097,7 +1095,7 @@ default.rb:
 
 .. tag handler_custom_example_cookbook_versions_recipe
 
-The following recipe is added to the run-list for every node on which a list of cookbooks and versions will be generated as report output after every chef-client run.
+The following recipe is added to the run-list for every node on which a list of cookbooks and versions will be generated as report output after every Chef Infra Client run.
 
 .. code-block:: ruby
 
@@ -1134,7 +1132,7 @@ This recipe will generate report output similar to the following:
 
 The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb>`_ handler is available from the **chef_handler** cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the chef-client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -1184,9 +1182,9 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 .. tag handler_custom_example_error_report
 
-The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into the chef-client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
+The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into the Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the chef-client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -1242,7 +1240,7 @@ cookbook_file
 =====================================================
 .. tag resource_cookbook_file_summary
 
-Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the chef-client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
+Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
 
 .. end_tag
 
@@ -1510,7 +1508,7 @@ Use the **directory** resource to manage a directory, which is a hierarchy of fo
 
 .. code-block:: ruby
 
-   directory "C:\\tmp\\something.txt" do
+   directory "C:\\tmp\\something" do
      rights :full_control, "DOMAIN\\User"
      inherits false
      action :create
@@ -1520,7 +1518,7 @@ or:
 
 .. code-block:: ruby
 
-   directory 'C:\tmp\something.txt' do
+   directory 'C:\tmp\something' do
      rights :full_control, 'DOMAIN\User'
      inherits false
      action :create
@@ -2424,7 +2422,7 @@ where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
 * the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
-* the **template** resource tells the chef-client which template to use
+* the **template** resource tells the Chef Infra Client which template to use
 
 .. end_tag
 
@@ -2837,7 +2835,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
 
    git "#{Chef::Config[:file_cache_path]}/ruby-build" do
      repository 'git://github.com/sstephenson/ruby-build.git'
-     reference 'master'
+     revision 'master'
      action :sync
    end
 
@@ -3357,11 +3355,9 @@ Use the **macports_package** resource to manage packages for the macOS platform.
 
 mdadm
 =====================================================
-.. tag resource_mdadm_summary
-
 Use the **mdadm** resource to manage RAID devices in a Linux environment using the mdadm utility. The **mdadm** resource will create and assemble an array, but it will not create the config file that is used to persist the array upon reboot. If the config file is required, it must be done by specifying a template with the correct array layout, and then by using the **mount** resource to create a file systems table (fstab) entry.
 
-.. end_tag
+
 
 **Create and assemble a RAID 0 array**
 
@@ -3423,11 +3419,9 @@ The mdadm command can be used to create RAID arrays. For example, a RAID 5 array
 
 mount
 =====================================================
-.. tag resource_mount_summary
-
 Use the **mount** resource to manage a mounted file system.
 
-.. end_tag
+
 
 **Mount a labeled file system**
 
@@ -3603,7 +3597,7 @@ ohai
 =====================================================
 .. tag resource_ohai_summary
 
-Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the chef-client run.
+Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the Chef Infra Client run.
 
 .. end_tag
 
@@ -3883,8 +3877,6 @@ To install a package with a ``response_file``:
 
 **Install a package using a specific provider**
 
-.. tag resource_package_install_with_specific_provider
-
 .. To install a package using a specific provider:
 
 .. code-block:: ruby
@@ -3895,7 +3887,7 @@ To install a package with a ``response_file``:
      provider Chef::Provider::Package::Rpm
    end
 
-.. end_tag
+
 
 **Install a specified architecture using a named provider**
 
@@ -3970,8 +3962,6 @@ To install a package with a ``response_file``:
 
 **Use the provider common attribute**
 
-.. tag resource_package_use_provider_attribute
-
 .. To use the ``:provider`` common attribute in a recipe:
 
 .. code-block:: ruby
@@ -3980,7 +3970,7 @@ To install a package with a ``response_file``:
      provider Chef::Provider::Package::Rubygems
    end
 
-.. end_tag
+
 
 **Avoid unnecessary string interpolation**
 
@@ -4675,13 +4665,13 @@ or a single-quoted string:
      action :delete_key
    end
 
+.. end_tag
+
 .. note:: .. tag notes_registry_key_resource_recursive
 
-          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the chef-client.
+          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
           .. end_tag
-
-.. end_tag
 
 **Use re-directed keys**
 
@@ -5444,7 +5434,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
 
    git "#{Chef::Config[:file_cache_path]}/ruby-build" do
      repository 'git://github.com/sstephenson/ruby-build.git'
-     reference 'master'
+     revision 'master'
      action :sync
    end
 
@@ -5518,11 +5508,9 @@ and then the methods in the recipe may refer to these values. A recipe that is u
 
 service
 =====================================================
-.. tag resource_service_summary
-
 Use the **service** resource to manage a service.
 
-.. end_tag
+
 
 **Start a service**
 
@@ -5599,8 +5587,6 @@ Use the **service** resource to manage a service.
 
 **Use the retries and provider common attributes**
 
-.. tag resource_service_use_provider_and_supports_properties
-
 .. To use the ``provider`` and ``retries`` common attributes in a recipe:
 
 .. code-block:: ruby
@@ -5611,7 +5597,7 @@ Use the **service** resource to manage a service.
      retries 3
    end
 
-.. end_tag
+
 
 **Manage a service, depending on the node platform**
 
@@ -5942,11 +5928,9 @@ Use the **smartos_package** resource to manage packages for the SmartOS platform
 
 solaris_package
 =====================================================
-.. tag resource_package_solaris
-
 The **solaris_package** resource is used to manage packages for the Solaris platform.
 
-.. end_tag
+
 
 **Install a package**
 
@@ -5965,11 +5949,9 @@ The **solaris_package** resource is used to manage packages for the Solaris plat
 
 subversion
 =====================================================
-.. tag resource_scm_subversion
-
 Use the **subversion** resource to manage source control resources that exist in a Subversion repository.
 
-.. end_tag
+
 
 **Get the latest version of an application**
 
@@ -6598,8 +6580,6 @@ The following example shows how to create a system user. In this instance, the `
 
 **Use SALTED-SHA512 passwords**
 
-.. tag resource_user_password_shadow_hash_salted_sha512
-
 macOS 10.7 calculates the password shadow hash using SALTED-SHA512. The length of the shadow hash value is 68 bytes, the salt value is the first 4 bytes, with the remaining 64 being the shadow hash itself. The following code will calculate password shadow hashes for macOS 10.7:
 
 .. code-block:: ruby
@@ -6617,7 +6597,7 @@ Use the calculated password shadow hash with the **user** resource:
      password 'c9b3bd....d843'  # Length: 136
    end
 
-.. end_tag
+
 
 **Use SALTED-SHA512-PBKDF2 passwords**
 
@@ -6878,21 +6858,6 @@ or:
 
    yum_package 'netpbm' do
      version '10.35.58-8.el5'
-   end
-
-.. end_tag
-
-**To install a specific version (even when older than the current)**
-
-.. tag resource_yum_package_install_specific_version
-
-.. To install a specific version (even if it is older than the version currently installed):
-
-.. code-block:: ruby
-
-   yum_package 'tzdata' do
-     version '2011b-1.el5'
-     allow_downgrade true
    end
 
 .. end_tag

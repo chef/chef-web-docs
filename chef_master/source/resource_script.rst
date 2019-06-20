@@ -567,7 +567,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
 
    git "#{Chef::Config[:file_cache_path]}/ruby-build" do
      repository 'git://github.com/sstephenson/ruby-build.git'
-     reference 'master'
+     revision 'master'
      action :sync
    end
 
@@ -641,8 +641,6 @@ and then the methods in the recipe may refer to these values. A recipe that is u
 
 **Run a command as an alternate user**
 
-.. tag resource_script_alternate_user
-
 *Note*: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
 This right can be added and checked in a recipe using this example:
@@ -696,4 +694,4 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
     password "password"
    end
 
-.. end_tag
+

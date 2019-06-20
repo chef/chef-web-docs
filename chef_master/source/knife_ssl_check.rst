@@ -5,11 +5,11 @@ knife ssl check
 
 .. tag knife_ssl_check_summary
 
-Use the ``knife ssl check`` subcommand to verify the SSL configuration for the Chef server or a location specified by a URL or URI. Invalid certificates will not be used by OpenSSL.
+Use the ``knife ssl check`` subcommand to verify the SSL configuration for the Chef Infra Server or a location specified by a URL or URI. Invalid certificates will not be used by OpenSSL.
 
 When this command is run, the certificate files (``*.crt`` and/or ``*.pem``) that are located in the ``/.chef/trusted_certs`` directory are checked to see if they have valid X.509 certificate properties. A warning is returned when certificates do not have valid X.509 certificate properties or if the ``/.chef/trusted_certs`` directory does not contain any certificates.
 
-.. warning:: When verification of a remote server's SSL certificate is disabled, the chef-client will issue a warning similar to "SSL validation of HTTPS requests is disabled. HTTPS connections are still encrypted, but the chef-client is not able to detect forged replies or man-in-the-middle attacks." To configure SSL for the chef-client, set ``ssl_verify_mode`` to ``:verify_peer`` (recommended) **or** ``verify_api_cert`` to ``true`` in the client.rb file.
+.. warning:: When verification of a remote server's SSL certificate is disabled, the Chef Infra Client will issue a warning similar to "SSL validation of HTTPS requests is disabled. HTTPS connections are still encrypted, but the Chef Infra Client is not able to detect forged replies or man-in-the-middle attacks." To configure SSL for the Chef Infra Client, set ``ssl_verify_mode`` to ``:verify_peer`` (recommended) **or** ``verify_api_cert`` to ``true`` in the client.rb file.
 
 .. end_tag
 
@@ -26,7 +26,7 @@ Options
 This subcommand has the following options:
 
 ``URL_or_URI``
-   The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef server, as defined in the config.rb file.
+   The URL or URI for the location at which the SSL certificate is located. Default value: the URL for the Chef Infra Server, as defined in the config.rb file.
 
 Examples
 =====================================================
@@ -100,9 +100,9 @@ is similar to:
 
 .. end_tag
 
-**Verify the SSL configuration for the chef-client**
+**Verify the SSL configuration for the Chef Infra Client**
 
-The SSL certificates that are used by the chef-client may be verified by specifying the path to the client.rb file. Use the ``--config`` option (that is available to any knife command) to specify this path:
+The SSL certificates that are used by the Chef Infra Client may be verified by specifying the path to the client.rb file. Use the ``--config`` option (that is available to any knife command) to specify this path:
 
 .. code-block:: bash
 

@@ -52,15 +52,13 @@ where:
 
 * ``windows_service`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
 
 Actions
 =====================================================
-.. tag resource_service_windows_actions
-
 The windows_service resource has the following actions:
 
 ``:configure``
@@ -105,11 +103,9 @@ The windows_service resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
-   
-.. end_tag
 
 Properties
 =====================================================
@@ -220,7 +216,7 @@ The windows_service resource has the following properties:
 ``supports``
    **Ruby Type:** Hash
 
-   A list of properties that controls how the chef-client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the chef-client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the chef-client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
+   A list of properties that controls how the Chef Infra Client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the Chef Infra Client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the Chef Infra Client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
 
 ``timeout``
    **Ruby Type:** Integer | **Default Value:** ``60``
@@ -395,8 +391,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create a service**
 
-.. tag resource_service_windows_create
-
 .. To create service with 'name':
 
 .. code-block:: ruby
@@ -459,11 +453,9 @@ Create service with a description:
      description "Chef client as service"
    end
 
-.. end_tag
+
 
 **Delete a service**
-
-.. tag resource_service_windows_delete
 
 Delete service with the ``'name'`` of ``chef-client``:
 
@@ -482,11 +474,9 @@ Delete service with ``'service_name'``:
      service_name "chef-client"
    end
 
-.. end_tag
+
 
 **Configure a service**
-
-.. tag resource_service_windows_configure
 
 Change an existing service from automatic to manual startup:
 
@@ -498,4 +488,4 @@ Change an existing service from automatic to manual startup:
      startup_type :manual
    end
 
-.. end_tag
+

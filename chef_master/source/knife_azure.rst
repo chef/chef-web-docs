@@ -27,19 +27,19 @@ For Windows versions older than 2012r2, download `ChefDK <https://downloads.chef
 Install Knife Azure 
 ------------------------------------------------------
 
-If Chef Client was installed using RubyGems, install the ``knife azure`` with the following command:
+If Chef Infra Client was installed using RubyGems, install the ``knife azure`` with the following command:
 
 .. code-block:: bash
 
    $ gem install knife-azure
 
-If the Chef Client was installed from the `Chef Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
+If the Chef Infra Client was installed from the `Chef Infra Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
 
 .. code-block:: bash
 
    $ /opt/chef/embedded/bin/gem install knife-azure
 
-where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located.
+where ``/opt/chef/embedded/bin/`` is the path to the location where the Chef Infra Client expects knife plugins to be located.
 
 Configuration
 ------------------------------------------------------
@@ -252,7 +252,7 @@ This argument has the following options:
    Your Azure PEM file name.
 
 ``-s``, ``--server-url URL``
-   Chef Server URL.
+   Chef Infra Server URL.
 
 ``-S``, ``--azure-subscription-id ID``
    Your Azure subscription ID
@@ -349,7 +349,7 @@ This argument has the following options:
    Your Azure PEM file name.
 
 ``-s``, ``--server-url URL``
-   Chef Server URL.
+   Chef Infra Server URL.
 
 ``-S``, ``--azure-subscription-id ID``
    Your Azure subscription ID
@@ -380,7 +380,7 @@ This argument has the following options:
 
 server create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``server create`` argument to create a new Microsoft Azure cloud instance. This will provision a new image in Microsoft Azure, perform a bootstrap (using the SSH protocol), and then install the chef-client on the target system so that it can be used to configure the node and to communicate with a Chef server.
+Use the ``server create`` argument to create a new Microsoft Azure cloud instance. This will provision a new image in Microsoft Azure, perform a bootstrap (using the SSH protocol), and then install the Chef Infra Client on the target system so that it can be used to configure the node and to communicate with a Chef Infra Server.
 
 Syntax
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -398,7 +398,7 @@ This argument has the following options:
    The affinity group to which the virtual machine belongs. Required when not using a service location. Required when not using ``--azure-service-location``.
 
 ``--auto-update-client``
-   Enable automatic updates for the chef-client in Microsoft Azure. This option may only be used when ``--bootstrap-protocol`` is set to ``cloud-api``. Default value: ``false``.
+   Enable automatic updates for the Chef Infra Client in Microsoft Azure. This option may only be used when ``--bootstrap-protocol`` is set to ``cloud-api``. Default value: ``false``.
 
 ``--azure-availability-set NAME``
    The name of the availability set for the virtual machine.
@@ -430,14 +430,14 @@ This argument has the following options:
 ``--bootstrap-protocol PROTOCOL``
    The protocol used to bootstrap on a machine that is running Windows Server: ``cloud-api``, ``ssh``, or ``winrm``. Default value: ``winrm``.
 
-   Use the ``cloud-api`` option to bootstrap a machine in Microsoft Azure. The bootstrap operation will enable the guest agent to install, configure, and run the chef-client on a node, after which the chef-client is configured to run as a daemon/service. (This is a similar process to using the Azure portal.)
+   Use the ``cloud-api`` option to bootstrap a machine in Microsoft Azure. The bootstrap operation will enable the guest agent to install, configure, and run the Chef Infra Client on a node, after which the Chef Infra Client is configured to run as a daemon/service. (This is a similar process to using the Azure portal.)
 
-   Microsoft Azure maintains images of the chef-client on the guest, so connectivity between the guest and the workstation from which the bootstrap operation was initiated is not required, after a ``cloud-api`` bootstrap is started.
+   Microsoft Azure maintains images of the Chef Infra Client on the guest, so connectivity between the guest and the workstation from which the bootstrap operation was initiated is not required, after a ``cloud-api`` bootstrap is started.
 
-   During the ``cloud-api`` bootstrap operation, knife does not print the output of the chef-client run like it does when the ``winrm`` and ``ssh`` options are used. knife reports only on the status of the bootstrap process: ``provisioning``, ``installing``, ``ready``, and so on, along with reporting errors.
+   During the ``cloud-api`` bootstrap operation, knife does not print the output of the Chef Infra Client run like it does when the ``winrm`` and ``ssh`` options are used. knife reports only on the status of the bootstrap process: ``provisioning``, ``installing``, ``ready``, and so on, along with reporting errors.
 
 ``--bootstrap-version VERSION``
-   The version of the chef-client to install.
+   The version of the Chef Infra Client to install.
 
 ``-c``, ``--azure-connect-to-existing-dns``
    Add a new virtual machine to the existing deployment and/or service. Use with ``--azure-dns-name`` to ensure the correct DNS is used.
@@ -452,39 +452,7 @@ This argument has the following options:
    The host name for the virtual machine.
 
 ``--hint HINT_NAME[=HINT_FILE]``
-   An Ohai hint to be set on the target node.
-
-   .. tag ohai_hints
-
-   Ohai hints are used to tell Ohai something about the system that it is running on that it would not be able to discover itself. An Ohai hint exists if a JSON file exists in the hint directory with the same name as the hint. For example, calling ``hint?('antarctica')`` in an Ohai plugin would return an empty hash if the file ``antarctica.json`` existed in the hints directory, and return nil if the file does not exist.
-
-   .. end_tag
-
-   .. tag ohai_hints_json
-
-   If the hint file contains JSON content, it will be returned as a hash from the call to ``hint?``.
-
-   .. code-block:: javascript
-
-      {
-        "snow": true,
-        "penguins": "many"
-      }
-
-   .. code-block:: ruby
-
-      antarctica_hint = hint?('antarctica')
-      if antarctica_hint['snow']
-        "There are #{antarctica_hint['penguins']} penguins here."
-      else
-        'There is no snow here, and penguins like snow.'
-      end
-
-   Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the ``client.rb`` file to customize this location.
-
-   .. end_tag
-
-   ``HINT_FILE`` is the name of the JSON file. ``HINT_NAME`` is the name of a hint in a JSON file. Use multiple ``--hint`` options to specify multiple hints.
+   An Ohai hint to be set on the target node. See the `Ohai </ohai.html#hints>`__ documentation for more information. ``HINT_FILE`` is the name of the JSON file. ``HINT_NAME`` is the name of a hint in a JSON file. Use multiple ``--hint`` options to specify multiple hints.
 
 ``--host-name HOST_NAME``
    The host name for the Microsoft Azure environment.
@@ -499,7 +467,7 @@ This argument has the following options:
    The passphrase for the SSH key. Use only with ``--identity-file``.
 
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
-   A JSON string that is added to the first run of a chef-client.
+   A JSON string that is added to the first run of a Chef Infra Client.
 
 ``-m LOCATION``, ``--azure-service-location LOCATION``
    The geographic location for a virtual machine and its services. Required when not using ``--azure-affinity-group``.
@@ -582,7 +550,7 @@ To provision a medium-sized CentOS machine configured as a web server in the ``W
 
 server delete
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``server delete`` argument to delete one or more instances that are running in the Microsoft Azure cloud. To find a specific cloud instance, use ``knife azure server list``. Use the ``--purge`` option to delete all associated node and client objects from the Chef server or use the ``knife node delete`` and ``knife client delete`` subcommands to delete specific node and client objects.
+Use the ``server delete`` argument to delete one or more instances that are running in the Microsoft Azure cloud. To find a specific cloud instance, use ``knife azure server list``. Use the ``--purge`` option to delete all associated node and client objects from the Chef Infra Server or use the ``knife node delete`` and ``knife client delete`` subcommands to delete specific node and client objects.
 
 Syntax
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -615,7 +583,7 @@ This argument has the following options:
    The name of the file that contains the SSH public key that is used when authenticating to Microsoft Azure.
 
 ``-P``, ``--purge``
-   Destroy all corresponding nodes and clients on the Chef server, in addition to the Microsoft Azure node itself. This action (by itself) assumes that the node and client have the same name as the server; if they do not have the same names, then the ``--node-name`` option must be used to specify the name of the node.
+   Destroy all corresponding nodes and clients on the Chef Infra Server, in addition to the Microsoft Azure node itself. This action (by itself) assumes that the node and client have the same name as the server; if they do not have the same names, then the ``--node-name`` option must be used to specify the name of the node.
 
 ``--preserve-azure-dns-name``
    Preserve the DNS entries for the corresponding cloud services. If this option is ``false``, any service not used by any virtual machine is deleted.
@@ -647,7 +615,7 @@ To delete an instance named ``devops12``, enter:
 
 server list
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``server list`` argument to find instances that are associated with a Microsoft Azure account. The results may show instances that are not currently managed by the Chef server.
+Use the ``server list`` argument to find instances that are associated with a Microsoft Azure account. The results may show instances that are not currently managed by the Chef Infra Server.
 
 Syntax
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

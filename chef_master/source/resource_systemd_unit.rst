@@ -289,8 +289,6 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
-.. tag systemd_unit_examples
-
 **Create etcd systemd service unit file**
 
 .. code-block:: ruby
@@ -312,4 +310,4 @@ Examples
      action :create
    end
 
-.. end_tag
+

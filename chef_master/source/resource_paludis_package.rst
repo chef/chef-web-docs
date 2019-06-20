@@ -17,8 +17,6 @@ Use the **paludis_package** resource to manage packages for the Paludis platform
 
 Syntax
 =====================================================
-.. tag resource_package_paludis_syntax
-
 A **paludis_package** resource block manages a package on a node, typically by installing it. The simplest use of the **paludis_package** resource is:
 
 .. code-block:: ruby
@@ -32,11 +30,9 @@ The full syntax for all of the properties that are available to the **paludis_pa
 .. code-block:: ruby
 
    paludis_package 'name' do
-     notifies                   # see description
      options                    String
      package_name               String, Array # defaults to 'name' if not specified
      source                     String
-     subscribes                 # see description
      timeout                    String, Integer
      version                    String, Array
      action                     Symbol # defaults to :install if not specified
@@ -47,15 +43,13 @@ where:
 * ``paludis_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_paludis_actions
-
-This resource has the following actions:
+The paludis_package resource has the following actions:
 
 ``:install``
    Default. Install a package. If a version is specified, install the specified version of the package.
@@ -63,7 +57,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -73,29 +67,29 @@ This resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
-.. end_tag
 
 Properties
 =====================================================
-This resource has the following properties:
+
+The paludis_package resource has the following properties:
 
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The optional path to a package on the local file system.
 
 ``timeout``
-   **Ruby Type:** String, Integer
+   **Ruby Type:** Integer | **Default Value:** ``3600``
 
    The amount of time (in seconds) to wait before timing out.
 

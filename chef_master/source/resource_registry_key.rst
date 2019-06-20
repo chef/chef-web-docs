@@ -9,8 +9,7 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 
 .. end_tag
 
-.. note:: .. tag notes_registry_key_redirection
-
+.. note::
           64-bit versions of Microsoft Windows have a 32-bit compatibility layer in the registry that reflects and redirects certain keys (and their values) into specific locations (or logical views) of the registry hive.
 
           The chef-client can access any reflected or redirected registry key. The machine architecture of the system on which the chef-client is running is used as the default (non-redirected) location. Access to the ``SysWow64`` location is redirected must be specified. Typically, this is only necessary to ensure compatibility with 32-bit applications that are running on a 64-bit operating system.
@@ -19,7 +18,7 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 
           For more information, see: `Registry Reflection <https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx>`_.
 
-          .. end_tag
+
 
 Syntax
 =====================================================
@@ -70,7 +69,7 @@ where
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
 
   .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps the Chef Infra Client will take to bring the node into the desired state
 * ``architecture``, ``key``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -103,7 +102,7 @@ Recipe DSL Methods
 -----------------------------------------------------
 .. tag dsl_recipe_method_windows_methods
 
-Six methods are present in the Recipe DSL to help verify the registry during a chef-client run on the Microsoft Windows platform---``registry_data_exists?``, ``registry_get_subkeys``, ``registry_get_values``, ``registry_has_subkeys?``, ``registry_key_exists?``, and ``registry_value_exists?``---these helpers ensure the **powershell_script** resource is idempotent.
+Six methods are present in the Recipe DSL to help verify the registry during a Chef Infra Client run on the Microsoft Windows platform---``registry_data_exists?``, ``registry_get_subkeys``, ``registry_get_values``, ``registry_has_subkeys?``, ``registry_key_exists?``, and ``registry_value_exists?``---these helpers ensure the **powershell_script** resource is idempotent.
 
 .. end_tag
 
@@ -140,15 +139,9 @@ where:
 * ``KEY_PATH`` is the path to the registry key value. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 * ``{ name: 'NAME', type: TYPE, data: DATA }`` is a hash that contains the expected name, type, and data of the registry key value
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This method will return ``true`` or ``false``.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -173,15 +166,9 @@ The syntax for the ``registry_get_subkeys`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This returns an array of registry key values.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -206,15 +193,9 @@ The syntax for the ``registry_get_values`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This returns an array of registry key values.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -239,15 +220,9 @@ The syntax for the ``registry_has_subkeys?`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This method will return ``true`` or ``false``.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -272,15 +247,9 @@ The syntax for the ``registry_key_exists?`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This method will return ``true`` or ``false``. (Any registry key values that are associated with this registry key are ignored.)
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -296,7 +265,7 @@ Use the ``registry_value_exists?`` method to find out if a registry key value ex
 
           .. end_tag
 
-The syntax for the ``registry_value_exists?`` method is as follows:
+The syntax for the ``registry_dvalue_exists?`` method is as follows:
 
 .. code-block:: ruby
 
@@ -311,15 +280,9 @@ where:
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 * ``{ name: 'NAME' }`` is a hash that contains the name of the registry key value; if either ``type:`` or ``:value`` are specified in the hash, they are ignored
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This method will return ``true`` or ``false``.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -339,20 +302,14 @@ The registry_key resource has the following actions:
    Delete the specified values for a registry key.
 
 ``:delete_key``
-   Delete the specified registry key and all of its subkeys.
+   Delete the specified registry key and all of its subkeys. The ``:delete_key`` action with the ``recursive`` attribute will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
-
-.. note:: .. tag notes_registry_key_resource_recursive
-
-          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the chef-client.
-
-          .. end_tag
 
 .. end_tag
 
@@ -365,15 +322,9 @@ The registry_key resource has the following properties:
 ``architecture``
    **Ruby Type:** Symbol | **Default Value:** ``:machine``
 
-   The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the chef-client determine the architecture during the chef-client run).
+   The architecture of the node for which keys are to be created or deleted. Possible values: ``:i386`` (for nodes with a 32-bit registry), ``:x86_64`` (for nodes with a 64-bit registry), and ``:machine`` (to have the Chef Infra Client determine the architecture during the Chef Infra Client run).
 
-   In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
-
-   .. note:: .. tag notes_registry_key_architecture
-
-             The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-             .. end_tag
+   In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the Chef Infra Client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the Chef Infra Client is able to access the registry key on the 32-bit machine).
 
 ``key``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
@@ -384,13 +335,7 @@ The registry_key resource has the following properties:
 ``recursive``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``.
-
-   .. note:: .. tag notes_registry_key_resource_recursive
-
-             Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the chef-client.
-
-             .. end_tag
+   When creating a key, this value specifies that the required keys for the specified path are to be created. When using the ``:delete_key`` action in a recipe, and if the registry key has subkeys, then set the value for this property to ``true``. The ``:delete_key`` action with the ``recursive`` attribute will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
 ``values``
    **Ruby Type:** Hash, Array
@@ -501,13 +446,13 @@ or a single-quoted string:
      action :delete_key
    end
 
+.. end_tag
+
 .. note:: .. tag notes_registry_key_resource_recursive
 
-          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the chef-client.
+          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
 
           .. end_tag
-
-.. end_tag
 
 **Use re-directed keys**
 

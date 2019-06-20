@@ -17,8 +17,6 @@ Use the **homebrew_package** resource to manage packages for the macOS platform.
 
 Syntax
 =====================================================
-.. tag resource_package_homebrew_syntax
-
 A **homebrew_package** resource block manages a package on a node, typically by installing it. The simplest use of the **homebrew_package** resource is:
 
 .. code-block:: ruby
@@ -48,12 +46,10 @@ where:
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``homebrew_user``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_homebrew_actions
-
 The homebrew_package resource has the following actions:
 
 ``:install``
@@ -62,7 +58,7 @@ The homebrew_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -75,7 +71,7 @@ The homebrew_package resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
-.. end_tag
+
 
 Properties
 =====================================================
@@ -87,26 +83,25 @@ The homebrew_package resource has the following properties:
 
    The name of the Homebrew owner to be used by the chef-client when executing a command.
 
-   .. tag resource_package_homebrew_user
 
    The chef-client, by default, will attempt to execute a Homebrew command as the owner of ``/usr/local/bin/brew``. If that executable does not exist, the chef-client will attempt to find the user by executing ``which brew``. If that executable cannot be found, the chef-client will print an error message: ``Could not find the "brew" executable in /usr/local/bin or anywhere on the path.``. Use the ``homebrew_user`` attribute to specify the Homebrew owner for situations where the chef-client cannot automatically detect the correct owner.
 
-   .. end_tag
+
 
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer

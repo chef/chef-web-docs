@@ -5,7 +5,7 @@ knife client
 
 .. tag knife_client_summary
 
-Use the ``knife client`` subcommand to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef server by any entity that uses the Chef server API, such as the chef-client and knife.
+Use the ``knife client`` subcommand to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef Infra Server by any entity that uses the Chef Infra Server API, such as the Chef Infra Client and knife.
 
 .. end_tag
 
@@ -40,9 +40,9 @@ None.
 
 create
 =====================================================
-Use the ``create`` argument to create a new API client. This process will generate an RSA key pair for the named API client. The public key will be stored on the Chef server and the private key will be displayed on ``STDOUT`` or written to a named file.
+Use the ``create`` argument to create a new API client. This process will generate an RSA key pair for the named API client. The public key will be stored on the Chef Infra Server and the private key will be displayed on ``STDOUT`` or written to a named file.
 
-* For the chef-client, the private key should be copied to the system as ``/etc/chef/client.pem``.
+* For the Chef Infra Client, the private key should be copied to the system as ``/etc/chef/client.pem``.
 * For knife, the private key is typically copied to ``~/.chef/client_name.pem`` and referenced in the config.rb configuration file.
 
 Syntax
@@ -54,13 +54,11 @@ This argument has the following syntax:
    $ knife client create CLIENT_NAME (options)
 
 Options
------------------------------------------------------
-.. tag knife_client_create_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-a``, ``--admin``
-   Create a client as an admin client. This is required for any user to access Open Source Chef as an administrator.  This option only works when used with the open source Chef server and will have no effect when used with Enterprise Chef or Chef server 12.x.
+   Create a client as an admin client.
 
 ``-f FILE``, ``--file FILE``
    Save a private key to the specified file name.
@@ -68,19 +66,18 @@ This argument has the following options:
 ``-k``, ``--prevent-keygen``
    Create a user without a public key. This key may be managed later by using the ``knife user key`` subcommands.
 
-   .. note:: .. tag notes_knife_prevent_keygen
+   .. note::
+             This option is valid only with Chef Infra Server API, version 1.0, which was released with Chef Server 12.1. If this option or the ``--user-key`` option are not passed in the command, the Chef Infra Server will create a user with a public key named ``default`` and will return the private key. For the Chef Server versions earlier than 12.1, this option will not work; a public key is always generated unless ``--user-key`` is passed in the command.
 
-             This option is valid only with Chef server API, version 1.0, which was released with Chef server 12.1. If this option or the ``--user-key`` option are not passed in the command, the Chef server will create a user with a public key named ``default`` and will return the private key. For the Chef server versions earlier than 12.1, this option will not work; a public key is always generated unless ``--user-key`` is passed in the command.
-
-             .. end_tag
+             
 
 ``-p FILE``, ``--public-key FILE``
-   The path to a file that contains the public key. This option may not be passed in the same command with ``--prevent-keygen``. When using Open Source Chef a default key is generated if this option is not passed in the command. For Chef server version 12.x, see the ``--prevent-keygen`` option.
+   The path to a file that contains the public key. This option may not be passed in the same command with ``--prevent-keygen``. When using Chef a default key is generated if this option is not passed in the command. For Chef Server version 12.x, see the ``--prevent-keygen`` option.
 
 ``--validator``
    Create the client as the chef-validator. Default value: ``true``.
 
-.. end_tag
+
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -94,23 +91,15 @@ The following examples show how to use this knife subcommand:
 
 **Create an admin client**
 
-To create a chef-client that can access the Chef server API as an administrator---sometimes referred to as an "API chef-client"---with the name "exampleorg" and save its private key to a file, enter:
+To create a Chef Infra Client that can access the Chef Infra Server API as an administrator---sometimes referred to as an "API Chef Infra Client"---with the name "exampleorg" and save its private key to a file, enter:
 
 .. code-block:: bash
 
    $ knife client create exampleorg -a -f "/etc/chef/client.pem"
 
-**Create an admin client for Enterprise Chef**
-
-When running the ``create`` argument, be sure to omit the ``-a`` option:
-
-.. code-block:: bash
-
-   $ knife client create exampleorg -f "/etc/chef/client.pem"
-
 delete
 =====================================================
-Use the ``delete`` argument to delete a registered API client. If using Chef client 12.17 or later, you can delete multiple clients using this subcommand.
+Use the ``delete`` argument to delete a registered API client. If using Chef Client 12.17 or later, you can delete multiple clients using this subcommand.
 
 Syntax
 -----------------------------------------------------
@@ -143,7 +132,7 @@ Type ``Y`` to confirm a deletion.
 
 edit
 =====================================================
-Use the ``edit`` argument to edit the details of a registered API client. When this argument is run, knife will open $EDITOR to enable editing of the ``admin`` attribute. (None of the other attributes should be changed using this argument.) When finished, knife will update the Chef server with those changes.
+Use the ``edit`` argument to edit the details of a registered API client. When this argument is run, knife will open $EDITOR to enable editing of the ``admin`` attribute. (None of the other attributes should be changed using this argument.) When finished, knife will update the Chef Infra Server with those changes.
 
 Syntax
 -----------------------------------------------------
@@ -171,43 +160,37 @@ To edit a client with the name "exampleorg", enter:
 
 key create
 =====================================================
-.. tag knife_client_key_create
-
 Use the ``key create`` argument to create a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_create_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key create CLIENT_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_client_key_create_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-e DATE``, ``--expiration-date DATE``
    The expiration date for the public key, specified as an ISO 8601 formatted string: ``YYYY-MM-DDTHH:MM:SSZ``. If this option is not specified, the public key will not have an expiration date. For example: ``2013-12-24T21:00:00Z``.
 
 ``-f FILE``, ``--file FILE``
-   Save a private key to the specified file name. If the ``--public-key`` option is not specified the Chef server will generate a private key.
+   Save a private key to the specified file name. If the ``--public-key`` option is not specified the Chef Infra Server will generate a private key.
 
 ``-k NAME``, ``--key-name NAME``
    The name of the public key.
 
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
-   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef server will generate a public/private key pair.
+   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -215,23 +198,19 @@ None.
 
 key delete
 =====================================================
-.. tag knife_client_key_delete
-
 Use the ``key delete`` argument to delete a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_delete_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key delete CLIENT_NAME KEY_NAME
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -239,28 +218,22 @@ None.
 
 key edit
 =====================================================
-.. tag knife_client_key_edit
-
 Use the ``key edit`` argument to modify or rename a public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_edit_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key edit CLIENT_NAME KEY_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_client_key_edit_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-c``, ``--create-key``
@@ -270,15 +243,15 @@ This argument has the following options:
    The expiration date for the public key, specified as an ISO 8601 formatted string: ``YYYY-MM-DDTHH:MM:SSZ``. If this option is not specified, the public key will not have an expiration date. For example: ``2013-12-24T21:00:00Z``.
 
 ``-f FILE``, ``--file FILE``
-   Save a private key to the specified file name. If the ``--public-key`` option is not specified the Chef server will generate a private key.
+   Save a private key to the specified file name. If the ``--public-key`` option is not specified the Chef Infra Server will generate a private key.
 
 ``-k NAME``, ``--key-name NAME``
    The name of the public key.
 
 ``-p FILE_NAME``, ``--public-key FILE_NAME``
-   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef server will generate a public/private key pair.
+   The path to a file that contains the public key. If this option is not specified, and only if ``--key-name`` is specified, the Chef Infra Server will generate a public/private key pair.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -286,28 +259,22 @@ None.
 
 key list
 =====================================================
-.. tag knife_client_key_list
-
 Use the ``key list`` argument to view a list of public keys for the named client.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_list_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key list CLIENT_NAME (options)
 
-.. end_tag
+
 
 Options
------------------------------------------------------
-.. tag knife_client_key_list_options
-
+----------------------------------------------------
 This argument has the following options:
 
 ``-e``, ``--only-expired``
@@ -319,7 +286,7 @@ This argument has the following options:
 ``-w``, ``--with-details``
    Show a list of public keys, including URIs and expiration status.
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -327,23 +294,19 @@ None.
 
 key show
 =====================================================
-.. tag knife_client_key_show
-
 Use the ``key show`` argument to view details for a specific public key.
 
-.. end_tag
+
 
 Syntax
------------------------------------------------------
-.. tag knife_client_key_show_syntax
-
+----------------------------------------------------
 This argument has the following syntax:
 
 .. code-block:: bash
 
    $ knife client key show CLIENT_NAME KEY_NAME
 
-.. end_tag
+
 
 Examples
 -----------------------------------------------------
@@ -374,7 +337,7 @@ The following examples show how to use this knife subcommand:
 
 **View a list of clients**
 
-To verify the API client list for the Chef server, enter:
+To verify the API client list for the Chef Infra Server, enter:
 
 .. code-block:: bash
 
@@ -389,7 +352,7 @@ to return something similar to:
    rs-123456
 
 To verify that an API client can authenticate to the
-Chef server correctly, try getting a list of clients using ``-u`` and ``-k`` options to specify its name and private key:
+Chef Infra Server correctly, try getting a list of clients using ``-u`` and ``-k`` options to specify its name and private key:
 
 .. code-block:: bash
 
@@ -397,9 +360,9 @@ Chef server correctly, try getting a list of clients using ``-u`` and ``-k`` opt
 
 reregister
 =====================================================
-Use the ``reregister`` argument to regenerate an RSA key pair for an API client. The public key will be stored on the Chef server and the private key will be displayed on ``STDOUT`` or written to a named file.
+Use the ``reregister`` argument to regenerate an RSA key pair for an API client. The public key will be stored on the Chef Infra Server and the private key will be displayed on ``STDOUT`` or written to a named file.
 
-.. note:: Running this argument will invalidate the previous RSA key pair, making it unusable during authentication to the Chef server.
+.. note:: Running this argument will invalidate the previous RSA key pair, making it unusable during authentication to the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------

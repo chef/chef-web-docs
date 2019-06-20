@@ -5,7 +5,7 @@ About the Audit Mode DSL
 
 .. tag dsl_recipe_summary
 
-The Recipe DSL is a Ruby DSL that is primarily used to declare resources from within a recipe. The Recipe DSL also helps ensure that recipes interact with nodes (and node properties) in the desired manner. Most of the methods in the Recipe DSL are used to find a specific parameter and then tell the chef-client what action(s) to take, based on whether that parameter is present on a node.
+The Recipe DSL is a Ruby DSL that is primarily used to declare resources from within a recipe. The Recipe DSL also helps ensure that recipes interact with nodes (and node properties) in the desired manner. Most of the methods in the Recipe DSL are used to find a specific parameter and then tell the Chef Infra Client what action(s) to take, based on whether that parameter is present on a node.
 
 .. end_tag
 
@@ -114,14 +114,10 @@ For example:
 .. end_tag
 
 control
------------------------------------------------------
-.. tag dsl_recipe_method_control
-
+----------------------------------------------------
 Use the ``control`` method to define a specific series of tests that comprise an individual audit. A ``control`` method MUST be contained within a ``control_group`` block. A ``control_group`` block may contain multiple ``control`` methods.
 
-.. end_tag
 
-.. tag dsl_recipe_method_control_syntax
 
 The syntax for the ``control`` method is as follows:
 
@@ -140,16 +136,14 @@ where:
 * ``control_group`` groups one (or more) ``control`` blocks
 * ``control 'name' do`` defines an individual audit
 * Each ``control`` block must define at least one validation
-* Each ``it`` statement defines a single validation. ``it`` statements are processed individually when the chef-client is run in audit-mode
+* Each ``it`` statement defines a single validation. ``it`` statements are processed individually when the Chef Infra Client is run in audit-mode
 * An ``expect(something).to/.to_not be_something`` is a statement that represents the individual test. In other words, this statement tests if something is expected to be (or not be) something. For example, a test that expects the PostgreSQL pacakge to not be installed would be similar to ``expect(package('postgresql')).to_not be_installed`` and a test that ensures a service is enabled would be similar to ``expect(service('init')).to be_enabled``
 * An ``it`` statement may contain multiple ``expect`` statements
 
-.. end_tag
+
 
 directory Matcher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_directory
-
 Matchers are available for directories. Use this matcher to define audits for directories that test if the directory exists, is mounted, and if it is linked to. This matcher uses the same matching syntax---``expect(file('foo'))``---as the files. The following matchers are available for directories:
 
 .. list-table::
@@ -204,12 +198,10 @@ Matchers are available for directories. Use this matcher to define audits for di
           )
           end
 
-.. end_tag
+
 
 file Matcher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_file
-
 Matchers are available for files and directories. Use this matcher to define audits for files that test if the file exists, its version, if it is executable, writable, or readable, who owns it, verify checksums (both MD5 and SHA-256) and so on. The following matchers are available for files:
 
 .. list-table::
@@ -398,12 +390,10 @@ Matchers are available for files and directories. Use this matcher to define aud
             expect(file('/etc/file')).to contain('docs.chef.io')
           end
 
-.. end_tag
+
 
 package Matcher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_package
-
 Matchers are available for packages and may be used to define audits that test if a package or a package version is installed. The following matchers are available:
 
 .. list-table::
@@ -429,12 +419,10 @@ Matchers are available for packages and may be used to define audits that test i
             expect(package('httpd')).to be_installed.with_version('0.1.2')
           end
 
-.. end_tag
+
 
 port Matcher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_port
-
 Matchers are available for ports and may be used to define audits that test if a port is listening. The following matchers are available:
 
 .. list-table::
@@ -492,12 +480,10 @@ Matchers are available for ports and may be used to define audits that test if a
             expect(port(23)).to_not be_listening.with('tcp6')
           end
 
-.. end_tag
+
 
 service Matcher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag dsl_recipe_method_control_matcher_service
-
 Matchers are available for services and may be used to define audits that test for conditions related to services, such as if they are enabled, running, have the correct startup mode, and so on. The following matchers are available:
 
 .. list-table::
@@ -583,14 +569,12 @@ Matchers are available for services and may be used to define audits that test f
             expect(service('DNS Client')).to have_start_mode.Manual
           end
 
-.. end_tag
+
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 **A package is installed**
-
-.. tag dsl_recipe_control_matcher_package_installed
 
 For example, a package is installed:
 
@@ -604,7 +588,7 @@ For example, a package is installed:
      end
    end
 
-The ``control_group`` block is processed when the chef-client run is run in audit-mode. If the audit was successful, the chef-client will return output similar to:
+The ``control_group`` block is processed when the Chef Infra Client run is run in audit-mode. If the audit was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -612,7 +596,7 @@ The ``control_group`` block is processed when the chef-client run is run in audi
      mysql package
        should be installed
 
-If an audit was unsuccessful, the chef-client will return output similar to:
+If an audit was unsuccessful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -636,11 +620,9 @@ If an audit was unsuccessful, the chef-client will return output similar to:
 
    rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:21 # Audit Mode mysql package should be installed
 
-.. end_tag
+
 
 **A package version is installed**
-
-.. tag dsl_recipe_control_matcher_package_installed_version
 
 A package that is installed with a specific version:
 
@@ -654,11 +636,9 @@ A package that is installed with a specific version:
      end
    end
 
-.. end_tag
+
 
 **A package is not installed**
-
-.. tag dsl_recipe_control_matcher_package_not_installed
 
 A package that is not installed:
 
@@ -672,7 +652,7 @@ A package that is not installed:
      end
    end
 
-If the audit was successful, the chef-client will return output similar to:
+If the audit was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -681,11 +661,9 @@ If the audit was successful, the chef-client will return output similar to:
        postgres package
          is not installed
 
-.. end_tag
+
 
 **A service is enabled**
-
-.. tag dsl_recipe_control_matcher_service_enabled
 
 A service that is enabled and running:
 
@@ -703,7 +681,7 @@ A service that is enabled and running:
      end
    end
 
-If the audit was successful, the chef-client will return output similar to:
+If the audit was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -713,11 +691,9 @@ If the audit was successful, the chef-client will return output similar to:
          is enabled
          is running
 
-.. end_tag
+
 
 **A configuration file contains specific settings**
-
-.. tag dsl_recipe_control_matcher_file_sshd_configuration
 
 The following example shows how to verify ``sshd`` configration, including whether it's installed, what the permissions are, and how it can be accessed:
 
@@ -755,11 +731,9 @@ where
 
 * ``let(:config_file) { file('/etc/ssh/sshd_config') }`` uses the ``file`` matcher to test specific settings within the ``sshd`` configuration file
 
-.. end_tag
+
 
 **A file contains desired permissions and contents**
-
-.. tag dsl_recipe_control_matcher_file_permissions
 
 The following example shows how to verify that a file has the desired permissions and contents:
 
@@ -778,7 +752,7 @@ The following example shows how to verify that a file has the desired permission
      end
    end
 
-If the audit was successful, the chef-client will return output similar to:
+If the audit was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -788,7 +762,7 @@ If the audit was successful, the chef-client will return output similar to:
          exists with correct permissions
          contains required configuration
 
-.. end_tag
+
 
 **Test an attribute value**
 
@@ -804,14 +778,10 @@ To audit attribute values in a ``control`` block, first assign the attribute as 
    end
 
 control_group
------------------------------------------------------
-.. tag dsl_recipe_method_control_group
-
+----------------------------------------------------
 Use the ``control_group`` method to define a group of ``control`` methods that comprise a single audit. The name of each ``control_group`` must be unique within the organization.
 
-.. end_tag
 
-.. tag dsl_recipe_method_control_group_syntax
 
 The syntax for the ``control_group`` method is as follows:
 
@@ -832,17 +802,15 @@ The syntax for the ``control_group`` method is as follows:
 where:
 
 * ``control_group`` groups one (or more) ``control`` blocks
-* ``'name'`` is the unique name for the ``control_group``; the chef-client will raise an exception if duplicate ``control_group`` names are present
+* ``'name'`` is the unique name for the ``control_group``; the Chef Infra Client will raise an exception if duplicate ``control_group`` names are present
 * ``control`` defines each individual audit within the ``control_group`` block. There is no limit to the number of ``control`` blocks that may defined within a ``control_group`` block
 
-.. end_tag
+
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 **control_group block with multiple control blocks**
-
-.. tag dsl_recipe_control_group_many_controls
 
 The following ``control_group`` ensures that MySQL is installed, that PostgreSQL is not installed, and that the services and configuration files associated with MySQL are configured correctly:
 
@@ -896,7 +864,7 @@ The following ``control_group`` ensures that MySQL is installed, that PostgreSQL
 
    end
 
-The ``control_group`` block is processed when the chef-client is run in audit-mode. If the chef-client run was successful, the chef-client will return output similar to:
+The ``control_group`` block is processed when the Chef Infra Client is run in audit-mode. If the Chef Infra Client run was successful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -915,7 +883,7 @@ The ``control_group`` block is processed when the chef-client is run in audit-mo
        should exist with correct permissions
        should contain required configuration
 
-If an audit was unsuccessful, the chef-client will return output similar to:
+If an audit was unsuccessful, the Chef Infra Client will return output similar to:
 
 .. code-block:: bash
 
@@ -991,13 +959,11 @@ If an audit was unsuccessful, the chef-client will return output similar to:
    rspec /var/chef/cache/cookbooks/grantmc/recipes/default.rb:59 # Audit Mode mysql config file should contain required configuration
    Auditing complete
 
-.. end_tag
+
 
 **Duplicate control_group names**
 
-.. tag dsl_recipe_control_group_duplicate_names
-
-If two ``control_group`` blocks have the same name, the chef-client will raise an exception. For example, the following ``control_group`` blocks exist in different cookbooks:
+If two ``control_group`` blocks have the same name, the Chef Infra Client will raise an exception. For example, the following ``control_group`` blocks exist in different cookbooks:
 
 .. code-block:: ruby
 
@@ -1015,7 +981,7 @@ If two ``control_group`` blocks have the same name, the chef-client will raise a
      end
    end
 
-Because the two ``control_group`` block names are identical, the chef-client will return an exception similar to:
+Because the two ``control_group`` block names are identical, the Chef Infra Client will return an exception similar to:
 
 .. code-block:: ruby
 
@@ -1057,11 +1023,9 @@ Because the two ``control_group`` block names are identical, the chef-client wil
    [2015-01-15T09:36:14-08:00] ERROR: Running exception handlers
    Running handlers complete
 
-.. end_tag
+
 
 **Verify a package is installed**
-
-.. tag dsl_recipe_control_group_simple_recipe
 
 The following ``control_group`` verifies that the ``git`` package has been installed:
 
@@ -1087,4 +1051,4 @@ The following ``control_group`` verifies that the ``git`` package has been insta
      end
    end
 
-.. end_tag
+

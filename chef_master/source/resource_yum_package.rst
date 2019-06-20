@@ -31,25 +31,25 @@ The yum_package resource has the following syntax:
 
 .. code-block:: ruby
 
-   yum_package 'name' do
-     allow_downgrade            true, false # default value: false
-     arch                       String, Array
-     flush_cache                Hash # default value: {"before"=>false, "after"=>false}
-     options                    String, Array
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     yum_binary                 String
-     action                     Symbol # defaults to :install if not specified
-   end
+  yum_package 'name' do
+    allow_downgrade      true, false # default value: true
+    arch                 String, Array
+    flush_cache          Hash # default value: {"before"=>false, "after"=>false}
+    options              String, Array
+    package_name         String, Array
+    source               String
+    timeout              String, Integer
+    version              String, Array
+    yum_binary           String
+    action               Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``yum_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
+* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -65,7 +65,7 @@ The yum_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -87,7 +87,7 @@ Properties
 The yum_package resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Downgrade a package to satisfy requested version requirements.
 
@@ -465,24 +465,7 @@ or:
 
 .. end_tag
 
-**To install a specific version (even when older than the current)**
-
-.. tag resource_yum_package_install_specific_version
-
-.. To install a specific version (even if it is older than the version currently installed):
-
-.. code-block:: ruby
-
-   yum_package 'tzdata' do
-     version '2011b-1.el5'
-     allow_downgrade true
-   end
-
-.. end_tag
-
 **Handle cookbook_file and yum_package resources in the same recipe**
-
-.. tag resource_package_handle_cookbook_file_and_yum_package
 
 .. To handle cookbook_file and package when both called in the same recipe
 
@@ -500,4 +483,4 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
      flush_cache [ :before ]
    end
 
-.. end_tag
+

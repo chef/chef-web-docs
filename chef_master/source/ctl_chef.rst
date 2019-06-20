@@ -11,7 +11,7 @@ The chef executable is a command-line tool that does the following:
 
 chef env
 =====================================================
-Use the ``chef env`` subcommand to configure the environment for the Chef development kit.
+Use the ``chef env`` subcommand to configure the environment for ChefDK.
 
 Syntax
 -----------------------------------------------------
@@ -31,7 +31,7 @@ None.
 
 chef exec
 =====================================================
-Use the ``chef exec`` subcommand to run arbitrary shell commands with the ``PATH`` environment variable and the ``GEM_HOME`` and ``GEM_PATH`` Ruby environment variables pointed at the Chef development kit.
+Use the ``chef exec`` subcommand to run arbitrary shell commands with the ``PATH`` environment variable and the ``GEM_HOME`` and ``GEM_PATH`` Ruby environment variables pointed at ChefDK.
 
 Syntax
 -----------------------------------------------------
@@ -49,7 +49,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -57,7 +57,7 @@ None.
 
 chef gem
 =====================================================
-The ``chef gem`` subcommand is a wrapper around the ``gem`` command in RubyGems and is used by Chef to install RubyGems into the Chef development kit development environment. All knife plugins, drivers for Kitchen, and other Ruby applications that are not packaged within the Chef development kit will be installed to the ``.chefdk`` path in the home directory: ``~/.chefdk/gem/ruby/ver.si.on/bin`` (where ``ver.si.on`` is the version of Ruby that is packaged within the Chef development kit).
+The ``chef gem`` subcommand is a wrapper around the ``gem`` command in RubyGems and is used by Chef to install RubyGems into ChefDK development environment. All knife plugins, drivers for Kitchen, and other Ruby applications that are not packaged within ChefDK will be installed to the ``.chefdk`` path in the home directory: ``~/.chefdk/gem/ruby/ver.si.on/bin`` (where ``ver.si.on`` is the version of Ruby that is packaged within ChefDK).
 
 Syntax
 -----------------------------------------------------
@@ -75,7 +75,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -161,7 +161,7 @@ to return something similar to:
 
 **Uninstall a gem**
 
-To uninstall a gem from the Chef development kit environment:
+To uninstall a gem from ChefDK environment:
 
 .. code-block:: bash
 
@@ -198,11 +198,11 @@ Use the ``chef generate app`` subcommand to generate a cookbook structure that:
 
 * Supports multiple cookbooks (as many as needed to support an "application")
 * Supports a top-level instance of Kitchen that can be used to test each cookbook in the application
-* Supports a single Policyfile.rb, which is an upcoming feature of the Chef development kit that defines a workflow around a set of cookbooks and related policy (such as roles, environments, and so on); for more information about Policyfile.rb, see the chef.lists discussions (search for "policyfile")
+* Supports a single Policyfile.rb, which is an upcoming feature of ChefDK that defines a workflow around a set of cookbooks and related policy (such as roles, environments, and so on); for more information about Policyfile.rb, see the chef.lists discussions (search for "policyfile")
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The chef-client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 
@@ -219,13 +219,13 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the Chef development kit.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
 
 ``-h``, ``--help``
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -311,13 +311,13 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the Chef development kit.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
 
 ``-h``, ``--help``
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -348,7 +348,7 @@ Use the ``chef generate cookbook`` subcommand to generate a cookbook.
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The chef-client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 
@@ -365,7 +365,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the Chef development kit.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
 
 ``-b``, ``--berks``
    Create a Berksfile in the cookbook. Default value: enabled. This is disabled if the ``--policy`` option is given.
@@ -392,7 +392,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -455,7 +455,7 @@ and which creates a directory structure similar to::
 
 **Create a cookbook using a custom skeleton cookbook**
 
-If a custom skeleton cookbook is located on a macOS desktop (and in this example, the ``chef_generator`` cookbook is simply a copy of the same cookbook that ships in the Chef development kit), the following command will use the skeleton cookbook at the custom location to generate a cookbook into the repository from which the ``chef`` command is run:
+If a custom skeleton cookbook is located on a macOS desktop (and in this example, the ``chef_generator`` cookbook is simply a copy of the same cookbook that ships in ChefDK), the following command will use the skeleton cookbook at the custom location to generate a cookbook into the repository from which the ``chef`` command is run:
 
 .. code-block:: bash
 
@@ -510,7 +510,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the Chef development kit.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
 
 ``-C COPYRIGHT``, ``--copyright COPYRIGHT``
    Specify the copyright holder for copyright notices in generated files. Default value: ``The Authors``
@@ -528,7 +528,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -551,7 +551,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the Chef development kit.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
 
 ``-h``, ``--help``
    Show help for the command.
@@ -560,7 +560,7 @@ This subcommand has the following options:
    Copy the contents from a source file.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -572,7 +572,7 @@ Use the ``chef generate resource`` subcommand to generate a custom resource in t
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The chef-client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 
@@ -589,13 +589,13 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the Chef development kit.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
 
 ``-h``, ``--help``
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -618,13 +618,13 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the Chef development kit.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
 
 ``-h``, ``--help``
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
@@ -669,7 +669,7 @@ This subcommand has the following options:
    Create directories for ``/roles`` and ``/environments`` instead of creating directories for Policyfile.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -694,7 +694,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of the Chef development kit.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
 
 ``-h``, ``--help``
    Show help for the command.
@@ -703,219 +703,15 @@ This subcommand has the following options:
    Copy the contents from a source file.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
 None.
 
-chef provision
-=====================================================
-.. tag ctl_chef_provision
-
-Use the ``chef provision`` subcommand to invoke an embedded chef-client run to provision machines using Chef provisioning. By default, this subcommand expects to find a cookbook named ``provision`` in the current working directory. The chef-client run will run a recipe in this cookbook that uses Chef provisioning to create one (or more) machines.
-
-The ``chef provision`` subcommand is intended to:
-
-* Provide a provisioning mechanism that supports using ``Policyfile.rb`` files
-* Support naming conventions within Chef provisioning
-* Integrate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
-* Separate the configuration of provisioned machines from running Chef provisioning
-* Allow provisioning to be managed as code and versioned (via ``Policyfile.rb`` files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
-
-.. end_tag
-
-Syntax
------------------------------------------------------
-.. tag ctl_chef_provision_syntax
-
-This subcommand has the following syntax:
-
-To create machines that operate using only a local ``Policyfile.rb``:
-
-.. code-block:: bash
-
-   $ chef provision POLICY_GROUP --policy-name POLICY_NAME (options)
-
-To create machines that operate using a ``Policyfile.rb`` that is synchronized with the Chef server before each chef-client run:
-
-.. code-block:: bash
-
-   $ chef provision POLICY_GROUP --sync PATH (options)
-
-To create machines that will not use a ``Policyfile.rb`` file:
-
-.. code-block:: bash
-
-   $ chef provision --no-policy (options)
-
-.. end_tag
-
-Options
------------------------------------------------------
-.. tag ctl_chef_provision_options
-
-This subcommand has the following options:
-
-``-c CONFIG_FILE``, ``--config CONFIG_FILE``
-   The path to the knife configuration file.
-
-``--cookbook COOKBOOK_PATH``
-   Specify the location of the cookbook that is used to provision the node. Default value: ``./provision``.
-
-``-d``, ``--destroy``
-   Set the default action for the **machine** resource to ``:destroy``. Default value: ``false``.
-
-``-D``, ``--debug``
-   Enable stack traces and other debug output. Default value: ``false``.
-
-``-h``, ``--help``
-   Show help for the command.
-
-``-n NODE_NAME``, ``--node-name NODE_NAME``
-   Specify the name of the node. (This value may be overridden by the cookbook that is used to provision the node.)
-
-``-o OPT=VALUE``, ``--opt OPT=VALUE``
-   Set an arbitrary command-line option (``OPT``) and value (``=VALUE``). Use this option once per command-line option. Default value: ``{}``.
-
-   .. note:: Use the ``extra_chef_config`` property in a recipe in the ``provision`` cookbook to set arbitrary configuration settings. Define the ``extra_chef_config`` values in the ``provision`` cookbook using the following syntax:
-
-             .. code-block:: ruby
-
-                ChefDK::ProvisioningData.context.extra_chef_config = 'setting :value'
-
-             For example:
-
-             .. code-block:: ruby
-
-                ChefDK::ProvisioningData.context.extra_chef_config = 'log_level :debug'
-
-``-p POLICY_NAME``, ``--policy-name POLICY_NAME``
-   Set the policy name for one (or more) machines that are managed by this ``Policyfile.rb`` file.
-
-``--[no-]policy``
-   Use ``--policy`` to enable one (or more) machines to be managed by a ``Policyfile.rb`` file. Default value: ``--policy``.
-
-``-r RECIPE``, ``--recipe RECIPE``
-   Specify the name of the recipe to be run. This recipe must be located in the ``policyfile`` cookbook at the path specified by the ``--cookbook`` option.
-
-``-s PATH``, ``--sync PATH``
-   Push a ``Policyfile.rb`` file to the Chef server before running the chef-client on a node. The ``PATH`` is the location of the ``Policyfile.rb`` file to be synchronized.
-
-``-t REMOTE_HOST``, ``--target REMOTE_HOST``
-   Set the hostname or IP address of the host on which the chef-client run will occur. (This value may be overridden by the cookbook that is used to provision the node.)
-
-``-v``, ``--version``
-   The version of the chef-client.
-
-.. end_tag
-
-Examples
------------------------------------------------------
-
-**Create a machine with lock file, synchronized to the Chef server**
-
-.. tag ctl_chef_provision_machine_with_lockfile
-
-.. To create a machine with lock file, synchronized to the Chef server:
-
-.. code-block:: ruby
-
-   with_driver 'vagrant:~/.vagrant.d/boxes' do
-
-     # Set machine options
-     options = {
-       vagrant_options: { 'vm.box' => 'opscode-ubuntu-14.04' },
-       # Set all machine options to default values
-       convergence_options: ChefDK::ProvisioningData.context.convergence_options
-     }
-
-     # Set node name to --node-name
-     machine context.node_name do
-       machine_options(options)
-
-       # Force a Chef run every time and set action to --destroy option
-       action(ChefDK::ProvisioningData.context.action)
-     end
-   end
-
-and then to provision the machine, run the following:
-
-.. code-block:: bash
-
-   $ chef provision test123 --sync -n aar-dev
-
-This will synchronize the ``Policyfile.lock.json`` file to the Chef server, and then run the Chef client on the node.
-
-.. code-block:: bash
-
-   Recipe: code_generator::cookbook
-     * directory[/Users/grantmc/chefdocs] action create
-       - create new directory /Users/grantmc/chefdocs
-
-     * template[/Users/grantmc/chefdocs/metadata.rb] action create
-       - create new file /Users/grantmc/chefdocs/metadata.rb
-
-     * template[/Users/grantmc/chefdocs/README.md] action create
-       - create new file /Users/grantmc/chefdocs/README.md
-
-     * cookbook_file[/Users/grantmc/chefdocs/chefignore] action create
-       - create new file /Users/grantmc/chefdocs/chefignore
-
-     * cookbook_file[/Users/grantmc/chefdocs/Berksfile] action create
-       - create new file /Users/grantmc/chefdocs/Berksfile
-
-     * template[/Users/grantmc/chefdocs/.kitchen.yml] action create
-       - create new file /Users/grantmc/chefdocs/.kitchen.yml
-
-     * directory[/Users/grantmc/chefdocs/recipes] action create
-       - create new directory /Users/grantmc/chefdocs/recipes
-
-     * template[/Users/grantmc/chefdocs/recipes/default.rb] action create
-       - create new file /Users/grantmc/chefdocs/recipes/default.rb
-
-     * execute[initialize-git] action run
-       - execute git init .
-
-     * cookbook_file[/Users/grantmc/chefdocs/.gitignore] action create
-       - create new file /Users/grantmc/chefdocs/.gitignore
-
-and which creates a directory structure similar to::
-
-   /chefdocs
-     /.git
-	 .gitignore
-     .kitchen.yml
-     Berksfile
-     chefignore
-     metadata.rb
-     README.md
-     /recipes
-       default.rb
-
-.. end_tag
-
-**Pass arbitrary options**
-
-.. tag ctl_chef_provision_arbitrary_options
-
-Use the ``--opt`` option to pass arbitrary command-line options. For example:
-
-.. code-block:: bash
-
-   $ chef provision (other options) --opt foo=bar
-
-Use the ``--opt`` option more than once to pass more than one option. For example:
-
-.. code-block:: bash
-
-   $ chef provision (other options) --opt foo=bar --opt baz=qux
-
-.. end_tag
-
 chef shell-init
 =====================================================
-Use the ``chef shell-init`` subcommand to set the Ruby included in the Chef development kit as the system Ruby. The Chef development kit is designed to allow the isolation of applications used by the Chef development kit from other Ruby development tools that may be present on the workstation. This supports Bash, fish, Windows PowerShell (posh), and zsh.
+Use the ``chef shell-init`` subcommand to set the Ruby included in ChefDK as the system Ruby. ChefDK is designed to allow the isolation of applications used by ChefDK from other Ruby development tools that may be present on the workstation. This supports Bash, fish, Windows PowerShell (posh), and zsh.
 
 bash zsh fish PowerShell (posh)
 
@@ -935,14 +731,12 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 Examples
 -----------------------------------------------------
 
 **Set PowerShell**
-
-.. tag ruby_set_system_ruby_as_chefdk_ruby_windows
 
 You can use the ``chef shell-init`` command with Windows PowerShell to add the appropriate variables to your environment.
 
@@ -958,11 +752,9 @@ To enable it permanently:
 
    "chef shell-init powershell | Invoke-Expression" >> $PROFILE
 
-.. end_tag
+
 
 **Set the execution policy on new machines**
-
-.. tag ruby_set_system_ruby_as_chefdk_ruby_windows_admin
 
 On new Windows machines, PowerShell scripts will not work until an administrator runs the following command:
 
@@ -970,11 +762,9 @@ On new Windows machines, PowerShell scripts will not work until an administrator
 
    Set-ExecutionPolicy RemoteSigned
 
-.. end_tag
+
 
 **Create a $PROFILE on new machines**
-
-.. tag ruby_set_system_ruby_as_chefdk_ruby_windows_user_profile
 
 On new Windows machines, commands cannot be appended to ``$PROFILE`` if the folder does not exist, or if there is a new user profile. This will result in an error similar to the following:
 
@@ -995,7 +785,7 @@ In this situation, run the following ``chef shell-init`` command instead:
 
    if(Test-Path $PROFILE){ chef shell-init powershell | Add-Content $PROFILE } else { New-Item -Force -ItemType File $PROFILE; chef shell-init powershell | Add-Content $PROFILE }
 
-.. end_tag
+
 
 Policyfile Commands
 =====================================================
@@ -1009,7 +799,7 @@ chef clean-policy-cookbooks
 -----------------------------------------------------
 .. tag ctl_chef_clean_policy_cookbooks
 
-Use the ``chef clean-policy-cookbooks`` subcommand to delete cookbooks that are not used by Policyfile files. Cookbooks are considered unused when they are not referenced by any policy revisions on the Chef server.
+Use the ``chef clean-policy-cookbooks`` subcommand to delete cookbooks that are not used by Policyfile files. Cookbooks are considered unused when they are not referenced by any policy revisions on the Chef Infra Server.
 
 .. note:: Cookbooks that are referenced by orphaned policy revisions are not removed. Use ``chef clean-policy-revisions`` to remove orphaned policies.
 
@@ -1043,7 +833,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1055,7 +845,7 @@ chef clean-policy-revisions
 -----------------------------------------------------
 .. tag ctl_chef_clean_policy_revisions
 
-Use the ``chef clean-policy-revisions`` subcommand to delete orphaned policy revisions to Policyfile files from the Chef server. An orphaned policy revision is not associated to any policy group and therefore is not in active use by any node. Use ``chef show-policy --orphans`` to view a list of orphaned policy revisions.
+Use the ``chef clean-policy-revisions`` subcommand to delete orphaned policy revisions to Policyfile files from the Chef Infra Server. An orphaned policy revision is not associated to any policy group and therefore is not in active use by any node. Use ``chef show-policy --orphans`` to view a list of orphaned policy revisions.
 
 .. end_tag
 
@@ -1087,7 +877,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1099,7 +889,7 @@ chef delete-policy
 -----------------------------------------------------
 .. tag ctl_chef_delete_policy
 
-Use the ``chef delete-policy`` subcommand to delete all revisions of the named policy that exist on the Chef server. (The state of the policy revision is backed up locally and may be restored using the ``chef undelete`` subcommand.)
+Use the ``chef delete-policy`` subcommand to delete all revisions of the named policy that exist on the Chef Infra Server. (The state of the policy revision is backed up locally and may be restored using the ``chef undelete`` subcommand.)
 
 .. end_tag
 
@@ -1131,7 +921,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1143,7 +933,7 @@ chef delete-policy-group
 -----------------------------------------------------
 .. tag ctl_chef_delete_policy_group
 
-Use the ``chef delete-policy-group`` subcommand to delete the named policy group from the Chef server. Any policy revision associated with that policy group is not deleted. (The state of the policy group is backed up locally and may be restored using the ``chef undelete`` subcommand.)
+Use the ``chef delete-policy-group`` subcommand to delete the named policy group from the Chef Infra Server. Any policy revision associated with that policy group is not deleted. (The state of the policy group is backed up locally and may be restored using the ``chef undelete`` subcommand.)
 
 .. end_tag
 
@@ -1175,7 +965,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1222,13 +1012,13 @@ This subcommand has the following options:
    Show help for the command.
 
 ``--head``
-   A shortcut for ``chef diff --git HEAD``. When a git-specific flag is not provided, the on-disk ``Policyfile.lock.json`` file is compared to one on the Chef server or (if a ``Policyfile.lock.json`` file is not present on-disk) two ``Policyfile.lock.json`` files in the specified policy group on the Chef server are compared.
+   A shortcut for ``chef diff --git HEAD``. When a git-specific flag is not provided, the on-disk ``Policyfile.lock.json`` file is compared to one on the Chef Infra Server or (if a ``Policyfile.lock.json`` file is not present on-disk) two ``Policyfile.lock.json`` files in the specified policy group on the Chef Infra Server are compared.
 
 ``--[no-]pager``
    Use ``--pager`` to enable paged output for a ``Policyfile.lock.json`` file. Default value: ``--pager``.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1378,7 +1168,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1416,7 +1206,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1428,7 +1218,7 @@ chef install
 -----------------------------------------------------
 .. tag ctl_chef_install
 
-Use the ``chef install`` subcommand to evaluate a policy file and find a compatible set of cookbooks, build a run-list, cache it locally, and then emit a ``Policyfile.lock.json`` file that describes the locked policy set. The ``Policyfile.lock.json`` file may be used to install the locked policy set to other machines and may be pushed to a policy group on the Chef server to apply that policy to a group of nodes that are under management by Chef.
+Use the ``chef install`` subcommand to evaluate a policy file and find a compatible set of cookbooks, build a run-list, cache it locally, and then emit a ``Policyfile.lock.json`` file that describes the locked policy set. The ``Policyfile.lock.json`` file may be used to install the locked policy set to other machines and may be pushed to a policy group on the Chef Infra Server to apply that policy to a group of nodes that are under management by Chef.
 
 .. end_tag
 
@@ -1457,7 +1247,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1465,7 +1255,7 @@ Policyfile.lock.json
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag policyfile_lock_json
 
-When the ``chef install`` command is run, the Chef development kit caches any necessary cookbooks and emits a ``Policyfile.lock.json`` file that describes:
+When the ``chef install`` command is run, ChefDK caches any necessary cookbooks and emits a ``Policyfile.lock.json`` file that describes:
 
 * The versions of cookbooks in use
 * A Hash of cookbook content
@@ -1518,215 +1308,11 @@ Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 None.
 
-chef provision
------------------------------------------------------
-.. tag ctl_chef_provision
-
-Use the ``chef provision`` subcommand to invoke an embedded chef-client run to provision machines using Chef provisioning. By default, this subcommand expects to find a cookbook named ``provision`` in the current working directory. The chef-client run will run a recipe in this cookbook that uses Chef provisioning to create one (or more) machines.
-
-The ``chef provision`` subcommand is intended to:
-
-* Provide a provisioning mechanism that supports using ``Policyfile.rb`` files
-* Support naming conventions within Chef provisioning
-* Integrate Chef provisioning steps with the command-line tools that are packaged with the Chef development kit
-* Separate the configuration of provisioned machines from running Chef provisioning
-* Allow provisioning to be managed as code and versioned (via ``Policyfile.rb`` files), as opposed to the legacy ``knife bootstrap`` behavior, which is primarily driven by command-line options
-
-.. end_tag
-
-Syntax
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_provision_syntax
-
-This subcommand has the following syntax:
-
-To create machines that operate using only a local ``Policyfile.rb``:
-
-.. code-block:: bash
-
-   $ chef provision POLICY_GROUP --policy-name POLICY_NAME (options)
-
-To create machines that operate using a ``Policyfile.rb`` that is synchronized with the Chef server before each chef-client run:
-
-.. code-block:: bash
-
-   $ chef provision POLICY_GROUP --sync PATH (options)
-
-To create machines that will not use a ``Policyfile.rb`` file:
-
-.. code-block:: bash
-
-   $ chef provision --no-policy (options)
-
-.. end_tag
-
-Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_provision_options
-
-This subcommand has the following options:
-
-``-c CONFIG_FILE``, ``--config CONFIG_FILE``
-   The path to the knife configuration file.
-
-``--cookbook COOKBOOK_PATH``
-   Specify the location of the cookbook that is used to provision the node. Default value: ``./provision``.
-
-``-d``, ``--destroy``
-   Set the default action for the **machine** resource to ``:destroy``. Default value: ``false``.
-
-``-D``, ``--debug``
-   Enable stack traces and other debug output. Default value: ``false``.
-
-``-h``, ``--help``
-   Show help for the command.
-
-``-n NODE_NAME``, ``--node-name NODE_NAME``
-   Specify the name of the node. (This value may be overridden by the cookbook that is used to provision the node.)
-
-``-o OPT=VALUE``, ``--opt OPT=VALUE``
-   Set an arbitrary command-line option (``OPT``) and value (``=VALUE``). Use this option once per command-line option. Default value: ``{}``.
-
-   .. note:: Use the ``extra_chef_config`` property in a recipe in the ``provision`` cookbook to set arbitrary configuration settings. Define the ``extra_chef_config`` values in the ``provision`` cookbook using the following syntax:
-
-             .. code-block:: ruby
-
-                ChefDK::ProvisioningData.context.extra_chef_config = 'setting :value'
-
-             For example:
-
-             .. code-block:: ruby
-
-                ChefDK::ProvisioningData.context.extra_chef_config = 'log_level :debug'
-
-``-p POLICY_NAME``, ``--policy-name POLICY_NAME``
-   Set the policy name for one (or more) machines that are managed by this ``Policyfile.rb`` file.
-
-``--[no-]policy``
-   Use ``--policy`` to enable one (or more) machines to be managed by a ``Policyfile.rb`` file. Default value: ``--policy``.
-
-``-r RECIPE``, ``--recipe RECIPE``
-   Specify the name of the recipe to be run. This recipe must be located in the ``policyfile`` cookbook at the path specified by the ``--cookbook`` option.
-
-``-s PATH``, ``--sync PATH``
-   Push a ``Policyfile.rb`` file to the Chef server before running the chef-client on a node. The ``PATH`` is the location of the ``Policyfile.rb`` file to be synchronized.
-
-``-t REMOTE_HOST``, ``--target REMOTE_HOST``
-   Set the hostname or IP address of the host on which the chef-client run will occur. (This value may be overridden by the cookbook that is used to provision the node.)
-
-``-v``, ``--version``
-   The version of the chef-client.
-
-.. end_tag
-
-Examples
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-**Create a machine with lock file, synchronized to the Chef server**
-
-.. tag ctl_chef_provision_machine_with_lockfile
-
-.. To create a machine with lock file, synchronized to the Chef server:
-
-.. code-block:: ruby
-
-   with_driver 'vagrant:~/.vagrant.d/boxes' do
-
-     # Set machine options
-     options = {
-       vagrant_options: { 'vm.box' => 'opscode-ubuntu-14.04' },
-       # Set all machine options to default values
-       convergence_options: ChefDK::ProvisioningData.context.convergence_options
-     }
-
-     # Set node name to --node-name
-     machine context.node_name do
-       machine_options(options)
-
-       # Force a Chef run every time and set action to --destroy option
-       action(ChefDK::ProvisioningData.context.action)
-     end
-   end
-
-and then to provision the machine, run the following:
-
-.. code-block:: bash
-
-   $ chef provision test123 --sync -n aar-dev
-
-This will synchronize the ``Policyfile.lock.json`` file to the Chef server, and then run the Chef client on the node.
-
-.. code-block:: bash
-
-   Recipe: code_generator::cookbook
-     * directory[/Users/grantmc/chefdocs] action create
-       - create new directory /Users/grantmc/chefdocs
-
-     * template[/Users/grantmc/chefdocs/metadata.rb] action create
-       - create new file /Users/grantmc/chefdocs/metadata.rb
-
-     * template[/Users/grantmc/chefdocs/README.md] action create
-       - create new file /Users/grantmc/chefdocs/README.md
-
-     * cookbook_file[/Users/grantmc/chefdocs/chefignore] action create
-       - create new file /Users/grantmc/chefdocs/chefignore
-
-     * cookbook_file[/Users/grantmc/chefdocs/Berksfile] action create
-       - create new file /Users/grantmc/chefdocs/Berksfile
-
-     * template[/Users/grantmc/chefdocs/.kitchen.yml] action create
-       - create new file /Users/grantmc/chefdocs/.kitchen.yml
-
-     * directory[/Users/grantmc/chefdocs/recipes] action create
-       - create new directory /Users/grantmc/chefdocs/recipes
-
-     * template[/Users/grantmc/chefdocs/recipes/default.rb] action create
-       - create new file /Users/grantmc/chefdocs/recipes/default.rb
-
-     * execute[initialize-git] action run
-       - execute git init .
-
-     * cookbook_file[/Users/grantmc/chefdocs/.gitignore] action create
-       - create new file /Users/grantmc/chefdocs/.gitignore
-
-and which creates a directory structure similar to::
-
-   /chefdocs
-     /.git
-	 .gitignore
-     .kitchen.yml
-     Berksfile
-     chefignore
-     metadata.rb
-     README.md
-     /recipes
-       default.rb
-
-.. end_tag
-
-**Pass arbitrary options**
-
-.. tag ctl_chef_provision_arbitrary_options
-
-Use the ``--opt`` option to pass arbitrary command-line options. For example:
-
-.. code-block:: bash
-
-   $ chef provision (other options) --opt foo=bar
-
-Use the ``--opt`` option more than once to pass more than one option. For example:
-
-.. code-block:: bash
-
-   $ chef provision (other options) --opt foo=bar --opt baz=qux
-
-.. end_tag
-
 chef push
 -----------------------------------------------------
 .. tag ctl_chef_push
 
-Use the ``chef push`` subcommand to upload an existing ``Policyfile.lock.json`` file to the Chef server, along with all of the cookbooks that are contained in the file. The ``Policyfile.lock.json`` file will be applied to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
+Use the ``chef push`` subcommand to upload an existing ``Policyfile.lock.json`` file to the Chef Infra Server, along with all of the cookbooks that are contained in the file. The ``Policyfile.lock.json`` file will be applied to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
 
 .. end_tag
 
@@ -1758,7 +1344,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1770,7 +1356,7 @@ chef push-archive
 -----------------------------------------------------
 .. tag ctl_chef_push_archive
 
-The ``chef push-archive`` subcommand is used to publish a policy archive file to the Chef server. (A policy archive is created using the ``chef export`` subcommand.) The policy archive is assigned to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
+The ``chef push-archive`` subcommand is used to publish a policy archive file to the Chef Infra Server. (A policy archive is created using the ``chef export`` subcommand.) The policy archive is assigned to the specified policy group, which is a set of nodes that share the same run-list and cookbooks.
 
 .. end_tag
 
@@ -1802,7 +1388,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1814,7 +1400,7 @@ chef show-policy
 -----------------------------------------------------
 .. tag ctl_chef_show_policy
 
-Use the ``chef show-policy`` subcommand to display revisions for every ``Policyfile.rb`` file that is on the Chef server. By default, only active policy revisions are shown. When both a policy and policy group are specified, the contents of the active ``Policyfile.lock.json`` file for the policy group is returned.
+Use the ``chef show-policy`` subcommand to display revisions for every ``Policyfile.rb`` file that is on the Chef Infra Server. By default, only active policy revisions are shown. When both a policy and policy group are specified, the contents of the active ``Policyfile.lock.json`` file for the policy group is returned.
 
 .. end_tag
 
@@ -1852,7 +1438,7 @@ This subcommand has the following options:
    Use ``--pager`` to enable paged output for a ``Policyfile.lock.json`` file. Default value: ``--pager``.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1911,7 +1497,7 @@ This subcommand has the following options:
    Default. Return a list of available operations.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 
@@ -1955,7 +1541,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The version of the Chef Infra Client.
 
 .. end_tag
 

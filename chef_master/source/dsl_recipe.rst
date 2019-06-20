@@ -5,11 +5,11 @@ About the Recipe DSL
 
 .. tag dsl_recipe_summary
 
-The Recipe DSL is a Ruby DSL that is primarily used to declare resources from within a recipe. The Recipe DSL also helps ensure that recipes interact with nodes (and node properties) in the desired manner. Most of the methods in the Recipe DSL are used to find a specific parameter and then tell the chef-client what action(s) to take, based on whether that parameter is present on a node.
+The Recipe DSL is a Ruby DSL that is primarily used to declare resources from within a recipe. The Recipe DSL also helps ensure that recipes interact with nodes (and node properties) in the desired manner. Most of the methods in the Recipe DSL are used to find a specific parameter and then tell the Chef Infra Client what action(s) to take, based on whether that parameter is present on a node.
 
 .. end_tag
 
-Because the Recipe DSL is a Ruby DSL, anything that can be done using Ruby can also be done in a recipe or custom resource, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies. See the `Ruby </ruby.html>`_ guide for further information on built-in Ruby functionality.
+Because the Recipe DSL is a Ruby DSL, anything that can be done using Ruby can also be done in a recipe or custom resource, including ``if`` and ``case`` statements, using the ``include?`` Ruby method, including recipes in recipes, and checking for dependencies. See the `Ruby Guide </ruby.html>`_ for further information on built-in Ruby functionality.
 
 Include Recipes
 =====================================================
@@ -69,7 +69,7 @@ The Recipe DSL provides support for using attributes, data bags (and encrypted d
 
 attribute?
 -----------------------------------------------------
-Use the ``attribute?`` method to ensure that certain actions only execute in the presence of a particular node attribute. The ``attribute?`` method will return true if one of the listed node attributes matches a node attribute that is detected by Ohai during every chef-client run.
+Use the ``attribute?`` method to ensure that certain actions only execute in the presence of a particular node attribute. The ``attribute?`` method will return true if one of the listed node attributes matches a node attribute that is detected by Ohai during every Chef Infra Client run.
 
 The syntax for the ``attribute?`` method is as follows:
 
@@ -159,7 +159,7 @@ The syntax for the ``data_bag_item`` method is as follows:
 
    data_bag_item(bag_name, item, secret)
 
-where ``secret`` is the secret used to load an encrypted data bag. If ``secret`` is not specified, the chef-client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
+where ``secret`` is the secret used to load an encrypted data bag. If ``secret`` is not specified, the Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
 
 **Examples**
 
@@ -219,9 +219,7 @@ For a more complete version of the previous example, see the default recipe in t
 
 
 declare_resource
------------------------------------------------------
-.. tag dsl_recipe_method_declare_resource
-
+----------------------------------------------------
 Use the ``declare_resource`` method to instantiate a resource and then add it to the resource collection.
 
 The syntax for the ``declare_resource`` method is as follows:
@@ -252,12 +250,10 @@ is equivalent to:
      action :delete
    end
 
-.. end_tag
+
 
 delete_resource
------------------------------------------------------
-.. tag dsl_recipe_method_delete_resource
-
+----------------------------------------------------
 Use the ``delete_resource`` method to find a resource in the resource collection, and then delete it.
 
 The syntax for the ``delete_resource`` method is as follows:
@@ -277,12 +273,10 @@ For example:
 
    delete_resource(:template, '/x/y.erb')
 
-.. end_tag
+
 
 delete_resource!
------------------------------------------------------
-.. tag dsl_recipe_method_delete_resource_bang
-
+----------------------------------------------------
 Use the ``delete_resource!`` method to find a resource in the resource collection, and then delete it. If the resource is not found, an exception is returned.
 
 The syntax for the ``delete_resource!`` method is as follows:
@@ -302,12 +296,10 @@ For example:
 
    delete_resource!(:file, '/x/file.txt')
 
-.. end_tag
+
 
 edit_resource
------------------------------------------------------
-.. tag dsl_recipe_method_edit_resource
-
+----------------------------------------------------
 Use the ``edit_resource`` method to:
 
 * Find a resource in the resource collection, and then edit it.
@@ -344,12 +336,10 @@ and a resource block:
      notifies :run, 'execute[newaliases]'
    end
 
-.. end_tag
+
 
 edit_resource!
------------------------------------------------------
-.. tag dsl_recipe_method_edit_resource_bang
-
+----------------------------------------------------
 Use the ``edit_resource!`` method to:
 
 * Find a resource in the resource collection, and then edit it.
@@ -375,12 +365,10 @@ For example:
 
    edit_resource!(:file, '/x/y.rst')
 
-.. end_tag
+
 
 find_resource
------------------------------------------------------
-.. tag dsl_recipe_method_find_resource
-
+----------------------------------------------------
 Use the ``find_resource`` method to:
 
 * Find a resource in the resource collection.
@@ -414,12 +402,10 @@ and a resource block:
      notifies :run, 'execute[newseapower]'
    end
 
-.. end_tag
+
 
 find_resource!
------------------------------------------------------
-.. tag dsl_recipe_method_find_resource_bang
-
+----------------------------------------------------
 Use the ``find_resource!`` method to find a resource in the resource collection. If the resource is not found, an exception is returned.
 
 The syntax for the ``find_resource!`` method is as follows:
@@ -439,11 +425,11 @@ For example:
 
    find_resource!(:template, '/x/y.erb')
 
-.. end_tag
+
 
 platform?
 -----------------------------------------------------
-Use the ``platform?`` method to ensure that certain actions are run for specific platform. The ``platform?`` method will return true if one of the listed parameters matches the ``node['platform']`` attribute that is detected by Ohai during every chef-client run.
+Use the ``platform?`` method to ensure that certain actions are run for specific platform. The ``platform?`` method will return true if one of the listed parameters matches the ``node['platform']`` attribute that is detected by Ohai during every Chef Infra Client run.
 
 The syntax for the ``platform?`` method is as follows:
 
@@ -504,7 +490,7 @@ The following parameters can be used with this method:
    * - ``windows``
      - Microsoft Windows. All platform variants of Microsoft Windows return ``windows``.
 
-.. note:: Ohai collects platform information at the start of the chef-client run and stores that information in the ``node['platform']`` attribute.
+.. note:: Ohai collects platform information at the start of the Chef Infra Client run and stores that information in the ``node['platform']`` attribute.
 
 For example:
 
@@ -548,7 +534,7 @@ The following example shows how an if statement can be used with the ``platform?
 
 platform_family?
 -----------------------------------------------------
-Use the ``platform_family?`` method to ensure that certain actions are run for specific platform family. The ``platform_family?`` method will return true if one of the listed parameters matches the ``node['platform_family']`` attribute that is detected by Ohai during every chef-client run.
+Use the ``platform_family?`` method to ensure that certain actions are run for specific platform family. The ``platform_family?`` method will return true if one of the listed parameters matches the ``node['platform_family']`` attribute that is detected by Ohai during every Chef Infra Client run.
 
 The syntax for the ``platform_family?`` method is as follows:
 
@@ -672,7 +658,7 @@ but the following syntax can also be used:
 
    resources(:resource_type => 'resource_name')
 
-where in either approach ``resource_type`` is the name of a resource and ``resource_name`` is the name of a resource that can be configured by the chef-client.
+where in either approach ``resource_type`` is the name of a resource and ``resource_name`` is the name of a resource that can be configured by the Chef Infra Client.
 
 The ``resources`` method can be used to modify a resource later on in a recipe. For example:
 
@@ -695,11 +681,11 @@ search
 -----------------------------------------------------
 .. tag search
 
-Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
+Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef Infra Server API. The search engine is based on Apache Solr and is run from the Chef Infra Server.
 
 .. end_tag
 
-Use the ``search`` method to perform a search query against the Chef server from within a recipe.
+Use the ``search`` method to perform a search query against the Chef Infra Server from within a recipe.
 
 The syntax for the ``search`` method is as follows:
 
@@ -709,8 +695,8 @@ The syntax for the ``search`` method is as follows:
 
 where:
 
-* ``:index`` is of name of the index on the Chef server against which the search query will run: ``:client``, ``:data_bag_name``, ``:environment``, ``:node``, and ``:role``
-* ``'query'`` is a valid search query against an object on the Chef server (see below for more information about how to build the query)
+* ``:index`` is of name of the index on the Chef Infra Server against which the search query will run: ``:client``, ``:data_bag_name``, ``:environment``, ``:node``, and ``:role``
+* ``'query'`` is a valid search query against an object on the Chef Infra Server (see below for more information about how to build the query)
 
 For example, using the results of a search query within a variable:
 
@@ -750,7 +736,7 @@ The syntax for the ``search`` method that uses ``:filter_result`` is as follows:
 
 where:
 
-* ``:index`` is of name of the index on the Chef server against which the search query will run: ``:client``, ``:data_bag_name``, ``:environment``, ``:node``, and ``:role``
+* ``:index`` is of name of the index on the Chef Infra Server against which the search query will run: ``:client``, ``:data_bag_name``, ``:environment``, ``:node``, and ``:role``
 * ``'query'`` is a valid search query against an object on the Chef server
 * ``:filter_result`` defines a Hash of values to be returned
 
@@ -781,7 +767,7 @@ A search query is comprised of two parts: the key and the search pattern. A sear
 
    key:search_pattern
 
-where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
+where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef Infra Server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
 
 .. end_tag
 
@@ -789,7 +775,7 @@ Keys
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag search_key
 
-A field name/description pair is available in the JSON object. Use the field name when searching for this information in the JSON object. Any field that exists in any JSON description for any role, node, chef-client, environment, or data bag can be searched.
+A field name/description pair is available in the JSON object. Use the field name when searching for this information in the JSON object. Any field that exists in any JSON description for any role, node, Chef Infra Client, environment, or data bag can be searched.
 
 .. end_tag
 
@@ -797,7 +783,7 @@ A field name/description pair is available in the JSON object. Use the field nam
 
 .. tag search_key_nested
 
-A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, the chef-client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
+A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, the Chef Infra Client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
 
 By combining wildcards with range-matching patterns and wildcard queries, it is possible to perform very powerful searches, such as using the vendor part of the MAC address to find every node that has a network card made by the specified vendor.
 
@@ -857,7 +843,7 @@ Consider the following snippet of JSON data:
          },
      //snipped...
 
-Before this data is indexed on the Chef server, the nested fields are extracted into the top level, similar to:
+Before this data is indexed on the Chef Infra Server, the nested fields are extracted into the top level, similar to:
 
 .. code-block:: none
 
@@ -924,7 +910,7 @@ Patterns
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag search_pattern
 
-A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query. There are four types of search patterns that can be used when searching the search indexes on the Chef server: exact, wildcard, range, and fuzzy.
+A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query. There are four types of search patterns that can be used when searching the search indexes on the Chef Infra Server: exact, wildcard, range, and fuzzy.
 
 .. end_tag
 
@@ -1070,14 +1056,12 @@ where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
 * the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
-* the **template** resource tells the chef-client which template to use
+* the **template** resource tells the Chef Infra Client which template to use
 
 .. end_tag
 
 shell_out
------------------------------------------------------
-.. tag dsl_recipe_method_shell_out
-
+----------------------------------------------------
 The ``shell_out`` method can be used to run a command against the node, and then display the output to the console when the log level is set to ``debug``.
 
 The syntax for the ``shell_out`` method is as follows:
@@ -1088,12 +1072,10 @@ The syntax for the ``shell_out`` method is as follows:
 
 where ``command_args`` is the command that is run against the node.
 
-.. end_tag
+
 
 shell_out!
------------------------------------------------------
-.. tag dsl_recipe_method_shell_out_bang
-
+----------------------------------------------------
 The ``shell_out!`` method can be used to run a command against the node, display the output to the console when the log level is set to ``debug``, and then raise an error when the method returns ``false``.
 
 The syntax for the ``shell_out!`` method is as follows:
@@ -1104,12 +1086,10 @@ The syntax for the ``shell_out!`` method is as follows:
 
 where ``command_args`` is the command that is run against the node. This method will return ``true`` or ``false``.
 
-.. end_tag
+
 
 shell_out_with_systems_locale
------------------------------------------------------
-.. tag dsl_recipe_method_shell_out_with_systems_locale
-
+----------------------------------------------------
 The ``shell_out_with_systems_locale`` method can be used to run a command against the node (via the ``shell_out`` method), but using the ``LC_ALL`` environment variable.
 
 The syntax for the ``shell_out_with_systems_locale`` method is as follows:
@@ -1120,7 +1100,7 @@ The syntax for the ``shell_out_with_systems_locale`` method is as follows:
 
 where ``command_args`` is the command that is run against the node.
 
-.. end_tag
+
 
 tag, tagged?, untag
 -----------------------------------------------------
@@ -1179,7 +1159,7 @@ Will return something like this:
 
 value_for_platform
 -----------------------------------------------------
-Use the ``value_for_platform`` method in a recipe to select a value based on the ``node['platform']`` and ``node['platform_version']`` attributes. These values are detected by Ohai during every chef-client run.
+Use the ``value_for_platform`` method in a recipe to select a value based on the ``node['platform']`` and ``node['platform_version']`` attributes. These values are detected by Ohai during every Chef Infra Client run.
 
 The syntax for the ``value_for_platform`` method is as follows:
 
@@ -1279,7 +1259,7 @@ The following example shows using version constraints to specify a value based o
 
 value_for_platform_family
 -----------------------------------------------------
-Use the ``value_for_platform_family`` method in a recipe to select a value based on the ``node['platform_family']`` attribute. This value is detected by Ohai during every chef-client run.
+Use the ``value_for_platform_family`` method in a recipe to select a value based on the ``node['platform_family']`` attribute. This value is detected by Ohai during every Chef Infra Client run.
 
 The syntax for the ``value_for_platform_family`` method is as follows:
 
@@ -1322,9 +1302,7 @@ The following example will set ``package`` to ``httpd-devel`` for the Red Hat En
    )
 
 with_run_context
------------------------------------------------------
-.. tag dsl_recipe_method_with_run_context
-
+----------------------------------------------------
 Use the ``with_run_context`` method to define a block that has a pointer to a location in the ``run_context`` hierarchy. Resources in recipes always run at the root of the ``run_context`` hierarchy, whereas custom resources and notification blocks always build a child ``run_context`` which contains their sub-resources.
 
 The syntax for the ``with_run_context`` method is as follows:
@@ -1356,13 +1334,13 @@ For example:
      end
    end
 
-.. end_tag
+
 
 Windows Platform
 =====================================================
 .. tag dsl_recipe_method_windows_methods
 
-Six methods are present in the Recipe DSL to help verify the registry during a chef-client run on the Microsoft Windows platform---``registry_data_exists?``, ``registry_get_subkeys``, ``registry_get_values``, ``registry_has_subkeys?``, ``registry_key_exists?``, and ``registry_value_exists?``---these helpers ensure the **powershell_script** resource is idempotent.
+Six methods are present in the Recipe DSL to help verify the registry during a Chef Infra Client run on the Microsoft Windows platform---``registry_data_exists?``, ``registry_get_subkeys``, ``registry_get_values``, ``registry_has_subkeys?``, ``registry_key_exists?``, and ``registry_value_exists?``---these helpers ensure the **powershell_script** resource is idempotent.
 
 .. end_tag
 
@@ -1399,15 +1377,9 @@ where:
 * ``KEY_PATH`` is the path to the registry key value. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 * ``{ name: 'NAME', type: TYPE, data: DATA }`` is a hash that contains the expected name, type, and data of the registry key value
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This method will return ``true`` or ``false``.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -1432,15 +1404,9 @@ The syntax for the ``registry_get_subkeys`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This returns an array of registry key values.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -1465,15 +1431,9 @@ The syntax for the ``registry_get_values`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This returns an array of registry key values.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -1498,15 +1458,9 @@ The syntax for the ``registry_has_subkeys?`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This method will return ``true`` or ``false``.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -1531,15 +1485,9 @@ The syntax for the ``registry_key_exists?`` method is as follows:
 where:
 
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This method will return ``true`` or ``false``. (Any registry key values that are associated with this registry key are ignored.)
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -1555,7 +1503,7 @@ Use the ``registry_value_exists?`` method to find out if a registry key value ex
 
           .. end_tag
 
-The syntax for the ``registry_value_exists?`` method is as follows:
+The syntax for the ``registry_dvalue_exists?`` method is as follows:
 
 .. code-block:: ruby
 
@@ -1570,15 +1518,9 @@ where:
 * ``KEY_PATH`` is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both ``HKLM\SECURITY`` and ``HKEY_LOCAL_MACHINE\SECURITY`` are both valid and equivalent. The following hives are valid: ``HKEY_LOCAL_MACHINE``, ``HKLM``, ``HKEY_CURRENT_CONFIG``, ``HKCC``, ``HKEY_CLASSES_ROOT``, ``HKCR``, ``HKEY_USERS``, ``HKU``, ``HKEY_CURRENT_USER``, and ``HKCU``.
 * ``{ name: 'NAME' }`` is a hash that contains the name of the registry key value; if either ``type:`` or ``:value`` are specified in the hash, they are ignored
 * ``type:`` represents the values available for registry keys in Microsoft Windows. Use ``:binary`` for REG_BINARY, ``:string`` for REG_SZ, ``:multi_string`` for REG_MULTI_SZ, ``:expand_string`` for REG_EXPAND_SZ, ``:dword`` for REG_DWORD, ``:dword_big_endian`` for REG_DWORD_BIG_ENDIAN, or ``:qword`` for REG_QWORD.
-* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. In order to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows, the ``architecture`` property must be set to ``:i386``. The ``:x86_64`` value can be used to force writing to a 64-bit registry location, but this value is less useful than the default (``:machine``) because the chef-client returns an exception if ``:x86_64`` is used and the machine turns out to be a 32-bit machine (whereas with ``:machine``, the chef-client is able to access the registry key on the 32-bit machine).
+* ``ARCHITECTURE`` is one of the following values: ``:x86_64``, ``:i386``, or ``:machine``. Set to ``:i386`` to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to``:x86_64`` to force write to a 64-bit registry location, however the Chef Infra Client returns an exception if ``:x86_64`` is used on a 32-bit machine. Set to ``:machine`` to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: ``:machine``.
 
 This method will return ``true`` or ``false``.
-
-.. note:: .. tag notes_registry_key_architecture
-
-          The ``ARCHITECTURE`` attribute should only specify ``:x86_64`` or ``:i386`` when it is necessary to write 32-bit (``:i386``) or 64-bit (``:x86_64``) values on a 64-bit machine. ``ARCHITECTURE`` will default to ``:machine`` unless a specific value is given.
-
-          .. end_tag
 
 .. end_tag
 
@@ -1735,7 +1677,7 @@ Log Entries
 -----------------------------------------------------
 .. tag ruby_style_basics_chef_log
 
-``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the Chef Client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
+``Chef::Log`` extends ``Mixlib::Log`` and will print log entries to the default logger that is configured for the machine on which the Chef Infra Client is running. (To create a log entry that is built into the resource collection, use the **log** resource instead of ``Chef::Log``.)
 
 The following log levels are supported:
 

@@ -3,11 +3,25 @@ Manage Roles
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_roles.rst>`__
 
+.. tag chef_automate_mark
+
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
+
+.. end_tag
+
+.. tag EOL_manage
+
+.. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+.. end_tag
+
+
 .. note:: This topic is about using the Chef management console to manage roles.
 
 .. tag role
 
-A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a chef-client runs, it merges its own attributes and run-lists with those contained within each assigned role.
+A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a Chef Infra Client runs, it merges its own attributes and run-lists with those contained within each assigned role.
 
 .. end_tag
 
@@ -58,7 +72,7 @@ To delete a role:
 
 View All Roles
 -----------------------------------------------------
-To view all roles uploaded to the Chef server organization:
+To view all roles uploaded to the Chef Infra Server organization:
 
 #. Open the Chef management console.
 #. Click **Policy**.
@@ -70,10 +84,10 @@ Run-lists
 
 A run-list defines all of the information necessary for Chef to configure a node into the desired state. A run-list is:
 
-* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the chef-client will not run it twice
+* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the Chef Infra Client will not run it twice
 * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
 * Stored as part of the node object on the Chef server
-* Maintained using knife and then uploaded from the workstation to the Chef server, or maintained using Chef Automate
+* Maintained using knife and then uploaded from the workstation to the Chef Infra Server, or maintained using Chef Automate
 
 .. end_tag
 
@@ -100,7 +114,7 @@ Default Attributes
 =====================================================
 .. tag node_attribute_type_default
 
-A ``default`` attribute is automatically reset at the start of every chef-client run and has the lowest attribute precedence. Use ``default`` attributes as often as possible in cookbooks.
+A ``default`` attribute is automatically reset at the start of every Chef Infra Client run and has the lowest attribute precedence. Use ``default`` attributes as often as possible in cookbooks.
 
 .. end_tag
 
@@ -134,7 +148,7 @@ Override Attributes
 =====================================================
 .. tag node_attribute_type_override
 
-An ``override`` attribute is automatically reset at the start of every chef-client run and has a higher attribute precedence than ``default``, ``force_default``, and ``normal`` attributes. An ``override`` attribute is most often specified in a recipe, but can be specified in an attribute file, for a role, and/or for an environment. A cookbook should be authored so that it uses ``override`` attributes only when required.
+An ``override`` attribute is automatically reset at the start of every Chef Infra Client run and has a higher attribute precedence than ``default``, ``force_default``, and ``normal`` attributes. An ``override`` attribute is most often specified in a recipe, but can be specified in an attribute file, for a role, and/or for an environment. A cookbook should be authored so that it uses ``override`` attributes only when required.
 
 .. end_tag
 
@@ -168,13 +182,13 @@ Permissions
 =====================================================
 .. tag server_rbac_permissions
 
-Permissions are used in the Chef server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
+Permissions are used in the Chef Infra Server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
 
 .. end_tag
 
 .. tag server_rbac_permissions_object
 
-The Chef server includes the following object permissions:
+The Chef Infra Server includes the following object permissions:
 
 .. list-table::
    :widths: 60 420
@@ -183,13 +197,13 @@ The Chef server includes the following object permissions:
    * - Permission
      - Description
    * - **Delete**
-     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Grant**
      - Use the **Grant** permission to define which users and groups may configure permissions on an object. This permission is required for any user who configures permissions using the **Administration** tab in the Chef management console.
    * - **Read**
-     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Update**
-     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef server and for any chef-client to save node data to the Chef server at the conclusion of a chef-client run.
+     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef Infra Server and for any Chef Infra Client to save node data to the Chef Infra Server at the conclusion of a Chef Infra Client run.
 
 .. end_tag
 

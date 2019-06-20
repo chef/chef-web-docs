@@ -5,11 +5,15 @@ An Overview of Workflow in Chef Automate
 
 .. tag chef_automate_mark
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
 
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </https://docs.chef.io/versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -19,7 +23,7 @@ Chef Automate accelerates the adoption of continuous delivery and encourages Dev
 
 Chef Automate handles many types of software systems. Use it to:
 
-* Upload new and updated cookbooks to the Chef server that manages your infrastructure and applications
+* Upload new and updated cookbooks to the Chef Infra Server that manages your infrastructure and applications
 * Publish new and updated cookbooks to a Chef Supermarket installation
 * Release source code or build artifacts to a repository such as GitHub
 * Push build artifacts to production servers in real time
@@ -78,7 +82,7 @@ Approval
 -----------------------------------------------------
 When someone clicks the Approve button, the feature branch that contains your change is merged into the target branch of the pipeline (usually this is master). At this point, the Build stage begins and the same tests that were run in Verify are run again. This is because the target branch may have moved ahead by other approvals. Assuming these tests pass, the Build stage proceeds with the quality and security phases. The Build stage is also a good place to run additional test suites, as well as security scanning checks, that might be too time consuming to run during Verify.
 
-The Build stage concludes with the publish phase. The purpose of the publish phase is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. You can, for example, publish to a Chef server, to Chef Supermarket, and to JFrog Artifactory.
+The Build stage concludes with the publish phase. The purpose of the publish phase is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. You can, for example, publish to a Chef Infra Server, to Chef Supermarket, and to JFrog Artifactory.
 
 If the pipeline succeeds in generating and publishing the artifacts, then the Acceptance stage begins. This is the first phase that assesses build artifacts rather than source code.
 
@@ -136,7 +140,7 @@ Acceptance Stage
 -----------------------------------------------------
 Beginning with the Acceptance stage, the pipeline switches from analyzing the project's source code to verifying the set of artifacts that were produced in the Build stage. The goal of the Acceptance stage is for the team to make a decision about whether the change should go all the way out to production or not. There are four phases in Acceptance:
 
-* **Provision**. Provision infrastructure needed to test the artifact(s). Examples include instantiating new infrastructure with Chef provisioning (or another API-accessible mechanism) and manipulating Chef server environments to designate the nodes used by the current stage. Of course, what executes in any phase is up to you and determined by the project's build cookbook.
+* **Provision**. Provision infrastructure needed to test the artifact(s). Examples include instantiating new infrastructure with Chef Provisioning (or another API-accessible mechanism) and manipulating Chef Infra Server environments to designate the nodes used by the current stage. Of course, what executes in any phase is up to you and determined by the project's build cookbook.
 * **Deploy**. Deploy the artifacts published in the Build stage to the portion of your infrastructure that has been set aside for acceptance testing.
 * **Smoke**. Smoke tests should be relatively short-running tests that verify that the code that should have been deployed has indeed been deployed and that the system passes minimal health checks.
 * **Functional**. The functional tests should give you confidence that the system is meeting its business requirements.
@@ -169,7 +173,7 @@ The following diagram shows the servers that are involved in a Chef Automate ins
    :width: 600px
    :align: center
 
-The build cookbook, hosted on the Chef server, determines what happens during each phase job. Runners, under control of the Chef server, run the phase jobs. It's a good idea to have at least three runners so that the lint, syntax and unit phases can run in parallel.
+The build cookbook, hosted on the Chef Infra Server, determines what happens during each phase job. Runners, under control of the Chef Infra Server, run the phase jobs. It's a good idea to have at least three runners so that the lint, syntax and unit phases can run in parallel.
 
 Environments
 =====================================================
@@ -187,6 +191,6 @@ For the shared pipeline (Union, Rehearsal, and Delivered), it makes sense to hav
 
 You can set up the infrastructure environments either manually or by using automated, on-the-fly provisioning upon first use. The manual approach is simple, but it has the disadvantage of not having an initial run-list for the nodes in the environment. Automated provisioning requires adding code to the build cookbook, but it is more replicable than the manual approach. Automated provisioning also bootstraps the initial run-list for each node in the environment. The ``delivery-truck`` cookbook makes it easy to customize your pipeline's build cookbook for the environments you want to use for each stage of the pipeline.
 
-.. note:: Currently, Chef Automate manages cookbook version and application attribute version pins using environment objects of the Chef server. The names of the environments in the Chef server correspond to the stages of a pipeline. (This doesn't mean, however, that the nodes that participate in a given stage need to remain fixed over time.)
+.. note:: Currently, Chef Automate manages cookbook version and application attribute version pins using environment objects of the Chef Infra Server. The names of the environments in the Chef Infra Server correspond to the stages of a pipeline. (This doesn't mean, however, that the nodes that participate in a given stage need to remain fixed over time.)
 
 It is also possible to share infrastructure among pipeline stages. For example, you can provision infrastructure needed for performing acceptance tests while relying on enterprise services provided by another pipeline stage or even a production environment. Another possibility is to reserve a portion of infrastructure from production to run acceptance testing.

@@ -5,23 +5,23 @@ chef-server-ctl (executable)
 
 .. tag ctl_chef_server_summary
 
-The Chef server includes a command-line utility named chef-server-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef server, run chef-pedant, and then tail Chef server log files.
+The Chef Infra Server includes a command-line utility named chef-server-ctl. This command-line tool is used to start and stop individual services, reconfigure the Chef Infra Server, run chef-pedant, and then tail Chef Infra Server log files.
 
 .. end_tag
 
 Backup / Restore
 =====================================================
-Use the following commands to manage backups of Chef server data, and then to restore those backups.
+Use the following commands to manage backups of Chef Infra Server data, and then to restore those backups.
 
 backup
 -----------------------------------------------------
 .. tag ctl_chef_server_backup
 
-The ``backup`` subcommand is used to back up all Chef server data. This subcommand:
+The ``backup`` subcommand is used to back up all Chef Infra Server data. This subcommand:
 
-* Requires rsync to be installed on the Chef server prior to running the command
+* Requires rsync to be installed on the Chef Infra Server prior to running the command
 * Requires a ``chef-server-ctl reconfigure`` prior to running the command
-* Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
+* Should not be run in a Chef Infra Server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
 * Puts the initial backup in the ``/var/opt/chef-backup`` directory as a tar.gz file; move this backup to a new location for safe keeping
 
 .. end_tag
@@ -33,7 +33,7 @@ The ``backup`` subcommand is used to back up all Chef server data. This subcomma
 This subcommand has the following options:
 
 ``-y``, ``--yes``
-   Use to specify if the Chef server can go offline during tar.gz-based backups.
+   Use to specify if the Chef Infra Server can go offline during tar.gz-based backups.
 
 .. end_tag
 
@@ -53,13 +53,13 @@ restore
 -----------------------------------------------------
 .. tag ctl_chef_server_restore
 
-The ``restore`` subcommand is used to restore Chef server data from a backup that was created by the ``backup`` subcommand. This subcommand may also be used to add Chef server data to a newly-installed server. This subcommand:
+The ``restore`` subcommand is used to restore Chef Infra Server data from a backup that was created by the ``backup`` subcommand. This subcommand may also be used to add Chef Infra Server data to a newly-installed server. This subcommand:
 
-* Requires rsync to be installed on the Chef server prior to running the command
+* Requires rsync to be installed on the Chef Infra Server prior to running the command
 * Requires a ``chef-server-ctl reconfigure`` prior to running the command
-* Should not be run in a Chef server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
+* Should not be run in a Chef Infra Server configuration with an external PostgreSQL database; `use knife ec backup <https://github.com/chef/knife-ec-backup>`__ instead
 
-.. note :: The ``restore`` command does not support transferring backups across different versions of Chef server. Backups taken with the ``backup`` command must restore to the same version of Chef server that was in use when they were created.
+.. note :: The ``restore`` command does not support transferring backups across different versions of Chef Infra Server. Backups taken with the ``backup`` command must restore to the same version of Chef Infra Server that was in use when they were created.
 
 .. end_tag
 
@@ -70,7 +70,7 @@ The ``restore`` subcommand is used to restore Chef server data from a backup tha
 This subcommand has the following options:
 
 ``-c``, ``--cleanse``
-   Use to remove all existing data on the Chef server; it will be replaced by the data in the backup archive.
+   Use to remove all existing data on the Chef Infra Server; it will be replaced by the data in the backup archive.
 
 ``-d DIRECTORY``, ``--staging-dir DIRECTORY``
    Use to specify that the path to an empty directory to be used during the restore process. This directory must have enough disk space to expand all data in the backup archive.
@@ -95,28 +95,16 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl restore /path/to/tar/archive.tar.gz
 
-backup-recover
-=====================================================
-The ``backup-recover`` subcommand is used to force the Chef server to attempt to become the backup server. This is the opposite of the ``master-recover`` subcommand.
-
-.. warning:: If this command is run on both back-end servers, it will put the back-end cluster into a state where no server holds the DRBD resource.
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef-server-ctl backup-recover
-
 cleanse
 =====================================================
-The ``cleanse`` subcommand is used to re-set the Chef server to the state it was in prior to the first time the ``reconfigure`` subcommand is run. This command will destroy all data, configuration files, and logs. The software that was put on-disk by the package installation will remain; re-run ``chef-server-ctl reconfigure`` to recreate the default data and configuration files.
+The ``cleanse`` subcommand is used to re-set the Chef Infra Server to the state it was in prior to the first time the ``reconfigure`` subcommand is run. This command will destroy all data, configuration files, and logs. The software that was put on-disk by the package installation will remain; re-run ``chef-server-ctl reconfigure`` to recreate the default data and configuration files.
 
 **Options**
 
 This subcommand has the following options:
 
 ``--with-external``
-   Use to specify that Chef server data on an external PostgreSQL database should be removed.
+   Use to specify that Chef Infra Server data on an external PostgreSQL database should be removed.
 
 **Syntax**
 
@@ -128,9 +116,7 @@ This subcommand has the following syntax:
 
 gather-logs
 =====================================================
-.. tag ctl_chef_server_gather_logs
-
-The ``gather-logs`` subcommand is used to gather the Chef server log files into a tarball that contains all of the important log files and system information.
+The ``gather-logs`` subcommand is used to gather the Chef Infra Server log files into a tarball that contains all of the important log files and system information.
 
 This subcommand has the following syntax:
 
@@ -138,63 +124,7 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl gather-logs
 
-.. end_tag
 
-ha-status
-=====================================================
-The ``ha-status`` subcommand is used to check the status for services running in a high availability topology. This command will verify the following:
-
-* The Keepalived daemon is enabled in the config
-* The DRBD process is enabled in the config
-* The underlying block device or logical volume for DRBD has been created and configured
-* The DRBD device exists
-* The current state of the server is ``master`` or ``backup``; any migration processes have completed
-* The failover virtual IP address is correctly attached to only the ``master`` node
-* The DRBD state is correct based on the state of the server being ``master`` or ``backup``
-* The DRBD mount point is correctly mounted to only the ``master`` node
-* The DRBD replication IP addresses are pingable
-* The ``runit`` status of the services are correct (up or down) based on the ``master`` or ``backup`` state of the server
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef-server-ctl ha-status
-
-If this command runs successfully, it will return the following:
-
-.. code-block:: bash
-
-   $ [OK] all checks passed.
-
-Otherwise it will print out a list of errors, similar to the following:
-
-.. code-block:: bash
-
-   ...
-   [OK] nginx is running correctly, and I am master.
-   [ERROR] redis_lb is not running.
-   [OK] opscode-erchef is running correctly, and I am master.
-   ...
-   [ERROR] ERRORS WERE DETECTED.
-
-For example:
-
-.. code-block:: bash
-
-   [OK] keepalived HA services enabled
-   [OK] DRBD disk replication enabled
-   [OK] DRBD partition /dev/opscode/drbd found
-   [OK] DRBD device /dev/drbd0 found
-   [OK] cluster status = master
-   [OK] found VIP IP address and I am master
-   [OK] found VRRP communications interface eth1
-   [OK] my DRBD status is Connected/Primary/UpToDate and I am master
-   [OK] my DRBD partition is mounted and I am master
-   [OK] DRBD primary IP address pings
-   [OK] DRBD secondary IP address pings
-   ...
-   [OK] all checks passed.
 
 help
 =====================================================
@@ -208,21 +138,16 @@ This subcommand has the following syntax:
 
 install
 =====================================================
-.. tag ctl_chef_server_install
+The ``install`` subcommand is used to install premium features of the Chef Infra Server: Chef management console and Chef Infra Client run reporting, high availability configurations, Chef Push Jobs, and Chef Infra Server replication.
 
-The ``install`` subcommand is used to install premium features of the Chef server: Chef management console, Chef Analytics, chef-client run reporting, high availability configurations, Chef push jobs, and Chef server replication.
 
-.. end_tag
 
-.. warning:: .. tag chef_license_note_current
+.. warning::
+             The ``chef-server-ctl install`` command no longer works in the 12.5 (and earlier) versions of the Chef Infra Server due to a change in how packages are downloaded from Chef.
 
-             The ``chef-server-ctl install`` command no longer works in the 12.5 (and earlier) versions of the Chef server due to a change in how packages are downloaded from Chef.
-
-             .. end_tag
+             
 
 **Syntax**
-
-.. tag ctl_chef_server_install_syntax
 
 This subcommand has the following syntax:
 
@@ -232,18 +157,16 @@ This subcommand has the following syntax:
 
 where ``name_of_addon`` represents the command line value associated with the add-on or premium feature.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_install_options
 
 This subcommand has the following options:
 
 ``--path PATH``
    Use to specify the location of a package. This option is not required when packages are downloaded from https://packages.chef.io/.
 
-.. end_tag
+
 
 Use Downloads
 -----------------------------------------------------
@@ -260,7 +183,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
    * - Chef Manage
      - Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
-       On the Chef server, run:
+       On the Chef Infra Server, run:
 
        .. code-block:: bash
 
@@ -278,11 +201,11 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
 
           $ sudo chef-manage-ctl reconfigure
 
-       .. note:: .. tag chef_license_reconfigure_manage
+       To accept the `Chef MLSA </chef_license.html>`__:
 
-                 Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+       .. code-block:: bash
 
-                 .. end_tag
+          $ sudo chef-manage-ctl reconfigure --accept-license
 
 .. end_tag
 
@@ -311,16 +234,12 @@ Key Rotation
 Use the following commands to manage public and private key rotation for users and clients.
 
 add-client-key
------------------------------------------------------
-.. tag ctl_chef_server_add_client_key
-
+----------------------------------------------------
 Use the ``add-client-key`` subcommand to add a client key.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_add_client_key_syntax
 
 This subcommand has the following syntax:
 
@@ -330,11 +249,9 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_add_client_key_options
 
 This subcommand has the following options:
 
@@ -353,19 +270,15 @@ This subcommand has the following options:
 ``-p PATH`` ``--public-key-path PATH``
    The location to a file containing valid PKCS#1 public key to be added. If not passed, then the server will generate a new one for you and return the private key to STDOUT.
 
-.. end_tag
+
 
 add-user-key
------------------------------------------------------
-.. tag ctl_chef_server_add_user_key
-
+----------------------------------------------------
 Use the ``add-user-key`` subcommand to add a user key.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_add_user_key_syntax
 
 This subcommand has the following syntax:
 
@@ -375,11 +288,9 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_add_user_key_options
 
 This subcommand has the following options:
 
@@ -395,19 +306,15 @@ This subcommand has the following options:
 ``USER_NAME``
    The user name for the user for which a key is added.
 
-.. end_tag
+
 
 delete-client-key
------------------------------------------------------
-.. tag ctl_chef_server_delete_client_key
-
+----------------------------------------------------
 Use the ``delete-client-key`` subcommand to delete a client key.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_delete_client_key_syntax
 
 This subcommand has the following syntax:
 
@@ -415,11 +322,9 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl delete-client-key ORG_NAME CLIENT_NAME KEY_NAME
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_delete_client_key_options
 
 This subcommand has the following arguments:
 
@@ -432,19 +337,15 @@ This subcommand has the following arguments:
 ``KEY_NAME``
    The unique name to be assigned to the key you wish to delete.
 
-.. end_tag
+
 
 delete-user-key
------------------------------------------------------
-.. tag ctl_chef_server_delete_user_key
-
+----------------------------------------------------
 Use the ``delete-user-key`` subcommand to delete a user key.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_delete_user_key_syntax
 
 This subcommand has the following syntax:
 
@@ -454,11 +355,9 @@ This subcommand has the following syntax:
 
 .. warning:: The parameters for this subcommand must be in the order specified above.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_delete_user_key_options
 
 This subcommand has the following arguments:
 
@@ -468,19 +367,15 @@ This subcommand has the following arguments:
 ``KEY_NAME``
    The unique name to be assigned to the key you wish to delete.
 
-.. end_tag
+
 
 list-client-keys
------------------------------------------------------
-.. tag ctl_chef_server_list_client_keys
-
+----------------------------------------------------
 Use the ``list-client-keys`` subcommand to list client keys.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_list_client_keys_syntax
 
 This subcommand has the following syntax:
 
@@ -490,11 +385,9 @@ This subcommand has the following syntax:
 
 .. warning::  All options for this subcommand must follow all arguments.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_list_client_keys_options
 
 This subcommand has the following options:
 
@@ -507,19 +400,15 @@ This subcommand has the following options:
 ``--verbose``
    Use to show the full public key strings in command output.
 
-.. end_tag
+
 
 list-user-keys
------------------------------------------------------
-.. tag ctl_chef_server_list_user_keys
-
+----------------------------------------------------
 Use the ``list-user-keys`` subcommand to list client keys.
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_list_user_keys_syntax
 
 This subcommand has the following syntax:
 
@@ -529,11 +418,9 @@ This subcommand has the following syntax:
 
 .. warning:: All options for this subcommand must follow all arguments.
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_list_user_keys_options
 
 This subcommand has the following options:
 
@@ -543,11 +430,9 @@ This subcommand has the following options:
 ``--verbose``
    Use to show the full public key strings in command output.
 
-.. end_tag
+
 
 **Example**
-
-.. tag ctl_chef_server_list_user_keys_summary
 
 To view a list of user keys (including public key output):
 
@@ -587,14 +472,14 @@ Returns:
    2wIDAQAB
    -----END PUBLIC KEY-----
 
-.. end_tag
+
 
 .. _ctl_chef_server_secrets_management:
 
 Secrets Management
 =====================================================
 Use the following commands to manage and rotate shared secrets and service credentials.
-The secrets file used for storing these is located at ``/etc/opscode/private-chef-secrets.json`` on your Chef server.
+The secrets file used for storing these is located at ``/etc/opscode/private-chef-secrets.json`` on your Chef Infra Server.
 It should be owned and readable only by ``root``.
 
 
@@ -603,9 +488,9 @@ It should be owned and readable only by ``root``.
 set-secret
 -----------------------------------------------------
 The ``set-secret`` subcommand allows storing shared secrets and service credentials.
-Only secrets known to Chef server can be stored.
+Only secrets known to Chef Infra Server can be stored.
 
-*New in Chef server 12.14*
+*New in Chef Server 12.14*
 
 **Syntax**
 
@@ -640,15 +525,13 @@ There are various ways to pass the secret to this command:
 
 **Options**
 
-.. tag ctl_chef_server_set_secret_options
-
 This subcommand has the following options:
 
 ``--with-restart``
     If any services depend on the secret being changed, attempt to restart them
-    after changing the secret. Added in Chef server 12.16.2.
+    after changing the secret. Added in Chef Server 12.16.2.
 
-.. end_tag
+
 
 .. _ctl_chef_server_remove_secret:
 
@@ -656,7 +539,7 @@ remove-secret
 -----------------------------------------------------
 The ``remove-secret`` subcommand allows removing a stored shared secret and service credential.
 
-*New in Chef server 12.14*
+*New in Chef Server 12.14*
 
 **Syntax**
 
@@ -680,7 +563,7 @@ show-secret
 -----------------------------------------------------
 The ``show-secret`` subcommand allows viewing a stored shared secret and service credential.
 
-*New in Chef server 12.14*
+*New in Chef Server 12.14*
 
 **Syntax**
 
@@ -697,7 +580,7 @@ set-db-superuser-password
 -----------------------------------------------------
 The ``set-db-superuser-password`` subcommand allows storing the database superuser password.
 
-*New in Chef server 12.14*
+*New in Chef Server 12.14*
 
 **Syntax**
 
@@ -716,7 +599,7 @@ set-actions-password
 -----------------------------------------------------
 The ``set-actions-password`` subcommand allows storing the RabbitMQ Actions password.
 
-*New in Chef server 12.14*
+*New in Chef Server 12.14*
 
 **Syntax**
 
@@ -735,7 +618,7 @@ oc-id-show-app
 The ``oc-id-show-app`` subcommand allows for retrieving the client ID and client secret for applications known to **oc-id**.
 Note that with ``insecure_addon_compat`` _disabled_, this data will no longer be written to ``/etc/opscode/oc-id-applications/APP.json``.
 
-*New in Chef server 12.14*
+*New in Chef Server 12.14*
 
 **Syntax**
 
@@ -759,12 +642,12 @@ This subcommand has the following syntax:
 
 require-credential-rotation
 -----------------------------------------------------
-The ``require-credential-rotation`` subcommand takes the Chef server offline and requires a complete service credential rotation before the Chef server(s) in your cluster can restart again.
-Run ``rotate-shared-secrets`` to create a new shared secret, salt, and generate the new service credentials. Then copy the secrets file to each Chef server and run ``sudo chef-server-ctl reconfigure`` on each server to complete the rotation process.
+The ``require-credential-rotation`` subcommand takes the Chef Infra Server offline and requires a complete service credential rotation before the Chef server(s) in your cluster can restart again.
+Run ``rotate-shared-secrets`` to create a new shared secret, salt, and generate the new service credentials. Then copy the secrets file to each Chef Infra Server and run ``sudo chef-server-ctl reconfigure`` on each server to complete the rotation process.
 
-.. note:: Credential rotation does not rotate the pivotal, user, or client keys, or remove any Chef server policy or cookbooks that have been uploaded.
+.. note:: Credential rotation does not rotate the pivotal, user, or client keys, or remove any Chef Infra Server policy or cookbooks that have been uploaded.
 
-*New in Chef server 12.7*
+*New in Chef Server 12.7*
 
 **Syntax**
 
@@ -779,13 +662,13 @@ This subcommand has the following syntax:
 This subcommand has the following options:
 
 ``-y, --yes``
-   Bypass a prompt in the terminal and agree that you want to disable the Chef server, and require credential rotation.
+   Bypass a prompt in the terminal and agree that you want to disable the Chef Infra Server, and require credential rotation.
 
 rotate-all-credentials
 -----------------------------------------------------
 The ``rotate-all-credentials`` subcommand generates new credential values for all service credentials by incrementing the credential version number and creating a new hash value. You can choose whether to copy the updated secrets file to each node in the cluster and reconfiguring or by running this subcommand on all the nodes.
 
-*New in Chef server 12.7*
+*New in Chef Server 12.7*
 
 **Syntax**
 
@@ -800,7 +683,7 @@ rotate-credentials
 The ``rotate-credentials`` subcommand generates new credential values for all credentials for a given service by incrementing
 the value and creating a new hash value. You can choose whether to copy the updated secrets file to each node in the cluster and reconfiguring or by running this subcommand for that specific service on all the nodes.
 
-*New in Chef server 12.7*
+*New in Chef Server 12.7*
 
 **Syntax**
 
@@ -814,9 +697,9 @@ rotate-shared-secrets
 -----------------------------------------------------
 The ``rotate-shared-secrets`` subcommand creates a new shared secret and salt, in addition to generating new service credentials. It also resets
 the ``credential_version`` number for the services to 0. After you have run this subcommand, a new shared secret has been created, so you must copy the secrets file to
-each Chef server and run ``sudo chef-server-ctl reconfigure`` on them to complete the rotation process.
+each Chef Infra Server and run ``sudo chef-server-ctl reconfigure`` on them to complete the rotation process.
 
-*New in Chef server 12.7*
+*New in Chef Server 12.7*
 
 **Syntax**
 
@@ -828,9 +711,9 @@ This subcommand has the following syntax:
 
 show-service-credentials
 -----------------------------------------------------
-The ``show-service-credentials`` subcommand shows all of the service credentials for services running on the local Chef server.
+The ``show-service-credentials`` subcommand shows all of the service credentials for services running on the local Chef Infra Server.
 
-*New in Chef server 12.7*
+*New in Chef Server 12.7*
 
 **Syntax**
 
@@ -842,7 +725,7 @@ This subcommand has the following syntax:
 
 cleanup-bifrost
 -----------------------------------------------------
-The ``cleanup-bifrost`` subcommand removes unused authorization objects from the authorization database (called bifrost).  These unused objects can accumulate on long-running Chef servers as a result of failed object creation requests.  For most users, the unused authorization objects do not substantially affect the performance of Chef server; however in certain situations it can be helpful to clean them up.  This command is primarily intended for use by Chef support.
+The ``cleanup-bifrost`` subcommand removes unused authorization objects from the authorization database (called bifrost).  These unused objects can accumulate on long-running Chef servers as a result of failed object creation requests.  For most users, the unused authorization objects do not substantially affect the performance of Chef Infra Server; however in certain situations it can be helpful to clean them up.  This command is primarily intended for use by Chef support.
 
 New in Chef Server 12.16.9
 
@@ -861,23 +744,13 @@ This subcommand has the following options:
 ``--estimate-only``
    Provides an estimate of the number of unused objects that will be deleted, without deleting anything.
 ``--wait-time SECONDS``
-   The number of seconds to wait for in-flight requests to complete.  Only decrease this value if you are running the command when the Chef server is not taking requests.
+   The number of seconds to wait for in-flight requests to complete.  Only decrease this value if you are running the command when the Chef Infra Server is not taking requests.
 ``--force-cleanup``
    Removes internal tracking tables used during the cleanup process.  Manual cleanup of these tables is only required if the cleanup command is killed unexpectedly.
-``--batch-size`` 
+``--batch-size``
    The number of orphaned authorization actors to delete at a time.
 
-master-recover
-=====================================================
-The ``master-recover`` subcommand is used to force the Chef server to attempt to become the master server. This command is typically run in tandem with the ``backup-recover`` subcommand on the back-end peer, unless the back-end peer is no longer available.
-
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef-server-ctl master-recover
-
-Organization Management
+Manage Organizations
 =====================================================
 .. tag ctl_chef_server_org
 
@@ -976,7 +849,7 @@ org-list
 -----------------------------------------------------
 .. tag ctl_chef_server_org_list
 
-The ``org-list`` subcommand is used to list all of the organizations currently present on the Chef server.
+The ``org-list`` subcommand is used to list all of the organizations currently present on the Chef Infra Server.
 
 .. end_tag
 
@@ -1174,8 +1047,6 @@ to return:
 
 psql
 =====================================================
-.. tag ctl_chef_server_psql
-
 The ``psql`` subcommand is used to log into the PostgreSQL database associated with the named service. This subcommand:
 
 * Uses ``psql`` (the interactive terminal for PostgreSQL)
@@ -1183,11 +1054,9 @@ The ``psql`` subcommand is used to log into the PostgreSQL database associated w
 * Is the recommended way to interact with any PostgreSQL database that is part of the Chef server
 * Automatically handles authentication
 
-.. end_tag
+
 
 **Syntax**
-
-.. tag ctl_chef_server_psql_syntax
 
 This subcommand has the following syntax:
 
@@ -1195,22 +1064,20 @@ This subcommand has the following syntax:
 
    $ chef-server-ctl psql SERVICE_NAME (options)
 
-.. end_tag
+
 
 **Options**
-
-.. tag ctl_chef_server_psql_options
 
 This subcommand has the following options:
 
 ``--write``
    Use to enable write access to the PostgreSQL database.
 
-.. end_tag
+
 
 reconfigure
 =====================================================
-The ``reconfigure`` subcommand is used when changes are made to the chef-server.rb file to reconfigure the server. When changes are made to the chef-server.rb file, they will not be applied to the Chef server configuration until after this command is run. This subcommand will also restart any services for which the ``service_name['enabled']`` setting is set to ``true``.
+The ``reconfigure`` subcommand is used when changes are made to the chef-server.rb file to reconfigure the server. When changes are made to the chef-server.rb file, they will not be applied to the Chef Infra Server configuration until after this command is run. This subcommand will also restart any services for which the ``service_name['enabled']`` setting is set to ``true``.
 
 This subcommand has the following syntax:
 
@@ -1220,7 +1087,7 @@ This subcommand has the following syntax:
 
 reindex
 =====================================================
-The ``reindex`` subcommand is used to reload Chef server data from PostgreSQL to Apache Solr.
+The ``reindex`` subcommand is used to reload Chef Infra Server data from PostgreSQL to Apache Solr.
 
 This subcommand has the following syntax:
 
@@ -1230,29 +1097,25 @@ This subcommand has the following syntax:
 
 **Options**
 
-.. tag ctl_chef_server_reindex_options
-
 This subcommand has the following options:
 
 ``-a``, ``--all-orgs``
-   Use to reindex all organizations on the Chef server. This option will override any organization specified as part of the command, i.e. ``chef-server-ctl reindex ORG_NAME -a`` will reindex all organizations and not just the specified organization.
+   Use to reindex all organizations on the Chef Infra Server. This option will override any organization specified as part of the command, i.e. ``chef-server-ctl reindex ORG_NAME -a`` will reindex all organizations and not just the specified organization.
 
 ``-d``, ``--disable-api``
-   Use to disable the Chef server API to prevent writes during reindexing.
+   Use to disable the Chef Infra Server API to prevent writes during reindexing.
 
 ``-t``, ``--with-timing``
    Use to print timing information for the reindex processes.
 
 ``-w``, ``--wait``
-   Use to wait for the reindexing queue to clear before exiting. This option only works when run on a standalone Chef server, or on a primary backend Chef server within a legacy tier or DRBD HA system. This option should not be used on a HA frontend.
-
-.. end_tag
+   Use to wait for the reindexing queue to clear before exiting. This option only works when run on a standalone Chef Infra Server or on a primary backend Chef server within a legacy tier.
 
 Server Admins
 =====================================================
 .. tag server_rbac_server_admins
 
-The ``server-admins`` group is a global group that grants its members permission to create, read, update, and delete user accounts, with the exception of superuser accounts. The ``server-admins`` group is useful for users who are responsible for day-to-day administration of the Chef server, especially user management via the ``knife user`` subcommand. Before members can be added to the ``server-admins`` group, they must already have a user account on the Chef server.
+The ``server-admins`` group is a global group that grants its members permission to create, read, update, and delete user accounts, with the exception of superuser accounts. The ``server-admins`` group is useful for users who are responsible for day-to-day administration of the Chef Infra Server, especially user management via the ``knife user`` subcommand. Before members can be added to the ``server-admins`` group, they must already have a user account on the Chef Infra Server.
 
 .. end_tag
 
@@ -1260,7 +1123,7 @@ Scenario
 -----------------------------------------------------
 .. tag server_rbac_server_admins_scenario
 
-The following user accounts exist on the Chef server: ``pivotal`` (a superuser account), ``alice``, ``bob``, ``carol``, and ``dan``. Run the following command to view a list of users on the Chef server:
+The following user accounts exist on the Chef Infra Server: ``pivotal`` (a superuser account), ``alice``, ``bob``, ``carol``, and ``dan``. Run the following command to view a list of users on the Chef Infra Server:
 
 .. code-block:: bash
 
@@ -1276,7 +1139,7 @@ and it returns the same list of users:
    carol
    dan
 
-Alice is a member of the IT team whose responsibilities include day-to-day administration of the Chef server, in particular managing the user accounts on the Chef server that are used by the rest of the organization. From a workstation, Alice runs the following command:
+Alice is a member of the IT team whose responsibilities include day-to-day administration of the Chef Infra Server, in particular managing the user accounts on the Chef Infra Server that are used by the rest of the organization. From a workstation, Alice runs the following command:
 
 .. code-block:: bash
 
@@ -1290,7 +1153,7 @@ and it returns the following error:
           but you are not authorized for this action
    Response: Missing read permission
 
-Alice is not a superuser and does not have permissions on other users because user accounts are global to organizations in the Chef server. Let's add Alice to the ``server-admins`` group:
+Alice is not a superuser and does not have permissions on other users because user accounts are global to organizations in the Chef Infra Server. Let's add Alice to the ``server-admins`` group:
 
 .. code-block:: bash
 
@@ -1302,7 +1165,7 @@ and it returns the following response:
 
    User alice was added to server-admins.
 
-Alice can now create, read, update, and delete user accounts on the Chef server, even for organizations to which Alice is not a member. From a workstation, Alice re-runs the following command:
+Alice can now create, read, update, and delete user accounts on the Chef Infra Server, even for organizations to which Alice is not a member. From a workstation, Alice re-runs the following command:
 
 .. code-block:: bash
 
@@ -1318,7 +1181,7 @@ which now returns:
    carol
    dan
 
-Alice is now a server administrator and can use the following knife subcommands to manage users on the Chef server:
+Alice is now a server administrator and can use the following knife subcommands to manage users on the Chef Infra Server:
 
 * ``knife user-create``
 * ``knife user-delete``
@@ -1396,7 +1259,7 @@ returns:
 
    User bob was added to server-admins. This user can now list,
    read, and create users (even for orgs they are not members of)
-   for this Chef Server.
+   for this Chef Infra Server.
 
 .. end_tag
 
@@ -1468,7 +1331,7 @@ uninstall
 =====================================================
 .. tag ctl_chef_server_uninstall
 
-The ``uninstall`` subcommand is used to remove the Chef server application, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
+The ``uninstall`` subcommand is used to remove the Chef Infra Server application, but without removing any of the data. This subcommand will shut down all services (including the ``runit`` process supervisor).
 
 This subcommand has the following syntax:
 
@@ -1482,7 +1345,7 @@ This subcommand has the following syntax:
 
 upgrade
 =====================================================
-The ``upgrade`` subcommand is used to upgrade the Chef server.
+The ``upgrade`` subcommand is used to upgrade the Chef Infra Server.
 
 **Syntax**
 
@@ -1494,39 +1357,37 @@ This subcommand has the following syntax:
 
 **Options**
 
-.. note:: Options for the ``upgrade`` subcommand may only be used when upgrading from Open Source Chef 11 to Chef server 12.
-
 This subcommand has the following options:
 
 ``-d DIRECTORY``, ``--chef11-data-dir DIRECTORY``
-   The directory in which Open Source Chef 11 data is located. Default value: a temporary directory.
+   The directory in which Chef Server 11 data is located. Default value: a temporary directory.
 
 ``-e DIRECTORY``, ``--chef12-data-dir DIRECTORY``
-   The directory in which Chef server 12 data is located. Default value: a temporary directory.
+   The directory in which Chef Server 12 data is located. Default value: a temporary directory.
 
 ``-f FULL_NAME``, ``--full-org-name FULL_NAME``
-   The full name of the Chef server organization. The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``Chef Software, Inc.``. If this option is not specified, the ``upgrade`` command will prompt for it.
+   The full name of the Chef Infra Server organization. The full name must begin with a non-white space character and must be between 1 and 1023 characters. For example: ``Chef Software, Inc.``. If this option is not specified, the ``upgrade`` command will prompt for it.
 
 ``-h``, ``--help``
    Use to show help for the ``chef-server-ctl upgrade`` subcommand.
 
 ``-k KEY_PATH``, ``--key KEY_PATH``
-   The Open Source Chef 11 ``admin.pem`` key for the API client. This is the key used to download Open Source Chef 11 data. Default value: ``/etc/chef-server/admin.pem``.
+   The Chef Server 11 ``admin.pem`` key for the API client. This is the key used to download Chef Server 11 data. Default value: ``/etc/chef-server/admin.pem``.
 
 ``-o ORG_NAME``, ``--org-name ORG_NAME``
-   The name of the Chef server organization. The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``chef``. If this option is not specified, the ``upgrade`` command will prompt for it.
+   The name of the Chef Infra Server organization. The name must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``chef``. If this option is not specified, the ``upgrade`` command will prompt for it.
 
 ``-s URL``, ``--chef11-server-url URL``
-   The URL for the Open Source Chef or Enterprise Chef server, version 11. Default value: ``https://localhost``.
+   The URL for the Chef Server version 11. Default value: ``https://localhost``.
 
 ``-t NUMBER``, ``--upload-threads NUMBER``
    The number of threads to use when migrating cookbooks. Default value: ``10``.
 
 ``-u USER``, ``--user``
-   Create a client as an admin client. This is required for any user to access Open Source Chef as an administrator.
+   Create a client as an admin client. This is required for any user to access Chef as an administrator.
 
 ``-x URL``, ``--chef12-server-url URL``
-   The URL for the Chef server, version 12. Default value: ``https://localhost``.
+   The URL for the Chef Infra Server, version 12. Default value: ``https://localhost``.
 
 ``-y``, ``--yes``
    Use to skip confirmation prompts during the upgrade process.
@@ -1621,7 +1482,7 @@ This subcommand has the following options:
 ``-R``, ``--remove-from-admin-groups``
    Removes a user who is in one or more 'admin' groups unless that user is the only member of the 'admin' group(s).
 
-   New in Chef server 12.9.
+   New in Chef Server 12.9.
 
 user-edit
 -----------------------------------------------------
@@ -1723,7 +1584,7 @@ This command has a built in process supervisor that ensures all of the required 
 
 .. end_tag
 
-.. warning:: The following commands are disabled when an external PostgreSQL database is configured for the Chef server: ``hup``, ``int``, ``kill``, ``once``, ``restart``, ``start``, ``stop``, ``tail``, and ``term``.
+.. warning:: The following commands are disabled when an external PostgreSQL database is configured for the Chef Infra Server: ``hup``, ``int``, ``kill``, ``once``, ``restart``, ``start``, ``stop``, ``tail``, and ``term``.
 
 hup
 -----------------------------------------------------
@@ -1777,7 +1638,7 @@ once
 -----------------------------------------------------
 .. tag ctl_chef_server_once
 
-The supervisor for the Chef server is configured to restart any service that fails, unless that service has been asked to change its state. The ``once`` subcommand is used to tell the supervisor to not attempt to restart any service that fails.
+The supervisor for the Chef Infra Server is configured to restart any service that fails, unless that service has been asked to change its state. The ``once`` subcommand is used to tell the supervisor to not attempt to restart any service that fails.
 
 This command is useful when troubleshooting configuration errors that prevent a service from starting. Run the ``once`` subcommand followed by the ``status`` subcommand to look for services in a down state and/or to identify which services are in trouble. This command can also be run for an individual service by specifying the name of the service in the command.
 
@@ -1795,9 +1656,9 @@ restart
 -----------------------------------------------------
 .. tag ctl_chef_server_restart
 
-The ``restart`` subcommand is used to restart all services enabled on the Chef server or to restart an individual service by specifying the name of that service in the command.
+The ``restart`` subcommand is used to restart all services enabled on the Chef Infra Server or to restart an individual service by specifying the name of that service in the command.
 
-.. warning:: When running the Chef server in a high availability configuration, restarting all services may trigger failover.
+.. warning:: When running the Chef Infra Server in a high availability configuration, restarting all services may trigger failover.
 
 This subcommand has the following syntax:
 
@@ -1831,7 +1692,7 @@ start
 -----------------------------------------------------
 .. tag ctl_chef_server_start
 
-The ``start`` subcommand is used to start all services that are enabled in the Chef server. This command can also be run for an individual service by specifying the name of the service in the command.
+The ``start`` subcommand is used to start all services that are enabled in the Chef Infra Server. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -1845,7 +1706,7 @@ where ``SERVICE_NAME`` represents the name of any service that is listed after r
 
    $ ok: run: service_name: (pid 12345) 1s
 
-The supervisor for the Chef server is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
+The supervisor for the Chef Infra Server is configured to wait seven seconds for a service to respond to a command from the supervisor. If you see output that references a timeout, it means that a signal has been sent to the process, but that the process has yet to actually comply. In general, processes that have timed out are not a big concern, unless they are failing to respond to the signals at all. If a process is not responding, use a command like the ``kill`` subcommand to stop the process, investigate the cause (if required), and then use the ``start`` subcommand to re-enable it.
 
 .. end_tag
 
@@ -1853,7 +1714,7 @@ status
 -----------------------------------------------------
 .. tag ctl_chef_server_status
 
-The ``status`` subcommand is used to show the status of all services available to the Chef server. The results will vary based on the configuration of a given server. This subcommand has the following syntax:
+The ``status`` subcommand is used to show the status of all services available to the Chef Infra Server. The results will vary based on the configuration of a given server. This subcommand has the following syntax:
 
 .. code-block:: bash
 
@@ -1898,28 +1759,11 @@ By default, runit will restart services automatically when the services fail. Th
 
 .. end_tag
 
-High Availability
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ctl_chef_server_status_ha
-
-On back-end servers in a high availability topology, Keepalived is used by the clustering service to determine whether a service should be running. If the ``status`` subcommand is run against any of these nodes, a few things change:
-
-* On the back-end node that is currently the backup server, it is normal to see only one running process: Keepalived
-* On the back-end node that is currently the master server, it is normal to see all services running. It is also normal to see some services in a down state if the server, on reboot, did not attempt to start the services because Keepalived determines which services are restarted based on the state of the cluster
-
-A sample status line for a service that is running on the master server in a high availability topology:
-
-.. code-block:: bash
-
-   run: opscode-solr4: (pid 25341) 239s, normally down; run: log: (pid 5700) 145308s
-
-.. end_tag
-
 Log Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag ctl_chef_server_status_logs
 
-A typical status line for a service that is running any of the Chef server front-end services is similar to the following:
+A typical status line for a service that is running any of the Chef Infra Server front-end services is similar to the following:
 
 .. code-block:: bash
 
@@ -1949,7 +1793,7 @@ stop
 -----------------------------------------------------
 .. tag ctl_chef_server_stop
 
-The ``stop`` subcommand is used to stop all services enabled on the Chef server. This command can also be run for an individual service by specifying the name of the service in the command.
+The ``stop`` subcommand is used to stop all services enabled on the Chef Infra Server. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 
@@ -1989,7 +1833,7 @@ tail
 -----------------------------------------------------
 .. tag ctl_chef_server_tail
 
-The ``tail`` subcommand is used to follow all of the Chef server logs for all services. This command can also be run for an individual service by specifying the name of the service in the command.
+The ``tail`` subcommand is used to follow all of the Chef Infra Server logs for all services. This command can also be run for an individual service by specifying the name of the service in the command.
 
 This subcommand has the following syntax:
 

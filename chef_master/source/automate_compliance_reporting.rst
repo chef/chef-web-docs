@@ -5,11 +5,15 @@ Reporting
 
 .. tag chef_automate_mark
 
-.. image:: ../../images/chef_automate_full.png
-   :width: 40px
-   :height: 17px
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
 
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </https://docs.chef.io/versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -26,7 +30,7 @@ The **Compliance** search allows you to view and filter compliance scan results 
 
 Filters
 ---------------------------------------------------------------
-* **Profile:** A profile is a set of controls expressed in the InSpec language that define the preferred configuration of your system.  Chef Automate Compliance currently provides 88 built-in profiles under the `Profiles Store <profile_store.html>`__ You can also upload your own custom profiles expressed using the InSpec language.
+* **Profile:** A profile is a set of controls expressed in the Chef InSpec language that define the preferred configuration of your system.  Chef Automate Compliance currently provides 88 built-in profiles under the `Profiles Store <profile_store.html>`__ You can also upload your own custom profiles expressed using the Chef InSpec language.
 * **Node:** A node is any machine that is under management by Chef.
 * **Platform:** You can run controls against a variety of platforms, such as AIX, Amazon Linux, Apache Tomcat, AppleOSX, CentOS, Oracle Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft Windows.
 * **Environment:** You can filter compliance reports by the environments in any stage of your workflow.
@@ -116,13 +120,13 @@ The tiles below the header provides an overview of the compliance scan results.
 * **Test Results:** Number of tests within an individual control
 * **Severity:** Importance of the control
 * **Root Profile:** Profile containing the controls.
-* **More Information:** View the tests within a control and their results. Use the **View Source** button within the expanded view to examine the InSpec control source code.
+* **More Information:** View the tests within a control and their results. Use the **View Source** button within the expanded view to examine the Chef InSpec control source code.
 
 Selecting the **Scan History** button produces a side-bar of compliance scans run against that specific node.
 
 .. image:: ../../images/automate_compliance_node_scan_history.png
 
-From the individual control, you can use the ``view source`` button to examine the InSpec code for a control:
+From the individual control, you can use the ``view source`` button to examine the Chef InSpec code for a control:
 
 .. image:: ../../images/automate_compliance_control_source.png
 
@@ -136,7 +140,7 @@ The Profiles view of the Compliance Reporting tab lets you examine the complianc
 * **Version:** The semantic version identifier of the profile; you may need to update your profiles to get the most recent version.
 * **Identifier:** The name under which the profile is installed and a short profile title.
 * **Filter:** Select a node by clicking on the filter icon on the right side of the row. 
-* **Scan Results:** Displays a list of all of the nodes on which the profile has been run. Selecting the more information arrow will open a list of controls within the profile. Expanding the profile list will take you to a view of the tests within a control and the results. Use the view source button to examine the InSpec source code.
+* **Scan Results:** Displays a list of all of the nodes on which the profile has been run. Selecting the more information arrow will open a list of controls within the profile. Expanding the profile list will take you to a view of the tests within a control and the results. Use the view source button to examine the Chef InSpec source code.
 * **More Information:** Selecting the more information icon opens a list of all of the controls within the profile.
 
     Selecting the **scan results** button displays all of the nodes on which the selected test has been run. 
@@ -148,6 +152,6 @@ The Profiles view of the Compliance Reporting tab lets you examine the complianc
 
       .. image:: ../../images/automate_compliance_profile_on_node.png
 
-    Selecting the **view source** displays the InSpec controls and can also be used to display the InSpec control source code.
+    Selecting the **view source** displays the Chef InSpec controls and can also be used to display the Chef InSpec control source code.
 
       .. image:: ../../images/automate_compliance_profile_node_control.png

@@ -5,15 +5,15 @@ push-jobs-client (executable)
 
 .. tag push_jobs_summary
 
-Chef push jobs is an extension of the Chef server that allows jobs to be run against nodes independently of a chef-client run. A job is an action or a command to be executed against a subset of nodes; the nodes against which a job is run are determined by the results of a search query made to the Chef server.
+Chef Push Jobs is an extension of the Chef Infra Server that allows jobs to be run against nodes independently of a Chef Infra Client run. A job is an action or a command to be executed against a subset of nodes; the nodes against which a job is run are determined by the results of a search query made to the Chef Infra Server.
 
-Chef push jobs uses the Chef server API and a Ruby client to initiate all connections to the Chef server. Connections use the same authentication and authorization model as any other request made to the Chef server. A knife plugin is used to initiate job creation and job tracking.
+Chef Push Jobs uses the Chef Infra Server API and a Ruby client to initiate all connections to the Chef Infra Server. Connections use the same authentication and authorization model as any other request made to the Chef Infra Server. A knife plugin is used to initiate job creation and job tracking.
 
 .. end_tag
 
 .. tag ctl_push_jobs_client_summary
 
-The Chef push jobs executable can be run as a command-line tool.
+The Chef Push Jobs executable can be run as a command-line tool.
 
 .. end_tag
 
@@ -29,7 +29,7 @@ This command has the following options:
    Allow unencrypted connections to 1.x servers
 
 ``-c CONFIG``, ``--config CONFIG``
-   The configuration file to use. The chef-client and Chef push jobs client use the same configuration file: client.rb. Default value: ``Chef::Config.platform_specific_path("/etc/chef/client.rb")``.
+   The configuration file to use. The Chef Infra Client and Chef Push Jobs client use the same configuration file: client.rb. Default value: ``Chef::Config.platform_specific_path("/etc/chef/client.rb")``.
 
 ``-d DIR``, ``-file_dir DIR``
    Set the directory for temporary files. Default value: ``/tmp/chef-push``.
@@ -50,10 +50,10 @@ This command has the following options:
    The name of the node.
 
 ``-S URL``, ``--server URL``
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``-v``, ``--version``
-   The version of Chef push jobs.
+   The version of Chef Push Jobs.
 
 Examples
 =====================================================

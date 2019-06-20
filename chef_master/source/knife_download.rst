@@ -5,7 +5,7 @@ knife download
 
 .. tag knife_download_summary
 
-Use the ``knife download`` subcommand to download roles, cookbooks, environments, nodes, and data bags from the Chef server to the current working directory. It can be used to back up data on the Chef server, inspect the state of one or more files, or to extract out-of-process changes users may have made to files on the Chef server, such as if a user made a change that bypassed version source control. This subcommand is often used in conjunction with ``knife diff``, which can be used to see exactly what changes will be downloaded, and then ``knife upload``, which does the opposite of ``knife download``.
+Use the ``knife download`` subcommand to download roles, cookbooks, environments, nodes, and data bags from the Chef Infra Server to the current working directory. It can be used to back up data on the Chef Infra Server, inspect the state of one or more files, or to extract out-of-process changes users may have made to files on the Chef Infra Server, such as if a user made a change that bypassed version source control. This subcommand is often used in conjunction with ``knife diff``, which can be used to see exactly what changes will be downloaded, and then ``knife upload``, which does the opposite of ``knife download``.
 
 .. end_tag
 
@@ -46,7 +46,7 @@ This subcommand has the following options:
    Use ``--force`` to download files even when the file on the hard drive is identical to the object on the server (role, cookbook, etc.). By default, files are compared to see if they have equivalent content, and local files are only overwritten if they are different. Default: ``--no-force``.
 
 ``--[no-]purge``
-   Use ``--purge`` to delete local files and directories that do not exist on the Chef server. By default, if a role, cookbook, etc. does not exist on the Chef server, the local file for said role is left alone and NOT deleted. Default: ``--no-purge``.
+   Use ``--purge`` to delete local files and directories that do not exist on the Chef Infra Server. By default, if a role, cookbook, etc. does not exist on the Chef Infra Server, the local file for said role is left alone and NOT deleted. Default: ``--no-purge``.
 
 ``--[no-]recurse``
    Use ``--no-recurse`` to disable downloading a directory recursively. Default: ``--recurse``.
@@ -66,7 +66,7 @@ The following examples show how to use this knife subcommand:
 
 **Download the entire chef-repo**
 
-To download the entire chef-repo from the Chef server, browse to the top level of the chef-repo and enter:
+To download the entire chef-repo from the Chef Infra Server, browse to the top level of the chef-repo and enter:
 
 .. code-block:: bash
 
@@ -74,7 +74,7 @@ To download the entire chef-repo from the Chef server, browse to the top level o
 
 **Download the /cookbooks directory**
 
-To download the ``cookbooks/`` directory from the Chef server, browse to the top level of the chef-repo and enter:
+To download the ``cookbooks/`` directory from the Chef Infra Server, browse to the top level of the chef-repo and enter:
 
 .. code-block:: bash
 
@@ -88,7 +88,7 @@ or from anywhere in the chef-repo, enter:
 
 **Download the /environments directory**
 
-To download the ``environments/`` directory from the Chef server, browse to the top level of the chef-repo and enter:
+To download the ``environments/`` directory from the Chef Infra Server, browse to the top level of the chef-repo and enter:
 
 .. code-block:: bash
 
@@ -102,7 +102,7 @@ or from anywhere in the chef-repo, enter:
 
 **Download an environment**
 
-To download an environment named "production" from the Chef server, browse to the top level of the chef-repo and enter:
+To download an environment named "production" from the Chef Infra Server, browse to the top level of the chef-repo and enter:
 
 .. code-block:: bash
 
@@ -116,7 +116,7 @@ or from the ``environments/`` directory, enter:
 
 **Download the /roles directory**
 
-To download the ``roles/`` directory from the Chef server, browse to the top level of the chef-repo and enter:
+To download the ``roles/`` directory from the Chef Infra Server, browse to the top level of the chef-repo and enter:
 
 .. code-block:: bash
 
@@ -138,7 +138,7 @@ To download all cookbooks that start with "apache" and belong to the "webserver"
 
 **Download data bags**
 
-To download all data bags from the Chef server, browse to the top level of the chef-repo and enter:
+To download all data bags from the Chef Infra Server, browse to the top level of the chef-repo and enter:
 
 .. code-block:: bash
 

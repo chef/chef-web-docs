@@ -34,6 +34,11 @@
             "title": "Docs Style Guide",
             "hasSubItems": false,
             "url": "/style_guide.html"
+          },
+          {
+            "title": "Send Feedback",
+            "hasSubItems": false,
+            "url": "/feedback.html"
           }
         ]
       },
@@ -47,9 +52,14 @@
             "url": "/packages.html"
           },
           {
-            "title": "Platforms and Versions",
+            "title": "Platforms",
             "hasSubItems": false,
             "url": "/platforms.html"
+          },
+          {
+            "title": "Supported Versions",
+            "hasSubItems": false,
+            "url": "/versions.html"
           },
           {
             "title": "Omnitruck API",
@@ -58,8 +68,19 @@
           },
           {
             "title": "Licensing",
-            "hasSubItems": false,
-            "url": "/chef_license.html"
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Licensing",
+                "hasSubItems": false,
+                "url": "/chef_license.html"
+              },
+              {
+                "title": "Accepting License",
+                "hasSubItems": false,
+                "url": "/chef_license_accept.html"
+              }
+            ]
           }
         ]
       }
@@ -161,9 +182,18 @@
             ]
           },
           {
+            "title": "Environment Variables",
+            "hasSubItems": false,
+            "url": "/environment_variables.html"
+          },          {
             "title": "Glossary",
             "hasSubItems": false,
             "url": "/glossary.html"
+          },
+          {
+            "title": "Uninstall",
+            "hasSubItems": false,
+            "url": "/uninstall.html"
           }
         ]
       },
@@ -205,6 +235,11 @@
             "title": "Custom Resources",
             "hasSubItems": false,
             "url": "/custom_resources.html"
+          },
+          {
+            "title": "Converting Definitions",
+            "hasSubItems": false,
+            "url": "/definitions.html"
           },
           {
             "title": "Policy",
@@ -256,7 +291,12 @@
             "title": "Supermarket",
             "hasSubItems": true,
             "subItems": [
-              {
+            {
+              "title": "Supermarket",
+               "hasSubItems": false,
+               "url": "/supermarket.html"
+             },
+             {
                "title": "Public Supermarket",
                 "hasSubItems": false,
                 "url": "/supermarket.html#public-supermarket"
@@ -265,7 +305,12 @@
                 "title": "Private Supermarket",
                 "hasSubItems": false,
                 "url": "/supermarket.html#private-supermarket"
-              }
+              },
+              {
+                "title": "Share Cookbooks",
+                "hasSubItems": false,
+                "url": "/supermarket_share_cookblooks.html"
+              }              
             ]
           },
         ]
@@ -422,9 +467,24 @@
                 "url": "https://manage.chef.io/signup"
               },
               {
+                "title": "Install Chef Infra Server",
+                "hasSubItems": false,
+                "url": "/install_server.html"
+              },
+              {
                 "title": "Install Standalone",
                 "hasSubItems": false,
                 "url": "/install_server.html#standalone"
+              },
+              {
+                "title": "Chef Server Prerequisites",
+                "hasSubItems": false,
+                "url": "/install_server_pre.html"
+              },
+              {
+                "title": "Tiered Installation",
+                "hasSubItems": false,
+                "url": "/install_server_tiered.html"
               },
               {
                 "title": "Install High Availability",
@@ -577,6 +637,11 @@
             "hasSubItems": true,
             "subItems": [
               {
+                "title": "DSL Overview",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html"
+              },
+              {
                 "title": "attribute?",
                 "hasSubItems": false,
                 "url": "/dsl_recipe.html#attribute"
@@ -704,6 +769,16 @@
             ],
           },
           {
+            "title": "Audit DSL",
+            "hasSubItems": false,
+            "url": "/dsl_audit.html"
+          },
+          {
+            "title": "Custom Resources DSL",
+            "hasSubItems": false,
+            "url": "/dsl_custom_resources.html"
+          },          
+          {
             "title": "Resources",
             "hasSubItems": true,
             "subItems": [
@@ -748,6 +823,11 @@
                 "url": "/resource_apt_update.html"
               },
               {
+                "title": "archive_file",
+                "hasSubItems": false,
+                "url": "/resource_archive_file.html"
+              },
+              {
                 "title": "bash",
                 "hasSubItems": false,
                 "url": "/resource_bash.html"
@@ -764,6 +844,11 @@
               },
               {
                 "title": "breakpoint",
+                "hasSubItems": false,
+                "url": "/resource_breakpoint.html"
+              },
+              {
+                "title": "build_essential",
                 "hasSubItems": false,
                 "url": "/resource_breakpoint.html"
               },
@@ -1083,6 +1168,11 @@
                 "url": "/resource_reboot.html"
               },
               {
+                "title": "reference",
+                "hasSubItems": false,
+                "url": "/resource_reference.html"
+              },
+              {
                 "title": "registry_key",
                 "hasSubItems": false,
                 "url": "/resource_registry_key.html"
@@ -1158,6 +1248,11 @@
                 "url": "/resource_smartos_package.html"
               },
               {
+                "title": "snap_package",
+                "hasSubItems": false,
+                "url": "/resource_snap_package.html"
+              },
+              {
                 "title": "solaris_package",
                 "hasSubItems": false,
                 "url": "/resource_solaris_package.html"
@@ -1221,6 +1316,31 @@
                 "title": "windows_certificate",
                 "hasSubItems": false,
                 "url": "/resource_windows_certificate.html"
+              },
+              {
+                "title": "windows_dfs_folder",
+                "hasSubItems": false,
+                "url": "/resource_windows_dfs_folder.html"
+              },
+              {
+                "title": "windows_dfs_namespace",
+                "hasSubItems": false,
+                "url": "/resource_windows_dfs_namespace.html"
+              },
+              {
+                "title": "windows_dfs_server",
+                "hasSubItems": false,
+                "url": "/resource_windows_dfs_server.html"
+              },
+              {
+                "title": "windows_dns_record",
+                "hasSubItems": false,
+                "url": "/resource_windows_dns_record.html"
+              },
+              {
+                "title": "windows_dns_zone",
+                "hasSubItems": false,
+                "url": "/resource_windows_dns_zone.html"
               },
               {
                 "title": "windows_env",
@@ -1298,6 +1418,11 @@
                 "url": "/resource_windows_task.html"
               },
               {
+                "title": "windows_uac",
+                "hasSubItems": false,
+                "url": "/resource_windows_uac.html"
+              },
+              {
                 "title": "windows_workgroup",
                 "hasSubItems": false,
                 "url": "/resource_windows_workgroup.html"
@@ -1350,7 +1475,7 @@
             "url": "/cookbook_versioning.html"
           },
           {
-            "title": "Ruby",
+            "title": "Ruby Guide",
             "hasSubItems": false,
             "url": "/ruby.html"
           }
@@ -1441,6 +1566,10 @@
               }
             ]
           },
+          { "title": "chef-apply (executable)",
+            "hasSubItems": false,
+            "url": "/ctl_chef_apply.html"
+          },
           {
             "title": "Chef Solo",
             "hasSubItems": true,
@@ -1476,6 +1605,11 @@
             "title": "config.rb (knife.rb)",
             "hasSubItems": false,
             "url": "/config_rb.html"
+          },
+          {
+            "title": "Optional config.rb Settings",
+            "hasSubItems": false,
+            "url": "/config_rb_optional_settings.html"
           },
           {
             "title": "cookstyle",
@@ -1758,9 +1892,9 @@
             "url": "/server_backup_restore.html"
           },
           {
-            "title": "Data Storage",
+            "title": "Backend Failure Recovery",
             "hasSubItems": false,
-            "url": "/server_data.html"
+            "url": "/backend_failure_recovery.html"
           },
           {
             "title": "Firewalls &amp; Ports",
@@ -1831,6 +1965,11 @@
             "title": "chef-server.rb",
             "hasSubItems": false,
             "url": "/config_rb_server.html"
+          },
+          {
+          "title": "Chef Server Optional Settings",
+          "hasSubItems": false,
+          "url": "/config_rb_server_optional_settings.html"
           },
           {
             "title": "opscode-expander-ctl",
@@ -1931,7 +2070,7 @@
     ]
   },
   {
-    "title": "Habitat",
+    "title": "Chef Habitat",
     "image": "habitat-sprout.svg",
     "subItems": [
       {
@@ -1945,7 +2084,7 @@
     ]
   },
   {
-    "title": "InSpec",
+    "title": "Chef InSpec",
     "image": "inspec_logo.png",
     "subItems": [
       {
@@ -2264,52 +2403,6 @@
             ]
           },
           {
-            "title": "Compliance scanner",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Overview",
-                "hasSubItems": false,
-                "url": "/chef_compliance.html"
-              },
-              {
-                "title": "Installation Guide",
-                "hasSubItems": false,
-                "url": "/install_chef_compliance.html"
-              },
-              {
-                "title": "Integrate w/Chef Server",
-                "hasSubItems": false,
-                "url": "/integrate_compliance_chef_server.html"
-              },
-              {
-                "title": "Integrate w/Chef Automate",
-                "hasSubItems": false,
-                "url": "/integrate_compliance_server_chef_automate.html"
-              },
-              {
-                "title": "Upgrade Compliance",
-                "hasSubItems": false,
-                "url": "/upgrade_compliance.html"
-              },
-              {
-                "title": "chef-compliance.rb",
-                "hasSubItems": false,
-                "url": "/config_rb_compliance.html"
-              },
-              {
-                "title": "Chef Compliance API",
-                "hasSubItems": false,
-                "url": "/api_compliance.html"
-              },
-              {
-                "title": "Chef Compliance for Microsoft Azure",
-                "hasSubItems": false,
-                "url": "/compliance_azure.html"
-              }
-            ]
-          },
-          {
             "title": "AWS OpsWorks for Chef Automate",
             "hasSubItems": false,
             "url": "/aws_opsworks_chef_automate.html"
@@ -2323,138 +2416,6 @@
             "title": "Troubleshooting",
             "hasSubItems": false,
             "url": "/troubleshooting_chef_automate.html"
-          }
-        ]
-      },
-      {
-        "title": "Analytics",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Overview",
-            "hasSubItems": false,
-            "url": "/analytics.html"
-          },
-          {
-            "title": "Release Notes",
-            "hasSubItems": false,
-            "url": "/release_notes_analytics.html"
-          },
-          {
-            "title": "Install Standalone",
-            "hasSubItems": false,
-            "url": "/install_analytics.html"
-          },
-          {
-            "title": "Web UI",
-            "hasSubItems": false,
-            "url": "/actions.html"
-          },
-          {
-            "title": "Management Console",
-            "hasSubItems": false,
-            "url": "/analytics_webui_tasks.html"
-          },
-          {
-            "title": "Nodes View",
-            "hasSubItems": false,
-            "url": "/analytics_nodes_view.html"
-          },
-          {
-            "title": "Integrations",
-            "hasSubItems": false,
-            "url": "/analytics.html#integrations"
-          },
-          {
-            "title": "Splunk",
-            "hasSubItems": false,
-            "url": "/analytics_splunk.html"
-          },
-          {
-            "title": "Rules",
-            "hasSubItems": false,
-            "url": "/analytics_rules.html"
-          },
-          {
-            "title": "Monitor",
-            "hasSubItems": false,
-            "url": "/analytics_monitor.html"
-          },
-          {
-            "title": "Upgrades",
-            "hasSubItems": false,
-            "url": "/upgrade_analytics.html"
-          },
-          {
-            "title": "Chef Client for Analytics",
-            "hasSubItems": false,
-            "url": "/chef_client_analytics.html"
-          },
-          {
-            "title": "opscode-analytics-ctl",
-            "hasSubItems": false,
-            "url": "/ctl_analytics.html"
-          },
-          {
-            "title": "opscode-analytics.rb",
-            "hasSubItems": false,
-            "url": "/config_rb_analytics.html"
-          },
-          {
-            "title": "knife-analytics",
-            "hasSubItems": false,
-            "url": "/plugin_knife_analytics.html"
-          },
-          {
-            "title": "Analytics API",
-            "hasSubItems": false,
-            "url": "/api_analytics.html"
-          },
-          {
-            "title": "Recipe DSL for Analytics",
-            "hasSubItems": false,
-            "url": "/dsl_recipe_analytics.html"
-          }
-        ]
-      },
-      {
-        "title": "Reporting",
-        "hasSubItems": true,
-        "subItems": [
-          {
-            "title": "Overview",
-            "hasSubItems": false,
-            "url": "/reporting.html"
-          },
-          {
-            "title": "Install Reporting",
-            "hasSubItems": false,
-            "url": "/install_reporting.html"
-          },
-          {
-            "title": "View Reports",
-            "hasSubItems": false,
-            "url": "/server_manage_reports.html"
-          },
-          {
-            "title": "knife reporting",
-            "hasSubItems": false,
-            "url": "/plugin_knife_reporting.html"
-          },
-          {
-            "title": "opscode-reporting-ctl",
-            "hasSubItems": false,
-            "url": "/ctl_reporting.html"
-          },
-          {
-            "title": "opscode-reporting.rb",
-            "hasSubItems": false,
-            "url": "/config_rb_reporting.html"
-          },
-          {
-            "title": "Reporting API",
-            "hasSubItems": false,
-            "url": "/api_reporting.html"
           }
         ]
       }
@@ -2530,7 +2491,7 @@
       {
         "title": "Chef Client Plugins",
         "hasSubItems": false,
-        "url": "/plugin_community.html#chef-client"
+        "url": "/plugin_community.html#chef-infra-client"
       }
     ]
   }

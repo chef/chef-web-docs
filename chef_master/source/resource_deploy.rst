@@ -3,11 +3,9 @@ deploy
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_deploy.rst>`__
 
-.. tag resource_deploy_summary
-
 Use the **deploy** resource to manage and control deployments. This is a popular resource, but is also complex, having the most properties, multiple providers, the added complexity of callbacks, plus four attributes that support layout modifications from within a recipe.
 
-.. end_tag
+
 
 The **deploy** resource is modeled after Capistrano, a utility and framework for executing commands in parallel on multiple remote machines via SSH. The **deploy** resource is designed to behave in a way that is similar to the ``deploy`` and ``deploy:migration`` tasks in Capistrano.
 
@@ -250,7 +248,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -553,13 +551,9 @@ The following properties are for use with Subversion only:
 
 Providers
 =====================================================
-.. tag resources_common_provider
-
 Where a resource represents a piece of the system (and its desired state), a provider defines the steps that are needed to bring that piece of the system from its current state into the desired state.
 
-.. end_tag
 
-.. tag resources_common_provider_attributes
 
 The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
 
@@ -583,13 +577,11 @@ Generally, it's best to let the chef-client choose the provider, and this is (by
        action :install
      end
 
-.. end_tag
 
-.. tag resource_provider_list_note
 
 For reference, the providers available for this resource are listed below. However please note that specifying a provider via its long name (such as ``Chef::Provider::Package``) using the ``provider`` property is not recommended. If a provider needs to be called manually, use one of the two approaches detailed above.
 
-.. end_tag
+
 
 ``Chef::Provider::Deploy``, ``deploy``
    When this short name is used, the chef-client will determine the correct provider during the chef-client run.
@@ -632,8 +624,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Modify the layout of a Ruby on Rails application**
 
-.. tag resource_deploy_custom_application_layout
-
 The layout of the **deploy** resource matches a Ruby on Rails app by default, but this can be customized. To customize the layout, do something like the following:
 
 .. code-block:: ruby
@@ -663,11 +653,9 @@ The layout of the **deploy** resource matches a Ruby on Rails app by default, bu
                'deploy/after_restart.rb' => 'deploy/after_restart.rb'
    end
 
-.. end_tag
+
 
 **Use resources within callbacks**
-
-.. tag resource_deploy_embedded_recipes_for_callbacks
 
 Using resources from within your callbacks as blocks or within callback files distributed with your application's source code. To use embedded recipes for callbacks:
 
@@ -709,11 +697,9 @@ Using resources from within your callbacks as blocks or within callback files di
 
    end
 
-.. end_tag
+
 
 **Deploy from a private git repository without using the application cookbook**
-
-.. tag resource_deploy_private_git_repo_using_application_cookbook
 
 To deploy from a private git repository without using the ``application`` cookbook, first ensure that:
 
@@ -727,11 +713,9 @@ and then remove a passphrase from a private key by using code similar to:
 
    ssh-keygen -p -P 'PASSPHRASE' -N '' -f id_deploy
 
-.. end_tag
+
 
 **Use an SSH wrapper**
-
-.. tag resource_deploy_recipe_uses_ssh_wrapper
 
 To write a recipe that uses an SSH wrapper:
 
@@ -769,11 +753,9 @@ To write a recipe that uses an SSH wrapper:
 
    This will deploy the git repository at ``git@github.com:acctname/private-repo.git`` in the ``/tmp/private_code`` directory.
 
-.. end_tag
+
 
 **Use a callback to include a file that will be passed as a code block**
-
-.. tag resource_deploy_use_callback_to_include_code_from_file
 
 The code in a file that is included in a recipe using a callback is evaluated exactly as if the code had been put in the recipe as a block. Files are searched relative to the current release.
 
@@ -787,11 +769,9 @@ To specify a file that contains code to be used as a block:
      before_migrate 'callbacks/do_this_before_migrate.rb'
    end
 
-.. end_tag
+
 
 **Use a callback to pass a code block**
-
-.. tag resource_deploy_use_callback_to_pass_python
 
 To pass a block of Python code before a migration is run:
 
@@ -826,11 +806,9 @@ To pass a block of Python code before a migration is run:
      end
    end
 
-.. end_tag
+
 
 **Use the same API for all recipes using the same gem**
-
-.. tag resource_deploy_use_same_api_as_gitdeploy_gems
 
 Any recipes using the ``git-deploy`` gem can continue using the same API. To include this behavior in a recipe, do something like the following:
 
@@ -850,11 +828,9 @@ Any recipes using the ``git-deploy`` gem can continue using the same API. To inc
      restart_command 'touch tmp/restart.txt'
    end
 
-.. end_tag
+
 
 **Deploy without creating symbolic links to a shared folder**
-
-.. tag resource_deploy_without_symlink_to_shared
 
 To deploy without creating symbolic links to a shared folder:
 
@@ -880,11 +856,9 @@ or using ``Hash.new``:
      symlinks Hash.new
    end
 
-.. end_tag
+
 
 **Clear a layout modifier attribute**
-
-.. tag resource_deploy_clear_layout_modifiers
 
 Using the default property values for the various resources is the recommended starting point when working with recipes. Then, depending on what each node requires, these default values can be overridden with node-, role-, environment-, and cookbook-specific values. The **deploy** resource has four layout modifiers: ``create_dirs_before_symlink``, ``purge_before_symlink``, ``symlink_before_migrate``, and ``symlinks``. Each of these is a Hash that behaves as a property of the **deploy** resource. When these layout modifiers are used in a recipe, they appear similar to the following:
 
@@ -932,4 +906,4 @@ To clear the default values for a layout modifier:
 
 In general, use this approach carefully and only after it is determined that nil or empty values won't provide the expected result.
 
-.. end_tag
+

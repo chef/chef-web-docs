@@ -3,6 +3,20 @@ Manage Cookbooks
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_cookbooks.rst>`__
 
+.. tag chef_automate_mark
+
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
+
+.. end_tag
+
+.. tag EOL_manage
+
+.. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+.. end_tag
+
+
 .. note:: This topic is about using the Chef management console to manage cookbooks.
 
 .. tag cookbooks_summary
@@ -46,14 +60,14 @@ A cookbook can contain the following types of files:
    * - Attributes
      - .. tag cookbooks_attribute
 
-       An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a chef-client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, the chef-client will apply those new settings and values during the chef-client run on the node.
+       An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, the Chef Infra Client will apply those new settings and values during the Chef Infra Client run on the node.
 
        .. end_tag
 
    * - Files
      - .. tag resource_cookbook_file_summary
 
-       Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the chef-client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
+       Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
 
        .. end_tag
 
@@ -76,7 +90,7 @@ A cookbook can contain the following types of files:
        * May be included in another recipe
        * May use the results of a search query and read the contents of a data bag (including an encrypted data bag)
        * May have a dependency on one (or more) recipes
-       * Must be added to a run-list before it can be used by the chef-client
+       * Must be added to a run-list before it can be used by the Chef Infra Client
        * Is always executed in the same order as listed in a run-list
 
        .. end_tag
@@ -101,7 +115,7 @@ A cookbook can contain the following types of files:
 
        .. end_tag
 
-All of the file types that are part of any cookbook uploaded to the Chef server are visible from the Chef management console.
+All of the file types that are part of any cookbook uploaded to the Chef Infra Server are visible from the Chef management console.
 
 Download File
 -----------------------------------------------------
@@ -136,13 +150,13 @@ Permissions
 =====================================================
 .. tag server_rbac_permissions
 
-Permissions are used in the Chef server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
+Permissions are used in the Chef Infra Server to define how users and groups can interact with objects on the server. Permissions are configured per-organization.
 
 .. end_tag
 
 .. tag server_rbac_permissions_object
 
-The Chef server includes the following object permissions:
+The Chef Infra Server includes the following object permissions:
 
 .. list-table::
    :widths: 60 420
@@ -151,13 +165,13 @@ The Chef server includes the following object permissions:
    * - Permission
      - Description
    * - **Delete**
-     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Delete** permission to define which users and groups may delete an object. This permission is required for any user who uses the ``knife [object] delete [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Grant**
      - Use the **Grant** permission to define which users and groups may configure permissions on an object. This permission is required for any user who configures permissions using the **Administration** tab in the Chef management console.
    * - **Read**
-     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef server.
+     - Use the **Read** permission to define which users and groups may view the details of an object. This permission is required for any user who uses the ``knife [object] show [object_name]`` argument to interact with objects on the Chef Infra Server.
    * - **Update**
-     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef server and for any chef-client to save node data to the Chef server at the conclusion of a chef-client run.
+     - Use the **Update** permission to define which users and groups may edit the details of an object. This permission is required for any user who uses the ``knife [object] edit [object_name]`` argument to interact with objects on the Chef Infra Server and for any Chef Infra Client to save node data to the Chef Infra Server at the conclusion of a Chef Infra Client run.
 
 .. end_tag
 

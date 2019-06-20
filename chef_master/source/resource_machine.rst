@@ -7,13 +7,15 @@ machine
 
 Use the **machine** resource to define one (or more) machines, and then converge entire clusters of machines. This allows clusters to be maintained in a version control system and to be defined using multi-machine orchestration scenarios. For example, spinning up small test clusters and using them for continuous integration and local testing, building clusters that auto-scale, moving a set of machines in one cluster to another, building images, and so on.
 
-Each machine is declared as a separate application topology, defined using operating system- and provisioner-independent files. Recipes (defined in cookbooks) are used to manage them. The chef-client is used to converge the individual nodes (machines) within the cluster.
+Each machine is declared as a separate application topology, defined using operating system- and provisioner-independent files. Recipes (defined in cookbooks) are used to manage them. The Chef Infra Client is used to converge the individual nodes (machines) within the cluster.
 
 .. end_tag
 
-.. warning:: .. tag notes_provisioning
+.. warning:: .. tag EOL_provisioning
 
-             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+             This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+
+             Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
              .. end_tag
 
@@ -33,24 +35,22 @@ The syntax for using the **machine** resource in a recipe is as follows:
 
 where
 
-* ``machine`` tells the chef-client to use the ``Chef::Provider::Machine`` provider during the chef-client run
+* ``machine`` tells the Chef Infra Client to use the ``Chef::Provider::Machine`` provider during the Chef Infra Client run
 * ``name`` is the name of the resource block and also the name of the machine
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
 .. end_tag
 
 Actions
 =====================================================
-.. tag resource_machine_actions
-
 This resource has the following actions:
 
 ``:allocate``
    Use to create a machine, return its machine identifier, and then (depending on the provider) boot the machine to an image. This reserves the machine with the provider and subsequent ``:allocate`` actions against this machine no longer need to create the machine, just update it.
 
 ``:converge``
-   Default. Use to create a machine, return its machine identifier, boot the machine to an image with the specified parameters and transport, install the chef-client, and then converge the machine.
+   Default. Use to create a machine, return its machine identifier, boot the machine to an image with the specified parameters and transport, install the Chef Infra Client, and then converge the machine.
 
 ``:converge_only``
    Use to converge a machine, but only if the machine is in a ready state.
@@ -61,7 +61,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -69,20 +69,18 @@ This resource has the following actions:
    Use to create a machine, return its machine identifier, and then boot the machine to an image with the specified parameters and transport. This machine is in a ready state and may be connected to (via SSH or other transport).
 
 ``:setup``
-   Use to create a machine, return its machine identifier, boot the machine to an image with the specified parameters and transport, and then install the chef-client. This machine is in a ready state, has the chef-client installed, and all of the configuration data required to apply the run-list to the machine.
+   Use to create a machine, return its machine identifier, boot the machine to an image with the specified parameters and transport, and then install the Chef Infra Client. This machine is in a ready state, has the Chef Infra Client installed, and all of the configuration data required to apply the run-list to the machine.
 
 ``:stop``
    Use to stop a machine.
-
-.. end_tag
 
 In-Parallel Processing
 -----------------------------------------------------
 .. tag provisioning_parallel
 
-In certain situations Chef provisioning will run multiple **machine** processes in-parallel, as long as each of the individual **machine** resources have the same declared action. The **machine_batch** resource is used to run in-parallel processes.
+In certain situations Chef Provisioning will run multiple **machine** processes in-parallel, as long as each of the individual **machine** resources have the same declared action. The **machine_batch** resource is used to run in-parallel processes.
 
-Chef provisioning will processes resources in-parallel automatically, unless:
+Chef Provisioning will processes resources in-parallel automatically, unless:
 
 * The recipe contains complex scripts, such as when a **file** resource sits in-between two **machine** resources in a single recipe. In this situation, the resources will be run sequentially
 * The actions specified for each individual **machine** resource are not identical; for example, if resource A is set to ``:converge`` and resource B is set to ``:destroy``, then they may not be processed in-parallel
@@ -157,7 +155,7 @@ This resource has the following properties:
 ``admin``
    **Ruby Type:** true, false
 
-   Use to specify whether the chef-client is an API client.
+   Use to specify whether the Chef Infra Client is an API client.
 
 ``allow_overwrite_keys``
    **Ruby Type:** true, false
@@ -209,7 +207,7 @@ This resource has the following properties:
 ``chef_server``
    **Ruby Type:** Hash
 
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``complete``
    Use to specify if all of the normal attributes specified by this resource represent a complete specification of normal attributes for a machine. When ``true``, any attributes not specified will be reset to their default values. For example, if a **machine** resource is empty and sets ``complete`` to ``true``, all existing attributes will be reset:
@@ -364,7 +362,7 @@ This resource has the following properties:
 ``validator``
    **Ruby Type:** true, false
 
-   Use to specify if the chef-client is a chef-validator.
+   Use to specify if the Chef Infra Client is a chef-validator.
 
 .. end_tag
 

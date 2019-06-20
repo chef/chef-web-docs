@@ -18,7 +18,7 @@ The openssl_x509_request resource has the following syntax:
     common_name      String
     country          String
     email            String
-    group            String
+    group            String, Integer
     key_curve        String # default value: "prime256v1"
     key_file         String
     key_length       Integer # default value: 2048
@@ -27,7 +27,7 @@ The openssl_x509_request resource has the following syntax:
     mode             Integer, String
     org              String
     org_unit         String
-    owner            String
+    owner            String, Integer
     path             String # default value: 'name' unless specified
     state            String
     action           Symbol # defaults to :create if not specified
@@ -51,7 +51,7 @@ The openssl_x509_request resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
 
    .. end_tag
 
@@ -81,7 +81,7 @@ The openssl_x509_request resource has the following properties:
    Value for the ``email`` certificate field.
 
 ``group``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The group ownership applied to all files created by the resource.
 
@@ -126,7 +126,7 @@ The openssl_x509_request resource has the following properties:
    Value for the ``OU`` certificate field.
 
 ``owner``
-   **Ruby Type:** String
+   **Ruby Type:** String, Integer
 
    The owner applied to all files created by the resource.
 
