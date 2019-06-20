@@ -84,9 +84,9 @@ Concepts
 `Push Jobs </push_jobs.html>`__ |
 `Run-lists </run_lists.html>`__
 
-**Security**: `Authentication </auth.html#authentication.html>`__ | `Authorization </auth.html#authorization.html>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
+**Security**: `Authentication </auth.html#authentication>`__ | `Authorization </auth.html#authorization>`__ | `FIPS-mode </ctl_chef_client.html#run-in-fips-mode.html>`__
 
-**Supermarket**: `Supermarket <supermarket.html>`__ | Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
+**Supermarket**: `Supermarket <supermarket.html>`__ | `Public Supermarket (overview) </supermarket.html#public-supermarket>`__ | `Private Supermarket (overview) </supermarket.html#private-supermarket>`__ | `Share Cookbooks on the Chef Supermarket </supermarket_share_cookbook.html>`__
 
 **Appendix**: `Env Variables </environment_variables.html>`__ | `Troubleshooting </errors.html>`__ | `Glossary </glossary.html>`__
 
@@ -105,11 +105,11 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone.html>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
-`Management Console </ctl_chef_server.html#install.html>`__ | `Push Jobs </install_push_jobs.html>`__
+`Management Console </ctl_chef_server.html#install>`__ | `Push Jobs </install_push_jobs.html>`__
 
 **Integrations**: `AWS Marketplace </aws_marketplace.html>`__ |  `Microsoft Azure </azure_portal.html>`__ | `Google Cloud Platform </google.html>`__ | `VMware </vmware.html>`__
 
@@ -443,7 +443,7 @@ Knife Plugins
 
 Ohai Plugins
 -----------------------------------------------------
-`Custom Plugins </ohai_custom.html>`__ | `Community Plugins </plugin_community.html#ohai.html>`__
+`Custom Plugins </ohai_custom.html>`__ | `Community Plugins </plugin_community.html#ohai>`__
 
 Chef Infra Client Plugins
 -----------------------------------------------------
