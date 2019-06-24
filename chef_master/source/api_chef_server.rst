@@ -237,6 +237,48 @@ A global endpoint may be used to access all of the organizations on the Chef Inf
 
 
 
+/authenticate_user
+-----------------------------------------------------
+The ``/authenticate_user`` endpoint has the following methods: ``POST``.
+
+POST
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``POST`` method is used to authenticate a user. This endpoint is used by the Chef Identity Service to authenticate users of Chef Supermarket to the Chef server.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   POST /authenticate_user
+
+with a request body similar to:
+
+.. code-block:: javascript
+
+   {
+     "username" : "grantmc",
+     "password" : "p@ssw0rd"
+   }
+
+**Response**
+
+This method has no response body.
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, password, and that the correct key was used to sign the request.
+
 /license
 -----------------------------------------------------
 .. note:: This endpoint is used for information purposes only and to trigger a notification in the Chef management console about the number of licenses owned vs. the number of licenses that should be owned. No other action is taken and the functionality and behavior of the Chef Infra Server and any added component does not change.
@@ -1296,47 +1338,7 @@ This method has no response body.
    * - ``413``
      - Request entity too large. A request may not be larger than 1000000 bytes.
 
-/authenticate_user
------------------------------------------------------
-The ``/authenticate_user`` endpoint has the following methods: ``POST``.
 
-POST
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to authenticate a user. This endpoint is used by the Chef Identity Service to authenticate users of Chef Supermarket to the Chef Infra Server.
-
-This method has no parameters.
-
-**Request**
-
-.. code-block:: none
-
-   POST /organizations/NAME/authenticate_user
-
-with a request body similar to:
-
-.. code-block:: javascript
-
-   {
-     "username" : "grantmc",
-     "password" : "p@ssw0rd"
-   }
-
-**Response**
-
-This method has no response body.
-
-**Response Codes**
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Response Code
-     - Description
-   * - ``200``
-     - OK. The request was successful.
-   * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
 
 /clients/CLIENT/keys/
 ----------------------------------------------------
