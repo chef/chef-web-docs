@@ -354,8 +354,6 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``GET`` method is used to get a list of organizations on the Chef Infra Server.
 
-This method has no parameters.
-
 **Request**
 
 .. code-block:: none
@@ -634,7 +632,18 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``GET`` method is used to get a list of users on the Chef Infra Server.
 
-This method has no parameters.
+This method has the following parameters:
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Parameter
+     - Description
+   * - ``email=jane@chef.com``
+     - Filter the users returned based on their email id.
+   * - ``external_authentication_uid=jane@chef.com``
+     - Filter the users returned based on their external login id.
 
 **Request**
 
@@ -713,7 +722,7 @@ with a request body similar to:
 where:
 
 * ``username`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
-* ``email`` and  ``username`` are both required to be present and have a value.
+* ``display_name``, ``email`` and  ``username`` are required to be present and have a value.
 * Either ``external_authentication_uid`` or ``password`` are required to be present and have a value.
 * During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Server versions.
 
@@ -723,7 +732,10 @@ The response is similar to:
 
 .. code-block:: javascript
 
-   { -----BEGIN RSA PRIVATE KEY----- }  // TODO The private key is usually returned
+   {
+     "uri": "https://url/for/robert-forster",
+     "private_key": "-----BEGIN RSA PRIVATE KEY-----..."
+   }
 
 **Response Codes**
 
@@ -807,7 +819,15 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "name": "Robert Forster",
+     "username": "robert-forster",
+     "display_name": "robert",
+     "email": "robert@noreply.com",
+     "external_authentication_uid": "robert",
+     "full_name": "Robert Forster",
+     "first_name": "robert",
+     "last_name": "robert",
+     "middle_name": ""
+     "recovery_authentication_enabled": false
    }
 
 **Response Codes**
@@ -824,66 +844,10 @@ The response is similar to:
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not found. The requested object does not exist.
 
-POST
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create a new user. If a public key is not specified, both public and private keys will be generated and returned. If a public key is specified, only the public key will be returned.
-
-This method has no parameters.
-
-**Request**
-
-.. code-block:: none
-
-   POST /users/USER_NAME
-
-with a request body similar to:
-
-.. code-block:: javascript
-
-   {
-     "name": "Robert Forster"
-   }
-
-**Response**
-
-The response is similar to:
-
-.. code-block:: javascript
-
-   {
-     "name": "Robert Forster",
-     "private_key": "-----BEGIN PRIVATE KEY-----\n
-                   MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCyVPW9YXa5PR0rgEW1updSxygB\n
-                   wmVpDnHurgQ7/gbh+PmY49EZsfrZSbKgSKy+rxdsVoSoU+krYtHvYIwVfr2tk0FP\n
-                   nhAWJaFH654KpuCNG6x6iMLtzGO1Ma/VzHnFqoOeSCKHXDhmHwJAjGDTPAgCJQiI\n
-                   eau6cDNJRiJ7j0/xBwIDAQAB\n
-                   -----END PRIVATE KEY-----"
-     "admin": true
-   }
-
-**Response Codes**
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Response Code
-     - Description
-   * - ``201``
-     - Created. The object was created.
-   * - ``400``
-     - Bad request. The contents of the request are not formatted correctly.
-   * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
-   * - ``403``
-     - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``409``
-     - Conflict. The object already exists.
-   * - ``413``
-     - Request entity too large. A request may not be larger than 1000000 bytes.
-
-PUT - bad request block info
+PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``PUT`` method is used to update a specific user. If values are not specified for the ``PUT`` method, the Chef Infra Server will use the existing values rather than assign default values.
 
