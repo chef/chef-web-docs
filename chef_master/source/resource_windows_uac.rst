@@ -5,7 +5,7 @@ windows_uac resource
 
 The **windows_uac** resource configures UAC on Windows hosts by setting registry keys at 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
 
-**New in Chef Client 15.0.**
+**New in Chef Infra Client 15.0.**
 
 Syntax
 =====================================================

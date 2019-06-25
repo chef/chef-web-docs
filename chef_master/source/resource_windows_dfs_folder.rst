@@ -5,7 +5,7 @@ windows_dfs_folder resource
 
 The **windows_dfs_folder** resources creates a folder within dfs as many levels deep as required.
 
-**New in Chef Client 15.0.**
+**New in Chef Infra Client 15.0.**
 
 Syntax
 =====================================================

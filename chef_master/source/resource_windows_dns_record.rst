@@ -5,7 +5,7 @@ windows_dns_record resource
 
 The **windows_dns_record** resource creates a DNS record for the given domain.
 
-**New in Chef Client 15.0.**
+**New in Chef Infra Client 15.0.**
 
 Syntax
 =====================================================
