@@ -760,7 +760,7 @@ The response is similar to:
 
 /users/NAME
 -----------------------------------------------------
-The ``/users/USER_NAME`` endpoint has the following methods: ``DELETE``, ``GET``, ``POST``, and ``PUT``.
+The ``/users/USER_NAME`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``.
 
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
