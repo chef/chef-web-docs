@@ -303,6 +303,12 @@ where
 * ``source`` gets the ``httpd.conf.erb`` template from this cookbook
 * ``variables`` assigns the ``instance_name`` and ``port`` properties to variables in the template
 
+.. note:: .. tag template_cookbook_location
+
+          When writing a custom resource that is being shared, you may need to use templates that ship with the custom resource. However, when doing this, you'll need to specify the ``cookbook`` attribute of the ``template`` resource with the name of your resource cookbook, otherwise it will look for templates in the location of the cookbook that is using the resource and won't be able to find them. Example: ``cookbook 'website'``
+
+          .. end_tag
+
 directory
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Use the **directory** resource to create the ``/var/www/vhosts`` directory on the node:
