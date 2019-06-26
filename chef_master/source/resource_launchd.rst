@@ -29,6 +29,7 @@ The launchd resource has the following syntax:
     init_groups                     true, false
     keep_alive                      true, false, Hash
     label                           String # default value: 'name' unless specified
+    launch_events                   Hash
     launch_only_once                true, false
     ld_group                        String
     limit_load_from_hosts           Array
@@ -74,7 +75,7 @@ where:
 * ``launchd`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``abandon_process_group``, ``backup``, ``cookbook``, ``debug``, ``disabled``, ``enable_globbing``, ``enable_transactions``, ``environment_variables``, ``exit_timeout``, ``group``, ``hard_resource_limits``, ``inetd_compatibility``, ``init_groups``, ``keep_alive``, ``label``, ``launch_only_once``, ``ld_group``, ``limit_load_from_hosts``, ``limit_load_to_hosts``, ``limit_load_to_session_type``, ``low_priority_io``, ``mach_services``, ``mode``, ``nice``, ``on_demand``, ``owner``, ``path``, ``plist_hash``, ``process_type``, ``program``, ``program_arguments``, ``queue_directories``, ``root_directory``, ``run_at_load``, ``session_type``, ``sockets``, ``soft_resource_limits``, ``source``, ``standard_error_path``, ``standard_in_path``, ``standard_out_path``, ``start_calendar_interval``, ``start_interval``, ``start_on_mount``, ``throttle_interval``, ``time_out``, ``type``, ``umask``, ``username``, ``wait_for_debugger``, ``watch_paths``, and ``working_directory`` are the properties available to this resource.
+* ``abandon_process_group``, ``backup``, ``cookbook``, ``debug``, ``disabled``, ``enable_globbing``, ``enable_transactions``, ``environment_variables``, ``exit_timeout``, ``group``, ``hard_resource_limits``, ``inetd_compatibility``, ``init_groups``, ``keep_alive``, ``label``, ``launch_events``, ``launch_only_once``, ``ld_group``, ``limit_load_from_hosts``, ``limit_load_to_hosts``, ``limit_load_to_session_type``, ``low_priority_io``, ``mach_services``, ``mode``, ``nice``, ``on_demand``, ``owner``, ``path``, ``plist_hash``, ``process_type``, ``program``, ``program_arguments``, ``queue_directories``, ``root_directory``, ``run_at_load``, ``session_type``, ``sockets``, ``soft_resource_limits``, ``source``, ``standard_error_path``, ``standard_in_path``, ``standard_out_path``, ``start_calendar_interval``, ``start_interval``, ``start_on_mount``, ``throttle_interval``, ``time_out``, ``type``, ``umask``, ``username``, ``wait_for_debugger``, ``watch_paths``, and ``working_directory`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -233,6 +234,13 @@ The following resource properties may be used to define keys in the XML property
    **Ruby Type:** true, false, Hash | **Default Value:** ``false``
 
    Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``).
+
+``launch_events``
+   **Ruby Type:** Hash
+
+   Specify higher-level event types to be used as launch-on-demand event sources.
+
+   *New in Chef Infra Client 15.1.*
 
 ``launch_only_once``
    **Ruby Type:** true, false

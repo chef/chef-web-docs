@@ -42,10 +42,13 @@ The rhsm_errata resource has the following actions:
 
 Properties
 =====================================================
+
+The rhsm_errata resource has the following properties:
+
 ``errata_id``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Specify the Errata ID if it differs from the resource name.
+   An optional property for specifying the errata ID if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================

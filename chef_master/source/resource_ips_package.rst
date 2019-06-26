@@ -32,7 +32,7 @@ The full syntax for all of the properties that are available to the **ips_packag
    ips_package 'name' do
      accept_license             true, false # default value: false
      options                    String
-     package_name               String, Array # defaults to 'name' if not specified
+     package_name               String, Array
      source                     String
      timeout                    String, Integer
      version                    String, Array
@@ -80,7 +80,7 @@ The ips_package resource has the following properties:
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
@@ -90,7 +90,7 @@ The ips_package resource has the following properties:
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer

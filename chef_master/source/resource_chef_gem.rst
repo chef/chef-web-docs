@@ -40,7 +40,7 @@ The full syntax for all of the properties that are available to the **chef_gem**
      gem_binary                 String
      include_default_source     true, false
      options                    String
-     package_name               String # defaults to 'name' if not specified
+     package_name               String
      source                     String, Array
      timeout                    String, Integer
      version                    String

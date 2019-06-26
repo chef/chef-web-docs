@@ -89,12 +89,12 @@ The git resource has the following properties:
 ``depth``
    **Ruby Type:** Integer
 
-   The number of past revisions to be included in the git shallow clone. The default behavior will do a full clone.
+   The number of past revisions to be included in the git shallow clone. Unless specified the default behavior will do a full clone.
 
 ``destination``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The location path to which the source is to be cloned, checked out, or exported. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The location path to which the source is to be cloned, checked out, or exported. Default value: the ``name`` of the resource block.
 
 ``enable_checkout``
    **Ruby Type:** true, false | **Default Value:** ``true``

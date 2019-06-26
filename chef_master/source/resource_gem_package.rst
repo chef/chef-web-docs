@@ -39,7 +39,7 @@ The full syntax for all of the properties that are available to the **gem_packag
      gem_binary                 String
      include_default_source     true, false
      options                    String
-     package_name               String, Array # defaults to 'name' if not specified
+     package_name               String, Array
      source                     String, Array
      timeout                    String, Integer
      version                    String, Array

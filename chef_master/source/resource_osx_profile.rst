@@ -32,6 +32,7 @@ where:
 
 Actions
 =====================================================
+
 The osx_profile resource has the following actions:
 
 ``:install``
@@ -51,6 +52,7 @@ The osx_profile resource has the following actions:
 
 Properties
 =====================================================
+
 The osx_profile resource has the following properties:
 
 ``identifier``

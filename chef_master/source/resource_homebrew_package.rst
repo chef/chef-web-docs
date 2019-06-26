@@ -32,7 +32,7 @@ The full syntax for all of the properties that are available to the **homebrew_p
    homebrew_package 'name' do
      homebrew_user              String, Integer
      options                    String
-     package_name               String, Array # defaults to 'name' if not specified
+     package_name               String, Array
      source                     String
      timeout                    String, Integer
      version                    String, Array
@@ -44,12 +44,13 @@ where:
 * ``homebrew_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``homebrew_user``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
+* ``homebrew_user``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 
 
 Actions
 =====================================================
+
 The homebrew_package resource has the following actions:
 
 ``:install``

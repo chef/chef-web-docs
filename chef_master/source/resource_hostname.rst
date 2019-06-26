@@ -62,7 +62,7 @@ The hostname resource has the following properties:
 ``hostname``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   An optional property to set the hostnam if it differs from the resource block's name.
+   An optional property to set the hostname if it differs from the resource block's name.
 
 ``ipaddress``
    **Ruby Type:** String | **Default Value:** ``The node's IP address as determined by Ohai.``

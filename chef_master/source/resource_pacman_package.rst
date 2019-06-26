@@ -29,14 +29,14 @@ The full syntax for all of the properties that are available to the **pacman_pac
 
 .. code-block:: ruby
 
-   pacman_package 'name' do
-     options                    String
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  pacman_package 'name' do
+    options           String
+    package_name      String, Array
+    source            String
+    timeout           String, Integer
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
+  end
 
 where:
 

@@ -17,7 +17,7 @@ The reboot resource has the following syntax:
 
   reboot 'name' do
     delay_mins      Integer # default value: 0
-    reason          String # default value: "Reboot by Chef"
+    reason          String # default value: "Reboot by Chef Infra Client"
     action          Symbol # defaults to :nothing if not specified
   end
 
@@ -60,7 +60,7 @@ The reboot resource has the following properties:
    The amount of time (in minutes) to delay a reboot request.
 
 ``reason``
-   **Ruby Type:** String | **Default Value:** ``"Reboot by Chef"``
+   **Ruby Type:** String | **Default Value:** ``"Reboot by Chef Infra Client"``
 
    A string that describes the reboot action.
 

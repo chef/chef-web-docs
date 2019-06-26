@@ -29,15 +29,15 @@ The full syntax for all of the properties that are available to the **rpm_packag
 
 .. code-block:: ruby
 
-   rpm_package 'name' do
-     allow_downgrade            true, false
-     options                    String
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  rpm_package 'name' do
+    allow_downgrade      true, false # default value: true
+    options              String, Array
+    package_name         String, Array
+    source               String
+    timeout              String, Integer
+    version              String, Array
+    action               Symbol # defaults to :install if not specified
+  end
 
 where:
 
@@ -78,7 +78,7 @@ The rpm_package resource has the following properties:
    Downgrade a package to satisfy requested version requirements.
 
 ``options``
-   **Ruby Type:** String
+   **Ruby Type:** String, Array
 
    One (or more) additional command options that are passed to the command.
 

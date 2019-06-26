@@ -15,7 +15,7 @@ The snap_package resource has the following syntax:
     channel           String # default value: "stable"
     options           String, Array
     package_name      String, Array
-    source            Strings
+    source            String
     timeout           String, Integer
     version           String, Array
     action            Symbol # defaults to :install if not specified
