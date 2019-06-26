@@ -1,42 +1,41 @@
 =====================================================
-openssl_dhparam resource
+chocolatey_feature resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openssl_dhparam.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_feature.rst>`__
 
-Use the **openssl_dhparam** resource to generate ``dhparam.pem`` files. If a valid ``dhparam.pem`` file is found at the specified location, no new file will be created. If a file is found at the specified location, but it is not a valid dhparam file, it will be overwritten.
+Use the **chocolatey_feature** resource to enable and disable Chocolatey features.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 15.1.**
 
 Syntax
 =====================================================
-The openssl_dhparam resource has the following syntax:
+The chocolatey_feature resource has the following syntax:
 
 .. code-block:: ruby
 
-  openssl_dhparam 'name' do
-    generator       Integer # default value: 2
-    group           String, Integer
-    key_length      Integer # default value: 2048
-    mode            Integer, String # default value: "0640"
-    owner           String, Integer
-    path            String # default value: 'name' unless specified
-    action          Symbol # defaults to :create if not specified
+  chocolatey_feature 'name' do
+    feature_name       String # default value: 'name' unless specified
+    feature_state      true, false # default value: false
+    action             Symbol # defaults to :enable if not specified
   end
 
 where:
 
-* ``openssl_dhparam`` is the resource.
+* ``chocolatey_feature`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``generator``, ``group``, ``key_length``, ``mode``, ``owner``, and ``path`` are the properties available to this resource.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
+* ``feature_name`` and ``feature_state`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The openssl_dhparam resource has the following actions:
+The chocolatey_feature resource has the following actions:
 
-``:create``
-   Default. Create the ``dhparam.pem`` file.
+``:disable``
+    Disable a Chocolatey Feature.
+
+``:enable``
+    Enable a Chocolatey Feature.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -48,38 +47,12 @@ The openssl_dhparam resource has the following actions:
 Properties
 =====================================================
 
-The openssl_dhparam resource has the following properties:
+The chocolatey_feature resource has the following properties:
 
-``generator``
-   **Ruby Type:** Integer | **Default Value:** ``2``
-
-   The desired Diffie-Hellmann generator; available options are ``2`` and ``5``.
-
-``group``
-   **Ruby Type:** String, Integer
-
-   The group ownership applied to all files created by the resource.
-
-``key_length``
-   **Ruby Type:** Integer | **Default Value:** ``2048``
-
-   The desired bit length of the generated key; available options are ``1024``, ``2048``, ``4096``, and ``8192``.
-
-``mode``
-   **Ruby Type:** Integer, String | **Default Value:** ``0640``
-
-   The permission mode applied to all files created by the resource.
-
-
-``owner``
-   **Ruby Type:** String, Integer
-
-   The owner applied to all files created by the resource.
-
-``path``
+``feature_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   An optional property for specifying the path to write the file to if it differs from the resource block's name.
+   The name of the Chocolatey feature to enable or disable.
 
 Common Resource Functionality
 =====================================================
@@ -117,7 +90,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -226,37 +198,3 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
-
-Examples
-=====================================================
-
-**Create a dhparam file**
-
-.. code-block:: ruby
-
-   openssl_dhparam '/etc/httpd/ssl/dhparam.pem'
-
-**Create a dhparam file with a specific key length**
-
-.. code-block:: ruby
-
-   openssl_dhparam '/etc/httpd/ssl/dhparam.pem' do
-     key_length 4096
-   end
-
-**Create a dhparam file with specific user/group ownership**
-
-.. code-block:: ruby
-
-   openssl_dhparam '/etc/httpd/ssl/dhparam.pem' do
-     owner 'www-data'
-     group 'www-data'
-   end
-
-**Manually specify the dhparam file path**
-
-.. code-block:: ruby
-
-   openssl_dhparam 'httpd_dhparam' do
-     path '/etc/httpd/ssl/dhparam.pem'
-   end

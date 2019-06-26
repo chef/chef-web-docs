@@ -160,6 +160,7 @@ Cookbook Reference
 `chef_role </resource_chef_role.html>`__ |
 `chef_user </resource_chef_user.html>`__ |
 `chocolatey_config </resource_chocolatey_config.html>`__
+`chocolatey_feature </resource_chocolatey_feature.html>`__
 `chocolatey_package </resource_chocolatey_package.html>`__
 `chocolatey_source </resource_chocolatey_source.html>`__
 `cookbook_file </resource_cookbook_file.html>`__ |
@@ -732,6 +733,7 @@ Addenda
    resource_chef_organization
    resource_chef_role
    resource_chef_user
+   resource_chocolatey_feature
    resource_chocolatey_package
    resource_common
    resource_cookbook_file
