@@ -7,7 +7,7 @@ Use the **rhsm_errata_level** resource to install all packages of a specified er
 
 The available errata levels are: ``critical``, ``moderate``, ``important``, and ``low``.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

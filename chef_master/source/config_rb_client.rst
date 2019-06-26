@@ -33,12 +33,12 @@ This configuration file has the following settings:
 ``automatic_attribute_blacklist``
    A hash that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``automatic_attribute_whitelist``
    A hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``cache_path``
    The home directory for the user that is running the Chef Infra Client as a non-root user.
@@ -74,7 +74,7 @@ This configuration file has the following settings:
 ``client_fork``
    Contain the Chef Infra Client run in a secondary process with dedicated RAM. When the Chef Infra Client run is complete, the RAM is returned to the master process. This setting helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the Chef Infra Client in fork node.
 
-   .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Client configuration file necessary.
+   .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Infra Client configuration file necessary.
 
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``.
@@ -112,12 +112,12 @@ This configuration file has the following settings:
 ``default_attribute_blacklist``
    A hash that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``default_attribute_whitelist``
    A hash that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``diff_disabled``
    Cause the Chef Infra Client to create a diff when changes are made to a file. Default value: ``false``.
@@ -265,22 +265,22 @@ This configuration file has the following settings:
 ``normal_attribute_blacklist``
    A hash that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``override_attribute_blacklist``
    A hash that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``normal_attribute_whitelist``
    A hash that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``override_attribute_whitelist``
    A hash that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``pid_file``
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
@@ -374,7 +374,7 @@ This configuration file has the following settings:
 
    .. warning:: The ``whitelist`` setting is available only when using Chef Push Jobs, a tool that runs jobs against nodes in an organization.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available to the Chef Infra Client run when the Chef Infra Client is run as a service on the Microsoft Windows platform. If the Chef Infra Client run does not complete within the specified timeframe, the Chef Infra Client run is terminated. Default value: ``2 * (60 * 60)``.

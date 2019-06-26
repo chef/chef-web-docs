@@ -73,7 +73,7 @@ The group resource has the following properties:
 
    Specifies a comment to associate with the local group.
 
-   *New in Chef Infra Client 14.9.*
+   *New in Chef Client 14.9.*
 
 ``excluded_members``
    **Ruby Type:** String, Array

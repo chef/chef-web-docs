@@ -43,7 +43,7 @@ The reboot resource has the following actions:
    .. end_tag
 
 ``:reboot_now``
-   Reboot a node so that the chef-client may continue the installation process.
+   Reboot a node so that Chef Infra Client may continue the installation process.
 
 ``:request_reboot``
    Reboot a node at the end of a Chef Infra Client run.

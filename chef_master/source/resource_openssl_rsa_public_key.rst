@@ -5,7 +5,7 @@ openssl_rsa_public_key resource
 
 Use the **openssl_rsa_public_key** resource to generate RSA public key files for a given RSA private key.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

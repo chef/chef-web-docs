@@ -254,7 +254,7 @@ only_if Examples
 
 **Install packages only when necessary**
 
-The following example shows how to use ``only_if`` with one (or more) cookbook attributes to ensure that packages are only installed when necessary. In this case, three attributes exist in the ``/attributes/default.rb`` file: ``use_openssl``, ``use_pcre``, and ``use_zlib``. Each of these attributes are defined as ``false`` by default. The ``only_if`` attributes are used to test for the presence of these packages on the target node before then asking the Chef Infra Client to complete the process of installing these packages. If the packages are already present, the chef-client will do nothing.
+The following example shows how to use ``only_if`` with one (or more) cookbook attributes to ensure that packages are only installed when necessary. In this case, three attributes exist in the ``/attributes/default.rb`` file: ``use_openssl``, ``use_pcre``, and ``use_zlib``. Each of these attributes are defined as ``false`` by default. The ``only_if`` attributes are used to test for the presence of these packages on the target node before then asking the Chef Infra Client to complete the process of installing these packages. If the packages are already present, Chef Infra Client will do nothing.
 
 .. code-block:: ruby
 
@@ -710,7 +710,7 @@ With the ``:before`` notification, the action specified for the ``nginx`` resour
 
 .. To transfer a file only if the remote source has changed (using the |resource http request| resource):
 
-.. The "Transfer a file only when the source has changed" example is deprecated in chef-client 11.6
+.. The "Transfer a file only when the source has changed" example is deprecated in Chef Client 11.6
 
 .. code-block:: ruby
 
@@ -840,14 +840,14 @@ Run in Compile Phase
 =====================================================
 .. tag resources_common_compile
 
-The chef-client processes recipes in two phases:
+Chef Infra Client processes recipes in two phases:
 
 #. First, each resource in the node object is identified and a resource collection is built. All recipes are loaded in a specific order, and then the actions specified within each of them are identified. This is also referred to as the "compile phase".
-#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
+#. Next, Chef Infra Client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
 
 Typically, actions are processed during the execution phase of the Chef Infra Client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
 
-.. note:: Use the **chef_gem** resource to install gems that are needed by the chef-client during the execution phase.
+.. note:: Use the **chef_gem** resource to install gems that are needed by Chef Infra Client during the execution phase.
 
 .. end_tag
 
@@ -886,11 +886,11 @@ Sometimes it is necessary to ensure that an operating system's package cache is 
      e.run_action(:run)
    end
 
-where ``e.run_action(:run)`` tells the chef-client to run the ``apt-get update`` command during the compile phase. This example can be found in the ``default.rb`` recipe of the `apt cookbook <https://github.com/chef-cookbooks/apt>`_ that is maintained by Chef.
+where ``e.run_action(:run)`` tells Chef Infra Client to run the ``apt-get update`` command during the compile phase. This example can be found in the ``default.rb`` recipe of the `apt cookbook <https://github.com/chef-cookbooks/apt>`_ that is maintained by Chef.
 
 **Use the chef_gem resource for Ruby gems**
 
-A very common use case is to install a gem during the compile phase so that it will be available to the chef-client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
+A very common use case is to install a gem during the compile phase so that it will be available to Chef Infra Client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
 
 .. code-block:: ruby
 

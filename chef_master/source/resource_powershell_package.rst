@@ -5,7 +5,7 @@ powershell_package resource
 
 Use the **powershell_package** resource to install and manage packages via the PowerShell Package Manager for the Microsoft Windows platform.  The **powershell_package** resource requires administrative access, and a source must be configured in the PowerShell Package Manager via the `Register-PackageSource <https://docs.microsoft.com/en-us/powershell/module/packagemanagement/register-packagesource?view=powershell-5.1>`_ command or the `powershell_package_source </resource_powershell_package_source.html>`__ resource.
 
-**New in Chef Infra Client 12.16.**
+**New in Chef Client 12.16.**
 
 Syntax
 =====================================================
@@ -63,14 +63,14 @@ The powershell_package resource has the following properties:
 
    Skip validating module author.
 
-   *New in Chef Infra Client 14.3.*
+   *New in Chef Client 14.3.*
 
 ``source``
    **Ruby Type:** String
 
    Specify the source of the package.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``timeout``
    **Ruby Type:** String, Integer

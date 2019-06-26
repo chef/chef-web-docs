@@ -5,7 +5,7 @@ windows_printer resource
 
 Use the **windows_printer** resource to setup Windows printers. Note that this doesn't currently install a printer driver. You must already have the driver installed on the system.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

@@ -5,7 +5,7 @@ powershell_package_source resource
 
 Use the **powershell_package_source** resource to register a PowerShell package repository.
 
-**New in Chef Infra Client 14.3.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================

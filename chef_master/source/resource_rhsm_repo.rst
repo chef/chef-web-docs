@@ -5,7 +5,7 @@ rhsm_repo resource
 
 Use the **rhsm_repo** resource to enable or disable Red Hat Subscription Manager repositories that are made available via attached subscriptions.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

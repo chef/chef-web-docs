@@ -5,7 +5,7 @@ homebrew_cask resource
 
 Use the **homebrew_cask** resource to install binaries distributed via the Homebrew package manager.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

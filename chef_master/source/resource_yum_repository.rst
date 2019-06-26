@@ -5,7 +5,7 @@ yum_repository resource
 
 Use the **yum_repository** resource to manage a Yum repository configuration file located at ``/etc/yum.repos.d/repositoryid.repo`` on the local machine. This configuration file specifies which repositories to reference, how to handle cached data, etc.
 
-**New in Chef Infra Client 12.14.**
+**New in Chef Client 12.14.**
 
 Syntax
 =====================================================

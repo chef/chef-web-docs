@@ -5,7 +5,7 @@ systemd_unit resource
 
 Use the **systemd_unit** resource to create, manage, and run `systemd units <https://www.freedesktop.org/software/systemd/man/systemd.html#Concepts>`_.
 
-**New in Chef Infra Client 12.11.**
+**New in Chef Client 12.11.**
 
 Syntax
 =====================================================
@@ -74,17 +74,17 @@ The systemd_unit resource has the following actions:
 ``:preset``
    Restore the preset "enable/disable" configuration for a unit.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``:reenable``
    Reenable a unit file.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``:revert``
    Revet to a vendor's version of a unit file.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``:start``
    Start a unit based in its systemd unit file.
@@ -127,7 +127,7 @@ The systemd_unit resource has the following properties:
 
    The name of the unit file if it differs from the resource block name.
 
-   *New in Chef Infra Client 13.7.*
+   *New in Chef Client 13.7.*
 
 ``user``
    **Ruby Type:** String

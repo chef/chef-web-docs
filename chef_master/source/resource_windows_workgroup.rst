@@ -5,7 +5,7 @@ windows_workgroup resource
 
 Use the **windows_workgroup** resource to join or change the workgroup of a Windows host.
 
-**New in Chef Infra Client 14.5.**
+**New in Chef Client 14.5.**
 
 Syntax
 =====================================================

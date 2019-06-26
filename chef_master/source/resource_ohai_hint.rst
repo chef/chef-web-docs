@@ -5,7 +5,7 @@ ohai_hint resource
 
 Use the **ohai_hint** resource to aid in configuration detection by passing hint data to Ohai.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -39,7 +39,7 @@ The ohai_hint resource has the following actions:
    Delete an Ohai hint file.
 
 ``:nothing``
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, the resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, the resource block is either run immediately or it is queued up to be run at the end of the Chef Infra Client run.
 
 Properties
 =====================================================

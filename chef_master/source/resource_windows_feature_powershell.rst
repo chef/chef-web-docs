@@ -5,7 +5,7 @@ windows_feature_powershell resource
 
 Use the **windows_feature_powershell** resource to add, remove or entirely delete Windows features and roles using PowerShell. This resource offers significant speed benefits over the `windows_feature_dism </resource_windows_feature_dism.html>`__ resource, but requires installation of the Remote Server Administration Tools on non-server releases of Windows.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

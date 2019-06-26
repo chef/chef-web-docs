@@ -27,8 +27,8 @@ The syntax for using the **chef_acl** resource in a recipe is as follows:
 
 where
 
-* ``chef_acl`` tells the chef-client to use the ``Chef::Provider::ChefAcl`` provider during the chef-client run
-* ``name`` is the name of the resource block; when the ``path`` property is not specified as part of a recipe, ``name`` is also the name of the chef-client
+* ``chef_acl`` tells Chef Infra Client to use the ``Chef::Provider::ChefAcl`` provider during Chef Infra Client run
+* ``name`` is the name of the resource block; when the ``path`` property is not specified as part of a recipe, ``name`` is also the name of the Chef Infra Client.
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
@@ -99,7 +99,7 @@ This resource has the following properties:
    A path to a directory in the chef-repo against which the ACL is applied. For example: ``nodes``, ``nodes/*``, ``nodes/my_node``, ``*/*``, ``**``, ``roles/base``, ``data/secrets``, ``cookbooks/apache2``, ``/users/*``, and so on.
 
 ``raw_json``
-   The chef-client as JSON data. For example:
+   Chef Infra Client as JSON data. For example:
 
    .. code-block:: javascript
 

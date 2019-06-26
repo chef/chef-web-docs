@@ -5,7 +5,7 @@ macos_userdefaults resource
 
 Use the **macos_userdefaults** resource to manage the macOS `user defaults <https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/UserDefaults/AboutPreferenceDomains/AboutPreferenceDomains.html#//apple_ref/doc/uid/10000059i-CH2-SW6>`__ system. The properties of the resource are passed to the ``defaults`` command, and the parameters follow the conventions of that command. See the ``defaults`` man page for additional information.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

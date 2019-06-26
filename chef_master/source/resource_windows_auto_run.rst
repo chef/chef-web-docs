@@ -5,7 +5,7 @@ windows_auto_run resource
 
 Use the **windows_auto_run** resource to set applications to run at login.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

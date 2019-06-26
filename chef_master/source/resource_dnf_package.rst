@@ -91,7 +91,7 @@ The dnf_package resource has the following properties:
    Flush the in-memory cache before or after a DNF operation that installs, upgrades, or removes a package. Default value: ``[ :before, :after ]``. The value may also be a Hash: ``( { :before => true/false, :after => true/false } )``.
 
   
-   DNF automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the Chef Infra Client run. The in-memory cache allows packages to be installed during the Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
+   DNF automatically synchronizes remote metadata to a local cache. Chef Infra Client creates a copy of the local cache, and then stores it in-memory during the Chef Infra Client run. The in-memory cache allows packages to be installed during the Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
 
    
 

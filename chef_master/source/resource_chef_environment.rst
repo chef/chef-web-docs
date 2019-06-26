@@ -33,7 +33,7 @@ The syntax for using the **chef_environment** resource in a recipe is as follows
 
 where
 
-* ``chef_environment`` tells the chef-client to use the ``Chef::Provider::ChefEnvironment`` provider during the chef-client run
+* ``chef_environment`` tells Chef Infra Client to use the ``Chef::Provider::ChefEnvironment`` provider during Chef Infra Client run
 * ``name`` is the name of the resource block; when the ``name`` property is not specified as part of a recipe, ``name`` is also the name of the environment
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state

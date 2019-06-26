@@ -70,7 +70,7 @@ where:
 
 * ``dsc_script`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the Chef Client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``code``, ``command``, ``configuration_data``, ``configuration_data_script``, ``configuration_name``, ``cwd``, ``environment``, ``flags``, ``imports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag

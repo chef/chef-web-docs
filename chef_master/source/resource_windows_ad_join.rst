@@ -5,7 +5,7 @@ windows_ad_join resource
 
 Use the **windows_ad_join** resource to join a Windows Active Directory domain.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
@@ -71,7 +71,7 @@ The windows_ad_join resource has the following properties:
 
    Specifies a new hostname for the computer in the new domain.
 
-   *New in Chef Infra Client 14.5.*
+   *New in Chef Client 14.5.*
 
 ``ou_path``
    **Ruby Type:** String
@@ -84,7 +84,7 @@ The windows_ad_join resource has the following properties:
    Controls the system reboot behavior after joining the domain, with the following options:
 
    * ``:immediate``: reboot immediately
-   * ``:delayed``: reboot after the Chef Client run completes
+   * ``:delayed``: reboot after the Chef Infra Client run completes
    * ``:never``: do not reboot
 
    Note that a reboot is necessary for changes to take effect.

@@ -5,7 +5,7 @@ windows_feature_dism resource
 
 Use the **windows_feature_dism** resource to add, remove, or entirely delete Windows features and roles using DISM.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

@@ -5,7 +5,7 @@ windows_firewall_rule resource
 
 Use the **windows_firewall_rule** resource to create, change or remove windows firewall rules.
 
-**New in Chef Infra Client 14.7.**
+**New in Chef Client 14.7.**
 
 Syntax
 =====================================================

@@ -7,7 +7,7 @@ user resource
 
 Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
-.. note:: System attributes are collected by Ohai at the start of every Chef Infra Client run. By design, the actions available to the **user** resource are processed **after** the start of the Chef Infra Client run. This means that system attributes added or modified by the **user** resource during the Chef Infra Client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) Chef Infra Client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current Chef Infra Client run.
+.. note:: System attributes are collected by Ohai at the start of every Chef Infra Client run. By design, the actions available to the **user** resource are processed **after** the start of the Chef Infra Client run. This means that system attributes added or modified by the **user** resource during the Chef Infra Client run must be reloaded before they can be available to Chef Infra Client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) Chef Infra Client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current Chef Infra Client run.
 
 .. end_tag
 
@@ -51,7 +51,7 @@ where
 
 * ``user`` is the resource
 * ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``comment``, ``force``, ``gid``, ``home``, ``iterations``, ``manage_home``, ``non_unique``, ``password``, ``salt``, ``shell``, ``system``, ``uid``, and ``username`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions

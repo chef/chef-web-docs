@@ -45,7 +45,7 @@ This subcommand has the following options:
 ``--ssh-gateway-identity SSH_GATEWAY_IDENTITY``
    The SSH identity file used to connect to the SSH gateway.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTIFY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.

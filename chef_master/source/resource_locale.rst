@@ -5,7 +5,7 @@ locale resource
 
 Use the **locale** resource to set the system's locale.
 
-**New in Chef Infra Client 14.5.**
+**New in Chef Client 14.5.**
 
 Syntax
 =====================================================

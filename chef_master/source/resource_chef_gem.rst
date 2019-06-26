@@ -5,15 +5,15 @@ chef_gem resource
 
 .. warning:: .. tag notes_chef_gem_vs_gem_package
 
-             The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which the chef-client is installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is available only to the chef-client. Use the **chef_gem** resource to install gems into the instance of Ruby that is dedicated to the chef-client. Use the **gem_package** resource to install all other gems (i.e. install gems system-wide).
+             The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which Chef Infra Client is installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is available only to Chef Infra Client. Use the **chef_gem** resource to install gems into the instance of Ruby that is dedicated to Chef Infra Client. Use the **gem_package** resource to install all other gems (i.e. install gems system-wide).
 
              .. end_tag
 
 .. tag resource_package_chef_gem
 
-Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to Chef Infra Client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which the chef-client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
+The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which Chef Infra Client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
 
 * Runs its actions immediately, before convergence, allowing a gem to be used in a recipe immediately after it is installed
 * Runs ``Gem.clear_paths`` after the action, ensuring that gem is aware of changes so that it can be required immediately after it is installed
@@ -103,19 +103,19 @@ The chef_gem resource has the following properties:
 ``compile_time``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
+   Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while Chef Infra Client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
 ``gem_binary``
    **Ruby Type:** String | **Default Value:** ``Chef's built-in gem binary``
 
-   The path of a gem binary to use for the installation. By default, the same version of Ruby that is used by the chef-client will be installed.
+   The path of a gem binary to use for the installation. By default, the same version of Ruby that is used by Chef Infra Client will be installed.
 
 ``include_default_source``
    **Ruby Type:** true, false | **Default Value:** ``true``
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``options``
    **Ruby Type:** String, Hash, Array,
@@ -298,7 +298,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. To install a gems file for use in a recipe:
 
-To install a gem while the chef-client is configuring the node (the “converge phase”), set the ``compile_time`` property to ``false``:
+To install a gem while Chef Infra Client is configuring the node (the “converge phase”), set the ``compile_time`` property to ``false``:
 
 .. code-block:: ruby
 

@@ -5,7 +5,7 @@ gem_package resource
 
 .. warning:: .. tag notes_chef_gem_vs_gem_package
 
-             The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which the chef-client is installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is available only to the chef-client. Use the **chef_gem** resource to install gems into the instance of Ruby that is dedicated to the chef-client. Use the **gem_package** resource to install all other gems (i.e. install gems system-wide).
+             The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which Chef Infra Client is installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is available only to Chef Infra Client. Use the **chef_gem** resource to install gems into the instance of Ruby that is dedicated to Chef Infra Client. Use the **gem_package** resource to install all other gems (i.e. install gems system-wide).
 
              .. end_tag
 
@@ -59,8 +59,8 @@ Gem Package Options
 
 The RubyGems package provider attempts to use the RubyGems API to install gems without spawning a new process, whenever possible. A gems command to install will be spawned under the following conditions:
 
-* When a ``gem_binary`` property is specified (as a hash, a string, or by a .gemrc file), the chef-client will run that command to examine its environment settings and then again to install the gem.
-* When install options are specified as a string, the chef-client will span a gems command with those options when installing the gem.
+* When a ``gem_binary`` property is specified (as a hash, a string, or by a .gemrc file), Chef Infra Client will run that command to examine its environment settings and then again to install the gem.
+* When install options are specified as a string, Chef Infra Client will span a gems command with those options when installing the gem.
 * The Chef installer will search the ``PATH`` for a gem command rather than defaulting to the current gem environment. As part of ``enforce_path_sanity``, the ``bin`` directories area added to the ``PATH``, which means when there are no other proceeding RubyGems, the installation will still be operated against it.
 
 .. end_tag
@@ -105,7 +105,7 @@ Specify with String
 
 .. tag resource_package_options_string
 
-When using an explicit ``gem_binary``, options must be passed as a string. When not using an explicit ``gem_binary``, the chef-client is forced to spawn a gems process to install the gems (which uses more system resources) when options are passed as a string. String options are passed verbatim to the gems command and should be specified just as if they were passed on a command line. For example, ``--prerelease`` for a pre-release gem.
+When using an explicit ``gem_binary``, options must be passed as a string. When not using an explicit ``gem_binary``, Chef Infra Client is forced to spawn a gems process to install the gems (which uses more system resources) when options are passed as a string. String options are passed verbatim to the gems command and should be specified just as if they were passed on a command line. For example, ``--prerelease`` for a pre-release gem.
 
 .. end_tag
 
@@ -214,12 +214,12 @@ The gem_package resource has the following properties:
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``gem_binary``
    **Ruby Type:** String
 
-   A property for the ``gem_package`` provider that is used to specify a gems binary. By default, the same version of Ruby that is used by the chef-client will be installed.
+   A property for the ``gem_package`` provider that is used to specify a gems binary. By default, the same version of Ruby that is used by Chef Infra Client will be installed.
 
 
 ``include_default_source``
@@ -227,7 +227,7 @@ The gem_package resource has the following properties:
 
    Set to 'false' to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
-   *New in Chef Infra Client 13.0.*
+   *New in Chef Client 13.0.*
 
 ``options``
    **Ruby Type:** String

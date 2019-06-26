@@ -5,7 +5,7 @@ rhsm_register resource
 
 Use the **rhsm_register** resource to register a node with the Red Hat Subscription Manager or a local Red Hat Satellite server.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

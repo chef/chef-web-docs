@@ -27,7 +27,7 @@ The syntax for using the **chef_organization** resource in a recipe is as follow
 
 where
 
-* ``chef_organization`` tells the chef-client to use the ``Chef::Provider::ChefOrganization`` provider during the chef-client run
+* ``chef_organization`` tells Chef Infra Client to use the ``Chef::Provider::ChefOrganization`` provider during Chef Infra Client run
 * ``name`` is the name of the resource block
 * ``attribute`` is zero (or more) of the attributes that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state

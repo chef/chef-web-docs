@@ -80,10 +80,10 @@ The homebrew_package resource has the following properties:
 ``homebrew_user``
    **Ruby Type:** String, Integer
 
-   The name of the Homebrew owner to be used by the chef-client when executing a command.
+   The name of the Homebrew owner to be used by Chef Infra Client when executing a command.
 
 
-   The chef-client, by default, will attempt to execute a Homebrew command as the owner of ``/usr/local/bin/brew``. If that executable does not exist, the chef-client will attempt to find the user by executing ``which brew``. If that executable cannot be found, the chef-client will print an error message: ``Could not find the "brew" executable in /usr/local/bin or anywhere on the path.``. Use the ``homebrew_user`` attribute to specify the Homebrew owner for situations where the chef-client cannot automatically detect the correct owner.
+   Chef Infra Client, by default, will attempt to execute a Homebrew command as the owner of ``/usr/local/bin/brew``. If that executable does not exist, Chef Infra Client will attempt to find the user by executing ``which brew``. If that executable cannot be found, Chef Infra Client will print an error message: ``Could not find the "brew" executable in /usr/local/bin or anywhere on the path.``. Use the ``homebrew_user`` attribute to specify the Homebrew owner for situations where Chef Infra Client cannot automatically detect the correct owner.
 
 
 

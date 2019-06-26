@@ -37,7 +37,7 @@ where:
 * ``ruby_block`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``block`` is the block of Ruby code to be executed.
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``block`` and ``block_name`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -179,7 +179,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_ruby_block_reread_chef_client
 
-.. To re-read the chef-client configuration during a Chef Infra Client run:
+.. To re-read Chef Infra Client configuration during a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -196,7 +196,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_package_install_yum_repo_from_file
 
-The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
+The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for Chef Infra Client to reload:
 
 .. code-block:: ruby
 

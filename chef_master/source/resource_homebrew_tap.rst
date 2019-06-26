@@ -5,7 +5,7 @@ homebrew_tap resource
 
 Use the **homebrew_tap** resource to add additional formula repositories to the Homebrew package manager.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

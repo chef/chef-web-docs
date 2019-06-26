@@ -64,7 +64,7 @@ The windows_service resource has the following actions:
 ``:configure``
    Configure a pre-existing service.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``:configure_startup``
    Configure a service based on the value of the ``startup_type`` property.
@@ -72,12 +72,12 @@ The windows_service resource has the following actions:
 ``:create``
    Create the service based on the value of the ``binary_path_name``, ``service_name`` and/or ``display_name`` property.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``:delete``
    Delete the service based on the value of the ``service_name`` property.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``:disable``
    Disable a service. This action is equivalent to a ``Disabled`` startup type on the Microsoft Windows platform.
@@ -118,28 +118,28 @@ The windows_service resource has the following properties:
 
    The fully qualified path to the service binary file. The path can also include arguments for an auto-start service. This is required for ':create' and ':configure' actions
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``delayed_start``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Set the startup type to delayed start. This only applies if ``startup_type`` is ``:automatic``.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``dependencies``
    **Ruby Type:** String, Array
 
    A pointer to a double null-terminated array of null-separated names of services or load ordering groups that the system must start before this service. Specify ``nil`` or an empty string if the service has no dependencies. Dependency on a group means that this service can run if at least one member of the group is running after an attempt to start all members of the group.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``description``
    **Ruby Type:** String
 
    Description of the service.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``desired_access``
    **Ruby Type:** Integer | **Default Value:** ``983551``
@@ -149,7 +149,7 @@ The windows_service resource has the following properties:
 
    The display name to be used by user interface programs to identify the service. This string has a maximum length of 256 characters.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``init_command``
    **Ruby Type:** String
@@ -161,7 +161,7 @@ The windows_service resource has the following properties:
 
    The name of the service's load ordering group(s). Specify ``nil`` or an empty string if the service does not belong to a group.
 
-   *New in Chef Infra Client 14.0.*
+   *New in Chef Client 14.0.*
 
 ``pattern``
    **Ruby Type:** String | **Default Value:** ``service_name``

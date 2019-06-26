@@ -5,7 +5,7 @@ swap_file resource
 
 Use the **swap_file** resource to create or delete swap files on Linux systems, and optionally to manage the swappiness configuration for a host.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

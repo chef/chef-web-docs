@@ -5,11 +5,11 @@ chef_handler resource
 
 .. tag resource_chef_handler_summary
 
-Use the **chef_handler** resource to enable handlers during a chef-client run. The resource allows arguments to be passed to the chef-client, which then applies the conditions defined by the custom handler to the node attribute data collected during the chef-client run, and then processes the handler based on that data.
+Use the **chef_handler** resource to enable handlers during a Chef Infra Client run. The resource allows arguments to be passed to the Chef Infra Client, which then applies the conditions defined by the custom handler to the node attribute data collected during the Chef Infra Client run, and then processes the handler based on that data.
 
-The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.
+The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire Chef Infra Client run.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 .. end_tag
 
@@ -508,7 +508,7 @@ The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_f
 
 Optional Interfaces
 -----------------------------------------------------
-The following interfaces may be used in a handler in the same way as the ``report`` interface to override the default handler behavior in the chef-client. That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
+The following interfaces may be used in a handler in the same way as the ``report`` interface to override the default handler behavior in . That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
 
 data
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -5,7 +5,7 @@ hostname resource
 
 Use the **hostname** resource to set the system's hostname, configure hostname and hosts config file, and re-run the Ohai **hostname** plugin so the hostname will be available in subsequent cookbooks.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

@@ -114,21 +114,21 @@ The execute resource has the following properties:
 
    When true this enables ENV magic to add path_sanity to the PATH and force the locale to English+UTF-8 for parsing output
 
-   *New in Chef Infra Client 14.2.*
+   *New in Chef Client 14.2.*
 
 ``domain``
    **Ruby Type:** String
 
    Windows only: The domain of the user user specified by the user property. If not specified, the user name and password specified by the user and password properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the user property.
 
-   *New in Chef Infra Client 12.21.*
+   *New in Chef Client 12.21.*
 
 ``elevated``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether the script will run with elevated permissions to circumvent User Access Control (UAC) interactively blocking the process. This will cause the process to be run under a batch login instead of an interactive login. The user running Chef needs the “Replace a process level token” and “Adjust Memory Quotas for a process” permissions. The user that is running the command needs the “Log on as a batch job” permission because of this requires a login, the user and password properties are required.
 
-   *New in Chef Infra Client 13.3.*
+   *New in Chef Client 13.3.*
 
 ``environment``
    **Ruby Type:** Hash
@@ -143,14 +143,14 @@ The execute resource has the following properties:
 ``live_stream``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Send the output of the command run by this **execute** resource block to the chef-client event stream.
+   Send the output of the command run by this **execute** resource block to Chef Infra Client event stream.
 
 ``password``
    **Ruby Type:** String
 
    Windows only: The password of the user specified by the user property. This property is mandatory if user is specified on Windows and may only be specified if user is specified. The sensitive property for this resource will automatically be set to true if password is specified.
 
-   *New in Chef Infra Client 12.21.*
+   *New in Chef Client 12.21.*
 
 ``returns``
    **Ruby Type:** Integer, Array | **Default Value:** ``0``
@@ -404,7 +404,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_package_install_yum_repo_from_file
 
-The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
+The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for Chef Infra Client to reload:
 
 .. code-block:: ruby
 
@@ -732,7 +732,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then the Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 

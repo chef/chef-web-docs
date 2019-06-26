@@ -128,7 +128,7 @@ The remote_directory resource has the following properties:
 ``mode``
    **Ruby Type:** Integer, String
 
-   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the directory already exists, the existing mode on the directory is used. If ``mode`` is not specified, the directory does not exist, and the ``:create`` action is specified, Chef Infra Client assumes a mask value of ``'0777'``, and then applies the umask for the system on which the directory is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, Chef Infra Client uses the default value of ``'0755'``.
 
    The behavior is different depending on the platform.
 
@@ -160,7 +160,7 @@ The remote_directory resource has the following properties:
 ``recursive``
    **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Create or delete directories recursively. The chef-client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
+   Create or delete directories recursively. Chef Infra Client must be able to create the directory structure, including parent directories (if missing), as defined in ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``.
 
 ``rights``
    **Ruby Type:** Integer, String
@@ -354,7 +354,7 @@ This approach will create the correct hierarchy---``/foo``, then ``/bar`` in ``/
 
 Example
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-This section contains a more detailed example of how the chef-client manages recursive directory structures:
+This section contains a more detailed example of how Chef Infra Client manages recursive directory structures:
 
 * A cookbook named ``cumbria`` that is used to build a website
 * A subfolder in the ``/files/default`` directory named ``/website``
@@ -399,7 +399,7 @@ The **remote_directory** resource can be used to build a website using these fil
      source "website"
    end
 
-When the Chef Infra Client runs, the **remote_directory** resource will tell the chef-client to copy the directory tree from the cookbook to the file system using the structure defined in cookbook:
+When the Chef Infra Client runs, the **remote_directory** resource will tell Chef Infra Client to copy the directory tree from the cookbook to the file system using the structure defined in cookbook:
 
 .. code-block:: text
 
@@ -423,7 +423,7 @@ When the Chef Infra Client runs, the **remote_directory** resource will tell the
            furness_abbey.html
            hadrians_wall.html
 
-The chef-client will manage the permissions of the entire directory structure below ``/html``, for a total of 12 files and 4 directories. For example:
+Chef Infra Client will manage the permissions of the entire directory structure below ``/html``, for a total of 12 files and 4 directories. For example:
 
 .. code-block:: bash
 

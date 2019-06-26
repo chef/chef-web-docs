@@ -5,7 +5,7 @@ chocolatey_config resource
 
 Use the **chocolatey_config** resource to add or remove Chocolatey configuration keys.
 
-**New in Chef Infra Client 14.3.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================

@@ -5,7 +5,7 @@ windows_share resource
 
 Use the **windows_share** resource to create, modify and remove Windows shares.
 
-**New in Chef Infra Client 14.7.**
+**New in Chef Client 14.7.**
 
 Syntax
 =====================================================

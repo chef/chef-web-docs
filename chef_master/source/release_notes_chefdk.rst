@@ -42,7 +42,7 @@ What's New in 4.0
   * ``chef generate cookbook`` now generates cookbooks with metadata requiring Chef 14 or later.
   * ``chef generate cookbook --kitchen dokken`` now generates a fully working kitchen-dokken config.
   * ``chef generate cookbook`` now generates Test Kitchen configs with the ``product_name``/``product_version`` method of specifying Chef Infra Client releases as ``require_chef_omnibus`` will be removed in the next major Test Kitchen release.
-  * ``chef generate cookbook_file`` no longer places the specified file in a "default" folder as these aren't needed in Chef Infra Client 12 and later.
+  * ``chef generate cookbook_file`` no longer places the specified file in a "default" folder as these aren't needed in Chef Client 12 and later.
   * ``chef generate repo`` no longer outputs the full Chef Infra Client run information while generating the repository. Similar to the `cookbook` command you can view this verbose output with the ``--verbose`` flag.
 
 * **Chef InSpec 4**
@@ -86,7 +86,7 @@ What's New in 4.0
 What's New in 3.11
 =====================================================
 
-* **Chef Infra Client 14.13.11**
+* **Chef Client 14.13.11**
 
   Chef Infra Client has been updated to 14.13.11 with resource improvements and bug fixes. See the `Release Notes <https://github.com/chef/chef/blob/chef-14/RELEASE_NOTES.md#chef-client-release-notes-1413>`__ for a detailed list of changes.
 
@@ -1056,7 +1056,7 @@ For people who use the ``kitchen-vagrant`` driver to run Chef, it will automatic
 new caching mechanism to share the client packages to the guest VM, meaning that you no longer
 have to wait for the client to download on every guest provision.
 
-In addition, if the chef-client packages are already cached, then it is now possible to use
+In addition, if Chef Infra Client packages are already cached, then it is now possible to use
 Test Kitchen completely off-line.
 
 Cookstyle 1.1.0 with new code linting Cops

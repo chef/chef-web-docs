@@ -7,7 +7,7 @@ Use the **openssl_rsa_private_key** resource to generate RSA private key files. 
 
 .. note:: If the password to your RSA key file does not match the password in the recipe, it cannot be opened, and will be overwritten.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

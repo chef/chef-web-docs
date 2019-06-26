@@ -5,7 +5,7 @@ cron_access resource
 
 Use the **cron_access** resource to manage the /etc/cron.allow and /etc/cron.deny files. Note: This resource previously shipped in the ``cron`` cookbook as ``cron_manage``, which it can still be used as for backwards compatibility with existing Chef Infra Clien releases.
 
-**New in Chef Infra Client 14.4.**
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================

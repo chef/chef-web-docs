@@ -5,7 +5,7 @@ windows_font resource
 
 Use the **windows_font** resource to install font files on Windows. By default, the font is sourced from the cookbook using the resource, but a URI source can be specified as well.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

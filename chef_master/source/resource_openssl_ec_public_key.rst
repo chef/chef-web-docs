@@ -5,7 +5,7 @@ openssl_ec_public_key resource
 
 Use the **openssl_ec_public_key** resource to generate elliptic curve (EC) public key files from a given EC private key.
 
-**New in Chef Infra Client 14.4.**
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================

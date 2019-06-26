@@ -5,7 +5,7 @@ kernel_module resource
 
 Use the **kernel_module** resource to manage kernel modules on Linux systems. This resource can load, unload, blacklist, install, and uninstall modules.
 
-**New in Chef Infra Client 14.3.**
+**New in Chef Client 14.3.**
 
 Syntax
 =====================================================

@@ -27,7 +27,7 @@ The syntax for using the **public_key** resource in a recipe is as follows:
 
 where
 
-* ``public_key`` tells the chef-client to use the ``Chef::Provider::PublicKey`` provider during the chef-client run
+* ``public_key`` tells Chef Infra Client to use the ``Chef::Provider::PublicKey`` provider during Chef Infra Client run
 * ``name`` is the name of the resource block; when the ``path`` property is not specified as part of a recipe, ``name`` is also the name of the public key
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state

@@ -94,14 +94,14 @@ The zypper_package resource has the following properties:
 
    Allow downgrading a package to satisfy requested version requirements.
 
-   *New in Chef Infra Client 13.6.*
+   *New in Chef Client 13.6.*
 
 ``global_options``
    **Ruby Type:** String, Array
 
    One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
 
-   *New in Chef Infra Client 14.6.*
+   *New in Chef Client 14.6.*
 
 ``gpg_check``
    **Ruby Type:** true, false | **Default Value:** ``true``

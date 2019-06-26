@@ -99,7 +99,7 @@ The subversion resource has the following properties:
 ``svn_info_args``
    **Ruby Type:** String
 
-   Use when the ``svn info`` command is used by the chef-client and arguments need to be passed. The ``svn_arguments`` command does not work when the ``svn info`` command is used.
+   Use when the ``svn info`` command is used by Chef Infra Client and arguments need to be passed. The ``svn_arguments`` command does not work when the ``svn info`` command is used.
 
 ``svn_password``
    **Ruby Type:** String

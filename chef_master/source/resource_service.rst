@@ -90,7 +90,7 @@ The service resource has the following properties:
 ``init_command``
    **Ruby Type:** String
 
-   The path to the init script that is associated with the service. Use ``init_command`` to prevent the need to specify overrides for the ``start_command``, ``stop_command``, and ``restart_command`` properties. When this property is not specified, the chef-client will use the default init command for the service provider being used.
+   The path to the init script that is associated with the service. Use ``init_command`` to prevent the need to specify overrides for the ``start_command``, ``stop_command``, and ``restart_command`` properties. When this property is not specified, Chef Infra Client will use the default init command for the service provider being used.
 
 ``options``
    **Ruby Type:** Array, String
@@ -150,7 +150,7 @@ The service resource has the following properties:
 ``supports``
    **Ruby Type:** Hash
 
-   A list of properties that controls how the chef-client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, the chef-client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, the chef-client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
+   A list of properties that controls how Chef Infra Client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, Chef Infra Client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, Chef Infra Client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
 
 ``timeout``
    **Ruby Type:** Integer | **Default Value:** ``60``
@@ -162,7 +162,7 @@ The service resource has the following properties:
 
    systemd only: A username to run the service under.
 
-   *New in Chef Infra Client 12.21.*
+   *New in Chef Client 12.21.*
 
 Common Resource Functionality
 =====================================================

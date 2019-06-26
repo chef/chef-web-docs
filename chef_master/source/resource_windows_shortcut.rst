@@ -5,7 +5,7 @@ windows_shortcut resource
 
 Use the **windows_shortcut** resource to create shortcut files on Windows.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================

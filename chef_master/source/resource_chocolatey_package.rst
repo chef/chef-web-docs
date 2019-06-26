@@ -14,7 +14,7 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
 
 
 
-**New in Chef Infra Client 12.7.**
+**New in Chef Client 12.7.**
 
 Syntax
 =====================================================

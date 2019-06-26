@@ -5,7 +5,7 @@ zypper_repository resource
 
 Use the **zypper_repository** resource to create Zypper package repositories on SUSE Enterprise Linux and openSUSE systems. This resource maintains full compatibility with the **zypper_repository** resource in the existing zypper cookbook.
 
-**New in Chef Infra Client 13.3.**
+**New in Chef Client 13.3.**
 
 Syntax
 =====================================================

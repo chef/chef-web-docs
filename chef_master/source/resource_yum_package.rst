@@ -103,7 +103,7 @@ The yum_package resource has the following properties:
 
    .. tag resources_common_package_yum_cache
 
-   Yum automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the Chef Infra Client run. The in-memory cache allows packages to be installed during the Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
+   Yum automatically synchronizes remote metadata to a local cache. Chef Infra Client creates a copy of the local cache, and then stores it in-memory during the Chef Infra Client run. The in-memory cache allows packages to be installed during the Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
 
    .. end_tag
 

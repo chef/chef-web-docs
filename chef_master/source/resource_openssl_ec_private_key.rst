@@ -5,7 +5,7 @@ openssl_ec_private_key resource
 
 Use the **openssl_ec_private_key** resource to generate an elliptic curve (EC) private key file. If a valid EC key file can be opened at the specified location, no new file will be created. If the EC key file cannot be opened -- either because it does not exist or because the password to the EC key file does not match the password in the recipe -- then it will be overwritten.
 
-**New in Chef Infra Client 14.4.**
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================

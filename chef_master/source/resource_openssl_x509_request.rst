@@ -5,7 +5,7 @@ openssl_x509_request resource
 
 Use the **openssl_x509_request** resource to generate PEM-formatted x509 certificates requests. If no existing key is specified, the resource will automatically generate a passwordless key with the certificate.
 
-**New in Chef Infra Client 14.4.**
+**New in Chef Client 14.4.**
 
 Syntax
 =====================================================

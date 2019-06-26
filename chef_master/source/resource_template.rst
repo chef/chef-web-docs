@@ -17,7 +17,7 @@ A cookbook template is an Embedded Ruby (ERB) template that is used to dynamical
 
 .. tag resource_template_summary
 
-Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running the chef-client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
+Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running Chef Infra Client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
 
 .. end_tag
 
@@ -71,7 +71,7 @@ where
 * ``template`` is the resource
 * ``name`` is the name of the resource block, typically the path to the location in which a file is created *and also* the name of the file to be managed. For example: ``/var/www/html/index.html``, where ``/var/www/html/`` is the fully qualified path to the location and ``index.html`` is the name of the file
 * ``source`` is the template file that will be used to create the file on the node, for example: ``index.html.erb``; the template file is located in the ``/templates`` directory of a cookbook
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``atomic_update``, ``backup``, ``cookbook``, ``force_unlink``, ``group``, ``helper``, ``helpers``, ``inherits``, ``local``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``rights``, ``sensitive``, ``source``, ``variables``, and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -120,7 +120,7 @@ The template resource has the following properties:
 ``force_unlink``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error.
+   How Chef Infra Client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for Chef Infra Client delete the non-file target and replace it with the specified file. Set to ``false`` for Chef Infra Client to raise an error.
 
 ``group``
    **Ruby Type:** Integer, String
@@ -145,19 +145,19 @@ The template resource has the following properties:
 ``local``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Load a template from a local path. By default, the chef-client loads templates from a cookbook's ``/templates`` directory. When this property is set to ``true``, use the ``source`` property to specify the path to a template on the local node.
+   Load a template from a local path. By default, Chef Infra Client loads templates from a cookbook's ``/templates`` directory. When this property is set to ``true``, use the ``source`` property to specify the path to a template on the local node.
 
 ``manage_symlink_source``
    **Ruby Type:** true, false | **Default Value:** ``true`` (with warning)
 
-   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
+   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, Chef Infra Client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
 
    The default behavior is ``true`` but emits a warning that the default value will be changed to ``false`` in a future version; setting this explicitly to ``true`` or ``false`` suppresses this warning.
 
 ``mode``
    **Ruby Type:** Integer, String
 
-   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, Chef Infra Client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, Chef Infra Client uses the default value of ``'0755'``.
 
    The behavior is different depending on the platform.
 
@@ -175,7 +175,7 @@ The template resource has the following properties:
 
    The full path to the file, including the file name and its extension.
 
-   Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
+   Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of Chef Infra Client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
 
 ``rights``
    **Ruby Type:** Integer, String
@@ -185,7 +185,7 @@ The template resource has the following properties:
 ``source``
    **Ruby Type:** String, Array
 
-   The location of a template file. By default, the chef-client looks for a template file in the ``/templates`` directory of a cookbook. When the ``local`` property is set to ``true``, use to specify the path to a template on the local node. This property may also be used to distribute specific files to specific platforms. See "File Specificity" below for more information. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The location of a template file. By default, Chef Infra Client looks for a template file in the ``/templates`` directory of a cookbook. When the ``local`` property is set to ``true``, use to specify the path to a template on the local node. This property may also be used to distribute specific files to specific platforms. See "File Specificity" below for more information. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``variables``
    **Ruby Type:** Hash
@@ -223,7 +223,7 @@ The template resource has the following properties:
    A block or a string that returns ``true`` or ``false``. A string, when ``true`` is executed as a system command.
 
   
-   A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block is ``true``, the chef-client will continue to update the file as appropriate.
+   A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block is ``true``, Chef Infra Client will continue to update the file as appropriate.
 
    For example, this should return ``true``:
 
@@ -241,7 +241,7 @@ The template resource has the following properties:
         verify 'nginx -t -c %{path}'
       end
 
-   .. warning:: For releases of the chef-client prior to 12.5 (chef-client 12.4 and earlier) the correct syntax is:
+   .. warning:: For releases of Chef Infra Client prior to 12.5 (chef-client 12.4 and earlier) the correct syntax is:
 
       .. code-block:: ruby
 
@@ -1136,7 +1136,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then the Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 

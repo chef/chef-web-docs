@@ -5,7 +5,7 @@ windows_printer_port resource
 
 Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer ports on Windows.
 
-**New in Chef Infra Client 14.0.**
+**New in Chef Client 14.0.**
 
 Syntax
 =====================================================
