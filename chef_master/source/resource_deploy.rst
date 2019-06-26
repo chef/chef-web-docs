@@ -555,7 +555,7 @@ Where a resource represents a piece of the system (and its desired state), a pro
 
 
 
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
+The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the Chef Infra Client run. This configuration data is then mapped to a platform and an associated list of providers.
 
 Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
 
@@ -584,7 +584,7 @@ For reference, the providers available for this resource are listed below. Howev
 
 
 ``Chef::Provider::Deploy``, ``deploy``
-   When this short name is used, the chef-client will determine the correct provider during the chef-client run.
+   When this short name is used, the chef-client will determine the correct provider during the Chef Infra Client run.
 
 ``Chef::Provider::Deploy::Branch``, ``deploy_branch``
    See below for more information.
@@ -598,7 +598,7 @@ For reference, the providers available for this resource are listed below. Howev
 deploy_branch
 -----------------------------------------------------
 
-The **deploy_branch** resource functions identically to the **deploy_revision** resource, in terms of how the chef-client processes the resource during the chef-client run. It uses the same ``Deploy::Revision`` provider, the same set of actions and attributes, and is (outside of the name itself) identical to the **deploy_revision** resource. Using the **deploy_revision** resource is preferred; however, the **deploy_branch** resource exists for those situations where, semantically, it is preferable to refer to a resource as a "branch" instead of a "revision".
+The **deploy_branch** resource functions identically to the **deploy_revision** resource, in terms of how the chef-client processes the resource during the Chef Infra Client run. It uses the same ``Deploy::Revision`` provider, the same set of actions and attributes, and is (outside of the name itself) identical to the **deploy_revision** resource. Using the **deploy_revision** resource is preferred; however, the **deploy_branch** resource exists for those situations where, semantically, it is preferable to refer to a resource as a "branch" instead of a "revision".
 
 deploy_revision
 -----------------------------------------------------
@@ -616,7 +616,7 @@ When using the ``deploy_revision`` provider, and when the deploy fails for any r
 timestamped_deploy
 -----------------------------------------------------
 
-The ``timestamped_deploy`` provider is the default **deploy** provider. It is used to name release directories with a timestamp in the form of ``YYYYMMDDHHMMSS``. For example: ``/my/deploy/dir/releases/20121120162342``. The **deploy** resource will determine whether or not to deploy code based on the existence of the release directory in which it is attempting to deploy. Because the timestamp is different for every chef-client run, the ``timestamped_deploy`` provider is not idempotent. When the ``timestamped_deploy`` provider is used, it requires that the action setting on a resource be managed manually in order to prevent unintended continuous deployment.
+The ``timestamped_deploy`` provider is the default **deploy** provider. It is used to name release directories with a timestamp in the form of ``YYYYMMDDHHMMSS``. For example: ``/my/deploy/dir/releases/20121120162342``. The **deploy** resource will determine whether or not to deploy code based on the existence of the release directory in which it is attempting to deploy. Because the timestamp is different for every Chef Infra Client run, the ``timestamped_deploy`` provider is not idempotent. When the ``timestamped_deploy`` provider is used, it requires that the action setting on a resource be managed manually in order to prevent unintended continuous deployment.
 
 Examples
 =====================================================
@@ -703,7 +703,7 @@ Using resources from within your callbacks as blocks or within callback files di
 
 To deploy from a private git repository without using the ``application`` cookbook, first ensure that:
 
-* the private key does not have a passphrase, as this will pause a chef-client run to wait for input
+* the private key does not have a passphrase, as this will pause a Chef Infra Client run to wait for input
 * an SSH wrapper is being used
 * a private key has been added to the node
 
@@ -889,7 +889,7 @@ and then what these layout modifiers look like if they were empty:
      ...
    end
 
-In most cases, using the empty values for the layout modifiers will prevent the chef-client from passing symbolic linking information to a node during the chef-client run. However, in some cases, it may be preferable to ensure that one (or more) of these layout modifiers do not pass any symbolic linking information to a node during the chef-client run at all. Because each of these layout modifiers are a Hash, the ``clear`` instance method can be used to clear out these values.
+In most cases, using the empty values for the layout modifiers will prevent the chef-client from passing symbolic linking information to a node during the Chef Infra Client run. However, in some cases, it may be preferable to ensure that one (or more) of these layout modifiers do not pass any symbolic linking information to a node during the Chef Infra Client run at all. Because each of these layout modifiers are a Hash, the ``clear`` instance method can be used to clear out these values.
 
 To clear the default values for a layout modifier:
 

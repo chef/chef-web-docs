@@ -509,7 +509,7 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the chef-client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the Chef Infra Client run
 
 .. end_tag
 
@@ -527,7 +527,7 @@ This right can be added and checked in a recipe using this example:
     # Check if the user has 'SeAssignPrimaryTokenPrivilege' rights
     Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')
 
-The following example shows how to run ``mkdir test_dir`` from a chef-client run as an alternate user.
+The following example shows how to run ``mkdir test_dir`` from a Chef Infra Client run as an alternate user.
 
 .. code-block:: ruby
 

@@ -5,13 +5,13 @@ ruby_block resource
 
 .. tag resource_ruby_block_summary
 
-Use the **ruby_block** resource to execute Ruby code during a chef-client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
+Use the **ruby_block** resource to execute Ruby code during a Chef Infra Client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
 
 .. end_tag
 
 Syntax
 =====================================================
-A **ruby_block** resource block executes a block of arbitrary Ruby code. For example, to reload the client.rb file during the chef-client run:
+A **ruby_block** resource block executes a block of arbitrary Ruby code. For example, to reload the client.rb file during the Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -179,7 +179,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_ruby_block_reread_chef_client
 
-.. To re-read the chef-client configuration during a chef-client run:
+.. To re-read the chef-client configuration during a Chef Infra Client run:
 
 .. code-block:: ruby
 

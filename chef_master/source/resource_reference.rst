@@ -408,7 +408,7 @@ Lazy Evaluation
 =====================================================
 .. tag resources_common_lazy_evaluation
 
-In some cases, the value for a property cannot be known until the execution phase of a chef-client run. In this situation, using lazy evaluation of property values can be helpful. Instead of a property being assigned a value, it may instead be assigned a code block. The syntax for using lazy evaluation is as follows:
+In some cases, the value for a property cannot be known until the execution phase of a Chef Infra Client run. In this situation, using lazy evaluation of property values can be helpful. Instead of a property being assigned a value, it may instead be assigned a code block. The syntax for using lazy evaluation is as follows:
 
 .. code-block:: ruby
 
@@ -517,7 +517,7 @@ The following examples show how to use the ``notifies`` notification in a recipe
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -655,7 +655,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 
@@ -860,7 +860,7 @@ The chef-client processes recipes in two phases:
 #. First, each resource in the node object is identified and a resource collection is built. All recipes are loaded in a specific order, and then the actions specified within each of them are identified. This is also referred to as the "compile phase".
 #. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
 
-Typically, actions are processed during the execution phase of the chef-client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
+Typically, actions are processed during the execution phase of the Chef Infra Client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
 
 .. note:: Use the **chef_gem** resource to install gems that are needed by the chef-client during the execution phase.
 

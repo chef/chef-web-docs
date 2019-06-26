@@ -263,7 +263,7 @@ The package resource has the following properties:
 
    .. tag resources_common_package_yum_cache
 
-   Yum automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
+   Yum automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the Chef Infra Client run. The in-memory cache allows packages to be installed during the Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
 
    .. end_tag
 
@@ -441,7 +441,7 @@ Multiple Packages
 A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
-* Update or install multiple packages with a single resource during the chef-client run
+* Update or install multiple packages with a single resource during the Chef Infra Client run
 
 For example, installing multiple packages:
 
@@ -787,7 +787,7 @@ The following example shows how to use a case statement to tell the chef-client 
      end
    end
 
-where ``node[:platform]`` for each node is identified by Ohai during every chef-client run. For example:
+where ``node[:platform]`` for each node is identified by Ohai during every Chef Infra Client run. For example:
 
 .. code-block:: ruby
 

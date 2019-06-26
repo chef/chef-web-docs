@@ -206,7 +206,7 @@ The file resource has the following properties:
         end
       end
 
-   If a string or a block return ``false``, the chef-client run will stop and an error is raised.
+   If a string or a block return ``false``, the Chef Infra Client run will stop and an error is raised.
 
 Atomic File Updates
 -----------------------------------------------------

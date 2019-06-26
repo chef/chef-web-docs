@@ -59,12 +59,13 @@ The apt_update resource has the following actions:
    Update the Apt repository at the interval specified by the ``frequency`` property.
 
 ``:update``
-   Update the Apt repository at the start of the chef-client run.
+   Update the Apt repository at the start of the Chef Infra Client run.
 
 
 
 Properties
 =====================================================
+
 The apt_update resource has the following properties:
 
 ``frequency``
@@ -242,11 +243,11 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-**Update the Apt repository at the start of a chef-client run**
+**Update the Apt repository at the start of a Chef Infra Client run**
 
 .. tag resource_apt_update_at_start_of_client_run
 
-.. To update the Apt repository at the start of a chef-client run:
+.. To update the Apt repository at the start of a Chef Infra Client run:
 
 .. code-block:: ruby
 

@@ -9,7 +9,7 @@ Use the **cookbook_file** resource to transfer files from a sub-directory of ``C
 
 .. end_tag
 
-During a chef-client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef server to a node.
+During a Chef Infra Client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef server to a node.
 
 Syntax
 =====================================================
@@ -217,7 +217,7 @@ The cookbook_file resource has the following properties:
         verify '/usr/bin/false'
       end
 
-   If a string or a block return ``false``, the chef-client run will stop and an error is returned.
+   If a string or a block return ``false``, the Chef Infra Client run will stop and an error is returned.
 
 .. note:: Use the ``owner`` and ``right`` properties and avoid the ``group`` and ``mode`` properties whenever possible. The ``group`` and ``mode`` properties are not true Microsoft Windows concepts and are provided more for backward compatibility than for best practice.
 

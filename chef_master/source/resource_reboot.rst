@@ -46,7 +46,7 @@ The reboot resource has the following actions:
    Reboot a node so that the chef-client may continue the installation process.
 
 ``:request_reboot``
-   Reboot a node at the end of a chef-client run.
+   Reboot a node at the end of a Chef Infra Client run.
 
 
 Properties
@@ -236,11 +236,11 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. end_tag
 
-**Reboot a node at the end of a chef-client run**
+**Reboot a node at the end of a Chef Infra Client run**
 
 .. tag resource_service_reboot_request
 
-.. To reboot a node at the end of the chef-client run:
+.. To reboot a node at the end of the Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -296,6 +296,6 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the chef-client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the Chef Infra Client run
 
 .. end_tag

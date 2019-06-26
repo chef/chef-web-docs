@@ -232,7 +232,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -385,7 +385,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 
@@ -605,11 +605,11 @@ Use the **apt_update** resource to manage APT repository updates on Debian and U
 
 .. end_tag
 
-**Update the Apt repository at the start of a chef-client run**
+**Update the Apt repository at the start of a Chef Infra Client run**
 
 .. tag resource_apt_update_at_start_of_client_run
 
-.. To update the Apt repository at the start of a chef-client run:
+.. To update the Apt repository at the start of a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -1004,9 +1004,9 @@ chef_handler
 =====================================================
 .. tag resource_chef_handler_summary
 
-Use the **chef_handler** resource to enable handlers during a chef-client run. The resource allows arguments to be passed to the chef-client, which then applies the conditions defined by the custom handler to the node attribute data collected during the chef-client run, and then processes the handler based on that data.
+Use the **chef_handler** resource to enable handlers during a Chef Infra Client run. The resource allows arguments to be passed to the chef-client, which then applies the conditions defined by the custom handler to the node attribute data collected during the Chef Infra Client run, and then processes the handler based on that data.
 
-The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.
+The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire Chef Infra Client run.
 
 **New in Chef Infra Client 14.0.**
 
@@ -2218,7 +2218,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 
@@ -2245,7 +2245,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 
@@ -2446,7 +2446,7 @@ where
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -2531,7 +2531,7 @@ The following example shows how to install a lightweight JavaScript framework in
 
 .. tag resource_execute_bundle_install
 
-The following example shows how to run ``bundle install`` from a chef-client run as a specific user. This will put the gem into the path of the user (``vagrant``) instead of the root user (under which the chef-client runs):
+The following example shows how to run ``bundle install`` from a Chef Infra Client run as a specific user. This will put the gem into the path of the user (``vagrant``) instead of the root user (under which the Chef Infra Client runs):
 
 .. code-block:: ruby
 
@@ -4096,7 +4096,7 @@ The following example shows how to use a case statement to tell the chef-client 
      end
    end
 
-where ``node[:platform]`` for each node is identified by Ohai during every chef-client run. For example:
+where ``node[:platform]`` for each node is identified by Ohai during every Chef Infra Client run. For example:
 
 .. code-block:: ruby
 
@@ -4454,7 +4454,7 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the chef-client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the Chef Infra Client run
 
 .. end_tag
 
@@ -4499,11 +4499,11 @@ Use the **reboot** resource to reboot a node, a necessary step with some install
 
 .. end_tag
 
-**Reboot a node at the end of a chef-client run**
+**Reboot a node at the end of a Chef Infra Client run**
 
 .. tag resource_service_reboot_request
 
-.. To reboot a node at the end of the chef-client run:
+.. To reboot a node at the end of the Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -4559,7 +4559,7 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the chef-client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the Chef Infra Client run
 
 .. end_tag
 
@@ -5104,7 +5104,7 @@ ruby_block
 =====================================================
 .. tag resource_ruby_block_summary
 
-Use the **ruby_block** resource to execute Ruby code during a chef-client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
+Use the **ruby_block** resource to execute Ruby code during a Chef Infra Client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
 
 .. end_tag
 
@@ -5112,7 +5112,7 @@ Use the **ruby_block** resource to execute Ruby code during a chef-client run. R
 
 .. tag resource_ruby_block_reread_chef_client
 
-.. To re-read the chef-client configuration during a chef-client run:
+.. To re-read the chef-client configuration during a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -6181,7 +6181,7 @@ The following example shows how to use a Ruby whitespace array to define a list 
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -6287,7 +6287,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 
@@ -6366,7 +6366,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 
@@ -6518,7 +6518,7 @@ user
 
 Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
-.. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current chef-client run.
+.. note:: System attributes are collected by Ohai at the start of every Chef Infra Client run. By design, the actions available to the **user** resource are processed **after** the start of the Chef Infra Client run. This means that system attributes added or modified by the **user** resource during the Chef Infra Client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) Chef Infra Client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current Chef Infra Client run.
 
 .. end_tag
 

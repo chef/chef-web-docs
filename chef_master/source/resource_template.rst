@@ -277,7 +277,7 @@ The template resource has the following properties:
         verify '/usr/bin/false'
       end
 
-   If a string or a block return ``false``, the chef-client run will stop and an error is returned.
+   If a string or a block return ``false``, the Chef Infra Client run will stop and an error is returned.
 
    
 
@@ -1127,7 +1127,7 @@ The following example shows how to use a Ruby whitespace array to define a list 
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -1233,7 +1233,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 
@@ -1312,7 +1312,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 

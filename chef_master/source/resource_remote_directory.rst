@@ -399,7 +399,7 @@ The **remote_directory** resource can be used to build a website using these fil
      source "website"
    end
 
-When the chef-client runs, the **remote_directory** resource will tell the chef-client to copy the directory tree from the cookbook to the file system using the structure defined in cookbook:
+When the Chef Infra Client runs, the **remote_directory** resource will tell the chef-client to copy the directory tree from the cookbook to the file system using the structure defined in cookbook:
 
 .. code-block:: text
 

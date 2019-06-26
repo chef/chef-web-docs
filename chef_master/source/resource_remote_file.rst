@@ -453,7 +453,7 @@ The remote_file resource has the following properties:
         verify '/usr/bin/false'
       end
 
-   If a string or a block return ``false``, the chef-client run will stop and an error is returned.
+   If a string or a block return ``false``, the Chef Infra Client run will stop and an error is returned.
 
 Atomic File Updates
 -----------------------------------------------------

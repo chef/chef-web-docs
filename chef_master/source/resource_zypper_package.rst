@@ -7,7 +7,7 @@ Use the **zypper_package** resource to install, upgrade, and remove packages wit
 
 .. note:: .. tag notes_resource_based_on_package
 
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
+          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the Chef Infra Client will use details that are collected by Ohai at the start of the Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
 
           .. end_tag
 
@@ -141,7 +141,7 @@ Multiple Packages
 A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
-* Update or install multiple packages with a single resource during the chef-client run
+* Update or install multiple packages with a single resource during the Chef Infra Client run
 
 For example, installing multiple packages:
 
