@@ -50,7 +50,7 @@ where:
 
 * ``gem_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``clear_sources``, ``gem_binary``, ``include_default_source``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Gem Package Options
@@ -214,7 +214,7 @@ The gem_package resource has the following properties:
 
    Set to ``false`` to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
-   *New in Chef Client 13.0.*
+   *New in Chef Infra Client 13.0.*
 
 ``gem_binary``
    **Ruby Type:** String
@@ -227,7 +227,7 @@ The gem_package resource has the following properties:
 
    Set to 'false' to not include ``Chef::Config[:rubygems_url]`` in the sources.
 
-   *New in Chef Client 13.0.*
+   *New in Chef Infra Client 13.0.*
 
 ``options``
    **Ruby Type:** String

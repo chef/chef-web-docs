@@ -5,7 +5,7 @@ zypper_repository resource
 
 Use the **zypper_repository** resource to create Zypper package repositories on SUSE Enterprise Linux and openSUSE systems. This resource maintains full compatibility with the **zypper_repository** resource in the existing zypper cookbook.
 
-**New in Chef Client 13.3.**
+**New in Chef Infra Client 13.3.**
 
 Syntax
 =====================================================
@@ -38,7 +38,7 @@ where:
 
 * ``zypper_repository`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``autorefresh``, ``baseurl``, ``cookbook``, ``description``, ``enabled``, ``gpgautoimportkeys``, ``gpgcheck``, ``gpgkey``, ``keeppackages``, ``mirrorlist``, ``mode``, ``path``, ``priority``, ``refresh_cache``, ``repo_name``, ``source``, and ``type`` are the properties available to this resource.
 
 Actions

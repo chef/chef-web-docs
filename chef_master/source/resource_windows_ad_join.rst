@@ -5,7 +5,7 @@ windows_ad_join resource
 
 Use the **windows_ad_join** resource to join a Windows Active Directory domain.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -28,7 +28,7 @@ where:
 
 * ``windows_ad_join`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``domain_name``, ``domain_password``, ``domain_user``, ``new_hostname``, ``ou_path``, ``reboot``, and ``sensitive`` are the properties available to this resource.
 
 Actions
@@ -71,7 +71,7 @@ The windows_ad_join resource has the following properties:
 
    Specifies a new hostname for the computer in the new domain.
 
-   *New in Chef Client 14.5.*
+   *New in Chef Infra Client 14.5.*
 
 ``ou_path``
    **Ruby Type:** String
@@ -117,7 +117,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``true``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by the Chef Infra Client.
 
 Notifications
 -----------------------------------------------------

@@ -5,7 +5,7 @@ chocolatey_source resource
 
 Use the **chocolatey_source** resource to add, remove, enable, or disable Chocolatey sources.
 
-**New in Chef Client 14.3.**
+**New in Chef Infra Client 14.3.**
 
 Syntax
 =====================================================
@@ -40,12 +40,12 @@ The chocolatey_source resource has the following actions:
 
 ``:disable``
    Disables a Chocolatey source.
-    
+
    **New in Chef Infra Client 15.1.**
 
 ``:enable``
    Enables a Chocolatey source.
-    
+
    **New in Chef Infra Client 15.1.**
 
 ``:remove``

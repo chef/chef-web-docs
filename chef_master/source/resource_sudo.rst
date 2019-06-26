@@ -5,7 +5,7 @@ sudo resource
 
 Use the **sudo** resource to add or remove individual sudo entries using ``sudoers.d`` files. Sudo version 1.7.2 or newer is required to use the sudo resource, as it relies on the ``#includedir`` directive introduced in version 1.7.2. This resource does not enforce installation of the required sudo version. Chef-supported releases of Ubuntu, Debian and RHEL (6+) all support this feature.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -39,7 +39,7 @@ where:
 
 * ``sudo`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``command_aliases``, ``commands``, ``config_prefix``, ``defaults``, ``env_keep_add``, ``env_keep_subtract``, ``filename``, ``groups``, ``host``, ``noexec``, ``nopasswd``, ``runas``, ``setenv``, ``template``, ``users``, ``variables``, ``visudo_binary``, and ``visudo_path`` are the properties available to this resource.
 
 Actions

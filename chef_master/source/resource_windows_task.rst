@@ -5,7 +5,7 @@ windows_task resource
 
 Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.
 
-**New in Chef Client 13.0.**
+**New in Chef Infra Client 13.0.**
 
 .. note:: The ``windows_task`` resource that was provided as part of the ``windows`` cookbook included the ``:change`` action, which has been removed from ``windows_task`` in Chef client. The ``:create`` action can be used instead to update an existing task.
 
@@ -47,7 +47,7 @@ where:
 
 * ``windows_task`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``command``, ``cwd``, ``day``, ``description``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``start_when_available``, ``stop_if_going_on_batteries``, ``task_name``, and ``user`` are the properties available to this resource.
 
 Actions
@@ -110,14 +110,14 @@ The windows_task resource has the following properties:
 
    The task description.
 
-   *New in Chef Client 14.7.*
+   *New in Chef Infra Client 14.7.*
 
 ``disallow_start_if_on_batteries``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Disallow start of the task if the system is running on battery power.
 
-   *New in Chef Client 14.4.*
+   *New in Chef Infra Client 14.4.*
 
 ``execution_time_limit``
    **Ruby Type:** String, Integer | **Default Value:** ``"PT72H"`` (72 hours)
@@ -205,14 +205,14 @@ The windows_task resource has the following properties:
 
    To start the task at any time after its scheduled time has passed.
 
-   *New in Chef Client 15.0.*
+   *New in Chef Infra Client 15.0.*
 
 ``stop_if_going_on_batteries``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Scheduled task option when system is switching on battery.
 
-   *New in Chef Client 14.4.*
+   *New in Chef Infra Client 14.4.*
 
 ``task_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``

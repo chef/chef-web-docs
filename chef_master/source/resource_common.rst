@@ -137,7 +137,7 @@ Attributes
 -----------------------------------------------------
 .. tag resources_common_guards_attributes
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of the Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.

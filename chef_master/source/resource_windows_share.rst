@@ -5,7 +5,7 @@ windows_share resource
 
 Use the **windows_share** resource to create, modify and remove Windows shares.
 
-**New in Chef Client 14.7.**
+**New in Chef Infra Client 14.7.**
 
 Syntax
 =====================================================
@@ -33,7 +33,7 @@ where:
 
 * ``windows_share`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``ca_timeout``, ``change_users``, ``concurrent_user_limit``, ``continuously_available``, ``description``, ``encrypt_data``, ``full_users``, ``path``, ``read_users``, ``scope_name``, ``share_name``, and ``temporary`` are the properties available to this resource.
 
 Actions

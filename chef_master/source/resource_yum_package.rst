@@ -48,7 +48,7 @@ where:
 
 * ``yum_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
 
 Actions

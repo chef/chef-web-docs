@@ -5,7 +5,7 @@ windows_uac resource
 
 The **windows_uac** resource configures UAC on Windows hosts by setting registry keys at 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System'
 
-**New in Chef Client 15.0.**
+**New in Chef Infra Client 15.0.**
 
 Syntax
 =====================================================
@@ -27,7 +27,7 @@ where:
 
 * ``windows_uac`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``consent_behavior_admins``, ``consent_behavior_users``, ``detect_installers``, ``enable_uac``, ``prompt_on_secure_desktop``, and ``require_signed_binaries`` are the properties available to this resource.
 
 Actions

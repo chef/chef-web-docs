@@ -5,7 +5,7 @@ build_essential resource
 
 Use the **build_essential** resource to install the packages required for compiling C software from source.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -22,7 +22,7 @@ where:
 
 * ``build_essential`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``compile_time`` is the property available to this resource.
 
 Actions

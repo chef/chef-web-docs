@@ -5,7 +5,7 @@ windows_feature resource
 
 Use the **windows_feature** resource to add, remove or entirely delete Windows features and roles. This resource calls the `windows_feature_dism </resource_windows_feature_dism.html>`__ or `windows_feature_powershell </resource_windows_feature_powershell.html>`__ resources depending on the specified installation method, and defaults to DISM, which is available on both Workstation and Server editions of Windows.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -27,7 +27,7 @@ where:
 
 * ``windows_feature`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``all``, ``feature_name``, ``install_method``, ``management_tools``, ``source``, and ``timeout`` are the properties available to this resource.
 
 Actions

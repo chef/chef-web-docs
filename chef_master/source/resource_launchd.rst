@@ -5,7 +5,7 @@ launchd resource
 
 Use the **launchd** resource to manage system-wide services (daemons) and per-user services (agents) on the macOS platform.
 
-**New in Chef Client 12.8.**
+**New in Chef Infra Client 12.8.**
 
 Syntax
 =====================================================

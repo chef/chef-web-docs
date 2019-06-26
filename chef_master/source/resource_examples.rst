@@ -1008,7 +1008,7 @@ Use the **chef_handler** resource to enable handlers during a chef-client run. T
 
 The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 .. end_tag
 

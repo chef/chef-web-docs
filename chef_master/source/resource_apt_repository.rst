@@ -47,7 +47,7 @@ where:
 
 * ``apt_repository`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``arch``, ``cache_rebuild``, ``components``, ``cookbook``, ``deb_src``, ``distribution``, ``key``, ``key_proxy``, ``keyserver``, ``repo_name``, ``trusted``, and ``uri`` are the properties available to this resource.
 
 Actions
@@ -116,7 +116,7 @@ The apt_repository resource has the following properties:
 
    An optional property to set the repository name if it differs from the resource block's name. The value of this setting must not contain spaces.
 
-   *New in Chef Client 14.1.*
+   *New in Chef Infra Client 14.1.*
 
 ``trusted``
    **Ruby Type:** true, false | **Default Value:** ``false``

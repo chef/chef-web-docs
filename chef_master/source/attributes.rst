@@ -350,7 +350,7 @@ Attribute precedence, when viewed as a table:
 
 Blacklist Attributes
 -----------------------------------------------------
-**New in Chef Client 13.0**
+**New in Chef Infra Client 13.0**
 
 .. tag node_attribute_blacklist
 

@@ -5,7 +5,7 @@ rhsm_errata resource
 
 Use the **rhsm_errata** resource to install packages associated with a given Red Hat Subscription Manager Errata ID. This is helpful if packages that mitigate a single vulnerability must be installed on your hosts.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -22,7 +22,7 @@ where:
 
 * ``rhsm_errata`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``errata_id`` is the property available to this resource.
 
 Actions

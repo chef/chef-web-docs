@@ -65,7 +65,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by the Chef Infra Client.
 
 
 
@@ -121,7 +121,7 @@ Attributes
 -----------------------------------------------------
 .. tag resources_common_guards_attributes
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of the Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.

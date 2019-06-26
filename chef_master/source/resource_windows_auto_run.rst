@@ -5,7 +5,7 @@ windows_auto_run resource
 
 Use the **windows_auto_run** resource to set applications to run at login.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -25,7 +25,7 @@ where:
 
 * ``windows_auto_run`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``args``, ``path``, ``program_name``, and ``root`` are the properties available to this resource.
 
 Actions

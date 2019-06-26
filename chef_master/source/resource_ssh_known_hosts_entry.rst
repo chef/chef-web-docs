@@ -5,7 +5,7 @@ ssh_known_hosts_entry resource
 
 Use the **ssh_known_hosts_entry** resource to add an entry for the specified host in /etc/ssh/ssh_known_hosts or a user's known hosts file if specified.
 
-**New in Chef Client 14.3.**
+**New in Chef Infra Client 14.3.**
 
 Syntax
 =====================================================
@@ -31,7 +31,7 @@ where:
 
 * ``ssh_known_hosts_entry`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``file_location``, ``group``, ``hash_entries``, ``host``, ``key``, ``key_type``, ``mode``, ``owner``, ``port``, and ``timeout`` are the properties available to this resource.
 
 Actions

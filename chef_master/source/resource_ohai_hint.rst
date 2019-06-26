@@ -5,7 +5,7 @@ ohai_hint resource
 
 Use the **ohai_hint** resource to aid in configuration detection by passing hint data to Ohai.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -24,7 +24,7 @@ where:
 
 * ``ohai_hint`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``compile_time``, ``content``, and ``hint_name`` are the properties available to this resource.
 
 Actions

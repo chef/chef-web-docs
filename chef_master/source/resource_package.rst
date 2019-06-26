@@ -88,7 +88,7 @@ where:
 
 * ``package`` tells the chef-client to manage a package; the chef-client will determine the correct package provider to use based on the platform running on the node
 * ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 * ``allow_downgrade``, ``arch``, ``default_release``, ``flush_cache``, ``gem_binary``, ``homebrew_user``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Gem Package Options

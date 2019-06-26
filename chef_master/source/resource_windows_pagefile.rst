@@ -5,7 +5,7 @@ windows_pagefile resource
 
 Use the **windows_pagefile** resource to configure pagefile settings on Windows.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -26,7 +26,7 @@ where:
 
 * ``windows_pagefile`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``automatic_managed``, ``initial_size``, ``maximum_size``, ``path``, and ``system_managed`` are the properties available to this resource.
 
 Actions

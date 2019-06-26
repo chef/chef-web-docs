@@ -5,7 +5,7 @@ windows_workgroup resource
 
 Use the **windows_workgroup** resource to join or change the workgroup of a Windows host.
 
-**New in Chef Client 14.5.**
+**New in Chef Infra Client 14.5.**
 
 Syntax
 =====================================================
@@ -26,7 +26,7 @@ where:
 
 * ``windows_workgroup`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``password``, ``reboot``, ``sensitive``, ``user``, and ``workgroup_name`` are the properties available to this resource.
 
 Actions
@@ -57,7 +57,7 @@ The windows_workgroup resource has the following properties:
 ``reboot``
    **Ruby Type:** Symbol | **Default Value:** ``:immediate``
 
-   Controls the system reboot behavior post workgroup joining. Reboot immediately, after the Chef run completes, or never. Note that a reboot is necessary for changes to take effect.
+   Controls the system reboot behavior post workgroup joining. Reboot immediately, after the Chef Infra Client run completes, or never. Note that a reboot is necessary for changes to take effect.
 
 ``user``
    **Ruby Type:** String

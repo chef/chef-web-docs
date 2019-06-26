@@ -5,7 +5,7 @@ apt_preference resource
 
 The **apt_preference** resource allows for the creation of APT `preference files <https://wiki.debian.org/AptPreferences>`__. Preference files are used to control which package versions and sources are prioritized during installation.
 
-**New in Chef Client 13.3.**
+**New in Chef Infra Client 13.3.**
 
 Syntax
 =====================================================
@@ -25,7 +25,7 @@ where:
 
 * ``apt_preference`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``glob``, ``package_name``, ``pin``, and ``pin_priority`` are the properties available to this resource.
 
 Actions

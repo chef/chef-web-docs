@@ -5,7 +5,7 @@ msu_package resource
 
 Use the **msu_package** resource to install Microsoft Update(MSU) packages on Microsoft Windows machines.
 
-**New in Chef Client 12.17.**
+**New in Chef Infra Client 12.17.**
 
 Syntax
 =====================================================

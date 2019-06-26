@@ -39,7 +39,7 @@ where:
 
 * ``route`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``comment``, ``device``, ``gateway``, ``metric``, ``netmask``, ``route_type``, and ``target`` are the properties available to this resource.
 
 Actions
@@ -70,7 +70,7 @@ The route resource has the following properties:
 
    Add a comment for the route.
 
-   *New in Chef Client 14.0.*
+   *New in Chef Infra Client 14.0.*
 
 ``device``
    **Ruby Type:** String

@@ -41,7 +41,7 @@ where:
 
 * ``zypper_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``allow_downgrade``, ``global_options``, ``gpg_check``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
@@ -94,14 +94,14 @@ The zypper_package resource has the following properties:
 
    Allow downgrading a package to satisfy requested version requirements.
 
-   *New in Chef Client 13.6.*
+   *New in Chef Infra Client 13.6.*
 
 ``global_options``
    **Ruby Type:** String, Array
 
    One (or more) additional command options that are passed to the command. For example, common zypper directives, such as ``--no-recommends``. See the `zypper man page <https://en.opensuse.org/SDB:Zypper_manual_(plain)>`_ for the full list.
 
-   *New in Chef Client 14.6.*
+   *New in Chef Infra Client 14.6.*
 
 ``gpg_check``
    **Ruby Type:** true, false | **Default Value:** ``true``

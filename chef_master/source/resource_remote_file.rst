@@ -73,7 +73,7 @@ where:
 
 * ``remote_file`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``atomic_update``, ``authentication``, ``backup``, ``checksum``, ``content``, ``diff``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``remote_domain``, ``remote_password``, ``remote_user``, ``show_progress``, ``use_etag``, ``use_last_modified``, and ``verifications`` are the properties available to this resource.
 
 Actions
@@ -233,21 +233,21 @@ The remote_file resource has the following properties:
 
    **Windows only** The name of a user with access to the remote file specified by the ``source`` property. The user name may optionally be specified with a domain, such as: ``domain\user`` or ``user@my.dns.domain.com`` via Universal Principal Name (UPN) format. The domain may also be set using the ``remote_domain`` property. Note that this property is ignored if ``source`` is not a UNC path. If this property is specified, the ``remote_password`` property is required.
 
-   *New in Chef Client 13.4.*
+   *New in Chef Infra Client 13.4.*
 
 ``remote_password``
    **Ruby Type:** String
 
    **Windows only** The password of the user specified by the ``remote_user`` property. This property is required if `remote_user` is specified and may only be specified if ``remote_user`` is specified. The ``sensitive`` property for this resource will automatically be set to ``true`` if ``remote_password`` is specified.
 
-   *New in Chef Client 13.4.*
+   *New in Chef Infra Client 13.4.*
 
 ``remote_domain``
    **Ruby Type:** String
 
    **Windows only** The domain of the user specified by the ``remote_user`` property. By default the resource will authenticate against the domain of the remote system, or as a local account if the remote system is not joined to a domain. If the remote system is not part of a domain, it is necessary to authenticate as a local user on the remote system by setting the domain to ``.``, for example: ``remote_domain "."``. The domain may also be specified as part of the ``remote_user`` property.
 
-   *New in Chef Client 13.4.*
+   *New in Chef Infra Client 13.4.*
 
 ``retries``
    **Ruby Type:** Integer | **Default Value:** ``0``

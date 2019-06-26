@@ -56,7 +56,7 @@ where:
 
 * ``remote_directory`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``cookbook``, ``files_backup``, ``files_group``, ``files_mode``, ``files_owner``, ``group``, ``mode``, ``overwrite``, ``owner``, ``path``, ``purge``, ``recursive``, and ``source`` are the properties available to this resource.
 
 Actions

@@ -5,7 +5,7 @@ swap_file resource
 
 Use the **swap_file** resource to create or delete swap files on Linux systems, and optionally to manage the swappiness configuration for a host.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -26,7 +26,7 @@ where:
 
 * ``swap_file`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``path``, ``persist``, ``size``, ``swappiness``, and ``timeout`` are the properties available to this resource.
 
 Actions

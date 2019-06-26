@@ -5,7 +5,7 @@ rhsm_subscription resource
 
 Use the **rhsm_subscription** resource to add or remove Red Hat Subscription Manager subscriptions from your host. This can be used when a host's activation_key does not attach all necessary subscriptions to your host.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -22,7 +22,7 @@ where:
 
 * ``rhsm_subscription`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``pool_id`` is the property available to this resource.
 
 Actions

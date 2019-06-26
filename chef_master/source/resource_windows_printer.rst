@@ -5,7 +5,7 @@ windows_printer resource
 
 Use the **windows_printer** resource to setup Windows printers. Note that this doesn't currently install a printer driver. You must already have the driver installed on the system.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -29,7 +29,7 @@ where:
 
 * ``windows_printer`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``comment``, ``default``, ``device_id``, ``driver_name``, ``ipv4_address``, ``location``, ``share_name``, and ``shared`` are the properties available to this resource.
 
 Actions

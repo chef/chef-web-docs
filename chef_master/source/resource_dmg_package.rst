@@ -5,7 +5,7 @@ dmg_package resource
 
 Use the **dmg_package** resource to install a package from a ``.dmg`` file. The resource will retrieve the file from a remote URL, mount it using OS X's hdidutil, copy the application to the specified destination (``/Applications``), and detach the image using hdiutil. The ``.dmg`` file will be stored in the ``Chef::Config[:file_cache_path]``.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -35,7 +35,7 @@ where:
 
 * ``dmg_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``accept_eula``, ``allow_untrusted``, ``app``, ``checksum``, ``destination``, ``dmg_name``, ``dmg_passphrase``, ``file``, ``headers``, ``owner``, ``package_id``, ``source``, ``type``, and ``volumes_dir`` are the properties available to this resource.
 
 Actions

@@ -5,7 +5,7 @@ sysctl resource
 
 Use the **sysctl** resource to set or remove kernel parameters using the ``sysctl`` command line tool and configuration files in the system's ``sysctl.d`` directory. Configuration files managed by this resource are named ``99-chef-KEYNAME.conf``. If an existing value was already set, it will be backed up to the node and restored if the ``:remove`` action is used later.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 14.0.**
 
 Syntax
 =====================================================
@@ -25,7 +25,7 @@ where:
 
 * ``sysctl`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``conf_dir``, ``ignore_error``, ``key``, and ``value`` are the properties available to this resource.
 
 Actions

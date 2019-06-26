@@ -5,7 +5,7 @@ windows_path resource
 
 Use the **windows_path** resource to manage the path environment variable on Microsoft Windows.
 
-**New in Chef Client 13.4.**
+**New in Chef Infra Client 13.4.**
 
 Syntax
 =====================================================
@@ -22,7 +22,7 @@ where:
 
 * ``windows_path`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``path`` is the property available to this resource.
 
 Actions

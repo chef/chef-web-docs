@@ -44,7 +44,7 @@ where:
 
 * ``service`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``init_command``, ``options``, ``parameters``, ``pattern``, ``priority``, ``reload_command``, ``restart_command``, ``run_levels``, ``service_name``, ``start_command``, ``status_command``, ``stop_command``, ``supports``, ``timeout``, and ``user`` are the properties available to this resource.
 
 Actions
@@ -162,7 +162,7 @@ The service resource has the following properties:
 
    systemd only: A username to run the service under.
 
-   *New in Chef Client 12.21.*
+   *New in Chef Infra Client 12.21.*
 
 Common Resource Functionality
 =====================================================

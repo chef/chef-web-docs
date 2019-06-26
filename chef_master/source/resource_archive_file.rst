@@ -5,7 +5,7 @@ archive_file resource
 
 Use the **archive_file** resource to extract archive files to disk. This resource uses the libarchive library to extract multiple archive formats including tar, gzip, bzip, and zip formats.
 
-**New in Chef Client 15.0.**
+**New in Chef Infra Client 15.0.**
 
 Syntax
 =====================================================
@@ -28,7 +28,7 @@ where:
 
 * ``archive_file`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``destination``, ``group``, ``mode``, ``options``, ``overwrite``, ``owner``, and ``path`` are the properties available to this resource.
 
 Actions
