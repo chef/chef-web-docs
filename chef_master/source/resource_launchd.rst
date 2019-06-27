@@ -235,6 +235,7 @@ The following resource properties may be used to define keys in the XML property
 
    Keep a job running continuously (``true``) or allow demand and conditions on the node to determine if the job keeps running (``false``).
 
+
 ``launch_events``
    **Ruby Type:** Hash
 
