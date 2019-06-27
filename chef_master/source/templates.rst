@@ -263,7 +263,7 @@ Use the ``render`` method in a template to reference a partial template file:
 
 .. code-block:: ruby
 
-   <%= render "partial_name.txt.erb", :option => {} %>
+   <%= render 'partial_name.txt.erb', :option => {} %>
 
 where ``partial_name`` is the name of the partial template file and ``:option`` is one (or more) of the following:
 
@@ -286,6 +286,6 @@ For example:
 
 .. code-block:: ruby
 
-   <%= render "simple.txt.erb", :variables => {:user => Etc.getlogin }, :local => true %>
+   <%= render 'simple.txt.erb', :variables => {:user => Etc.getlogin }, :local => true %>
 
 .. end_tag
