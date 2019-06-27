@@ -3,7 +3,7 @@ Release Notes: Chef Server 12.0 - 12.18.14
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
-The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
+Chef Server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
 
 What's New in 12.18.14
 =====================================================
@@ -1411,7 +1411,7 @@ What's New in 12.1
 =====================================================
 The following items are new for Chef server 12.1:
 
-* **chef-server-ctl key commands use Chef Infra Client Chef::Key object** The key rotation commands (``chef-server-ctl key``) for ``create``, ``delete``, ``edit``, ``list``, and ``show`` keys for users and clients. These were a preview in the Chef server 12.0.3 release, and are now fully integrated.
+* **chef-server-ctl key commands use the chef-client Chef::Key object** The key rotation commands (``chef-server-ctl key``) for ``create``, ``delete``, ``edit``, ``list``, and ``show`` keys for users and clients. These were a preview in the Chef server 12.0.3 release, and are now fully integrated.
 * **New version headers for Chef Server API** The Chef server API uses the ``X-Ops-Server-API-Version`` header to specify the version of the API that is used as part of a request to the Chef server API.
 * **New endpoints for policy and policy files** The Chef server API adds the following endpoints: ``/policies``, ``/policy_groups``, and ``/POLICY_GROUP/policies/POLICY_NAME``.
 * **New endpoints for client key management** The Chef server API adds the following endpoints: ``/clients/CLIENT/keys`` and ``/clients/CLIENT/keys/KEY``.
@@ -2464,7 +2464,7 @@ The following items are new for Chef server 12:
 * **private-chef.rb is now called chef-server.rb** The name of the configuration file used by the Chef server has been changed. A symlink from private-chef.rb to chef-server.rb is created during upgrades from older versions of the Chef server.
 * **New setting for the default organization name** Use the ``default_orgname`` setting to ensure compatibility with Open Source Chef version 11.
 * **New settings for oc_chef_authz** The **opscode-authz** service handles authorization requests to the Chef server.
-* **Organization policy changes** Users must be removed from the ``admins`` security group before they can be removed from an organization. Chef Infra Client is not granted **Create**, **Delete**, or **Update** permissions to data bags when organizations are created.
+* **Organization policy changes** Users must be removed from the ``admins`` security group before they can be removed from an organization. The chef-client is not granted **Create**, **Delete**, or **Update** permissions to data bags when organizations are created.
 * **Administrators cannot be removed from organizations** The Chef server requires that a member of an organization's ``admins`` group cannot be removed from the organization without first being removed from the ``admins`` group.
 * **New settings for managing LDAP encryption** New settings that manage LDAP encryption have been added, existing settings have been deprecated.
 * **New commands for managing keys** The following commands are new: ``add-client-key``, ``add-user-key``, ``delete-client-key``, ``delete-user-key``, ``list-client-keys``, and ``list-user-keys``. (These are preview commands, new as-of the Chef server 12.0.3 release.)
@@ -2581,7 +2581,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
        .. code-block:: bash
 
           $ sudo chef-manage-ctl reconfigure
-          
+
        .. note:: Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
 
@@ -2969,7 +2969,7 @@ This configuration file has the following settings for ``oc_chef_authz``:
 
 Data Bag Policy Changes
 -----------------------------------------------------
-In previous versions of the Chef server, the default permissions allowed data bags to be updated by Chef Infra Client during a chef-client run. Starting with Chef server version 12, Chef Infra Client is not granted **Create**, **Delete**, or **Update** permissions to data bags when organizations are created. Use the Chef management console or the ``knife-acl`` plugin (https://github.com/chef/knife-acl) to manage permissions to data bags as required. For example:
+In previous versions of the Chef server, the default permissions allowed data bags to be updated by the chef-client during a chef-client run. Starting with Chef server version 12, the chef-client is not granted **Create**, **Delete**, or **Update** permissions to data bags when organizations are created. Use the Chef management console or the ``knife-acl`` plugin (https://github.com/chef/knife-acl) to manage permissions to data bags as required. For example:
 
 .. code-block:: bash
 
