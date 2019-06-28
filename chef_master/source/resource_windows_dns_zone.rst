@@ -5,7 +5,7 @@ windows_dns_zone resource
 
 The **windows_dns_zone** resource creates an Active Directory Integrated DNS Zone on the local server.
 
-**New in Chef Client 15.0.**
+**New in Chef Infra Client 15.0.**
 
 Syntax
 =====================================================
@@ -24,7 +24,7 @@ where:
 
 * ``windows_dns_zone`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``replication_scope``, ``server_type``, and ``zone_name`` are the properties available to this resource.
 
 Actions

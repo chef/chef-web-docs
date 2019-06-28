@@ -24,7 +24,7 @@ where:
 
 * ``ohai_hint`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``compile_time``, ``content``, and ``hint_name`` are the properties available to this resource.
 
 Actions
@@ -39,7 +39,7 @@ The ohai_hint resource has the following actions:
    Delete an Ohai hint file.
 
 ``:nothing``
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, the resource block is either run immediately or it is queued up to be run at the end of the Chef Client run.
+   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, the resource block is either run immediately or it is queued up to be run at the end of the Chef Infra Client run.
 
 Properties
 =====================================================

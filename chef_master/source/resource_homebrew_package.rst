@@ -11,7 +11,7 @@ Use the **homebrew_package** resource to manage packages for the macOS platform.
 
 .. note:: .. tag notes_resource_based_on_package
 
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
+          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the Chef Infra Client will use details that are collected by Ohai at the start of the Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
 
           .. end_tag
 
@@ -45,8 +45,6 @@ where:
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
 * ``homebrew_user``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
-
-
 
 Actions
 =====================================================
@@ -82,10 +80,10 @@ The homebrew_package resource has the following properties:
 ``homebrew_user``
    **Ruby Type:** String, Integer
 
-   The name of the Homebrew owner to be used by the chef-client when executing a command.
+   The name of the Homebrew owner to be used by Chef Infra Client when executing a command.
 
 
-   The chef-client, by default, will attempt to execute a Homebrew command as the owner of ``/usr/local/bin/brew``. If that executable does not exist, the chef-client will attempt to find the user by executing ``which brew``. If that executable cannot be found, the chef-client will print an error message: ``Could not find the "brew" executable in /usr/local/bin or anywhere on the path.``. Use the ``homebrew_user`` attribute to specify the Homebrew owner for situations where the chef-client cannot automatically detect the correct owner.
+   Chef Infra Client, by default, will attempt to execute a Homebrew command as the owner of ``/usr/local/bin/brew``. If that executable does not exist, Chef Infra Client will attempt to find the user by executing ``which brew``. If that executable cannot be found, Chef Infra Client will print an error message: ``Could not find the "brew" executable in /usr/local/bin or anywhere on the path.``. Use the ``homebrew_user`` attribute to specify the Homebrew owner for situations where Chef Infra Client cannot automatically detect the correct owner.
 
 
 

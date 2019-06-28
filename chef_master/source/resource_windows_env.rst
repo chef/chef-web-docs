@@ -31,7 +31,7 @@ where:
 
 * ``windows_env`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``delim``, ``key_name``, ``user``, and ``value`` are the properties available to this resource.
 
 Actions
@@ -243,7 +243,7 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. tag resources_common_guards_attributes
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of the Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.

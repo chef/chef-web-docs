@@ -54,7 +54,7 @@ where:
 
 * ``file`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``atomic_update``, ``backup``, ``checksum``, ``content``, ``force_unlink``, ``group``, ``inherits``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``rights``, ``sensitive``, and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -109,7 +109,7 @@ The file resource has the following properties:
 ``force_unlink``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error.
+   How Chef Infra Client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for Chef Infra Client delete the non-file target and replace it with the specified file. Set to ``false`` for Chef Infra Client to raise an error.
 
 ``group``
    **Ruby Type:** Integer, String
@@ -125,14 +125,14 @@ The file resource has the following properties:
 ``manage_symlink_source``
    **Ruby Type:** true, false | **Default Value:** ``true`` (with warning)
 
-   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``false``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``true``, Chef will follow the symlink and will manage the permissions and content of symlink's target file.
+   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``false``, Chef Infra Client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``true``, Chef will follow the symlink and will manage the permissions and content of symlink's target file.
 
    The default behavior is ``true`` but emits a warning that the default value will be changed to ``false`` in a future version; setting this explicitly to ``true`` or ``false`` suppresses this warning.
 
 ``mode``
    **Ruby Type:** Integer, String
 
-   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, Chef Infra Client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, Chef Infra Client uses the default value of ``'0755'``.
 
    The behavior is different depending on the platform.
 
@@ -150,7 +150,7 @@ The file resource has the following properties:
 
    The full path to the file, including the file name and its extension. For example: ``/files/file.txt``. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
-   Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
+   Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of Chef Infra Client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
 
 ``rights``
    **Ruby Type:** Integer, String
@@ -164,7 +164,7 @@ The file resource has the following properties:
 
    The types for this property are a block or a string. When specified as a block, it returns ``true`` or ``false``. When specified as a string, it is executed as a system command. It evaluates to ``true`` if the command returns 0 as its exit status code and ``false`` if the command returns a non-zero exit status code.
 
-   .. note:: A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block returns ``true``, the chef-client will continue to update the file as appropriate.
+   .. note:: A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block returns ``true``, Chef Infra Client will continue to update the file as appropriate.
 
    For example, this should return ``true``:
 
@@ -206,7 +206,7 @@ The file resource has the following properties:
         end
       end
 
-   If a string or a block return ``false``, the chef-client run will stop and an error is raised.
+   If a string or a block return ``false``, the Chef Infra Client run will stop and an error is raised.
 
 Atomic File Updates
 -----------------------------------------------------

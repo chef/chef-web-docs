@@ -27,7 +27,7 @@ where:
 
 * ``windows_printer_port`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``ipv4_address``, ``port_description``, ``port_name``, ``port_number``, ``port_protocol``, and ``snmp_enabled`` are the properties available to this resource.
 
 Actions
@@ -76,7 +76,7 @@ The windows_printer_port resource has the following properties:
 ``port_protocol``
    **Ruby Type:** Integer | **Default Value:** ``1``
 
-   The printer port protocol; ``1`` (RAW) or ``2`` (LPR).
+   The printer port protocol: ``1`` (RAW) or ``2`` (LPR).
 
 ``snmp_enabled``
    **Ruby Type:** true, false | **Default Value:** ``false``

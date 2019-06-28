@@ -25,7 +25,7 @@ where:
 
 * ``sysctl`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``conf_dir``, ``ignore_error``, ``key``, and ``value`` are the properties available to this resource.
 
 Actions

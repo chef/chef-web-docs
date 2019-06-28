@@ -47,7 +47,7 @@ where:
 
 * ``apt_repository`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``arch``, ``cache_rebuild``, ``components``, ``cookbook``, ``deb_src``, ``distribution``, ``key``, ``key_proxy``, ``keyserver``, ``repo_name``, ``trusted``, and ``uri`` are the properties available to this resource.
 
 Actions

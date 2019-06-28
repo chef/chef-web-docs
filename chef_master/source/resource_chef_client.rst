@@ -40,10 +40,10 @@ The syntax for using the **chef_client** resource in a recipe is as follows:
 
 where
 
-* ``chef_client`` tells the chef-client to use the ``Chef::Provider::ChefClient`` provider during the chef-client run
-* ``name`` is the name of the resource block; when the ``name`` property is not specified as part of a recipe, ``name`` is also the name of the chef-client
+* ``chef_client`` tells Chef Infra Client to use the ``Chef::Provider::ChefClient`` provider during Chef Infra Client run
+* ``name`` is the name of the resource block; when the ``name`` property is not specified as part of a recipe, ``name`` is also the name of the Chef Infra Client
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
 Actions
 =====================================================
@@ -70,7 +70,7 @@ Properties
 This resource has the following properties:
 
 ``admin``
-   Use to specify whether the chef-client is an API client.
+   Use to specify whether Chef Infra Client is an API client.
 
 ``chef_server``
    The URL for the Chef server.
@@ -84,7 +84,7 @@ This resource has the following properties:
    Continue running a recipe if a resource fails for any reason.
 
 ``name``
-   The name of the chef-client.
+   The name of Chef Infra Client.
 
 ``notifies``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -127,7 +127,7 @@ This resource has the following properties:
    Use to specify the path to the location in which a public key will be written.
 
 ``raw_json``
-   The chef-client as JSON data. For example:
+   Chef Infra Client as JSON data. For example:
 
    .. code-block:: javascript
 
@@ -212,4 +212,4 @@ This resource has the following properties:
    .. end_tag
 
 ``validator``
-   Use to specify if the chef-client is a chef-validator.
+   Use to specify if Chef Infra Client is a chef-validator.

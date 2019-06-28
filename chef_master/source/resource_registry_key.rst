@@ -12,9 +12,9 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 .. note::
           64-bit versions of Microsoft Windows have a 32-bit compatibility layer in the registry that reflects and redirects certain keys (and their values) into specific locations (or logical views) of the registry hive.
 
-          The chef-client can access any reflected or redirected registry key. The machine architecture of the system on which the chef-client is running is used as the default (non-redirected) location. Access to the ``SysWow64`` location is redirected must be specified. Typically, this is only necessary to ensure compatibility with 32-bit applications that are running on a 64-bit operating system.
+          Chef Infra Client can access any reflected or redirected registry key. The machine architecture of the system on which Chef Infra Client is running is used as the default (non-redirected) location. Access to the ``SysWow64`` location is redirected must be specified. Typically, this is only necessary to ensure compatibility with 32-bit applications that are running on a 64-bit operating system.
 
-          32-bit versions of the chef-client (12.8 and earlier) and 64-bit versions of the chef-client (12.9 and later) generally behave the same in this situation, with one exception: it is only possible to read and write from a redirected registry location using chef-client version 12.9 (and later).
+          32-bit versions of Chef Infra Client (12.8 and earlier) and 64-bit versions of Chef Infra Client (12.9 and later) generally behave the same in this situation, with one exception: it is only possible to read and write from a redirected registry location using chef-client version 12.9 (and later).
 
           For more information, see: `Registry Reflection <https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx>`_.
 
@@ -508,11 +508,11 @@ or:
 
 .. end_tag
 
-**Set proxy settings to be the same as those used by the chef-client**
+**Set proxy settings to be the same as those used by Chef Infra Client**
 
 .. tag resource_registry_key_set_proxy_settings_to_same_as_chef_client
 
-.. To set system proxy settings to be the same as used by the chef-client:
+.. To set system proxy settings to be the same as used by Chef Infra Client:
 
 Use a double-quoted string:
 

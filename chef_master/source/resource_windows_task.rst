@@ -47,7 +47,7 @@ where:
 
 * ``windows_task`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``command``, ``cwd``, ``day``, ``description``, ``disallow_start_if_on_batteries``, ``execution_time_limit``, ``force``, ``frequency``, ``frequency_modifier``, ``idle_time``, ``interactive_enabled``, ``minutes_duration``, ``minutes_interval``, ``months``, ``password``, ``priority``, ``random_delay``, ``run_level``, ``start_day``, ``start_time``, ``start_when_available``, ``stop_if_going_on_batteries``, ``task_name``, and ``user`` are the properties available to this resource.
 
 Actions
@@ -205,7 +205,7 @@ The windows_task resource has the following properties:
 
    To start the task at any time after its scheduled time has passed.
 
-   *New in Chef Client 15.0.*
+   *New in Chef Infra Client 15.0.*
 
 ``stop_if_going_on_batteries``
    **Ruby Type:** true, false | **Default Value:** ``false``

@@ -35,7 +35,7 @@ where:
 
 * ``windows_firewall_rule`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``description``, ``direction``, ``enabled``, ``firewall_action``, ``interface_type``, ``local_address``, ``local_port``, ``profile``, ``program``, ``protocol``, ``remote_address``, ``remote_port``, ``rule_name``, and ``service`` are the properties available to this resource.
 
 Actions

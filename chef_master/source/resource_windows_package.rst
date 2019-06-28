@@ -42,7 +42,7 @@ where:
 
 * ``windows_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the Chef Infra will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 .. end_tag

@@ -33,10 +33,10 @@ The syntax for using the **chef_node** resource in a recipe is as follows:
 
 where
 
-* ``chef_node`` tells the chef-client to use the ``Chef::Provider::ChefNode`` provider during the chef-client run
+* ``chef_node`` tells Chef Infra Client to use the ``Chef::Provider::ChefNode`` provider during Chef Infra Client run
 * ``name`` is the name of the resource block
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
 
 Actions
 =====================================================

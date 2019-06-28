@@ -3,7 +3,7 @@ Resources Reference
 *****************************************************
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_reference.rst>`__
 
-This reference describes each of the resources available to the Chef Client, including a list of actions, properties, and usage examples.
+This reference describes each of the resources available to the Chef Infra Client, including a list of actions, properties, and usage examples.
 
 =====================================================
 Common Functionality
@@ -65,7 +65,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by the Chef Infra Client.
 
 
 
@@ -121,7 +121,7 @@ Attributes
 -----------------------------------------------------
 .. tag resources_common_guards_attributes
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of the Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -322,7 +322,7 @@ The ``guard_interpreter`` property may be set to any of the following values:
    Evaluates a string command using the **csh** resource.
 
 ``:default``
-   Default. Executes the default interpreter as identified by the chef-client.
+   Default. Executes the default interpreter as identified by the Chef Infra Client.
 
 ``:perl``
    Evaluates a string command using the **perl** resource.
@@ -393,7 +393,7 @@ Examples
 -----------------------------------------------------
 .. tag resources_common_guard_interpreter_example_default
 
-For example, the following code block will ensure the command is evaluated using the default interpreter as identified by the chef-client:
+For example, the following code block will ensure the command is evaluated using the default interpreter as identified by the Chef Infra Client:
 
 .. code-block:: ruby
 
@@ -408,13 +408,13 @@ Lazy Evaluation
 =====================================================
 .. tag resources_common_lazy_evaluation
 
-In some cases, the value for a property cannot be known until the execution phase of a chef-client run. In this situation, using lazy evaluation of property values can be helpful. Instead of a property being assigned a value, it may instead be assigned a code block. The syntax for using lazy evaluation is as follows:
+In some cases, the value for a property cannot be known until the execution phase of a Chef Infra Client run. In this situation, using lazy evaluation of property values can be helpful. Instead of a property being assigned a value, it may instead be assigned a code block. The syntax for using lazy evaluation is as follows:
 
 .. code-block:: ruby
 
    attribute_name lazy { code_block }
 
-where ``lazy`` is used to tell the chef-client to evaluate the contents of the code block later on in the resource evaluation process (instead of immediately) and ``{ code_block }`` is arbitrary Ruby code that provides the value.
+where ``lazy`` is used to tell the Chef Infra Client to evaluate the contents of the code block later on in the resource evaluation process (instead of immediately) and ``{ code_block }`` is arbitrary Ruby code that provides the value.
 
 For example, a resource that is **not** doing lazy evaluation:
 
@@ -517,7 +517,7 @@ The following examples show how to use the ``notifies`` notification in a recipe
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -526,7 +526,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then the Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -655,7 +655,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
 
 .. end_tag
 
@@ -697,7 +697,7 @@ With the ``:before`` notification, the action specified for the ``nginx`` resour
 
 .. To transfer a file only if the remote source has changed (using the |resource http request| resource):
 
-.. The "Transfer a file only when the source has changed" example is deprecated in chef-client 11-6
+.. The "Transfer a file only when the source has changed" example is deprecated in Chef Client 11.6
 
 .. code-block:: ruby
 
@@ -855,14 +855,14 @@ Run in Compile Phase
 =====================================================
 .. tag resources_common_compile
 
-The chef-client processes recipes in two phases:
+Chef Infra Client processes recipes in two phases:
 
 #. First, each resource in the node object is identified and a resource collection is built. All recipes are loaded in a specific order, and then the actions specified within each of them are identified. This is also referred to as the "compile phase".
-#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
+#. Next, Chef Infra Client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
 
-Typically, actions are processed during the execution phase of the chef-client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
+Typically, actions are processed during the execution phase of the Chef Infra Client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
 
-.. note:: Use the **chef_gem** resource to install gems that are needed by the chef-client during the execution phase.
+.. note:: Use the **chef_gem** resource to install gems that are needed by Chef Infra Client during the execution phase.
 
 .. end_tag
 
@@ -901,11 +901,11 @@ Sometimes it is necessary to ensure that an operating system's package cache is 
      e.run_action(:run)
    end
 
-where ``e.run_action(:run)`` tells the chef-client to run the ``apt-get update`` command during the compile phase. This example can be found in the ``default.rb`` recipe of the `apt cookbook <https://github.com/chef-cookbooks/apt>`_ that is maintained by Chef.
+where ``e.run_action(:run)`` tells Chef Infra Client to run the ``apt-get update`` command during the compile phase. This example can be found in the ``default.rb`` recipe of the `apt cookbook <https://github.com/chef-cookbooks/apt>`_ that is maintained by Chef.
 
 **Use the chef_gem resource for Ruby gems**
 
-A very common use case is to install a gem during the compile phase so that it will be available to the chef-client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
+A very common use case is to install a gem during the compile phase so that it will be available to Chef Infra Client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
 
 .. code-block:: ruby
 

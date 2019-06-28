@@ -62,7 +62,7 @@ This configuration file has the following settings:
 
       chef_version '~> 14.0'
 
-   A more complex example where you set both a lower and upper bound of the Chef Client version:
+   A more complex example where you set both a lower and upper bound of the Chef Infra Client version:
 
    .. code-block:: ruby
 

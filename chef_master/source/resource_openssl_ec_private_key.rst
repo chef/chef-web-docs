@@ -29,7 +29,7 @@ where:
 
 * ``openssl_ec_private_key`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``force``, ``group``, ``key_cipher``, ``key_curve``, ``key_pass``, ``mode``, ``owner``, and ``path`` are the properties available to this resource.
 
 Actions

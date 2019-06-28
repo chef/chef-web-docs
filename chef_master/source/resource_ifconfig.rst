@@ -50,7 +50,7 @@ where:
 
 * ``ifconfig`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``bcast``, ``bonding_opts``, ``bootproto``, ``device``, ``ethtool_opts``, ``family``, ``gateway``, ``hwaddr``, ``inet_addr``, ``mask``, ``master``, ``metric``, ``mtu``, ``network``, ``onboot``, ``onparent``, ``slave``, ``target``, and ``vlan`` are the properties available to this resource.
 
 Actions

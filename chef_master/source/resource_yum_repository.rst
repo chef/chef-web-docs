@@ -63,7 +63,7 @@ where:
 
 * ``yum_repository`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``baseurl``, ``clean_headers``, ``clean_metadata``, ``cost``, ``description``, ``enabled``, ``enablegroups``, ``exclude``, ``failovermethod``, ``fastestmirror_enabled``, ``gpgcheck``, ``gpgkey``, ``http_caching``, ``include_config``, ``includepkgs``, ``keepalive``, ``make_cache``, ``max_retries``, ``metadata_expire``, ``metalink``, ``mirror_expire``, ``mirrorlist``, ``mirrorlist_expire``, ``mode``, ``options``, ``password``, ``priority``, ``proxy``, ``proxy_password``, ``proxy_username``, ``repo_gpgcheck``, ``report_instanceid``, ``repositoryid``, ``skip_if_unavailable``, ``source``, ``sslcacert``, ``sslclientcert``, ``sslclientkey``, ``sslverify``, ``throttle``, ``timeout``, and ``username`` are the properties available to this resource.
 
 Actions

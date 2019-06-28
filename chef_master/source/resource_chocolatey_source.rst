@@ -40,12 +40,12 @@ The chocolatey_source resource has the following actions:
 
 ``:disable``
    Disables a Chocolatey source.
-    
+
    **New in Chef Infra Client 15.1.**
 
 ``:enable``
    Enables a Chocolatey source.
-    
+
    **New in Chef Infra Client 15.1.**
 
 ``:remove``

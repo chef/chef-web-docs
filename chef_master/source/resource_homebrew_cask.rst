@@ -26,7 +26,7 @@ where:
 
 * ``homebrew_cask`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``cask_name``, ``homebrew_path``, ``install_cask``, ``options``, and ``owner`` are the properties available to this resource.
 
 Actions

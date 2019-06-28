@@ -28,7 +28,7 @@ where:
 
 * ``windows_ad_join`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``domain_name``, ``domain_password``, ``domain_user``, ``new_hostname``, ``ou_path``, ``reboot``, and ``sensitive`` are the properties available to this resource.
 
 Actions
@@ -84,7 +84,7 @@ The windows_ad_join resource has the following properties:
    Controls the system reboot behavior after joining the domain, with the following options:
 
    * ``:immediate``: reboot immediately
-   * ``:delayed``: reboot after the Chef Client run completes
+   * ``:delayed``: reboot after the Chef Infra Client run completes
    * ``:never``: do not reboot
 
    Note that a reboot is necessary for changes to take effect.
@@ -117,7 +117,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``true``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by the Chef Infra Client.
 
 Notifications
 -----------------------------------------------------

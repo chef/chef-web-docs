@@ -39,7 +39,7 @@ where:
 
 * ``subversion`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``checkout_branch``, ``depth``, ``destination``, ``enable_checkout``, ``enable_submodules``, ``environment``, ``group``, ``remote``, ``repository``, ``revision``, ``ssh_wrapper``, ``svn_arguments``, ``svn_binary``, ``svn_info_args``, ``svn_password``, ``svn_username``, ``timeout``, and ``user`` are the properties available to this resource.
 
 Actions
@@ -99,7 +99,7 @@ The subversion resource has the following properties:
 ``svn_info_args``
    **Ruby Type:** String
 
-   Use when the ``svn info`` command is used by the chef-client and arguments need to be passed. The ``svn_arguments`` command does not work when the ``svn info`` command is used.
+   Use when the ``svn info`` command is used by Chef Infra Client and arguments need to be passed. The ``svn_arguments`` command does not work when the ``svn info`` command is used.
 
 ``svn_password``
    **Ruby Type:** String

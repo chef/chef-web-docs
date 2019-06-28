@@ -32,7 +32,7 @@ where:
 
 * ``openssl_x509_crl`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``expire``, ``group``, ``mode``, ``owner``, ``path``, ``renewal_threshold``, ``revocation_reason``, and ``serial_to_revoke`` are the properties available to this resource.
 
 Actions

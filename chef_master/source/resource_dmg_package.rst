@@ -35,7 +35,7 @@ where:
 
 * ``dmg_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``accept_eula``, ``allow_untrusted``, ``app``, ``checksum``, ``destination``, ``dmg_name``, ``dmg_passphrase``, ``file``, ``headers``, ``owner``, ``package_id``, ``source``, ``type``, and ``volumes_dir`` are the properties available to this resource.
 
 Actions

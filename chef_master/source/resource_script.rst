@@ -88,7 +88,7 @@ where
 * ``script`` is the resource
 * ``name`` is the name of the resource block
 * ``cwd`` is the location from which the command is run
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``code``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``interpreter``, ``path``, ``returns``, ``timeout``, ``user``, ``password``, ``domain`` and ``umask`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -362,7 +362,7 @@ The ``guard_interpreter`` property may be set to any of the following values:
    Evaluates a string command using the **csh** resource.
 
 ``:default``
-   Default. Executes the default interpreter as identified by the chef-client.
+   Default. Executes the default interpreter as identified by the Chef Infra Client.
 
 ``:perl``
    Evaluates a string command using the **perl** resource.
@@ -433,7 +433,7 @@ The ``not_if`` statement now inherits the ``environment`` property and will use 
 
 .. tag resources_common_guard_interpreter_example_default
 
-For example, the following code block will ensure the command is evaluated using the default interpreter as identified by the chef-client:
+For example, the following code block will ensure the command is evaluated using the default interpreter as identified by the Chef Infra Client:
 
 .. code-block:: ruby
 
@@ -508,7 +508,7 @@ or something like:
      not_if { File.exist?('#{key_dir}/server.crt') }
    end
 
-where ``code`` contains the OpenSSL command to be run. The ``not_if`` property tells the chef-client not to run the command if the file already exists.
+where ``code`` contains the OpenSSL command to be run. The ``not_if`` property tells Chef Infra Client not to run the command if the file already exists.
 
 .. end_tag
 
@@ -654,7 +654,7 @@ This right can be added and checked in a recipe using this example:
     # Check if the user has 'SeAssignPrimaryTokenPrivilege' rights
     Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')
 
-The following example shows how to run ``mkdir test_dir`` from a chef-client run as an alternate user.
+The following example shows how to run ``mkdir test_dir`` from a Chef Infra Client run as an alternate user.
 
 .. code-block:: ruby
 

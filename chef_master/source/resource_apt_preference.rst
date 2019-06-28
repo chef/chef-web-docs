@@ -25,7 +25,7 @@ where:
 
 * ``apt_preference`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``glob``, ``package_name``, ``pin``, and ``pin_priority`` are the properties available to this resource.
 
 Actions

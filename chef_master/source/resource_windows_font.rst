@@ -23,7 +23,7 @@ where:
 
 * ``windows_font`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``font_name`` and ``source`` are the properties available to this resource.
 
 Actions

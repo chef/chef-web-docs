@@ -31,7 +31,7 @@ where:
 
 * ``group`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``append``, ``comment``, ``excluded_members``, ``gid``, ``group_name``, ``members``, ``non_unique``, and ``system`` are the properties available to this resource.
 
 Actions

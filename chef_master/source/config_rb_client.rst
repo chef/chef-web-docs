@@ -74,7 +74,7 @@ This configuration file has the following settings:
 ``client_fork``
    Contain the Chef Infra Client run in a secondary process with dedicated RAM. When the Chef Infra Client run is complete, the RAM is returned to the master process. This setting helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the Chef Infra Client in fork node.
 
-   .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Client configuration file necessary.
+   .. note:: Must be set to ``false`` up to Chef Client 13.11.3 to gather the standard return code offered by ``exit_status true``. Chef Client 14.x behaves as expected, with no changes to the Chef Infra Client configuration file necessary.
 
 ``client_key``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``.

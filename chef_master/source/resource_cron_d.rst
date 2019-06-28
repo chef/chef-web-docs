@@ -5,7 +5,7 @@ cron_d resource
 
 Use the **cron_d** resource to manage cron job files in the /etc/cron.d directory.
 
-.. warning:: Chef also ships the **cron** resource for managing the monolithic ``/etc/crontab`` file on platforms that lack cron.d support. See the `cron resource </resource_cron.html>`__ for information on using that resource.
+.. warning:: Chef Infra Client also ships with the **cron** resource for managing the monolithic ``/etc/crontab`` file on platforms that lack cron.d support. See the `cron resource </resource_cron.html>`__ for information on using that resource.
 
 **New in Chef Client 14.4.**
 
@@ -61,7 +61,7 @@ where:
 
 * ``cron_d`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``command``, ``comment``, ``cookbook``, ``cron_name``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``mode``, ``month``, ``path``, ``predefined_value``, ``random_delay``, ``shell``, ``user``, and ``weekday`` are the properties available to this resource.
 
 Actions

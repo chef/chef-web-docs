@@ -30,7 +30,7 @@ where:
 
 * ``rhsm_register`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
 * ``activation_key``, ``auto_attach``, ``environment``, ``force``, ``install_katello_agent``, ``organization``, ``password``, ``satellite_host``, and ``username`` are the properties available to this resource.
 
 Actions

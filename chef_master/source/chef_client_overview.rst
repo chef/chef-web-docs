@@ -40,9 +40,9 @@ The Chef Infra Client Run
 =====================================================
 .. tag chef_client_run
 
-.. THIS TOPIC IS TRUE FOR AN UPCOMING VERSION OF THE CHEF-CLIENT; THE BEHAVIOR OF "SYNCHRONIZE COOKBOOKS" HAS CHANGED SLIGHTLY OVER TIME AND HAS BEEN VERSIONED.
+.. THIS TOPIC IS TRUE FOR AN UPCOMING VERSION OF CHEF INFRA CLIENT; THE BEHAVIOR OF "SYNCHRONIZE COOKBOOKS" HAS CHANGED SLIGHTLY OVER TIME AND HAS BEEN VERSIONED.
 
-A "chef-client run" is the term used to describe a series of steps that are taken by the Chef Infra Client when it is configuring a node. The following diagram shows the various stages that occur during the Chef Infra Client run, and then the list below the diagram describes in greater detail each of those stages.
+A "Chef Infra Client run" is the term used to describe a series of steps that are taken by the Chef Infra Client when it is configuring a node. The following diagram shows the various stages that occur during the Chef Infra Client run, and then the list below the diagram describes in greater detail each of those stages.
 
 .. image:: ../../images/chef_run.png
 
