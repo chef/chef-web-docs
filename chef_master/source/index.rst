@@ -599,7 +599,6 @@ Addenda
    deprecations_verify_file
    depreciations_ohai_system_profile
    dk_windows
-   dsl_audit
    dsl_custom_resource
    dsl_delivery
    dsl_handler
