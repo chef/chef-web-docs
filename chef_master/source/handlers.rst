@@ -957,7 +957,7 @@ The following open source handlers are available from the Chef community:
    * - `Campfire <https://github.com/ampledata/chef-handler-campfire>`_
      - A handler that collects exception and report handler data and reports it to Campfire, a web-based group chat tool.
    * - `Datadog <https://github.com/DataDog/chef-handler-datadog>`_
-     - A handler that collects Chef Infra Client stats and sends them into a DATADOG newsfeed.
+     - A handler that collects Chef Infra Client stats and sends them into a Datadog newsfeed.
    * - `Flowdock <https://github.com/mmarschall/chef-handler-flowdock>`_
      - A handler that collects exception and report handler data and sends it to users via the Flowdock API..
    * - `Graphite <https://github.com/imeyer/chef-handler-graphite/wiki>`_
