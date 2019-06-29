@@ -14,12 +14,9 @@ A custom resource:
 For example, Chef Infra Client includes built-in resources to manage files, packages, templates, and services, but it does not include a resource that manages websites.
 
 
-
-Custom resources were introduced in Chef Client version 12.5 and are now the preferred method of writing your own resources in Chef. If you are using an older version of the Chef Client, please see our `legacy documentation <https://docs-archive.chef.io/release/12-4/custom_resources.html>`__.
-
 Syntax
 =====================================================
-A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file
+A custom resource is defined as a Ruby file and is located in a cookbook's ``/resources`` directory. This file:
 
 * Declares the properties of the custom resource
 * Loads current state of properties, if the resource already exists
@@ -30,10 +27,6 @@ The syntax for a custom resource is. For example:
 .. code-block:: ruby
 
    property :property_name, RubyType, default: 'value'
-
-   load_current_value do
-     # some Ruby for loading the current state of the resource
-   end
 
    action :action_name do
     # a mix of built-in Chef resources and Ruby
