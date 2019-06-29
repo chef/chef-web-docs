@@ -438,7 +438,7 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
 
        On Microsoft Windows machines: The batch file that is derived from the windows-chef-client-msi.erb bootstrap template executes the ``chef-client`` binary with a set of initial settings stored within ``first-boot.json`` on the node. ``first-boot.json`` is generated from the workstation as part of the initial ``knife bootstrap`` subcommand.
    * - **Complete a Chef Infra Client run**
-     - The Chef Infra Client run proceeds, using HTTPS (port 443), and registers the node with the Chef Infra Server.
+     - a Chef Infra Client run proceeds, using HTTPS (port 443), and registers the node with the Chef Infra Server.
 
        The first Chef Infra Client run, by default, contains an empty run-list. A `run-list can be specified </knife_bootstrap.html>`__ as part of the initial bootstrap operation using the ``--run-list`` option as part of the ``knife bootstrap`` subcommand.
 
