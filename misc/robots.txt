@@ -72,7 +72,7 @@ Disallow: /junos.html
 Disallow: /manage.html
 Disallow: /perform_compliance_scan.html
 Disallow: /plugin_knife_analytics.html
-Disallow: /plugin_knife_pusj_jobs.html
+Disallow: /plugin_knife_push_jobs.html
 Disallow: /plugin_knife_reporting.html
 Disallow: /profile_store.html
 Disallow: /publish_cookbooks_multiple_servers.html
