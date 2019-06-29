@@ -51,7 +51,7 @@ and a resource block that installs a tar.gz package for version 1.6.1 like this:
      version '1.16.1'
    end
 
-In both cases, the Chef Infra Client will use the default action (``:install``) to install the ``tar`` package.
+In both cases, Chef Infra Client will use the default action (``:install``) to install the ``tar`` package.
 
 Additional Information
 =====================================================

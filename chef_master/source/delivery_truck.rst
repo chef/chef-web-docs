@@ -18,7 +18,7 @@ The following recipes are available by default in the ``delivery-truck`` cookboo
 ``default.rb``
    .. tag delivery_cookbook_common_recipe_default
 
-   Use the ``default.rb`` recipe to configure a project on a build node. This recipe is run by the Chef Infra Client as the root user and is a standard default recipe, i.e. the Chef Infra Client may use this recipe to configure this project on any node, whether or not it's part of a Chef Automate pipeline.
+   Use the ``default.rb`` recipe to configure a project on a build node. This recipe is run by Chef Infra Client as the root user and is a standard default recipe, i.e. Chef Infra Client may use this recipe to configure this project on any node, whether or not it's part of a Chef Automate pipeline.
 
    .. end_tag
 
@@ -186,11 +186,11 @@ Project Cookbooks
 =====================================================
 A project cookbook is a cookbook that is located within a project and is used to deploy that project's software onto one (or more) nodes in the Chef Automate pipeline. These cookbooks are located in the ``/cookbooks`` directory, which should exist at the root of the project (similar to the ``.delivery`` directory).
 
-The ``default.rb`` recipe in a project cookbook is executed by the Chef Infra Client on infrastructure nodes as the project moves through the Chef Automate pipeline. The ``provision.rb`` recipe discovers all ``metadata.rb`` and/or ``metadata.json`` files in the project, including those under the ``/cookbooks`` directory.
+The ``default.rb`` recipe in a project cookbook is executed by Chef Infra Client on infrastructure nodes as the project moves through the Chef Automate pipeline. The ``provision.rb`` recipe discovers all ``metadata.rb`` and/or ``metadata.json`` files in the project, including those under the ``/cookbooks`` directory.
 
 Single Cookbook
 -----------------------------------------------------
-A project may use a single cookbook to tell the Chef Infra Client how to configure nodes in the Chef Automate pipeline.
+A project may use a single cookbook to tell Chef Infra Client how to configure nodes in the Chef Automate pipeline.
 
 Add Project Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -224,7 +224,7 @@ Create a project cookbook. From the project's root directory, do the following:
 
 Configure default.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-In the ``default.rb`` recipe, define how this project is to be deployed. This is a normal Chef recipe that is executed by the Chef Infra Client, so do the same in this recipe as you would do in any other.
+In the ``default.rb`` recipe, define how this project is to be deployed. This is a normal Chef recipe that is executed by Chef Infra Client, so do the same in this recipe as you would do in any other.
 
 Promote the Project
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -302,7 +302,7 @@ Some projects need more than one project cookbook. Put as many cookbooks as nece
 
 Each cookbook under the ``/cookbooks`` directory must have a valid cookbook structure. If the cookbook does not have a ``metadata.rb`` or ``metadata.json`` file it will not be discovered by the ``provision.rb`` recipe; consequently, that cookbook will not be used to configure nodes in the Chef Automate pipeline.
 
-The ``default.rb`` recipes in all project cookbooks are executed by the Chef Infra Client on infrastructure nodes as the project moves through the Chef Automate pipeline. The ``default.rb`` recipe in the ``build-cookbook`` is run first, and then each ``default.rb`` recipe in each cookbook under ``/cookbooks`` is run (in alphabetical order, by cookbook name).
+The ``default.rb`` recipes in all project cookbooks are executed by Chef Infra Client on infrastructure nodes as the project moves through the Chef Automate pipeline. The ``default.rb`` recipe in the ``build-cookbook`` is run first, and then each ``default.rb`` recipe in each cookbook under ``/cookbooks`` is run (in alphabetical order, by cookbook name).
 
 Project Applications
 =====================================================

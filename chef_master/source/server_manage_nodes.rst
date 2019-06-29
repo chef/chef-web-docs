@@ -73,7 +73,7 @@ Node Attributes
 =====================================================
 .. tag node_attribute
 
-An attribute is a specific detail about a node. Attributes are used by the Chef Infra Client to understand:
+An attribute is a specific detail about a node. Attributes are used by Chef Infra Client to understand:
 
 * The current state of the node
 * What the state of the node was at the end of the previous Chef Infra Client run
@@ -86,7 +86,7 @@ Attributes are defined by:
 * Roles
 * Environments
 
-During every Chef Infra Client run, the Chef Infra Client builds the attribute list using:
+During every Chef Infra Client run, Chef Infra Client builds the attribute list using:
 
 * Data about the node collected by Ohai
 * The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run
@@ -127,7 +127,7 @@ Run-lists
 
 A run-list defines all of the information necessary for Chef to configure a node into the desired state. A run-list is:
 
-* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the Chef Infra Client will not run it twice
+* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, Chef Infra Client will not run it twice
 * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
 * Stored as part of the node object on the Chef server
 * Maintained using knife and then uploaded from the workstation to the Chef Infra Server, or maintained using Chef Automate

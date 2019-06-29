@@ -241,7 +241,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the Chef Infra Client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -385,7 +385,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -835,7 +835,7 @@ bff_package
 
 Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-.. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The Chef Infra Client will still identify the correct provider to use based on the platform, regardless of the file extension.
+.. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. Chef Infra Client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
 .. end_tag
 
@@ -845,7 +845,7 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
 
 .. To install a package:
 
-The **bff_package** resource is the default package provider on the AIX platform. The base **package** resource may be used, and then when the platform is AIX, the Chef Infra Client will identify the correct package provider. The following examples show how to install part of the IBM XL C/C++ compiler.
+The **bff_package** resource is the default package provider on the AIX platform. The base **package** resource may be used, and then when the platform is AIX, Chef Infra Client will identify the correct package provider. The following examples show how to install part of the IBM XL C/C++ compiler.
 
 Using the base **package** resource:
 
@@ -871,7 +871,7 @@ breakpoint
 =====================================================
 .. tag resource_breakpoint_summary
 
-Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in Chef Infra Client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the Chef Infra Client during an actual Chef Infra Client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef Infra Server.
+Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in Chef Infra Client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by Chef Infra Client during an actual Chef Infra Client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef Infra Server.
 
 .. end_tag
 
@@ -1004,7 +1004,7 @@ chef_handler
 =====================================================
 .. tag resource_chef_handler_summary
 
-Use the **chef_handler** resource to enable handlers during a Chef Infra Client run. The resource allows arguments to be passed to the Chef Infra Client, which then applies the conditions defined by the custom handler to the node attribute data collected during the Chef Infra Client run, and then processes the handler based on that data.
+Use the **chef_handler** resource to enable handlers during a Chef Infra Client run. The resource allows arguments to be passed to Chef Infra Client, which then applies the conditions defined by the custom handler to the node attribute data collected during a Chef Infra Client run, and then processes the handler based on that data.
 
 The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire Chef Infra Client run.
 
@@ -1065,7 +1065,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 .. tag handler_custom_example_cookbook_versions
 
-Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during the Chef Infra Client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
+Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during a Chef Infra Client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
 
 .. end_tag
 
@@ -1073,7 +1073,7 @@ cookbook_versions.rb:
 
 .. tag handler_custom_example_cookbook_versions_handler
 
-The following custom handler defines how cookbooks and cookbook versions that are used during the Chef Infra Client run will be compiled into a report using the ``Chef::Log`` class in the Chef Infra Client:
+The following custom handler defines how cookbooks and cookbook versions that are used during a Chef Infra Client run will be compiled into a report using the ``Chef::Log`` class in Chef Infra Client:
 
 .. code-block:: ruby
 
@@ -1132,7 +1132,7 @@ This recipe will generate report output similar to the following:
 
 The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb>`_ handler is available from the **chef_handler** cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -1182,9 +1182,9 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 .. tag handler_custom_example_error_report
 
-The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into the Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
+The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -1240,7 +1240,7 @@ cookbook_file
 =====================================================
 .. tag resource_cookbook_file_summary
 
-Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
+Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
 
 .. end_tag
 
@@ -2218,7 +2218,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -2245,7 +2245,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -2422,7 +2422,7 @@ where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
 * the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
-* the **template** resource tells the Chef Infra Client which template to use
+* the **template** resource tells Chef Infra Client which template to use
 
 .. end_tag
 
@@ -2455,7 +2455,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the Chef Infra Client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -3597,7 +3597,7 @@ ohai
 =====================================================
 .. tag resource_ohai_summary
 
-Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the Chef Infra Client run.
+Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run.
 
 .. end_tag
 
@@ -4454,7 +4454,7 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the Chef Infra Client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during a Chef Infra Client run
 
 .. end_tag
 
@@ -4503,7 +4503,7 @@ Use the **reboot** resource to reboot a node, a necessary step with some install
 
 .. tag resource_service_reboot_request
 
-.. To reboot a node at the end of the Chef Infra Client run:
+.. To reboot a node at the end of a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -4559,7 +4559,7 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the Chef Infra Client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during a Chef Infra Client run
 
 .. end_tag
 
@@ -4669,7 +4669,7 @@ or a single-quoted string:
 
 .. note:: .. tag notes_registry_key_resource_recursive
 
-          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
+          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by Chef Infra Client.
 
           .. end_tag
 
@@ -6190,7 +6190,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the Chef Infra Client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -6287,7 +6287,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -6366,7 +6366,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the Chef Infra Client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -6518,7 +6518,7 @@ user
 
 Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
-.. note:: System attributes are collected by Ohai at the start of every Chef Infra Client run. By design, the actions available to the **user** resource are processed **after** the start of the Chef Infra Client run. This means that system attributes added or modified by the **user** resource during the Chef Infra Client run must be reloaded before they can be available to Chef Infra Client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) Chef Infra Client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current Chef Infra Client run.
+.. note:: System attributes are collected by Ohai at the start of every Chef Infra Client run. By design, the actions available to the **user** resource are processed **after** the start of a Chef Infra Client run. This means that system attributes added or modified by the **user** resource during a Chef Infra Client run must be reloaded before they can be available to Chef Infra Client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) Chef Infra Client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current Chef Infra Client run.
 
 .. end_tag
 

@@ -11,7 +11,7 @@ Use the **ruby_block** resource to execute Ruby code during a Chef Infra Client 
 
 Syntax
 =====================================================
-A **ruby_block** resource block executes a block of arbitrary Ruby code. For example, to reload the client.rb file during the Chef Infra Client run:
+A **ruby_block** resource block executes a block of arbitrary Ruby code. For example, to reload the client.rb file during a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -51,7 +51,7 @@ The ruby_block resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -89,13 +89,13 @@ The ruby_block resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -148,13 +148,13 @@ The ruby_block resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

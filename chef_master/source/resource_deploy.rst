@@ -248,7 +248,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -358,13 +358,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -457,13 +457,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -555,7 +555,7 @@ Where a resource represents a piece of the system (and its desired state), a pro
 
 
 
-Chef Infra Client will determine the correct provider based on configuration data collected by Ohai at the start of the Chef Infra Client run. This configuration data is then mapped to a platform and an associated list of providers.
+Chef Infra Client will determine the correct provider based on configuration data collected by Ohai at the start of a Chef Infra Client run. This configuration data is then mapped to a platform and an associated list of providers.
 
 Generally, it's best to let Chef Infra Client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
 
@@ -584,7 +584,7 @@ For reference, the providers available for this resource are listed below. Howev
 
 
 ``Chef::Provider::Deploy``, ``deploy``
-   When this short name is used, Chef Infra Client will determine the correct provider during the Chef Infra Client run.
+   When this short name is used, Chef Infra Client will determine the correct provider during a Chef Infra Client run.
 
 ``Chef::Provider::Deploy::Branch``, ``deploy_branch``
    See below for more information.
@@ -598,7 +598,7 @@ For reference, the providers available for this resource are listed below. Howev
 deploy_branch
 -----------------------------------------------------
 
-The **deploy_branch** resource functions identically to the **deploy_revision** resource, in terms of how Chef Infra Client processes the resource during the Chef Infra Client run. It uses the same ``Deploy::Revision`` provider, the same set of actions and attributes, and is (outside of the name itself) identical to the **deploy_revision** resource. Using the **deploy_revision** resource is preferred; however, the **deploy_branch** resource exists for those situations where, semantically, it is preferable to refer to a resource as a "branch" instead of a "revision".
+The **deploy_branch** resource functions identically to the **deploy_revision** resource, in terms of how Chef Infra Client processes the resource during a Chef Infra Client run. It uses the same ``Deploy::Revision`` provider, the same set of actions and attributes, and is (outside of the name itself) identical to the **deploy_revision** resource. Using the **deploy_revision** resource is preferred; however, the **deploy_branch** resource exists for those situations where, semantically, it is preferable to refer to a resource as a "branch" instead of a "revision".
 
 deploy_revision
 -----------------------------------------------------
@@ -889,7 +889,7 @@ and then what these layout modifiers look like if they were empty:
      ...
    end
 
-In most cases, using the empty values for the layout modifiers will prevent Chef Infra Client from passing symbolic linking information to a node during the Chef Infra Client run. However, in some cases, it may be preferable to ensure that one (or more) of these layout modifiers do not pass any symbolic linking information to a node during the Chef Infra Client run at all. Because each of these layout modifiers are a Hash, the ``clear`` instance method can be used to clear out these values.
+In most cases, using the empty values for the layout modifiers will prevent Chef Infra Client from passing symbolic linking information to a node during a Chef Infra Client run. However, in some cases, it may be preferable to ensure that one (or more) of these layout modifiers do not pass any symbolic linking information to a node during a Chef Infra Client run at all. Because each of these layout modifiers are a Hash, the ``clear`` instance method can be used to clear out these values.
 
 To clear the default values for a layout modifier:
 

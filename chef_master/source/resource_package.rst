@@ -88,7 +88,7 @@ where:
 
 * ``package`` tells Chef Infra Client to manage a package; Chef Infra Client will determine the correct package provider to use based on the platform running on the node
 * ``'name'`` is the name of the package
-* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
 * ``allow_downgrade``, ``arch``, ``default_release``, ``flush_cache``, ``gem_binary``, ``homebrew_user``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Gem Package Options
@@ -220,7 +220,7 @@ The package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -263,7 +263,7 @@ The package resource has the following properties:
 
    .. tag resources_common_package_yum_cache
 
-   Yum automatically synchronizes remote metadata to a local cache. Chef Infra Client creates a copy of the local cache, and then stores it in-memory during the Chef Infra Client run. The in-memory cache allows packages to be installed during the Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
+   Yum automatically synchronizes remote metadata to a local cache. Chef Infra Client creates a copy of the local cache, and then stores it in-memory during a Chef Infra Client run. The in-memory cache allows packages to be installed during a Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
 
    .. end_tag
 
@@ -315,13 +315,13 @@ The package resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -401,13 +401,13 @@ The package resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -441,7 +441,7 @@ Multiple Packages
 A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
-* Update or install multiple packages with a single resource during the Chef Infra Client run
+* Update or install multiple packages with a single resource during a Chef Infra Client run
 
 For example, installing multiple packages:
 

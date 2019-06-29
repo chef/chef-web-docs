@@ -7,7 +7,7 @@ About the Handler DSL
 
 .. tag dsl_handler_summary
 
-Use the Handler DSL to attach a callback to an event. If the event occurs during the Chef Infra Client run, the associated callback is executed. For example:
+Use the Handler DSL to attach a callback to an event. If the event occurs during a Chef Infra Client run, the associated callback is executed. For example:
 
 * Sending email if a Chef Infra Client run fails
 * Aggregating statistics about resources updated during a Chef Infra Client runs to StatsD
@@ -18,7 +18,7 @@ on Method
 =====================================================
 .. tag dsl_handler_method_on
 
-Use the ``on`` method to associate an event type with a callback. The callback defines what steps are taken if the event occurs during the Chef Infra Client run and is defined using arbitrary Ruby code. The syntax is as follows:
+Use the ``on`` method to associate an event type with a callback. The callback defines what steps are taken if the event occurs during a Chef Infra Client run and is defined using arbitrary Ruby code. The syntax is as follows:
 
 .. code-block:: ruby
 
@@ -31,7 +31,7 @@ Use the ``on`` method to associate an event type with a callback. The callback d
 where
 
 * ``Chef.event_handler`` declares a block of code within a recipe that is processed when the named event occurs during a Chef Infra Client run
-* ``on`` defines the block of code that will tell the Chef Infra Client how to handle the event
+* ``on`` defines the block of code that will tell Chef Infra Client how to handle the event
 * ``:event_type`` is a valid exception event type, such as ``:run_start``, ``:run_failed``, ``:converge_failed``, ``:resource_failed``, or ``:recipe_not_found``
 
 For example:
@@ -59,7 +59,7 @@ The following table describes the events that may occur during a Chef Infra Clie
    * - Event
      - Description
    * - ``:run_start``
-     - The start of the Chef Infra Client run.
+     - The start of a Chef Infra Client run.
    * - ``:run_started``
      - The Chef Infra Client run has started.
    * - ``:ohai_completed``
@@ -187,11 +187,11 @@ The following table describes the events that may occur during a Chef Infra Clie
    * - ``:stream_output``
      - A chunk of data from a single named stream.
    * - ``:handlers_start``
-     - The handler processing phase of the Chef Infra Client run has started.
+     - The handler processing phase of a Chef Infra Client run has started.
    * - ``:handler_executed``
      - The named handler was processed.
    * - ``:handlers_completed``
-     - The handler processing phase of the Chef Infra Client run is complete.
+     - The handler processing phase of a Chef Infra Client run is complete.
    * - ``:provider_requirement_failed``
      - An assertion declared by a provider has failed.
    * - ``:whyrun_assumption``
@@ -215,7 +215,7 @@ Send Email
 
 Use the ``on`` method to create an event handler that sends email when the Chef Infra Client run fails. This will require:
 
-* A way to tell the Chef Infra Client how to send email
+* A way to tell Chef Infra Client how to send email
 * An event handler that describes what to do when the ``:run_failed`` event is triggered
 * A way to trigger the exception and test the behavior of the event handler
 
@@ -269,7 +269,7 @@ Invoke the library helper in a recipe:
 * Use ``Chef.event_handler`` to define the event handler
 * Use the ``on`` method to specify the event type
 
-Within the ``on`` block, tell the Chef Infra Client how to handle the event when it's triggered.
+Within the ``on`` block, tell Chef Infra Client how to handle the event when it's triggered.
 
 .. end_tag
 

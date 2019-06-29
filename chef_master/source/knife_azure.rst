@@ -33,13 +33,13 @@ If Chef Infra Client was installed using RubyGems, install the ``knife azure`` w
 
    $ gem install knife-azure
 
-If the Chef Infra Client was installed from the `Chef Infra Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
+If Chef Infra Client was installed from the `Chef Infra Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
 
 .. code-block:: bash
 
    $ /opt/chef/embedded/bin/gem install knife-azure
 
-where ``/opt/chef/embedded/bin/`` is the path to the location where the Chef Infra Client expects knife plugins to be located.
+where ``/opt/chef/embedded/bin/`` is the path to the location where Chef Infra Client expects knife plugins to be located.
 
 Configuration
 ------------------------------------------------------
@@ -380,7 +380,7 @@ This argument has the following options:
 
 server create
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Use the ``server create`` argument to create a new Microsoft Azure cloud instance. This will provision a new image in Microsoft Azure, perform a bootstrap (using the SSH protocol), and then install the Chef Infra Client on the target system so that it can be used to configure the node and to communicate with a Chef Infra Server.
+Use the ``server create`` argument to create a new Microsoft Azure cloud instance. This will provision a new image in Microsoft Azure, perform a bootstrap (using the SSH protocol), and then install Chef Infra Client on the target system so that it can be used to configure the node and to communicate with a Chef Infra Server.
 
 Syntax
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -398,7 +398,7 @@ This argument has the following options:
    The affinity group to which the virtual machine belongs. Required when not using a service location. Required when not using ``--azure-service-location``.
 
 ``--auto-update-client``
-   Enable automatic updates for the Chef Infra Client in Microsoft Azure. This option may only be used when ``--bootstrap-protocol`` is set to ``cloud-api``. Default value: ``false``.
+   Enable automatic updates for Chef Infra Client in Microsoft Azure. This option may only be used when ``--bootstrap-protocol`` is set to ``cloud-api``. Default value: ``false``.
 
 ``--azure-availability-set NAME``
    The name of the availability set for the virtual machine.
@@ -430,14 +430,14 @@ This argument has the following options:
 ``--bootstrap-protocol PROTOCOL``
    The protocol used to bootstrap on a machine that is running Windows Server: ``cloud-api``, ``ssh``, or ``winrm``. Default value: ``winrm``.
 
-   Use the ``cloud-api`` option to bootstrap a machine in Microsoft Azure. The bootstrap operation will enable the guest agent to install, configure, and run the Chef Infra Client on a node, after which the Chef Infra Client is configured to run as a daemon/service. (This is a similar process to using the Azure portal.)
+   Use the ``cloud-api`` option to bootstrap a machine in Microsoft Azure. The bootstrap operation will enable the guest agent to install, configure, and run Chef Infra Client on a node, after which Chef Infra Client is configured to run as a daemon/service. (This is a similar process to using the Azure portal.)
 
-   Microsoft Azure maintains images of the Chef Infra Client on the guest, so connectivity between the guest and the workstation from which the bootstrap operation was initiated is not required, after a ``cloud-api`` bootstrap is started.
+   Microsoft Azure maintains images of Chef Infra Client on the guest, so connectivity between the guest and the workstation from which the bootstrap operation was initiated is not required, after a ``cloud-api`` bootstrap is started.
 
-   During the ``cloud-api`` bootstrap operation, knife does not print the output of the Chef Infra Client run like it does when the ``winrm`` and ``ssh`` options are used. knife reports only on the status of the bootstrap process: ``provisioning``, ``installing``, ``ready``, and so on, along with reporting errors.
+   During the ``cloud-api`` bootstrap operation, knife does not print the output of a Chef Infra Client run like it does when the ``winrm`` and ``ssh`` options are used. knife reports only on the status of the bootstrap process: ``provisioning``, ``installing``, ``ready``, and so on, along with reporting errors.
 
 ``--bootstrap-version VERSION``
-   The version of the Chef Infra Client to install.
+   The version of Chef Infra Client to install.
 
 ``-c``, ``--azure-connect-to-existing-dns``
    Add a new virtual machine to the existing deployment and/or service. Use with ``--azure-dns-name`` to ensure the correct DNS is used.

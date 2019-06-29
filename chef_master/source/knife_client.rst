@@ -5,7 +5,7 @@ knife client
 
 .. tag knife_client_summary
 
-Use the ``knife client`` subcommand to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef Infra Server by any entity that uses the Chef Infra Server API, such as the Chef Infra Client and knife.
+Use the ``knife client`` subcommand to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef Infra Server by any entity that uses the Chef Infra Server API, such as Chef Infra Client and knife.
 
 .. end_tag
 
@@ -42,7 +42,7 @@ create
 =====================================================
 Use the ``create`` argument to create a new API client. This process will generate an RSA key pair for the named API client. The public key will be stored on the Chef Infra Server and the private key will be displayed on ``STDOUT`` or written to a named file.
 
-* For the Chef Infra Client, the private key should be copied to the system as ``/etc/chef/client.pem``.
+* For Chef Infra Client, the private key should be copied to the system as ``/etc/chef/client.pem``.
 * For knife, the private key is typically copied to ``~/.chef/client_name.pem`` and referenced in the config.rb configuration file.
 
 Syntax
