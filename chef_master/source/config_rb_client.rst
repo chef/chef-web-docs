@@ -68,6 +68,9 @@ This configuration file has the following settings:
 ``chef_zero.port``
    The port on which chef-zero is to listen. This value may be specified as a range; the Chef Infra Client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
 
+``clear_gem_sources``
+   Globally sets the default of the ``clear_sources`` property on the ``gem_package`` and ``chef_gem`` resources. Default value: ``false``.
+
 ``client_fork``
    Contain the Chef Infra Client run in a secondary process with dedicated RAM. When the Chef Infra Client run is complete, the RAM is returned to the master process. This setting helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This setting also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Default value: ``true``.  Set to ``false`` to disable running the Chef Infra Client in fork node.
 
