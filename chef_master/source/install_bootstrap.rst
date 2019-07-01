@@ -156,17 +156,7 @@ Use the following options with a validatorless bootstrap to specify items that a
    A single vault and item to update as ``vault:item``.
 
 ``--bootstrap-vault-json VAULT_JSON``
-   A JSON string that contains a list of vaults and items to be updated.
-
-   .. tag knife_bootstrap_vault_json
-
-   For example:
-
-   .. code-block:: none
-
-      --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
-
-   .. end_tag
+  A JSON string that contains a list of vaults and items to be updated.  --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
 
 Examples
 =====================================================

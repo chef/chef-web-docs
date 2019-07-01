@@ -74,16 +74,6 @@ The following list describes all of the optional settings that can be added to t
 ``knife[:bootstrap_vault_json]``
    A JSON string that contains a list of vaults and items to be updated.
 
-   .. tag knife_bootstrap_vault_json
-
-   For example:
-
-   .. code-block:: none
-
-      --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
-
-   .. end_tag
-
 ``knife[:bootstrap_version]``
    The version of the Chef Infra Client to install.
 
