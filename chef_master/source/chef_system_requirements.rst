@@ -9,7 +9,7 @@ Before installing Chef:
 * Ensure that the machine that will run the Chef Infra Server is sufficiently powerful
 * Ensure that any network and firewall settings are configured correctly
 
-Install and configure the Chef Infra Server, then install and configure a workstation, and then run the bootstrap command from the workstation to install the Chef Infra Client on each node.
+Install and configure the Chef Infra Server, then install and configure a workstation, and then run the bootstrap command from the workstation to install Chef Infra Client on each node.
 
 The Chef Infra Server
 =====================================================
@@ -20,7 +20,7 @@ Hosted Chef Infra Server
 The hosted Chef Infra Server has the following requirements:
 
 * **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
-* Every node that will be configured by the Chef Infra Client and every workstation that will upload data to the Chef Infra Server must be able to communicate with the hosted Chef server
+* Every node that will be configured by Chef Infra Client and every workstation that will upload data to the Chef Infra Server must be able to communicate with the hosted Chef server
 
 Chef Infra Server, On-premises or in Cloud Environment
 --------------------------------------------------------
@@ -85,17 +85,17 @@ Before installing the Chef Infra Server, ensure that each machine has the follow
 In addition:
 
 * **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
-* **Chef Infra Client communication with the Chef Infra Server** Every node that will be configured by the Chef Infra Client and every workstation that will upload data to the Chef Infra Server must be able to communicate with the Chef server
+* **Chef Infra Client communication with the Chef Infra Server** The Chef Infra Server must be able to communicate with every node that will be configured by Chef Infra Client and every workstation that will upload data to the Chef Infra
 
 .. end_tag
 
 Chef Infra Client
 =====================================================
 
-* The recommended amount of RAM available to the Chef Infra Client during a Chef Infra Client run is 512MB
+* The recommended amount of RAM available to Chef Infra Client during a Chef Infra Client run is 512MB
 * The Chef Infra Client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the Chef Infra Client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
-* The Chef Infra Client caches to ``/var/chef/cache`` during the Chef Infra Client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
+* Chef Infra Client caches to ``/var/chef/cache`` during a Chef Infra Client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
 
 ChefDK
 =====================================================
-ChefDK has the same requirements as the Chef Infra Client.
+ChefDK has the same requirements as Chef Infra Client.

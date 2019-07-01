@@ -3,7 +3,7 @@
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_vault.rst>`__
 
-``chef-vault`` is a Ruby Gem that is included in Chef Workstation and the Chef Infra Client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
+``chef-vault`` is a Ruby Gem that is included in Chef Workstation and Chef Infra Client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
 
 .. note:: ``chef-vault`` does not currently support alternate keying mechanisms like GPG and Amazon KMS.
 
@@ -555,17 +555,7 @@ Use the following options with a validatorless bootstrap to specify items that a
    A single vault and item to update as ``vault:item``.
 
 ``--bootstrap-vault-json VAULT_JSON``
-   A JSON string that contains a list of vaults and items to be updated.
-
-   .. tag knife_bootstrap_vault_json
-
-   For example:
-
-   .. code-block:: none
-
-      --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
-
-   .. end_tag
+  A JSON string that contains a list of vaults and items to be updated.  --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
 
 .. end_tag
 

@@ -18,7 +18,7 @@ Requirements
 Chef Push Jobs has the following requirements:
 
 * An on-premises Chef Server version 11.0.1 (or later); Chef Push Jobs is not supported when running Chef with the hosted Chef server
-* To use the **push-jobs** cookbook to configure the Chef Push Jobs client, the Chef Infra Client must also be present on the node (because only the Chef Infra Client can use a cookbook to configure a node)
+* To use the **push-jobs** cookbook to configure the Chef Push Jobs client, Chef Infra Client must also be present on the node (because only Chef Infra Client can use a cookbook to configure a node)
 * .. tag server_firewalls_and_ports_push_jobs
 
   TCP protocol ports 10000 and 10002. TCP/10000 is the default heartbeat port. TCP/10002 is the command port. It may be configured in the Chef Push Jobs configuration file . This port allows Chef Push Jobs clients to communicate with the Chef Push Jobs server. In a configuration with both front and back ends, this port only needs to be open on the back end servers. The Chef Push Jobs server waits for connections from the Chef Push Jobs client, and never initiates a connection to a Chef Push Jobs client.
@@ -48,7 +48,7 @@ A heartbeat message is used to let all of the nodes in an organization know that
 
 Nodes
 -----------------------------------------------------
-The Chef Push Jobs client is used to receive job messages from the Chef Push Jobs server and to verify the heartbeat status. The Chef Push Jobs client uses the same authorization / authentication model as the Chef Infra Client. The Chef Push Jobs client listens for heartbeat messages from the Chef Push Jobs server. If there is no heartbeat from the Chef Push Jobs server, the Chef Push Jobs client will finish its current job, but then stop accepting any new jobs until the heartbeat from the Chef Push Jobs server resumes.
+The Chef Push Jobs client is used to receive job messages from the Chef Push Jobs server and to verify the heartbeat status. The Chef Push Jobs client uses the same authorization / authentication model as Chef Infra Client. The Chef Push Jobs client listens for heartbeat messages from the Chef Push Jobs server. If there is no heartbeat from the Chef Push Jobs server, the Chef Push Jobs client will finish its current job, but then stop accepting any new jobs until the heartbeat from the Chef Push Jobs server resumes.
 
 Workstations
 -----------------------------------------------------
@@ -759,7 +759,7 @@ This command has the following syntax::
 This command has the following options:
 
 ``-c CONFIG``, ``--config CONFIG``
-   The configuration file to use. The Chef Infra Client and Chef Push Jobs client use the same configuration file: client.rb. Default value: ``Chef::Config.platform_specific_path("/etc/chef/client.rb")``.
+   The configuration file to use. Chef Infra Client and Chef Push Jobs client use the same configuration file: client.rb. Default value: ``Chef::Config.platform_specific_path("/etc/chef/client.rb")``.
 
 ``-h``, ``--help``
    Show help for the command.

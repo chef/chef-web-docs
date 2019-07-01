@@ -48,7 +48,7 @@ For example, an application that is deployed to a folder named ``"/path/to/appli
 
 For the example shown above:
 
-* Because an action is not explicitly specified, the chef-client will use the default action: ``:deploy``
+* Because an action is not explicitly specified, Chef Infra Client will use the default action: ``:deploy``
 * The ``purge_before_symlink`` application layout is an array of paths that will be cleared before the ``symlinks`` property is run
 * The ``create_dirs_before_symlink`` property is empty, which is different from the default
 * The ``symlinks`` property is creating three symbolic links
@@ -135,7 +135,7 @@ where
 
 * ``deploy`` is the resource
 * ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``after_restart``, ``before_migrate``, ``before_restart``, ``before_symlink``, ``branch``, ``create_dirs_before_symlink``, ``deploy_to``, ``depth``, ``enable_submodules``, ``environment``, ``git_ssh_wrapper``, ``group``, ``keep_releases``, ``migrate``, ``migration_command``, ``provider``, ``purge_before_symlink``, ``remote``, ``repo``, ``repository``, ``repository_cache``, ``restart_command``, ``revision``, ``rollback_on_error``, ``scm_provider``, ``shallow_clone``, ``ssh_wrapper``, ``svn_arguments``, ``svn_password``, ``svn_username``, ``symlinks``, ``symlink_before_migrate``, ``timeout``, and ``user`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Deploy Strategies
@@ -159,15 +159,15 @@ Deploy Phases
 -----------------------------------------------------
 A deployment happens in four phases:
 
-#. **Checkout**---the chef-client uses the **scm** resource to get the specified application revision, placing a clone or checkout in the sub-directory of the ``deploy`` directory named ``cached-copy``. A copy of the application is then placed in a sub-directory under ``releases``.
-#. **Migrate**---If a migration is to be run, the chef-client symlinks the database configuration file into the checkout (``config/database.yml`` by default) and runs the migration command. For a Ruby on Rails application, the ``migration_command`` is usually set to ``rake db:migrate``.
+#. **Checkout**---Chef Infra Client uses the **scm** resource to get the specified application revision, placing a clone or checkout in the sub-directory of the ``deploy`` directory named ``cached-copy``. A copy of the application is then placed in a sub-directory under ``releases``.
+#. **Migrate**---If a migration is to be run, Chef Infra Client symlinks the database configuration file into the checkout (``config/database.yml`` by default) and runs the migration command. For a Ruby on Rails application, the ``migration_command`` is usually set to ``rake db:migrate``.
 #. **Symlink**---Directories for shared and temporary files are removed from the checkout (``log``, ``tmp/pids``, and ``public/system`` by default). After this step, any needed directories (``tmp``, ``public``, and ``config`` by default) are created if they don't already exist. This step is completed by symlinking shared directories into the current ``release``, ``public/system``, ``tmp/pids``, and ``log`` directories, and then symlinking the ``release`` directory to ``current``.
 #. **Restart**---The application is restarted according to the restart command set in the recipe.
 
 Deploy Cache File
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The chef-client uses a cache file to keep track of the order in which each revision of an application is deployed. By default, the cache file is located at ``/var/chef/cache/revision-deploys/APPNAME/``. To force a re-deploy, delete the deployment directory or delete the cache file.
+Chef Infra Client uses a cache file to keep track of the order in which each revision of an application is deployed. By default, the cache file is located at ``/var/chef/cache/revision-deploys/APPNAME/``. To force a re-deploy, delete the deployment directory or delete the cache file.
 
 Callbacks
 -----------------------------------------------------
@@ -194,7 +194,7 @@ Each of these callback types can be used in one of three ways:
 
 * To pass a block of code, such as Ruby or Python
 * To specify a file
-* To do neither; the chef-client will look for a callback file named after one of the callback types (``before_migrate.rb``, for example) and if the file exists, to evaluate it as if it were a specified file
+* To do neither; Chef Infra Client will look for a callback file named after one of the callback types (``before_migrate.rb``, for example) and if the file exists, to evaluate it as if it were a specified file
 
 Within a callback, there are two ways to get access to information about the deployment:
 
@@ -248,7 +248,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -258,7 +258,7 @@ This resource has the following actions:
 Naming Resources
 -----------------------------------------------------
 
-The chef-client caches deployment actions as they are taken. In order for the chef-client to be able to apply a subsequent deployment action---rolling back a release using the ``:rollback`` action, for example---all related deployment actions must be contained within resource blocks that have the same name. This ensures that the chef-client will be able to find the correct deployment from within the cached deployment actions.
+Chef Infra Client caches deployment actions as they are taken. In order for Chef Infra Client to be able to apply a subsequent deployment action---rolling back a release using the ``:rollback`` action, for example---all related deployment actions must be contained within resource blocks that have the same name. This ensures that Chef Infra Client will be able to find the correct deployment from within the cached deployment actions.
 
 For example, a simple deployment:
 
@@ -358,13 +358,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -457,13 +457,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -555,9 +555,9 @@ Where a resource represents a piece of the system (and its desired state), a pro
 
 
 
-The chef-client will determine the correct provider based on configuration data collected by Ohai at the start of the chef-client run. This configuration data is then mapped to a platform and an associated list of providers.
+Chef Infra Client will determine the correct provider based on configuration data collected by Ohai at the start of a Chef Infra Client run. This configuration data is then mapped to a platform and an associated list of providers.
 
-Generally, it's best to let the chef-client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
+Generally, it's best to let Chef Infra Client choose the provider, and this is (by far) the most common approach. However, in some cases, specifying a provider may be desirable. There are two approaches:
 
 * Use a more specific short name---``yum_package "foo" do`` instead of ``package "foo" do``, ``script "foo" do`` instead of ``bash "foo" do``, and so on---when available
 * Use ``declare_resource``. This replaces all previous use cases where the provider class was passed in through the ``provider`` property:
@@ -584,7 +584,7 @@ For reference, the providers available for this resource are listed below. Howev
 
 
 ``Chef::Provider::Deploy``, ``deploy``
-   When this short name is used, the chef-client will determine the correct provider during the chef-client run.
+   When this short name is used, Chef Infra Client will determine the correct provider during a Chef Infra Client run.
 
 ``Chef::Provider::Deploy::Branch``, ``deploy_branch``
    See below for more information.
@@ -598,12 +598,12 @@ For reference, the providers available for this resource are listed below. Howev
 deploy_branch
 -----------------------------------------------------
 
-The **deploy_branch** resource functions identically to the **deploy_revision** resource, in terms of how the chef-client processes the resource during the chef-client run. It uses the same ``Deploy::Revision`` provider, the same set of actions and attributes, and is (outside of the name itself) identical to the **deploy_revision** resource. Using the **deploy_revision** resource is preferred; however, the **deploy_branch** resource exists for those situations where, semantically, it is preferable to refer to a resource as a "branch" instead of a "revision".
+The **deploy_branch** resource functions identically to the **deploy_revision** resource, in terms of how Chef Infra Client processes the resource during a Chef Infra Client run. It uses the same ``Deploy::Revision`` provider, the same set of actions and attributes, and is (outside of the name itself) identical to the **deploy_revision** resource. Using the **deploy_revision** resource is preferred; however, the **deploy_branch** resource exists for those situations where, semantically, it is preferable to refer to a resource as a "branch" instead of a "revision".
 
 deploy_revision
 -----------------------------------------------------
 
-The ``deploy_revision`` provider is the recommended provider, even if it is not listed as the default. The ``deploy_revision`` provider is used to ensure that the name of a release sub-directory is based on a revision identifier. For users of git, this will be the familiar SHA checksum. For users of Subversion, it will be the integer revision number. If a name other than a revision identifier is provided---branch names, tags, and so on---the chef-client will ignore the alternate names and will look up the revision identifier and use it to name the release sub-directory. When the ``deploy_revision`` provider is given an exact revision to deploy, it will behave in an idempotent manner.
+The ``deploy_revision`` provider is the recommended provider, even if it is not listed as the default. The ``deploy_revision`` provider is used to ensure that the name of a release sub-directory is based on a revision identifier. For users of git, this will be the familiar SHA checksum. For users of Subversion, it will be the integer revision number. If a name other than a revision identifier is provided---branch names, tags, and so on---Chef Infra Client will ignore the alternate names and will look up the revision identifier and use it to name the release sub-directory. When the ``deploy_revision`` provider is given an exact revision to deploy, it will behave in an idempotent manner.
 
 The ``deploy_revision`` provider results in deployed components under the destination location that is owned by the user who runs the application. This is sometimes an issue for certain workflows. If issues arise, consider the following:
 
@@ -616,7 +616,7 @@ When using the ``deploy_revision`` provider, and when the deploy fails for any r
 timestamped_deploy
 -----------------------------------------------------
 
-The ``timestamped_deploy`` provider is the default **deploy** provider. It is used to name release directories with a timestamp in the form of ``YYYYMMDDHHMMSS``. For example: ``/my/deploy/dir/releases/20121120162342``. The **deploy** resource will determine whether or not to deploy code based on the existence of the release directory in which it is attempting to deploy. Because the timestamp is different for every chef-client run, the ``timestamped_deploy`` provider is not idempotent. When the ``timestamped_deploy`` provider is used, it requires that the action setting on a resource be managed manually in order to prevent unintended continuous deployment.
+The ``timestamped_deploy`` provider is the default **deploy** provider. It is used to name release directories with a timestamp in the form of ``YYYYMMDDHHMMSS``. For example: ``/my/deploy/dir/releases/20121120162342``. The **deploy** resource will determine whether or not to deploy code based on the existence of the release directory in which it is attempting to deploy. Because the timestamp is different for every Chef Infra Client run, the ``timestamped_deploy`` provider is not idempotent. When the ``timestamped_deploy`` provider is used, it requires that the action setting on a resource be managed manually in order to prevent unintended continuous deployment.
 
 Examples
 =====================================================
@@ -703,7 +703,7 @@ Using resources from within your callbacks as blocks or within callback files di
 
 To deploy from a private git repository without using the ``application`` cookbook, first ensure that:
 
-* the private key does not have a passphrase, as this will pause a chef-client run to wait for input
+* the private key does not have a passphrase, as this will pause a Chef Infra Client run to wait for input
 * an SSH wrapper is being used
 * a private key has been added to the node
 
@@ -889,7 +889,7 @@ and then what these layout modifiers look like if they were empty:
      ...
    end
 
-In most cases, using the empty values for the layout modifiers will prevent the chef-client from passing symbolic linking information to a node during the chef-client run. However, in some cases, it may be preferable to ensure that one (or more) of these layout modifiers do not pass any symbolic linking information to a node during the chef-client run at all. Because each of these layout modifiers are a Hash, the ``clear`` instance method can be used to clear out these values.
+In most cases, using the empty values for the layout modifiers will prevent Chef Infra Client from passing symbolic linking information to a node during a Chef Infra Client run. However, in some cases, it may be preferable to ensure that one (or more) of these layout modifiers do not pass any symbolic linking information to a node during a Chef Infra Client run at all. Because each of these layout modifiers are a Hash, the ``clear`` instance method can be used to clear out these values.
 
 To clear the default values for a layout modifier:
 

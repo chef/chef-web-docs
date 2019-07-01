@@ -61,7 +61,7 @@ When the values for certain settings in the client.rb file---``node_name`` and `
 
 Organization not found
 -----------------------------------------------------
-If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that the Chef Infra Client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, ``ORGANIZATION`` should be replaced with the name of your organization.
+If you see this error when trying to recreate the ORGANIZATION-validator.pem, it's possible that Chef Infra Client itself was deleted. In this situation, the ORGANIZATION-validator.pem will need to be recreated. In these directions, ``ORGANIZATION`` should be replaced with the name of your organization.
 
 .. tag manage_webui_policy_validation_reset_key
 
@@ -127,9 +127,9 @@ The general ``Net::HTTPServerException: 401 "Unauthorized"`` error will usually 
       $ rm /etc/chef/client.pem
       $ chef-client
 
-   When the Chef Infra Client runs, it will register the API client and generate the correct key.
+   When Chef Infra Client runs, it will register the API client and generate the correct key.
 
-   After successfully running the Chef Infra Client on the node, reload the ``run_list`` and node attributes:
+   After successfully running Chef Infra Client on the node, reload the ``run_list`` and node attributes:
 
    .. code-block:: bash
 
@@ -139,7 +139,7 @@ The general ``Net::HTTPServerException: 401 "Unauthorized"`` error will usually 
 
    This can happen for a number of reasons. For example, if the client.rb file does not specify the correct node name and the system's hostname has changed.
 
-   Running ``chef-client -l debug`` will identify the node name being used by the Chef Infra Client for authentication attempts:
+   Running ``chef-client -l debug`` will identify the node name being used by Chef Infra Client for authentication attempts:
 
    .. code-block:: bash
 
@@ -166,7 +166,7 @@ this is an indication that there is an issue with permissions on the Chef Infra 
 
 **Troubleshooting Steps**
 
-In Chef, there are two different types of permissions issues, object specific and global permissions. To figure out which type of permission issue you're experiencing, run the Chef Infra Client again using the ``-l debug`` options to see debugging output.
+In Chef, there are two different types of permissions issues, object specific and global permissions. To figure out which type of permission issue you're experiencing, run Chef Infra Client again using the ``-l debug`` options to see debugging output.
 
 You should see something like this up the stack trace:
 
@@ -204,7 +204,7 @@ To fix object permissions:
 
 500 (Unexpected)
 =====================================================
-HTTP 500 is a non-specific error message. The full error message for the error the Chef Infra Client is receiving can be found in one of the following log ﬁles:
+HTTP 500 is a non-specific error message. The full error message for the error Chef Infra Client is receiving can be found in one of the following log ﬁles:
 
 * ``/var/log/opscode/opscode-account/current``
 * ``/var/log/opscode/opscode-erchef/current``
@@ -252,7 +252,7 @@ If you're seeing an error like:
    FATAL: Stacktrace dumped to /etc/chef/cache/chef-stacktrace.out
    FATAL: Chef::Exceptions::PrivateKeyMissing: I cannot read /etc/chef/validation.pem, which you told me to use to sign requests
 
-it means that the Chef Infra Client could not find your validation.pem.
+it means that Chef Infra Client could not find your validation.pem.
 
 **Troubleshooting Steps**
 

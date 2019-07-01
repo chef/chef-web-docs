@@ -116,7 +116,7 @@ Before installing the Chef Infra Server, ensure that each machine has the follow
 In addition:
 
 * **Browser** --- Firefox, Google Chrome, Safari, or Internet Explorer (versions 9 or better)
-* **Chef Infra Client communication with the Chef Infra Server** Every node that will be configured by the Chef Infra Client and every workstation that will upload data to the Chef Infra Server must be able to communicate with the Chef server
+* **Chef Infra Client communication with the Chef Infra Server** The Chef Infra Server must be able to communicate with every node that will be configured by Chef Infra Client and every workstation that will upload data to the Chef Infra
 
 .. end_tag
 
@@ -437,7 +437,7 @@ The Chef Infra Server server requires that every node that is under management b
    [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Stacktrace dumped to /var/chef/cache/chef-stacktrace.out
    [Tue, 01 Nov 2011 16:55:24 -0700] FATAL: Net::HTTPServerException: 401 "Unauthorized"
 
-In this situation, re-synchronize the system clocks with the Network Time Protocol (NTP) server, and then re-run the Chef Infra Client.
+In this situation, re-synchronize the system clocks with the Network Time Protocol (NTP) server, and then re-run Chef Infra Client.
 
 Required Accounts
 -----------------------------------------------------

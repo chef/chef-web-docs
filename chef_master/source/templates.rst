@@ -95,7 +95,7 @@ A statement is delimited by a modifier, such as ``if``, ``elseif``, and ``else``
 
 Using a Ruby expression is the most common approach for defining template variables because this is how all variables that are sent to a template are referenced. Whenever a template needs to use an ``each``, ``if``, or ``end``, use a Ruby statement.
 
-When a template is rendered, Ruby expressions and statements are evaluated by the Chef Infra Client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. The Chef Infra Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
+When a template is rendered, Ruby expressions and statements are evaluated by Chef Infra Client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. Chef Infra Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
 
 For example, a simple template resource like this:
 

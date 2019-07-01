@@ -38,7 +38,7 @@ Options
 This command has the following options:
 
 ``-a``, ``--auto-update-client``
-   Auto-update the Chef Infra Client. Set to ``true`` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published. Default value: ``false``.
+   Auto-update Chef Infra Client. Set to ``true`` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published. Default value: ``false``.
 
 ``-b``, ``--disable``
    Disable the Azure Chef Extension extension.
@@ -126,7 +126,7 @@ The extension has the following options that can be provided in the `settings` h
    .. note:: Options that are supplied in the bootstrap items will take precedence over any conflicts found in the ``client.rb`` file.
 
 ``chef_node_name``
-   Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a Chef Infra Server. The default value is the FQDN of the Chef Infra Client, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the ``node_name`` during each Chef Infra Client run.
+   Determines which configuration should be applied and sets the ``client_name``, which is the name used when authenticating to a Chef Infra Server. The default value is the the Chef Infra Client FQDN, as detected by Ohai. In general, Chef recommends that you leave this setting blank and let Ohai assign the FQDN of the node as the ``node_name`` during each Chef Infra Client run.
 
 ``chef_server_url``
    The URL for the Chef Infra Server.
@@ -138,13 +138,13 @@ The extension has the following options that can be provided in the `settings` h
    The encryption key that is used for values contained within a data bag item.
 
 ``validation_client_name``
-   The name of the chef-validator key that is used by the Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run.
+   The name of the chef-validator key that Chef Infra Client uses to access the Chef Infra Server during the initial Chef Infra Client run.
 
 ``node_ssl_verify_mode``
    Set the verify mode for HTTPS requests.
 
 ``node_verify_api_cert``
-   Verify the SSL certificate on the Chef Infra Server. When ``true``, the Chef Infra Client always verifies the SSL certificate. When ``false``, the Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification.
+   Verify the SSL certificate on the Chef Infra Server. When ``true``, Chef Infra Client always verifies the SSL certificate. When ``false``, Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification.
 
 **Protected Settings**
 
@@ -161,7 +161,7 @@ The following options can be provided to the extension through the ``protectedSe
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The following examples show how the Chef Infra Client can be installed and configured from an ARM template.
+The following examples show how Chef Infra Client can be installed and configured from an ARM template.
 
 **Installing the Azure Chef extension on a Linux system**
 

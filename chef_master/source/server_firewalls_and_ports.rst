@@ -19,7 +19,7 @@ All services must be listening on the appropriate ports. Most monitoring systems
 
 .. end_tag
 
-.. note:: An "external" port is external from the perspective of a workstation (such as knife), a machine (the Chef Infra Client), or any other user that accesses the Chef Infra Server via the Chef Infra Server API.
+.. note:: An "external" port is external from the perspective of a workstation (such as knife), a machine (Chef Infra Client), or any other user that accesses the Chef Infra Server via the Chef Infra Server API.
 
 Standalone
 =====================================================

@@ -5,7 +5,7 @@ About Ohai
 
 .. tag ohai_summary
 
-Ohai is a tool that is used to collect system configuration data, which is provided to the Chef Infra Client for use within cookbooks. Ohai is run by the Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
+Ohai is a tool that is used to collect system configuration data, which is provided to Chef Infra Client for use within cookbooks. Ohai is run by Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
 The types of attributes Ohai collects include but are not limited to:
 
@@ -20,7 +20,7 @@ The types of attributes Ohai collects include but are not limited to:
 * Virtualization
 * Cloud provider metadata
 
-Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the Chef Infra Client to ensure that these attributes remain unchanged after the Chef Infra Client is done configuring the node.
+Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by Chef Infra Client to ensure that these attributes remain unchanged after Chef Infra Client is done configuring the node.
 
 .. end_tag
 
@@ -32,7 +32,7 @@ Automatic Attributes
 =====================================================
 .. tag ohai_automatic_attribute
 
-An automatic attribute is a specific detail about a node, such as an IP address, a host name, a list of loaded kernel modules, and so on. Automatic attributes are detected by Ohai and are then used by the Chef Infra Client to ensure that they are handled properly during every Chef Infra Client run. The most commonly accessed automatic attributes are:
+An automatic attribute is a specific detail about a node, such as an IP address, a host name, a list of loaded kernel modules, and so on. Automatic attributes are detected by Ohai and are then used by Chef Infra Client to ensure that they are handled properly during every Chef Infra Client run. The most commonly accessed automatic attributes are:
 
 .. list-table::
    :widths: 60 420
@@ -67,7 +67,7 @@ An automatic attribute is a specific detail about a node, such as an IP address,
 
 .. tag ohai_attribute_list
 
-The list of automatic attributes that are collected by Ohai at the start of each Chef Infra Client run vary from organization to organization, and will often vary between the various server types being configured and the platforms on which those servers are run. All attributes collected by Ohai are unmodifiable by the Chef Infra Client. To see which automatic attributes are collected by Ohai for a particular node, run the following command:
+The list of automatic attributes that are collected by Ohai at the start of each Chef Infra Client run vary from organization to organization, and will often vary between the various server types being configured and the platforms on which those servers are run. All attributes collected by Ohai are unmodifiable by Chef Infra Client. To see which automatic attributes are collected by Ohai for a particular node, run the following command:
 
 .. code-block:: bash
 
@@ -77,7 +77,7 @@ The list of automatic attributes that are collected by Ohai at the start of each
 
 .. note:: .. tag notes_see_attributes_overview
 
-          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of the Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
+          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of a Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
 
           .. end_tag
 
@@ -392,13 +392,13 @@ ohai Resource
 =====================================================
 .. tag resources_common_generic
 
-A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the Chef Infra Client will take any steps that are necessary to repair the node and bring it back into the desired state.
+A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which Chef Infra Client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 
 .. tag resource_ohai_summary
 
-Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the Chef Infra Client run.
+Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run.
 
 .. end_tag
 
@@ -428,7 +428,7 @@ where
 
 * ``ohai`` is the resource
 * ``name`` is the name of the resource block
-* ``action`` identifies the steps the Chef Infra Client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``name`` and ``plugin`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 
@@ -442,7 +442,7 @@ The ohai resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -460,7 +460,7 @@ The ohai resource has the following properties:
 ``plugin``
    **Ruby Type:** String
 
-   The name of an Ohai plugin to be reloaded. If this property is not specified, the Chef Infra Client will reload all plugins.
+   The name of an Ohai plugin to be reloaded. If this property is not specified, Chef Infra Client will reload all plugins.
 
 .. end_tag
 
@@ -523,7 +523,7 @@ ohai Command Line Tool
 =====================================================
 .. tag ctl_ohai_summary
 
-ohai is the command-line interface for Ohai, a tool that is used to detect attributes on a node, and then provide these attributes to the Chef Infra Client at the start of every Chef Infra Client run.
+ohai is the command-line interface for Ohai, a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every Chef Infra Client run.
 
 .. end_tag
 
@@ -639,6 +639,6 @@ Ohai configuration settings can be added to the client.rb file.
 ``ohai.version``
    The version of Ohai.
 
-.. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the Chef Infra Client.
+.. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of Chef Infra Client.
 
 .. end_tag

@@ -49,7 +49,7 @@ This argument has the following options:
    The name of a specific item within a data bag. ``DATA_BAG_NAME`` may not be ``client``, ``environment``, ``node`` or ``role``, as these are reserved words for `knife search </knife_search.html>`__.
 
 ``--secret SECRET``
-   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file. For encrypted data bag items, use **either** ``--secret`` or ``--secret-file``, not both.
+   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file. For encrypted data bag items, use **either** ``--secret`` or ``--secret-file``, not both.
 
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
@@ -143,7 +143,7 @@ This argument has the following options:
    The name of a specific item within a data bag.
 
 ``--secret SECRET``
-   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
+   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
 
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
@@ -243,7 +243,7 @@ This argument has the following options:
    Upload all data bags found at the specified path.
 
 ``--secret SECRET``
-   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
+   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
 
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
@@ -280,7 +280,7 @@ To create a data bag named "devops_data" that contains encrypted data, enter:
 
 .. tag knife_data_bag_from_file_create_encrypted_local_mode
 
-To generate an encrypted data bag item in a JSON file for use when the Chef Infra Client is run in local mode (via the ``--local-mode`` option), enter:
+To generate an encrypted data bag item in a JSON file for use when Chef Infra Client is run in local mode (via the ``--local-mode`` option), enter:
 
 .. code-block:: bash
 
@@ -343,7 +343,7 @@ This argument has the following options:
    The name of a specific item within a data bag.
 
 ``--secret SECRET``
-   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
+   The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
 
 ``--secret-file FILE``
    The path to the file that contains the encryption key.
