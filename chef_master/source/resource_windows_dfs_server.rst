@@ -5,7 +5,7 @@ windows_dfs_server resource
 
 The **windows_dfs_server** resource sets system-wide DFS settings.
 
-**New in Chef Client 15.0.**
+**New in Chef Infra Client 15.0.**
 
 Syntax
 =====================================================

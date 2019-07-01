@@ -5,7 +5,7 @@ windows_dfs_namespace resource
 
 Creates a share and DFS namespace on the local server.
 
-**New in Chef Client 15.0.**
+**New in Chef Infra Client 15.0.**
 
 Syntax
 =====================================================

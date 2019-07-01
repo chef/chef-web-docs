@@ -205,7 +205,7 @@ The windows_task resource has the following properties:
 
    To start the task at any time after its scheduled time has passed.
 
-   *New in Chef Client 15.0.*
+   *New in Chef Infra Client 15.0.*
 
 ``stop_if_going_on_batteries``
    **Ruby Type:** true, false | **Default Value:** ``false``
