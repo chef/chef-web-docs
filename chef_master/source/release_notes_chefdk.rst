@@ -1,9 +1,9 @@
 =====================================================
-Release Notes: Chef Development Kit 0.19 - 4.0
+Release Notes: ChefDK 0.19 - 4.0
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
-Chef Development Kit is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes, see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+ChefDK is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes, see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
 What's New in 4.0
 =====================================================
@@ -12,7 +12,7 @@ What's New in 4.0
 
   * **Chef EULA**
 
-    Usage of ChefDK 4.0, Chef Infra Client 15, and InSpec 4 requires accepting the `Chef EULA <https://docs.chef.io/chef_license.html#chef-eula>`__. See the `frequently asked questions <https://www.chef.io/bmc-faq/>`__ for information about the license update and the associated business model change.
+    Usage of ChefDK 4.0, Chef Infra Client 15, and Chef InSpec 4 requires accepting the `Chef EULA <https://docs.chef.io/chef_license.html#chef-eula>`__. See the `frequently asked questions <https://www.chef.io/bmc-faq/>`__ for information about the license update and the associated business model change.
 
   * **Chef Provisioning**
 
@@ -37,7 +37,7 @@ What's New in 4.0
   * ``chef generate repo`` now generates a Chef repository with Policyfiles by default. You can revert to the previous roles / environment behavior with the ``--roles`` flag.
   * ``chef generate cookbook`` now generates a cookbook with a Policyfile and no Berksfile by default. You can revert to the previous behavior with the ``--berks`` flag.
   * ``chef generate cookbook`` now includes ChefSpecs that utilize the ChefSpec 7.3+ format. This is a much simpler syntax that requires less updating of specs as older platforms are deprecated.
-  * ``chef generate cookbook`` no longer creates cookboook files with the unnecessary ``frozen_string_literal: true`` comments.
+  * ``chef generate cookbook`` no longer creates cookbook files with the unnecessary ``frozen_string_literal: true`` comments.
   * ``chef generate cookbook`` no longer generates a full Workflow (Delivery) build cookbook by default. A new ``--workflow`` flag has been added to allow generating the build cookbook. This flag replaces the previously unused ``--delivery`` flag.
   * ``chef generate cookbook`` now generates cookbooks with metadata requiring Chef 14 or later.
   * ``chef generate cookbook --kitchen dokken`` now generates a fully working kitchen-dokken config.
@@ -1056,7 +1056,7 @@ For people who use the ``kitchen-vagrant`` driver to run Chef, it will automatic
 new caching mechanism to share the client packages to the guest VM, meaning that you no longer
 have to wait for the client to download on every guest provision.
 
-In addition, if the chef-client packages are already cached, then it is now possible to use
+In addition, if Chef Infra Client packages are already cached, then it is now possible to use
 Test Kitchen completely off-line.
 
 Cookstyle 1.1.0 with new code linting Cops

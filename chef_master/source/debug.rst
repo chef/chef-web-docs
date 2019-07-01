@@ -18,7 +18,7 @@ Some simple ways to quickly identify common issues that can trigger recipe and/o
 
 * Using an empty run-list
 * Using verbose logging with knife
-* Using logging with the Chef Infra Client
+* Using logging with Chef Infra Client
 * Using the **log** resource in a recipe to define custom logging
 
 Empty Run-lists
@@ -28,7 +28,7 @@ Empty Run-lists
 Use an empty run-list to determine if a failed Chef Infra Client run has anything to do with the recipes that are defined within that run-list. This is a quick way to discover if the underlying cause of a Chef Infra Client run failure is a configuration issue. If a failure persists even if the run-list is empty, check the following:
 
 * Configuration settings in the config.rb file
-* Permissions for the user to both the Chef Infra Server and to the node on which the Chef Infra Client run is to take place
+* Permissions for the user to both the Chef Infra Server and to the node on which a Chef Infra Client run is to take place
 
 .. end_tag
 
@@ -43,7 +43,7 @@ Use the verbose logging that is built into knife:
 
 Chef Infra Client
 -----------------------------------------------------
-Use the verbose logging that is built into the Chef Infra Client:
+Use the verbose logging that is built into Chef Infra Client:
 
 ``-l LEVEL``, ``--log_level LEVEL``
    The level of logging to be stored in a log file.
@@ -61,13 +61,13 @@ Use the **log** resource to create log entries. The **log** resource behaves lik
 
 .. end_tag
 
-New in 12.0, ``-o RUN_LIST_ITEM``. Changed in 12.0 ``-f`` no longer allows unforked intervals, ``-i SECONDS`` is applied before the Chef Infra Client run.
+New in 12.0, ``-o RUN_LIST_ITEM``. Changed in 12.0 ``-f`` no longer allows unforked intervals, ``-i SECONDS`` is applied before a Chef Infra Client run.
 
 Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_log_syntax
 
-A **log** resource block adds messages to the log file based on events that occur during the Chef Infra Client run:
+A **log** resource block adds messages to the log file based on events that occur during a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -90,7 +90,7 @@ where:
 
 * ``log`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``level`` and ``message`` are the properties available to this resource.
 
 .. end_tag
@@ -104,7 +104,7 @@ The log resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -197,14 +197,14 @@ Some more complex ways to debug issues with a Chef Infra Client run include:
 * Using the **chef_handler** cookbook
 * Using the chef-shell and the **breakpoint** resource to add breakpoints to recipes, and to then step through the recipes using the breakpoints
 * Using the ``debug_value`` method from chef-shell to identify the location(s) from which attribute values are being set
-* Using the ``ignore_failure`` method in a recipe to force the Chef Infra Client to move past an error to see what else is going on in the recipe, outside of a known failure
+* Using the ``ignore_failure`` method in a recipe to force Chef Infra Client to move past an error to see what else is going on in the recipe, outside of a known failure
 * Using chef-solo to run targeted Chef Infra Client runs for specific scenarios
 
 chef_handler
 -----------------------------------------------------
 .. tag handler
 
-Use a handler to identify situations that arise during a Chef Infra Client run, and then tell the Chef Infra Client how to handle these situations when they occur.
+Use a handler to identify situations that arise during a Chef Infra Client run, and then tell Chef Infra Client how to handle these situations when they occur.
 
 .. end_tag
 
@@ -223,7 +223,7 @@ There are three types of handlers:
    * - report
      - A report handler is used when a Chef Infra Client run succeeds and reports back on certain details about that Chef Infra Client run. A report handler can be loaded at the start of a Chef Infra Client run by adding a recipe that contains the **chef_handler** resource to a node's run-list. A report handler runs when the ``success?`` property for the ``run_status`` object returns ``true``.
    * - start
-     - A start handler is used to run events at the beginning of the Chef Infra Client run. A start handler can be loaded at the start of a Chef Infra Client run by adding the start handler to the ``start_handlers`` setting in the client.rb file or by installing the gem that contains the start handler by using the **chef_gem** resource in a recipe in the **chef-client** cookbook. (A start handler may not be loaded using the ``chef_handler`` resource.)
+     - A start handler is used to run events at the beginning of a Chef Infra Client run. A start handler can be loaded at the start of a Chef Infra Client run by adding the start handler to the ``start_handlers`` setting in the client.rb file or by installing the gem that contains the start handler by using the **chef_gem** resource in a recipe in the **chef-client** cookbook. (A start handler may not be loaded using the ``chef_handler`` resource.)
 
 .. end_tag
 
@@ -274,7 +274,7 @@ chef-shell.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_config_rb
 
-The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure the Chef Infra Client. For example, to configure chef-shell to authenticate to the Chef Infra Server, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the config.rb file:
+The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure Chef Infra Client. For example, to configure chef-shell to authenticate to the Chef Infra Server, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the config.rb file:
 
 .. code-block:: ruby
 
@@ -290,7 +290,7 @@ Run as a Chef Infra Client
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_run_as_chef_client
 
-By default, chef-shell loads in standalone mode and does not connect to the Chef Infra Server. The chef-shell can be run as a Chef Infra Client to verify functionality that is only available when the Chef Infra Client connects to the Chef Infra Server, such as search functionality or accessing data stored in data bags.
+By default, chef-shell loads in standalone mode and does not connect to the Chef Infra Server. The chef-shell can be run as a Chef Infra Client to verify functionality that is only available when Chef Infra Client connects to the Chef Infra Server, such as search functionality or accessing data stored in data bags.
 
 chef-shell can use the same credentials as knife when connecting to a Chef Infra Server. Make sure that the settings in chef-shell.rb are the same as those in config.rb, and then use the ``-z`` option as part of the command. For example:
 
@@ -439,7 +439,7 @@ chef-shell allows the current position in a run-list to be manipulated during a 
 
 .. tag resource_breakpoint_summary
 
-Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in Chef Infra Client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the Chef Infra Client during an actual Chef Infra Client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef Infra Server.
+Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in Chef Infra Client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by Chef Infra Client during an actual Chef Infra Client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef Infra Server.
 
 .. end_tag
 
@@ -457,7 +457,7 @@ A **breakpoint** resource block creates a breakpoint in a recipe:
 
 where
 
-* ``:break`` will tell the Chef Infra Client to stop running a recipe; can only be used when the Chef Infra Client is being run in chef-shell mode
+* ``:break`` will tell Chef Infra Client to stop running a recipe; can only be used when Chef Infra Client is being run in chef-shell mode
 
 .. end_tag
 
@@ -473,7 +473,7 @@ The breakpoint resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -576,7 +576,7 @@ To explore how using the **breakpoint** to manually step through a Chef Infra Cl
      chef:recipe > breakpoint "foo"
      chef:recipe > file "/tmp/after-breakpoint"
 
-and then run the Chef Infra Client:
+and then run Chef Infra Client:
 
 .. code-block:: bash
 
@@ -587,7 +587,7 @@ and then run the Chef Infra Client:
      [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
      [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
 
-The Chef Infra Client ran the first resource before the breakpoint (``file[/tmp/before-breakpoint]``), but then stopped after execution. The Chef Infra Client attempted to name the breakpoint after its position in the source file, but the Chef Infra Client was confused because the resource was entered interactively. From here, chef-shell can resume the Chef Infra Client run:
+Chef Infra Client ran the first resource before the breakpoint (``file[/tmp/before-breakpoint]``), but then stopped after execution. Chef Infra Client attempted to name the breakpoint after its position in the source file, but Chef Infra Client was confused because the resource was entered interactively. From here, chef-shell can resume the interrupted Chef Infra Client run:
 
 .. code-block:: bash
 
@@ -601,7 +601,7 @@ A quick view of the ``/tmp`` directory shows that the following files were creat
    after-breakpoint
    before-breakpoint
 
-The Chef Infra Client run can also be rewound, and then stepped through.
+You can rewind and step through a Chef Infra Client run:
 
 .. code-block:: bash
 
@@ -622,14 +622,14 @@ The Chef Infra Client run can also be rewound, and then stepped through.
      [Fri, 15 Jan 2010 14:40:56 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
        => 3
 
-From the output, the rewound run-list is shown, but when the resources are executed again, they will repeat their checks for the existence of files. If they exist, the Chef Infra Client will skip creating them. If the files are deleted, then:
+From the output, the rewound run-list is shown, but when the resources are executed again, they will repeat their checks for the existence of files. If they exist, Chef Infra Client will skip creating them. If the files are deleted, then:
 
 .. code-block:: bash
 
    $ chef:recipe > ls("/tmp").grep(/breakpoint/).each {|f| rm "/tmp/#{f}" }
        => ["after-breakpoint", "before-breakpoint"]
 
-Rewind, and then resume the Chef Infra Client run to get the expected results:
+Rewind, and then resume your Chef Infra Client run to get the expected results:
 
 .. code-block:: bash
 

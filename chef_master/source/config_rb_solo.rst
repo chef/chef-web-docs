@@ -21,7 +21,7 @@ This configuration file has the following settings:
    The location in which checksum files are stored. These are used to validate individual cookbook files, such as recipes. The checksum itself is stored in the Chef Infra Server database and is then compared to a file in the checksum path that has a filename identical to the checksum.
 
 ``cookbook_path``
-   The sub-directory for cookbooks on the Chef Infra Client. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
+   The Chef Infra Client sub-directory for cookbooks. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
 
 ``data_bag_path``
    The location from which a data bag is loaded. Default value: ``/var/chef/data_bags``.
@@ -72,7 +72,7 @@ This configuration file has the following settings:
    The location in which cookbook files are stored (temporarily) during upload.
 
 ``solo``
-   Run the Chef Infra Client in chef-solo mode. This setting determines if the Chef Infra Client is to attempt to communicate with the Chef Infra Server. Default value: ``false``.
+   Run Chef Infra Client in chef-solo mode. This setting determines if Chef Infra Client is to attempt to communicate with the Chef Infra Server. Default value: ``false``.
 
 ``syntax_check_cache_path``
    All files in a cookbook must contain valid Ruby syntax. Use this setting to specify the location in which knife caches information about files that have been checked for valid Ruby syntax.

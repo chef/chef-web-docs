@@ -1,5 +1,5 @@
 =====================================================
-Install the Chef Infra Client on Windows Nodes
+Install Chef Infra Client on Windows Nodes
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_windows.rst>`__
 
@@ -14,7 +14,7 @@ A node is any machine---physical, virtual, cloud, network device, etc.---that is
 
 .. tag windows_install_overview
 
-The Chef Infra Client can be installed on machines running Microsoft Windows in the following ways:
+Chef Infra Client can be installed on machines running Microsoft Windows in the following ways:
 
 * By using `knife windows </knife_windows.html>`__ to bootstrap Chef Infra Client; this process requires the target node be available via the WinRM port (typically port 5985)
 * By downloading Chef Infra Client to the target node, and then running the Microsoft Installer Package (MSI) locally
@@ -81,11 +81,11 @@ First install Chef Infra Client, and then enable it to run as a scheduled task. 
 
 Use MSI Installer
 -----------------------------------------------------
-A Microsoft Installer Package (MSI) is available for installing the Chef Infra Client on a Microsoft Windows machine at `Chef Downloads <https://downloads.chef.io/>`__
+A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Microsoft Windows machine at `Chef Downloads <https://downloads.chef.io/>`__
 
 Run as a Scheduled Task
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The Chef Infra Client can be run as a scheduled task. On the Microsoft Windows platform, a scheduled task provides more visibility, configurability, and reliability around log rotation and permissions, as compared to running the Chef Infra Client as a service. A scheduled task:
+Chef Infra Client can be run as a scheduled task. On the Microsoft Windows platform, a scheduled task provides more visibility, configurability, and reliability around log rotation and permissions, as compared to running Chef Infra Client as a service. A scheduled task:
 
 * Prevents log rotation issues, such as filling a disk partition
 * Does not have an indeterminate status, such as a service for which only the watcher is "running"
@@ -114,7 +114,7 @@ Use an Existing Process
 -----------------------------------------------------
 .. tag windows_install_system_center
 
-Many organizations already have processes in place for managing the applications and settings on various Microsoft Windows machines. For example, System Center. The Chef Infra Client can be installed using this method.
+Many organizations already have processes in place for managing the applications and settings on various Microsoft Windows machines. For example, System Center. Chef Infra Client can be installed using this method.
 
 .. end_tag
 

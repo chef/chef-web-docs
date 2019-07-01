@@ -138,7 +138,7 @@ The following Chef Automate-specific helpers can be used in recipes:
                    include_recipe 'delivery-truck::provision'
                    get_project_application(<project_app_name_string>)
 
-                you will get an error because the Chef Infra Client will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
+                you will get an error because Chef Infra Client will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
 
 ``get_project_secrets``
    Get the contents of the ``delivery-secrets`` data bag from the Chef Infra Server. This data bag contains secrets that enable cookbooks to be published to a Chef Supermarket, an open source git repository, a repository on GitHub.

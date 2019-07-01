@@ -23,7 +23,7 @@ For some users of Chef, Policyfile will make it easier to test and promote code 
 
 Focused System Workflows
 -----------------------------------------------------
-The knife command line tool maps very closely to the Chef Infra Server API and the objects defined by it: roles, environments, run-lists, cookbooks, data bags, nodes, and so on. The Chef Infra Client assembles these pieces at run-time and configures a host to do useful work.
+The knife command line tool maps very closely to the Chef Infra Server API and the objects defined by it: roles, environments, run-lists, cookbooks, data bags, nodes, and so on. Chef Infra Client assembles these pieces at run-time and configures a host to do useful work.
 
 Policyfile focuses that workflow onto the entire system, rather than the individual components. For example, Policyfile describes whole systems, whereas each individual revision of the ``Policyfile.lock.json`` file uploaded to the Chef Infra Server describes a part of that system, inclusive of roles, environments, cookbooks, and the other Chef Infra Server objects necessary to configure that part of the system.
 
@@ -41,9 +41,9 @@ When running Chef without Policyfile, the exact set of cookbooks that are applie
 * Dependencies, as defined by each cookbook's metadata
 * Dependency resolution picks the "best" set of cookbooks that meet dependency and environment criteria
 
-These conditions are re-evaluated every time the Chef Infra Client runs, which can make it harder to know which cookbooks will be run by the Chef Infra Client or what the effects of updating a role or uploading a new cookbook will be.
+These conditions are re-evaluated every time Chef Infra Client runs, which can make it harder to know which cookbooks will be run by Chef Infra Client or what the effects of updating a role or uploading a new cookbook will be.
 
-Policyfile simplifies this behavior by computing the cookbook set on the workstation, and then producing a readable document of that solution: a ``Policyfile.lock.json`` file. This pre-computed file is uploaded to the Chef Infra Server, and is then used by all of the Chef Infra Client runs that are managed by that particular policy name and policy group.
+Policyfile simplifies this behavior by computing the cookbook set on the workstation, and then producing a readable document of that solution: a ``Policyfile.lock.json`` file. This pre-computed file is uploaded to the Chef Infra Server, and is then used in each Chef Infra Client run that is managed by that particular policy name and policy group.
 
 Less Expensive Computation
 -----------------------------------------------------
@@ -97,7 +97,7 @@ Policyfile.rb
 =====================================================
 .. tag policyfile_rb
 
-A Policyfile file allows you to specify in a single document the cookbook revisions and recipes that should be applied by the Chef Infra Client. A Policyfile file is uploaded to the Chef Infra Server, where it is associated with a group of nodes. When these nodes are configured by the Chef Infra Client, the Chef Infra Client will make decisions based on settings in the policy file, and will build a run-list based on that information. A Policyfile file may be versioned, and then promoted through deployment stages to safely and reliably deploy new configuration.
+A Policyfile file allows you to specify in a single document the cookbook revisions and recipes that Chef Infra Client will apply. A Policyfile file is uploaded to the Chef Infra Server, where it is associated with a group of nodes. When these nodes are configured during a Chef Infra Client run, Chef Infra Client will make decisions based on your Policyfile settings and will build a run-list based on that information. A Policyfile file may be versioned, and then promoted through deployment stages to safely and reliably deploy new configuration.
 
 .. end_tag
 
@@ -126,7 +126,7 @@ A ``Policyfile.rb`` file may contain the following settings:
    Required. The name of the policy. Use a name that reflects the purpose of the machines against which the policy will run.
 
 ``run_list "ITEM", "ITEM", ...``
-   Required. The run-list the Chef Infra Client will use to apply the policy to one (or more) nodes.
+   Required. The run-list Chef Infra Client will use to apply the policy to one (or more) nodes.
 
 ``default_source :SOURCE_TYPE, *args``
    The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``chef_server``, ``:community``, ``:supermarket``, and ``:artifactory``. Use more than one ``default_source`` to specify more than one location for cookbooks.
@@ -301,7 +301,7 @@ The following settings may be configured in the client.rb file for use with Poli
    The name of a policy, as identified by the ``name`` setting in a ``Policyfile.rb`` file. ``policy_group`` must also be specified.
 
 ``use_policyfile``
-  The Chef Infra Client automatically checks the configuration, node JSON, and the stored node on the Chef Infra Server to determine if Policyfile files are being used, and then automatically updates this flag. Default value: ``false``.
+  Chef Infra Client automatically checks the configuration, node JSON, and the stored node on the Chef Infra Server to determine if Policyfile files are being used, and then automatically updates this flag. Default value: ``false``.
 
 knife bootstrap
 =====================================================
@@ -313,7 +313,7 @@ A node may be bootstrapped to use Policyfile files. Use the following options as
 ``--policy-name POLICY_NAME``
    The name of a policy, as identified by the ``name`` setting in a ``Policyfile.rb`` file.
 
-For a customized bootstrap process, add ``policy_name`` and ``policy_group`` to the first-boot JSON file that is passed to the Chef Infra Client.
+For a customized bootstrap process, add ``policy_name`` and ``policy_group`` to the first-boot JSON file that is passed to Chef Infra Client.
 
 knife search
 =====================================================
@@ -410,7 +410,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -450,7 +450,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -490,7 +490,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -530,7 +530,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -579,7 +579,7 @@ This subcommand has the following options:
    Use ``--pager`` to enable paged output for a ``Policyfile.lock.json`` file. Default value: ``--pager``.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -729,7 +729,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -763,7 +763,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -808,7 +808,7 @@ This subcommand has the following options:
    Create directories for ``/roles`` and ``/environments`` instead of creating directories for Policyfile.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -845,7 +845,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -938,7 +938,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -978,7 +978,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1024,7 +1024,7 @@ This subcommand has the following options:
    Use ``--pager`` to enable paged output for a ``Policyfile.lock.json`` file. Default value: ``--pager``.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1079,7 +1079,7 @@ This subcommand has the following options:
    Default. Return a list of available operations.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1119,6 +1119,6 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag

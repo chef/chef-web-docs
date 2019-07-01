@@ -51,7 +51,7 @@ where:
 * ``HASHED_PATH`` is the path of the request: ``/organizations/NAME/name_of_endpoint``. The ``HASHED_PATH`` must be hashed using SHA-1 and encoded using Base64, must not have repeated forward slashes (``/``), must not end in a forward slash (unless the path is ``/``), and must not include a query string.
 * The private key must be an RSA key in the SSL ``.pem`` file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
 
-The Chef Infra Server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the Chef Infra Client.
+The Chef Infra Server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by Chef Infra Client.
 
 Enable SHA-256
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1904,7 +1904,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 
 .. end_tag
 
-When a cookbook is uploaded, only files that are new or updated will be included. This approach minimizes the amount of storage and time that is required during the modify-upload-test cycle. To keep track of which files have already been uploaded, the Chef Infra Client uses a checksum and assigns a checksum to each file. These checksums are used in the cookbook version manifest, alongside the same records that store the file description (name, specificity, and so on), as well as the checksum and the URL from which the file's contents can be retrieved.
+When a cookbook is uploaded, only files that are new or updated will be included. This approach minimizes the amount of storage and time that is required during the modify-upload-test cycle. To keep track of which files have already been uploaded, Chef Infra Client uses a checksum and assigns a checksum to each file. These checksums are used in the cookbook version manifest, alongside the same records that store the file description (name, specificity, and so on), as well as the checksum and the URL from which the file's contents can be retrieved.
 
 The ``/cookbooks`` endpoint has the following methods: ``GET``.
 
@@ -2113,7 +2113,7 @@ The response is similar to:
 
 A cookbook version represents a set of functionality that is different from the cookbook on which it is based. A version may exist for many reasons, such as ensuring the correct use of a third-party component, updating a bug fix, or adding an improvement. A cookbook version is defined using syntax and operators, may be associated with environments, cookbook metadata, and/or run-lists, and may be frozen (to prevent unwanted updates from being made).
 
-A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef Infra Server, and how the Chef Infra Client applies that cookbook when configuring nodes.
+A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef Infra Server, and how Chef Infra Client applies that cookbook when configuring nodes.
 
 .. end_tag
 
@@ -3733,7 +3733,7 @@ The response is similar to:
      ]
    }
 
-The Chef Infra Client will pick up the ``_default`` run-list if ``env_run_list[environment_name]`` is null or nonexistent.
+Chef Infra Client will pick up the ``_default`` run-list if ``env_run_list[environment_name]`` is null or nonexistent.
 
 **Response Codes**
 
@@ -4869,7 +4869,7 @@ The response contains the total number of rows that match the request and is sim
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-A partial search query allows a search query to be made against specific attribute keys that are stored on the Chef Infra Server. A partial search query can search the same set of objects on the Chef Infra Server as a full search query, including specifying an object index and providing a query that can be matched to the relevant index. While a full search query will return an array of objects that match (each object containing a full set of attributes for the node), a partial search query will return only the values for the attributes that match. One primary benefit of using a partial search query is that it requires less memory and network bandwidth while the Chef Infra Client processes the search results.
+A partial search query allows a search query to be made against specific attribute keys that are stored on the Chef Infra Server. A partial search query can search the same set of objects on the Chef Infra Server as a full search query, including specifying an object index and providing a query that can be matched to the relevant index. While a full search query will return an array of objects that match (each object containing a full set of attributes for the node), a partial search query will return only the values for the attributes that match. One primary benefit of using a partial search query is that it requires less memory and network bandwidth while Chef Infra Client processes the search results.
 
 To create a partial search query, use the ``search`` method, and then specify the key paths for the attributes to be returned. Each key path should be specified as an array of strings and is mapped to an arbitrary short name. For example:
 

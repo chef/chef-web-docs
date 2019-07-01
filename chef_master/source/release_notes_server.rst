@@ -3,7 +3,7 @@ Release Notes: Chef Server 12.0 - 12.18.14
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_server.rst>`__
 
-The Chef server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
+Chef Server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
 
 What's New in 12.18.14
 =====================================================
@@ -2581,7 +2581,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
        .. code-block:: bash
 
           $ sudo chef-manage-ctl reconfigure
-          
+
        .. note:: Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
 
 
