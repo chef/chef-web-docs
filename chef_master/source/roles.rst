@@ -13,7 +13,7 @@ Role Attributes
 =====================================================
 .. tag role_attribute
 
-An attribute can be defined in a role and then used to override the default settings on a node. When a role is applied during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. When the role attributes take precedence over the default attributes, the Chef Infra Client will apply those new settings and values during the Chef Infra Client run on the node.
+An attribute can be defined in a role and then used to override the default settings on a node. When a role is applied during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. When the role attributes take precedence over the default attributes, Chef Infra Client applies those new settings and values during a Chef Infra Client run.
 
 A role attribute can only be set to be a default attribute or an override attribute. A role attribute cannot be set to be a normal attribute. Use the ``default_attribute`` and ``override_attribute`` methods in the Ruby DSL file or the ``default_attributes`` and ``override_attributes`` hashes in a JSON data file.
 
@@ -21,7 +21,7 @@ A role attribute can only be set to be a default attribute or an override attrib
 
 .. note:: .. tag notes_see_attributes_overview
 
-          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of the Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
+          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of a Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
 
           .. end_tag
 
@@ -53,7 +53,7 @@ Attribute Persistence
 -----------------------------------------------------
 .. tag node_attribute_persistence
 
-At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. The Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of the Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of the Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
+At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of each Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
 
 .. end_tag
 
@@ -61,7 +61,7 @@ Attribute Precedence
 -----------------------------------------------------
 .. tag node_attribute_precedence
 
-Attributes are always applied by the Chef Infra Client in the following order:
+Attributes are always applied by Chef Infra Client in the following order:
 
 #. A ``default`` attribute located in a cookbook attribute file
 #. A ``default`` attribute located in a recipe
@@ -77,7 +77,7 @@ Attributes are always applied by the Chef Infra Client in the following order:
 #. An ``override`` attribute located in an environment
 #. A ``force_override`` attribute located in a cookbook attribute file
 #. A ``force_override`` attribute located in a recipe
-#. An ``automatic`` attribute identified by Ohai at the start of the Chef Infra Client run
+#. An ``automatic`` attribute identified by Ohai at the start of a Chef Infra Client run
 
 where the last attribute in the list is the one that is applied to the node.
 
@@ -250,7 +250,6 @@ To learn more about Ruby, see:
 
 * `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
 * `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
-* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
 
 .. end_tag
 

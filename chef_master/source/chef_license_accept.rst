@@ -170,7 +170,7 @@ We aim to support this behavior, so Workstation users do not have their workflow
 
 Test Kitchen
 -----------------------------------------------------
-Test Kitchen is not owned by or covered by the Chef license, but installing Chef Client on a test instance is covered by the EULA.
+Test Kitchen is not owned by or covered by the Chef license, but installing Chef Infra Client on a test instance is covered by the EULA.
 Without accepting the license, the converge will fail on the test instance.
 
 The Chef provisioner in Test Kitchen >= 2.3 has been updated to simplify accepting this license on behalf of the test instance.
@@ -204,9 +204,9 @@ Without this, ``knife bootstrap`` would fail.
 In most usage cases via Chef Workstation, this license will already have been accepted and will transfer across transparently.
 But if a user installs Chef Workstation and the first command they ever run is ``knife bootstrap``, it will perform the same license acceptance flow as the Chef Infra Client product.
 
-``knife bootstrap`` in Chef Infra Client 14
+``knife bootstrap`` in Chef Client 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-``knife bootstrap`` in Chef Infra Client 14 cannot accept the Chef Infra Client 15 EULA on remote nodes unless you use a `custom template <https://docs.chef.io/knife_bootstrap.html#custom-templates>`__ and add chef_license "accept" to the client.rb.
+``knife bootstrap`` in Chef Client 14 cannot accept the Chef Infra Client 15 EULA on remote nodes unless you use a `custom template <https://docs.chef.io/knife_bootstrap.html#custom-templates>`__ and add chef_license "accept" to the client.rb.
 This applies to workstations who have Chef Infra Client <= 14.x, ChefDK <= 3.x or Chef Workstation <= 0.3 installed.
 
 Pin to Chef 14
@@ -322,7 +322,7 @@ This version pinning can be done via the `version API <https://www.vagrantup.com
 Pre-upgrade support
 =====================================================
 Chef Software aims to make upgrading from a non-EULA version to a EULA version as simple as possible.
-For some products (Chef Infra Client 14.12.9, Chef InSpec 3.9.3), we added backwards-compatible support for the ``--chef-license`` command that performs a no-op.
+For some products (Chef Client 14.12.9, Chef InSpec 3.9.3), we added backwards-compatible support for the ``--chef-license`` command that performs a no-op.
 This allows customers to start specifying that argument in whatever way they manage those products before upgrading.
 
 Alternatively, users can specify the ``CHEF_LICENSE`` environment variable when invoking any of the EULA products to accept the license.
@@ -333,4 +333,4 @@ This environment variable is ignored by non-EULA products, and so is backwards-c
 For users that manage their Chef Infra Client installation using the ``chef-client`` cookbook, we added a new attribute that can be specified.
 Specify the node attribute ``node['chef_client']['chef_license'] = 'accept'`` when running the cookbook to apply the license acceptance in a backwards-compatible way.
 
-This functionality allows users to set that attribute for a Chef Infra Client 14 install, upgrade to Chef Infra Client 15, and have the product continue to work correctly.
+This functionality allows users to set that attribute for a Chef Client 14 install, upgrade to Chef Infra Client 15, and have the product continue to work correctly.

@@ -5,7 +5,7 @@ Chef Infra Server Components
 
 .. tag chef_server
 
-The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the Chef Infra Client. Nodes use the Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions. The Chef Infra Client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef Infra Server). This scalable approach distributes the configuration effort throughout the organization.
+The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions. Chef Infra Client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef Infra Server). This scalable approach distributes the configuration effort throughout the organization.
 
 .. end_tag
 
@@ -31,7 +31,7 @@ The following diagram shows the various components that are part of a Chef Infra
    * - Component
      - Description
    * - Clients
-     - The Chef Infra Server is accessed primarily by nodes that are under management by Chef, as the Chef Infra Client runs occur. It is also accessed by individuals who maintain cookbooks and policy that is stored on the Chef Infra Server, typically from a workstation. And also by individual users with credentials to Chef Infra Server components, such as the Chef management console.
+     - The Chef Infra Server is accessed primarily by nodes that are under management by Chef, as Chef Infra Client runs occur. It is also accessed by individuals who maintain cookbooks and policy that is stored on the Chef Infra Server, typically from a workstation. And also by individual users with credentials to Chef Infra Server components, such as the Chef management console.
    * - Load Balancer
      - .. tag chef_server_component_nginx
 
@@ -45,7 +45,7 @@ The following diagram shows the various components that are part of a Chef Infra
    * - Chef Server
      - .. tag chef_server_component_erchef
 
-       Erchef is a complete rewrite of the core API for the Chef Infra Server, which allows it to be faster and more scalable than previous versions. The API itself is still compatible with the original Ruby-based Chef Infra Server, which means that cookbooks and recipes that were authored for the Ruby-based Chef Infra Server will continue to work on the Erlang-based Chef Infra Server. The Chef Infra Client is still written in Ruby.
+       Erchef is a complete rewrite of the core API for the Chef Infra Server, which allows it to be faster and more scalable than previous versions. The API itself is still compatible with the original Ruby-based Chef Infra Server, which means that cookbooks and recipes that were authored for the Ruby-based Chef Infra Server will continue to work on the Erlang-based Chef Infra Server. Chef Infra Client is still written in Ruby.
 
        .. note:: Even though the Chef Infra Server is authored in Erlang, writing code in Erlang is NOT a requirement for using Chef.
 
@@ -172,7 +172,7 @@ The following table describes the components that are different from the default
    * - Chef Server
      - .. tag chef_server_component_erchef
 
-       Erchef is a complete rewrite of the core API for the Chef Infra Server, which allows it to be faster and more scalable than previous versions. The API itself is still compatible with the original Ruby-based Chef Infra Server, which means that cookbooks and recipes that were authored for the Ruby-based Chef Infra Server will continue to work on the Erlang-based Chef Infra Server. The Chef Infra Client is still written in Ruby.
+       Erchef is a complete rewrite of the core API for the Chef Infra Server, which allows it to be faster and more scalable than previous versions. The API itself is still compatible with the original Ruby-based Chef Infra Server, which means that cookbooks and recipes that were authored for the Ruby-based Chef Infra Server will continue to work on the Erlang-based Chef Infra Server. Chef Infra Client is still written in Ruby.
 
        .. note:: Even though the Chef Infra Server is authored in Erlang, writing code in Erlang is NOT a requirement for using Chef.
 

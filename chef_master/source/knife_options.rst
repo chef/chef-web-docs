@@ -6,7 +6,7 @@ Knife Common Options
 The following options can be run with all knife subcommands and plug-ins:
 
 ``-c CONFIG_FILE``, ``--config CONFIG_FILE``
-   The configuration file to use. For example, when knife is run from a node that is configured to be managed by the Chef Infra Server, this option is used to allow knife to use the same credentials as the Chef Infra Client when communicating with the Chef Infra Server.
+   The configuration file to use. For example, when knife is run from a node that is configured to be managed by the Chef Infra Server, this option is used to allow knife to use the same credentials as Chef Infra Client looks when communicating with the Chef Infra Server.
 
 ``--chef-zero-host HOST``
   The host to start chef-zero on.
@@ -39,7 +39,7 @@ The following options can be run with all knife subcommands and plug-ins:
    View colored output.
 
 ``--[no-]fips``
-  Allows OpenSSL to enforce FIPS-validated security during the Chef Infra Client run.
+  Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run.
 
 ``--print-after``
    Show data after a destructive operation.
@@ -51,7 +51,7 @@ The following options can be run with all knife subcommands and plug-ins:
    The user name used by knife to sign requests made by the API client to the Chef Infra Server. Authentication fails if the user name does not match the private key.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 ``-V``, ``--verbose``
    Set for more verbose outputs. Use ``-VV`` for much more verbose outputs. Use ``-VVV`` for maximum verbosity, which may provide more information than is actually helpful.
@@ -60,4 +60,4 @@ The following options can be run with all knife subcommands and plug-ins:
    Respond to all confirmation prompts with "Yes".
 
 ``-z``, ``--local-mode``
-   Run the Chef Infra Client in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo.
+   Run Chef Infra Client looks in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo.

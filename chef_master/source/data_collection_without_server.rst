@@ -28,7 +28,7 @@ Configure Chef Infra Client to use the Data Collector endpoint in Chef Automate
 
 .. note:: Chef version 12.12.15 or greater is required.
 
-The data collector functionality is used by the Chef Infra Client to send node and converge data to Chef Automate. This feature works for the following: Chef Infra Client, and both the default and legacy modes of Chef solo.
+The data collector functionality is used by Chef Infra Client to send node and converge data to Chef Automate. This feature works for the following: Chef Infra Client, and both the default and legacy modes of Chef solo.
 
 To send node, converge, and compliance data to Chef Automate, modify your Chef config (that is
 ``client.rb``, ``solo.rb``, or add an additional config file in an appropriate directory, such as ``client.d``) to contain the following configuration:

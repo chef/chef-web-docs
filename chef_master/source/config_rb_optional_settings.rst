@@ -54,7 +54,7 @@ The following list describes all of the optional settings that can be added to t
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
 ``knife[:bootstrap_install_command]``
-   Execute a custom installation command sequence for the Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options``, ``--bootstrap-install-sh``, or ``--bootstrap-wget-options``.
+   Execute a custom installation command sequence for Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options``, ``--bootstrap-install-sh``, or ``--bootstrap-wget-options``.
 
 ``knife[:bootstrap_no_proxy]``
    A URL or IP address that specifies a location that should not be proxied.

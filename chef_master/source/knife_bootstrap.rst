@@ -14,7 +14,7 @@ A node is any physical, virtual, or cloud machine that is configured to be maint
 
 .. tag knife_bootstrap_summary
 
-Use the ``knife bootstrap`` subcommand to run a bootstrap operation that installs the Chef Infra Client on the target system. The bootstrap operation must specify the IP address or FQDN of the target system.
+Use the ``knife bootstrap`` subcommand to run a bootstrap operation that installs Chef Infra Client on the target system. The bootstrap operation must specify the IP address or FQDN of the target system.
 
 .. end_tag
 
@@ -24,7 +24,7 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 * Starting with Chef Server 12.0, use the `knife ssl fetch </knife_ssl_fetch.html>`__ command to pull down the SSL certificates from the on-premises Chef Infra Server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
 
-* To bootstrap the Chef Infra Client on Microsoft Windows machines, the `knife-windows </knife_windows.html>`__ plugin is required.
+* To bootstrap Chef Infra Client on Microsoft Windows machines, the `knife-windows </knife_windows.html>`__ plugin is required.
 
 Syntax
 =====================================================
@@ -57,7 +57,7 @@ This subcommand has the following options:
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
 ``--bootstrap-install-command COMMAND``
-   Execute a custom installation command sequence for the Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options`` or ``--bootstrap-wget-options``.
+   Execute a custom installation command sequence for Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options`` or ``--bootstrap-wget-options``.
 
 ``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
    A URL or IP address that specifies a location that should not be proxied.
@@ -86,7 +86,7 @@ This subcommand has the following options:
   A JSON string that contains a list of vaults and items to be updated.  --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
 
 ``--bootstrap-version VERSION``
-   The version of the Chef Infra Client to install.
+   The version of Chef Infra Client to install.
 
 ``--bootstrap-wget-options OPTIONS``
    Arbitrary options to be added to the bootstrap command when using GNU Wget. This option may not be used in the same command with ``--bootstrap-install-command``.
@@ -114,20 +114,20 @@ This subcommand has the following options:
 
    .. note:: This option is required for a validatorless bootstrap.
 ``--[no-]fips``
-  Allows OpenSSL to enforce FIPS-validated security during the Chef Infra Client run.
+  Allows OpenSSL to enforce FIPS-validated security during Chef Infra Client runs.
 
 ``--[no-]host-key-verify``
    Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
 
 ``--[no-]node-verify-api-cert``
-   Verify the SSL certificate on the Chef Infra Server. When ``true``, the Chef Infra Client always verifies the SSL certificate. When ``false``, the Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
+   Verify the SSL certificate on the Chef Infra Server. When ``true``, Chef Infra Client always verifies the SSL certificate. When ``false``, Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
 
 ``--node-ssl-verify-mode MODE``
    Set the verify mode for HTTPS requests. Options: ``none`` or ``peer``.
 
    Use ``none`` to do no validation of SSL certificates.
 
-   Use ``peer`` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the Chef Infra Client run. This is the recommended setting.
+   Use ``peer`` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
 
 ``-p PORT``, ``--ssh-port PORT``
    The SSH port.
@@ -235,7 +235,7 @@ FIPS Mode
 -----------------------------------------------------
 .. tag fips_intro_client
 
-Federal Information Processing Standards (FIPS) is a United States government computer security standard that specifies security requirements for cryptography. The current version of the standard is FIPS 140-2. The Chef Infra Client can be configured to allow OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. This will disable cryptography that is explicitly disallowed in FIPS-validated software, including certain ciphers and hashing algorithms. Any attempt to use any disallowed cryptography will cause the Chef Infra Client to throw an exception during a Chef Infra Client run.
+Federal Information Processing Standards (FIPS) is a United States government computer security standard that specifies security requirements for cryptography. The current version of the standard is FIPS 140-2. Chef Infra Client can be configured to allow OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. This will disable cryptography that is explicitly disallowed in FIPS-validated software, including certain ciphers and hashing algorithms. Any attempt to use any disallowed cryptography will cause Chef Infra Client to throw an exception during a Chef Infra Client run.
 
 .. note:: Chef uses MD5 hashes to uniquely identify files that are stored on the Chef Infra Server. MD5 is used only to generate a unique hash identifier and is not used for any cryptographic purpose.
 
@@ -269,7 +269,7 @@ which shows something similar to:
 
 Custom Templates
 =====================================================
-The default ``chef-full`` template uses the Chef installer. For most bootstrap operations, regardless of the platform on which the target node is running, using the ``chef-full`` distribution is the best approach for installing the Chef Infra Client on a target node. In some situations, a custom template may be required.
+The default ``chef-full`` template uses the Chef installer. For most bootstrap operations, regardless of the platform on which the target node is running, using the ``chef-full`` distribution is the best approach for installing Chef Infra Client on a target node. In some situations, a custom template may be required.
 
 For example, the default bootstrap operation relies on an Internet connection to get the distribution to the target node. If a target node cannot access the Internet, then a custom template can be used to define a specific location for the distribution so that the target node may access it during the bootstrap operation. The example below will show you how to create a bootstrap template that uses a custom artifact store for Chef packages and installation scripts, as well as a RubyGem mirror:
 

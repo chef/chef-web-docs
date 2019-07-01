@@ -86,9 +86,9 @@ The full syntax for all of the properties that are available to the **package** 
 
 where:
 
-* ``package`` tells the chef-client to manage a package; the chef-client will determine the correct package provider to use based on the platform running on the node
+* ``package`` tells Chef Infra Client to manage a package; Chef Infra Client will determine the correct package provider to use based on the platform running on the node
 * ``'name'`` is the name of the package
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
 * ``allow_downgrade``, ``arch``, ``default_release``, ``flush_cache``, ``gem_binary``, ``homebrew_user``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``recursive``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Gem Package Options
@@ -97,13 +97,13 @@ Gem Package Options
 
 The RubyGems package provider attempts to use the RubyGems API to install gems without spawning a new process, whenever possible. A gems command to install will be spawned under the following conditions:
 
-* When a ``gem_binary`` property is specified (as a hash, a string, or by a .gemrc file), the chef-client will run that command to examine its environment settings and then again to install the gem.
-* When install options are specified as a string, the chef-client will span a gems command with those options when installing the gem.
+* When a ``gem_binary`` property is specified (as a hash, a string, or by a .gemrc file), Chef Infra Client will run that command to examine its environment settings and then again to install the gem.
+* When install options are specified as a string, Chef Infra Client will span a gems command with those options when installing the gem.
 * The Chef installer will search the ``PATH`` for a gem command rather than defaulting to the current gem environment. As part of ``enforce_path_sanity``, the ``bin`` directories area added to the ``PATH``, which means when there are no other proceeding RubyGems, the installation will still be operated against it.
 
 .. end_tag
 
-.. warning:: Gem package options should only be used when gems are installed into the system-wide instance of Ruby, and not the instance of Ruby dedicated to the chef-client.
+.. warning:: Gem package options should only be used when gems are installed into the system-wide instance of Ruby, and not the instance of Ruby dedicated to Chef Infra Client.
 
 Specify with Hash
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -143,7 +143,7 @@ Specify with String
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag resource_package_options_string
 
-When using an explicit ``gem_binary``, options must be passed as a string. When not using an explicit ``gem_binary``, the chef-client is forced to spawn a gems process to install the gems (which uses more system resources) when options are passed as a string. String options are passed verbatim to the gems command and should be specified just as if they were passed on a command line. For example, ``--prerelease`` for a pre-release gem.
+When using an explicit ``gem_binary``, options must be passed as a string. When not using an explicit ``gem_binary``, Chef Infra Client is forced to spawn a gems process to install the gems (which uses more system resources) when options are passed as a string. String options are passed verbatim to the gems command and should be specified just as if they were passed on a command line. For example, ``--prerelease`` for a pre-release gem.
 
 .. end_tag
 
@@ -220,7 +220,7 @@ The package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -263,7 +263,7 @@ The package resource has the following properties:
 
    .. tag resources_common_package_yum_cache
 
-   Yum automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
+   Yum automatically synchronizes remote metadata to a local cache. Chef Infra Client creates a copy of the local cache, and then stores it in-memory during a Chef Infra Client run. The in-memory cache allows packages to be installed during a Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
 
    .. end_tag
 
@@ -297,7 +297,7 @@ The package resource has the following properties:
 ``homebrew_user``
    **Ruby Type:** String, Integer
 
-   **homebrew_package** resource only. The name of the Homebrew owner to be used by the chef-client when executing a command.
+   **homebrew_package** resource only. The name of the Homebrew owner to be used by Chef Infra Client when executing a command.
 
 ``ignore_failure``
    **Ruby Type:** true, false | **Default Value:** ``false``
@@ -315,13 +315,13 @@ The package resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -401,13 +401,13 @@ The package resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -441,7 +441,7 @@ Multiple Packages
 A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
-* Update or install multiple packages with a single resource during the chef-client run
+* Update or install multiple packages with a single resource during a Chef Infra Client run
 
 For example, installing multiple packages:
 
@@ -580,7 +580,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_package_install_with_response_file
 
-Use of a ``response_file`` is only supported on Debian and Ubuntu at this time. Custom resources must be written to support the use of a ``response_file``, which contains debconf answers to questions normally asked by the package manager on installation. Put the file in ``/files/default`` of the cookbook where the package is specified and the chef-client will use the **cookbook_file** resource to retrieve it.
+Use of a ``response_file`` is only supported on Debian and Ubuntu at this time. Custom resources must be written to support the use of a ``response_file``, which contains debconf answers to questions normally asked by the package manager on installation. Put the file in ``/files/default`` of the cookbook where the package is specified and Chef Infra Client will use the **cookbook_file** resource to retrieve it.
 
 To install a package with a ``response_file``:
 
@@ -761,7 +761,7 @@ where
 
 * the **package** resource is used to install sudo
 * the ``if`` statement is used to ensure availability of the ``/etc/sudoers.d`` directory
-* the **template** resource tells the chef-client where to find the ``sudoers`` template
+* the **template** resource tells Chef Infra Client where to find the ``sudoers`` template
 * the ``variables`` property is a hash that passes values to template files (that are located in the ``templates/`` directory for the cookbook
 
 .. end_tag
@@ -770,7 +770,7 @@ where
 
 .. tag resource_package_use_case_statement
 
-The following example shows how to use a case statement to tell the chef-client which platforms and packages to install using cURL.
+The following example shows how to use a case statement to tell Chef Infra Client which platforms and packages to install using cURL.
 
 .. code-block:: ruby
 
@@ -787,7 +787,7 @@ The following example shows how to use a case statement to tell the chef-client 
      end
    end
 
-where ``node[:platform]`` for each node is identified by Ohai during every chef-client run. For example:
+where ``node[:platform]`` for each node is identified by Ohai during every Chef Infra Client run. For example:
 
 .. code-block:: ruby
 

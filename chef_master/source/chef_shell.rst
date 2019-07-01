@@ -120,7 +120,7 @@ This command has the following options:
    The URL for the Chef Infra Server.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 ``-z``, ``--client``
    Run chef-shell in Chef Infra Client mode.
@@ -143,7 +143,7 @@ chef-shell.rb
 -----------------------------------------------------
 .. tag chef_shell_config_rb
 
-The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure the Chef Infra Client. For example, to configure chef-shell to authenticate to the Chef Infra Server, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the config.rb file:
+The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure Chef Infra Client. For example, to configure chef-shell to authenticate to the Chef Infra Server, copy the ``node_name``, ``client_key``, and ``chef_server_url`` settings from the config.rb file:
 
 .. code-block:: ruby
 
@@ -159,7 +159,7 @@ Run as a Chef Infra Client
 -----------------------------------------------------
 .. tag chef_shell_run_as_chef_client
 
-By default, chef-shell loads in standalone mode and does not connect to the Chef Infra Server. The chef-shell can be run as a Chef Infra Client to verify functionality that is only available when the Chef Infra Client connects to the Chef Infra Server, such as search functionality or accessing data stored in data bags.
+By default, chef-shell loads in standalone mode and does not connect to the Chef Infra Server. The chef-shell can be run as a Chef Infra Client to verify functionality that is only available when Chef Infra Client connects to the Chef Infra Server, such as search functionality or accessing data stored in data bags.
 
 chef-shell can use the same credentials as knife when connecting to a Chef Infra Server. Make sure that the settings in chef-shell.rb are the same as those in config.rb, and then use the ``-z`` option as part of the command. For example:
 
@@ -320,7 +320,7 @@ To explore how using the **breakpoint** to manually step through a Chef Infra Cl
      chef:recipe > breakpoint "foo"
      chef:recipe > file "/tmp/after-breakpoint"
 
-and then run the Chef Infra Client:
+and then run Chef Infra Client:
 
 .. code-block:: bash
 
@@ -331,7 +331,7 @@ and then run the Chef Infra Client:
      [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
      [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
 
-The Chef Infra Client ran the first resource before the breakpoint (``file[/tmp/before-breakpoint]``), but then stopped after execution. The Chef Infra Client attempted to name the breakpoint after its position in the source file, but the Chef Infra Client was confused because the resource was entered interactively. From here, chef-shell can resume the Chef Infra Client run:
+Chef Infra Client ran the first resource before the breakpoint (``file[/tmp/before-breakpoint]``), but then stopped after execution. Chef Infra Client attempted to name the breakpoint after its position in the source file, but Chef Infra Client was confused because the resource was entered interactively. From here, chef-shell can resume the interrupted Chef Infra Client run:
 
 .. code-block:: bash
 
@@ -345,7 +345,7 @@ A quick view of the ``/tmp`` directory shows that the following files were creat
    after-breakpoint
    before-breakpoint
 
-The Chef Infra Client run can also be rewound, and then stepped through.
+You can rewind and step through a Chef Infra Client run:
 
 .. code-block:: bash
 
@@ -366,14 +366,14 @@ The Chef Infra Client run can also be rewound, and then stepped through.
      [Fri, 15 Jan 2010 14:40:56 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
        => 3
 
-From the output, the rewound run-list is shown, but when the resources are executed again, they will repeat their checks for the existence of files. If they exist, the Chef Infra Client will skip creating them. If the files are deleted, then:
+From the output, the rewound run-list is shown, but when the resources are executed again, they will repeat their checks for the existence of files. If they exist, Chef Infra Client will skip creating them. If the files are deleted, then:
 
 .. code-block:: bash
 
    $ chef:recipe > ls("/tmp").grep(/breakpoint/).each {|f| rm "/tmp/#{f}" }
        => ["after-breakpoint", "before-breakpoint"]
 
-Rewind, and then resume the Chef Infra Client run to get the expected results:
+Rewind, and then resume your Chef Infra Client run to get the expected results:
 
 .. code-block:: bash
 
@@ -482,7 +482,7 @@ The following examples show how to use chef-shell.
 
 This example shows how to run chef-shell in standalone mode. (For chef-solo or Chef Infra Client modes, you would need to run chef-shell using the ``-s`` or ``-z`` command line options, and then take into consideration the necessary configuration settings.)
 
-When the Chef Infra Client is installed using RubyGems or a package manager, chef-shell should already be installed. When the Chef Infra Client is run from a git clone, it will be located in ``chef/bin/chef shell``. To start chef-shell, just run it without any options. You'll see the loading message, then the banner, and then the chef-shell prompt:
+When Chef Infra Client is installed using RubyGems or a package manager, chef-shell should already be installed. When Chef Infra Client is run from a git clone, it will be located in ``chef/bin/chef shell``. To start chef-shell, just run it without any options. You'll see the loading message, then the banner, and then the chef-shell prompt:
 
 .. code-block:: bash
 
@@ -541,7 +541,7 @@ Typing is evaluated in the same context as recipes. Create a file resource:
           @cookbook_name=nil,
           @ignore_failure=false>
 
-(The previous example was formatted for presentation.) At this point, chef-shell has created the resource and put it in the run-list, but not yet created the file. To initiate the Chef Infra Client run, use the ``run_chef`` command:
+(The previous example was formatted for presentation.) At this point, chef-shell has created the resource and put it in the run-list, but not yet created the file. To initiate a Chef Infra Client run, use the ``run_chef`` command:
 
 .. code-block:: bash
 
@@ -568,7 +568,7 @@ Switch back to recipe_mode context and use the attributes:
        => :attributes
      chef:recipe_mode > file "/tmp/#{node.hello}"
 
-Now, run the Chef Infra Client again:
+Now, run Chef Infra Client again:
 
 .. code-block:: bash
 
@@ -581,7 +581,7 @@ Now, run the Chef Infra Client again:
        => true
      chef:recipe_mode >
 
-Because the first resource (``file[/tmp/ohai2u_shef]``) is still in the run-list, it gets executed again. And because that file already exists, the Chef Infra Client doesn't attempt to re-create it. Finally, the files were created using the ``ls`` method:
+Because the first resource (``file[/tmp/ohai2u_shef]``) is still in the run-list, it gets executed again. And because that file already exists, Chef Infra Client doesn't attempt to re-create it. Finally, the files were created using the ``ls`` method:
 
 .. code-block:: bash
 

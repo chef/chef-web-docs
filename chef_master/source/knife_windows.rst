@@ -21,7 +21,7 @@ To install the ``knife windows`` plugin using RubyGems, run the following comman
 
    $ /opt/chef/embedded/bin/gem install knife-windows
 
-where ``/opt/chef/embedded/bin/`` is the path to the location where the Chef Infra Client expects knife plugins to be located. If the Chef Infra Client was installed using RubyGems, omit the path in the previous example.
+where ``/opt/chef/embedded/bin/`` is the path to the location where Chef Infra Client expects knife plugins to be located. If Chef Infra Client was installed using RubyGems, omit the path in the previous example.
 
 
 
@@ -42,7 +42,7 @@ The following WinRM configuration settings should be updated:
    * - Setting
      - Description
    * - ``MaxMemoryPerShellMB``
-     - The Chef Infra Client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
+     - Chef Infra Client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
    * - ``MaxTimeoutms``
      - A bootstrap command can take longer than allowed by the default setting. Increase this value to ``1800000`` (30 minutes).
 
@@ -179,7 +179,7 @@ This argument has the following options:
   A JSON string with the vault(s) and item(s) to be updated.
 
 ``--bootstrap-version VERSION``
-    The version of the Chef Infra Client to install.
+    The version of Chef Infra Client to install.
 
 ``-G GATEWAY``, ``--ssh-gateway GATEWAY``
     The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
@@ -194,7 +194,7 @@ This argument has the following options:
     The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``--install-as-service``
-    Install the Chef Infra Client as a Windows service. Default: ``false``.
+    Install Chef Infra Client as a Windows service. Default: ``false``.
 
 ``-j JSON_ATTRIBS``, ``--json-attributes``
     A JSON string that is added to the first Chef Infra Client run.
@@ -309,7 +309,7 @@ This argument has the following options:
   A JSON string with the vault(s) and item(s) to be updated.
 
 ``--bootstrap-version VERSION``
-   The version of the Chef Infra Client to install.
+   The version of Chef Infra Client to install.
 
 ``-C``, ``--concurrency NUM``
     The number of allowed concurrent connections

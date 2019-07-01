@@ -5,15 +5,15 @@ Authentication
 
 .. tag chef_auth
 
-All communication with the Chef Infra Server must be authenticated using the Chef Infra Server API, which is a REST API that allows requests to be made to the Chef Infra Server. Only authenticated requests will be authorized. Most of the time, and especially when using knife, the Chef Infra Client, or the Chef Infra Server web interface, the use of the Chef Infra Server API is transparent. In some cases, the use of the Chef Infra Server API requires more detail, such as when making the request in Ruby code, with a knife plugin, or when using cURL.
+All communication with the Chef Infra Server must be authenticated using the Chef Infra Server API, which is a REST API that allows requests to be made to the Chef Infra Server. Only authenticated requests will be authorized. Most of the time, and especially when using knife, Chef Infra Client, or the Chef Infra Server web interface, the use of the Chef Infra Server API is transparent. In some cases, the use of the Chef Infra Server API requires more detail, such as when making the request in Ruby code, with a knife plugin, or when using cURL.
 
 .. end_tag
 
 .. tag chef_auth_authentication
 
-The authentication process ensures the Chef Infra Server responds only to requests made by trusted users. Public key encryption is used by the Chef Infra Server. When a node and/or a workstation is configured to run the Chef Infra Client, both public and private keys are created. The public key is stored on the Chef Infra Server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
+The authentication process ensures the Chef Infra Server responds only to requests made by trusted users. Public key encryption is used by the Chef Infra Server. When a node and/or a workstation is configured to run Chef Infra Client, both public and private keys are created. The public key is stored on the Chef Infra Server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
 
-Both the Chef Infra Client and knife use the Chef Infra Server API when communicating with the Chef Infra Server. The chef-validator uses the Chef Infra Server API, but only during the first Chef Infra Client run on a node.
+Both Chef Infra Client and knife use the Chef Infra Server API when communicating with the Chef Infra Server. The chef-validator uses the Chef Infra Server API, but only during the first Chef Infra Client run on a node.
 
 Each request to the Chef Infra Server from those executables sign a special group of HTTP headers with the private key. The Chef Infra Server then uses the public key to verify the headers and verify the contents.
 
@@ -24,7 +24,7 @@ Public and Private Keys
 
 .. tag security_chef_validator
 
-Every request made by the Chef Infra Client to the Chef Infra Server must be an authenticated request using the Chef Infra Server API and a private key. When the Chef Infra Client makes a request to the Chef Infra Server, the Chef Infra Client authenticates each request using a private key located in ``/etc/chef/client.pem``.
+Every request made by Chef Infra Client to the Chef Infra Server must be an authenticated request using the Chef Infra Server API and a private key. When Chef Infra Client makes a request to the Chef Infra Server, Chef Infra Client authenticates each request using a private key located in ``/etc/chef/client.pem``.
 
 .. end_tag
 
@@ -32,9 +32,9 @@ Chef Infra Server Key Use
 -----------------------------------------------------
 .. tag chef_auth_authentication
 
-The authentication process ensures the Chef Infra Server responds only to requests made by trusted users. Public key encryption is used by the Chef Infra Server. When a node and/or a workstation is configured to run the Chef Infra Client, both public and private keys are created. The public key is stored on the Chef Infra Server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
+The authentication process ensures the Chef Infra Server responds only to requests made by trusted users. Public key encryption is used by the Chef Infra Server. When a node and/or a workstation is configured to run Chef Infra Client, both public and private keys are created. The public key is stored on the Chef Infra Server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
 
-Both the Chef Infra Client and knife use the Chef Infra Server API when communicating with the Chef Infra Server. The chef-validator uses the Chef Infra Server API, but only during the first Chef Infra Client run on a node.
+Both Chef Infra Client and knife use the Chef Infra Server API when communicating with the Chef Infra Server. The chef-validator uses the Chef Infra Server API, but only during the first Chef Infra Client run on a node.
 
 Each request to the Chef Infra Server from those executables sign a special group of HTTP headers with the private key. The Chef Infra Server then uses the public key to verify the headers and verify the contents.
 
@@ -44,7 +44,7 @@ Chef Infra Client
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag security_key_pairs_chef_client
 
-RSA public key-pairs are used to authenticate the Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
+RSA public key-pairs are used to authenticate Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
 
 .. end_tag
 
@@ -62,9 +62,9 @@ chef-validator
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag security_chef_validator_context
 
-However, during the first Chef Infra Client run, this private key does not exist. Instead, the Chef Infra Client will attempt to use the private key assigned to the chef-validator, located in ``/etc/chef/validation.pem``. (If, for any reason, the chef-validator is unable to make an authenticated request to the Chef Infra Server, the initial Chef Infra Client run will fail.)
+However, during the first Chef Infra Client run, this private key does not exist. Instead, Chef Infra Client attempts to use the private key assigned to the chef-validator, located in ``/etc/chef/validation.pem``. (If, for any reason, the chef-validator is unable to make an authenticated request to the Chef Infra Server, the initial Chef Infra Client run will fail.)
 
-During the initial Chef Infra Client run, the Chef Infra Client will register with the Chef Infra Server using the private key assigned to the chef-validator, after which the Chef Infra Client will obtain a ``client.pem`` private key for all future authentication requests to the Chef Infra Server.
+During the initial Chef Infra Client run, Chef Infra Client registers itself with the Chef Infra Server using the private key assigned to the chef-validator, after which Chef Infra Client will obtain a ``client.pem`` private key for all future authentication requests to the Chef Infra Server.
 
 After the initial Chef Infra Client run has completed successfully, the chef-validator is no longer required and may be deleted from the node. Use the ``delete_validation`` recipe found in the ``chef-client`` cookbook (https://github.com/chef-cookbooks/chef-client) to remove the chef-validator.
 
@@ -76,7 +76,7 @@ Keys are stored in different locations, depending on if the location is a node o
 
 Nodes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Each node stores its private key locally. This private key is generated as part of the bootstrap process that initially installs the Chef Infra Client on the node. The first time Chef Infra Client runs on that node, it uses the chef-validator to authenticate, but then on each subsequent run it uses the private key generated for that client by the Chef Infra Server.
+Each node stores its private key locally. This private key is generated as part of the bootstrap process that initially installs Chef Infra Client on the node. The first time Chef Infra Client runs on that node, it uses the chef-validator to authenticate, but then on each subsequent run it uses the private key generated for that client by the Chef Infra Server.
 
 Workstations
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -93,7 +93,7 @@ The chef-repo is a directory on your workstation that stores:
 
 The chef-repo directory should be synchronized with a version control system, such as git. All of the data in the chef-repo should be treated like source code.
 
-knife is used to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, that data is used by the Chef Infra Client to manage all of the nodes that are registered with the Chef Infra Server and to ensure that the correct cookbooks, environments, roles, and other settings are applied to nodes correctly.
+knife is used to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, that data is used by Chef Infra Client to manage all of the nodes that are registered with the Chef Infra Server and to ensure that the correct cookbooks, environments, roles, and other settings are applied to nodes correctly.
 
 .. end_tag
 
@@ -281,11 +281,11 @@ and the following example shows how to make API calls directly:
    api = autoconfigure()
    print api.api_request('GET', '/clients')
 
-The previous examples assume that the current working directory is such that PyChef can find a valid configuration file in the same manner as the Chef Infra Client or knife. For more about PyChef, see: https://github.com/coderanger/pychef.
+The previous examples assume that the current working directory is such that PyChef can find a valid configuration file in the same manner as Chef Infra Client or knife. For more about PyChef, see: https://github.com/coderanger/pychef.
 
 Ruby
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-On a system with the Chef Infra Client installed, use Ruby to make an authenticated request to the Chef Infra Server:
+On a system with Chef Infra Client installed, use Ruby to make an authenticated request to the Chef Infra Server:
 
 .. code-block:: ruby
 
@@ -395,7 +395,7 @@ Another way Ruby can be used with the Chef Infra Server API is to get objects fr
 
 Debug Authentication Issues
 -----------------------------------------------------
-In some cases, the Chef Infra Client may receive a 401 response to the authentication request and a 403 response to an authorization request. An authentication error error may look like the following:
+In some cases, Chef Infra Client may receive a 401 response to the authentication request and a 403 response to an authorization request. An authentication error error may look like the following:
 
 .. code-block:: bash
 
@@ -418,7 +418,7 @@ If the authentication request occurs during the initial Chef Infra Client run, t
 
 If the authentication is happening on the node, there are a number of common causes:
 
-* The ``client.pem`` file is incorrect. This can be fixed by deleting the ``client.pem`` file and re-running the Chef Infra Client. When the Chef Infra Client re-runs, it will re-attempt to register with the Chef Infra Server and generate the correct key.
+* The ``client.pem`` file is incorrect. This can be fixed by deleting the ``client.pem`` file and re-running Chef Infra Client. When Chef Infra Client re-runs, it will re-attempt to register with the Chef Infra Server and generate the correct key.
 * A ``node_name`` is different from the one used during the initial Chef Infra Client run. This can happen for a number of reasons. For example, if the client.rb file does not specify the correct node name and the host name has recently changed. This issue can be resolved by explicitly setting the node name in the client.rb file or by using the ``-N`` option for the Chef Infra Client executable.
 * The system clock has drifted from the actual time by more than 15 minutes. This can be fixed by syncing the clock with an Network Time Protocol (NTP) server.
 
