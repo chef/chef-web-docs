@@ -5,7 +5,7 @@ chef_group
 
 .. warning:: .. tag EOL_provisioning
 
-             This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+             This functionality was available with Chef Provisioning and was packaged in the ChefDK.
 
              Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
@@ -82,13 +82,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -159,13 +159,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during the Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

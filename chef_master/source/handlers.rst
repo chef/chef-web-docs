@@ -183,7 +183,6 @@ Event Handlers
 Use the Handler DSL to attach a callback to an event. If the event occurs during the Chef Infra Client run, the associated callback is executed. For example:
 
 * Sending email if a Chef Infra Client run fails
-* Sending a notification to chat application if an audit run fails
 * Aggregating statistics about resources updated during a Chef Infra Client runs to StatsD
 
 .. end_tag
@@ -326,12 +325,6 @@ The following table describes the events that may occur during a Chef Infra Clie
      - The Chef Infra Client run converge phase is complete.
    * - ``:converge_failed``
      - The Chef Infra Client run converge phase has failed.
-   * - ``:audit_phase_start``
-     - The Chef Infra Client run audit phase has started.
-   * - ``:audit_phase_complete``
-     - The Chef Infra Client run audit phase is finished.
-   * - ``:audit_phase_failed``
-     - The Chef Infra Client run audit phase has failed.
    * - ``:control_group_started``
      - The named control group is being processed.
    * - ``:control_example_success``

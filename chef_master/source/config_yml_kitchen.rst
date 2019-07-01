@@ -151,7 +151,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
        .. code-block:: yaml
 
           client_rb:
-            audit_mode: :audit_only
+            log_level: :warn
 
    * - ``clients_path``
      - The relative path to the directory in which client data is located. This data must be defined as JSON.
@@ -596,46 +596,6 @@ The following example shows platform settings for the Microsoft Windows platform
          elevated: true
 
 If ``name`` begins with ``win`` then the ``os_type`` defaults to ``windows``. The ``winrm`` transport is the default on Windows operating systems. Here ``elevated`` is true which runs windows commands via a scheduled task to imitate a local user.
-
-Chef Infra Client, audit-mode
---------------------------------------------------------------------------
-The following example shows provisioner settings for running the Chef Infra Client in audit-mode:
-
-.. code-block:: yaml
-
-   ---
-   driver:
-     name: vagrant
-     customize:
-       memory: 1024
-       cpus: 2
-
-   provisioner:
-     name: chef_zero
-     client_rb:
-       audit_mode: :enabled
-
-   platforms:
-     - name: ubuntu-18.04
-       run_list:
-         - recipe[audit-cis::ubuntu1804-100]
-     - name: centos-7
-       run_list:
-         - recipe[audit-cis::centos7-100]
-     - name: centos-6
-       run_list:
-       - recipe[audit-cis::centos6-110]
-
-   suites:
-     - name: default
-
-where ``audit_mode`` may be ``:enabled``, ``:disabled`` (default), or ``:audit_only``.
-
-mysql Cookbook
---------------------------------------------------------------------------
-The most impressive (and thorough) kitchen.yml file is part of the ``mysql`` cookbook. It is too big to paste into this topic, so please see it at the following links:
-
-* `kitchen.yml <https://github.com/chef-cookbooks/mysql/blob/master/.kitchen.yml>`__
 
 Chef Infra Client Cookbook
 --------------------------------------------------------------------------
