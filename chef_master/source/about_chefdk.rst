@@ -81,8 +81,6 @@ The most important tools included in ChefDK are:
      - A test-kitchen plugin that provides a driver, transport, and provisioner for rapid cookbook testing and container development using Docker and Chef.
    * - kitchen-vagrant
      - A Kitchen driver for Vagrant.
-   * - knife-spork
-     - A workflow plugin for knife that helps groups of people work together in the same chef-repo and Chef Infra Server.
    * - Ruby
      - The reference language for Chef.
 
