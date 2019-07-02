@@ -55,7 +55,7 @@ For FTP:
 
 Proxy Settings
 =====================================================
-Proxy settings are defined in configuration files for the Chef Infra Client and for knife and may be specified for HTTP, HTTPS, and FTP.
+Proxy settings are defined in configuration files for Chef Infra Client and for knife and may be specified for HTTP, HTTPS, and FTP.
 
 HTTP
 -----------------------------------------------------
@@ -131,7 +131,7 @@ ENV
 -----------------------------------------------------
 .. tag proxy_env
 
-If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file and is not already set in the ``ENV``, the Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
+If ``http_proxy``, ``https_proxy``, ``ftp_proxy``, or ``no_proxy`` is set in the client.rb file but not set in the ``ENV``, Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
 
 .. code-block:: ruby
 

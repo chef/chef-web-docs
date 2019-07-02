@@ -353,7 +353,7 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
    The ``SSH_USERNAME`` provided must have ``sudo`` access on the intended runner, and at least one of ``--password PASSWORD`` or ``--ssh-identity-file FILE`` is required by Chef Automate in order to communicate with it.
 
-   If you require a specific version of ChefDK to be downloaded and installed on your runners, you can specify it in the ``--chefdk-version`` option. This is useful if your cookbooks are not compatible the Chef Infra Client that comes with the latest version of ChefDK.
+   If you require a specific version of ChefDK to be downloaded and installed on your runners, you can specify it in the ``--chefdk-version`` option. This is useful if your cookbooks are not compatible with the Chef Infra Client version that comes with the latest version of ChefDK.
 
    For more ``install-runner`` usage examples, see `install-runner </ctl_automate_server.html#install-runner>`__, and for more information on runners and the SSH-based job dispatch system, see `Runners </runners.html>`_.
 
@@ -414,7 +414,7 @@ Chef Automate contains a compliance profiles asset store that provides several b
 Scanning
 ------------------------------------------------------------
 
-Allows nodes to execute infrastructure tests or compliance profiles as part of the Chef Infra Client runs. For more details, see `Perform a Compliance Scan in Chef Automate </perform_compliance_scan.html>`_.
+Allows nodes to execute infrastructure tests or compliance profiles as part of a Chef Infra Client runs. For more details, see `Perform a Compliance Scan in Chef Automate </perform_compliance_scan.html>`_.
 
 Troubleshooting
 ===================================================================

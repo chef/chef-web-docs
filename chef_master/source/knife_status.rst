@@ -82,7 +82,7 @@ to return something like:
 
 **View status using a time range**
 
-To show the status of nodes on which the Chef Infra Client did not run successfully within the past hour, enter:
+To show the status of nodes on which Chef Infra Client did not run successfully within the past hour, enter:
 
 .. code-block:: bash 
 
