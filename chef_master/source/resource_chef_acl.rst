@@ -5,7 +5,7 @@ chef_acl
 
 .. warning:: .. tag EOL_provisioning
 
-             This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+             This functionality was available with Chef Provisioning and was packaged in the ChefDK.
 
              Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
@@ -27,10 +27,10 @@ The syntax for using the **chef_acl** resource in a recipe is as follows:
 
 where
 
-* ``chef_acl`` tells the chef-client to use the ``Chef::Provider::ChefAcl`` provider during the chef-client run
-* ``name`` is the name of the resource block; when the ``path`` property is not specified as part of a recipe, ``name`` is also the name of the chef-client
+* ``chef_acl`` tells Chef Infra Client to use the ``Chef::Provider::ChefAcl`` provider during a Chef Infra Client run
+* ``name`` is the name of the resource block; when the ``path`` property is not specified as part of a recipe, ``name`` is also the name of the Chef Infra Client.
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
 
 Actions
 =====================================================
@@ -42,7 +42,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -72,13 +72,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -99,7 +99,7 @@ This resource has the following properties:
    A path to a directory in the chef-repo against which the ACL is applied. For example: ``nodes``, ``nodes/*``, ``nodes/my_node``, ``*/*``, ``**``, ``roles/base``, ``data/secrets``, ``cookbooks/apache2``, ``/users/*``, and so on.
 
 ``raw_json``
-   The chef-client as JSON data. For example:
+   Chef Infra Client as JSON data. For example:
 
    .. code-block:: javascript
 
@@ -192,13 +192,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

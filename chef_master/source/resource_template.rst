@@ -17,7 +17,7 @@ A cookbook template is an Embedded Ruby (ERB) template that is used to dynamical
 
 .. tag resource_template_summary
 
-Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running the chef-client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
+Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running Chef Infra Client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
 
 .. end_tag
 
@@ -71,7 +71,7 @@ where
 * ``template`` is the resource
 * ``name`` is the name of the resource block, typically the path to the location in which a file is created *and also* the name of the file to be managed. For example: ``/var/www/html/index.html``, where ``/var/www/html/`` is the fully qualified path to the location and ``index.html`` is the name of the file
 * ``source`` is the template file that will be used to create the file on the node, for example: ``index.html.erb``; the template file is located in the ``/templates`` directory of a cookbook
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``atomic_update``, ``backup``, ``cookbook``, ``force_unlink``, ``group``, ``helper``, ``helpers``, ``inherits``, ``local``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``rights``, ``sensitive``, ``source``, ``variables``, and ``verify`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -90,7 +90,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -120,7 +120,7 @@ The template resource has the following properties:
 ``force_unlink``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error.
+   How Chef Infra Client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for Chef Infra Client delete the non-file target and replace it with the specified file. Set to ``false`` for Chef Infra Client to raise an error.
 
 ``group``
    **Ruby Type:** Integer, String
@@ -145,19 +145,19 @@ The template resource has the following properties:
 ``local``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Load a template from a local path. By default, the chef-client loads templates from a cookbook's ``/templates`` directory. When this property is set to ``true``, use the ``source`` property to specify the path to a template on the local node.
+   Load a template from a local path. By default, Chef Infra Client loads templates from a cookbook's ``/templates`` directory. When this property is set to ``true``, use the ``source`` property to specify the path to a template on the local node.
 
 ``manage_symlink_source``
    **Ruby Type:** true, false | **Default Value:** ``true`` (with warning)
 
-   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, the Chef client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
+   Change the behavior of the file resource if it is pointed at a symlink. When this value is set to ``true``, Chef Infra Client will manage the symlink's permissions or will replace the symlink with a normal file if the resource has content. When this value is set to ``false``, Chef will follow the symlink and will manage the permissions and content of the symlink's target file.
 
    The default behavior is ``true`` but emits a warning that the default value will be changed to ``false`` in a future version; setting this explicitly to ``true`` or ``false`` suppresses this warning.
 
 ``mode``
    **Ruby Type:** Integer, String
 
-   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, Chef Infra Client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, Chef Infra Client uses the default value of ``'0755'``.
 
    The behavior is different depending on the platform.
 
@@ -175,7 +175,7 @@ The template resource has the following properties:
 
    The full path to the file, including the file name and its extension.
 
-   Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of the chef-client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
+   Microsoft Windows: A path that begins with a forward slash (``/``) will point to the root of the current working directory of Chef Infra Client process. This path can vary from system to system. Therefore, using a path that begins with a forward slash (``/``) is not recommended.
 
 ``rights``
    **Ruby Type:** Integer, String
@@ -185,7 +185,7 @@ The template resource has the following properties:
 ``source``
    **Ruby Type:** String, Array
 
-   The location of a template file. By default, the chef-client looks for a template file in the ``/templates`` directory of a cookbook. When the ``local`` property is set to ``true``, use to specify the path to a template on the local node. This property may also be used to distribute specific files to specific platforms. See "File Specificity" below for more information. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The location of a template file. By default, Chef Infra Client looks for a template file in the ``/templates`` directory of a cookbook. When the ``local`` property is set to ``true``, use to specify the path to a template on the local node. This property may also be used to distribute specific files to specific platforms. See "File Specificity" below for more information. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
 
 ``variables``
    **Ruby Type:** Hash
@@ -223,7 +223,7 @@ The template resource has the following properties:
    A block or a string that returns ``true`` or ``false``. A string, when ``true`` is executed as a system command.
 
   
-   A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block is ``true``, the chef-client will continue to update the file as appropriate.
+   A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block is ``true``, Chef Infra Client will continue to update the file as appropriate.
 
    For example, this should return ``true``:
 
@@ -241,7 +241,7 @@ The template resource has the following properties:
         verify 'nginx -t -c %{path}'
       end
 
-   .. warning:: For releases of the chef-client prior to 12.5 (chef-client 12.4 and earlier) the correct syntax is:
+   .. warning:: For releases of Chef Infra Client prior to 12.5 (chef-client 12.4 and earlier) the correct syntax is:
 
       .. code-block:: ruby
 
@@ -277,7 +277,7 @@ The template resource has the following properties:
         verify '/usr/bin/false'
       end
 
-   If a string or a block return ``false``, the chef-client run will stop and an error is returned.
+   If a string or a block return ``false``, the Chef Infra Client run will stop and an error is returned.
 
    
 
@@ -289,7 +289,7 @@ Atomic updates are used with **file**-based resources to help ensure that file u
 
 Atomic updates are enabled by default. They can be managed globally using the ``file_atomic_update`` setting in the client.rb file. They can be managed on a per-resource basis using the ``atomic_update`` property that is available with the **cookbook_file**, **file**, **remote_file**, and **template** resources.
 
-.. note:: On certain platforms, and after a file has been moved into place, the Chef Infra Client may modify file permissions to support features specific to those platforms. On platforms with SELinux enabled, the Chef Infra Client will fix up the security contexts after a file has been moved into the correct location by running the ``restorecon`` command. On the Microsoft Windows platform, the Chef Infra Client will create files so that ACL inheritance works as expected.
+.. note:: On certain platforms, and after a file has been moved into place, Chef Infra Client may modify file permissions to support features specific to those platforms. On platforms with SELinux enabled, Chef Infra Client will fix up the security contexts after a file has been moved into the correct location by running the ``restorecon`` command. On the Microsoft Windows platform, Chef Infra Client will create files so that ACL inheritance works as expected.
 
 .. end_tag
 
@@ -305,7 +305,7 @@ To support Microsoft Windows security, the **template**, **file**, **remote_file
 
 .. tag resources_common_windows_security_acl
 
-The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; the Chef Infra Client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
+The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; Chef Infra Client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
 
 .. code-block:: ruby
 
@@ -321,7 +321,7 @@ where
    (For those who know the Microsoft Windows API: ``:read`` corresponds to ``GENERIC_READ``; ``:write`` corresponds to ``GENERIC_WRITE``; ``:read_execute`` corresponds to ``GENERIC_READ`` and ``GENERIC_EXECUTE``; ``:modify`` corresponds to ``GENERIC_WRITE``, ``GENERIC_READ``, ``GENERIC_EXECUTE``, and ``DELETE``; ``:full_control`` corresponds to ``GENERIC_ALL``, which allows a user to change the owner and other metadata about a file.)
 
 ``principal``
-   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. The Chef Infra Client does not need to know if a principal is a user or a group.
+   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. Chef Infra Client does not need to know if a principal is a user or a group.
 
 ``option_type``
    A hash that contains advanced rights options. For example, the rights to a directory that only applies to the first level of children might look something like: ``rights :write, 'domain\group_name', :one_level_deep => true``. Possible option types:
@@ -361,7 +361,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The Chef Infra Client does not clear out the rights on a file or directory if rights are not specified.
+* If rights are not specified, nothing will be changed. Chef Infra Client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
@@ -388,7 +388,7 @@ or:
 
 .. tag resources_common_windows_security_inherits
 
-By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell the Chef Infra Client to apply (or not apply) inherited rights from its parent directory.
+By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell Chef Infra Client to apply (or not apply) inherited rights from its parent directory.
 
 For example, the following example specifies the rights for a directory:
 
@@ -428,7 +428,7 @@ but then not use the ``inherits`` property to deny those rights on a child direc
      deny_rights :read, 'MORDOR\Minions' # Oops, not specific enough
    end
 
-Because the ``inherits`` property is not specified, the Chef Infra Client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
+Because the ``inherits`` property is not specified, Chef Infra Client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
 
 .. end_tag
 
@@ -689,7 +689,7 @@ Use the ``render`` method in a template to reference a partial template file:
 
 .. code-block:: ruby
 
-   <%= render "partial_name.txt.erb", :option => {} %>
+   <%= render 'partial_name.txt.erb', :option => {} %>
 
 where ``partial_name`` is the name of the partial template file and ``:option`` is one (or more) of the following:
 
@@ -712,7 +712,7 @@ For example:
 
 .. code-block:: ruby
 
-   <%= render "simple.txt.erb", :variables => {:user => Etc.getlogin }, :local => true %>
+   <%= render 'simple.txt.erb', :variables => {:user => Etc.getlogin }, :local => true %>
 
 .. end_tag
 
@@ -746,7 +746,7 @@ A statement is delimited by a modifier, such as ``if``, ``elseif``, and ``else``
 
 Using a Ruby expression is the most common approach for defining template variables because this is how all variables that are sent to a template are referenced. Whenever a template needs to use an ``each``, ``if``, or ``end``, use a Ruby statement.
 
-When a template is rendered, Ruby expressions and statements are evaluated by the Chef Infra Client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. The Chef Infra Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
+When a template is rendered, Ruby expressions and statements are evaluated by Chef Infra Client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. Chef Infra Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
 
 For example, a simple template resource like this:
 
@@ -804,7 +804,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -822,13 +822,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -871,13 +871,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -899,17 +899,18 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -1126,7 +1127,7 @@ The following example shows how to use a Ruby whitespace array to define a list 
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -1135,7 +1136,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -1232,7 +1233,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -1311,7 +1312,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 

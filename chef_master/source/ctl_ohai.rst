@@ -5,7 +5,7 @@ ohai (executable)
 
 .. tag ctl_ohai_summary
 
-ohai is the command-line interface for Ohai, a tool that is used to detect attributes on a node, and then provide these attributes to the Chef Infra Client at the start of every Chef Infra Client run.
+ohai is the command-line interface for Ohai, a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every Chef Infra Client run.
 
 .. end_tag
 

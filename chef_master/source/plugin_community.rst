@@ -3,7 +3,7 @@ Community Plugins
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_community.rst>`__
 
-This page lists plugins for knife, Ohai, handlers, and the Chef Infra Client that are developed and maintained by the Chef community.
+This page lists plugins for knife, Ohai, handlers, and Chef Infra Client that are developed and maintained by the Chef community.
 
 Knife
 =====================================================
@@ -15,12 +15,12 @@ knife is a command-line tool that provides an interface between a local chef-rep
 * Cookbooks and recipes
 * Roles, Environments, and Data Bags
 * Resources within various cloud environments
-* The installation of the Chef Infra Client onto nodes
+* The installation of Chef Infra Client onto nodes
 * Searching of indexed data on the Chef Infra Server
 
 .. end_tag
 
-knife plugins for cloud hosting platforms--- `knife azure <https://github.com/chef/knife-azure>`_, `knife bluebox <https://github.com/chef-boneyard/knife-bluebox>`_, `knife ec2 <https://github.com/chef/knife-ec2>`_, `knife eucalyptus <https://github.com/chef-boneyard/knife-eucalyptus>`_, `knife google <https://github.com/chef/knife-google>`_, `knife linode <https://github.com/chef/knife-linode>`_, `knife openstack <https://github.com/chef/knife-openstack>`_, and `knife rackspace <https://github.com/chef/knife-rackspace>`_, ---are built and maintained by Chef.
+knife plugins for cloud hosting platforms--- `knife azure <https://github.com/chef/knife-azure>`_, `knife ec2 <https://github.com/chef/knife-ec2>`_, `knife google <https://github.com/chef/knife-google>`_, and `knife openstack <https://github.com/chef/knife-openstack>`_, ---are built and maintained by Chef.
 
 The following table lists knife plugins built by the Chef community.
 
@@ -32,8 +32,6 @@ The following table lists knife plugins built by the Chef community.
      - Description
    * - `knife-audit <https://github.com/jbz/knife-audit>`_
      - Adds the ability to see how many (and which) nodes have a cookbook in its run-list.
-   * - `knife-baremetalcloud <https://github.com/baremetalcloud/knife-baremetalcloud>`_
-     - Adds the ability to manage compute nodes in baremetalcloud.
    * - `knife-batch <https://github.com/imeyer/knife-batch>`_
      - Adds the ability to execute commands like ``knife ssh``, but in groups of N with a sleep between execution iterations.
    * - `knife-block <https://github.com/greenandsecure/knife-block>`_
@@ -54,8 +52,6 @@ The following table lists knife plugins built by the Chef community.
      - Adds the ability to create, bootstrap, and manage instances in CloudStack using Fog, a Ruby gem for interacting with various cloud providers.
    * - `knife-cloudstack <https://github.com/CloudStack-extras/knife-cloudstack>`_
      - Adds the ability to create, bootstrap, and manage CloudStack instances.
-   * - `knife-community <https://github.com/miketheman/knife-community>`_
-     - Adds the ability to assist with deploying completed cookbooks to the community web site.
    * - `knife-crawl <https://github.com/jgoulah/knife-crawl>`_
      - Adds the ability to display the roles that are included recursively within a role and (optionally) all of the roles that include it.
    * - `knife-digital_ocean <https://github.com/rmoriz/knife-digital_ocean>`_
@@ -113,7 +109,7 @@ The following table lists knife plugins built by the Chef community.
    * - `knife-rvc <https://github.com/dougm/rvc-knife>`_
      - Integrates a subset of knife functionality with Ruby vSphere Console.
    * - `knife-santoku <https://github.com/knuckolls/knife-santoku>`_
-     - Adds the ability to build processes around the Chef Infra Client.
+     - Adds the ability to build processes around Chef Infra Client.
    * - `knife-select <https://github.com/hpcloud/knife-select>`_
      - Adds the ability for selecting the chef server or organization to interact with.
    * - `knife-server <https://github.com/fnichol/knife-server>`_
@@ -134,8 +130,6 @@ The following table lists knife plugins built by the Chef community.
      - Adds extra features to be used with SSH.
    * - `knife-ucs <https://github.com/velankanisys/knife-ucs>`_
      - Adds the ability to provision, list, and manage Cisco UCS servers.
-   * - `knife-voxel <https://github.com/warwickp/knife-voxel>`_
-     - Adds the ability to provision instances in the Voxel cloud.
    * - `knife-whisk <https://github.com/Banno/knife-whisk>`_
      - Adds the ability to create new servers in a team environment.
    * - `knife-xapi <https://github.com/spheromak/knife-xapi>`_
@@ -145,7 +139,7 @@ Ohai
 =====================================================
 .. tag ohai_summary
 
-Ohai is a tool that is used to collect system configuration data, which is provided to the Chef Infra Client for use within cookbooks. Ohai is run by the Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
+Ohai is a tool that is used to collect system configuration data, which is provided to Chef Infra Client for use within cookbooks. Ohai is run by Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
 The types of attributes Ohai collects include but are not limited to:
 
@@ -160,7 +154,7 @@ The types of attributes Ohai collects include but are not limited to:
 * Virtualization
 * Cloud provider metadata
 
-Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the Chef Infra Client to ensure that these attributes remain unchanged after the Chef Infra Client is done configuring the node.
+Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by Chef Infra Client to ensure that these attributes remain unchanged after Chef Infra Client is done configuring the node.
 
 .. end_tag
 
@@ -207,7 +201,7 @@ Handlers
 =====================================================
 .. tag handler
 
-Use a handler to identify situations that arise during a Chef Infra Client run, and then tell the Chef Infra Client how to handle these situations when they occur.
+Use a handler to identify situations that arise during a Chef Infra Client run, and then tell Chef Infra Client how to handle these situations when they occur.
 
 .. end_tag
 
@@ -266,7 +260,7 @@ The following open source handlers are available from the Chef community:
 
 Chef Infra Client
 =====================================================
-The following plugins are available for the Chef Infra Client:
+The following plugins are available for Chef Infra Client:
 
 .. list-table::
    :widths: 60 420
@@ -291,7 +285,7 @@ The following plugins are available for the Chef Infra Client:
    * - `chef-rundeck <https://rubygems.org/gems/chef-rundeck>`_
      - Adds a resource endpoint for Rundeck.
    * - `chef-trac-hacks <http://trac-hacks.org/wiki/CloudPlugin>`_
-     - Adds the ability to fill a coordination gap between Amazon Web Services (AWS) and the Chef Infra Client.
+     - Adds the ability to fill a coordination gap between Amazon Web Services (AWS) and Chef Infra Client.
    * - `chef-vim <https://github.com/t9md/vim-chef>`_
      - Adds a plugin that makes cookbook navigation quick and easy.
    * - `chef-vpc-toolkit <https://github.com/rackerlabs/chef_vpc_toolkit>`_

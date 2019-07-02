@@ -49,7 +49,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -75,7 +75,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -202,7 +202,7 @@ Use the ``chef generate app`` subcommand to generate a cookbook structure that:
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 
@@ -225,7 +225,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -317,7 +317,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -348,7 +348,7 @@ Use the ``chef generate cookbook`` subcommand to generate a cookbook.
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 
@@ -392,7 +392,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -528,7 +528,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -560,7 +560,7 @@ This subcommand has the following options:
    Copy the contents from a source file.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -572,7 +572,7 @@ Use the ``chef generate resource`` subcommand to generate a custom resource in t
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 
@@ -595,7 +595,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -624,7 +624,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -669,7 +669,7 @@ This subcommand has the following options:
    Create directories for ``/roles`` and ``/environments`` instead of creating directories for Policyfile.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -703,7 +703,7 @@ This subcommand has the following options:
    Copy the contents from a source file.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -731,7 +731,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 Examples
 -----------------------------------------------------
@@ -833,7 +833,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -877,7 +877,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -921,7 +921,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -965,7 +965,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1018,7 +1018,7 @@ This subcommand has the following options:
    Use ``--pager`` to enable paged output for a ``Policyfile.lock.json`` file. Default value: ``--pager``.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1168,7 +1168,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1206,7 +1206,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1247,7 +1247,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1344,7 +1344,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1388,7 +1388,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1438,7 +1438,7 @@ This subcommand has the following options:
    Use ``--pager`` to enable paged output for a ``Policyfile.lock.json`` file. Default value: ``--pager``.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1497,7 +1497,7 @@ This subcommand has the following options:
    Default. Return a list of available operations.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 
@@ -1541,7 +1541,7 @@ This subcommand has the following options:
    Show help for the command.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 .. end_tag
 

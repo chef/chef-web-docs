@@ -28,7 +28,7 @@ The types of nodes that can be managed by Chef include, but are not limited to, 
           :width: 100px
           :align: center
 
-     - A cloud-based node is hosted in an external cloud-based service, such as Amazon Web Services (AWS), OpenStack, Rackspace, Google Compute Engine, or Microsoft Azure. Plugins are available for knife that provide support for external cloud-based services. knife can use these plugins to create instances on cloud-based services. Once created, the Chef Infra Client can be used to deploy, configure, and maintain those instances.
+     - A cloud-based node is hosted in an external cloud-based service, such as Amazon Web Services (AWS), OpenStack, Rackspace, Google Compute Engine, or Microsoft Azure. Plugins are available for knife that provide support for external cloud-based services. knife can use these plugins to create instances on cloud-based services. Once created, Chef Infra Client can be used to deploy, configure, and maintain those instances.
    * - .. image:: ../../images/icon_node_virtual_machine.svg
           :width: 100px
           :align: center
@@ -74,7 +74,7 @@ The key components of nodes that are under management by Chef include:
 
        .. tag security_key_pairs_chef_client
 
-       RSA public key-pairs are used to authenticate the Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
+       RSA public key-pairs are used to authenticate Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
 
        .. end_tag
 
@@ -84,7 +84,7 @@ The key components of nodes that are under management by Chef include:
 
      - .. tag ohai_summary
 
-       Ohai is a tool that is used to collect system configuration data, which is provided to the Chef Infra Client for use within cookbooks. Ohai is run by the Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
+       Ohai is a tool that is used to collect system configuration data, which is provided to Chef Infra Client for use within cookbooks. Ohai is run by Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
        The types of attributes Ohai collects include but are not limited to:
 
@@ -99,7 +99,7 @@ The key components of nodes that are under management by Chef include:
        * Virtualization
        * Cloud provider metadata
 
-       Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the Chef Infra Client to ensure that these attributes remain unchanged after the Chef Infra Client is done configuring the node.
+       Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by Chef Infra Client to ensure that these attributes remain unchanged after Chef Infra Client is done configuring the node.
 
        .. end_tag
 
@@ -109,7 +109,7 @@ About Run-lists
 
 A run-list defines all of the information necessary for Chef to configure a node into the desired state. A run-list is:
 
-* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the Chef Infra Client will not run it twice
+* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, Chef Infra Client will not run it twice
 * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
 * Stored as part of the node object on the Chef server
 * Maintained using knife and then uploaded from the workstation to the Chef Infra Server, or maintained using Chef Automate
@@ -147,7 +147,7 @@ Empty Run-lists
 Use an empty run-list to determine if a failed Chef Infra Client run has anything to do with the recipes that are defined within that run-list. This is a quick way to discover if the underlying cause of a Chef Infra Client run failure is a configuration issue. If a failure persists even if the run-list is empty, check the following:
 
 * Configuration settings in the config.rb file
-* Permissions for the user to both the Chef Infra Server and to the node on which the Chef Infra Client run is to take place
+* Permissions for the user to both the Chef Infra Server and to the node on which a Chef Infra Client run is to take place
 
 .. end_tag
 
@@ -158,7 +158,7 @@ The name of a node is required as part of the authentication process to the Chef
 
    /^[\-[:alnum:]_:.]+$/
 
-The name of a node can be obtained from the ``node_name`` attribute in the client.rb file or by allowing Ohai to collect this data during the Chef Infra Client run. When Ohai collects this data during the Chef Infra Client run, it uses the FQDN name of the node (which is always unique within an organization) as the name of the node.
+The name of a node can be obtained from the ``node_name`` attribute in the client.rb file or by allowing Ohai to collect this data during a Chef Infra Client run. When Ohai collects this data during a Chef Infra Client run, it uses the node's FQDN, which is always unique within an organization, as the name of the node.
 
 Using the FQDN as the node name, and then allowing Ohai to collect this information during each Chef Infra Client run, is the recommended approach and the easiest way to ensure that the names of all nodes across the organization are unique.
 
@@ -172,18 +172,18 @@ There are several ways to manage nodes directly: via knife, Chef Automate, or by
 * knife can be used to create, edit, view, list, tag, and delete nodes.
 * knife plug-ins can be used to create, edit, and manage nodes that are located on cloud providers.
 * Chef Automate can be used to create, edit, view, list, tag, and delete nodes. In addition, node attributes can be modified and nodes can be moved between environments.
-* The Chef Infra Client can be used to manage node data using the command line and JSON files. Each JSON file contains a hash, the elements of which are added as node attributes. In addition, the ``run_list`` setting allows roles and/or recipes to be added to the node.
+* Chef Infra Client can be used to manage node data using the command line and JSON files. Each JSON file contains a hash, the elements of which are added as node attributes. In addition, the ``run_list`` setting allows roles and/or recipes to be added to the node.
 * chef-solo can be used to manage node data using the command line and JSON files. Each JSON file contains a hash, the elements of which are added as node attributes. In addition, the ``run_list`` setting allows roles and/or recipes to be added to the node.
 * The command line can also be used to edit JSON files and files that are related to third-party services, such as Amazon EC2, where the JSON files can contain per-instance metadata that is stored in a file on-disk and then read by chef-solo or Chef Infra Client as required.
 
 Node Objects
 =====================================================
 
-For the Chef Infra Client, two important aspects of nodes are groups of attributes and run-lists. An attribute is a specific piece of data about the node, such as a network interface, a file system, the number of clients a service running on a node is capable of accepting, and so on. A run-list is an ordered list of recipes and/or roles that are run in an exact order. The node object consists of the run-list and node attributes, which is a JSON file that is stored on the Chef Infra Server. The Chef Infra Client gets a copy of the node object from the Chef Infra Server during each Chef Infra Client run and places an updated copy on the Chef Infra Server at the end of each Chef Infra Client run.
+For Chef Infra Client, two important aspects of nodes are groups of attributes and run-lists. An attribute is a specific piece of data about the node, such as a network interface, a file system, the number of clients a service running on a node is capable of accepting, and so on. A run-list is an ordered list of recipes and/or roles that are run in an exact order. The node object consists of the run-list and node attributes, which is a JSON file that is stored on the Chef Infra Server. Chef Infra Client gets a copy of the node object from the Chef Infra Server during each Chef Infra Client run and places an updated copy on the Chef Infra Server at the end of each Chef Infra Client run.
 
 .. tag node_attribute
 
-An attribute is a specific detail about a node. Attributes are used by the Chef Infra Client to understand:
+An attribute is a specific detail about a node. Attributes are used by Chef Infra Client to understand:
 
 * The current state of the node
 * What the state of the node was at the end of the previous Chef Infra Client run
@@ -196,7 +196,7 @@ Attributes are defined by:
 * Roles
 * Environments
 
-During every Chef Infra Client run, the Chef Infra Client builds the attribute list using:
+During every Chef Infra Client run, Chef Infra Client builds the attribute list using:
 
 * Data about the node collected by Ohai
 * The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run
@@ -239,7 +239,7 @@ Another (much less common) approach is to set a value only if an attribute has n
 
 .. note:: .. tag notes_see_attributes_overview
 
-          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of the Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
+          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of a Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
 
           .. end_tag
 
@@ -247,7 +247,7 @@ Attribute Types
 -----------------------------------------------------
 .. tag node_attribute_type
 
-The Chef Infra Client uses six types of attributes to determine the value that is applied to a node during the Chef Infra Client run. In addition, the Chef Infra Client sources attribute values from up to five locations. The combination of attribute types and sources allows for up to 15 different competing values to be available to the Chef Infra Client during the Chef Infra Client run:
+Chef Infra Client uses six types of attributes to determine the value that is applied to a node during a Chef Infra Client run. In addition, Chef Infra Client gathers attribute values from up to five locations. The combination of attribute types and sources makes up to 15 different competing values available during a Chef Infra Client run:
 
 .. end_tag
 
@@ -303,7 +303,7 @@ Attribute Persistence
 -----------------------------------------------------
 .. tag node_attribute_persistence
 
-At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. The Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of the Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of the Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
+At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of each Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
 
 .. end_tag
 
@@ -311,7 +311,7 @@ Attribute Precedence
 -----------------------------------------------------
 .. tag node_attribute_precedence
 
-Attributes are always applied by the Chef Infra Client in the following order:
+Attributes are always applied by Chef Infra Client in the following order:
 
 #. A ``default`` attribute located in a cookbook attribute file
 #. A ``default`` attribute located in a recipe
@@ -327,7 +327,7 @@ Attributes are always applied by the Chef Infra Client in the following order:
 #. An ``override`` attribute located in an environment
 #. A ``force_override`` attribute located in a cookbook attribute file
 #. A ``force_override`` attribute located in a recipe
-#. An ``automatic`` attribute identified by Ohai at the start of the Chef Infra Client run
+#. An ``automatic`` attribute identified by Ohai at the start of a Chef Infra Client run
 
 where the last attribute in the list is the one that is applied to the node.
 

@@ -423,13 +423,13 @@ When the bootstrap operation is finished, do the following:
 
    where ``supermarket-node`` is the name of the node that was just bootstrapped.
 
-#. Start the Chef Infra Client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
+#. Start Chef Infra Client on the newly-bootstrapped Chef Supermarket node. For example, using SSH:
 
    .. code-block:: bash
 
       $ ssh ubuntu@your-supermarket-node-public-dns
 
-#. After accessing the Chef Supermarket node, run the Chef Infra Client:
+#. After accessing the Chef Supermarket node, run Chef Infra Client:
 
    .. code-block:: bash
 

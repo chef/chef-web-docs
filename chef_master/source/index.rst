@@ -5,7 +5,7 @@ Site Map
 
 This is the documentation for:
 
-* Chef, including the Chef Infra Server, the Chef Infra Client, ChefDK, and related tools
+* Chef, including Chef Infra Server, Chef Infra Client, ChefDK, and related tools
 * Chef Automate
 
 For information on Chef Habitat and Chef InSpec, see their respective documentation:
@@ -105,7 +105,7 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ |
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ 
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -159,9 +159,10 @@ Cookbook Reference
 `chef_organization </resource_chef_organization.html>`__ |
 `chef_role </resource_chef_role.html>`__ |
 `chef_user </resource_chef_user.html>`__ |
-`chocolatey_config </resource_chocolatey_config.html>`__
-`chocolatey_package </resource_chocolatey_package.html>`__
-`chocolatey_source </resource_chocolatey_source.html>`__
+`chocolatey_config </resource_chocolatey_config.html>`__ |
+`chocolatey_feature </resource_chocolatey_feature.html>`__ |
+`chocolatey_package </resource_chocolatey_package.html>`__ |
+`chocolatey_source </resource_chocolatey_source.html>`__ |
 `cookbook_file </resource_cookbook_file.html>`__ |
 `cron </resource_cron.html>`__ |
 `cron_d </resource_cron_d.html>`__ |
@@ -170,6 +171,7 @@ Cookbook Reference
 `deploy </resource_deploy.html>`__ |
 `directory </resource_directory.html>`__ |
 `dmg_package </resource_dmg_package.html>`__ |
+`dnf_package </resource_dnf_package.html>`__ |
 `dpkg_package </resource_dpkg_package.html>`__ |
 `dsc_resource </resource_dsc_resource.html>`__ |
 `dsc_script </resource_dsc_script.html>`__ |
@@ -197,6 +199,7 @@ Cookbook Reference
 `macports_package </resource_macports_package.html>`__ |
 `mdadm </resource_mdadm.html>`__ |
 `mount </resource_mount.html>`__ |
+`msu_package </resource_msu_package>`__ |
 `ohai </resource_ohai.html>`__ |
 `ohai_hint </resource_ohai_hint.html>`__ |
 `openbsd_package </resource_openbsd_package.html>`__ |
@@ -224,16 +227,16 @@ Cookbook Reference
 `registry_key </resource_registry_key.html>`__ |
 `remote_directory </resource_remote_directory.html>`__ |
 `remote_file </resource_remote_file.html>`__ |
-`route </resource_route.html>`__ |
-`rpm_package </resource_rpm_package.html>`__ |
-`ruby </resource_ruby.html>`__ |
-`ruby_block </resource_ruby_block.html>`__ |
-`script </resource_script.html>`__ |
 `rhsm_errata </resource_rhsm_errata.html>`__ |
 `rhsm_errata_level </resource_rhsm_errata_level.html>`__ |
 `rhsm_register </resource_rhsm_register.html>`__ |
 `rhsm_repo </resource_rhsm_repo.html>`__ |
 `rhsm_subscription </resource_rhsm_subscription.html>`__ |
+`route </resource_route.html>`__ |
+`rpm_package </resource_rpm_package.html>`__ |
+`ruby </resource_ruby.html>`__ |
+`ruby_block </resource_ruby_block.html>`__ |
+`script </resource_script.html>`__ |
 `service </resource_service.html>`__ |
 `smartos_package </resource_smartos_package.html>`__ |
 `snap_package </resource_snap_package.html>`__ |
@@ -245,22 +248,25 @@ Cookbook Reference
 `sysctl </resource_sysctl.html>`__ |
 `systemd_unit </resource_systemd_unit.html>`__ |
 `template </resource_template.html>`__ |
+`timezone </resource_timezone.html>`__ |
 `user </resource_user.html>`__ |
 `windows_ad_join </resource_windows_ad_join.html>`__ |
 `windows_auto_run </resource_windows_auto_run.html>`__ |
 `windows_certificate </resource_windows_certificate.html>`__ |
-`windows_env </resource_windows_env.html>`__ |
 `windows_dfs_folder </resource_windows_dfs_folder.html>`__ |
 `windows_dfs_namespace </resource_windows_dfs_namespace.html>`__ |
 `windows_dfs_server </resource_windows_dfs_server.html>`__ |
 `windows_dns_record </resource_windows_dns_record.html>`__ |
 `windows_dns_zone </resource_windows_dns_zone.html>`__ |
+`windows_env </resource_windows_env.html>`__ |
 `windows_feature </resource_windows_feature.html>`__ |
 `windows_feature_dism </resource_windows_feature_dism.html>`__ |
 `windows_feature_powershell </resource_windows_feature_powershell.html>`__ |
 `windows_firewall_rule </resource_windows_firewall_rule.html>`__ |
 `windows_font </resource_windows_font.html>`__ |
 `windows_package </resource_windows_package.html>`__ |
+`windows_pagefile </resource_windows_pagefile.html>`__ |
+`windows_path </resource_windows_path.html>`__ |
 `windows_printer </resource_windows_printer.html>`__ |
 `windows_printer_port </resource_windows_printer_port.html>`__ |
 `windows_service </resource_windows_service.html>`__ |
@@ -271,7 +277,6 @@ Cookbook Reference
 `windows_workgroup </resource_windows_workgroup.html>`__ |
 `yum_package </resource_yum_package.html>`__ |
 `yum_repository </resource_yum_repository.html>`__ |
-`dnf_package </resource_dnf_package.html>`__ |
 `zypper_package </resource_zypper_package.html>`__ |
 `zypper_repository </resource_zypper_repository.html>`__
 
@@ -426,7 +431,7 @@ Extension APIs
 Resources
 -----------------------------------------------------
 
-**Recipe DSL**: `attribute? </dsl_recipe.html#attribute>`_ | `control </dsl_recipe.html#control>`_ | `control_group </dsl_recipe.html#control-group>`_ | `cookbook_name </dsl_recipe.html#cookbook-name>`_ | `data_bag </dsl_recipe.html#data-bag>`_ | `data_bag_item </dsl_recipe.html#data-bag-item>`_ | `platform? </dsl_recipe.html#platform>`_ | `platform_family? </dsl_recipe.html#platform-family>`_ | `reboot_pending? </dsl_recipe.html#reboot-pending>`_ | `recipe_name </dsl_recipe.html#recipe-name>`_ | `registry_data_exists? </dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys </dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values </dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? </dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? </dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? </dsl_recipe.html#registry-value-exists>`_ | `resources </dsl_recipe.html#resources>`_ | `search </dsl_recipe.html#search>`_ | `shell_out </dsl_recipe.html#shell-out>`_ | `shell_out! </dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale </dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag </dsl_recipe.html#tag-tagged-untag>`_ | `tagged? </dsl_recipe.html#tag-tagged-untag>`_ | `untag </dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform </dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family </dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers </dsl_recipe.html#helpers>`_ | `Audit DSL </dsl_audit.html>`__ | `Custom Resource DSL </dsl_custom_resource>`__ | `Community Resources <https://supermarket.chef.io>`__
+**Recipe DSL**: `attribute? </dsl_recipe.html#attribute>`_ | `control </dsl_recipe.html#control>`_ | `control_group </dsl_recipe.html#control-group>`_ | `cookbook_name </dsl_recipe.html#cookbook-name>`_ | `data_bag </dsl_recipe.html#data-bag>`_ | `data_bag_item </dsl_recipe.html#data-bag-item>`_ | `platform? </dsl_recipe.html#platform>`_ | `platform_family? </dsl_recipe.html#platform-family>`_ | `reboot_pending? </dsl_recipe.html#reboot-pending>`_ | `recipe_name </dsl_recipe.html#recipe-name>`_ | `registry_data_exists? </dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys </dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values </dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? </dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? </dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? </dsl_recipe.html#registry-value-exists>`_ | `resources </dsl_recipe.html#resources>`_ | `search </dsl_recipe.html#search>`_ | `shell_out </dsl_recipe.html#shell-out>`_ | `shell_out! </dsl_recipe.html#shell-out-bang>`_ | `shell_out_with_systems_locale </dsl_recipe.html#shell-out-with-systems-locale>`_ | `tag </dsl_recipe.html#tag-tagged-untag>`_ | `tagged? </dsl_recipe.html#tag-tagged-untag>`_ | `untag </dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform </dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family </dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers </dsl_recipe.html#helpers>`_ | `Custom Resource DSL </dsl_custom_resource>`__ | `Community Resources <https://supermarket.chef.io>`__
 
 Handlers
 -----------------------------------------------------
@@ -598,7 +603,6 @@ Addenda
    deprecations_verify_file
    depreciations_ohai_system_profile
    dk_windows
-   dsl_audit
    dsl_custom_resource
    dsl_delivery
    dsl_handler
@@ -732,6 +736,7 @@ Addenda
    resource_chef_organization
    resource_chef_role
    resource_chef_user
+   resource_chocolatey_feature
    resource_chocolatey_package
    resource_common
    resource_cookbook_file

@@ -18,7 +18,7 @@ The following actions may be used with any resource:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -68,7 +68,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -112,12 +112,12 @@ Guards
 =====================================================
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
 
@@ -131,13 +131,13 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
                not_if 'bundle check' # This is run from /myapp
              end
 
-          
+
 
 Attributes
 -----------------------------------------------------
 .. tag resources_common_guards_attributes
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -209,7 +209,7 @@ The following example shows how to use ``not_if`` to guard against running the `
 
 **Ensure a node can resolve a host**
 
-The following example shows how to use a custom block of Ruby code to ensure that a node can resolve the host. If the node can resolve the host, the chef-client will do nothing. If the node cannot resolve the host, the chef-client will configure the host:
+The following example shows how to use a custom block of Ruby code to ensure that a node can resolve the host. If the node can resolve the host, Chef Infra Client will do nothing. If the node cannot resolve the host, Chef Infra Client will configure the host:
 
 .. code-block:: ruby
 
@@ -254,7 +254,7 @@ only_if Examples
 
 **Install packages only when necessary**
 
-The following example shows how to use ``only_if`` with one (or more) cookbook attributes to ensure that packages are only installed when necessary. In this case, three attributes exist in the ``/attributes/default.rb`` file: ``use_openssl``, ``use_pcre``, and ``use_zlib``. Each of these attributes are defined as ``false`` by default. The ``only_if`` attributes are used to test for the presence of these packages on the target node before then asking the chef-client to complete the process of installing these packages. If the packages are already present, the chef-client will do nothing.
+The following example shows how to use ``only_if`` with one (or more) cookbook attributes to ensure that packages are only installed when necessary. In this case, three attributes exist in the ``/attributes/default.rb`` file: ``use_openssl``, ``use_pcre``, and ``use_zlib``. Each of these attributes are defined as ``false`` by default. The ``only_if`` attributes are used to test for the presence of these packages on the target node before then asking Chef Infra Client to complete the process of installing these packages. If the packages are already present, Chef Infra Client will do nothing.
 
 .. code-block:: ruby
 
@@ -285,7 +285,7 @@ The following example shows how to use ``only_if`` to only remove a recipe named
 
 **Re-register ASP.Net if it's already installed**
 
-The following example shows how to use ``only_if`` to ensure that the chef-client will attempt to register ASP.NET only if the executable is installed on the system, on both 32- and 64-bit systems:
+The following example shows how to use ``only_if`` to ensure that Chef Infra Client will attempt to register ASP.NET only if the executable is installed on the system, on both 32- and 64-bit systems:
 
 .. code-block:: ruby
 
@@ -329,7 +329,7 @@ The ``guard_interpreter`` property may be set to any of the following values:
    Evaluates a string command using the **csh** resource.
 
 ``:default``
-   Default. Executes the default interpreter as identified by the chef-client.
+   Default. Executes the default interpreter as identified by Chef Infra Client.
 
 ``:perl``
    Evaluates a string command using the **perl** resource.
@@ -400,7 +400,7 @@ Examples
 -----------------------------------------------------
 .. tag resources_common_guard_interpreter_example_default
 
-For example, the following code block will ensure the command is evaluated using the default interpreter as identified by the chef-client:
+For example, the following code block will ensure the command is evaluated using the default interpreter as identified by Chef Infra Client:
 
 .. code-block:: ruby
 
@@ -417,13 +417,13 @@ Lazy Evaluation
 =====================================================
 .. tag resources_common_lazy_evaluation
 
-In some cases, the value for a property cannot be known until the execution phase of a chef-client run. In this situation, using lazy evaluation of property values can be helpful. Instead of a property being assigned a value, it may instead be assigned a code block. The syntax for using lazy evaluation is as follows:
+In some cases, the value for a property cannot be known until the execution phase of a Chef Infra Client run. In this situation, using lazy evaluation of property values can be helpful. Instead of a property being assigned a value, it may instead be assigned a code block. The syntax for using lazy evaluation is as follows:
 
 .. code-block:: ruby
 
    attribute_name lazy { code_block }
 
-where ``lazy`` is used to tell the chef-client to evaluate the contents of the code block later on in the resource evaluation process (instead of immediately) and ``{ code_block }`` is arbitrary Ruby code that provides the value.
+where ``lazy`` is used to tell Chef Infra Client to evaluate the contents of the code block later on in the resource evaluation process (instead of immediately) and ``{ code_block }`` is arbitrary Ruby code that provides the value.
 
 For example, a resource that is **not** doing lazy evaluation:
 
@@ -474,13 +474,13 @@ Timers
 -----------------------------------------------------
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -530,7 +530,7 @@ The following examples show how to use the ``notifies`` notification in a recipe
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -539,7 +539,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -668,7 +668,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -710,7 +710,7 @@ With the ``:before`` notification, the action specified for the ``nginx`` resour
 
 .. To transfer a file only if the remote source has changed (using the |resource http request| resource):
 
-.. The "Transfer a file only when the source has changed" example is deprecated in chef-client 11-6
+.. The "Transfer a file only when the source has changed" example is deprecated in Chef Client 11.6
 
 .. code-block:: ruby
 
@@ -840,14 +840,14 @@ Run in Compile Phase
 =====================================================
 .. tag resources_common_compile
 
-The chef-client processes recipes in two phases:
+Chef Infra Client processes recipes in two phases:
 
 #. First, each resource in the node object is identified and a resource collection is built. All recipes are loaded in a specific order, and then the actions specified within each of them are identified. This is also referred to as the "compile phase".
-#. Next, the chef-client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
+#. Next, Chef Infra Client configures the system based on the order of the resources in the resource collection. Each resource then examines the node and performs the necessary steps to complete the action. This is also referred to as the "execution phase".
 
-Typically, actions are processed during the execution phase of the chef-client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
+Typically, actions are processed during the execution phase of a Chef Infra Client run. However, sometimes it is necessary to run an action during the compile phase. For example, a resource can be configured to install a package during the compile phase to ensure that application is available to other resources during the execution phase.
 
-.. note:: Use the **chef_gem** resource to install gems that are needed by the chef-client during the execution phase.
+.. note:: Use the **chef_gem** resource to install gems that are needed by Chef Infra Client during the execution phase.
 
 .. end_tag
 
@@ -886,11 +886,11 @@ Sometimes it is necessary to ensure that an operating system's package cache is 
      e.run_action(:run)
    end
 
-where ``e.run_action(:run)`` tells the chef-client to run the ``apt-get update`` command during the compile phase. This example can be found in the ``default.rb`` recipe of the `apt cookbook <https://github.com/chef-cookbooks/apt>`_ that is maintained by Chef.
+where ``e.run_action(:run)`` tells Chef Infra Client to run the ``apt-get update`` command during the compile phase. This example can be found in the ``default.rb`` recipe of the `apt cookbook <https://github.com/chef-cookbooks/apt>`_ that is maintained by Chef.
 
 **Use the chef_gem resource for Ruby gems**
 
-A very common use case is to install a gem during the compile phase so that it will be available to the chef-client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
+A very common use case is to install a gem during the compile phase so that it will be available to Chef Infra Client during the execution phase. This is why the **chef_gem** resource exists. For example, this:
 
 .. code-block:: ruby
 
@@ -941,7 +941,7 @@ Access Control Lists (ACLs)
 -----------------------------------------------------
 .. tag resources_common_windows_security_acl
 
-The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; the Chef Infra Client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
+The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; Chef Infra Client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
 
 .. code-block:: ruby
 
@@ -957,7 +957,7 @@ where
    (For those who know the Microsoft Windows API: ``:read`` corresponds to ``GENERIC_READ``; ``:write`` corresponds to ``GENERIC_WRITE``; ``:read_execute`` corresponds to ``GENERIC_READ`` and ``GENERIC_EXECUTE``; ``:modify`` corresponds to ``GENERIC_WRITE``, ``GENERIC_READ``, ``GENERIC_EXECUTE``, and ``DELETE``; ``:full_control`` corresponds to ``GENERIC_ALL``, which allows a user to change the owner and other metadata about a file.)
 
 ``principal``
-   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. The Chef Infra Client does not need to know if a principal is a user or a group.
+   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. Chef Infra Client does not need to know if a principal is a user or a group.
 
 ``option_type``
    A hash that contains advanced rights options. For example, the rights to a directory that only applies to the first level of children might look something like: ``rights :write, 'domain\group_name', :one_level_deep => true``. Possible option types:
@@ -997,7 +997,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The Chef Infra Client does not clear out the rights on a file or directory if rights are not specified.
+* If rights are not specified, nothing will be changed. Chef Infra Client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
@@ -1024,7 +1024,7 @@ Inheritance
 -----------------------------------------------------
 .. tag resources_common_windows_security_inherits
 
-By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell the Chef Infra Client to apply (or not apply) inherited rights from its parent directory.
+By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell Chef Infra Client to apply (or not apply) inherited rights from its parent directory.
 
 For example, the following example specifies the rights for a directory:
 
@@ -1064,6 +1064,6 @@ but then not use the ``inherits`` property to deny those rights on a child direc
      deny_rights :read, 'MORDOR\Minions' # Oops, not specific enough
    end
 
-Because the ``inherits`` property is not specified, the Chef Infra Client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
+Because the ``inherits`` property is not specified, Chef Infra Client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
 
 .. end_tag

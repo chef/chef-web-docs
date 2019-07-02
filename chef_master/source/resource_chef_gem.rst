@@ -5,15 +5,15 @@ chef_gem resource
 
 .. warning:: .. tag notes_chef_gem_vs_gem_package
 
-             The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which the chef-client is installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is available only to the chef-client. Use the **chef_gem** resource to install gems into the instance of Ruby that is dedicated to the chef-client. Use the **gem_package** resource to install all other gems (i.e. install gems system-wide).
+             The **chef_gem** and **gem_package** resources are both used to install Ruby gems. For any machine on which Chef Infra Client is installed, there are two instances of Ruby. One is the standard, system-wide instance of Ruby and the other is a dedicated instance that is available only to Chef Infra Client. Use the **chef_gem** resource to install gems into the instance of Ruby that is dedicated to Chef Infra Client. Use the **gem_package** resource to install all other gems (i.e. install gems system-wide).
 
              .. end_tag
 
 .. tag resource_package_chef_gem
 
-Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to Chef Infra Client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which the chef-client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
+The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which Chef Infra Client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
 
 * Runs its actions immediately, before convergence, allowing a gem to be used in a recipe immediately after it is installed
 * Runs ``Gem.clear_paths`` after the action, ensuring that gem is aware of changes so that it can be required immediately after it is installed
@@ -40,7 +40,7 @@ The full syntax for all of the properties that are available to the **chef_gem**
      gem_binary                 String
      include_default_source     true, false
      options                    String
-     package_name               String # defaults to 'name' if not specified
+     package_name               String
      source                     String, Array
      timeout                    String, Integer
      version                    String
@@ -51,7 +51,7 @@ where:
 
 * ``chef_gem`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``clear_sources``, ``compile_time``, ``gem_binary``, ``include_default_source``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
@@ -65,7 +65,7 @@ The chef_gem resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -103,12 +103,12 @@ The chef_gem resource has the following properties:
 ``compile_time``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while the chef-client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
+   Controls the phase during which a gem is installed on a node. Set to ``true`` to install a gem while the resource collection is being built (the "compile phase"). Set to ``false`` to install a gem while Chef Infra Client is configuring the node (the "converge phase"). Possible values: ``nil`` (for verbose warnings), ``true`` (to warn once per chef-client run), or ``false`` (to remove all warnings). Recommended value: ``false``.
 
 ``gem_binary``
    **Ruby Type:** String | **Default Value:** ``Chef's built-in gem binary``
 
-   The path of a gem binary to use for the installation. By default, the same version of Ruby that is used by the chef-client will be installed.
+   The path of a gem binary to use for the installation. By default, the same version of Ruby that is used by Chef Infra Client will be installed.
 
 ``include_default_source``
    **Ruby Type:** true, false | **Default Value:** ``true``
@@ -172,7 +172,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -189,13 +189,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -238,13 +238,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -266,17 +266,18 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -297,7 +298,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. To install a gems file for use in a recipe:
 
-To install a gem while the chef-client is configuring the node (the “converge phase”), set the ``compile_time`` property to ``false``:
+To install a gem while Chef Infra Client is configuring the node (the “converge phase”), set the ``compile_time`` property to ``false``:
 
 .. code-block:: ruby
 

@@ -1,64 +1,58 @@
 =====================================================
-msu_package resource
+chocolatey_feature resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_msu_package.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_feature.rst>`__
 
-Use the **msu_package** resource to install Microsoft Update(MSU) packages on Microsoft Windows machines.
+Use the **chocolatey_feature** resource to enable and disable Chocolatey features.
 
-**New in Chef Client 12.17.**
+**New in Chef Infra Client 15.1.**
 
 Syntax
 =====================================================
-The msu_package resource has the following syntax:
+The chocolatey_feature resource has the following syntax:
 
 .. code-block:: ruby
 
-   msu_package 'name' do
-     source                     String
-     action                     Symbol
-   end
+  chocolatey_feature 'name' do
+    feature_name       String # default value: 'name' unless specified
+    feature_state      true, false # default value: false
+    action             Symbol # defaults to :enable if not specified
+  end
 
 where:
 
-* ``msu_package`` is the resource.
+* ``chocolatey_feature`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``source`` is the local path or URL for the MSU package.
-
-The full syntax for all of the properties that are available to the **msu_package** resource is:
-
-.. code-block:: ruby
-
-   msu_package 'name' do
-      source                    String
-      checksum                  String
-      action                    Symbol
-   end
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
+* ``feature_name`` and ``feature_state`` are the properties available to this resource.
 
 Actions
 =====================================================
 
-The msu_package resource has the following actions:
+The chocolatey_feature resource has the following actions:
 
-:install
-   Installs the MSU package from either a local file path or URL.
+``:disable``
+    Disable a Chocolatey Feature.
 
-:remove
-   Uninstalls the MSU package from its location on disk.
+``:enable``
+    Enable a Chocolatey Feature.
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
 
-The msu_package resource has the following properties:
+The chocolatey_feature resource has the following properties:
 
-``checksum``
-   **Ruby Type:** String
+``feature_name``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   SHA-256 digest used to verify the checksum of the downloaded MSU package.
-
-``source``
-   **Ruby Type:** String
-
-   The local file path or URL for the MSU package.
+   The name of the Chocolatey feature to enable or disable.
 
 Common Resource Functionality
 =====================================================
@@ -96,7 +90,6 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
-
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -205,40 +198,3 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
-
-Examples
-=====================================================
-
-**Using local path in source**
-
-.. code-block:: ruby
-
-   msu_package 'Install Windows 2012R2 Update KB2959977' do
-     source 'C:\Users\xyz\AppData\Local\Temp\Windows8.1-KB2959977-x64.msu'
-     action :install
-   end
-
-.. code-block:: ruby
-
-   msu_package 'Remove Windows 2012R2 Update KB2959977' do
-     source 'C:\Users\xyz\AppData\Local\Temp\Windows8.1-KB2959977-x64.msu'
-     action :remove
-   end
-
-**Using URL in source**
-
-.. code-block:: ruby
-
-   msu_package 'Install Windows 2012R2 Update KB2959977' do
-     source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'
-     action :install
-   end
-
-.. code-block:: ruby
-
-   msu_package 'Remove Windows 2012R2 Update KB2959977' do
-     source 'https://s3.amazonaws.com/my_bucket/Windows8.1-KB2959977-x64.msu'
-     action :remove
-   end
-
-

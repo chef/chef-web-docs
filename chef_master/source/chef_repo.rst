@@ -14,7 +14,7 @@ The chef-repo is a directory on your workstation that stores:
 
 The chef-repo directory should be synchronized with a version control system, such as git. All of the data in the chef-repo should be treated like source code.
 
-knife is used to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, that data is used by the Chef Infra Client to manage all of the nodes that are registered with the Chef Infra Server and to ensure that the correct cookbooks, environments, roles, and other settings are applied to nodes correctly.
+knife is used to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, that data is used by Chef Infra Client to manage all of the nodes that are registered with the Chef Infra Server and to ensure that the correct cookbooks, environments, roles, and other settings are applied to nodes correctly.
 
 .. end_tag
 
@@ -51,7 +51,7 @@ The .chef directory is a hidden directory that is used to store validation key f
 
 cookbooks/
 -----------------------------------------------------
-The ``cookbooks/`` directory is used to store the cookbooks that are used by the Chef Infra Client when configuring the various systems in the organization. This directory contains the cookbooks that are used to configure systems in the infrastructure. Each cookbook can be configured to contain cookbook-specific copyright, email, and license data.
+The ``cookbooks/`` directory is used to store the cookbooks that Chef Infra Client uses when configuring the various systems in the organization. This directory contains the cookbooks that are used to configure systems in the infrastructure. Each cookbook can be configured to contain cookbook-specific copyright, email, and license data.
 
 data_bags/
 -----------------------------------------------------
@@ -115,7 +115,7 @@ and for vim, do something like:
 
 **Ignore top-level Subversion data**
 
-If Subversion is being used as the version source control application, it is important not to upload certain files that Subversion uses to maintain the version history of each file. This is because the Chef Infra Client will never use it while configuring nodes, plus the amount of data in an upload that includes top-level Subversion data could be significant.
+If using Subversion as the version source control application, it is important not to upload certain files that Subversion uses to maintain the version history of each file. This is because Chef Infra Client will never use it while configuring nodes, plus the amount of data in an upload that includes top-level Subversion data could be significant.
 
 To prevent the upload of top-level Subversion data, add something like the following to the chefignore file:
 

@@ -3,7 +3,7 @@ About the build-cookbook
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_build_cookbook.rst>`__
 
-Chef Automate uses the Chef Infra Client to run recipes for each phase in a build pipeline. The phases are grouped into different stages.
+Chef Automate uses Chef Infra Client to run recipes for each phase in a build pipeline. The phases are grouped into different stages.
 
 The following illustration shows the phases of each pipeline stage.
 
@@ -17,14 +17,14 @@ Build Cookbook Structure
 =======================================================
 A ``build-cookbook`` is located in the ``.delivery`` directory in a project and defines how the Chef Automate pipeline will build, test, and deploy a project. A ``build-cookbook`` should be initially configured to use the ``delivery-truck`` cookbook as a dependency in all recipes, after which it may be modified as necessary. The ``build-cookbook`` is effectively a wrapper cookbook for the ``delivery-truck`` cookbook.
 
-A build node is configured via two isolated Chef Infra Client runs: First, the ``default.rb`` recipe is run by the Chef Infra Client as the root user, after which the phase-specific recipe is run by the Chef Infra Client as the build user (``dbuild``). For example, during the unit phase the first run is the ``default.rb`` file, and then the second is the ``unit.rb`` file.
+A build node is configured via two isolated Chef Infra Client runs: First, the ``default.rb`` recipe is run by Chef Infra Client as the root user, after which the phase-specific recipe is run by Chef Infra Client as the build user (``dbuild``). For example, during the unit phase the first run is the ``default.rb`` file, and then the second is the ``unit.rb`` file.
 
 The following recipes should be configured to include the corresponding ``delivery-truck`` recipe as a dependency:
 
 ``default.rb``
    .. tag delivery_cookbook_common_recipe_default
 
-   Use the ``default.rb`` recipe to configure a project on a build node. This recipe is run by the Chef Infra Client as the root user and is a standard default recipe, i.e. the Chef Infra Client may use this recipe to configure this project on any node, whether or not it's part of a Chef Automate pipeline.
+   Use the ``default.rb`` recipe to configure a project on a build node. This recipe is run by Chef Infra Client as the root user and is a standard default recipe, i.e. Chef Infra Client may use this recipe to configure this project on any node, whether or not it's part of a Chef Automate pipeline.
 
    .. end_tag
 

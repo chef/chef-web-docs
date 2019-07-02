@@ -13,7 +13,7 @@ Use the **yum_package** resource to install, upgrade, and remove packages with Y
 
 .. note:: .. tag notes_resource_based_on_package
 
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
+          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
 
           .. end_tag
 
@@ -48,7 +48,7 @@ where:
 
 * ``yum_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
 
 Actions
@@ -65,7 +65,7 @@ The yum_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -103,7 +103,7 @@ The yum_package resource has the following properties:
 
    .. tag resources_common_package_yum_cache
 
-   Yum automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
+   Yum automatically synchronizes remote metadata to a local cache. Chef Infra Client creates a copy of the local cache, and then stores it in-memory during a Chef Infra Client run. The in-memory cache allows packages to be installed during a Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
 
    .. end_tag
 
@@ -187,7 +187,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -205,13 +205,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -254,13 +254,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -282,17 +282,18 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -309,7 +310,7 @@ Multiple Packages
 A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
-* Update or install multiple packages with a single resource during the chef-client run
+* Update or install multiple packages with a single resource during a Chef Infra Client run
 
 For example, installing multiple packages:
 
