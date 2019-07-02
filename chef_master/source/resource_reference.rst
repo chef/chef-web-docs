@@ -1106,6 +1106,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_apt_update.rst
 
+.. include:: resource_archive_file.rst
+
 .. include:: resource_bash.rst
 
 .. include:: resource_batch.rst
@@ -1273,6 +1275,8 @@ The following resources are built into the Chef Client:
 .. include:: resource_service.rst
 
 .. include:: resource_smartos_package.rst
+
+.. include:: resource_snap_package.rst
 
 .. include:: resource_solaris_package.rst
 
