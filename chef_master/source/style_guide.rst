@@ -323,7 +323,7 @@ For Chef applications and components, use:
 * ``Chef Server`` for the Chef Infra Server up to version 12.x
 * ``Chef Infra Server`` for the Chef Server version 13 and above
 * ``Chef Client`` for the Chef client up to version 14.x
-* ``Chef Infra Client`` for the Chef client version 15 and above
+* ``Chef Infra Client`` for Chef Infra Client version 15 and above
 * ``Chef Automate`` for the Chef Automate product
 
 TOC Trees

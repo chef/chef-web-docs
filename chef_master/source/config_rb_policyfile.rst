@@ -11,7 +11,7 @@ A Policyfile is an optional way to manage role, environment, and community cookb
 
 .. tag policyfile_rb
 
-A Policyfile file allows you to specify in a single document the cookbook revisions and recipes that should be applied by the Chef Infra Client. A Policyfile file is uploaded to the Chef Infra Server, where it is associated with a group of nodes. When these nodes are configured by the Chef Infra Client, the Chef Infra Client will make decisions based on settings in the policy file, and will build a run-list based on that information. A Policyfile file may be versioned, and then promoted through deployment stages to safely and reliably deploy new configuration.
+A Policyfile file allows you to specify in a single document the cookbook revisions and recipes that Chef Infra Client will apply. A Policyfile file is uploaded to the Chef Infra Server, where it is associated with a group of nodes. When these nodes are configured during a Chef Infra Client run, Chef Infra Client will make decisions based on your Policyfile settings and will build a run-list based on that information. A Policyfile file may be versioned, and then promoted through deployment stages to safely and reliably deploy new configuration.
 
 .. end_tag
 
@@ -42,7 +42,7 @@ A ``Policyfile.rb`` file may contain the following settings:
    Required. The name of the policy. Use a name that reflects the purpose of the machines against which the policy will run.
 
 ``run_list "ITEM", "ITEM", ...``
-   Required. The run-list the Chef Infra Client will use to apply the policy to one (or more) nodes.
+   Required. The run-list Chef Infra Client will use to apply the policy to one (or more) nodes.
 
 ``default_source :SOURCE_TYPE, *args``
    The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``chef_server``, ``:community``, ``:supermarket``, and ``:artifactory``. Use more than one ``default_source`` to specify more than one location for cookbooks.

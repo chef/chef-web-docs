@@ -9,7 +9,7 @@ Use the ``knife ssl check`` subcommand to verify the SSL configuration for the C
 
 When this command is run, the certificate files (``*.crt`` and/or ``*.pem``) that are located in the ``/.chef/trusted_certs`` directory are checked to see if they have valid X.509 certificate properties. A warning is returned when certificates do not have valid X.509 certificate properties or if the ``/.chef/trusted_certs`` directory does not contain any certificates.
 
-.. warning:: When verification of a remote server's SSL certificate is disabled, the Chef Infra Client will issue a warning similar to "SSL validation of HTTPS requests is disabled. HTTPS connections are still encrypted, but the Chef Infra Client is not able to detect forged replies or man-in-the-middle attacks." To configure SSL for the Chef Infra Client, set ``ssl_verify_mode`` to ``:verify_peer`` (recommended) **or** ``verify_api_cert`` to ``true`` in the client.rb file.
+.. warning:: When verification of a remote server's SSL certificate is disabled, Chef Infra Client will issue a warning similar to "SSL validation of HTTPS requests is disabled. HTTPS connections are still encrypted, but Chef Infra Client is not able to detect forged replies or man-in-the-middle attacks." To configure SSL for Chef Infra Client, set ``ssl_verify_mode`` to ``:verify_peer`` (recommended) **or** ``verify_api_cert`` to ``true`` in the client.rb file.
 
 .. end_tag
 
@@ -100,9 +100,9 @@ is similar to:
 
 .. end_tag
 
-**Verify the SSL configuration for the Chef Infra Client**
+**Verify the SSL configuration for Chef Infra Client**
 
-The SSL certificates that are used by the Chef Infra Client may be verified by specifying the path to the client.rb file. Use the ``--config`` option (that is available to any knife command) to specify this path:
+The SSL certificates that are used by Chef Infra Client may be verified by specifying the path to the client.rb file. Use the ``--config`` option (that is available to any knife command) to specify this path:
 
 .. code-block:: bash
 

@@ -43,11 +43,11 @@ Uploading your code to Chef Infra Server
 
 Once you're done developing and testing code on your local workstation, you can upload it to the Chef Infra Server. The Chef Infra Server acts as a hub for configuration data. It stores cookbooks, the policies that are applied to the systems in your infrastructure and metadata that describes each system. The knife command lets you communicate with the Chef Infra Server from your workstation. For example, you use it to upload your cookbooks.
 
-Configuring nodes with the Chef Infra Client
+Configuring nodes with Chef Infra Client
 -----------------------------------------------------
-Chef Infra is constructed so that most of the computational effort occurs on the nodes rather than on the Chef Infra Server.  A node represents a server and is typically a virtual machine, container instance, or physical server. Basically, it's any compute resource in your infrastructure that's managed by Chef. All nodes have the Chef Infra Client installed on them.
+Chef Infra is constructed so that most of the computational effort occurs on the nodes rather than on the Chef Infra Server.  A node represents a server and is typically a virtual machine, container instance, or physical server. Basically, it's any compute resource in your infrastructure that's managed by Chef. All nodes have Chef Infra Client installed on them.
 
-Periodically, the Chef Infra Client contacts the Chef Infra Server to retrieve the latest cookbooks. If (and only if) the current state of the node doesn't conform to what the cookbook says it should be, the Chef Infra Client executes the cookbook instructions. This iterative process ensures that the network as a whole converges to the state envisioned by business policy.
+Periodically, Chef Infra Client contacts the Chef Infra Server to retrieve the latest cookbooks. If (and only if) the current state of the node doesn't conform to what the cookbook says it should be, Chef Infra Client executes the cookbook instructions. This iterative process ensures that the network as a whole converges to the state envisioned by business policy.
 
 Chef Habitat
 =====================================================

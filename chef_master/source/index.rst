@@ -5,7 +5,7 @@ Site Map
 
 This is the documentation for:
 
-* Chef, including the Chef Infra Server, the Chef Infra Client, ChefDK, and related tools
+* Chef, including Chef Infra Server, Chef Infra Client, ChefDK, and related tools
 * Chef Automate
 
 For information on Chef Habitat and Chef InSpec, see their respective documentation:

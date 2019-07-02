@@ -54,7 +54,7 @@ The following list describes all of the optional settings that can be added to t
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
 ``knife[:bootstrap_install_command]``
-   Execute a custom installation command sequence for the Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options``, ``--bootstrap-install-sh``, or ``--bootstrap-wget-options``.
+   Execute a custom installation command sequence for Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options``, ``--bootstrap-install-sh``, or ``--bootstrap-wget-options``.
 
 ``knife[:bootstrap_no_proxy]``
    A URL or IP address that specifies a location that should not be proxied.
@@ -73,16 +73,6 @@ The following list describes all of the optional settings that can be added to t
 
 ``knife[:bootstrap_vault_json]``
    A JSON string that contains a list of vaults and items to be updated.
-
-   .. tag knife_bootstrap_vault_json
-
-   For example:
-
-   .. code-block:: none
-
-      --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
-
-   .. end_tag
 
 ``knife[:bootstrap_version]``
    The version of the Chef Infra Client to install.

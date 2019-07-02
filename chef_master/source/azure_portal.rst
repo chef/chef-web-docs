@@ -102,9 +102,7 @@ After the process is complete, the virtual machine will be registered with the C
 
 Log Files
 =====================================================
-If the Azure portal displays an error in dashboard, check the log files. The log files are created by the Chef Infra Client. The log files can be accessed from within the Azure portal or by running the Chef Infra Client on the node itself and then reproducing the issue interactively.
-
-
+If the Azure portal displays an error in dashboard, check the log files. Chef Infra Client creates the log files. The log files can be accessed from within the Azure portal or by making a Chef Infra Client run on the node and reproducing the issue interactively.
 
 From the Azure portal
 ----------------------------------------------------
@@ -127,9 +125,9 @@ Log files are available from within the Azure portal:
 
 
 
-From the Chef Infra Client
+From Chef Infra Client
 ----------------------------------------------------
-The Chef Infra Client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then running the Chef Infra Client:
+Chef Infra Client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then starting a Chef Infra Client run:
 
 #. Log into the virtual machine.
 
@@ -154,7 +152,7 @@ Troubleshoot Log Files
 After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
 
 * Connectivity errors with the Chef Infra Server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
-* An invalid validator key has been specified. This will prevent the Chef Infra Client from authenticating to the Chef Infra Server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
+* An invalid validator key has been specified. This will prevent Chef Infra Client from authenticating to the Chef Infra Server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
 * The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
 * An error in one the run-list. The log file will specify the details about errors related to the run-list.
 

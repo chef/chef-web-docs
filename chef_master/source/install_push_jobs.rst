@@ -6,7 +6,7 @@ Install Chef Push Jobs
 Chef Push Jobs is installed to the following locations:
 
 * The same machine as the Chef Infra Server (Chef Server version 12.6 or higher)
-* One (or more) nodes on which the Chef Infra Client (Chef Client version 12 or higher) is installed
+* One (or more) nodes on which Chef Infra Client (Chef Client version 12 or higher) is installed
 * At least one management workstation
 
 Install the Server
@@ -27,7 +27,7 @@ To set up the Chef Push Jobs client:
         "package_checksum": "<checksum>"
       }
 
-#. Run the Chef Infra Client to configure Chef Push Jobs
+#. Run Chef Infra Client to configure Chef Push Jobs
 #. Verify that the Chef Push Jobs client is running as a daemon or as a service:
 
    .. code-block:: bash
@@ -54,7 +54,7 @@ Once installed, the following subcommands will be available: ``knife job list``,
 
 **push-jobs** Cookbook
 -----------------------------------------------------
-The **push-jobs** cookbook at https://github.com/chef-cookbooks/push-jobs is used by the Chef Infra Client to configure Chef Push Jobs as a client on a target node. This cookbook is also used to define the whitelist, which is a list of commands that Chef Push Jobs may execute when it runs. A command that is not in the whitelist will not be executed by Chef Push Jobs. The **push-jobs** cookbook should be managed like any other cookbook, i.e. "downloaded from GitHub, managed using version source control, and uploaded to the Chef server". To manage nodes using Chef Push Jobs, add the **push-jobs** cookbook to the run-list for each node that will be managed using Chef Push Jobs.
+The **push-jobs** cookbook at https://github.com/chef-cookbooks/push-jobs is used by Chef Infra Client to configure Chef Push Jobs as a client on a target node. This cookbook is also used to define the whitelist, which is a list of commands that Chef Push Jobs may execute when it runs. A command that is not in the whitelist will not be executed by Chef Push Jobs. The **push-jobs** cookbook should be managed like any other cookbook, i.e. "downloaded from GitHub, managed using version source control, and uploaded to the Chef server". To manage nodes using Chef Push Jobs, add the **push-jobs** cookbook to the run-list for each node that will be managed using Chef Push Jobs.
 
 The whitelist is defined using the ``node['push_jobs']['whitelist']`` attribute located in the default attributes file:
 
@@ -153,7 +153,7 @@ Chef Push Jobs uses the Chef Infra Server API and a Ruby client to initiate all 
 
 .. tag server_rbac_groups_push_jobs
 
-It is possible to initiate jobs from the Chef Infra Client, such as from within a recipe based on an action to be determined as the recipe runs. For a Chef Infra Client to be able to create, initiate, or read jobs, the Chef Infra Client on which Chef Push Jobs is configured must belong to one (or both) of the following groups:
+It is possible to initiate jobs from Chef Infra Client, such as from within a recipe based on an action to be determined as the recipe runs. For a Chef Infra Client to be able to create, initiate, or read jobs, Chef Infra Client on which Chef Push Jobs is configured must belong to one (or both) of the following groups:
 
 .. list-table::
    :widths: 60 420

@@ -33,13 +33,13 @@ If Chef Infra Client was installed using RubyGems, install the ``knife azure`` w
 
    $ gem install knife-azure
 
-If the Chef Infra Client was installed from the `Chef Infra Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
+If Chef Infra Client was installed from the `Chef Infra Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
 
 .. code-block:: bash
 
    $ /opt/chef/embedded/bin/gem install knife-azure
 
-where ``/opt/chef/embedded/bin/`` is the path to the location where the Chef Infra Client expects knife plugins to be located.
+where ``/opt/chef/embedded/bin/`` is the path to the location where Chef Infra Client expects knife plugins to be located.
 
 Configuration
 ------------------------------------------------------
@@ -162,7 +162,7 @@ This argument has the following options:
    Accept the data without opening the editor.
 
 ``--daemon DAEMON``
-  Configures the Chef Infra Client service for unattended execution. Requires ``--bootstrap-protocol`` to be ``cloud-api`` and the node platform to be ``Windows``. Options: 'none' or 'service' or 'task'. none - Currently prevents the Chef Infra Client service from being configured as a service. service - Configures the Chef Infra Client to run automatically in the background as a service. task - Configures the Chef Infra Client to run automatically in the background as a scheduled task.
+  Configures the Chef Infra Client service for unattended execution. Requires ``--bootstrap-protocol`` to be ``cloud-api`` and the node platform to be ``Windows``. Options: 'none' or 'service' or 'task'. 'none' - Currently prevents the Chef Infra Client service from being configured as a service. 'service' - Configures Chef Infra Client to run automatically in the background as a service. 'task' - Configures Chef Infra Client to run automatically in the background as a scheduled task.
 
 ``--defaults``
    Accept default values for all questions

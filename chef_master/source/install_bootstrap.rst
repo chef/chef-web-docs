@@ -16,21 +16,21 @@ knife bootstrap
 =====================================================
 .. tag install_chef_client
 
-The ``knife bootstrap`` command is a common way to install the Chef Infra Client on a node. The default for this approach assumes that a node can access the Chef website so that it may download the Chef Infra Client package from that location.
+The ``knife bootstrap`` command is a common way to install Chef Infra Client on a node. The default for this approach assumes that a node can access the Chef website so that it may download the Chef Infra Client package from that location.
 
-The Chef installer will detect the version of the operating system, and then install the appropriate version of the Chef Infra Client using a single command to install the Chef Infra Client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities.
+The Chef installer will detect the version of the operating system, and then install the appropriate Chef Infra Client version using a single command to install Chef Infra Client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities.
 
-The Chef installer puts everything into a unique directory (``/opt/chef/``) so that the Chef Infra Client will not interfere with other applications that may be running on the target machine. Once installed, the Chef Infra Client requires a few more configuration steps before it can perform its first Chef Infra Client run on a node.
+The Chef installer puts everything into a unique directory (``/opt/chef/``) so that Chef Infra Client will not interfere with other applications that may be running on the target machine. Once installed, Chef Infra Client requires a few more configuration steps before it can perform its first Chef Infra Client run on a node.
 
 .. end_tag
 
 **Run the bootstrap command**
 
-The ``knife bootstrap`` subcommand is used to run a bootstrap operation that installs the Chef Infra Client on the target node. The following steps describe how to bootstrap a node using knife.
+The ``knife bootstrap`` subcommand is used to run a bootstrap operation that installs Chef Infra Client on the target node. The following steps describe how to bootstrap a node using knife.
 
 #. Identify the FQDN or IP address of the target node. The ``knife bootstrap`` command requires the FQDN or the IP address for the node in order to complete the bootstrap operation.
 
-#. Once the workstation machine is configured, it can be used to install the Chef Infra Client on one (or more) nodes across the organization using a knife bootstrap operation. The ``knife bootstrap`` command is used to SSH into the target machine, and then do what is needed to allow the Chef Infra Client to run on the node. It will install the Chef Infra Client executable (if necessary), generate keys, and register the node with the Chef Infra Server. The bootstrap operation requires the IP address or FQDN of the target system, the SSH credentials (username, password or identity file) for an account that has root access to the node, and (if the operating system is not Ubuntu, which is the default distribution used by ``knife bootstrap``) the operating system running on the target system.
+#. Once the workstation machine is configured, it can be used to install Chef Infra Client on one (or more) nodes across the organization using a knife bootstrap operation. The ``knife bootstrap`` command is used to SSH into the target machine, and then do what is needed to allow Chef Infra Client to run on the node. It will install the Chef Infra Client executable (if necessary), generate keys, and register the node with the Chef Infra Server. The bootstrap operation requires the IP address or FQDN of the target system, the SSH credentials (username, password or identity file) for an account that has root access to the node, and (if the operating system is not Ubuntu, which is the default distribution used by ``knife bootstrap``) the operating system running on the target system.
 
    In a command window, enter the following:
 
@@ -156,17 +156,7 @@ Use the following options with a validatorless bootstrap to specify items that a
    A single vault and item to update as ``vault:item``.
 
 ``--bootstrap-vault-json VAULT_JSON``
-   A JSON string that contains a list of vaults and items to be updated.
-
-   .. tag knife_bootstrap_vault_json
-
-   For example:
-
-   .. code-block:: none
-
-      --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
-
-   .. end_tag
+  A JSON string that contains a list of vaults and items to be updated.  --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
 
 Examples
 =====================================================
@@ -371,17 +361,17 @@ Use the ``sea:power`` re-creation step above first, to follow the difference in 
 
 Unattended Installs
 =====================================================
-The Chef Infra Client can be installed using an unattended bootstrap. This allows the Chef Infra Client to be installed from itself, without using SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like ``knife bootstrap`` or ``knife CLOUD_PLUGIN create`` is not practical because the machines are created automatically and someone cannot always be on-hand to initiate the bootstrap process.
+Chef Infra Client can be installed using an unattended bootstrap. This allows Chef Infra Client to be installed from itself, without using SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like ``knife bootstrap`` or ``knife CLOUD_PLUGIN create`` is not practical because the machines are created automatically and someone cannot always be on-hand to initiate the bootstrap process.
 
-When the Chef Infra Client is installed using an unattended bootstrap, remember that the Chef Infra Client:
+When Chef Infra Client is installed using an unattended bootstrap, remember that Chef Infra Client:
 
 * Must be able to authenticate to the Chef server
 * Must be able to configure a run-list
 * May require custom attributes, depending on the cookbooks that are being used
 * Must be able to access the chef-validator.pem so that it may create a new identity on the Chef server
-* Must have a unique node name; the Chef Infra Client will use the FQDN for the host system by default
+* Must have a unique node name; Chef Infra Client will use the FQDN for the host system by default
 
-When the Chef Infra Client is installed using an unattended bootstrap, it may be built into an image that starts the Chef Infra Client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
+When Chef Infra Client is installed using an unattended bootstrap, it may be built into an image that starts Chef Infra Client on boot, or installed using User Data or some other kind of post-deployment script. The type of image or User Data used depends on the platform on which the unattended bootstrap will take place.
 
 Bootstrapping with User Data
 -----------------------------------------------------
@@ -478,7 +468,7 @@ It is important that settings in the `client.rb file </config_rb_client.html>`__
 
 .. tag ctl_chef_client_bootstrap_initial_run_list
 
-A node's initial run-list is specified using a JSON file on the host system. When running the Chef Infra Client as an executable, use the ``-j`` option to tell the Chef Infra Client which JSON file to use. For example:
+A node's initial run-list is specified using a JSON file on the host system. When running Chef Infra Client as an executable, use the ``-j`` option to tell Chef Infra Client which JSON file to use. For example:
 
 .. code-block:: bash
 
