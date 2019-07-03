@@ -1,24 +1,22 @@
 =====================================================
-Kitchen
+Test Kitchen
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/kitchen.rst>`__
 
 .. tag test_kitchen
 
-Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data across any combination of platforms and test suites:
+Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbooks across any combination of platforms and test suites:
 
-* Defined in a kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
-* Uses a driver plugin architecture
-* Supports cookbook testing across many cloud providers and virtualization technologies
-* Supports all common testing frameworks that are used by the Ruby community
-* Uses a comprehensive set of base images provided by `Bento <https://github.com/chef/bento>`_
+* Test suites are defined in a kitchen.yml file. See the `configuration </config_yml_kitchen.html>`_ documentation for options and syntax information.
+* Supports cookbook testing across many cloud providers and virtualization technologies.
+* Uses a comprehensive set of operating system base images from Chef's `Bento <https://github.com/chef/bento>`_ project.
 
 .. end_tag
 
-The key concepts in Kitchen are:
+The key concepts in Test Kitchen are:
 
 * A platform is the operating system or target environment on which a cookbook is to be tested
-* A suite is the Chef Infra Client configuration, a run-list, and (optionally) node attributes
+* A suite is the Chef Infra Client configuration, a Policyfile or run-list, and (optionally) node attributes
 * An instance is the combination of a specific platform and a specific suite, with each instance being assigned an auto-generated name
 * A driver is the lifecycle that implements the actions associated with a specific instance---create the instance, do what is needed to converge on that instance (such as installing Chef Infra Client, uploading cookbooks, starting a Chef Infra Client run, and so on), setup anything else needed for testing, verify one (or more) suites post-converge, and then destroy that instance
 * A provisioner is the component on which the Chef Infra Client code will be run, either using chef-zero or chef-solo via the ``chef_zero`` and ``chef_solo`` provisioners, respectively
