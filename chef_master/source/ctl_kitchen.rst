@@ -11,7 +11,7 @@ kitchen is the command-line tool for Test Kitchen, an integration testing tool u
 
 .. end_tag
 
-.. note:: This topic details functionality that is packaged with ChefDK. See https://kitchen.ci/docs/getting-started/ for more information about Test Kitchen.
+.. note:: This topic details functionality that is packaged with Chef Workstation. See https://kitchen.ci/docs/getting-started/ for more information about Test Kitchen.
 
 Fuzzy Matching
 =====================================================
