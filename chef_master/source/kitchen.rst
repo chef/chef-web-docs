@@ -25,94 +25,19 @@ Bento
 =====================================================
 .. tag bento
 
-`Bento <https://github.com/chef/bento>`_ is a project that contains a set of base images that are used by Chef for internal testing and to provide a comprehensive set of base images for use with Kitchen. By default, Kitchen uses the base images provided by Bento. (Custom images may also be built using Packer.)
+`Bento <https://github.com/chef/bento>`_ is a Chef Software project that produces base testing VirtualBox, Parallels, and VMware boxes for multiple operating systems for use with Test Kitchen. By default, Test Kitchen uses the base images provided by Bento although custom images may also be built using Hashicorp Packer.
 
 .. end_tag
-
-Test Frameworks
-=====================================================
-An integration test is an executable test that fails when the assumptions defined by the test are proven to be false. Each test is written in Ruby and must be located in the ``/tests`` directory within the cookbook to be tested.
-
-The following frameworks are good options for building integration tests with Kitchen:
-
-.. list-table::
-   :widths: 150 450
-   :header-rows: 1
-
-   * - Test Framework
-     - Description
-   * - `Bats <https://github.com/bats-core/bats-core>`_
-     - bats (or Bash Automated Testing System) is an testing framework for Bash. Bats is also the default framework for Kitchen.
-   * - `Minitest <https://github.com/seattlerb/minitest>`_
-     - A small, fast, testing framework.
-   * - `Rspec <http://rspec.info>`_
-     - The primary testing framework for Ruby, using the words ``describe`` and ``it`` to express tests as conversation. bats, Minitest, Serverspec are all based on RSpec.
-   * - `Serverspec <http://serverspec.org>`_
-     - RSpec-based tests for servers.
-
-The syntax used for the tests depends on the testing framework. RSpec-based testing is similar to the following:
-
-.. code-block:: ruby
-
-   it 'what_the_test_does' do
-     # Ruby code that defines the test
-   end
-
-For example:
-
-.. code-block:: ruby
-
-   it 'contains the default configuration settings' do
-     file(File.join(node['chef_client']['conf_dir'], 'client.rb')).must_match('^chef_server_url')
-     file(File.join(node['chef_client']['conf_dir'], 'client.rb')).must_match('^validation_client_name')
-   end
-
-or:
-
-.. code-block:: ruby
-
-   it 'converts ssl_verify_mode to a symbol' do
-     file(File.join(node['chef_client']['conf_dir'], 'client.rb')).must_match('^ssl_verify_mode :verify_peer')
-   end
-
-or:
-
-.. code-block:: ruby
-
-   it 'disables ohai plugins' do
-     regexp = 'Ohai::Config\[:disabled_plugins\] =\s+\["passwd"\]'
-     file(File.join(node['chef_client']['conf_dir'], 'client.rb')).must_match(/#{regexp}/)
-   end
-
-Handlers can also be run as part of cookbook testing. At the top of the test file, use:
-
-.. code-block:: ruby
-
-   require File.expand_path('../support/helpers', __FILE__)
-
-to specify the handler, and then include the handler within the test:
-
-.. code-block:: ruby
-
-   it 'enables exception_handlers' do
-     file(File.join(node['chef_client']['conf_dir'], 'client.rb')).must_match(
-       '^exception_handlers << Report::UpdateResource.new'
-     )
-   end
-
-Busser
------------------------------------------------------
-Busser is a test setup and execution framework that is designed to work on remote nodes whose system dependencies cannot be relied upon. Kitchen uses Busser to run post-convergence tests via a plugin architecture that supports different test frameworks. Busser is installed automatically as part of Kitchen.
 
 Drivers
 =====================================================
 .. tag test_kitchen_drivers
 
-Kitchen uses a driver plugin architecture to enable Kitchen to simulate testing on cloud providers, such as Amazon EC2, OpenStack, and Rackspace, and also on non-cloud platforms, such as Microsoft Windows. Each driver is responsible for managing a virtual instance of that platform so that it may be used by Kitchen during cookbook testing.
+Test Kitchen uses a driver plugin architecture to enable Test Kitchen to test instances on cloud providers such as Amazon EC2, Google Compute Engine, and Microsoft Azure. You can also test on multiple local hypervisors such as VMware, Hyper-V, or VirtualBox.
 
-.. note:: ChefDK includes the ``kitchen-vagrant`` driver.
+.. note:: Chef Workstation includes many common Test Kitchen drivers.
 
-Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
+Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Test Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
 
 Some popular drivers:
 
@@ -156,6 +81,10 @@ Some popular drivers:
      - A driver for Vagrant. The default driver packaged with ChefDK.
 
 .. end_tag
+
+Validation with InSpec
+=====================================================
+Test Kitchen will create a VM or cloud instance, install Chef Infra Client to that system, and converge Chef Infra Client with your local cookbook. Once this is complete you'll want to perform automated validation against the infrastructure you have built to validate its configuration. Test Kitchen allows you to run InSpec tests against your converged cookbook for easy local validation of your infrastructure.
 
 kitchen (executable)
 =====================================================
