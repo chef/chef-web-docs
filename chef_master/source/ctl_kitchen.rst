@@ -283,7 +283,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -633,7 +633,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
