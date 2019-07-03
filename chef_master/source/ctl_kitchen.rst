@@ -1170,4 +1170,4 @@ will return something similar to:
 
 .. code-block:: bash
 
-   Test Kitchen version 1.0.0
+   Test Kitchen version 2.2.5
