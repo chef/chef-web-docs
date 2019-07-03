@@ -33,7 +33,7 @@ Drivers
 =====================================================
 .. tag test_kitchen_drivers
 
-Test Kitchen uses a driver plugin architecture to enable Test Kitchen to test instances on cloud providers such as Amazon EC2, Google Compute Engine, and Microsoft Azure. You can also test on multiple local hypervisors such as VMware, Hyper-V, or VirtualBox.
+Test Kitchen uses a driver plugin architecture to enable Test Kitchen to test instances on cloud providers such as Amazon EC2, Google Compute Engine, and Microsoft Azure. You can also test on multiple local hypervisors, such as VMware, Hyper-V, or VirtualBox.
 
 .. note:: Chef Workstation includes many common Test Kitchen drivers.
 
