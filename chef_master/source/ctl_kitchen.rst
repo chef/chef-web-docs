@@ -80,7 +80,7 @@ will return something similar to:
 
 kitchen converge
 =====================================================
-Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file. This process will install Chef Infra Client on an instance using the Chef installer, upload cookbook files and minimal configuration to the instance, and then start a Chef Infra Client run using the run-list and attributes specified in the .kitchen.yml file.
+Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the kitchen.yml file. This process will install Chef Infra Client on an instance using the Chef installer, upload cookbook files and minimal configuration to the instance, and then start a Chef Infra Client run using the run-list and attributes specified in the kitchen.yml file.
 
 Kitchen will skip unnecessary steps. For example, if Chef Infra Client is already installed to the instance, Kitchen will not re-install Chef Infra Client. That said, Kitchen will always upload the cookbook files and minimal configuration. This ensures that cookbook testing is being done correctly.
 
@@ -110,11 +110,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -248,7 +248,7 @@ Chef Infra Client is downloaded the first time this command is run. The output o
 
 kitchen create
 =====================================================
-Use the ``create`` subcommand to create one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
+Use the ``create`` subcommand to create one (or more) instances. Instances are based on the list of platforms and suites in the kitchen.yml file.
 
 Syntax
 -----------------------------------------------------
@@ -269,11 +269,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -382,7 +382,7 @@ The output of the command is similar to:
 
 kitchen destroy
 =====================================================
-Use the ``destroy`` subcommand to delete one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
+Use the ``destroy`` subcommand to delete one (or more) instances. Instances are based on the list of platforms and suites in the kitchen.yml file.
 
 Syntax
 -----------------------------------------------------
@@ -403,11 +403,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -454,11 +454,11 @@ This subcommand has the following options:
    Include data loader diagnostics. Default: ``false``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -508,7 +508,7 @@ or:
 
 **Diagnose an instance using --instances option**
 
-Use the ``--instances`` option to track instances, which are based on the list of platforms and suites in the .kitchen.yml file:
+Use the ``--instances`` option to track instances, which are based on the list of platforms and suites in the kitchen.yml file:
 
 .. code-block:: yaml
 
@@ -619,11 +619,11 @@ This subcommand has the following options:
    Use to specify a remote command to be run via SSH.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -645,7 +645,7 @@ kitchen init
 =====================================================
 Use the ``init`` subcommand to create an initial Kitchen environment, including:
 
-* Creating a .kitchen.yml file
+* Creating a kitchen.yml file
 * Appending Kitchen to the RubyGems file, .gitignore, and .thor
 * Creating the ``test/integration/default`` directory
 
@@ -674,11 +674,11 @@ This subcommand has the following options:
    The default provisioner that is used by Kitchen.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -705,7 +705,7 @@ will return something similar to:
 
 .. code-block:: bash
 
-   create .kitchen.yml
+   create kitchen.yml
    create test/integration/default
    create .gitignore
    append .gitignore
@@ -717,7 +717,7 @@ will return something similar to:
 
 kitchen list
 =====================================================
-Use the ``list`` subcommand to view the list of instances. Instances are based on the list of platforms in the .kitchen.yml file. Kitchen will auto-name instances by combining a suite name with a platform name. For example, if a suite is named ``default`` and a platform is named ``ubuntu-10.04``, then the instance would be ``default-ubuntu-10.04``. This ensures that Kitchen instances have safe DNS and hostname records.
+Use the ``list`` subcommand to view the list of instances. Instances are based on the list of platforms in the kitchen.yml file. Kitchen will auto-name instances by combining a suite name with a platform name. For example, if a suite is named ``default`` and a platform is named ``ubuntu-10.04``, then the instance would be ``default-ubuntu-10.04``. This ensures that Kitchen instances have safe DNS and hostname records.
 
 Syntax
 -----------------------------------------------------
@@ -738,11 +738,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -811,7 +811,7 @@ or if there are multiple suites defined, such as ``default`` and ``test``:
 
 kitchen login
 =====================================================
-Use the ``login`` subcommand to log in to a single instance. Instances are based on the list of platforms and suites in the .kitchen.yml file. After logging in successfully, the instance can be interacted with just like any other virtual machine, including adding or removing packages, starting or stopping services, and so on. It's a sandbox. Make any change necessary to help improve the coverage for cookbook testing.
+Use the ``login`` subcommand to log in to a single instance. Instances are based on the list of platforms and suites in the kitchen.yml file. After logging in successfully, the instance can be interacted with just like any other virtual machine, including adding or removing packages, starting or stopping services, and so on. It's a sandbox. Make any change necessary to help improve the coverage for cookbook testing.
 
 Syntax
 -----------------------------------------------------
@@ -829,11 +829,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -865,7 +865,7 @@ to return something similar to:
 
 kitchen setup
 =====================================================
-Use the ``setup`` subcommand to set up one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file.
+Use the ``setup`` subcommand to set up one (or more) instances. Instances are based on the list of platforms in the kitchen.yml file.
 
 Syntax
 -----------------------------------------------------
@@ -886,11 +886,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -910,7 +910,7 @@ None.
 
 kitchen test
 =====================================================
-Use the ``test`` subcommand to test one (or more) verified instances. Instances are based on the list of platforms and suites in the .kitchen.yml file. This subcommand will create a new instance (cleaning up a previous instance, if necessary), converge that instance, set up the test harness, verify the instance using that test harness, and then destroy the instance.
+Use the ``test`` subcommand to test one (or more) verified instances. Instances are based on the list of platforms and suites in the kitchen.yml file. This subcommand will create a new instance (cleaning up a previous instance, if necessary), converge that instance, set up the test harness, verify the instance using that test harness, and then destroy the instance.
 
 In general, use the ``test`` subcommand to verify the end-to-end quality of a cookbook. Use the ``converge`` and ``verify`` subcommands during the normal the day-to-day development of a cookbook.
 
@@ -927,7 +927,7 @@ Options
 This subcommand has the following options:
 
 ``--auto-init``
-   Invoke the ``init`` command if .kitchen.yml is missing. Default: ``false``.
+   Invoke the ``init`` command if kitchen.yml is missing. Default: ``false``.
 
 ``-c NUMBER``, ``--concurrency NUMBER``
    The number of allowed concurrent connections. Use this option to limit the number of instances that are tested concurrently. For example, ``--concurrency 6`` will set this limit to six concurrent instances. Default: ``9999`` (all instances, effectively).
@@ -939,11 +939,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -1049,7 +1049,7 @@ or:
 
 kitchen verify
 =====================================================
-Use the ``verify`` subcommand to verify one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
+Use the ``verify`` subcommand to verify one (or more) instances. Instances are based on the list of platforms and suites in the kitchen.yml file.
 
 In general, use the ``test`` subcommand to verify the end-to-end quality of a cookbook. Use the ``converge`` and ``verify`` subcommands during the normal the day-to-day development of a cookbook.
 
@@ -1072,11 +1072,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
