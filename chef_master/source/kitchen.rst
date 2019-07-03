@@ -74,7 +74,7 @@ Some popular drivers:
 
 Validation with InSpec
 =====================================================
-Test Kitchen will create a VM or cloud instance, install Chef Infra Client to that system, and converge Chef Infra Client with your local cookbook. Once this is complete you'll want to perform automated validation against the infrastructure you have built to validate its configuration. Test Kitchen allows you to run InSpec tests against your converged cookbook for easy local validation of your infrastructure.
+Test Kitchen will create a VM or cloud instance, install Chef Infra Client to that system, and converge Chef Infra Client with your local cookbook. Once this is complete, you will want to perform automated validation against the infrastructure you have built to validate its configuration. Test Kitchen allows you to run InSpec tests against your converged cookbook for easy local validation of your infrastructure.
 
 kitchen (executable)
 =====================================================
