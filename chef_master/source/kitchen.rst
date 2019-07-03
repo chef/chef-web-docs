@@ -56,29 +56,19 @@ Some popular drivers:
    * - `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`__
      - A driver for Windows PowerShell Desired State Configuration (DSC).
    * - `kitchen-ec2 <https://github.com/test-kitchen/kitchen-ec2>`__
-     - A driver for Amazon EC2.
+     - A driver for Amazon EC2. This driver ships in Chef Workstation.
    * - `kitchen-fog <https://github.com/TerryHowe/kitchen-fog>`__
      - A driver for Fog, a Ruby gem for interacting with various cloud providers.
-   * - `kitchen-google <https://github.com/anl/kitchen-google>`__
-     - A driver for Google Compute Engine.
+   * - `kitchen-google <https://github.com/test-kitchen/kitchen-google>`__
+     - A driver for Google Compute Engine.  This driver ships in Chef Workstation
    * - `kitchen-hyperv <https://github.com/test-kitchen/kitchen-hyperv>`__
      - A driver for Hyper-V Server.
-   * - `kitchen-joyent <https://github.com/test-kitchen/kitchen-joyent>`__
-     - A driver for Joyent.
-   * - `kitchen-linode <https://github.com/ssplatt/kitchen-linode>`__
-     - A driver for Linode.
-   * - `kitchen-opennebula <https://github.com/test-kitchen/kitchen-opennebula>`__
-     - A driver for OpenNebula.
    * - `kitchen-openstack <https://github.com/test-kitchen/kitchen-openstack>`__
      - A driver for OpenStack.
-   * - `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`__
-     - A driver for Pester, a testing framework for Microsoft Windows.
    * - `kitchen-rackspace <https://github.com/test-kitchen/kitchen-rackspace>`__
      - A driver for Rackspace.
-   * - `kitchen-terraform <https://github.com/newcontext-oss/kitchen-terraform>`__
-     - A driver for Terraform.
    * - `kitchen-vagrant <https://github.com/test-kitchen/kitchen-vagrant>`__
-     - A driver for Vagrant. The default driver packaged with ChefDK.
+     - A driver for Vagrant. This driver ships in Chef Workstation.
 
 .. end_tag
 
