@@ -80,9 +80,9 @@ kitchen (executable)
 =====================================================
 .. tag ctl_kitchen_summary
 
-kitchen is the command-line tool for Kitchen, an integration testing tool used by Chef Infra Client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
+kitchen is the command-line tool for Test Kitchen, an integration testing tool used by Chef Infra Client. Test Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
 
-.. note:: Any Kitchen subcommand that does not specify an instance will be applied to all instances.
+.. note:: Any Test Kitchen subcommand that does not specify an instance will be applied to all instances.
 
 .. end_tag
 
@@ -92,7 +92,7 @@ kitchen.yml
 =====================================================
 .. tag test_kitchen_yml
 
-Use a kitchen.yml file to define what is required to run Kitchen, including drivers, provisioners, platforms, and test suites.
+Use a kitchen.yml file to define what is required to run Test Kitchen, including drivers, provisioners, platforms, and test suites.
 
 .. end_tag
 
@@ -146,7 +146,7 @@ where:
 * ``provisioner_name`` specifies how Chef Infra Client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
 * ``verifier_name`` specifies which application to use when running tests, such as ``inspec``
 * ``transport_name`` specifies which transport to use when executing commands remotely on the test instance. ``winrm`` is the default transport on Windows. The ``ssh`` transport is the default on all other operating systems.
-* ``platform-version`` is the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
+* ``platform-version`` is the name of a platform on which Test Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
 * ``platforms`` may define Chef Infra Server attributes that are common to the collection of test suites
 * ``suites`` is a collection of test suites, with each ``suite_name`` grouping defining an aspect of a cookbook to be tested. Each ``suite_name`` must specify a run-list, for example:
 
@@ -187,7 +187,7 @@ For example, a very simple kitchen.yml file:
       excludes:
         - debian-9
 
-This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
+This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Test Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 
 .. end_tag
 
@@ -195,7 +195,7 @@ Work with Proxies
 --------------------------------------------------------------------------
 .. tag test_kitchen_yml_syntax_proxy
 
-The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
+The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Test Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
 
 .. code-block:: ruby
 
@@ -209,7 +209,7 @@ will be set to:
 
    ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 
-Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
+Test Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
 
 .. code-block:: yaml
 
