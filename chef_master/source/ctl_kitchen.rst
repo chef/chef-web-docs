@@ -853,15 +853,16 @@ To login to the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen login default-ubuntu-14.04
+   $ kitchen login default-ubuntu-1804
 
 to return something similar to:
 
 .. code-block:: bash
 
-   Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.5.0-23-generic x86_64)
-   Last login: Mon Mar 28 17:34:26 2014 from 127.0.0.5
-   vagrant@default-ubuntu-14.04:~$
+   Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-51-generic x86_64)
+
+   Last login: Wed Jul  3 18:21:09 2019 from 10.0.2.2
+   vagrant@default-ubuntu-1804:~$
 
 kitchen setup
 =====================================================
@@ -966,60 +967,58 @@ To test the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen test default-ubuntu-14.04
+   $ kitchen test default-ubuntu-1404
 
 to return something similar to:
 
 .. code-block:: bash
 
-   -----> Starting Kitchen (v1.0.0)
-   -----> Cleaning up any prior instances of <default-ubuntu-14.04>
-   -----> Destroying <default-ubuntu-14.04>...
+   -----> Starting Kitchen (v2.2.5)
+   -----> Cleaning up any prior instances of <default-ubuntu-1804>
+   -----> Destroying <default-ubuntu-1804>...
    ...
-   Finished destroying <default-ubuntu-14.04> (0m3.06s).
-   -----> Testing <default-ubuntu-14.04>
-   -----> Creating <default-ubuntu-14.04>...
-   Bringing machine 'default' up with 'virtualbox' provider...
+          Finished destroying <config-ubuntu-1804> (0m4.92s).
+   -----> Testing <default-ubuntu-1804>
+   -----> Creating <default-ubuntu-1804>...
+          Bringing machine 'default' up with 'virtualbox' provider...
    ...
-   Vagrant instance <default-ubuntu-14.04> created.
-   Finished creating <default-ubuntu-14.04> (0m46.22s).
-   -----> Converging <default-ubuntu-14.04>...
+          Vagrant instance <default-ubuntu-1804> created.
+          Finished creating <default-ubuntu-1804> (0m34.01s).
+   -----> Converging <default-ubuntu-1804>...
    ...
-   -----> Installing Chef Omnibus (true)
-   downloading https://www.chef.io/chef/install.sh
+   -----> Installing Chef install only if missing package
+          Downloading https://omnitruck.chef.io/install.sh to file /tmp/install.sh
    ...
-   Installing Chef
+          Installing chef
    ...
-   Setting up chef (11.12.0-1.ubuntu.12.04) ...
-   Thank you for installing Chef!
+          Setting up chef (15.1.36-1) ...
+          Thank you for installing Chef Infra Client! For help getting started visit https://learn.chef.io
    ...
-   Starting Chef Client, version 11.12.0
+          Starting Chef Infra Client, version 15.1.36
    ...
-   Converging 2 resources
-   Recipe: git::default
-     * package[git] action install[date/time] INFO: Processing package[git] action install (git::default line 10)
+          Converging 2 resources
+          Recipe: git::default
+            * package[git] action install[date/time] INFO: Processing package[git] action install (git::default line 10)
+              - install version 1:2.3.4.5-6 of package git
 
-       - install version 1:2.3.4.5-6 of package git
-
-     * log[log_description] action write[date/time] INFO: Processing log[log_description] action write (git::default line 5)
+            * log[log_description] action write[date/time] INFO: Processing log[log_description] action write (git::default line 5)
    ...
-   Chef Client finished, 2 resources updated
-   Finished converging <default-ubuntu-14.04> (0m45.17s).
-   -----> Starting Kitchen (v1.0.0)
-   -----> Setting up <default-ubuntu-14.04>
-   Fetching: <name of test tool> (100%)
-   Successfully installed <name of test tool>
-   # gems installed
-   -----> Setting up <name of test tool>
+          Chef Infra Client finished finished, 2 resources updated
+          Finished converging <default-ubuntu-1804> (0m45.17s).
+   -----> Setting up <default-ubuntu-1804>...
+          Finished setting up <default-ubuntu-1804> (0m0.00s).
+   -----> Verifying <default-ubuntu-1804>...
    ...
-   -----> Running <name of test tool> test suite
-    ✓ <test result>
+   Package: `git`
+      ✔  should exist
 
-   2 tests, 0 failures
-        Finished verifying <default-ubuntu-14.04> (2m1.12s).
-   -----> Kitchen is finished. (2m3.45s)
-   $ echo $?
-   0
+   Test Summary: 1 successful, 0 failures, 0 skipped
+        Finished verifying <default-ubuntu-1804> (0m1.25s).
+   -----> Destroying <default-ubuntu-1804>...
+   ...
+          Finished destroying <default-ubuntu-1804> (0m4.68s).
+          Finished testing <default-ubuntu-1804> (0m57.80s).
+
 
 **Test an instance using --concurrency option**
 
