@@ -232,8 +232,7 @@ This will not set the proxy environment variables for applications other than Ch
 
 For more information ...
 =====================================================
-For more information about test-driven development and Kitchen:
+For more information about test-driven development and Test Kitchen:
 
 * `kitchen.ci <https://kitchen.ci/>`_
-* `Getting Started with Kitchen <https://kitchen.ci/docs/getting-started/>`_
-* `How Can I Combine Berks and Local Cookbooks? <https://coderwall.com/p/j72egw/organise-your-site-cookbooks-with-berkshelf-and-this-trick>`_
+* `Getting Started with Test Kitchen <https://kitchen.ci/docs/getting-started/introduction/>`_
