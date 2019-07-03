@@ -19,13 +19,13 @@ Fuzzy matching can be used with all commands because kitchen uses regular expres
 
 .. code-block:: bash
 
-   $ kitchen list default-ubuntu-1404 --bare
+   $ kitchen list client-ubuntu-1804 --bare
 
 will return something similar to:
 
 .. code-block:: bash
 
-   client-ubuntu-1404
+   client-ubuntu-1804
 
 A partial name:
 
@@ -37,8 +37,8 @@ will return something similar to:
 
 .. code-block:: bash
 
-   client-ubuntu-1404
-   server-ubuntu-1404
+   client-ubuntu-1804
+   server-ubuntu-1804
 
 A short string:
 
@@ -50,8 +50,8 @@ will return something similar to:
 
 .. code-block:: bash
 
-   client-ubuntu-1404
-   server-ubuntu-1404
+   client-ubuntu-1804
+   server-ubuntu-1804
 
 An integer:
 
@@ -63,8 +63,8 @@ will return something similar to:
 
 .. code-block:: bash
 
-   client-ubuntu-1404
-   server-ubuntu-1404
+   client-ubuntu-1804
+   server-ubuntu-1804
 
 A single-quoted Ruby regular expression:
 
