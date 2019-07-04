@@ -14,7 +14,7 @@ Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data a
 
 .. tag test_kitchen_yml
 
-Use a kitchen.yml file to define what is required to run Kitchen, including drivers, provisioners, platforms, and test suites.
+Use a kitchen.yml file to define what is required to run Test Kitchen, including drivers, provisioners, platforms, and test suites.
 
 .. end_tag
 
@@ -68,7 +68,7 @@ where:
 * ``provisioner_name`` specifies how Chef Infra Client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
 * ``verifier_name`` specifies which application to use when running tests, such as ``inspec``
 * ``transport_name`` specifies which transport to use when executing commands remotely on the test instance. ``winrm`` is the default transport on Windows. The ``ssh`` transport is the default on all other operating systems.
-* ``platform-version`` is the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
+* ``platform-version`` is the name of a platform on which Test Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
 * ``platforms`` may define Chef Infra Server attributes that are common to the collection of test suites
 * ``suites`` is a collection of test suites, with each ``suite_name`` grouping defining an aspect of a cookbook to be tested. Each ``suite_name`` must specify a run-list, for example:
 
@@ -109,7 +109,7 @@ For example, a very simple kitchen.yml file:
       excludes:
         - debian-9
 
-This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
+This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Test Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 
 .. end_tag
 
@@ -423,11 +423,11 @@ Drivers
 --------------------------------------------------------------------------
 .. tag test_kitchen_drivers
 
-Kitchen uses a driver plugin architecture to enable Kitchen to simulate testing on cloud providers, such as Amazon EC2, OpenStack, and Rackspace, and also on non-cloud platforms, such as Microsoft Windows. Each driver is responsible for managing a virtual instance of that platform so that it may be used by Kitchen during cookbook testing.
+Test Kitchen uses a driver plugin architecture to enable Test Kitchen to test instances on cloud providers such as Amazon EC2, Google Compute Engine, and Microsoft Azure. You can also test on multiple local hypervisors, such as VMware, Hyper-V, or VirtualBox.
 
-.. note:: ChefDK includes the ``kitchen-vagrant`` driver.
+.. note:: Chef Workstation includes many common Test Kitchen drivers.
 
-Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
+Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Test Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
 
 Some popular drivers:
 
@@ -446,29 +446,17 @@ Some popular drivers:
    * - `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`__
      - A driver for Windows PowerShell Desired State Configuration (DSC).
    * - `kitchen-ec2 <https://github.com/test-kitchen/kitchen-ec2>`__
-     - A driver for Amazon EC2.
-   * - `kitchen-fog <https://github.com/TerryHowe/kitchen-fog>`__
-     - A driver for Fog, a Ruby gem for interacting with various cloud providers.
-   * - `kitchen-google <https://github.com/anl/kitchen-google>`__
-     - A driver for Google Compute Engine.
+     - A driver for Amazon EC2. This driver ships in Chef Workstation.
+   * - `kitchen-google <https://github.com/test-kitchen/kitchen-google>`__
+     - A driver for Google Compute Engine.  This driver ships in Chef Workstation
    * - `kitchen-hyperv <https://github.com/test-kitchen/kitchen-hyperv>`__
      - A driver for Hyper-V Server.
-   * - `kitchen-joyent <https://github.com/test-kitchen/kitchen-joyent>`__
-     - A driver for Joyent.
-   * - `kitchen-linode <https://github.com/ssplatt/kitchen-linode>`__
-     - A driver for Linode.
-   * - `kitchen-opennebula <https://github.com/test-kitchen/kitchen-opennebula>`__
-     - A driver for OpenNebula.
    * - `kitchen-openstack <https://github.com/test-kitchen/kitchen-openstack>`__
      - A driver for OpenStack.
-   * - `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`__
-     - A driver for Pester, a testing framework for Microsoft Windows.
    * - `kitchen-rackspace <https://github.com/test-kitchen/kitchen-rackspace>`__
      - A driver for Rackspace.
-   * - `kitchen-terraform <https://github.com/newcontext-oss/kitchen-terraform>`__
-     - A driver for Terraform.
    * - `kitchen-vagrant <https://github.com/test-kitchen/kitchen-vagrant>`__
-     - A driver for Vagrant. The default driver packaged with ChefDK.
+     - A driver for Vagrant. This driver ships in Chef Workstation.
 
 .. end_tag
 

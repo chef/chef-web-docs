@@ -57,8 +57,6 @@ Some popular drivers:
      - A driver for Windows PowerShell Desired State Configuration (DSC).
    * - `kitchen-ec2 <https://github.com/test-kitchen/kitchen-ec2>`__
      - A driver for Amazon EC2. This driver ships in Chef Workstation.
-   * - `kitchen-fog <https://github.com/TerryHowe/kitchen-fog>`__
-     - A driver for Fog, a Ruby gem for interacting with various cloud providers.
    * - `kitchen-google <https://github.com/test-kitchen/kitchen-google>`__
      - A driver for Google Compute Engine.  This driver ships in Chef Workstation
    * - `kitchen-hyperv <https://github.com/test-kitchen/kitchen-hyperv>`__
@@ -80,7 +78,7 @@ kitchen (executable)
 =====================================================
 .. tag ctl_kitchen_summary
 
-kitchen is the command-line tool for Test Kitchen, an integration testing tool used by Chef Infra Client. Test Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
+kitchen is the command-line tool for Test Kitchen, an integration testing tool maintained by Chef Software. Test Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
 
 .. note:: Any Test Kitchen subcommand that does not specify an instance will be applied to all instances.
 
