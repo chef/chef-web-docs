@@ -172,7 +172,7 @@ Some important tools and components of Chef Workstation include:
           :width: 100px
           :align: center
 
-       .. tag test_kitchen
+     - .. tag test_kitchen
 
        Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbooks across any combination of platforms and test suites:
 

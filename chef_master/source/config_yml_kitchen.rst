@@ -327,7 +327,7 @@ Work with Proxies
 --------------------------------------------------------------------------
 .. tag test_kitchen_yml_syntax_proxy
 
-The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
+The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Test Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
 
 .. code-block:: ruby
 
@@ -341,7 +341,7 @@ will be set to:
 
    ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 
-Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
+Test Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
 
 .. code-block:: yaml
 
