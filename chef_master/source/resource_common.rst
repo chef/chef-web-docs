@@ -133,7 +133,7 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 
 
-Attributes
+Properties
 -----------------------------------------------------
 .. tag resources_common_guards_properties
 
