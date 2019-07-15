@@ -9,13 +9,10 @@ docs =  Dir.entries("chef_master/source/")
 resources = docs.select {|s| s.include? 'resource_'}
 BASE_URL="https://docs.chef.io/"
 
-## Make sure CSV file exists and is empty
+## Make sure CSV does not already exist
 if File.exist?("doctools/headers.csv")
   File.delete("doctools/headers.csv")
   puts "Deleted old file"
-else
-  File.new("doctools/headers.csv", "rw" )
-  "Created new file"
 end
 
 ## Creates URLs from .rst files
