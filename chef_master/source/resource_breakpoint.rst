@@ -112,7 +112,7 @@ and then add them to the chef-shell.rb file. Other configuration possibilities i
 
 .. end_tag
 
-Run as a Chhef Infra Client
+Run as a Chef Infra Client
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_run_as_chef_client
 
