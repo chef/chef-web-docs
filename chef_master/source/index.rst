@@ -105,7 +105,7 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ 
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -442,8 +442,8 @@ Handlers
 Knife Plugins
 -----------------------------------------------------
 
-`About Cloud Plugins </plugin_knife.html>`__ |
-`Custom Plugins </plugin_knife_custom.html>`__ |
+`Cloud Plugins </plugin_knife.html>`__ |
+`Writing Custom Plugins </plugin_knife_custom.html>`__ |
 `Community Plugins (knife) </plugin_community.html#knife>`_
 
 Ohai Plugins
