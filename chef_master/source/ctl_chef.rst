@@ -320,8 +320,8 @@ will return something similar to:
      * cookbook_file[/Users/grantmc/chefdocs/Berksfile] action create
        - create new file /Users/grantmc/chefdocs/Berksfile
 
-     * template[/Users/grantmc/chefdocs/.kitchen.yml] action create
-       - create new file /Users/grantmc/chefdocs/.kitchen.yml
+     * template[/Users/grantmc/chefdocs/kitchen.yml] action create
+       - create new file /Users/grantmc/chefdocs/kitchen.yml
 
      * directory[/Users/grantmc/chefdocs/recipes] action create
        - create new directory /Users/grantmc/chefdocs/recipes
@@ -340,7 +340,7 @@ and which creates a directory structure similar to::
    /chefdocs
      /.git
 	 .gitignore
-     .kitchen.yml
+     kitchen.yml
      Berksfile
      chefignore
      metadata.rb
@@ -379,8 +379,8 @@ will return something similar to:
      * cookbook_file[/Users/grantmc/Desktop/chef-repo/test-cookbook/Berksfile] action create
        - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/Berksfile
 
-     * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/.kitchen.yml] action create
-       - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/.kitchen.yml
+     * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/kitchen.yml] action create
+       - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/kitchen.yml
 
      * directory[/Users/grantmc/Desktop/chef-repo/test-cookbook/recipes] action create
        - create new directory /Users/grantmc/Desktop/chef-repo/test-cookbook/recipes

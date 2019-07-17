@@ -244,7 +244,7 @@ kitchen-vsphere (chef-provisioning-vsphere)
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-There is an `example cookbook <https://github.com/jjasghar/vsphere_testing>`__ that attempts to capture everything required. The following is a basic ``.kitchen.yml`` example:
+There is an `example cookbook <https://github.com/jjasghar/vsphere_testing>`__ that attempts to capture everything required. The following is a basic ``kitchen.yml`` example:
 
 .. code-block:: yaml
 
@@ -307,7 +307,7 @@ kitchen-vcenter
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following is a basic ``.kitchen.yml`` for vCenter:
+The following is a basic ``kitchen.yml`` for vCenter:
 
 .. code-block:: yaml
 
@@ -341,7 +341,7 @@ kitchen-vra
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following is a basic ``.kitchen.yml`` example:
+The following is a basic ``kitchen.yml`` example:
 
 .. code-block:: yaml
 
@@ -372,7 +372,7 @@ kitchen-vro
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following is a basic ``.kitchen.yml`` example:
+The following is a basic ``kitchen.yml`` example:
 
 .. code-block:: yaml
 
