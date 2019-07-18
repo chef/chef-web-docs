@@ -321,7 +321,7 @@ The ``policy_name`` and ``policy_group`` settings for a node are stored as searc
 
 Test w/Kitchen
 =====================================================
-Kitchen may be used to test Policyfile files. Add the following to .kitchen.yml:
+Kitchen may be used to test Policyfile files. Add the following to kitchen.yml:
 
 .. code-block:: yaml
 

@@ -47,6 +47,10 @@ nav.nav-main {
   position: relative;
 }
 
+.left {
+  float: left;
+}
+
 // List of Nav Links
 .nav-links {
   margin: 0;
@@ -119,11 +123,11 @@ nav.nav-main {
       padding-bottom: 3px;
       border-bottom: 3px solid transparent;
       &:hover {
-        border-bottom: 3px solid $nav-links-hover; 
+        border-bottom: 3px solid $nav-links-hover;
       }
     }
     &.is-active a {
-      border-bottom: 3px solid $nav-links-hover; 
+      border-bottom: 3px solid $nav-links-hover;
     }
   }
 }
