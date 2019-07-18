@@ -195,9 +195,9 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
-**Attributes**
+**Properties**
 
-.. tag resources_common_guards_attributes
+.. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
