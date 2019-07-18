@@ -1,5 +1,5 @@
 =====================================================
-Custom Knife Plugins
+Writing Custom Knife Plugins
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_custom.rst>`__
 
@@ -9,7 +9,7 @@ A knife plugin is a set of one (or more) subcommands that can be added to knife 
 
 .. end_tag
 
-The Chef Infra Client will load knife and knife plugin commands from the following locations:
+The Chef Infra Client will load knife plugins from the following locations:
 
 * The home directory: ``~/.chef/plugins/knife/``
 * A ``.chef/plugins/knife`` directory in the cookbook repository

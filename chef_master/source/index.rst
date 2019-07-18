@@ -105,7 +105,7 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__ 
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -308,7 +308,7 @@ ChefDK
 `Delivery CLI </delivery_cli.html>`__ |
 `Foodcritic </foodcritic.html>`__
 
-**Kitchen**: `About Kitchen </kitchen.html>`__ | `kitchen (executable) </ctl_kitchen.html>`__ | `.kitchen.yml </config_yml_kitchen.html>`__ `kitchen-vagrant </plugin_kitchen_vagrant.html>`__
+**Kitchen**: `About Kitchen </kitchen.html>`__ | `kitchen (executable) </ctl_kitchen.html>`__ | `kitchen.yml </config_yml_kitchen.html>`__ `kitchen-vagrant </plugin_kitchen_vagrant.html>`__
 
 **Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife supermarket </knife_supermarket.html>`_ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__ | `knife azure </knife_azure.html>`__ | `knife_azurerm <knife_azurerm.html>`__ | `knife windows <knife_windows.html>`__
 
@@ -442,8 +442,8 @@ Handlers
 Knife Plugins
 -----------------------------------------------------
 
-`About Cloud Plugins </plugin_knife.html>`__ |
-`Custom Plugins </plugin_knife_custom.html>`__ |
+`Cloud Plugins </plugin_knife.html>`__ |
+`Writing Custom Plugins </plugin_knife_custom.html>`__ |
 `Community Plugins (knife) </plugin_community.html#knife>`_
 
 Ohai Plugins
