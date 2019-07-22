@@ -232,7 +232,7 @@ where ``SERVICE_NAME`` represents the name of any service that is listed after r
 
 .. code-block:: bash
 
-   $ ok: diwb: service_name: 0s, normally up
+   $ ok: down: service_name: 0s, normally up
 
 For example:
 
