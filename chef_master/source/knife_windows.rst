@@ -27,11 +27,11 @@ where ``/opt/chef/embedded/bin/`` is the path to the location where Chef Infra C
 
 Requirements
 -----------------------------------------------------
-This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management and/or https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation):
+This subcommand requires WinRM to be installed, and then configured correctly, including ensuring the correct ports are open. For more information, see: https://docs.microsoft.com/en-us/windows/desktop/WinRM/installation-and-configuration-for-windows-remote-management and/or https://support.microsoft.com/en-us/help/968930/windows-management-framework-core-package-windows-powershell-2-0-and-w. Use the quick configuration option in WinRM to allow outside connections and the entire network path from knife (and the workstation). Run the following on the Windows target:
 
 .. code-block:: bash
 
-   $ winrm quickconfig -q
+   C:\> winrm quickconfig -q
 
 The following WinRM configuration settings should be updated:
 
@@ -46,23 +46,23 @@ The following WinRM configuration settings should be updated:
    * - ``MaxTimeoutms``
      - A bootstrap command can take longer than allowed by the default setting. Increase this value to ``1800000`` (30 minutes).
 
-To update these settings, run the following commands:
+To update these settings, run the following commands on the Windows target:
 
 .. code-block:: bash
 
-   $ winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="300"}'
+   C:\> winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="300"}'
 
 and then:
 
 .. code-block:: bash
 
-   $ winrm set winrm/config '@{MaxTimeoutms="1800000"}'
+   C:\> winrm set winrm/config '@{MaxTimeoutms="1800000"}'
 
 Ensure that the Windows Firewall is configured to allow WinRM connections between the workstation and the Chef Infra Server. For example:
 
 .. code-block:: bash
 
-   $ netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
+   C:\> netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
 
 
 
@@ -93,11 +93,11 @@ The ``knife windows`` plugin supports Microsoft Windows domain authentication. T
 * An SSL certificate on the target node
 * The certificate details can be viewed and its `thumbprint hex values copied <https://docs.microsoft.com/en-us/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in>`_
 
-To create the listener over HTTPS, run the following command:
+To create the listener over HTTPS, run the following command on the Windows target:
 
 .. code-block:: bash
 
-   $ winrm create winrm/config/Listener?Address=IP:<ip_address>+Transport=HTTPS @{Hostname="<fqdn>";CertificateThumbprint="<hexidecimal_thumbprint_value>"}
+   C:\> winrm create winrm/config/Listener?Address=IP:<ip_address>+Transport=HTTPS @{Hostname="<fqdn>";CertificateThumbprint="<hexidecimal_thumbprint_value>"}
 
 where the ``CertificateThumbprint`` is the thumbprint hex value copied from the certificate details. (The hex value may require that spaces be removed before passing them to the node using the ``knife windows`` plugin.) WinRM 2.0 uses port ``5985`` for HTTP and port ``5986`` for HTTPS traffic, by default.
 
@@ -395,7 +395,7 @@ This argument has the following options:
 ``--tags``
     Comma separated list of tags to apply to the node. default: [].
 
-``-w``, ``--winrm-transport TRANSPORT`` 
+``-w``, ``--winrm-transport TRANSPORT``
     The WinRM transport type. Values: ``ssl``, ``plaintext``
 
 ``--winrm-authentication-protocol AUTHENTICATION_PROTOCOL``
@@ -634,11 +634,11 @@ To bootstrap a Microsoft Windows machine using WinRM:
 
 **Generate an SSL certificate, and then create a listener**
 
-Use the ``listener create``, ``cert generate``, and ``cert install`` arguments to create a new listener and assign it a newly-generated SSL certificate. First, make sure that WinRM is enabled on the machine:
+Use the ``listener create``, ``cert generate``, and ``cert install`` arguments to create a new listener and assign it a newly-generated SSL certificate. First, make sure that WinRM is enabled on the machine. Do so by running the following on the Windows node:
 
 .. code-block:: bash
 
-   $ winrm quickconfig
+   C:\> winrm quickconfig
 
 Create the SSL certificate
 
