@@ -634,7 +634,7 @@ To bootstrap a Microsoft Windows machine using WinRM:
 
 **Generate an SSL certificate, and then create a listener**
 
-Use the ``listener create``, ``cert generate``, and ``cert install`` arguments to create a new listener and assign it a newly-generated SSL certificate. First, make sure that WinRM is enabled on the machine. Do so by running the following on the Windows node:
+Use the ``listener create``, ``cert generate``, and ``cert install`` arguments to create a new listener and assign it a newly-generated SSL certificate. First, make sure that WinRM is enabled on the machine. Do so by running the following command on the Windows node:
 
 .. code-block:: bash
 
