@@ -723,7 +723,7 @@ with a request body similar to:
      "display_name": "robert",
      "email": "robert@noreply.com",
      "first_name": "robert",
-     "last_name": "robert",
+     "last_name": "forster",
      "middle_name": "",
      "password": "yeahpass",
      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoYyN0AIhUh7Fw1+gQtR+ \n0/HY3625IUlVheoUeUz3WnsTrUGSSS4fHvxUiCJlNni1sQvcJ0xC9Bw3iMz7YVFO\nWz5SeKmajqKEnNywN8/NByZhhlLdBxBX/UN04/7aHZMoZxrrjXGLcyjvXN3uxyCO\nyPY989pa68LJ9jXWyyfKjCYdztSFcRuwF7tWgqnlsc8pve/UaWamNOTXQnyrQ6Dp\ndn+1jiNbEJIdxiza7DJMH/9/i/mLIDEFCLRPQ3RqW4T8QrSbkyzPO/iwaHl9U196\n06Ajv1RNnfyHnBXIM+I5mxJRyJCyDFo/MACc5AgO6M0a7sJ/sdX+WccgcHEVbPAl\n1wIDAQAB \n-----END PUBLIC KEY-----\n\n"
@@ -735,7 +735,7 @@ where:
 * ``username`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
 * ``display_name`` is required to be present. 
 * ``email`` is required to be present and have a valid value. The email validation doesn't allow for all unicode characters.
-* ``username`` is required to be present and have a valid value. A valid username is a dot seperated list of elements matching a-z0-9!#$%&'*+/=?^_`{|}~-.
+* ``username`` is required to be present and have a valid value. A valid username is a dot separated list of elements matching ``a-z0-9!#$%&'*+/=?^_`{|}~-``.
 * Either ``external_authentication_uid`` or ``password`` are required to be present and have a value.
 * During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Server versions.
 
@@ -838,7 +838,7 @@ The response is similar to:
      "external_authentication_uid": "robert",
      "full_name": "Robert Forster",
      "first_name": "robert",
-     "last_name": "robert",
+     "last_name": "forster",
      "middle_name": ""
      "recovery_authentication_enabled": false
    }
