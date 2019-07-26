@@ -5,6 +5,9 @@ slack:
 
 github:
   delete_branch_on_merge: true
+  release_branch:
+    - master
+    - hugo-migration
 
 pipelines:
   - verify:

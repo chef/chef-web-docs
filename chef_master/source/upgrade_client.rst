@@ -9,7 +9,7 @@ Please `view the notes </upgrade_client_notes.html>`__ for more background on th
 
 Upgrade via Command Line
 =====================================================
-To upgrade the Chef Infra Client on a node via the command line, run the  following command on each node to be upgraded:
+To upgrade Chef Infra Client on a node via the command line, run the  following command on each node to be upgraded:
 
 .. code-block:: bash
 
@@ -20,7 +20,7 @@ Using the ``knife ssh`` subcommand is one way to do this.
 Upgrade via Cookbook
 =====================================================
 
-The `chef_client_updater <https://supermarket.chef.io/cookbooks/chef_client_updater>`__ cookbook can be used to install or upgrade the Chef Infra Client package on a node.
+The `chef_client_updater <https://supermarket.chef.io/cookbooks/chef_client_updater>`__ cookbook can be used to install or upgrade Chef Infra Client package on a node.
 
 Considerations
 =====================================================
@@ -41,7 +41,7 @@ Ensure that all of the cookbooks used by your organization are correctly located
 
 Download all cookbooks and validate the following against each cookbook:
  * Run ``egrep -L ^name */metadata.rb``. Does each have a ``metadata.rb`` file?
- * Does the cookbook name in the ``metadata.rb`` file match the name in the run-list? (Some older versions of the Chef Infra Client used the cookbook name for the run-list based on the directory name of the cookbook and not the cookbook_name in the ``metadata.rb`` file.)
+ * Does the cookbook name in the ``metadata.rb`` file match the name in the run-list? (Some older versions of Chef Infra Client used the cookbook name for the run-list based on the directory name of the cookbook and not the cookbook_name in the ``metadata.rb`` file.)
 
 Cook as lean as possible:
  * Verify cookbook size and mitigate the size of large cookbooks where possible. Most cookbooks are quite small, under ~200 KB. For any cookbook over 200 KB, consider why they are that large. Are there binary files?

@@ -5,7 +5,7 @@ Fog Driver Resources
 
 .. tag EOL_provisioning
 
-This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+This functionality was available with Chef Provisioning and was packaged in the ChefDK.
 
 Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
@@ -14,11 +14,11 @@ Chef Provisioning is no longer included with Chef DK, and will be officially end
 
 .. tag provisioning_summary
 
-Chef Provisioning is a collection of resources that enable the creation of machines and machine infrastructures using the Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
+Chef Provisioning is a collection of resources that enable the creation of machines and machine infrastructures using Chef Infra Client. It has a plugin model that allows bootstrap operations to be done against any infrastructure, such as VirtualBox, DigitalOcean, Amazon EC2, LXC, bare metal, and more.
 
 Chef Provisioning is built around two major components: the **machine** resource and drivers.
 
-Chef Provisioning is packaged in ChefDK. Chef Provisioning is a framework that allows clusters to be managed by the Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef Provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+Chef Provisioning is packaged in ChefDK. Chef Provisioning is a framework that allows clusters to be managed by Chef Infra Client and the Chef Infra Server in the same way nodes are managed: with recipes. Use Chef Provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
 
 .. end_tag
 

@@ -57,7 +57,7 @@ Options
 This cmdlet has the following options:
 
 ``-AutoUpdateChefClient``
-   Auto-update the Chef Infra Client. Set to ``true`` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published.
+   Auto-update . Set to ``true`` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published.
 
 ``-BootstrapOptions <string>``
    A JSON string that is added to the first run of a Chef Infra Client. For example:
@@ -87,7 +87,7 @@ This cmdlet has the following options:
    A comma-separated list of roles and/or recipes to be applied.
 
 ``-ValidationClientName <string>``
-   The name of the chef-validator key that is used by the Chef Infra Client to access the Chef Infra Server during the initial Chef Infra Client run.
+   The name of the chef-validator key Chef Infra Client uses to access the Chef Infra Server during the initial Chef Infra Client run.
 
 ``-ValidationPem  <string>``
    The location of the file that contains the key used when a Chef Infra Client is registered with a Chef Infra Server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.

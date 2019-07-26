@@ -11,7 +11,7 @@ Use the **machine_image** resource to define a machine image. This image may the
 
 .. warning:: .. tag EOL_provisioning
 
-             This functionality was available with Chef Provisioning and was packaged in the Chef development kit.
+             This functionality was available with Chef Provisioning and was packaged in the ChefDK.
 
              Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
@@ -33,10 +33,10 @@ The syntax for using the **machine_image** resource in a recipe is as follows:
 
 where
 
-* ``machine_image`` tells the Chef Infra Client to use the ``Chef::Provider::MachineImage`` provider during the Chef Infra Client run
+* ``machine_image`` tells Chef Infra Client to use the ``Chef::Provider::MachineImage`` provider during a Chef Infra Client run
 * ``name`` is the name of the resource block and also the name of the machine image
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the Chef Infra Client will take to bring the node into the desired state
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
 
 .. end_tag
 
@@ -56,7 +56,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Infra Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 

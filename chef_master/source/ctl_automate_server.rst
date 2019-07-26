@@ -732,7 +732,7 @@ The ``node-summary`` subcommand produces a summary of the nodes that are known t
 
 New in Chef Automate 0.5.328.
 
-The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via the Chef Infra Client, Chef InSpec, or the liveness agent.
+The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via Chef Infra Client, Chef InSpec, or the liveness agent.
 
 **Syntax**
 
@@ -782,7 +782,7 @@ Produce a summary of nodes known to Automate in JSON.
 Explanation of fields
 -----------------------------------------------------
 ``chef_version``
-   The version of the Chef Infra Client that ran on the node.
+   The Chef Infra Client version of that ran on the node.
 ``checkin``
    The last time Chef Infra Client ran on the node.
 ``@timestamp``
@@ -804,7 +804,7 @@ Explanation of fields
 
    ``failure`` if the last Chef Infra Client run failed on the node.
 
-   ``live`` if the liveness agent has successfully updated Chef Automate, but the Chef Infra Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
+   ``live`` if the liveness agent has successfully updated Chef Automate, but Chef Infra Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 
    ``missing`` if Chef Infra Client did not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 

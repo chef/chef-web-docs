@@ -25,7 +25,7 @@ For the quickest way to get started using Chef:
         content 'This file was created by Chef!'
       end
 
-#. Run the Chef Infra Client using the ``default.rb`` recipe:
+#. Run Chef Infra Client using the ``default.rb`` recipe:
 
    .. code-block:: bash
 
@@ -33,9 +33,9 @@ For the quickest way to get started using Chef:
 
 This will create a file named ``test.txt`` at the home path on your machine. Open that file and it will say ``This file was created by Chef!``.
 
-* Delete the file, run the Chef Infra Client again, and Chef will put the file back.
-* Change the string in the file, run the Chef Infra Client again, and Chef will make the string in the file the same as the string in the recipe.
-* Change the string in the recipe, run the Chef Infra Client again, and Chef will update that string to be the same as the one in the recipe.
+* Delete the file, run Chef Infra Client again, and Chef will put the file back.
+* Change the string in the file, run Chef Infra Client again, and Chef will make the string in the file the same as the string in the recipe.
+* Change the string in the recipe, run Chef Infra Client again, and Chef will update that string to be the same as the one in the recipe.
 
 There's a lot more that Chef can do, obviously, but that was super easy!
 

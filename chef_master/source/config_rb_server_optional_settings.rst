@@ -149,7 +149,7 @@ This configuration file has the following settings for ``bookshelf``:
       bookshelf['storage_type'] = :sql
 
 ``bookshelf['stream_download']``
-   Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between the Chef Infra Client and the Chef Infra Server. Default value: ``true``.
+   Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between Chef Infra Client and the Chef Infra Server. Default value: ``true``.
 
 ``bookshelf['vip']``
    The virtual IP address. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: ``127.0.0.1``.
@@ -278,10 +278,10 @@ This configuration file has the following settings for ``lb``:
    Default value: ``false``.
 
 ``lb['chef_max_version']``
-   The maximum version of the Chef Infra Client that is allowed to access the Chef Infra Server via the Chef Infra Server API. Default value: ``11``.
+   The maximum version of Chef Infra Client that is allowed to access the Chef Infra Server via the Chef Infra Server API. Default value: ``11``.
 
 ``lb['chef_min_version']``
-   The minimum version of the Chef Infra Client that is allowed to access the Chef Infra Server via the Chef Infra Server API. Default value: ``10``.
+   The minimum version of Chef Infra Client that is allowed to access the Chef Infra Server via the Chef Infra Server API. Default value: ``10``.
 
 ``lb['chef_server_webui']``
    Default value: ``127.0.0.1``.
@@ -1025,7 +1025,7 @@ This configuration file has the following settings for ``opscode-erchef``:
 
    Use to specify that search results only return objects to which an actor (user, client, etc.) has read access, as determined by ACL settings. This affects all searches. When ``true``, the performance of the Chef management console may increase because it enables the Chef management console to skip redundant ACL checks. To ensure the Chef management console is configured properly, after this setting has been applied with a ``chef-server-ctl reconfigure`` run ``chef-manage-ctl reconfigure`` to ensure the Chef management console also picks up the setting. Default value: ``false``.
 
-   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during Chef Infra Client runs if a Chef Infra Client does not have permission to read the information.
+   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during a Chef Infra Client runs if a Chef Infra Client does not have permission to read the information.
 
    .. end_tag
 
