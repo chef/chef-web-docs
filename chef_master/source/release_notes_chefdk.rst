@@ -1,11 +1,11 @@
 =====================================================
-Release Notes: ChefDK 0.19 - 4.0
+Release Notes: ChefDK 0.19 - 4.2
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 ChefDK is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes, see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
 
-What's new in ChefDK 4.2.0
+What's New in ChefDK 4.2
 =====================================================
 
 * **Bug Fixes**
