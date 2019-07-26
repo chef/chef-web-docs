@@ -1,0 +1,6 @@
+<p>Use the <code>:nothing</code> action (common to all resources) to prevent the test from starting automatically, and then use the <code>subscribes</code> notification to run a configuration test when a change to the template is detected:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>execute <span class="st">&#39;test-nagios-config&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  command <span class="st">&#39;nagios3 --verify-config&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  action <span class="st">:nothing</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  subscribes <span class="st">:run</span>, <span class="st">&#39;template[/etc/nagios3/configures-nagios.conf]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">end</span></span></code></pre></div>

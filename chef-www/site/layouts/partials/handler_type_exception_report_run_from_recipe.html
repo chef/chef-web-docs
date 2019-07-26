@@ -1,0 +1,13 @@
+<p>The <strong>chef_handler</strong> resource allows exception and report handlers to be enabled from within recipes, which can then added to the run-list for any node on which the exception or report handler should run. The <strong>chef_handler</strong> resource is available from the <strong>chef_handler</strong> cookbook.</p>
+<p>To use the <strong>chef_handler</strong> resource in a recipe, add code similar to the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>chef_handler <span class="st">&#39;name_of_handler&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  source <span class="st">&#39;/path/to/handler/handler_name&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  action <span class="st">:enable</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">end</span></span></code></pre></div>
+<p>For example, a handler for Growl needs to be enabled at the beginning of a Chef Infra Client run:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>chef_gem <span class="st">&#39;chef-handler-growl&#39;</span></span></code></pre></div>
+<p>and then is activated in a recipe by using the <strong>chef_handler</strong> resource:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>chef_handler <span class="st">&#39;Chef::Handler::Growl&#39;</span> <span class="kw">do</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  source <span class="st">&#39;chef/handler/growl&#39;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  action <span class="st">:enable</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="kw">end</span></span></code></pre></div>

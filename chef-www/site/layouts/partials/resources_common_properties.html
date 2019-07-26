@@ -1,0 +1,19 @@
+<p>The following properties are common to every resource:</p>
+<dl>
+<dt><code>ignore_failure</code></dt>
+<dd><p><strong>Ruby Type:</strong> true, false | <strong>Default Value:</strong> <code>false</code></p>
+<p>Continue running a recipe if a resource fails for any reason.</p>
+</dd>
+<dt><code>retries</code></dt>
+<dd><p><strong>Ruby Type:</strong> Integer | <strong>Default Value:</strong> <code>0</code></p>
+<p>The number of attempts to catch exceptions and retry the resource.</p>
+</dd>
+<dt><code>retry_delay</code></dt>
+<dd><p><strong>Ruby Type:</strong> Integer | <strong>Default Value:</strong> <code>2</code></p>
+<p>The retry delay (in seconds).</p>
+</dd>
+<dt><code>sensitive</code></dt>
+<dd><p><strong>Ruby Type:</strong> true, false | <strong>Default Value:</strong> <code>false</code></p>
+<p>Ensure that sensitive resource data is not logged by Chef Infra Client.</p>
+</dd>
+</dl>

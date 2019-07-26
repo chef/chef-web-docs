@@ -1,0 +1,24 @@
+<p>In chef-shell, it is possible to get verbose debugging using the tracing feature in Interactive Ruby (IRb). chef-shell provides a shortcut for turning tracing on and off. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a>$ <span class="ex">chef</span> <span class="op">&gt;</span> tracing on</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="ex">/Users/username/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8</span>/tracer.rb:<span class="ex">150</span>: warning: tried to create Proc object without a block</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="ex">/Users/username/.rvm/ree-1.8.7-2009.10/lib/ruby/1.8</span>/tracer.rb:<span class="ex">146</span>: warning: tried to create Proc object without a block</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="ex">tracing</span> is on</span>
+<span id="cb1-5"><a href="#cb1-5"></a>    =<span class="op">&gt;</span> <span class="ex">nil</span></span></code></pre></div>
+<p>and:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a>$ <span class="ex">chef</span> <span class="op">&gt;</span> tracing off</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="co">#0:(irb):3:Object:-: tracing off</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:108:Shell::Extensions::ObjectCoreExtensions:&gt;:       def off</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:109:Shell::Extensions::ObjectCoreExtensions:-:         :off</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:110:Shell::Extensions::ObjectCoreExtensions:&lt;:       end</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:273:main:&gt;:       def tracing(on_or_off)</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:274:main:-:         conf.use_tracer = on_or_off.on_off_to_bool</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:161:Shell::Extensions::Symbol:&gt;:       def on_off_to_bool</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:162:Shell::Extensions::Symbol:-:         self.to_s.on_off_to_bool</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:148:Shell::Extensions::String:&gt;:       def on_off_to_bool</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:149:Shell::Extensions::String:-:         case self</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:153:Shell::Extensions::String:-:           false</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:157:Shell::Extensions::String:&lt;:       end</span></span>
+<span id="cb2-14"><a href="#cb2-14"></a>  <span class="co">#0:/opt/chef/embedded/lib/ruby/gems/1.9.3/gems/chef-11.4.4/lib/chef/shell/ext.rb:163:Shell::Extensions::Symbol:&lt;:       end</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>  <span class="ex">tracing</span> is off</span>
+<span id="cb2-16"><a href="#cb2-16"></a>   =<span class="op">&gt;</span> <span class="ex">nil</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>  <span class="ex">chef</span> <span class="op">&gt;</span></span></code></pre></div>

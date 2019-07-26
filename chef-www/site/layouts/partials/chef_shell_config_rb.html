@@ -1,0 +1,5 @@
+<p>The chef-shell.rb file can be used to configure chef-shell in the same way as the client.rb file is used to configure Chef Infra Client. For example, to configure chef-shell to authenticate to the Chef Infra Server, copy the <code>node_name</code>, <code>client_key</code>, and <code>chef_server_url</code> settings from the config.rb file:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>node_name                <span class="st">&#39;your-knife-clientname&#39;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>client_key               <span class="dt">File</span>.expand_path(<span class="st">&#39;~/.chef/my-client.pem&#39;</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>chef_server_url          <span class="st">&#39;https://api.opscode.com/organizations/myorg&#39;</span></span></code></pre></div>
+<p>and then add them to the chef-shell.rb file. Other configuration possibilities include disabling Ohai plugins (which will speed up the chef-shell boot process) or including arbitrary Ruby code in the chef-shell.rb file.</p>

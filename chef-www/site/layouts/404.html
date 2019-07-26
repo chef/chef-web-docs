@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+{{ partial "chef-sh/head" . }}
+<body>
+  <div class="off-canvas-wrapper">
+    <div class="off-canvas-content" data-off-canvas-content>
+      <div class="cell small-12">
+        {{ partial "chef-sh/utility-bar" . }}
+      </div>
+      <div id="menu" class="cell small-12" data-sticky-container>
+        {{ partial "chef-sh/header" . }}
+      </div>
+      <div id="main-content" class="cell small-12">
+        <div class="content">
+          This page you were looking for is not here. If you think it's our fault,
+          [please let us know](/feedback.html).
+
+          The left navigation shows all the topics about Chef. Browse through to
+          find what you're looking for or use the search box (in the top left) to
+          search for something specific. 
+
+          Thanks for reading chef-docs!
+        </div>
+      </div>
+      <div id="footer" class="cell small-12">
+        <nav>
+          {{ partial "chef-sh/footer" . }}
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script src="{{ "js/scripts-all.js" | relURL }}"></script>
+</body>
+</html>

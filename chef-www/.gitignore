@@ -1,0 +1,19 @@
+# Hugo
+site/public
+
+# chef-sh Theme Source
+site/themes/chef-sh/static/grunt/node_modules
+site/themes/chef-sh/static/js/build
+site/themes/chef-sh/static/.sass-cache
+
+# chef Theme Source
+site/themes/chef/node_modules
+site/themes/chef/static/js/build
+site/themes/chef/static/js/vendor
+site/themes/chef/vendor
+
+# Sass
+.sass-cache
+
+# Operating System
+.DS_Store

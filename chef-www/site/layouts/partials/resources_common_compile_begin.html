@@ -1,0 +1,42 @@
+<p>Use <code>.run_action(:some_action)</code> at the end of a resource block to run the specified action during the compile phase. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>resource_name <span class="st">&#39;foo&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  action <span class="st">:nothing</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span>.run_action(<span class="st">:some_action</span>)</span></code></pre></div>
+<p>where <code>action</code> is set to <code>:nothing</code> to ensure the <code>run_action</code> is run during the compile phase and not later during the execution phase.</p>
+<p>The following examples show when (and when not) to use <code>run_action</code>.</p>
+<p><strong>Update a package cache</strong></p>
+<p>Sometimes it is necessary to ensure that an operating system's package cache is up to date before installing packages. For example, on Debian or Ubuntu systems, the Apt cache should be updated:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">if</span> node[<span class="st">&#39;apt&#39;</span>][<span class="st">&#39;compile_time_update&#39;</span>] &amp;&amp; ( !::<span class="dt">File</span>.exist?(<span class="st">&#39;/var/lib/apt/periodic/update-success-stamp&#39;</span>) || !::<span class="dt">File</span>.exist?(first_run_file) )</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  e = bash <span class="st">&#39;apt-get-update at compile time&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    code &lt;&lt;-<span class="kw">EOH</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="ot">      apt-get update</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="ot">      touch #{</span>first_run_file<span class="ot">}</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="ot">    </span><span class="kw">EOH</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>    ignore_failure <span class="dv">true</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>    only_if { apt_installed? }</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    action <span class="st">:nothing</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>  <span class="kw">end</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>  e.run_action(<span class="st">:run</span>)</span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="kw">end</span></span></code></pre></div>
+<p>where <code>e.run_action(:run)</code> tells Chef Infra Client to run the <code>apt-get update</code> command during the compile phase. This example can be found in the <code>default.rb</code> recipe of the <a href="https://github.com/chef-cookbooks/apt">apt cookbook</a> that is maintained by Chef.</p>
+<p><strong>Use the chef_gem resource for Ruby gems</strong></p>
+<p>A very common use case is to install a gem during the compile phase so that it will be available to Chef Infra Client during the execution phase. This is why the <strong>chef_gem</strong> resource exists. For example, this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>chef_gem <span class="st">&#39;foo&#39;</span> <span class="kw">do</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  action <span class="st">:install</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div>
+<p>is effectively the same as</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>gem_package <span class="st">&#39;foo&#39;</span> <span class="kw">do</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  action <span class="st">:nothing</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">end</span>.run_action(<span class="st">:install</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="dt">Gem</span>.clear_paths</span></code></pre></div>
+<p>but without needing to define a <code>run_action</code>.</p>
+<p><strong>Notifications will not work</strong></p>
+<p>Resources that are executed during the compile phase cannot notify other resources. For example:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>execute <span class="st">&#39;ifconfig&#39;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>p = package <span class="st">&#39;vim-enhanced&#39;</span> <span class="kw">do</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  action <span class="st">:nothing</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>  notifies <span class="st">:run</span>, <span class="st">&#39;execute[ifconfig]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a><span class="kw">end</span></span>
+<span id="cb5-7"><a href="#cb5-7"></a>p.run_action(<span class="st">:install</span>)</span></code></pre></div>
+<p>A better approach in this type of situation is to install the package before the resource collection is built to ensure that it is available to other resources later on.</p>

@@ -1,0 +1,6 @@
+<p>A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:</p>
+<ul>
+<li>A string is executed as a shell command. If the command returns <code>0</code>, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a <strong>powershell_script</strong> run Windows PowerShell commands and may return <code>true</code> in addition to <code>0</code>.</li>
+<li>A block is executed as Ruby code that must return either <code>true</code> or <code>false</code>. If the block returns <code>true</code>, the guard property is applied. If the block returns <code>false</code>, the guard property is not applied.</li>
+</ul>
+<p>A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.</p>

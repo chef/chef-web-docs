@@ -1,0 +1,18 @@
+<p>A template helper method is always defined inline on a per-resource basis. A simple example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>template <span class="st">&#39;/path&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  helper(<span class="st">:hello_world</span>) { <span class="st">&#39;hello world&#39;</span> }</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div>
+<p>Another way to define an inline helper method is to reference a node object so that repeated calls to one (or more) cookbook attributes can be done efficiently:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>template <span class="st">&#39;/path&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  helper(<span class="st">:app</span>) { node[<span class="st">&#39;app&#39;</span>] }</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">end</span></span></code></pre></div>
+<p>An inline helper method can also take arguments:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>template <span class="st">&#39;/path&#39;</span> <span class="kw">do</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  helper(<span class="st">:app_conf</span>) { |setting| node[<span class="st">&#39;app&#39;</span>][setting] }</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div>
+<p>Once declared, a template can then use the helper methods to build a file. For example:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a><span class="dt">Say</span> <span class="st">hello: </span>&lt;%= hello_world <span class="ot">%&gt;</span></span></code></pre></div>
+<p>or:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>node[<span class="st">&#39;app&#39;</span>][<span class="st">&#39;listen_port&#39;</span>] <span class="st">is: </span>&lt;%= app[<span class="st">&#39;listen_port&#39;</span>] %&gt;</span></code></pre></div>
+<p>or:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb6-1"><a href="#cb6-1"></a>node[<span class="st">&#39;app&#39;</span>][<span class="st">&#39;log_location&#39;</span>] <span class="st">is: </span>&lt;%= app_conf(<span class="st">&#39;log_location&#39;</span>) %&gt;</span></code></pre></div>

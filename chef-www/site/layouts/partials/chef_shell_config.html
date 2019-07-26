@@ -1,0 +1,8 @@
+<p>chef-shell determines which configuration file to load based on the following:</p>
+<ol>
+<li>If a configuration file is specified using the <code>-c</code> option, chef-shell will use the specified configuration file</li>
+<li>When chef-shell is started using a named configuration as an argument, chef-shell will search for a chef-shell.rb file in that directory under <code>~/.chef</code>. For example, if chef-shell is started using <code>production</code> as the named configuration, the chef-shell will load a configuration file from <code>~/.chef/production/chef_shell.rb</code></li>
+<li>If a named configuration is not provided, chef-shell will attempt to load the chef-shell.rb file from the <code>.chef</code> directory. For example: <code>~/.chef/chef_shell.rb</code></li>
+<li>If a chef-shell.rb file is not found, chef-shell will attempt to load the client.rb file</li>
+<li>If a chef-shell.rb file is not found, chef-shell will attempt to load the solo.rb file</li>
+</ol>

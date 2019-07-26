@@ -1,0 +1,22 @@
+<p>The following example shows how to use the <strong>ruby_block</strong> resource to stash a BitTorrent file in a data bag so that it can be distributed to nodes in the organization.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># the following code sample comes from the ``seed`` recipe</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="co"># in the following cookbook: https://github.com/mattray/bittorrent-cookbook</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>ruby_block <span class="st">&#39;share the torrent file&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  block <span class="kw">do</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>    f = <span class="dt">File</span>.open(node[<span class="st">&#39;bittorrent&#39;</span>][<span class="st">&#39;torrent&#39;</span>],<span class="st">&#39;rb&#39;</span>)</span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="co">#read the .torrent file and base64 encode it</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>    enc = <span class="dt">Base64</span>.encode64(f.read)</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    data = {</span>
+<span id="cb1-10"><a href="#cb1-10"></a>      <span class="st">&#39;id&#39;</span>=&gt;bittorrent_item_id(node[<span class="st">&#39;bittorrent&#39;</span>][<span class="st">&#39;file&#39;</span>]),</span>
+<span id="cb1-11"><a href="#cb1-11"></a>      <span class="st">&#39;seed&#39;</span>=&gt;node.ipaddress,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>      <span class="st">&#39;torrent&#39;</span>=&gt;enc</span>
+<span id="cb1-13"><a href="#cb1-13"></a>    }</span>
+<span id="cb1-14"><a href="#cb1-14"></a>    item = <span class="dt">Chef</span>::<span class="dt">DataBagItem</span>.new</span>
+<span id="cb1-15"><a href="#cb1-15"></a>    item.data_bag(<span class="st">&#39;bittorrent&#39;</span>)</span>
+<span id="cb1-16"><a href="#cb1-16"></a>    item.raw_data = data</span>
+<span id="cb1-17"><a href="#cb1-17"></a>    item.save</span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="kw">end</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a>  action <span class="st">:nothing</span></span>
+<span id="cb1-20"><a href="#cb1-20"></a>  subscribes <span class="st">:create</span>, <span class="st">&quot;bittorrent_torrent[</span><span class="ot">#{</span>node[<span class="st">&#39;bittorrent&#39;</span>][<span class="st">&#39;torrent&#39;</span>]<span class="ot">}</span><span class="st">]&quot;</span>, <span class="st">:immediately</span></span>
+<span id="cb1-21"><a href="#cb1-21"></a><span class="kw">end</span></span></code></pre></div>

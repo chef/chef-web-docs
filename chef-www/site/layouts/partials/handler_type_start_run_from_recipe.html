@@ -1,0 +1,14 @@
+<p>The <strong>chef-client</strong> cookbook can be configured to automatically install and configure gems that are required by a start handler. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>node.normal[<span class="st">&#39;chef_client&#39;</span>][<span class="st">&#39;load_gems&#39;</span>][<span class="st">&#39;chef-reporting&#39;</span>] = {</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="st">:require_name</span> =&gt; <span class="st">&#39;chef_reporting&#39;</span>,</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="st">:action</span> =&gt; <span class="st">:install</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>}</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>node.normal[<span class="st">&#39;chef_client&#39;</span>][<span class="st">&#39;config&#39;</span>][<span class="st">&#39;start_handlers&#39;</span>] = [</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  {</span>
+<span id="cb1-8"><a href="#cb1-8"></a>    <span class="st">:class</span> =&gt; <span class="st">&#39;Chef::Reporting::StartHandler&#39;</span>,</span>
+<span id="cb1-9"><a href="#cb1-9"></a>    <span class="st">:arguments</span> =&gt; []</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  }</span>
+<span id="cb1-11"><a href="#cb1-11"></a>]</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>include_recipe <span class="st">&#39;chef-client::config&#39;</span></span></code></pre></div>

@@ -1,0 +1,13 @@
+<p>The following example shows using multiple <code>Chef::Log</code> entry types:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>...</span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">begin</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  aws = <span class="dt">Chef</span>::<span class="dt">DataBagItem</span>.load(<span class="st">:aws</span>, <span class="st">:main</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>  <span class="dt">Chef</span>::<span class="dt">Log</span>.info(<span class="st">&quot;Loaded AWS information from DataBagItem aws[</span><span class="ot">#{</span>aws[<span class="st">&#39;id&#39;</span>]<span class="ot">}</span><span class="st">]&quot;</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">rescue</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="dt">Chef</span>::<span class="dt">Log</span>.fatal(<span class="st">&quot;Could not find the &#39;main&#39; item in the &#39;aws&#39; data bag&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  raise</span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">end</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>...</span></code></pre></div>
+<p>The full recipe is in the <code>ebs_volume.rb</code> recipe of the <a href="https://github.com/chef-cookbooks/database/">database cookbook</a> that is maintained by Chef.</p>

@@ -1,0 +1,21 @@
+<p>To notify multiple resources, and then have these resources run in a certain order, do something like the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>execute <span class="st">&#39;foo&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  command <span class="st">&#39;...&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  notifies <span class="st">:create</span>, <span class="st">&#39;template[baz]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  notifies <span class="st">:install</span>, <span class="st">&#39;package[bar]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>  notifies <span class="st">:run</span>, <span class="st">&#39;execute[final]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">end</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>template <span class="st">&#39;baz&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a>  ...</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  notifies <span class="st">:run</span>, <span class="st">&#39;execute[restart_baz]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="kw">end</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>package <span class="st">&#39;bar&#39;</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>execute <span class="st">&#39;restart_baz&#39;</span></span>
+<span id="cb1-16"><a href="#cb1-16"></a></span>
+<span id="cb1-17"><a href="#cb1-17"></a>execute <span class="st">&#39;final&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-18"><a href="#cb1-18"></a>  command <span class="st">&#39;...&#39;</span></span>
+<span id="cb1-19"><a href="#cb1-19"></a><span class="kw">end</span></span></code></pre></div>
+<p>where the sequencing will be in the same order as the resources are listed in the recipe: <code>execute 'foo'</code>, <code>template 'baz'</code>, <code>execute [restart_baz]</code>, <code>package 'bar'</code>, and <code>execute 'final'</code>.</p>

@@ -1,0 +1,19 @@
+<div class="note" markdown="1">
+
+<div class="admonition-title" markdown="1">
+
+Note
+
+</div>
+
+Legacy build nodes created by `delivery-cluster` can be used with a Chef
+Automate server. Some node visibility features are designed to only work
+with new build nodes and runners installed through the command line
+process, but the workflow feature in Chef Automate can use legacy, new,
+or mixed node pools; however, you cannot upgrade a legacy build node to
+the new build node or runner models. If you would like to use new build
+nodes/runners, please use fresh hosts or completely wipe your legacy
+build nodes before attempting to run `automate-ctl install-build-node`
+or `automate-ctl install-runner`.
+
+</div>

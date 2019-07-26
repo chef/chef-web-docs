@@ -1,0 +1,21 @@
+<p>An Embedded Ruby (ERB) template allows Ruby code to be embedded inside a text file within specially formatted tags. Ruby code can be embedded using expressions and statements. An expression is delimited by <code>&lt;%=</code> and <code>%&gt;</code>. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>&lt;%= <span class="st">&quot;my name is </span><span class="ot">#{</span><span class="dt">$ruby</span><span class="ot">}</span><span class="st">&quot;</span> %&gt;</span></code></pre></div>
+<p>A statement is delimited by a modifier, such as <code>if</code>, <code>elseif</code>, and <code>else</code>. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">if</span> <span class="dv">false</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="co"># this won&#39;t happen</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">elsif</span> <span class="dv">nil</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>      <span class="co"># this won&#39;t either</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="kw">end</span></span></code></pre></div>
+<p>Using a Ruby expression is the most common approach for defining template variables because this is how all variables that are sent to a template are referenced. Whenever a template needs to use an <code>each</code>, <code>if</code>, or <code>end</code>, use a Ruby statement.</p>
+<p>When a template is rendered, Ruby expressions and statements are evaluated by Chef Infra Client. The variables listed in the <strong>template</strong> resource's <code>variables</code> parameter and in the node object are evaluated. Chef Infra Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.</p>
+<p>For example, a simple template resource like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>node[<span class="st">&#39;fqdn&#39;</span>] = <span class="st">&#39;latte&#39;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>template <span class="st">&#39;/tmp/foo&#39;</span> <span class="kw">do</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  source <span class="st">&#39;foo.erb&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  variables(<span class="st">x_men: &#39;are keen&#39;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">end</span></span></code></pre></div>
+<p>And a simple Embedded Ruby (ERB) template like this:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a><span class="dt">The</span> node &lt;%= node[<span class="st">:fqdn</span>] %&gt; thinks the x-men &lt;%= <span class="ot">@x_men</span> %&gt;</span></code></pre></div>
+<p>Would render something like:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a><span class="dt">The</span> node latte thinks the x-men are keen</span></code></pre></div>
+<p>Even though this is a very simple example, the full capabilities of Ruby can be used to tackle even the most complex and demanding template requirements.</p>

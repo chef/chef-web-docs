@@ -1,0 +1,76 @@
+<p>This example shows how to run chef-shell in standalone mode. (For chef-solo or Chef Infra Client modes, you would need to run chef-shell using the <code>-s</code> or <code>-z</code> command line options, and then take into consideration the necessary configuration settings.)</p>
+<p>When Chef Infra Client is installed using RubyGems or a package manager, chef-shell should already be installed. When Chef Infra Client is run from a git clone, it will be located in <code>chef/bin/chef shell</code>. To start chef-shell, just run it without any options. You'll see the loading message, then the banner, and then the chef-shell prompt:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a>$ <span class="ex">bin/chef-shell</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="ex">loading</span> configuration: none (standalone session)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  <span class="ex">Session</span> type: standalone</span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="ex">Loading..............done.</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="ex">This</span> is the chef-shell.</span>
+<span id="cb1-7"><a href="#cb1-7"></a>   <span class="ex">Chef</span> Version: 12.17.44</span>
+<span id="cb1-8"><a href="#cb1-8"></a>   <span class="ex">https</span>://www.chef.io/</span>
+<span id="cb1-9"><a href="#cb1-9"></a>   <span class="ex">/</span></span>
+<span id="cb1-10"><a href="#cb1-10"></a></span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="ex">run</span> <span class="kw">`</span><span class="ex">help</span><span class="st">&#39; for help, `exit&#39;</span> or ^D to quit.</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="ex">Ohai2u</span> YOURNAME@!</span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="ex">chef</span> (12.17.44)<span class="op">&gt;</span></span></code></pre></div>
+<p>(Use the help command to print a list of supported commands.) Use the recipe_mode command to switch to recipe context:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a>$ <span class="ex">chef</span> <span class="op">&gt;</span> recipe_mode</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="ex">chef</span>:recipe_mode <span class="op">&gt;</span></span></code></pre></div>
+<p>Typing is evaluated in the same context as recipes. Create a file resource:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a>$ <span class="ex">chef</span>:recipe_mode <span class="op">&gt;</span> file <span class="st">&quot;/tmp/ohai2u_shef&quot;</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>    =<span class="op">&gt;</span> <span class="co">#&lt;Chef::Resource::File:0x1b691ac</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>       <span class="ex">@enclosing_provider</span>=nil,</span>
+<span id="cb3-4"><a href="#cb3-4"></a>       <span class="ex">@resource_name</span>=:file,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>       <span class="ex">@before</span>=nil,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>       <span class="ex">@supports</span>={},</span>
+<span id="cb3-7"><a href="#cb3-7"></a>       <span class="ex">@backup</span>=5,</span>
+<span id="cb3-8"><a href="#cb3-8"></a>       <span class="ex">@allowed_actions</span>=[:nothing, :create, :delete, :touch, :create_if_missing],</span>
+<span id="cb3-9"><a href="#cb3-9"></a>       <span class="ex">@only_if</span>=nil,</span>
+<span id="cb3-10"><a href="#cb3-10"></a>       <span class="ex">@noop</span>=nil,</span>
+<span id="cb3-11"><a href="#cb3-11"></a>       <span class="ex">@collection</span>=#<span class="op">&lt;</span>Chef::ResourceCollection:0x1b9926c</span>
+<span id="cb3-12"><a href="#cb3-12"></a>       <span class="ex">@insert_after_idx</span>=nil,</span>
+<span id="cb3-13"><a href="#cb3-13"></a>       <span class="ex">@resources_by_name</span>=<span class="dt">{&quot;file[/tmp/ohai2u_shef]&quot;=&gt;0}</span>,</span>
+<span id="cb3-14"><a href="#cb3-14"></a>       <span class="ex">@resources</span>=[#<span class="op">&lt;</span>Chef::Resource::File:0x1b691ac ...<span class="op">&gt;</span>]<span class="op">&gt;</span>,</span>
+<span id="cb3-15"><a href="#cb3-15"></a>       <span class="ex">@updated</span>=false,</span>
+<span id="cb3-16"><a href="#cb3-16"></a>       <span class="ex">@provider</span>=nil,</span>
+<span id="cb3-17"><a href="#cb3-17"></a>       <span class="ex">@node</span>=<span class="op">&lt;</span>Chef::Node:0xdeeaae</span>
+<span id="cb3-18"><a href="#cb3-18"></a>       <span class="ex">@name</span>=<span class="st">&quot;eigenstate.local&quot;</span><span class="op">&gt;</span>,</span>
+<span id="cb3-19"><a href="#cb3-19"></a>       <span class="ex">@recipe_name</span>=nil,</span>
+<span id="cb3-20"><a href="#cb3-20"></a>       <span class="ex">@not_if</span>=nil,</span>
+<span id="cb3-21"><a href="#cb3-21"></a>       <span class="ex">@name</span>=<span class="st">&quot;/tmp/ohai2u_shef&quot;</span>,</span>
+<span id="cb3-22"><a href="#cb3-22"></a>       <span class="ex">@action</span>=<span class="st">&quot;create&quot;</span>,</span>
+<span id="cb3-23"><a href="#cb3-23"></a>       <span class="ex">@path</span>=<span class="st">&quot;/tmp/ohai2u_shef&quot;</span>,</span>
+<span id="cb3-24"><a href="#cb3-24"></a>       <span class="ex">@source_line</span>=<span class="st">&quot;/Users/username/ruby/chef/chef/(irb#1) line 1&quot;</span>,</span>
+<span id="cb3-25"><a href="#cb3-25"></a>       <span class="ex">@params</span>={},</span>
+<span id="cb3-26"><a href="#cb3-26"></a>       <span class="ex">@actions</span>={},</span>
+<span id="cb3-27"><a href="#cb3-27"></a>       <span class="ex">@cookbook_name</span>=nil,</span>
+<span id="cb3-28"><a href="#cb3-28"></a>       <span class="ex">@ignore_failure</span>=false<span class="op">&gt;</span></span></code></pre></div>
+<p>(The previous example was formatted for presentation.) At this point, chef-shell has created the resource and put it in the run-list, but not yet created the file. To initiate a Chef Infra Client run, use the <code>run_chef</code> command:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1"></a>$ <span class="ex">chef</span>:recipe_mode <span class="op">&gt;</span> run_chef</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  [<span class="ex">Fri</span>, 15 Jan 2010 10:42:47 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  [<span class="ex">Fri</span>, 15 Jan 2010 10:42:47 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  [<span class="ex">Fri</span>, 15 Jan 2010 10:42:47 -0800] INFO: Creating file[/tmp/ohai2u_shef] at /tmp/ohai2u_shef</span>
+<span id="cb4-5"><a href="#cb4-5"></a>    =<span class="op">&gt;</span> <span class="fu">true</span></span></code></pre></div>
+<p>chef-shell can also switch to the same context as attribute files. Set an attribute with the following syntax:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1"></a>$ <span class="ex">chef</span>:recipe_mode <span class="op">&gt;</span> attributes_mode</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="ex">chef</span>:attributes <span class="op">&gt;</span> set[:hello] = <span class="st">&quot;ohai2u-again&quot;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>    =<span class="op">&gt;</span> <span class="st">&quot;ohai2u-again&quot;</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a>  <span class="ex">chef</span>:attributes <span class="op">&gt;</span></span></code></pre></div>
+<p>Switch back to recipe_mode context and use the attributes:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1"></a>$ <span class="ex">chef</span>:attributes <span class="op">&gt;</span> recipe_mode</span>
+<span id="cb6-2"><a href="#cb6-2"></a>    =<span class="op">&gt;</span> :<span class="ex">attributes</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="ex">chef</span>:recipe_mode <span class="op">&gt;</span> file <span class="st">&quot;/tmp/#{node.hello}&quot;</span></span></code></pre></div>
+<p>Now, run Chef Infra Client again:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1"></a>$ <span class="ex">chef</span>:recipe_mode <span class="op">&gt;</span> run_chef</span>
+<span id="cb7-2"><a href="#cb7-2"></a>  [<span class="ex">Fri</span>, 15 Jan 2010 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  [<span class="ex">Fri</span>, 15 Jan 2010 10:53:22 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File</span>
+<span id="cb7-4"><a href="#cb7-4"></a>  [<span class="ex">Fri</span>, 15 Jan 2010 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u-again]</span>
+<span id="cb7-5"><a href="#cb7-5"></a>  [<span class="ex">Fri</span>, 15 Jan 2010 10:53:22 -0800] DEBUG: file[/tmp/ohai2u-again] using Chef::Provider::File</span>
+<span id="cb7-6"><a href="#cb7-6"></a>  [<span class="ex">Fri</span>, 15 Jan 2010 10:53:22 -0800] INFO: Creating file[/tmp/ohai2u-again] at /tmp/ohai2u-again</span>
+<span id="cb7-7"><a href="#cb7-7"></a>    =<span class="op">&gt;</span> <span class="fu">true</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>  <span class="ex">chef</span>:recipe_mode <span class="op">&gt;</span></span></code></pre></div>
+<p>Because the first resource (<code>file[/tmp/ohai2u_shef]</code>) is still in the run-list, it gets executed again. And because that file already exists, Chef Infra Client doesn't attempt to re-create it. Finally, the files were created using the <code>ls</code> method:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1"></a>$ <span class="ex">chef</span>:recipe_mode <span class="op">&gt;</span> ls(<span class="st">&quot;/tmp&quot;</span>)<span class="ex">.grep</span>(/ohai/)</span>
+<span id="cb8-2"><a href="#cb8-2"></a>    =<span class="op">&gt;</span> [<span class="st">&quot;ohai2u-again&quot;</span>, <span class="st">&quot;ohai2u_shef&quot;</span>]</span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="ex">Shell</span> Tutorial</span></code></pre></div>

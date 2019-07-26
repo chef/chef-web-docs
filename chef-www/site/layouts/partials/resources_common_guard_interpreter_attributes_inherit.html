@@ -1,0 +1,35 @@
+<p>The <code>guard_interpreter</code> property is set to <code>:default</code> by default for the <strong>bash</strong>, <strong>csh</strong>, <strong>perl</strong>, <strong>python</strong>, and <strong>ruby</strong> resources. When the <code>guard_interpreter</code> property is set to <code>:default</code>, <code>not_if</code> or <code>only_if</code> guard statements <strong>do not inherit</strong> properties that are defined by the <strong>script</strong>-based resource.</p>
+<div class="warning">
+<div class="admonition-title">
+<p>Warning</p>
+</div>
+<p>The <strong>batch</strong> and <strong>powershell_script</strong> resources inherit properties by default. The <code>guard_interpreter</code> property is set to <code>:batch</code> or <code>:powershell_script</code> automatically when using a <code>not_if</code> or <code>only_if</code> guard statement within a <strong>batch</strong> or <strong>powershell_script</strong> resource, respectively.</p>
+</div>
+<p>For example, the <code>not_if</code> guard statement in the following resource example <strong>does not inherit</strong> the <code>environment</code> property:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>bash <span class="st">&#39;javatooling&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  environment <span class="st">&#39;JAVA_HOME&#39;</span> =&gt; <span class="st">&#39;/usr/lib/java/jdk1.7/home&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  code <span class="st">&#39;java-based-daemon-ctl.sh -start&#39;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  not_if <span class="st">&#39;java-based-daemon-ctl.sh -test-started&#39;</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="kw">end</span></span></code></pre></div>
+<p>and requires adding the <code>environment</code> property to the <code>not_if</code> guard statement so that it may use the <code>JAVA_HOME</code> path as part of its evaluation:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>bash <span class="st">&#39;javatooling&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  environment <span class="st">&#39;JAVA_HOME&#39;</span> =&gt; <span class="st">&#39;/usr/lib/java/jdk1.7/home&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  code <span class="st">&#39;java-based-daemon-ctl.sh -start&#39;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  not_if <span class="st">&#39;java-based-daemon-ctl.sh -test-started&#39;</span>, <span class="st">:environment</span> =&gt; <span class="st">&#39;JAVA_HOME&#39;</span> =&gt; <span class="st">&#39;/usr/lib/java/jdk1.7/home&#39;</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">end</span></span></code></pre></div>
+<p>To inherit properties, add the <code>guard_interpreter</code> property to the resource block and set it to the appropriate value:</p>
+<ul>
+<li><code>:bash</code> for <strong>bash</strong></li>
+<li><code>:csh</code> for <strong>csh</strong></li>
+<li><code>:perl</code> for <strong>perl</strong></li>
+<li><code>:python</code> for <strong>python</strong></li>
+<li><code>:ruby</code> for <strong>ruby</strong></li>
+</ul>
+<p>For example, using the same example as from above, but this time adding the <code>guard_interpreter</code> property and setting it to <code>:bash</code>:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>bash <span class="st">&#39;javatooling&#39;</span> <span class="kw">do</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  guard_interpreter <span class="st">:bash</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  environment <span class="st">&#39;JAVA_HOME&#39;</span> =&gt; <span class="st">&#39;/usr/lib/java/jdk1.7/home&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  code <span class="st">&#39;java-based-daemon-ctl.sh -start&#39;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>  not_if <span class="st">&#39;java-based-daemon-ctl.sh -test-started&#39;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="kw">end</span></span></code></pre></div>
+<p>The <code>not_if</code> statement now inherits the <code>environment</code> property and will use the <code>JAVA_HOME</code> path as part of its evaluation.</p>

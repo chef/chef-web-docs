@@ -1,0 +1,120 @@
+For back-end servers in a tiered Chef Infra Server installation, ensure
+that ports marked as external (marked as `yes` in the **External**
+column) are open and accessible via any firewalls that are in use:
+
+<table>
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 77%" />
+<col style="width: 11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Port</th>
+<th>Service Name, Description</th>
+<th>External</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>80, 443, 9683</td>
+<td><strong>nginx</strong></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+The **nginx** service is used to manage traffic to the Chef Infra
+Server, including virtual hosts for internal and external API
+request/response routing, external add-on request routing, and routing
+between front- and back-end components.
+
+> <div class="note" markdown="1">
+>
+> <div class="admonition-title" markdown="1">
+>
+> Note
+>
+> </div>
+>
+> Port 9683 is used to internally load balance the **oc_bifrost**
+> service.
+>
+> </div>
+
+> -   yes
+
+> -   -   9463
+>     -   **oc_bifrost**
+>
+The **oc_bifrost** service ensures that every request to view or manage
+objects stored on the Chef Infra Server is authorized.
+
+> -   
+
+> -   -   8983
+>     -   **opscode-solr4**
+>
+The **opscode-solr4** service is used to create the search indexes used
+for searching objects like nodes, data bags, and cookbooks. (This
+service ensures timely search results via the Chef Infra Server API;
+data that is used by the Chef platform is stored in PostgreSQL.)
+
+> -   
+
+> -   -   5432
+>     -   **postgresql**
+>
+The **postgresql** service is used to store node, object, and user data.
+
+> -   
+
+> -   -   5672, 15672
+>     -   **rabbitmq**
+>
+The **rabbitmq** service is used to provide the message queue that is
+used by the Chef Infra Server to get search data to Apache Solr so that
+it can be indexed for search.
+
+> -   
+
+> -   -   16379
+>     -   **redis_lb**
+>
+Key-value store used in conjunction with Nginx to route requests and
+populate request data used by the Chef Infra Server.
+
+> -   
+
+> -   -   4321
+>     -   **bookshelf**
+>
+The **bookshelf** service is an Amazon Simple Storage Service
+(S3)-compatible service that is used to store cookbooks, including all
+of the files---recipes, templates, and so on---that are associated with
+each cookbook.
+
+> -   
+
+> -   -   8000
+>     -   **opscode-erchef**
+>
+The **opscode-erchef** service is an Erlang-based service that is used
+to handle Chef Infra Server API requests to the following areas within
+the Chef Infra Server:
+
+-   Cookbooks
+
+-   Data bags
+
+-   Environments
+
+-   Nodes
+
+-   Roles
+
+-   Sandboxes
+
+-   Search
+
+    > -   

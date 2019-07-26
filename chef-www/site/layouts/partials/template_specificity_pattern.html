@@ -1,0 +1,21 @@
+<p>The pattern for template specificity depends on two things: the lookup path and the source. The first pattern that matches is used:</p>
+<ol>
+<li><code>/host-$fqdn/$source</code></li>
+<li><code>/$platform-$platform_version/$source</code></li>
+<li><code>/$platform/$source</code></li>
+<li><code>/default/$source</code></li>
+<li><code>/$source</code></li>
+</ol>
+<p>Use an array with the <code>source</code> property to define an explicit lookup path. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>template <span class="st">&#39;/test&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  source [<span class="st">&quot;</span><span class="ot">#{</span>node.chef_environment<span class="ot">}</span><span class="st">.erb&quot;</span>, <span class="st">&#39;default.erb&#39;</span>]</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div>
+<p>The following example emulates the entire file specificity pattern by defining it as an explicit path:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>template <span class="st">&#39;/test&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  source <span class="ot">%W(</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="st">    host-#{node[&#39;fqdn&#39;]}/test.erb</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="st">    #{node[&#39;platform&#39;]}-#{node[&#39;platform_version&#39;]}/test.erb</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="st">    #{node[&#39;platform&#39;]}/test.erb</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="st">    default/test.erb</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="st">  </span><span class="ot">)</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="kw">end</span></span></code></pre></div>

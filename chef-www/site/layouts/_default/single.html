@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ partial "docs/mini-toc" . }}
+<div class="js-toc-content">
+<h1>{{ .Title }}</h1>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</div>
+<script src="/tocbot.js"></script>
+
+<!-- tocbot options: https://tscanlin.github.io/tocbot/#options -->
+<script type="text/javascript">
+tocbot.init({
+// Where to render the table of contents.
+tocSelector: '.js-toc',
+// Where to grab the headings to build the table of contents.
+contentSelector: '.js-toc-content',
+// Which headings to grab inside of the contentSelector element.
+headingSelector: 'h1, h2, h3',
+orderedList: false,
+// 
+});
+</script>
+
+{{ end }}

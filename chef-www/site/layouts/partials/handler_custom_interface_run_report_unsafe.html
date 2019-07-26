@@ -1,0 +1,5 @@
+<p>The <code>run_report_unsafe</code> method is used to run the report handler without any error handling. This method should never be used directly in any handler, except during testing of that handler. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> run_report_unsafe(run_status)</span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="ot">@run_status</span> = run_status</span>
+<span id="cb1-3"><a href="#cb1-3"></a>  report</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">end</span></span></code></pre></div>

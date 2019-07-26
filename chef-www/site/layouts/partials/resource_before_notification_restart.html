@@ -1,0 +1,6 @@
+<p>This example uses the <code>:before</code> notification to restart the <code>php-fpm</code> service before restarting <code>nginx</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>service <span class="st">&#39;nginx&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  action <span class="st">:restart</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  notifies <span class="st">:restart</span>, <span class="st">&#39;service[php-fpm]&#39;</span>, <span class="st">:before</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">end</span></span></code></pre></div>
+<p>With the <code>:before</code> notification, the action specified for the <code>nginx</code> resource will not run until action has been taken on the notified resource (<code>php-fpm</code>).</p>

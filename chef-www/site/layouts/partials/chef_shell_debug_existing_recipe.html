@@ -1,0 +1,24 @@
+<p>chef-shell can be used to debug existing recipes. The recipe first needs to be added to a run-list for the node, so that it is cached when starting chef-shell and then used for debugging. chef-shell will report which recipes are being cached when it is started:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1"></a><span class="ex">loading</span> configuration: none (standalone session)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="ex">Session</span> type: standalone</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="ex">Loading..............done.</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a></span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="ex">This</span> is the chef-shell.</span>
+<span id="cb1-6"><a href="#cb1-6"></a> <span class="ex">Chef</span> Version: 12.17.44</span>
+<span id="cb1-7"><a href="#cb1-7"></a> <span class="ex">https</span>://www.chef.io/</span>
+<span id="cb1-8"><a href="#cb1-8"></a> <span class="ex">/</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="ex">run</span> <span class="kw">`</span><span class="ex">help</span><span class="st">&#39; for help, `exit&#39;</span> or ^D to quit.</span>
+<span id="cb1-11"><a href="#cb1-11"></a></span>
+<span id="cb1-12"><a href="#cb1-12"></a><span class="ex">Ohai2u</span> YOURNAME@!</span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="ex">chef</span> (12.17.44)<span class="op">&gt;</span></span></code></pre></div>
+<p>To just load one recipe from the run-list, go into the recipe and use the <code>include_recipe</code> command. For example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a>$ <span class="ex">chef</span> <span class="op">&gt;</span> recipe_mode</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="ex">chef</span>:recipe <span class="op">&gt;</span> include_recipe <span class="st">&quot;getting-started&quot;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>    =<span class="op">&gt;</span> [#<span class="op">&lt;</span><span class="ex">Chef</span>::Recipe:0x10256f9e8 @cookbook_name=<span class="st">&quot;getting-started&quot;</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="ex">...</span> output truncated ...</span></code></pre></div>
+<p>To load all of the recipes from a run-list, use code similar to the following:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>node.run_list.expand(node.chef_environment).recipes.each <span class="kw">do</span> |r|</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  include_recipe r</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div>
+<p>After the recipes that are to be debugged have been loaded, use the <code>run_chef</code> command to run them.</p>

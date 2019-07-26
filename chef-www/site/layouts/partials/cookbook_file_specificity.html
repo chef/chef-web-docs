@@ -1,0 +1,48 @@
+<p>A cookbook is frequently designed to work across many platforms and is often required to distribute a specific file to a specific platform. A cookbook can be designed to support the distribution of files across platforms, while ensuring that the correct file ends up on each system.</p>
+<p>The pattern for file specificity depends on two things: the lookup path and the source attribute. The first pattern that matches is used:</p>
+<ol>
+<li>/host-$fqdn/$source</li>
+<li>/$platform-$platform_version/$source</li>
+<li>/$platform/$source</li>
+<li>/default/$source</li>
+<li>/$source</li>
+</ol>
+<p>Use an array with the <code>source</code> attribute to define an explicit lookup path. For example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>file <span class="st">&#39;/conf.py&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  source [<span class="st">&#39;#{node.chef_environment}.py&#39;</span>, <span class="st">&#39;conf.py&#39;</span>]</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">end</span></span></code></pre></div>
+<p>The following example emulates the entire file specificity pattern by defining it as an explicit path:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>file <span class="st">&#39;/conf.py&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  source <span class="ot">%W{</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="st">    host-#{node[&#39;fqdn&#39;]}/conf.py</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="st">    #{node[&#39;platform&#39;]}-#{node[&#39;platform_version&#39;]}/conf.py</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="st">    #{node[&#39;platform&#39;]}/conf.py</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="st">    default/conf.py</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a><span class="st">  </span><span class="ot">}</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="kw">end</span></span></code></pre></div>
+<p>A cookbook may have a <code>/files</code> directory structure like this:</p>
+<pre><code>files/
+   host-foo.example.com
+   ubuntu-16.04
+   ubuntu-16
+   ubuntu
+   redhat-5.11
+   redhat-6.9
+   ...
+   default</code></pre>
+<p>and a resource that looks something like the following:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>cookbook_file <span class="st">&#39;/usr/local/bin/apache2_module_conf_generate.pl&#39;</span> <span class="kw">do</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  source <span class="st">&#39;apache2_module_conf_generate.pl&#39;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  mode <span class="st">&#39;0755&#39;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>  owner <span class="st">&#39;root&#39;</span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>  group <span class="st">&#39;root&#39;</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a><span class="kw">end</span></span></code></pre></div>
+<p>This resource is matched in the same order as the <code>/files</code> directory structure. For a node that is running Ubuntu 16.04, the second item would be the matching item and the location to which the file identified in the <strong>cookbook_file</strong> resource would be distributed:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>host-foo.example.com/apache2_module_conf_generate.pl</span>
+<span id="cb5-2"><a href="#cb5-2"></a>ubuntu<span class="dv">-16</span>.<span class="bn">04</span>/apache2_module_conf_generate.pl</span>
+<span id="cb5-3"><a href="#cb5-3"></a>ubuntu<span class="dv">-16</span>/apache2_module_conf_generate.pl</span>
+<span id="cb5-4"><a href="#cb5-4"></a>ubuntu/apache2_module_conf_generate.pl</span>
+<span id="cb5-5"><a href="#cb5-5"></a>default/apache2_module_conf_generate.pl</span></code></pre></div>
+<p>If the <code>apache2_module_conf_generate.pl</code> file was located in the cookbook directory under <code>files/host-foo.example.com/</code>, the specified file(s) would only be copied to the machine with the domain name foo.example.com.</p>
+<p><strong>Host Notation</strong></p>
+<p>The naming of folders within cookbook directories must literally match the host notation used for file specificity matching. For example, if a host is named <code>foo.example.com</code>, the folder must be named <code>host-foo.example.com</code>.</p>

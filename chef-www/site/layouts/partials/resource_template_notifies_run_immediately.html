@@ -1,0 +1,10 @@
+<p>By default, notifications are <code>:delayed</code>, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use <code>:immediately</code>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>template <span class="st">&#39;/etc/nagios3/configures-nagios.conf&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  <span class="co"># other parameters</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  notifies <span class="st">:run</span>, <span class="st">&#39;execute[test-nagios-config]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">end</span></span></code></pre></div>
+<p>and then Chef Infra Client would immediately run the following:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>execute <span class="st">&#39;test-nagios-config&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  command <span class="st">&#39;nagios3 --verify-config&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  action <span class="st">:nothing</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">end</span></span></code></pre></div>

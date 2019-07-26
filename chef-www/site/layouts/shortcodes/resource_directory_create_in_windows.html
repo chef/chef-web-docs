@@ -1,0 +1,32 @@
+``` ruby
+directory "C:\\tmp\\something" do
+  rights :full_control, "DOMAIN\\User"
+  inherits false
+  action :create
+end
+```
+
+or:
+
+``` ruby
+directory 'C:\tmp\something' do
+  rights :full_control, 'DOMAIN\User'
+  inherits false
+  action :create
+end
+```
+
+<div class="note" markdown="1">
+
+<div class="admonition-title" markdown="1">
+
+Note
+
+</div>
+
+The difference between the two previous examples is the single- versus
+double-quoted strings, where if the double quotes are used, the
+backslash character (`\`) must be escaped using the Ruby escape
+character (which is a backslash).
+
+</div>

@@ -1,0 +1,42 @@
+<p>The syntax for a handler can vary, depending on what the the situations the handler is being asked to track, the type of handler being used, and so on. All custom exception and report handlers are defined using Ruby and must be a subclass of the <code>Chef::Handler</code> class.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>require <span class="st">&#39;chef/log&#39;</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a></span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">module</span> <span class="dt">ModuleName</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a>  <span class="kw">class</span> <span class="dt">HandlerName</span> &lt; <span class="dt">Chef</span>::<span class="dt">Handler</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>    <span class="kw">def</span> report</span>
+<span id="cb1-6"><a href="#cb1-6"></a>      <span class="co"># Ruby code goes here</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>    <span class="kw">end</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="kw">end</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">end</span></span></code></pre></div>
+<p>where:</p>
+<ul>
+<li><code>require</code> ensures that the logging functionality of Chef Infra Client is available to the handler</li>
+<li><code>ModuleName</code> is the name of the module as it exists within the <code>Chef</code> library</li>
+<li><code>HandlerName</code> is the name of the handler as it is used in a recipe</li>
+<li><code>report</code> is an interface that is used to define the custom handler</li>
+</ul>
+<p>For example, the following shows a custom handler that sends an email that contains the exception data when a Chef Infra Client run fails:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>require <span class="st">&#39;net/smtp&#39;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a></span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="kw">module</span> <span class="dt">OrgName</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="kw">class</span> <span class="dt">SendEmail</span> &lt; <span class="dt">Chef</span>::<span class="dt">Handler</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="kw">def</span> report</span>
+<span id="cb2-6"><a href="#cb2-6"></a>      <span class="kw">if</span> run_status.failed? <span class="kw">then</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>        message  = <span class="st">&quot;From: sender_name &lt;sender@example.com&gt;\n&quot;</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>        message &lt;&lt; <span class="st">&quot;To: recipient_address &lt;recipient@example.com&gt;\n&quot;</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>        message &lt;&lt; <span class="st">&quot;Subject: chef-client Run Failed\n&quot;</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>        message &lt;&lt; <span class="st">&quot;Date: </span><span class="ot">#{</span><span class="dt">Time</span>.now.rfc2822<span class="ot">}</span><span class="st">\n\n&quot;</span></span>
+<span id="cb2-11"><a href="#cb2-11"></a>        message &lt;&lt; <span class="st">&quot;Chef run failed on </span><span class="ot">#{</span>node.name<span class="ot">}</span><span class="st">\n&quot;</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a>        message &lt;&lt; <span class="st">&quot;</span><span class="ot">#{</span>run_status.formatted_exception<span class="ot">}</span><span class="st">\n&quot;</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a>        message &lt;&lt; <span class="dt">Array</span>(backtrace).join(<span class="ch">&#39;\n&#39;</span>)</span>
+<span id="cb2-14"><a href="#cb2-14"></a>        <span class="dt">Net</span>::<span class="dt">SMTP</span>.start(<span class="st">&#39;your.smtp.server&#39;</span>, <span class="dv">25</span>) <span class="kw">do</span> |smtp|</span>
+<span id="cb2-15"><a href="#cb2-15"></a>          smtp.send_message message, <span class="st">&#39;sender@example&#39;</span>, <span class="st">&#39;recipient@example&#39;</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>        <span class="kw">end</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a>      <span class="kw">end</span></span>
+<span id="cb2-18"><a href="#cb2-18"></a>    <span class="kw">end</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a>  <span class="kw">end</span></span>
+<span id="cb2-20"><a href="#cb2-20"></a><span class="kw">end</span></span></code></pre></div>
+<p>and then is used in a recipe like:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>send_email <span class="st">&#39;blah&#39;</span> <span class="kw">do</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="co"># recipe code</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="kw">end</span></span></code></pre></div>

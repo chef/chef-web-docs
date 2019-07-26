@@ -1,0 +1,21 @@
+<p>The <strong>remote_directory</strong> resource can be used to recursively create the path outside of remote directory structures, but the permissions of those outside paths are not managed. This is because the <code>recursive</code> attribute only applies <code>group</code>, <code>mode</code>, and <code>owner</code> attribute values to the remote directory itself and any inner directories the resource copies.</p>
+<p>A directory structure:</p>
+<pre><code>/foo
+  /bar
+    /baz</code></pre>
+<p>The following example shows a way create a file in the <code>/baz</code> directory:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>remote_directory <span class="st">&quot;/foo/bar/baz&quot;</span> <span class="kw">do</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  owner <span class="st">&#39;root&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  group <span class="st">&#39;root&#39;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  mode <span class="st">&#39;0755&#39;</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  action <span class="st">:create</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="kw">end</span></span></code></pre></div>
+<p>But with this example, the <code>group</code>, <code>mode</code>, and <code>owner</code> attribute values will only be applied to <code>/baz</code>. Which is fine, if that's what you want. But most of the time, when the entire <code>/foo/bar/baz</code> directory structure is not there, you must be explicit about each directory. For example:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a><span class="ot">%w[</span><span class="st"> /foo /foo/bar /foo/bar/baz </span><span class="ot">]</span>.each <span class="kw">do</span> |path|</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  remote_directory path <span class="kw">do</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>    owner <span class="st">&#39;root&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>    group <span class="st">&#39;root&#39;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a>    mode <span class="st">&#39;0755&#39;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="kw">end</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="kw">end</span></span></code></pre></div>
+<p>This approach will create the correct hierarchy---<code>/foo</code>, then <code>/bar</code> in <code>/foo</code>, and then <code>/baz</code> in <code>/bar</code>---and also with the correct attribute values for <code>group</code>, <code>mode</code>, and <code>owner</code>.</p>

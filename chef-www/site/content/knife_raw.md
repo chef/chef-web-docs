@@ -1,0 +1,133 @@
++++
+title = "knife raw"
+description = "DESCRIPTION"
+draft = false
+
+aliases = "/knife_raw.html"
+
+[menu]
+  [menu.docs]
+    title = "knife raw"
+    identifier = "knife raw/knife_raw.html"
+    parent = "chefdk/knife"
+    weight = 200
++++    
+
+[\[edit on
+GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_raw.rst)
+
+{{% knife_raw_summary %}}
+
+Syntax
+======
+
+This subcommand has the following syntax:
+
+``` bash
+$ knife raw REQUEST_PATH (options)
+```
+
+Options
+=======
+
+<div class="note" markdown="1">
+
+<div class="admonition-title" markdown="1">
+
+Note
+
+</div>
+
+{{% knife_common_see_common_options_link %}}
+
+</div>
+
+This subcommand has the following options:
+
+`-i FILE`, `--input FILE`
+
+:   The name of a file to be used with the `PUT` or a `POST` request.
+
+`--[no-]pretty`
+
+:   Use `--no-pretty` to disable pretty-print output for JSON. Default:
+    `--pretty`.
+
+`-m METHOD`, `--method METHOD`
+
+:   The request method: `DELETE`, `GET`, `POST`, or `PUT`. Default
+    value: `GET`.
+
+`--proxy-auth`
+
+:   Enable proxy authentication to the Chef Infra Server web user
+    interface. Default value: `false`.
+
+<div class="note" markdown="1">
+
+<div class="admonition-title" markdown="1">
+
+Note
+
+</div>
+
+{{% knife_common_see_all_config_options %}}
+
+</div>
+
+Examples
+========
+
+The following examples show how to use this knife subcommand:
+
+**View a client**
+
+To view information about a client:
+
+``` bash
+knife raw /clients/<client_name>
+```
+
+**View a node**
+
+To view information about a node:
+
+``` bash
+knife raw /nodes/<node_name>
+```
+
+**Delete a data bag**
+
+To delete a data bag, enter a command similar to:
+
+``` bash
+$ knife raw -m DELETE /data/foo
+```
+
+to return something similar to:
+
+``` bash
+{
+  "name":"foo",
+  "json_class":"Chef::DataBag",
+  "chef_type":"data_bag"
+}
+```
+
+**Delete a role**
+
+To delete a role, enter a command similar to:
+
+``` bash
+$ knife raw -m DELETE /roles/role-foo.json
+```
+
+to return something similar to:
+
+``` bash
+{
+  "name":"role-foo",
+  "json_class":"Chef::Role",
+  "chef_type":"role"
+}
+```

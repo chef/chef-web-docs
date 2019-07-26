@@ -1,0 +1,26 @@
+<p>A template named <code>gemrc.erb</code> is located in a cookbook's <code>/templates</code> directory:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="st">:sources</span>:</span>
+<span id="cb1-2"><a href="#cb1-2"></a>- http:<span class="ot">//</span>&lt;%= node[<span class="st">&#39;gem_file&#39;</span>][<span class="st">&#39;host&#39;</span>] %&gt;:&lt;%= node[<span class="st">&#39;gem_file&#39;</span>][<span class="st">&#39;port&#39;</span>] %&gt;<span class="ot">/</span></span></code></pre></div>
+<p>A recipe can be built that does the following:</p>
+<ul>
+<li>Builds a <code>.gemrc</code> file based on a <code>gemrc.erb</code> template</li>
+<li>Runs a <code>Gem.configuration</code> command</li>
+<li>Installs a package using the <code>.gemrc</code> file</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>template <span class="st">&#39;/root/.gemrc&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  source <span class="st">&#39;gemrc.erb&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  action <span class="st">:create</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  notifies <span class="st">:run</span>, <span class="st">&#39;ruby_block[refresh_gemrc]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="kw">end</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a></span>
+<span id="cb2-7"><a href="#cb2-7"></a>ruby_block <span class="st">&#39;refresh_gemrc&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>  action <span class="st">:nothing</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>  block <span class="kw">do</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>    <span class="dt">Gem</span>.configuration = <span class="dt">Gem</span>::<span class="dt">ConfigFile</span>.new []</span>
+<span id="cb2-11"><a href="#cb2-11"></a>  <span class="kw">end</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="kw">end</span></span>
+<span id="cb2-13"><a href="#cb2-13"></a></span>
+<span id="cb2-14"><a href="#cb2-14"></a>gem_package <span class="st">&#39;di-ruby-lvm&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-15"><a href="#cb2-15"></a>  gem_binary <span class="st">&#39;/opt/chef/embedded/bin/gem&#39;</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>  action <span class="st">:install</span></span>
+<span id="cb2-17"><a href="#cb2-17"></a><span class="kw">end</span></span></code></pre></div>

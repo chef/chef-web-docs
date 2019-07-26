@@ -1,0 +1,15 @@
+<p>Use the <code>registry_has_subkeys?</code> method to find out if a Microsoft Windows registry key has one (or more) values.</p>
+<div class="note">
+<div class="admonition-title">
+<p>Note</p>
+</div>
+</div>
+<p>This method can be used in recipes and from within the <code>not_if</code> and <code>only_if</code> blocks in resources. This method is not designed to create or modify a registry key. If a registry key needs to be modified, use the <strong>registry_key</strong> resource.</p>
+<p>The syntax for the <code>registry_has_subkeys?</code> method is as follows:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>registry_has_subkeys?(<span class="dt">KEY_PATH</span>, <span class="dt">ARCHITECTURE</span>)</span></code></pre></div>
+<p>where:</p>
+<ul>
+<li><code>KEY_PATH</code> is the path to the registry key. The path must include the registry hive, which can be specified either as its full name or as the 3- or 4-letter abbreviation. For example, both <code>HKLM\SECURITY</code> and <code>HKEY_LOCAL_MACHINE\SECURITY</code> are both valid and equivalent. The following hives are valid: <code>HKEY_LOCAL_MACHINE</code>, <code>HKLM</code>, <code>HKEY_CURRENT_CONFIG</code>, <code>HKCC</code>, <code>HKEY_CLASSES_ROOT</code>, <code>HKCR</code>, <code>HKEY_USERS</code>, <code>HKU</code>, <code>HKEY_CURRENT_USER</code>, and <code>HKCU</code>.</li>
+<li><code>ARCHITECTURE</code> is one of the following values: <code>:x86_64</code>, <code>:i386</code>, or <code>:machine</code>. Set to <code>:i386</code> to read or write 32-bit registry keys on 64-bit machines running Microsoft Windows. Set to<code>:x86_64</code> to force write to a 64-bit registry location, however Chef Infra Client returns an exception if <code>:x86_64</code> is used on a 32-bit machine. Set to <code>:machine</code> to allow Chef Infra Client to allow Chef Infra Client to use the appropriate key location based on your node’s architecture. Default value: <code>:machine</code>.</li>
+</ul>
+<p>This method will return <code>true</code> or <code>false</code>.</p>

@@ -1,0 +1,23 @@
+<p>By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The <code>inherits</code> property can be used to specifically tell Chef Infra Client to apply (or not apply) inherited rights from its parent directory.</p>
+<p>For example, the following example specifies the rights for a directory:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>directory <span class="st">&#39;C:\mordor&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  rights <span class="st">:read</span>, <span class="st">&#39;MORDOR\Minions&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  rights <span class="st">:full_control</span>, <span class="st">&#39;MORDOR\Sauron&#39;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">end</span></span></code></pre></div>
+<p>and then the following example specifies how to use inheritance to deny access to the child directory:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>directory <span class="st">&#39;C:\mordor\mount_doom&#39;</span> <span class="kw">do</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>  rights <span class="st">:full_control</span>, <span class="st">&#39;MORDOR\Sauron&#39;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  inherits <span class="dv">false</span> <span class="co"># Sauron is the only person who should have any sort of access</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="kw">end</span></span></code></pre></div>
+<p>If the <code>deny_rights</code> permission were to be used instead, something could slip through unless all users and groups were denied.</p>
+<p>Another example also shows how to specify rights for a directory:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>directory <span class="st">&#39;C:\mordor&#39;</span> <span class="kw">do</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>  rights <span class="st">:read</span>, <span class="st">&#39;MORDOR\Minions&#39;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>  rights <span class="st">:full_control</span>, <span class="st">&#39;MORDOR\Sauron&#39;</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>  rights <span class="st">:write</span>, <span class="st">&#39;SHIRE\Frodo&#39;</span> <span class="co"># Who put that there I didn&#39;t put that there</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="kw">end</span></span></code></pre></div>
+<p>but then not use the <code>inherits</code> property to deny those rights on a child directory:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>directory <span class="st">&#39;C:\mordor\mount_doom&#39;</span> <span class="kw">do</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>  deny_rights <span class="st">:read</span>, <span class="st">&#39;MORDOR\Minions&#39;</span> <span class="co"># Oops, not specific enough</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="kw">end</span></span></code></pre></div>
+<p>Because the <code>inherits</code> property is not specified, Chef Infra Client will default it to <code>true</code>, which will ensure that security settings for existing files remain unchanged.</p>

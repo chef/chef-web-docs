@@ -1,0 +1,11 @@
+<p>To reload a service that is based on a template, use the <strong>template</strong> and <strong>service</strong> resources together in the same recipe, similar to the following:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>template <span class="st">&#39;/tmp/somefile&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>  mode <span class="st">&#39;0755&#39;</span></span>
+<span id="cb1-3"><a href="#cb1-3"></a>  source <span class="st">&#39;somefile.erb&#39;</span></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">end</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>service <span class="st">&#39;apache&#39;</span> <span class="kw">do</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a>  action <span class="st">:enable</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>  subscribes <span class="st">:reload</span>, <span class="st">&#39;template[/tmp/somefile]&#39;</span>, <span class="st">:immediately</span></span>
+<span id="cb1-9"><a href="#cb1-9"></a><span class="kw">end</span></span></code></pre></div>
+<p>where the <code>subscribes</code> notification is used to reload the service whenever the template is modified.</p>
