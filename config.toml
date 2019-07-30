@@ -9,7 +9,7 @@ theme = "chef-hugo-theme"
 # themesDir = ""
 themesDir = "../../../hugo-themes/chef/"
 
-PygmentsCodeFences = true 
+PygmentsCodeFences = true
 pygmentsUseClasses = true
 
 [params]
@@ -18,7 +18,7 @@ pygmentsUseClasses = true
 [taxonomies]
   category = "categories"
   tag = "tags"
-  resource = "resources"  
+  resource = "resources"
 
 ## Main Menu ##
 
