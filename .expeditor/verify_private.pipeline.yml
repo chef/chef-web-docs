@@ -1,0 +1,6 @@
+steps:
+- label: "empty"
+  command: echo "This pipeline is still a WIP"
+  expeditor:
+    executor:
+      docker:
