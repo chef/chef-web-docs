@@ -13,8 +13,7 @@ init:
 	$(info AWS VPC............delivered)
 	$(info Terraform State....$(TF_STATE))
 	$(info Terraform Vars.....$(TF_VARS))
-	$(info Habitat Channel....$(TF_VAR_channel))
-	$(info Website URL........docs-$(TF_VAR_dns_suffix))
+	$(info Habitat Channel....$(CHANNEL))
 	$(info ===============================================================)
 	$(info )
 
