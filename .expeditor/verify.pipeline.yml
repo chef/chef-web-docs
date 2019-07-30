@@ -1,21 +1,12 @@
 steps:
 
-  # Make sure that Sphinx builds successfully
-  - label: Sphinx
+  - label: ":terraform:"
     command:
-      - make docs
+      - cd terraform && make lint
+    timeout_in_minutes: 10
     retry:
       automatic:
         limit: 1
-    plugins:
-      docker#v1.1.1:
-        image: "chefes/buildkite"
-
-  - label: ":terraform:"
-    commands:
-      - cd terraform
-      - terraform fmt -check=true -list=true -diff=true
-      - terraform validate -check-variables=false
-    plugins:
-      docker#v1.1.1:
-        image: "chefes/buildkite"
+    expeditor:
+      executor:
+        docker:

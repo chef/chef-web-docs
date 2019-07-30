@@ -1,0 +1,815 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Chef Web Docs"
+theme = "chef"
+
+# To develop against a local copy of the chef hugo theme, uncomment this line
+# and set the value to the parent directory of where you have checked out the
+# chef-hugo-theme repository
+# themesDir = "../../../hugo-themes/chef/"
+
+PygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  enable_search = true
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  resource = "resources"
+
+## Main Menu ##
+
+[[menu.main]]
+name = "Learn Chef"
+url = "https://learn.chef.io/"
+weight = 10
+
+[[menu.main]]
+name = "Tutorials"
+url = "https://learn.chef.io/tutorials"
+weight = 20
+
+[[menu.main]]
+name = "Skills Library"
+url = "https://learn.chef.io/skills/"
+weight = 30
+
+[[menu.main]]
+name = "Docs"
+url = "/"
+weight = 40
+
+[[menu.main]]
+name = "Training"
+weight = 50
+url = "https://www.chef.io/training/"
+
+## Docs Menu ##
+
+
+[[menu.docs]]
+title = "Overview"
+identifier = "overview"
+weight = 20
+
+  [[menu.docs]]
+  title = "Community"
+  identifier = "overview/community"
+  parent = "overview"
+  weight = 20
+
+  [[menu.docs]]
+  title = "Packages & Platforms"
+  identifier = "overview/packages & platforms"
+  parent = "overview"
+  weight = 30
+
+    [[menu.docs]]
+    title = "Licensing"
+    identifier = "packages & platforms/licensing"
+    parent = "overview/packages & platforms"
+    weight = 50
+
+[[menu.docs]]
+title = "Chef Infra"
+identifier = "chef infra"
+weight = 30
+
+  [[menu.docs]]
+  title = "Getting Started"
+  identifier = "chef infra/getting started"
+  parent = "chef infra"
+  weight = 10
+
+    [[menu.docs]]
+    title = "Chef on Azure Guide"
+    identifier = "getting started/chef on azure guide"
+    parent = "chef infra/getting started"
+    weight = 60
+
+    [[menu.docs]]
+    title = "Chef on Windows Guide"
+    identifier = "getting started/chef on windows guide"
+    parent = "chef infra/getting started"
+    weight = 70
+
+  [[menu.docs]]
+  title = "Concepts"
+  identifier = "chef infra/concepts"
+  parent = "chef infra"
+  weight = 20
+
+    [[menu.docs]]
+    title = "Policy"
+    identifier = "concepts/policy"
+    parent = "chef infra/concepts"
+    weight = 90
+
+    [[menu.docs]]
+    title = "Authentication"
+    identifier = "authentication/auth.html#authentication"
+    parent = "chef infra/concepts"
+    url = "/auth/#authentication"
+    weight = 110
+
+    [[menu.docs]]
+    title = "Authorization"
+    identifier = "authorization/auth.html#authorization"
+    parent = "chef infra/concepts"
+    url = "/auth/#authorization"
+    weight = 120
+
+    [[menu.docs]]
+    title = "Supermarket"
+    identifier = "concepts/supermarket"
+    parent = "chef infra/concepts"
+    weight = 130
+
+      [[menu.docs]]
+      title = "Public Supermarket"
+      identifier = "public supermarket/supermarket.html#public-supermarket"
+      parent = "concepts/supermarket"
+      url = "/supermarket/#public-supermarket"
+      weight = 20
+
+      [[menu.docs]]
+      title = "Private Supermarket"
+      identifier = "private supermarket/supermarket.html#private-supermarket"
+      parent = "concepts/supermarket"
+      url = "/supermarket/#private-supermarket"
+      weight = 30
+
+  [[menu.docs]]
+  title = "Features"
+  identifier = "chef infra/features"
+  parent = "chef infra"
+  weight = 30
+
+    [[menu.docs]]
+    title = "Management Console"
+    identifier = "features/management console"
+    parent = "chef infra/features"
+    weight = 20
+
+      [[menu.docs]]
+      title = "Users"
+      identifier = "users/server_users.html#chef-manage"
+      parent = "features/management console"
+      url = "/server_users/#chef-manage"
+      weight = 90
+
+  [[menu.docs]]
+  title = "Setup"
+  identifier = "chef infra/setup"
+  parent = "chef infra"
+  weight = 50
+
+    [[menu.docs]]
+    title = "Nodes"
+    identifier = "setup/nodes"
+    parent = "chef infra/setup"
+    weight = 20
+
+    [[menu.docs]]
+    title = "Server"
+    identifier = "setup/server"
+    parent = "chef infra/setup"
+    weight = 30
+
+      [[menu.docs]]
+      title = "Hosted Chef Server"
+      identifier = "hosted chef server/https://manage.chef.io/signup"
+      parent = "setup/server"
+      url = "https://manage.chef.io/signup"
+      weight = 10
+
+      [[menu.docs]]
+      title = "Install Standalone"
+      identifier = "install standalone/install_server.html#standalone"
+      parent = "setup/server"
+      url = "/install_server/#standalone"
+      weight = 30
+
+    [[menu.docs]]
+    title = "FIPS-mode"
+    identifier = "fips-mode/ctl_chef_client.html#run-in-fips-mode"
+    parent = "chef infra/setup"
+    url = "/ctl_chef_client/#run-in-fips-mode"
+    weight = 60
+
+    [[menu.docs]]
+    title = "Integrations"
+    identifier = "setup/integrations"
+    parent = "chef infra/setup"
+    weight = 70
+
+    [[menu.docs]]
+    title = "Supermarket"
+    identifier = "setup/supermarket"
+    parent = "chef infra/setup"
+    weight = 80
+
+      [[menu.docs]]
+      title = "Public Supermarket"
+      identifier = "public supermarket/https://supermarket.chef.io"
+      parent = "setup/supermarket"
+      url = "https://supermarket.chef.io"
+      weight = 10
+
+      [[menu.docs]]
+      title = "Customize Supermarket"
+      identifier = "customize supermarket/install_supermarket.html#customize-supermarket"
+      parent = "setup/supermarket"
+      url = "/install_supermarket/#customize-supermarket"
+      weight = 30
+
+    [[menu.docs]]
+    title = "Management Console"
+    identifier = "management console/ctl_chef_server.html#install"
+    parent = "chef infra/setup"
+    url = "/ctl_chef_server/#install"
+    weight = 90
+
+  [[menu.docs]]
+  title = "Cookbook Reference"
+  identifier = "chef infra/cookbook reference"
+  parent = "chef infra"
+  weight = 60
+
+    [[menu.docs]]
+    title = "Recipes"
+    identifier = "cookbook reference/recipes"
+    parent = "chef infra/cookbook reference"
+    weight = 50
+
+    [[menu.docs]]
+    title = "Recipe DSL"
+    identifier = "cookbook reference/recipe dsl"
+    parent = "chef infra/cookbook reference"
+    weight = 60
+
+      [[menu.docs]]
+      title = "attribute?"
+      identifier = "attribute?/dsl_recipe.html#attribute"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#attribute"
+      weight = 20
+
+      [[menu.docs]]
+      title = "cookbook_name"
+      identifier = "cookbook_name/dsl_recipe.html#cookbook-name"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#cookbook-name"
+      weight = 30
+
+      [[menu.docs]]
+      title = "data_bag"
+      identifier = "data_bag/dsl_recipe.html#data-bag"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#data-bag"
+      weight = 40
+
+      [[menu.docs]]
+      title = "data_bag_item"
+      identifier = "data_bag_item/dsl_recipe.html#data-bag-item"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#data-bag-item"
+      weight = 50
+
+      [[menu.docs]]
+      title = "platform?"
+      identifier = "platform?/dsl_recipe.html#platform"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#platform"
+      weight = 60
+
+      [[menu.docs]]
+      title = "platform_family?"
+      identifier = "platform_family?/dsl_recipe.html#platform-family"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#platform-family"
+      weight = 70
+
+      [[menu.docs]]
+      title = "reboot_pending?"
+      identifier = "reboot_pending?/dsl_recipe.html#reboot-pending"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#reboot-pending"
+      weight = 80
+
+      [[menu.docs]]
+      title = "recipe_name"
+      identifier = "recipe_name/dsl_recipe.html#recipe-name"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#recipe-name"
+      weight = 90
+
+      [[menu.docs]]
+      title = "registry_data_exists?"
+      identifier = "registry_data_exists?/dsl_recipe.html#registry-data-exists"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#registry-data-exists"
+      weight = 100
+
+      [[menu.docs]]
+      title = "registry_get_subkeys"
+      identifier = "registry_get_subkeys/dsl_recipe.html#registry-get-subkeys"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#registry-get-subkeys"
+      weight = 110
+
+      [[menu.docs]]
+      title = "registry_get_values"
+      identifier = "registry_get_values/dsl_recipe.html#registry-get-values"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#registry-get-values"
+      weight = 120
+
+      [[menu.docs]]
+      title = "registry_has_subkeys?"
+      identifier = "registry_has_subkeys?/dsl_recipe.html#registry-has-subkeys"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#registry-has-subkeys"
+      weight = 130
+
+      [[menu.docs]]
+      title = "registry_key_exists?"
+      identifier = "registry_key_exists?/dsl_recipe.html#registry-key-exists"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#registry-key-exists"
+      weight = 140
+
+      [[menu.docs]]
+      title = "registry_value_exists?"
+      identifier = "registry_value_exists?/dsl_recipe.html#registry-value-exists"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#registry-value-exists"
+      weight = 150
+
+      [[menu.docs]]
+      title = "resources"
+      identifier = "resources/dsl_recipe.html#resources"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#resources"
+      weight = 160
+
+      [[menu.docs]]
+      title = "search"
+      identifier = "search/dsl_recipe.html#search"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#search"
+      weight = 170
+
+      [[menu.docs]]
+      title = "shell_out"
+      identifier = "shell_out/dsl_recipe.html#shell-out"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#shell-out"
+      weight = 180
+
+      [[menu.docs]]
+      title = "shell_out!"
+      identifier = "shell_out!/dsl_recipe.html#shell-out-bang"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#shell-out-bang"
+      weight = 190
+
+      [[menu.docs]]
+      title = "shell_out_with_systems_locale"
+      identifier = "shell_out_with_systems_locale/dsl_recipe.html#shell-out-with-systems-locale"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#shell-out-with-systems-locale"
+      weight = 200
+
+      [[menu.docs]]
+      title = "tag"
+      identifier = "tag/dsl_recipe.html#tag-tagged-untag"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#tag-tagged-untag"
+      weight = 210
+
+      [[menu.docs]]
+      title = "tagged?"
+      identifier = "tagged?/dsl_recipe.html#tag-tagged-untag"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#tag-tagged-untag"
+      weight = 220
+
+      [[menu.docs]]
+      title = "untag"
+      identifier = "untag/dsl_recipe.html#tag-tagged-untag"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#tag-tagged-untag"
+      weight = 230
+
+      [[menu.docs]]
+      title = "value_for_platform"
+      identifier = "value_for_platform/dsl_recipe.html#value-for-platform"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#value-for-platform"
+      weight = 240
+
+      [[menu.docs]]
+      title = "value_for_platform_family"
+      identifier = "value_for_platform_family/dsl_recipe.html#value-for-platform-family"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#value-for-platform-family"
+      weight = 250
+
+      [[menu.docs]]
+      title = "Windows Platform Helpers"
+      identifier = "windows platform helpers/dsl_recipe.html#helpers"
+      parent = "cookbook reference/recipe dsl"
+      url = "/dsl_recipe/#helpers"
+      weight = 260
+
+    [[menu.docs]]
+    title = "Resources"
+    identifier = "cookbook reference/resources"
+    parent = "chef infra/cookbook reference"
+    weight = 80
+
+      [[menu.docs]]
+      title = "All Resources (Single Page)"
+      identifier = "all resources (single page)/resources.html"
+      parent = "cookbook reference/resources"
+      url = "/resources/"
+      weight = 40
+
+      [[menu.docs]]
+      title = "reference"
+      identifier = "reference/resource_reference.html"
+      parent = "cookbook reference/resources"
+      url = "/resource_reference/"
+      weight = 790
+
+  [[menu.docs]]
+  title = "ChefDK"
+  identifier = "chef infra/chefdk"
+  parent = "chef infra"
+  weight = 70
+
+    [[menu.docs]]
+    title = "chef (executable)"
+    identifier = "chefdk/chef (executable)"
+    parent = "chef infra/chefdk"
+    weight = 40
+
+      [[menu.docs]]
+      title = "chef env"
+      identifier = "chef env/ctl_chef.html#chef-env"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-env"
+      weight = 10
+
+      [[menu.docs]]
+      title = "chef exec"
+      identifier = "chef exec/ctl_chef.html#chef-exec"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-exec"
+      weight = 20
+
+      [[menu.docs]]
+      title = "chef gem"
+      identifier = "chef gem/ctl_chef.html#chef-gem"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-gem"
+      weight = 30
+
+      [[menu.docs]]
+      title = "chef generate attribute"
+      identifier = "chef generate attribute/ctl_chef.html#chef-generate-attribute"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-generate-attribute"
+      weight = 40
+
+      [[menu.docs]]
+      title = "chef generate cookbook"
+      identifier = "chef generate cookbook/ctl_chef.html#chef-generate-cookbook"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-generate-cookbook"
+      weight = 50
+
+      [[menu.docs]]
+      title = "chef generate build-cookbook"
+      identifier = "chef generate build-cookbook/ctl_chef.html#chef-generate-build-cookbook"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-generate-build-cookbook"
+      weight = 60
+
+      [[menu.docs]]
+      title = "chef generate file"
+      identifier = "chef generate file/ctl_chef.html#chef-generate-file"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-generate-file"
+      weight = 70
+
+      [[menu.docs]]
+      title = "chef generate recipe"
+      identifier = "chef generate recipe/ctl_chef.html#chef-generate-recipe"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-generate-recipe"
+      weight = 80
+
+      [[menu.docs]]
+      title = "chef generate repo"
+      identifier = "chef generate repo/ctl_chef.html#chef-generate-repo"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-generate-repo"
+      weight = 90
+
+      [[menu.docs]]
+      title = "chef generate resource"
+      identifier = "chef generate resource/ctl_chef.html#chef-generate-resource"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-generate-resource"
+      weight = 100
+
+      [[menu.docs]]
+      title = "chef generate template"
+      identifier = "chef generate template/ctl_chef.html#chef-generate-template"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-generate-template"
+      weight = 110
+
+      [[menu.docs]]
+      title = "chef shell-init"
+      identifier = "chef shell-init/ctl_chef.html#chef-shell-init"
+      parent = "chefdk/chef (executable)"
+      url = "/ctl_chef/#chef-shell-init"
+      weight = 120
+
+    [[menu.docs]]
+    title = "Chef Solo"
+    identifier = "chefdk/chef solo"
+    parent = "chef infra/chefdk"
+    weight = 60
+
+    [[menu.docs]]
+    title = "Test Kitchen"
+    identifier = "chefdk/test kitchen"
+    parent = "chef infra/chefdk"
+    weight = 140
+
+    [[menu.docs]]
+    title = "Knife"
+    identifier = "chefdk/knife"
+    parent = "chef infra/chefdk"
+    weight = 150
+
+    [[menu.docs]]
+    title = "Ohai"
+    identifier = "chefdk/ohai"
+    parent = "chef infra/chefdk"
+    weight = 160
+
+    [[menu.docs]]
+    title = "Policyfile"
+    identifier = "chefdk/policyfile"
+    parent = "chef infra/chefdk"
+    weight = 170
+
+  [[menu.docs]]
+  title = "Managing the Server"
+  identifier = "chef infra/managing the server"
+  parent = "chef infra"
+  weight = 80
+
+    [[menu.docs]]
+    title = "Runbook (Single Page)"
+    identifier = "runbook (single page)/runbook.html"
+    parent = "chef infra/managing the server"
+    url = "/runbook/"
+    weight = 10
+    aliases = '/runbook.html'
+
+    [[menu.docs]]
+    title = "Push Jobs"
+    identifier = "managing the server/push jobs"
+    parent = "chef infra/managing the server"
+    weight = 210
+
+  [[menu.docs]]
+  title = "Release Notes"
+  identifier = "chef infra/release notes"
+  parent = "chef infra"
+  weight = 90
+
+[[menu.docs]]
+title = "Chef Workstation"
+identifier = "chef workstation"
+weight = 40
+
+  [[menu.docs]]
+  title = "Chef Workstation"
+  identifier = "chef workstation/https://www.chef.sh/"
+  parent = "chef workstation"
+  url = "https://www.chef.sh/"
+  weight = 20
+
+  [[menu.docs]]
+  title = "Documentation"
+  identifier = "documentation/https://www.chef.sh/docs/chef-workstation/getting-started/"
+  parent = "chef workstation"
+  url = "https://www.chef.sh/docs/chef-workstation/getting-started/"
+  weight = 30
+
+[[menu.docs]]
+title = "Chef Habitat"
+identifier = "chef habitat"
+weight = 50
+
+  [[menu.docs]]
+  title = "Chef Habitat"
+  identifier = "documentation/https://www.habitat.sh/docs/"
+  parent = "chef habitat"
+  url = "https://www.habitat.sh/docs/"
+  weight = 20
+
+  [[menu.docs]]
+  title = "Tutorials"
+  identifier = "tutorials/https://www.habitat.sh/tutorials/"
+  parent = "chef habitat"
+  url = "https://www.habitat.sh/tutorials/"
+  weight = 30
+
+[[menu.docs]]
+title = "Chef InSpec"
+identifier = "chef inspec"
+weight = 60
+
+  [[menu.docs]]
+  title = "Documentation"
+  identifier = "documentation/https://www.inspec.io/docs/"
+  parent = "chef inspec"
+  url = "https://www.inspec.io/docs/"
+  weight = 20
+
+  [[menu.docs]]
+  title = "Tutorials"
+  identifier = "tutorials/https://www.inspec.io/tutorials/"
+  parent = "chef inspec"
+  url = "https://www.inspec.io/tutorials/"
+  weight = 30
+
+[[menu.docs]]
+title = "Automate"
+identifier = "automate"
+weight = 70
+
+  [[menu.docs]]
+  title = "Documentation"
+  identifier = "documentation/https://automate.chef.io/docs/"
+  parent = "automate"
+  url = "https://automate.chef.io/docs/"
+  weight = 20
+
+  [[menu.docs]]
+  title = "Automate 1 Documentation"
+  identifier = "automate 1 documentation/chef_automate.html"
+  parent = "automate"
+  url = "/chef_automate.html"
+  weight = 20
+
+[[menu.docs]]
+title = "Legacy"
+identifier = "legacy"
+weight = 80
+
+  [[menu.docs]]
+  title = "Chef Automate 1"
+  identifier = "legacy/chef automate 1"
+  parent = "legacy"
+  weight = 10
+
+    [[menu.docs]]
+    title = "Overview"
+    identifier = "chef automate 1/overview"
+    parent = "legacy/chef automate 1"
+    weight = 10
+
+    [[menu.docs]]
+    title = "Getting Started"
+    identifier = "chef automate 1/getting started"
+    parent = "legacy/chef automate 1"
+    weight = 30
+
+    [[menu.docs]]
+    title = "Nodes"
+    identifier = "chef automate 1/nodes"
+    parent = "legacy/chef automate 1"
+    weight = 40
+
+    [[menu.docs]]
+    title = "Compliance"
+    identifier = "chef automate 1/compliance"
+    parent = "legacy/chef automate 1"
+    weight = 50
+
+    [[menu.docs]]
+    title = "Workflow"
+    identifier = "chef automate 1/workflow"
+    parent = "legacy/chef automate 1"
+    weight = 60
+
+    [[menu.docs]]
+    title = "Admin"
+    identifier = "chef automate 1/admin"
+    parent = "legacy/chef automate 1"
+    weight = 70
+
+    [[menu.docs]]
+    title = "Managing the Server"
+    identifier = "chef automate 1/managing the server"
+    parent = "legacy/chef automate 1"
+    weight = 80
+
+    [[menu.docs]]
+    title = "Reference"
+    identifier = "chef automate 1/reference"
+    parent = "legacy/chef automate 1"
+    weight = 90
+
+[[menu.docs]]
+title = "Extension APIs"
+identifier = "extension apis"
+weight = 90
+
+  [[menu.docs]]
+  title = "Compliance DSL"
+  identifier = "compliance dsl/https://inspec.io/docs/reference/dsl_inspec/"
+  parent = "extension apis"
+  url = "https://inspec.io/docs/reference/dsl_inspec/"
+  weight = 20
+
+  [[menu.docs]]
+  title = "Handlers"
+  identifier = "extension apis/handlers"
+  parent = "extension apis"
+  weight = 20
+
+    [[menu.docs]]
+    title = "Custom Handlers"
+    identifier = "custom handlers/handlers.html#custom-handlers"
+    parent = "extension apis/handlers"
+    url = "/handlers/#custom-handlers"
+    weight = 10
+
+    [[menu.docs]]
+    title = "Community Handlers"
+    identifier = "community handlers/plugin_community.html#handlers"
+    parent = "extension apis/handlers"
+    url = "/plugin_community/#handlers"
+    weight = 30
+
+  [[menu.docs]]
+  title = "Knife Plugins"
+  identifier = "extension apis/knife plugins"
+  parent = "extension apis"
+  weight = 30
+
+  [[menu.docs]]
+  title = "Ohai Plugins"
+  identifier = "extension apis/ohai plugins"
+  parent = "extension apis"
+  weight = 40
+
+    [[menu.docs]]
+    title = "Community Plugins"
+    identifier = "community plugins/plugin_community.html#ohai"
+    parent = "extension apis/ohai plugins"
+    url = "/plugin_community/#ohai"
+    weight = 20
+
+
+[[menu.docs]]
+title = "Available on Github"
+identifier = "github"
+url = "https://github.com/chef/chef-web-docs"
+weight = 90
+
+[[menu.docs]]
+title = "Get Chef"
+identifier = "get chef"
+url = "https://www.chef.io/chef/get-chef"
+weight = 100
+
+[[menu.docs]]
+title = "Send Feedback"
+identifier = "send feedback"
+url = "/feedback.html"
+weight = 110
+
+[[menu.docs]]
+title = "Support"
+identifier = "support"
+url = "https://www.chef.io/support/"
+weight = 120
+
+[[menu.docs]]
+title = "Archive"
+identifier = "archive"
+url = "https://docs-archive.chef.io/"
+weight = 140
