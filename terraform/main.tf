@@ -16,7 +16,7 @@ data "external" "latest_hab_pkg" {
   }
 }
 
-module "automate_www_site_hugo" {
+module "docs_chef_io_site_hugo" {
   source    = "git@github.com:chef/es-terraform.git//modules/cd_hab_hugo_static_site"
   subdomain = "docs-${var.dns_suffix}"
 

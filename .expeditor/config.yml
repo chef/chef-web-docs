@@ -35,6 +35,7 @@ merge_actions:
 
 promote:
   actions:
+    - built_in:promote_habitat_packages
     - trigger_pipeline:deploy/production:
         only_if_conditions:
           - value_one: "{{target_channel}}"
@@ -48,5 +49,6 @@ subscriptions:
   # These actions are taken, in order they are specified, after the Habitat packages are successfully built
   - workload: buildkite_hab_build_group_published:{{agent_id}}:*
     actions:
+      - built_in:promote_habitat_packages
       - trigger_pipeline:deploy/acceptance:
           post_commit: true
