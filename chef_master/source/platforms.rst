@@ -36,7 +36,7 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - AIX
      - ``powerpc``
-     - ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
+     - ``7.1`` (TL5 SP2 or higher, recommended), ``7.2``
    * - Amazon Linux
      -
      - 2013+ and 2.0
