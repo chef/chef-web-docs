@@ -3,6 +3,9 @@ Data Retention Management in Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_retention_chef_automate.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg

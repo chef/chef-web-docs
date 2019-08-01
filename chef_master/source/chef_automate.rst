@@ -3,6 +3,9 @@ Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_automate.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg

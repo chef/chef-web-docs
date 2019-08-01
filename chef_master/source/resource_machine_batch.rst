@@ -3,6 +3,9 @@ machine_batch
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_machine_batch.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag resource_machine_batch_summary
 
 Use the **machine_batch** resource to explicitly declare a parallel process when building machines.

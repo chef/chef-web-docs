@@ -3,6 +3,9 @@ Data Collection with a Chef High Availability Cluster
 ========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_ha.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. important:: Previous step: `Setup Data Collection </data_collection.html>`__
 
 To configure front-end servers in your HA cluster to send their object data, first configure a Chef Infra Server for `data collection </data_collection.html>`__ and ensure that the ``fqdn`` field in all of your front-end Chef Infra Server ``/etc/opscode/chef-server.rb`` files are the same.

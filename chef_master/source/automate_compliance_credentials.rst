@@ -3,6 +3,9 @@ Credentials
 ==============================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_credentials.html>`__
 
+.. meta::
+    :robots: noindex
+    
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg

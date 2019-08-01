@@ -3,6 +3,9 @@ Deprecation: "Supports" metaproperty (CHEF-8)
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_supports_property.rst>`__
 
+.. meta::
+    :robots: noindex
+    
 The ``user`` resource previously allowed a cookbook author to set policy for the resource in two ways. The ``supports`` metaproperty, which is now deprecated, enabled the ``manage_home`` and ``non_unique`` properties to be set.
 
 

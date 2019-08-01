@@ -3,6 +3,9 @@ Chef Automate Disaster Recovery
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_server_disaster_recovery.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg

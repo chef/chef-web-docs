@@ -3,6 +3,9 @@ Data Collection without Chef Server
 ==============================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_without_server.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. important:: Previous step: `Setup Data Collection </data_collection.html>`__
 
 If you do not use a Chef Infra Server in your environment (if you only use ```chef-solo```, for example), you can configure your Chef Infra Clients to send their run data to Automate directly.

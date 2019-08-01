@@ -3,6 +3,9 @@ automate-ctl (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_automate_server.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg

@@ -3,6 +3,8 @@ Configure Data Collection
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection.rst>`__
 
+.. meta:: 
+    :robots: noindex 
 
 .. tag chef_automate_mark
 

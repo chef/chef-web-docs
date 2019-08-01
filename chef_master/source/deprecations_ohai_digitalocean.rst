@@ -3,6 +3,9 @@ Deprecation: DigitalOcean plugin attribute changes (OHAI-6)
 ===========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_digitalocean.rst>`__
 
+.. meta::
+    :robots: noindex
+
 Ohai's previous Digital Ocean plugin relied on hint data passed to Ohai as well and the drop's internal network interface configuration. The Digital Ocean plugin has been rewritten to poll information from the Digital Ocean Metadata endpoint instead. This provides additional Digital Ocean specific droplet configuration information as well as external IP address information that was previously not available. With the addition of new network configuration data, the format has changed and users relying on the previous format will need to update their cookbooks.
 
 Remediation

@@ -3,6 +3,9 @@ chef_data_bag_item
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_data_bag_item.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. warning:: .. tag EOL_provisioning
 
              This functionality was available with Chef Provisioning and was packaged in the ChefDK.

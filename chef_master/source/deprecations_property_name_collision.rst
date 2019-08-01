@@ -3,6 +3,9 @@ Deprecation: Resource Property Name Collision (CHEF-11)
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_property_name_collision.rst>`__
 
+.. meta::
+    :robots: noindex
+    
 A resource property, defined with the ``property`` method, conflicts with an already-existing property or method. This could indicate an error that could lead to unintended behavior.
 
 
