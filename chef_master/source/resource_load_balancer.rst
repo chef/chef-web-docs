@@ -3,6 +3,9 @@ load_balancer
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_load_balancer.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. warning:: .. tag EOL_provisioning
 
              This functionality was available with Chef Provisioning and was packaged in the ChefDK.
