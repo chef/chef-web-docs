@@ -43,6 +43,9 @@ The following table lists the commercially-supported platforms and versions for 
    * - CentOS
      - ``x86_64``
      - ``6.x``, ``7.x``
+   * - Debian
+     - ``i686``, ``x86_64``
+     - ``8``, ``9``, ``10``
    * - FreeBSD
      - ``amd64``
      - ``11.x``, ``12.x``
@@ -83,9 +86,6 @@ The following platforms are supported only via the community:
    * - Arch Linux
      -
      - current version
-   * - Debian
-     - ``i686``, ``x86_64``
-     - ``8``, ``9``, ``10``
    * - Fedora
      -
      - current non-EOL releases
@@ -184,6 +184,9 @@ The following table lists the commercially-supported platforms and versions for 
    * - Platform
      - Architecture
      - Version
+   * - Debian
+     - ``x86_64``
+     - ``8.x``, ``9.x``, ``10.x``
    * - macOS
      - ``x86_64``
      - ``10.12``, ``10.13``, ``10.14``
@@ -211,9 +214,6 @@ The following platforms are supported only via the community:
    * - Platform
      - Architecture
      - Version
-   * - Debian
-     - ``x86_64``
-     - ``8.x``, ``9.x``
    * - Scientific Linux
      - ``x86_64``
      - ``6.x``, ``7.x``
