@@ -8,8 +8,8 @@ aliases = "/dsl_recipe.html"
 [menu]
   [menu.docs]
     title = "DSL Overview"
-    identifier = "dsl overview/dsl_recipe.html"
-    parent = "cookbook reference/recipe dsl"
+    identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.html DSL Overview"
+    parent = "chef_infra/cookbook_reference/recipe_dsl"
     weight = 10
 +++    
 

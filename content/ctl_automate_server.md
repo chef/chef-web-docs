@@ -8,13 +8,15 @@ aliases = "/ctl_automate_server.html"
 [menu]
   [menu.docs]
     title = "automate-ctl"
-    identifier = "automate-ctl/ctl_automate_server.html"
-    parent = "chef automate 1/reference"
+    identifier = "legacy/chef_automate_1/reference/ctl_automate_server.html automate-ctl"
+    parent = "legacy/chef_automate_1/reference"
     weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_automate_server.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chef_rest.rst)
 
+<meta name="robots" content="noindex">
+
 The `Chef::REST` class will be removed.
 
 `Chef::REST` was deprecated in Chef Client 12.7.2, and will be removed

@@ -8,8 +8,8 @@ aliases = "/supermarket_api.html"
 [menu]
   [menu.docs]
     title = "Supermarket API"
-    identifier = "supermarket api/supermarket_api.html"
-    parent = "setup/supermarket"
+    identifier = "chef_infra/setup/supermarket/supermarket_api.html Supermarket API"
+    parent = "chef_infra/setup/supermarket"
     weight = 100
 +++    
 

@@ -8,8 +8,8 @@ aliases = "/config_rb_metadata.html"
 [menu]
   [menu.docs]
     title = "metadata.rb"
-    identifier = "metadata.rb/config_rb_metadata.html"
-    parent = "chef infra/cookbook reference"
+    identifier = "chef_infra/cookbook_reference/config_rb_metadata.html metadata.rb"
+    parent = "chef_infra/cookbook_reference"
     weight = 110
 +++    
 

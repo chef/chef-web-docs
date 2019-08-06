@@ -8,13 +8,15 @@ aliases = "/delivery_users_and_roles.html"
 [menu]
   [menu.docs]
     title = "Users & Roles"
-    identifier = "users & roles/delivery_users_and_roles.html"
-    parent = "chef automate 1/admin"
+    identifier = "legacy/chef_automate_1/admin/delivery_users_and_roles.html Users & Roles"
+    parent = "legacy/chef_automate_1/admin"
     weight = 10
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_users_and_roles.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

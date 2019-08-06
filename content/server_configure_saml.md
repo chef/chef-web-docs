@@ -8,13 +8,15 @@ aliases = "/server_configure_saml.html"
 [menu]
   [menu.docs]
     title = "Configure SAML"
-    identifier = "configure saml/server_configure_saml.html"
-    parent = "features/management console"
+    identifier = "chef_infra/features/management_console/server_configure_saml.html Configure SAML"
+    parent = "chef_infra/features/management_console"
     weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_configure_saml.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

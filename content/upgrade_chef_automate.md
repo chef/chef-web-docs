@@ -8,13 +8,15 @@ aliases = "/upgrade_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Upgrades"
-    identifier = "upgrades/upgrade_chef_automate.html"
-    parent = "chef automate 1/getting started"
+    identifier = "legacy/chef_automate_1/getting_started/upgrade_chef_automate.html Upgrades"
+    parent = "legacy/chef_automate_1/getting_started"
     weight = 90
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

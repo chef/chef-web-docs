@@ -8,8 +8,8 @@ aliases = "/azure_portal.html"
 [menu]
   [menu.docs]
     title = "Microsoft Azure"
-    identifier = "microsoft azure/azure_portal.html"
-    parent = "getting started/chef on azure guide"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_portal.html Microsoft Azure"
+    parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 20
 +++    
 

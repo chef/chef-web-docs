@@ -8,8 +8,8 @@ aliases = "/supermarket_logs.html"
 [menu]
   [menu.docs]
     title = "Log Files"
-    identifier = "log files/supermarket_logs.html"
-    parent = "setup/supermarket"
+    identifier = "chef_infra/setup/supermarket/supermarket_logs.html Log Files"
+    parent = "chef_infra/setup/supermarket"
     weight = 60
 +++    
 

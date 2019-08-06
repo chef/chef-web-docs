@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_map_collision.rst)
 
+<meta name="robots" content="noindex">
+
 The resource(s) referenced in the error message has been loaded from a
 cookbook. This resource is now included in Chef and will take precedence
 over the existing cookbook resource in the next major release of Chef

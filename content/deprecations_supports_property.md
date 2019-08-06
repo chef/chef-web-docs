@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_supports_property.rst)
 
+<meta name="robots" content="noindex">
+
 The `user` resource previously allowed a cookbook author to set policy
 for the resource in two ways. The `supports` metaproperty, which is now
 deprecated, enabled the `manage_home` and `non_unique` properties to be

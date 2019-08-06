@@ -8,8 +8,8 @@ aliases = "/azure_cwa_cloud_shell.html"
 [menu]
   [menu.docs]
     title = "Chef Workstation on Azure Cloud Shell"
-    identifier = "chef workstation on azure cloud shell/azure_cwa_cloud_shell.html"
-    parent = "getting started/chef on azure guide"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_cwa_cloud_shell.html Chef Workstation on Azure Cloud Shell"
+    parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 30
 +++    
 

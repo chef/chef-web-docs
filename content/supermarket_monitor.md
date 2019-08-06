@@ -8,8 +8,8 @@ aliases = "/supermarket_monitor.html"
 [menu]
   [menu.docs]
     title = "Monitoring"
-    identifier = "monitoring/supermarket_monitor.html"
-    parent = "setup/supermarket"
+    identifier = "chef_infra/setup/supermarket/supermarket_monitor.html Monitoring"
+    parent = "chef_infra/setup/supermarket"
     weight = 70
 +++    
 

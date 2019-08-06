@@ -8,13 +8,15 @@ aliases = "/search_query_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Node Search Reference"
-    identifier = "node search reference/search_query_chef_automate.html"
-    parent = "chef automate 1/nodes"
+    identifier = "legacy/chef_automate_1/nodes/search_query_chef_automate.html Node Search Reference"
+    parent = "legacy/chef_automate_1/nodes"
     weight = 30
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/search_query_chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

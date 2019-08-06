@@ -8,13 +8,15 @@ aliases = "/server_manage_nodes.html"
 [menu]
   [menu.docs]
     title = "Nodes"
-    identifier = "nodes/server_manage_nodes.html"
-    parent = "features/management console"
+    identifier = "chef_infra/features/management_console/server_manage_nodes.html Nodes"
+    parent = "chef_infra/features/management_console"
     weight = 70
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_nodes.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

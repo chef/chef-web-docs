@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chocolatey_uninstall.rst)
 
+<meta name="robots" content="noindex">
+
 The Chocolatey cookbook’s `chocolatey_package` resource originally
 contained an `:uninstall` action. When
 [chocolatey_package](/resource_chocolatey_package/) was moved into

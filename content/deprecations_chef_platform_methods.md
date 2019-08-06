@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chef_platform_methods.rst)
 
+<meta name="robots" content="noindex">
+
 Several methods under `Chef::Platform` that were previously public APIs
 to control resolution of provider classes were replaced by the dynamic
 `Chef::ProviderResolver` work and the `provides` keyword.

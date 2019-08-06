@@ -8,8 +8,8 @@ aliases = "/uninstall.html"
 [menu]
   [menu.docs]
     title = "Uninstall"
-    identifier = "uninstall/uninstall.html"
-    parent = "chef infra/getting started"
+    identifier = "chef_infra/getting_started/uninstall.html Uninstall"
+    parent = "chef_infra/getting_started"
     weight = 100
 +++    
 

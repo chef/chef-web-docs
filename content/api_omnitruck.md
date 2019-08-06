@@ -8,8 +8,8 @@ aliases = "/api_omnitruck.html"
 [menu]
   [menu.docs]
     title = "Omnitruck API"
-    identifier = "omnitruck api/api_omnitruck.html"
-    parent = "overview/packages & platforms"
+    identifier = "overview/packages_&_platforms/api_omnitruck.html Omnitruck API"
+    parent = "overview/packages_&_platforms"
     weight = 40
 +++    
 

@@ -8,13 +8,15 @@ aliases = "/delivery_build_cookbook.html"
 [menu]
   [menu.docs]
     title = "build-cookbook (cookbook)"
-    identifier = "build-cookbook (cookbook)/delivery_build_cookbook.html"
-    parent = "chef automate 1/workflow"
+    identifier = "legacy/chef_automate_1/workflow/delivery_build_cookbook.html build-cookbook (cookbook)"
+    parent = "legacy/chef_automate_1/workflow"
     weight = 10
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_build_cookbook.rst)
+
+<meta name="robots" content="noindex">
 
 Chef Automate uses Chef Infra Client to run recipes for each phase in a
 build pipeline. The phases are grouped into different stages.

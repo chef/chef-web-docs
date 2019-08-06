@@ -8,13 +8,15 @@ aliases = "/install_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Installation Guide"
-    identifier = "installation guide/install_chef_automate.html"
-    parent = "chef automate 1/getting started"
+    identifier = "legacy/chef_automate_1/getting_started/install_chef_automate.html Installation Guide"
+    parent = "legacy/chef_automate_1/getting_started"
     weight = 10
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

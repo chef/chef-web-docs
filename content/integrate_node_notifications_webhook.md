@@ -8,13 +8,15 @@ aliases = "/integrate_node_notifications_webhook.html"
 [menu]
   [menu.docs]
     title = "Node Notifications w/Webhooks"
-    identifier = "node notifications w/webhooks/integrate_node_notifications_webhook.html"
-    parent = "chef automate 1/nodes"
+    identifier = "legacy/chef_automate_1/nodes/integrate_node_notifications_webhook.html Node Notifications w/Webhooks"
+    parent = "legacy/chef_automate_1/nodes"
     weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_node_notifications_webhook.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

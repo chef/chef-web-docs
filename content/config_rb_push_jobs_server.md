@@ -8,8 +8,8 @@ aliases = "/config_rb_push_jobs_server.html"
 [menu]
   [menu.docs]
     title = "push-jobs-server.rb"
-    identifier = "push-jobs-server.rb/config_rb_push_jobs_server.html"
-    parent = "managing the server/push jobs"
+    identifier = "chef_infra/managing_the_server/push_jobs/config_rb_push_jobs_server.html push-jobs-server.rb"
+    parent = "chef_infra/managing_the_server/push_jobs"
     weight = 40
 +++    
 

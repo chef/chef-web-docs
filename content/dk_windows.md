@@ -7,10 +7,10 @@ aliases = "/dk_windows.html"
 
 [menu]
   [menu.docs]
-    title = "Installing Chef on Windows"
-    identifier = "installing chef on windows/dk_windows.html"
-    parent = "getting started/chef on azure guide"
-    weight = 10
+    title = "Chef Workstation and ChefDK on Windows"
+    identifier = "chef_infra/getting_started/chef_on_windows_guide/dk_windows.html Chef Workstation and ChefDK on Windows"
+    parent = "chef_infra/getting_started/chef_on_windows_guide"
+    weight = 20
 +++    
 
 [\[edit on

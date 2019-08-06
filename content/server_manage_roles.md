@@ -8,13 +8,15 @@ aliases = "/server_manage_roles.html"
 [menu]
   [menu.docs]
     title = "Roles"
-    identifier = "roles/server_manage_roles.html"
-    parent = "features/management console"
+    identifier = "chef_infra/features/management_console/server_manage_roles.html Roles"
+    parent = "chef_infra/features/management_console"
     weight = 80
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_roles.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

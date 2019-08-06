@@ -8,13 +8,15 @@ aliases = "/workflow.html"
 [menu]
   [menu.docs]
     title = "Workflow Overview"
-    identifier = "workflow overview/workflow.html"
-    parent = "chef automate 1/overview"
+    identifier = "legacy/chef_automate_1/overview/workflow.html Workflow Overview"
+    parent = "legacy/chef_automate_1/overview"
     weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/workflow.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

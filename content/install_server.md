@@ -8,8 +8,8 @@ aliases = "/install_server.html"
 [menu]
   [menu.docs]
     title = "Install Chef Infra Server"
-    identifier = "install chef infra server/install_server.html"
-    parent = "setup/server"
+    identifier = "chef_infra/setup/server/install_server.html Install Chef Infra Server"
+    parent = "chef_infra/setup/server"
     weight = 20
 +++    
 

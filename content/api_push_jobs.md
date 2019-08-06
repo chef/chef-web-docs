@@ -8,8 +8,8 @@ aliases = "/api_push_jobs.html"
 [menu]
   [menu.docs]
     title = "Push Jobs API"
-    identifier = "push jobs api/api_push_jobs.html"
-    parent = "managing the server/push jobs"
+    identifier = "chef_infra/managing_the_server/push_jobs/api_push_jobs.html Push Jobs API"
+    parent = "chef_infra/managing_the_server/push_jobs"
     weight = 50
 +++    
 

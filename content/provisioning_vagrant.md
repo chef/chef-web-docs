@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/provisioning_vagrant.rst)
 
+<meta name="robots" content="noindex">
+
 {{% EOL_provisioning %}}
 
 <div class="warning" markdown="1">

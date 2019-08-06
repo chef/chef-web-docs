@@ -8,8 +8,8 @@ aliases = "/config_rb_server.html"
 [menu]
   [menu.docs]
     title = "chef-server.rb"
-    identifier = "chef-server.rb/config_rb_server.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/config_rb_server.html chef-server.rb"
+    parent = "chef_infra/managing_the_server"
     weight = 170
 +++    
 

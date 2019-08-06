@@ -8,13 +8,15 @@ aliases = "/release_notes_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Release Notes"
-    identifier = "release notes/release_notes_chef_automate.html"
-    parent = "legacy/chef automate 1"
+    identifier = "legacy/chef_automate_1/release_notes_chef_automate.html Release Notes"
+    parent = "legacy/chef_automate_1"
     weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 [![image](/images/a2_docs_banner.svg)](https://automate.chef.io/docs)
 

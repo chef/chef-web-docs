@@ -8,8 +8,8 @@ aliases = "/nodes.html"
 [menu]
   [menu.docs]
     title = "Nodes"
-    identifier = "nodes/nodes.html"
-    parent = "chef infra/concepts"
+    identifier = "chef_infra/concepts/nodes.html Nodes"
+    parent = "chef_infra/concepts"
     weight = 20
 +++    
 

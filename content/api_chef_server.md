@@ -8,8 +8,8 @@ aliases = "/api_chef_server.html"
 [menu]
   [menu.docs]
     title = "Chef Server API"
-    identifier = "chef server api/api_chef_server.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/api_chef_server.html Chef Server API"
+    parent = "chef_infra/managing_the_server"
     weight = 200
 +++    
 
@@ -329,8 +329,6 @@ to access this endpoint with the `pivotal` user.)
 
 The `GET` method is used to get a list of organizations on the Chef
 Infra Server.
-
-This method has no parameters.
 
 **Request**
 
@@ -727,7 +725,34 @@ to access this endpoint with the `pivotal` user.)
 The `GET` method is used to get a list of users on the Chef Infra
 Server.
 
-This method has no parameters.
+This method has the following parameters:
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>email=jane@chef.com</code></td>
+<td>Filter the users returned based on their email id.</td>
+</tr>
+<tr class="even">
+<td><code>external_authentication_uid=jane@chef.com</code></td>
+<td>Filter the users returned based on their external login id.</td>
+</tr>
+<tr class="odd">
+<td><code>verbose=true</code></td>
+<td>Returns a user list with "email", "first_name", "last_name" fields. If this flag is set the email and external_authentication_uid parameters are ignored and the response format is an array instead of a hash.</td>
+</tr>
+</tbody>
+</table>
 
 **Request**
 
@@ -743,6 +768,15 @@ The response is similar to:
 {
   "user1": "https://url/for/user1",
   "user2": "https://url/for/user2"
+}
+```
+
+The verbose response is similar to:
+
+``` none
+{
+  "janechef": { "email": "jane.chef@user.com", "first_name": "jane", "last_name": "chef_user" },
+  "yaelsmith": { "email": "yeal.chef@user.com", "first_name": "yeal", "last_name": "smith" }
 }
 ```
 
@@ -813,7 +847,7 @@ with a request body similar to:
   "display_name": "robert",
   "email": "robert@noreply.com",
   "first_name": "robert",
-  "last_name": "robert",
+  "last_name": "forster",
   "middle_name": "",
   "password": "yeahpass",
   "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoYyN0AIhUh7Fw1+gQtR+ \n0/HY3625IUlVheoUeUz3WnsTrUGSSS4fHvxUiCJlNni1sQvcJ0xC9Bw3iMz7YVFO\nWz5SeKmajqKEnNywN8/NByZhhlLdBxBX/UN04/7aHZMoZxrrjXGLcyjvXN3uxyCO\nyPY989pa68LJ9jXWyyfKjCYdztSFcRuwF7tWgqnlsc8pve/UaWamNOTXQnyrQ6Dp\ndn+1jiNbEJIdxiza7DJMH/9/i/mLIDEFCLRPQ3RqW4T8QrSbkyzPO/iwaHl9U196\n06Ajv1RNnfyHnBXIM+I5mxJRyJCyDFo/MACc5AgO6M0a7sJ/sdX+WccgcHEVbPAl\n1wIDAQAB \n-----END PUBLIC KEY-----\n\n"
@@ -822,11 +856,17 @@ with a request body similar to:
 
 where:
 
--   `name` must begin with a lower-case letter or digit, may only
+-   `username` must begin with a lower-case letter or digit, may only
     contain lower-case letters, digits, hyphens, and underscores. For
     example: `chef`.
--   `email`, `name`, and `password` are all required to be present and
-    have a value.
+-   `display_name` is required to be present.
+-   `email` is required to be present and have a valid value. The email
+    validation doesn't allow for all unicode characters.
+-   `username` is required to be present and have a valid value. A valid
+    username is a dot separated list of elements matching
+    `` a-z0-9!#$%&'*+/=?^_`{|}~- ``.
+-   Either `external_authentication_uid` or `password` are required to
+    be present and have a value.
 -   During the POST, the `public_key` value will be broken out and
     resubmitted to the keys portion of the API in the latest Chef Server
     versions.
@@ -836,7 +876,10 @@ where:
 The response is similar to:
 
 ``` javascript
-{ "user_name": "https://url/for/user_name" }
+{
+  "uri": "https://url/for/robert-forster",
+  "private_key": "-----BEGIN RSA PRIVATE KEY-----..."
+}
 ```
 
 **Response Codes**
@@ -854,8 +897,8 @@ The response is similar to:
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
+<td><code>201</code></td>
+<td>OK. The user was created.</td>
 </tr>
 <tr class="even">
 <td><code>400</code></td>
@@ -870,14 +913,10 @@ The response is similar to:
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
 <tr class="odd">
-<td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
-</tr>
-<tr class="even">
 <td><code>409</code></td>
 <td>Conflict. The object already exists.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>413</code></td>
 <td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
 </tr>
@@ -888,7 +927,7 @@ The response is similar to:
 -----------
 
 The `/users/USER_NAME` endpoint has the following methods: `DELETE`,
-`GET`, `POST`, and `PUT`.
+`GET`, and `PUT`.
 
 ### DELETE
 
@@ -908,7 +947,6 @@ The response is similar to:
 
 ``` javascript
 {
-  "name": "Grant McLennan",
 }
 ```
 
@@ -963,7 +1001,15 @@ The response is similar to:
 
 ``` javascript
 {
-  "name": "Robert Forster",
+  "username": "robert-forster",
+  "display_name": "robert",
+  "email": "robert@noreply.com",
+  "external_authentication_uid": "robert",
+  "full_name": "Robert Forster",
+  "first_name": "robert",
+  "last_name": "forster",
+  "middle_name": ""
+  "recovery_authentication_enabled": false
 }
 ```
 
@@ -993,85 +1039,9 @@ The response is similar to:
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
 </tr>
-</tbody>
-</table>
-
-### POST
-
-The `POST` method is used to create a new user. If a public key is not
-specified, both public and private keys will be generated and returned.
-If a public key is specified, only the public key will be returned.
-
-This method has no parameters.
-
-**Request**
-
-``` none
-POST /users/USER_NAME
-```
-
-with a request body similar to:
-
-``` javascript
-{
-  "name": "Robert Forster"
-}
-```
-
-**Response**
-
-The response is similar to:
-
-``` javascript
-{
-  "name": "Robert Forster",
-  "private_key": "-----BEGIN PRIVATE KEY-----\n
-                MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCyVPW9YXa5PR0rgEW1updSxygB\n
-                wmVpDnHurgQ7/gbh+PmY49EZsfrZSbKgSKy+rxdsVoSoU+krYtHvYIwVfr2tk0FP\n
-                nhAWJaFH654KpuCNG6x6iMLtzGO1Ma/VzHnFqoOeSCKHXDhmHwJAjGDTPAgCJQiI\n
-                eau6cDNJRiJ7j0/xBwIDAQAB\n
-                -----END PRIVATE KEY-----"
-  "admin": true
-}
-```
-
-**Response Codes**
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>201</code></td>
-<td>Created. The object was created.</td>
-</tr>
 <tr class="even">
-<td><code>400</code></td>
-<td>Bad request. The contents of the request are not formatted correctly.</td>
-</tr>
-<tr class="odd">
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr class="even">
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
-</tr>
-<tr class="odd">
-<td><code>409</code></td>
-<td>Conflict. The object already exists.</td>
-</tr>
-<tr class="even">
-<td><code>413</code></td>
-<td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
 </tr>
 </tbody>
 </table>

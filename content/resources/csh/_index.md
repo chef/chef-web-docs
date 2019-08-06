@@ -11,8 +11,8 @@ aliases: /resource_csh.html
 menu:
   docs:
     title: csh
-    identifier: csh/resource_csh.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_csh.html csh
+    parent: chef_infra/cookbook_reference/resources
     weight: 260
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

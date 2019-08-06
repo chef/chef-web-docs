@@ -8,8 +8,8 @@ aliases = "/policyfile.html"
 [menu]
   [menu.docs]
     title = "About Policyfile"
-    identifier = "about policyfile/policyfile.html"
-    parent = "chefdk/policyfile"
+    identifier = "chef_infra/chefdk/policyfile/policyfile.html About Policyfile"
+    parent = "chef_infra/chefdk/policyfile"
     weight = 10
 +++    
 

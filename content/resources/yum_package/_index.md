@@ -11,8 +11,8 @@ aliases: /resource_yum_package.html
 menu:
   docs:
     title: yum_package
-    identifier: yum_package/resource_yum_package.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_yum_package.html yum_package
+    parent: chef_infra/cookbook_reference/resources
     weight: 1310
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_epic_fail.rst)
 
+<meta name="robots" content="noindex">
+
 The original name for the `ignore_failure` property in resources was
 `epic_fail`. Our documentation hasn’t referred to `epic_fail` for years
 and out of the 3500 cookbooks on the Supermarket only one uses

@@ -8,8 +8,8 @@ aliases = "/ruby.html"
 [menu]
   [menu.docs]
     title = "Ruby Guide"
-    identifier = "ruby guide/ruby.html"
-    parent = "chef infra/cookbook reference"
+    identifier = "chef_infra/cookbook_reference/ruby.html Ruby Guide"
+    parent = "chef_infra/cookbook_reference"
     weight = 130
 +++    
 

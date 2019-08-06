@@ -8,8 +8,8 @@ aliases = "/ohai_custom.html"
 [menu]
   [menu.docs]
     title = "Custom Plugins"
-    identifier = "custom plugins/ohai_custom.html"
-    parent = "extension apis/ohai plugins"
+    identifier = "extension_apis/ohai_plugins/ohai_custom.html Custom Plugins"
+    parent = "extension_apis/ohai_plugins"
     weight = 10
 +++    
 

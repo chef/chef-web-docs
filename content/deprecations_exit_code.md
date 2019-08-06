@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_exit_code.rst)
 
+<meta name="robots" content="noindex">
+
 In older versions of Chef Client, it was not possible to discern why a
 chef run exited simply by examining the error code. This makes it very
 tricky for tools such as Test Kitchen to reason about the status of a

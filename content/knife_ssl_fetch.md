@@ -8,8 +8,8 @@ aliases = "/knife_ssl_fetch.html"
 [menu]
   [menu.docs]
     title = "knife ssl_fetch"
-    identifier = "knife ssl_fetch/knife_ssl_fetch.html"
-    parent = "chefdk/knife"
+    identifier = "chef_infra/chefdk/knife/knife_ssl_fetch.html knife ssl_fetch"
+    parent = "chef_infra/chefdk/knife"
     weight = 280
 +++    
 

@@ -7,10 +7,10 @@ aliases = "/install_dk.html"
 
 [menu]
   [menu.docs]
-    title = "Install ChefDK"
-    identifier = "install chefdk/install_dk.html"
-    parent = "chef infra/getting started"
-    weight = 20
+    title = "ChefDK"
+    identifier = "chef_infra/setup/install_dk.html ChefDK"
+    parent = "chef_infra/setup"
+    weight = 10
 +++    
 
 [\[edit on

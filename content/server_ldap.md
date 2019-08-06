@@ -8,8 +8,8 @@ aliases = "/server_ldap.html"
 [menu]
   [menu.docs]
     title = "Active Directory & LDAP"
-    identifier = "active directory & ldap/server_ldap.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/server_ldap.html Active Directory & LDAP"
+    parent = "chef_infra/managing_the_server"
     weight = 50
 +++    
 

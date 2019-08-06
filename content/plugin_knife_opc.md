@@ -8,8 +8,8 @@ aliases = "/plugin_knife_opc.html"
 [menu]
   [menu.docs]
     title = "knife opc"
-    identifier = "knife opc/plugin_knife_opc.html"
-    parent = "chefdk/knife"
+    identifier = "chef_infra/chefdk/knife/plugin_knife_opc.html knife opc"
+    parent = "chef_infra/chefdk/knife"
     weight = 350
 +++    
 

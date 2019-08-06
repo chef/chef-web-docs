@@ -8,13 +8,15 @@ aliases = "/chef_automate.html"
 [menu]
   [menu.docs]
     title = "Chef Automate Overview"
-    identifier = "chef automate overview/chef_automate.html"
-    parent = "chef automate 1/overview"
+    identifier = "legacy/chef_automate_1/overview/chef_automate.html Chef Automate Overview"
+    parent = "legacy/chef_automate_1/overview"
     weight = 10
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

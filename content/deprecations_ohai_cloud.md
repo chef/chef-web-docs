@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_cloud.rst)
 
+<meta name="robots" content="noindex">
+
 In Ohai/Chef releases 13 we replaced the existing Cloud plugin with the
 Cloud_v2 plugin. This was done by having the Cloud_v2 plugin populate
 both `node['cloud']` and `node['cloud_v2']`. The Cloud_v2 plugin

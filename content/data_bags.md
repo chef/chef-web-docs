@@ -8,8 +8,8 @@ aliases = "/data_bags.html"
 [menu]
   [menu.docs]
     title = "Data Bags"
-    identifier = "data bags/data_bags.html"
-    parent = "concepts/policy"
+    identifier = "chef_infra/concepts/policy/data_bags.html Data Bags"
+    parent = "chef_infra/concepts/policy"
     weight = 20
 +++    
 

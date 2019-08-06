@@ -8,8 +8,8 @@ aliases = "/config_rb_policyfile.html"
 [menu]
   [menu.docs]
     title = "Policyfile.rb"
-    identifier = "policyfile.rb/config_rb_policyfile.html"
-    parent = "chefdk/policyfile"
+    identifier = "chef_infra/chefdk/policyfile/config_rb_policyfile.html Policyfile.rb"
+    parent = "chef_infra/chefdk/policyfile"
     weight = 20
 +++    
 

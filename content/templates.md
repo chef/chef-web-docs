@@ -8,8 +8,8 @@ aliases = "/templates.html"
 [menu]
   [menu.docs]
     title = "Templates"
-    identifier = "templates/templates.html"
-    parent = "chef infra/cookbook reference"
+    identifier = "chef_infra/cookbook_reference/templates.html Templates"
+    parent = "chef_infra/cookbook_reference"
     weight = 90
 +++    
 

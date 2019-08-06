@@ -8,13 +8,15 @@ aliases = "/data_collection_without_server.html"
 [menu]
   [menu.docs]
     title = "Configure Data Collection without Chef Server"
-    identifier = "configure data collection without chef server/data_collection_without_server.html"
-    parent = "chef automate 1/getting started"
+    identifier = "legacy/chef_automate_1/getting_started/data_collection_without_server.html Configure Data Collection without Chef Server"
+    parent = "legacy/chef_automate_1/getting_started"
     weight = 60
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_without_server.rst)
+
+<meta name="robots" content="noindex">
 
 <div class="important" markdown="1">
 

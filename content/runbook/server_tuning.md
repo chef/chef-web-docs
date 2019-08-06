@@ -5,11 +5,13 @@ draft = false
 
 aliases = "/server_tuning.html"
 
+runbook_weight = 60
+
 [menu]
   [menu.docs]
     title = "Tuning"
-    identifier = "tuning/server_tuning.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/server_tuning.html Tuning"
+    parent = "chef_infra/managing_the_server"
     weight = 110
 +++    
 
@@ -37,28 +39,28 @@ particular setting.
 
 </div>
 
-Customize the Config File
-=========================
+
+## Customize the Config File
 
 {{% config_rb_server_summary %}}
 
-Use Conditions
---------------
+
+### Use Conditions
 
 {{% config_add_condition %}}
 
-Recommended Settings
-====================
+
+## Recommended Settings
 
 {{% server_tuning_general %}}
 
-SSL Protocols
--------------
+
+### SSL Protocols
 
 {{% server_tuning_nginx %}}
 
-Optional Services Tuning
-========================
+
+## Optional Services Tuning
 
 The following settings are often used to for performance tuning of the
 Chef Infra Server in larger installations.
@@ -75,23 +77,23 @@ Note
 
 </div>
 
-bookshelf
----------
+
+### bookshelf
 
 {{% server_tuning_bookshelf %}}
 
-opscode-erchef
---------------
+
+### opscode-erchef
 
 {{% server_tuning_erchef %}}
 
-opscode-expander
-----------------
+
+### opscode-expander
 
 {{% server_tuning_expander %}}
 
-opscode-solr4
--------------
+
+### opscode-solr4
 
 {{% server_tuning_solr %}}
 
@@ -107,7 +109,7 @@ opscode-solr4
 
 {{% server_tuning_solr_update_frequency %}}
 
-postgresql
-----------
+
+### postgresql
 
 {{% server_tuning_postgresql %}}

@@ -8,8 +8,8 @@ aliases = "/plugin_knife.html"
 [menu]
   [menu.docs]
     title = "Cloud Plugins"
-    identifier = "cloud plugins/plugin_knife.html"
-    parent = "extension apis/knife plugins"
+    identifier = "extension_apis/knife_plugins/plugin_knife.html Cloud Plugins"
+    parent = "extension_apis/knife_plugins"
     weight = 10
 +++    
 

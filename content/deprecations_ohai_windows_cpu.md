@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_windows_cpu.rst)
 
+<meta name="robots" content="noindex">
+
 The Windows Ohai plugin has been updated to correctly return CPU
 information. Previously the CPU plugin reported a `model_name` value,
 which was actually the CPU's description and not the actual model name.

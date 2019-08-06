@@ -8,8 +8,8 @@ aliases = "/release_notes.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Client"
-    identifier = "chef infra client/release_notes.html"
-    parent = "chef infra/release notes"
+    identifier = "chef_infra/release_notes/release_notes.html Chef Infra Client"
+    parent = "chef_infra/release_notes"
     weight = 10
 +++    
 
@@ -12462,11 +12462,10 @@ AIX Platform Support
 --------------------
 
 Chef Client may now be used to configure nodes that are running on the
-AIX platform, versions 6.1 (TL6 or higher, recommended) and 7.1 (TL0 SP3
-or higher, recommended). The **service** resource supports starting,
-stopping, and restarting services that are managed by System Resource
-Controller (SRC), as well as managing all service states with BSD-based
-init systems.
+AIX platform, versions 7.1 (TL5 SP2 or higher, recommended) and 7.2. The
+**service** resource supports starting, stopping, and restarting
+services that are managed by System Resource Controller (SRC), as well
+as managing all service states with BSD-based init systems.
 
 **System Requirements**
 

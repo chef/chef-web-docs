@@ -11,8 +11,8 @@ aliases: /resource_macos_userdefaults.html
 menu:
   docs:
     title: macos_userdefaults
-    identifier: macos_userdefaults/resource_macos_userdefaults.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_macos_userdefaults.html macos_userdefaults
+    parent: chef_infra/cookbook_reference/resources
     weight: 520
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

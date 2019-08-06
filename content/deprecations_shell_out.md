@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_shell_out.rst)
 
+<meta name="robots" content="noindex">
+
 The functionality of mutiple old <span
 class="title-ref">shell_out</span> APIs has been collapsed into the
 <span class="title-ref">shell_out</span> API itself, and the old

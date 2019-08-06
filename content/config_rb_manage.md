@@ -8,13 +8,15 @@ aliases = "/config_rb_manage.html"
 [menu]
   [menu.docs]
     title = "manage.rb"
-    identifier = "manage.rb/config_rb_manage.html"
-    parent = "features/management console"
+    identifier = "chef_infra/features/management_console/config_rb_manage.html manage.rb"
+    parent = "chef_infra/features/management_console"
     weight = 100
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_manage.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

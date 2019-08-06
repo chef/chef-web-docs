@@ -8,13 +8,15 @@ aliases = "/perform_compliance_scan.html"
 [menu]
   [menu.docs]
     title = "Perform Compliance Scan"
-    identifier = "perform compliance scan/perform_compliance_scan.html"
-    parent = "chef automate 1/compliance"
+    identifier = "legacy/chef_automate_1/compliance/perform_compliance_scan.html Perform Compliance Scan"
+    parent = "legacy/chef_automate_1/compliance"
     weight = 50
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/perform_complliance_scan.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

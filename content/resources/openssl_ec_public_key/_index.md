@@ -11,8 +11,8 @@ aliases: /resource_openssl_ec_public_key.html
 menu:
   docs:
     title: openssl_ec_public_key
-    identifier: openssl_ec_public_key/resource_openssl_ec_public_key.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_openssl_ec_public_key.html openssl_ec_public_key
+    parent: chef_infra/cookbook_reference/resources
     weight: 620
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

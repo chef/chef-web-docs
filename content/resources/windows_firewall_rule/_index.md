@@ -11,8 +11,8 @@ aliases: /resource_windows_firewall_rule.html
 menu:
   docs:
     title: windows_firewall_rule
-    identifier: windows_firewall_rule/resource_windows_firewall_rule.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_firewall_rule.html windows_firewall_rule
+    parent: chef_infra/cookbook_reference/resources
     weight: 1180
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

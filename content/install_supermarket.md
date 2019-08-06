@@ -8,8 +8,8 @@ aliases = "/install_supermarket.html"
 [menu]
   [menu.docs]
     title = "Install Private Supermarket"
-    identifier = "install private supermarket/install_supermarket.html"
-    parent = "setup/supermarket"
+    identifier = "chef_infra/setup/supermarket/install_supermarket.html Install Private Supermarket"
+    parent = "chef_infra/setup/supermarket"
     weight = 20
 +++    
 

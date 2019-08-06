@@ -8,8 +8,8 @@ aliases = "/upgrade_client.html"
 [menu]
   [menu.docs]
     title = "Upgrades"
-    identifier = "upgrades/upgrade_client.html"
-    parent = "setup/nodes"
+    identifier = "chef_infra/setup/nodes/upgrade_client.html Upgrades"
+    parent = "chef_infra/setup/nodes"
     weight = 60
 +++    
 

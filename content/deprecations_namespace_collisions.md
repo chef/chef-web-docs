@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_namespace_collisions.rst)
 
+<meta name="robots" content="noindex">
+
 In Chef Client 12.5.1, the custom resources API allowed specifying
 property names as the short form of `property_name` inside of actions,
 instead of the long form of `new_resource.property_name` (as was

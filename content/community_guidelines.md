@@ -8,7 +8,7 @@ aliases = "/community_guidelines.html"
 [menu]
   [menu.docs]
     title = "Guidelines"
-    identifier = "guidelines/community_guidelines.html"
+    identifier = "overview/community/community_guidelines.html Guidelines"
     parent = "overview/community"
     weight = 30
 +++    

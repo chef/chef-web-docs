@@ -8,8 +8,8 @@ aliases = "/quick_start.html"
 [menu]
   [menu.docs]
     title = "Quick Start"
-    identifier = "quick start/quick_start.html"
-    parent = "chef infra/getting started"
+    identifier = "chef_infra/getting_started/quick_start.html Quick Start"
+    parent = "chef_infra/getting_started"
     weight = 40
 +++    
 

@@ -8,8 +8,8 @@ aliases = "/ctl_chef_apply.html"
 [menu]
   [menu.docs]
     title = "chef-apply (executable)"
-    identifier = "chef-apply (executable)/ctl_chef_apply.html"
-    parent = "chef infra/chefdk"
+    identifier = "chef_infra/chefdk/ctl_chef_apply.html chef-apply (executable)"
+    parent = "chef_infra/chefdk"
     weight = 50
 +++    
 

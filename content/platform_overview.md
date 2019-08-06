@@ -8,7 +8,7 @@ aliases = "/platform_overview.html"
 [menu]
   [menu.docs]
     title = "Platform Overview"
-    identifier = "platform overview/platform_overview.html"
+    identifier = "overview/platform_overview.html Platform Overview"
     parent = "overview"
     weight = 10
 +++    

@@ -8,13 +8,15 @@ aliases = "/automate_compliance_reporting.html"
 [menu]
   [menu.docs]
     title = "Reporting"
-    identifier = "reporting/automate_compliance_reporting.html"
-    parent = "chef automate 1/compliance"
+    identifier = "legacy/chef_automate_1/compliance/automate_compliance_reporting.html Reporting"
+    parent = "legacy/chef_automate_1/compliance"
     weight = 10
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_reporting.html)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

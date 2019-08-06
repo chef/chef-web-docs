@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_local_listen.rst)
 
+<meta name="robots" content="noindex">
+
 When using <span class="title-ref">chef-client</span> Local Mode, there
 are two ways to launch the internal Chef Zero server. Originally we
 launched it as a normal network service on localhost and then connected

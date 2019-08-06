@@ -8,13 +8,15 @@ aliases = "/integrate_delivery_ldap.html"
 [menu]
   [menu.docs]
     title = "Authentication w/LDAP"
-    identifier = "authentication w/ldap/integrate_delivery_ldap.html"
-    parent = "chef automate 1/admin"
+    identifier = "legacy/chef_automate_1/admin/integrate_delivery_ldap.html Authentication w/LDAP"
+    parent = "legacy/chef_automate_1/admin"
     weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_ldap.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

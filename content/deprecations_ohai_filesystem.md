@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_filesystem.rst)
 
+<meta name="robots" content="noindex">
+
 In Ohai/Chef Client 13 we replaced the existing Filesystem plugin with
 the Filesystem2 plugin. This was done by having the Filesystem2 plugin
 populate both `node['fileystem2']` and `node['filesystem']`. The

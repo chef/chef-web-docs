@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/filter_compliance_scan.rst)
 
+<meta name="robots" content="noindex">
+
 {{% chef_automate_mark %}}
 
 {{% EOL_a1 %}}

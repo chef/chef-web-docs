@@ -8,13 +8,15 @@ aliases = "/server_manage_data_bags.html"
 [menu]
   [menu.docs]
     title = "Data Bags"
-    identifier = "data bags/server_manage_data_bags.html"
-    parent = "features/management console"
+    identifier = "chef_infra/features/management_console/server_manage_data_bags.html Data Bags"
+    parent = "chef_infra/features/management_console"
     weight = 50
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_data_bags.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

@@ -8,8 +8,8 @@ aliases = "/run_lists.html"
 [menu]
   [menu.docs]
     title = "Run-lists"
-    identifier = "run-lists/run_lists.html"
-    parent = "concepts/policy"
+    identifier = "chef_infra/concepts/policy/run_lists.html Run-lists"
+    parent = "chef_infra/concepts/policy"
     weight = 30
 +++    
 

@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_locale_lc_all.rst)
 
+<meta name="robots" content="noindex">
+
 Setting the `LC_ALL` variable is NOT recommended. As a system-wide
 setting, `LANG` should provide the desired behavior. `LC_ALL` is
 intended to be used for temporarily troubleshooting issues rather than

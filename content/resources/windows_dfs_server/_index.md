@@ -11,8 +11,8 @@ aliases: /resource_windows_dfs_server.html
 menu:
   docs:
     title: windows_dfs_server
-    identifier: windows_dfs_server/resource_windows_dfs_server.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_dfs_server.html windows_dfs_server
+    parent: chef_infra/cookbook_reference/resources
     weight: 1110
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

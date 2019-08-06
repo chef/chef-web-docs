@@ -8,8 +8,8 @@ aliases = "/environments.html"
 [menu]
   [menu.docs]
     title = "Environments"
-    identifier = "environments/environments.html"
-    parent = "concepts/policy"
+    identifier = "chef_infra/concepts/policy/environments.html Environments"
+    parent = "chef_infra/concepts/policy"
     weight = 40
 +++    
 

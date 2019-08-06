@@ -8,8 +8,8 @@ aliases = "/config_rb_optional_settings.html"
 [menu]
   [menu.docs]
     title = "Optional config.rb Settings"
-    identifier = "optional config.rb settings/config_rb_optional_settings.html"
-    parent = "chef infra/chefdk"
+    identifier = "chef_infra/chefdk/config_rb_optional_settings.html Optional config.rb Settings"
+    parent = "chef_infra/chefdk"
     weight = 100
 +++    
 

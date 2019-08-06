@@ -8,8 +8,8 @@ aliases = "/google.html"
 [menu]
   [menu.docs]
     title = "Google Cloud Platform"
-    identifier = "google cloud platform/google.html"
-    parent = "setup/integrations"
+    identifier = "chef_infra/setup/integrations/google.html Google Cloud Platform"
+    parent = "chef_infra/setup/integrations"
     weight = 20
 +++    
 

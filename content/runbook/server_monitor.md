@@ -5,11 +5,13 @@ draft = false
 
 aliases = "/server_monitor.html"
 
+runbook_weight = 10
+
 [menu]
   [menu.docs]
     title = "Monitor"
-    identifier = "monitor/server_monitor.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/server_monitor.html Monitor"
+    parent = "chef_infra/managing_the_server"
     weight = 70
 +++    
 
@@ -21,15 +23,15 @@ application and system. In addition monitoring the HTTP requests that
 workstations and nodes are making to the Chef Infra Server and per-disk
 data storage volumes is recommended.
 
-Monitoring Priorities
-=====================
+
+## Monitoring Priorities
 
 The following sections describe the priorities for monitoring of the
 Chef Infra Server. In particular, running out of disk space is the
 primary cause of failure.
 
-Disks
------
+
+### Disks
 
 Over time, and with enough data, disks will fill up or exceed the
 per-disk quotas that may have been set for them and they will not be
@@ -81,15 +83,15 @@ rapidly filling up:
     `sudo lsof | grep '(deleted)'` command to find all deleted file
     handles.
 
-Application Checks
-==================
+
+## Application Checks
 
 Application-level checks should be done periodically to ensure that
 there is enough disk space, enough memory, and that the front-end and
 back-end services are communicating.
 
-Erlang
-------
+
+### Erlang
 
 Many components of the Chef Infra Server are written using Erlang and
 run on the BEAM virtual machine. One feature of Erlang and BEAM is the
@@ -197,8 +199,8 @@ User switch command
 
 then enter `q`, and then hit `ENTER` to exit the shell.
 
-Nginx
------
+
+### Nginx
 
 Use Nginx to monitor for services that may be returning 504 errors. Use
 the following command on a front-end machine:
@@ -220,8 +222,8 @@ results may be necessary:
 $ tail -10000 nginx-access.log | grep 'HTTP/1.1" 504' | cut -d' ' -f8 | sort | uniq -c | sort
 ```
 
-PostgreSQL
-----------
+
+### PostgreSQL
 
 psql is the management tool for PostgreSQL. It can be used to obtain
 information about data stored in PostgreSQL. For more information about
@@ -249,8 +251,8 @@ by Chef support services.
 
 </div>
 
-RabbitMQ
---------
+
+### RabbitMQ
 
 rabbitmqctl is the management tool for RabbitMQ. It can be used to
 obtain status information and to ensure that message queuing is running
@@ -286,8 +288,8 @@ Status of node rabbit@localhost ...
  ... done
 ```
 
-Redis
------
+
+### Redis
 
 The **redis_lb** service located on the back end machine handles
 requests that are made from the Nginx service that is located on all
@@ -357,8 +359,8 @@ issue, do the following:
     1) "dl_default"
     ```
 
-Apache Solr
------------
+
+### Apache Solr
 
 The **opscode-solr4** service located on the primary back end machine
 handles requests that are made from the Erchef service that is located
@@ -380,13 +382,13 @@ available in the **opscode-solr4** service's storage area. The standard
 storage area for the **opscode-solr4** service in a standalone topology
 Chef Infra Server install is `/var/opt/opscode/opscode-solr4/data`.
 
-System Checks
-=============
+
+## System Checks
 
 System-level checks should be done for the ports and services status.
 
-chef-backend-ctl status
------------------------
+
+### chef-backend-ctl status
 
 The `chef-backend-ctl status` subcommand is used to check the status of
 services running in the [Chef Backend server
@@ -418,8 +420,8 @@ disks /var/log/chef-backend: OK; /var/opt/chef-backend: OK health: green; health
 More information about each service can be found in the individual
 service logs in `/var/opt/chef-backend/`.
 
-opscode-authz
--------------
+
+### opscode-authz
 
 The authz API provides a high-level view of the health of the
 **opscode-authz** service with a simple endpoint: `_ping`. This endpoint
@@ -436,8 +438,8 @@ pretty-print output:
 $ curl http://localhost:9463/_ping | python -mjson.tool
 ```
 
-opscode-erchef
---------------
+
+### opscode-erchef
 
 The status API provides a high-level view of the health of the system
 with a simple endpoint: `_status`. This endpoint can be accessed using
@@ -466,8 +468,8 @@ possible upstream names are:
 If any of the status values return `fail`, this typically means the Chef
 Infra Server is unavailable for that service.
 
-opscode-expander
-----------------
+
+### opscode-expander
 
 As the queue depth increases it may take longer for updates posted to
 the Chef Infra Server by each Chef Infra Client to be added to the
@@ -517,8 +519,8 @@ number of workers available to the **opscode-expander** service.
 
 {{% ctl_opscode_expander_example %}}
 
-Nodes, Workstations
-===================
+
+## Nodes, Workstations
 
 If a client makes an HTTP request to the server that returns a
 non-specific error message, this is typically an issue with the

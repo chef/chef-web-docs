@@ -8,8 +8,8 @@ aliases = "/supermarket_share_cookbook.html"
 [menu]
   [menu.docs]
     title = "Share Cookbooks"
-    identifier = "share cookbooks/supermarket_share_cookbook.html"
-    parent = "concepts/supermarket"
+    identifier = "chef_infra/concepts/supermarket/supermarket_share_cookbook.html Share Cookbooks"
+    parent = "chef_infra/concepts/supermarket"
     weight = 40
 +++    
 

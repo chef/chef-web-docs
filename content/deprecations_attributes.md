@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_attributes.rst)
 
+<meta name="robots" content="noindex">
+
 We are continuously improving and streamlining the way attributes work
 in Chef, to make it easier for users to reason about and safely
 configure their servers.

@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_verify_file.rst)
 
+<meta name="robots" content="noindex">
+
 The `verify` metaproperty allows the user to specify a `{path}` variable
 that is expanded to the path of the file to be verified. Previously, it
 was possible to use `{file}` as the variable, but that is now
