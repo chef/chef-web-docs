@@ -33,7 +33,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``11 SP4``, ``12 SP1+``, ``15``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
