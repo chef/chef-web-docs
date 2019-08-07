@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_sigar_plugins.rst)
 
+<meta name="robots" content="noindex">
+
 When Ohai was first released it depended on the sigar gem for
 discovering system configuration details. As time went on Ohai was
 expanded with built-in discovery methods for various platforms. The

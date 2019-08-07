@@ -8,7 +8,7 @@ aliases = "/community.html"
 [menu]
   [menu.docs]
     title = "About the Community"
-    identifier = "about the community/community.html"
+    identifier = "overview/community/community.html About the Community"
     parent = "overview/community"
     weight = 10
 +++    

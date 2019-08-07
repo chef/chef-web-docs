@@ -8,8 +8,8 @@ aliases = "/ctl_supermarket.html"
 [menu]
   [menu.docs]
     title = "supermarket-ctl"
-    identifier = "supermarket-ctl/ctl_supermarket.html"
-    parent = "setup/supermarket"
+    identifier = "chef_infra/setup/supermarket/ctl_supermarket.html supermarket-ctl"
+    parent = "chef_infra/setup/supermarket"
     weight = 90
 +++    
 

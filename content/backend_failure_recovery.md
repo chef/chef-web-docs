@@ -8,8 +8,8 @@ aliases = "/backend_failure_recovery.html"
 [menu]
   [menu.docs]
     title = "Backend Failure Recovery"
-    identifier = "backend failure recovery/backend_failure_recovery.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/backend_failure_recovery.html Backend Failure Recovery"
+    parent = "chef_infra/managing_the_server"
     weight = 30
 +++    
 

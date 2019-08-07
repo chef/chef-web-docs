@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_amazon_linux.rst)
 
+<meta name="robots" content="noindex">
+
 In Ohai/Chef releases prior to Chef Client 13, Amazon Linux was
 identified as `platform_family 'rhel'`. In Ohai/Chef Client 13 and
 later, Amazon Linux will be identified as the

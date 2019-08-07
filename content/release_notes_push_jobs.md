@@ -8,8 +8,8 @@ aliases = "/release_notes_push_jobs.html"
 [menu]
   [menu.docs]
     title = "Chef Push Jobs"
-    identifier = "chef push jobs/release_notes_push_jobs.html"
-    parent = "chef infra/release notes"
+    identifier = "chef_infra/release_notes/release_notes_push_jobs.html Chef Push Jobs"
+    parent = "chef_infra/release_notes"
     weight = 40
 +++    
 

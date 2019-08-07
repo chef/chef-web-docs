@@ -8,13 +8,15 @@ aliases = "/data_retention_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Data Retention"
-    identifier = "data retention/data_retention_chef_automate.html"
-    parent = "chef automate 1/managing the server"
+    identifier = "legacy/chef_automate_1/managing_the_server/data_retention_chef_automate.html Data Retention"
+    parent = "legacy/chef_automate_1/managing_the_server"
     weight = 50
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_retention_chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

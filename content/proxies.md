@@ -8,8 +8,8 @@ aliases = "/proxies.html"
 [menu]
   [menu.docs]
     title = "Working with Proxies"
-    identifier = "working with proxies/proxies.html"
-    parent = "chef infra/setup"
+    identifier = "chef_infra/setup/proxies.html Working with Proxies"
+    parent = "chef_infra/setup"
     weight = 40
 +++    
 

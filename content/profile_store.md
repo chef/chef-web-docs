@@ -8,13 +8,15 @@ aliases = "/profile_store.html"
 [menu]
   [menu.docs]
     title = "Profile Store"
-    identifier = "profile store/profile_store.html"
-    parent = "chef automate 1/compliance"
+    identifier = "legacy/chef_automate_1/compliance/profile_store.html Profile Store"
+    parent = "legacy/chef_automate_1/compliance"
     weight = 30
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/profile_store.rst)
+
+<meta name="robots" content="noindex">
 
 {{% profile_store %}}
 

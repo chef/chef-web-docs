@@ -8,8 +8,8 @@ aliases = "/chef_client_overview.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Client Overview"
-    identifier = "chef infra client overview/chef_client_overview.html"
-    parent = "chef infra/concepts"
+    identifier = "chef_infra/concepts/chef_client_overview.html Chef Infra Client Overview"
+    parent = "chef_infra/concepts"
     weight = 30
 +++    
 

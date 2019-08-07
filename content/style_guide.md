@@ -8,7 +8,7 @@ aliases = "/style_guide.html"
 [menu]
   [menu.docs]
     title = "Docs Style Guide"
-    identifier = "docs style guide/style_guide.html"
+    identifier = "overview/community/style_guide.html Docs Style Guide"
     parent = "overview/community"
     weight = 40
 +++    

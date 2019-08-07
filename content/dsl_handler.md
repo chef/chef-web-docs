@@ -8,8 +8,8 @@ aliases = "/dsl_handler.html"
 [menu]
   [menu.docs]
     title = "Handler DSL"
-    identifier = "handler dsl/dsl_handler.html"
-    parent = "extension apis/handlers"
+    identifier = "extension_apis/handlers/dsl_handler.html Handler DSL"
+    parent = "extension_apis/handlers"
     weight = 20
 +++    
 

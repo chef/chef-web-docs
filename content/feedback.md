@@ -8,7 +8,7 @@ aliases = "/feedback.html"
 [menu]
   [menu.docs]
     title = "Send Feedback"
-    identifier = "send feedback/feedback.html"
+    identifier = "overview/community/feedback.html Send Feedback"
     parent = "overview/community"
     weight = 50
 +++    

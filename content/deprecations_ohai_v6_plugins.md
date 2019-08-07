@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_v6_plugins.rst)
 
+<meta name="robots" content="noindex">
+
 Ohai 7.0 released with Chef Client 11.12 introduced an improved plugin
 DSL model. At the time we introduced deprecations for the existing
 plugin DSL, which we referred to as V6 plugins. In Ohai/Chef Client 14

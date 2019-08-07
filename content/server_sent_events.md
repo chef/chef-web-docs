@@ -8,8 +8,8 @@ aliases = "/server_sent_events.html"
 [menu]
   [menu.docs]
     title = "Server Sent Events"
-    identifier = "server sent events/server_sent_events.html"
-    parent = "managing the server/push jobs"
+    identifier = "chef_infra/managing_the_server/push_jobs/server_sent_events.html Server Sent Events"
+    parent = "chef_infra/managing_the_server/push_jobs"
     weight = 60
 +++    
 

@@ -8,8 +8,8 @@ aliases = "/supermarket_backup_restore.html"
 [menu]
   [menu.docs]
     title = "Backup and Restore"
-    identifier = "backup and restore/supermarket_backup_restore.html"
-    parent = "setup/supermarket"
+    identifier = "chef_infra/setup/supermarket/supermarket_backup_restore.html Backup and Restore"
+    parent = "chef_infra/setup/supermarket"
     weight = 50
 +++    
 

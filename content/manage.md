@@ -8,8 +8,8 @@ aliases = "/manage.html"
 [menu]
   [menu.docs]
     title = "About the Management Console"
-    identifier = "about the management console/manage.html"
-    parent = "features/management console"
+    identifier = "chef_infra/features/management_console/manage.html About the Management Console"
+    parent = "chef_infra/features/management_console"
     weight = 10
 +++    
 

@@ -8,13 +8,15 @@ aliases = "/automate_compliance_credentials.html"
 [menu]
   [menu.docs]
     title = "Credentials"
-    identifier = "credentials/automate_compliance_credentials.html"
-    parent = "chef automate 1/compliance"
+    identifier = "legacy/chef_automate_1/compliance/automate_compliance_credentials.html Credentials"
+    parent = "legacy/chef_automate_1/compliance"
     weight = 40
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_credentials.html)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

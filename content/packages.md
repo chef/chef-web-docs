@@ -8,8 +8,8 @@ aliases = "/packages.html"
 [menu]
   [menu.docs]
     title = "Packages"
-    identifier = "packages/packages.html"
-    parent = "overview/packages & platforms"
+    identifier = "overview/packages_&_platforms/packages.html Packages"
+    parent = "overview/packages_&_platforms"
     weight = 10
 +++    
 

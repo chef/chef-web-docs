@@ -8,8 +8,8 @@ aliases = "/ohai.html"
 [menu]
   [menu.docs]
     title = "About Ohai"
-    identifier = "about ohai/ohai.html"
-    parent = "chefdk/ohai"
+    identifier = "chef_infra/chefdk/ohai/ohai.html About Ohai"
+    parent = "chef_infra/chefdk/ohai"
     weight = 10
 +++    
 

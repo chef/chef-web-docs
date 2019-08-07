@@ -8,13 +8,15 @@ aliases = "/integrate_node_notifications_slack.html"
 [menu]
   [menu.docs]
     title = "Node Notifications w/Slack"
-    identifier = "node notifications w/slack/integrate_node_notifications_slack.html"
-    parent = "chef automate 1/nodes"
+    identifier = "legacy/chef_automate_1/nodes/integrate_node_notifications_slack.html Node Notifications w/Slack"
+    parent = "legacy/chef_automate_1/nodes"
     weight = 10
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_node_notifications_slack.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

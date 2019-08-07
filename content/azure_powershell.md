@@ -8,8 +8,8 @@ aliases = "/azure_powershell.html"
 [menu]
   [menu.docs]
     title = "Azure Powershell_Cmdlets"
-    identifier = "azure powershell_cmdlets/azure_powershell.html"
-    parent = "getting started/chef on azure guide"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.html Azure Powershell_Cmdlets"
+    parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 40
 +++    
 

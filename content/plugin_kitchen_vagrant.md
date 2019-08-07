@@ -8,8 +8,8 @@ aliases = "/plugin_kitchen_vagrant.html"
 [menu]
   [menu.docs]
     title = "kitchen-vagrant"
-    identifier = "kitchen-vagrant/plugin_kitchen_vagrant.html"
-    parent = "chefdk/test kitchen"
+    identifier = "chef_infra/chefdk/test_kitchen/plugin_kitchen_vagrant.html kitchen-vagrant"
+    parent = "chef_infra/chefdk/test_kitchen"
     weight = 40
 +++    
 

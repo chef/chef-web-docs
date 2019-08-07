@@ -8,8 +8,8 @@ aliases = "/install_bootstrap.html"
 [menu]
   [menu.docs]
     title = "Install via Bootstrap"
-    identifier = "install via bootstrap/install_bootstrap.html"
-    parent = "setup/nodes"
+    identifier = "chef_infra/setup/nodes/install_bootstrap.html Install via Bootstrap"
+    parent = "chef_infra/setup/nodes"
     weight = 10
 +++    
 

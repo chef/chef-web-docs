@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chef_gem_compile_time.rst)
 
+<meta name="robots" content="noindex">
+
 Originally, the [chef gem](/resource_chef_gem/) resource always ran
 during the <span class="title-ref">compile</span> phase (see this
 section on [Chef Infra Client

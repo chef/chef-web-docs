@@ -8,8 +8,8 @@ aliases = "/install_server_tiered.html"
 [menu]
   [menu.docs]
     title = "Tiered Installation"
-    identifier = "tiered installation/install_server_tiered.html"
-    parent = "setup/server"
+    identifier = "chef_infra/setup/server/install_server_tiered.html Tiered Installation"
+    parent = "chef_infra/setup/server"
     weight = 50
 +++    
 

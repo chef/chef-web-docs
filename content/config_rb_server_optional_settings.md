@@ -8,8 +8,8 @@ aliases = "/config_rb_server_optional_settings.html"
 [menu]
   [menu.docs]
     title = "Chef Server Optional Settings"
-    identifier = "chef server optional settings/config_rb_server_optional_settings.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/config_rb_server_optional_settings.html Chef Server Optional Settings"
+    parent = "chef_infra/managing_the_server"
     weight = 180
 +++    
 

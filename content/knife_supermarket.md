@@ -8,9 +8,9 @@ aliases = "/knife_supermarket.html"
 [menu]
   [menu.docs]
     title = "knife supermarket"
-    identifier = "knife supermarket/knife_supermarket.html"
-    parent = "setup/supermarket"
-    weight = 80
+    identifier = "chef_infra/chefdk/knife/knife_supermarket.html knife supermarket"
+    parent = "chef_infra/chefdk/knife"
+    weight = 300
 +++    
 
 [\[edit on

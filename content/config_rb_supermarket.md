@@ -8,8 +8,8 @@ aliases = "/config_rb_supermarket.html"
 [menu]
   [menu.docs]
     title = "supermarket.rb Settings"
-    identifier = "supermarket.rb settings/config_rb_supermarket.html"
-    parent = "setup/supermarket"
+    identifier = "chef_infra/setup/supermarket/config_rb_supermarket.html supermarket.rb Settings"
+    parent = "chef_infra/setup/supermarket"
     weight = 40
 +++    
 

@@ -8,13 +8,15 @@ aliases = "/integrate_delivery_slack.html"
 [menu]
   [menu.docs]
     title = "Workflow w/Slack"
-    identifier = "workflow w/slack/integrate_delivery_slack.html"
-    parent = "chef automate 1/workflow"
+    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_slack.html Workflow w/Slack"
+    parent = "legacy/chef_automate_1/workflow"
     weight = 100
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_slack.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

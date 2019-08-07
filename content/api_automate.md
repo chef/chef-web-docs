@@ -8,13 +8,15 @@ aliases = "/api_automate.html"
 [menu]
   [menu.docs]
     title = "Chef Automate API"
-    identifier = "chef automate api/api_automate.html"
-    parent = "chef automate 1/reference"
+    identifier = "legacy/chef_automate_1/reference/api_automate.html Chef Automate API"
+    parent = "legacy/chef_automate_1/reference"
     weight = 10
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_automate.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

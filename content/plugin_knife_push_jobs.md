@@ -8,8 +8,8 @@ aliases = "/plugin_knife_push_jobs.html"
 [menu]
   [menu.docs]
     title = "knife push jobs"
-    identifier = "knife push jobs/plugin_knife_push_jobs.html"
-    parent = "managing the server/push jobs"
+    identifier = "chef_infra/managing_the_server/push_jobs/plugin_knife_push_jobs.html knife push jobs"
+    parent = "chef_infra/managing_the_server/push_jobs"
     weight = 10
 +++    
 

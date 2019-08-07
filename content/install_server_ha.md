@@ -8,8 +8,8 @@ aliases = "/install_server_ha.html"
 [menu]
   [menu.docs]
     title = "Install High Availability"
-    identifier = "install high availability/install_server_ha.html"
-    parent = "setup/server"
+    identifier = "chef_infra/setup/server/install_server_ha.html Install High Availability"
+    parent = "chef_infra/setup/server"
     weight = 60
 +++    
 

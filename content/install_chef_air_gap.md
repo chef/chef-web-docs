@@ -8,8 +8,8 @@ aliases = "/install_chef_air_gap.html"
 [menu]
   [menu.docs]
     title = "Air-gapped Installation"
-    identifier = "air-gapped installation/install_chef_air_gap.html"
-    parent = "chef infra/setup"
+    identifier = "chef_infra/setup/install_chef_air_gap.html Air-gapped Installation"
+    parent = "chef_infra/setup"
     weight = 50
 +++    
 

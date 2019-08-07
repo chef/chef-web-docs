@@ -7,10 +7,10 @@ aliases = "/ctl_push_jobs_client.html"
 
 [menu]
   [menu.docs]
-    title = "push-jobs-client (executable)"
-    identifier = "push-jobs-client (executable)/ctl_push_jobs_client.html"
-    parent = "chef infra/chefdk"
-    weight = 180
+    title = "push-jobs-client"
+    identifier = "chef_infra/managing_the_server/push_jobs/ctl_push_jobs_client.html push-jobs-client"
+    parent = "chef_infra/managing_the_server/push_jobs"
+    weight = 20
 +++    
 
 [\[edit on

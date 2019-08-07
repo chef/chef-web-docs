@@ -8,13 +8,15 @@ aliases = "/server_manage_environments.html"
 [menu]
   [menu.docs]
     title = "Environments"
-    identifier = "environments/server_manage_environments.html"
-    parent = "features/management console"
+    identifier = "chef_infra/features/management_console/server_manage_environments.html Environments"
+    parent = "chef_infra/features/management_console"
     weight = 60
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_environments.rst)
+
+<meta name="robots" content="noindex">
 
 <div class="note" markdown="1">
 

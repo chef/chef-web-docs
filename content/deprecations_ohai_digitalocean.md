@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_digitalocean.rst)
 
+<meta name="robots" content="noindex">
+
 Ohai's previous Digital Ocean plugin relied on hint data passed to Ohai
 as well and the drop's internal network interface configuration. The
 Digital Ocean plugin has been rewritten to poll information from the

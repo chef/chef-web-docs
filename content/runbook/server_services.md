@@ -5,11 +5,13 @@ draft = false
 
 aliases = "/server_services.html"
 
+runbook_weight = 40
+
 [menu]
   [menu.docs]
     title = "Services"
-    identifier = "services/server_services.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/server_services.html Services"
+    parent = "chef_infra/managing_the_server"
     weight = 100
 +++    
 
@@ -20,48 +22,48 @@ The Chef Infra Server has a built in process supervisor, which ensures
 that all of the required services are in the appropriate state at any
 given time. The supervisor starts two processes per service.
 
-Service Subcommands
-===================
+
+## Service Subcommands
 
 {{% ctl_common_service_subcommands %}}
 
-hup
----
+
+### hup
 
 {{% ctl_chef_server_hup %}}
 
-int
----
+
+### int
 
 {{% ctl_chef_server_int %}}
 
-kill
-----
+
+### kill
 
 {{% ctl_chef_server_kill %}}
 
-once
-----
+
+### once
 
 {{% ctl_chef_server_once %}}
 
-restart
--------
+
+### restart
 
 {{% ctl_chef_server_restart %}}
 
-service-list
-------------
+
+### service-list
 
 {{% ctl_chef_server_service_list %}}
 
-start
------
+
+### start
 
 {{% ctl_chef_server_start %}}
 
-status
-------
+
+### status
 
 {{% ctl_chef_server_status %}}
 
@@ -69,25 +71,26 @@ status
 
 {{% ctl_chef_server_status_logs %}}
 
-stop
-----
+
+### stop
 
 {{% ctl_chef_server_stop %}}
 
-tail
-----
+
+### tail
 
 {{% ctl_chef_server_tail %}}
 
-term
-----
+
+### term
 
 {{% ctl_chef_server_term %}}
 
-List of Services
-================
+
+## List of Services
 
 The following services are part of the Chef Infra Server:
+
 
 -   bifrost
 -   bookshelf
@@ -99,8 +102,7 @@ The following services are part of the Chef Infra Server:
 -   rabbitmq
 -   redis-lb
 
-bifrost
--------
+### bifrost
 
 {{% server_services_bifrost %}}
 
@@ -172,8 +174,8 @@ To follow the logs for the service:
 $ chef-server-ctl tail bifrost
 ```
 
-bookshelf
----------
+
+### bookshelf
 
 {{% server_services_bookshelf %}}
 
@@ -245,8 +247,8 @@ To follow the logs for the service:
 $ chef-server-ctl tail bookshelf
 ```
 
-nginx
------
+
+### nginx
 
 {{% server_services_nginx %}}
 
@@ -314,8 +316,8 @@ $ chef-server-ctl once nginx
 
 {{% server_services_nginx_tail %}}
 
-opscode-erchef
---------------
+
+### opscode-erchef
 
 {{% server_services_erchef %}}
 
@@ -387,8 +389,8 @@ To follow the logs for the service:
 $ chef-server-ctl tail opscode-erchef
 ```
 
-opscode-expander
-----------------
+
+### opscode-expander
 
 {{% server_services_expander %}}
 
@@ -460,8 +462,8 @@ To follow the logs for the service:
 $ chef-server-ctl tail opscode-expander
 ```
 
-opscode-solr4
--------------
+
+### opscode-solr4
 
 {{% server_services_solr4 %}}
 
@@ -533,8 +535,8 @@ To follow the logs for the service:
 $ chef-server-ctl tail opscode-solr
 ```
 
-postgresql
-----------
+
+### postgresql
 
 {{% server_services_postgresql %}}
 
@@ -606,8 +608,8 @@ To follow the logs for the service:
 $ chef-server-ctl tail postgresql
 ```
 
-rabbitmq
---------
+
+### rabbitmq
 
 {{% server_services_rabbitmq %}}
 
@@ -679,8 +681,8 @@ To follow the logs for the service:
 $ chef-server-ctl tail rabbitmq
 ```
 
-redis
------
+
+### redis
 
 {{% server_services_redis %}}
 

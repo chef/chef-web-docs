@@ -8,8 +8,8 @@ aliases = "/definitions.html"
 [menu]
   [menu.docs]
     title = "Converting Definitions"
-    identifier = "converting definitions/definitions.html"
-    parent = "chef infra/concepts"
+    identifier = "chef_infra/concepts/definitions.html Converting Definitions"
+    parent = "chef_infra/concepts"
     weight = 80
 +++    
 

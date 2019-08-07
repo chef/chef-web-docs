@@ -8,8 +8,8 @@ aliases = "/errors.html"
 [menu]
   [menu.docs]
     title = "Troubleshooting"
-    identifier = "troubleshooting/errors.html"
-    parent = "chef infra"
+    identifier = "chef_infra/errors.html Troubleshooting"
+    parent = "chef_infra"
     weight = 40
 +++    
 

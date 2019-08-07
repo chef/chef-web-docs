@@ -11,8 +11,8 @@ aliases: /resource_windows_package.html
 menu:
   docs:
     title: windows_package
-    identifier: windows_package/resource_windows_package.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_package.html windows_package
+    parent: chef_infra/cookbook_reference/resources
     weight: 1200
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

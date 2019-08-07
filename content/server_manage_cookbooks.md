@@ -8,13 +8,15 @@ aliases = "/server_manage_cookbooks.html"
 [menu]
   [menu.docs]
     title = "Cookbooks"
-    identifier = "cookbooks/server_manage_cookbooks.html"
-    parent = "features/management console"
+    identifier = "chef_infra/features/management_console/server_manage_cookbooks.html Cookbooks"
+    parent = "chef_infra/features/management_console"
     weight = 40
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_cookbooks.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

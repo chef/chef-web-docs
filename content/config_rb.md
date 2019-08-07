@@ -8,9 +8,9 @@ aliases = "/config_rb.html"
 [menu]
   [menu.docs]
     title = "config.rb (knife.rb)"
-    identifier = "config.rb (knife.rb)/config_rb.html"
-    parent = "chef infra/chefdk"
-    weight = 90
+    identifier = "chef_infra/chefdk/knife/config_rb.html config.rb (knife.rb)"
+    parent = "chef_infra/chefdk/knife"
+    weight = 40
 +++    
 
 [\[edit on

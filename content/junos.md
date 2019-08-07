@@ -8,8 +8,8 @@ aliases = "/junos.html"
 [menu]
   [menu.docs]
     title = "Install on Junos OS"
-    identifier = "install on junos os/junos.html"
-    parent = "setup/nodes"
+    identifier = "chef_infra/setup/nodes/junos.html Install on Junos OS"
+    parent = "chef_infra/setup/nodes"
     weight = 30
 +++    
 

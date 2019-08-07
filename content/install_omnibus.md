@@ -8,8 +8,8 @@ aliases = "/install_omnibus.html"
 [menu]
   [menu.docs]
     title = "Install via URL"
-    identifier = "install via url/install_omnibus.html"
-    parent = "setup/nodes"
+    identifier = "chef_infra/setup/nodes/install_omnibus.html Install via URL"
+    parent = "chef_infra/setup/nodes"
     weight = 20
 +++    
 

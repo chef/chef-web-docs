@@ -8,8 +8,8 @@ aliases = "/vmware.html"
 [menu]
   [menu.docs]
     title = "VMware"
-    identifier = "vmware/vmware.html"
-    parent = "setup/integrations"
+    identifier = "chef_infra/setup/integrations/vmware.html VMware"
+    parent = "chef_infra/setup/integrations"
     weight = 30
 +++    
 

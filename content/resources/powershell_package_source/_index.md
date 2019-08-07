@@ -11,8 +11,8 @@ aliases: /resource_powershell_package_source.html
 menu:
   docs:
     title: powershell_package_source
-    identifier: powershell_package_source/resource_powershell_package_source.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_powershell_package_source.html powershell_package_source
+    parent: chef_infra/cookbook_reference/resources
     weight: 750
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

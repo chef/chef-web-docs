@@ -8,13 +8,15 @@ aliases = "/delivery_manage_secrets.html"
 [menu]
   [menu.docs]
     title = "Manage Secrets"
-    identifier = "manage secrets/delivery_manage_secrets.html"
-    parent = "chef automate 1/workflow"
+    identifier = "legacy/chef_automate_1/workflow/delivery_manage_secrets.html Manage Secrets"
+    parent = "legacy/chef_automate_1/workflow"
     weight = 40
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_manage_secrets.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

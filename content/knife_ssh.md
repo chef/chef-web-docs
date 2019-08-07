@@ -8,8 +8,8 @@ aliases = "/knife_ssh.html"
 [menu]
   [menu.docs]
     title = "knife ssh"
-    identifier = "knife ssh/knife_ssh.html"
-    parent = "chefdk/knife"
+    identifier = "chef_infra/chefdk/knife/knife_ssh.html knife ssh"
+    parent = "chef_infra/chefdk/knife"
     weight = 260
 +++    
 

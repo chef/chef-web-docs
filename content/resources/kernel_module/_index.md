@@ -11,8 +11,8 @@ aliases: /resource_kernel_module.html
 menu:
   docs:
     title: kernel_module
-    identifier: kernel_module/resource_kernel_module.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_kernel_module.html kernel_module
+    parent: chef_infra/cookbook_reference/resources
     weight: 460
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

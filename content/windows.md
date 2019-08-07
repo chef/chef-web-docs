@@ -8,8 +8,8 @@ aliases = "/windows.html"
 [menu]
   [menu.docs]
     title = "Chef for Microsoft Windows"
-    identifier = "chef for microsoft windows/windows.html"
-    parent = "getting started/chef on windows guide"
+    identifier = "chef_infra/getting_started/chef_on_windows_guide/windows.html Chef for Microsoft Windows"
+    parent = "chef_infra/getting_started/chef_on_windows_guide"
     weight = 10
 +++    
 

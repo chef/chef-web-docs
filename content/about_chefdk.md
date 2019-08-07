@@ -7,9 +7,9 @@ aliases = "/about_chefdk.html"
 
 [menu]
   [menu.docs]
-    title = "Chef Development Kit"
-    identifier = "chef development kit/about_chefdk.html"
-    parent = "chef infra/concepts"
+    title = "About ChefDK"
+    identifier = "chef_infra/chefdk/about_chefdk.html About ChefDK"
+    parent = "chef_infra/chefdk"
     weight = 10
 +++    
 

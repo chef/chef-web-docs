@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_legacy_config.rst)
 
+<meta name="robots" content="noindex">
+
 Ohai 8.8.0 (Chef Client 12.6.0) introduced a new Ohai configuration
 system as defined in
 [RFC-053](https://github.com/chef/chef-rfc/blob/master/rfc053-ohai-config.md).

@@ -8,8 +8,8 @@ aliases = "/aws_opsworks_chef_automate.html"
 [menu]
   [menu.docs]
     title = "AWS OpsWorks for Chef Automate"
-    identifier = "aws opsworks for chef automate/aws_opsworks_chef_automate.html"
-    parent = "legacy/chef automate 1"
+    identifier = "legacy/chef_automate_1/aws_opsworks_chef_automate.html AWS OpsWorks for Chef Automate"
+    parent = "legacy/chef_automate_1"
     weight = 100
 +++    
 

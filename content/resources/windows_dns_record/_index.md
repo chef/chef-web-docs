@@ -11,8 +11,8 @@ aliases: /resource_windows_dns_record.html
 menu:
   docs:
     title: windows_dns_record
-    identifier: windows_dns_record/resource_windows_dns_record.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_dns_record.html windows_dns_record
+    parent: chef_infra/cookbook_reference/resources
     weight: 1120
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

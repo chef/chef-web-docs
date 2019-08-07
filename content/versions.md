@@ -8,8 +8,8 @@ aliases = "/versions.html"
 [menu]
   [menu.docs]
     title = "Supported Versions"
-    identifier = "supported versions/versions.html"
-    parent = "overview/packages & platforms"
+    identifier = "overview/packages_&_platforms/versions.html Supported Versions"
+    parent = "overview/packages_&_platforms"
     weight = 30
 +++    
 

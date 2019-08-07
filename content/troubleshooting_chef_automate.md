@@ -8,13 +8,15 @@ aliases = "/troubleshooting_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Troubleshooting"
-    identifier = "troubleshooting/troubleshooting_chef_automate.html"
-    parent = "legacy/chef automate 1"
+    identifier = "legacy/chef_automate_1/troubleshooting_chef_automate.html Troubleshooting"
+    parent = "legacy/chef_automate_1"
     weight = 120
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/troubleshooting_chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

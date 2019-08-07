@@ -8,8 +8,8 @@ aliases = "/ctl_ohai.html"
 [menu]
   [menu.docs]
     title = "ohai (executable)"
-    identifier = "ohai (executable)/ctl_ohai.html"
-    parent = "chefdk/ohai"
+    identifier = "chef_infra/chefdk/ohai/ctl_ohai.html ohai (executable)"
+    parent = "chef_infra/chefdk/ohai"
     weight = 20
 +++    
 

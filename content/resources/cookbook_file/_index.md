@@ -11,8 +11,8 @@ aliases: /resource_cookbook_file.html
 menu:
   docs:
     title: cookbook_file
-    identifier: cookbook_file/resource_cookbook_file.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_cookbook_file.html cookbook_file
+    parent: chef_infra/cookbook_reference/resources
     weight: 220
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

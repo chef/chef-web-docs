@@ -8,13 +8,15 @@ aliases = "/runners.html"
 [menu]
   [menu.docs]
     title = "Runners"
-    identifier = "runners/runners.html"
-    parent = "chef automate 1/workflow"
+    identifier = "legacy/chef_automate_1/workflow/runners.html Runners"
+    parent = "legacy/chef_automate_1/workflow"
     weight = 60
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/runners.rst)
+
+<meta name="robots" content="noindex">
 
 Chef Automate's workflow engine automatically creates phase jobs as
 project code is promoted through the phases of a workflow pipeline.

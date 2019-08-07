@@ -8,8 +8,8 @@ aliases = "/chef_client_security.html"
 [menu]
   [menu.docs]
     title = "Security"
-    identifier = "security/chef_client_security.html"
-    parent = "setup/nodes"
+    identifier = "chef_infra/setup/nodes/chef_client_security.html Security"
+    parent = "chef_infra/setup/nodes"
     weight = 70
 +++    
 

@@ -8,8 +8,8 @@ aliases = "/aws_marketplace.html"
 [menu]
   [menu.docs]
     title = "AWS Marketplace"
-    identifier = "aws marketplace/aws_marketplace.html"
-    parent = "setup/integrations"
+    identifier = "chef_infra/setup/integrations/aws_marketplace.html AWS Marketplace"
+    parent = "chef_infra/setup/integrations"
     weight = 10
 +++    
 

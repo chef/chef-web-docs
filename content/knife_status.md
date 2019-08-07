@@ -8,8 +8,8 @@ aliases = "/knife_status.html"
 [menu]
   [menu.docs]
     title = "knife status"
-    identifier = "knife status/knife_status.html"
-    parent = "chefdk/knife"
+    identifier = "chef_infra/chefdk/knife/knife_status.html knife status"
+    parent = "chef_infra/chefdk/knife"
     weight = 290
 +++    
 

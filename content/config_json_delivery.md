@@ -8,13 +8,15 @@ aliases = "/config_json_delivery.html"
 [menu]
   [menu.docs]
     title = "Configure a Project"
-    identifier = "configure a project/config_json_delivery.html"
-    parent = "chef automate 1/getting started"
+    identifier = "legacy/chef_automate_1/getting_started/config_json_delivery.html Configure a Project"
+    parent = "legacy/chef_automate_1/getting_started"
     weight = 30
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_json_delivery.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

@@ -8,7 +8,7 @@ aliases = "/community_contributions.html"
 [menu]
   [menu.docs]
     title = "Contributing"
-    identifier = "contributing/community_contributions.html"
+    identifier = "overview/community/community_contributions.html Contributing"
     parent = "overview/community"
     weight = 20
 +++    

@@ -8,8 +8,8 @@ aliases = "/config_yml_kitchen.html"
 [menu]
   [menu.docs]
     title = "kitchen.yml"
-    identifier = "kitchen.yml/config_yml_kitchen.html"
-    parent = "chefdk/test kitchen"
+    identifier = "chef_infra/chefdk/test_kitchen/config_yml_kitchen.html kitchen.yml"
+    parent = "chef_infra/chefdk/test_kitchen"
     weight = 30
 +++    
 

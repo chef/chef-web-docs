@@ -11,8 +11,8 @@ aliases: /resource_rhsm_errata_level.html
 menu:
   docs:
     title: rhsm_errata_level
-    identifier: rhsm_errata_level/resource_rhsm_errata_level.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_errata_level.html rhsm_errata_level
+    parent: chef_infra/cookbook_reference/resources
     weight: 830
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

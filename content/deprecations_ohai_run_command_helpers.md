@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_run_command_helpers.rst)
 
+<meta name="robots" content="noindex">
+
 Ohai ships a command mixin for use by plugin authors in shelling out to
 external commands. This mixin originally included `run_command` and
 `popen4` methods, which were deprecated in Ohai 8.11.1 (Chef Client

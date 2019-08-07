@@ -8,8 +8,8 @@ aliases = "/chef_system_requirements.html"
 [menu]
   [menu.docs]
     title = "System Requirements"
-    identifier = "system requirements/chef_system_requirements.html"
-    parent = "chef infra/getting started"
+    identifier = "chef_infra/getting_started/chef_system_requirements.html System Requirements"
+    parent = "chef_infra/getting_started"
     weight = 50
 +++    
 

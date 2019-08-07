@@ -16,6 +16,8 @@ draft = false
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_json_auto_inflate.rst)
 
+<meta name="robots" content="noindex">
+
 Internally, the `Chef::REST` class attempts to guess which Chef class a
 JSON document relates too, and then automatically turns the JSON in to
 that class.

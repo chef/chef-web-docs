@@ -11,8 +11,8 @@ aliases: /resource_ssh_known_hosts_entry.html
 menu:
   docs:
     title: ssh_known_hosts_entry
-    identifier: ssh_known_hosts_entry/resource_ssh_known_hosts_entry.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_ssh_known_hosts_entry.html ssh_known_hosts_entry
+    parent: chef_infra/cookbook_reference/resources
     weight: 970
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

@@ -8,13 +8,15 @@ aliases = "/integrate_delivery_smtp.html"
 [menu]
   [menu.docs]
     title = "Workflow w/Email (SMTP)"
-    identifier = "workflow w/email (smtp)/integrate_delivery_smtp.html"
-    parent = "chef automate 1/workflow"
+    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_smtp.html Workflow w/Email (SMTP)"
+    parent = "legacy/chef_automate_1/workflow"
     weight = 80
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_delivery_smtp.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

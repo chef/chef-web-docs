@@ -8,8 +8,8 @@ aliases = "/ctl_chef_backend.html"
 [menu]
   [menu.docs]
     title = "chef-backend-ctl"
-    identifier = "chef-backend-ctl/ctl_chef_backend.html"
-    parent = "chef infra/managing the server"
+    identifier = "chef_infra/managing_the_server/ctl_chef_backend.html chef-backend-ctl"
+    parent = "chef_infra/managing_the_server"
     weight = 160
 +++    
 

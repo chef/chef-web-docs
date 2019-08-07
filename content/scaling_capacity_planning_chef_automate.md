@@ -8,13 +8,15 @@ aliases = "/scaling_capacity_planning_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Capacity Planning"
-    identifier = "capacity planning/scaling_capacity_planning_chef_automate.html"
-    parent = "chef automate 1/managing the server"
+    identifier = "legacy/chef_automate_1/managing_the_server/scaling_capacity_planning_chef_automate.html Capacity Planning"
+    parent = "legacy/chef_automate_1/managing_the_server"
     weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/scaling_capacity_planning_chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

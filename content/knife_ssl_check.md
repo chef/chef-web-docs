@@ -8,8 +8,8 @@ aliases = "/knife_ssl_check.html"
 [menu]
   [menu.docs]
     title = "knife ssl_check"
-    identifier = "knife ssl_check/knife_ssl_check.html"
-    parent = "chefdk/knife"
+    identifier = "chef_infra/chefdk/knife/knife_ssl_check.html knife ssl_check"
+    parent = "chef_infra/chefdk/knife"
     weight = 270
 +++    
 

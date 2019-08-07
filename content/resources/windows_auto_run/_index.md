@@ -11,8 +11,8 @@ aliases: /resource_windows_auto_run.html
 menu:
   docs:
     title: windows_auto_run
-    identifier: windows_auto_run/resource_windows_auto_run.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_auto_run.html windows_auto_run
+    parent: chef_infra/cookbook_reference/resources
     weight: 1070
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 

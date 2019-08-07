@@ -8,8 +8,8 @@ aliases = "/platforms.html"
 [menu]
   [menu.docs]
     title = "Platforms"
-    identifier = "platforms/platforms.html"
-    parent = "overview/packages & platforms"
+    identifier = "overview/packages_&_platforms/platforms.html Platforms"
+    parent = "overview/packages_&_platforms"
     weight = 20
 +++    
 
@@ -68,7 +68,7 @@ versions for Chef Infra Client:
 <tr class="odd">
 <td>AIX</td>
 <td><code>powerpc</code></td>
-<td><code>7.1</code> (TL0 SP3 or higher, recommended), <code>7.2</code></td>
+<td><code>7.1</code> (TL5 SP2 or higher, recommended), <code>7.2</code></td>
 </tr>
 <tr class="even">
 <td>Amazon Linux</td>

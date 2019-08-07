@@ -8,13 +8,15 @@ aliases = "/config_rb_delivery.html"
 [menu]
   [menu.docs]
     title = "delivery.rb"
-    identifier = "delivery.rb/config_rb_delivery.html"
-    parent = "chef automate 1/reference"
+    identifier = "legacy/chef_automate_1/reference/config_rb_delivery.html delivery.rb"
+    parent = "legacy/chef_automate_1/reference"
     weight = 40
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery.rst)
+
+<meta name="robots" content="noindex">
 
 {{% chef_automate_mark %}}
 

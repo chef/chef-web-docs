@@ -8,8 +8,8 @@ aliases = "/audit_cookbook.html"
 [menu]
   [menu.docs]
     title = "Audit Cookbook"
-    identifier = "audit cookbook/audit_cookbook.html"
-    parent = "chef automate 1/compliance"
+    identifier = "legacy/chef_automate_1/compliance/audit_cookbook.html Audit Cookbook"
+    parent = "legacy/chef_automate_1/compliance"
     weight = 60
 +++    
 

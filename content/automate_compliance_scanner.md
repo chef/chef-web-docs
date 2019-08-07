@@ -8,13 +8,15 @@ aliases = "/automate_compliance_scanner.html"
 [menu]
   [menu.docs]
     title = "Scanner"
-    identifier = "scanner/automate_compliance_scanner.html"
-    parent = "chef automate 1/compliance"
+    identifier = "legacy/chef_automate_1/compliance/automate_compliance_scanner.html Scanner"
+    parent = "legacy/chef_automate_1/compliance"
     weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_scanner.html)
+
+<meta name="robots" content="noindex">
 
 Automate allows you to define the configuration and security needs of
 your systems with compliance profiles. Use the compliance scanner to put

@@ -8,13 +8,15 @@ aliases = "/fips.html"
 [menu]
   [menu.docs]
     title = "Enable FIPS"
-    identifier = "enable fips/fips.html"
-    parent = "chef automate 1/getting started"
+    identifier = "legacy/chef_automate_1/getting_started/fips.html Enable FIPS"
+    parent = "legacy/chef_automate_1/getting_started"
     weight = 70
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/fips.rst)
+
+<meta name="robots" content="noindex">
 
 What is FIPS?
 =============

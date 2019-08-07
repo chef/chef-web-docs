@@ -8,8 +8,8 @@ aliases = "/chefdk_setup.html"
 [menu]
   [menu.docs]
     title = "Configure ChefDK"
-    identifier = "configure chefdk/chefdk_setup.html"
-    parent = "chef infra/getting started"
+    identifier = "chef_infra/getting_started/chefdk_setup.html Configure ChefDK"
+    parent = "chef_infra/getting_started"
     weight = 30
 +++    
 

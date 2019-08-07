@@ -8,8 +8,8 @@ aliases = "/automate_azure.html"
 [menu]
   [menu.docs]
     title = "Chef Automate for Microsoft Azure"
-    identifier = "chef automate for microsoft azure/automate_azure.html"
-    parent = "legacy/chef automate 1"
+    identifier = "legacy/chef_automate_1/automate_azure.html Chef Automate for Microsoft Azure"
+    parent = "legacy/chef_automate_1"
     weight = 110
 +++    
 

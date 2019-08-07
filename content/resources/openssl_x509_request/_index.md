@@ -11,8 +11,8 @@ aliases: /resource_openssl_x509_request.html
 menu:
   docs:
     title: openssl_x509_request
-    identifier: openssl_x509_request/resource_openssl_x509_request.html
-    parent: cookbook reference/resources
+    identifier: chef_infra/cookbook_reference/resources/resource_openssl_x509_request.html openssl_x509_request
+    parent: chef_infra/cookbook_reference/resources
     weight: 670
 
 
@@ -20,9 +20,6 @@ menu:
 
 resource_description:
 resource_note:
-
-## What version of Infra Client was this resource new in. 
-## Only if you want 'New in Chef Infra Client [version #]' displayed on the resource page.
 resource_new_in:      
 
 
