@@ -3,7 +3,7 @@ title = "Deprecation: epic_fail (CHEF-24)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_epic_fail.html"
 
 
   

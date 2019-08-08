@@ -3,7 +3,7 @@ title = "Chef Provisioning"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/provisioning.html"
 
 
   

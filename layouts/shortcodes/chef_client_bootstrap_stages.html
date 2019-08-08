@@ -21,7 +21,7 @@ During a `knife bootstrap` bootstrap operation, the following happens:
 <tr class="odd">
 <td><p><strong>$ knife bootstrap</strong></p></td>
 <td><p>On UNIX- and Linux-based machines: The <code>knife bootstrap</code> subcommand is issued from a workstation. The hostname, IP address, or FQDN of the target node is issued as part of this command. An SSH connection is established with the target node using port 22. A shell script is assembled using the chef-full.erb (the default bootstrap template), and is then executed on the target node.</p>
-<p>On Microsoft Windows machines: The <code>knife bootstrap windows winrm</code> subcommand is issued from a workstation. (This command is part of the <a href="/knife_windows.html">knife windows plugin</a>.) The hostname, IP address, or FQDN of the target node is issued as part of this command. A connection is established with the target node using WinRM over port 5985. (WinRM must be enabled with the corresponding firewall rules in place.)</p></td>
+<p>On Microsoft Windows machines: The <code>knife bootstrap windows winrm</code> subcommand is issued from a workstation. (This command is part of the <a href="/knife_windows/">knife windows plugin</a>.) The hostname, IP address, or FQDN of the target node is issued as part of this command. A connection is established with the target node using WinRM over port 5985. (WinRM must be enabled with the corresponding firewall rules in place.)</p></td>
 </tr>
 <tr class="even">
 <td><p><strong>Get the install script from Chef</strong></p></td>
@@ -44,7 +44,7 @@ During a `knife bootstrap` bootstrap operation, the following happens:
 <tr class="even">
 <td><p><strong>Complete a Chef Infra Client run</strong></p></td>
 <td><p>a Chef Infra Client run proceeds, using HTTPS (port 443), and registers the node with the Chef Infra Server.</p>
-<p>The first Chef Infra Client run, by default, contains an empty run-list. A <a href="/knife_bootstrap.html">run-list can be specified</a> as part of the initial bootstrap operation using the <code>--run-list</code> option as part of the <code>knife bootstrap</code> subcommand.</p></td>
+<p>The first Chef Infra Client run, by default, contains an empty run-list. A <a href="/knife_bootstrap/">run-list can be specified</a> as part of the initial bootstrap operation using the <code>--run-list</code> option as part of the <code>knife bootstrap</code> subcommand.</p></td>
 </tr>
 </tbody>
 </table>

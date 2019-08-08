@@ -3,7 +3,7 @@ title = "Microsoft Azure CLI"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/azure_chef_cli.html"
 
 
   

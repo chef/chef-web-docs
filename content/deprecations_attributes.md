@@ -3,7 +3,7 @@ title = "Deprecation: Some Attribute Methods (CHEF-4)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_attributes.html"
 
 
   

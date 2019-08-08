@@ -3,7 +3,7 @@ title = "Deprecation: Deprecation of lc_all from locale resource (CHEF-27)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_locale_lc_all.html"
 
 
   

@@ -3,7 +3,7 @@ title = "Deprecation: Deploy Resource (CHEF-20)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_deploy_resource.html"
 
 
   

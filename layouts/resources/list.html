@@ -115,7 +115,6 @@
                         <li><code>{{ $k }}</code>{{ $v }}</li>
                         {{ end }}
                       </ul>
-                      
                   {{ end }}
                 {{ end }}
                 
@@ -123,25 +122,37 @@
                 
                 {{- highlight (trim .Params.syntax_codeblock "\n" ) "ruby" "" -}}
                 
-                <p>where:</p>
-                
-                <ul>
-                  <li><code>{{ .Params.resource }}</code> is the resource.</li>
-                  <li><code>name</code> is the name given to the resource block.</li>
-                  <li><code>action</code> identifies which steps Chef Infra Client will take to bring the node into the desired state.</li> 
-                  {{ if .Params.syntax_property_list }}
-                    {{ $length_syntax_property_list := (len .Params.syntax_property_list) }}
-                    <li>{{range $i, $e := .Params.syntax_property_list }}
-                      {{ if (and (eq (sub $length_syntax_property_list 1) $i) (gt $length_syntax_property_list 2 )) }}
-                        and
-                      {{ end }}
-                    <code>{{- . -}} </code>
-                      {{ if ne $i (sub $length_syntax_property_list 1) }},{{ end }} 
-                    {{ end }} are the properties available to this resource.
-                    </li>
-                      
-                  {{ end }}          
-                </ul>
+                {{ if .Params.syntax_property_list }}
+                  {{ $property_list_scratch := newScratch }}
+                  {{ $length_syntax_property_list := (len .Params.syntax_property_list) }}
+                  <p>where:</p>
+                  <ul>
+                    {{ $resource := .Params.resource }}
+                    {{ range .Params.syntax_property_list }}
+                      {{ if eq . $resource }}    
+                        <li><code>{{- . -}}</code> is the resource.</li>
+                      {{ else if (eq . "name") }}
+                        <li><code>name</code>is the name given to the resource block.</li>
+                      {{ else if (eq . "action") }}
+                        <li><code>action</code>identifies which steps Chef Infra Client will take to bring the node into the desired state.</li>
+                      {{ else }}
+                        {{ $property_list_scratch.Add "Property" (slice .) }}
+                      {{ end }}  
+                    {{ end }}
+                    {{ if gt (len ($property_list_scratch.Get "Property")) 0 }}
+                      {{ $len_property_list_scratch := (len ($property_list_scratch.Get "Property")) }}
+                      <li>
+                        {{ range $i, $e := $property_list_scratch.Get "Property" }}
+                          {{ if (and (eq (sub $len_property_list_scratch 1) $i) (gt $len_property_list_scratch 2) ) }}
+                            and 
+                          {{ end }}
+                          <code>{{- . -}} </code>
+                          {{ if ne $i (sub $len_property_list_scratch 1) }},{{ end }}
+                        {{ end }} are the properties available to this resource.
+                      </li>
+                    {{ end }}
+                  </ul>
+                {{ end }}
                 
                 {{ if .Params.registry_key }}
                   <h3 id="windows_registry_key_backslashes">Registry Key Path Separators</h3>
@@ -214,18 +225,17 @@
                     </p>
                   {{ end }}
                   <br>
-                {{ end }}                
+                {{ end }}
               
                 <!-------------- Properties ------------------->
               
                 {{ $PropertiesID.Add "Value" 1 }}
                 <h2 id = "properties-{{ $PropertiesID.Get "Value" }}">Properties</h2>
                 <hr>
-                {{ if and (.Params.properties_list) (ne .Params.properties_list nil )}}
-                  {{ range .Params.properties_list }}
-                    {{ if or (ne .property nil) (ne .ruby_type nil) (ne .description nil)}}
-                      <p>The {{ .Title }} has the following properties:</p>
-                    
+                {{ if .Params.properties_list }}
+                  {{ if ne (index .Params.properties_list 0 "property") nil }}
+                    <p>The {{ .Title }} has the following properties:</p>
+                    {{ range .Params.properties_list }}
                       <p>
                         {{ if and (.property) (ne .property nil) }}
                           <code>
@@ -252,10 +262,12 @@
                         </p>
                       {{ end }}
                       <br>
-                    {{ else }}
-                      <p>This resources does not have any properties.</p>
                     {{ end }}
+                  {{ else }}
+                    <p>This resource does not have any properties.</p>
                   {{ end }}
+                {{ else }}
+                  <p>This resource does not have any properties.</p>
                 {{ end }}
                 
                 {{ if .Params.properties_multiple_packages }}
@@ -322,9 +334,6 @@
                   {{ partial "chef_shell_modes.html" . }}
                   
                   <h3 id="debug_recipes_config">Config</h3>
-                  {{ partial "chef_shell_config.html" . }}
-                  
-                  <h3 id="debug_recipes_config">Config</h3>                    
                   {{ partial "chef_shell_config.html" . }}
                   
                   <h4 id="chef_shell_config_rb">chef-shell.rb</h4>

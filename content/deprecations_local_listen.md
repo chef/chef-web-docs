@@ -3,7 +3,7 @@ title = "Deprecation: Local Mode Listen (CHEF-18)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_local_listen.html"
 
 
   

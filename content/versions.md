@@ -116,7 +116,7 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 <tr class="odd">
 <td>Chef Infra Server</td>
 <td>13.x</td>
-<td>Releasing Soon</td>
+<td>GA</td>
 <td>n/a</td>
 </tr>
 <tr class="even">
@@ -133,8 +133,8 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 </tr>
 <tr class="even">
 <td>Chef Workstation</td>
-<td>0.4</td>
-<td>Releasing Soon</td>
+<td>0.4+</td>
+<td>GA</td>
 <td>n/a</td>
 </tr>
 <tr class="odd">

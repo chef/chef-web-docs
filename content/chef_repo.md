@@ -41,7 +41,7 @@ The sub-directories in the chef-repo are:
 <tbody>
 <tr class="odd">
 <td><code>.chef/</code></td>
-<td>A hidden directory that is used to store validation key files and optionally a <a href="/config_rb.html">config.rb</a> file.</td>
+<td>A hidden directory that is used to store validation key files and optionally a <a href="/config_rb/">config.rb</a> file.</td>
 </tr>
 <tr class="even">
 <td><code>cookbooks/</code></td>

@@ -3,7 +3,7 @@ title = "Deprecation: System Profile plugin (OHAI-14)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/depreciations_ohai_system_profile.html"
 
 
   

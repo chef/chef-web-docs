@@ -3,7 +3,7 @@ title = "Deprecation: Resource Property Name Collision (CHEF-11)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_property_name_collision.html"
 
 
   

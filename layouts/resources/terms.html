@@ -526,11 +526,10 @@
                   {{ $PropertiesID.Add "Value" 1 }}
                   <h2 id = "properties-{{ $PropertiesID.Get "Value" }}">Properties</h2>
                   <hr>
-                  {{ if and (.Params.properties_list) (ne .Params.properties_list nil )}}
-                    {{ range .Params.properties_list }}
-                      {{ if or (ne .property nil) (ne .ruby_type nil) (ne .description nil)}}
-                        <p>The {{ .Title }} has the following properties:</p>
-                      
+                  {{ if .Params.properties_list }}
+                    {{ if ne (index .Params.properties_list 0 "property") nil }}
+                      <p>The {{ .Title }} has the following properties:</p>
+                      {{ range .Params.properties_list }}
                         <p>
                           {{ if and (.property) (ne .property nil) }}
                             <code>
@@ -557,10 +556,12 @@
                           </p>
                         {{ end }}
                         <br>
-                      {{ else }}
-                        <p>This resource does not have any properties.</p>
                       {{ end }}
+                    {{ else }}
+                      <p>This resource does not have any properties.</p>
                     {{ end }}
+                  {{ else }}
+                    <p>This resource does not have any properties.</p>
                   {{ end }}
                   
                   {{ if .Params.properties_multiple_packages }}

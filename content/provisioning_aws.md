@@ -3,7 +3,7 @@ title = "AWS Driver Resources"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/provisioning_aws.html"
 
 
   

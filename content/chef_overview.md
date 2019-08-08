@@ -215,7 +215,7 @@ Cookbooks are comprised of the following components:
 <tr class="even">
 <td><p><img src="/images/icon_cookbook_resources.svg" class="align-center" width="100" alt="image" /></p></td>
 <td><p>{{% resources_common %}}</p>
-<p>Chef has <a href="/resource_reference.html">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources.html">build your own resources</a> to handle any situation that isn't covered by a built-in resource.</p></td>
+<p>Chef has <a href="/resource_reference/">many built-in resources</a> that cover all of the most common actions across all of the most common platforms. You can <a href="/custom_resources/">build your own resources</a> to handle any situation that isn't covered by a built-in resource.</p></td>
 </tr>
 <tr class="odd">
 <td><img src="/images/icon_cookbook_templates.svg" class="align-center" width="100" alt="image" /></td>

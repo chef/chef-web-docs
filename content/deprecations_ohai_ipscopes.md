@@ -3,7 +3,7 @@ title = "Deprecation: Removal of IpScopes Plugin (OHAI-13)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_ohai_ipscopes.html"
 
 
   

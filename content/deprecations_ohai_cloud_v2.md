@@ -3,7 +3,7 @@ title = "Deprecation: Cloud_v2 attribute removal (OHAI-11)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_ohai_cloud_v2.html"
 
 
   

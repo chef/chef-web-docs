@@ -3,7 +3,7 @@ title = "Deprecation: Custom Resource Cleanups (CHEF-5)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_custom_resource_cleanups.html"
 
 
   

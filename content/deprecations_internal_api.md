@@ -3,7 +3,7 @@ title = "Deprecation: Internal API Changes (CHEF-0)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_internal_api.html"
 
 
   

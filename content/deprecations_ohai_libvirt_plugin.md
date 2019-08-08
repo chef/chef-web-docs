@@ -3,7 +3,7 @@ title = "Deprecation: Libvirt plugin attributes changes (OHAI-4)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_ohai_libvirt_plugin.html"
 
 
   
