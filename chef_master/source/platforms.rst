@@ -63,7 +63,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``11.2``, ``11.3``, ``11.4``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
-     - ``11 SP4``, ``12 SP1+``, ``15``
+     - ``12 SP1+``, ``15``
    * - Ubuntu (LTS releases)
      - ``i386``, ``x86_64``
      - ``16.04``, ``18.04``
@@ -159,7 +159,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``, ``8.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``, ``15``
+     - ``12 SP1+``, ``15``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
@@ -195,7 +195,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``12 SP1+``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
@@ -245,7 +245,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``, ``15``
+     - ``12 SP1+``, ``15``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
@@ -285,7 +285,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP2``
+     - ``12 SP2``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
