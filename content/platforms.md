@@ -43,8 +43,8 @@ In all cases (beyond community support), a maintenance contract with
 Chef Software Inc. is required in order to open support tickets and get
 SLA-based assistance from our support desk.
 
-Chef Client
------------
+Chef Infra Client
+-----------------
 
 ### Commercial Support
 
@@ -81,41 +81,46 @@ versions for Chef Infra Client:
 <td><code>6.x</code>, <code>7.x</code></td>
 </tr>
 <tr class="even">
-<td>FreeBSD</td>
-<td><code>amd64</code></td>
-<td><code>11.x</code></td>
+<td>Debian</td>
+<td><code>i686</code>, <code>x86_64</code></td>
+<td><code>8</code>, <code>9</code>, <code>10</code></td>
 </tr>
 <tr class="odd">
+<td>FreeBSD</td>
+<td><code>amd64</code></td>
+<td><code>11.x</code>, <code>12.x</code></td>
+</tr>
+<tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
 <td><code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code>, <code>s390x</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only)</td>
 <td><code>6.x</code>, <code>7.x</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Solaris</td>
 <td><code>sparc</code>, <code>i86pc</code></td>
 <td><code>11.2</code>, <code>11.3</code>, <code>11.4</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code>, <code>s390x</code>, <code>ppc64le</code>, <code>ppc64</code></td>
-<td><code>11 SP4</code>, <code>12 SP1+</code></td>
+<td><code>11 SP4</code>, <code>12 SP1+</code>, <code>15</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Ubuntu (LTS releases)</td>
 <td><code>i386</code>, <code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
 <td><code>7</code>, <code>8.1</code>, <code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
@@ -147,41 +152,36 @@ The following platforms are supported only via the community:
 <td>current version</td>
 </tr>
 <tr class="even">
-<td>Debian</td>
-<td><code>i686</code>, <code>x86_64</code></td>
-<td><code>8</code>, <code>9</code></td>
-</tr>
-<tr class="odd">
 <td>Fedora</td>
 <td></td>
 <td>current non-EOL releases</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Gentoo</td>
 <td></td>
 <td>current version</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>OmniOS</td>
 <td></td>
 <td>stable and LTS releases</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>openSUSE</td>
 <td></td>
 <td><code>42.x</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Scientific Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Ubuntu</td>
 <td><code>i386</code>, <code>x86_64</code></td>
 <td>Current non-LTS releases</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Windows</td>
 <td><code>x64</code></td>
 <td><code>Windows Server, Semi-annual channel (SAC) (Server Core only)</code></td>
@@ -219,7 +219,7 @@ versions for the Chef Workstation:
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu</td>
@@ -264,12 +264,12 @@ versions for Chef InSpec:
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="odd">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>11 SP4</code>, <code>12 SP1+</code></td>
+<td><code>11 SP4</code>, <code>12 SP1+</code>, <code>15</code></td>
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
@@ -279,14 +279,14 @@ versions for Chef InSpec:
 <tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>x86_64</code></td>
-<td><code>7</code>, <code>8.1</code>, <code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code></td>
+<td><code>7</code>, <code>8.1</code>, <code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code></td>
 </tr>
 </tbody>
 </table>
 
-InSpec Target Mode (`inspec --target`) may be functional on additional
-platforms, versions, and architectures but are not validated by Chef
-Software, Inc.
+Chef InSpec Target Mode (`inspec --target`) may be functional on
+additional platforms, versions, and architectures but are not validated
+by Chef Software, Inc.
 
 ChefDK
 ------
@@ -311,26 +311,31 @@ versions for ChefDK:
 </thead>
 <tbody>
 <tr class="odd">
+<td>Debian</td>
+<td><code>x86_64</code></td>
+<td><code>8.x</code>, <code>9.x</code>, <code>10.x</code></td>
+</tr>
+<tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
 <td><code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
 <td><code>11 SP4</code>, <code>12 SP1+</code></td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Ubuntu</td>
 <td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code></td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
 <td><code>7</code>, <code>8.1</code>, <code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
@@ -357,11 +362,6 @@ The following platforms are supported only via the community:
 </thead>
 <tbody>
 <tr class="odd">
-<td>Debian</td>
-<td><code>x86_64</code></td>
-<td><code>8.x</code>, <code>9.x</code></td>
-</tr>
-<tr class="even">
 <td>Scientific Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>

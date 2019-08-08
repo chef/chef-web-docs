@@ -3,7 +3,7 @@ title = "Deprecation: DigitalOcean plugin attribute changes (OHAI-6)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_ohai_digitalocean.html"
 
 
   

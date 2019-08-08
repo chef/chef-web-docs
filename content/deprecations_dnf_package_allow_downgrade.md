@@ -3,7 +3,7 @@ title = "Deprecation: DNF Package allow_downgrade Property (CHEF-10)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_dnf_package_allow_downgrade.html"
 
 
   

@@ -3,7 +3,7 @@ title = "delivery.rb Optional Settings"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/config_rb_delivery_optional_settings.html"
 
 
   

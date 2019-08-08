@@ -3,7 +3,7 @@ title = "Deprecation: Launchd hash Property (CHEF-12)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_launchd_hash_property.html"
 
 
   

@@ -3,7 +3,7 @@ title = "Deprecation: Deprecation of run_command (CHEF-14)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_run_command.html"
 
 
   

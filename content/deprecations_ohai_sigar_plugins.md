@@ -3,7 +3,7 @@ title = "Deprecation: Sigar gem based plugins removal (OHAI-2)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_ohai_sigar_plugins.html"
 
 
   

@@ -3,7 +3,7 @@ title = "Filter Compliance Scans in Chef Automate"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/filter_compliance_scan.html"
 
 
   

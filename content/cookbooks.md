@@ -52,44 +52,44 @@ files or directories.
 </thead>
 <tbody>
 <tr class="odd">
-<td><a href="/recipes.html">Recipes</a></td>
+<td><a href="/recipes/">Recipes</a></td>
 <td>recipes/</td>
 <td>{{% cookbooks_recipe %}}</td>
 </tr>
 <tr class="even">
-<td><a href="/attributes.html">Attributes</a></td>
+<td><a href="/attributes/">Attributes</a></td>
 <td>attributes/</td>
 <td>{{% cookbooks_attribute %}}</td>
 </tr>
 <tr class="odd">
-<td><a href="/files.html">Files</a></td>
+<td><a href="/files/">Files</a></td>
 <td>files/</td>
 <td>A file distribution is a specific type of resource that tells a cookbook how to distribute files, including by node, by platform, or by file version.</td>
 </tr>
 <tr class="even">
-<td><a href="/libraries.html">Libraries</a></td>
+<td><a href="/libraries/">Libraries</a></td>
 <td>libraries/</td>
 <td>A library allows the use of arbitrary Ruby code in a cookbook, either as a way to extend the Chef Infra Client language or to implement a new class.</td>
 </tr>
 <tr class="odd">
-<td><a href="/custom_resources.html">Custom Resources</a></td>
+<td><a href="/custom_resources/">Custom Resources</a></td>
 <td>resources/</td>
 <td>A custom resource is an abstract approach for defining a set of actions and (for each action) a set of properties and validation parameters.</td>
 </tr>
 <tr class="even">
-<td><a href="/templates.html">Templates</a></td>
+<td><a href="/templates/">Templates</a></td>
 <td>templates/</td>
 <td>A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.</td>
 </tr>
 <tr class="odd">
-<td><a href="/ohai_custom.html">Ohai Plugins</a></td>
+<td><a href="/ohai_custom/">Ohai Plugins</a></td>
 <td>ohai/</td>
 <td>Custom Ohai plugins can be written to load additional information about your nodes to be used in recipes.</td>
 </tr>
 <tr class="even">
-<td><a href="/config_rb_metadata.html">Metadata</a></td>
+<td><a href="/config_rb_metadata/">Metadata</a></td>
 <td>metadata.rb</td>
-<td>This file contains information about the cookbook such as the cookbook name, description, and <a href="/cookbook_versioning.html">version</a>.</td>
+<td>This file contains information about the cookbook such as the cookbook name, description, and <a href="/cookbook_versioning/">version</a>.</td>
 </tr>
 </tbody>
 </table>

@@ -3,7 +3,7 @@ title = "Deprecation: Amazon linux moved to the Amazon platform_family (OHAI-7)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_ohai_amazon_linux.html"
 
 
   

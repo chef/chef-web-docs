@@ -3,7 +3,7 @@ title = "Deprecation: Map Collision (CHEF-25)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_map_collision.html"
 
 
   

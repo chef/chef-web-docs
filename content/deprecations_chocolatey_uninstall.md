@@ -3,7 +3,7 @@ title = "Deprecation: :uninstall Resource for chocolatey_package (CHEF-21)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_chocolatey_uninstall.html"
 
 
   

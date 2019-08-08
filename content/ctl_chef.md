@@ -3,7 +3,7 @@ title = "chef (executable)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/ctl_chef.html"
 
 
   

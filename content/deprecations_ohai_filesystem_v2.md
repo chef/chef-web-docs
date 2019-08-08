@@ -3,7 +3,7 @@ title = "Deprecation: Filesystem2 attribute removal (OHAI-12)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_ohai_filesystem_v2.html"
 
 
   

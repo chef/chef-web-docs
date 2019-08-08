@@ -11,7 +11,7 @@ aliases: /example.html
 menu:
   docs:
     title: example resource
-    identifier: example/example.html
+    identifier: chef_infra/cookbook_reference/resources/example.html example 
     parent: chef_infra/cookbook_reference/resources
     weight: 15
 
@@ -49,9 +49,9 @@ resource_block_codeblock: |
 resource_block_list:
     /etc/apache2: 'specifies the directory'
     source: "specifies a directory in the current cookbook (use the ``cookbook`` property to specify a file that is in a different cookbook)"
-    owner: "define the permissions"
-    group: "define the permissions"
-    mode: "define the permissions"
+    owner: "defines the permissions"
+    group: "defines the permissions"
+    mode: "defines the permissions"
 
 syntax_codeblock: |
   batch 'name' do
@@ -73,7 +73,7 @@ syntax_codeblock: |
   end
   
 syntax_property_list: 
-    - apt_package
+    - example
     - name 
     - action
     - default_release 
@@ -114,15 +114,13 @@ actions_list:
 ########Properties ########
 
 properties_list:
-  - key: 
-    property: 'default_release'
+  - property: 'default_release'
     ruby_type: 'String '
     default_value:
     description: 'The default release. For example: stable.'
     new_in:
-  
-  - key: 
-    property: 'overwrite_config_files'
+
+  - property: 'overwrite_config_files'
     ruby_type: 'true, false'
     default_value: 'false'
     description: 'Overwrite existing configuration files with those supplied by the package, if prompted by APT.'

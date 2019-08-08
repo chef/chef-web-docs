@@ -3,7 +3,7 @@ title = "Deprecation: Legacy HWRP mixins (CHEF-23)"
 description = "DESCRIPTION"
 draft = false
 
-
+aliases = "/deprecations_legacy_hwrp_mixins.html"
 
 
   

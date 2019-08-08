@@ -67,8 +67,7 @@ actions_list:
 ########Properties ########
 
 properties_list:
-  key:
-    property:
+  - property:
     ruby_type:
     default_value:
     description: 
