@@ -59,7 +59,7 @@ where:
 * ``powershell_script`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run.
-* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag

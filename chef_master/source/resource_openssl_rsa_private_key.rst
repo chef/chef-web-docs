@@ -11,6 +11,7 @@ Use the **openssl_rsa_private_key** resource to generate RSA private key files. 
 
 Syntax
 =====================================================
+
 The openssl_rsa_private_key resource has the following syntax:
 
 .. code-block:: ruby

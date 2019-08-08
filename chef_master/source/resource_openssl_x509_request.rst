@@ -9,6 +9,7 @@ Use the **openssl_x509_request** resource to generate PEM-formatted x509 certifi
 
 Syntax
 =====================================================
+
 The openssl_x509_request resource has the following syntax:
 
 .. code-block:: ruby

@@ -9,6 +9,7 @@ Use the **rhsm_subscription** resource to add or remove Red Hat Subscription Man
 
 Syntax
 =====================================================
+
 The rhsm_subscription resource has the following syntax:
 
 .. code-block:: ruby

@@ -33,14 +33,21 @@ Actions
 
 The windows_feature_dism resource has the following actions:
 
+``:delete``
+   Delete a Windows role / feature from the image using DISM.
+
 ``:install``
    Default. Install a Windows role / feature using DISM.
 
 ``:remove``
    Remove a Windows role / feature using DISM.
 
-``:delete``
-   Delete a Windows role / feature from the image using DISM.
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================

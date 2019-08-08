@@ -9,6 +9,7 @@ Use the **windows_printer** resource to setup Windows printers. Note that this d
 
 Syntax
 =====================================================
+
 The windows_printer resource has the following syntax:
 
 .. code-block:: ruby

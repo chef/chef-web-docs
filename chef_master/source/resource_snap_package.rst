@@ -5,8 +5,11 @@ snap_package resource
 
 Use the **snap_package** resource to manage snap packages on Debian and Ubuntu platforms.
 
+**New in Chef Infra Client 15.0.**
+
 Syntax
 =====================================================
+
 The snap_package resource has the following syntax:
 
 .. code-block:: ruby
@@ -132,6 +135,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

@@ -79,6 +79,11 @@ The solaris_package resource has the following properties:
 
    An optional property to set the package name if it differs from the resource block's name.
 
+``source``
+   **Ruby Type:** String
+
+   The optional path to a package on the local file system.
+
 ``timeout``
    **Ruby Type:** String, Integer
 

@@ -9,6 +9,7 @@ Use the **windows_ad_join** resource to join a Windows Active Directory domain.
 
 Syntax
 =====================================================
+
 The windows_ad_join resource has the following syntax:
 
 .. code-block:: ruby
