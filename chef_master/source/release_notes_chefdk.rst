@@ -21,7 +21,7 @@ What's New in 4.2
 
   * **knife-vsphere 3.0.1**
 
-    Knife-vsphere has been updated to 3.0.1 to resolve Ruby warnings that occured when running some commmands.
+    Knife-vsphere has been updated to 3.0.1 to resolve Ruby warnings that occurred when running some commands.
 
   * **Fauxhai 7.4.0**
 
