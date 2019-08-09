@@ -115,7 +115,7 @@ What's New in 4.1
 
     * **knife ec2 securitygroup list**
 
-    This command lists all security groups in your environment including the ID, which you need when assigning a newly provisioned instance a group.
+    This command lists all security groups in your environment including the ID, which you need when assigning a newly provisioned instance to a group.
 
     .. code-block:: none
 
