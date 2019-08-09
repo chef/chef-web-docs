@@ -9,6 +9,7 @@ Use the **rhsm_errata** resource to install packages associated with a given Red
 
 Syntax
 =====================================================
+
 The rhsm_errata resource has the following syntax:
 
 .. code-block:: ruby

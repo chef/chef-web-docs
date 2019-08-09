@@ -9,6 +9,7 @@ The **windows_dfs_server** resource sets system-wide DFS settings.
 
 Syntax
 =====================================================
+
 The windows_dfs_server resource has the following syntax:
 
 .. code-block:: ruby
@@ -102,6 +103,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

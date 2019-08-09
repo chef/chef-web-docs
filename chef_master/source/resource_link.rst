@@ -79,7 +79,7 @@ The link resource has the following properties:
 ``group``
    **Ruby Type:** String, Integer
 
-   A string or ID that identifies the group associated with a symbolic link.
+   A group name or ID number that identifies the group associated with a symbolic link.
 
 ``link_type``
    **Ruby Type:** String, Symbol | **Default Value:** ``:symbolic``
@@ -148,6 +148,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

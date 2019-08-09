@@ -9,6 +9,7 @@ Use the **rhsm_register** resource to register a node with the Red Hat Subscript
 
 Syntax
 =====================================================
+
 The rhsm_register resource has the following syntax:
 
 .. code-block:: ruby

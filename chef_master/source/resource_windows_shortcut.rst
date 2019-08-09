@@ -9,6 +9,7 @@ Use the **windows_shortcut** resource to create shortcut files on Windows.
 
 Syntax
 =====================================================
+
 The windows_shortcut resource has the following syntax:
 
 .. code-block:: ruby

@@ -9,6 +9,7 @@ Use the **windows_pagefile** resource to configure pagefile settings on Windows.
 
 Syntax
 =====================================================
+
 The windows_pagefile resource has the following syntax:
 
 .. code-block:: ruby
@@ -34,11 +35,11 @@ Actions
 
 The windows_pagefile resource has the following actions:
 
-``:set``
-   Default. Configures the default pagefile, creating if it doesn't exist.
-
 ``:delete``
    Deletes the specified pagefile.
+
+``:set``
+   Default. Configures the default pagefile, creating it if it doesn't exist.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -73,7 +74,6 @@ The windows_pagefile resource has the following properties:
    An optional property to set the pagefile name if it differs from the resource block's name.
 
 ``system_managed``
-
    **Ruby Type:** true, false
 
    Configures whether the system manages the pagefile size.

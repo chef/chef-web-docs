@@ -9,6 +9,7 @@ Use the **windows_feature** resource to add, remove or entirely delete Windows f
 
 Syntax
 =====================================================
+
 The windows_feature resource has the following syntax:
 
 .. code-block:: ruby

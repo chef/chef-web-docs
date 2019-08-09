@@ -9,6 +9,7 @@ Use the **openssl_dhparam** resource to generate ``dhparam.pem`` files. If a val
 
 Syntax
 =====================================================
+
 The openssl_dhparam resource has the following syntax:
 
 .. code-block:: ruby
@@ -69,7 +70,6 @@ The openssl_dhparam resource has the following properties:
    **Ruby Type:** Integer, String | **Default Value:** ``0640``
 
    The permission mode applied to all files created by the resource.
-
 
 ``owner``
    **Ruby Type:** String, Integer
@@ -230,7 +230,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
+==========================================
 
 **Create a dhparam file**
 

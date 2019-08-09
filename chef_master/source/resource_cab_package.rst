@@ -7,6 +7,7 @@ Use the **cab_package** resource to install or remove Microsoft Windows cabinet 
 
 Syntax
 =====================================================
+
 The cab_package resource has the following syntax:
 
 .. code-block:: ruby
@@ -81,6 +82,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

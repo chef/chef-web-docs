@@ -104,7 +104,8 @@ The script resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following attributes:
+
+The script resource has the following properties:
 
 ``code``
    **Ruby Type:** String
@@ -119,7 +120,7 @@ This resource has the following attributes:
 ``cwd``
    **Ruby Type:** String
 
-   The current working directory.
+   The current working directory from which the command will be run.
 
 ``environment``
    **Ruby Type:** Hash
