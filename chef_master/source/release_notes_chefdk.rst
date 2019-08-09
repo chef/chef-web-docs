@@ -1,9 +1,158 @@
 =====================================================
-Release Notes: ChefDK 0.19 - 4.0
+Release Notes: ChefDK 0.19 - 4.2
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 ChefDK is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes, see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 4.2
+=====================================================
+
+* **Bug Fixes**
+
+  * Rubygems has been rolled back to 3.0.3 to resolve duplicate bundler gems that shipped in ChefDK 4.1.7. This resulted in warning messages when running commands as well as performance degradations.
+  * Fixed 'chef install foo.lock.json' errors when loading cookbooks from Artifactory.
+
+* **Updated Components**
+
+  * **knife-ec2 1.0.8**
+
+    Knife-ec2 has been updated to 1.0.8. This release removes previously deprecated bootstrap command-line options that were removed from Chef Infra Client 15.
+
+  * **knife-vsphere 3.0.1**
+
+    Knife-vsphere has been updated to 3.0.1 to resolve Ruby warnings that occurred when running some commands.
+
+  * **Fauxhai 7.4.0**
+
+    Fauxhai has been updated to 7.4.0, which adds additional platforms for use with ChefSpec testing.
+
+    * Updated `suse` 15 from 15.0 to 15.1
+    * Added a new `redhat` 8 definition to replace the 8.0 definition, which is now deprecated
+    * Updated all `amazon` and `ubuntu` releases to Chef 15.1
+    * Added `debian` 10 and 9.9
+
+  * **Chef InSpec 4.7.3**
+
+    Chef InSpec has been updated to 4.7.3, which adds a new `ip6tables` resource and includes new `aws-sdk` gems that are necessary for the Chef InSpec AWS Resource Pack.
+
+What's New in 4.1
+=====================================================
+
+* **Updated Components**
+
+  * **Chef Infra Client 15.1**
+
+    Chef Infra Client has been updated to 15.1 with new and improved resources, improvements to target mode, bootstrap bug fixes, new Ohai detection on VirtualBox hosts, and more. See the `Chef Infra Client 15.1 Release Notes <https://github.com/chef/chef/blob/master/RELEASE_NOTES.md#chef-infra-client-151>`__ for a complete list of new and improved functionality.
+
+  * **Chef InSpec 4.6.9**
+
+    Chef InSpec has been updated from 4.3.2 to 4.6.9 with the following changes:
+
+    * InSpec `Attributes` have now been renamed to `Inputs` to avoid confusion with Chef Infra attributes.
+    * A new InSpec plugin type of `Input` has been added for defining new input types. See the `InSpec Plugins documentation <https://github.com/inspec/inspec/blob/master/docs/dev/plugins.md#implementing-input-plugins>`__ for more information on writing these plugins.
+    * InSpec no longer prints errors to the stdout when passing `--format json`.
+    * When fetching profiles from GitHub, the URL can now include periods.
+    * The performance of InSpec startup has been improved.
+
+  * **Cookstyle 5.0.0**
+
+    Cookstyle has been updated to 5.0.0 with a large number of bugfixes and major improvements that lay the groundwork for future autocorrecting of cookobook style and deprecation warnings.
+
+    The RuboCop engine that powers Cookstyle has been updated from 0.62 to 0.72, which includes several hundred bugfixes to the codebase. Due to some of these bugfixes, existing cookbooks may fail when using Cookstyle 5.0. Additionally, some cops have had their names changed and the Rubocop Performance cops have been removed. If you disabled individual cops in your .rubocop.yml file, this may require you to update your confg.
+
+    This new release also merges in code from the `rubocop-chef` project, providing new alerting and autocorrecting capabilities specific to Chef Infra Cookbooks. Thank you `@coderanger <http://github.com/coderanger>`__ for your work in the rubocop-chef project and `@chrishenry <http://github.com/chrishenry>`__ for helping with new cops.
+
+  * **Foodcritic 16.1.1**
+
+    Foodcritic has been updated from 16.0.0 to 16.1.1 with new rules and support for the latest Chef:
+
+    * Updated Chef Infra Client metadata for 15.1 to include the new `chocolatey_feature` resources, as well as new properties in the `launchd` and `chocolatey_source` resources
+    * Added new rule to detect large files shipped in a cookbook: `FC123: Content of a cookbook file is larger than 1MB`. Thanks `@mattray <http://github.com/mattray>`__
+    * Allowed configuring the size of the AST cache with a new `--ast-cache-size` command line option. Thanks `@Babar <http://github.com/Babar>`__
+
+  * **ChefSpec 7.4.0**
+
+    ChefSpec has been updated to 7.4 with better support stubbing commands, and a new `policyfile_path` configuration option for specifying the path to the PolicyFile.
+
+  * **kitchen-dokken 2.7.0**
+
+    kitchen-dokken has been updated to 2.7.0 with new options for controlling how containers are setup and pulled. You can now disable user namespace mode when running privileged containers with a new `userns_host` config option. There is also a new option `pull_chef_image` (true/false) to control force-pulling the chef image on each run to check for newer images. This option now defaults to `true` so that testing on latest and current always actually mean latest and current. See the `kitchen-dokken readme <https://github.com/someara/kitchen-dokken/blob/master/README.md>`__for `kitchen.yml` config examples.
+
+  * **kitchen-digitalocean 0.10.4**
+
+    kitchen-digitalocean has been updated to 0.10.4 with support for new distros and additional configuration options for instance setup. You can now control the default DigitalOcean region systems that are spun up by using a new `DIGITALOCEAN_REGION` env var. You can still modify the region in the driver section of your `kitchen.yml` file if you'd like, and the default region of `nyc1` has not changed. This release also adds slug support for `fedora-29`, `fedora-30`, and `ubuntu-19`. Finally, if you'd like to monitor your test instances, the new `monitoring` configuration option in the `kitchen.yml` driver section allows enabling DigitalOcean's instance monitoring. See the `kitchen-digitalocean readme <https://github.com/test-kitchen/kitchen-digitalocean/blob/master/README.md>`__ for `kitchen.yml` config examples.
+
+  * **knife-vsphere 3.0.0**
+
+    knife-vsphere has been updated to 3.0. This new version adds support for specifying the `bootstrap_template` when creating new VMs. This release also improves how the plugin finds VM hosts, in order to support hosts in nested directories.
+
+  * **knife-ec2 1.0.7**
+
+    knife-ec2 has received a near-complete rewrite with this release of ChefDK. The new knife-ec2 release switches the underlying library used to communicate with AWS from `fog-aws` to Amazon's own `aws-sdk`. The official AWS SDK has greatly improved support for the many AWS authentication methods available to users. It also has support for all of the latest AWS regions and instance types. As part of this switch to the new SDK we did have to remove the `knife ec2 flavor list` command as this used hard coded values from fog-aws and not AWS API calls. The good news is, we were able to add several new commands to the plugin. This makes provisioning systems in AWS even easier.
+
+    * **knife ec2 vpc list**
+
+    This command lists all VPCs in your environment including the ID, which you need when provisioning new systems into a specific VPC.
+
+    .. code-block:: none
+
+        $ knife ec2 vpc list
+        ID            State      CIDR Block     Instance Tenancy  DHCP Options ID  Default VPC?
+        vpc-b1bc8d9d  available  10.0.0.0/16    default           dopt-1d78412a    No
+        vpc-daafd931  available  172.0.0.0/16   default           dopt-1d78412a    Yes
+
+    * **knife ec2 eni list**
+
+    This command lists all ENIs in your environment including the ID, which you need when adding the ENI to a newly provisioned instance.
+
+    .. code-block:: none
+
+        $ knife ec2 eni list
+        ID                     Status  AZ          Public IP       Private IPs    IPv6 IPs  Subnet ID        VPC ID
+        eni-0123f25ae7805b651  in-use  us-west-2a  63.192.209.236  10.0.0.204               subnet-4ef3b123  vpc-b1bc8d9d
+        eni-2451c913           in-use  us-west-2a  137.150.209.123 10.0.0.245               subnet-4ef3b123  vpc-b1bc8d9d
+
+    * **knife ec2 securitygroup list**
+
+    This command lists all security groups in your environment including the ID, which you need when assigning a newly provisioned instance to a group.
+
+    .. code-block:: none
+
+        $knife ec2 securitygroup list
+        ID                    Name                                     VPC ID
+        sg-12332d875a4a123d6  not-today-hackers                        vpc-dbbf59a2
+        sg-123708ab12388cac5  open-to-the-world                        vpc-dbbf59a2
+
+    * **knife ec2 subnet list**
+
+    This command lists all subnets in your environment including the ID, which you need when placing a newly provisioned instance in a subnet.
+
+    .. code-block:: none
+
+        $ knife ec2 subnet list
+        ID               State      CIDR Block      AZ          Available IPs  AZ Default?  Maps Public IP?  VPC ID
+        subnet-bd2333a9  available  172.31.0.0/20   us-west-2b  4091           Yes          Yes              vpc-b1bc8d9d
+        subnet-ba1135c9  available  172.31.16.0/20  us-west-2a  4091           Yes          Yes              vpc-b1bc8d9d
+
+* **End of Ubuntu 14.04 support**
+
+    Ubuntu 14.04 entered the end-of-life phase April 30, 2019. Since this version of Ubuntu is now end-of-life, we have stopped building packages for Ubuntu 14.04. If you rely on Ubuntu 14.04 in your environment, we highly recommend upgrading your host to Ubuntu 16.04 or 18.04.
+
+* **Security Updates**
+
+    * **curl 7.65.1**
+
+        * CVE-2019-5435: Integer overflows in curl_url_set
+        * CVE-2019-5436: tftp: use the current blksize for recvfrom()
+        * CVE-2018-16890: NTLM type-2 out-of-bounds buffer read
+        * CVE-2019-3822: NTLMv2 type-3 header stack buffer overflow
+        * CVE-2019-3823: SMTP end-of-response out-of-bounds read
+        * CVE-2019-5443: Windows OpenSSL engine code injection
+
+    * **cacerts 5-11-2019 release**
+
+        Our `cacert` bundle has been updated to the 5-11-2019 bundle, which adds four additional CAs.
 
 What's New in 4.0
 =====================================================
