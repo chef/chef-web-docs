@@ -1,9 +1,43 @@
 =====================================================
-Release Notes: ChefDK 0.19 - 4.0
+Release Notes: ChefDK 0.19 - 4.2
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chefdk.rst>`__
 
 ChefDK is released on a monthly schedule with new releases the third Monday of every month. Below are the major changes for each release. For a detailed list of changes, see the `ChefDK Changelog on GitHub <https://github.com/chef/chef-dk/blob/master/CHANGELOG.md>`__
+
+What's New in 4.2
+=====================================================
+
+* **Bug Fixes
+
+  * Rubygems has been rolled back to 3.0.3 to resolve duplicate bundler gems that shipped in ChefDK 4.1.7. This resulted in warning messages when running commands as well as performance degradations.
+  * Fixed 'chef install foo.lock.json' errors when loading cookbooks from Artifactory.
+
+* **Updated Components
+
+  * **knife-ec2 1.0.8**
+
+    Knife-ec2 has been updated to 1.0.8. This release removes previously deprecated bootstrap command-line options that were removed from Chef Infra Client 15.
+
+  * **knife-vsphere 3.0.1**
+
+    Knife-vsphere has been updated to 3.0.1 to resolve Ruby warnings that occured when running some commmands.
+
+  * **Fauxhai 7.4.0**
+
+    Fauxhai has been updated to 7.4.0, which adds additional platforms for use with ChefSpec testing.
+
+    * Updated `suse` 15 from 15.0 to 15.1
+    * Added a new `redhat` 8 definition to replace the 8.0 definition, which is now deprecated
+    * Updated all `amazon` and `ubuntu` releases to Chef 15.1
+    * Added `debian` 10 and 9.9
+
+  * **Chef InSpec 4.7.3**
+
+    Chef InSpec has been updated to 4.7.3, which adds a new `ip6tables` resource and includes new `aws-sdk` gems that are necessary for the Chef InSpec AWS Resource Pack.
+
+What's New in 4.1
+=====================================================
 
 What's New in 4.0
 =====================================================
