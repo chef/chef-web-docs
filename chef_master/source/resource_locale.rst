@@ -9,6 +9,7 @@ Use the **locale** resource to set the system's locale.
 
 Syntax
 =====================================================
+
 The locale resource has the following syntax:
 
 .. code-block:: ruby
@@ -104,6 +105,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

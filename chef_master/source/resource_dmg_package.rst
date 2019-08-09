@@ -9,6 +9,7 @@ Use the **dmg_package** resource to install a package from a ``.dmg`` file. The 
 
 Syntax
 =====================================================
+
 The dmg_package resource has the following syntax:
 
 .. code-block:: ruby
@@ -135,6 +136,7 @@ Chef resources include common properties, notifications, and resource guards.
 
 Common Properties
 -----------------------------------------------------
+
 .. tag resources_common_properties
 
 The following properties are common to every resource:
@@ -163,6 +165,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

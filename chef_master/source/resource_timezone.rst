@@ -5,7 +5,7 @@ timezone resource
 
 Use the **timezone** resource to change the system **timezone** on Windows, Linux, and macOS hosts. Timezones are specified in tz database format, with a complete list of available TZ values for Linux and macOS here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones and for Windows here: https://ss64.com/nt/timezones.html.
 
- **New in Chef Client 14.6.**
+**New in Chef Client 14.6.**
 
 Syntax
 =====================================================

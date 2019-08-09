@@ -9,6 +9,7 @@ Use the **openssl_ec_private_key** resource to generate an elliptic curve (EC) p
 
 Syntax
 =====================================================
+
 The openssl_ec_private_key resource has the following syntax:
 
 .. code-block:: ruby
@@ -81,7 +82,6 @@ The openssl_ec_private_key resource has the following properties:
    **Ruby Type:** Integer, String | **Default Value:** ``"0600"``
 
    The permission mode applied to all files created by the resource.
-
 
 ``owner``
    **Ruby Type:** String, Integer

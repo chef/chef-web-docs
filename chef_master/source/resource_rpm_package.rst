@@ -102,7 +102,6 @@ The rpm_package resource has the following properties:
 
    The version of a package to be installed or upgraded.
 
-
 Common Resource Functionality
 =====================================================
 

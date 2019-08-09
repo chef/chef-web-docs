@@ -9,6 +9,7 @@ Use the **windows_share** resource to create, modify and remove Windows shares.
 
 Syntax
 =====================================================
+
 The windows_share resource has the following syntax:
 
 .. code-block:: ruby

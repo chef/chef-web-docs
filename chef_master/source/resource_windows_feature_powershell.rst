@@ -9,6 +9,7 @@ Use the **windows_feature_powershell** resource to add, remove or entirely delet
 
 Syntax
 =====================================================
+
 The windows_feature_powershell resource has the following syntax:
 
 .. code-block:: ruby
@@ -34,14 +35,15 @@ Actions
 
 The windows_feature_powershell resource has the following actions:
 
+``:delete``
+   Delete a Windows role / feature from the image using PowerShell.
+
 ``:install``
    Default. Install a Windows role / feature using PowerShell.
 
 ``:remove``
    Remove a Windows role / feature using PowerShell.
 
-``:delete``
-   Delete a Windows role / feature from the image using PowerShell.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
