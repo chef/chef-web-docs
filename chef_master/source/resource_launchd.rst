@@ -9,6 +9,7 @@ Use the **launchd** resource to manage system-wide services (daemons) and per-us
 
 Syntax
 =====================================================
+
 The launchd resource has the following syntax:
 
 .. code-block:: ruby
@@ -74,11 +75,12 @@ where:
 
 * ``launchd`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``abandon_process_group``, ``backup``, ``cookbook``, ``debug``, ``disabled``, ``enable_globbing``, ``enable_transactions``, ``environment_variables``, ``exit_timeout``, ``group``, ``hard_resource_limits``, ``inetd_compatibility``, ``init_groups``, ``keep_alive``, ``label``, ``launch_events``, ``launch_only_once``, ``ld_group``, ``limit_load_from_hosts``, ``limit_load_to_hosts``, ``limit_load_to_session_type``, ``low_priority_io``, ``mach_services``, ``mode``, ``nice``, ``on_demand``, ``owner``, ``path``, ``plist_hash``, ``process_type``, ``program``, ``program_arguments``, ``queue_directories``, ``root_directory``, ``run_at_load``, ``session_type``, ``sockets``, ``soft_resource_limits``, ``source``, ``standard_error_path``, ``standard_in_path``, ``standard_out_path``, ``start_calendar_interval``, ``start_interval``, ``start_on_mount``, ``throttle_interval``, ``time_out``, ``type``, ``umask``, ``username``, ``wait_for_debugger``, ``watch_paths``, and ``working_directory`` are the properties available to this resource.
 
 Actions
 =====================================================
+
 The launchd resource has the following actions:
 
 ``:create``
@@ -105,8 +107,6 @@ The launchd resource has the following actions:
    This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
-
-
 
 Properties
 =====================================================
@@ -191,7 +191,7 @@ The following resource properties may be used to define keys in the XML property
    Sets the log mask to ``LOG_DEBUG`` for this job.
 
 ``disabled``
-   **Ruby Type:** true, false| **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``false``
 
    Hints to ``launchctl`` to not submit this job to launchd.
 

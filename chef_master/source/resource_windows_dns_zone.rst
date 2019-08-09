@@ -9,6 +9,7 @@ The **windows_dns_zone** resource creates an Active Directory Integrated DNS Zon
 
 Syntax
 =====================================================
+
 The windows_dns_zone resource has the following syntax:
 
 .. code-block:: ruby
@@ -101,6 +102,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

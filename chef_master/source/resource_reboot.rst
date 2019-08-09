@@ -11,6 +11,7 @@ Use the **reboot** resource to reboot a node, a necessary step with some install
 
 Syntax
 =====================================================
+
 The reboot resource has the following syntax:
 
 .. code-block:: ruby
@@ -63,7 +64,6 @@ The reboot resource has the following properties:
    **Ruby Type:** String | **Default Value:** ``"Reboot by Chef Infra Client"``
 
    A string that describes the reboot action.
-
 
 Common Resource Functionality
 =====================================================

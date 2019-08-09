@@ -31,7 +31,7 @@ The full syntax for all of the properties that are available to the **pacman_pac
 
   pacman_package 'name' do
     options           String
-    package_name      String, Array
+    package_name      String
     source            String
     timeout           String, Integer
     version           String, Array
@@ -80,7 +80,7 @@ The pacman_package resource has the following properties:
    One (or more) additional command options that are passed to the command.
 
 ``package_name``
-   **Ruby Type:** String, Array
+   **Ruby Type:** String
 
    An optional property to set the package name if it differs from the resource block's name.
 

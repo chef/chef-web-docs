@@ -11,6 +11,7 @@ Use the **group** resource to manage a local group.
 
 Syntax
 =====================================================
+
 The group resource has the following syntax:
 
 .. code-block:: ruby

@@ -9,6 +9,7 @@ The **windows_dfs_folder** resources creates a folder within dfs as many levels 
 
 Syntax
 =====================================================
+
 The windows_dfs_folder resource has the following syntax:
 
 .. code-block:: ruby
@@ -107,6 +108,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
