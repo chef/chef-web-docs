@@ -9,6 +9,7 @@ Use the **windows_font** resource to install font files on Windows. By default, 
 
 Syntax
 =====================================================
+
 The windows_font resource has the following syntax:
 
 .. code-block:: ruby
@@ -28,6 +29,9 @@ where:
 
 Actions
 =====================================================
+
+The windows_font resource has the following actions:
+
 ``:install``
    Default. Install the font to the system fonts directory.
 

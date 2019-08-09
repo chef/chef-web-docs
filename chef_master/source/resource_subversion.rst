@@ -9,6 +9,7 @@ Use the **subversion** resource to manage source control resources that exist in
 
 Syntax
 =====================================================
+
 The subversion resource has the following syntax:
 
 .. code-block:: ruby

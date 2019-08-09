@@ -9,6 +9,7 @@ Use the **homebrew_cask** resource to install binaries distributed via the Homeb
 
 Syntax
 =====================================================
+
 The homebrew_cask resource has the following syntax:
 
 .. code-block:: ruby
@@ -113,6 +114,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

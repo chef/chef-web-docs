@@ -107,7 +107,7 @@ The ifconfig resource has the following properties:
 ``ethtool_opts``
    **Ruby Type:** String
 
-   Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``
+   Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``.
 
    *New in Chef Client 13.4.*
 
@@ -227,6 +227,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

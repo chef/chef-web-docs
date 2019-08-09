@@ -47,8 +47,6 @@ where:
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
-
-
 Actions
 =====================================================
 
@@ -81,9 +79,9 @@ The chocolatey_package resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
-
 Properties
 =====================================================
+
 The chocolatey_package resource has the following properties:
 
 ``options``
@@ -94,7 +92,7 @@ The chocolatey_package resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The name of the package. Default value: the name of the resource block.
 
 ``returns``
    **Ruby Type:** Integer, Array | **Default Value:** ``[0]``
@@ -121,9 +119,6 @@ The chocolatey_package resource has the following properties:
    **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
-
-
-
 
 Common Resource Functionality
 =====================================================
@@ -161,6 +156,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

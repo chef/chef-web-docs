@@ -9,6 +9,7 @@ Use the **windows_path** resource to manage the path environment variable on Mic
 
 Syntax
 =====================================================
+
 The windows_path resource has the following syntax:
 
 .. code-block:: ruby
@@ -35,6 +36,13 @@ The windows_path resource has the following actions:
 
 ``:remove``
    Remove an item from the system path
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================

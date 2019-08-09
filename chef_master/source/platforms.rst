@@ -56,8 +56,8 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``
      - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
-     - ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6.x``, ``7.x``
+     - ``x86_64``, ``s390x``(6.x and 7.x only), ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
+     - ``6.x``, ``7.x``, ``8.x``
    * - Solaris
      - ``sparc``, ``i86pc``
      - ``11.2``, ``11.3``, ``11.4``
@@ -65,7 +65,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
      - ``12 SP1+``, ``15``
    * - Ubuntu (LTS releases)
-     - ``i386``, ``x86_64``
+     - ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x64``
@@ -165,7 +165,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86_64``
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019``
+     - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019``
 
 Chef InSpec Target Mode (``inspec --target``) may be functional on additional platforms, versions, and architectures but are not validated by Chef Software, Inc.
 
@@ -195,13 +195,13 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``12 SP1+``
+     - ``12 SP1+``, ``15``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x64``
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
+     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -214,6 +214,9 @@ The following platforms are supported only via the community:
    * - Platform
      - Architecture
      - Version
+   * - openSUSE
+     -
+     - ``42.x``
    * - Scientific Linux
      - ``x86_64``
      - ``6.x``, ``7.x``

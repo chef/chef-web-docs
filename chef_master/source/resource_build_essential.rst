@@ -9,6 +9,7 @@ Use the **build_essential** resource to install the packages required for compil
 
 Syntax
 =====================================================
+
 The build_essential resource has the following syntax:
 
 .. code-block:: ruby
@@ -49,7 +50,7 @@ The build_essential resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Install the build essential packages at compile time.
-   
+
 Common Resource Functionality
 =====================================================
 
@@ -86,6 +87,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

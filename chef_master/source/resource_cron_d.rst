@@ -152,7 +152,6 @@ The cron_d resource has the following properties:
 
    The hour at which the cron entry is to run (``0 - 23``).
 
-
 ``mailto``
    **Ruby Type:** String
 
@@ -239,6 +238,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

@@ -9,6 +9,7 @@ Use the **sysctl** resource to set or remove kernel parameters using the ``sysct
 
 Syntax
 =====================================================
+
 The sysctl resource has the following syntax:
 
 .. code-block:: ruby

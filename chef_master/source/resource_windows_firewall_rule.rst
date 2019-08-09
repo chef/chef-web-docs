@@ -9,6 +9,7 @@ Use the **windows_firewall_rule** resource to create, change or remove windows f
 
 Syntax
 =====================================================
+
 The windows_firewall_rule resource has the following syntax:
 
 .. code-block:: ruby

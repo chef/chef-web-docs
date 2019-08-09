@@ -9,6 +9,7 @@ Use the **hostname** resource to set the system's hostname, configure hostname a
 
 Syntax
 =====================================================
+
 The hostname resource has the following syntax:
 
 .. code-block:: ruby
@@ -110,6 +111,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -222,7 +224,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
+==========================================
 
 **Set the hostname**
 

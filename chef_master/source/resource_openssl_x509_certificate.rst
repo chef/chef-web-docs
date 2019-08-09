@@ -9,6 +9,7 @@ Use the **openssl_x509_certificate** resource to generate signed or self-signed,
 
 Syntax
 =====================================================
+
 The openssl_x509_certificate resource has the following syntax:
 
 .. code-block:: ruby
@@ -179,7 +180,7 @@ The openssl_x509_certificate resource has the following properties:
 
 ``subject_alt_name``
    **Ruby Type:** Array
-   
+
    Array of Subject Alternative Name entries, in format DNS:example.com or IP:1.2.3.4.
 
 Common Resource Functionality
@@ -330,9 +331,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 .. end_tag
 
-
 Examples
-=====================================================
+==========================================
 
 **Create a simple self-signed certificate file**
 
