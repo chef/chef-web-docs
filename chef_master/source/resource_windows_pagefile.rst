@@ -39,7 +39,7 @@ The windows_pagefile resource has the following actions:
    Deletes the specified pagefile.
 
 ``:set``
-   Default. Configures the default pagefile, creating if it doesn't exist.
+   Default. Configures the default pagefile, creating it if it doesn't exist.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
