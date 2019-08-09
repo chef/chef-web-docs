@@ -3,6 +3,9 @@ Deprecation: Old Exit Codes (CHEF-2)
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_exit_code.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+    
 In older versions of Chef Client, it was not possible to discern why a chef run exited simply by examining the error code.
 This makes it very tricky for tools such as Test Kitchen to reason about the status of a Chef Client run.
 Starting in Chef Client 12.11, there are now well defined exit codes that the Chef Client can use to communicate the status of the run.

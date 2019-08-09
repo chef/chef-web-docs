@@ -7,7 +7,7 @@ Glossary
    A Chef Automate stage. The Acceptance stage is where your team decides whether the submitted change should ship all the way out to its final destination.
 
 **analytics rules**
-   Event tracking during the Chef Infra Client run that generates data made visible to Chef Automate.
+   Event tracking during a Chef Infra Client run that generates data made visible to Chef Automate.
 
 **Berkshelf**
    Manage cookbook dependencies.
@@ -28,13 +28,13 @@ Glossary
    The repository structure in which cookbooks are authored, tested, and maintained. View `an example of the <https://github.com/chef/chef-repo>`__ chef-repo.
 
 **Chef Infra Server**
-   The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the Chef Infra Client. Nodes use the Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
+   The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
 
 **ChefSpec**
    ChefSpec is a unit-testing framework for testing Chef cookbooks.
 
 **chef-zero**
-   A very lightweight Chef Infra Server that runs in-memory on the local machine during the Chef Infra Client run. Also known as local mode.
+   A very lightweight Chef Infra Server that runs in-memory on the local machine during a Chef Infra Client run. Also known as local mode.
 
 **cookbook**
    A cookbook is the fundamental unit of configuration and policy distribution.
@@ -64,7 +64,7 @@ Glossary
    A command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef Infra Server, and more.
 
 **library**
-   A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to the Chef Infra Client or by implementing entirely new functionality.
+   A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to Chef Infra Client or by implementing entirely new functionality.
 
 **Management Console**
    The Chef web-based management console you can use to manage Role Based Access Control (RBAC), edit and delete nodes, and reset private keys. Keep up to date with what's happening during chef client runs across an entire organization or on specific nodes.
@@ -76,7 +76,7 @@ Glossary
    A history of the attributes, run-lists, and roles that were used to configure a node that is under management by Chef.
 
 **ohai**
-   Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to the Chef Infra Client at the start of every run.
+   Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every run.
 
 **organization**
    An organization is a single instance of a Chef Infra Server, including all of the nodes that are managed by that Chef Infra Server and each of the workstations that will run knife and access the Chef Infra Server using the Chef Infra Server API.
@@ -91,7 +91,7 @@ Glossary
    Allows you to execute commands across hundreds or even thousands of nodes in your Chef-managed infrastructure.
 
 **recipe**
-   A recipe is a collection of resources that tells the Chef Infra Client how to configure a node.
+   A recipe is a collection of resources that tells Chef Infra Client how to configure a node.
 
 **Rehearsal**
    If all phases of Union succeed, then the Rehearsal stage is triggered. Rehearsal increases confidence in the artifacts and the deployment by repeating the process that occurred in Union in a different environment.

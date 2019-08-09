@@ -199,7 +199,7 @@ The Chef Infra Server includes the following default groups:
    * - ``billing_admins``
      - The ``billing_admins`` group defines the list of users who have permission to manage billing information. This permission exists only for the hosted Chef Infra Server.
    * - ``clients``
-     - The ``clients`` group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---the Chef Infra Client, in nearly every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.
+     - The ``clients`` group defines the list of nodes on which a Chef Infra Client is installed and under management by Chef. In general, think of this permission as "all of the non-human actors---Chef Infra Client, in nearly every case---that get data from, and/or upload data to, the Chef server". Newly-created Chef Infra Client instances are added to this group automatically.
    * - ``public_key_read_access``
      - The ``public_key_read_access`` group defines which users and clients have read permissions to key-related endpoints in the Chef Infra Server API.
    * - ``users``
@@ -445,7 +445,7 @@ chef-validator
 -----------------------------------------------------
 .. tag security_chef_validator
 
-Every request made by the Chef Infra Client to the Chef Infra Server must be an authenticated request using the Chef Infra Server API and a private key. When the Chef Infra Client makes a request to the Chef Infra Server, the Chef Infra Client authenticates each request using a private key located in ``/etc/chef/client.pem``.
+Every request made by Chef Infra Client to the Chef Infra Server must be an authenticated request using the Chef Infra Server API and a private key. When Chef Infra Client makes a request to the Chef Infra Server, Chef Infra Client authenticates each request using a private key located in ``/etc/chef/client.pem``.
 
 .. end_tag
 
@@ -478,7 +478,7 @@ Chef Push Jobs uses the Chef Infra Server API and a Ruby client to initiate all 
 
 .. tag server_rbac_groups_push_jobs
 
-It is possible to initiate jobs from the Chef Infra Client, such as from within a recipe based on an action to be determined as the recipe runs. For a Chef Infra Client to be able to create, initiate, or read jobs, the Chef Infra Client on which Chef Push Jobs is configured must belong to one (or both) of the following groups:
+It is possible to initiate jobs from Chef Infra Client, such as from within a recipe based on an action to be determined as the recipe runs. For a Chef Infra Client to be able to create, initiate, or read jobs, Chef Infra Client on which Chef Push Jobs is configured must belong to one (or both) of the following groups:
 
 .. list-table::
    :widths: 60 420

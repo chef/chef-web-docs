@@ -9,7 +9,7 @@ The Chef Infra Client has specific components that are designed to support uniqu
 
 .. tag windows_install_overview
 
-The Chef Infra Client can be installed on machines running Microsoft Windows in the following ways:
+Chef Infra Client can be installed on machines running Microsoft Windows in the following ways:
 
 * By using `knife windows </knife_windows.html>`__ to bootstrap Chef Infra Client; this process requires the target node be available via the WinRM port (typically port 5985)
 * By downloading Chef Infra Client to the target node, and then running the Microsoft Installer Package (MSI) locally
@@ -279,7 +279,7 @@ Install Chef Infra Client using an Existing Process
 -----------------------------------------------------
 .. tag windows_install_system_center
 
-Many organizations already have processes in place for managing the applications and settings on various Microsoft Windows machines. For example, System Center. The Chef Infra Client can be installed using this method.
+Many organizations already have processes in place for managing the applications and settings on various Microsoft Windows machines. For example, System Center. Chef Infra Client can be installed using this method.
 
 .. end_tag
 

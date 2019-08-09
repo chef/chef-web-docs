@@ -7,7 +7,7 @@ About Run-lists
 
 A run-list defines all of the information necessary for Chef to configure a node into the desired state. A run-list is:
 
-* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the Chef Infra Client will not run it twice
+* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, Chef Infra Client will not run it twice
 * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
 * Stored as part of the node object on the Chef server
 * Maintained using knife and then uploaded from the workstation to the Chef Infra Server, or maintained using Chef Automate
@@ -45,7 +45,7 @@ Empty Run-lists
 Use an empty run-list to determine if a failed Chef Infra Client run has anything to do with the recipes that are defined within that run-list. This is a quick way to discover if the underlying cause of a Chef Infra Client run failure is a configuration issue. If a failure persists even if the run-list is empty, check the following:
 
 * Configuration settings in the config.rb file
-* Permissions for the user to both the Chef Infra Server and to the node on which the Chef Infra Client run is to take place
+* Permissions for the user to both the Chef Infra Server and to the node on which a Chef Infra Client run is to take place
 
 .. end_tag
 
@@ -524,17 +524,17 @@ To view all of the nodes:
 
 Run-lists, Applied
 =====================================================
-A run-list will tell the Chef Infra Client what to do when bootstrapping that node for the first time, and then how to configure that node on every subsequent Chef Infra Client run.
+A run-list will tell Chef Infra Client what to do when bootstrapping that node for the first time, and then how to configure that node on every subsequent Chef Infra Client run.
 
 Bootstrap Operations
 -----------------------------------------------------
 .. tag install_chef_client
 
-The ``knife bootstrap`` command is a common way to install the Chef Infra Client on a node. The default for this approach assumes that a node can access the Chef website so that it may download the Chef Infra Client package from that location.
+The ``knife bootstrap`` command is a common way to install Chef Infra Client on a node. The default for this approach assumes that a node can access the Chef website so that it may download the Chef Infra Client package from that location.
 
-The Chef installer will detect the version of the operating system, and then install the appropriate version of the Chef Infra Client using a single command to install the Chef Infra Client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities.
+The Chef installer will detect the version of the operating system, and then install the appropriate Chef Infra Client version using a single command to install Chef Infra Client and all of its dependencies, including an embedded version of Ruby, RubyGems, OpenSSL, key-value stores, parsers, libraries, and command line utilities.
 
-The Chef installer puts everything into a unique directory (``/opt/chef/``) so that the Chef Infra Client will not interfere with other applications that may be running on the target machine. Once installed, the Chef Infra Client requires a few more configuration steps before it can perform its first Chef Infra Client run on a node.
+The Chef installer puts everything into a unique directory (``/opt/chef/``) so that Chef Infra Client will not interfere with other applications that may be running on the target machine. Once installed, Chef Infra Client requires a few more configuration steps before it can perform its first Chef Infra Client run on a node.
 
 .. end_tag
 
@@ -570,15 +570,15 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
 
        On Microsoft Windows machines: The batch file that is derived from the windows-chef-client-msi.erb bootstrap template will make a request to the Chef website to get the .msi installer.
    * - **Get the Chef Infra Client package from Chef**
-     - The second shell script (or batch file) then gathers system-specific information and determines the correct package for the Chef Infra Client, and then downloads the appropriate package from ``omnitruck-direct.chef.io``.
-   * - **Install the Chef Infra Client**
-     - The Chef Infra Client is installed on the target node.
-   * - **Start the Chef Infra Client run**
+     - The second shell script (or batch file) then gathers system-specific information and determines the correct package for Chef Infra Client, and then downloads the appropriate package from ``omnitruck-direct.chef.io``.
+   * - **Install Chef Infra Client**
+     - Chef Infra Client is installed on the target node.
+   * - **Start a Chef Infra Client run**
      - On UNIX- and Linux-based machines: The second shell script executes the ``chef-client`` binary with a set of initial settings stored within ``first-boot.json`` on the node. ``first-boot.json`` is generated from the workstation as part of the initial ``knife bootstrap`` subcommand.
 
        On Microsoft Windows machines: The batch file that is derived from the windows-chef-client-msi.erb bootstrap template executes the ``chef-client`` binary with a set of initial settings stored within ``first-boot.json`` on the node. ``first-boot.json`` is generated from the workstation as part of the initial ``knife bootstrap`` subcommand.
-   * - **Complete the Chef Infra Client run**
-     - The Chef Infra Client run proceeds, using HTTPS (port 443), and registers the node with the Chef Infra Server.
+   * - **Complete a Chef Infra Client run**
+     - a Chef Infra Client run proceeds, using HTTPS (port 443), and registers the node with the Chef Infra Server.
 
        The first Chef Infra Client run, by default, contains an empty run-list. A `run-list can be specified </knife_bootstrap.html>`__ as part of the initial bootstrap operation using the ``--run-list`` option as part of the ``knife bootstrap`` subcommand.
 
@@ -588,9 +588,9 @@ The Chef Infra Client Run
 -----------------------------------------------------
 .. tag chef_client_run
 
-.. THIS TOPIC IS TRUE FOR AN UPCOMING VERSION OF THE CHEF-CLIENT; THE BEHAVIOR OF "SYNCHRONIZE COOKBOOKS" HAS CHANGED SLIGHTLY OVER TIME AND HAS BEEN VERSIONED.
+.. THIS TOPIC IS TRUE FOR AN UPCOMING VERSION OF CHEF INFRA CLIENT; THE BEHAVIOR OF "SYNCHRONIZE COOKBOOKS" HAS CHANGED SLIGHTLY OVER TIME AND HAS BEEN VERSIONED.
 
-A "chef-client run" is the term used to describe a series of steps that are taken by the Chef Infra Client when it is configuring a node. The following diagram shows the various stages that occur during the Chef Infra Client run, and then the list below the diagram describes in greater detail each of those stages.
+A "Chef Infra Client run" is the term used to describe the steps Chef Infra Client takes to configure a node during a run. The following diagram shows the various stages that occur during a Chef Infra Client run.
 
 .. image:: ../../images/chef_run.png
 
@@ -603,27 +603,27 @@ During every Chef Infra Client run, the following happens:
    * - Stages
      - Description
    * - **Get configuration data**
-     - The Chef Infra Client gets process configuration data from the client.rb file on the node, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the ``node_name`` attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it is typically the FQDN for the node, which is always unique within an organization.
+     - Chef Infra Client gets process configuration data from the client.rb file on the node, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the ``node_name`` attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it is typically the FQDN for the node, which is always unique within an organization.
    * - **Authenticate to the Chef Server**
-     - The Chef Infra Client authenticates to the Chef Infra Server using an RSA private key and the Chef Infra Server API. The name of the node is required as part of the authentication process to the Chef Infra Server. If this is the first Chef Infra Client run for a node, the chef-validator will be used to generate the RSA private key.
+     - Chef Infra Client authenticates to the Chef Infra Server using an RSA private key and the Chef Infra Server API. The name of the node is required as part of the authentication process to the Chef Infra Server. If this is the first Chef Infra Client run for a node, the chef-validator will be used to generate the RSA private key.
    * - **Get, rebuild the node object**
-     - The Chef Infra Client pulls down the node object from the Chef Infra Server. If this is the first Chef Infra Client run for the node, there will not be a node object to pull down from the Chef Infra Server. After the node object is pulled down from the Chef Infra Server, the Chef Infra Client rebuilds the node object. If this is the first Chef Infra Client run for the node, the rebuilt node object will contain only the default run-list. For any subsequent Chef Infra Client run, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.
+     - Chef Infra Client pulls down the node object from the Chef Infra Server. If this is the first Chef Infra Client run for the node, there will not be a node object to pull down from the Chef Infra Server. After the node object is pulled down from the Chef Infra Server, Chef Infra Client rebuilds the node object. If this is the first Chef Infra Client run for the node, the rebuilt node object will contain only the default run-list. For any subsequent Chef Infra Client run, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.
    * - **Expand the run-list**
-     - The Chef Infra Client expands the run-list from the rebuilt node object, compiling a full and complete list of roles and recipes that will be applied to the node, placing the roles and recipes in the same exact order they will be applied. (The run-list is stored in each node object's JSON file, grouped under ``run_list``.)
+     - Chef Infra Client expands the run-list from the rebuilt node object, compiling a full and complete list of roles and recipes that will be applied to the node, placing the roles and recipes in the same exact order they will be applied. (The run-list is stored in each node object's JSON file, grouped under ``run_list``.)
    * - **Synchronize cookbooks**
-     - The Chef Infra Client asks the Chef Infra Server for a list of all cookbook files (including recipes, templates, resources, providers, attributes, libraries, and definitions) that will be required to do every action identified in the run-list for the rebuilt node object. The Chef Infra Server provides to the Chef Infra Client a list of all of those files. The Chef Infra Client compares this list to the cookbook files cached on the node (from previous Chef Infra Client runs), and then downloads a copy of every file that has changed since the previous Chef Infra Client run, along with any new files.
+     - Chef Infra Client asks the Chef Infra Server for a list of all cookbook files (including recipes, templates, resources, providers, attributes, libraries, and definitions) that will be required to do every action identified in the run-list for the rebuilt node object. The Chef Infra Server provides to Chef Infra Client a list of all of those files. Chef Infra Client compares this list to the cookbook files cached on the node (from previous Chef Infra Client runs), and then downloads a copy of every file that has changed since the previous Chef Infra Client run, along with any new files.
    * - **Reset node attributes**
      - All attributes in the rebuilt node object are reset. All attributes from attribute files, environments, roles, and Ohai are loaded. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. If attribute files are found within any cookbooks that are listed as dependencies in the ``metadata.rb`` file, these are loaded as well. All attributes in the rebuilt node object are updated with the attribute data according to attribute precedence. When all of the attributes are updated, the rebuilt node object is complete.
    * - **Compile the resource collection**
-     - The Chef Infra Client identifies each resource in the node object and builds the resource collection. Libraries are loaded first to ensure that all language extensions and Ruby classes are available to all resources. Next, attributes are loaded, followed by custom resources, and then all definitions (to ensure that any pseudo-resources within definitions are available). Finally, all recipes are loaded in the order specified by the expanded run-list. This is also referred to as the "compile phase".
+     - Chef Infra Client identifies each resource in the node object and builds the resource collection. Libraries are loaded first to ensure that all language extensions and Ruby classes are available to all resources. Next, attributes are loaded, followed by custom resources, and then all definitions (to ensure that any pseudo-resources within definitions are available). Finally, all recipes are loaded in the order specified by the expanded run-list. This is also referred to as the "compile phase".
    * - **Converge the node**
-     - The Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource in the resource collection is mapped to a provider. The provider examines the node, and then does the steps necessary to complete the action. And then the next resource is processed. Each action configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".
+     - Chef Infra Client configures the system based on the information that has been collected. Each resource is executed in the order identified by the run-list, and then by the order in which each resource is listed in each recipe. Each resource in the resource collection is mapped to a provider. The provider examines the node, and then does the steps necessary to complete the action. And then the next resource is processed. Each action configures a specific part of the system. This process is also referred to as convergence. This is also referred to as the "execution phase".
    * - **Update the node object, process exception and report handlers**
-     - When all of the actions identified by resources in the resource collection have been done, and when the Chef Infra Client run finished successfully, the Chef Infra Client updates the node object on the Chef Infra Server with the node object that was built during this Chef Infra Client run. (This node object will be pulled down by the Chef Infra Client during the next Chef Infra Client run.) This makes the node object (and the data in the node object) available for search.
+     - When all of the actions identified by resources in the resource collection have been done and Chef Infra Client finishes successfully, then Chef Infra Client updates the node object on the Chef Infra Server with the node object built during a Chef Infra Client run. (This node object will be pulled down by Chef Infra Client during the next Chef Infra Client run.) This makes the node object (and the data in the node object) available for search.
 
-       The Chef Infra Client always checks the resource collection for the presence of exception and report handlers. If any are present, each one is processed appropriately.
+       Chef Infra Client always checks the resource collection for the presence of exception and report handlers. If any are present, each one is processed appropriately.
    * - **Stop, wait for the next run**
-     - When everything is configured and the Chef Infra Client run is complete, the Chef Infra Client stops and waits until the next time it is asked to run.
+     - When everything is configured and the Chef Infra Client run is complete, Chef Infra Client stops and waits until the next time it is asked to run.
 
 .. end_tag
 
@@ -631,6 +631,6 @@ Attribute Evaluation Order
 -----------------------------------------------------
 .. tag node_attribute_evaluation_order
 
-The Chef Infra Client evaluates attributes in the order defined by the run-list, including any attributes that are in the run-list because of cookbook dependencies.
+Chef Infra Client evaluates attributes in the order defined by the run-list, including any attributes that are in the run-list because of cookbook dependencies.
 
 .. end_tag

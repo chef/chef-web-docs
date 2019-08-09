@@ -119,9 +119,9 @@ to return something like:
    ec2-75-101-240-230.compute-1.amazonaws.com   13:50:48 up 1 day, 22:59,  1 user,  load average: 0.24, 0.17, 0.11
    ec2-184-73-60-141.compute-1.amazonaws.com    13:50:48 up 1 day, 23:30,  1 user,  load average: 0.32, 0.17, 0.15
 
-**Run the Chef Infra Client on all nodes**
+**Run Chef Infra Client on all nodes**
 
-.. To run the Chef Infra Client on all nodes, enter:
+.. To run Chef Infra Client on all nodes, enter:
 
 .. code-block:: bash
 

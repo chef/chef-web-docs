@@ -3,7 +3,7 @@ Resource Code Examples
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_examples.rst>`__
 
-This reference contains code examples for many of the core resources that are built in to the chef-client, sorted by resource. This topic is a subset of the topic that contains a `complete description of all resources </resource_reference.html>`__, including actions, properties, and providers (in addition to these examples).
+This reference contains code examples for many of the core resources that are built in to Chef Infra Client, sorted by resource. This topic is a subset of the topic that contains a `complete description of all resources </resource_reference.html>`__, including actions, properties, and providers (in addition to these examples).
 
 Common Examples
 =====================================================
@@ -232,7 +232,7 @@ The following example shows how to use the ``only_if`` condition to create a fil
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -241,7 +241,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -385,7 +385,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -427,7 +427,7 @@ With the ``:before`` notification, the action specified for the ``nginx`` resour
 
 .. To transfer a file only if the remote source has changed (using the |resource http request| resource):
 
-.. The "Transfer a file only when the source has changed" example is deprecated in chef-client 11-6
+.. The "Transfer a file only when the source has changed" example is deprecated in Chef Client 11.6
 
 .. code-block:: ruby
 
@@ -605,11 +605,11 @@ Use the **apt_update** resource to manage APT repository updates on Debian and U
 
 .. end_tag
 
-**Update the Apt repository at the start of a chef-client run**
+**Update the Apt repository at the start of a Chef Infra Client run**
 
 .. tag resource_apt_update_at_start_of_client_run
 
-.. To update the Apt repository at the start of a chef-client run:
+.. To update the Apt repository at the start of a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -835,7 +835,7 @@ bff_package
 
 Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-.. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. The chef-client will still identify the correct provider to use based on the platform, regardless of the file extension.
+.. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. Chef Infra Client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
 .. end_tag
 
@@ -845,7 +845,7 @@ Use the **bff_package** resource to manage packages for the AIX platform using t
 
 .. To install a package:
 
-The **bff_package** resource is the default package provider on the AIX platform. The base **package** resource may be used, and then when the platform is AIX, the chef-client will identify the correct package provider. The following examples show how to install part of the IBM XL C/C++ compiler.
+The **bff_package** resource is the default package provider on the AIX platform. The base **package** resource may be used, and then when the platform is AIX, Chef Infra Client will identify the correct package provider. The following examples show how to install part of the IBM XL C/C++ compiler.
 
 Using the base **package** resource:
 
@@ -871,7 +871,7 @@ breakpoint
 =====================================================
 .. tag resource_breakpoint_summary
 
-Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in Chef Infra Client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by the Chef Infra Client during an actual Chef Infra Client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef Infra Server.
+Use the **breakpoint** resource to add breakpoints to recipes. Run the chef-shell in Chef Infra Client mode, and then use those breakpoints to debug recipes. Breakpoints are ignored by Chef Infra Client during an actual Chef Infra Client run. That said, breakpoints are typically used to debug recipes only when running them in a non-production environment, after which they are removed from those recipes before the parent cookbook is uploaded to the Chef Infra Server.
 
 .. end_tag
 
@@ -943,9 +943,9 @@ chef_gem
 =====================================================
 .. tag resource_package_chef_gem
 
-Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to the chef-client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
+Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to Chef Infra Client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which the chef-client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
+The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which Chef Infra Client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
 
 * Runs its actions immediately, before convergence, allowing a gem to be used in a recipe immediately after it is installed
 * Runs ``Gem.clear_paths`` after the action, ensuring that gem is aware of changes so that it can be required immediately after it is installed
@@ -958,7 +958,7 @@ The **chef_gem** resource works with all of the same properties and options as t
 
 .. To install a gems file for use in a recipe:
 
-To install a gem while the chef-client is configuring the node (the “converge phase”), set the ``compile_time`` property to ``false``:
+To install a gem while Chef Infra Client is configuring the node (the “converge phase”), set the ``compile_time`` property to ``false``:
 
 .. code-block:: ruby
 
@@ -1004,9 +1004,9 @@ chef_handler
 =====================================================
 .. tag resource_chef_handler_summary
 
-Use the **chef_handler** resource to enable handlers during a chef-client run. The resource allows arguments to be passed to the chef-client, which then applies the conditions defined by the custom handler to the node attribute data collected during the chef-client run, and then processes the handler based on that data.
+Use the **chef_handler** resource to enable handlers during a Chef Infra Client run. The resource allows arguments to be passed to Chef Infra Client, which then applies the conditions defined by the custom handler to the node attribute data collected during a Chef Infra Client run, and then processes the handler based on that data.
 
-The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire chef-client run.
+The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire Chef Infra Client run.
 
 **New in Chef Client 14.0.**
 
@@ -1065,7 +1065,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
 
 .. tag handler_custom_example_cookbook_versions
 
-Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during the Chef Infra Client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
+Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during a Chef Infra Client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
 
 .. end_tag
 
@@ -1073,7 +1073,7 @@ cookbook_versions.rb:
 
 .. tag handler_custom_example_cookbook_versions_handler
 
-The following custom handler defines how cookbooks and cookbook versions that are used during the Chef Infra Client run will be compiled into a report using the ``Chef::Log`` class in the Chef Infra Client:
+The following custom handler defines how cookbooks and cookbook versions that are used during a Chef Infra Client run will be compiled into a report using the ``Chef::Log`` class in Chef Infra Client:
 
 .. code-block:: ruby
 
@@ -1132,7 +1132,7 @@ This recipe will generate report output similar to the following:
 
 The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb>`_ handler is available from the **chef_handler** cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -1182,9 +1182,9 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 .. tag handler_custom_example_error_report
 
-The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into the Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
+The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -1240,7 +1240,7 @@ cookbook_file
 =====================================================
 .. tag resource_cookbook_file_summary
 
-Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running the Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
+Use the **cookbook_file** resource to transfer files from a sub-directory of ``COOKBOOK_NAME/files/`` to a specified path located on a host that is running Chef Infra Client. The file is selected according to file specificity, which allows different source files to be used based on the hostname, host platform (operating system, distro, or as appropriate), or platform version. Files that are located in the ``COOKBOOK_NAME/files/default`` sub-directory may be used on any platform.
 
 .. end_tag
 
@@ -1284,7 +1284,7 @@ When a **cookbook_file** resource and a **package** resource are both called fro
 
 .. tag resource_package_install_yum_repo_from_file
 
-The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
+The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for Chef Infra Client to reload:
 
 .. code-block:: ruby
 
@@ -2127,7 +2127,7 @@ Use the **execute** resource to execute a single command. Commands that are exec
 
 .. tag resource_package_install_yum_repo_from_file
 
-The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
+The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for Chef Infra Client to reload:
 
 .. code-block:: ruby
 
@@ -2218,7 +2218,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -2245,7 +2245,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -2422,7 +2422,7 @@ where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
 * the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
-* the **template** resource tells the Chef Infra Client which template to use
+* the **template** resource tells Chef Infra Client which template to use
 
 .. end_tag
 
@@ -2446,7 +2446,7 @@ where
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -2455,7 +2455,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -2531,7 +2531,7 @@ The following example shows how to install a lightweight JavaScript framework in
 
 .. tag resource_execute_bundle_install
 
-The following example shows how to run ``bundle install`` from a chef-client run as a specific user. This will put the gem into the path of the user (``vagrant``) instead of the root user (under which the chef-client runs):
+The following example shows how to run ``bundle install`` from a Chef Infra Client run as a specific user. This will put the gem into the path of the user (``vagrant``) instead of the root user (under which the Chef Infra Client runs):
 
 .. code-block:: ruby
 
@@ -2817,7 +2817,7 @@ To use different branches, depending on the environment of the node:
       group 'test'
    end
 
-where the ``branch_name`` variable is set to ``staging`` or ``master``, depending on the environment of the node. Once this is determined, the ``branch_name`` variable is used to set the revision for the repository. If the ``git status`` command is used after running the example above, it will return the branch name as ``deploy``, as this is the default value. Run the chef-client in debug mode to verify that the correct branches are being checked out:
+where the ``branch_name`` variable is set to ``staging`` or ``master``, depending on the environment of the node. Once this is determined, the ``branch_name`` variable is used to set the revision for the repository. If the ``git status`` command is used after running the example above, it will return the branch name as ``deploy``, as this is the default value. Run Chef Infra Client in debug mode to verify that the correct branches are being checked out:
 
 .. code-block:: bash
 
@@ -3033,7 +3033,7 @@ To send a ``POST`` request as JSON data, convert the message to JSON and include
 
 .. To transfer a file only if the remote source has changed (using the |resource http request| resource):
 
-.. The "Transfer a file only when the source has changed" example is deprecated in chef-client 11-6
+.. The "Transfer a file only when the source has changed" example is deprecated in Chef Client 11.6
 
 .. code-block:: ruby
 
@@ -3597,7 +3597,7 @@ ohai
 =====================================================
 .. tag resource_ohai_summary
 
-Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the Chef Infra Client run.
+Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run.
 
 .. end_tag
 
@@ -3863,7 +3863,7 @@ Use the **package** resource to manage packages. When the package is installed f
 
 .. tag resource_package_install_with_response_file
 
-Use of a ``response_file`` is only supported on Debian and Ubuntu at this time. Custom resources must be written to support the use of a ``response_file``, which contains debconf answers to questions normally asked by the package manager on installation. Put the file in ``/files/default`` of the cookbook where the package is specified and the chef-client will use the **cookbook_file** resource to retrieve it.
+Use of a ``response_file`` is only supported on Debian and Ubuntu at this time. Custom resources must be written to support the use of a ``response_file``, which contains debconf answers to questions normally asked by the package manager on installation. Put the file in ``/files/default`` of the cookbook where the package is specified and Chef Infra Client will use the **cookbook_file** resource to retrieve it.
 
 To install a package with a ``response_file``:
 
@@ -4070,7 +4070,7 @@ where
 
 * the **package** resource is used to install sudo
 * the ``if`` statement is used to ensure availability of the ``/etc/sudoers.d`` directory
-* the **template** resource tells the chef-client where to find the ``sudoers`` template
+* the **template** resource tells Chef Infra Client where to find the ``sudoers`` template
 * the ``variables`` property is a hash that passes values to template files (that are located in the ``templates/`` directory for the cookbook
 
 .. end_tag
@@ -4079,7 +4079,7 @@ where
 
 .. tag resource_package_use_case_statement
 
-The following example shows how to use a case statement to tell the chef-client which platforms and packages to install using cURL.
+The following example shows how to use a case statement to tell Chef Infra Client which platforms and packages to install using cURL.
 
 .. code-block:: ruby
 
@@ -4096,7 +4096,7 @@ The following example shows how to use a case statement to tell the chef-client 
      end
    end
 
-where ``node[:platform]`` for each node is identified by Ohai during every chef-client run. For example:
+where ``node[:platform]`` for each node is identified by Ohai during every Chef Infra Client run. For example:
 
 .. code-block:: ruby
 
@@ -4454,7 +4454,7 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the chef-client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during a Chef Infra Client run
 
 .. end_tag
 
@@ -4499,11 +4499,11 @@ Use the **reboot** resource to reboot a node, a necessary step with some install
 
 .. end_tag
 
-**Reboot a node at the end of a chef-client run**
+**Reboot a node at the end of a Chef Infra Client run**
 
 .. tag resource_service_reboot_request
 
-.. To reboot a node at the end of the chef-client run:
+.. To reboot a node at the end of a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -4559,7 +4559,7 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the chef-client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during a Chef Infra Client run
 
 .. end_tag
 
@@ -4669,7 +4669,7 @@ or a single-quoted string:
 
 .. note:: .. tag notes_registry_key_resource_recursive
 
-          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by the Chef Infra Client.
+          Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by Chef Infra Client.
 
           .. end_tag
 
@@ -4727,11 +4727,11 @@ or:
 
 .. end_tag
 
-**Set proxy settings to be the same as those used by the chef-client**
+**Set proxy settings to be the same as those used by Chef Infra Client**
 
 .. tag resource_registry_key_set_proxy_settings_to_same_as_chef_client
 
-.. To set system proxy settings to be the same as used by the chef-client:
+.. To set system proxy settings to be the same as used by Chef Infra Client:
 
 Use a double-quoted string:
 
@@ -5104,7 +5104,7 @@ ruby_block
 =====================================================
 .. tag resource_ruby_block_summary
 
-Use the **ruby_block** resource to execute Ruby code during a chef-client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
+Use the **ruby_block** resource to execute Ruby code during a Chef Infra Client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
 
 .. end_tag
 
@@ -5112,7 +5112,7 @@ Use the **ruby_block** resource to execute Ruby code during a chef-client run. R
 
 .. tag resource_ruby_block_reread_chef_client
 
-.. To re-read the chef-client configuration during a chef-client run:
+.. To re-read Chef Infra Client configuration during a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -5129,7 +5129,7 @@ Use the **ruby_block** resource to execute Ruby code during a chef-client run. R
 
 .. tag resource_package_install_yum_repo_from_file
 
-The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
+The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for Chef Infra Client to reload:
 
 .. code-block:: ruby
 
@@ -5374,7 +5374,7 @@ or something like:
      not_if { File.exist?('#{key_dir}/server.crt') }
    end
 
-where ``code`` contains the OpenSSL command to be run. The ``not_if`` property tells the chef-client not to run the command if the file already exists.
+where ``code`` contains the OpenSSL command to be run. The ``not_if`` property tells Chef Infra Client not to run the command if the file already exists.
 
 .. end_tag
 
@@ -5974,7 +5974,7 @@ template
 =====================================================
 .. tag resource_template_summary
 
-Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running the chef-client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
+Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running Chef Infra Client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
 
 .. end_tag
 
@@ -6181,7 +6181,7 @@ The following example shows how to use a Ruby whitespace array to define a list 
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -6190,7 +6190,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -6287,7 +6287,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -6366,7 +6366,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -6518,7 +6518,7 @@ user
 
 Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
-.. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current chef-client run.
+.. note:: System attributes are collected by Ohai at the start of every Chef Infra Client run. By design, the actions available to the **user** resource are processed **after** the start of a Chef Infra Client run. This means that system attributes added or modified by the **user** resource during a Chef Infra Client run must be reloaded before they can be available to Chef Infra Client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) Chef Infra Client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current Chef Infra Client run.
 
 .. end_tag
 

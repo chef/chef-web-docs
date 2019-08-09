@@ -3,6 +3,9 @@ Runners
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/runners.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners, that automatically execute each job as it is created.
 
 

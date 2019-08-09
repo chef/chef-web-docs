@@ -3,6 +3,9 @@ automate-ctl (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_automate_server.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -13,7 +16,7 @@ automate-ctl (executable)
 
 .. tag EOL_a1
 
-.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </https://docs.chef.io/versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -732,7 +735,7 @@ The ``node-summary`` subcommand produces a summary of the nodes that are known t
 
 New in Chef Automate 0.5.328.
 
-The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via the Chef Infra Client, Chef InSpec, or the liveness agent.
+The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via Chef Infra Client, Chef InSpec, or the liveness agent.
 
 **Syntax**
 
@@ -782,7 +785,7 @@ Produce a summary of nodes known to Automate in JSON.
 Explanation of fields
 -----------------------------------------------------
 ``chef_version``
-   The version of the Chef Infra Client that ran on the node.
+   The Chef Infra Client version of that ran on the node.
 ``checkin``
    The last time Chef Infra Client ran on the node.
 ``@timestamp``
@@ -804,7 +807,7 @@ Explanation of fields
 
    ``failure`` if the last Chef Infra Client run failed on the node.
 
-   ``live`` if the liveness agent has successfully updated Chef Automate, but the Chef Infra Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
+   ``live`` if the liveness agent has successfully updated Chef Automate, but Chef Infra Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 
    ``missing`` if Chef Infra Client did not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 

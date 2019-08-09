@@ -272,7 +272,7 @@ Nested Fields
 -----------------------------------------------------
 .. tag search_key_nested
 
-A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, the Chef Infra Client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
+A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, Chef Infra Client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
 
 By combining wildcards with range-matching patterns and wildcard queries, it is possible to perform very powerful searches, such as using the vendor part of the MAC address to find every node that has a network card made by the specified vendor.
 
@@ -858,7 +858,7 @@ Roles in Run-lists
 -----------------------------------------------------
 A search query can be made for roles that are at the top-level of a run-list and also for a role that is part of an expanded run-list.
 
-.. note:: The ``roles`` field is updated each time the Chef Infra Client is run; changes to a run-list will not affect ``roles`` until the next time the Chef Infra Client is run on the node.
+.. note:: The ``roles`` field is updated with each Chef Infra Client run; changes to a run-list will not affect ``roles`` until the next Chef Infra Client run on the node.
 
 .. list-table::
    :widths: 200 300
@@ -915,7 +915,7 @@ A wildcard can be used to replace characters within the search query.
 
 Expanded lists of roles (all of the roles that apply to a node, including nested roles) and recipes to the role and recipe attributes on a node are saved on the Chef Infra Server. The expanded lists of roles allows for searching within nodes that run a given recipe, even if that recipe is included by a role.
 
-.. note:: The ``recipes`` field is updated each time the Chef Infra Client is run; changes to a run-list will not affect ``recipes`` until the next time the Chef Infra Client is run on the node.
+.. note:: The ``recipes`` field is with each Chef Infra Client run; changes to a run-list will not affect ``recipes`` until the next Chef Infra Client run on the node.
 
 .. list-table::
    :widths: 200 300
@@ -956,7 +956,7 @@ If you just want to use each result of the search and don't care about the aggre
 
 API Clients
 -----------------------------------------------------
-An API client is any machine that has permission to use the Chef Infra Server API to communicate with the Chef Infra Server. An API client is typically a node (on which the Chef Infra Client runs) or a workstation (on which knife runs), but can also be any other machine configured to use the Chef Infra Server API.
+An API client is any machine that has permission to use the Chef Infra Server API to communicate with the Chef Infra Server. An API client is typically a node (that runs Chef Infra Client) or a workstation (that runs knife), but can also be any other machine configured to use the Chef Infra Server API.
 
 Sometimes when a role isn't fully defined (or implemented), it may be necessary for a machine to connect to a database, search engine, or some other service within an environment by using the settings located on another machine, such as a host name, IP address, or private IP address. The following example shows a simplified settings file:
 

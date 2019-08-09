@@ -3,149 +3,13 @@ Community Plugins
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_community.rst>`__
 
-This page lists plugins for knife, Ohai, handlers, and the Chef Infra Client that are developed and maintained by the Chef community.
-
-Knife
-=====================================================
-.. tag knife_summary
-
-knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. knife helps users to manage:
-
-* Nodes
-* Cookbooks and recipes
-* Roles, Environments, and Data Bags
-* Resources within various cloud environments
-* The installation of the Chef Infra Client onto nodes
-* Searching of indexed data on the Chef Infra Server
-
-.. end_tag
-
-knife plugins for cloud hosting platforms--- `knife azure <https://github.com/chef/knife-azure>`_, `knife bluebox <https://github.com/chef-boneyard/knife-bluebox>`_, `knife ec2 <https://github.com/chef/knife-ec2>`_, `knife eucalyptus <https://github.com/chef-boneyard/knife-eucalyptus>`_, `knife google <https://github.com/chef/knife-google>`_, `knife linode <https://github.com/chef/knife-linode>`_, `knife openstack <https://github.com/chef/knife-openstack>`_, and `knife rackspace <https://github.com/chef/knife-rackspace>`_, ---are built and maintained by Chef.
-
-The following table lists knife plugins built by the Chef community.
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Plugin
-     - Description
-   * - `knife-audit <https://github.com/jbz/knife-audit>`_
-     - Adds the ability to see how many (and which) nodes have a cookbook in its run-list.
-   * - `knife-baremetalcloud <https://github.com/baremetalcloud/knife-baremetalcloud>`_
-     - Adds the ability to manage compute nodes in baremetalcloud.
-   * - `knife-batch <https://github.com/imeyer/knife-batch>`_
-     - Adds the ability to execute commands like ``knife ssh``, but in groups of N with a sleep between execution iterations.
-   * - `knife-block <https://github.com/greenandsecure/knife-block>`_
-     - Adds the ability to create and manage multiple config.rb files for working with many servers.
-   * - `knife-brightbox <https://github.com/rubiojr/knife-brightbox>`_
-     - Adds the ability to create, bootstrap, and manage instances in the brightbox cloud.
-   * - `knife-bulk-change-environment <https://github.com/jonlives/knife-bulkchangeenvironment>`_
-     - Adds the ability to move nodes from one environment to another.
-   * - `knife-canon <https://github.com/lnxchk/Canon>`_
-     - Adds the ability to compare command output across hosts.
-   * - `knife-cfn <https://github.com/neillturner/knife-cfn>`_
-     - Adds the ability to validate, create, describe, and delete stacks in AWS CloudFormation.
-   * - `knife-cisco_asa <https://github.com/bflad/knife-cisco_asa>`_
-     - Adds the ability to manage Cisco ASA devices.
-   * - `knife-cleanup <https://github.com/mdxp/knife-cleanup>`_
-     - Adds the ability to remove unused versions of cookbooks that are hosted on the Chef Infra Server. (Cookbook versions that are removed are backed-up prior to deletion.)
-   * - `knife-cloudstack-fog <https://github.com/fifthecho/knife-cloudstack-fog>`_
-     - Adds the ability to create, bootstrap, and manage instances in CloudStack using Fog, a Ruby gem for interacting with various cloud providers.
-   * - `knife-cloudstack <https://github.com/CloudStack-extras/knife-cloudstack>`_
-     - Adds the ability to create, bootstrap, and manage CloudStack instances.
-   * - `knife-community <https://github.com/miketheman/knife-community>`_
-     - Adds the ability to assist with deploying completed cookbooks to the community web site.
-   * - `knife-crawl <https://github.com/jgoulah/knife-crawl>`_
-     - Adds the ability to display the roles that are included recursively within a role and (optionally) all of the roles that include it.
-   * - `knife-digital_ocean <https://github.com/rmoriz/knife-digital_ocean>`_
-     - Adds the ability to create, bootstrap, and manage instances in DigitalOcean.
-   * - `knife-ec2-amis-ubuntu <https://rubygems.org/gems/ubuntu_ami>`_
-     - Adds the ability to retrieve a list of released Ubuntu Amazon Machine Images (AMI).
-   * - `knife-elb <https://github.com/ranjib/knife-elb>`_
-     - Adds the ability to add and remove instances from existing enterprise load balancers, enlist them, and then show them. (This does not add the ability to create or delete enterprise load balancers.)
-   * - `knife-env-diff <https://github.com/jgoulah/knife-env-diff>`_
-     - Adds the ability to diff the cookbook versions for two (or more) environments.
-   * - `knife-esx <https://github.com/rubiojr/knife-esx>`_
-     - Adds support for VMware.
-   * - `knife-file <https://github.com/cparedes/knife-file>`_
-     - Adds utilities that help manipulate files in a chef-repo.
-   * - `knife-flip <https://github.com/jonlives/knife-flip>`_
-     - Adds improvements to ``knife-set-environment`` with added functionality and failsafes.
-   * - `knife-gandi <https://rubygems.org/gems/knife-gandi>`_
-     - Adds the ability to create, bootstrap, and manage servers on the gandi.net hosting platform.
-   * - `knife-gather <https://github.com/lnxchk/Gather>`_
-     - Adds the ability to collate multi-line output from parallel ``knife ssh`` outputs into one section per host.
-   * - `knife-github-cookbooks <https://github.com/websterclay/knife-github-cookbooks>`_
-     - Adds the ability to create vendor branches automatically from any GitHub cookbook.
-   * - `knife-glesys <https://github.com/smgt/knife-glesys>`_
-     - Adds the ability to create, delete, list, and bootstrap servers on GleSYS.
-   * - `knife-ipmi <https://github.com/Afterglow/knife-ipmi>`_
-     - Adds simple power control of nodes using IPMI.
-   * - `knife-kvm <https://github.com/rubiojr/knife-kvm>`_
-     - Adds Linux support for KVM.
-   * - `knife-lastrun <https://github.com/jgoulah/knife-lastrun>`_
-     - Adds key metrics from the last Chef Infra Client run on a given node.
-   * - `knife-oci <https://github.com/oracle/knife-oci>`_
-     - Adds support for Oracle Cloud Infrastructure.
-   * - `knife-ohno <https://github.com/lnxchk/Ohno>`_
-     - Adds the ability to view nodes that haven't checked into the platform for N hours.
-   * - `knife-oktawave <https://github.com/marek-siemdaj/knife-oktawave>`_
-     - Adds the ability to manage Oktawave Cloud Instances.
-   * - `knife-onehai <https://github.com/lnxchk/Knife-OneHai>`_
-     - Adds the ability to get the last seen time of a single node.
-   * - `knife-playground <https://github.com/rubiojr/knife-playground>`_
-     - Adds miscellaneous tools for knife.
-   * - `knife-plugins <https://github.com/danielsdeleo/knife-plugins>`_
-     - Adds a set of plugins that help manage data bags.
-   * - `knife-pocket <https://github.com/lnxchk/Pocket>`_
-     - Adds the ability to save a knife search query for later use, such as when using ``knife ssh``.
-   * - `knife-preflight <https://github.com/jonlives/knife-preflight>`_
-     - Adds the ability to check which nodes and roles use a cookbook. This is helpful when making changes to a cookbook.
-   * - `knife-profitbricks <https://github.com/profitbricks/knife-profitbricks>`_
-     - Adds the ability to create, bootstrap, and manage instances in the ProfitBricks IaaS.
-   * - `knife-rhn <https://github.com/bflad/knife-rhn>`_
-     - Adds the ability to manage the Red Hat network.
-   * - `knife-rightscale <https://github.com/caryp/knife-rightscale>`_
-     - Adds the ability to provision servers on clouds managed by the RightScale platform.
-   * - `knife-role_copy <https://github.com/benjaminws/knife_role_copy>`_
-     - Adds the ability to get data from a role, and then set up a new role using that data (as long as the new role doesn't have the same name as an existing role).
-   * - `knife-rvc <https://github.com/dougm/rvc-knife>`_
-     - Integrates a subset of knife functionality with Ruby vSphere Console.
-   * - `knife-santoku <https://github.com/knuckolls/knife-santoku>`_
-     - Adds the ability to build processes around the Chef Infra Client.
-   * - `knife-select <https://github.com/hpcloud/knife-select>`_
-     - Adds the ability for selecting the chef server or organization to interact with.
-   * - `knife-server <https://github.com/fnichol/knife-server>`_
-     - Adds the ability to manage a Chef Infra Server, including bootstrapping a Chef Infra Server on Amazon EC2 or a standalone server and backing up and/or restoring node, role, data bag, and environment data.
-   * - `knife-set-environment <https://gist.github.com/961827>`_
-     - Adds the ability to set a node environment.
-   * - `knife-skeleton <https://github.com/Numergy/knife-skeleton>`_
-     - Adds the ability to create skeleton integrating chefspec, rubocop, foodcritic, knife test and kitchen.
-   * - `knife-softlayer <https://github.com/softlayer/knife-softlayer>`_
-     - Adds the ability to launch and bootstrap instances in the IBM SoftLayer cloud.
-   * - `knife-solo <https://rubygems.org/gems/knife-solo>`_
-     - Adds support for bootstrapping and running chef-solo, search, and data bags.
-   * - `knife-slapchop <https://github.com/kryptek/knife-slapchop>`_
-     - Adds the ability create and tag clusters of Amazon EC2 nodes with a multi-threading bootstrap process.
-   * - `knife-spork <https://github.com/jonlives/knife-spork>`_
-     - Adds a simple environment workflow so that teams can more easily work together on the same cookbooks and environments.
-   * - `knife-ssh_cheto <https://github.com/demonccc/chef-repo/tree/master/plugins/knife/ssh_cheto>`_
-     - Adds extra features to be used with SSH.
-   * - `knife-ucs <https://github.com/velankanisys/knife-ucs>`_
-     - Adds the ability to provision, list, and manage Cisco UCS servers.
-   * - `knife-voxel <https://github.com/warwickp/knife-voxel>`_
-     - Adds the ability to provision instances in the Voxel cloud.
-   * - `knife-whisk <https://github.com/Banno/knife-whisk>`_
-     - Adds the ability to create new servers in a team environment.
-   * - `knife-xapi <https://github.com/spheromak/knife-xapi>`_
-     - Adds support for Citrix XenServer.
+This page lists plugins for Ohai plugins and Chef Infra Client handlers that are developed and maintained by the Chef community.
 
 Ohai
 =====================================================
 .. tag ohai_summary
 
-Ohai is a tool that is used to collect system configuration data, which is provided to the Chef Infra Client for use within cookbooks. Ohai is run by the Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
+Ohai is a tool that is used to collect system configuration data, which is provided to Chef Infra Client for use within cookbooks. Ohai is run by Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
 The types of attributes Ohai collects include but are not limited to:
 
@@ -160,7 +24,7 @@ The types of attributes Ohai collects include but are not limited to:
 * Virtualization
 * Cloud provider metadata
 
-Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the Chef Infra Client to ensure that these attributes remain unchanged after the Chef Infra Client is done configuring the node.
+Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by Chef Infra Client to ensure that these attributes remain unchanged after Chef Infra Client is done configuring the node.
 
 .. end_tag
 
@@ -207,7 +71,7 @@ Handlers
 =====================================================
 .. tag handler
 
-Use a handler to identify situations that arise during a Chef Infra Client run, and then tell the Chef Infra Client how to handle these situations when they occur.
+Use a handler to identify situations that arise during a Chef Infra Client run, and then tell Chef Infra Client how to handle these situations when they occur.
 
 .. end_tag
 
@@ -228,7 +92,7 @@ The following open source handlers are available from the Chef community:
    * - `Campfire <https://github.com/ampledata/chef-handler-campfire>`_
      - A handler that collects exception and report handler data and reports it to Campfire, a web-based group chat tool.
    * - `Datadog <https://github.com/DataDog/chef-handler-datadog>`_
-     - A handler that collects Chef Infra Client stats and sends them into a DATADOG newsfeed.
+     - A handler that collects Chef Infra Client stats and sends them into a Datadog newsfeed.
    * - `Flowdock <https://github.com/mmarschall/chef-handler-flowdock>`_
      - A handler that collects exception and report handler data and sends it to users via the Flowdock API..
    * - `Graphite <https://github.com/imeyer/chef-handler-graphite/wiki>`_
@@ -263,42 +127,3 @@ The following open source handlers are available from the Chef community:
      - A Chef report handler to send Chef run notifications to ZooKeeper.
 
 .. end_tag
-
-Chef Infra Client
-=====================================================
-The following plugins are available for the Chef Infra Client:
-
-.. list-table::
-   :widths: 60 420
-   :header-rows: 1
-
-   * - Plugin
-     - Description
-   * - `chef-deploy <https://github.com/ezmobius/chef-deploy>`_
-     - Adds a gem that contains resources and providers for deploying Ruby web applications from recipes.
-   * - `chef-gelf <https://github.com/jellybob/chef-gelf>`_
-     - Adds a handler that reports run status, including changes made to a Graylog2 server.
-   * - `chef-handler-twitter <https://github.com/dje/chef-handler-twitter>`_
-     - Adds a handler that tweets.
-   * - `chef-handler-librato <https://github.com/bscott/chef-handler-librato>`_
-     - Adds a handler that sends metrics to Librato's Metrics.
-   * - `chef-hatch-repo <https://github.com/xdissent/chef-hatch-repo>`_
-     - Adds a knife plugin and a Vagrant provisioner that can launch a self-managed Chef Infra Server in a virtual machine or Amazon EC2.
-   * - `chef-irc-snitch <https://rubygems.org/gems/chef-irc-snitch>`_
-     - Adds an exception handler for Chef Infra Client runs.
-   * - `chef-jenkins <https://github.com/adamhjk/chef-jenkins>`_
-     - Adds the ability to use Jenkins to drive continuous deployment and synchronization of environments from a git repository.
-   * - `chef-rundeck <https://rubygems.org/gems/chef-rundeck>`_
-     - Adds a resource endpoint for Rundeck.
-   * - `chef-trac-hacks <http://trac-hacks.org/wiki/CloudPlugin>`_
-     - Adds the ability to fill a coordination gap between Amazon Web Services (AWS) and the Chef Infra Client.
-   * - `chef-vim <https://github.com/t9md/vim-chef>`_
-     - Adds a plugin that makes cookbook navigation quick and easy.
-   * - `chef-vpc-toolkit <https://github.com/rackerlabs/chef_vpc_toolkit>`_
-     - Adds a set of Rake tasks that provide a framework that helps automate the creation and configuration of identical virtual server groups in the cloud.
-   * - `jclouds-chef <https://github.com/jclouds/jclouds-chef>`_
-     - Adds Java and Clojure components to the Chef Infra Server API REST API.
-   * - `kitchenplan <https://github.com/kitchenplan/kitchenplan>`_
-     - A utility for automating the installation and configuration of a workstation on macOS.
-   * - `stove <https://github.com/sethvargo/stove>`_
-     - A utility for releasing and managing cookbooks.

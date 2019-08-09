@@ -3,6 +3,9 @@ Deprecation: Cloud plugin replaced by the Cloud_V2 plugin (OHAI-8)
 ===================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_cloud.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+    
 In Ohai/Chef releases 13 we replaced the existing Cloud plugin with the Cloud_v2 plugin. This was done by having the Cloud_v2 plugin populate both ``node['cloud']`` and ``node['cloud_v2']``. The Cloud_v2 plugin includes a different data format that resolves many of the longstanding bugs in the existing Cloud plugin.
 
 Remediation

@@ -51,7 +51,7 @@ where:
 * ``HASHED_PATH`` is the path of the request: ``/organizations/NAME/name_of_endpoint``. The ``HASHED_PATH`` must be hashed using SHA-1 and encoded using Base64, must not have repeated forward slashes (``/``), must not end in a forward slash (unless the path is ``/``), and must not include a query string.
 * The private key must be an RSA key in the SSL ``.pem`` file format. This signature is then broken into character strings (of not more than 60 characters per line) and placed in the header.
 
-The Chef Infra Server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by the Chef Infra Client.
+The Chef Infra Server decrypts this header and ensures its content matches the content of the non-encrypted headers that were in the request. The timestamp of the message is checked to ensure the request was received within a reasonable amount of time. One approach generating the signed headers is to use `mixlib-authentication <https://github.com/chef/mixlib-authentication>`_, which is a class-based header signing authentication object similar to the one used by Chef Infra Client.
 
 Enable SHA-256
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -237,6 +237,48 @@ A global endpoint may be used to access all of the organizations on the Chef Inf
 
 
 
+/authenticate_user
+-----------------------------------------------------
+The ``/authenticate_user`` endpoint has the following methods: ``POST``.
+
+POST
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``POST`` method is used to authenticate a user. This endpoint is used by the Chef Identity Service to authenticate users of Chef Supermarket to the Chef server.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   POST /authenticate_user
+
+with a request body similar to:
+
+.. code-block:: javascript
+
+   {
+     "username" : "grantmc",
+     "password" : "p@ssw0rd"
+   }
+
+**Response**
+
+This method has no response body.
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, password, and that the correct key was used to sign the request.
+
 /license
 -----------------------------------------------------
 .. note:: This endpoint is used for information purposes only and to trigger a notification in the Chef management console about the number of licenses owned vs. the number of licenses that should be owned. No other action is taken and the functionality and behavior of the Chef Infra Server and any added component does not change.
@@ -311,8 +353,6 @@ The ``/organizations`` endpoint has the following methods: ``GET`` and ``POST``.
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``GET`` method is used to get a list of organizations on the Chef Infra Server.
-
-This method has no parameters.
 
 **Request**
 
@@ -524,7 +564,7 @@ The response will return the JSON for the updated organization.
    * - ``410``
      - Gone. Unable to update private key.
 
-_status
+/_status
 ----------------------------------------------------
 The ``/_status`` endpoint can be used to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers.
 
@@ -592,7 +632,20 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``GET`` method is used to get a list of users on the Chef Infra Server.
 
-This method has no parameters.
+This method has the following parameters:
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Parameter
+     - Description
+   * - ``email=jane@chef.com``
+     - Filter the users returned based on their email id.
+   * - ``external_authentication_uid=jane@chef.com``
+     - Filter the users returned based on their external login id.
+   * - ``verbose=true``
+     - Returns a user list with "email", "first_name", "last_name" fields.  If this flag is set the email and external_authentication_uid parameters are ignored and the response format is an array instead of a hash.
 
 **Request**
 
@@ -609,6 +662,15 @@ The response is similar to:
    {
      "user1": "https://url/for/user1",
      "user2": "https://url/for/user2"
+   }
+
+The verbose response is similar to:
+
+.. code-block:: none
+
+   {
+     "janechef": { "email": "jane.chef@user.com", "first_name": "jane", "last_name": "chef_user" },
+     "yaelsmith": { "email": "yeal.chef@user.com", "first_name": "yeal", "last_name": "smith" }
    }
 
 **Response Codes**
@@ -661,7 +723,7 @@ with a request body similar to:
      "display_name": "robert",
      "email": "robert@noreply.com",
      "first_name": "robert",
-     "last_name": "robert",
+     "last_name": "forster",
      "middle_name": "",
      "password": "yeahpass",
      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoYyN0AIhUh7Fw1+gQtR+ \n0/HY3625IUlVheoUeUz3WnsTrUGSSS4fHvxUiCJlNni1sQvcJ0xC9Bw3iMz7YVFO\nWz5SeKmajqKEnNywN8/NByZhhlLdBxBX/UN04/7aHZMoZxrrjXGLcyjvXN3uxyCO\nyPY989pa68LJ9jXWyyfKjCYdztSFcRuwF7tWgqnlsc8pve/UaWamNOTXQnyrQ6Dp\ndn+1jiNbEJIdxiza7DJMH/9/i/mLIDEFCLRPQ3RqW4T8QrSbkyzPO/iwaHl9U196\n06Ajv1RNnfyHnBXIM+I5mxJRyJCyDFo/MACc5AgO6M0a7sJ/sdX+WccgcHEVbPAl\n1wIDAQAB \n-----END PUBLIC KEY-----\n\n"
@@ -670,8 +732,11 @@ with a request body similar to:
 
 where:
 
-* ``name`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
-* ``email``, ``name``, and ``password`` are all required to be present and have a value.
+* ``username`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
+* ``display_name`` is required to be present. 
+* ``email`` is required to be present and have a valid value. The email validation doesn't allow for all unicode characters.
+* ``username`` is required to be present and have a valid value. A valid username is a dot separated list of elements matching ``a-z0-9!#$%&'*+/=?^_`{|}~-``.
+* Either ``external_authentication_uid`` or ``password`` are required to be present and have a value.
 * During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Server versions.
 
 **Response**
@@ -680,7 +745,10 @@ The response is similar to:
 
 .. code-block:: javascript
 
-   { "user_name": "https://url/for/user_name" }
+   {
+     "uri": "https://url/for/robert-forster",
+     "private_key": "-----BEGIN RSA PRIVATE KEY-----..."
+   }
 
 **Response Codes**
 
@@ -690,16 +758,14 @@ The response is similar to:
 
    * - Response Code
      - Description
-   * - ``200``
-     - OK. The request was successful.
+   * - ``201``
+     - OK. The user was created.
    * - ``400``
      - Bad request. The contents of the request are not formatted correctly.
    * - ``401``
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``404``
-     -  Not found. The requested object does not exist.
    * - ``409``
      - Conflict. The object already exists.
    * - ``413``
@@ -707,7 +773,7 @@ The response is similar to:
 
 /users/NAME
 -----------------------------------------------------
-The ``/users/USER_NAME`` endpoint has the following methods: ``DELETE``, ``GET``, ``POST``, and ``PUT``.
+The ``/users/USER_NAME`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``.
 
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -728,7 +794,6 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "name": "Grant McLennan",
    }
 
 **Response Codes**
@@ -767,7 +832,15 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "name": "Robert Forster",
+     "username": "robert-forster",
+     "display_name": "robert",
+     "email": "robert@noreply.com",
+     "external_authentication_uid": "robert",
+     "full_name": "Robert Forster",
+     "first_name": "robert",
+     "last_name": "forster",
+     "middle_name": ""
+     "recovery_authentication_enabled": false
    }
 
 **Response Codes**
@@ -784,64 +857,8 @@ The response is similar to:
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
-
-POST
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create a new user. If a public key is not specified, both public and private keys will be generated and returned. If a public key is specified, only the public key will be returned.
-
-This method has no parameters.
-
-**Request**
-
-.. code-block:: none
-
-   POST /users/USER_NAME
-
-with a request body similar to:
-
-.. code-block:: javascript
-
-   {
-     "name": "Robert Forster"
-   }
-
-**Response**
-
-The response is similar to:
-
-.. code-block:: javascript
-
-   {
-     "name": "Robert Forster",
-     "private_key": "-----BEGIN PRIVATE KEY-----\n
-                   MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCyVPW9YXa5PR0rgEW1updSxygB\n
-                   wmVpDnHurgQ7/gbh+PmY49EZsfrZSbKgSKy+rxdsVoSoU+krYtHvYIwVfr2tk0FP\n
-                   nhAWJaFH654KpuCNG6x6iMLtzGO1Ma/VzHnFqoOeSCKHXDhmHwJAjGDTPAgCJQiI\n
-                   eau6cDNJRiJ7j0/xBwIDAQAB\n
-                   -----END PRIVATE KEY-----"
-     "admin": true
-   }
-
-**Response Codes**
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Response Code
-     - Description
-   * - ``201``
-     - Created. The object was created.
-   * - ``400``
-     - Bad request. The contents of the request are not formatted correctly.
-   * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
-   * - ``403``
-     - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``409``
-     - Conflict. The object already exists.
-   * - ``413``
-     - Request entity too large. A request may not be larger than 1000000 bytes.
+   * - ``404``
+     - Not found. The requested object does not exist.
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -1296,47 +1313,7 @@ This method has no response body.
    * - ``413``
      - Request entity too large. A request may not be larger than 1000000 bytes.
 
-/authenticate_user
------------------------------------------------------
-The ``/authenticate_user`` endpoint has the following methods: ``POST``.
 
-POST
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to authenticate a user. This endpoint is used by the Chef Identity Service to authenticate users of Chef Supermarket to the Chef Infra Server.
-
-This method has no parameters.
-
-**Request**
-
-.. code-block:: none
-
-   POST /organizations/NAME/authenticate_user
-
-with a request body similar to:
-
-.. code-block:: javascript
-
-   {
-     "username" : "grantmc",
-     "password" : "p@ssw0rd"
-   }
-
-**Response**
-
-This method has no response body.
-
-**Response Codes**
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Response Code
-     - Description
-   * - ``200``
-     - OK. The request was successful.
-   * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
 
 /clients/CLIENT/keys/
 ----------------------------------------------------
@@ -1902,7 +1879,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 
 .. end_tag
 
-When a cookbook is uploaded, only files that are new or updated will be included. This approach minimizes the amount of storage and time that is required during the modify-upload-test cycle. To keep track of which files have already been uploaded, the Chef Infra Client uses a checksum and assigns a checksum to each file. These checksums are used in the cookbook version manifest, alongside the same records that store the file description (name, specificity, and so on), as well as the checksum and the URL from which the file's contents can be retrieved.
+When a cookbook is uploaded, only files that are new or updated will be included. This approach minimizes the amount of storage and time that is required during the modify-upload-test cycle. To keep track of which files have already been uploaded, Chef Infra Client uses a checksum and assigns a checksum to each file. These checksums are used in the cookbook version manifest, alongside the same records that store the file description (name, specificity, and so on), as well as the checksum and the URL from which the file's contents can be retrieved.
 
 The ``/cookbooks`` endpoint has the following methods: ``GET``.
 
@@ -2111,7 +2088,7 @@ The response is similar to:
 
 A cookbook version represents a set of functionality that is different from the cookbook on which it is based. A version may exist for many reasons, such as ensuring the correct use of a third-party component, updating a bug fix, or adding an improvement. A cookbook version is defined using syntax and operators, may be associated with environments, cookbook metadata, and/or run-lists, and may be frozen (to prevent unwanted updates from being made).
 
-A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef Infra Server, and how the Chef Infra Client applies that cookbook when configuring nodes.
+A cookbook version is maintained just like a cookbook, with regard to source control, uploading it to the Chef Infra Server, and how Chef Infra Client applies that cookbook when configuring nodes.
 
 .. end_tag
 
@@ -3731,7 +3708,7 @@ The response is similar to:
      ]
    }
 
-The Chef Infra Client will pick up the ``_default`` run-list if ``env_run_list[environment_name]`` is null or nonexistent.
+Chef Infra Client will pick up the ``_default`` run-list if ``env_run_list[environment_name]`` is null or nonexistent.
 
 **Response Codes**
 
@@ -4867,7 +4844,7 @@ The response contains the total number of rows that match the request and is sim
 
 POST
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-A partial search query allows a search query to be made against specific attribute keys that are stored on the Chef Infra Server. A partial search query can search the same set of objects on the Chef Infra Server as a full search query, including specifying an object index and providing a query that can be matched to the relevant index. While a full search query will return an array of objects that match (each object containing a full set of attributes for the node), a partial search query will return only the values for the attributes that match. One primary benefit of using a partial search query is that it requires less memory and network bandwidth while the Chef Infra Client processes the search results.
+A partial search query allows a search query to be made against specific attribute keys that are stored on the Chef Infra Server. A partial search query can search the same set of objects on the Chef Infra Server as a full search query, including specifying an object index and providing a query that can be matched to the relevant index. While a full search query will return an array of objects that match (each object containing a full set of attributes for the node), a partial search query will return only the values for the attributes that match. One primary benefit of using a partial search query is that it requires less memory and network bandwidth while Chef Infra Client processes the search results.
 
 To create a partial search query, use the ``search`` method, and then specify the key paths for the attributes to be returned. Each key path should be specified as an array of strings and is mapped to an arbitrary short name. For example:
 
