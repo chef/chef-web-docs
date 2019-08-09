@@ -21,7 +21,7 @@ Configure the Node for Audit Cookbook
 ---------------------------------------------
 Once the cookbook is available in Chef Infra Server, you will need to add the ``audit::default`` recipe to the run-list of each node. Compliance profiles are added using the ``node['audit']['profiles']`` attribute. A complete list of the configurations is documented on GitHub in the `Audit Cookbook Repository <https://github.com/chef-cookbooks/audit/blob/master/README.md>`__.
 
-To configure the audit cookbook to report compliance data directly to Chef Automate, you will first need to configure the Chef Infra Client to send node converge data, as described in `Data Collection </data_collection.html>`__. Next, configure the audit cookbook collector by setting the ``reporter``, ``server``, ``owner``, ``refresh_token`` and ``profiles`` attributes.
+To configure the audit cookbook to report compliance data directly to Chef Automate, you will first need to configure Chef Infra Client to send node converge data, as described in `Data Collection </data_collection.html>`__. Next, configure the audit cookbook collector by setting the ``reporter``, ``server``, ``owner``, ``refresh_token`` and ``profiles`` attributes.
 
    * ``reporter`` - ``'chef-automate'`` to report to Chef Automate.
    * ``server`` - url of Chef Automate server with ``/api``.

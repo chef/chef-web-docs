@@ -3,6 +3,9 @@ FIPS (Federal Information Processing Standards)
 ==================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/fips.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 What is FIPS?
 ==================================================================
 .. tag fips_intro

@@ -1,12 +1,12 @@
 /*
- * chefv2.css_t
+ * chefv3.css_t
  * ~~~~~~~~~~~~~~~
  *
- * Sphinx stylesheet -- chefv2 theme.  Originally created by
+ * Sphinx stylesheet -- chefv3 theme.  Originally created by
  * Chef for docs.chef.io.
  *
  * :copyright: None.
- * :license: This work is licensed under a Creative Commons 
+ * :license: This work is licensed under a Creative Commons
  * Attribution 3.0 Unported License
  *
  */
@@ -109,69 +109,6 @@ div.related ul li a {
 div.related ul li a:hover {
     color: #f18b21;
 }
-
-div.sphinxsidebarwrapper {
-    padding: 0;
-    position: fixed;
-}
-
-div.sidebarinner {
-  position: fixed;
-  padding-top: 51px;
-  height: calc(100vh - 53px);
-  overflow: scroll;
-}
-div.sphinxsidebarwrapper > ul > li {
-    list-style-type: none;
-}
-
-div.sphinxsidebar {
-    display: none;
-    position: relative;
-    z-index: 1;
-    margin: 0;
-    padding: 0.5em 15px 15px 0;
-    width: 250px;
-    float: right;
-    font-size: 1em;
-    text-align: left;
-    @media (min-width: 1100px) {
-        display: block;
-    }
-}
-
-/* -- The colors of the TOC sidebar; h3 is headers, a is the text links and both should be same color */
-
-div.sphinxsidebar h3, div.sphinxsidebar h4 {
-    margin: 1em 0 0.5em 0;
-    font-size: 1em;
-    font-weight: bold;
-    padding: 0.1em 0 0.1em 0.5em;
-    color: #ffffff;
-    background-color: lighten($chef-grey, 33%);
-}
-
-div.sphinxsidebar a {
-    padding: 0.1em 0 0.1em 0.5em;
-    text-decoration: none;
-}
-
-div.sphinxsidebar h3 a {
-    color: darken($chef-grey, 10%);
-}
-
-div.sphinxsidebar ul {
-    padding-left: 1.5em;
-    padding: 0;
-    line-height: 130%;
-    list-style-type: disc;
-}
-
-div.sphinxsidebar ul ul {
-    margin-left: 20px;
-}
-
-
 
 
 /*

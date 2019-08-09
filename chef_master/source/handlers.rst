@@ -5,7 +5,7 @@ About Handlers
 
 .. tag handler
 
-Use a handler to identify situations that arise during a Chef Infra Client run, and then tell the Chef Infra Client how to handle these situations when they occur.
+Use a handler to identify situations that arise during a Chef Infra Client run, and then tell Chef Infra Client how to handle these situations when they occur.
 
 .. end_tag
 
@@ -24,7 +24,7 @@ There are three types of handlers:
    * - report
      - A report handler is used when a Chef Infra Client run succeeds and reports back on certain details about that Chef Infra Client run. A report handler can be loaded at the start of a Chef Infra Client run by adding a recipe that contains the **chef_handler** resource to a node's run-list. A report handler runs when the ``success?`` property for the ``run_status`` object returns ``true``.
    * - start
-     - A start handler is used to run events at the beginning of the Chef Infra Client run. A start handler can be loaded at the start of a Chef Infra Client run by adding the start handler to the ``start_handlers`` setting in the client.rb file or by installing the gem that contains the start handler by using the **chef_gem** resource in a recipe in the **chef-client** cookbook. (A start handler may not be loaded using the ``chef_handler`` resource.)
+     - A start handler is used to run events at the beginning of a Chef Infra Client run. A start handler can be loaded at the start of a Chef Infra Client run by adding the start handler to the ``start_handlers`` setting in the client.rb file or by installing the gem that contains the start handler by using the **chef_gem** resource in a recipe in the **chef-client** cookbook. (A start handler may not be loaded using the ``chef_handler`` resource.)
 
 .. end_tag
 
@@ -39,7 +39,7 @@ Exception and report handlers are used to trigger certain behaviors in response 
 
 Both types of handlers can be used to gather data about a Chef Infra Client run and can provide rich levels of data about all types of usage, which can be used later for trending and analysis across the entire organization.
 
-Exception and report handlers are made available to the Chef Infra Client run in one of the following ways:
+Exception and report handlers are made available to a Chef Infra Client run in one of the following ways:
 
 * By adding the **chef_handler** resource to a recipe, and then adding that recipe to the run-list for a node. (The **chef_handler** resource is available from the **chef_handler** cookbook.)
 * By adding the handler to one of the following settings in the node's client.rb file: ``exception_handlers`` and/or ``report_handlers``
@@ -61,7 +61,7 @@ To use the **chef_handler** resource in a recipe, add code similar to the follow
      action :enable
    end
 
-For example, a handler for Growl needs to be enabled at the beginning of the Chef Infra Client run:
+For example, a handler for Growl needs to be enabled at the beginning of a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -89,11 +89,11 @@ A simple exception or report handler may be installed and configured at run-time
    * - Setting
      - Description
    * - ``exception_handlers``
-     - A list of exception handlers that are available to the Chef Infra Client during a Chef Infra Client run.
+     - A list of exception handlers that are available to Chef Infra Client during a Chef Infra Client run.
    * - ``report_handlers``
-     - A list of report handlers that are available to the Chef Infra Client during a Chef Infra Client run.
+     - A list of report handlers that are available to Chef Infra Client during a Chef Infra Client run.
 
-When this approach is used, the client.rb file must also tell the Chef Infra Client how to install and run the handler. There is no default install location for handlers. The simplest way to distribute and install them is via RubyGems, though other methods such as GitHub or HTTP will also work. Once the handler is installed on the system, enable it in the client.rb file by requiring it. After the handler is installed, it may require additional configuration. This will vary from handler to handler. If a handler is a very simple handler, it may only require the creation of a new instance. For example, if a handler named ``MyOrg::EmailMe`` is hardcoded for all of the values required to send email, a new instance is required. And then the custom handler must be associated with each of the handler types for which it will run.
+When this approach is used, the client.rb file must also tell Chef Infra Client how to install and run the handler. There is no default install location for handlers. The simplest way to distribute and install them is via RubyGems, though other methods such as GitHub or HTTP will also work. Once the handler is installed on the system, enable it in the client.rb file by requiring it. After the handler is installed, it may require additional configuration. This will vary from handler to handler. If a handler is a very simple handler, it may only require the creation of a new instance. For example, if a handler named ``MyOrg::EmailMe`` is hardcoded for all of the values required to send email, a new instance is required. And then the custom handler must be associated with each of the handler types for which it will run.
 
 For example:
 
@@ -111,11 +111,11 @@ Start Handlers
 =====================================================
 .. tag handler_type_start
 
-A start handler is not loaded into the Chef Infra Client run from a recipe, but is instead listed in the client.rb file using the ``start_handlers`` attribute. The start handler must be installed on the node and be available to the Chef Infra Client prior to the start of the Chef Infra Client run. Use the **chef-client** cookbook to install the start handler.
+A start handler is not loaded into a Chef Infra Client run from a recipe, but is instead listed in the client.rb file using the ``start_handlers`` attribute. The start handler must be installed on the node and be available to Chef Infra Client prior to the start of a Chef Infra Client run. Use the **chef-client** cookbook to install the start handler.
 
-Start handlers are made available to the Chef Infra Client run in one of the following ways:
+Start handlers are made available to a Chef Infra Client run in one of the following ways:
 
-* By adding a start handler to the **chef-client** cookbook, which installs the handler on the node so that it is available to the Chef Infra Client at the start of the Chef Infra Client run
+* By adding a start handler to the **chef-client** cookbook, which installs the handler on the node so that it is available to Chef Infra Client at the start of a Chef Infra Client run
 * By adding the handler to one of the following settings in the node's client.rb file: ``start_handlers``
 
 .. end_tag
@@ -155,7 +155,7 @@ A start handler can be configured in the client.rb file by adding the following 
    * - Setting
      - Description
    * - ``start_handlers``
-     - A list of start handlers that are available to the Chef Infra Client at the start of a Chef Infra Client run.
+     - A list of start handlers that are available to Chef Infra Client at the start of a Chef Infra Client run.
 
 For example, the Reporting start handler adds the following code to the top of the client.rb file:
 
@@ -168,7 +168,7 @@ For example, the Reporting start handler adds the following code to the top of t
      Chef::Log.warn 'Failed to load #{lib}. This should be resolved after a chef run.'
    end
 
-This ensures that when the Chef Infra Client run begins the ``chef_reporting`` event handler is enabled. The ``chef_reporting`` event handler is part of a gem named ``chef-reporting``. The **chef_gem** resource is used to install this gem:
+This ensures that when a Chef Infra Client run begins the ``chef_reporting`` event handler is enabled. The ``chef_reporting`` event handler is part of a gem named ``chef-reporting``. The **chef_gem** resource is used to install this gem:
 
 .. code-block:: ruby
 
@@ -180,10 +180,9 @@ Event Handlers
 =====================================================
 .. tag dsl_handler_summary
 
-Use the Handler DSL to attach a callback to an event. If the event occurs during the Chef Infra Client run, the associated callback is executed. For example:
+Use the Handler DSL to attach a callback to an event. If the event occurs during a Chef Infra Client run, the associated callback is executed. For example:
 
 * Sending email if a Chef Infra Client run fails
-* Sending a notification to chat application if an audit run fails
 * Aggregating statistics about resources updated during a Chef Infra Client runs to StatsD
 
 .. end_tag
@@ -192,7 +191,7 @@ on Method
 -----------------------------------------------------
 .. tag dsl_handler_method_on
 
-Use the ``on`` method to associate an event type with a callback. The callback defines what steps are taken if the event occurs during the Chef Infra Client run and is defined using arbitrary Ruby code. The syntax is as follows:
+Use the ``on`` method to associate an event type with a callback. The callback defines what steps are taken if the event occurs during a Chef Infra Client run and is defined using arbitrary Ruby code. The syntax is as follows:
 
 .. code-block:: ruby
 
@@ -205,7 +204,7 @@ Use the ``on`` method to associate an event type with a callback. The callback d
 where
 
 * ``Chef.event_handler`` declares a block of code within a recipe that is processed when the named event occurs during a Chef Infra Client run
-* ``on`` defines the block of code that will tell the Chef Infra Client how to handle the event
+* ``on`` defines the block of code that will tell Chef Infra Client how to handle the event
 * ``:event_type`` is a valid exception event type, such as ``:run_start``, ``:run_failed``, ``:converge_failed``, ``:resource_failed``, or ``:recipe_not_found``
 
 For example:
@@ -233,7 +232,7 @@ The following table describes the events that may occur during a Chef Infra Clie
    * - Event
      - Description
    * - ``:run_start``
-     - The start of the Chef Infra Client run.
+     - The start of a Chef Infra Client run.
    * - ``:run_started``
      - The Chef Infra Client run has started.
    * - ``:ohai_completed``
@@ -326,12 +325,6 @@ The following table describes the events that may occur during a Chef Infra Clie
      - The Chef Infra Client run converge phase is complete.
    * - ``:converge_failed``
      - The Chef Infra Client run converge phase has failed.
-   * - ``:audit_phase_start``
-     - The Chef Infra Client run audit phase has started.
-   * - ``:audit_phase_complete``
-     - The Chef Infra Client run audit phase is finished.
-   * - ``:audit_phase_failed``
-     - The Chef Infra Client run audit phase has failed.
    * - ``:control_group_started``
      - The named control group is being processed.
    * - ``:control_example_success``
@@ -367,11 +360,11 @@ The following table describes the events that may occur during a Chef Infra Clie
    * - ``:stream_output``
      - A chunk of data from a single named stream.
    * - ``:handlers_start``
-     - The handler processing phase of the Chef Infra Client run has started.
+     - The handler processing phase of a Chef Infra Client run has started.
    * - ``:handler_executed``
      - The named handler was processed.
    * - ``:handlers_completed``
-     - The handler processing phase of the Chef Infra Client run is complete.
+     - The handler processing phase of a Chef Infra Client run is complete.
    * - ``:provider_requirement_failed``
      - An assertion declared by a provider has failed.
    * - ``:whyrun_assumption``
@@ -393,9 +386,9 @@ Send Email
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag dsl_handler_slide_send_email
 
-Use the ``on`` method to create an event handler that sends email when the Chef Infra Client run fails. This will require:
+Use the ``on`` method to create an event handler that sends email when a Chef Infra Client run fails. This will require:
 
-* A way to tell the Chef Infra Client how to send email
+* A way to tell Chef Infra Client how to send email
 * An event handler that describes what to do when the ``:run_failed`` event is triggered
 * A way to trigger the exception and test the behavior of the event handler
 
@@ -449,7 +442,7 @@ Invoke the library helper in a recipe:
 * Use ``Chef.event_handler`` to define the event handler
 * Use the ``on`` method to specify the event type
 
-Within the ``on`` block, tell the Chef Infra Client how to handle the event when it's triggered.
+Within the ``on`` block, tell Chef Infra Client how to handle the event when it's triggered.
 
 .. end_tag
 
@@ -523,7 +516,7 @@ or send an alert on a configuration change:
 
 Handlers and Cookbooks
 =====================================================
-The following cookbooks can be used to load handlers during the Chef Infra Client run.
+The following cookbooks can be used to load handlers during a Chef Infra Client run.
 
 chef_handler
 -----------------------------------------------------
@@ -531,7 +524,7 @@ Exception and report handlers can be distributed using the **chef_handler** cook
 
 Chef Infra Client
 -----------------------------------------------------
-Start handlers can be distributed using the **chef-client** cookbook, which will install the handler on the target node during the initial configuration of the node. This ensures that the start handler is always present on the node so that it is available to the Chef Infra Client at the start of every run.
+Start handlers can be distributed using the **chef-client** cookbook, which will install the handler on the target node during the initial configuration of the node. This ensures that the start handler is always present on the node so that it is available to Chef Infra Client at the start of every run.
 
 Custom Handlers
 =====================================================
@@ -566,7 +559,7 @@ The syntax for a handler can vary, depending on what the the situations the hand
 
 where:
 
-* ``require`` ensures that the logging functionality of the Chef Infra Client is available to the handler
+* ``require`` ensures that the logging functionality of Chef Infra Client is available to the handler
 * ``ModuleName`` is the name of the module as it exists within the ``Chef`` library
 * ``HandlerName`` is the name of the handler as it is used in a recipe
 * ``report`` is an interface that is used to define the custom handler
@@ -618,7 +611,7 @@ The ``report`` interface is used to define how a handler will behave and is a re
      # Ruby code
    end
 
-The Ruby code used to define a custom handler will vary significantly from handler to handler. The Chef Infra Client includes two default handlers: ``error_report`` and ``json_file``. Their use of the ``report`` interface is shown below.
+The Ruby code used to define a custom handler will vary significantly from handler to handler. Chef Infra Client includes two default handlers: ``error_report`` and ``json_file``. Their use of the ``report`` interface is shown below.
 
 The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler:
 
@@ -683,7 +676,7 @@ The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_f
 
 Optional Interfaces
 -----------------------------------------------------
-The following interfaces may be used in a handler in the same way as the ``report`` interface to override the default handler behavior in the Chef Infra Client. That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
+The following interfaces may be used in a handler in the same way as the ``report`` interface to override the default handler behavior in Chef Infra Client. That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
 
 data
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -703,7 +696,7 @@ run_report_safely
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag handler_custom_interface_run_report_safely
 
-The ``run_report_safely`` method is used to run the report handler, rescuing and logging errors that may arise as the handler runs and ensuring that all handlers get a chance to run during the Chef Infra Client run (even if some handlers fail during that run). In general, this method should never be used as an interface in a custom handler unless this default behavior simply must be overridden.
+The ``run_report_safely`` method is used to run the report handler, rescuing and logging errors that may arise as the handler runs and ensuring that all handlers get a chance to run during a Chef Infra Client run (even if some handlers fail during that run). In general, this method should never be used as an interface in a custom handler unless this default behavior simply must be overridden.
 
 .. code-block:: ruby
 
@@ -737,7 +730,7 @@ run_status Object
 -----------------------------------------------------
 .. tag handler_custom_object_run_status
 
-The ``run_status`` object is initialized by the Chef Infra Client before the ``report`` interface is run for any handler. The ``run_status`` object keeps track of the status of the Chef Infra Client run and will contain some (or all) of the following properties:
+The ``run_status`` object is initialized by Chef Infra Client before the ``report`` interface is run for any handler. The ``run_status`` object keeps track of the status of a Chef Infra Client run and will contain some (or all) of the following properties:
 
 .. list-table::
    :widths: 200 300
@@ -758,17 +751,17 @@ The ``run_status`` object is initialized by the Chef Infra Client before the ``r
    * - ``failed?``
      - Show that a Chef Infra Client run has failed when uncaught exceptions were raised during a Chef Infra Client run. An exception handler runs when the ``failed?`` indicator is ``true``.
    * - ``node``
-     - The node on which the Chef Infra Client run occurred.
+     - The node on which a Chef Infra Client run occurred.
    * - ``run_context``
-     - An instance of the ``Chef::RunContext`` object; used by the Chef Infra Client to track the context of the run; provides access to the ``cookbook_collection``, ``resource_collection``, and ``definitions`` properties.
+     - An instance of the ``Chef::RunContext`` object; used by Chef Infra Client to track the context of the run; provides access to the ``cookbook_collection``, ``resource_collection``, and ``definitions`` properties.
    * - ``start_time``
      - The time at which a Chef Infra Client run started.
    * - ``success?``
      - Show that a Chef Infra Client run succeeded when uncaught exceptions were not raised during a Chef Infra Client run. A report handler runs when the ``success?`` indicator is ``true``.
    * - ``updated_resources``
-     - A list of resources that were marked as updated as a result of the Chef Infra Client run.
+     - A list of resources that were marked as updated as a result of a Chef Infra Client run.
 
-.. note:: These properties are not always available. For example, a start handler runs at the beginning of the Chef Infra Client run, which means that properties like ``end_time`` and ``elapsed_time`` are still unknown and will be unavailable to the ``run_status`` object.
+.. note:: These properties are not always available. For example, a start handler runs at the beginning of Chef Infra Client run, which means that properties like ``end_time`` and ``elapsed_time`` are still unknown and will be unavailable to the ``run_status`` object.
 
 .. end_tag
 
@@ -780,7 +773,7 @@ Cookbook Versions
 -----------------------------------------------------
 .. tag handler_custom_example_cookbook_versions
 
-Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during the Chef Infra Client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
+Community member ``juliandunn`` created a custom `report handler that logs all of the cookbooks and cookbook versions <https://github.com/juliandunn/cookbook_versions_handler>`_ that were used during a Chef Infra Client run, and then reports after the run is complete. This handler requires the **chef_handler** resource (which is available from the **chef_handler** cookbook).
 
 .. end_tag
 
@@ -788,7 +781,7 @@ cookbook_versions.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag handler_custom_example_cookbook_versions_handler
 
-The following custom handler defines how cookbooks and cookbook versions that are used during the Chef Infra Client run will be compiled into a report using the ``Chef::Log`` class in the Chef Infra Client:
+The following custom handler defines how cookbooks and cookbook versions that are used during a Chef Infra Client run will be compiled into a report using the ``Chef::Log`` class in Chef Infra Client:
 
 .. code-block:: ruby
 
@@ -843,7 +836,7 @@ This recipe will generate report output similar to the following:
 
 Reporting
 -----------------------------------------------------
-Start handler functionality was added when Chef started building add-ons for the Chef Infra Server. The Reporting add-on is designed to create reporting data based on a Chef Infra Client run. And since Reporting needs to be able to collect data for the entire Chef Infra Client run, Reporting needs to be enabled before anything else happens at the start of the Chef Infra Client run.
+Start handler functionality was added when Chef started building add-ons for the Chef Infra Server. The Reporting add-on is designed to create reporting data based on a Chef Infra Client run. And since Reporting needs to be able to collect data for the entire Chef Infra Client run, Reporting needs to be enabled before anything else happens at the start of a Chef Infra Client run.
 
 .. note:: The start handler used by the Reporting add-on for the Chef Infra Server is always installed using the **chef-client** cookbook.
 
@@ -890,7 +883,7 @@ json_file Handler
 
 The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_file.rb>`_ handler is available from the **chef_handler** cookbook and can be used with exceptions and reports. It serializes run status data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -924,9 +917,9 @@ error_report Handler
 -----------------------------------------------------
 .. tag handler_custom_example_error_report
 
-The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into the Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
+The `error_report <https://github.com/chef/chef/blob/master/lib/chef/handler/error_report.rb>`_ handler is built into Chef Infra Client and can be used for both exceptions and reports. It serializes error report data to a JSON file. This handler may be enabled in one of the following ways.
 
-By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how the Chef Infra Client is being run:
+By adding the following lines of Ruby code to either the client.rb file or the solo.rb file, depending on how Chef Infra Client is being run:
 
 .. code-block:: ruby
 
@@ -964,7 +957,7 @@ The following open source handlers are available from the Chef community:
    * - `Campfire <https://github.com/ampledata/chef-handler-campfire>`_
      - A handler that collects exception and report handler data and reports it to Campfire, a web-based group chat tool.
    * - `Datadog <https://github.com/DataDog/chef-handler-datadog>`_
-     - A handler that collects Chef Infra Client stats and sends them into a DATADOG newsfeed.
+     - A handler that collects Chef Infra Client stats and sends them into a Datadog newsfeed.
    * - `Flowdock <https://github.com/mmarschall/chef-handler-flowdock>`_
      - A handler that collects exception and report handler data and sends it to users via the Flowdock API..
    * - `Graphite <https://github.com/imeyer/chef-handler-graphite/wiki>`_

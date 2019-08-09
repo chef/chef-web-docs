@@ -29,10 +29,10 @@ This tool has the following options:
    Execute a resource using standard input.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 ``-W``, ``--why-run``
-   Run the executable in why-run mode, which is a type of Chef Infra Client run that does everything except modify the system. Use why-run mode to understand why the Chef Infra Client makes the decisions that it makes and to learn more about the current and proposed state of the system.
+   Run the executable in why-run mode, which is a type of Chef Infra Client run that does everything except modify the system. Use why-run mode to understand why Chef Infra Client makes the decisions that it makes and to learn more about the current and proposed state of the system.
 
 ``-h``, ``--help``
    Show help for the command.

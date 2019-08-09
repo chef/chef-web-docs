@@ -62,7 +62,7 @@ Use of these and later versions of these distributions must be in accordance wit
      - n/a
    * - Chef Infra Server
      - 13.x
-     - Releasing Soon
+     - GA
      - n/a
    * - Chef Habitat
      - 0.81+
@@ -73,8 +73,8 @@ Use of these and later versions of these distributions must be in accordance wit
      - GA
      - n/a
    * - Chef Workstation
-     - 0.4
-     - Releasing Soon
+     - 0.4+
+     - GA
      - n/a
    * - ChefDK
      - 4.x

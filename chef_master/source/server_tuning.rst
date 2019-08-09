@@ -76,7 +76,7 @@ The following settings are often modified from the default as part of the tuning
                                !PSK"
 
 ``nginx['ssl_protocols']``
-   The SSL protocol versions that are enabled. SSL 3.0 is supported by the Chef Infra Server; however, SSL 3.0 is an obsolete and insecure protocol. Transport Layer Security (TLS)---TLS 1.0, TLS 1.1, and TLS 1.2---has effectively replaced SSL 3.0, which provides for authenticated version negotiation between the Chef Infra Client and Chef Infra Server, which ensures the latest version of the TLS protocol is used. For the highest possible security, it is recommended to disable SSL 3.0 and allow all versions of the TLS protocol.  For example:
+   The SSL protocol versions that are enabled. SSL 3.0 is supported by the Chef Infra Server; however, SSL 3.0 is an obsolete and insecure protocol. Transport Layer Security (TLS)---TLS 1.0, TLS 1.1, and TLS 1.2---has effectively replaced SSL 3.0, which provides for authenticated version negotiation between Chef Infra Client and Chef Infra Server, which ensures the latest version of the TLS protocol is used. For the highest possible security, it is recommended to disable SSL 3.0 and allow all versions of the TLS protocol.  For example:
 
    .. code-block:: ruby
 
@@ -137,7 +137,7 @@ The following settings are often modified from the default as part of the tuning
 
    Use to specify that search results only return objects to which an actor (user, client, etc.) has read access, as determined by ACL settings. This affects all searches. When ``true``, the performance of the Chef management console may increase because it enables the Chef management console to skip redundant ACL checks. To ensure the Chef management console is configured properly, after this setting has been applied with a ``chef-server-ctl reconfigure`` run ``chef-manage-ctl reconfigure`` to ensure the Chef management console also picks up the setting. Default value: ``false``.
 
-   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during Chef Infra Client runs if a Chef Infra Client does not have permission to read the information.
+   .. warning:: When ``true``, ``opscode_erchef['strict_search_result_acls']`` affects all search results and any actor (user, client, etc.) that does not have read access to a search result will not be able to view it. For example, this could affect search results returned during a Chef Infra Client runs if a Chef Infra Client does not have permission to read the information.
 
    .. end_tag
 

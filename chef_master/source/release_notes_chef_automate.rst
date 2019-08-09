@@ -3,6 +3,9 @@ Release Notes: Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chef_automate.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+    
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 

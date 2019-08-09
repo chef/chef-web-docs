@@ -12,6 +12,10 @@ Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual
 Virtual Machines running Chef Infra Client
 =====================================================
 
+.. warning:: When the Chef VM extension is provisioned as part of a scale operation for a VM Scale Set, we suggest not using the Chef Infra Client extension. Instead pre-install Chef Infra Client onto the VM and/or use an image-based deployment process, such as `Packer <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/build-image-with-packer>`_, to create the base VM disk image.
+
+  The Microsoft VM agent on the machine executes all installations in parallel and these extensions can call 'locking' installation mechanisms such as Windows Installer (via installation of an MSI) or Apt updates. A timeout can occur if the total time for all of these activities exceeds 5 minutes and in some regions that is not enough time to get the Chef Infra Client package and enable the Chef Infra Client extension.
+
 Through the Azure portal, you can provision a virtual machine with Chef Infra Client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef Infra Server.
 
 .. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.
@@ -102,9 +106,7 @@ After the process is complete, the virtual machine will be registered with the C
 
 Log Files
 =====================================================
-If the Azure portal displays an error in dashboard, check the log files. The log files are created by the Chef Infra Client. The log files can be accessed from within the Azure portal or by running the Chef Infra Client on the node itself and then reproducing the issue interactively.
-
-
+If the Azure portal displays an error in dashboard, check the log files. Chef Infra Client creates the log files. The log files can be accessed from within the Azure portal or by making a Chef Infra Client run on the node and reproducing the issue interactively.
 
 From the Azure portal
 ----------------------------------------------------
@@ -127,9 +129,9 @@ Log files are available from within the Azure portal:
 
 
 
-From the Chef Infra Client
+From Chef Infra Client
 ----------------------------------------------------
-The Chef Infra Client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then running the Chef Infra Client:
+Chef Infra Client can be run interactively by using Windows Remote Desktop to connect to the virtual machine, and then starting a Chef Infra Client run:
 
 #. Log into the virtual machine.
 
@@ -154,7 +156,7 @@ Troubleshoot Log Files
 After the log files have been located, open them using a text editor to view the log file. The most common problem are below:
 
 * Connectivity errors with the Chef Infra Server caused by incorrect settings in the client.rb file. Ensure that the ``chef_server_url`` value in the client.rb file is the correct value and that it can be resolved.
-* An invalid validator key has been specified. This will prevent the Chef Infra Client from authenticating to the Chef Infra Server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
+* An invalid validator key has been specified. This will prevent Chef Infra Client from authenticating to the Chef Infra Server. Ensure that the ``validation_client_name`` value in the client.rb file is the correct value
 * The name of the node is the same as an existing node. Node names must be unique. Ensure that the name of the virtual machine in Microsoft Azure has a unique name.
 * An error in one the run-list. The log file will specify the details about errors related to the run-list.
 

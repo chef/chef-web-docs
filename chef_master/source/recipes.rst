@@ -8,13 +8,13 @@ About Recipes
 A recipe is the most fundamental configuration element within the organization. A recipe:
 
 * Is authored using Ruby, which is a programming language designed to read and behave in a predictable manner
-* Is mostly a collection of resources, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
+* Is mostly a collection of `resources </resources.html>`__, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
 * Must define everything that is required to configure part of a system
 * Must be stored in a cookbook
 * May be included in another recipe
 * May use the results of a search query and read the contents of a data bag (including an encrypted data bag)
 * May have a dependency on one (or more) recipes
-* Must be added to a run-list before it can be used by the Chef Infra Client
+* Must be added to a run-list before it can be used by Chef Infra Client
 * Is always executed in the same order as listed in a run-list
 
 .. end_tag
@@ -23,13 +23,13 @@ Recipe Attributes
 =====================================================
 .. tag cookbooks_attribute
 
-An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, the Chef Infra Client will apply those new settings and values during the Chef Infra Client run on the node.
+An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, Chef Infra Client applies those new settings and values during a Chef Infra Client run on the node.
 
 .. end_tag
 
 .. note:: .. tag notes_see_attributes_overview
 
-          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of the Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
+          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of a Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
 
           .. end_tag
 
@@ -37,7 +37,7 @@ Attribute Types
 -----------------------------------------------------
 .. tag node_attribute_type
 
-The Chef Infra Client uses six types of attributes to determine the value that is applied to a node during the Chef Infra Client run. In addition, the Chef Infra Client sources attribute values from up to five locations. The combination of attribute types and sources allows for up to 15 different competing values to be available to the Chef Infra Client during the Chef Infra Client run:
+Chef Infra Client uses six types of attributes to determine the value that is applied to a node during a Chef Infra Client run. In addition, Chef Infra Client gathers attribute values from up to five locations. The combination of attribute types and sources makes up to 15 different competing values available during a Chef Infra Client run:
 
 .. end_tag
 
@@ -93,7 +93,7 @@ Attribute Persistence
 -----------------------------------------------------
 .. tag node_attribute_persistence
 
-At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. The Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of the Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of the Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
+At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of each Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
 
 .. end_tag
 
@@ -101,7 +101,7 @@ Attribute Precedence
 -----------------------------------------------------
 .. tag node_attribute_precedence
 
-Attributes are always applied by the Chef Infra Client in the following order:
+Attributes are always applied by Chef Infra Client in the following order:
 
 #. A ``default`` attribute located in a cookbook attribute file
 #. A ``default`` attribute located in a recipe
@@ -117,7 +117,7 @@ Attributes are always applied by the Chef Infra Client in the following order:
 #. An ``override`` attribute located in an environment
 #. A ``force_override`` attribute located in a cookbook attribute file
 #. A ``force_override`` attribute located in a recipe
-#. An ``automatic`` attribute identified by Ohai at the start of the Chef Infra Client run
+#. An ``automatic`` attribute identified by Ohai at the start of a Chef Infra Client run
 
 where the last attribute in the list is the one that is applied to the node.
 
@@ -306,7 +306,7 @@ If processes is started by using the **execute** or **script** resources (or any
      environment ({ 'FOO' => 'bar' })
    end
 
-The only environment being altered is the one being passed to the child process that is started by the **bash** resource. This will not affect the environment of the Chef Infra Client or any child processes.
+The only environment being altered is the one being passed to the child process that is started by the **bash** resource. This will not affect the Chef Infra Client environment or any child processes.
 
 .. end_tag
 
@@ -686,17 +686,17 @@ End Chef Infra Client Run
 -----------------------------------------------------
 Sometimes it may be necessary to stop processing a recipe and/or stop processing the entire Chef Infra Client run. There are a few ways to do this:
 
-* Use the ``return`` keyword to stop processing a recipe based on a condition, but continue processing the Chef Infra Client run
+* Use the ``return`` keyword to stop processing a recipe based on a condition, but continue processing a Chef Infra Client run
 * Use the ``raise`` keyword to stop a Chef Infra Client run by triggering an unhandled exception
 * Use a ``rescue`` block in Ruby code
 * Use an `exception handler </handlers.html>`__
-* Use ``Chef::Application.fatal!`` to log a fatal message to the logger and ``STDERR``, and then stop the Chef Infra Client run
+* Use ``Chef::Application.fatal!`` to log a fatal message to the logger and ``STDERR``, and then stop a Chef Infra Client run
 
 The following sections show various approaches to ending a Chef Infra Client run.
 
 return Keyword
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``return`` keyword can be used to stop processing a recipe based on a condition, but continue processing the Chef Infra Client run. For example:
+The ``return`` keyword can be used to stop processing a recipe based on a condition, but continue processing a Chef Infra Client run. For example:
 
 .. code-block:: ruby
 
@@ -792,15 +792,15 @@ A Chef Infra Client run is stopped after a fatal message is sent to the logger a
 
    Chef::Application.fatal!("log_message", error_code) if condition
 
-where ``condition`` defines when a ``"log_message"`` and an ``error_code`` are sent to the logger and ``STDERR``, after which the Chef Infra Client will exit. The ``error_code`` itself is arbitrary and is assigned by the individual who writes the code that triggers the fatal message. Assigning an error code is optional, but they can be useful during log file analysis.
+where ``condition`` defines when a ``"log_message"`` and an ``error_code`` are sent to the logger and ``STDERR``, after which Chef Infra Client will exit. The ``error_code`` itself is arbitrary and is assigned by the individual who writes the code that triggers the fatal message. Assigning an error code is optional, but they can be useful during log file analysis.
 
-This approach is used within the Chef Infra Client itself to help ensure consistent messaging around certain behaviors. That said, this approach is not recommended for use within recipes and cookbooks and should only be used when the other approaches are not applicable.
+This approach is used within Chef Infra Client itself to help ensure consistent messaging around certain behaviors. That said, this approach is not recommended for use within recipes and cookbooks and should only be used when the other approaches are not applicable.
 
-.. note:: This approach should be used carefully when the Chef Infra Client is run as a daemonized service. Some services---such as a runit service---should restart, but others---such as an init.d services---likely will not.
+.. note:: This approach should be used carefully when Chef Infra Client is run as a daemonized service. Some services---such as a runit service---should restart, but others---such as an init.d services---likely will not.
 
 node.run_state
 -----------------------------------------------------
-Use ``node.run_state`` to stash transient data during a Chef Infra Client run. This data may be passed between resources, and then evaluated during the execution phase. ``run_state`` is an empty Hash that is always discarded at the end of the Chef Infra Client run.
+Use ``node.run_state`` to stash transient data during a Chef Infra Client run. This data may be passed between resources, and then evaluated during the execution phase. ``run_state`` is an empty Hash that is always discarded at the end of a Chef Infra Client run.
 
 For example, the following recipe will install the Apache web server, randomly choose PHP or Perl as the scripting language, and then install that scripting language:
 
@@ -827,12 +827,12 @@ For example, the following recipe will install the Apache web server, randomly c
 
 where:
 
-* The **ruby_block** resource declares a ``block`` of Ruby code that is run during the execution phase of the Chef Infra Client run
+* The **ruby_block** resource declares a ``block`` of Ruby code that is run during the execution phase of a Chef Infra Client run
 * The ``if`` statement randomly chooses PHP or Perl, saving the choice to ``node.run_state['scripting_language']``
 * When the **package** resource has to install the package for the scripting language, it looks up the scripting language and uses the one defined in ``node.run_state['scripting_language']``
-* ``lazy {}`` ensures that the **package** resource evaluates this during the execution phase of the Chef Infra Client run (as opposed to during the compile phase)
+* ``lazy {}`` ensures that the **package** resource evaluates this during the execution phase of a Chef Infra Client run (as opposed to during the compile phase)
 
-When this recipe runs, the Chef Infra Client will print something like the following:
+When this recipe runs, Chef Infra Client will print something like the following:
 
 .. code-block:: bash
 

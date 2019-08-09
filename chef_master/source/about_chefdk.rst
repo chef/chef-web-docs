@@ -21,7 +21,7 @@ Getting Started
 =====================================================
 .. This page is used as the short overview on the index page at docs.chef.io
 
-Chef Infra is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) ChefDK installations, a single server, and every node that will be configured and maintained by the Chef Infra Client. Cookbooks (and recipes) are used to tell the Chef Infra Client how each node in your organization should be configured. The Chef Infra Client (which is installed on every node) does the actual configuration.
+Chef Infra is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) ChefDK installations, a single server, and every node that will be configured and maintained by Chef Infra Client. Cookbooks (and recipes) are used to tell Chef Infra Client how each node in your organization should be configured. Chef Infra Client---which is installed on every node---does the actual configuration.
 
 
 
@@ -81,8 +81,6 @@ The most important tools included in ChefDK are:
      - A test-kitchen plugin that provides a driver, transport, and provisioner for rapid cookbook testing and container development using Docker and Chef.
    * - kitchen-vagrant
      - A Kitchen driver for Vagrant.
-   * - knife-spork
-     - A workflow plugin for knife that helps groups of people work together in the same chef-repo and Chef Infra Server.
    * - Ruby
      - The reference language for Chef.
 

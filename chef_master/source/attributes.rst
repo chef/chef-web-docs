@@ -5,7 +5,7 @@ About Attributes
 
 .. tag node_attribute
 
-An attribute is a specific detail about a node. Attributes are used by the Chef Infra Client to understand:
+An attribute is a specific detail about a node. Attributes are used by Chef Infra Client to understand:
 
 * The current state of the node
 * What the state of the node was at the end of the previous Chef Infra Client run
@@ -18,7 +18,7 @@ Attributes are defined by:
 * Roles
 * Environments
 
-During every Chef Infra Client run, the Chef Infra Client builds the attribute list using:
+During every Chef Infra Client run, Chef Infra Client builds the attribute list using:
 
 * Data about the node collected by Ohai
 * The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run
@@ -28,13 +28,13 @@ After the node object is rebuilt, all of the attributes are compared, and then t
 
 .. end_tag
 
-So how does the Chef Infra Client determine which value should be applied? Keep reading to learn more about how attributes work, including more about the types of attributes, where attributes are saved, and how the Chef Infra Client chooses which attribute to apply.
+So how does Chef Infra Client determine which value should be applied? Keep reading to learn more about how attributes work, including more about the types of attributes, where attributes are saved, and how Chef Infra Client chooses which attribute to apply.
 
 Attribute Persistence
 =====================================================
 .. tag node_attribute_persistence
 
-At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. The Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of the Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of the Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
+At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of each Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
 
 .. end_tag
 
@@ -42,7 +42,7 @@ Attribute Types
 =====================================================
 .. tag node_attribute_type
 
-The Chef Infra Client uses six types of attributes to determine the value that is applied to a node during the Chef Infra Client run. In addition, the Chef Infra Client sources attribute values from up to five locations. The combination of attribute types and sources allows for up to 15 different competing values to be available to the Chef Infra Client during the Chef Infra Client run:
+Chef Infra Client uses six types of attributes to determine the value that is applied to a node during a Chef Infra Client run. In addition, Chef Infra Client gathers attribute values from up to five locations. The combination of attribute types and sources makes up to 15 different competing values available during a Chef Infra Client run:
 
 .. end_tag
 
@@ -96,7 +96,7 @@ The Chef Infra Client uses six types of attributes to determine the value that i
 
 Attribute Sources
 =====================================================
-Attributes are provided to the Chef Infra Client from the following locations:
+Attributes are provided to Chef Infra Client from the following locations:
 
 * Nodes (collected by Ohai at the start of each Chef Infra Client run)
 * Attribute files (in cookbooks)
@@ -109,17 +109,17 @@ Notes:
 * Many attributes are maintained in the chef-repo for environments, roles, and cookbooks (attribute files and recipes)
 * Many attributes are collected by Ohai on each individual node at the start of every Chef Infra Client run
 * The attributes that are maintained in the chef-repo are uploaded to the Chef Infra Server from the workstation, periodically
-* The Chef Infra Client will pull down the node object from the Chef Infra Server (which contains the attribute data from the previous Chef Infra Client run), after which all attributes (except ``normal`` are reset)
-* The Chef Infra Client will update the cookbooks on the node (if required), which updates the attributes contained in attribute files and recipes
-* The Chef Infra Client will update the role and environment data (if required)
-* The Chef Infra Client will rebuild the attribute list and apply attribute precedence while configuring the node
-* The Chef Infra Client pushes the node object to the Chef Infra Server at the end of the Chef Infra Client run; the updated node object on the Chef Infra Server is then indexed for search and is stored until the next Chef Infra Client run
+* Chef Infra Client will pull down the node object from the Chef Infra Server (which contains the attribute data from the previous Chef Infra Client run), after which all attributes (except ``normal`` are reset)
+* Chef Infra Client will update the cookbooks on the node (if required), which updates the attributes contained in attribute files and recipes
+* Chef Infra Client will update the role and environment data (if required)
+* Chef Infra Client will rebuild the attribute list and apply attribute precedence while configuring the node
+* Chef Infra Client pushes the node object to the Chef Infra Server at the end of a Chef Infra Client run; the updated node object on the Chef Infra Server is then indexed for search and is stored until the next Chef Infra Client run
 
 Automatic (Ohai)
 -----------------------------------------------------
 .. tag ohai_automatic_attribute
 
-An automatic attribute is a specific detail about a node, such as an IP address, a host name, a list of loaded kernel modules, and so on. Automatic attributes are detected by Ohai and are then used by the Chef Infra Client to ensure that they are handled properly during every Chef Infra Client run. The most commonly accessed automatic attributes are:
+An automatic attribute is a specific detail about a node, such as an IP address, a host name, a list of loaded kernel modules, and so on. Automatic attributes are detected by Ohai and are then used by Chef Infra Client to ensure that they are handled properly during every Chef Infra Client run. The most commonly accessed automatic attributes are:
 
 .. list-table::
    :widths: 60 420
@@ -152,7 +152,7 @@ An automatic attribute is a specific detail about a node, such as an IP address,
 
 .. tag ohai_attribute_list
 
-The list of automatic attributes that are collected by Ohai at the start of each Chef Infra Client run vary from organization to organization, and will often vary between the various server types being configured and the platforms on which those servers are run. All attributes collected by Ohai are unmodifiable by the Chef Infra Client. To see which automatic attributes are collected by Ohai for a particular node, run the following command:
+The list of automatic attributes that are collected by Ohai at the start of each Chef Infra Client run vary from organization to organization, and will often vary between the various server types being configured and the platforms on which those servers are run. All attributes collected by Ohai are unmodifiable by Chef Infra Client. To see which automatic attributes are collected by Ohai for a particular node, run the following command:
 
 .. code-block:: bash
 
@@ -180,7 +180,7 @@ Attribute Evaluation Order
 -----------------------------------------------------
 .. tag node_attribute_evaluation_order
 
-The Chef Infra Client evaluates attributes in the order defined by the run-list, including any attributes that are in the run-list because of cookbook dependencies.
+Chef Infra Client evaluates attributes in the order defined by the run-list, including any attributes that are in the run-list because of cookbook dependencies.
 
 .. end_tag
 
@@ -259,20 +259,20 @@ Recipes
 A recipe is the most fundamental configuration element within the organization. A recipe:
 
 * Is authored using Ruby, which is a programming language designed to read and behave in a predictable manner
-* Is mostly a collection of resources, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
+* Is mostly a collection of `resources </resources.html>`__, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
 * Must define everything that is required to configure part of a system
 * Must be stored in a cookbook
 * May be included in another recipe
 * May use the results of a search query and read the contents of a data bag (including an encrypted data bag)
 * May have a dependency on one (or more) recipes
-* Must be added to a run-list before it can be used by the Chef Infra Client
+* Must be added to a run-list before it can be used by Chef Infra Client
 * Is always executed in the same order as listed in a run-list
 
 .. end_tag
 
 .. tag cookbooks_attribute
 
-An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, the Chef Infra Client will apply those new settings and values during the Chef Infra Client run on the node.
+An attribute can be defined in a cookbook (or a recipe) and then used to override the default settings on a node. When a cookbook is loaded during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. Attributes that are defined in attribute files are first loaded according to cookbook order. For each cookbook, attributes in the ``default.rb`` file are loaded first, and then additional attribute files (if present) are loaded in lexical sort order. When the cookbook attributes take precedence over the default attributes, Chef Infra Client applies those new settings and values during a Chef Infra Client run on the node.
 
 .. end_tag
 
@@ -286,7 +286,7 @@ A role is a way to define certain patterns and processes that exist across nodes
 
 .. tag role_attribute
 
-An attribute can be defined in a role and then used to override the default settings on a node. When a role is applied during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. When the role attributes take precedence over the default attributes, the Chef Infra Client will apply those new settings and values during the Chef Infra Client run on the node.
+An attribute can be defined in a role and then used to override the default settings on a node. When a role is applied during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. When the role attributes take precedence over the default attributes, Chef Infra Client applies those new settings and values during a Chef Infra Client run.
 
 A role attribute can only be set to be a default attribute or an override attribute. A role attribute cannot be set to be a normal attribute. Use the ``default_attribute`` and ``override_attribute`` methods in the Ruby DSL file or the ``default_attributes`` and ``override_attributes`` hashes in a JSON data file.
 
@@ -302,7 +302,7 @@ An environment is a way to map an organization's real-life workflow to what can 
 
 .. tag environment_attribute
 
-An attribute can be defined in an environment and then used to override the default settings on a node. When an environment is applied during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. When the environment attributes take precedence over the default attributes, the Chef Infra Client will apply those new settings and values during the Chef Infra Client run on the node.
+An attribute can be defined in an environment and then used to override the default settings on a node. When an environment is applied during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. When the environment attributes take precedence over the default attributes, Chef Infra Client applies those new settings and values during a Chef Infra Client run.
 
 An environment attribute can only be set to be a default attribute or an override attribute. An environment attribute cannot be set to be a ``normal`` attribute. Use the ``default_attribute`` and ``override_attribute`` methods in the Ruby DSL file or the ``default_attributes`` and ``override_attributes`` hashes in a JSON data file.
 
@@ -315,7 +315,7 @@ Attribute Precedence
 
 .. tag node_attribute_precedence
 
-Attributes are always applied by the Chef Infra Client in the following order:
+Attributes are always applied by Chef Infra Client in the following order:
 
 #. A ``default`` attribute located in a cookbook attribute file
 #. A ``default`` attribute located in a recipe
@@ -331,7 +331,7 @@ Attributes are always applied by the Chef Infra Client in the following order:
 #. An ``override`` attribute located in an environment
 #. A ``force_override`` attribute located in a cookbook attribute file
 #. A ``force_override`` attribute located in a recipe
-#. An ``automatic`` attribute identified by Ohai at the start of the Chef Infra Client run
+#. An ``automatic`` attribute identified by Ohai at the start of a Chef Infra Client run
 
 where the last attribute in the list is the one that is applied to the node.
 
@@ -979,7 +979,7 @@ But what if all of the web servers are not the same? What if some of the web ser
      }
    )
 
-But that is not very efficient, especially because most of them are identical. The deep merge capabilities of the Chef Infra Client allows attributes to be layered across cookbooks, recipes, roles, and environments. This allows an attribute to be reused across nodes, making use of default attributes set at the cookbook level, but also providing a way for certain attributes (with a higher attribute precedence) to be applied only when they are supposed to be.
+But that is not very efficient, especially because most of them are identical. The deep merge capabilities of Chef Infra Client allows attributes to be layered across cookbooks, recipes, roles, and environments. This allows an attribute to be reused across nodes, making use of default attributes set at the cookbook level, but also providing a way for certain attributes (with a higher attribute precedence) to be applied only when they are supposed to be.
 
 For example, a role named ``baseline.rb``:
 
@@ -1018,7 +1018,7 @@ and then a role named ``web.rb``:
 
 Both of these files are similar because they share the same structure. When an attribute value is a hash, that data is merged. When an attribute value is an array, if the attribute precedence levels are the same, then that data is merged.  If the attribute value precedence levels in an array are different, then that data is replaced.  For all other value types (such as strings, integers, etc.), that data is replaced.
 
-For example, the ``web.rb`` references the ``baseline.rb`` role. The ``web.rb`` file only provides a value for one attribute: ``:startservers``. When the Chef Infra Client compares these attributes, the deep merge feature will ensure that ``:startservers`` (and its value of ``30``) will be applied to any node for which the ``web.rb`` attribute structure should be applied.
+For example, the ``web.rb`` references the ``baseline.rb`` role. The ``web.rb`` file only provides a value for one attribute: ``:startservers``. When Chef Infra Client compares these attributes, the deep merge feature will ensure that ``:startservers`` (and its value of ``30``) will be applied to any node for which the ``web.rb`` attribute structure should be applied.
 
 This approach will allow a recipe like this:
 

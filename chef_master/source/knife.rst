@@ -11,7 +11,7 @@ knife is a command-line tool that provides an interface between a local chef-rep
 * Cookbooks and recipes
 * Roles, Environments, and Data Bags
 * Resources within various cloud environments
-* The installation of the Chef Infra Client onto nodes
+* The installation of Chef Infra Client onto nodes
 * Searching of indexed data on the Chef Infra Server
 
 .. end_tag
@@ -63,14 +63,14 @@ Built-in Subcommands
    * - `knife_bootstrap </knife_bootstrap.html>`_
      - .. tag knife_bootstrap_summary
 
-       Use the ``knife bootstrap`` subcommand to run a bootstrap operation that installs the Chef Infra Client on the target system. The bootstrap operation must specify the IP address or FQDN of the target system.
+       Use the ``knife bootstrap`` subcommand to run a bootstrap operation that installs Chef Infra Client on the target system. The bootstrap operation must specify the IP address or FQDN of the target system.
 
        .. end_tag
 
    * - `knife_client </knife_client.html>`_
      - .. tag knife_client_summary
 
-       Use the ``knife client`` subcommand to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef Infra Server by any entity that uses the Chef Infra Server API, such as the Chef Infra Client and knife.
+       Use the ``knife client`` subcommand to manage an API client list and their associated RSA public key-pairs. This allows authentication requests to be made to the Chef Infra Server by any entity that uses the Chef Infra Server API, such as Chef Infra Client and knife.
 
        .. end_tag
 
@@ -112,7 +112,7 @@ Built-in Subcommands
    * - `knife diff </knife_diff.html>`_
      - .. tag knife_diff_summary
 
-       Use the ``knife diff`` subcommand to compare the differences between files and directories on the Chef Infra Server and in the chef-repo. For example, to compare files on the Chef Infra Server prior to an uploading or downloading files using the ``knife download`` and ``knife upload`` subcommands, or to ensure that certain files in multiple production environments are the same. This subcommand is similar to the ``git diff`` command that can be used to diff what is in the chef-repo with what is synced to a git repository.
+       Use the ``knife diff`` subcommand to compare the differences between files and directories on the Chef Infra Server and in the chef-repo. For example, to compare files on the Chef Infra Server prior to uploading or downloading files using the ``knife download`` and ``knife upload`` subcommands, or to ensure that certain files in multiple production environments are the same. This subcommand is similar to the ``git diff`` command that can be used to diff what is in the chef-repo with what is synced to a git repository.
 
        .. end_tag
 
@@ -214,14 +214,14 @@ Built-in Subcommands
 
        When this command is run, the certificate files (``*.crt`` and/or ``*.pem``) that are located in the ``/.chef/trusted_certs`` directory are checked to see if they have valid X.509 certificate properties. A warning is returned when certificates do not have valid X.509 certificate properties or if the ``/.chef/trusted_certs`` directory does not contain any certificates.
 
-       .. warning:: When verification of a remote server's SSL certificate is disabled, the Chef Infra Client will issue a warning similar to "SSL validation of HTTPS requests is disabled. HTTPS connections are still encrypted, but the Chef Infra Client is not able to detect forged replies or man-in-the-middle attacks." To configure SSL for the Chef Infra Client, set ``ssl_verify_mode`` to ``:verify_peer`` (recommended) **or** ``verify_api_cert`` to ``true`` in the client.rb file.
+       .. warning:: When verification of a remote server's SSL certificate is disabled, Chef Infra Client will issue a warning similar to "SSL validation of HTTPS requests is disabled. HTTPS connections are still encrypted, but Chef Infra Client is not able to detect forged replies or man-in-the-middle attacks." To configure SSL for Chef Infra Client, set ``ssl_verify_mode`` to ``:verify_peer`` (recommended) **or** ``verify_api_cert`` to ``true`` in the client.rb file.
 
        .. end_tag
 
    * - `knife ssl fetch </knife_ssl_fetch.html>`_
      - .. tag knife_ssl_fetch_summary
 
-       Use the ``knife ssl fetch`` subcommand to copy SSL certificates from an HTTPS server to the ``trusted_certs_dir`` directory that is used by knife and the Chef Infra Client to store trusted SSL certificates. When these certificates match the hostname of the remote server, running ``knife ssl fetch`` is the only step required to verify a remote server that is accessed by either knife or the Chef Infra Client.
+       Use the ``knife ssl fetch`` subcommand to copy SSL certificates from an HTTPS server to the ``trusted_certs_dir`` directory that is used by knife and Chef Infra Client to store trusted SSL certificates. When these certificates match the hostname of the remote server, running ``knife ssl fetch`` is the only step required to verify a remote server that is accessed by either knife or Chef Infra Client.
 
        .. warning:: It is the user's responsibility to verify the authenticity of every SSL certificate before downloading it to the ``/.chef/trusted_certs`` directory. knife will use any certificate in that directory as if it is a 100% trusted and authentic SSL certificate. knife will not be able to determine if any certificate in this directory has been tampered with, is forged, malicious, or otherwise harmful. Therefore it is essential that users take the proper steps before downloading certificates into this directory.
 

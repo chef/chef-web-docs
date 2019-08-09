@@ -232,7 +232,7 @@ where ``SERVICE_NAME`` represents the name of any service that is listed after r
 
 .. code-block:: bash
 
-   $ ok: diwb: service_name: 0s, normally up
+   $ ok: down: service_name: 0s, normally up
 
 For example:
 
@@ -453,74 +453,6 @@ To follow the logs for the service:
 .. code-block:: bash
 
    $ chef-server-ctl tail bookshelf
-
-status
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To view the status for the service:
-
-.. code-block:: bash
-
-   $ chef-server-ctl status postgresql
-
-to return something like:
-
-.. code-block:: bash
-
-   $ run: postgresql: (pid 1234) 123456s; run: log: (pid 5678) 789012s
-
-start
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To start the service:
-
-.. code-block:: bash
-
-   $ chef-server-ctl start postgresql
-
-stop
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To stop the service:
-
-.. code-block:: bash
-
-   $ chef-server-ctl stop postgresql
-
-restart
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To restart the service:
-
-.. code-block:: bash
-
-   $ chef-server-ctl restart postgresql
-
-to return something like:
-
-.. code-block:: bash
-
-   $ ok: run: postgresql: (pid 1234) 1234s
-
-kill
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To kill the service (send a ``SIGKILL`` command):
-
-.. code-block:: bash
-
-   $ chef-server-ctl kill postgresql
-
-run once
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To run the service, but not restart it (if the service fails):
-
-.. code-block:: bash
-
-   $ chef-server-ctl once postgresql
-
-tail
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To follow the logs for the service:
-
-.. code-block:: bash
-
-   $ chef-server-ctl tail postgresql
 
 nginx
 -----------------------------------------------------

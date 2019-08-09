@@ -1,21 +1,11 @@
 =====================================================
-Cookbook Directories and Metadata
+Cookbook Directory
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/cookbook_repo.rst>`__
 
-The ``cookbooks/`` directory is used to store the cookbooks that are used by the Chef Infra Client when configuring the various systems in the organization. This directory contains the cookbooks that are used to configure systems in the infrastructure. Each cookbook can be configured to contain cookbook-specific copyright, email, and license data.
+The ``cookbooks/`` directory of your Chef Infra repository is used to store the cookbooks that Chef Infra Client uses in configuring the various systems in the organization.
 
-To configure cookbook-specific copyright, email, and license data, add the following to the config.rb file in the chef-repo:
-
-.. code-block:: bash
-
-   cookbook_copyright "Example, Com."
-   cookbook_email     "cookbooks@example.com"
-   cookbook_license   "apachev2"
-
-where the ``cookbook_copyright`` and ``cookbook_email`` are specific to the organization and ``cookbook_license`` is either ``apachev2`` or ``none``. These settings will be used in the default recipe and in corresponding values in the metadata.rb file, but can be modified in those locations as well (if they should be different from the default values contained in the config.rb file.)
-
-Work with Cookbooks
+Working with Cookbooks
 =====================================================
 Use the following knife subcommands to create, install, and/or download cookbooks.
 
@@ -59,21 +49,22 @@ where ``COOKBOOK_NAME`` is the name of a cookbook on `Chef Supermarket <https://
 
 Cookbook Metadata
 =====================================================
-
 .. tag cookbooks_metadata
 
 Every cookbook requires a small amount of metadata. A file named metadata.rb is located at the top of every cookbook directory structure. The contents of the metadata.rb file provides information that helps Chef Infra Client and Server correctly deploy cookbooks to each node.
 
 .. end_tag
 
-A metadata.rb file is:
+Each cookbook can be configured to contain cookbook-specific copyright, email, and license data which is stored in the `metadata.rb </config_rb_metadata.html>`__ file.
 
-* Located at the top level of a cookbook's directory structure.
-* Compiled whenever a cookbook is uploaded to the Chef Infra Server or when the ``knife cookbook metadata`` subcommand is run, and then stored as JSON data.
-* Created automatically by knife whenever the ``knife cookbook create`` subcommand is run.
-* Edited using a text editor, and then re-uploaded to the Chef Infra Server as part of a cookbook upload.
+You can configure default values for the copyright, email, and license of new cookbooks by adding the following to the config.rb file in the chef-repo:
 
-Metadata Settings
------------------------------------------------------
+.. code-block:: bash
+
+   cookbook_copyright "Example, Com."
+   cookbook_email     "cookbooks@example.com"
+   cookbook_license   "apachev2"
+
+where the ``cookbook_copyright`` and ``cookbook_email`` are specific to the organization and ``cookbook_license`` is either ``apachev2`` or ``none``. These settings will be used in the default recipe and in corresponding values in the metadata.rb file, but can be modified in those locations as well (if they should be different from the default values contained in the config.rb file.)
 
 For a full explanation of working with cookbook metadata, see `metadata.rb </config_rb_metadata.html>`__.

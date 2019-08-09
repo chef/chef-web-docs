@@ -22,7 +22,7 @@ The Chef Infra Client executable is run as a command-line tool.
 
 .. note:: .. tag config_rb_client_summary
 
-          A client.rb file is used to specify the configuration details for the Chef Infra Client.
+          A client.rb file is used to specify the configuration details for Chef Infra Client.
 
           * This file is loaded every time this executable is run
           * On UNIX- and Linux-based machines, the default location for this file is ``/etc/chef/client.rb``; on Microsoft Windows machines, the default location for this file is ``C:\chef\client.rb``; use the ``--config`` option from the command line to change this location
@@ -77,7 +77,7 @@ This command has the following options:
    The name of the environment.
 
 ``-f``, ``--[no-]fork``
-   Contain the Chef Infra Client run in a secondary process with dedicated RAM. When the Chef Infra Client run is complete, the RAM is returned to the master process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running the Chef Infra Client in fork node. Default value: ``--fork``.
+   Contain Chef Infra Client runs in a secondary process with dedicated RAM. When a Chef Infra Client run is complete, the RAM is returned to the master process. This option helps ensure that a Chef Infra Client uses a steady amount of RAM over time because the master process does not run recipes. This option also helps prevent memory leaks such as those that can be introduced by the code contained within a poorly designed cookbook. Use ``--no-fork`` to disable running Chef Infra Client in fork node. Default value: ``--fork``.
 
    Changed in Chef Client 12.0, unforked interval runs are no longer allowed.
 
@@ -86,10 +86,10 @@ This command has the following options:
 
    The output format: ``doc`` (default) or ``min``.
 
-   * Use ``doc`` to print the progress of the Chef Infra Client run using full strings that display a summary of updates as they occur.
-   * Use ``min`` to print the progress of the Chef Infra Client run using single characters.
+   * Use ``doc`` to print the progress of a Chef Infra Client run using full strings that display a summary of updates as they occur.
+   * Use ``min`` to print the progress of a Chef Infra Client run using single characters.
 
-   A summary of updates is printed at the end of the Chef Infra Client run. A dot (``.``) is printed for events that do not have meaningful status information, such as loading a file or synchronizing a cookbook. For resources, a dot (``.``) is printed when the resource is up to date, an ``S`` is printed when the resource is skipped by ``not_if`` or ``only_if``, and a ``U`` is printed when the resource is updated.
+   A summary of updates is printed at the end of a Chef Infra Client run. A dot (``.``) is printed for events that do not have meaningful status information, such as loading a file or synchronizing a cookbook. For resources, a dot (``.``) is printed when the resource is up to date, an ``S`` is printed when the resource is skipped by ``not_if`` or ``only_if``, and a ``U`` is printed when the resource is updated.
 
    Other formatting options are available when those formatters are configured in the client.rb file using the ``add_formatter`` option.
 
@@ -108,7 +108,7 @@ This command has the following options:
    Show help for the command.
 
 ``-i SECONDS``, ``--interval SECONDS``
-   The frequency (in seconds) at which the Chef Infra Client runs. When the Chef Infra Client is run at intervals, ``--splay`` and ``--interval`` values are applied before the Chef Infra Client run. Default value: ``1800``.
+   The frequency (in seconds) at which Chef Infra Client runs. When running Chef Infra Client at intervals, apply ``--splay`` and ``--interval`` values before a Chef Infra Client run. Default value: ``1800``.
 
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data. Used to setup the first client run. For all the future runs with option -i the attributes are expected to be persisted in the chef-server.
@@ -249,7 +249,7 @@ This command has the following options:
    View colored output. Default setting: ``--color``.
 
 ``--[no-]fips``
-   Allows OpenSSL to enforce FIPS-validated security during the Chef Infra Client run.
+   Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run.
 
 ``--[no-]skip-cookbook-sync``
    Use cached cookbooks without overwriting local differences from the server.
@@ -268,21 +268,18 @@ This command has the following options:
    Replace the current run-list with the specified items. This option will not clear the list of cookbooks (and related files) that is cached on the node. This option will not persist node data at the end of the client run.
 
 ``--once``
-   Run the Chef Infra Client only once and cancel ``interval`` and ``splay`` options.
+   Make only one Chef Infra Client run and cancel ``interval`` and ``splay`` options.
 
 ``-P PID_FILE``, ``--pid PID_FILE``
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
 
 ``--profile-ruby``
-  
    Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``. Use the graph output to help identify, and then resolve performance bottlenecks in a Chef Infra Client run. This option:
 
-   * Generates a large amount of data about the Chef Infra Client run.
+   * Generates a large amount of data about a Chef Infra Client run.
    * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and ChefDK.
-   * Increases the amount of time required to complete the Chef Infra Client run.
+   * Increases the amount of time required to complete a Chef Infra Client run.
    * Should not be used in a production environment.
-
-   
 
 ``-r RUN_LIST_ITEM``, ``--runlist RUN_LIST_ITEM``
    Permanently replace the current run-list with the specified run-list items.
@@ -294,13 +291,13 @@ This command has the following options:
    The path to a recipe. For example, if a recipe file is in the current directory, use ``recipe_file.rb``. This is typically used with the ``--local-mode`` option.
 
 ``--recipe-url=RECIPE_URL``
-   The location of a recipe when it exists at a URL. Use this option only when the Chef Infra Client is run with the ``--local-mode`` option.
+   The location of a recipe when it exists at a URL. Use this option only when running Chef Infra Client with the ``--local-mode`` option.
 
 ``--run-lock-timeout SECONDS``
    The amount of time (in seconds) to wait for a Chef Infra Client lock file to be deleted. Default value: not set (indefinite). Set to ``0`` to cause a second Chef Infra Client to exit immediately.
 
 ``-s SECONDS``, ``--splay SECONDS``
-   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs are not occurring at the same interval. When the Chef Infra Client is run at intervals, ``--splay`` and ``--interval`` values are applied before the Chef Infra Client run.
+   A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs are not occurring at the same interval. When running Chef Infra Client at intervals, apply ``--splay`` and ``--interval`` values before a Chef Infra Client run.
 
    Changed in Chef Client 12.0 to be applied before the Chef Client run.
 
@@ -311,7 +308,7 @@ This command has the following options:
    The user that owns a process. This is required when starting any executable as a daemon.
 
 ``-v``, ``--version``
-   The version of the Chef Infra Client.
+   The Chef Infra Client version.
 
 ``-W``, ``--why-run``
    Run the executable in why-run mode, which is a type of Chef Infra Client run that does everything except modify the system. Use why-run mode to understand why the Chef Infra Client makes the decisions that it makes and to learn more about the current and proposed state of the system.
@@ -321,7 +318,7 @@ This command has the following options:
 
 Chef Infra Client Lock File
 -----------------------------------------------------
-The Chef Infra Client uses a lock file to ensure that only one Chef Infra Client run is in progress at any time. A lock file is created at the start of the Chef Infra Client run and is deleted at the end of the Chef Infra Client run. A new Chef Infra Client run looks for the presence of a lock file and, if present, will wait for that lock file to be deleted. The location of the lock file can vary by platform.
+The Chef Infra Client uses a lock file to ensure that only one Chef Infra Client run is in progress at any time. A lock file is created at the start of a Chef Infra Client run and is deleted at the end of a Chef Infra Client run. A new Chef Infra Client run looks for the presence of a lock file and, if present, will wait for that lock file to be deleted. The location of the lock file can vary by platform.
 
 * Use the ``lockfile`` setting in the client.rb file to specify non-default locations for the lock file. (The default location is typically platform-dependent and is recommended.)
 * Use the ``run_lock_timeout`` setting in the client.rb file to specify the amount of time (in seconds) to wait for the lock file associated with an in-progress Chef Infra Client run to be deleted.
@@ -354,7 +351,7 @@ Data bags store global variables as JSON data. Data bags are indexed for searchi
 
 .. tag knife_data_bag_from_file_create_encrypted_local_mode
 
-To generate an encrypted data bag item in a JSON file for use when the Chef Infra Client is run in local mode (via the ``--local-mode`` option), enter:
+To generate an encrypted data bag item in a JSON file for use when Chef Infra Client is run in local mode (via the ``--local-mode`` option), enter:
 
 .. code-block:: bash
 
@@ -370,7 +367,7 @@ Run in FIPS Mode
 =====================================================
 .. tag fips_intro_client
 
-Federal Information Processing Standards (FIPS) is a United States government computer security standard that specifies security requirements for cryptography. The current version of the standard is FIPS 140-2. The Chef Infra Client can be configured to allow OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. This will disable cryptography that is explicitly disallowed in FIPS-validated software, including certain ciphers and hashing algorithms. Any attempt to use any disallowed cryptography will cause the Chef Infra Client to throw an exception during a Chef Infra Client run.
+Federal Information Processing Standards (FIPS) is a United States government computer security standard that specifies security requirements for cryptography. The current version of the standard is FIPS 140-2. Chef Infra Client can be configured to allow OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. This will disable cryptography that is explicitly disallowed in FIPS-validated software, including certain ciphers and hashing algorithms. Any attempt to use any disallowed cryptography will cause Chef Infra Client to throw an exception during a Chef Infra Client run.
 
 .. note:: Chef uses MD5 hashes to uniquely identify files that are stored on the Chef Infra Server. MD5 is used only to generate a unique hash identifier and is not used for any cryptographic purpose.
 
@@ -527,7 +524,7 @@ This approach can work very well on a case-by-case basis. The challenge with thi
 
 Run on IBM AIX
 =====================================================
-The Chef Infra Client may now be used to configure nodes that are running on the AIX platform, versions 6.1 (TL6 or higher, recommended) and 7.1 (TL0 SP3 or higher, recommended). The **service** resource supports starting, stopping, and restarting services that are managed by System Resource Controller (SRC), as well as managing all service states with BSD-based init systems.
+The Chef Infra Client may now be used to configure nodes that are running on the AIX platform, versions 7.1 (TL5 SP2 or higher, recommended) and 7.2. The **service** resource supports starting, stopping, and restarting services that are managed by System Resource Controller (SRC), as well as managing all service states with BSD-based init systems.
 
 
 
@@ -743,7 +740,7 @@ A Chef Infra Client that is running as a daemon can be woken up and started by s
 
 .. tag ctl_chef_client_bootstrap_initial_run_list
 
-A node's initial run-list is specified using a JSON file on the host system. When running the Chef Infra Client as an executable, use the ``-j`` option to tell the Chef Infra Client which JSON file to use. For example:
+A node's initial run-list is specified using a JSON file on the host system. When running Chef Infra Client as an executable, use the ``-j`` option to tell Chef Infra Client which JSON file to use. For example:
 
 .. code-block:: bash
 

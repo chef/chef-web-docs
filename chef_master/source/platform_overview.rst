@@ -5,20 +5,20 @@ Platform Overview
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/platform_overview.rst>`__
 
-Chef is an automation company. Ever since it was founded in 2008, we've been bringing together developers and system administrators with our namesake product, Chef. Over the years, what we mean by automation has expanded. Today, Chef has a complete automation solution for both infrastructure and applications that takes you all the way from development to production. Here's the complete Chef solution.
+Chef is an automation company. Ever since it was founded in 2008, we've been bringing together developers and system administrators with our namesake product, Chef Infra. Over the years, what we mean by automation has expanded. Today, Chef has a complete automation solution for both infrastructure and applications that takes you all the way from development to production. Here's the complete Chef solution.
 
 .. image:: ../../images/automate_architecture.svg
    :width: 500px
    :align: center
 
-Chef
+Chef Infra
 =====================================================
 
 .. tag chef
 
-Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef Infra automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
-This diagram shows how you develop, test, and deploy your Chef code.
+This diagram shows how you develop, test, and deploy your Chef Infra code.
 
 .. image:: ../../images/start_chef.svg
    :width: 700px
@@ -43,11 +43,11 @@ Uploading your code to Chef Infra Server
 
 Once you're done developing and testing code on your local workstation, you can upload it to the Chef Infra Server. The Chef Infra Server acts as a hub for configuration data. It stores cookbooks, the policies that are applied to the systems in your infrastructure and metadata that describes each system. The knife command lets you communicate with the Chef Infra Server from your workstation. For example, you use it to upload your cookbooks.
 
-Configuring nodes with the Chef Infra Client
+Configuring nodes with Chef Infra Client
 -----------------------------------------------------
-Chef Infra is constructed so that most of the computational effort occurs on the nodes rather than on the Chef Infra Server.  A node represents a server and is typically a virtual machine, container instance, or physical server. Basically, it's any compute resource in your infrastructure that's managed by Chef. All nodes have the Chef Infra Client installed on them.
+Chef Infra is constructed so that most of the computational effort occurs on the nodes rather than on the Chef Infra Server.  A node represents a server and is typically a virtual machine, container instance, or physical server. Basically, it's any compute resource in your infrastructure that's managed by Chef. All nodes have Chef Infra Client installed on them.
 
-Periodically, the Chef Infra Client contacts the Chef Infra Server to retrieve the latest cookbooks. If (and only if) the current state of the node doesn't conform to what the cookbook says it should be, the Chef Infra Client executes the cookbook instructions. This iterative process ensures that the network as a whole converges to the state envisioned by business policy.
+Periodically, Chef Infra Client contacts the Chef Infra Server to retrieve the latest cookbooks. If (and only if) the current state of the node doesn't conform to what the cookbook says it should be, Chef Infra Client executes the cookbook instructions. This iterative process ensures that the network as a whole converges to the state envisioned by business policy.
 
 Chef Habitat
 =====================================================
