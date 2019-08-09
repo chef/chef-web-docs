@@ -13,6 +13,7 @@ Use the **python** resource to execute scripts using the Python interpreter. Thi
 
 Syntax
 =====================================================
+
 The python resource has the following syntax:
 
 .. code-block:: ruby

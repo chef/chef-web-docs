@@ -9,6 +9,7 @@ Use the **swap_file** resource to create or delete swap files on Linux systems, 
 
 Syntax
 =====================================================
+
 The swap_file resource has the following syntax:
 
 .. code-block:: ruby

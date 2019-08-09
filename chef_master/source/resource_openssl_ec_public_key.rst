@@ -9,6 +9,7 @@ Use the **openssl_ec_public_key** resource to generate elliptic curve (EC) publi
 
 Syntax
 =====================================================
+
 The openssl_ec_public_key resource has the following syntax:
 
 .. code-block:: ruby
@@ -234,9 +235,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 .. end_tag
 
-
 Examples
-=====================================================
+==========================================
 
 **Create a public key from a private key file**
 

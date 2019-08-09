@@ -9,6 +9,7 @@ Use the **windows_certificate** resource to install a certificate into the Windo
 
 Syntax
 =====================================================
+
 The windows_certificate resource has the following syntax:
 
 .. code-block:: ruby

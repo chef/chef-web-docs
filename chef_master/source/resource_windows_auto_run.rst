@@ -9,6 +9,7 @@ Use the **windows_auto_run** resource to set applications to run at login.
 
 Syntax
 =====================================================
+
 The windows_auto_run resource has the following syntax:
 
 .. code-block:: ruby

@@ -9,6 +9,7 @@ Use the **rhsm_repo** resource to enable or disable Red Hat Subscription Manager
 
 Syntax
 =====================================================
+
 The rhsm_repo resource has the following syntax:
 
 .. code-block:: ruby

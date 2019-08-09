@@ -9,6 +9,7 @@ Use the **windows_workgroup** resource to join or change the workgroup of a Wind
 
 Syntax
 =====================================================
+
 The windows_workgroup resource has the following syntax:
 
 .. code-block:: ruby

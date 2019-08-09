@@ -37,7 +37,7 @@ where:
 * ``ruby_block`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``block`` is the block of Ruby code to be executed.
-* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``block`` and ``block_name`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions

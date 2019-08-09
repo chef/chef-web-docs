@@ -9,6 +9,7 @@ Use the **macos_userdefaults** resource to manage the macOS `user defaults <http
 
 Syntax
 =====================================================
+
 The macos_userdefaults resource has the following syntax:
 
 .. code-block:: ruby
@@ -65,7 +66,6 @@ The macos_userdefaults resource has the following properties:
    **Ruby Type:** String
 
    The preference key.
-   
 
 ``sudo``
    **Ruby Type:** true, false | **Default Value:** ``false``

@@ -9,6 +9,7 @@ Use the **powershell_package_source** resource to register a PowerShell package 
 
 Syntax
 =====================================================
+
 The powershell_package_source resource has the following syntax:
 
 .. code-block:: ruby

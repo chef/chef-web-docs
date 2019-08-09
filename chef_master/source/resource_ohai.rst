@@ -7,6 +7,7 @@ Use the **ohai** resource to reload the Ohai configuration on a node. This allow
 
 Syntax
 =====================================================
+
 The ohai resource has the following syntax:
 
 .. code-block:: ruby

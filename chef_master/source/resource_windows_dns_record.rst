@@ -9,6 +9,7 @@ The **windows_dns_record** resource creates a DNS record for the given domain.
 
 Syntax
 =====================================================
+
 The windows_dns_record resource has the following syntax:
 
 .. code-block:: ruby
@@ -107,6 +108,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

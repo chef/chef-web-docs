@@ -49,7 +49,7 @@ Use multiple registry key entries with key values that are based on node attribu
      action :create
    end
 
-The full syntax for all of the properties that are available to the **registry_key** resource is:
+The registry_key resource has the following syntax:
 
 .. code-block:: ruby
 

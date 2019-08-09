@@ -22,6 +22,7 @@ The powershell_package resource has the following syntax:
 .. code-block:: ruby
 
   powershell_package 'name' do
+    options                   String, Array
     package_name              String, Array
     skip_publisher_check      true, false # default value: false
     source                    String
@@ -35,7 +36,7 @@ where:
 * ``powershell_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``package_name``, ``skip_publisher_check``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``options``, ``package_name``, ``skip_publisher_check``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -52,6 +53,11 @@ Properties
 =====================================================
 
 The powershell_package resource has the following properties:
+
+``options``
+   **Ruby Type:** String, Array
+
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
    **Ruby Type:** String, Array
@@ -76,7 +82,6 @@ The powershell_package resource has the following properties:
    **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
-
 
 ``version``
    **Ruby Type:** String, Array
@@ -119,6 +124,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
