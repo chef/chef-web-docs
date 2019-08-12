@@ -83,7 +83,7 @@ Updated Resources
     The ``launchd`` resource has been updated with a new ``launch_events`` property, which allows you to specify higher-level event types to be used as launch-on-demand event sources. Thanks `@chilcote <https://github.com/chilcote>`__ for this enhancement.
 
 * **yum_package**
-    The ``yum_package`` resource's helper for interacting with the yum subsystem has been updated to always close out the rpmdb lock, even during failures. This may prevent the rpmdb becoming locked in some rare conditions. Thanks for reporting this issue, `@lytao <https://github.com/lytao>`__.
+    The ``yum_package`` resource's helper for interacting with the yum subsystem has been updated to always close out the rpmdb lock, even during failures. This may prevent the rpmdb from becoming locked in some rare conditions. Thanks for reporting this issue, `@lytao <https://github.com/lytao>`__.
 
 * **template**
     The ``template`` resource now provides additional information on failures, which is especially useful in ChefSpec tests. Thanks `@brodock <https://github.com/brodock>`__ for this enhancement.
