@@ -1,0 +1,9 @@
+{{ define "main" }}
+{{ partial "mini-toc" . }}
+<div class="js-toc-content">
+<h1>{{ .Title }}</h1>
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}

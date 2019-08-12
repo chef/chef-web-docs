@@ -1,29 +1,29 @@
 <!doctype html>
 <html lang="en">
-{{ partial "docs/head" . }}
+{{ partial "head" . }}
 <body>
   <div class="off-canvas-wrapper has-sidebar">
     <div class="off-canvas-content" data-off-canvas-content>
       <div class="cell small-12">
-        {{ partial "chef-sh/utility-bar" . }}
+        {{ partial "utility-bar" . }}
       </div>
       <div id="menu" class="cell small-12" data-sticky-container>
-        {{ partial "docs/header" . }}
+        {{ partial "header" . }}
       </div>
       <div id="main-content" class="cell small-12" data-sticky-container>
         <div class="grid-container">
           <div class="grid-x">
             <div class="cell medium-3 col-sidebar">
-              {{ partial "docs/sidebar" . }}
+              {{ partial "sidebar" . }}
             </div>
-            
+
             <div class="toc">
               <div id="mini-toc">
                 <span><strong><h4>Table Of Contents</h4></strong></span>
                 <div class="js-toc"></div>
               </div>
             </div>
-            
+
             <div id="main-content-col" class="cell medium-9 col-content">
               <div class="js-toc-content">
 
@@ -32,31 +32,31 @@
 
                 {{ $ActionsID := newScratch }}
                 {{ $ActionsID.Set "Value" 0 }}
-                
+
                 {{ $PropertiesID := newScratch }}
                 {{ $PropertiesID.Set "Value" 0 }}
-                
+
                 {{ $resources_common_atomic_updateID := newScratch }}
                 {{ $resources_common_atomic_updateID.Set "Value" 0 }}
-                
+
                 {{ $resources_common_windows_securityID := newScratch }}
-                {{ $resources_common_windows_securityID.Set "Value" 0 }}  
-                            
+                {{ $resources_common_windows_securityID.Set "Value" 0 }}
+
                 {{ $FunctionalityID := newScratch }}
                 {{ $FunctionalityID.Set "Value" 0 }}
-                
+
                 {{ $resources_common_propertiesID := newScratch }}
                 {{ $resources_common_propertiesID.Set "Value" 0 }}
-                
+
                 {{ $resources_common_notificationsID := newScratch }}
                 {{ $resources_common_notificationsID.Set "Value" 0 }}
-                
+
                 {{ $resources_common_guardsID := newScratch }}
                 {{ $resources_common_guardsID.Set "Value" 0 }}
-                
+
                 {{ $common_resource_functionality_multiple_packagesID := newScratch }}
                 {{ $common_resource_functionality_multiple_packagesID.Set "Value" 0 }}
-                
+
                 {{ $ExamplesID := newScratch }}
                 {{ $ExamplesID.Set "Value" 0 }}
 
@@ -64,51 +64,51 @@
                 <h1 id="{{ anchorize ( .Title )}}"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
                 <hr>
                 <p>{{ .Params.resource_description }}</p>
-                
+
                 {{ if and (.Params.resource_note) (ne .Params.resource_note "")}}
-                  
+
                   <p><div class="alert-info">{{ .Params.resource_note }}</div></p>
                 {{ end }}
-                
+
                 {{ if and ( ne .Params.resource_new_in "" ) ( .Params.resource_new_in )}}
-                  <p><strong>New in Chef Infra Client {{ .Params.resource_new_in }}</strong></p>    
+                  <p><strong>New in Chef Infra Client {{ .Params.resource_new_in }}</strong></p>
                 {{ end }}
-                
+
                 <!-------------- Handler Types ------------------->
-                
+
                 {{ if .Params.handler_types }}
                   <h2 id="handler_types">Handler Types</h2>
                   {{ partial "handler_types.html" . }}
-                  
+
                   <h3 id="handler_type_exception_report">Exception / Report</h3>
                   {{ partial "handler_type_exception_report.html" . }}
-                  {{ partial "handler_type_exception_report_run_from_recipe.html" . }}                  
-                  
-                  
+                  {{ partial "handler_type_exception_report_run_from_recipe.html" . }}
+
+
                   <h3 id="handler_type_start">Start</h3>
                   {{ partial "handler_type_start.html" . }}
-                  {{ partial "handler_type_start_run_from_recipe.html" . }}                       
+                  {{ partial "handler_type_start_run_from_recipe.html" . }}
 
                 {{ end }}
-                
+
                 <!-------------- Package Resource ------------------->
-                
+
                 {{ if .Params.package_resource }}
                   {{ partial "package_resource.html" . }}
                 {{ end }}
-                
-  
+
+
                 <!-------------- Syntax ------------------->
-                
+
                 {{ $SyntaxID.Add "Value" 1 }}
                 <h2 id = "syntax-{{ $SyntaxID.Get "Value" }}">Syntax</h2>
                 <hr>
-                
+
                 {{ if and (.Params.resource_block_codeblock) (ne .Params.resource_block_codeblock "")}}
                   {{ .Params.resource_block_description }}
                   {{- highlight (trim .Params.resource_block_codeblock "\n" ) "ruby" "" -}}
-                  
-                  {{ if and (.Params.resource_block_list) (ne .Params.resource_block_list "" )}}                    
+
+                  {{ if and (.Params.resource_block_list) (ne .Params.resource_block_list "" )}}
                       <p>where:</p>
                       <ul>
                         {{ range $k, $v := .Params.resource_block_list }}
@@ -117,11 +117,11 @@
                       </ul>
                   {{ end }}
                 {{ end }}
-                
+
                 <p>The {{ .Title }} has the following syntax:</p>
-                
+
                 {{- highlight (trim .Params.syntax_codeblock "\n" ) "ruby" "" -}}
-                
+
                 {{ if .Params.syntax_property_list }}
                   {{ $property_list_scratch := newScratch }}
                   {{ $length_syntax_property_list := (len .Params.syntax_property_list) }}
@@ -129,7 +129,7 @@
                   <ul>
                     {{ $resource := .Params.resource }}
                     {{ range .Params.syntax_property_list }}
-                      {{ if eq . $resource }}    
+                      {{ if eq . $resource }}
                         <li><code>{{- . -}}</code> is the resource.</li>
                       {{ else if (eq . "name") }}
                         <li><code>name</code>is the name given to the resource block.</li>
@@ -137,14 +137,14 @@
                         <li><code>action</code>identifies which steps Chef Infra Client will take to bring the node into the desired state.</li>
                       {{ else }}
                         {{ $property_list_scratch.Add "Property" (slice .) }}
-                      {{ end }}  
+                      {{ end }}
                     {{ end }}
                     {{ if gt (len ($property_list_scratch.Get "Property")) 0 }}
                       {{ $len_property_list_scratch := (len ($property_list_scratch.Get "Property")) }}
                       <li>
                         {{ range $i, $e := $property_list_scratch.Get "Property" }}
                           {{ if (and (eq (sub $len_property_list_scratch 1) $i) (gt $len_property_list_scratch 2) ) }}
-                            and 
+                            and
                           {{ end }}
                           <code>{{- . -}} </code>
                           {{ if ne $i (sub $len_property_list_scratch 1) }},{{ end }}
@@ -153,72 +153,72 @@
                     {{ end }}
                   </ul>
                 {{ end }}
-                
+
                 {{ if .Params.registry_key }}
                   <h3 id="windows_registry_key_backslashes">Registry Key Path Separators</h3>
                   {{ partial "windows_registry_key_backslashes.html" . }}
-                  
+
                   <h3 id="dsl_recipe_method_windows_methods">Recipe DSL Methods</h3>
                   {{ partial "dsl_recipe_method_windows_methods.html" . }}
-                  
+
                   <h4 id="dsl_recipe_method_registry_data_exists">registry_data_exists?</h4>
                   {{ partial "dsl_recipe_method_registry_data_exists.html" . }}
-                  
+
                   <h4 id="dsl_recipe_method_registry_get_subkeys">registry_get_subkeys</h4>
-                  {{ partial "dsl_recipe_method_registry_get_subkeys.html" . }}   
-                                   
+                  {{ partial "dsl_recipe_method_registry_get_subkeys.html" . }}
+
                   <h4 id="dsl_recipe_method_registry_get_values">registry_get_values</h4>
-                  {{ partial "dsl_recipe_method_registry_get_values.html" . }}                    
-                  
+                  {{ partial "dsl_recipe_method_registry_get_values.html" . }}
+
                   <h4 id="dsl_recipe_method_registry_has_subkeys">registry_has_subkeys?</h4>
-                  {{ partial "dsl_recipe_method_registry_has_subkeys.html" . }}                    
-                  
+                  {{ partial "dsl_recipe_method_registry_has_subkeys.html" . }}
+
                   <h4 id="dsl_recipe_method_registry_key_exists">registry_key_exists?</h4>
-                  {{ partial "dsl_recipe_method_registry_key_exists.html" . }}                    
-                  
+                  {{ partial "dsl_recipe_method_registry_key_exists.html" . }}
+
                   <h4 id="dsl_recipe_method_registry_value_exists">registry_value_exists?</h4>
-                  {{ partial "dsl_recipe_method_registry_value_exists.html" . }}                    
+                  {{ partial "dsl_recipe_method_registry_value_exists.html" . }}
 
                 {{ end }}
-                
-                
+
+
                 <!-------------- Nameless ------------------->
-                
+
                 {{ if .Params.nameless }}
-                    {{ partial "nameless.html" . }}      
+                    {{ partial "nameless.html" . }}
                 {{ end }}
-                
+
                 <!-------------- Gem Package Options ------------------->
-                
+
                 {{ if.Params.resource_package_options }}
-                  <h2 id="resource_package_options">Gem Package Options</h2>                    
+                  <h2 id="resource_package_options">Gem Package Options</h2>
                   {{ partial "resource_package_options.html" . }}
-                  
+
                   <h3 id="resource_package_options_hash">Specify with Hash</h3>
                   {{ partial "resource_package_options_hash.html" . }}
                   <strong>Example</strong>
                   {{ partial "resource_package_install_gem_with_hash_options.html" . }}
-                  
-                  
+
+
                   <h3 id="resource_package_options_string">Specify with String</h3>
                   {{ partial "resource_package_options_string.html" . }}
                   <strong>Example</strong>
                   {{ partial "resource_package_install_gem_with_options_string.html" . }}
-                  
+
                   <h3 id="resource_package_options_gemrc">Specify with .gemrc File</h3>
                   {{ partial "resource_package_options_gemrc.html" . }}
                   {{ partial "resource_package_install_gem_with_gemrc.html" . }}
                 {{ end }}
-                
+
                 <!-------------- Actions ------------------->
-                
+
                 {{ if and ( .Params.actions_list ) ( ne .Params.actions_list "" )}}
                   {{ $ActionsID.Add "Value" 1 }}
                   <h2 id = "actions-{{ $ActionsID.Get "Value" }}">Actions</h2>
                   <hr>
-                  
+
                   <p>The {{ .Title }} has the following actions:</p>
-                
+
                   {{ range $k, $v := .Params.actions_list }}
                     <p>
                       <code>{{ $k }}</code> {{ $v }}
@@ -226,9 +226,9 @@
                   {{ end }}
                   <br>
                 {{ end }}
-              
+
                 <!-------------- Properties ------------------->
-              
+
                 {{ $PropertiesID.Add "Value" 1 }}
                 <h2 id = "properties-{{ $PropertiesID.Get "Value" }}">Properties</h2>
                 <hr>
@@ -243,19 +243,19 @@
                           </code>
                         {{ end }}
                       </p>
-                      
+
                       {{ if ne .ruby_type nil }}
                         <p>
-                          <strong>Ruby Type:</strong> {{ .ruby_type }} {{ if .default_value }}| <strong>Default Value:</strong> {{ .default_value }}{{ end }} 
+                          <strong>Ruby Type:</strong> {{ .ruby_type }} {{ if .default_value }}| <strong>Default Value:</strong> {{ .default_value }}{{ end }}
                         </p>
                       {{ end }}
-                      
+
                       {{ if ne .description nil }}
                         <p>
                           {{ .description }}
                         </p>
                       {{ end }}
-                      
+
                       {{ if and (.new_in) (ne .new_in nil) }}
                         <p>
                         New in Chef Infra Client {{ .new_in }}
@@ -269,31 +269,31 @@
                 {{ else }}
                   <p>This resource does not have any properties.</p>
                 {{ end }}
-                
+
                 {{ if .Params.properties_multiple_packages }}
                   {{ $common_resource_functionality_multiple_packagesID.Add "Value" 1 }}
-                  <h3 id="multiple-packages-{{ $common_resource_functionality_multiple_packagesID.Get "Value" }}">Multiple Packages</h3>                                
+                  <h3 id="multiple-packages-{{ $common_resource_functionality_multiple_packagesID.Get "Value" }}">Multiple Packages</h3>
                   {{ partial "resources_common_multiple_packages.html" . }}
                 {{ end }}
-                
+
                 {{ if .Params.resource_directory_recursive_directories }}
                   {{ partial "resource_directory_recursive_directories.html" . }}
                 {{ end }}
-                
+
                 {{ if .Params.resources_common_atomic_update }}
-                  {{ $resources_common_atomic_updateID.Add "Value" 1 }} 
-                
+                  {{ $resources_common_atomic_updateID.Add "Value" 1 }}
+
                   <h3 id="resources_common_atomic_update-{{ $resources_common_atomic_updateID.Get "Value" }}">Atomic File Updates</h3>
-                
+
                   {{ partial "resources_common_atomic_update.html" . }}
-                  
+
                 {{ end }}
-                
+
                 {{ if .Params.properties_resources_common_windows_security }}
-                  {{ $resources_common_windows_securityID.Add "Value" 1 }} 
-                
+                  {{ $resources_common_windows_securityID.Add "Value" 1 }}
+
                   <h3 id="resources_common_windows_security-{{ $resources_common_windows_securityID.Get "Value" }} ">Windows File Security</h3>
-                
+
                   {{ partial "resources_common_windows_security.html" . }}
                   <strong>Access Control Lists (ACLs)</strong>
                   {{ partial "resources_common_windows_security_acl.html" . }}
@@ -301,196 +301,196 @@
                   {{ partial "resources_common_windows_security_inherits.html" . }}
 
                 {{ end }}
-                
+
                 {{ if .Params.remote_file_prevent_re_downloads }}
                   {{ partial "remote_file_prevent_re_downloads.html" . }}
                 {{ end }}
-                
-                {{ if .Params.remote_file_unc_path }}    
+
+                {{ if .Params.remote_file_unc_path }}
                   {{ partial "remote_file_unc_path.html" . }}
                 {{ end }}
-                
+
                 {{ if .Params.ps_credential_helper }}
                   {{ partial "ps_credential_helper.html" .}}
                 {{ end }}
-                
+
                 <!-------------- Chef::Log Entries ------------------->
-                
+
                 {{ if.Params.ruby_style_basics_chef_log }}
                   <h2 id="ruby_style_basics_chef_log">Chef::Log Entries</h2>
                   {{ partial "ruby_style_basics_chef_log.html" . }}
                   {{ partial "ruby_class_chef_log_fatal.html" . }}
                   {{ partial "ruby_class_chef_log_multiple.html" . }}
                 {{ end }}
-                
+
                 <!-------------- Debug Recipes with chef-shell ------------------->
-                
+
                 {{ if .Params.debug_recipes_chef_shell }}
-                
+
                   <h2 id="debug_recipes_chef_shell">Debug Recipes with chef-shell</h2>
                   {{ partial "chef_shell_summary.html" . }}
-                  
+
                   <h3 id="chef_shell_modes">Modes</h3>
                   {{ partial "chef_shell_modes.html" . }}
-                  
+
                   <h3 id="debug_recipes_config">Config</h3>
                   {{ partial "chef_shell_config.html" . }}
-                  
+
                   <h4 id="chef_shell_config_rb">chef-shell.rb</h4>
                   {{ partial "chef_shell_config_rb.html" . }}
-                  
+
                   <h4 id="chef_shell_run_as_chef_client">Run as a Chef Infra Client</h4>
                   {{ partial "chef_shell_run_as_chef_client.html" . }}
-                  
-                  <h3 id="chef_shell_manage">Manage</h3>                    
-                  {{ partial "chef_shell_manage.html" . }}                    
 
-                  <h3 id="chef_shell_breakpoints">Use Breakpoints</h3>                    
-                  {{ partial "chef_shell_breakpoints.html" . }} 
-                  
+                  <h3 id="chef_shell_manage">Manage</h3>
+                  {{ partial "chef_shell_manage.html" . }}
+
+                  <h3 id="chef_shell_breakpoints">Use Breakpoints</h3>
+                  {{ partial "chef_shell_breakpoints.html" . }}
+
                   <h4 id="chef_shell_step_through_run_list">Step Through Run-list</h4>
                   {{ partial "chef_shell_step_through_run_list.html" . }}
-                  
+
                   <h4 id="chef_shell_debug_existing_recipe">Debug Existing Recipe</h4>
                   {{ partial "chef_shell_debug_existing_recipe.html" . }}
-                  
+
                   <h4 id="chef_shell_advanced_debug">Advanced Debugging</h4>
-                  {{ partial "chef_shell_advanced_debug.html" . }}      
-                  
-                  <h3 id="chef_shell_debug_examples">Debug Examples</h3>   
-                  
+                  {{ partial "chef_shell_advanced_debug.html" . }}
+
+                  <h3 id="chef_shell_debug_examples">Debug Examples</h3>
+
                   <p>The following examples show how to use chef-shell. </p>
                   <h4 id="chef_shell_debug_example_hello_world">"Hello World"</h4>
-                  {{ partial "chef_shell_example_hello_world.html" . }}  
-                  
+                  {{ partial "chef_shell_example_hello_world.html" . }}
+
                   <h4 id="chef_shell_debug_examples_specific_nodes">Get Specific Nodes</h4>
-                  {{ partial "chef_shell_example_get_specific_nodes.html" . }}  
-                
+                  {{ partial "chef_shell_example_get_specific_nodes.html" . }}
+
                 {{ end }}
-                
+
                 <!-------------- Using Templates ------------------->
-                
+
                 {{ if .Params.template_requirements }}
                   <h2 id="template_requirements">Using Templates</h2>
                   {{ partial "template_requirements.html" }}
-                  
+
                   <h3 id="template_specificity">File Specificity</h3>
                   {{ partial "template_specificity.html" }}
                   {{ partial "template_specificity_pattern.html" }}
                   {{ partial "template_specificity_example.html" }}
-                  
+
                   <h3 id="template_helpers">Helpers</h3>
                   {{ partial "template_helpers.html" }}
-                  
+
                   <h4 id="resource_template_inline_method">Inline Methods</h4>
                   {{ partial "resource_template_inline_method.html" }}
-                                      
+
                   <h4 id="resource_template_inline_module">Inline Modules</h4>
                   {{ partial "resource_template_inline_module.html" }}
-                  
+
                   <h4 id="resource_template_library_module">Library Modules</h4>
                   {{ partial "resource_template_library_module.html" }}
-                  
+
                   <h3 id="template_host_notation">Host Notation</h3>
                   {{ partial "template_host_notation.html" }}
-                  
+
                   <h3 id="template_partials">Partial Templates</h3>
                   {{ partial "template_partials.html" }}
-                  
+
                   <h4 id="template_partials_render_method">render Method</h4>
                   {{ partial "template_partials_render_method.html" }}
-                  
+
                   <h3 id="template_transfer_frequency">Transfer Frequency</h3>
                   {{ partial "template_transfer_frequency.html" }}
-                  
+
                   <h3 id="template_variables">Variables</h3>
                   {{ partial "template_variables.html" }}
-                  
+
                 {{ end }}
-                
-                
-                
+
+
+
                 <!-------------- Common Resource Functionality ------------------->
-                
-                
-                
+
+
+
                 <br>
                 {{ $FunctionalityID.Add "Value" 1 }}
                 <h2 id = "functionality-{{$FunctionalityID.Get "Value"}}">Common Resource Functionality</h2>
                 <hr>
-                
+
                 <p>Chef resources include common properties, notifications, and resource guards.</p>
-                
+
                 {{ if .Params.resources_common_properties }}
-                  {{ $resources_common_propertiesID.Add "Value" 1 }}  
+                  {{ $resources_common_propertiesID.Add "Value" 1 }}
                   <h3 id="resources_common_properties-{{$resources_common_propertiesID.Get "Value"}}">Common Properties</h3>
-                  
+
                   {{ partial "resources_common_properties.html" . }}
-                  
+
                 {{ end }}
-                
+
                 {{ if .Params.resources_common_notification }}
                   {{ $resources_common_notificationsID.Add "Value" 1 }}
                   <h3 id="resources_common_notifications-{{ $resources_common_notificationsID.Get "Value" }}">Notifications</h3>
-                  
+
                   <code>notifies</code>
-                  
+
                   <p><strong>Ruby Type:</strong> Symbol, 'Chef::Resource[String]'</p>
 
                   {{ partial "resources_common_notification_notifies.html" . }}
                   {{ partial "resources_common_notification_timers.html" . }}
                   {{ partial "resources_common_notification_notifies_syntax.html" . }}
-                  
+
                   <code>subscribes</code>
                   <p><strong>Ruby Type:</strong>  Symbol, 'Chef::Resource[String]'</p>
-                  
-                  {{ partial "resources_common_notification_subscribes.html" . }}    
-                  {{ partial "resources_common_notification_timers.html" . }}   
-                  {{ partial "resources_common_notification_subscribes.html" . }}   
-                  {{ partial "resources_common_notification_subscribes_syntax.html" . }}  
+
+                  {{ partial "resources_common_notification_subscribes.html" . }}
+                  {{ partial "resources_common_notification_timers.html" . }}
+                  {{ partial "resources_common_notification_subscribes.html" . }}
+                  {{ partial "resources_common_notification_subscribes_syntax.html" . }}
 
                 {{ end }}
-                
+
                 {{ if .Params.resources_common_guards }}
                   {{ $resources_common_guardsID.Add "Value" 1 }}
                   <h3 id = "guards-{{$resources_common_guardsID.Get "Value"}}">Guards</h3>
-                  
+
                   {{ partial "resources_common_guards" . }}
                   <strong>Properties</strong>
                   {{ partial "resources_common_guards_properties.html" . }}
-                  
+
                 {{ end }}
-                
+
                 {{ if .Params.common_resource_functionality_multiple_packages }}
                   {{ $common_resource_functionality_multiple_packagesID.Add "Value" 1 }}
                   <h3 id="multiple-packages-{{ $common_resource_functionality_multiple_packagesID.Get "Value" }}">Multiple Packages</h3>
-                                    
+
                   {{ partial "resources_common_multiple_packages.html" . }}
-                                    
+
                 {{ end }}
-                
+
                 {{ if .Params.resources_common_guard_interpreter }}
                   <h3 id="guard-interpreter">Guard Interpreter</h3>
-                  
+
                   {{ partial "resources_common_guard_interpreter.html" . }}
                   <strong>Attributes</strong>
                   {{ partial "resources_common_guard_interpreter_attributes.html" . }}
                   <strong>Inheritance</strong>
-                  {{ partial "resources_common_guard_interpreter_attributes_inherit.html" . }} 
+                  {{ partial "resources_common_guard_interpreter_attributes_inherit.html" . }}
                   <strong>Example</strong>
                   {{ partial "resources_common_guard_interpreter_example_default.html" . }}
-                
+
                 {{ end }}
-                
+
                 {{ if .Params.remote_directory_recursive_directories }}
                   {{ partial "remote_directory_recursive_directories.html" . }}
                 {{ end }}
-                
+
                 {{ if .Params.common_resource_functionality_resources_common_windows_security }}
-                  {{ $resources_common_windows_securityID.Add "Value" 1 }} 
-                
+                  {{ $resources_common_windows_securityID.Add "Value" 1 }}
+
                   <h3 id="resources_common_windows_security-{{ $resources_common_windows_securityID.Get "Value" }} ">Windows File Security</h3>
-                
+
                   {{ partial "resources_common_windows_security.html" . }}
                   <strong>Access Control Lists (ACLs)</strong>
                   {{ partial "resources_common_windows_security_acl.html" . }}
@@ -498,16 +498,16 @@
                   {{ partial "resources_common_windows_security_inherits.html" . }}
 
                 {{ end }}
-                
+
                 <!-------------- Custom Handlers ------------------->
-                
+
                 {{ if .Params.handler_custom }}
                   <h2 id="handler_custom">Custom Handlers</h2>
                   {{ partial "handler_custom.html" . }}
-                  
+
                   <h3 id="handler_custom_syntax">Syntax</h3>
                   {{ partial "handler_custom_syntax.html" . }}
-                  
+
                   <h3 id="handler_custom_interface_report">report Interface</h3>
                   {{ partial "handler_custom_interface_report.html" . }}
 
@@ -515,39 +515,39 @@
                   <p>
                     The following interfaces may be used in a handler in the same way as the <code>report</code> interface to override the default handler behavior in Chef Infra Client. That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
                   </p>
-                                    
+
                   <h4 id="handler_custom_interface_data">Data</h4>
                   {{ partial "handler_custom_interface_data.html" . }}
 
                   <h4 id="handler_custom_interface_run_report_safely">run_report_safely</h4>
                   {{ partial "handler_custom_interface_run_report_safely.html" . }}
-                  
+
                   <h4 id="handler_custom_interface_run_report_unsafe">run_report_unsafe</h4>
-                  {{ partial "handler_custom_interface_run_report_unsafe.html" . }}                    
-                  
+                  {{ partial "handler_custom_interface_run_report_unsafe.html" . }}
+
                   <h3 id="handler_custom_object_run_status">run_status Object</h3>
-                  {{ partial "handler_custom_object_run_status.html" . }} 
+                  {{ partial "handler_custom_object_run_status.html" . }}
 
                 {{ end }}
-                
-                <!-------------- File Specificity -------------------> 
-                
+
+                <!-------------- File Specificity ------------------->
+
                 {{ if .Params.cookbook_file_specificity }}
-                
+
                   {{ partial "cookbook_file_specificity.html" . }}
-                
+
                 {{ end }}
-                
-                
+
+
                 <!-------------- Examples ------------------->
-                
+
                 {{ if and ( .Params.examples_list ) ( ne .Params.examples_list "" )}}
                   {{ $ExamplesID.Add "Value" 1 }}
                   <h2 id = "examples-{{ $ExamplesID.Get "Value" }}">Examples</h2>
                   <hr>
-                  
+
                   <p>The {{ .Title }} has the following examples:</p>
-                
+
                   {{ range $k, $v := .Params.examples_list }}
                     {{ range $v }}
                       <p><strong>{{ .heading }}</strong></p>
@@ -555,12 +555,12 @@
                         <p>{{ .description }}</p>
                       {{ end }}
                       {{- highlight (trim .codeblock "\n" ) "ruby" "" -}}
-                      
+
                     {{ end }}
                   {{ end }}
-                {{ end }}  
+                {{ end }}
 
-              </div>  
+              </div>
             </div>
           </div>
         </div>
@@ -569,38 +569,13 @@
         <div class="grid-x">
           <div class="cell small-12">
             <nav>
-              {{ partial "chef-sh/footer" . }}
+              {{ partial "footer" . }}
             </nav>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script src="{{ "js/scripts-all.js" | relURL }}"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-  <script type="text/javascript">
-    docsearch({
-      apiKey: '3f16191e15b2b4a4b0823c9f856e2de2',
-      indexName: 'chef_sh',
-      inputSelector: '#doc-search',
-      debug: false // Set debug to true if you want to inspect the dropdown
-    });
-  </script>
-    
-  <script src="/tocbot.js"></script>
-  <!-- tocbot options: https://tscanlin.github.io/tocbot/#options -->
-  <script type="text/javascript">
-  tocbot.init({
-  // Where to render the table of contents.
-  tocSelector: '.js-toc',
-  // Where to grab the headings to build the table of contents.
-  contentSelector: '.js-toc-content',
-  // Which headings to grab inside of the contentSelector element.
-  headingSelector: 'h1, h2, h3, h4',
-  orderedList: false,
-  fixedSidebarOffset: 'auto',
-  collapseDepth: 3,
-  });
-  </script>
+  {{ partial "javascript" . }}
 </body>
 </html>
