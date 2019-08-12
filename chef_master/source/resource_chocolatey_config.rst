@@ -9,6 +9,7 @@ Use the **chocolatey_config** resource to add or remove Chocolatey configuration
 
 Syntax
 =====================================================
+
 The chocolatey_config resource has the following syntax:
 
 .. code-block:: ruby
@@ -95,6 +96,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

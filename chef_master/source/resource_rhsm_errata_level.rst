@@ -11,6 +11,7 @@ The available errata levels are: ``critical``, ``moderate``, ``important``, and 
 
 Syntax
 =====================================================
+
 The rhsm_errata_level resource has the following syntax:
 
 .. code-block:: ruby

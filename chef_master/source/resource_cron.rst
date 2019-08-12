@@ -79,7 +79,7 @@ The cron resource has the following actions:
 
    .. end_tag
 
-.. note:: Chef can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
+.. note:: Chef Infra Client can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
 
   .. code-block:: ruby
 
@@ -218,6 +218,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

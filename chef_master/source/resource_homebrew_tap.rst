@@ -9,6 +9,7 @@ Use the **homebrew_tap** resource to add additional formula repositories to the 
 
 Syntax
 =====================================================
+
 The homebrew_tap resource has the following syntax:
 
 .. code-block:: ruby
@@ -113,6 +114,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

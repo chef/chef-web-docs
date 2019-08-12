@@ -9,6 +9,7 @@ Use the **openssl_x509_crl** resource to generate PEM-formatted x509 certificate
 
 Syntax
 =====================================================
+
 The openssl_x509_crl resource has the following syntax:
 
 .. code-block:: ruby

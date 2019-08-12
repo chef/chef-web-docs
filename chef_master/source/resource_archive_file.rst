@@ -9,6 +9,7 @@ Use the **archive_file** resource to extract archive files to disk. This resourc
 
 Syntax
 =====================================================
+
 The archive_file resource has the following syntax:
 
 .. code-block:: ruby
@@ -122,6 +123,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

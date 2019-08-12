@@ -9,6 +9,7 @@ Use the **cron_access** resource to manage the /etc/cron.allow and /etc/cron.den
 
 Syntax
 =====================================================
+
 The cron_access resource has the following syntax:
 
 .. code-block:: ruby
@@ -52,7 +53,7 @@ The cron_access resource has the following properties:
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property to set the user name if it differs from the resource block's name.
-   
+
 Common Resource Functionality
 =====================================================
 
@@ -89,6 +90,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -201,7 +203,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
+==========================================
 
 The following examples demonstrate various approaches for using resources in recipes:
 

@@ -9,6 +9,7 @@ Use the **windows_printer_port** resource to create and delete TCP/IPv4 printer 
 
 Syntax
 =====================================================
+
 The windows_printer_port resource has the following syntax:
 
 .. code-block:: ruby

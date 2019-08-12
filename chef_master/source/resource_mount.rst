@@ -7,6 +7,7 @@ Use the **mount** resource to manage a mounted file system.
 
 Syntax
 =====================================================
+
 The mount resource has the following syntax:
 
 .. code-block:: ruby
@@ -82,7 +83,6 @@ The mount resource has the following properties:
 
    The type of device: :device, :label, or :uuid
 
-
 ``domain``
    **Ruby Type:** String
 
@@ -103,7 +103,6 @@ The mount resource has the following properties:
 
    Solaris only: The fsck device.
 
-
 ``fstype``
    **Ruby Type:** String | **Default Value:** ``"auto"``
 
@@ -113,7 +112,6 @@ The mount resource has the following properties:
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The directory (or path) in which the device is to be mounted. Defaults to the name of the resource block if not provided.
-
 
 ``options``
    **Ruby Type:** Array, String | **Default Value:** ``["defaults"]``
@@ -289,7 +287,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
+==========================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Mount a labeled file system**

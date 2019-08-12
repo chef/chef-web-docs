@@ -89,7 +89,7 @@ SSL_CERT_FILE
 
 Use the ``SSL_CERT_FILE`` environment variable to specify the location for the SSL certificate authority (CA) bundle that is used by Chef Infra Client.
 
-A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef will look for SSL certificates are:
+A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef Infra will look for SSL certificates are:
 
 * Chef Infra Client: ``/opt/chef/embedded/ssl/certs/cacert.pem``
 * ChefDK: ``/opt/chefdk/embedded/ssl/certs/cacert.pem``
