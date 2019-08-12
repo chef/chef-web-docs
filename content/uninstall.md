@@ -10,7 +10,7 @@ aliases = "/uninstall.html"
     title = "Uninstall"
     identifier = "chef_infra/getting_started/uninstall.html Uninstall"
     parent = "chef_infra/getting_started"
-    weight = 100
+    weight = 90
 +++    
 
 [\[edit on

@@ -16,7 +16,7 @@ aliases = "/chef_system_requirements.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_system_requirements.rst)
 
-Before installing Chef:
+Before installing Chef Infra:
 
 -   Ensure that each machine that will be a node is running a [supported
     platform](/platforms/)

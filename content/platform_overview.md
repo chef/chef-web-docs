@@ -18,15 +18,15 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/p
 
 Chef is an automation company. Ever since it was founded in 2008, we've
 been bringing together developers and system administrators with our
-namesake product, Chef. Over the years, what we mean by automation has
-expanded. Today, Chef has a complete automation solution for both
+namesake product, Chef Infra. Over the years, what we mean by automation
+has expanded. Today, Chef has a complete automation solution for both
 infrastructure and applications that takes you all the way from
 development to production. Here's the complete Chef solution.
 
 <img src="/images/automate_architecture.svg" class="align-center" width="500" alt="image" />
 
-Chef
-====
+Chef Infra
+==========
 
 {{% chef %}}
 

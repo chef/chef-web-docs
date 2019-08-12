@@ -10,7 +10,7 @@ aliases = "/glossary.html"
     title = "Glossary"
     identifier = "chef_infra/getting_started/glossary.html Glossary"
     parent = "chef_infra/getting_started"
-    weight = 90
+    weight = 80
 +++    
 
 [\[edit on
