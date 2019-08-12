@@ -16,9 +16,10 @@ aliases = "/quick_start.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/quick_start.rst)
 
-For the quickest way to get started using Chef:
+For the quickest way to get started using Chef Infra:
 
-1.  Install ChefDK: <https://downloads.chef.io/chefdk/>.
+1.  Install Chef Workstation:
+    <https://downloads.chef.io/chef-workstation/>.
 
 2.  Generate a cookbook:
 
@@ -35,7 +36,7 @@ For the quickest way to get started using Chef:
 
     ``` ruby
     file "#{ENV['HOME']}/test.txt" do
-      content 'This file was created by Chef!'
+      content 'This file was created by Chef Infra!'
     end
     ```
 
@@ -49,18 +50,19 @@ This will create a file named `test.txt` at the home path on your
 machine. Open that file and it will say
 `This file was created by Chef!`.
 
--   Delete the file, run Chef Infra Client again, and Chef will put the
-    file back.
+-   Delete the file, run Chef Infra Client again, and Chef Infra will
+    put the file back.
 -   Change the string in the file, run Chef Infra Client again, and Chef
-    will make the string in the file the same as the string in the
+    Infra will make the string in the file the same as the string in the
     recipe.
 -   Change the string in the recipe, run Chef Infra Client again, and
-    Chef will update that string to be the same as the one in the
+    Chef Infra will update that string to be the same as the one in the
     recipe.
 
-There's a lot more that Chef can do, obviously, but that was super easy!
+There's a lot more that Chef Infra can do, obviously, but that was super
+easy!
 
 -   See <https://learn.chef.io/> for more detailed setup scenarios.
 -   Keep reading for more information about setting up a workstation,
-    configuring Kitchen to run virtual environments, setting up a more
-    detailed cookbook, resources, and more.
+    configuring Test Kitchen to run virtual environments, setting up a
+    more detailed cookbook, resources, and more.

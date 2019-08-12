@@ -70,7 +70,7 @@ properties_list:
   - property:
     ruby_type:
     default_value:
-    description: 
+    description:
     new_in:
 
 ## Multiple Packages in Properties section from, for example, dnf_package resource

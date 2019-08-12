@@ -8,9 +8,9 @@ aliases = "/environment_variables.html"
 [menu]
   [menu.docs]
     title = "Environment Variables"
-    identifier = "chef_infra/getting_started/environment_variables.html Environment Variables"
-    parent = "chef_infra/getting_started"
-    weight = 80
+    identifier = "chef_infra/concepts/environment_variables.html Environment Variables"
+    parent = "chef_infra/concepts"
+    weight = 130
 +++    
 
 [\[edit on

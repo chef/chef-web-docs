@@ -102,8 +102,8 @@ versions for Chef Infra Client:
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code>, <code>s390x</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only)</td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>x86_64</code>, <code>s390x</code>(6.x and 7.x only), <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only)</td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="odd">
 <td>Solaris</td>
@@ -113,11 +113,11 @@ versions for Chef Infra Client:
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code>, <code>s390x</code>, <code>ppc64le</code>, <code>ppc64</code></td>
-<td><code>11 SP4</code>, <code>12 SP1+</code>, <code>15</code></td>
+<td><code>12 SP1+</code>, <code>15</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu (LTS releases)</td>
-<td><code>i386</code>, <code>x86_64</code></td>
+<td><code>x86_64</code></td>
 <td><code>16.04</code>, <code>18.04</code></td>
 </tr>
 <tr class="even">
@@ -269,7 +269,7 @@ versions for Chef InSpec:
 <tr class="odd">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>11 SP4</code>, <code>12 SP1+</code>, <code>15</code></td>
+<td><code>12 SP1+</code>, <code>15</code></td>
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
@@ -279,7 +279,7 @@ versions for Chef InSpec:
 <tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>x86_64</code></td>
-<td><code>7</code>, <code>8.1</code>, <code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code></td>
+<td><code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019</code></td>
 </tr>
 </tbody>
 </table>
@@ -328,7 +328,7 @@ versions for ChefDK:
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>11 SP4</code>, <code>12 SP1+</code></td>
+<td><code>12 SP1+</code>, <code>15</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu</td>
@@ -338,7 +338,7 @@ versions for ChefDK:
 <tr class="even">
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>7</code>, <code>8.1</code>, <code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
+<td><code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
 </tr>
 </tbody>
 </table>
@@ -362,6 +362,11 @@ The following platforms are supported only via the community:
 </thead>
 <tbody>
 <tr class="odd">
+<td>openSUSE</td>
+<td></td>
+<td><code>42.x</code></td>
+</tr>
+<tr class="even">
 <td>Scientific Linux</td>
 <td><code>x86_64</code></td>
 <td><code>6.x</code>, <code>7.x</code></td>
@@ -426,7 +431,7 @@ versions within the Chef Automate cluster.
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>11 SP4</code>, <code>12 SP2</code></td>
+<td><code>12 SP2</code></td>
 </tr>
 <tr class="odd">
 <td>Ubuntu</td>

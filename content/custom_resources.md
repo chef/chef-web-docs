@@ -329,6 +329,23 @@ where
 -   `variables` assigns the `instance_name` and `port` properties to
     variables in the template
 
+<div class="note" markdown="1">
+
+<div class="admonition-title" markdown="1">
+
+Note
+
+</div>
+
+When writing a shared custom resource, you may need to use templates
+that ship with the custom resource. However, you will need to specify
+the cookbook containing the template by using the cookbook property in
+the template resource. If this is not set, then Chef Infra Client will
+look for templates in the location of the cookbook that is using the
+resource and won't be able to find them. Example: `cookbook 'website'`
+
+</div>
+
 ### directory
 
 Use the **directory** resource to create the `/var/www/vhosts` directory
