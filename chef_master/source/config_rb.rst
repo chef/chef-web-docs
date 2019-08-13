@@ -49,7 +49,7 @@ This configuration file has the following settings:
    A directory that contains additional configuration scripts to load for Chef Infra Client.
 
 ``client_key``
-   The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``. For example:
+   Warning: This config item should always be specified as an absolute path. The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``. For example:
 
    .. code-block:: ruby
 
