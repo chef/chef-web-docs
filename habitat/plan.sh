@@ -8,11 +8,11 @@ pkg_upstream_url="https://docs.chef.io"
 pkg_build_deps=(
   core/hugo
   core/make
-  core/git
+  core/node
 )
 
 do_build() {
-  make themes/chef
+  make assets
   $(pkg_path_for core/hugo)/bin/hugo
 }
 

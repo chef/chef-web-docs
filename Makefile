@@ -2,19 +2,17 @@
 # so we have to override the default shell here
 SHELL=bash
 
-themes/chef:
-	# git clone https://${GITHUB_TOKEN}@github.com/chef/chef-hugo-theme.git themes/chef
-	git clone --branch im/chef-web-docs https://${GITHUB_TOKEN}@github.com/chef/chef-hugo-theme.git themes/chef
+assets:
+	pushd themes/docs-new && make assets && popd
 
 clean:
-	rm -rf site/themes/chef
+	pushd themes/docs-new && make clean && popd
 
-sync: themes/chef
-	# pushd themes/chef && git fetch && git reset --hard origin/master && popd
-	pushd themes/chef && git fetch && git reset --hard origin/im/chef-web-docs && popd
+clean_all:
+	pushd themes/docs-new && make clean_all && popd
 
-serve: sync
+serve: assets
 	hugo server --buildDrafts --noHTTPCache
 
-lint: themes/chef
+lint:
 	hugo -D

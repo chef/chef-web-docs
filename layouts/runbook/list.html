@@ -1,37 +1,37 @@
 <!doctype html>
 <html lang="en">
-{{ partial "docs/head" . }}
+{{ partial "head" . }}
 <body>
   <div class="off-canvas-wrapper has-sidebar">
     <div class="off-canvas-content" data-off-canvas-content>
       <div class="cell small-12">
-        {{ partial "chef-sh/utility-bar" . }}
+        {{ partial "utility-bar" . }}
       </div>
       <div id="menu" class="cell small-12" data-sticky-container>
-        {{ partial "docs/header" . }}
+        {{ partial "header" . }}
       </div>
       <div id="main-content" class="cell small-12" data-sticky-container>
         <div class="grid-container">
           <div class="grid-x">
             <div class="cell medium-3 col-sidebar">
-              {{ partial "docs/sidebar" . }}
+              {{ partial "sidebar" . }}
             </div>
-            
+
             <div class="toc">
               <div id="mini-toc">
                 <span><strong><h4>Table Of Contents</h4></strong></span>
                 <div class="js-toc"></div>
               </div>
             </div>
-            
+
             <div id="main-content-col" class="cell medium-9 col-content">
               <div class="js-toc-content">
               <h1 id="resources-reference">Runbook</h1>
-                
+
                 {{ partial "chef_server.html" . }}
 
                 {{ partial "chef_server_component_erchef_background.html" . }}
-                
+
                 <p>
                   The following diagram shows the various components that are part of a
                   Chef Infra Server deployment and how they relate to one another.
@@ -95,7 +95,7 @@
                 <hr>
                   {{ .Content }}
                 {{ end }}
-              </div>  
+              </div>
             </div>
           </div>
         </div>
@@ -104,38 +104,13 @@
         <div class="grid-x">
           <div class="cell small-12">
             <nav>
-              {{ partial "chef-sh/footer" . }}
+              {{ partial "footer" . }}
             </nav>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <script src="{{ "js/scripts-all.js" | relURL }}"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
-  <script type="text/javascript">
-    docsearch({
-      apiKey: '3f16191e15b2b4a4b0823c9f856e2de2',
-      indexName: 'chef_sh',
-      inputSelector: '#doc-search',
-      debug: false // Set debug to true if you want to inspect the dropdown
-    });
-  </script>
-    
-  <script src="/tocbot.js"></script>
-  <!-- tocbot options: https://tscanlin.github.io/tocbot/#options -->
-  <script type="text/javascript">
-  tocbot.init({
-  // Where to render the table of contents.
-  tocSelector: '.js-toc',
-  // Where to grab the headings to build the table of contents.
-  contentSelector: '.js-toc-content',
-  // Which headings to grab inside of the contentSelector element.
-  headingSelector: 'h1, h2, h3, h4',
-  orderedList: false,
-  fixedSidebarOffset: 'auto',
-  collapseDepth: 3,
-  });
-  </script>
+  {{ partial "javascript" . }}
 </body>
 </html>

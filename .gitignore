@@ -5,6 +5,7 @@
 *.pickle
 
 public/
+/resources/
 
 **/.sass-cache
 **/.sass-cache/*
@@ -21,4 +22,8 @@ public/
 *~
 TAGS
 
-themes/
+results/
+
+node_modules
+vendor
+

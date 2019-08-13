@@ -1,12 +1,7 @@
 baseURL = "/"
 languageCode = "en-us"
 title = "Chef Web Docs"
-theme = "chef"
-
-# To develop against a local copy of the chef hugo theme, uncomment this line
-# and set the value to the parent directory of where you have checked out the
-# chef-hugo-theme repository
-# themesDir = "../../../hugo-themes/chef/"
+theme = "docs-new"
 
 PygmentsCodeFences = true
 pygmentsUseClasses = true
@@ -17,7 +12,7 @@ pygmentsUseClasses = true
 [taxonomies]
   category = "categories"
   tag = "tags"
-  resource = "resources"  
+  resource = "resources"
 
 ## Main Menu ##
 
