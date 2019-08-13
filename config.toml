@@ -6,6 +6,8 @@ theme = "docs-new"
 PygmentsCodeFences = true
 pygmentsUseClasses = true
 
+enableGitInfo = true
+
 [params]
   enable_search = true
 
