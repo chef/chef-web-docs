@@ -131,7 +131,7 @@ Omnitruck accepts the following platforms:
 <td>Red Hat Enterprise Linux / CentOS</td>
 <td><code>el</code></td>
 <td><code>x86_64</code></td>
-<td><code>5</code>, <code>6</code>, <code>7</code></td>
+<td><code>5</code>, <code>6</code>, <code>7</code>, <code>8</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -143,7 +143,7 @@ Omnitruck accepts the following platforms:
 <td>FreeBSD</td>
 <td><code>freebsd</code></td>
 <td><code>x86_64</code></td>
-<td><code>9</code>, <code>10</code>, <code>11</code></td>
+<td><code>9</code>, <code>10</code>, <code>11</code>, <code>12</code></td>
 </tr>
 <tr class="even">
 <td></td>

@@ -77,7 +77,7 @@ properties_list:
 properties_multiple_packages: false
 
 ## Recursive Directories from remote_directory resource and directory resource
-resource_directory_recursive_directory: false
+resource_directory_recursive_directories: false
 
 ## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
 resources_common_atomic_update: false 

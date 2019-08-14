@@ -30,6 +30,9 @@
                 {{ $SyntaxID := newScratch }}
                 {{ $SyntaxID.Set "Value" 0 }}
 
+                {{ $NamelessID := newScratch }}
+                {{ $NamelessID.Set "Value" 0 }}
+
                 {{ $ActionsID := newScratch }}
                 {{ $ActionsID.Set "Value" 0 }}
 
@@ -41,6 +44,15 @@
 
                 {{ $resources_common_windows_securityID := newScratch }}
                 {{ $resources_common_windows_securityID.Set "Value" 0 }}
+
+                {{ $remote_file_prevent_re_downloadsID := newScratch }}
+                {{ $remote_file_prevent_re_downloadsID.Set "Value" 0 }}
+
+                {{ $remote_file_unc_pathID := newScratch }}
+                {{ $remote_file_unc_pathID.Set "Value" 0 }}
+
+                {{ $ps_credential_helperID := newScratch }}
+                {{ $ps_credential_helperID.Set "Value" 0 }}
 
                 {{ $FunctionalityID := newScratch }}
                 {{ $FunctionalityID.Set "Value" 0 }}
@@ -56,6 +68,18 @@
 
                 {{ $common_resource_functionality_multiple_packagesID := newScratch }}
                 {{ $common_resource_functionality_multiple_packagesID.Set "Value" 0 }}
+
+                {{ $resources_common_guard_interpreterID := newScratch }}
+                {{ $resources_common_guard_interpreterID.Set "Value" 0 }}
+
+                {{ $resource_directory_recursive_directoriesID := newScratch }}
+                {{ $resource_directory_recursive_directoriesID.Set "Value" 0 }}
+
+                {{ $remote_directory_recursive_directoriesID := newScratch }}
+                {{ $remote_directory_recursive_directoriesID.Set "Value" 0 }}
+
+                {{ $remote_directory_recursive_directories_exampleID := newScratch }}
+                {{ $remote_directory_recursive_directories_exampleID.Set "Value" 0 }}
 
                 {{ $ExamplesID := newScratch }}
                 {{ $ExamplesID.Set "Value" 0 }}
@@ -277,6 +301,8 @@
                 {{ end }}
 
                 {{ if .Params.resource_directory_recursive_directories }}
+                  {{ $resource_directory_recursive_directoriesID.Add "Value" 1 }}
+                  <h3 id="resource_directory_recursive_directories-{{ $resource_directory_recursive_directoriesID.Get "Value" }}">Recursive Directories</h3>
                   {{ partial "resource_directory_recursive_directories.html" . }}
                 {{ end }}
 
@@ -303,14 +329,22 @@
                 {{ end }}
 
                 {{ if .Params.remote_file_prevent_re_downloads }}
+
+                  {{ $remote_file_prevent_re_downloadsID.Add "Value" 1 }}
+                  <h3 id="prevent-re-downloads-{{ $remote_file_prevent_re_downloadsID.Get "Value" }}">Prevent Re-downloads</h3>
                   {{ partial "remote_file_prevent_re_downloads.html" . }}
+
                 {{ end }}
 
                 {{ if .Params.remote_file_unc_path }}
+                  {{ $remote_file_unc_pathID.Add "Value" 1 }}
+                  <h3 id="access-a-remote-unc-path-on-windows-{{ $remote_file_unc_pathID.Get "Value" }} ">Access a remote UNC path on Windows</h3>
                   {{ partial "remote_file_unc_path.html" . }}
                 {{ end }}
 
                 {{ if .Params.ps_credential_helper }}
+                  {{ $ps_credential_helperID.Add "Value" 1 }}
+                  <h3 id="ps_credential-helper-{{ $ps_credential_helperID.Get "Value" }}">ps_credential Helper</h3>
                   {{ partial "ps_credential_helper.html" .}}
                 {{ end }}
 
@@ -333,7 +367,7 @@
                   <h3 id="chef_shell_modes">Modes</h3>
                   {{ partial "chef_shell_modes.html" . }}
 
-                  <h3 id="debug_recipes_config">Config</h3>
+                  <h3 id="debug_recipes_config">Configure</h3>
                   {{ partial "chef_shell_config.html" . }}
 
                   <h4 id="chef_shell_config_rb">chef-shell.rb</h4>
@@ -455,7 +489,7 @@
                   {{ $resources_common_guardsID.Add "Value" 1 }}
                   <h3 id = "guards-{{$resources_common_guardsID.Get "Value"}}">Guards</h3>
 
-                  {{ partial "resources_common_guards" . }}
+                  {{ partial "resources_common_guards.html" . }}
                   <strong>Properties</strong>
                   {{ partial "resources_common_guards_properties.html" . }}
 
@@ -470,7 +504,8 @@
                 {{ end }}
 
                 {{ if .Params.resources_common_guard_interpreter }}
-                  <h3 id="guard-interpreter">Guard Interpreter</h3>
+                  {{ $resources_common_guard_interpreterID.Add "Value" 1 }}
+                  <h3 id="guard-interpreter-{{ $resources_common_guard_interpreterID.Get "Value" }}">Guard Interpreter</h3>
 
                   {{ partial "resources_common_guard_interpreter.html" . }}
                   <strong>Attributes</strong>
@@ -483,7 +518,15 @@
                 {{ end }}
 
                 {{ if .Params.remote_directory_recursive_directories }}
+
+                  {{ $remote_directory_recursive_directoriesID.Add "Value" 1 }}
+                  {{ $remote_directory_recursive_directories_exampleID.Add "Value" 1 }}
+
+                  <h3 id="recursive-directories-{{ $remote_directory_recursive_directoriesID.Get "Value" }} ">Recursive Directories</h3>
                   {{ partial "remote_directory_recursive_directories.html" . }}
+                  <h4 id="recursive_directories_example-{{ $remote_directory_recursive_directories_exampleID.Get "Value" }}">Example</h4>
+                  {{ partial "remote_directory_recursive_directories_example.html" . }}
+
                 {{ end }}
 
                 {{ if .Params.common_resource_functionality_resources_common_windows_security }}
@@ -512,11 +555,9 @@
                   {{ partial "handler_custom_interface_report.html" . }}
 
                   <h3 id="handler_custom_optional_interfaces">Optional Interfaces</h3>
-                  <p>
-                    The following interfaces may be used in a handler in the same way as the <code>report</code> interface to override the default handler behavior in Chef Infra Client. That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
-                  </p>
+                  {{ partial "handler_custom_optional_interfaces.html" . }}
 
-                  <h4 id="handler_custom_interface_data">Data</h4>
+                  <h4 id="handler_custom_interface_data">data</h4>
                   {{ partial "handler_custom_interface_data.html" . }}
 
                   <h4 id="handler_custom_interface_run_report_safely">run_report_safely</h4>
