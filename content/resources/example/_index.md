@@ -130,7 +130,7 @@ properties_list:
 properties_multiple_packages: true
 
 ## Recursive Directories from remote_directory resource and directory resource
-resource_directory_recursive_directory: true
+resource_directory_recursive_directories: true
 
 ## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
 resources_common_atomic_update: true 
