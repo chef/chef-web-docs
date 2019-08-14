@@ -7,6 +7,7 @@ pkg_description="HTML for docs.chef.io"
 pkg_upstream_url="https://docs.chef.io"
 pkg_build_deps=(
   core/hugo
+  core/git
   core/make
   core/node
 )
