@@ -12,6 +12,10 @@ Microsoft Azure is a cloud hosting platform from Microsoft that provides virtual
 Virtual Machines running Chef Infra Client
 =====================================================
 
+.. warning:: When the Chef VM extension is provisioned as part of a scale operation for a VM Scale Set, we suggest not using the Chef Infra Client extension. Instead pre-install Chef Infra Client onto the VM and/or use an image-based deployment process, such as `Packer <https://docs.microsoft.com/en-us/azure/virtual-machines/windows/build-image-with-packer>`_, to create the base VM disk image.
+
+  The Microsoft VM agent on the machine executes all installations in parallel and these extensions can call 'locking' installation mechanisms such as Windows Installer (via installation of an MSI) or Apt updates. A timeout can occur if the total time for all of these activities exceeds 5 minutes and in some regions that is not enough time to get the Chef Infra Client package and enable the Chef Infra Client extension.
+
 Through the Azure portal, you can provision a virtual machine with Chef Infra Client running as a background service. Once provisioned, these virtual machines are ready to be managed by a Chef Infra Server.
 
 .. note:: Virtual machines running on Microsoft Azure can also be provisioned from the command-line using the ``knife azure`` plugin for knife. This approach is ideal for cases that require automation or for users who are more suited to command-line interfaces.

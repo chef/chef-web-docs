@@ -108,7 +108,6 @@ The execute resource has the following properties:
 
    The current working directory from which the command will be run.
 
-
 ``default_env``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
@@ -172,7 +171,7 @@ The execute resource has the following properties:
 ``user``
    **Ruby Type:** String, Integer
 
-   The user name of the user identity with which to launch the new process. The user name may optionally be specifed with a domain, i.e. domainuser or user@my.dns.domain.com via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the domain attribute. On Windows only, if this property is specified, the password property must be specified.
+   The user name of the user identity with which to launch the new process. The user name may optionally be specifed with a domain, i.e. domainuser or user@my.dns.domain.com via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the domain property. On Windows only, if this property is specified, the password property must be specified.
 
 Common Resource Functionality
 =====================================================
@@ -210,6 +209,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -306,6 +306,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

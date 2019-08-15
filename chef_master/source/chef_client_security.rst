@@ -72,26 +72,6 @@ This is by design and will occur until a verifiable certificate is added to the 
 
 .. end_tag
 
-Changes Prior to Chef Client 12
-----------------------------------------------------
-The following changes were made during certain Chef Client release prior to the Chef Client 12 release:
-
-* In the Chef Client 11.8 release, the ``verify_api_cert`` setting was added to the client.rb file with a default value of ``false``.
-* In the Chef Client 11.12 release, the ``local_key_generation`` setting was added to the client.rb file.
-
-  The ``ssl_verify_mode`` continued to default to ``:verify_none``, but now returned a warning: ``SSL validation of HTTPS requests is disabled...``, followed by steps for how to configure SSL certificate validation for the Chef Client.
-
-  Two knife commands---``knife ssl check`` and ``knife ssl fetch`` were added.
-
-  A new directory in the chef-repo---``/.chef/trusted_certs``---was added.
-
-  These new settings and tools enabled users who wanted to use stronger SSL settings to generate the private/public key pair from the Chef Client, verify HTTPS requests, verify SSL certificates, and pull the SSL certificate from the Chef Infra Server down to the ``/.chef/trusted_certs`` directory.
-* In the Chef Client 12 release, the default value for ``local_key_generation`` was changed to ``true`` and the default value for ``ssl_verify_mode`` was changed to ``:verify_peer``.
-
-Starting with Chef Client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary `part of the setup process </install_dk.html#get-ssl-certificates>`__ for every workstation.
-
-
-
 ``/.chef/trusted_certs``
 -----------------------------------------------------
 .. tag chef_repo_directory_trusted_certs
@@ -109,7 +89,7 @@ SSL_CERT_FILE
 
 Use the ``SSL_CERT_FILE`` environment variable to specify the location for the SSL certificate authority (CA) bundle that is used by Chef Infra Client.
 
-A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef will look for SSL certificates are:
+A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef Infra will look for SSL certificates are:
 
 * Chef Infra Client: ``/opt/chef/embedded/ssl/certs/cacert.pem``
 * ChefDK: ``/opt/chefdk/embedded/ssl/certs/cacert.pem``

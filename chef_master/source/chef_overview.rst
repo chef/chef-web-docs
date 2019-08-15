@@ -5,9 +5,9 @@ An Overview of Chef Infra
 
 .. tag chef
 
-Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef Infra automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
-This diagram shows how you develop, test, and deploy your Chef code.
+This diagram shows how you develop, test, and deploy your Chef Infra code.
 
 .. image:: ../../images/start_chef.svg
    :width: 700px
@@ -274,7 +274,7 @@ Cookbooks are comprised of the following components:
        A recipe is the most fundamental configuration element within the organization. A recipe:
 
        * Is authored using Ruby, which is a programming language designed to read and behave in a predictable manner
-       * Is mostly a collection of resources, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
+       * Is mostly a collection of `resources </resources.html>`__, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
        * Must define everything that is required to configure part of a system
        * Must be stored in a cookbook
        * May be included in another recipe

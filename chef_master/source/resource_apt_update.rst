@@ -11,7 +11,8 @@ Use the **apt_update** resource to manage APT repository updates on Debian and U
 
 Syntax
 =====================================================
-An **apt_update** resource block defines the update frequency for APT repositories:
+
+The apt_update resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -26,8 +27,6 @@ where:
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``frequency`` is the property available to this resource.
-
-
 
 Nameless
 =====================================================
@@ -61,8 +60,6 @@ The apt_update resource has the following actions:
 ``:update``
    Update the Apt repository at the start of a Chef Infra Client run.
 
-
-
 Properties
 =====================================================
 
@@ -72,8 +69,6 @@ The apt_update resource has the following properties:
    **Ruby Type:** Integer | **Default Value:** ``86400``
 
    Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified.
-
-
 
 Common Resource Functionality
 =====================================================
@@ -111,6 +106,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -207,6 +203,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

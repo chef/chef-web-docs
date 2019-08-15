@@ -59,7 +59,7 @@ where:
 * ``powershell_script`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run.
-* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 .. end_tag
@@ -329,6 +329,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

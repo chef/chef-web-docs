@@ -15,6 +15,7 @@ This resource was previously called the **env** resource; its name was updated i
 
 Syntax
 =====================================================
+
 The windows_env resource has the following syntax:
 
 .. code-block:: ruby
@@ -36,6 +37,7 @@ where:
 
 Actions
 =====================================================
+
 The windows_env resource has the following actions:
 
 ``:create``
@@ -202,6 +204,7 @@ The syntax for ``subscribes`` is:
 
 Guards
 -----------------------------------------------------
+
 .. tag resources_common_guards
 
 A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
@@ -213,9 +216,9 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
-**Attributes**
+**Properties**
 
-.. tag resources_common_guards_attributes
+.. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 

@@ -9,6 +9,7 @@ Use the **build_essential** resource to install the packages required for compil
 
 Syntax
 =====================================================
+
 The build_essential resource has the following syntax:
 
 .. code-block:: ruby
@@ -49,7 +50,7 @@ The build_essential resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Install the build essential packages at compile time.
-   
+
 Common Resource Functionality
 =====================================================
 
@@ -86,6 +87,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -182,6 +184,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

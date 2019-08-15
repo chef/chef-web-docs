@@ -9,14 +9,14 @@ Use the **chocolatey_feature** resource to enable and disable Chocolatey feature
 
 Syntax
 =====================================================
+
 The chocolatey_feature resource has the following syntax:
 
 .. code-block:: ruby
 
   chocolatey_feature 'name' do
-    feature_name       String # default value: 'name' unless specified
-    feature_state      true, false # default value: false
-    action             Symbol # defaults to :enable if not specified
+    feature_name      String # default value: 'name' unless specified
+    action            Symbol # defaults to :enable if not specified
   end
 
 where:
@@ -24,7 +24,7 @@ where:
 * ``chocolatey_feature`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``feature_name`` and ``feature_state`` are the properties available to this resource.
+* ``feature_name`` is the property available to this resource.
 
 Actions
 =====================================================
@@ -90,6 +90,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -186,6 +187,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

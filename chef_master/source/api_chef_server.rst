@@ -354,8 +354,6 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``GET`` method is used to get a list of organizations on the Chef Infra Server.
 
-This method has no parameters.
-
 **Request**
 
 .. code-block:: none
@@ -634,7 +632,20 @@ GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``GET`` method is used to get a list of users on the Chef Infra Server.
 
-This method has no parameters.
+This method has the following parameters:
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Parameter
+     - Description
+   * - ``email=jane@chef.com``
+     - Filter the users returned based on their email id.
+   * - ``external_authentication_uid=jane@chef.com``
+     - Filter the users returned based on their external login id.
+   * - ``verbose=true``
+     - Returns a user list with "email", "first_name", "last_name" fields.  If this flag is set the email and external_authentication_uid parameters are ignored and the response format is an array instead of a hash.
 
 **Request**
 
@@ -651,6 +662,15 @@ The response is similar to:
    {
      "user1": "https://url/for/user1",
      "user2": "https://url/for/user2"
+   }
+
+The verbose response is similar to:
+
+.. code-block:: none
+
+   {
+     "janechef": { "email": "jane.chef@user.com", "first_name": "jane", "last_name": "chef_user" },
+     "yaelsmith": { "email": "yeal.chef@user.com", "first_name": "yeal", "last_name": "smith" }
    }
 
 **Response Codes**
@@ -703,7 +723,7 @@ with a request body similar to:
      "display_name": "robert",
      "email": "robert@noreply.com",
      "first_name": "robert",
-     "last_name": "robert",
+     "last_name": "forster",
      "middle_name": "",
      "password": "yeahpass",
      "public_key": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAoYyN0AIhUh7Fw1+gQtR+ \n0/HY3625IUlVheoUeUz3WnsTrUGSSS4fHvxUiCJlNni1sQvcJ0xC9Bw3iMz7YVFO\nWz5SeKmajqKEnNywN8/NByZhhlLdBxBX/UN04/7aHZMoZxrrjXGLcyjvXN3uxyCO\nyPY989pa68LJ9jXWyyfKjCYdztSFcRuwF7tWgqnlsc8pve/UaWamNOTXQnyrQ6Dp\ndn+1jiNbEJIdxiza7DJMH/9/i/mLIDEFCLRPQ3RqW4T8QrSbkyzPO/iwaHl9U196\n06Ajv1RNnfyHnBXIM+I5mxJRyJCyDFo/MACc5AgO6M0a7sJ/sdX+WccgcHEVbPAl\n1wIDAQAB \n-----END PUBLIC KEY-----\n\n"
@@ -712,8 +732,11 @@ with a request body similar to:
 
 where:
 
-* ``name`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
-* ``email``, ``name``, and ``password`` are all required to be present and have a value.
+* ``username`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
+* ``display_name`` is required to be present. 
+* ``email`` is required to be present and have a valid value. The email validation doesn't allow for all unicode characters.
+* ``username`` is required to be present and have a valid value. A valid username is a dot separated list of elements matching ``a-z0-9!#$%&'*+/=?^_`{|}~-``.
+* Either ``external_authentication_uid`` or ``password`` are required to be present and have a value.
 * During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Server versions.
 
 **Response**
@@ -722,7 +745,10 @@ The response is similar to:
 
 .. code-block:: javascript
 
-   { "user_name": "https://url/for/user_name" }
+   {
+     "uri": "https://url/for/robert-forster",
+     "private_key": "-----BEGIN RSA PRIVATE KEY-----..."
+   }
 
 **Response Codes**
 
@@ -732,16 +758,14 @@ The response is similar to:
 
    * - Response Code
      - Description
-   * - ``200``
-     - OK. The request was successful.
+   * - ``201``
+     - OK. The user was created.
    * - ``400``
      - Bad request. The contents of the request are not formatted correctly.
    * - ``401``
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``404``
-     -  Not found. The requested object does not exist.
    * - ``409``
      - Conflict. The object already exists.
    * - ``413``
@@ -749,7 +773,7 @@ The response is similar to:
 
 /users/NAME
 -----------------------------------------------------
-The ``/users/USER_NAME`` endpoint has the following methods: ``DELETE``, ``GET``, ``POST``, and ``PUT``.
+The ``/users/USER_NAME`` endpoint has the following methods: ``DELETE``, ``GET``, and ``PUT``.
 
 DELETE
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -770,7 +794,6 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "name": "Grant McLennan",
    }
 
 **Response Codes**
@@ -809,7 +832,15 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "name": "Robert Forster",
+     "username": "robert-forster",
+     "display_name": "robert",
+     "email": "robert@noreply.com",
+     "external_authentication_uid": "robert",
+     "full_name": "Robert Forster",
+     "first_name": "robert",
+     "last_name": "forster",
+     "middle_name": ""
+     "recovery_authentication_enabled": false
    }
 
 **Response Codes**
@@ -826,64 +857,8 @@ The response is similar to:
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
-
-POST
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create a new user. If a public key is not specified, both public and private keys will be generated and returned. If a public key is specified, only the public key will be returned.
-
-This method has no parameters.
-
-**Request**
-
-.. code-block:: none
-
-   POST /users/USER_NAME
-
-with a request body similar to:
-
-.. code-block:: javascript
-
-   {
-     "name": "Robert Forster"
-   }
-
-**Response**
-
-The response is similar to:
-
-.. code-block:: javascript
-
-   {
-     "name": "Robert Forster",
-     "private_key": "-----BEGIN PRIVATE KEY-----\n
-                   MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCyVPW9YXa5PR0rgEW1updSxygB\n
-                   wmVpDnHurgQ7/gbh+PmY49EZsfrZSbKgSKy+rxdsVoSoU+krYtHvYIwVfr2tk0FP\n
-                   nhAWJaFH654KpuCNG6x6iMLtzGO1Ma/VzHnFqoOeSCKHXDhmHwJAjGDTPAgCJQiI\n
-                   eau6cDNJRiJ7j0/xBwIDAQAB\n
-                   -----END PRIVATE KEY-----"
-     "admin": true
-   }
-
-**Response Codes**
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Response Code
-     - Description
-   * - ``201``
-     - Created. The object was created.
-   * - ``400``
-     - Bad request. The contents of the request are not formatted correctly.
-   * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
-   * - ``403``
-     - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``409``
-     - Conflict. The object already exists.
-   * - ``413``
-     - Request entity too large. A request may not be larger than 1000000 bytes.
+   * - ``404``
+     - Not found. The requested object does not exist.
 
 PUT
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

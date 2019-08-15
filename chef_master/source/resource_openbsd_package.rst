@@ -29,26 +29,25 @@ The full syntax for all of the properties that are available to the **openbsd_pa
 
 .. code-block:: ruby
 
-   openbsd_package 'name' do
-     options                    String
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  openbsd_package 'name' do
+    options           String
+    package_name      String
+    source            String
+    timeout           String, Integer
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``openbsd_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
+* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
+
 The openbsd_package resource has the following actions:
 
 ``:install``
@@ -64,8 +63,6 @@ The openbsd_package resource has the following actions:
 ``:remove``
    Remove a package.
 
-
-
 Properties
 =====================================================
 
@@ -79,61 +76,12 @@ The openbsd_package resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
-
-``subscribes``
-   **Ruby Type:** Symbol, 'Chef::Resource[String]'
-
-   .. tag resources_common_notification_subscribes
-
-   A resource may listen to another resource, and then take action if the state of the resource being listened to changes. Specify a ``'resource[name]'``, the ``:action`` to be taken, and then the ``:timer`` for that action.
-
-   Note that ``subscribes`` does not apply the specified action to the resource that it listens to - for example:
-
-   .. code-block:: ruby
-
-    file '/etc/nginx/ssl/example.crt' do
-      mode '0600'
-      owner 'root'
-    end
-
-    service 'nginx' do
-      subscribes :reload, 'file[/etc/nginx/ssl/example.crt]', :immediately
-    end
-
-   In this case the ``subscribes`` property reloads the ``nginx`` service whenever its certificate file, located under ``/etc/nginx/ssl/example.crt``, is updated. ``subscribes`` does not make any changes to the certificate file itself, it merely listens for a change to the file, and executes the ``:reload`` action for its resource (in this example ``nginx``) when a change is detected.
-
-   .. end_tag
-
-   .. tag resources_common_notification_timers
-
-   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
-
-   ``:before``
-      Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-   ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
-
-   ``:immediate``, ``:immediately``
-      Specifies that a notification should be run immediately, per resource notified.
-
-   .. end_tag
-
-   .. tag resources_common_notification_subscribes_syntax
-
-   The syntax for ``subscribes`` is:
-
-   .. code-block:: ruby
-
-      subscribes :action, 'resource[name]', :timer
-
-   .. end_tag
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer
@@ -279,6 +227,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -292,7 +242,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
+==========================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Install a package**

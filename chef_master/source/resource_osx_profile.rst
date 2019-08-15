@@ -11,6 +11,7 @@ Use the **osx_profile** resource to manage configuration profiles (``.mobileconf
 
 Syntax
 =====================================================
+
 The osx_profile resource has the following syntax:
 
 .. code-block:: ruby
@@ -75,8 +76,6 @@ The osx_profile resource has the following properties:
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    Use to specify the name of the profile, if different from the name of the resource block.
-
-
 
 Common Resource Functionality
 =====================================================
@@ -212,6 +211,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -224,9 +225,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 .. end_tag
 
-
 Examples
-=====================================================
+==========================================
 
 The following examples demonstrate various approaches for using resources in recipes:
 

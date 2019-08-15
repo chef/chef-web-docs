@@ -3,6 +3,9 @@ Manage Environments
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_environments.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. note:: This topic is about using the Chef management console to manage environments.
 
 .. tag chef_automate_mark

@@ -9,6 +9,7 @@ Use the **yum_repository** resource to manage a Yum repository configuration fil
 
 Syntax
 =====================================================
+
 The yum_repository resource has the following syntax:
 
 .. code-block:: ruby
@@ -80,6 +81,12 @@ The yum_repository resource has the following actions:
 :makecache
    Updates the yum cache.
 
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
@@ -442,6 +449,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

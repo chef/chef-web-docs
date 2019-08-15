@@ -9,6 +9,7 @@ Use the **kernel_module** resource to manage kernel modules on Linux systems. Th
 
 Syntax
 =====================================================
+
 The kernel_module resource has the following syntax:
 
 .. code-block:: ruby
@@ -34,6 +35,11 @@ The kernel_module resource has the following actions:
 
 ``:blacklist``
    Blacklist a kernel module.
+
+``:disable``
+   Disable a kernel module
+
+**New in Chef Client 15.2.**
 
 ``:install``
    Default. Load kernel module, and ensure it loads on reboot.
@@ -110,6 +116,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -206,6 +213,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

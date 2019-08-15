@@ -9,6 +9,7 @@ Use the **sudo** resource to add or remove individual sudo entries using ``sudoe
 
 Syntax
 =====================================================
+
 The sudo resource has the following syntax:
 
 .. code-block:: ruby
@@ -70,12 +71,10 @@ The sudo resource has the following properties:
 
    Command aliases that can be used as allowed commands later in the configuration.
 
-
 ``commands``
    **Ruby Type:** Array | **Default Value:** ``["ALL"]``
 
    An array of commands this sudoer can execute.
-
 
 ``config_prefix``
    **Ruby Type:** String | **Default Value:** ``Prefix values based on the node's platform``
@@ -122,7 +121,6 @@ The sudo resource has the following properties:
 
    Allow sudo to be run without specifying a password.
 
-
 ``runas``
    **Ruby Type:** String | **Default Value:** ``"ALL"``
 
@@ -132,7 +130,6 @@ The sudo resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Determines whether or not to permit preservation of the environment with ``sudo -E``.
-
 
 ``template``
    **Ruby Type:** String
@@ -287,6 +284,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

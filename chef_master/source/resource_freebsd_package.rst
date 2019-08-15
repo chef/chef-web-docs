@@ -29,14 +29,14 @@ The full syntax for all of the properties that are available to the **freebsd_pa
 
 .. code-block:: ruby
 
-   freebsd_package 'name' do
-     options                    String
-     package_name               String, Array
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  freebsd_package 'name' do
+    options           String
+    package_name      String
+    source            String
+    timeout           String, Integer
+    version           String
+    action            Symbol # defaults to :install if not specified
+  end
 
 where:
 
@@ -71,18 +71,17 @@ The freebsd_package resource has the following properties:
 ``options``
    **Ruby Type:** String
 
-   One (or more) additional options that are passed to the command.
+   One (or more) additional command options that are passed to the command.
 
 ``package_name``
-   **Ruby Type:** String, Array
+   **Ruby Type:** String
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
-
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer
@@ -90,7 +89,7 @@ The freebsd_package resource has the following properties:
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Type:** String, Array
+   **Ruby Type:** String
 
    The version of a package to be installed or upgraded.
 
@@ -130,6 +129,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -226,6 +226,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

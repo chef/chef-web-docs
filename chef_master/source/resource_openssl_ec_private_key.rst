@@ -9,6 +9,7 @@ Use the **openssl_ec_private_key** resource to generate an elliptic curve (EC) p
 
 Syntax
 =====================================================
+
 The openssl_ec_private_key resource has the following syntax:
 
 .. code-block:: ruby
@@ -81,7 +82,6 @@ The openssl_ec_private_key resource has the following properties:
    **Ruby Type:** Integer, String | **Default Value:** ``"0600"``
 
    The permission mode applied to all files created by the resource.
-
 
 ``owner``
    **Ruby Type:** String, Integer
@@ -226,6 +226,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

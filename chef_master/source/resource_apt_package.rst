@@ -29,17 +29,17 @@ The full syntax for all of the properties that are available to the **apt_packag
 
 .. code-block:: ruby
 
-   apt_package 'name' do
-     default_release            String
-     options                    String, Array
-     overwrite_config_files     true, false # default value: false
-     package_name               String, Array # defaults to 'name' if not specified
-     response_file              String
-     response_file_variables    Hash
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  apt_package 'name' do
+    default_release              String
+    options                      String, Array
+    overwrite_config_files       true, false # default value: false
+    package_name                 String, Array
+    response_file                String
+    response_file_variables      Hash
+    timeout                      String, Integer
+    version                      String, Array
+    action                       Symbol # defaults to :install if not specified
+  end
 
 where:
 
@@ -80,6 +80,13 @@ The apt_package resource has the following actions:
 
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
@@ -164,6 +171,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -260,6 +268,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

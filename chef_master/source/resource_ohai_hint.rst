@@ -9,6 +9,7 @@ Use the **ohai_hint** resource to aid in configuration detection by passing hint
 
 Syntax
 =====================================================
+
 The ohai_hint resource has the following syntax:
 
 .. code-block:: ruby
@@ -39,7 +40,11 @@ The ohai_hint resource has the following actions:
    Delete an Ohai hint file.
 
 ``:nothing``
-   Define this resource block to do nothing until notified by another resource to take action. When this resource is notified, the resource block is either run immediately or it is queued up to be run at the end of a Chef Infra Client run.
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
@@ -195,6 +200,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -208,7 +215,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
+==========================================
 
 **Create a hint file**
 

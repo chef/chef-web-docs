@@ -3,6 +3,9 @@ Deprecation: Deprecation of old shell_out APIs (CHEF-26)
 ===========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_shell_out.rst>`__
 
+.. meta::
+    :robots: noindex
+    
 The functionality of mutiple old `shell_out` APIs has been collapsed into the `shell_out` API itself, and the old methods
 have been deprecated.
 

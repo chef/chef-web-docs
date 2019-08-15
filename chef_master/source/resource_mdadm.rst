@@ -7,6 +7,7 @@ Use the **mdadm** resource to manage RAID devices in a Linux environment using t
 
 Syntax
 =====================================================
+
 The mdadm resource has the following syntax:
 
 .. code-block:: ruby
@@ -85,13 +86,10 @@ The mdadm resource has the following properties:
 
    The superblock type for RAID metadata.
 
-
 ``raid_device``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Optional property to specify the name of the RAID device if it differs from the resource block's name.
-
-
+   An optional property to specify the name of the RAID device if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
@@ -227,6 +225,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -240,7 +240,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
+==========================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Create and assemble a RAID 0 array**

@@ -9,6 +9,7 @@ Use the **rhsm_repo** resource to enable or disable Red Hat Subscription Manager
 
 Syntax
 =====================================================
+
 The rhsm_repo resource has the following syntax:
 
 .. code-block:: ruby
@@ -186,6 +187,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

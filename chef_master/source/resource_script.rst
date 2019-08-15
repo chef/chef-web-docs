@@ -104,7 +104,8 @@ The script resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following attributes:
+
+The script resource has the following properties:
 
 ``code``
    **Ruby Type:** String
@@ -119,7 +120,7 @@ This resource has the following attributes:
 ``cwd``
    **Ruby Type:** String
 
-   The current working directory.
+   The current working directory from which the command will be run.
 
 ``environment``
    **Ruby Type:** Hash
@@ -325,6 +326,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 
