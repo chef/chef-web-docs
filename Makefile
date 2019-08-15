@@ -7,9 +7,12 @@ assets:
 
 clean:
 	pushd themes/docs-new && make clean && popd
+	rm -rf resources/
 
 clean_all:
 	pushd themes/docs-new && make clean_all && popd
+	rm -rf resources/
+	rm -rf results/
 
 serve: assets
 	hugo server --buildDrafts --noHTTPCache
