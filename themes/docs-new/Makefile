@@ -38,7 +38,7 @@ assets/js/vendor: node_modules
 assets/sass/vendor: assets/sass/vendor/fontawesome
 
 assets/sass/vendor/fontawesome: node_modules
-	mkdir -p assets/sass/vendor/fontawesome
+	mkdir -p assets/sass/vendor
 	cp -R node_modules/@fortawesome/fontawesome-free/scss/ assets/sass/vendor/fontawesome
 
 static/fonts/fontawesome: node_modules

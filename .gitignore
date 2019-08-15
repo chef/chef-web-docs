@@ -24,6 +24,7 @@ TAGS
 
 results/
 
+static/fonts/fontawesome
 node_modules
 vendor
 
