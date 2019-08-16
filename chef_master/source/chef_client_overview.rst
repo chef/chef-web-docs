@@ -15,7 +15,8 @@ Chef Infra Client Overview
 
      - .. tag chef_client_summary
 
-       Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
+       Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. The chef-client install package includes a self-contained ruby install
+       and the chef-client code, which runs in the included ruby interpreter runtime. All components of the chef-client live in /opt/chef or c:\\opscode. When a Chef Infra Client is run, it        will perform all of the steps that are required to bring the node into the expected state, including:
 
        * Registering and authenticating the node with Chef Infra Server
        * Building the node object
