@@ -237,3 +237,12 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 ==========================================
+
+**Extract a zip file to a specified directory**
+
+.. code-block:: ruby
+
+   archive_file 'Precompiled.zip' do
+     path '/tmp/Precompiled.zip'
+     destination '/srv/files'
+   end
