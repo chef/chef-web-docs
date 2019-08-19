@@ -234,7 +234,7 @@ This command has the following options:
    The location of the file that contains the key used when a Chef Infra Client is registered with a Chef Infra Server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
 
 ``-l LEVEL``, ``--log_level LEVEL``
-   The level of logging to be stored in a log file. Possible levels: ``:auto`` (default), ``debug``, ``info``, ``warn``, ``error``, or ``fatal``. Default value: ``warn`` (when a terminal is available) or ``info`` (when a terminal is not available).
+   The level of logging to be stored in a log file. Possible levels: ``auto`` (default), ``debug``, ``info``, ``warn``, ``error``, or ``fatal``. Default value: ``warn`` (when a terminal is available) or ``info`` (when a terminal is not available).
 
 ``-L LOGLOCATION``, ``--logfile LOGLOCATION``
    The location of the log file. This is recommended when starting any executable as a daemon. Default value: ``STDOUT``.
