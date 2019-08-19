@@ -243,8 +243,8 @@ Examples
 .. code-block:: ruby
 
    archive_file 'Precompiled.zip' do
-   path '/tmp/Precompiled.zip'
-   destination '/srv/files'
+     path '/tmp/Precompiled.zip'
+     destination '/srv/files'
    end
 
 .. end_tag
