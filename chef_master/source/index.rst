@@ -73,7 +73,7 @@ Concepts
 `chef-repo </chef_repo.html>`__ |
 `Nodes </nodes.html>`__ |
 `Chef Infra Client Overview </chef_client_overview.html>`__ |
-`Chef Infra Server </server_components.html>`__ |
+`Chef Infra Server Overview </server_overview.html>`__ |
 `Search </chef_search.html>`__ |
 `Cookbooks </cookbooks.html>`__ |
 `Handlers </handlers.html>`__ |
@@ -861,7 +861,6 @@ Addenda
    search_query_chef_automate
    secrets
    server_backup_restore
-   server_components
    server_configure_saml
    server_firewalls_and_ports
    server_ldap
@@ -874,6 +873,7 @@ Addenda
    server_manage_roles
    server_monitor
    server_orgs
+   server_overview
    server_security
    server_sent_events
    server_services

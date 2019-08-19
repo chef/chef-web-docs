@@ -3,8 +3,8 @@ Perform a Compliance Scan in Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/perform_complliance_scan.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -53,7 +53,7 @@ Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token va
 
 After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
 
-Optional: Tune the Chef Server
+Optional: Tune the Chef Infra Server
 -------------------------------------------------------
 
 For larger Chef InSpec profiles, the Chef Infra Server may need to be configured to accept increased request sizes. If you receive the error ``413 Request Entity Too Large`` on your Chef Infra Client run, you can increase these settings from their default values to allow the Chef Infra Server to ingest more data from a Chef Infra Client run.

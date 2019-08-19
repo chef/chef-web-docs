@@ -48,7 +48,7 @@ The following platforms are not tested by Chef Software:
 
 Capacity Planning
 =====================================================
-Read the `guidance around capacity planning </server_components.html#capacity-planning>`__ for information about how to choose the right topology for the Chef Infra Server.
+Read the `guidance around capacity planning </server_overview.html#capacity-planning>`__ for information about how to choose the right topology for the Chef Infra Server.
 
 Hardware Requirements
 =====================================================
@@ -67,7 +67,7 @@ All machines in a Chef Infra Server deployment have the following hardware requi
 * 5 GB of free disk space in ``/opt``
 * 5 GB of free disk space in ``/var``
 
-.. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef Infra Client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_components.html#capacity-planning>`_ for more information on how this metric affects scalability.
+.. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef Infra Client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_overview.html#capacity-planning>`_ for more information on how this metric affects scalability.
 
 For a high availability deployment:
 
