@@ -246,5 +246,3 @@ Examples
      path '/tmp/Precompiled.zip'
      destination '/srv/files'
    end
-
-.. end_tag
