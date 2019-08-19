@@ -6,12 +6,9 @@
 @import "foundation-sites/scss/foundation";
 @include foundation-everything;
 
-@import "docsearch.js/dist/npm/styles/main";
-
 @import "mixins";
 @import "typography";
 @import "buttons";
-@import "forms";
 
 body {
 	@include font-smoothing();
