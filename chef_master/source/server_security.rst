@@ -310,6 +310,108 @@ These newer add-ons will also write all of their secrets to ``/etc/opscode/priva
 
 While the file does not contain passwords in plaintext, it is not safe to share with untrusted users. The format of the secrets file allows Chef Infra Server deployments to conform to regulations that forbid the appearance of sensitive data in plain text in configuration files; however, it does not make the file meaningfully more secure.
 
+SSL Encryption Between Chef Infra Server and External PostgreSQL
+================================================================
+
+**New in Chef Server X.Y:**  Chef Server X.Y introduces the capability to encrypt traffic between Chef Infra Server and an external PostgreSQL configuration over SSL.  These instructions are not all-encompassing and assume familiarity with PostgreSQL administration, configuration, and troubleshooting.  Consult the appropriate PostgreSQL documentation as necessary, e.g. https://www.postgresql.org/docs/9.6/ssl-tcp.html.
+
+To enable this encryption (typical scenario):
+
+1. Ensure that OpenSSL is installed on the PostgreSQL machine (consult appropriate documentation as necessary, e.g. https://www.openssl.org/).
+
+2. Ensure that PostgreSQL has SSL support compiled-in (this applies whether you are compiling your own or using a pre-compiled binary).
+
+3. Place SSL certificates in the proper directories on the PostgreSQL machine, and ensure correct filenames, ownerships and permissions.
+
+4. Enable SSL support on PostgreSQL, and specify paths to the SSL certificates, if necessary.
+
+   Edit the postgresql.conf file on the PostgreSQL machine and ensure the relevant entries are present and not commented out (substitute the appropriate paths):
+
+.. code-block:: bash
+
+   # mandatory
+   ssl=on
+
+   # optional - uncomment accordingly
+   #ssl_cert_file='<PATH/TO/CERT/FILE>'
+   #ssl_key_file='<PATH/TO/KEY/FILE>'
+
+5. Consider forcing the use of SSL connections from the PostgreSQL side, otherwise non-SSL connections could be used.  This can be achieved by editing `pg_hba.conf` on the PostgreSQL machine, and changing the relevant Chef Server connections to `hostssl`.
+
+   Here is a sample `pg_hba.conf` file with `hostssl` connections for Chef Server (the contents of your `pg_hba.conf` will be different):
+
+.. code-block:: bash
+
+   # "local" is for Unix domain socket connections only
+   local      all             all                                     peer
+
+   # IPv4 local connections:
+   hostssl    all             all             127.0.0.1/32            md5
+
+   # IPv6 local connections:
+   hostssl    all             all             ::1/128                 md5
+
+   # nonlocal connections
+   hostssl    all             all            192.168.33.100/32        md5
+
+6. Restart PostgreSQL.  This can typically be done with the following command on the PostgreSQL machine (substitute the appropriate path):
+
+.. code-block:: bash
+
+   $ /<PATH/TO/POSTGRESQL>/postgresql restart
+
+7. Edit /etc/opscode/chef-server.rb on the Chef Server machine and add the following line:
+
+.. code-block:: ruby
+
+   postgresql['sslmode']='require'
+
+8. Run the following command on the Chef Server machine:
+
+.. code-block:: bash
+
+   $ chef-server-ctl reconfigure
+
+9. Verify that SSL is enabled and that SSL connections are up between Chef Server and your running PostgreSQL instance.  One way to do this is by using psql on the PostgreSQL machine:
+
+.. code-block:: bash
+
+   $ su - postgres
+   $ psql
+
+   postgres=# show ssl;
+    ssl
+   -----
+    on
+   (1 row)
+
+   postgres=# select * from pg_stat_ssl;
+
+     pid  | ssl | version |           cipher            | bits | compression | clientdn
+   -------+-----+---------+-----------------------------+------+-------------+----------
+    16083 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16084 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16085 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16086 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16087 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16088 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16089 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16090 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16091 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16092 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16093 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16094 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16095 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16096 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16097 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16098 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16099 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16100 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16101 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16102 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
+    16119 | f   |         |                             |      |             |
+   (21 rows)
+
 Key Rotation
 =====================================================
 See the `chef-server-ctl key rotation commands </ctl_chef_server.html#key-rotation>`__ for more information about user key management.
