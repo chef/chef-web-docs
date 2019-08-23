@@ -93,16 +93,16 @@ Bulleted lists break up text blocks and draw attention to a group of items::
 
   Introductory sentence:
 
-    * list item
-    * list item
+  * list item
+  * list item
+  
+    * sublist item
+    * sublist item
     
-      * sublist item
-      * sublist item
-      
-    * list item
-    * list item
+  * list item
+  * list item
 
-Use the asterisk symbol (*) only for bulleted lists, even though Sphinx supports using other symbols. Leave a blank line before the first list item and after the last, and leave blank lines around nested list items.
+Use the asterisk symbol (`*`) only for bulleted lists, even though Sphinx supports using other symbols. Leave a blank line before the first list item and after the last, and leave blank lines around nested list items. Do not indent list items, but nested list items should be indented **two** spaces.
 
 Numbered Lists
 -----------------------------------------------------
@@ -110,16 +110,16 @@ Numbered lists are created like this::
 
   Introductory sentence:
 
-    #. numbered list item
-    #. numbered list item
+  #. numbered list item
+  #. numbered list item
 
-        #. sublist item 1
-        #. sublist item 2
-        #. sublist item 3
+     #. sublist item 1
+     #. sublist item 2
+     #. sublist item 3
 
-    #. numbered list item
+  #. numbered list item
 
-Use the number symbol (#) to let Sphinx handle the actual ordering. If the number list needs to change later, you don't have to worry about making sure the numbers are in the correct order. Leave a blank line before the first list item and after the last, and leave blank lines around nested list items.
+Use the number symbol (#) to let Sphinx handle the actual ordering. If the number list needs to change later, you don't have to worry about making sure the numbers are in the correct order. Leave a blank line before the first list item and after the last, and leave blank lines around nested list items. Don't indent list items, but nested list items should be indented **three** spaces.
 
 Definition Lists
 -----------------------------------------------------
