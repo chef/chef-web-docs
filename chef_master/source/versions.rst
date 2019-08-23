@@ -202,6 +202,10 @@ End of Life (EOL) Products
      - 2 and under
      - EOL
      - April 30, 2019
+   * - Chef Server DRBD HA
+     - All
+     - EOL
+     - March 31, 2019
    * - Enterprise Chef
      - All
      - EOL
