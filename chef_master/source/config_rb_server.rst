@@ -118,7 +118,7 @@ The following setting is often modified from the default as part of the tuning e
 
 .. warning:: .. tag notes_server_aws_cookbook_storage
 
-             To `configure the server for external cookbook storage </server_components.html#aws-settings>`_, updates are made to settings for both the **bookshelf** and **opscode-erchef** services.
+             To `configure the server for external cookbook storage </server_overview.html#aws-settings>`_, updates are made to settings for both the **bookshelf** and **opscode-erchef** services.
 
              .. end_tag
 
