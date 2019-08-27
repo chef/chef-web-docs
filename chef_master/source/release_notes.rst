@@ -1,9 +1,117 @@
 =====================================================
-Release Notes: Chef Infra Client 12.0 - 15.0
+Release Notes: Chef Infra Client 12.0 - 15.2
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Infra Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef Infra changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
+
+Chef Infra Client 15.2
+=====================================================
+
+Updated Resources
+-----------------------------------------------------
+
+* **dnf_package**
+    The ``dnf_package`` resource has been updated to fully support RHEL 8.
+
+* **kernel_module**
+    The ``kernel_module`` now supports a ``:disable`` action. Thanks `@tomdoherty <https://github.com/tomdoherty>`__.
+
+* **rhsm_repo**
+    The ``rhsm_repo`` resource has been updated to support passing a repo name of ``*`` in the ``:disable`` action. Thanks for reporting this issue `@erinn <https://github.com/erinn>`__.
+
+* **windows_task**
+    The ``windows_task`` resource has been updated to allow the ``day`` property to accept an ``Integer`` value.
+
+* **zypper_package**
+    The ``zypper_package`` package has been updated to properly upgrade packages if necessary based on the version specified in the resource block. Thanks `@foobarbam <https://github.com/foobarbam>`__ for this fix.
+
+Platform Support Updates
+-----------------------------------------------------
+
+* **RHEL 8 Support Added**
+    Chef Infra Client 15.2 now includes native packages for RHEL 8 with all builds now validated on RHEL 8 hosts.
+
+* **SLES 11 EOL**
+    Packages will no longer be built for SUSE Linux Enterprise Server (SLES) 11 as SLES 11 exited the 'General Support' phase on March 31, 2019. See Chef's `Platform End-of-Life Policy <https://docs.chef.io/platforms.html#platform-end-of-life-policy>`__ for more information on when Chef ends support for an OS release.
+
+* **Ubuntu 14.04 EOL**
+    Packages will no longer be built for Ubuntu 14.04 as Canonical ended maintenance updates on April 30, 2019. See Chef's `Platform End-of-Life Policy <https://docs.chef.io/platforms.html#platform-end-of-life-policy>`__ for more information on when Chef ends support for an OS release.
+
+Ohai 15.2
+-----------------------------------------------------
+
+Ohai has been updated to 15.2 with the following changes:
+    * Improved detection of Openstack including proper detection of Windows nodes running on Openstack when fetching metadata. Thanks `@jjustice6 <https://github.com/jjustice6>`__.
+    * A new ``other_versions`` field has been added to the Packages plugin when the node is using RPM. This allows you to see all installed versions of packages, not just the latest version. Thanks `@jjustice6 <https://github.com/jjustice6>`__.
+    * The Linux Network plugin has been improved to not mark interfaces down if ``stp_state`` is marked as down. Thanks `@josephmilla <https://github.com/josephmilla>`__.
+    * Arch running on ARM processors is now detected as the ``arm`` platform. Thanks `@BackSlasher <https://github.com/BackSlasher>`__.
+
+Chef InSpec 4.10.4
+-----------------------------------------------------
+
+Chef InSpec has been updated from 4.6.4 to 4.10.4 with the following changes:
+
+    * Fix handling multiple triggers in the ``windows_task`` resource
+    * Fix exceptions when resources are used with incompatible transports
+    * Un-deprecate the ``be_running`` matcher on the ``service`` resource
+    * Add resource ``sys_info.manufacturer`` and ``sys_info.model``
+    * Add ``ip6tables`` resource
+
+Security Updates
+-----------------------------------------------------
+
+* **bzip2**
+    bzip2 has been updated from 1.0.6 to 1.0.8 to resolve `CVE-2016-3189 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3189>`__ and `CVE-2019-12900 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12900>`__.
+
+Chef Infra Client 15.1
+=====================================================
+
+New Resources
+-----------------------------------------------------
+
+* **chocolatey_feature**
+    The ``chocolatey_feature`` resource allows you to enable and disable Chocolatey features. See the `chocolatey_feature documentation <https://docs.chef.io/resource_chocolatey_feauture.html>`__ for full usage information. Thanks `@gep13 <https://github.com/gep13>`__ for this new resource.
+
+Updated Resources
+-----------------------------------------------------
+
+* **chocolatey_source**
+    The ``chocolatey_source`` resource has been updated with new ``enable`` and ``disable`` actions, as well as ``admin_only`` and ``allow_self_service`` properties. Thanks `@gep13 <https://github.com/gep13>`__ for this enhancement.
+
+* **launchd**
+    The ``launchd`` resource has been updated with a new ``launch_events`` property, which allows you to specify higher-level event types to be used as launch-on-demand event sources. Thanks `@chilcote <https://github.com/chilcote>`__ for this enhancement.
+
+* **yum_package**
+    The ``yum_package`` resource's helper for interacting with the yum subsystem has been updated to always close out the rpmdb lock, even during failures. This may prevent the rpmdb from becoming locked in some rare conditions. Thanks for reporting this issue, `@lytao <https://github.com/lytao>`__.
+
+* **template**
+    The ``template`` resource now provides additional information on failures, which is especially useful in ChefSpec tests. Thanks `@brodock <https://github.com/brodock>`__ for this enhancement.
+
+Target Mode Improvements
+-----------------------------------------------------
+
+Our experimental Target Mode received a large number of updates in Chef Infra Client 15.1. Target Mode now reuses the connection to the remote system, which greatly speeds up the remote Chef Infra run. There is also now support for Target Mode in the ``systemd_unit``, ``log``, ``ruby_block``, and ``breakpoint`` resources. Keep in mind that when using ``ruby_block`` with Target Mode that the Ruby code in the block will execute locally as there is not necessarily a Ruby runtime on the remote host.
+
+Ohai 15.1
+-----------------------------------------------------
+
+Ohai has been updated to 15.1 with the following changes:
+
+    * The ``Shard`` plugin properly uses the machine's ``machinename``, ``serial``, and ``uuid`` attributes to generate the shard value. The plugin also no longer throws an exception on macOS hosts. Thanks `@michel-slm <https://github.com/michel-slm>`__ for these fixes.
+    * The ``Virtualbox`` plugin has been enhanced to gather information on running guests, storage, and networks when VirtualBox is installed on a node. Thanks `@freakinhippie <https://github.com/freakinhippie>`__ for this new capability.
+    * Ohai no longer fails to gather interface information on Solaris in some rare conditions. Thanks `@devoptimist <https://github.com/devoptimist>`__ for this fix.
+
+Chef InSpec 4.6.4
+-----------------------------------------------------
+
+Chef InSpec has been updated from 4.3.2 to 4.6.4 with the following changes:
+
+    * InSpec ``Attributes`` have now been renamed to ``Inputs`` to avoid confusion with Chef Infra attributes.
+    * A new InSpec plugin type of ``Input`` has been added for defining new input types. See the `InSpec Plugins documentation <https://github.com/inspec/inspec/blob/master/docs/dev/plugins.md#implementing-input-plugins>`__ for more information on writing these plugins.
+    * InSpec no longer prints errors to the stdout when passing ``--format json``.
+    * When fetching profiles from GitHub, the URL can now include periods.
+    * The performance of InSpec startup has been improved.
 
 Chef Infra Client 15.0.300
 =====================================================

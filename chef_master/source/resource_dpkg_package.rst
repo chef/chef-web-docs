@@ -83,7 +83,6 @@ The dpkg_package resource has the following properties:
 
    An optional property to set the package name if it differs from the resource block's name.
 
-
 ``response_file``
    **Ruby Type:** String
 
@@ -108,7 +107,7 @@ The dpkg_package resource has the following properties:
    **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
-   
+
 Common Resource Functionality
 =====================================================
 
@@ -145,6 +144,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

@@ -9,6 +9,7 @@ The **windows_uac** resource configures UAC on Windows hosts by setting registry
 
 Syntax
 =====================================================
+
 The windows_uac resource has the following syntax:
 
 .. code-block:: ruby
@@ -116,6 +117,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

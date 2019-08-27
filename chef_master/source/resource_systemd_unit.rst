@@ -9,6 +9,7 @@ Use the **systemd_unit** resource to create, manage, and run `systemd units <htt
 
 Syntax
 =====================================================
+
 The systemd_unit resource has the following syntax:
 
 .. code-block:: ruby
@@ -125,7 +126,7 @@ The systemd_unit resource has the following properties:
 ``unit_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The name of the unit file if it differs from the resource block name.
+   The name of the unit file if it differs from the resource block's name.
 
    *New in Chef Client 13.7.*
 

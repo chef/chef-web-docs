@@ -5,9 +5,9 @@ An Overview of Chef Infra
 
 .. tag chef
 
-Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef Infra automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
-This diagram shows how you develop, test, and deploy your Chef code.
+This diagram shows how you develop, test, and deploy your Chef Infra code.
 
 .. image:: ../../images/start_chef.svg
    :width: 700px
@@ -17,7 +17,7 @@ This diagram shows how you develop, test, and deploy your Chef code.
 
 * **Chef Workstation** is the location where users interact with Chef. With Chef Workstation, users can author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef Infra Server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
 * **Chef Infra Client nodes** are the machines that are managed by Chef. The Chef Infra Client is installed on each node and is used to configure the node to its desired state.
-* **Chef Infra Server** acts as `a hub for configuration data </server_components.html>`__. Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
+* **Chef Infra Server** acts as `a hub for configuration data </server_overview.html>`__. Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
 
 Chef Components
 =====================================================

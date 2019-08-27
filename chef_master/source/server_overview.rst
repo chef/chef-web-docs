@@ -1,7 +1,7 @@
 =====================================================
-Chef Infra Server Components
+Chef Infra Server Overview
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_components.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_overview.rst>`__
 
 .. tag chef_server
 
@@ -92,7 +92,7 @@ Capacity Planning
 =====================================================
 This section provides guidance for capacity planning and how to choose the right configuration--standalone, high availability, or tiered--for the Chef Infra Server. This section provides guidance and not hard/fast rules. This is because some requests to the Chef Infra Server API are more computationally expensive than others. In general, it's better to start small and then scale the Chef Infra Server as needed. Premature optimization can hinder more than help because it may introduce unnecessary complexity.
 
-Scaling the Chef Server
+Scaling the Chef Infra Server
 -----------------------------------------------------
 The Chef Infra Server itself is highly scalable. A single virtual machine running the Chef Infra Server can handle requests for many thousands of nodes. As the scale increases, it's a straightforward process to expand into a tiered front-end, back-end architecture with horizontally scaled front-ends to relieve pressure on system bottlenecks.
 

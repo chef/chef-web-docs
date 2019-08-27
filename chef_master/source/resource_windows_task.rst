@@ -11,6 +11,7 @@ Use the **windows_task** resource to create, delete or run a Windows scheduled t
 
 Syntax
 =====================================================
+
 The windows_task resource has the following syntax:
 
 .. code-block:: ruby
@@ -61,17 +62,18 @@ The windows_task resource has the following actions:
 ``:delete``
    Deletes a task.
 
-``:run``
-   Runs a task.
 
-``:end``
-   Ends a task.
+``:disable``
+   Disables a task.
 
 ``:enable``
    Enables a task.
 
-``:disable``
-   Disables a task.
+``:end``
+   Ends a task.
+
+``:run``
+   Runs a task.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -186,7 +188,7 @@ The windows_task resource has the following properties:
    Delays the task up to a given time (in seconds).
 
 ``run_level``
-  **Ruby Type:** Symbol | **Default Value:** ``:limited``
+   **Ruby Type:** Symbol | **Default Value:** ``:limited``
 
   Run with ``:limited`` or ``:highest`` privileges.
 

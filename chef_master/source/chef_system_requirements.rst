@@ -3,7 +3,7 @@ System Requirements
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_system_requirements.rst>`__
 
-Before installing Chef:
+Before installing Chef Infra:
 
 * Ensure that each machine that will be a node is running a `supported platform </platforms.html>`__
 * Ensure that the machine that will run the Chef Infra Server is sufficiently powerful
@@ -39,7 +39,7 @@ All machines in a Chef Infra Server deployment have the following hardware requi
 * 5 GB of free disk space in ``/opt``
 * 5 GB of free disk space in ``/var``
 
-.. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef Infra Client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_components.html#capacity-planning>`_ for more information on how this metric affects scalability.
+.. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef Infra Client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_overview.html#capacity-planning>`_ for more information on how this metric affects scalability.
 
 For a high availability deployment:
 

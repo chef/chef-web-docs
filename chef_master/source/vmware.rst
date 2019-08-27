@@ -206,7 +206,7 @@ Usage Examples
    Current request status: IN_PROGRESS...
    ...
 
-If you supply the ``--purge`` option, the server will also be removed from the Chef Server
+If you supply the ``--purge`` option, the server will also be removed from the Chef Infra Server
 
 **Execute a vRO workflow:**
 

@@ -9,6 +9,7 @@ Use the **ssh_known_hosts_entry** resource to add an entry for the specified hos
 
 Syntax
 =====================================================
+
 The ssh_known_hosts_entry resource has the following syntax:
 
 .. code-block:: ruby

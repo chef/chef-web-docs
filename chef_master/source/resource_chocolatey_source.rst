@@ -9,6 +9,7 @@ Use the **chocolatey_source** resource to add, remove, enable, or disable Chocol
 
 Syntax
 =====================================================
+
 The chocolatey_source resource has the following syntax:
 
 .. code-block:: ruby
@@ -133,6 +134,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 

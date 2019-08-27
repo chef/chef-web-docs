@@ -19,7 +19,7 @@ Commercial support generally follows Chef community support policies, which trac
 
 In all cases (beyond community support), a maintenance contract with Chef Software Inc. is required in order to open support tickets and get SLA-based assistance from our support desk.
 
-Chef Client
+Chef Infra Client
 ------------------------------------------------------
 
 Commercial Support
@@ -43,9 +43,12 @@ The following table lists the commercially-supported platforms and versions for 
    * - CentOS
      - ``x86_64``
      - ``6.x``, ``7.x``
+   * - Debian
+     - ``i686``, ``x86_64``
+     - ``8``, ``9``, ``10``
    * - FreeBSD
      - ``amd64``
-     - ``11.x``
+     - ``11.x``, ``12.x``
    * - macOS
      - ``x86_64``
      - ``10.12``, ``10.13``, ``10.14``
@@ -53,16 +56,16 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``
      - ``6.x``, ``7.x``
    * - Red Hat Enterprise Linux
-     - ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6.x``, ``7.x``
+     - ``x86_64``, ``s390x``(6.x and 7.x only), ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
+     - ``6.x``, ``7.x``, ``8.x``
    * - Solaris
      - ``sparc``, ``i86pc``
      - ``11.2``, ``11.3``, ``11.4``
    * - SUSE Enterprise Linux Server
      - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``12 SP1+``, ``15``
    * - Ubuntu (LTS releases)
-     - ``i386``, ``x86_64``
+     - ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x64``
@@ -83,9 +86,6 @@ The following platforms are supported only via the community:
    * - Arch Linux
      -
      - current version
-   * - Debian
-     - ``i686``, ``x86_64``
-     - ``8``, ``9``
    * - Fedora
      -
      - current non-EOL releases
@@ -128,7 +128,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``10.12``, ``10.13``, ``10.14``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``, ``8.x``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
@@ -156,18 +156,18 @@ The following table lists the commercially-supported platforms and versions for 
      - ``10.12``, ``10.13``, ``10.14``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``, ``8.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``12 SP1+``, ``15``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86_64``
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``
+     - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019``
 
-InSpec Target Mode (``inspec --target``) may be functional on additional platforms, versions, and architectures but are not validated by Chef Software, Inc.
+Chef InSpec Target Mode (``inspec --target``) may be functional on additional platforms, versions, and architectures but are not validated by Chef Software, Inc.
 
 ChefDK
 ------------------------------------------------------
@@ -184,6 +184,9 @@ The following table lists the commercially-supported platforms and versions for 
    * - Platform
      - Architecture
      - Version
+   * - Debian
+     - ``x86_64``
+     - ``8.x``, ``9.x``, ``10.x``
    * - macOS
      - ``x86_64``
      - ``10.12``, ``10.13``, ``10.14``
@@ -192,13 +195,13 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``12 SP1+``, ``15``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x64``
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
+     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -211,9 +214,9 @@ The following platforms are supported only via the community:
    * - Platform
      - Architecture
      - Version
-   * - Debian
-     - ``x86_64``
-     - ``8.x``, ``9.x``
+   * - openSUSE
+     -
+     - ``42.x``
    * - Scientific Linux
      - ``x86_64``
      - ``6.x``, ``7.x``
@@ -245,7 +248,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``12 SP1+``, ``15``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
@@ -285,7 +288,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP2``
+     - ``12 SP2``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``

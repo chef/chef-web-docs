@@ -54,7 +54,7 @@ During every Chef Infra Client run, the following happens:
      - Description
    * - **Get configuration data**
      - Chef Infra Client gets process configuration data from the client.rb file on the node, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the ``node_name`` attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it is typically the FQDN for the node, which is always unique within an organization.
-   * - **Authenticate to the Chef Server**
+   * - **Authenticate to the Chef Infra Server**
      - Chef Infra Client authenticates to the Chef Infra Server using an RSA private key and the Chef Infra Server API. The name of the node is required as part of the authentication process to the Chef Infra Server. If this is the first Chef Infra Client run for a node, the chef-validator will be used to generate the RSA private key.
    * - **Get, rebuild the node object**
      - Chef Infra Client pulls down the node object from the Chef Infra Server. If this is the first Chef Infra Client run for the node, there will not be a node object to pull down from the Chef Infra Server. After the node object is pulled down from the Chef Infra Server, Chef Infra Client rebuilds the node object. If this is the first Chef Infra Client run for the node, the rebuilt node object will contain only the default run-list. For any subsequent Chef Infra Client run, the rebuilt node object will also contain the run-list from the previous Chef Infra Client run.
@@ -191,7 +191,7 @@ SSL_CERT_FILE
 
 Use the ``SSL_CERT_FILE`` environment variable to specify the location for the SSL certificate authority (CA) bundle that is used by Chef Infra Client.
 
-A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef will look for SSL certificates are:
+A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef Infra will look for SSL certificates are:
 
 * Chef Infra Client: ``/opt/chef/embedded/ssl/certs/cacert.pem``
 * ChefDK: ``/opt/chefdk/embedded/ssl/certs/cacert.pem``
