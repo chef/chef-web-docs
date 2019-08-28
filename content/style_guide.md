@@ -16,44 +16,79 @@ aliases = "/style_guide.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/style_guide.rst)
 
-Chef reference documentation is written using restructuredText (reST)
-and built with Sphinx version 1.2.3.
+The Chef reference documentation is written using Markdown and built with Hugo.
 
 We recommend that you use the conventions described in this guide when
-contributing to Chef reference documentation.
+contributing to the Chef reference documentation.
 
 The HTML version of the doc set can be found at
 [docs.chef.io](https://docs.chef.io).
 
 Building
 ========
+To build the docs, run the command:
 
-Run the command
+``` bash
+make serve
+```
 
-> ``` bash
-> make docker-preview
-> ```
-
-to build the docs as a Docker container that will run at port
-`http://localhost:8000`.
-
-Basic Doc Template
+TOML Front Matter
 ==================
+Each page starts with [TOML front matter](https://gohugo.io/content-management/front-matter/) which contains metadata about the page and places it properly in the left navigation menu. Below is the TOML front matter for this page which you can use as a reference. Contact the Docs Team if you have any questions about properly formatting TOML front matter.
 
-All documents have a title and a body.
+```toml
++++
+title = "Documentation Style Guide"
+description = "DESCRIPTION"
+draft = false
 
-Topic Titles
-------------
+aliases = "/style_guide.html"
 
-Each topic has a single topic title. Use the equals symbol (=) above and
-below the header name:
+[menu]
+  [menu.docs]
+    title = "Docs Style Guide"
+    identifier = "overview/community/style_guide.md Docs Style Guide"
+    parent = "overview/community"
+    weight = 40
++++
+```
 
-    =====================================================
-    header name goes here
-    =====================================================
+title
+----------------
+The title of the page. This will appear at the top of the page. 
 
-Section Headers
-===============
+draft
+----------------
+Set draft to `true` if you don't want Hugo to build the page.
+
+aliases 
+----------------
+Add an alias if you want Hugo to automatically redirect the user from another page to the page you are writing.
+
+menu title
+----------------
+The title of the page as it would appear in the left navigation menu. 
+
+menu identifier 
+----------------
+The identifier of the page that you are writing. Each identifier must be unique. 
+
+The convention we've adopted is to use the identifier of the page's parent, a forward slash, then the page file, a space, and then the page title. 
+
+For example, this page's parent identifier is `overview/community`, the page file is `style_guide.md` and the page title is `Docs Style Guide`, so the full page identifier is `overview/community/style_guide.md Docs Style Guide`
+
+menu parent
+----------------
+The menu identifier of the page's parent. 
+
+The convention we've adopted is to append the different menu levels together, separated by a forward slash, and starting with the highest level. For example, this page is nested under Overview and then Community, so the page's parent identifier is `overview/community`.
+
+menu weight
+----------------
+The rank that the page will appear in the menu, incremented by 10. Higher numbers are lower in the menu. 
+
+Section Headings
+================
 
 The following sections describe the section header pattern that Chef is
 using for topic titles, H1s, H2s, H3s and H4s.
@@ -93,33 +128,32 @@ Use the dash symbol (-) below the header name to indicate H2 headers:
 H3
 --
 
-Use the plus symbol (+) below the header name to indicate H3 headers:
+Use three hash characters (###) before the header name to indicate H3 headers:
 
-    H3 Heading
-    +++++++++++++++++++++++++++++++++++++++++++++++++++++
+    ### H3 Heading
+    
     This is the body.
 
 H4
 --
 
-Use the caret symbol (\^) below the header name to indicate H4 headers:
+Use four hash characters (####) before the header name to indicate H4 headers:
 
-    H4 Heading
-    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    #### H4 Heading
+    
     This is the paragraph.
 
 Other headers
--------------
-
+----------------
 If you need more than four heading levels, use bold emphasis and then
-white space to provide the visual treatment and content separation:
+white space to make the heading text stand out and separate the heading from the content:
 
     **header name goes here**         # bold emphasis
                                       # blank line
     content, as normally authored.
 
-Lists and Tables
-================
+Lists
+=====
 
 The following sections describe conventions for lists and tables in Chef
 docs.
@@ -130,202 +164,161 @@ Bulleted Lists
 Bulleted lists break up text blocks and draw attention to a group of
 items:
 
-    * text goes here
-    * text goes here
-    * text goes here
-    * text goes here
+    - text goes here
+    - text goes here
+    
+        - subitem text 
+        - subitem text
+    
+    - text goes here
+    - text goes here
 
-Use the asterisk symbol (\*) only for bulleted lists, even though Sphinx
-supports using other symbols.
+Use the dash symbol (-) for bulleted lists, even though Hugo
+supports other symbols. Indent nested list items by **four** spaces. 
 
 Numbered Lists
 --------------
 
 Numbered lists are created like this:
 
-    #. text goes here
-    #. text goes here
-    #. text goes here
-    #. text goes here
+    1. text goes here
+    1. text goes here
+    1. text goes here
+      
+        1. sublist text
+        1. sublist text
+      
+    1. text goes here
 
-Use the number symbol (\#) to let Sphinx handle the actual ordering. If
-the number list needs to change later, you don't have to worry about
-making sure the numbers are in the correct order.
+Start each ordered list item with the number 1 (1.). Hugo will generate the correct sequence of numbers in an ordered list regardless of the numbers that you use. Only using the number 1. will save you from having to re-number items if you add or remove an item later.
 
 Definition Lists
 ----------------
 
 Definition lists are used to show the options available to a command
-line tool. These appear the same way in the HTML and print documentation
-as they appear in the man page output:
+line tool:
 
-    ``--name-only``
-       Show only the names of modified files.
+    `--name-only`
+    : Show only the names of modified files.
 
-    ``--name-status``
-       Show only the names of files with a status of ``Added``, ``Deleted``, ``Modified``, or ``Type Changed``.
+    `--name-status`
+    : Show only the names of files with a status of `Added`, `Deleted`, `Modified`, or `Type Changed`.
 
-List Tables
------------
+Tables
+======
 
-Chef docs use the list table for tables:
+Create tables in Markdown like this: 
 
-    .. list-table::
-       :widths: 250 250
-       :header-rows: 1
+    Chef Software | Description
+    --------|------
+    Infra Client | Awesome
+    Infra Server | Fun
+    Habitat | Super cool
 
-       * - Header
-         - Description
-       * - text or image
-         - text or image
-       * - text or image
-         - text or image
-
-The table cells support images and text. The widths can be changed and
-the number of columns can be changed too. In general, we keep the number
-of columns to three or fewer. When creating a list table, think about
-what it will look like in HTML, PDF, man-page, and other formats and
-keep in mind the width limitations inherent in print formats.
-
-Sphinx tables (as opposed to list tables) are not used in Chef docs.
-
-What the list table might look like in the source file:
-
-    .. list-table::
-       :widths: 60 420
-       :header-rows: 1
-
-       * - Header
-         - Description
-       * - .. image:: ../../images/image_style_guide_example.png
-         - Lorem ipsum dolor. This is just an example.
-       * - No image, just text!
-         - Lorem ipsum dolor. This is just an example.
-       * - Chef
-         - Chef is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure.
+Use three or more hyphens (---) to separate each column's header from the content of the table. Separate columns with a vertical bar or pipe (|).
 
 Inline Markup
 =============
-
 Adding emphasis within text strings can be done using **bold** and
 `code strings`.
 
 Bold
 ----
-
-Use two asterisks (*) to mark a text string asbold*\*:
+Use two asterisks (\*) to mark a text string as **bold**:
 
     **text goes here**
 
 Code Strings
 ------------
-
 Sometimes the name of a method or database field needs to be used inline
-in a paragraph. Use two backquotes to mark certain strings as code
+in a paragraph. Use **one** backquote to mark certain strings as `code`
 within a regular string of text:
 
-    ``code goes here``
+    `code goes here`
 
 Links
 =====
 
-Chef docs can contain and internal and external links.
+To make a link in Markdown put the page title in square brackets followed by the link in parentheses. For example this:
 
-External
---------
+`[Ruby Programming Language](https://www.ruby-lang.org/)`
 
-An external link points to something that does not reside within
-[docs.chef.io](https://docs.chef.io). An external link requires an HTTP
-address. In general, it's better to spell out the HTTP address fully, in
-case the topic is printed out:
+will produce this: 
 
-> `http://www.codecademy.com/tracks/ruby`
+[Ruby Programming Language](https://www.ruby-lang.org/)
+
+External links requires an HTTP address.
 
 Code Blocks
 ===========
-
 Code blocks are used to show code samples, such as those for Ruby, JSON,
 and command-line strings.
 
 Ruby
 ----
-
 Use this approach to show code blocks that use Ruby:
 
-    .. code-block:: ruby
-
-       default["apache"]["dir"]          = "/etc/apache2"
-       default["apache"]["listen_ports"] = [ "80","443" ]
+    ```ruby 
+    default["apache"]["dir"]          = "/etc/apache2"
+    default["apache"]["listen_ports"] = [ "80","443" ]
+    ```
 
 Bash
 ----
-
 Use this approach to show code blocks that use any type of shell
 command, such as for Knife or the Chef Infra Client or for any other
 command-line example that may be required:
 
-    .. code-block:: bash
-
-       $ knife data bag create admins
+    ```bash
+    $ knife data bag create admins
+    ```
 
 Javascript (and JSON)
 ---------------------
-
 Use this approach to show code blocks that use any type of JavaScript,
 including any JSON code sample:
 
-    .. code-block:: javascript
-
-       {
-          "id": "charlie",
-          "uid": 1005,
-          "gid":"ops",
-          "shell":"/bin/zsh",
-          "comment":"Crazy Charlie"
-       }
+    ```javascript
+    {
+      "id": "charlie",
+      "uid": 1005,
+      "gid":"ops",
+      "shell":"/bin/zsh",
+      "comment":"Crazy Charlie"
+    }
+    ```
 
 Literal
 -------
-
 Literals should be used sparingly, but sometimes there is a need for a
-block of text that doesn't fit neatly into one of the options available
-for `code-block`, such as showing a directory structure, basic syntax,
-or pseudocode. Use a double colon (::) at the end of the preceding
-paragraph, add a hard return, and then indent the literal text:
+block of text that doesn't work in a fenced code block, such as showing a directory structure, basic syntax, or pseudocode. To make a literal code block, indent the text by **four** spaces:
 
-    Use a double colon (::) at the end of the preceding paragraph. What it looks like as reST::
+```
+    
+    a block of literal text indented three spaces
+    with more
+    text as required to
+    complete the block of text.
+    end.
+    
+```
 
-       a block of literal text indented three spaces
-       with more
-       text as required to
-       complete the block of text.
-       end.
+Repeating Text Blocks
+======================
+Chef docs uses [shortcodes](https://gohugo.io/content-management/shortcodes/) to maintain text that appears in more than one location and must be consistent in every location.
 
-Tagged Regions
---------------
+Writing a shortcode
+-------------------
+All shortcode files are written in **Markdown** and stored in the `layouts/shortcodes` directory in the `chef-web-docs` repo.
 
-Chef docs uses tags to indicate text that is used in more than one
-topic:
+Adding a Shortcode to a Page
+----------------------------
 
-    {{% chef %}}
+To include a shortcode in a Markdown file, wrap the name of the shortcode file, without the file type suffix, in double curly braces and percent characters. For example, if you wanted to add the `chef.md` shortcode to a page, add the following text to the Markdown page:
 
-The docs will only build if all tagged regions with the same tag name
-have the same content. The `dtags` utility is included to help
-synchronize tagged regions. Refer to the
-[README.md](https://github.com/chef/chef-web-docs/blob/master/README.md)
-file in the [chef/chef-web-docs](https://github.com/chef/chef-web-docs)
-repo for more information.
-
-Here are some guidelines for using tags:
-
--   The amount of white space to the left of the `tag` and `end_tag`
-    lines must be the same.
--   The `tag` line should be followed by a blank line.
--   The `end_tag` line should be preceded by a blank line.
--   The content within the tag must be indented at least as much as the
-    `tag` line.
--   The name that follows `tag` must use only lowercase letters, digits
-    and the underscore character.
+```
+{{%/* chef */%}}
+```
 
 Notes and Warnings
 ==================
@@ -334,68 +327,96 @@ In general, notes and warnings are not the best way to present important
 information. Before using them ask yourself how important the
 information is. If you want the information to be returned in a search
 result, then it is better for the information to have its own topic or
-section header. Notes and warnings do provide a visual (because they
-have a different color than the surrounding text) and can be easily
-spotted within a doc. If notes and warnings must be used, the approach
+section header. Notes and warnings have a different color than the surrounding text so they can be easily spotted within a doc. If notes and warnings must be used, the approach
 for using them is as follows.
 
-Notes
+Notes and warnings are generated by bracketing the text of the note or warning in **info**, **warning** or **danger** shortcodes.
+
+Notes 
 -----
 
-What a note looks like as reST:
-
-    .. note:: This is a note.
+```
+{{</* info */>}}
+This is a note.
+{{</* /info */>}}
+```
 
 What a note looks like after it's built:
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
-
-This is a note.
-
-</div>
+{{< info >}}
+This is an info block.
+{{< /info >}}
 
 Warnings
 --------
 
-Use sparingly, so that when the user sees a warning it registers
-appropriately:
+Use sparingly so that when the user sees a warning it registers appropriately:
 
-    .. warning:: This is a warning.
+```
+{{</* warning */>}}
+This is a warning.
+{{</* /warning */>}}
+```
 
 What a warning looks like after it's built:
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
-
+{{< warning >}}
 This is a warning.
+{{< /warning >}}
 
-</div>
+Danger
+------
+
+Danger should be used rarely and only when there are serious consequences for the user:
+
+```
+{{</* danger */>}}
+This is a danger block.
+{{</* /danger */>}}
+```
+
+This is what a danger block looks like after it's built:
+
+{{< danger >}}
+This is a danger block.
+{{< /danger >}}
 
 Images
 ======
 
-Images:
+You have two options for formatting images in Hugo:
 
-    .. image:: ../../images/icon_chef_client.svg
-       :width: 100px
-       :align: center
+- Markdown syntax
+- the `figure` shortcode
 
-Images should be 96 dpi and no larger than 600 pixels wide. Ideally, no
-larger than 550 pixels wide. This helps ensure that the image can be
-printed and/or built into other output formats more easily; in some
-cases, separate 300 dpi files should be maintained for images that
-require inclusion in formats designed for printing and/or presentations.
+Markdown syntax
+---------------
+
+To add an image in Markdown, use an exclamation point, square brackets around the alt text, parenthesis around the path to the image file starting in the `static` directory, and then optional hover text. For example:
+
+```md
+![Alt Text](/path/to/img.png "Optional Title")
+```
+
+Figure Shortcode
+----------------
+
+The [figure shortcode](https://gohugo.io/content-management/shortcodes/#figure) allows you to specify the image size and include a title, a caption, and alternate text.
+
+SVG images should be formatted using the `figure` shortcode.
+
+``` md
+{{</* figure src="/images/chef-logo.svg" title="Chef Logo" height="100" width="150" */>}}
+```
+
+Which looks like this:
+
+{{< figure src="/images/chef-logo.svg" title="Chef Logo" height="100" width="150">}}
+
+Raster images should be 96 dpi and no larger than 600 pixels wide. 
+This helps ensure that the image can be printed and/or built into other output
+formats more easily; in some cases, separate 300 dpi files should be maintained
+for images that require inclusion in formats designed for printing and/or presentations.
 
 Grammar
 =======
@@ -414,163 +435,79 @@ like "Create a new user" (by its very nature, a user created **is** a
 new user) or (for a setting named `cidr_block`) "The CIDR block for the
 VPC."
 
-Doc Repo
-========
+Documentation Repo
+==================
 
-The Chef reference documentation is found at
+The Chef reference documentation is located in: https://github.com/chef/chef-web-docs
 
-<https://github.com/chef/chef-web-docs>
+-   The `chef-web-docs` repo contains a `content` directory
+    which holds most the Markdown files in the doc set.
+-   The `static/images` directory stores the image files used in the docs.
+-   The `config.toml` tells Hugo how to build the navigation menus and contains other Hugo settings. Don't modify this file.
 
--   The chef-web-docs repo contains a `chef_master/source` directory
-    which holds most the reST files in the doc set.
--   The `images` directory stores the image files used in the docs.
--   The `conf.py` tells Sphinx what to do when it's asked to build Chef
-    docs. Don't modify this file.
-
-The `build` directory contains the output of the `make` command.
-
-In the past, the chef-web-docs repo contained documentation for prior
+In the past, the `chef-web-docs` repo contained documentation for prior
 versions of Chef components. Currently, the repo is limited to the
 current major versions of Chef components.
 
-When submitting a GitHub pull request or issue to chef-web-docs,
-remember:
+DCO Sign-off
+------------
 
--   Look in the `chef_master/source` directory to find the topic/files
--   Focus on the actual content. If your change causes inconsistencies
-    in the tagged regions (see above), this will be noted in your pull
-    request by the CI system. You don't need to fix this error unless
-    you want to. The Chef docs team will do this prior to accepting the
-    pull request.
+Chef Software requires all contributors to include a [Developer Certificate of Origin](https://developercertificate.org/) (DCO) sign-off with their pull request as long as the pull request does not fall under the [Obvious Fix](#obvious-fix) rule. This attests that you have the right to submit the work that you are contributing in your pull request.
 
-You can send email to <docs@chef.io> if you have questions.
+Our full DCO signoff policy is available here: https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco
+
+A proper DCO sign-off looks like this: 
+```
+Signed-off-by: Julia Child <juliachild@chef.io>
+```
+
+You can add a DCO signoff to your pull request by adding it to the text of your commit message, or by using the `-s` or `--signoff` option when you make a commit. 
+
+If you forget to add a DCO sign-off before submitting a pull request, you can amend your commit by entering `git commit --amend -s`. After that you'll likely have to force push your commit to github by entering `git push -f`.
+
+See this [blog post](https://blog.chef.io/2016/09/19/introducing-developer-certificate-of-origin/) to understand why Chef started using the DCO signoff.
+
+Obvious Fix
+-----------
+
+Small contributions, such as fixing spelling errors, where the content is small enough to not be considered intellectual property, can be submitted without signing the contribution for the DCO.
+
+Changes that fall under our Obvious Fix policy include:
+
+- Spelling / grammar fixes
+- Typo correction, white space and formatting changes
+- Comment clean up
+- Bug fixes that change default return values or error codes stored in constants
+- Adding logging messages or debugging output
+- Changes to 'metadata' files like Gemfile, .gitignore, build scripts, etc.
+- Moving source files from one directory or package to another
+
+To invoke the Obvious Fix rule, simply add `Obvious Fix.` to your commit message.
+
+See our Obvious Fix policy here: https://github.com/chef/chef/blob/master/CONTRIBUTING.md#chef-obvious-fix-policy
 
 Official Names
 ==============
 
 For Chef applications and components, use:
 
--   `Chef Software` for Chef, the company
--   `Chef Server` for the Chef Infra Server up to version 12.x
--   `Chef Infra Server` for the Chef Server version 13 and above
--   `Chef Client` for the Chef client up to version 14.x
--   `Chef Infra Client` for Chef Infra Client version 15 and above
--   `Chef Automate` for the Chef Automate product
+- Chef Automate
+- Chef Habitat
+- Chef Infra (formerly Chef)
+- Chef Infra Client (Use Chef Client up to version 14.x)
+- Chef Infra Server (Formerly Chef Server)
+- Chef InSpec
 
-TOC Trees
-=========
+Deleting Pages or Making New Pages
+==================================
 
-A TOC tree defines all of the topics that are children of this topic. In
-Sphinx outputs, the Previous and Next patterns use this topic structure
-to determine these links. In addition, a visible TOC will use the
-structure defined by the `toctree` directive. In general, Chef is not
-using the visible TOC tree, but they still need to be present in the
-topics to keep Sphinx happy. What the hidden `toctree` looks like as
-reST:
+If a new page is created or an old page is deleted, they must be added or removed from the `_index.md` page. 
 
-    .. toctree::
-       :hidden:
+In addition, pages must be placed in the left navigation menu properly. This may involve moving other pages up or down in the left navigation menu by increasing or decreasing their menu weight which is specificed in TOML front matter of each page or possibly in the `config.toml` file.
 
-       chef_overview
-       just_enough_ruby_for_chef
-       ...
+Contact the documentation team if you have any questions about adding or removing pages. 
 
-The TOC tree for Chef docs is located at the bottom of the file
-`chef_master/source/index.rst`.
+Contact
+=======
 
-Localization
-============
-
-Sphinx supports localization into many languages.
-
-.pot files
-----------
-
-.pot files are used by localization teams as an intermediate step
-in-between the native English content and the localized content. Opscode
-needs to build the .pot files so that localization teams can feed them
-into their tools as part of their localization process.
-
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
-
-.pot files should be recompiled, not modified.
-
-</div>
-
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
-
-.pot files are built only for the current release of documentation,
-which is the same as the `chef_master` source collection in git.
-
-</div>
-
-The .pot file is built using much the same process as a regular Sphinx
-content build. For example, a regular content build:
-
-``` bash
-sphinx-build -b html /path/to/source /path/to/build
-```
-
-and then for the .pot files:
-
-``` bash
-sphinx-build -b gettext /path/to/source /path/to/translate
-```
-
-with the very important difference of the `/build` vs. `/translate`
-folders for the output.
-
-.pot files should be checked into the github repository like every other
-source file and even though they are output of the source files, should
-be treated as if they are source files.
-
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
-
-The /translate folder in the github source contains a regularly updated
-set of .pot files. That said, it is recommended that if you want to
-localize the Chef documentation, check with Chef (send email to
-<docs@chef.io>) and let us know that you want to participate in the
-localization process and we can sync up. Or just update the .pot files
-locally to make sure they are the most current versions of the .pot
-files.
-
-</div>
-
-conf.py Settings
-================
-
-Every Sphinx build has a configuration file.
-
-rst_prolog
------------
-
-Chef has added this configuration setting to every conf.py file to help
-streamline the inclusion of files at the beginning of the build process
-and to help support localization efforts. This setting is added to the
-general configuration settings and looks like this:
-
-``` python
-# A string of reStructuredText that will be included at the beginning of every source file that is read.
-rst_prolog = """
-.. include:: ../../swaps/swap_descriptions.txt
-.. include:: ../../swaps/swap_names.txt
-"""
-```
+See our [feedback](/feedback/) page if you have any questions or comments for the documentation team. 
