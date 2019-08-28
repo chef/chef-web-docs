@@ -341,13 +341,12 @@ When why-run mode is enabled, a Chef Infra Client run will occur that does every
 
 When Chef Infra Client is run in why-run mode, certain assumptions are made:
 
-* If the **service** resource cannot find the appropriate command to verify the status of a service, why-run mode will assume that the command would have been installed by a previous resource and that the service would not be running
-* For ``not_if`` and ``only_if`` attribute, why-run mode will assume these are commands or blocks that are safe to run. These conditions are not designed to be used to change the state of the system, but rather to help facilitate idempotency for the resource itself. That said, it may be possible that these attributes are being used in a way that modifies the system state
+* If the **service** resource cannot find the appropriate command to verify the status of a service, why-run mode will assume that the command would have been installed by a previous resource and that the service would not be running.
+* For ``not_if`` and ``only_if`` properties, why-run mode will assume these are commands or blocks that are safe to run. These conditions are not designed to be used to change the state of the system, but rather to help facilitate idempotency for the resource itself. That said, it may be possible that these attributes are being used in a way that modifies the system state
 * The closer the current state of the system is to the desired state, the more useful why-run mode will be. For example, if a full run-list is run against a fresh system, that run-list may not be completely correct on the first try, but also that run-list will produce more output than a smaller run-list
 
-For example, the **service** resource can be used to start a service. If the action is ``:start`` and the service is not running, then start the service (if it is not running) and do nothing (if it is running). What about a service that is installed from a package? Chef Infra Client cannot check to see if the service is running until after the package is installed. A simple question that why-run mode answers is what Chef Infra Client would say about the state of the service after installing the package, because service actions often trigger notifications to other resources. So it can be important to know in advance that any notifications are being triggered correctly.
+For example, the **service** resource can be used to start a service. If the action is ``:start``, then the service will start if it isn't running and do nothing if it is running. If a service is installed from a package, then Chef Infra Client cannot check to see if the service is running until after the package is installed. In that case, why-run mode will indicate what Chef Infra Client would do about the state of the service after installing a package. This is important because service actions often trigger notifications to other resources, so it is important to know that these notifications are triggered correctly.
 
-For a detailed explanation of the dry-run concept and how it relates to the why-run mode, see `this blog post <http://blog.afistfulofservers.net/post/2012/12/21/promises-lies-and-dryrun-mode/>`_.
 
 About chef-zero
 -----------------------------------------------------

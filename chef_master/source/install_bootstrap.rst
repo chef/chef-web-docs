@@ -14,7 +14,7 @@ A node is any physical, virtual, or cloud machine that is configured to be maint
 
 .. tag chef_client_bootstrap_stages
 
-The following diagram shows the stages of the bootstrap operation, and then the list below the diagram describes in greater detail each of those stages.
+The following diagram shows the stages of the bootstrap operation, and the list below the diagram describes each of those stages in greater detail.
 
 .. image:: ../../images/chef_bootstrap.png
 
