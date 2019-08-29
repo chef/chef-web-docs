@@ -68,7 +68,7 @@ A cookbook is comprised of recipes and other optional components as files or dir
      - A template is a file written in markup language that uses Ruby statements to solve complex configuration scenarios.
    * - `Ohai Plugins </ohai_custom.html>`__
      - ohai/
-     - Custom Ohai plugins can be written to load additional information about your nodes to be used in recipes.
+     - Custom Ohai plugins can be written to load additional information about your nodes to be used in recipes. This requires Chef Infra Server 12.18.14 or later.
    * - `Metadata </config_rb_metadata.html>`__
      - metadata.rb
      - This file contains information about the cookbook such as the cookbook name, description, and `version </cookbook_versioning.html>`__.
