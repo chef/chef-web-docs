@@ -1,6 +1,5 @@
 +++
 title = "Chef Automate for Microsoft Azure"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/automate_azure.html"
@@ -8,13 +7,15 @@ aliases = "/automate_azure.html"
 [menu]
   [menu.docs]
     title = "Chef Automate for Microsoft Azure"
-    identifier = "legacy/chef_automate_1/automate_azure.html Chef Automate for Microsoft Azure"
+    identifier = "legacy/chef_automate_1/automate_azure.md Chef Automate for Microsoft Azure"
     parent = "legacy/chef_automate_1"
     weight = 110
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_azure.rst)
+
+<meta name="robots" content="noindex">
 
 {{% cloud_azure_portal %}}
 
@@ -41,18 +42,12 @@ please contact <amp@chef.io> to obtain a new license.
 4.  Complete each configuration step, agree to the software and
     marketplace terms and create the Chef Automate VM.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     Remember the DNS label of the Chef Automate VM. It will be required
     to access the Chef Automate UI and Chef Infra Server.
 
-    </div>
+    {{< /info >}}
 
 5.  While the Chef Automate VM is being provisioned, download and
     install [ChefDK](/install_dk/). ChefDK is a collection of tools
@@ -72,13 +67,7 @@ please contact <amp@chef.io> to obtain a new license.
     or
     `https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup`.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     In order to use TLS/SSL for the Chef Automate Web UI, the VM will
     automatically create and use a self-signed SSL certificate. Modern
@@ -86,7 +75,7 @@ please contact <amp@chef.io> to obtain a new license.
     login; however, in this case, you can ignore the warning and accept
     the certificate.
 
-    </div>
+    {{< /info >}}
 
 7.  Fill out the setup form and submit it.
 
@@ -147,18 +136,12 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     using file based backups from your existing Chef Infra Server is not
     supported.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     The Chef Infra Server services must be online for the entire
     duration of the backup.
 
-    </div>
+    {{< /info >}}
 
     ``` bash
     $ mkdir -p /tmp/chef-backup
@@ -174,20 +157,14 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     $ scp /tmp/chef-backup.tgz <Admin Username>@<FQDN>:/tmp/
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     You can find the FQDN of the Automate VM by checking the deployment
     outputs in the Azure portal. Navigate to the resource group, click
     on the deployment history, select the main template and location the
     FQDN in the outputs section.
 
-    </div>
+    {{< /info >}}
 
 2.  Login to your Chef Automate VM and ensure that it is running the
     latest version of the Chef Infra Server:

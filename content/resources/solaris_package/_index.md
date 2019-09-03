@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: solaris_package resource
 resource: solaris_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_solaris_package.html
 menu:
   docs:
     title: solaris_package
-    identifier: chef_infra/cookbook_reference/resources/resource_solaris_package.html solaris_package
+    identifier: chef_infra/cookbook_reference/resources/resource_solaris_package.md solaris_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 960
+    weight: 970
 
 
 ######## Basic Resource Data ########

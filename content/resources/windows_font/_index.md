@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_font resource
 resource: windows_font
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_font.html
 menu:
   docs:
     title: windows_font
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_font.html windows_font
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_font.md windows_font
     parent: chef_infra/cookbook_reference/resources
-    weight: 1190
+    weight: 1200
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "knife cookbook"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_cookbook.html"
@@ -8,7 +7,7 @@ aliases = "/knife_cookbook.html"
 [menu]
   [menu.docs]
     title = "knife cookbook"
-    identifier = "chef_infra/chefdk/knife/knife_cookbook.html knife cookbook"
+    identifier = "chef_infra/chefdk/knife/knife_cookbook.md knife cookbook"
     parent = "chef_infra/chefdk/knife"
     weight = 80
 +++    
@@ -20,17 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_cookbook_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 bulk delete
 ===========
@@ -61,17 +54,11 @@ This argument has the following options:
     purging a cookbook disables any other cookbook that references one
     or more files from the cookbook that has been purged.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -90,30 +77,18 @@ $ knife cookbook bulk delete "^[0-9]{3}$" -p
 create
 ======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This command was removed in Chef Client 13.0. Use the [chef generate
 cookbook](/ctl_chef.html#chef-generate-cookbook) command instead.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -164,17 +139,11 @@ This argument has the following options:
 :   The document format of the readme file: `md` (markdown) and `rdoc`
     (Ruby docs).
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -237,17 +206,11 @@ This argument has the following options:
     purging a cookbook disables any other cookbook that references one
     or more files from the cookbook that has been purged.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -300,17 +263,11 @@ This argument has the following options:
 
 :   Download the most recent version of a cookbook.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -354,17 +311,11 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -408,17 +359,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -517,17 +462,11 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -614,18 +553,12 @@ that ends in .rb and Embedded Ruby (ERB). This argument will respect
 chefignore files when determining which cookbooks to test for syntax
 errors.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This feature is deprecated in favor of [Cookstyle](/cookstyle/) and
 [ChefSpec](/chefspec/)
 
-</div>
+{{< /warning >}}
 
 Syntax
 ------
@@ -650,17 +583,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -681,13 +608,7 @@ that are associated with those cookbooks) from a local repository to the
 Chef Infra Server. Only files that do not already exist on the Chef
 Infra Server will be uploaded.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Use a chefignore file to prevent the upload of specific files and file
 types, such as temporary files or files placed in folders by version
@@ -695,21 +616,15 @@ control systems. The chefignore file must be located in the root of the
 cookbook repository and must use rules similar to filename globbing (as
 defined by the Ruby `File.fnmatch` syntax).
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Empty directories are not uploaded to the Chef Infra Server. To upload
 an empty directory, create a "dot" file---e.g. `.keep`---in that
 directory to ensure that the directory itself is not empty.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -757,17 +672,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------

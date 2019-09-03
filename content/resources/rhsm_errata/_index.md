@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: rhsm_errata resource
 resource: rhsm_errata
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_rhsm_errata.html
 menu:
   docs:
     title: rhsm_errata
-    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_errata.html rhsm_errata
+    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_errata.md rhsm_errata
     parent: chef_infra/cookbook_reference/resources
-    weight: 840
+    weight: 850
 
 
 ######## Basic Resource Data ########

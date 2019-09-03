@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: openssl_ec_public_key resource
 resource: openssl_ec_public_key
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_openssl_ec_public_key.html
 menu:
   docs:
     title: openssl_ec_public_key
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_ec_public_key.html openssl_ec_public_key
+    identifier: chef_infra/cookbook_reference/resources/resource_openssl_ec_public_key.md openssl_ec_public_key
     parent: chef_infra/cookbook_reference/resources
-    weight: 620
+    weight: 630
 
 
 ######## Basic Resource Data ########

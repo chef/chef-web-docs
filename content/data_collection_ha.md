@@ -1,6 +1,5 @@
 +++
 title = "Data Collection with a Chef High Availability Cluster"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/data_collection_ha.html"
@@ -8,7 +7,7 @@ aliases = "/data_collection_ha.html"
 [menu]
   [menu.docs]
     title = "Data Collection with Chef HA"
-    identifier = "legacy/chef_automate_1/getting_started/data_collection_ha.html Data Collection with Chef HA"
+    identifier = "legacy/chef_automate_1/getting_started/data_collection_ha.md Data Collection with Chef HA"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 50
 +++    
@@ -18,17 +17,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/d
 
 <meta name="robots" content="noindex">
 
-<div class="important" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Important
-
-</div>
+{{< important >}}
 
 Previous step: [Setup Data Collection](/data_collection/)
 
-</div>
+{{< /important >}}
 
 To configure front-end servers in your HA cluster to send their object
 data, first configure a Chef Infra Server for [data
@@ -61,19 +54,13 @@ data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-coll
 data_collector['token'] = 'TOKEN'
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Failure to set the `fqdn` field to the same value will result in Chef
 Automate treating data from each of these front-end servers as separate
 Chef servers.
 
-</div>
+{{< /warning >}}
 
 Next Steps
 ==========

@@ -1,6 +1,5 @@
 +++
 title = "knife ssl_fetch"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_ssl_fetch.html"
@@ -8,7 +7,7 @@ aliases = "/knife_ssl_fetch.html"
 [menu]
   [menu.docs]
     title = "knife ssl_fetch"
-    identifier = "chef_infra/chefdk/knife/knife_ssl_fetch.html knife ssl_fetch"
+    identifier = "chef_infra/chefdk/knife/knife_ssl_fetch.md knife ssl_fetch"
     parent = "chef_infra/chefdk/knife"
     weight = 280
 +++    

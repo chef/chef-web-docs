@@ -1,6 +1,5 @@
 +++
 title = "About Libraries"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/libraries.html"
@@ -8,7 +7,7 @@ aliases = "/libraries.html"
 [menu]
   [menu.docs]
     title = "Libraries"
-    identifier = "chef_infra/cookbook_reference/libraries.html Libraries"
+    identifier = "chef_infra/cookbook_reference/libraries.md Libraries"
     parent = "chef_infra/cookbook_reference"
     weight = 40
 +++    

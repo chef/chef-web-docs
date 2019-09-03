@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: yum_repository resource
 resource: yum_repository
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_yum_repository.html
 menu:
   docs:
     title: yum_repository
-    identifier: chef_infra/cookbook_reference/resources/resource_yum_repository.html yum_repository
+    identifier: chef_infra/cookbook_reference/resources/resource_yum_repository.md yum_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 1320
+    weight: 1330
 
 
 ######## Basic Resource Data ########

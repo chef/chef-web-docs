@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: csh resource
 resource: csh
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_csh.html
 menu:
   docs:
     title: csh
-    identifier: chef_infra/cookbook_reference/resources/resource_csh.html csh
+    identifier: chef_infra/cookbook_reference/resources/resource_csh.md csh
     parent: chef_infra/cookbook_reference/resources
-    weight: 260
+    weight: 270
 
 
 ######## Basic Resource Data ########

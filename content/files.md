@@ -1,6 +1,5 @@
 +++
 title = "About Files"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/files.html"
@@ -8,7 +7,7 @@ aliases = "/files.html"
 [menu]
   [menu.docs]
     title = "Files"
-    identifier = "chef_infra/cookbook_reference/files.html Files"
+    identifier = "chef_infra/cookbook_reference/files.md Files"
     parent = "chef_infra/cookbook_reference"
     weight = 30
 +++    

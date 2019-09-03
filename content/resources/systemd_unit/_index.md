@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: systemd_unit resource
 resource: systemd_unit
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_systemd_unit.html
 menu:
   docs:
     title: systemd_unit
-    identifier: chef_infra/cookbook_reference/resources/resource_systemd_unit.html systemd_unit
+    identifier: chef_infra/cookbook_reference/resources/resource_systemd_unit.md systemd_unit
     parent: chef_infra/cookbook_reference/resources
-    weight: 1020
+    weight: 1030
 
 
 ######## Basic Resource Data ########

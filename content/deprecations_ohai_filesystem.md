@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Filesystem plugin replaced by the Filesystem V2 plugin. (OHAI-9)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_ohai_filesystem.html"

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: batch resource
 resource: batch
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_batch.html
 menu:
   docs:
     title: batch
-    identifier: chef_infra/cookbook_reference/resources/resource_batch.html batch
+    identifier: chef_infra/cookbook_reference/resources/resource_batch.md batch
     parent: chef_infra/cookbook_reference/resources
-    weight: 110
+    weight: 120
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Windows CPU plugin attribute changes. (OHAI-5)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_ohai_windows_cpu.html"

@@ -1,6 +1,5 @@
 +++
 title = "Community Plugins"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/plugin_community.html"

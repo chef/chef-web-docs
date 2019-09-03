@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: sysctl resource
 resource: sysctl
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_sysctl.html
 menu:
   docs:
     title: sysctl
-    identifier: chef_infra/cookbook_reference/resources/resource_sysctl.html sysctl
+    identifier: chef_infra/cookbook_reference/resources/resource_sysctl.md sysctl
     parent: chef_infra/cookbook_reference/resources
-    weight: 1010
+    weight: 1020
 
 
 ######## Basic Resource Data ########

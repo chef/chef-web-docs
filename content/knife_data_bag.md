@@ -1,6 +1,5 @@
 +++
 title = "knife data bag"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_data_bag.html"
@@ -8,7 +7,7 @@ aliases = "/knife_data_bag.html"
 [menu]
   [menu.docs]
     title = "knife data bag"
-    identifier = "chef_infra/chefdk/knife/knife_data_bag.html knife data bag"
+    identifier = "chef_infra/chefdk/knife/knife_data_bag.md knife data bag"
     parent = "chef_infra/chefdk/knife"
     weight = 100
 +++    
@@ -22,17 +21,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_data_bag_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 create
 ======
@@ -71,17 +64,11 @@ This argument has the following options:
 
 :   The path to the file that contains the encryption key.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -181,30 +168,18 @@ This argument has the following options:
 
 :   The path to the file that contains the encryption key.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For encrypted data bag items, use *either* `--secret` or
 `--secret-file`, not both.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -288,30 +263,18 @@ This argument has the following options:
 
 :   The path to the file that contains the encryption key.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For encrypted data bag items, use *either* `--secret` or
 `--secret-file`, not both.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -409,30 +372,18 @@ This argument has the following options:
 
 :   The path to the file that contains the encryption key.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For encrypted data bag items, use *either* `--secret` or
 `--secret-file`, not both.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------

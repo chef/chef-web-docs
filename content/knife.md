@@ -1,6 +1,5 @@
 +++
 title = "About Knife"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife.html"
@@ -8,7 +7,7 @@ aliases = "/knife.html"
 [menu]
   [menu.docs]
     title = "About Knife"
-    identifier = "chef_infra/chefdk/knife/knife.html About Knife"
+    identifier = "chef_infra/chefdk/knife/knife.md About Knife"
     parent = "chef_infra/chefdk/knife"
     weight = 10
 +++    
@@ -73,13 +72,7 @@ knife subcommand [ARGUMENT] (options)
 
 Each subcommand has its own set of arguments and options.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 All syntax examples in this document show variables in ALL_CAPS. For
 example `-u PORT_LIST` (where PORT_LIST is a comma-separated list of
@@ -88,7 +81,7 @@ output format, either `summary`, `text`, `json`, `yaml`, or `pp`). These
 variables often require specific values that are unique to each
 organization.
 
-</div>
+{{< /info >}}
 
 Built-in Subcommands
 --------------------

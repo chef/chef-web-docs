@@ -1,6 +1,5 @@
 +++
 title = "Tiered Installation"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_server_tiered.html"
@@ -8,8 +7,8 @@ aliases = "/install_server_tiered.html"
 [menu]
   [menu.docs]
     title = "Tiered Installation"
-    identifier = "chef_infra/setup/server/install_server_tiered.html Tiered Installation"
-    parent = "chef_infra/setup/server"
+    identifier = "chef_infra/setup/chef_infra_server/install_server_tiered.md Tiered Installation"
+    parent = "chef_infra/setup/chef_infra_server"
     weight = 50
 +++    
 

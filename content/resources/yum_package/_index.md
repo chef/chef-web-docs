@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: yum_package resource
 resource: yum_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_yum_package.html
 menu:
   docs:
     title: yum_package
-    identifier: chef_infra/cookbook_reference/resources/resource_yum_package.html yum_package
+    identifier: chef_infra/cookbook_reference/resources/resource_yum_package.md yum_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 1310
+    weight: 1320
 
 
 ######## Basic Resource Data ########

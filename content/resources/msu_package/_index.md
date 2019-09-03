@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: msu_package resource
 resource: msu_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_msu_package.html
 menu:
   docs:
     title: msu_package
-    identifier: chef_infra/cookbook_reference/resources/resource_msu_package.html msu_package
+    identifier: chef_infra/cookbook_reference/resources/resource_msu_package.md msu_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 560
+    weight: 570
 
 
 ######## Basic Resource Data ########

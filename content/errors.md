@@ -1,6 +1,5 @@
 +++
 title = "Troubleshooting"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/errors.html"
@@ -8,7 +7,7 @@ aliases = "/errors.html"
 [menu]
   [menu.docs]
     title = "Troubleshooting"
-    identifier = "chef_infra/errors.html Troubleshooting"
+    identifier = "chef_infra/errors.md Troubleshooting"
     parent = "chef_infra"
     weight = 40
 +++    
@@ -414,17 +413,11 @@ The value of `postgresql['external']` has been changed.
 -   This setting must be set before running
     `chef-server-ctl reconfigure`, and may not be changed after
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Upgrading is not supported at this time.
 
-</div>
+{{< /warning >}}
 
 **Resolution**
 

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: zypper_package resource
 resource: zypper_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_zypper_package.html
 menu:
   docs:
     title: zypper_package
-    identifier: chef_infra/cookbook_reference/resources/resource_zypper_package.html zypper_package
+    identifier: chef_infra/cookbook_reference/resources/resource_zypper_package.md zypper_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 1330
+    weight: 1340
 
 
 ######## Basic Resource Data ########

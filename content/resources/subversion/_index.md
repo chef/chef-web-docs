@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: subversion resource
 resource: subversion
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_subversion.html
 menu:
   docs:
     title: subversion
-    identifier: chef_infra/cookbook_reference/resources/resource_subversion.html subversion
+    identifier: chef_infra/cookbook_reference/resources/resource_subversion.md subversion
     parent: chef_infra/cookbook_reference/resources
-    weight: 980
+    weight: 990
 
 
 ######## Basic Resource Data ########

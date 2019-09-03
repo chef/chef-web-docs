@@ -1,6 +1,5 @@
 +++
 title = "Manage Environments"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_manage_environments.html"
@@ -8,7 +7,7 @@ aliases = "/server_manage_environments.html"
 [menu]
   [menu.docs]
     title = "Environments"
-    identifier = "chef_infra/features/management_console/server_manage_environments.html Environments"
+    identifier = "chef_infra/features/management_console/server_manage_environments.md Environments"
     parent = "chef_infra/features/management_console"
     weight = 60
 +++    
@@ -18,18 +17,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 <meta name="robots" content="noindex">
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This topic is about using the Chef management console to manage
 environments.
 
-</div>
+{{< /info >}}
 
 {{% chef_automate_mark %}}
 

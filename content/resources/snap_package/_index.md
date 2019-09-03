@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: snap_package resource
 resource: snap_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_snap_package.html
 menu:
   docs:
     title: snap_package
-    identifier: chef_infra/cookbook_reference/resources/resource_snap_package.html snap_package
+    identifier: chef_infra/cookbook_reference/resources/resource_snap_package.md snap_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 950
+    weight: 960
 
 
 ######## Basic Resource Data ########

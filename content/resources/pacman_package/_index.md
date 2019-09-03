@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: pacman_package resource
 resource: pacman_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_pacman_package.html
 menu:
   docs:
     title: pacman_package
-    identifier: chef_infra/cookbook_reference/resources/resource_pacman_package.html pacman_package
+    identifier: chef_infra/cookbook_reference/resources/resource_pacman_package.md pacman_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 700
+    weight: 710
 
 
 ######## Basic Resource Data ########

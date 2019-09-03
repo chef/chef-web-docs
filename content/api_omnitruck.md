@@ -1,6 +1,5 @@
 +++
 title = "Omnitruck API"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/api_omnitruck.html"
@@ -8,7 +7,7 @@ aliases = "/api_omnitruck.html"
 [menu]
   [menu.docs]
     title = "Omnitruck API"
-    identifier = "overview/packages_&_platforms/api_omnitruck.html Omnitruck API"
+    identifier = "overview/packages_&_platforms/api_omnitruck.md Omnitruck API"
     parent = "overview/packages_&_platforms"
     weight = 40
 +++    

@@ -1,6 +1,5 @@
 +++
 title = "Active Directory and LDAP"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_ldap.html"
@@ -8,8 +7,8 @@ aliases = "/server_ldap.html"
 [menu]
   [menu.docs]
     title = "Active Directory & LDAP"
-    identifier = "chef_infra/managing_the_server/server_ldap.html Active Directory & LDAP"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_ldap.md Active Directory & LDAP"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 50
 +++    
 
@@ -28,13 +27,7 @@ user that has an email address in the LDAP directory. This allows those
 users to log in to the Chef Infra Server by using their corporate
 credentials instead of having a separate username and password.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The following attributes **MUST** be in the user LDAP record:
 
@@ -49,7 +42,7 @@ The following attributes **SHOULD** be in the user LDAP record:
 -   `c:`
 -   `l:`
 
-</div>
+{{< /warning >}}
 
 To configure the Chef Infra Server to use Active Directory or LDAP do
 the following:
@@ -64,18 +57,12 @@ the following:
 
     {{% config_rb_server_settings_ldap %}}
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     If the chef-server.rb file does not exist, create a file called
     `chef-server.rb` and put it in the `/etc/opscode/` directory.
 
-    </div>
+    {{< /info >}}
 
 3.  {{% install_chef_server_reconfigure %}}
 

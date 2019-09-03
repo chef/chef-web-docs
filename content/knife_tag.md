@@ -1,6 +1,5 @@
 +++
 title = "knife tag"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_tag.html"
@@ -8,7 +7,7 @@ aliases = "/knife_tag.html"
 [menu]
   [menu.docs]
     title = "knife tag"
-    identifier = "chef_infra/chefdk/knife/knife_tag.html knife tag"
+    identifier = "chef_infra/chefdk/knife/knife_tag.md knife tag"
     parent = "chef_infra/chefdk/knife"
     weight = 310
 +++    
@@ -20,17 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_tag_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 create
 ======

@@ -1,6 +1,5 @@
 +++
 title = "knife cookbook site"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_cookbook_site.html"
@@ -8,7 +7,7 @@ aliases = "/knife_cookbook_site.html"
 [menu]
   [menu.docs]
     title = "knife cookbook site"
-    identifier = "chef_infra/chefdk/knife/knife_cookbook_site.html knife cookbook site"
+    identifier = "chef_infra/chefdk/knife/knife_cookbook_site.md knife cookbook site"
     parent = "chef_infra/chefdk/knife"
     weight = 90
 +++    
@@ -24,42 +23,24 @@ user account is required for any community actions that write data to
 this site. The following arguments do not require a user account:
 `download`, `search`, `install`, and `list`.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 `knife cookbook site` has been deprecated in favor of the [knife
 supermarket](/knife_supermarket/) command.
 
-</div>
+{{< /warning >}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 {{% notes_knife_cookbook_site_use_devkit_berkshelf %}}
 
-</div>
+{{< /warning >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 Private Supermarket
 ===================
@@ -119,17 +100,11 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     <https://supermarket.chef.io>.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -219,17 +194,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -450,17 +419,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -569,18 +532,12 @@ Use the `unshare` argument to stop the sharing of a cookbook at the
 [Chef Supermarket](https://supermarket.chef.io/cookbooks). Only the
 maintainer of a cookbook may perform this action.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Unsharing a cookbook will break a cookbook that has set a dependency on
 that cookbook or cookbook version.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------

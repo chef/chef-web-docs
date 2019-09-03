@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: locale resource
 resource: locale
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_locale.html
 menu:
   docs:
     title: locale
-    identifier: chef_infra/cookbook_reference/resources/resource_locale.html locale
+    identifier: chef_infra/cookbook_reference/resources/resource_locale.md locale
     parent: chef_infra/cookbook_reference/resources
-    weight: 500
+    weight: 510
 
 
 ######## Basic Resource Data ########

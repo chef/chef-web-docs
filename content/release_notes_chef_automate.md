@@ -1,6 +1,5 @@
 +++
 title = "Release Notes: Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/release_notes_chef_automate.html"
@@ -8,7 +7,7 @@ aliases = "/release_notes_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Release Notes"
-    identifier = "legacy/chef_automate_1/release_notes_chef_automate.html Release Notes"
+    identifier = "legacy/chef_automate_1/release_notes_chef_automate.md Release Notes"
     parent = "legacy/chef_automate_1"
     weight = 20
 +++    
@@ -20,13 +19,7 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/r
 
 [![image](/images/a2_docs_banner.svg)](https://automate.chef.io/docs)
 
-<div class="danger" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Danger
-
-</div>
+{{< danger >}}
 
 This documentation covers an outdated version of Chef Automate. See the
 [Chef Automate site](https://automate.chef.io/docs/quickstart/) for
@@ -35,7 +28,7 @@ out-of-the-box compliance profiles, an improved compliance scanner with
 total cloud scanning functionality, better visualizations, role-based
 access control and many other features.
 
-</div>
+{{< /danger >}}
 
 Chef Automate provides a full suite of enterprise capabilities for
 workflow, visibility and compliance that allow you to manage and monitor
@@ -570,13 +563,7 @@ Resolved Issues
 What's New in 1.6.87
 ====================
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This release contains significant upgrades to the platform; please read
 these release notes carefully. Before you upgrade to this release,
@@ -584,7 +571,7 @@ please make a [complete
 backup](/delivery_server_backup.html#create-backups) of your Chef
 Automate server.
 
-</div>
+{{< /info >}}
 
 Important Note when Upgrading from 0.8.5 or Earlier
 ---------------------------------------------------
@@ -804,20 +791,14 @@ During the open beta, we improved a number of compliance capabilities:
 -   Improved the Audit cookbook; please use Audit cookbook version 4.x
 -   Added support for ZIP profile upload
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you need to continue using the previous compliance view, you can
 enable it easily. We have included a new feature flag to activate the
 old compliance view by typing `legacy` in the UI and toggling on this
 view in the menu.
 
-</div>
+{{< /info >}}
 
 All data that is received by Chef Automate will be available in both the
 new and old compliance view in our releases for the next 3 months, after
@@ -964,18 +945,12 @@ you to toggle on the new compliance views. You can revert to the
 original view with compliance data as a sub-tab on the **Nodes** view by
 deactivating the beta feature flag.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The beta views will display new data only. Historical data is displayed
 only in the existing sub-tab view under the **Nodes** page.
 
-</div>
+{{< /info >}}
 
 As you explore the beta, we welcome your feedback and invite you to
 visit [Chef’s Community Slack](http://community-slack.chef.io/) and join

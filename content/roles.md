@@ -1,6 +1,5 @@
 +++
 title = "About Roles"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/roles.html"
@@ -8,7 +7,7 @@ aliases = "/roles.html"
 [menu]
   [menu.docs]
     title = "Roles"
-    identifier = "chef_infra/concepts/policy/roles.html Roles"
+    identifier = "chef_infra/concepts/policy/roles.md Roles"
     parent = "chef_infra/concepts/policy"
     weight = 50
 +++    
@@ -23,17 +22,11 @@ Role Attributes
 
 {{% role_attribute %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_see_attributes_overview %}}
 
-</div>
+{{< /info >}}
 
 Attribute Types
 ---------------
@@ -124,12 +117,9 @@ Domain-specific Ruby attributes:
 <td><p>Optional. A list of environments, each specifying a recipe or a role to be applied to that environment. This setting must specify the <code>_default</code> environment. If the <code>_default</code> environment is set to <code>[]</code> or <code>nil</code>, then the run-list is empty. For example:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>env_run_lists <span class="st">&#39;prod&#39;</span> =&gt; [<span class="st">&#39;recipe[apache2]&#39;</span>],</span>
 <span id="cb3-2"><a href="#cb3-2"></a>              <span class="st">&#39;staging&#39;</span> =&gt; [<span class="st">&#39;recipe[apache2::staging]&#39;</span></span></code></pre></div>
-<div class="warning">
-<div class="admonition-title">
-<p>Warning</p>
-</div>
+{{< warning >}}
 <p>Using <code>env_run_lists</code> with roles is discouraged as it can be difficult to maintain over time. Instead, consider using multiple roles to define the required behavior.</p>
-</div></td>
+{{< /warning >}}</td>
 </tr>
 <tr class="even">
 <td><p><code>name</code></p></td>

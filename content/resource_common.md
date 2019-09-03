@@ -1,6 +1,5 @@
 +++
 title = "Common Functionality"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/resource_common.html"
@@ -8,7 +7,7 @@ aliases = "/resource_common.html"
 [menu]
   [menu.docs]
     title = "Common Functionality"
-    identifier = "chef_infra/cookbook_reference/resources/resource_common.html Common Functionality"
+    identifier = "chef_infra/cookbook_reference/resources/resource_common.md Common Functionality"
     parent = "chef_infra/cookbook_reference/resources"
     weight = 20
 +++    
@@ -57,13 +56,7 @@ Guards [resource_common_guards]
 
 {{% resources_common_guards %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 When using the `not_if` and `only_if` guards with the **execute**
 resource, the guard's environment is inherited from the resource's
@@ -76,7 +69,7 @@ execute 'bundle install' do
 end
 ```
 
-</div>
+{{< /info >}}
 
 Properties
 ----------

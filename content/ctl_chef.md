@@ -1,6 +1,5 @@
 +++
 title = "chef (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_chef.html"
@@ -293,17 +292,11 @@ chef generate cookbook
 
 Use the `chef generate cookbook` subcommand to generate a cookbook.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -444,18 +437,12 @@ repository from which the `chef` command is run:
 $ chef generate cookbook --generator-cookbook ~/Desktop testcookbook
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `code_generator` cookbook itself is not specified as part of the
 path.
 
-</div>
+{{< /info >}}
 
 will return something similar to:
 
@@ -601,17 +588,11 @@ chef generate resource
 Use the `chef generate resource` subcommand to generate a custom
 resource in the `/resources` directory.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-</div>
+{{< /info >}}
 
 Syntax
 ------

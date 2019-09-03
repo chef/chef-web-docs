@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_workgroup resource
 resource: windows_workgroup
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_workgroup.html
 menu:
   docs:
     title: windows_workgroup
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_workgroup.html windows_workgroup
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_workgroup.md windows_workgroup
     parent: chef_infra/cookbook_reference/resources
-    weight: 1300
+    weight: 1310
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "Community Contributions"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/community_contributions.html"
@@ -8,7 +7,7 @@ aliases = "/community_contributions.html"
 [menu]
   [menu.docs]
     title = "Contributing"
-    identifier = "overview/community/community_contributions.html Contributing"
+    identifier = "overview/community/community_contributions.md Contributing"
     parent = "overview/community"
     weight = 20
 +++    
@@ -88,27 +87,15 @@ For additional support about Chef products, including documentation,
 learning, and opening tickets with the support team, see [Chef
 Support](https://www.chef.io/support/) .
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 If you require a response from Chef per the terms of a support level
 agreement (SLA), please contact [Chef
 Support](https://www.chef.io/support/) directly.
 
-</div>
+{{< /warning >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Questions on how to use Chef Infra should be sent as Support Tickets if
 you have an SLA, or asked on the [Chef Software Mailing
@@ -116,7 +103,7 @@ List](https://discourse.chef.io/), or [Chef Community
 Slack](https://community-slack.chef.io/). Bug Trackers are not
 appropriate for general purpose questions that are not bugs.
 
-</div>
+{{< /info >}}
 
 Contribution Process
 ====================
@@ -433,20 +420,14 @@ Use the following steps to synchronize the master branch.
     $ git rebase chef/master master
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     Use `rebase` instead of `merge` to ensure that a linear history is
     maintained that does not include unnecessary merge commits. `rebase`
     will also rewind, apply, and then reapply commits to the `master`
     branch.
 
-    </div>
+    {{< /info >}}
 
 Use Branch
 ----------

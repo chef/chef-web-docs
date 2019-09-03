@@ -1,6 +1,5 @@
 +++
 title = "Manage Cookbooks"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_manage_cookbooks.html"
@@ -8,7 +7,7 @@ aliases = "/server_manage_cookbooks.html"
 [menu]
   [menu.docs]
     title = "Cookbooks"
-    identifier = "chef_infra/features/management_console/server_manage_cookbooks.html Cookbooks"
+    identifier = "chef_infra/features/management_console/server_manage_cookbooks.md Cookbooks"
     parent = "chef_infra/features/management_console"
     weight = 40
 +++    
@@ -22,18 +21,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% EOL_manage %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This topic is about using the Chef management console to manage
 cookbooks.
 
-</div>
+{{< /info >}}
 
 {{% cookbooks_summary %}}
 

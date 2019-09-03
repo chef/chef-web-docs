@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_task resource
 resource: windows_task
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_task.html
 menu:
   docs:
     title: windows_task
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_task.html windows_task
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_task.md windows_task
     parent: chef_infra/cookbook_reference/resources
-    weight: 1280
+    weight: 1290
 
 
 ######## Basic Resource Data ########

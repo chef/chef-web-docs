@@ -1,6 +1,5 @@
 +++
 title = "knife search"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_search.html"
@@ -8,7 +7,7 @@ aliases = "/knife_search.html"
 [menu]
   [menu.docs]
     title = "knife search"
-    identifier = "chef_infra/chefdk/knife/knife_search.html knife search"
+    identifier = "chef_infra/chefdk/knife/knife_search.md knife search"
     parent = "chef_infra/chefdk/knife"
     weight = 230
 +++    
@@ -168,17 +167,11 @@ Special Characters
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 

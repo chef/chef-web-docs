@@ -1,6 +1,5 @@
 +++
 title = "knife raw"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_raw.html"
@@ -8,7 +7,7 @@ aliases = "/knife_raw.html"
 [menu]
   [menu.docs]
     title = "knife raw"
-    identifier = "chef_infra/chefdk/knife/knife_raw.html knife raw"
+    identifier = "chef_infra/chefdk/knife/knife_raw.md knife raw"
     parent = "chef_infra/chefdk/knife"
     weight = 200
 +++    
@@ -30,17 +29,11 @@ $ knife raw REQUEST_PATH (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 
@@ -63,17 +56,11 @@ This subcommand has the following options:
 :   Enable proxy authentication to the Chef Infra Server web user
     interface. Default value: `false`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

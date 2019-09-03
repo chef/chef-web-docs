@@ -1,16 +1,15 @@
 +++
 title = "Converting Definitions to Custom Resources"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/definitions.html"
 
 [menu]
   [menu.docs]
-    title = "Converting Definitions"
-    identifier = "chef_infra/concepts/definitions.html Converting Definitions"
-    parent = "chef_infra/concepts"
-    weight = 80
+    title = "Converting Resource Definitions"
+    identifier = "chef_infra/cookbook_reference/resources/definitions.md Converting Resource Definitions"
+    parent = "chef_infra/cookbook_reference/resources"
+    weight = 30
 +++    
 
 [\[edit on

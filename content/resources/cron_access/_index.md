@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: cron_access resource
 resource: cron_access
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_cron_access.html
 menu:
   docs:
     title: cron_access
-    identifier: chef_infra/cookbook_reference/resources/resource_cron_access.html cron_access
+    identifier: chef_infra/cookbook_reference/resources/resource_cron_access.md cron_access
     parent: chef_infra/cookbook_reference/resources
-    weight: 250
+    weight: 260
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
-title = "Install the Chef Server"
-description = "DESCRIPTION"
+title = "Install the Chef Infra Server"
 draft = false
 
 aliases = "/install_server.html"
@@ -8,8 +7,8 @@ aliases = "/install_server.html"
 [menu]
   [menu.docs]
     title = "Install Chef Infra Server"
-    identifier = "chef_infra/setup/server/install_server.html Install Chef Infra Server"
-    parent = "chef_infra/setup/server"
+    identifier = "chef_infra/setup/chef_infra_server/install_server.md Install Chef Infra Server"
+    parent = "chef_infra/setup/chef_infra_server"
     weight = 20
 +++    
 
@@ -58,18 +57,12 @@ The Chef Infra Server has the following prerequisites:
     services will run. See [UIDs and
     GIDs](/install_server_pre.html#uids-and-gids) for more information.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 See the [expanded list of prerequisites](/install_server_pre/) for a
 detailed list of software and hardware requirements.
 
-</div>
+{{< /info >}}
 
 Standalone
 ==========

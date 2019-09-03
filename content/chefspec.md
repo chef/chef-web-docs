@@ -1,6 +1,5 @@
 +++
 title = "ChefSpec"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chefspec.html"
@@ -8,7 +7,7 @@ aliases = "/chefspec.html"
 [menu]
   [menu.docs]
     title = "ChefSpec"
-    identifier = "chef_infra/chefdk/chefspec.html ChefSpec"
+    identifier = "chef_infra/chefdk/chefspec.md ChefSpec"
     parent = "chef_infra/chefdk"
     weight = 80
 +++    

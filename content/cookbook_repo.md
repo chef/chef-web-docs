@@ -1,6 +1,5 @@
 +++
 title = "Cookbook Directory"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/cookbook_repo.html"
@@ -8,7 +7,7 @@ aliases = "/cookbook_repo.html"
 [menu]
   [menu.docs]
     title = "Cookbook Repo"
-    identifier = "chef_infra/cookbook_reference/cookbook_repo.html Cookbook Repo"
+    identifier = "chef_infra/cookbook_reference/cookbook_repo.md Cookbook Repo"
     parent = "chef_infra/cookbook_reference"
     weight = 100
 +++    

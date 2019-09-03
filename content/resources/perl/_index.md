@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: perl resource
 resource: perl
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_perl.html
 menu:
   docs:
     title: perl
-    identifier: chef_infra/cookbook_reference/resources/resource_perl.html perl
+    identifier: chef_infra/cookbook_reference/resources/resource_perl.md perl
     parent: chef_infra/cookbook_reference/resources
-    weight: 720
+    weight: 730
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "About the Custom Resource DSL"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/dsl_custom_resource.html"
@@ -8,7 +7,7 @@ aliases = "/dsl_custom_resource.html"
 [menu]
   [menu.docs]
     title = "Custom Resources DSL"
-    identifier = "chef_infra/cookbook_reference/dsl_custom_resource.html Custom Resources DSL"
+    identifier = "chef_infra/cookbook_reference/dsl_custom_resource.md Custom Resources DSL"
     parent = "chef_infra/cookbook_reference"
     weight = 70
 +++    
@@ -107,17 +106,11 @@ reset_property
 resource_name
 ==============
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-</div>
+{{< /info >}}
 
 {{% dsl_custom_resource_method_resource_name %}}
 

@@ -1,6 +1,5 @@
 +++
 title = "Organizations and Groups"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_orgs.html"
@@ -8,8 +7,8 @@ aliases = "/server_orgs.html"
 [menu]
   [menu.docs]
     title = "Organizations & Groups"
-    identifier = "chef_infra/managing_the_server/server_orgs.html Organizations & Groups"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_orgs.md Organizations & Groups"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 80
 +++    
 
@@ -44,19 +43,13 @@ Permissions
 
 ### Client Key Permissions
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This is only necessary after migrating a client from one Chef Infra
 Server to another. Permissions must be reset for client keys after the
 migration.
 
-</div>
+{{< /info >}}
 
 {{% server_rbac_permissions_key %}}
 
@@ -122,18 +115,12 @@ The following sections show the default permissions assigned by the Chef
 Infra Server to the `admins`, `billing_admins`, `clients`, and `users`
 groups.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The creator of an object on the Chef Infra Server is assigned `create`,
 `delete`, `grant`, `read`, and `update` permission to that object.
 
-</div>
+{{< /info >}}
 
 ### admins
 

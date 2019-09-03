@@ -1,6 +1,5 @@
 +++
 title = "Setting up Knife"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_setup.html"
@@ -8,7 +7,7 @@ aliases = "/knife_setup.html"
 [menu]
   [menu.docs]
     title = "Setting up Knife"
-    identifier = "chef_infra/chefdk/knife/knife_setup.html Setting up Knife"
+    identifier = "chef_infra/chefdk/knife/knife_setup.md Setting up Knife"
     parent = "chef_infra/chefdk/knife"
     weight = 20
 +++    
@@ -49,19 +48,13 @@ using the following load order:
 -   From `~/.chef/config.rb` (macOS and Linux platforms) or
     `c:\Users\<username>\.chef` (Microsoft Windows platform)
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 When running Microsoft Windows, the config.rb file is located at
 `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If
 this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 
-</div>
+{{< /info >}}
 
 config.rb Configuration Within a Chef Repository
 ------------------------------------------------

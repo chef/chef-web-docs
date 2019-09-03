@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: openbsd_package resource
 resource: openbsd_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_openbsd_package.html
 menu:
   docs:
     title: openbsd_package
-    identifier: chef_infra/cookbook_reference/resources/resource_openbsd_package.html openbsd_package
+    identifier: chef_infra/cookbook_reference/resources/resource_openbsd_package.md openbsd_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 590
+    weight: 600
 
 
 ######## Basic Resource Data ########

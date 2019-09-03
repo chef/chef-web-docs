@@ -1,6 +1,5 @@
 +++
 title = "Configuring for SAML Authentication"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_configure_saml.html"
@@ -8,7 +7,7 @@ aliases = "/server_configure_saml.html"
 [menu]
   [menu.docs]
     title = "Configure SAML"
-    identifier = "chef_infra/features/management_console/server_configure_saml.html Configure SAML"
+    identifier = "chef_infra/features/management_console/server_configure_saml.md Configure SAML"
     parent = "chef_infra/features/management_console"
     weight = 20
 +++    
@@ -64,19 +63,13 @@ to your Chef Manage configuration.
 
 Finally, run `chef-manage-ctl reconfigure` to apply these settings.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 You cannot have both LDAP and SAML authentication enabled at the same
 time. If you do, the reconfigure will fail with an appropriate error
 message.
 
-</div>
+{{< /warning >}}
 
 Configuring the Chef Automate Server
 ====================================

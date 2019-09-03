@@ -1,6 +1,5 @@
 +++
 title = "About Templates"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/templates.html"
@@ -8,7 +7,7 @@ aliases = "/templates.html"
 [menu]
   [menu.docs]
     title = "Templates"
-    identifier = "chef_infra/cookbook_reference/templates.html Templates"
+    identifier = "chef_infra/cookbook_reference/templates.md Templates"
     parent = "chef_infra/cookbook_reference"
     weight = 90
 +++    
@@ -18,17 +17,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/t
 
 {{% template %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_cookbook_template_erubis %}}
 
-</div>
+{{< /info >}}
 
 Requirements
 ============

@@ -1,6 +1,5 @@
 +++
 title = "knife status"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_status.html"
@@ -8,7 +7,7 @@ aliases = "/knife_status.html"
 [menu]
   [menu.docs]
     title = "knife status"
-    identifier = "chef_infra/chefdk/knife/knife_status.html knife status"
+    identifier = "chef_infra/chefdk/knife/knife_status.md knife status"
     parent = "chef_infra/chefdk/knife"
     weight = 290
 +++    
@@ -30,17 +29,11 @@ $ knife status (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 
@@ -76,17 +69,11 @@ This subcommand has the following options:
 
 :   A comma-separated list of roles and/or recipes to be applied.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

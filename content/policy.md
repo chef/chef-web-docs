@@ -1,6 +1,5 @@
 +++
 title = "About Policy"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/policy.html"
@@ -8,7 +7,7 @@ aliases = "/policy.html"
 [menu]
   [menu.docs]
     title = "About Policy"
-    identifier = "chef_infra/concepts/policy/policy.html About Policy"
+    identifier = "chef_infra/concepts/policy/policy.md About Policy"
     parent = "chef_infra/concepts/policy"
     weight = 10
 +++    
@@ -23,86 +22,56 @@ Cookbook Versions
 
 {{% cookbooks_version %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For more information about cookbook versioning, see [About Cookbook
 Versioning](/cookbook_versioning/)
 
-</div>
+{{< /info >}}
 
 Data Bags (Secrets)
 ===================
 
 {{% data_bag %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For more information about data bags, see [About Data
 Bags](/data_bags/)
 
-</div>
+{{< /info >}}
 
 Environments
 ============
 
 {{% environment %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For more information about environments, see [About
 Environments](/environments/)
 
-</div>
+{{< /info >}}
 
 Roles
 =====
 
 {{% role %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For more information about roles, see [About Roles](/roles/)
 
-</div>
+{{< /info >}}
 
 Policyfile
 ==========
 
 {{% policyfile_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For more information about Policyfile, see [About
 Policyfile](/policyfile/)
 
-</div>
+{{< /info >}}

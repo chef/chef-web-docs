@@ -1,6 +1,5 @@
 +++
 title = "Chef Supermarket"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/supermarket.html"
@@ -8,7 +7,7 @@ aliases = "/supermarket.html"
 [menu]
   [menu.docs]
     title = "Supermarket"
-    identifier = "chef_infra/concepts/supermarket/supermarket.html Supermarket"
+    identifier = "chef_infra/concepts/supermarket/supermarket.md Supermarket"
     parent = "chef_infra/concepts/supermarket"
     weight = 10
 +++    
@@ -34,17 +33,11 @@ Private Supermarket
 
 {{% supermarket_private %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% supermarket_private_source_code %}}
 
-</div>
+{{< /info >}}
 
 Recommended Tools
 -----------------
@@ -125,18 +118,12 @@ $ cd my_chef_repo
 
 **Generate a cookbook**
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Duplicate cookbook names on Chef Supermarket are not allowed. So first
 verify that a cookbook name is available.
 
-</div>
+{{< /info >}}
 
 To create the `my_apache2_cookbook` cookbook, run the following command:
 

@@ -1,6 +1,5 @@
 +++
 title = "Knife Cloud Plugins"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/plugin_knife.html"
@@ -8,7 +7,7 @@ aliases = "/plugin_knife.html"
 [menu]
   [menu.docs]
     title = "Cloud Plugins"
-    identifier = "extension_apis/knife_plugins/plugin_knife.html Cloud Plugins"
+    identifier = "extension_apis/knife_plugins/plugin_knife.md Cloud Plugins"
     parent = "extension_apis/knife_plugins"
     weight = 10
 +++    

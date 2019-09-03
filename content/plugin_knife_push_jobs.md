@@ -1,6 +1,5 @@
 +++
 title = "knife push jobs"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/plugin_knife_push_jobs.html"
@@ -8,8 +7,8 @@ aliases = "/plugin_knife_push_jobs.html"
 [menu]
   [menu.docs]
     title = "knife push jobs"
-    identifier = "chef_infra/managing_the_server/push_jobs/plugin_knife_push_jobs.html knife push jobs"
-    parent = "chef_infra/managing_the_server/push_jobs"
+    identifier = "chef_infra/managing_chef_infra_server/push_jobs/plugin_knife_push_jobs.md knife push jobs"
+    parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 10
 +++    
 
@@ -18,18 +17,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/p
 
 {{% plugin_knife_push_jobs_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-</div>
+{{< /info >}}
 
 job list
 ========

@@ -1,6 +1,5 @@
 +++
 title = "Custom Resources"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/custom_resources.html"
@@ -8,9 +7,9 @@ aliases = "/custom_resources.html"
 [menu]
   [menu.docs]
     title = "Custom Resources"
-    identifier = "chef_infra/cookbook_reference/resources/custom_resources.html Custom Resources"
+    identifier = "chef_infra/cookbook_reference/resources/custom_resources.md Custom Resources"
     parent = "chef_infra/cookbook_reference/resources"
-    weight = 30
+    weight = 40
 +++    
 
 [\[edit on
@@ -57,20 +56,14 @@ end
 
 where the first action listed is the default action.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Do not use existing keywords from the Chef Infra Client resource system
 in a custom resource, like "name". For example,
 `property :property_name` in the following invalid syntax:
 `property :name, String, default: 'thename'`.
 
-</div>
+{{< /warning >}}
 
 Example
 -------
@@ -138,17 +131,11 @@ end
 resource_name
 --------------
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-</div>
+{{< /info >}}
 
 {{% dsl_custom_resource_method_resource_name %}}
 
@@ -329,13 +316,7 @@ where
 -   `variables` assigns the `instance_name` and `port` properties to
     variables in the template
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 When writing a shared custom resource, you may need to use templates
 that ship with the custom resource. However, you will need to specify
@@ -344,7 +325,7 @@ the template resource. If this is not set, then Chef Infra Client will
 look for templates in the location of the cookbook that is using the
 resource and won't be able to find them. Example: `cookbook 'website'`
 
-</div>
+{{< /info >}}
 
 ### directory
 

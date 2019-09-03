@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: portage_package resource
 resource: portage_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_portage_package.html
 menu:
   docs:
     title: portage_package
-    identifier: chef_infra/cookbook_reference/resources/resource_portage_package.html portage_package
+    identifier: chef_infra/cookbook_reference/resources/resource_portage_package.md portage_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 730
+    weight: 740
 
 
 ######## Basic Resource Data ########

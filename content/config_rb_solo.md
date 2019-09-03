@@ -1,6 +1,5 @@
 +++
 title = "solo.rb"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_solo.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb_solo.html"
 [menu]
   [menu.docs]
     title = "solo.rb"
-    identifier = "chef_infra/chefdk/chef_solo/config_rb_solo.html solo.rb"
+    identifier = "chef_infra/chefdk/chef_solo/config_rb_solo.md solo.rb"
     parent = "chef_infra/chefdk/chef_solo"
     weight = 30
 +++    

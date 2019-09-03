@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_ad_join resource
 resource: windows_ad_join
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_ad_join.html
 menu:
   docs:
     title: windows_ad_join
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_ad_join.html windows_ad_join
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_ad_join.md windows_ad_join
     parent: chef_infra/cookbook_reference/resources
-    weight: 1060
+    weight: 1070
 
 
 ######## Basic Resource Data ########

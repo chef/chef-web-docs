@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: build_essential resource
 resource: build_essential
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_build_essential.html
 menu:
   docs:
     title: build_essential
-    identifier: chef_infra/cookbook_reference/resources/resource_build_essential.html build_essential
+    identifier: chef_infra/cookbook_reference/resources/resource_build_essential.md build_essential
     parent: chef_infra/cookbook_reference/resources
-    weight: 140
+    weight: 150
 
 
 ######## Basic Resource Data ########

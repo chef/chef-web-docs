@@ -1,6 +1,5 @@
 +++
 title = "knife environment"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_environment.html"
@@ -8,7 +7,7 @@ aliases = "/knife_environment.html"
 [menu]
   [menu.docs]
     title = "knife environment"
-    identifier = "chef_infra/chefdk/knife/knife_environment.html knife environment"
+    identifier = "chef_infra/chefdk/knife/knife_environment.md knife environment"
     parent = "chef_infra/chefdk/knife"
     weight = 160
 +++    
@@ -20,17 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_environment_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 compare
 =======
@@ -149,17 +142,11 @@ This argument has the following options:
 :   The description of the environment. This value populates the
     description field for the environment on the Chef Infra Server.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -269,17 +256,11 @@ This argument has the following options:
 
 :   Upload all environments found at the specified path.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------

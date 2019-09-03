@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: rhsm_repo resource
 resource: rhsm_repo
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_rhsm_repo.html
 menu:
   docs:
     title: rhsm_repo
-    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_repo.html rhsm_repo
+    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_repo.md rhsm_repo
     parent: chef_infra/cookbook_reference/resources
-    weight: 860
+    weight: 870
 
 
 ######## Basic Resource Data ########

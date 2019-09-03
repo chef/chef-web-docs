@@ -1,6 +1,5 @@
 +++
 title = "Push Jobs API"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/api_push_jobs.html"
@@ -8,8 +7,8 @@ aliases = "/api_push_jobs.html"
 [menu]
   [menu.docs]
     title = "Push Jobs API"
-    identifier = "chef_infra/managing_the_server/push_jobs/api_push_jobs.html Push Jobs API"
-    parent = "chef_infra/managing_the_server/push_jobs"
+    identifier = "chef_infra/managing_chef_infra_server/push_jobs/api_push_jobs.md Push Jobs API"
+    parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 50
 +++    
 
@@ -30,13 +29,7 @@ Each authentication request must include
 endpoint. For example: `/organizations/organization_name/pushy/jobs/ID`
 or `/organizations/organization_name/pushy/node_states`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The easiest way to send commands to the Chef Infra Server from your
 workstation is to use the `knife exec` subcommand. Here is an example of
@@ -59,7 +52,7 @@ returned, or JSON inflated. For Push Jobs API endpoints, we recommend
 
 See [knife exec](/knife_exec/) for detailed information on usage.
 
-</div>
+{{< /info >}}
 
 connect/NODE_NAME
 ------------------

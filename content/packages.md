@@ -1,6 +1,5 @@
 +++
 title = "Chef Software Inc Packages"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/packages.html"
@@ -8,7 +7,7 @@ aliases = "/packages.html"
 [menu]
   [menu.docs]
     title = "Packages"
-    identifier = "overview/packages_&_platforms/packages.html Packages"
+    identifier = "overview/packages_&_platforms/packages.md Packages"
     parent = "overview/packages_&_platforms"
     weight = 10
 +++    

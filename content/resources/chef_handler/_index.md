@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: chef_handler resource
 resource: chef_handler
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_chef_handler.html
 menu:
   docs:
     title: chef_handler
-    identifier: chef_infra/cookbook_reference/resources/resource_chef_handler.html chef_handler
+    identifier: chef_infra/cookbook_reference/resources/resource_chef_handler.md chef_handler
     parent: chef_infra/cookbook_reference/resources
-    weight: 170
+    weight: 180
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "Chef Automate Disaster Recovery"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/delivery_server_disaster_recovery.html"
@@ -8,8 +7,8 @@ aliases = "/delivery_server_disaster_recovery.html"
 [menu]
   [menu.docs]
     title = "Disaster Recovery"
-    identifier = "legacy/chef_automate_1/managing_the_server/delivery_server_disaster_recovery.html Disaster Recovery"
-    parent = "legacy/chef_automate_1/managing_the_server"
+    identifier = "legacy/chef_automate_1/managing_the_chef_automate_server/delivery_server_disaster_recovery.md Disaster Recovery"
+    parent = "legacy/chef_automate_1/managing_the_chef_automate_server"
     weight = 30
 +++    
 
@@ -28,13 +27,7 @@ configured to replicate data from the primary Chef Automate server. In
 the event of loss of the primary Chef Automate server, the standby is
 then reconfigured to become the primary.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Disaster Recovery for Chef Automate pertains to the workflow
 capabilities only. Also, these instructions assume that the primary and
@@ -42,7 +35,7 @@ standby servers are in the same data center. If they are in different
 geographical locations additional considerations are necessary, as well
 as tuning the configuration to account for latency between data centers.
 
-</div>
+{{< /info >}}
 
 Requirements
 ============
@@ -53,17 +46,11 @@ requirements:
 -   Two identically-configured Chef Automate servers, one to act as the
     primary server and the other to act as a standby
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     You cannot log in to the Chef Automate web UI on the standby server.
 
-    </div>
+    {{< /info >}}
 
 -   SSH access between both Chef Automate servers via port 22
 
@@ -80,20 +67,14 @@ Install a Standby Chef Automate Server
 The following steps describe how to manually install a Chef Automate
 server for use as a standby.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Look for items delimited with `<BRACKETS>`. Replace the bracketed words
 (and the brackets) with the correct values for your configuration. All
 files require default permissions, unless noted. All commands must be
 run as the root user or by using `sudo`.
 
-</div>
+{{< /info >}}
 
 1.  Provision a standby server that is exactly the same as the existing
     Chef Automate server.

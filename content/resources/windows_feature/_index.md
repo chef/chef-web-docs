@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_feature resource
 resource: windows_feature
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_feature.html
 menu:
   docs:
     title: windows_feature
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_feature.html windows_feature
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_feature.md windows_feature
     parent: chef_infra/cookbook_reference/resources
-    weight: 1150
+    weight: 1160
 
 
 ######## Basic Resource Data ########

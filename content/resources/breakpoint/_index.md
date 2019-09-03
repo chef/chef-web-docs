@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: breakpoint resource
 resource: breakpoint
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_breakpoint.html
 menu:
   docs:
     title: breakpoint
-    identifier: chef_infra/cookbook_reference/resources/resource_breakpoint.html breakpoint
+    identifier: chef_infra/cookbook_reference/resources/resource_breakpoint.md breakpoint
     parent: chef_infra/cookbook_reference/resources
-    weight: 130
+    weight: 140
 
 
 ######## Basic Resource Data ########

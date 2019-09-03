@@ -1,6 +1,5 @@
 +++
 title = "knife role"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_role.html"
@@ -8,7 +7,7 @@ aliases = "/knife_role.html"
 [menu]
   [menu.docs]
     title = "knife role"
-    identifier = "chef_infra/chefdk/knife/knife_role.html knife role"
+    identifier = "chef_infra/chefdk/knife/knife_role.md knife role"
     parent = "chef_infra/chefdk/knife"
     weight = 220
 +++    
@@ -20,31 +19,19 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_role_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 To add a role to a node and then build out the run-list for that node,
 use the [knife node](/knife_node/) subcommand and its `run_list add`
 argument.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 bulk delete
 ===========
@@ -106,17 +93,11 @@ This argument has the following options:
 :   The description of the role. This value populates the description
     field for the role on the Chef Infra Server.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -257,17 +238,11 @@ Options
 
 This command does not have any specific options.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -343,17 +318,11 @@ This argument has the following options:
 
 :   The attribute (or attributes) to show.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------

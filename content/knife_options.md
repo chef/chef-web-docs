@@ -1,6 +1,5 @@
 +++
 title = "Knife Common Options"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_options.html"
@@ -8,7 +7,7 @@ aliases = "/knife_options.html"
 [menu]
   [menu.docs]
     title = "Knife Common Options"
-    identifier = "chef_infra/chefdk/knife/knife_options.html Knife Common Options"
+    identifier = "chef_infra/chefdk/knife/knife_options.md Knife Common Options"
     parent = "chef_infra/chefdk/knife"
     weight = 30
 +++    

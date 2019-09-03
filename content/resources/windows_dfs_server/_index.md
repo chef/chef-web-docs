@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_dfs_server resource
 resource: windows_dfs_server
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_dfs_server.html
 menu:
   docs:
     title: windows_dfs_server
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_dfs_server.html windows_dfs_server
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_dfs_server.md windows_dfs_server
     parent: chef_infra/cookbook_reference/resources
-    weight: 1110
+    weight: 1120
 
 
 ######## Basic Resource Data ########

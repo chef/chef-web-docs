@@ -1,6 +1,5 @@
 +++
 title = "About Policyfile"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/policyfile.html"
@@ -8,7 +7,7 @@ aliases = "/policyfile.html"
 [menu]
   [menu.docs]
     title = "About Policyfile"
-    identifier = "chef_infra/chefdk/policyfile/policyfile.html About Policyfile"
+    identifier = "chef_infra/chefdk/policyfile/policyfile.md About Policyfile"
     parent = "chef_infra/chefdk/policyfile"
     weight = 10
 +++    
@@ -302,19 +301,13 @@ suites:
       attributes
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 As `chef_zero` explicitly tests outside the context of a Chef Infra
 Server, the `policy_groups` concept is not applicable. The value of
 `policy_group` during a converge will be set to `local`.
 
-</div>
+{{< /info >}}
 
 chef Commands
 =============
@@ -451,18 +444,12 @@ chef generate repo
 
 {{% ctl_chef_generate_repo %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This subcommand requires using one (or more) of the options (below) to
 support Policyfile files.
 
-</div>
+{{< /info >}}
 
 ### Syntax
 

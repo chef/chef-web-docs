@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: homebrew_cask resource
 resource: homebrew_cask
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_homebrew_cask.html
 menu:
   docs:
     title: homebrew_cask
-    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_cask.html homebrew_cask
+    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_cask.md homebrew_cask
     parent: chef_infra/cookbook_reference/resources
-    weight: 390
+    weight: 400
 
 
 ######## Basic Resource Data ########

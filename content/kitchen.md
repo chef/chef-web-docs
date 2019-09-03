@@ -1,6 +1,5 @@
 +++
 title = "Test Kitchen"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/kitchen.html"
@@ -8,7 +7,7 @@ aliases = "/kitchen.html"
 [menu]
   [menu.docs]
     title = "About Test Kitchen"
-    identifier = "chef_infra/chefdk/test_kitchen/kitchen.html About Test Kitchen"
+    identifier = "chef_infra/chefdk/test_kitchen/kitchen.md About Test Kitchen"
     parent = "chef_infra/chefdk/test_kitchen"
     weight = 10
 +++    
@@ -61,36 +60,24 @@ kitchen (executable)
 
 {{% ctl_kitchen_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For more information about the `kitchen` command line tool, see
 [kitchen](/ctl_kitchen/).
 
-</div>
+{{< /info >}}
 
 kitchen.yml
 ===========
 
 {{% test_kitchen_yml %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For more information about the kitchen.yml file, see
 [kitchen.yml](/config_yml_kitchen.html).
 
-</div>
+{{< /info >}}
 
 Syntax
 ------

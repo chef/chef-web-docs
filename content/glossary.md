@@ -1,6 +1,5 @@
 +++
 title = "Glossary"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/glossary.html"
@@ -8,7 +7,7 @@ aliases = "/glossary.html"
 [menu]
   [menu.docs]
     title = "Glossary"
-    identifier = "chef_infra/getting_started/glossary.html Glossary"
+    identifier = "chef_infra/getting_started/glossary.md Glossary"
     parent = "chef_infra/getting_started"
     weight = 80
 +++    

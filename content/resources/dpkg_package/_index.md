@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: dpkg_package resource
 resource: dpkg_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_dpkg_package.html
 menu:
   docs:
     title: dpkg_package
-    identifier: chef_infra/cookbook_reference/resources/resource_dpkg_package.html dpkg_package
+    identifier: chef_infra/cookbook_reference/resources/resource_dpkg_package.md dpkg_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 300
+    weight: 310
 
 
 ######## Basic Resource Data ########

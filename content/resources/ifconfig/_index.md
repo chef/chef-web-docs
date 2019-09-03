@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: ifconfig resource
 resource: ifconfig
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_ifconfig.html
 menu:
   docs:
     title: ifconfig
-    identifier: chef_infra/cookbook_reference/resources/resource_ifconfig.html ifconfig
+    identifier: chef_infra/cookbook_reference/resources/resource_ifconfig.md ifconfig
     parent: chef_infra/cookbook_reference/resources
-    weight: 440
+    weight: 450
 
 
 ######## Basic Resource Data ########

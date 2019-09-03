@@ -1,6 +1,5 @@
 +++
 title = "Debug Recipes, Chef Infra Client Runs"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/debug.html"
@@ -8,7 +7,7 @@ aliases = "/debug.html"
 [menu]
   [menu.docs]
     title = "Debug Recipes, Client Runs"
-    identifier = "chef_infra/cookbook_reference/recipes/debug.html Debug Recipes, Client Runs"
+    identifier = "chef_infra/cookbook_reference/recipes/debug.md Debug Recipes, Client Runs"
     parent = "chef_infra/cookbook_reference/recipes"
     weight = 20
 +++    
@@ -53,17 +52,11 @@ Use the verbose logging that is built into knife:
 
 :   Set for more verbose outputs. Use `-VV` for maximum verbosity.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Plugins do not always support verbose logging.
 
-</div>
+{{< /info >}}
 
 Chef Infra Client
 -----------------

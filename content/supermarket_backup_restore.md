@@ -1,6 +1,5 @@
 +++
 title = "Supermarket Backup and Restore"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/supermarket_backup_restore.html"
@@ -8,7 +7,7 @@ aliases = "/supermarket_backup_restore.html"
 [menu]
   [menu.docs]
     title = "Backup and Restore"
-    identifier = "chef_infra/setup/supermarket/supermarket_backup_restore.html Backup and Restore"
+    identifier = "chef_infra/setup/supermarket/supermarket_backup_restore.md Backup and Restore"
     parent = "chef_infra/setup/supermarket"
     weight = 50
 +++    
@@ -114,19 +113,13 @@ $ tar xvzf /supermarket_cookbook_versions.tar.gz
 Database Restore
 ----------------
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The restore does not support transferring backups across different
 versions of Supermarket. Backups taken must be restored to the same
 version of Supermarket that was in use when they were created.
 
-</div>
+{{< /info >}}
 
 For example, to restore a backup in a .dump format, run:
 

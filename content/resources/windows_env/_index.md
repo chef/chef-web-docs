@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_env resource
 resource: windows_env
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_env.html
 menu:
   docs:
     title: windows_env
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_env.html windows_env
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_env.md windows_env
     parent: chef_infra/cookbook_reference/resources
-    weight: 1140
+    weight: 1150
 
 
 ######## Basic Resource Data ########

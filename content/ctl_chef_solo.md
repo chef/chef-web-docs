@@ -1,6 +1,5 @@
 +++
 title = "chef-solo (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_chef_solo.html"
@@ -8,7 +7,7 @@ aliases = "/ctl_chef_solo.html"
 [menu]
   [menu.docs]
     title = "chef-solo (executable)"
-    identifier = "chef_infra/chefdk/chef_solo/ctl_chef_solo.html chef-solo (executable)"
+    identifier = "chef_infra/chefdk/chef_solo/ctl_chef_solo.md chef-solo (executable)"
     parent = "chef_infra/chefdk/chef_solo"
     weight = 20
 +++    
@@ -97,17 +96,11 @@ This command has the following options:
 
     {{% node_ctl_run_list %}}
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    {{< warning >}}
 
     {{% node_ctl_attribute %}}
 
-    </div>
+    {{< /warning >}}
 
 `-l LEVEL`, `--log_level LEVEL`
 

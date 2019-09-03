@@ -1,6 +1,5 @@
 +++
 title = "Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_automate.html"
@@ -8,7 +7,7 @@ aliases = "/chef_automate.html"
 [menu]
   [menu.docs]
     title = "Chef Automate Overview"
-    identifier = "legacy/chef_automate_1/overview/chef_automate.html Chef Automate Overview"
+    identifier = "legacy/chef_automate_1/overview/chef_automate.md Chef Automate Overview"
     parent = "legacy/chef_automate_1/overview"
     weight = 10
 +++    

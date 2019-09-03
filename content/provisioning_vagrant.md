@@ -1,6 +1,5 @@
 +++
 title = "Vagrant Driver Resources"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/provisioning_vagrant.html"
@@ -20,18 +19,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/p
 
 {{% EOL_provisioning %}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The Vagrant driver for Chef Provisioning has been deprecated and is no
 longer supported or recommended for use.
 
-</div>
+{{< /warning >}}
 
 {{% provisioning_summary %}}
 

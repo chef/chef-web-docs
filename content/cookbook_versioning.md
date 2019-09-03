@@ -1,6 +1,5 @@
 +++
 title = "About Cookbook Versioning"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/cookbook_versioning.html"
@@ -8,7 +7,7 @@ aliases = "/cookbook_versioning.html"
 [menu]
   [menu.docs]
     title = "Cookbook Versioning"
-    identifier = "chef_infra/cookbook_reference/cookbook_versioning.html Cookbook Versioning"
+    identifier = "chef_infra/cookbook_reference/cookbook_versioning.md Cookbook Versioning"
     parent = "chef_infra/cookbook_reference"
     weight = 120
 +++    
@@ -37,19 +36,13 @@ syntax with an operator, in the following format:
 operator cookbook_version_syntax
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Single digit cookbook versions are not allowed. Cookbook versions must
 specify at least the major and minor version. For example, use `1.0` or
 `1.0.1`; do not use `1`.
 
-</div>
+{{< /info >}}
 
 {{% cookbooks_version_constraints_operators %}}
 

@@ -1,6 +1,5 @@
 +++
 title = "About Attributes"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/attributes.html"
@@ -8,7 +7,7 @@ aliases = "/attributes.html"
 [menu]
   [menu.docs]
     title = "Attributes"
-    identifier = "chef_infra/cookbook_reference/attributes.html Attributes"
+    identifier = "chef_infra/cookbook_reference/attributes.md Attributes"
     parent = "chef_infra/cookbook_reference"
     weight = 20
 +++    
@@ -506,18 +505,12 @@ syntax pattern:
 
 -   `node.rm('foo', 'bar')`
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Using `node['foo'].delete('bar')` will throw an exception that points to
 the new API.
 
-</div>
+{{< /info >}}
 
 ### Examples
 

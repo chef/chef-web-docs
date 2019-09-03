@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Cloud plugin replaced by the Cloud_V2 plugin (OHAI-8)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_ohai_cloud.html"

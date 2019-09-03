@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: macos_userdefaults resource
 resource: macos_userdefaults
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_macos_userdefaults.html
 menu:
   docs:
     title: macos_userdefaults
-    identifier: chef_infra/cookbook_reference/resources/resource_macos_userdefaults.html macos_userdefaults
+    identifier: chef_infra/cookbook_reference/resources/resource_macos_userdefaults.md macos_userdefaults
     parent: chef_infra/cookbook_reference/resources
-    weight: 520
+    weight: 530
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "About the delivery-truck Cookbook"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/delivery_truck.html"
@@ -8,7 +7,7 @@ aliases = "/delivery_truck.html"
 [menu]
   [menu.docs]
     title = "delivery-truck (cookbook)"
-    identifier = "legacy/chef_automate_1/workflow/delivery_truck.html delivery-truck (cookbook)"
+    identifier = "legacy/chef_automate_1/workflow/delivery_truck.md delivery-truck (cookbook)"
     parent = "legacy/chef_automate_1/workflow"
     weight = 20
 +++    
@@ -20,20 +19,14 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/d
 
 {{% delivery_cookbook_delivery_truck %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `delivery-truck` cookbook has a dependency on the `delivery-sugar`
 cookbook, which contains a set of helper methods and custom resources
 that may be used in build cookbook recipes. Using these helper methods
 and custom resources in a build cookbook is optional.
 
-</div>
+{{< /info >}}
 
 delivery-truck Recipes
 ======================
@@ -90,19 +83,13 @@ Create a build-cookbook
 
 {{% delivery_cookbook_setup %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This section assumes that Chef Automate is already configured, a project
 exists, a user may access that project and submit changes, and that all
 work is being done from that project's root directory.
 
-</div>
+{{< /info >}}
 
 Edit the Berksfile
 ------------------
@@ -310,20 +297,14 @@ at this point where the project application version is pinned, uploaded
 to the Chef Infra Server as a data bag item, and then used through the
 remaining stages.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `define_project_application` helper method is available from the
 `delivery-sugar` cookbook, which is a dependency of the `delivery-truck`
 cookbook. This helper is available when the `publish.rb` recipe has
 `include_recipe 'delivery-truck::publish'` defined.
 
-</div>
+{{< /info >}}
 
 To define a project application, do the following:
 
@@ -359,18 +340,12 @@ To define a project application, do the following:
     where `<app_name>` is a list of one (or more) applications this
     `build-cookbook` should be aware of.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     If the `/attributes/default.rb` directory and/or file does not
     exist, create it.
 
-    </div>
+    {{< /info >}}
 
 3.  Open the `default.rb` recipe in the `build-cookbook` and edit it to
     contain:
@@ -382,13 +357,7 @@ To define a project application, do the following:
     where `'hash_of_attributes'` is a list of one (or more) attributes
     defined in the `define_project_application` block.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     Do not pass `'id'`, `'version'`, or `'name'` as part of the
     `'hash_of_attributes'` as these are already defined in the
@@ -396,7 +365,7 @@ To define a project application, do the following:
     the `get_project_application` helper method, and will overwrite any
     value specified in the Hash.
 
-    </div>
+    {{< /info >}}
 
 Example Project Application
 ---------------------------
@@ -499,18 +468,12 @@ cookbook to be delivered through Chef Automate using the [delivery-truck
 cookbook](https://github.com/chef-cookbooks/delivery-truck) in that
 environment.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 By default, the delivery-truck cookbook is configured for use with Chef
 Automate-backed cookbook projects.
 
-</div>
+{{< /info >}}
 
 Prerequisites
 -------------

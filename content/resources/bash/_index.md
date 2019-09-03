@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: bash resource
 resource: bash
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_bash.html
 menu:
   docs:
     title: bash
-    identifier: chef_infra/cookbook_reference/resources/resource_bash.html bash
+    identifier: chef_infra/cookbook_reference/resources/resource_bash.md bash
     parent: chef_infra/cookbook_reference/resources
-    weight: 100
+    weight: 110
 
 
 ######## Basic Resource Data ########

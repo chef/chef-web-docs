@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: ohai resource
 resource: ohai
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_ohai.html
 menu:
   docs:
     title: ohai
-    identifier: chef_infra/cookbook_reference/resources/resource_ohai.html ohai
+    identifier: chef_infra/cookbook_reference/resources/resource_ohai.md ohai
     parent: chef_infra/cookbook_reference/resources
-    weight: 580
+    weight: 590
 
 
 ######## Basic Resource Data ########

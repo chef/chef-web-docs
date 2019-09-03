@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_dns_record resource
 resource: windows_dns_record
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_dns_record.html
 menu:
   docs:
     title: windows_dns_record
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_dns_record.html windows_dns_record
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_dns_record.md windows_dns_record
     parent: chef_infra/cookbook_reference/resources
-    weight: 1120
+    weight: 1130
 
 
 ######## Basic Resource Data ########

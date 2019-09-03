@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: macports_package resource
 resource: macports_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_macports_package.html
 menu:
   docs:
     title: macports_package
-    identifier: chef_infra/cookbook_reference/resources/resource_macports_package.html macports_package
+    identifier: chef_infra/cookbook_reference/resources/resource_macports_package.md macports_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 530
+    weight: 540
 
 
 ######## Basic Resource Data ########
