@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: rhsm_subscription resource
 resource: rhsm_subscription
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_rhsm_subscription.html
 menu:
   docs:
     title: rhsm_subscription
-    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_subscription.html rhsm_subscription
+    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_subscription.md rhsm_subscription
     parent: chef_infra/cookbook_reference/resources
-    weight: 870
+    weight: 880
 
 
 ######## Basic Resource Data ########

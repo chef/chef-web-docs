@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_feature_powershell resource
 resource: windows_feature_powershell
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_feature_powershell.html
 menu:
   docs:
     title: windows_feature_powershell
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_feature_powershell.html windows_feature_powershell
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_feature_powershell.md windows_feature_powershell
     parent: chef_infra/cookbook_reference/resources
-    weight: 1170
+    weight: 1180
 
 
 ######## Basic Resource Data ########

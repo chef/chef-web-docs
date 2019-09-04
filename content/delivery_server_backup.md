@@ -1,6 +1,5 @@
 +++
 title = "Chef Automate Backups"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/delivery_server_backup.html"
@@ -8,8 +7,8 @@ aliases = "/delivery_server_backup.html"
 [menu]
   [menu.docs]
     title = "Backups"
-    identifier = "legacy/chef_automate_1/managing_the_server/delivery_server_backup.html Backups"
-    parent = "legacy/chef_automate_1/managing_the_server"
+    identifier = "legacy/chef_automate_1/managing_the_chef_automate_server/delivery_server_backup.md Backups"
+    parent = "legacy/chef_automate_1/managing_the_chef_automate_server"
     weight = 10
 +++    
 
@@ -85,19 +84,13 @@ usually nested in `/tmp` on Linux systems, but the value of the `TMPDIR`
 environment variable will also be honored. You can configure the staging
 directory by using the `backup['staging_dir']` setting in `delivery.rb`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The backup create will clear any existing files in the staging directory
 at the beginning of the backup procedure. Only use a directory that does
 not contain any other system data.
 
-</div>
+{{< /info >}}
 
 S3 Backups
 ----------
@@ -166,37 +159,25 @@ backup['elasticsearch']['type']     = 's3'
 
 `$ automate-ctl reconfigure`
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Using the same bucket for backup archives and snapshots is supported but
 both must be configured independently.
 
-</div>
+{{< /info >}}
 
 SSE-S3 AES256 Server side encryption is supported and enabled by default
 for both backup archives and snapshots. Backup archives can also be
 encrypted with SSE-KMS or SSE-C, though snapshots are currently limited
 to SSE-S3.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 While the backup utility currently supports encrypting backups with with
 SSE-S3, SSE-KMS, and SSE-C, only SSE-S3 is currently supported for
 restoration.
 
-</div>
+{{< /info >}}
 
 See below for valid examples of `delivery.rb` configurations for server
 side encryption.
@@ -268,20 +249,14 @@ The [restore-backup](/ctl_automate_server.html#restore-backup) command
 is used to fully or partially restore a Chef Automate cluster from
 backup archives and/or Elasticsearch snapshots.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Backups created with the older `automate-ctl backup-data` command are
 not supported with this command. If you wish to restore an older backup
 please install the version of Chef Automate that took the backup and use
 `automate-ctl restore-data`
 
-</div>
+{{< /info >}}
 
 Local Backups
 -------------
@@ -314,18 +289,12 @@ Elasticsearch snapshot:
 >
 >     :   `$ automate-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore`
 >
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Specifying a staging directory is not mandatory but when given it will
 clear **all** existing data from it.
 
-</div>
+{{< /info >}}
 
 S3 Backups
 ----------

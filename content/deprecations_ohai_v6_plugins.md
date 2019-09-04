@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Removal of support for Ohai version 6 plugins (OHAI-10)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_ohai_v6_plugins.html"

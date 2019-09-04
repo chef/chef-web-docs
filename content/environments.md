@@ -1,6 +1,5 @@
 +++
 title = "About Environments"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/environments.html"
@@ -8,7 +7,7 @@ aliases = "/environments.html"
 [menu]
   [menu.docs]
     title = "Environments"
-    identifier = "chef_infra/concepts/policy/environments.html Environments"
+    identifier = "chef_infra/concepts/policy/environments.md Environments"
     parent = "chef_infra/concepts/policy"
     weight = 40
 +++    
@@ -34,17 +33,11 @@ Environment Attributes
 
 {{% environment_attribute %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_see_attributes_overview %}}
 
-</div>
+{{< /info >}}
 
 Attribute Types
 ---------------
@@ -422,20 +415,14 @@ using the following methods:
     file, and then using `knife bootstrap -e environment_name` to
     bootstrap the changes to the specified environment
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     After the environment has been set via bootstrap, the environment is
     set in the client.rb file and may not be modified using the Chef
     management console or the `edit` argument of the `knife node`
     subcommand.
 
-    </div>
+    {{< /info >}}
 
 -   By setting the `environment` configuration entry in the client.rb
     file ; when Chef Infra Client runs, it will pick up the value and

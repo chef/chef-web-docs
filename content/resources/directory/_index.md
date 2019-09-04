@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: directory resource
 resource: directory
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_directory.html
 menu:
   docs:
     title: directory
-    identifier: chef_infra/cookbook_reference/resources/resource_directory.html directory
+    identifier: chef_infra/cookbook_reference/resources/resource_directory.md directory
     parent: chef_infra/cookbook_reference/resources
-    weight: 270
+    weight: 280
 
 
 ######## Basic Resource Data ########

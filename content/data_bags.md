@@ -1,6 +1,5 @@
 +++
 title = "About Data Bags"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/data_bags.html"
@@ -8,7 +7,7 @@ aliases = "/data_bags.html"
 [menu]
   [menu.docs]
     title = "Data Bags"
-    identifier = "chef_infra/concepts/policy/data_bags.html Data Bags"
+    identifier = "chef_infra/concepts/policy/data_bags.md Data Bags"
     parent = "chef_infra/concepts/policy"
     weight = 20
 +++    
@@ -105,18 +104,18 @@ Use Data Bags
 
 Data bags can be accessed in the following ways:
 
-with Search
------------
+Search
+------
 
 {{% data_bag_search %}}
 
-with Environments
------------------
+Environments
+------------
 
 {{% data_bag_environments %}}
 
-with Recipes
-------------
+Recipes
+-------
 
 {{% data_bag_recipes %}}
 
@@ -132,7 +131,7 @@ with Recipes
 
 {{% data_bag_recipes_create_users %}}
 
-with chef-solo
---------------
+chef-solo
+---------
 
 {{% data_bag_chef_solo %}}

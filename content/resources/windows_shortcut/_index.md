@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_shortcut resource
 resource: windows_shortcut
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_shortcut.html
 menu:
   docs:
     title: windows_shortcut
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_shortcut.html windows_shortcut
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_shortcut.md windows_shortcut
     parent: chef_infra/cookbook_reference/resources
-    weight: 1270
+    weight: 1280
 
 
 ######## Basic Resource Data ########

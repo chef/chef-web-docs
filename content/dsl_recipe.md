@@ -1,6 +1,5 @@
 +++
 title = "About the Recipe DSL"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/dsl_recipe.html"
@@ -8,7 +7,7 @@ aliases = "/dsl_recipe.html"
 [menu]
   [menu.docs]
     title = "DSL Overview"
-    identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.html DSL Overview"
+    identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md DSL Overview"
     parent = "chef_infra/cookbook_reference/recipe_dsl"
     weight = 10
 +++    
@@ -543,18 +542,12 @@ The following parameters can be used with this method:
 </tbody>
 </table>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Ohai collects platform information at the start of a Chef Infra Client
 run and stores that information in the `node['platform']` attribute.
 
-</div>
+{{< /info >}}
 
 For example:
 
@@ -628,18 +621,12 @@ or:
 platform_family?('slackware', 'suse', 'arch')
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 `platform_family?` will default to `platform?` when `platform_family?`
 is not explicitly defined.
 
-</div>
+{{< /info >}}
 
 ### Examples
 
@@ -1049,17 +1036,11 @@ Windows Platform
 
 {{% dsl_recipe_method_windows_methods %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_dsl_recipe_order_for_windows_methods %}}
 
-</div>
+{{< /info >}}
 
 registry_data_exists?
 -----------------------

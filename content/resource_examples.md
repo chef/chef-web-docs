@@ -1,6 +1,5 @@
 +++
 title = "Resource Code Examples"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/resource_examples.html"
@@ -8,9 +7,9 @@ aliases = "/resource_examples.html"
 [menu]
   [menu.docs]
     title = "Examples (by Resource)"
-    identifier = "chef_infra/cookbook_reference/resources/resource_examples.html Examples (by Resource)"
+    identifier = "chef_infra/cookbook_reference/resources/resource_examples.md Examples (by Resource)"
     parent = "chef_infra/cookbook_reference/resources"
-    weight = 1350
+    weight = 1360
 +++    
 
 [\[edit on
@@ -1070,17 +1069,11 @@ registry_key
 
 {{% resource_registry_key_delete_recursively %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_registry_key_resource_recursive %}}
 
-</div>
+{{< /info >}}
 
 **Use re-directed keys**
 

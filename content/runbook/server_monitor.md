@@ -1,6 +1,5 @@
 +++
 title = "Monitor"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_monitor.html"
@@ -10,8 +9,8 @@ runbook_weight = 10
 [menu]
   [menu.docs]
     title = "Monitor"
-    identifier = "chef_infra/managing_the_server/server_monitor.html Monitor"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_monitor.md Monitor"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 70
 +++    
 
@@ -111,18 +110,12 @@ open a shell that is connected to the Erchef processes:
 $ Erlang R15B02 (erts-5.9.2) [source] [64-bit] ...
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Connecting to the Erlang processes should only be done when directed by
 Chef support services.
 
-</div>
+{{< /warning >}}
 
 To connect to the **oc_bifrost** service, use the following command:
 
@@ -238,18 +231,12 @@ $ cd /opt/opscode/embedded/service/postgresql/
   bin/psql -U opscode_chef
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Connecting to the PostgreSQL database should only be done when directed
 by Chef support services.
 
-</div>
+{{< /warning >}}
 
 
 ### RabbitMQ

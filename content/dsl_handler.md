@@ -1,6 +1,5 @@
 +++
 title = "About the Handler DSL"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/dsl_handler.html"
@@ -8,7 +7,7 @@ aliases = "/dsl_handler.html"
 [menu]
   [menu.docs]
     title = "Handler DSL"
-    identifier = "extension_apis/handlers/dsl_handler.html Handler DSL"
+    identifier = "extension_apis/handlers/dsl_handler.md Handler DSL"
     parent = "extension_apis/handlers"
     weight = 20
 +++    

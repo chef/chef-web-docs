@@ -1,15 +1,14 @@
 +++
 title = "Push Jobs Server Sent Events Feed"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_sent_events.html"
 
 [menu]
   [menu.docs]
-    title = "Server Sent Events"
-    identifier = "chef_infra/managing_the_server/push_jobs/server_sent_events.html Server Sent Events"
-    parent = "chef_infra/managing_the_server/push_jobs"
+    title = "Chef Infra Server Sent Events"
+    identifier = "chef_infra/managing_chef_infra_server/push_jobs/server_sent_events.md Chef Infra Server Sent Events"
+    parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 60
 +++    
 

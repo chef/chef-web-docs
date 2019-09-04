@@ -1,6 +1,5 @@
 +++
 title = "chef-shell (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_shell.html"
@@ -8,7 +7,7 @@ aliases = "/chef_shell.html"
 [menu]
   [menu.docs]
     title = "chef-shell (executable)"
-    identifier = "chef_infra/chefdk/chef_shell.html chef-shell (executable)"
+    identifier = "chef_infra/chefdk/chef_shell.md chef-shell (executable)"
     parent = "chef_infra/chefdk"
     weight = 30
 +++    
@@ -54,17 +53,11 @@ This command has the following options:
 
     {{% node_ctl_run_list %}}
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    {{< warning >}}
 
     {{% node_ctl_attribute %}}
 
-    </div>
+    {{< /warning >}}
 
 `-l LEVEL`, `--log-level LEVEL`
 

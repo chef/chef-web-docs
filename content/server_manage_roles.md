@@ -1,6 +1,5 @@
 +++
 title = "Manage Roles"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_manage_roles.html"
@@ -8,7 +7,7 @@ aliases = "/server_manage_roles.html"
 [menu]
   [menu.docs]
     title = "Roles"
-    identifier = "chef_infra/features/management_console/server_manage_roles.html Roles"
+    identifier = "chef_infra/features/management_console/server_manage_roles.md Roles"
     parent = "chef_infra/features/management_console"
     weight = 80
 +++    
@@ -22,17 +21,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% EOL_manage %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This topic is about using the Chef management console to manage roles.
 
-</div>
+{{< /info >}}
 
 {{% role %}}
 

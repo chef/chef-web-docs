@@ -1,6 +1,5 @@
 +++
 title = "knife client"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_client.html"
@@ -8,7 +7,7 @@ aliases = "/knife_client.html"
 [menu]
   [menu.docs]
     title = "knife client"
-    identifier = "chef_infra/chefdk/knife/knife_client.html knife client"
+    identifier = "chef_infra/chefdk/knife/knife_client.md knife client"
     parent = "chef_infra/chefdk/knife"
     weight = 60
 +++    
@@ -18,17 +17,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_client_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 bulk delete
 ===========
@@ -101,13 +94,7 @@ This argument has the following options:
 :   Create a user without a public key. This key may be managed later by
     using the `knife user key` subcommands.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     This option is valid only with Chef Infra Server API, version 1.0,
     which was released with Chef Server 12.1. If this option or the
@@ -117,7 +104,7 @@ This argument has the following options:
     12.1, this option will not work; a public key is always generated
     unless `--user-key` is passed in the command.
 
-    </div>
+    {{< /info >}}
 
 `-p FILE`, `--public-key FILE`
 
@@ -131,17 +118,11 @@ This argument has the following options:
 
 :   Create the client as the chef-validator. Default value: `true`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -469,18 +450,12 @@ Use the `reregister` argument to regenerate an RSA key pair for an API
 client. The public key will be stored on the Chef Infra Server and the
 private key will be displayed on `STDOUT` or written to a named file.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Running this argument will invalidate the previous RSA key pair, making
 it unusable during authentication to the Chef Infra Server.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -500,17 +475,11 @@ This argument has the following options:
 
 :   Save a private key to the specified file name.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------

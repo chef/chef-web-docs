@@ -1,6 +1,5 @@
 +++
 title = "About ChefDK"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/about_chefdk.html"
@@ -8,7 +7,7 @@ aliases = "/about_chefdk.html"
 [menu]
   [menu.docs]
     title = "About ChefDK"
-    identifier = "chef_infra/chefdk/about_chefdk.html About ChefDK"
+    identifier = "chef_infra/chefdk/about_chefdk.md About ChefDK"
     parent = "chef_infra/chefdk"
     weight = 10
 +++    
@@ -16,13 +15,7 @@ aliases = "/about_chefdk.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/about_chefdk.rst)
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 [Chef Workstation](https://downloads.chef.io/chef-workstation/) gives
 you everything you need to get started with Chef Infra — ad hoc remote
@@ -34,7 +27,7 @@ the new Chef Workstation desktop application. Chef will continue to
 maintain ChefDK, but new development will take place in Chef Workstation
 without backporting features.
 
-</div>
+{{< /info >}}
 
 {{% chef_dk %}}
 
@@ -55,18 +48,12 @@ configuration.
 -   [Install ChefDK](/install_dk/)
 -   [Ruby Guide](/ruby/)
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 See this [blog post by Irving Popovetsky about running ChefDK on
 Windows.](https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/)
 
-</div>
+{{< /info >}}
 
 About Workflow
 --------------

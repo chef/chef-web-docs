@@ -1,6 +1,5 @@
 +++
 title = "Upgrade to Chef Server 12"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/upgrade_server.html"
@@ -8,8 +7,8 @@ aliases = "/upgrade_server.html"
 [menu]
   [menu.docs]
     title = "Upgrades"
-    identifier = "chef_infra/managing_the_server/upgrade_server.html Upgrades"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/upgrade_server.md Upgrades"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 120
 +++    
 
@@ -18,18 +17,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/u
 
 The following sections describe the upgrade process for Chef Server 12.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Be sure to back up the Chef Infra Server data before starting the
 upgrade process.
 
-</div>
+{{< /info >}}
 
 From Chef Server 12
 ===================
@@ -41,13 +34,7 @@ Chef Server 12 to a newer version of Chef Server 12:
 -   [High availability](/upgrade_server.html#high-availability)
 -   [Tiered](/upgrade_server.html#tiered)
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 As of version 12.14, Chef Server will not render passwords outside of
 the `/etc/opscode` directory by default. If you are not using any Chef
@@ -62,7 +49,7 @@ For additional information on this change, including a list of supported
 add-on versions, see [Chef Infra Server Credentials
 Management](/server_security.html#chef-infra-server-credentials-management).
 
-</div>
+{{< /info >}}
 
 Standalone
 ----------
@@ -148,20 +135,14 @@ configuration. The upgrade process will require downtime equal to the
 amount of time it takes to stop the server, run dpkg or RPM Package
 Manager, and then upgrade the server.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 These instructions are primarily intended for existing users of the
 `tier` Chef Infra Server topology. For the latest information on high
 availability and how to set up a highly-available server cluster, see
 [High Availability: Backend Cluster](/install_server_ha.html)
 
-</div>
+{{< /info >}}
 
 To upgrade to Chef Server 12 from a tiered Chef Infra Server
 configuration, do the following:

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_uac resource
 resource: windows_uac
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_uac.html
 menu:
   docs:
     title: windows_uac
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_uac.html windows_uac
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_uac.md windows_uac
     parent: chef_infra/cookbook_reference/resources
-    weight: 1290
+    weight: 1300
 
 
 ######## Basic Resource Data ########

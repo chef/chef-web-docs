@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: hostname resource
 resource: hostname
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_hostname.html
 menu:
   docs:
     title: hostname
-    identifier: chef_infra/cookbook_reference/resources/resource_hostname.html hostname
+    identifier: chef_infra/cookbook_reference/resources/resource_hostname.md hostname
     parent: chef_infra/cookbook_reference/resources
-    weight: 420
+    weight: 430
 
 
 ######## Basic Resource Data ########

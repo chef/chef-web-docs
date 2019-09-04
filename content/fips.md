@@ -1,6 +1,5 @@
 +++
 title = "FIPS (Federal Information Processing Standards)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/fips.html"
@@ -8,7 +7,7 @@ aliases = "/fips.html"
 [menu]
   [menu.docs]
     title = "Enable FIPS"
-    identifier = "legacy/chef_automate_1/getting_started/fips.html Enable FIPS"
+    identifier = "legacy/chef_automate_1/getting_started/fips.md Enable FIPS"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 70
 +++    
@@ -91,8 +90,8 @@ To enable FIPS on your platform follow these instructions:
     7](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode)
 -   [Windows](https://technet.microsoft.com/en-us/library/cc750357.aspx)
 
-How to enable FIPS mode for the Chef Server
-===========================================
+How to enable FIPS mode for the Chef Infra Server
+=================================================
 
 Prerequisites
 -------------
@@ -138,13 +137,7 @@ Client will default to running in FIPS mode. Otherwise you can add
 For more information on configuring the Chef Automate server, see
 [Delivery CLI](/delivery_cli/).
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you set up any runners using a Chef Automate server version `0.7.61`
 or earlier, then you will need to re-run [automate-ctl
@@ -152,7 +145,7 @@ install-runner](/ctl_automate_server.html#install-runner) on every
 existing runner after upgrading your Chef Automate server. Your runners
 will not work with FIPS enabled without re-running the installer.
 
-</div>
+{{< /info >}}
 
 Architecture Overview
 =====================
@@ -181,17 +174,11 @@ If you have a self-signed certificate or a customer certificate
 authority then you will need some additional steps to get your Automate
 stack configured.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Any time this certificate changes you must re-run this process.
 
-</div>
+{{< /info >}}
 
 -   Generate a pem file with your entire certificate chain of the Chef
     Automate instance and save it to a file. A client machine may run

@@ -1,6 +1,5 @@
 +++
 title = "Configure Data Collection"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/data_collection.html"
@@ -8,7 +7,7 @@ aliases = "/data_collection.html"
 [menu]
   [menu.docs]
     title = "Configure Data Collection"
-    identifier = "legacy/chef_automate_1/getting_started/data_collection.html Configure Data Collection"
+    identifier = "legacy/chef_automate_1/getting_started/data_collection.md Configure Data Collection"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 40
 +++    
@@ -25,18 +24,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/d
 Automatic Node Run Data Collection with Chef Server
 ===================================================
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Requires Chef Client 12.16.42 or greater, and Chef Server 12.11.0 or
 greater.
 
-</div>
+{{< /info >}}
 
 Nodes can send their run data to Chef Automate through the Chef Infra
 Server automatically. To enable this functionality, you must perform the
@@ -57,20 +50,14 @@ authenticated with a pre-shared key called a `token`. Every Chef
 Automate installation configures a token by default, but we strongly
 recommend that you create your own.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Data Collector token has no minimum or maximum character length
 restrictions. While the UTF-8 character set is supported,
 [US-ASCII](http://www.columbia.edu/kermit/ascii.html) is recommended for
 best results.
 
-</div>
+{{< /info >}}
 
 To set your own token, add the following to your
 `/etc/delivery/delivery.rb` file:
@@ -97,13 +84,7 @@ will send messages to Chef Automate whenever an action is taken on a
 Chef Infra Server object, such as when a cookbook is uploaded to the
 Chef Infra Server or when a user edits a role.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 If running Chef Client releases prior to Chef Client 14, please disable
 the Ohai Passwd and Sessions plugins on your nodes in
@@ -115,7 +96,7 @@ performance and reduces disk space requirements.
 ohai.disabled_plugins = [ :Passwd, :Sessions ]
 ```
 
-</div>
+{{< /warning >}}
 
 [Ohai Plugin Detail](/ohai.html#ohai-settings-in-client-rb)
 

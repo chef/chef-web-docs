@@ -1,6 +1,5 @@
 +++
 title = "supermarket-ctl (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_supermarket.html"
@@ -8,7 +7,7 @@ aliases = "/ctl_supermarket.html"
 [menu]
   [menu.docs]
     title = "supermarket-ctl"
-    identifier = "chef_infra/setup/supermarket/ctl_supermarket.html supermarket-ctl"
+    identifier = "chef_infra/setup/supermarket/ctl_supermarket.md supermarket-ctl"
     parent = "chef_infra/setup/supermarket"
     weight = 90
 +++    
@@ -215,18 +214,12 @@ This subcommand has the following syntax:
 $ supermarket-ctl uninstall
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-</div>
+{{< /info >}}
 
 Service Subcommands
 ===================

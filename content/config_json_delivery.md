@@ -1,6 +1,5 @@
 +++
 title = "Configure a Project through config.json (Chef Automate)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_json_delivery.html"
@@ -8,7 +7,7 @@ aliases = "/config_json_delivery.html"
 [menu]
   [menu.docs]
     title = "Configure a Project"
-    identifier = "legacy/chef_automate_1/getting_started/config_json_delivery.html Configure a Project"
+    identifier = "legacy/chef_automate_1/getting_started/config_json_delivery.md Configure a Project"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 30
 +++    
@@ -125,18 +124,12 @@ Configuration Settings
         }
         ```
 
-        <div class="note" markdown="1">
-
-        <div class="admonition-title" markdown="1">
-
-        Note
-
-        </div>
+        {{< info >}}
 
         If you omit this setting or set it to "v1", the previous job
         dispatch system using Push Jobs 1.x will be used instead.
 
-        </div>
+        {{< /info >}}
 
     -   `"filters"` Similar to the former Chef Push Jobs-based dispatch
         system, you can set a variety of filters. Filters control which
@@ -249,17 +242,11 @@ Configuration Settings
 
 </div>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% delivery_cookbook_delivery_truck %}}
 
-</div>
+{{< /info >}}
 
 Phase Settings
 --------------

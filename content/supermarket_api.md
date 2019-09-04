@@ -1,6 +1,5 @@
 +++
 title = "Supermarket API"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/supermarket_api.html"
@@ -8,7 +7,7 @@ aliases = "/supermarket_api.html"
 [menu]
   [menu.docs]
     title = "Supermarket API"
-    identifier = "chef_infra/setup/supermarket/supermarket_api.html Supermarket API"
+    identifier = "chef_infra/setup/supermarket/supermarket_api.md Supermarket API"
     parent = "chef_infra/setup/supermarket"
     weight = 100
 +++    

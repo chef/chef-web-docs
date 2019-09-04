@@ -1,6 +1,5 @@
 +++
 title = "Server Tuning"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_tuning.html"
@@ -10,8 +9,8 @@ runbook_weight = 60
 [menu]
   [menu.docs]
     title = "Tuning"
-    identifier = "chef_infra/managing_the_server/server_tuning.html Tuning"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_tuning.md Tuning"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 110
 +++    
 
@@ -22,13 +21,7 @@ The server configuration file contains a list of all configuration
 options that are available for the Chef Infra Server. Some of these
 values should be modified for large-scale installations.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This topic contains general information about how settings can be tuned.
 In many cases, this topic suggests specific values to be used for
@@ -37,7 +30,7 @@ please don't hesitate to contact Chef support to discuss your tuning
 effort so as to help ensure the right value is identified for any
 particular setting.
 
-</div>
+{{< /info >}}
 
 
 ## Customize the Config File
@@ -65,17 +58,11 @@ particular setting.
 The following settings are often used to for performance tuning of the
 Chef Infra Server in larger installations.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_config_rb_server_must_reconfigure %}}
 
-</div>
+{{< /info >}}
 
 
 ### bookshelf

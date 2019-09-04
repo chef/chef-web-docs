@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_dfs_namespace resource
 resource: windows_dfs_namespace
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_dfs_namespace.html
 menu:
   docs:
     title: windows_dfs_namespace
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_dfs_namespace.html windows_dfs_namespace
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_dfs_namespace.md windows_dfs_namespace
     parent: chef_infra/cookbook_reference/resources
-    weight: 1100
+    weight: 1110
 
 
 ######## Basic Resource Data ########

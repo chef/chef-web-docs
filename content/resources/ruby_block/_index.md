@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: ruby_block resource
 resource: ruby_block
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_ruby_block.html
 menu:
   docs:
     title: ruby_block
-    identifier: chef_infra/cookbook_reference/resources/resource_ruby_block.html ruby_block
+    identifier: chef_infra/cookbook_reference/resources/resource_ruby_block.md ruby_block
     parent: chef_infra/cookbook_reference/resources
-    weight: 910
+    weight: 920
 
 
 ######## Basic Resource Data ########

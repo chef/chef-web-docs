@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Ohai::Config removal (OHAI-1)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_ohai_legacy_config.html"

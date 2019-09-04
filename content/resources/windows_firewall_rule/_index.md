@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_firewall_rule resource
 resource: windows_firewall_rule
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_firewall_rule.html
 menu:
   docs:
     title: windows_firewall_rule
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_firewall_rule.html windows_firewall_rule
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_firewall_rule.md windows_firewall_rule
     parent: chef_infra/cookbook_reference/resources
-    weight: 1180
+    weight: 1190
 
 
 ######## Basic Resource Data ########

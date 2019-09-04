@@ -1,6 +1,5 @@
 +++
 title = "Policyfile.rb"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_policyfile.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb_policyfile.html"
 [menu]
   [menu.docs]
     title = "Policyfile.rb"
-    identifier = "chef_infra/chefdk/policyfile/config_rb_policyfile.html Policyfile.rb"
+    identifier = "chef_infra/chefdk/policyfile/config_rb_policyfile.md Policyfile.rb"
     parent = "chef_infra/chefdk/policyfile"
     weight = 20
 +++    
@@ -20,18 +19,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 {{% policyfile_rb %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For more information about Policyfile, see [About
 Policyfile](/policyfile/)
 
-</div>
+{{< /info >}}
 
 Syntax
 ======

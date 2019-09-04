@@ -1,6 +1,5 @@
 +++
 title = "Security"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_security.html"
@@ -10,8 +9,8 @@ runbook_weight = 50
 [menu]
   [menu.docs]
     title = "Security"
-    identifier = "chef_infra/managing_the_server/server_security.html Security"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_security.md Security"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 90
 +++    
 
@@ -106,20 +105,14 @@ Because the FQDN has already been configured, do the following:
     $ chef-server-ctl restart nginx
     ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The FQDN for the Chef Infra Server should be resolvable, lowercase, and
 have fewer than 64 characters including the domain suffix, when using
 OpenSSL, as OpenSSL requires the `CN` in a certificate to be no longer
 than 64 characters.
 
-</div>
+{{< /warning >}}
 
 
 ### SSL Protocols

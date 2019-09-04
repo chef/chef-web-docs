@@ -1,6 +1,5 @@
 +++
 title = "Site Map"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "ALIASES"
@@ -85,8 +84,8 @@ Concepts
 
 [Chef Workstation](/workstation/) | [chef-repo](/chef_repo/) |
 [Nodes](/nodes/) | [Chef Infra Client
-Overview](/chef_client_overview/) | [Chef Infra
-Server](/server_components/) | [Search](/chef_search/) |
+Overview](/chef_client_overview/) | [Chef Infra Server
+Overview](/server_overview/) | [Search](/chef_search/) |
 [Cookbooks](/cookbooks/) | [Handlers](/handlers/) |
 [Management Console](/manage/)
 
@@ -770,16 +769,16 @@ resource_yum_repository resource_zypper_package
 resource_zypper_repository roles ruby run_lists runbook runners
 scaling_capacity_planning_chef_automate
 search_query_chef_automate secrets server_backup_restore
-server_components server_configure_saml server_firewalls_and_ports
-server_ldap server_logs server_manage_clients
-server_manage_cookbooks server_manage_data_bags
-server_manage_environments server_manage_nodes server_manage_roles
-server_monitor server_orgs server_security server_sent_events
-server_services server_tuning server_users
-stream_data_chef_automate style_guide supermarket supermarket_api
-supermarket_backup_restore supermarket_logs supermarket_monitor
-supermarket_share_cookbook templates troubleshooting_chef_automate
-uninstall upgrade_chef_automate upgrade_client upgrade_server
+server_configure_saml server_firewalls_and_ports server_ldap
+server_logs server_manage_clients server_manage_cookbooks
+server_manage_data_bags server_manage_environments
+server_manage_nodes server_manage_roles server_monitor server_orgs
+server_overview server_security server_sent_events server_services
+server_tuning server_users stream_data_chef_automate style_guide
+supermarket supermarket_api supermarket_backup_restore
+supermarket_logs supermarket_monitor supermarket_share_cookbook
+templates troubleshooting_chef_automate uninstall
+upgrade_chef_automate upgrade_client upgrade_server
 upgrade_server_ha_v2 versions visibility vmware windows workflow
 
 </div>

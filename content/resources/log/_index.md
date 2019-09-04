@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: log resource
 resource: log
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_log.html
 menu:
   docs:
     title: log
-    identifier: chef_infra/cookbook_reference/resources/resource_log.html log
+    identifier: chef_infra/cookbook_reference/resources/resource_log.md log
     parent: chef_infra/cookbook_reference/resources
-    weight: 510
+    weight: 520
 
 
 ######## Basic Resource Data ########

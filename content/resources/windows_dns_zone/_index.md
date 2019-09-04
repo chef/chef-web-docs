@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_dns_zone resource
 resource: windows_dns_zone
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_dns_zone.html
 menu:
   docs:
     title: windows_dns_zone
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_dns_zone.html windows_dns_zone
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_dns_zone.md windows_dns_zone
     parent: chef_infra/cookbook_reference/resources
-    weight: 1130
+    weight: 1140
 
 
 ######## Basic Resource Data ########

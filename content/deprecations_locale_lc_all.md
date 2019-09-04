@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Deprecation of lc_all from locale resource (CHEF-27)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_locale_lc_all.html"
@@ -60,16 +59,10 @@ Where `path_to_file` could be any one of:
 Setting **LC_** variables varies by platform, but these are the common
 locations to configure **LC_** variables.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Using the **file** Resource or other manual management method of LC
 configuration may overwrite settings from this resource and break your
 system.
 
-</div>
+{{< /warning >}}

@@ -1,6 +1,5 @@
 +++
 title = "Ruby Guide"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ruby.html"
@@ -8,7 +7,7 @@ aliases = "/ruby.html"
 [menu]
   [menu.docs]
     title = "Ruby Guide"
-    identifier = "chef_infra/cookbook_reference/ruby.html Ruby Guide"
+    identifier = "chef_infra/cookbook_reference/ruby.md Ruby Guide"
     parent = "chef_infra/cookbook_reference"
     weight = 130
 +++    
@@ -543,9 +542,6 @@ Constructs to Avoid
 
 Avoid the following patterns:
 
--   `node.normal` - Avoid using attributes at normal precedence since
-    they are set directly on the node object itself, rather than implied
-    (computed) at runtime.
 -   `node.normal` - Avoid using attributes at normal precedence since
     they are set directly on the node object itself, rather than implied
     (computed) at runtime.

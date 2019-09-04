@@ -1,6 +1,5 @@
 +++
 title = "About Cookbooks"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/cookbooks.html"
@@ -8,7 +7,7 @@ aliases = "/cookbooks.html"
 [menu]
   [menu.docs]
     title = "About Cookbooks"
-    identifier = "chef_infra/cookbook_reference/cookbooks.html About Cookbooks"
+    identifier = "chef_infra/cookbook_reference/cookbooks.md About Cookbooks"
     parent = "chef_infra/cookbook_reference"
     weight = 10
 +++    
@@ -84,7 +83,7 @@ files or directories.
 <tr class="odd">
 <td><a href="/ohai_custom/">Ohai Plugins</a></td>
 <td>ohai/</td>
-<td>Custom Ohai plugins can be written to load additional information about your nodes to be used in recipes.</td>
+<td>Custom Ohai plugins can be written to load additional information about your nodes to be used in recipes. This requires Chef Infra Server 12.18.14 or later.</td>
 </tr>
 <tr class="even">
 <td><a href="/config_rb_metadata/">Metadata</a></td>

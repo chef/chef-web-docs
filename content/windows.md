@@ -1,6 +1,5 @@
 +++
 title = "Chef for Microsoft Windows"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/windows.html"
@@ -8,7 +7,7 @@ aliases = "/windows.html"
 [menu]
   [menu.docs]
     title = "Chef for Microsoft Windows"
-    identifier = "chef_infra/getting_started/chef_on_windows_guide/windows.html Chef for Microsoft Windows"
+    identifier = "chef_infra/getting_started/chef_on_windows_guide/windows.md Chef for Microsoft Windows"
     parent = "chef_infra/getting_started/chef_on_windows_guide"
     weight = 10
 +++    

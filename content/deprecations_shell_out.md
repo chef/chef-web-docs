@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Deprecation of old shell_out APIs (CHEF-26)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_shell_out.html"

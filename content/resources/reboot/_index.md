@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: reboot resource
 resource: reboot
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_reboot.html
 menu:
   docs:
     title: reboot
-    identifier: chef_infra/cookbook_reference/resources/resource_reboot.html reboot
+    identifier: chef_infra/cookbook_reference/resources/resource_reboot.md reboot
     parent: chef_infra/cookbook_reference/resources
-    weight: 780
+    weight: 790
 
 
 ######## Basic Resource Data ########

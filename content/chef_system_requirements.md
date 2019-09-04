@@ -1,6 +1,5 @@
 +++
 title = "System Requirements"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_system_requirements.html"
@@ -8,7 +7,7 @@ aliases = "/chef_system_requirements.html"
 [menu]
   [menu.docs]
     title = "System Requirements"
-    identifier = "chef_infra/getting_started/chef_system_requirements.html System Requirements"
+    identifier = "chef_infra/getting_started/chef_system_requirements.md System Requirements"
     parent = "chef_infra/getting_started"
     weight = 50
 +++    

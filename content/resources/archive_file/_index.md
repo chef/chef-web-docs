@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: archive_file resource
 resource: archive_file
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_archive_file.html
 menu:
   docs:
     title: archive_file
-    identifier: chef_infra/cookbook_reference/resources/resource_archive_file.html archive_file
+    identifier: chef_infra/cookbook_reference/resources/resource_archive_file.md archive_file
     parent: chef_infra/cookbook_reference/resources
-    weight: 90
+    weight: 100
 
 
 ######## Basic Resource Data ########

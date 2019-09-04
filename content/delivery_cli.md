@@ -1,6 +1,5 @@
 +++
 title = "Delivery CLI"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/delivery_cli.html"
@@ -8,7 +7,7 @@ aliases = "/delivery_cli.html"
 [menu]
   [menu.docs]
     title = "Delivery CLI"
-    identifier = "legacy/chef_automate_1/reference/delivery_cli.html Delivery CLI"
+    identifier = "legacy/chef_automate_1/reference/delivery_cli.md Delivery CLI"
     parent = "legacy/chef_automate_1/reference"
     weight = 30
 +++    
@@ -108,31 +107,19 @@ A GitHub user name must be associated with Chef Automate in order for
 changes piped to Chef Automate created by GitHub pull requests to be
 associated with the corresponding Chef Automate user.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Two GitHub accounts may not be linked to a single Chef Automate user.
 Two Chef Automate users may not share a single GitHub user name.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 You must have previously setup GitHub integration in order for this
 command to work.
 
-</div>
+{{< /info >}}
 
 **Link a GitHub enterprise user name**
 
@@ -209,18 +196,12 @@ delivery clone
 
 Use the `clone` subcommand to clone a Chef Automate project.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 There is a **clone** command in the Chef Automate web UI on the page for
 an existing project.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -770,18 +751,12 @@ Use the `local` subcommand to run a phase or stage of Chef Automate
 locally, based on settings in the `project.toml` file located in the
 project's `.delivery` directory.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 As of ChefDK 1.2, delivery local now supports options for functional
 phases, running stages, and specifying a remote `project.toml`.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -1123,18 +1098,12 @@ delivery token
 
 Use the `token` subcommand to manage a Chef Automate API token.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you're running this command on Windows in Git Bash with MinTTY you
 must include `winpty` before `delivery token` to avoid errors.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -1145,13 +1114,7 @@ This subcommand has the following syntax:
 $ delivery token (options)
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 You can also pass in your Chef Automate password through an environment
 variable to the <span class="title-ref">delivery token</span>
@@ -1162,7 +1125,7 @@ password.
 $ AUTOMATE_PASSWORD=secret delivery token -s automate.example.com -e myent -u token
 ```
 
-</div>
+{{< /info >}}
 
 Options
 -------

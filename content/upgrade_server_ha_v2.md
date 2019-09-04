@@ -1,6 +1,5 @@
 +++
 title = "High Availability: Backend Cluster"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/upgrade_server_ha_v2.html"
@@ -8,8 +7,8 @@ aliases = "/upgrade_server_ha_v2.html"
 [menu]
   [menu.docs]
     title = "Upgrade HA Cluster"
-    identifier = "chef_infra/managing_the_server/upgrade_server_ha_v2.html Upgrade HA Cluster"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/upgrade_server_ha_v2.md Upgrade HA Cluster"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 130
 +++    
 
@@ -36,18 +35,12 @@ Chef Backend you are using, and the version you intend to upgrade to:
 Chef Backend 1.x to 2.x Upgrade
 ===============================
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Upgrading from Chef Backend 1.x to Chef Backend 2.x requires full
 cluster downtime.
 
-</div>
+{{< /warning >}}
 
 1.  Identify the node with the **leader** role using the
     `chef-backend-ctl cluster-status` command:
@@ -116,18 +109,12 @@ cluster downtime.
 Chef Backend 1.x to 1.x Upgrade
 ===============================
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The procedure assumes that the new chef-backend package has been copied
 to all of the nodes.
 
-</div>
+{{< /info >}}
 
 Step 1: Block Failover
 ----------------------

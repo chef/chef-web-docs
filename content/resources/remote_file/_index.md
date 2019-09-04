@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: remote_file resource
 resource: remote_file
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_remote_file.html
 menu:
   docs:
     title: remote_file
-    identifier: chef_infra/cookbook_reference/resources/resource_remote_file.html remote_file
+    identifier: chef_infra/cookbook_reference/resources/resource_remote_file.md remote_file
     parent: chef_infra/cookbook_reference/resources
-    weight: 820
+    weight: 830
 
 
 ######## Basic Resource Data ########

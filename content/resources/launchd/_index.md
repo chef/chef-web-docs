@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: launchd resource
 resource: launchd
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_launchd.html
 menu:
   docs:
     title: launchd
-    identifier: chef_infra/cookbook_reference/resources/resource_launchd.html launchd
+    identifier: chef_infra/cookbook_reference/resources/resource_launchd.md launchd
     parent: chef_infra/cookbook_reference/resources
-    weight: 480
+    weight: 490
 
 
 ######## Basic Resource Data ########

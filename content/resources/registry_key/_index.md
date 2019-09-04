@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: registry_key resource
 resource: registry_key
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_registry_key.html
 menu:
   docs:
     title: registry_key
-    identifier: chef_infra/cookbook_reference/resources/resource_registry_key.html registry_key
+    identifier: chef_infra/cookbook_reference/resources/resource_registry_key.md registry_key
     parent: chef_infra/cookbook_reference/resources
-    weight: 800
+    weight: 810
 
 
 ######## Basic Resource Data ########

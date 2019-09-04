@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_package resource
 resource: windows_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_package.html
 menu:
   docs:
     title: windows_package
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_package.html windows_package
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_package.md windows_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 1200
+    weight: 1210
 
 
 ######## Basic Resource Data ########

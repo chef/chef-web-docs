@@ -1,6 +1,5 @@
 +++
 title = "Integrate Chef Automate Workflow with Slack"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/integrate_delivery_slack.html"
@@ -8,7 +7,7 @@ aliases = "/integrate_delivery_slack.html"
 [menu]
   [menu.docs]
     title = "Workflow w/Slack"
-    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_slack.html Workflow w/Slack"
+    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_slack.md Workflow w/Slack"
     parent = "legacy/chef_automate_1/workflow"
     weight = 100
 +++    
@@ -43,20 +42,14 @@ specified at two levels:
 -   By project. A webhook that is specified at the project level enables
     Slack notifications only for that project.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Notifications sent to Slack by Chef Automate do not support retries.
 Therefore, notifications sent while Slack is experiencing API issues,
 outages, or some other unplanned downtime may never be received by the
 channel. Undelivered notifications are not re-sent.
 
-</div>
+{{< /info >}}
 
 Create a Webhook
 ================

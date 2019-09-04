@@ -1,6 +1,5 @@
 +++
 title = "Microsoft Azure PowerShell"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/azure_powershell.html"
@@ -8,7 +7,7 @@ aliases = "/azure_powershell.html"
 [menu]
   [menu.docs]
     title = "Azure Powershell_Cmdlets"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.html Azure Powershell_Cmdlets"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.md Azure Powershell_Cmdlets"
     parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 40
 +++    

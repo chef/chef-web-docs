@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Chef::Platform methods (CHEF-13)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_chef_platform_methods.html"

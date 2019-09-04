@@ -1,6 +1,5 @@
 +++
 title = "Integrate Chef Automate Workflow with GitHub"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/integrate_delivery_github.html"
@@ -8,7 +7,7 @@ aliases = "/integrate_delivery_github.html"
 [menu]
   [menu.docs]
     title = "Workflow w/GitHub"
-    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_github.html Workflow w/GitHub"
+    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_github.md Workflow w/GitHub"
     parent = "legacy/chef_automate_1/workflow"
     weight = 90
 +++    
@@ -38,20 +37,14 @@ Chef Automate's GitHub integration is designed for use with GitHub.com
 and GitHub Enterprise 2.x, and supports connecting a Chef Automate
 enterprise with a single GitHub server URL.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Delivery CLI from the latest
 [ChefDK](https://downloads.chef.io/chefdk/) (version 0.19 or higher)
 must be installed on any workstations that setup and initialize
 GitHub-integrated projects.
 
-</div>
+{{< /info >}}
 
 Setting up integration with GitHub
 ==================================
@@ -104,13 +97,7 @@ Trusting a Self-Signed SSL Certificate
 This procedure is only needed when connecting to GitHub Enterprise, and
 when your GitHub Enterprise server uses a self-signed SSL certificate.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Even when trusted, self-signed certificates only work when the
 certificate subject is the same as the host running the service. For
@@ -120,7 +107,7 @@ class="title-ref">github.example.com</span>, the URL
 `https://github.example.com` will fail SSL certificate validation while
 the URL `https://10.10.10.10` will pass.
 
-</div>
+{{< /info >}}
 
 ### Debian
 
@@ -155,17 +142,11 @@ the URL `https://10.10.10.10` will pass.
     yum install ca-certificates
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     You only need to do this once for 6.x servers.
 
-    </div>
+    {{< /info >}}
 
 3.  Enable the dynamic CA configuration feature.
 
@@ -173,17 +154,11 @@ the URL `https://10.10.10.10` will pass.
     update-ca-trust force-enable
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     You only need to do this once for 6.x servers.
 
-    </div>
+    {{< /info >}}
 
 4.  Change directory to the `anchors` directory.
 
@@ -285,19 +260,13 @@ Initializing a new GitHub project in Chef Automate
     Chef Automate. At this point, you should be able to see a
     corresponding pull request in GitHub.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     You may also specify a different pipeline than the default
     (`master`) by specifying the argument `--pipeline=$PIPELINE`;
     however, this will not update the `.delivery/cli.toml` file.
 
-    </div>
+    {{< /info >}}
 
 Multiple pipelines
 ------------------
@@ -394,13 +363,7 @@ Configure your Delivery CLI and clone your project's code
     delivery clone $PROJECT
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     If you clone from GitHub instead (or make use of a pre-existing
     clone), you will need to add a `delivery` remote. The Chef Automate
@@ -411,7 +374,7 @@ Configure your Delivery CLI and clone your project's code
     git remote add delivery $AUTOMATE_CLONE_URL
     ```
 
-    </div>
+    {{< /info >}}
 
 Creating a Change (Pull Request)
 --------------------------------
@@ -435,17 +398,11 @@ You may conduct a code review using either Chef Automate or GitHub;
 however, the merging of a pull request is handled by Chef Automate and
 occurs when a change in Chef Automate is approved.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Do not merge the pull request from within GitHub.
 
-</div>
+{{< /warning >}}
 
 To perform code review using Chef Automate:
 

@@ -1,6 +1,5 @@
 +++
 title = "Services"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_services.html"
@@ -10,8 +9,8 @@ runbook_weight = 40
 [menu]
   [menu.docs]
     title = "Services"
-    identifier = "chef_infra/managing_the_server/server_services.html Services"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_services.md Services"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 100
 +++    
 
@@ -92,7 +91,7 @@ given time. The supervisor starts two processes per service.
 The following services are part of the Chef Infra Server:
 
 
--   bifrost
+### -   bifrost
 -   bookshelf
 -   nginx
 -   opscode-erchef
@@ -102,7 +101,7 @@ The following services are part of the Chef Infra Server:
 -   rabbitmq
 -   redis-lb
 
-### bifrost
+bifrost
 
 {{% server_services_bifrost %}}
 

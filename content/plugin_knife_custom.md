@@ -1,6 +1,5 @@
 +++
 title = "Writing Custom Knife Plugins"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/plugin_knife_custom.html"
@@ -8,7 +7,7 @@ aliases = "/plugin_knife_custom.html"
 [menu]
   [menu.docs]
     title = "Writing Custom Plugins"
-    identifier = "extension_apis/knife_plugins/plugin_knife_custom.html Writing Custom Plugins"
+    identifier = "extension_apis/knife_plugins/plugin_knife_custom.md Writing Custom Plugins"
     parent = "extension_apis/knife_plugins"
     weight = 20
 +++    
@@ -248,20 +247,14 @@ end
 where the actual path may vary from plugin to plugin, but is typically
 located in the `chef/knife/` directory.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Using the `deps` method instead of `require` is recommended, especially
 if the environment in which knife is being run contains a lot of plugins
 and/or any of those plugins have a lot of dependencies and/or
 requirements on other plugins and search functionality.
 
-</div>
+{{< /info >}}
 
 ### Requirements
 
@@ -280,20 +273,14 @@ require 'chef/knife/name_of_command'
 where the actual path may vary from plugin to plugin, but is typically
 located in the `chef/knife/` directory.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Using the `deps` method instead of `require` is recommended, especially
 when the environment in which knife is being run contains a lot of
 plugins and/or any of those plugins have a lot of dependencies and/or
 requirements on other plugins and search functionality.
 
-</div>
+{{< /info >}}
 
 For example, use the following to require a plugin named `bootstrap`:
 

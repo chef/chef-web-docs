@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: ssh_known_hosts_entry resource
 resource: ssh_known_hosts_entry
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_ssh_known_hosts_entry.html
 menu:
   docs:
     title: ssh_known_hosts_entry
-    identifier: chef_infra/cookbook_reference/resources/resource_ssh_known_hosts_entry.html ssh_known_hosts_entry
+    identifier: chef_infra/cookbook_reference/resources/resource_ssh_known_hosts_entry.md ssh_known_hosts_entry
     parent: chef_infra/cookbook_reference/resources
-    weight: 970
+    weight: 980
 
 
 ######## Basic Resource Data ########

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_pagefile resource
 resource: windows_pagefile
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_pagefile.html
 menu:
   docs:
     title: windows_pagefile
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_pagefile.html windows_pagefile
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_pagefile.md windows_pagefile
     parent: chef_infra/cookbook_reference/resources
-    weight: 1210
+    weight: 1220
 
 
 ######## Basic Resource Data ########

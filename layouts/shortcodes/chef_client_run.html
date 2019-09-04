@@ -24,7 +24,7 @@ During every Chef Infra Client run, the following happens:
 <td>Chef Infra Client gets process configuration data from the client.rb file on the node, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the <code>node_name</code> attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it is typically the FQDN for the node, which is always unique within an organization.</td>
 </tr>
 <tr class="even">
-<td><strong>Authenticate to the Chef Server</strong></td>
+<td><strong>Authenticate to the Chef Infra Server</strong></td>
 <td>Chef Infra Client authenticates to the Chef Infra Server using an RSA private key and the Chef Infra Server API. The name of the node is required as part of the authentication process to the Chef Infra Server. If this is the first Chef Infra Client run for a node, the chef-validator will be used to generate the RSA private key.</td>
 </tr>
 <tr class="odd">

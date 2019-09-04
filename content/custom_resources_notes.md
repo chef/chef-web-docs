@@ -1,6 +1,5 @@
 +++
 title = "Custom Resources Notes"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/custom_resources_notes.html"
@@ -16,13 +15,7 @@ aliases = "/custom_resources_notes.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources_notes.rst)
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This page mentions multiple ways of building custom resources. Chef
 Software recommends you try the approach outlined in the [Custom
@@ -33,7 +26,7 @@ resources, please ask for help in the [Chef Mailing
 List](https://discourse.chef.io) or [file a
 bug](https://github.com/chef/chef/issues/new) for Chef Infra Client.
 
-</div>
+{{< /warning >}}
 
 Custom Resources 12.5-style
 ===========================

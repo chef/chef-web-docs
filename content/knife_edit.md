@@ -1,6 +1,5 @@
 +++
 title = "knife edit"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_edit.html"
@@ -8,7 +7,7 @@ aliases = "/knife_edit.html"
 [menu]
   [menu.docs]
     title = "knife edit"
-    identifier = "chef_infra/chefdk/knife/knife_edit.html knife edit"
+    identifier = "chef_infra/chefdk/knife/knife_edit.md knife edit"
     parent = "chef_infra/chefdk/knife"
     weight = 150
 +++    
@@ -30,17 +29,11 @@ $ knife edit (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 
@@ -67,17 +60,11 @@ This subcommand has the following options:
     `hosted_everything` are dynamically selected depending on the server
     type. Default: `everything` / `hosted_everything`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

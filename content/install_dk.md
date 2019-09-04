@@ -1,6 +1,5 @@
 +++
 title = "Install ChefDK"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_dk.html"
@@ -8,7 +7,7 @@ aliases = "/install_dk.html"
 [menu]
   [menu.docs]
     title = "ChefDK"
-    identifier = "chef_infra/setup/install_dk.html ChefDK"
+    identifier = "chef_infra/setup/install_dk.md ChefDK"
     parent = "chef_infra/setup"
     weight = 10
 +++    
@@ -24,25 +23,13 @@ ChefSpec. The Chef installer puts everything into a unique directory
 that these components will not interfere with other applications that
 may be running on the target machine.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Chef installer must run as a privileged user.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 [Chef Workstation](https://downloads.chef.io/chef-workstation/) gives
 you everything you need to get started with Chef — ad hoc remote
@@ -54,7 +41,7 @@ the new Chef Workstation desktop application. Chef will continue to
 maintain ChefDK, but new development will take place in Chef Workstation
 without backporting features.
 
-</div>
+{{< /info >}}
 
 Install
 =======
@@ -62,19 +49,13 @@ Install
 macOS
 -----
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 ChefDK works without installing Xcode, but Xcode is required for native
 Ruby Gem installation. Run `xcode-select --install` from the terminal to
 install Xcode.
 
-</div>
+{{< /info >}}
 
 1.  Visit the [ChefDK downloads
     page](https://downloads.chef.io/chefdk#mac_os_x) and select the

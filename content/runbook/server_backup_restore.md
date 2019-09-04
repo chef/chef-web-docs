@@ -1,6 +1,5 @@
 +++
 title = "Backup and Restore a Standalone or Frontend install"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_backup_restore.html"
@@ -10,8 +9,8 @@ runbook_weight = 70
 [menu]
   [menu.docs]
     title = "Backup & Restore"
-    identifier = "chef_infra/managing_the_server/server_backup_restore.html Backup & Restore"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_backup_restore.md Backup & Restore"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 20
 +++    
 

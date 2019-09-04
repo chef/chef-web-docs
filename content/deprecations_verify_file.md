@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Verify File Expansion (CHEF-7)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_verify_file.html"

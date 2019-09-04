@@ -1,6 +1,5 @@
 +++
 title = "opscode-push-jobs-server.rb"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_push_jobs_server.html"
@@ -8,8 +7,8 @@ aliases = "/config_rb_push_jobs_server.html"
 [menu]
   [menu.docs]
     title = "push-jobs-server.rb"
-    identifier = "chef_infra/managing_the_server/push_jobs/config_rb_push_jobs_server.html push-jobs-server.rb"
-    parent = "chef_infra/managing_the_server/push_jobs"
+    identifier = "chef_infra/managing_chef_infra_server/push_jobs/config_rb_push_jobs_server.md push-jobs-server.rb"
+    parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 40
 +++    
 

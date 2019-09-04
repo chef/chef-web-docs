@@ -1,6 +1,5 @@
 +++
 title = "An Overview of Workflow in Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/workflow.html"
@@ -8,7 +7,7 @@ aliases = "/workflow.html"
 [menu]
   [menu.docs]
     title = "Workflow Overview"
-    identifier = "legacy/chef_automate_1/overview/workflow.html Workflow Overview"
+    identifier = "legacy/chef_automate_1/overview/workflow.md Workflow Overview"
     parent = "legacy/chef_automate_1/overview"
     weight = 20
 +++    
@@ -40,13 +39,7 @@ Chef Automate handles many types of software systems. Use it to:
     GitHub
 -   Push build artifacts to production servers in real time
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you are new to Chef Automate, you can see it in action in the
 self-paced [Continuous
@@ -54,7 +47,7 @@ Automation](https://learn.chef.io/tracks/continuous-automation#/) track
 on Learn Chef. There, you'll set up your own Chef Automate installation
 and a sample application to experiment with.
 
-</div>
+{{< /info >}}
 
 Pipelines
 =========
@@ -433,13 +426,7 @@ initial run-list for each node in the environment. The `delivery-truck`
 cookbook makes it easy to customize your pipeline's build cookbook for
 the environments you want to use for each stage of the pipeline.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Currently, Chef Automate manages cookbook version and application
 attribute version pins using environment objects of the Chef Infra
@@ -448,7 +435,7 @@ correspond to the stages of a pipeline. (This doesn't mean, however,
 that the nodes that participate in a given stage need to remain fixed
 over time.)
 
-</div>
+{{< /info >}}
 
 It is also possible to share infrastructure among pipeline stages. For
 example, you can provision infrastructure needed for performing

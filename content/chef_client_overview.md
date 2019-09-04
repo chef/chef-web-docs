@@ -1,6 +1,5 @@
 +++
 title = "Chef Infra Client Overview"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_client_overview.html"
@@ -8,27 +7,21 @@ aliases = "/chef_client_overview.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Client Overview"
-    identifier = "chef_infra/concepts/chef_client_overview.html Chef Infra Client Overview"
+    identifier = "chef_infra/concepts/chef_client_overview.md Chef Infra Client Overview"
     parent = "chef_infra/concepts"
-    weight = 30
+    weight = 20
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_client_overview.rst)
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For the `chef-client` command line tool, see
 [chef-client(executable)](/ctl_chef_client.html) The Chef Infra Client
 executable can be run as a daemon.
 
-</div>
+{{< /info >}}
 
 <table>
 <colgroup>
@@ -70,13 +63,7 @@ attributes, identifying the resources, and building the resource
 collection and does not include mapping each resource to a provider or
 configuring any part of the system.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 why-run mode is not a replacement for running cookbooks in a test
 environment that mirrors the production environment. Chef uses why-run
@@ -84,7 +71,7 @@ mode to learn more about what is going on, but also Kitchen on developer
 systems, along with an internal OpenStack cloud and external cloud
 providers to test more thoroughly.
 
-</div>
+{{< /info >}}
 
 When Chef Infra Client is run in why-run mode, certain assumptions are
 made:
@@ -162,18 +149,12 @@ During a Chef Infra Client Run
 SSL Verification
 ================
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The following information does not apply to hosted Chef Server 12, only
 to on-premises Chef Server 12.
 
-</div>
+{{< /warning >}}
 
 {{% server_security_ssl_cert_client %}}
 

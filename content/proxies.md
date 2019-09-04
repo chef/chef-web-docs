@@ -1,6 +1,5 @@
 +++
 title = "Working with Proxies"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/proxies.html"
@@ -8,7 +7,7 @@ aliases = "/proxies.html"
 [menu]
   [menu.docs]
     title = "Working with Proxies"
-    identifier = "chef_infra/setup/proxies.html Working with Proxies"
+    identifier = "chef_infra/setup/proxies.md Working with Proxies"
     parent = "chef_infra/setup"
     weight = 40
 +++    
@@ -177,19 +176,13 @@ Example:
 no_proxy 'test.example.com,test.example2.com,test.example3.com'
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Wildcard matching may be used in the `no_proxy` list---such as
 `no_proxy '*.*.example.*'`---however, many situations require hostnames
 to be specified explicitly (i.e. "without wildcards").
 
-</div>
+{{< /info >}}
 
 Environment Variables
 =====================

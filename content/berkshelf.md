@@ -1,6 +1,5 @@
 +++
 title = "About Berkshelf"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/berkshelf.html"
@@ -8,7 +7,7 @@ aliases = "/berkshelf.html"
 [menu]
   [menu.docs]
     title = "Berkshelf"
-    identifier = "chef_infra/chefdk/berkshelf.html Berkshelf"
+    identifier = "chef_infra/chefdk/berkshelf.md Berkshelf"
     parent = "chef_infra/chefdk"
     weight = 20
 +++    
@@ -23,13 +22,7 @@ select the same cookbook versions, and can upload and bundle cookbook
 dependencies without needing a locally maintained copy. Berkshelf is
 included in ChefDK.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For new users, we strongly recommend using
 [Policyfiles](/policyfile/) rather than Berkshelf. Policyfiles
@@ -37,7 +30,7 @@ provide more predictability, since dependencies are only resolved once,
 and a much improved way of promoting cookbooks from dev to testing, and
 then to production.
 
-</div>
+{{< /info >}}
 
 Quick Start
 ===========
@@ -396,17 +389,11 @@ berks cookbook
 
 Use `berks cookbook` to create a skeleton for a new cookbook.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This command is deprecated. Please use `chef generate cookbook` instead.
 
-</div>
+{{< /warning >}}
 
 berks info
 ----------
@@ -435,17 +422,11 @@ berks init
 
 Use `berks init` to initialize Berkshelf to the specified directory.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This command is deprecated. Please use `chef generate cookbook` instead.
 
-</div>
+{{< /warning >}}
 
 berks install
 -------------
@@ -603,17 +584,11 @@ berks test
 
 Use `berks test` to run Test Kitchen from within Berkshelf.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This command is deprecated. Please use `kitchen test` instead.
 
-</div>
+{{< /warning >}}
 
 ### Options
 

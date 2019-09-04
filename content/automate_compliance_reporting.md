@@ -1,6 +1,5 @@
 +++
 title = "Reporting"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/automate_compliance_reporting.html"
@@ -8,7 +7,7 @@ aliases = "/automate_compliance_reporting.html"
 [menu]
   [menu.docs]
     title = "Reporting"
-    identifier = "legacy/chef_automate_1/compliance/automate_compliance_reporting.html Reporting"
+    identifier = "legacy/chef_automate_1/compliance/automate_compliance_reporting.md Reporting"
     parent = "legacy/chef_automate_1/compliance"
     weight = 10
 +++    

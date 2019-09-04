@@ -1,6 +1,5 @@
 +++
 title = "Integrate Chef Automate Workflow with Bitbucket"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/integrate_delivery_bitbucket.html"
@@ -8,7 +7,7 @@ aliases = "/integrate_delivery_bitbucket.html"
 [menu]
   [menu.docs]
     title = "Workflow w/Bitbucket"
-    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_bitbucket.html Workflow w/Bitbucket"
+    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_bitbucket.md Workflow w/Bitbucket"
     parent = "legacy/chef_automate_1/workflow"
     weight = 70
 +++    
@@ -50,18 +49,12 @@ Trust SSL Certificate
 Run the following steps to set up self-signed certificates for Chef
 Automate.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This is only required if the Bitbucket uses a self-signed SSL
 certificate or an internal certificate authority.
 
-</div>
+{{< /info >}}
 
 Debian
 ------
@@ -102,17 +95,11 @@ higher), do the following:
     yum install ca-certificates
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     For 6.x servers, run this command only once.
 
-    </div>
+    {{< /info >}}
 
 3.  Run the following command:
 
@@ -120,17 +107,11 @@ higher), do the following:
     update-ca-trust force-enable
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     For 6.x servers, run this command only once.
 
-    </div>
+    {{< /info >}}
 
 4.  Run the following command:
 

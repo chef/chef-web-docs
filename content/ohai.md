@@ -1,6 +1,5 @@
 +++
 title = "About Ohai"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ohai.html"
@@ -8,7 +7,7 @@ aliases = "/ohai.html"
 [menu]
   [menu.docs]
     title = "About Ohai"
-    identifier = "chef_infra/chefdk/ohai/ohai.html About Ohai"
+    identifier = "chef_infra/chefdk/ohai/ohai.md About Ohai"
     parent = "chef_infra/chefdk/ohai"
     weight = 10
 +++    
@@ -34,17 +33,11 @@ Automatic Attributes
 
 {{% ohai_attribute_list %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_see_attributes_overview %}}
 
-</div>
+{{< /info >}}
 
 Blacklist Attributes
 --------------------

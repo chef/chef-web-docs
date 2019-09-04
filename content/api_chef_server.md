@@ -1,15 +1,14 @@
 +++
 title = "Chef Infra Server API"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/api_chef_server.html"
 
 [menu]
   [menu.docs]
-    title = "Chef Server API"
-    identifier = "chef_infra/managing_the_server/api_chef_server.html Chef Server API"
-    parent = "chef_infra/managing_the_server"
+    title = "Chef Infra Server API"
+    identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 200
 +++    
 
@@ -102,18 +101,12 @@ The following authentication headers are required:
 </tbody>
 </table>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Use `X-Ops-Server-API-Info` to identify the version of the Chef Infra
 Server API.
 
-</div>
+{{< /info >}}
 
 Example
 -------
@@ -193,13 +186,7 @@ This method has no response body.
 /license
 --------
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This endpoint is used for information purposes only and to trigger a
 notification in the Chef management console about the number of licenses
@@ -207,7 +194,7 @@ owned vs. the number of licenses that should be owned. No other action
 is taken and the functionality and behavior of the Chef Infra Server and
 any added component does not change.
 
-</div>
+{{< /info >}}
 
 The `/license` endpoint has the following methods: `GET`.
 
@@ -310,20 +297,14 @@ The Chef Infra Server may contain multiple organizations.
 The `/organizations` endpoint has the following methods: `GET` and
 `POST`.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This endpoint may only be accessed by the `pivotal` user, which is
 created as part of the installation process for the Chef Infra Server.
 (See the "Query for Users and Orgs" example below for an example of how
 to access this endpoint with the `pivotal` user.)
 
-</div>
+{{< /warning >}}
 
 ### GET
 
@@ -402,18 +383,12 @@ where:
 -   `full_name` must begin with a non-white space character and must be
     between 1 and 1023 characters. For example: `Chef Software, Inc.`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 An organization isn't usable until a user that belongs to the `admins`
 group is associated with the organization.
 
-</div>
+{{< /info >}}
 
 **Response**
 
@@ -705,20 +680,14 @@ Chef Infra Server. For example:
 
 The `/users` endpoint has the following methods: `` `GET `` and `POST`.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This endpoint may only be accessed by the `pivotal` user, which is
 created as part of the installation process for the Chef Infra Server.
 (See the "Query for Users and Orgs" example below for an example of how
 to access this endpoint with the `pivotal` user.)
 
-</div>
+{{< /warning >}}
 
 ### GET
 
@@ -1052,32 +1021,20 @@ The `PUT` method is used to update a specific user. If values are not
 specified for the `PUT` method, the Chef Infra Server will use the
 existing values rather than assign default values.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 `PUT` supports renames. If `PUT /users/foo` is requested with
 `{ "name: "bar""}`, then it will rename `foo` to `bar` and all of the
 content previously associated with `foo` will be associated with `bar`.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 As of 12.1.0, the `"public_key"`, `"private_key"`, and `"create_key"`
 parameters in PUT requests to clients/users will cause a 400 response.
 
-</div>
+{{< /info >}}
 
 This method has no parameters.
 
@@ -2009,18 +1966,12 @@ Use the `/clients` endpoint to manage an API client list and their
 associated RSA public key-pairs. The `/clients` endpoint has the
 following methods: `GET` and `POST`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The API client list should be managed using knife or the Chef Infra
 Server management console, as opposed to the Chef Infra Server API.
 
-</div>
+{{< /info >}}
 
 ### GET
 
@@ -2081,19 +2032,13 @@ The response is similar to:
 
 The `POST` method is used to create a new API client.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 As of 12.1.0, the `"admin"` parameter is no longer supported in
 client/user creation and support. If used in the `POST` or `PUT` of a
 client or user, then it is ignored.
 
-</div>
+{{< /info >}}
 
 This method has no parameters.
 
@@ -2301,47 +2246,29 @@ The `PUT` method is used to update a specific API client. If values are
 not specified for the `PUT` method, the Chef Infra Server will use the
 existing values rather than assign default values.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 `PUT` supports renames. If `PUT /user/foo` is requested with
 `{ "name: "bar""}`, then it will rename `foo` to `bar` and all of the
 content previously associated with `foo` will be associated with `bar`.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 As of 12.1.0, the `"admin"` parameter is no longer supported in
 client/user creation and support. If used in the `POST` or `PUT` of a
 client or user, then it is ignored.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 As of 12.1.0, including `"public_key"`, `"private_key"`, or
 `"create_key"` in PUT requests to clients/users will cause a 400
 response.
 
-</div>
+{{< /info >}}
 
 **Request**
 
@@ -4800,20 +4727,14 @@ The `GET` method is used to return the `run_list` attribute of the role
 (when the name of the environment is `_default`) or to return
 `env_run_lists[environment_name]` (for non-default environments).
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The behavior of this endpoint is identical to
 `GET /roles/NAME/environments/NAME`; it is recommended (but not
 required) that `GET /roles/NAME/environments/NAME` be used instead of
 this endpoint.
 
-</div>
+{{< /info >}}
 
 This method has no parameters.
 
@@ -6186,13 +6107,7 @@ The response is similar to:
 The `/search` endpoint allows nodes, roles, data bags, environments to
 be searched. This endpoint has the following methods: `GET`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 At the end of every Chef Infra Client run, the node object is saved to
 the Chef Infra Server. From the Chef Infra Server, each node object is
@@ -6200,21 +6115,15 @@ then added to the Apache Solr search index. This process is
 asynchronous. By default, node objects are committed to the search index
 every 60 seconds or per 1000 node objects, whichever occurs first.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This endpoint does not have any ACL restrictions, which means it may be
 used by any user or client that is able to make the request to the Chef
 Infra Server.
 
-</div>
+{{< /info >}}
 
 ### GET
 
@@ -6609,18 +6518,12 @@ with its location information and dependencies:
 
 {{% api_chef_server_endpoint_org_name_updated_since %}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This update is available after Chef replication is installed on the Chef
 Infra Server.
 
-</div>
+{{< /warning >}}
 
 ### GET
 
@@ -6673,15 +6576,9 @@ chef_server_root "https://192.0.2.0:443"
 client_key "#{current_dir}/pivotal.pem"
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `pivotal.pem` file must exist in the specified location and the IP
 addresses must be correct for the Chef Infra Server.
 
-</div>
+{{< /info >}}

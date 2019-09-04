@@ -1,6 +1,5 @@
 +++
 title = "push-jobs-client.rb"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_push_jobs_client.html"
@@ -8,8 +7,8 @@ aliases = "/config_rb_push_jobs_client.html"
 [menu]
   [menu.docs]
     title = "push-jobs-client.rb"
-    identifier = "chef_infra/managing_the_server/push_jobs/config_rb_push_jobs_client.html push-jobs-client.rb"
-    parent = "chef_infra/managing_the_server/push_jobs"
+    identifier = "chef_infra/managing_chef_infra_server/push_jobs/config_rb_push_jobs_client.md push-jobs-client.rb"
+    parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 30
 +++    
 

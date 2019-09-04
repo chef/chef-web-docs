@@ -1,6 +1,5 @@
 +++
 title = "An Overview of Compliance in Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_automate_compliance.html"
@@ -8,7 +7,7 @@ aliases = "/chef_automate_compliance.html"
 [menu]
   [menu.docs]
     title = "Compliance Overview"
-    identifier = "legacy/chef_automate_1/overview/chef_automate_compliance.html Compliance Overview"
+    identifier = "legacy/chef_automate_1/overview/chef_automate_compliance.md Compliance Overview"
     parent = "legacy/chef_automate_1/overview"
     weight = 40
 +++    
@@ -29,20 +28,14 @@ addition to seeing your compliance status, you can also easily see which
 controls failed and why to provide you immediate information for
 remediation.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you need to continue using the previous compliance view that was in
 earlier versions of Chef Automate, you can enable this view easily. We
 have included a new feature flag to activate the old compliance view by
 typing `legacy` in the UI and toggling on this view in the menu.
 
-</div>
+{{< /info >}}
 
 {{% beta_note %}}
 
@@ -106,18 +99,12 @@ The following CIS Level 1 and 2 benchmark profiles are included:
 -   SUSE Linux Enterprise Server
 -   Ubuntu
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Chef Automate has multiple profiles supporting different versions of the
 operating systems or environments listed above.
 
-</div>
+{{< /info >}}
 
 Baseline profiles
 -----------------

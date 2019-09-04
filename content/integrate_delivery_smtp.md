@@ -1,6 +1,5 @@
 +++
 title = "Integrate Chef Automate Workflow with SMTP"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/integrate_delivery_smtp.html"
@@ -8,7 +7,7 @@ aliases = "/integrate_delivery_smtp.html"
 [menu]
   [menu.docs]
     title = "Workflow w/Email (SMTP)"
-    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_smtp.html Workflow w/Email (SMTP)"
+    identifier = "legacy/chef_automate_1/workflow/integrate_delivery_smtp.md Workflow w/Email (SMTP)"
     parent = "legacy/chef_automate_1/workflow"
     weight = 80
 +++    

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: homebrew_tap resource
 resource: homebrew_tap
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_homebrew_tap.html
 menu:
   docs:
     title: homebrew_tap
-    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_tap.html homebrew_tap
+    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_tap.md homebrew_tap
     parent: chef_infra/cookbook_reference/resources
-    weight: 410
+    weight: 420
 
 
 ######## Basic Resource Data ########

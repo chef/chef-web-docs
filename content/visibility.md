@@ -1,6 +1,5 @@
 +++
 title = "An Overview of Node Visibility in Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/visibility.html"
@@ -8,7 +7,7 @@ aliases = "/visibility.html"
 [menu]
   [menu.docs]
     title = "Nodes Overview"
-    identifier = "legacy/chef_automate_1/overview/visibility.html Nodes Overview"
+    identifier = "legacy/chef_automate_1/overview/visibility.md Nodes Overview"
     parent = "legacy/chef_automate_1/overview"
     weight = 30
 +++    
@@ -76,13 +75,7 @@ Further filtering can also be provided by the **Environment** and
 If you wish to share your filtered search with others, you can do so
 with the share and save icons next to the search bar.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you want to see the raw, real-time events coming into Chef Automate
 and perform simple queries and visualizations on them, navigate to
@@ -96,7 +89,7 @@ notes](https://docs.chef.io/release_notes_chef_automate.html#what-s-new-in-1-6-8
 for more details. And for more information on Kibana, see the [Kibana
 User Guide](https://www.elastic.co/guide/en/kibana/current/index.html).
 
-</div>
+{{< /info >}}
 
 Compliance status
 -----------------

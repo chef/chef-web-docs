@@ -1,6 +1,5 @@
 +++
 title = "About the chef-repo"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_repo.html"
@@ -8,9 +7,9 @@ aliases = "/chef_repo.html"
 [menu]
   [menu.docs]
     title = "chef-repo"
-    identifier = "chef_infra/concepts/chef_repo.html chef-repo"
+    identifier = "chef_infra/concepts/chef_repo.md chef-repo"
     parent = "chef_infra/concepts"
-    weight = 50
+    weight = 40
 +++    
 
 [\[edit on

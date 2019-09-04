@@ -1,6 +1,5 @@
 +++
 title = "Install Private Supermarket"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_supermarket.html"
@@ -8,7 +7,7 @@ aliases = "/install_supermarket.html"
 [menu]
   [menu.docs]
     title = "Install Private Supermarket"
-    identifier = "chef_infra/setup/supermarket/install_supermarket.html Install Private Supermarket"
+    identifier = "chef_infra/setup/supermarket/install_supermarket.md Install Private Supermarket"
     parent = "chef_infra/setup/supermarket"
     weight = 20
 +++    
@@ -20,17 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/i
 
 {{% supermarket_private %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% supermarket_private_source_code %}}
 
-</div>
+{{< /info >}}
 
 Requirements
 ============
@@ -77,19 +70,13 @@ Server. Chef Identity must be configured to run with a private Chef
 Supermarket, after which users may use the same credentials to access
 the Chef Supermarket as they do to access the Chef Infra Server.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Chef Supermarket server must be able to reach (via HTTPS) the
 specified `chef_server_url` during OAuth 2.0 negotiation. This type of
 issue is typically with name resolution and firewall rules.
 
-</div>
+{{< /info >}}
 
 Configure
 ---------
@@ -130,13 +117,7 @@ To configure Chef Supermarket to use Chef Identity, do the following:
     The `uid` and `secret` values will be needed later on during the
     setup process for Chef Supermarket.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Add as many Chef Identity applications to the
 `/etc/opscode/chef-server.rb` configuration file as necessary. A JSON
@@ -146,22 +127,16 @@ Chef Identity database and are available to all nodes in the Chef Infra
 Server front end group. The generated JSON files do not need to be
 copied anywhere.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The redirect URL specified **MUST** match the FQDN of the Chef
 Supermarket server. The URI must also be correct:
 `/auth/chef_oauth2/callback`. Otherwise, an error message similar to
 `The redirect uri included is not valid.` will be shown.
 
-</div>
+{{< /info >}}
 
 Install Supermarket
 ===================
@@ -183,20 +158,14 @@ Chef Supermarket.
     which configures the already-installed package using the attributes
     defined in `/etc/supermarket/supermarket.json`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 In general, for production environments Chef recommends to start running
 Chef Supermarket with small virtual machines, and then increase the size
 of the virtual machine as necessary. Put the `/var/opt/supermarket`
 directory on a separate disk, and then use LVM so that may be expanded.
 
-</div>
+{{< /info >}}
 
 Create a Wrapper
 ----------------
@@ -323,13 +292,7 @@ To define these attributes, do the following:
 
 3.  Save and close the `/recipes/default.rb` file.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you are running your private Supermarket in AWS, you may need to set
 an additional attribute for the node's public IP address:
@@ -338,7 +301,7 @@ an additional attribute for the node's public IP address:
 node.override['supermarket_omnibus']['config']['fqdn'] = your_node_public_ip
 ```
 
-</div>
+{{< /info >}}
 
 Upload the Wrapper
 ------------------
@@ -532,20 +495,14 @@ user's workstation.
     Chef Supermarket to use the Chef Infra Server account for
     authentication.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The redirect URL specified for Chef Identity **MUST** match the fqdn
 hostname of the Chef Supermarket server. The URI must also be correct:
 `/auth/chef_oauth2/callback`. Otherwise, an error message similar to
 `The redirect uri included is not valid.` will be shown.
 
-</div>
+{{< /info >}}
 
 Customize Supermarket
 =====================
@@ -606,14 +563,8 @@ node.override['supermarket_omnibus']['config']['s3_region'] = 'some-place-3'
 node.override['supermarket_omnibus']['config']['s3_secret_access_key'] = 'yoursecretaccesskey'
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Encrypted S3 buckets are currently not supported.
 
-</div>
+{{< /info >}}

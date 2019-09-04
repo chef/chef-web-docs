@@ -1,6 +1,5 @@
 +++
 title = "Knife Azure"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_azure.html"
@@ -8,7 +7,7 @@ aliases = "/knife_azure.html"
 [menu]
   [menu.docs]
     title = "Knife Azure"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azure.html Knife Azure"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azure.md Knife Azure"
     parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 50
 +++    
@@ -21,18 +20,12 @@ Knife Azure Overview
 
 {{% knife_azure %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-</div>
+{{< /info >}}
 
 `knife-azure` version 1.6.0 and later supports Azure Resource Manager.
 Commands starting with `knife azurerm` use the Azure Resource Manager
@@ -100,19 +93,13 @@ Azure platform via the REST APIs. To generate the management certificate
     $ openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
     ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 It is possible to generate certificates, and then upload them. See the
 following link for more information:
 www.windowsazure.com/en-us/manage/linux/common-tasks/manage-certificates/.
 
-</div>
+{{< /info >}}
 
 Knife Azure Commands
 --------------------

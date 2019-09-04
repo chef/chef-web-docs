@@ -1,6 +1,5 @@
 +++
 title = "Configuring ChefDK"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chefdk_setup.html"
@@ -8,7 +7,7 @@ aliases = "/chefdk_setup.html"
 [menu]
   [menu.docs]
     title = "Configure ChefDK"
-    identifier = "chef_infra/getting_started/chefdk_setup.html Configure ChefDK"
+    identifier = "chef_infra/getting_started/chefdk_setup.md Configure ChefDK"
     parent = "chef_infra/getting_started"
     weight = 30
 +++    
@@ -26,19 +25,13 @@ Configure Ruby Environment
 For many users of Chef, the version of Ruby that is included in ChefDK
 should be configured as the default version of Ruby.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 These instructions are intended for macOS and Linux users. For
 instructions on setting up your Ruby environment on Windows, see [ChefDK
 on Windows](/dk_windows.html#configure-environment).
 
-</div>
+{{< /info >}}
 
 1.  Open a command window and enter the following:
 
@@ -67,20 +60,14 @@ on Windows](/dk_windows.html#configure-environment).
 3.  Run `which ruby` again. It should return
     `/opt/chefdk/embedded/bin/ruby`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Using ChefDK-provided Ruby as your system Ruby is optional. For many
 users, Ruby is primarily used for authoring Chef cookbooks and recipes.
 If that's true for you, then using the ChefDK-provided Ruby is
 recommended.
 
-</div>
+{{< /info >}}
 
 Add Ruby to \$PATH
 ==================
@@ -104,18 +91,12 @@ something like the following:
 echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 On Microsoft Windows, `C:/opscode/chefdk/bin` must be before
 `C:/opscode/chefdk/embedded/bin` in the `PATH`.
 
-</div>
+{{< /warning >}}
 
 Install Git
 ===========
@@ -132,18 +113,12 @@ To install Git:
     (<https://git-scm.com/downloads>), and then complete the remaining
     configuration steps on that page.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 It is not necessary to create or fork a repository in order to clone the
 chef-repo from GitHub.
 
-</div>
+{{< /info >}}
 
 Create the Chef repository
 ==========================

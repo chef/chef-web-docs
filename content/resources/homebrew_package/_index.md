@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: homebrew_package resource
 resource: homebrew_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_homebrew_package.html
 menu:
   docs:
     title: homebrew_package
-    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_package.html homebrew_package
+    identifier: chef_infra/cookbook_reference/resources/resource_homebrew_package.md homebrew_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 400
+    weight: 410
 
 
 ######## Basic Resource Data ########

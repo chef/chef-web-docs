@@ -1,6 +1,5 @@
 +++
 title = "kitchen-vagrant"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/plugin_kitchen_vagrant.html"
@@ -8,7 +7,7 @@ aliases = "/plugin_kitchen_vagrant.html"
 [menu]
   [menu.docs]
     title = "kitchen-vagrant"
-    identifier = "chef_infra/chefdk/test_kitchen/plugin_kitchen_vagrant.html kitchen-vagrant"
+    identifier = "chef_infra/chefdk/test_kitchen/plugin_kitchen_vagrant.md kitchen-vagrant"
     parent = "chef_infra/chefdk/test_kitchen"
     weight = 40
 +++    

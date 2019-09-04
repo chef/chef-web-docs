@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_auto_run resource
 resource: windows_auto_run
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_auto_run.html
 menu:
   docs:
     title: windows_auto_run
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_auto_run.html windows_auto_run
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_auto_run.md windows_auto_run
     parent: chef_infra/cookbook_reference/resources
-    weight: 1070
+    weight: 1080
 
 
 ######## Basic Resource Data ########

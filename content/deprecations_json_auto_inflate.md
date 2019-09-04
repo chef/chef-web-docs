@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: JSON Auto Inflate (CHEF-1)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_json_auto_inflate.html"

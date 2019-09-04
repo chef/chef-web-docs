@@ -1,6 +1,5 @@
 +++
 title = "Upgrading Chef Infra Client"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/upgrade_client.html"
@@ -8,7 +7,7 @@ aliases = "/upgrade_client.html"
 [menu]
   [menu.docs]
     title = "Upgrades"
-    identifier = "chef_infra/setup/nodes/upgrade_client.html Upgrades"
+    identifier = "chef_infra/setup/nodes/upgrade_client.md Upgrades"
     parent = "chef_infra/setup/nodes"
     weight = 60
 +++    

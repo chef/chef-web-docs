@@ -1,6 +1,5 @@
 +++
 title = "knife bootstrap"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_bootstrap.html"
@@ -8,7 +7,7 @@ aliases = "/knife_bootstrap.html"
 [menu]
   [menu.docs]
     title = "knife bootstrap"
-    identifier = "chef_infra/chefdk/knife/knife_bootstrap.html knife bootstrap"
+    identifier = "chef_infra/chefdk/knife/knife_bootstrap.md knife bootstrap"
     parent = "chef_infra/chefdk/knife"
     weight = 50
 +++    
@@ -47,31 +46,19 @@ Syntax
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 {{% knife_bootstrap_options %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Validatorless Bootstrap
 -----------------------
@@ -82,18 +69,12 @@ Validatorless Bootstrap
 
 {{% chef_vault_knife_bootstrap_options %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `--node-name` option is required for a validatorless bootstrap
 (Changed in Chef Client 12.4).
 
-</div>
+{{< /info >}}
 
 FIPS Mode
 ---------

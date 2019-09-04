@@ -1,6 +1,5 @@
 +++
 title = "Chef Infra Client (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_chef_client.html"
@@ -8,7 +7,7 @@ aliases = "/ctl_chef_client.html"
 [menu]
   [menu.docs]
     title = "chef-client (executable)"
-    identifier = "chef_infra/setup/nodes/ctl_chef_client.html chef-client (executable)"
+    identifier = "chef_infra/setup/nodes/ctl_chef_client.md chef-client (executable)"
     parent = "chef_infra/setup/nodes"
     weight = 40
 +++    
@@ -18,31 +17,19 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 {{% chef_client_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Chef Infra Client executable can be run as a daemon.
 
-</div>
+{{< /info >}}
 
 The Chef Infra Client executable is run as a command-line tool.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% config_rb_client_summary %}}
 
-</div>
+{{< /info >}}
 
 Options
 =======
@@ -176,19 +163,13 @@ This command has the following options:
 
     Use this option to set the `chef_environment` value for a node.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     Any environment specified for `chef_environment` by a JSON file will
     take precedence over an environment specified by the `--environment`
     option when both options are part of the same command.
 
-    </div>
+    {{< /info >}}
 
     For example, run the following:
 
@@ -210,18 +191,12 @@ This command has the following options:
 
     {{% node_ctl_attribute %}}
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     This has set the `normal` attribute
     `node['override_attributes']['apptastic']`.
 
-    </div>
+    {{< /info >}}
 
     **Specify a policy**
 
@@ -275,7 +250,7 @@ This command has the following options:
 `-l LEVEL`, `--log_level LEVEL`
 
 :   The level of logging to be stored in a log file. Possible levels:
-    `:auto` (default), `debug`, `info`, `warn`, `error`, or `fatal`.
+    `auto` (default), `debug`, `info`, `warn`, `error`, or `fatal`.
     Default value: `warn` (when a terminal is available) or `info` (when
     a terminal is not available).
 
@@ -474,13 +449,7 @@ useful for quickly testing and validating the behavior of the Chef Infra
 Client, cookbooks, recipes, and run-lists before uploading that data to
 the actual Chef Infra Server.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 chef-zero does not save data between restarts. Because it is intended to
 be used locally, chef-zero does not perform input validation,
@@ -488,7 +457,7 @@ authentication, or authorization, as these security measures are not
 necessary for local testing. For these reasons, we strongly recommend
 against using chef-zero as a persistent Chef Infra Server.
 
-</div>
+{{< /info >}}
 
 Changed in Chef Client 12.8, now chef-zero supports all Chef Server API
 version 12 endpoints, except `/universe`.
@@ -647,18 +616,12 @@ or:
 cache_path File.join(File.expand_path("~"), ".chef", "cache")
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 When running the Chef Infra Client using the `--local-mode` option,
 `~/.chef/local-mode-cache` is the default value for `cache_path`.
 
-</div>
+{{< /info >}}
 
 Elevate Commands
 ----------------
@@ -745,13 +708,7 @@ threads. To increase the system process limits:
     $ chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     The previous commands may be run against the root user, instead of
     default. For example:
@@ -760,7 +717,7 @@ threads. To increase the system process limits:
     $ chsec -f /etc/security/limits -s root_user -a "rss=-1"
     ```
 
-    </div>
+    {{< /info >}}
 
 3.  Reboot the logical partition (LPAR) to apply the updated system
     process limits.

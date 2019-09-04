@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: kernel_module resource
 resource: kernel_module
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_kernel_module.html
 menu:
   docs:
     title: kernel_module
-    identifier: chef_infra/cookbook_reference/resources/resource_kernel_module.html kernel_module
+    identifier: chef_infra/cookbook_reference/resources/resource_kernel_module.md kernel_module
     parent: chef_infra/cookbook_reference/resources
-    weight: 460
+    weight: 470
 
 
 ######## Basic Resource Data ########

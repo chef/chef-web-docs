@@ -1,6 +1,5 @@
 +++
 title = "knife deps"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_deps.html"
@@ -8,7 +7,7 @@ aliases = "/knife_deps.html"
 [menu]
   [menu.docs]
     title = "knife deps"
-    identifier = "chef_infra/chefdk/knife/knife_deps.html knife deps"
+    identifier = "chef_infra/chefdk/knife/knife_deps.md knife deps"
     parent = "chef_infra/chefdk/knife"
     weight = 120
 +++    
@@ -30,17 +29,11 @@ $ knife deps (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 
@@ -78,17 +71,11 @@ This subcommand has the following options:
 :   Show dependencies in a visual tree structure (including duplicates,
     if they exist). Default: `false`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

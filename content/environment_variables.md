@@ -1,6 +1,5 @@
 +++
 title = "Unix Environment Variables"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/environment_variables.html"
@@ -8,9 +7,9 @@ aliases = "/environment_variables.html"
 [menu]
   [menu.docs]
     title = "Environment Variables"
-    identifier = "chef_infra/concepts/environment_variables.html Environment Variables"
+    identifier = "chef_infra/concepts/environment_variables.md Environment Variables"
     parent = "chef_infra/concepts"
-    weight = 130
+    weight = 120
 +++    
 
 [\[edit on
@@ -170,13 +169,7 @@ service 'example_service' do
 end
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Changes made to `ENV` only effect the environment of the Chef Infra
 Client process and child processes. Altering the environment in this way
@@ -184,7 +177,7 @@ will often ensure that Chef Infra Client can start a service properly,
 but will not ensure that a service will start properly when started
 using other methods.
 
-</div>
+{{< /info >}}
 
 Using Resource Attributes
 -------------------------

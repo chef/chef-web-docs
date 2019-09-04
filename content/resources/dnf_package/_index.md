@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: dnf_package resource
 resource: dnf_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_dnf_package.html
 menu:
   docs:
     title: dnf_package
-    identifier: chef_infra/cookbook_reference/resources/resource_dnf_package.html dnf_package
+    identifier: chef_infra/cookbook_reference/resources/resource_dnf_package.md dnf_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 290
+    weight: 300
 
 
 ######## Basic Resource Data ########

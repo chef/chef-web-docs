@@ -1,6 +1,5 @@
 +++
 title = "Documentation Style Guide"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/style_guide.html"
@@ -8,7 +7,7 @@ aliases = "/style_guide.html"
 [menu]
   [menu.docs]
     title = "Docs Style Guide"
-    identifier = "overview/community/style_guide.html Docs Style Guide"
+    identifier = "overview/community/style_guide.md Docs Style Guide"
     parent = "overview/community"
     weight = 40
 +++    
@@ -130,27 +129,45 @@ Bulleted Lists
 Bulleted lists break up text blocks and draw attention to a group of
 items:
 
-    * text goes here
-    * text goes here
-    * text goes here
-    * text goes here
+    Introductory sentence:
 
-Use the asterisk symbol (\*) only for bulleted lists, even though Sphinx
-supports using other symbols.
+    * list item
+    * list item
+
+      * sublist item
+      * sublist item
+
+    * list item
+    * list item
+
+Use the asterisk symbol (<span class="title-ref">\*</span>) only for
+bulleted lists, even though Sphinx supports using other symbols. Leave a
+blank line before the first list item and after the last, and leave
+blank lines around nested list items. Do not indent list items, but
+nested list items should be indented **two** spaces.
 
 Numbered Lists
 --------------
 
 Numbered lists are created like this:
 
-    #. text goes here
-    #. text goes here
-    #. text goes here
-    #. text goes here
+    Introductory sentence:
+
+    #. numbered list item
+    #. numbered list item
+
+       #. sublist item 1
+       #. sublist item 2
+       #. sublist item 3
+
+    #. numbered list item
 
 Use the number symbol (\#) to let Sphinx handle the actual ordering. If
 the number list needs to change later, you don't have to worry about
-making sure the numbers are in the correct order.
+making sure the numbers are in the correct order. Leave a blank line
+before the first list item and after the last, and leave blank lines
+around nested list items. Don't indent list items, but nested list items
+should be indented **three** spaces.
 
 Definition Lists
 ----------------
@@ -348,17 +365,11 @@ What a note looks like as reST:
 
 What a note looks like after it's built:
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This is a note.
 
-</div>
+{{< /info >}}
 
 Warnings
 --------
@@ -370,17 +381,11 @@ appropriately:
 
 What a warning looks like after it's built:
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This is a warning.
 
-</div>
+{{< /warning >}}
 
 Images
 ======
@@ -491,30 +496,18 @@ in-between the native English content and the localized content. Opscode
 needs to build the .pot files so that localization teams can feed them
 into their tools as part of their localization process.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 .pot files should be recompiled, not modified.
 
-</div>
+{{< /warning >}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 .pot files are built only for the current release of documentation,
 which is the same as the `chef_master` source collection in git.
 
-</div>
+{{< /warning >}}
 
 The .pot file is built using much the same process as a regular Sphinx
 content build. For example, a regular content build:
@@ -536,13 +529,7 @@ folders for the output.
 source file and even though they are output of the source files, should
 be treated as if they are source files.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The /translate folder in the github source contains a regularly updated
 set of .pot files. That said, it is recommended that if you want to
@@ -552,7 +539,7 @@ localization process and we can sync up. Or just update the .pot files
 locally to make sure they are the most current versions of the .pot
 files.
 
-</div>
+{{< /info >}}
 
 conf.py Settings
 ================

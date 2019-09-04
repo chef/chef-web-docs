@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: chocolatey_source resource
 resource: chocolatey_source
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_chocolatey_source.html
 menu:
   docs:
     title: chocolatey_source
-    identifier: chef_infra/cookbook_reference/resources/resource_chocolatey_source.html chocolatey_source
+    identifier: chef_infra/cookbook_reference/resources/resource_chocolatey_source.md chocolatey_source
     parent: chef_infra/cookbook_reference/resources
-    weight: 210
+    weight: 220
 
 
 ######## Basic Resource Data ########

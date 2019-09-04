@@ -1,6 +1,5 @@
 +++
 title = "knife exec"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_exec.html"
@@ -8,7 +7,7 @@ aliases = "/knife_exec.html"
 [menu]
   [menu.docs]
     title = "knife exec"
-    identifier = "chef_infra/chefdk/knife/knife_exec.html knife exec"
+    identifier = "chef_infra/chefdk/knife/knife_exec.md knife exec"
     parent = "chef_infra/chefdk/knife"
     weight = 170
 +++    
@@ -130,17 +129,11 @@ $ knife exec SCRIPT (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 
@@ -155,17 +148,11 @@ This subcommand has the following options:
     specified, knife will look for scripts located in
     `chef-repo/.chef/scripts` directory.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

@@ -1,6 +1,5 @@
 +++
 title = "knife ssh"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_ssh.html"
@@ -8,7 +7,7 @@ aliases = "/knife_ssh.html"
 [menu]
   [menu.docs]
     title = "knife ssh"
-    identifier = "chef_infra/chefdk/knife/knife_ssh.html knife ssh"
+    identifier = "chef_infra/chefdk/knife/knife_ssh.md knife ssh"
     parent = "chef_infra/chefdk/knife"
     weight = 260
 +++    
@@ -30,17 +29,11 @@ $ knife ssh SEARCH_QUERY SSH_COMMAND (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 
@@ -143,17 +136,11 @@ $ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 :   The SSH user name.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

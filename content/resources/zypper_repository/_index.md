@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: zypper_repository resource
 resource: zypper_repository
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_zypper_repository.html
 menu:
   docs:
     title: zypper_repository
-    identifier: chef_infra/cookbook_reference/resources/resource_zypper_repository.html zypper_repository
+    identifier: chef_infra/cookbook_reference/resources/resource_zypper_repository.md zypper_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 1340
+    weight: 1350
 
 
 ######## Basic Resource Data ########

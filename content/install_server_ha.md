@@ -1,6 +1,5 @@
 +++
 title = "High Availability: Backend Cluster"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_server_ha.html"
@@ -8,8 +7,8 @@ aliases = "/install_server_ha.html"
 [menu]
   [menu.docs]
     title = "Install High Availability"
-    identifier = "chef_infra/setup/server/install_server_ha.html Install High Availability"
-    parent = "chef_infra/setup/server"
+    identifier = "chef_infra/setup/chef_infra_server/install_server_ha.md Install High Availability"
+    parent = "chef_infra/setup/chef_infra_server"
     weight = 60
 +++    
 
@@ -41,34 +40,22 @@ the frontend group.
 -   The backend cluster, comprised of three nodes working together,
     provides highly available data persistence for the frontend group.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     At this time, backend clusters can only have three nodes.
 
-    </div>
+    {{< /info >}}
 
 ![image](/images/chef_server_ha_cluster.svg)
 
-<div class="important" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Important
-
-</div>
+{{< important >}}
 
 When doing cloud deployments, Chef HA clusters are not meant to be
 geographically dispersed across multiple regions or datacenters;
 however, in cloud providers such as AWS, you can deploy HA clusters
 across multiple Availability Zones within the same region.
 
-</div>
+{{< /important >}}
 
 Key Differences From Standalone Chef server
 -------------------------------------------
@@ -293,18 +280,12 @@ frontend node configuration:
 > $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
 > ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 `/etc/chef-backend/chef-backend-secrets.json` is *not* made available to
 Chef Infra Server frontend nodes.
 
-</div>
+{{< /info >}}
 
 Step 5: Install and Configure First Frontend
 --------------------------------------------
@@ -339,13 +320,7 @@ For each additional frontend node you wish to add to your cluster:
 
     -   /etc/opscode/private-chef-secrets.json
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     For Chef Server versions prior to 12.14, you will also need to copy
     the key files:
@@ -354,7 +329,7 @@ For each additional frontend node you wish to add to your cluster:
     > -   /etc/opscode/webui_pub.pem
     > -   /etc/opscode/pivotal.pem
 
-    </div>
+    {{< /info >}}
 
 5.  On the new frontend node run `mkdir -p /var/opt/opscode/upgrades/`.
 
@@ -433,13 +408,7 @@ hostssl replication replicator  192.168.1.3/24         md5
 Running `chef-backend-ctl reconfigure` on all the backends will allow
 that frontend to complete its connection.
 
-<div class="important" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Important
-
-</div>
+{{< important >}}
 
 The `postgresql.md5_auth_cidr_addresses` subnet settings must be
 identical for all members of the backend cluster. In the case where the
@@ -453,7 +422,7 @@ setting is "192.168.2.0/24", then the
 `postgresql.md5_auth_cidr_addresses` subnet settings must be
 `postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "192.168.1.0/24", 192.168.2.0/24]`
 
-</div>
+{{< /important >}}
 
 Cluster Security Considerations
 ===============================
@@ -765,13 +734,7 @@ find if deploying Chef Backend to various cloud providers.
 -   `etcd.snapshot_count 5000` ETCD_SNAPSHOT_COUNT which is the number
     of committed transactions to trigger a snapshot to disk.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Even though the defaults assume a high-latency environment, cloud
 deployments should be restricted to the same datacenter, or in AWS, in
@@ -779,7 +742,7 @@ the same region. This means that geographically-dispersed cluster
 deployments are not supported. Multiple Availability Zones *are*
 supported as long as they are in the same region.
 
-</div>
+{{< /info >}}
 
 For additional information on the etcd tunables, see
 <https://coreos.com/etcd/docs/latest/tuning.html>.

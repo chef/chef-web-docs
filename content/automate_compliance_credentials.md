@@ -1,6 +1,5 @@
 +++
 title = "Credentials"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/automate_compliance_credentials.html"
@@ -8,7 +7,7 @@ aliases = "/automate_compliance_credentials.html"
 [menu]
   [menu.docs]
     title = "Credentials"
-    identifier = "legacy/chef_automate_1/compliance/automate_compliance_credentials.html Credentials"
+    identifier = "legacy/chef_automate_1/compliance/automate_compliance_credentials.md Credentials"
     parent = "legacy/chef_automate_1/compliance"
     weight = 40
 +++    
@@ -43,18 +42,12 @@ identical key names; it may be advisable to reduce confusion by follow a
 naming pattern specifying the key name and platform to distinguish
 between similar credentials.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 A credential name may be reused, even when it contains different
 usernames or keys.
 
-</div>
+{{< /warning >}}
 
 Add a Credential
 ================

@@ -1,6 +1,5 @@
 +++
 title = "Fog Driver Resources"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/provisioning_fog.html"

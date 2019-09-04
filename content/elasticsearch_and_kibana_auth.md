@@ -1,6 +1,5 @@
 +++
 title = "Authentication for Elasticsearch and Kibana"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/elasticsearch_and_kibana_auth.html"
@@ -8,8 +7,8 @@ aliases = "/elasticsearch_and_kibana_auth.html"
 [menu]
   [menu.docs]
     title = "Elasticsearch & Kibana Auth"
-    identifier = "legacy/chef_automate_1/managing_the_server/elasticsearch_and_kibana_auth.html Elasticsearch & Kibana Auth"
-    parent = "legacy/chef_automate_1/managing_the_server"
+    identifier = "legacy/chef_automate_1/managing_the_chef_automate_server/elasticsearch_and_kibana_auth.md Elasticsearch & Kibana Auth"
+    parent = "legacy/chef_automate_1/managing_the_chef_automate_server"
     weight = 40
 +++    
 
@@ -102,20 +101,14 @@ Unauthorized" error message, follow these steps:
 Configuration
 =============
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 It is strongly recommended that authentication to Elasticsearch and
 Kibana remain enabled at all times. Without authentication, any user
 with network access to your Automate server will be able to view any
 available Visibility data.
 
-</div>
+{{< /warning >}}
 
 If you wish to disable authentication for either Kibana or
 Elasticsearch, you may use the following configuration parameters in

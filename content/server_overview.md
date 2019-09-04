@@ -1,32 +1,25 @@
 +++
-title = "Chef Infra Server Components"
-description = "DESCRIPTION"
+title = "Chef Infra Server Overview"
 draft = false
 
-aliases = "/server_components.html"
+aliases = "/server_overview.html"
 
 [menu]
   [menu.docs]
-    title = "Server"
-    identifier = "chef_infra/concepts/server_components.html Server"
+    title = "Chef Infra Server Overview"
+    identifier = "chef_infra/concepts/server_overview.md Chef Infra Server Overview"
     parent = "chef_infra/concepts"
-    weight = 40
+    weight = 30
 +++    
 
 [\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_components.rst)
+GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_overview.rst)
 
 {{% chef_server %}}
 
 {{% chef_server_component_erchef_background %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Chef Infra Server can be configured via the
 `/etc/opscode/chef-server.rb` file. Whenever this file is modified, the
@@ -34,7 +27,7 @@ The Chef Infra Server can be configured via the
 See the [Chef Infra Server settings](/config_rb_server/) guide for
 additional information.
 
-</div>
+{{< /info >}}
 
 Server Components
 =================
@@ -108,8 +101,8 @@ start small and then scale the Chef Infra Server as needed. Premature
 optimization can hinder more than help because it may introduce
 unnecessary complexity.
 
-Scaling the Chef Server
------------------------
+Scaling the Chef Infra Server
+-----------------------------
 
 The Chef Infra Server itself is highly scalable. A single virtual
 machine running the Chef Infra Server can handle requests for many
@@ -427,19 +420,13 @@ configure PostgreSQL for use with the Chef Infra Server:
 </tbody>
 </table>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 See the list of [error messages that may be
 present](/errors.html#external-postgresql) when configuring the Chef
 Infra Server to use a remote PostgreSQL server.
 
-</div>
+{{< /info >}}
 
 Bookshelf Settings
 ------------------

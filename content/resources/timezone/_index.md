@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: timezone resource
 resource: timezone
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_timezone.html
 menu:
   docs:
     title: timezone
-    identifier: chef_infra/cookbook_reference/resources/resource_timezone.html timezone
+    identifier: chef_infra/cookbook_reference/resources/resource_timezone.md timezone
     parent: chef_infra/cookbook_reference/resources
-    weight: 1040
+    weight: 1050
 
 
 ######## Basic Resource Data ########

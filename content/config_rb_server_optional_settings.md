@@ -1,15 +1,14 @@
 +++
 title = "chef-server.rb Optional Settings"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_server_optional_settings.html"
 
 [menu]
   [menu.docs]
-    title = "Chef Server Optional Settings"
-    identifier = "chef_infra/managing_the_server/config_rb_server_optional_settings.html Chef Server Optional Settings"
-    parent = "chef_infra/managing_the_server"
+    title = "Chef Infra Server Optional Settings"
+    identifier = "chef_infra/managing_chef_infra_server/config_rb_server_optional_settings.md Chef Infra Server Optional Settings"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 180
 +++    
 
@@ -24,17 +23,11 @@ Settings
 The following sections describe the various settings that are available
 in the chef-server.rb file.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_config_rb_server_must_reconfigure %}}
 
-</div>
+{{< /info >}}
 
 General
 -------
@@ -134,17 +127,11 @@ bookshelf
 
 {{% server_services_bookshelf %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_server_aws_cookbook_storage %}}
 
-</div>
+{{< /info >}}
 
 This configuration file has the following settings for `bookshelf`:
 
@@ -152,7 +139,7 @@ This configuration file has the following settings for `bookshelf`:
 
 :   The access key identifier. This may point at an external storage
     location, such as Amazon EC2. See [AWS external bookshelf
-    settings](/server_components.html#external-bookshelf-settings) for
+    settings](/server_overview.html#external-bookshelf-settings) for
     more information on configuring external bookshelf. Default value:
     **generated**. As of Chef Server 12.14, this is no longer the
     preferred command.
@@ -219,7 +206,7 @@ This configuration file has the following settings for `bookshelf`:
 
 :   The secret key. This may point at an external storage location, such
     as Amazon EC2. See [AWS external bookshelf
-    settings](/server_components.html#external-bookshelf-settings) for
+    settings](/server_overview.html#external-bookshelf-settings) for
     more information on configuring external bookshelf. Default value:
     **generated**. As of Chef Server 12.14, this is no longer the
     preferred command.
@@ -253,7 +240,7 @@ This configuration file has the following settings for `bookshelf`:
 
 :   The virtual IP address. This may point at an external storage
     location, such as Amazon EC2. See [AWS external bookshelf
-    settings](/server_components.html#external-bookshelf-settings) for
+    settings](/server_overview.html#external-bookshelf-settings) for
     more information on configuring external bookshelf. Default value:
     `127.0.0.1`.
 
@@ -1381,7 +1368,7 @@ This configuration file has the following settings for `opscode-erchef`:
 :   The name of the Amazon Simple Storage Service (S3) bucket. This may
     point at external storage locations, such as Amazon EC2. See [AWS
     external bookshelf
-    settings](/server_components.html#external-bookshelf-settings) for
+    settings](/server_overview.html#external-bookshelf-settings) for
     more information on configuring external bookshelf.
 
 `opscode_erchef['s3_parallel_ops_fanout']`

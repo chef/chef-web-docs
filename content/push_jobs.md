@@ -1,6 +1,5 @@
 +++
 title = "Chef Push Jobs"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/push_jobs.html"
@@ -8,7 +7,7 @@ aliases = "/push_jobs.html"
 [menu]
   [menu.docs]
     title = "Push Jobs"
-    identifier = "chef_infra/features/push_jobs.html Push Jobs"
+    identifier = "chef_infra/features/push_jobs.md Push Jobs"
     parent = "chef_infra/features"
     weight = 30
 +++    
@@ -150,18 +149,12 @@ knife push jobs
 
 {{% plugin_knife_push_jobs_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-</div>
+{{< /info >}}
 
 job list
 --------

@@ -1,6 +1,5 @@
 +++
 title = "client.rb"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_client.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb_client.html"
 [menu]
   [menu.docs]
     title = "client.rb"
-    identifier = "chef_infra/setup/nodes/config_rb_client.html client.rb"
+    identifier = "chef_infra/setup/nodes/config_rb_client.md client.rb"
     parent = "chef_infra/setup/nodes"
     weight = 50
 +++    
@@ -131,19 +130,13 @@ This configuration file has the following settings:
     within a poorly designed cookbook. Default value: `true`. Set to
     `false` to disable running Chef Infra Client in fork node.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     Must be set to `false` up to Chef Client 13.11.3 to gather the
     standard return code offered by `exit_status true`. Later versions
     run as expected without changes to the configuration file.
 
-    </div>
+    {{< /info >}}
 
 `client_key`
 
@@ -292,20 +285,14 @@ This configuration file has the following settings:
     non-standardized exit codes and skips the deprecation warnings.
     Default value: `nil`.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     The behavior with the default value consists of a warning on the use
     of deprecated and non-standard exit codes. In the release of Chef
     Client 13.x and beyond, using standardized exit codes is the default
     behavior and cannot be changed with this config item.
 
-    </div>
+    {{< /info >}}
 
     In Chef Client 13.x, you will also need to set `client_fork false`
     in the config file in order to capture the standard return code.
@@ -322,20 +309,14 @@ This configuration file has the following settings:
     updates. (Use the `atomic_update` setting on a per-resource basis to
     override this setting.) Default value: `true`.
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    {{< warning >}}
 
     Changing this setting to `false` may cause file corruption, data
     loss, or instability. Use the `atomic_update` property on the
     **cookbook_file**, **file**, **remote_file**, and **template**
     resources to tune this behavior at the recipe level.
 
-    </div>
+    {{< /warning >}}
 
 `file_backup_path`
 
@@ -710,18 +691,12 @@ This configuration file has the following settings:
     check the `lockfile` setting in the client.rb file before starting
     the job.
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    {{< warning >}}
 
     The `whitelist` setting is available only when using Chef Push Jobs,
     a tool that runs jobs against nodes in an organization.
 
-    </div>
+    {{< /warning >}}
 
     *New in Chef Client 13.0.*
 

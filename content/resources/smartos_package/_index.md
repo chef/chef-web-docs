@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: smartos_package resource
 resource: smartos_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_smartos_package.html
 menu:
   docs:
     title: smartos_package
-    identifier: chef_infra/cookbook_reference/resources/resource_smartos_package.html smartos_package
+    identifier: chef_infra/cookbook_reference/resources/resource_smartos_package.md smartos_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 940
+    weight: 950
 
 
 ######## Basic Resource Data ########

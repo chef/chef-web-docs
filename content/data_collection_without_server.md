@@ -1,14 +1,13 @@
 +++
 title = "Data Collection without Chef Server"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/data_collection_without_server.html"
 
 [menu]
   [menu.docs]
-    title = "Configure Data Collection without Chef Server"
-    identifier = "legacy/chef_automate_1/getting_started/data_collection_without_server.html Configure Data Collection without Chef Server"
+    title = "Configure Data Collection without Chef Infra Server"
+    identifier = "legacy/chef_automate_1/getting_started/data_collection_without_server.md Configure Data Collection without Chef Infra Server"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 60
 +++    
@@ -18,17 +17,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/d
 
 <meta name="robots" content="noindex">
 
-<div class="important" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Important
-
-</div>
+{{< important >}}
 
 Previous step: [Setup Data Collection](/data_collection/)
 
-</div>
+{{< /important >}}
 
 If you do not use a Chef Infra Server in your environment (if you only
 use `` `chef-solo ``\`, for example), you can configure your Chef Infra
@@ -45,19 +38,13 @@ To enable this functionality, you must perform the following steps:
 Add Chef Automate certificate to `trusted_certs` directory
 ==========================================================
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This step only applies to self-signed SSL certificates. If you are using
 an SSL certificate signed by a valid certificate authority, you may skip
 this step.
 
-</div>
+{{< /info >}}
 
 Chef requires that the self-signed Chef Automate SSL certificate
 (`HOSTNAME.crt`) is located in the `/etc/chef/trusted_certs` directory
@@ -75,17 +62,11 @@ that will be sending data directly to the Chef Automate server.
 Configure Chef Infra Client to use the Data Collector endpoint in Chef Automate
 ===============================================================================
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Chef version 12.12.15 or greater is required.
 
-</div>
+{{< /info >}}
 
 The data collector functionality is used by Chef Infra Client to send
 node and converge data to Chef Automate. This feature works for the

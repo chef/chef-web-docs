@@ -1,6 +1,5 @@
 +++
 title = "About Search"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_search.html"
@@ -8,7 +7,7 @@ aliases = "/chef_search.html"
 [menu]
   [menu.docs]
     title = "Search"
-    identifier = "chef_infra/features/chef_search.html Search"
+    identifier = "chef_infra/features/chef_search.md Search"
     parent = "chef_infra/features"
     weight = 40
 +++    
@@ -114,17 +113,11 @@ Query Syntax
 
 {{% search_query_syntax %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Search queries may not contain newlines.
 
-</div>
+{{< /info >}}
 
 Filter Search Results
 =====================
@@ -233,19 +226,13 @@ Roles in Run-lists
 A search query can be made for roles that are at the top-level of a
 run-list and also for a role that is part of an expanded run-list.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `roles` field is updated with each Chef Infra Client run; changes to
 a run-list will not affect `roles` until the next Chef Infra Client run
 on the node.
 
-</div>
+{{< /info >}}
 
 <table>
 <colgroup>
@@ -319,19 +306,13 @@ a node are saved on the Chef Infra Server. The expanded lists of roles
 allows for searching within nodes that run a given recipe, even if that
 recipe is included by a role.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `recipes` field is with each Chef Infra Client run; changes to a
 run-list will not affect `recipes` until the next Chef Infra Client run
 on the node.
 
-</div>
+{{< /info >}}
 
 <table>
 <colgroup>

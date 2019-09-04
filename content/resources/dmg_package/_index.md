@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: dmg_package resource
 resource: dmg_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_dmg_package.html
 menu:
   docs:
     title: dmg_package
-    identifier: chef_infra/cookbook_reference/resources/resource_dmg_package.html dmg_package
+    identifier: chef_infra/cookbook_reference/resources/resource_dmg_package.md dmg_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 280
+    weight: 290
 
 
 ######## Basic Resource Data ########

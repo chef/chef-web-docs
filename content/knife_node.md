@@ -1,6 +1,5 @@
 +++
 title = "knife node"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_node.html"
@@ -8,7 +7,7 @@ aliases = "/knife_node.html"
 [menu]
   [menu.docs]
     title = "knife node"
-    identifier = "chef_infra/chefdk/knife/knife_node.html knife node"
+    identifier = "chef_infra/chefdk/knife/knife_node.md knife node"
     parent = "chef_infra/chefdk/knife"
     weight = 190
 +++    
@@ -20,17 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_node_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 bulk delete
 ===========
@@ -133,17 +126,11 @@ Use the `delete` argument to delete a node from the Chef Infra Server.
 If using Chef Client 12.17 or later, you can delete multiple nodes using
 this subcommand.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Deleting a node will not delete any corresponding API clients.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -316,17 +303,11 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -387,46 +368,28 @@ Syntax
 
 {{% knife_node_run_list_add_syntax %}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 {{% knife_common_windows_quotes %}}
 
-</div>
+{{< /warning >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_windows_quotes_module %}}
 
-</div>
+{{< /info >}}
 
 Options
 -------
 
 {{% knife_node_run_list_add_options %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -468,17 +431,11 @@ Options
 
 This command does not have any specific options.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -503,29 +460,17 @@ Syntax
 
 {{% knife_node_run_list_set_syntax %}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 {{% knife_common_windows_quotes %}}
 
-</div>
+{{< /warning >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_windows_quotes_module %}}
 
-</div>
+{{< /info >}}
 
 Options
 -------

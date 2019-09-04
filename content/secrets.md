@@ -1,6 +1,5 @@
 +++
 title = "Manage Secrets"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/secrets.html"
@@ -8,9 +7,9 @@ aliases = "/secrets.html"
 [menu]
   [menu.docs]
     title = "Secrets"
-    identifier = "chef_infra/concepts/secrets.html Secrets"
+    identifier = "chef_infra/concepts/secrets.md Secrets"
     parent = "chef_infra/concepts"
-    weight = 100
+    weight = 90
 +++    
 
 [\[edit on
@@ -98,15 +97,15 @@ Use Data Bags
 
 Data bags can be accessed in the following ways:
 
-### with Search
+### Search
 
 {{% data_bag_search %}}
 
-### with Environments
+### Environments
 
 {{% data_bag_environments %}}
 
-### with Recipes
+### Recipes
 
 {{% data_bag_recipes %}}
 
@@ -122,6 +121,6 @@ Data bags can be accessed in the following ways:
 
 {{% data_bag_recipes_create_users %}}
 
-### with chef-solo
+### chef-solo
 
 {{% data_bag_chef_solo %}}

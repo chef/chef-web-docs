@@ -1,6 +1,5 @@
 +++
 title = "Sending Compliance Data to Chef Automate with Audit Cookbook"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/audit_cookbook.html"
@@ -8,7 +7,7 @@ aliases = "/audit_cookbook.html"
 [menu]
   [menu.docs]
     title = "Audit Cookbook"
-    identifier = "legacy/chef_automate_1/compliance/audit_cookbook.html Audit Cookbook"
+    identifier = "legacy/chef_automate_1/compliance/audit_cookbook.md Audit Cookbook"
     parent = "legacy/chef_automate_1/compliance"
     weight = 60
 +++    
@@ -16,20 +15,16 @@ aliases = "/audit_cookbook.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/audit_cookbook.rst)
 
-<div class="note" markdown="1">
+<meta name="robots" content="noindex">
 
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `audit` cookbook uses the Chef InSpec gem. It will check for an
 installed version of Chef InSpec and install it upon finding none. The
 latest version of Chef InSpec will be installed by default unless
 otherwise specified with `node['audit']['inspec_version']`.
 
-</div>
+{{< /info >}}
 
 [Cookbooks](/cookbooks/) are Chef's primary unit of configuration
 management. For tutorials on working with cookbooks in Chef, see [Learn
@@ -40,13 +35,7 @@ scan](/perform_compliance_scan/).
 Audit Cookbook
 ==============
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Audit Cookbook version 4.2.0 or later requires Chef InSpec 1.25.1 or
 later. You can upgrade your Chef InSpec package in several different
@@ -54,7 +43,7 @@ ways: by upgrading Automate, by upgrading the ChefDK, by upgrading Chef
 Infra Client, or by setting the `node['audit']['inspec_version']`
 attribute in your cookbook.
 
-</div>
+{{< /info >}}
 
 To send compliance data gathered by Chef InSpec as part of a Chef Infra
 Client run, you will need to use the [audit
@@ -136,18 +125,12 @@ reporting compliance information.
 Fetch From Automate via Chef Server
 -----------------------------------
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Compliance server must be integrated with Chef Infra Server for use
 in reporting.
 
-</div>
+{{< /info >}}
 
 <table>
 <thead>
@@ -206,18 +189,12 @@ in reporting.
 Fetch From Compliance via Chef Server
 -------------------------------------
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Compliance server must be integrated with Chef Infra Server for use
 in reporting.
 
-</div>
+{{< /info >}}
 
 <table>
 <thead>

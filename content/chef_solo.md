@@ -1,6 +1,5 @@
 +++
 title = "chef-solo"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_solo.html"
@@ -8,7 +7,7 @@ aliases = "/chef_solo.html"
 [menu]
   [menu.docs]
     title = "About Chef Solo"
-    identifier = "chef_infra/chefdk/chef_solo/chef_solo.html About Chef Solo"
+    identifier = "chef_infra/chefdk/chef_solo/chef_solo.md About Chef Solo"
     parent = "chef_infra/chefdk/chef_solo"
     weight = 10
 +++    

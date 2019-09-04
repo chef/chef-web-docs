@@ -1,6 +1,5 @@
 +++
 title = "About Foodcritic"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/foodcritic.html"
@@ -8,7 +7,7 @@ aliases = "/foodcritic.html"
 [menu]
   [menu.docs]
     title = "Foodcritic"
-    identifier = "chef_infra/chefdk/foodcritic.html Foodcritic"
+    identifier = "chef_infra/chefdk/foodcritic.md Foodcritic"
     parent = "chef_infra/chefdk"
     weight = 130
 +++    

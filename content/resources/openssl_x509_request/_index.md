@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: openssl_x509_request resource
 resource: openssl_x509_request
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_openssl_x509_request.html
 menu:
   docs:
     title: openssl_x509_request
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_x509_request.html openssl_x509_request
+    identifier: chef_infra/cookbook_reference/resources/resource_openssl_x509_request.md openssl_x509_request
     parent: chef_infra/cookbook_reference/resources
-    weight: 670
+    weight: 680
 
 
 ######## Basic Resource Data ########

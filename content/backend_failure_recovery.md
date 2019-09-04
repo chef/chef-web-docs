@@ -1,6 +1,5 @@
 +++
 title = "Chef Backend Failure Recovery"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/backend_failure_recovery.html"
@@ -8,8 +7,8 @@ aliases = "/backend_failure_recovery.html"
 [menu]
   [menu.docs]
     title = "Backend Failure Recovery"
-    identifier = "chef_infra/managing_the_server/backend_failure_recovery.html Backend Failure Recovery"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/backend_failure_recovery.md Backend Failure Recovery"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 30
 +++    
 
@@ -19,19 +18,13 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/b
 This document contains the recommended actions for responding to
 failures in your Chef Backend cluster.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you have concerns about applying the Chef Backend recovery process to
 your cluster, please consult with Support before taking the steps
 outlined in this guide.
 
-</div>
+{{< /info >}}
 
 Assumptions
 ===========

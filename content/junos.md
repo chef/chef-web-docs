@@ -1,6 +1,5 @@
 +++
 title = "Chef for Junos OS"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/junos.html"
@@ -8,7 +7,7 @@ aliases = "/junos.html"
 [menu]
   [menu.docs]
     title = "Install on Junos OS"
-    identifier = "chef_infra/setup/nodes/junos.html Install on Junos OS"
+    identifier = "chef_infra/setup/nodes/junos.md Install on Junos OS"
     parent = "chef_infra/setup/nodes"
     weight = 30
 +++    
@@ -45,18 +44,12 @@ The `netdev` cookbook contains the following custom resources:
 `netdev_interface`, `netdev_l2_interface`, `netdev_lag`, and
 `netdev_vlan`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 These custom resources are part of the `netdev` cookbook
 (<https://github.com/chef-cookbooks/netdev>).
 
-</div>
+{{< /info >}}
 
 netdev_interface
 -----------------
@@ -236,13 +229,7 @@ The `netdev_lag` custom resource is used to to model the properties and
 to manage the configuration of a link aggregation group (LAG). This is
 referred to as an aggregated Ethernet bundle in Junos OS.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The number of supported aggregated Ethernet interfaces on a switch must
 be manually configured before this resource can be used to create LAGs.
@@ -254,7 +241,7 @@ command to configure the number of supported interfaces:
 $ set chassis aggregated-devices ethernet device-count <count-value>
 ```
 
-</div>
+{{< /info >}}
 
 ### Actions
 
@@ -306,12 +293,9 @@ This custom resource has the following properties:
 <tr class="even">
 <td><p><code>links</code></p></td>
 <td><p>Required. An array of interfaces to be configured as members of a link aggregation group (LAG).</p>
-<div class="note">
-<div class="admonition-title">
-<p>Note</p>
-</div>
+{{< info >}}
 <p>If a <code>netdev_lag</code> resource is deleted, interfaces that are defined by this property are also deleted, unless they have been configured elsewhere.</p>
-</div></td>
+{{< /info >}}</td>
 </tr>
 <tr class="odd">
 <td><code>minimum_links</code></td>

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: mdadm resource
 resource: mdadm
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_mdadm.html
 menu:
   docs:
     title: mdadm
-    identifier: chef_infra/cookbook_reference/resources/resource_mdadm.html mdadm
+    identifier: chef_infra/cookbook_reference/resources/resource_mdadm.md mdadm
     parent: chef_infra/cookbook_reference/resources
-    weight: 540
+    weight: 550
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "Install Chef Infra Client on Windows Nodes"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_windows.html"
@@ -8,7 +7,7 @@ aliases = "/install_windows.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Client on Windows"
-    identifier = "chef_infra/getting_started/chef_on_windows_guide/install_windows.html Chef Infra Client on Windows"
+    identifier = "chef_infra/getting_started/chef_on_windows_guide/install_windows.md Chef Infra Client on Windows"
     parent = "chef_infra/getting_started/chef_on_windows_guide"
     weight = 30
 +++    
