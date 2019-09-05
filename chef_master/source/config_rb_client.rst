@@ -338,7 +338,7 @@ This configuration file has the following settings:
    Verify the SSL certificate on the Chef Infra Server. When ``true``, Chef Infra Client always verifies the SSL certificate. When ``false``, Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
 ``whitelist``
-   A hash that contains the whitelist used by Chef Push Jobs. For example:
+   A hash that contains the whitelist of allowed commands used by Chef Push Jobs. For example:
 
    .. code-block:: ruby
 
@@ -349,8 +349,6 @@ This configuration file has the following settings:
       }
 
    A job entry may also be ``'job-name' => {:lock => true}``, which will check the ``lockfile`` setting in the client.rb file before starting the job.
-
-   .. warning:: The ``whitelist`` setting is available only when using Chef Push Jobs, a tool that runs jobs against nodes in an organization.
 
 Automatic Proxy Config
 -----------------------------------------------------
