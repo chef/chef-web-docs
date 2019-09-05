@@ -461,18 +461,8 @@ Ohai configuration settings can be added to the client.rb file.
 
       ohai.disabled_plugins = [
         :MyPlugin,
-        :MyPlugin,
-        :MyPlugin
-      ]
-
-   and to disable multiple plugins, including Ohai 6 plugins:
-
-   .. code-block:: ruby
-
-      ohai.disabled_plugins = [
-		:MyPlugin,
-        :MyPlugin,
-        'my_ohai_6_plugin'
+        :MyPlugin2,
+        :MyPlugin3
       ]
 
    When a plugin is disabled, the Chef Infra Client log file will contain entries similar to:
