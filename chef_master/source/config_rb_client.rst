@@ -33,12 +33,8 @@ This configuration file has the following settings:
 ``automatic_attribute_blacklist``
    A hash that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
 
-   *New in Chef Client 13.0.*
-
 ``automatic_attribute_whitelist``
    A hash that whitelists ``automatic`` attributes, preventing non-whitelisted attributes from being saved.
-
-   *New in Chef Client 13.0.*
 
 ``cache_path``
    The home directory for the user that runs Chef Infra Client as a non-root user.
@@ -112,12 +108,8 @@ This configuration file has the following settings:
 ``default_attribute_blacklist``
    A hash that blacklists ``default`` attributes, preventing blacklisted attributes from being saved.
 
-   *New in Chef Client 13.0.*
-
 ``default_attribute_whitelist``
    A hash that whitelists ``default`` attributes, preventing non-whitelisted attributes from being saved.
-
-   *New in Chef Client 13.0.*
 
 ``diff_disabled``
    Cause Chef Infra Client to create a diff when changes are made to a file. Default value: ``false``.
@@ -171,8 +163,6 @@ This configuration file has the following settings:
 
 ``fips``
    Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run. Set to ``true`` to enable FIPS-validated security.
-
-   Changed in Chef Server 12.13 to expose FIPS runtime flag on RHEL.
 
 ``force_formatter``
    Using `force_formatter` causes chef to default to formatter output when STDOUT is not a tty
@@ -261,22 +251,14 @@ This configuration file has the following settings:
 ``normal_attribute_blacklist``
    A hash that blacklists ``normal`` attributes, preventing blacklisted attributes from being saved.
 
-   *New in Chef Client 13.0.*
-
 ``override_attribute_blacklist``
    A hash that blacklists ``override`` attributes, preventing blacklisted attributes from being saved.
-
-   *New in Chef Client 13.0.*
 
 ``normal_attribute_whitelist``
    A hash that whitelists ``normal`` attributes, preventing non-whitelisted attributes from being saved.
 
-   *New in Chef Client 13.0.*
-
 ``override_attribute_whitelist``
    A hash that whitelists ``override`` attributes, preventing non-whitelisted attributes from being saved.
-
-   *New in Chef Client 13.0.*
 
 ``pid_file``
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
@@ -369,8 +351,6 @@ This configuration file has the following settings:
    A job entry may also be ``'job-name' => {:lock => true}``, which will check the ``lockfile`` setting in the client.rb file before starting the job.
 
    .. warning:: The ``whitelist`` setting is available only when using Chef Push Jobs, a tool that runs jobs against nodes in an organization.
-
-   *New in Chef Client 13.0.*
 
 ``windows_service.watchdog_timeout``
    The maximum amount of time (in seconds) available for a Chef Infra Client run when it is run as a service on the Microsoft Windows platform. If a Chef Infra Client run fails to complete within the specified timeframe, that Chef Infra Client run is terminated. Default value: ``2 * (60 * 60)``.
