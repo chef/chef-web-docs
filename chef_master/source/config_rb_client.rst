@@ -496,9 +496,6 @@ Ohai configuration settings can be added to the client.rb file.
         '/path/to/other/plugins'
         ]
 
-``ohai.version``
-   The version of Ohai.
-
 .. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of Chef Infra Client.
 
 .. end_tag
