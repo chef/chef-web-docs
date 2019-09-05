@@ -3,6 +3,9 @@ deploy
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_deploy.rst>`__
 
+.. meta::
+    :robots: noindex
+
 Use the **deploy** resource to manage and control deployments. This is a popular resource, but is also complex, having the most properties, multiple providers, the added complexity of callbacks, plus four attributes that support layout modifications from within a recipe.
 
 

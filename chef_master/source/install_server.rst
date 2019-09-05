@@ -1,5 +1,5 @@
 =====================================================
-Install the Chef Server
+Install the Chef Infra Server
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server.rst>`__
 

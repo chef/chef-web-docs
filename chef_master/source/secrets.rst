@@ -372,7 +372,7 @@ To edit a data bag item:
 #. Click **Data Bags**.
 #. Select a data bag.
 #. Select the **Items** tab.
-#. Select a data bag.
+#. Select an item.
 #. Click **Edit**.
 
    .. image:: ../../images/step_manage_webui_policy_data_bag_edit_item.png
@@ -386,7 +386,7 @@ Use Data Bags
 -----------------------------------------------------
 Data bags can be accessed in the following ways:
 
-with Search
+Search
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag data_bag_search
 
@@ -495,7 +495,7 @@ And then the same recipe, modified to load administrators using a search query (
 
 .. end_tag
 
-with Environments
+Environments
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag data_bag_environments
 
@@ -525,7 +525,7 @@ The other approach is to use separate items for each environment. Depending on t
 
 .. end_tag
 
-with Recipes
+Recipes
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag data_bag_recipes
 
@@ -659,7 +659,7 @@ Chef Infra Client can create users on systems based on the contents of a data ba
 
 .. end_tag
 
-with chef-solo
+chef-solo
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag data_bag_chef_solo
 

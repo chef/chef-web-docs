@@ -3,8 +3,8 @@ FIPS (Federal Information Processing Standards)
 ==================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/fips.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 What is FIPS?
 ==================================================================
@@ -55,7 +55,7 @@ To enable FIPS on your platform follow these instructions:
 * `Red Hat Enterprise Linux 7 <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode>`_
 * `Windows <https://technet.microsoft.com/en-us/library/cc750357.aspx>`_
 
-How to enable FIPS mode for the Chef Server
+How to enable FIPS mode for the Chef Infra Server
 ==================================================================
 
 Prerequisites
