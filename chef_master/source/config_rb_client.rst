@@ -59,7 +59,7 @@ This configuration file has the following settings:
       https://localhost/organizations/ORG_NAME
 
 ``chef_zero.enabled``
-   Enable chef-zero. This setting requires ``local_mode`` to be set to ``true``. Default value: ``true`` if running in local-mode. Otherwise``false``.
+   Enable chef-zero. This setting requires ``local_mode`` to be set to ``true``. Default value: ``true`` if running in local-mode, otherwise ``false``.
 
 ``chef_zero.port``
    The port on which chef-zero is to listen. If specified as a range, Chef Infra Client will take the first available port in the range. For example ``10,20,30`` or ``10000-20000``. Default value: ``8889-9999``.
