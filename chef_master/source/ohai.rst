@@ -220,26 +220,90 @@ Default Plugins
 =====================================================
 The following list shows the type of plugins that are included with Ohai. See the ``ohai/lib/ohai/plugins`` directory in the version of Ohai installed on your system for the full list:
 
+General Purpose Plugins
+-----------------------
+
+.. code-block:: ruby
+
+    azure.rb
+    c.rb
+    chef.rb
+    cloud.rb
+    command.rb
+    cpu.rb
+    digital_ocean.rb
+    dmi.rb
+    docker.rb
+    ec2.rb
+    elixir.rb
+    erlang.rb
+    eucalyptus.rb
+    filesystem.rb
+    freebsd
+    gce.rb
+    go.rb
+    groovy.rb
+    haskell.rb
+    hostname.rb
+    init_package.rb
+    java.rb
+    joyent.rb
+    kernel.rb
+    keys.rb
+    languages.rb
+    libvirt.rb
+    linode.rb
+    lua.rb
+    mono.rb
+    network.rb
+    nodejs.rb
+    ohai_time.rb
+    ohai.rb
+    memory.rb
+    network.rb
+    platform.rb
+    openstack.rb
+    os.rb
+    packages.rb
+    passwd.rb
+    perl.rb
+    php.rb
+    platform.rb
+    powershell.rb
+    ps.rb
+    python.rb
+    rackspace.rb
+    root_group.rb
+    ruby.rb
+    rust.rb
+    scala.rb
+    scaleway.rb
+    scsi.rb
+    shard.rb
+    shells.rb
+    softlayer.rb
+    ssh_host_key.rb
+    sysconf.rb
+    timezone.rb
+    uptime.rb
+    virtualbox.rb
+    vmware.rb
+    zpools.rb
+
+Platform Specific Plugins
+-------------------------
+
 .. code-block:: ruby
 
    aix
-     cpu.rb
-     filesystem.rb
      kernel.rb
      memory.rb
      network.rb
-     os.rb
      platform.rb
      uptime.rb
      virtualization.rb
-   azure.rb
    bsd
-    filesystem.rb
     virtualization.rb
-   c.rb
-   chef.rb
-   cloud.rb
-   command.rb
    darwin
      cpu.rb
      filesystem.rb
@@ -249,38 +313,18 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      system_profiler.rb
      virtualization.rb
-   digital_ocean.rb
-   dmi.rb
-   docker.rb
    dragonflybsd
     cpu.rb
     memory.rb
     network.rb
     os.rb
     platform.rb
-   ec2.rb
-   elixir.rb
-   erlang.rb
-   eucalyptus.rb
    freebsd
      cpu.rb
      memory.rb
      network.rb
      os.rb
      platform.rb
-   gce.rb
-   go.rb
-   groovy.rb
-   haskell.rb
-   hostname.rb
-   init_package.rb
-   java.rb
-   joyent.rb
-   kernel.rb
-   keys.rb
-   languages.rb
-   libvirt.rb
-   linode.rb
    linux
      block_device.rb
      cpu.rb
@@ -295,42 +339,16 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      sessons.rb
      virtualization.rb
-   lua.rb
-   mono.rb
    netbsd
      cpu.rb
      memory.rb
      network.rb
      platform.rb
-   network.rb
-   nodejs.rb
-   ohai.rb
-   ohai_time.rb
    openbsd
      cpu.rb
      memory.rb
      network.rb
      platform.rb
-   openstack.rb
-   os.rb
-   packages.rb
-   passwd.rb
-   perl.rb
-   php.rb
-   platform.rb
-   powershell.rb
-   ps.rb
-   python.rb
-   rackspace.rb
-   root_group.rb
-   ruby.rb
-   rust.rb
-   scala.rb
-   scaleway.rb
-   scsi.rb
-   shard.rb
-   shells.rb
-   softlayer.rb
    solaris2
      cpu.rb
      dmi.rb
@@ -339,12 +357,6 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
      virtualization.rb
-   ssh_host_key.rb
-   sysconf.rb
-   timezone.rb
-   uptime.rb
-   virtualbox.rb
-   vmware.rb
    windows
      cpu.rb
      drivers.rb
@@ -355,7 +367,6 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      system_enclosure.rb
      virtualization.rb
-   zpools.rb
 
 Custom Plugins
 =====================================================
