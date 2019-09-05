@@ -372,7 +372,7 @@ Ohai ships several plugins that are considered optional and can be enabled in th
 
 - `Lspci` - PCI device information on Linux hosts.
 - `Lsscsi` - SCSI device information on Linux hosts.
-- `Passwd` - User and Group information on non-Windows hosts. This plugin can result in very large node sizes if a system connected to Active Directory or LDAP.
+- `Passwd` - User and Group information on non-Windows hosts. This plugin can result in very large node sizes if a system connects to Active Directory or LDAP.
 - `Sessions` - Sessions data from loginctl on Linux hosts.
 - `Sysctl` - All sysctl values on Linux hosts.
 
