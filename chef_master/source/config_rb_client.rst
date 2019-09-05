@@ -222,7 +222,7 @@ This configuration file has the following settings:
    Run Chef Infra Client in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo.
 
 ``lockfile``
-   The location of the Chef Infra Client lock file. This value is typically platform-dependent, so should be a location defined by ``file_cache_path``. The default location of a lock file should not on an NFS mount. Default value: a location defined by ``file_cache_path``.
+   The location of the Chef Infra Client lock file. This value is typically platform dependent, so it should be a location defined by ``file_cache_path``. The default location of a lock file should not be on an NFS mount. Default value: a location defined by ``file_cache_path``.
 
 ``log_level``
    The level of logging to be stored in a log file. Possible levels: ``:auto`` (default), ``:trace``, ``:debug``, ``:info``, ``:warn``, ``:error``, or ``:fatal``. Default value: ``:warn`` (when a terminal is available) or ``:info`` (when a terminal is not available).
