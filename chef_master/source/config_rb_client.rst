@@ -88,7 +88,7 @@ This configuration file has the following settings:
    The number of helper threads available for parallel cookbook synchronization. Increasing this value **may** increase the frequency of gateway errors from the Chef Infra Server (503 and 504 errors). Decreasing this number reduces the frequency of gateway errors, if present. Default value: ``10``.
 
 ``data_bag_decrypt_minimum_version``
-   The minimum required version of data bag encryption. Possible values: ``0``, ``1``, and ``2``. It is recommended to use ``2`` for additional encrypted data bag security.
+   The minimum required version of data bag encryption. Possible values: ``1``, ``2``, and ``3``. It is recommended to use the default value of ``3`` for additional encrypted data bag security.
 
 ``data_bag_path``
    The location from which a data bag is loaded. Default value: ``/var/chef/data_bags``.
