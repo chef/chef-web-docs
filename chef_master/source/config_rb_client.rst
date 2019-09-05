@@ -266,8 +266,17 @@ This configuration file has the following settings:
 ``policy_group``
    The name of a policy group that exists on the Chef Infra Server. ``policy_name`` must also be specified.
 
+``policy_group_path``
+   The location of policy_groups on disk.
+
 ``policy_name``
    The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file. ``policy_group`` must also be specified.
+
+``policy_path``
+   The location of policies on disk.
+
+``recipe_url``
+   A URL to download recipes from when running in local mode.
 
 ``rest_timeout``
    The time (in seconds) after which an HTTP REST request is to time out. Default value: ``300``.
@@ -315,6 +324,9 @@ This configuration file has the following settings:
    * Use ``:verify_peer`` for validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in Chef Infra Client runs. This is the recommended setting.
 
    Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
+
+``trusted_certs_dir``
+   A directory that contains additional SSL certificates to trust. Any certificates in this directory will be added to whatever CA bundle ruby is using. Use this to add self-signed certs for your Chef Infra Server or local HTTP file servers. Default value: ``trusted_certs`` directory in your chef configuration directory.
 
 ``umask``
    The file mode creation mask, or umask. Default value: ``0022``.
