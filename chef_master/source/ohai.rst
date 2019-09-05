@@ -265,7 +265,6 @@ General Purpose Plugins
     openstack.rb
     os.rb
     packages.rb
-    passwd.rb
     perl.rb
     php.rb
     platform.rb
@@ -278,12 +277,10 @@ General Purpose Plugins
     rust.rb
     scala.rb
     scaleway.rb
-    scsi.rb
     shard.rb
     shells.rb
     softlayer.rb
     ssh_host_key.rb
-    sysconf.rb
     timezone.rb
     uptime.rb
     virtualbox.rb
@@ -368,6 +365,29 @@ Platform Specific Plugins
      system_enclosure.rb
      virtualization.rb
 
+Optional Plugins
+=====================================================
+
+Ohai ships several plugins that are considered optional and can be enabled in the `client.rb configuration file </config_rb_client.html>`__.
+
+- `Lspci` - PCI device information on Linux hosts.
+- `Lsscsi` - SCSI device information on Linux hosts.
+- `Passwd` - User and Group information on non-Windows hosts. This plugin can result in very large node sizes if a system connected to Active Directory or LDAP.
+- `Sessions` - Sessions data from loginctl on Linux hosts.
+- `Sysctl` - All sysctl values on Linux hosts.
+
+Enabling Optional Plugins
+-------------------------
+
+Optional plugins can be enabled in the `client.rb configuration file </config_rb_client.html>`__:
+
+   .. code-block:: ruby
+
+      ohai.optional_plugins = [
+        :Sessions,
+        :Lspci
+      ]
+
 Custom Plugins
 =====================================================
 
@@ -396,7 +416,7 @@ If the hint file contains JSON content, it will be returned as a hash from the c
      'There is no snow here, and penguins like snow.'
    end
 
-Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the ``client.rb`` file to customize this location.
+Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the `client.rb configuration file </config_rb_client.html>`__ to customize this location.
 
 
 ohai Resource
