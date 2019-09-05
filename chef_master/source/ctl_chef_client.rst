@@ -22,12 +22,12 @@ The Chef Infra Client executable is run as a command-line tool.
 
 .. note:: .. tag config_rb_client_summary
 
-          A client.rb file is used to specify the configuration details for Chef Infra Client.
+          The client.rb file specifies how Chef Infra Client is configured on a node and has the following characteristics:
 
-          * This file is loaded every time this executable is run
-          * On UNIX- and Linux-based machines, the default location for this file is ``/etc/chef/client.rb``; on Microsoft Windows machines, the default location for this file is ``C:\chef\client.rb``; use the ``--config`` option from the command line to change this location
+          * This file is loaded every time the chef-client executable is run.
+          * On Microsoft Windows machines, the default location for this file is ``C:\chef\client.rb``. On all other systems the default location for this file is ``/etc/chef/client.rb``.
+          * Use the ``--config`` option from the command line to override the default location of the configuration file.
           * This file is not created by default
-          * When a client.rb file is present in the default location, the settings contained within that client.rb file will override the default configuration settings
 
           .. end_tag
 
@@ -136,7 +136,7 @@ This command has the following options:
 
    **Environments**
 
-  
+
    Use this option to set the ``chef_environment`` value for a node.
 
    .. note:: Any environment specified for ``chef_environment`` by a JSON file will take precedence over an environment specified by the ``--environment`` option when both options are part of the same command.
@@ -157,7 +157,7 @@ This command has the following options:
 
    This will set the environment for the node to ``pre-production``.
 
-   
+
 
    **All attributes are normal attributes**
 
@@ -202,7 +202,7 @@ This command has the following options:
 
    **Specify a policy**
 
-  
+
    Use this option to use policy files by specifying a JSON file that contains the following settings:
 
    .. list-table::
@@ -225,7 +225,7 @@ This command has the following options:
         "policy_group": "staging"
       }
 
-   
+
 
 ``-k KEY_FILE``, ``--client_key KEY_FILE``
    The location of the file that contains the client key. Default value: ``/etc/chef/client.pem``.
