@@ -49,7 +49,7 @@ This configuration file has the following settings:
    Used to accept the Chef license. Can be set to ``accept`` or ``accept-no-persist``, which persists the license acceptance to disk. If passed to versions where the license is not required this configuration option is a no-op.
 
 ``chef_repo_path``
-   The path to the chef-repo containing cookbooks and other files such as environments or data bags when running Chef Infra Client in local mode.
+   The path to the chef-repo containing cookbooks and other files, such as environments or data bags, when running Chef Infra Client in local mode.
 
 ``chef_server_url``
    The URL for the Chef Infra Server. For example:
