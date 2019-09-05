@@ -352,9 +352,6 @@ This configuration file has the following settings:
 
    .. warning:: The ``whitelist`` setting is available only when using Chef Push Jobs, a tool that runs jobs against nodes in an organization.
 
-``windows_service.watchdog_timeout``
-   The maximum amount of time (in seconds) available for a Chef Infra Client run when it is run as a service on the Microsoft Windows platform. If a Chef Infra Client run fails to complete within the specified timeframe, that Chef Infra Client run is terminated. Default value: ``2 * (60 * 60)``.
-
 Automatic Proxy Config
 -----------------------------------------------------
 .. tag proxy_env
