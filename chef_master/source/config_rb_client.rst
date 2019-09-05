@@ -46,10 +46,10 @@ This configuration file has the following settings:
    The node UUID used by Automate. Setting this allows the node UUID to be specified, and can be carried across instances of a node.
 
 ``chef_license``
-   Used to accept the Chef license. Performs a no-op on versions where the license is not required. Can be set to ``accept`` or ``accept-no-persist``.
+   Used to accept the Chef license. Can be set to ``accept`` or ``accept-no-persist``, which persists the license acceptance to disk. If passed to versions where the license is not required this configuration option is a no-op.
 
 ``chef_repo_path``
-   The path to the chef-repo. chef-solo sources cookbooks and roles from this directory when running Chef Infra Client.
+   The path to the chef-repo containing cookbooks and other files such as environments or data bags when running Chef Infra Client in local mode.
 
 ``chef_server_url``
    The URL for the Chef Infra Server. For example:
@@ -79,7 +79,7 @@ This configuration file has the following settings:
    The number of times a Chef Infra Client will attempt to register with a Chef Infra Server. Default value: ``5``.
 
 ``client_d_dir``
-   A directory that contains additional configuration scripts to load for a Chef Infra Client run.
+   A directory that contains additional configuration files for Chef Infra Client.
 
 ``cookbook_path``
    The sub-directory for Chef Infra Client cookbooks. This value can be a string or an array of file system locations, processed in the specified order. The last cookbook is considered to override local modifications.
@@ -100,7 +100,7 @@ This configuration file has the following settings:
    The shared data collector security token. When configured, the token will be passed as an HTTP header named ``x-data-collector-token`` which the server can choose to accept or reject.
 
 ``data_collector.mode``
-   The Chef Infra Client mode in which the Data Collector will be enabled. Possible values: ``:solo``, ``:client``, or ``:both``. The ``:solo`` value is used for Chef operating in Chef Solo Mode or Chef Solo Legacy Mode. Default value: ``both``.
+   The Chef Infra Client mode in which the Data Collector will be enabled. Possible values: ``:solo``, ``:client``, or ``:both``. The ``:solo`` value is used for Chef Infra Client operating in Chef Solo Mode or Chef Solo Legacy Mode. Default value: ``both``.
 
 ``data_collector.raise_on_failure``
    When enabled, Chef Infra Client raises an error if it cannot successfully POST to the data collector server. Default value: ``false``.
@@ -139,10 +139,10 @@ This configuration file has the following settings:
    Turn on path sanity in resources that shellout so that expected paths like /sbin or /bin are added to the PATH. Disabled by default.
 
 ``environment``
-   The name of the environment.
+   The name of the Chef Infra environment.
 
 ``environment_path``
-   The path to the environment. Default value: ``/var/chef/environments``.
+   The path to the environment file. Default value: ``/var/chef/environments``.
 
 ``exit_status``
    When set to ``:enabled``, Chef Infra Client will use `standardized exit codes <https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use>`_ for Chef Infra Client run status, and any non-standard exit codes will be converted to ``1`` or ``GENERIC_FAILURE``. This setting can also be set to ``:disabled`` to use the pre Chef Infra Client 13 exit code behavior. Default value: ``nil``.
@@ -225,7 +225,7 @@ This configuration file has the following settings:
    The location of the Chef Infra Client lock file. This value is typically platform-dependent, so should be a location defined by ``file_cache_path``. The default location of a lock file should not on an NF mount. Default value: a location defined by ``file_cache_path``.
 
 ``log_level``
-   The level of logging to be stored in a log file. Possible levels: ``:auto`` (default), ``:debug``, ``:info``, ``:warn``, ``:error``, or ``:fatal``. Default value: ``:warn`` (when a terminal is available) or ``:info`` (when a terminal is not available).
+   The level of logging to be stored in a log file. Possible levels: ``:auto`` (default), ``:trace``, ``:debug``, ``:info``, ``:warn``, ``:error``, or ``:fatal``. Default value: ``:warn`` (when a terminal is available) or ``:info`` (when a terminal is not available).
 
 ``log_location``
    The location of the log file. Possible values: ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` (Windows Event Logger), or ``:syslog`` (writes to the syslog daemon facility with the originator set as ``chef-client``). The application log will specify the source as ``Chef``. Default value: ``STDOUT``.
@@ -264,7 +264,7 @@ This configuration file has the following settings:
    The location in which a process identification number (pid) is saved. An executable, when started as a daemon, writes the pid to the specified file. Default value: ``/tmp/name-of-executable.pid``.
 
 ``policy_group``
-   The name of a policy group that exists on the Chef server. ``policy_name`` must also be specified.
+   The name of a policy group that exists on the Chef Infra Server. ``policy_name`` must also be specified.
 
 ``policy_name``
    The name of a policy, as identified by the ``name`` setting in a Policyfile.rb file. ``policy_group`` must also be specified.
