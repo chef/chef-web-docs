@@ -16,7 +16,7 @@ The ChefDK package is produced by the `Chef Omnibus <https://github.com/chef/omn
 * ChefSpec
 
 
-ChefDK installs to ``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows, in order to avoid conflicts between these components and other applications that may be running on the target machine.
+ChefDK installs to ``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows. These file locations should help avoid interference between these components and other applications that may be running on the target machine.
 
 Install
 =====================================================
