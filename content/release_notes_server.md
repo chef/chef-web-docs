@@ -1,14 +1,13 @@
 +++
-title = "Release Notes: Chef Server 12.0 - 12.18.14"
-description = "DESCRIPTION"
+title = "Release Notes: Chef Infra Server 12.0 - 13.0.11"
 draft = false
 
 aliases = "/release_notes_server.html"
 
 [menu]
   [menu.docs]
-    title = "Chef Server"
-    identifier = "chef_infra/release_notes/release_notes_server.html Chef Server"
+    title = "Chef Infra Server"
+    identifier = "chef_infra/release_notes/release_notes_server.md Chef Infra Server"
     parent = "chef_infra/release_notes"
     weight = 30
 +++    
@@ -19,6 +18,126 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/r
 Chef Server acts as a hub for configuration data by storing cookbooks,
 the policies that are applied to nodes, and metadata that describes each
 registered node that is managed by the chef-client.
+
+What's New in 13.0.11
+=====================
+
+Chef Server is now Chef Infra Server
+------------------------------------
+
+Chef Server has a new name, but don’t worry, it’s the same Chef Server
+you’ve grown used to. You’ll notice new branding throughout the
+application and documentation but the command <span
+class="title-ref">chef-server-ctl</span> remains the same.
+
+Chef EULA
+---------
+
+Chef Infra Server requires an EULA to be accepted by users before it can
+be installed. Users can accept the EULA in a variety of ways:
+
+-   <span class="title-ref">chef-server-ctl reconfigure --chef-license
+    accept</span>
+-   <span class="title-ref">chef-server-ctl reconfigure --chef-license
+    accept-no-persist</span>
+-   <span class="title-ref">CHEF_LICENSE="accept" chef-server-ctl
+    reconfigure</span>
+-   <span class="title-ref">CHEF_LICENSE="accept-no-persist"
+    chef-server-ctl reconfigure</span>
+
+Finally, if users run <span class="title-ref">chef-server-ctl
+reconfigure</span> without any of these options, they will receive an
+interactive prompt asking for license acceptance. If the license is
+accepted, a marker file will be written to the filesystem unless <span
+class="title-ref">accept-no-persist</span> is specified. Once this
+marker file is persisted, users no longer need to set any of these
+flags.
+
+See our [Frequently Asked Questions
+document](https://www.chef.io/bmc-faq/) for more information on the EULA
+and license acceptance.
+
+Deprecation notice
+------------------
+
+-   [Deprecated PowerPC and s390x
+    platforms](https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/)
+-   [Deprecated Keepalived/DRBD-based
+    HA](https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/)
+-   Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL’d at the end of
+    April 2019)
+
+Updates and Improvements
+------------------------
+
+-   Updated OpenResty to 1.13.6.2
+    -   This fixes two CVEs: CVE-2018-9230 and CVE-2017-7529.
+    -   This version cannot be built on PowerPC and s390x because those
+        platforms are not supported in mainline luajit.
+-   Updated Ruby version to 2.5.5
+-   Updated Chef Infra Client to 14.11.21
+-   Updated runit cookbook to 5.1.1
+-   Migrated unit tests from Travis to Buildkite. Reorganized them for
+    improved speed, stability and portability.
+-   Added some Habitat packaging improvements with parameterized
+    search_server.
+-   Erchef request size increased from 1,000,000 to 2,000,000 bytes to
+    better support inspec scanning via the audit cookbook.
+-   Nginx error logs no longer log 404s. In the Chef API, 404s are
+    typically not errors as they are often the expected response about
+    an object that doesn't exist. The logs will continue to show 404s in
+    the request logs.
+-   Profiles and data-collector upstreams now render correctly if their
+    root_url is configured. If the data_collector token secret is not
+    set, a 401 response code and an error message will be seen instead
+    of 404.
+
+What's New in 12.19.31
+======================
+
+This release was triggered by the update to Habitat base plans.
+(<https://blog.chef.io/2019/01/28/base-plans-refresh-is-coming-to-habitat-core-plans/>)
+Omnibus release was done to keep in sync with the Habitat release.
+
+-   <span class="title-ref">chef-server-ctl</span> leverages
+    HAB_LISTEN_CTL envvar if available.
+
+What's New in 12.19.26
+======================
+
+This release contains some minor improvements and updates to include
+software:
+
+-   Added request id to nginx log to easily track the Chef request
+    through the logs.
+-   Bundler pinned to 1.17 to avoid taking the 2.0 upgrade.
+-   Erlang updated to 18.3.4.9
+    -   Fixed two CVEs CVE-2017-1000385 and CVE-2016-10253. SSL headers
+        got stricter which unfortunately broke LDAP. (Issue \#1642)
+    -   Removed <span class="title-ref">et</span>, <span
+        class="title-ref">debugger</span>, <span
+        class="title-ref">gs</span>, and <span
+        class="title-ref">observer</span> as they depend on <span
+        class="title-ref">wx</span>, which is not available on all
+        platforms.
+-   Ruby updated to 2.5.3.
+-   Chef Client updated to 14.5.
+-   Erchef and Bookshelf can optionally use mTLS protocol for their
+    internal communications.
+-   Added configuration for pedant SSL-signed requests to include mTLS
+    support.
+-   Habitat package improvements:
+    -   Increased <span class="title-ref">authn:keygen_timeout</span>
+        amount for <span class="title-ref">oc_erchef</span> hab pkg.
+    -   Removed <span class="title-ref">do_end</span> function from
+        <span class="title-ref">chef-server-ctl</span> hab plan.
+    -   Enhanced <span class="title-ref">chef-server-ctl</span> to
+        function in more habitat environments.
+    -   <span class="title-ref">chef-server-ctl</span> commands pass
+        relevant TLS options during bifrost API calls.
+-   Used standard ruby-cleanup definition, which shrinks install size by
+    \~5% on disk.
+-   Removed unused couchdb configurables.
 
 What's New in 12.18.14
 ======================
@@ -52,13 +171,7 @@ This release:
 -   Fix for SUSE SLES-11 sysvinit install
 -   Removed nodejs (a build dependency that was shipped).
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Chef Server 12.18.14 introduces an incompatibility between older
 versions of Berkshelf and ChefDK. We recommend using the minimum
@@ -68,7 +181,7 @@ of `Net::HTTPServerException: 400 "Bad Request"` and opscode-erchef logs
 containing `status=400` and `req_api_version=1` in the log line for the
 corresponding cookbook upload API request.
 
-</div>
+{{< /info >}}
 
 What's New in 12.17.33
 ======================

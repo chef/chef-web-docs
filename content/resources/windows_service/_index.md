@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_service resource
 resource: windows_service
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_service.html
 menu:
   docs:
     title: windows_service
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_service.html windows_service
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_service.md windows_service
     parent: chef_infra/cookbook_reference/resources
-    weight: 1250
+    weight: 1260
 
 
 ######## Basic Resource Data ########

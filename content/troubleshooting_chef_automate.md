@@ -1,6 +1,5 @@
 +++
 title = "Troubleshooting Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/troubleshooting_chef_automate.html"
@@ -8,7 +7,7 @@ aliases = "/troubleshooting_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Troubleshooting"
-    identifier = "legacy/chef_automate_1/troubleshooting_chef_automate.html Troubleshooting"
+    identifier = "legacy/chef_automate_1/troubleshooting_chef_automate.md Troubleshooting"
     parent = "legacy/chef_automate_1"
     weight = 120
 +++    

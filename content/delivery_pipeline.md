@@ -1,6 +1,5 @@
 +++
 title = "About Chef Automate Pipelines"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/delivery_pipeline.html"
@@ -8,7 +7,7 @@ aliases = "/delivery_pipeline.html"
 [menu]
   [menu.docs]
     title = "Configure a Pipeline"
-    identifier = "legacy/chef_automate_1/getting_started/delivery_pipeline.html Configure a Pipeline"
+    identifier = "legacy/chef_automate_1/getting_started/delivery_pipeline.md Configure a Pipeline"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 20
 +++    
@@ -106,17 +105,11 @@ Configuration Settings
 
     {{% delivery_config_json_setting_dependencies %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% delivery_cookbook_delivery_truck %}}
 
-</div>
+{{< /info >}}
 
 build-cookbook Locations
 ------------------------

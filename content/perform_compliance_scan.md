@@ -1,6 +1,5 @@
 +++
 title = "Perform a Compliance Scan in Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/perform_compliance_scan.html"
@@ -8,7 +7,7 @@ aliases = "/perform_compliance_scan.html"
 [menu]
   [menu.docs]
     title = "Perform Compliance Scan"
-    identifier = "legacy/chef_automate_1/compliance/perform_compliance_scan.html Perform Compliance Scan"
+    identifier = "legacy/chef_automate_1/compliance/perform_compliance_scan.md Perform Compliance Scan"
     parent = "legacy/chef_automate_1/compliance"
     weight = 50
 +++    
@@ -77,8 +76,8 @@ profiles['root_url'] = 'https://my-automate-server.mycompany.com'
 After you have finished editing the file, run
 `chef-server-ctl reconfigure` to enable the changes.
 
-Optional: Tune the Chef Server
-==============================
+Optional: Tune the Chef Infra Server
+====================================
 
 For larger Chef InSpec profiles, the Chef Infra Server may need to be
 configured to accept increased request sizes. If you receive the error
@@ -136,18 +135,12 @@ this section if you have already completed this process.
     Select your profiles to upload and click **Done** when you are
     finished.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     Your profiles must be archived as tarballs with a `.tar.gz`
     extension.
 
-    </div>
+    {{< /info >}}
 
 Using the Audit Cookbook
 ========================
@@ -252,18 +245,12 @@ localhost [2017-05-17T21:11:11+00:00] INFO: Report handlers complete
 localhost Chef Client finished, 0/2 resources updated in 18 seconds
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `audit` cookbook also requires a time synchronization policy to be
 in place, such as Network Time Protocol (NTP).
 
-</div>
+{{< /info >}}
 
 View the results in Chef Automate
 =================================

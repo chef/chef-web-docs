@@ -1,6 +1,5 @@
 +++
 title = "Authentication"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/auth.html"

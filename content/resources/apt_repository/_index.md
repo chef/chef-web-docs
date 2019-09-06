@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: apt_repository resource
 resource: apt_repository
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_apt_repository.html
 menu:
   docs:
     title: apt_repository
-    identifier: chef_infra/cookbook_reference/resources/resource_apt_repository.html apt_repository
+    identifier: chef_infra/cookbook_reference/resources/resource_apt_repository.md apt_repository
     parent: chef_infra/cookbook_reference/resources
-    weight: 70
+    weight: 80
 
 
 ######## Basic Resource Data ########

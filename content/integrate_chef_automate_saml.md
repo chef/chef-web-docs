@@ -1,6 +1,5 @@
 +++
 title = "Integrate Chef Automate with SAML for Authentication"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/integrate_chef_automate_saml.html"
@@ -8,7 +7,7 @@ aliases = "/integrate_chef_automate_saml.html"
 [menu]
   [menu.docs]
     title = "Authentication w/SAML"
-    identifier = "legacy/chef_automate_1/admin/integrate_chef_automate_saml.html Authentication w/SAML"
+    identifier = "legacy/chef_automate_1/admin/integrate_chef_automate_saml.md Authentication w/SAML"
     parent = "legacy/chef_automate_1/admin"
     weight = 30
 +++    
@@ -47,19 +46,13 @@ a SAML service. Any combination of roles may be selected in the SCM
 Setup tab; all auto-provisioned users will be assigned these permissions
 when they first log in to Chef Automate.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Metadata-driven SAML configuration enables Chef Automate to periodically
 update its SAML certificates from this metadata, enabling certificate
 rolling for signed SAML assertions.
 
-</div>
+{{< /info >}}
 
 Automatic SAML configuration through Identity Provider metadata
 ---------------------------------------------------------------
@@ -135,18 +128,12 @@ often be found through your Identity Provider's metadata file.
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/1b218ca8-3694-4fcb-ac12-d2112c657830/saml2"/>
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     There can be multiple SingleSignOnService tags, each with a
     different binding.
 
-    </div>
+    {{< /info >}}
 
 3.  Selection of a Name Id Policy option. The Name Id Policy is used to
     request a specific user identification format from your Identity
@@ -185,18 +172,12 @@ confirmation prompt, the SAML configuration will be removed from Chef
 Automate. Once the configuration is removed, SAML users will no longer
 be able to log into Chef Automate.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The SAML type accounts that may have been created will still continue to
 exist even after the SAML configuration has been removed.
 
-</div>
+{{< /info >}}
 
 Configuring your Identity Provider to accept SAML requests from Chef Automate
 =============================================================================
@@ -287,13 +268,7 @@ authenticated user. This will allow an administrator to access Chef
 Automate in the case of a SAML misconfiguration or problem with the SAML
 Identity Provider.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 For Okta users, Okta has to be configured to get a user's first name,
 email address, and last name. When you are setting up SAML for Chef
@@ -303,7 +278,7 @@ Application -\> General -\> SAML Settings. Click the edit button and
 then on step 2, "Configure SAML" in the section "ATTRIBUTE STATEMENTS
 (OPTIONAL)" set up the attribute mappings with the following values:
 
-</div>
+{{< /info >}}
 
 ![image](/images/samlattributes.jpg)
 

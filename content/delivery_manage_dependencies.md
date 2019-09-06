@@ -1,6 +1,5 @@
 +++
 title = "Managing Run-time Dependencies"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/delivery_manage_dependencies.html"
@@ -8,7 +7,7 @@ aliases = "/delivery_manage_dependencies.html"
 [menu]
   [menu.docs]
     title = "Manage Dependencies"
-    identifier = "legacy/chef_automate_1/workflow/delivery_manage_dependencies.html Manage Dependencies"
+    identifier = "legacy/chef_automate_1/workflow/delivery_manage_dependencies.md Manage Dependencies"
     parent = "legacy/chef_automate_1/workflow"
     weight = 30
 +++    

@@ -1,6 +1,5 @@
 +++
 title = "push-jobs-client (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_push_jobs_client.html"
@@ -8,8 +7,8 @@ aliases = "/ctl_push_jobs_client.html"
 [menu]
   [menu.docs]
     title = "push-jobs-client"
-    identifier = "chef_infra/managing_the_server/push_jobs/ctl_push_jobs_client.html push-jobs-client"
-    parent = "chef_infra/managing_the_server/push_jobs"
+    identifier = "chef_infra/managing_chef_infra_server/push_jobs/ctl_push_jobs_client.md push-jobs-client"
+    parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 20
 +++    
 

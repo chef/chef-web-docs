@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: openssl_x509_certificate resource
 resource: openssl_x509_certificate
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_openssl_x509_certificate.html
 menu:
   docs:
     title: openssl_x509_certificate
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_x509_certificate.html openssl_x509_certificate
+    identifier: chef_infra/cookbook_reference/resources/resource_openssl_x509_certificate.md openssl_x509_certificate
     parent: chef_infra/cookbook_reference/resources
-    weight: 650
+    weight: 660
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "Install via URL"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_omnibus.html"
@@ -8,7 +7,7 @@ aliases = "/install_omnibus.html"
 [menu]
   [menu.docs]
     title = "Install via URL"
-    identifier = "chef_infra/setup/nodes/install_omnibus.html Install via URL"
+    identifier = "chef_infra/setup/nodes/install_omnibus.md Install via URL"
     parent = "chef_infra/setup/nodes"
     weight = 20
 +++    

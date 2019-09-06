@@ -1,6 +1,5 @@
 +++
 title = "About Handlers"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/handlers.html"
@@ -8,7 +7,7 @@ aliases = "/handlers.html"
 [menu]
   [menu.docs]
     title = "Handlers"
-    identifier = "chef_infra/features/handlers.html Handlers"
+    identifier = "chef_infra/features/handlers.md Handlers"
     parent = "chef_infra/features"
     weight = 10
 +++    
@@ -284,18 +283,12 @@ needs to be able to collect data for the entire Chef Infra Client run,
 Reporting needs to be enabled before anything else happens at the start
 of a Chef Infra Client run.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The start handler used by the Reporting add-on for the Chef Infra Server
 is always installed using the **chef-client** cookbook.
 
-</div>
+{{< /info >}}
 
 ### start_handler.rb
 

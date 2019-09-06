@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: example resource
 resource: example
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url

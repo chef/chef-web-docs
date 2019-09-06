@@ -1,6 +1,5 @@
 +++
 title = "Release Notes: ChefDK 0.19 - 4.2"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/release_notes_chefdk.html"
@@ -8,7 +7,7 @@ aliases = "/release_notes_chefdk.html"
 [menu]
   [menu.docs]
     title = "Chef Development Kit"
-    identifier = "chef_infra/release_notes/release_notes_chefdk.html Chef Development Kit"
+    identifier = "chef_infra/release_notes/release_notes_chefdk.md Chef Development Kit"
     parent = "chef_infra/release_notes"
     weight = 20
 +++    
@@ -1424,19 +1423,13 @@ See the detailed [change
 log](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v231-2017-09-14)
 for a complete list of changes.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Due to issues beyond our control, this release is only built for Linux
 (x86_64) and Windows. We’ll release a new build with macOS support as
 soon as possible.
 
-</div>
+{{< /info >}}
 
 What's New in 2.2.1
 ===================

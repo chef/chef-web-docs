@@ -1,6 +1,5 @@
 +++
 title = "knife configure"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_configure.html"
@@ -8,7 +7,7 @@ aliases = "/knife_configure.html"
 [menu]
   [menu.docs]
     title = "knife configure"
-    identifier = "chef_infra/chefdk/knife/knife_configure.html knife configure"
+    identifier = "chef_infra/chefdk/knife/knife_configure.md knife configure"
     parent = "chef_infra/chefdk/knife"
     weight = 70
 +++    
@@ -36,17 +35,11 @@ $ knife configure client DIRECTORY
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options for use when configuring a
 config.rb file:
@@ -79,17 +72,11 @@ config.rb file:
 :   The path to the validation key used by the client, typically a file
     named chef-validator.pem.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

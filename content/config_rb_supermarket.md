@@ -1,6 +1,5 @@
 +++
 title = "supermarket.rb Settings"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_supermarket.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb_supermarket.html"
 [menu]
   [menu.docs]
     title = "supermarket.rb Settings"
-    identifier = "chef_infra/setup/supermarket/config_rb_supermarket.html supermarket.rb Settings"
+    identifier = "chef_infra/setup/supermarket/config_rb_supermarket.md supermarket.rb Settings"
     parent = "chef_infra/setup/supermarket"
     weight = 40
 +++    
@@ -18,37 +17,25 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 {{% config_rb_supermarket_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `supermarket.rb` file does not exist by default. To modify the
 settings for the Supermarket server, create a file named
 `supermarket.rb` in the `/etc/supermarket/` directory.
 
-</div>
+{{< /info >}}
 
 Settings
 ========
 
 The following settings are available in the `supermarket.rb` file.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 You must run `supermarket-ctl reconfigure` to apply any changes made in
 the `supermarket.rb` file.
 
-</div>
+{{< /info >}}
 
 General
 -------
@@ -134,17 +121,11 @@ Amazon Simple Storage Service (S3)
 Use these settings to upload cookbooks to an Amazon Simple Storage
 Service (S3) bucket.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Encrypted S3 buckets are currently not supported.
 
-</div>
+{{< /info >}}
 
 `default['supermarket']['cdn_url']`
 

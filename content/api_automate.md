@@ -1,6 +1,5 @@
 +++
 title = "Chef Automate API"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/api_automate.html"
@@ -8,7 +7,7 @@ aliases = "/api_automate.html"
 [menu]
   [menu.docs]
     title = "Chef Automate API"
-    identifier = "legacy/chef_automate_1/reference/api_automate.html Chef Automate API"
+    identifier = "legacy/chef_automate_1/reference/api_automate.md Chef Automate API"
     parent = "legacy/chef_automate_1/reference"
     weight = 10
 +++    
@@ -161,20 +160,14 @@ server is healthy even if there's a problem with one of the upstream
 systems; however, a response code of 500 will be returned in that case
 (as described in the response code section below).
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 `lsyncd` should always report a status of `not_running` in a standalone
 configuration: any other value would indicate that it's configured when
 it shouldn't be (`lsync` should only run on a disaster recovery
 primary).
 
-</div>
+{{< /info >}}
 
 For the primary server in a disaster recovery pair, the response will be
 similar to:
@@ -368,13 +361,7 @@ filters listed below are allowed for inclusion.
 </tbody>
 </table>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Timestamps, are returned in and **must** be written in RFC 3339 format.
 The following are examples of acceptable `start_time` and `end_time`
@@ -383,7 +370,7 @@ values for inclusion in a filter:
 -   `2017-03-06T09:18:40Z`
 -   `2017-03-06T09:18:40+00:00`
 
-</div>
+{{< /info >}}
 
 /compliance/market [compliance-market-api]
 ------------------

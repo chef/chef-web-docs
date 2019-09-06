@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: bff_package resource
 resource: bff_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_bff_package.html
 menu:
   docs:
     title: bff_package
-    identifier: chef_infra/cookbook_reference/resources/resource_bff_package.html bff_package
+    identifier: chef_infra/cookbook_reference/resources/resource_bff_package.md bff_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 120
+    weight: 130
 
 
 ######## Basic Resource Data ########

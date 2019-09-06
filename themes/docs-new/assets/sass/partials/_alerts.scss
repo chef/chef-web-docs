@@ -17,6 +17,10 @@
   &-tip {
     @include alert($info-color);
   }
+  
+  &-important {
+    @include alert($info-color);
+  }
 
   &-success {
     @include alert($success-color);

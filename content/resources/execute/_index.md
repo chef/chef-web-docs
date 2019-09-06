@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: execute resource
 resource: execute
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_execute.html
 menu:
   docs:
     title: execute
-    identifier: chef_infra/cookbook_reference/resources/resource_execute.html execute
+    identifier: chef_infra/cookbook_reference/resources/resource_execute.md execute
     parent: chef_infra/cookbook_reference/resources
-    weight: 330
+    weight: 340
 
 
 ######## Basic Resource Data ########

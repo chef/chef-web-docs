@@ -1,6 +1,5 @@
 +++
 title = "Manage Secrets in a build-cookbook"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/delivery_manage_secrets.html"
@@ -8,7 +7,7 @@ aliases = "/delivery_manage_secrets.html"
 [menu]
   [menu.docs]
     title = "Manage Secrets"
-    identifier = "legacy/chef_automate_1/workflow/delivery_manage_secrets.html Manage Secrets"
+    identifier = "legacy/chef_automate_1/workflow/delivery_manage_secrets.md Manage Secrets"
     parent = "legacy/chef_automate_1/workflow"
     weight = 40
 +++    

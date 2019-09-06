@@ -1,6 +1,5 @@
 +++
 title = "Chef Deprecation Warnings"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_deprecations_client.html"
@@ -8,7 +7,7 @@ aliases = "/chef_deprecations_client.html"
 [menu]
   [menu.docs]
     title = "Deprecations"
-    identifier = "chef_infra/chef_deprecations_client.html Deprecations"
+    identifier = "chef_infra/chef_deprecations_client.md Deprecations"
     parent = "chef_infra"
     weight = 100
 +++    

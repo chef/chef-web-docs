@@ -1,6 +1,5 @@
 +++
 title = "Send Node Notifications to a Custom Webhook"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/integrate_node_notifications_webhook.html"
@@ -8,7 +7,7 @@ aliases = "/integrate_node_notifications_webhook.html"
 [menu]
   [menu.docs]
     title = "Node Notifications w/Webhooks"
-    identifier = "legacy/chef_automate_1/nodes/integrate_node_notifications_webhook.html Node Notifications w/Webhooks"
+    identifier = "legacy/chef_automate_1/nodes/integrate_node_notifications_webhook.md Node Notifications w/Webhooks"
     parent = "legacy/chef_automate_1/nodes"
     weight = 20
 +++    
@@ -39,13 +38,7 @@ configured in your `delivery.rb`. For more information on the proxy
 settings in Chef Automate, see [Proxy
 Settings](https://docs.chef.io/config_rb_delivery.html#proxy-settings).
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Notifications sent to custom webhooks by Chef Automate do not support
 retries; therefore, notifications sent while your particular webhook
@@ -54,7 +47,7 @@ downtime may never be received. Undelivered notifications are not
 re-sent. Attempts to send notifications do generate log messages in your
 Chef Automate server.
 
-</div>
+{{< /info >}}
 
 Add a Webhook to Chef Automate
 ==============================

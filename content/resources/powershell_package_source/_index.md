@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: powershell_package_source resource
 resource: powershell_package_source
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_powershell_package_source.html
 menu:
   docs:
     title: powershell_package_source
-    identifier: chef_infra/cookbook_reference/resources/resource_powershell_package_source.html powershell_package_source
+    identifier: chef_infra/cookbook_reference/resources/resource_powershell_package_source.md powershell_package_source
     parent: chef_infra/cookbook_reference/resources
-    weight: 750
+    weight: 760
 
 
 ######## Basic Resource Data ########

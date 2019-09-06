@@ -1,6 +1,5 @@
 +++
 title = "Chef Manage"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/manage.html"
@@ -8,7 +7,7 @@ aliases = "/manage.html"
 [menu]
   [menu.docs]
     title = "About the Management Console"
-    identifier = "chef_infra/features/management_console/manage.html About the Management Console"
+    identifier = "chef_infra/features/management_console/manage.md About the Management Console"
     parent = "chef_infra/features/management_console"
     weight = 10
 +++    
@@ -44,19 +43,13 @@ Search
 
 {{% search %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The syntax for search queries in the Chef management console is
 identical to the syntax for search queries used with knife, the command
 line tool used to manage objects on the Chef Infra Server.
 
-</div>
+{{< /info >}}
 
 ### Query Syntax
 

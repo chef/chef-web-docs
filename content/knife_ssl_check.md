@@ -1,6 +1,5 @@
 +++
 title = "knife ssl check"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_ssl_check.html"
@@ -8,7 +7,7 @@ aliases = "/knife_ssl_check.html"
 [menu]
   [menu.docs]
     title = "knife ssl_check"
-    identifier = "chef_infra/chefdk/knife/knife_ssl_check.html knife ssl_check"
+    identifier = "chef_infra/chefdk/knife/knife_ssl_check.md knife ssl_check"
     parent = "chef_infra/chefdk/knife"
     weight = 270
 +++    

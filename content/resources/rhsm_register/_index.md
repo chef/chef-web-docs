@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: rhsm_register resource
 resource: rhsm_register
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_rhsm_register.html
 menu:
   docs:
     title: rhsm_register
-    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_register.html rhsm_register
+    identifier: chef_infra/cookbook_reference/resources/resource_rhsm_register.md rhsm_register
     parent: chef_infra/cookbook_reference/resources
-    weight: 850
+    weight: 860
 
 
 ######## Basic Resource Data ########

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: python resource
 resource: python
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_python.html
 menu:
   docs:
     title: python
-    identifier: chef_infra/cookbook_reference/resources/resource_python.html python
+    identifier: chef_infra/cookbook_reference/resources/resource_python.md python
     parent: chef_infra/cookbook_reference/resources
-    weight: 770
+    weight: 780
 
 
 ######## Basic Resource Data ########

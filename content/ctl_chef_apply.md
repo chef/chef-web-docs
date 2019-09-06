@@ -1,6 +1,5 @@
 +++
 title = "chef-apply (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_chef_apply.html"
@@ -8,7 +7,7 @@ aliases = "/ctl_chef_apply.html"
 [menu]
   [menu.docs]
     title = "chef-apply (executable)"
-    identifier = "chef_infra/chefdk/ctl_chef_apply.html chef-apply (executable)"
+    identifier = "chef_infra/chefdk/ctl_chef_apply.md chef-apply (executable)"
     parent = "chef_infra/chefdk"
     weight = 50
 +++    

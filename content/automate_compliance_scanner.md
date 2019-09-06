@@ -1,6 +1,5 @@
 +++
 title = "Scanner"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/automate_compliance_scanner.html"
@@ -8,7 +7,7 @@ aliases = "/automate_compliance_scanner.html"
 [menu]
   [menu.docs]
     title = "Scanner"
-    identifier = "legacy/chef_automate_1/compliance/automate_compliance_scanner.html Scanner"
+    identifier = "legacy/chef_automate_1/compliance/automate_compliance_scanner.md Scanner"
     parent = "legacy/chef_automate_1/compliance"
     weight = 20
 +++    
@@ -28,31 +27,19 @@ This Compliance Scanner is available in Chef Automate 1.8.3 or later; it
 can also be enabled in Chef Automate 1.7.114 by typing `beta` anywhere
 in the UI, and selecting the feature via the popup that appears.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Credentials are required to perform a compliance scan. See
 [Credentials](automate_compliance_credentials.html).
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Profiles must be installed from the Profile Store before performing a
 compliance scan. See [Profile Store](profile_store.html).
 
-</div>
+{{< /info >}}
 
 Scan Jobs
 =========
@@ -121,19 +108,13 @@ Nodes
 Add Nodes
 ---------
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Credentials must be loaded from the **Credentials** tab before nodes can
 be saved. Navigating away from this form will result in the loss of
 entered data. See [Credentials](automate_compliance_credentials.html).
 
-</div>
+{{< /warning >}}
 
 From the Automate Compliance Scanner view select the **Add Nodes**
 button, which opens a form titled "Enter node details to add nodes".

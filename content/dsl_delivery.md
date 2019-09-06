@@ -1,6 +1,5 @@
 +++
 title = "About the Workflow DSL"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/dsl_delivery.html"
@@ -8,7 +7,7 @@ aliases = "/dsl_delivery.html"
 [menu]
   [menu.docs]
     title = "Workflow DSL"
-    identifier = "legacy/chef_automate_1/reference/dsl_delivery.html Workflow DSL"
+    identifier = "legacy/chef_automate_1/reference/dsl_delivery.md Workflow DSL"
     parent = "legacy/chef_automate_1/reference"
     weight = 50
 +++    
@@ -29,20 +28,14 @@ recipes as a way to enhance the Recipe DSL to collect data about:
 -   Should a cookbook should be pushed to the Chef Infra Server and/or
     to GitHub?
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 These recipe helpers are available from the `delivery-truck` cookbook:
 <https://github.com/opscode-cookbooks/delivery-truck>. This cookbook is
 a recommended dependency for any `build-cookbook` for a project that
 publishes changes to a Chef Automate pipeline.
 
-</div>
+{{< /warning >}}
 
 Helpers
 =======
@@ -141,13 +134,7 @@ The following Chef Automate-specific helpers can be used in recipes:
 
 :   Get attributes for a defined project application.
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    {{< warning >}}
 
     If the `get_project_application` method is called from the
     `provision.rb` recipe, be sure that `delivery-truck::provision` is
@@ -169,7 +156,7 @@ The following Chef Automate-specific helpers can be used in recipes:
     cookbook, in a `ruby_block` or in a separate `include_recipe` that
     is executed after `include_recipe 'delivery-truck::provision'`.
 
-    </div>
+    {{< /warning >}}
 
 `get_project_secrets`
 

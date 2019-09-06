@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: openssl_rsa_private_key resource
 resource: openssl_rsa_private_key
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_openssl_rsa_private_key.html
 menu:
   docs:
     title: openssl_rsa_private_key
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_rsa_private_key.html openssl_rsa_private_key
+    identifier: chef_infra/cookbook_reference/resources/resource_openssl_rsa_private_key.md openssl_rsa_private_key
     parent: chef_infra/cookbook_reference/resources
-    weight: 630
+    weight: 640
 
 
 ######## Basic Resource Data ########

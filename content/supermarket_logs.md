@@ -1,6 +1,5 @@
 +++
 title = "Supermarket Logs"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/supermarket_logs.html"
@@ -8,7 +7,7 @@ aliases = "/supermarket_logs.html"
 [menu]
   [menu.docs]
     title = "Log Files"
-    identifier = "chef_infra/setup/supermarket/supermarket_logs.html Log Files"
+    identifier = "chef_infra/setup/supermarket/supermarket_logs.md Log Files"
     parent = "chef_infra/setup/supermarket"
     weight = 60
 +++    

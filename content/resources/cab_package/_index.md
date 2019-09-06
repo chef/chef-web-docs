@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: cab_package resource
 resource: cab_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_cab_package.html
 menu:
   docs:
     title: cab_package
-    identifier: chef_infra/cookbook_reference/resources/resource_cab_package.html cab_package
+    identifier: chef_infra/cookbook_reference/resources/resource_cab_package.md cab_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 150
+    weight: 160
 
 
 ######## Basic Resource Data ########

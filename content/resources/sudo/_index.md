@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: sudo resource
 resource: sudo
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_sudo.html
 menu:
   docs:
     title: sudo
-    identifier: chef_infra/cookbook_reference/resources/resource_sudo.html sudo
+    identifier: chef_infra/cookbook_reference/resources/resource_sudo.md sudo
     parent: chef_infra/cookbook_reference/resources
-    weight: 990
+    weight: 1000
 
 
 ######## Basic Resource Data ########

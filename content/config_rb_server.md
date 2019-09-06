@@ -1,6 +1,5 @@
 +++
 title = "chef-server.rb Settings"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_server.html"
@@ -8,8 +7,8 @@ aliases = "/config_rb_server.html"
 [menu]
   [menu.docs]
     title = "chef-server.rb"
-    identifier = "chef_infra/managing_the_server/config_rb_server.html chef-server.rb"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/config_rb_server.md chef-server.rb"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 170
 +++    
 
@@ -39,49 +38,31 @@ Optional Settings
 The following settings are often used for performance tuning of the Chef
 Infra Server in larger installations.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_config_rb_server_must_reconfigure %}}
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Review the full list of [optional
 settings](/config_rb_server_optional_settings/) that can be added to
 the chef-server.rb file. Many of these optional settings should not be
 added without first consulting with Chef support.
 
-</div>
+{{< /info >}}
 
 bookshelf
 ---------
 
 {{% server_tuning_bookshelf %}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 {{% notes_server_aws_cookbook_storage %}}
 
-</div>
+{{< /warning >}}
 
 opscode-account
 ---------------

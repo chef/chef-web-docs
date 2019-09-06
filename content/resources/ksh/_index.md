@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: ksh resource
 resource: ksh
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_ksh.html
 menu:
   docs:
     title: ksh
-    identifier: chef_infra/cookbook_reference/resources/resource_ksh.html ksh
+    identifier: chef_infra/cookbook_reference/resources/resource_ksh.md ksh
     parent: chef_infra/cookbook_reference/resources
-    weight: 470
+    weight: 480
 
 
 ######## Basic Resource Data ########

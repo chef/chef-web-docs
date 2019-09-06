@@ -1,6 +1,5 @@
 +++
 title = "knife show"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_show.html"
@@ -8,7 +7,7 @@ aliases = "/knife_show.html"
 [menu]
   [menu.docs]
     title = "knife show"
-    identifier = "chef_infra/chefdk/knife/knife_show.html knife show"
+    identifier = "chef_infra/chefdk/knife/knife_show.md knife show"
     parent = "chef_infra/chefdk/knife"
     weight = 250
 +++    
@@ -30,17 +29,11 @@ $ knife show [PATTERN...] (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 

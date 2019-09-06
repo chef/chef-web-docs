@@ -1,6 +1,5 @@
 +++
 title = "Scaling and Capacity Planning for Automate Node Visibility"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/scaling_capacity_planning_chef_automate.html"
@@ -8,8 +7,8 @@ aliases = "/scaling_capacity_planning_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Capacity Planning"
-    identifier = "legacy/chef_automate_1/managing_the_server/scaling_capacity_planning_chef_automate.html Capacity Planning"
-    parent = "legacy/chef_automate_1/managing_the_server"
+    identifier = "legacy/chef_automate_1/managing_the_chef_automate_server/scaling_capacity_planning_chef_automate.md Capacity Planning"
+    parent = "legacy/chef_automate_1/managing_the_chef_automate_server"
     weight = 20
 +++    
 

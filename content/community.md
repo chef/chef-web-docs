@@ -1,6 +1,5 @@
 +++
 title = "About the Chef Community"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/community.html"
@@ -8,7 +7,7 @@ aliases = "/community.html"
 [menu]
   [menu.docs]
     title = "About the Community"
-    identifier = "overview/community/community.html About the Community"
+    identifier = "overview/community/community.md About the Community"
     parent = "overview/community"
     weight = 10
 +++    

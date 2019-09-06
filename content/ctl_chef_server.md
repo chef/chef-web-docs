@@ -1,6 +1,5 @@
 +++
 title = "chef-server-ctl (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_chef_server.html"
@@ -8,8 +7,8 @@ aliases = "/ctl_chef_server.html"
 [menu]
   [menu.docs]
     title = "chef-server-ctl"
-    identifier = "chef_infra/managing_the_server/ctl_chef_server.html chef-server-ctl"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/ctl_chef_server.md chef-server-ctl"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 150
 +++    
 
@@ -116,19 +115,13 @@ Infra Server: Chef management console and Chef Infra Client run
 reporting, high availability configurations, Chef Push Jobs, and Chef
 Infra Server replication.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The `chef-server-ctl install` command no longer works in the 12.5 (and
 earlier) versions of the Chef Infra Server due to a change in how
 packages are downloaded from Chef.
 
-</div>
+{{< /warning >}}
 
 **Syntax**
 
@@ -180,17 +173,11 @@ This subcommand has the following syntax:
 $ chef-server-ctl add-client-key ORG_NAME CLIENT_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 All options for this subcommand must follow all arguments.
 
-</div>
+{{< /warning >}}
 
 **Options**
 
@@ -234,17 +221,11 @@ This subcommand has the following syntax:
 $ chef-server-ctl add-user-key USER_NAME [--public-key-path PATH] [--expiration-date DATE] [--key-name NAME]
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 All options for this subcommand must follow all arguments.
 
-</div>
+{{< /warning >}}
 
 **Options**
 
@@ -313,17 +294,11 @@ This subcommand has the following syntax:
 $ chef-server-ctl delete-user-key USER_NAME KEY_NAME
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The parameters for this subcommand must be in the order specified above.
 
-</div>
+{{< /warning >}}
 
 **Options**
 
@@ -350,17 +325,11 @@ This subcommand has the following syntax:
 $ chef-server-ctl list-client-keys ORG_NAME CLIENT_NAME [--verbose]
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 All options for this subcommand must follow all arguments.
 
-</div>
+{{< /warning >}}
 
 **Options**
 
@@ -391,17 +360,11 @@ This subcommand has the following syntax:
 $ chef-server-ctl list-user-keys USER_NAME [--verbose]
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 All options for this subcommand must follow all arguments.
 
-</div>
+{{< /warning >}}
 
 **Options**
 
@@ -629,19 +592,13 @@ generate the new service credentials. Then copy the secrets file to each
 Chef Infra Server and run `sudo chef-server-ctl reconfigure` on each
 server to complete the rotation process.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Credential rotation does not rotate the pivotal, user, or client keys,
 or remove any Chef Infra Server policy or cookbooks that have been
 uploaded.
 
-</div>
+{{< /info >}}
 
 *New in Chef Server 12.7*
 
@@ -892,17 +849,11 @@ org-user-remove
 
 {{% ctl_chef_server_org_user_remove %}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 {{% knife_edit_admin_users %}}
 
-</div>
+{{< /warning >}}
 
 **Syntax**
 
@@ -1303,19 +1254,13 @@ Service Subcommands
 
 {{% ctl_common_service_subcommands %}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The following commands are disabled when an external PostgreSQL database
 is configured for the Chef Infra Server: `hup`, `int`, `kill`, `once`,
 `restart`, `start`, `stop`, `tail`, and `term`.
 
-</div>
+{{< /warning >}}
 
 hup
 ---

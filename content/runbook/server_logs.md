@@ -1,6 +1,5 @@
 +++
 title = "Log Files"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_logs.html"
@@ -10,8 +9,8 @@ runbook_weight = 20
 [menu]
   [menu.docs]
     title = "Log Files"
-    identifier = "chef_infra/managing_the_server/server_logs.html Log Files"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_logs.md Log Files"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 60
 +++    
 

@@ -1,6 +1,5 @@
 +++
 title = "Profile Store"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/profile_store.html"
@@ -8,7 +7,7 @@ aliases = "/profile_store.html"
 [menu]
   [menu.docs]
     title = "Profile Store"
-    identifier = "legacy/chef_automate_1/compliance/profile_store.html Profile Store"
+    identifier = "legacy/chef_automate_1/compliance/profile_store.md Profile Store"
     parent = "legacy/chef_automate_1/compliance"
     weight = 30
 +++    

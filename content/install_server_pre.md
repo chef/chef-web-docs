@@ -1,15 +1,14 @@
 +++
 title = "Chef Infra Server Prerequisites"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_server_pre.html"
 
 [menu]
   [menu.docs]
-    title = "Chef Server Prerequisites"
-    identifier = "chef_infra/setup/server/install_server_pre.html Chef Server Prerequisites"
-    parent = "chef_infra/setup/server"
+    title = "Chef Infra Server Prerequisites"
+    identifier = "chef_infra/setup/chef_infra_server/install_server_pre.md Chef Infra Server Prerequisites"
+    parent = "chef_infra/setup/chef_infra_server"
     weight = 40
 +++    
 
@@ -40,8 +39,8 @@ Capacity Planning
 =================
 
 Read the [guidance around capacity
-planning](/server_components.html#capacity-planning) for information
-about how to choose the right topology for the Chef Infra Server.
+planning](/server_overview.html#capacity-planning) for information about
+how to choose the right topology for the Chef Infra Server.
 
 Hardware Requirements
 =====================
@@ -61,13 +60,7 @@ at least two user and group identifiers (UIDs and GIDs). These are used
 to create the `opscode` and `opscode-pgsql` users and their default
 groups.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The creation of required user and group identifiers is done
 **automatically** during the installation process for the Chef Infra
@@ -82,15 +75,9 @@ to satisfy reconfiguration requirements.
 -   A group account for each user account, one named `opscode` and the
     other named `opscode-pgsql` under which services will run
 
-</div>
+{{< /info >}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 If the UID and GID of `opscode` and `opscode-pgsql` do not match on both
 backend Chef Infra Server machines, a high availability configuration
@@ -135,7 +122,7 @@ prior to installing the Chef Infra Server, the Chef Infra Server
 installation process will use the existing identifiers instead of
 creating them.
 
-</div>
+{{< /warning >}}
 
 Firewalls
 ---------
@@ -430,19 +417,13 @@ be added to `/etc/hosts` when running Red Hat or CentOS:
 $ echo -e "127.0.0.2 `hostname` `hostname -s`" | sudo tee -a /etc/hosts
 ```
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The FQDN for the Chef Infra Server should be resolvable, lowercase, and
 should not exceed 64 characters when using OpenSSL, as OpenSSL requires
 the `CN` in a certificate to be no longer than 64 characters.
 
-</div>
+{{< /warning >}}
 
 Mail Relay
 ----------
@@ -518,18 +499,12 @@ local user and group accounts that will prevent these accounts from
 being created automatically during setup, you will need to create these
 accounts.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Chef Push Jobs feature of the Chef Infra Server use the same user
 and group accounts as the Chef Infra Server.
 
-</div>
+{{< /info >}}
 
 ### Group Accounts
 

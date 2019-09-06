@@ -1,6 +1,5 @@
 +++
 title = "Quick Start"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/quick_start.html"
@@ -8,7 +7,7 @@ aliases = "/quick_start.html"
 [menu]
   [menu.docs]
     title = "Quick Start"
-    identifier = "chef_infra/getting_started/quick_start.html Quick Start"
+    identifier = "chef_infra/getting_started/quick_start.md Quick Start"
     parent = "chef_infra/getting_started"
     weight = 40
 +++    

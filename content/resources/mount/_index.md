@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: mount resource
 resource: mount
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_mount.html
 menu:
   docs:
     title: mount
-    identifier: chef_infra/cookbook_reference/resources/resource_mount.html mount
+    identifier: chef_infra/cookbook_reference/resources/resource_mount.md mount
     parent: chef_infra/cookbook_reference/resources
-    weight: 550
+    weight: 560
 
 
 ######## Basic Resource Data ########

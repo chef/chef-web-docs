@@ -1,6 +1,5 @@
 +++
 title = "Send Feedback"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/feedback.html"
@@ -8,7 +7,7 @@ aliases = "/feedback.html"
 [menu]
   [menu.docs]
     title = "Send Feedback"
-    identifier = "overview/community/feedback.html Send Feedback"
+    identifier = "overview/community/feedback.md Send Feedback"
     parent = "overview/community"
     weight = 50
 +++    

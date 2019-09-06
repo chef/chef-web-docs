@@ -1,6 +1,5 @@
 +++
 title = "delivery.rb Optional Settings"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_delivery_optional_settings.html"
@@ -16,13 +15,9 @@ aliases = "/config_rb_delivery_optional_settings.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery_optional_settings.rst)
 
-<div class="warning" markdown="1">
+<meta name="robots" content="noindex">
 
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The configuration settings in the `delivery.rb` file should not be
 modified before discussing those changes with Chef. Some of these
@@ -30,7 +25,7 @@ settings should be considered for tuning (see [Automate Server
 Tuning](/delivery_server_tuning/)), but many of them should be left
 as default values.
 
-</div>
+{{< /warning >}}
 
 Settings
 ========
@@ -357,19 +352,13 @@ This configuration file has the following settings for `backup`:
     Encryption for backup archives in S3. To use SSE-KMS set the value
     to `aws:kms`. Default value: `AES256`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 While the backup utility currently supports encrypting backups with with
 SSE-S3, SSE-KMS, and SSE-C, only SSE-S3 is currently supported for
 restoration.
 
-</div>
+{{< /info >}}
 
 `backup['staging_dir']`
 
@@ -657,19 +646,13 @@ This configuration file has the following settings for `delivery`:
     are: `d` (days), `h` (hours), `m` (minutes), or `s` (seconds).
     Default value: `'7d'`.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     While the `delivery['read_ttl']` and `delivery['write_ttl']` values
     may be tuned separately, it is recommended that both values be
     identical.
 
-    </div>
+    {{< /info >}}
 
 `delivery['sql_password']`
 
@@ -737,19 +720,13 @@ This configuration file has the following settings for `delivery`:
     are: `d` (days), `h` (hours), `m` (minutes), or `s` (seconds).
     Default value: `'7d'`.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     While the `delivery['read_ttl']` and `delivery['write_ttl']` values
     may be tuned separately, it is recommended that both values be
     identical.
 
-    </div>
+    {{< /info >}}
 
 `delivery['vip']`
 

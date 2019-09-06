@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: apt_update resource
 resource: apt_update
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_apt_update.html
 menu:
   docs:
     title: apt_update
-    identifier: chef_infra/cookbook_reference/resources/resource_apt_update.html apt_update
+    identifier: chef_infra/cookbook_reference/resources/resource_apt_update.md apt_update
     parent: chef_infra/cookbook_reference/resources
-    weight: 80
+    weight: 90
 
 
 ######## Basic Resource Data ########

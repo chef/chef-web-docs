@@ -1,6 +1,5 @@
 +++
 title = "Upgrade Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/upgrade_chef_automate.html"
@@ -8,7 +7,7 @@ aliases = "/upgrade_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Upgrades"
-    identifier = "legacy/chef_automate_1/getting_started/upgrade_chef_automate.html Upgrades"
+    identifier = "legacy/chef_automate_1/getting_started/upgrade_chef_automate.md Upgrades"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 90
 +++    
@@ -94,18 +93,12 @@ To upgrade to the latest version of Chef Automate, do the following:
     are upgrading from a `delivery-cluster` setup, then skip to the
     section below.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     This will restart your Chef Automate services and may result in a
     brief period of unavailability.
 
-    </div>
+    {{< /info >}}
 
     {{% delivery_ctl_note %}}
 

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: file resource
 resource: file
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_file.html
 menu:
   docs:
     title: file
-    identifier: chef_infra/cookbook_reference/resources/resource_file.html file
+    identifier: chef_infra/cookbook_reference/resources/resource_file.md file
     parent: chef_infra/cookbook_reference/resources
-    weight: 340
+    weight: 350
 
 
 ######## Basic Resource Data ########

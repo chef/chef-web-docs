@@ -1,6 +1,5 @@
 +++
 title = "knife delete"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_delete.html"
@@ -8,7 +7,7 @@ aliases = "/knife_delete.html"
 [menu]
   [menu.docs]
     title = "knife delete"
-    identifier = "chef_infra/chefdk/knife/knife_delete.html knife delete"
+    identifier = "chef_infra/chefdk/knife/knife_delete.md knife delete"
     parent = "chef_infra/chefdk/knife"
     weight = 110
 +++    
@@ -30,17 +29,11 @@ $ knife delete [PATTERN...] (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 
@@ -76,17 +69,11 @@ This subcommand has the following options:
     `hosted_everything` are dynamically selected depending on the server
     type. Default: `everything` / `hosted_everything`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

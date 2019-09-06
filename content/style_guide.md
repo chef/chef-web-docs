@@ -1,6 +1,5 @@
 +++
 title = "Documentation Style Guide"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/style_guide.html"
@@ -8,7 +7,7 @@ aliases = "/style_guide.html"
 [menu]
   [menu.docs]
     title = "Docs Style Guide"
-    identifier = "overview/community/style_guide.html Docs Style Guide"
+    identifier = "overview/community/style_guide.md Docs Style Guide"
     parent = "overview/community"
     weight = 40
 +++    
@@ -190,7 +189,7 @@ Numbered lists are created like this:
       
     1. text goes here
 
-Start each ordered list item with the number 1 (1.). Hugo will generate the correct sequence of numbers in an ordered list regardless of the numbers that you use. Only using the number 1. will save you from having to re-number items if you add or remove an item later.
+Start each ordered list item with the number 1 (1.). Hugo will generate the correct sequence of numbers in an ordered list regardless of the numbers that you use. Only using "1." will save you from having to re-number items if you add or remove an item later.
 
 Definition Lists
 ----------------
@@ -344,7 +343,9 @@ This is a note.
 What a note looks like after it's built:
 
 {{< info >}}
-This is an info block.
+
+This is a note.
+
 {{< /info >}}
 
 Warnings
@@ -380,6 +381,7 @@ This is what a danger block looks like after it's built:
 {{< danger >}}
 This is a danger block.
 {{< /danger >}}
+
 
 Images
 ======
@@ -467,6 +469,7 @@ If you forget to add a DCO sign-off before submitting a pull request, you can am
 
 See this [blog post](https://blog.chef.io/2016/09/19/introducing-developer-certificate-of-origin/) to understand why Chef started using the DCO signoff.
 
+
 Obvious Fix
 -----------
 
@@ -485,6 +488,7 @@ Changes that fall under our Obvious Fix policy include:
 To invoke the Obvious Fix rule, simply add `Obvious Fix.` to your commit message.
 
 See our Obvious Fix policy here: https://github.com/chef/chef/blob/master/CONTRIBUTING.md#chef-obvious-fix-policy
+
 
 Official Names
 ==============

@@ -1,6 +1,5 @@
 +++
 title = "Chef Infra Client Security"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_client_security.html"
@@ -8,7 +7,7 @@ aliases = "/chef_client_security.html"
 [menu]
   [menu.docs]
     title = "Security"
-    identifier = "chef_infra/setup/nodes/chef_client_security.html Security"
+    identifier = "chef_infra/setup/nodes/chef_client_security.md Security"
     parent = "chef_infra/setup/nodes"
     weight = 70
 +++    
@@ -51,18 +50,12 @@ versions 12.4.0 and above.
 SSL Certificates
 ================
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The following information does not apply to hosted Chef Server 12, only
 to on-premises Chef Server 12.
 
-</div>
+{{< /warning >}}
 
 {{% server_security_ssl_cert_client %}}
 

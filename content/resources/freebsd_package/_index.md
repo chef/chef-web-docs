@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: freebsd_package resource
 resource: freebsd_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_freebsd_package.html
 menu:
   docs:
     title: freebsd_package
-    identifier: chef_infra/cookbook_reference/resources/resource_freebsd_package.html freebsd_package
+    identifier: chef_infra/cookbook_reference/resources/resource_freebsd_package.md freebsd_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 350
+    weight: 360
 
 
 ######## Basic Resource Data ########

@@ -1,6 +1,5 @@
 +++
 title = "Bootstrap a Node"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_bootstrap.html"
@@ -8,7 +7,7 @@ aliases = "/install_bootstrap.html"
 [menu]
   [menu.docs]
     title = "Install via Bootstrap"
-    identifier = "chef_infra/setup/nodes/install_bootstrap.html Install via Bootstrap"
+    identifier = "chef_infra/setup/nodes/install_bootstrap.md Install via Bootstrap"
     parent = "chef_infra/setup/nodes"
     weight = 10
 +++    

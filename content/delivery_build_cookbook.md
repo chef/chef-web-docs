@@ -1,6 +1,5 @@
 +++
 title = "About the build-cookbook"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/delivery_build_cookbook.html"
@@ -8,7 +7,7 @@ aliases = "/delivery_build_cookbook.html"
 [menu]
   [menu.docs]
     title = "build-cookbook (cookbook)"
-    identifier = "legacy/chef_automate_1/workflow/delivery_build_cookbook.html build-cookbook (cookbook)"
+    identifier = "legacy/chef_automate_1/workflow/delivery_build_cookbook.md build-cookbook (cookbook)"
     parent = "legacy/chef_automate_1/workflow"
     weight = 10
 +++    
@@ -98,19 +97,13 @@ Create Build Cookbook
 
 {{% delivery_cookbook_setup %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This section assumes that Chef Automate is already configured, a project
 exists, a user may access that project and submit changes, and that all
 work is being done from that project's root directory.
 
-</div>
+{{< /info >}}
 
 Edit the Berksfile
 ------------------

@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_printer_port resource
 resource: windows_printer_port
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_printer_port.html
 menu:
   docs:
     title: windows_printer_port
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_printer_port.html windows_printer_port
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_printer_port.md windows_printer_port
     parent: chef_infra/cookbook_reference/resources
-    weight: 1240
+    weight: 1250
 
 
 ######## Basic Resource Data ########

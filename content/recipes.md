@@ -1,6 +1,5 @@
 +++
 title = "About Recipes"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/recipes.html"
@@ -8,7 +7,7 @@ aliases = "/recipes.html"
 [menu]
   [menu.docs]
     title = "About Recipes"
-    identifier = "chef_infra/cookbook_reference/recipes/recipes.html About Recipes"
+    identifier = "chef_infra/cookbook_reference/recipes/recipes.md About Recipes"
     parent = "chef_infra/cookbook_reference/recipes"
     weight = 10
 +++    
@@ -23,17 +22,11 @@ Recipe Attributes
 
 {{% cookbooks_attribute %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_see_attributes_overview %}}
 
-</div>
+{{< /info >}}
 
 Attribute Types
 ---------------
@@ -173,17 +166,11 @@ If a cookbook has a dependency on a recipe that is located in another
 cookbook, that dependency must be declared in the metadata.rb file for
 that cookbook using the `depends` keyword.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Declaring cookbook dependencies is not required with chef-solo.
 
-</div>
+{{< /info >}}
 
 For example, if the following recipe is included in a cookbook named
 `my_app`:
@@ -470,18 +457,12 @@ entirely by using an unhandled exception. The `raise` and `fail`
 keywords can be used to stop a Chef Infra Client run in both the compile
 and execute phases.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Both `raise` and `fail` behave the same way when triggering unhandled
 exceptions and may be used interchangeably.
 
-</div>
+{{< /info >}}
 
 Use these keywords in a recipe---but outside of any resource blocks---to
 trigger an unhandled exception during the compile phase. For example:
@@ -579,19 +560,13 @@ consistent messaging around certain behaviors. That said, this approach
 is not recommended for use within recipes and cookbooks and should only
 be used when the other approaches are not applicable.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This approach should be used carefully when Chef Infra Client is run as
 a daemonized service. Some services---such as a runit service---should
 restart, but others---such as an init.d services---likely will not.
 
-</div>
+{{< /info >}}
 
 node.run_state
 ---------------

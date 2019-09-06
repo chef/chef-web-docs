@@ -1,6 +1,5 @@
 +++
 title = "Installing Chef on Windows"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/dk_windows.html"
@@ -8,7 +7,7 @@ aliases = "/dk_windows.html"
 [menu]
   [menu.docs]
     title = "Chef Workstation and ChefDK on Windows"
-    identifier = "chef_infra/getting_started/chef_on_windows_guide/dk_windows.html Chef Workstation and ChefDK on Windows"
+    identifier = "chef_infra/getting_started/chef_on_windows_guide/dk_windows.md Chef Workstation and ChefDK on Windows"
     parent = "chef_infra/getting_started/chef_on_windows_guide"
     weight = 20
 +++    

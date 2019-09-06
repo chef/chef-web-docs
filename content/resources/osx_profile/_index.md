@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: osx_profile resource
 resource: osx_profile
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_osx_profile.html
 menu:
   docs:
     title: osx_profile
-    identifier: chef_infra/cookbook_reference/resources/resource_osx_profile.html osx_profile
+    identifier: chef_infra/cookbook_reference/resources/resource_osx_profile.md osx_profile
     parent: chef_infra/cookbook_reference/resources
-    weight: 680
+    weight: 690
 
 
 ######## Basic Resource Data ########

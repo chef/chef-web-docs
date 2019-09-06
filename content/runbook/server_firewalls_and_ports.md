@@ -1,6 +1,5 @@
 +++
 title = "Firewalls and Ports"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_firewalls_and_ports.html"
@@ -10,8 +9,8 @@ runbook_weight = 30
 [menu]
   [menu.docs]
     title = "Firewalls & Ports"
-    identifier = "chef_infra/managing_the_server/server_firewalls_and_ports.html Firewalls & Ports"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_firewalls_and_ports.md Firewalls & Ports"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 40
 +++    
 
@@ -22,19 +21,13 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% server_firewalls_and_ports_listening %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 An "external" port is external from the perspective of a workstation
 (such as knife), a machine (Chef Infra Client), or any other user that
 accesses the Chef Infra Server via the Chef Infra Server API.
 
-</div>
+{{< /info >}}
 
 
 ## Standalone
@@ -74,12 +67,9 @@ any firewalls that are in use:
 <td><p>80, 443, 9683</p></td>
 <td><p><strong>nginx</strong></p>
 <p>{{% server_services_nginx %}}</p>
-<div class="note">
-<div class="admonition-title">
-<p>Note</p>
-</div>
+{{< info >}}
 <p>Port 9683 is used to internally load balance the <strong>oc_bifrost</strong> service.</p>
-</div></td>
+{{< /info >}}</td>
 <td><p>yes</p></td>
 </tr>
 <tr class="odd">

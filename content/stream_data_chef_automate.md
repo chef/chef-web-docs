@@ -1,6 +1,5 @@
 +++
 title = "Stream Data from Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/stream_data_chef_automate.html"
@@ -8,7 +7,7 @@ aliases = "/stream_data_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Stream Data"
-    identifier = "legacy/chef_automate_1/getting_started/stream_data_chef_automate.html Stream Data"
+    identifier = "legacy/chef_automate_1/getting_started/stream_data_chef_automate.md Stream Data"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 80
 +++    

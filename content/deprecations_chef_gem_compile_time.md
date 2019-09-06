@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Chef Gem Compile Time (CHEF-3)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_chef_gem_compile_time.html"

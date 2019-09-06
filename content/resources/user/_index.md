@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: user resource
 resource: user
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_user.html
 menu:
   docs:
     title: user
-    identifier: chef_infra/cookbook_reference/resources/resource_user.html user
+    identifier: chef_infra/cookbook_reference/resources/resource_user.md user
     parent: chef_infra/cookbook_reference/resources
-    weight: 1050
+    weight: 1060
 
 
 ######## Basic Resource Data ########

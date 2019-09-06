@@ -1,6 +1,5 @@
 +++
 title = "ohai (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_ohai.html"
@@ -8,7 +7,7 @@ aliases = "/ctl_ohai.html"
 [menu]
   [menu.docs]
     title = "ohai (executable)"
-    identifier = "chef_infra/chefdk/ohai/ctl_ohai.html ohai (executable)"
+    identifier = "chef_infra/chefdk/ohai/ctl_ohai.md ohai (executable)"
     parent = "chef_infra/chefdk/ohai"
     weight = 20
 +++    

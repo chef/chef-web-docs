@@ -1,6 +1,5 @@
 +++
 title = "Release Notes: Chef Push Jobs 1.0 - 2.5"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/release_notes_push_jobs.html"
@@ -8,7 +7,7 @@ aliases = "/release_notes_push_jobs.html"
 [menu]
   [menu.docs]
     title = "Chef Push Jobs"
-    identifier = "chef_infra/release_notes/release_notes_push_jobs.html Chef Push Jobs"
+    identifier = "chef_infra/release_notes/release_notes_push_jobs.md Chef Push Jobs"
     parent = "chef_infra/release_notes"
     weight = 40
 +++    
@@ -109,18 +108,12 @@ upgrade:
     `automate-ctl install-build-node`, then it runs on version 2.0 or
     greater and does not need upgraded.
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    {{< warning >}}
 
     Do not restart the Push Jobs Client until after the Push Jobs Server
     upgrade is completed in the steps below.
 
-    </div>
+    {{< /warning >}}
 
 -   On the Push Jobs Server node:
 
@@ -129,19 +122,13 @@ upgrade:
 
     -   Run `sudo opscode-push-jobs-server-ctl reconfigure`.
 
-        <div class="note" markdown="1">
-
-        <div class="admonition-title" markdown="1">
-
-        Note
-
-        </div>
+        {{< info >}}
 
         Once the `reconfigure` command above is issued, build nodes and
         other push clients will not be in communication with the server
         until they are restarted.
 
-        </div>
+        {{< /info >}}
 
 -   On each build node:
 

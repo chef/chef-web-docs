@@ -1,6 +1,5 @@
 +++
 title = "About Run-lists"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/run_lists.html"
@@ -8,7 +7,7 @@ aliases = "/run_lists.html"
 [menu]
   [menu.docs]
     title = "Run-lists"
-    identifier = "chef_infra/concepts/policy/run_lists.html Run-lists"
+    identifier = "chef_infra/concepts/policy/run_lists.md Run-lists"
     parent = "chef_infra/concepts/policy"
     weight = 30
 +++    
@@ -58,17 +57,11 @@ run_list add
 
 {{% knife_node_run_list_add_options %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 ### Examples
 
@@ -107,17 +100,11 @@ run_list remove
 
 This command does not have any specific options.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 ### Examples
 

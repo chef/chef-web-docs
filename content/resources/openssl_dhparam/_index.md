@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: openssl_dhparam resource
 resource: openssl_dhparam
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_openssl_dhparam.html
 menu:
   docs:
     title: openssl_dhparam
-    identifier: chef_infra/cookbook_reference/resources/resource_openssl_dhparam.html openssl_dhparam
+    identifier: chef_infra/cookbook_reference/resources/resource_openssl_dhparam.md openssl_dhparam
     parent: chef_infra/cookbook_reference/resources
-    weight: 600
+    weight: 610
 
 
 ######## Basic Resource Data ########

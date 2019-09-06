@@ -1,6 +1,5 @@
 +++
 title = "knife xargs"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_xargs.html"
@@ -8,7 +7,7 @@ aliases = "/knife_xargs.html"
 [menu]
   [menu.docs]
     title = "knife xargs"
-    identifier = "chef_infra/chefdk/knife/knife_xargs.html knife xargs"
+    identifier = "chef_infra/chefdk/knife/knife_xargs.md knife xargs"
     parent = "chef_infra/chefdk/knife"
     weight = 340
 +++    
@@ -30,17 +29,11 @@ $ knife xargs [PATTERN...] (options)
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This subcommand has the following options:
 
@@ -113,17 +106,11 @@ This subcommand has the following options:
 
 :   Run the print command on the command line. Default: `nil`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 ========

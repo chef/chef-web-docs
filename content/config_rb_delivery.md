@@ -1,6 +1,5 @@
 +++
 title = "delivery.rb Settings"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_delivery.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb_delivery.html"
 [menu]
   [menu.docs]
     title = "delivery.rb"
-    identifier = "legacy/chef_automate_1/reference/config_rb_delivery.html delivery.rb"
+    identifier = "legacy/chef_automate_1/reference/config_rb_delivery.md delivery.rb"
     parent = "legacy/chef_automate_1/reference"
     weight = 40
 +++    
@@ -88,19 +87,13 @@ Automate server to use SSL certificates:
 
     Default value: Default value: `"SSLv3 TLSv1"`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 See <https://wiki.mozilla.org/Security/Server_Side_TLS> for more
 information about the values used with the `nginx['ssl_ciphers']` and
 `nginx['ssl_protocols']` settings.
 
-</div>
+{{< /info >}}
 
 For example, after copying the SSL certificate files to the Chef
 Automate server, update the `delivery['ssl_certificates']` hash settings
@@ -156,13 +149,7 @@ Optional Settings
 Additional settings are available for performance tuning of the Chef
 Automate server.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 When changes are made to the `delivery.rb` file the Chef Automate server
 must be reconfigured by running the following command:
@@ -171,19 +158,13 @@ must be reconfigured by running the following command:
 $ delivery-server-ctl reconfigure
 ```
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Review the full list of [optional
 settings](/config_rb_delivery_optional_settings/) that can be added
 to the `delivery.rb` file. Many of these optional settings should not be
 added without first consulting with Chef support.
 
-</div>
+{{< /info >}}

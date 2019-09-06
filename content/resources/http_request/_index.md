@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: http_request resource
 resource: http_request
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_http_request.html
 menu:
   docs:
     title: http_request
-    identifier: chef_infra/cookbook_reference/resources/resource_http_request.html http_request
+    identifier: chef_infra/cookbook_reference/resources/resource_http_request.md http_request
     parent: chef_infra/cookbook_reference/resources
-    weight: 430
+    weight: 440
 
 
 ######## Basic Resource Data ########

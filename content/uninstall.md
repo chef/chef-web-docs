@@ -1,6 +1,5 @@
 +++
 title = "Uninstall"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/uninstall.html"
@@ -8,7 +7,7 @@ aliases = "/uninstall.html"
 [menu]
   [menu.docs]
     title = "Uninstall"
-    identifier = "chef_infra/getting_started/uninstall.html Uninstall"
+    identifier = "chef_infra/getting_started/uninstall.md Uninstall"
     parent = "chef_infra/getting_started"
     weight = 90
 +++    
@@ -39,18 +38,12 @@ To uninstall the Chef management console, do the following:
     management console is installed, and then uninstall the package
     named `chef-manage`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This package used to be named `opscode-manage` and the command line tool
 used to be named `opscode-manage-ctl`.
 
-</div>
+{{< /info >}}
 
 Chef Analytics
 ==============
@@ -65,18 +58,12 @@ This subcommand has the following syntax:
 $ opscode-analytics-ctl uninstall
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-</div>
+{{< /info >}}
 
 Reporting
 =========
@@ -91,18 +78,12 @@ This subcommand has the following syntax:
 $ opscode-reporting-ctl uninstall
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-</div>
+{{< /info >}}
 
 Chef Push Jobs
 ==============
@@ -119,18 +100,12 @@ To uninstall Chef Push Jobs, do the following:
     $ chef-server-ctl reconfigure
     ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This will leave some data in PostgreSQL that is not used by any other
 Chef application or service.
 
-</div>
+{{< /info >}}
 
 push-jobs-client
 ----------------

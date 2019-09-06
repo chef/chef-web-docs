@@ -1,6 +1,5 @@
 +++
 title = "Deprecation: Resource Cloning (CHEF-3694)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/deprecations_resource_cloning.html"
@@ -54,18 +53,12 @@ end
 Resource cloning was deprecated in Chef Client 10.18.0 and will be
 removed in Chef Client 13.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Chef will only emit a deprecation warning in the situation that a cloned
 resource is significantly different from the existing one.
 
-</div>
+{{< /info >}}
 
 Remediation
 ===========

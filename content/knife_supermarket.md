@@ -1,6 +1,5 @@
 +++
 title = "knife supermarket"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_supermarket.html"
@@ -8,7 +7,7 @@ aliases = "/knife_supermarket.html"
 [menu]
   [menu.docs]
     title = "knife supermarket"
-    identifier = "chef_infra/chefdk/knife/knife_supermarket.html knife supermarket"
+    identifier = "chef_infra/chefdk/knife/knife_supermarket.md knife supermarket"
     parent = "chef_infra/chefdk/knife"
     weight = 300
 +++    
@@ -23,13 +22,7 @@ that write data to the Chef Supermarket; however, the following
 arguments do not require a user account: `download`, `search`,
 `install`, and `list`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you are interested in uploading to the Supermarket as a company you
 might be interested in looking at the [Chef Partner Cookbook
@@ -38,31 +31,19 @@ validate and verify your company cookbook. A selection of Certified
 Partner Cookbooks can be found
 [here](https://supermarket.chef.io/cookbooks?utf8=✓&q=&badges%5B%5D=partner&platforms%5B%5D=).
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_knife_cookbook_site_use_devkit_berkshelf %}}
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 download
 ========
@@ -533,18 +514,12 @@ Use the `unshare` argument to stop the sharing of a cookbook located at
 Chef Supermarket. Only the maintainer of a cookbook may perform this
 action.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Unsharing a cookbook will break a cookbook that has set a dependency on
 that cookbook or cookbook version.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------

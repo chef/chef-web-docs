@@ -1,6 +1,5 @@
 +++
 title = "Community Guidelines"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/community_guidelines.html"
@@ -8,7 +7,7 @@ aliases = "/community_guidelines.html"
 [menu]
   [menu.docs]
     title = "Guidelines"
-    identifier = "overview/community/community_guidelines.html Guidelines"
+    identifier = "overview/community/community_guidelines.md Guidelines"
     parent = "overview/community"
     weight = 30
 +++    
@@ -185,13 +184,7 @@ The important information to report consists of:
 If you feel your safety is in jeopardy please do not hesitate to contact
 local law enforcement.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Incidents that violate the community guidelines are extremely damaging
 to the community, and they will not be tolerated. The silver lining is
@@ -201,7 +194,7 @@ team requests that they be your first resource when reporting a Chef
 community-related incident, so that they may enforce the community
 guidelines and take quick action toward a resolution.
 
-</div>
+{{< /info >}}
 
 Documenting Incidents
 =====================

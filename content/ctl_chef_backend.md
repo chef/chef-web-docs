@@ -1,6 +1,5 @@
 +++
 title = "chef-backend-ctl"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_chef_backend.html"
@@ -8,8 +7,8 @@ aliases = "/ctl_chef_backend.html"
 [menu]
   [menu.docs]
     title = "chef-backend-ctl"
-    identifier = "chef_infra/managing_the_server/ctl_chef_backend.html chef-backend-ctl"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/ctl_chef_backend.md chef-backend-ctl"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 160
 +++    
 
@@ -218,13 +217,7 @@ This command will:
 -   Run the `chef-backend-ctl cluster-status` subcommand to determine if
     a leader exists.
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    {{< warning >}}
 
     Nodes in the backend HA cluster may not be visible to each other
     when they are located in network partitions. This may prevent a
@@ -234,7 +227,7 @@ This command will:
     number of nodes in the backend HA cluster as healthy and
     `waiting_for_leader` before running this command.
 
-    </div>
+    {{< /warning >}}
 
 -   Complete with an exit code of `0` if the node from which the command
     is run becomes the leader.
@@ -278,13 +271,7 @@ values. Use this subcommand to get the values for `publish_address` and
 `vip_interface` prior to bootstrapping a new node for the backend HA
 cluster.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Service-specific configuration settings---`etcd`, `elasticsearch`,
 `leaderl`, and `postgresl`---are generated automatically by the backend
@@ -292,7 +279,7 @@ and should only be tuned under guidance from Chef. Service-specific
 configuration settings must be identical on all nodes in the backend HA
 cluster unless directed otherwise.
 
-</div>
+{{< /warning >}}
 
 Syntax
 ------
@@ -479,19 +466,13 @@ opscode_erchef['nginx_bookshelf_caching'] = :on
 opscode_erchef['s3_url_expiry_window_size'] = '50%'
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `opscode_solr4`, `postgresql`, and `rabbitmq` services are disabled
 in this configuration file for the frontend machines when running the
 Chef Infra Server with a backend HA cluster.
 
-</div>
+{{< /info >}}
 
 help
 ====
@@ -566,18 +547,12 @@ This subcommand has the following options:
     specified in `chef-backend.rb`, this command will prompt to choose
     from a list of interfaces that are currently available on the node.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     This option should only be used the first time a node joins the
     backend HA cluster.
 
-    </div>
+    {{< /info >}}
 
 `-p IP_ADDRESS`, `--publish-address IP_ADDRESS`
 
@@ -587,18 +562,12 @@ This subcommand has the following options:
     this command will prompt to choose from a list of IP addresses that
     are currently bound on the node.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     This option should only be used the first time a node joins the
     backend HA cluster.
 
-    </div>
+    {{< /info >}}
 
 `--recovery`
 
@@ -887,37 +856,25 @@ This subcommand has the following syntax:
 $ chef-backend-ctl uninstall
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-</div>
+{{< /info >}}
 
 Service Subcommands
 ===================
 
 {{% ctl_common_service_subcommands %}}
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The following commands are disabled when an external PostgreSQL database
 is configured for the Chef Infra Server: `hup`, `int`, `kill`, `once`,
 `restart`, `service-list`, `start`, `stop`, `tail`, and `term`.
 
-</div>
+{{< /warning >}}
 
 hup
 ---
@@ -1002,18 +959,12 @@ machine in the Chef Infra Server backend HA cluster, or to restart an
 individual service by specifying the name of that service in the
 command.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 When running the Chef Infra Server in a high availability configuration,
 restarting all services may trigger failover.
 
-</div>
+{{< /warning >}}
 
 This subcommand has the following syntax:
 

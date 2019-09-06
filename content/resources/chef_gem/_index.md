@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: chef_gem resource
 resource: chef_gem
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_chef_gem.html
 menu:
   docs:
     title: chef_gem
-    identifier: chef_infra/cookbook_reference/resources/resource_chef_gem.html chef_gem
+    identifier: chef_infra/cookbook_reference/resources/resource_chef_gem.md chef_gem
     parent: chef_infra/cookbook_reference/resources
-    weight: 160
+    weight: 170
 
 
 ######## Basic Resource Data ########

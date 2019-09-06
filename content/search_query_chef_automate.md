@@ -1,6 +1,5 @@
 +++
 title = "Node Search Query Reference"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/search_query_chef_automate.html"
@@ -8,7 +7,7 @@ aliases = "/search_query_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Node Search Reference"
-    identifier = "legacy/chef_automate_1/nodes/search_query_chef_automate.html Node Search Reference"
+    identifier = "legacy/chef_automate_1/nodes/search_query_chef_automate.md Node Search Reference"
     parent = "legacy/chef_automate_1/nodes"
     weight = 30
 +++    
@@ -38,13 +37,7 @@ on the following terms:
 > -   Resource Name
 > -   Role
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The functionality described in this topic is for the search bar in Chef
 Automate 1.6.87 or later. If you need to continue using the previous
@@ -56,7 +49,7 @@ continuing to use the legacy version, please [contact
 us](https://feedback.chef.io/) with your feedback. Also, the legacy
 search bar will only be supported for 90 days.
 
-</div>
+{{< /info >}}
 
 Applying a filter
 =================

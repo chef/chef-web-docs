@@ -1,6 +1,5 @@
 +++
 title = "metadata.rb"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_metadata.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb_metadata.html"
 [menu]
   [menu.docs]
     title = "metadata.rb"
-    identifier = "chef_infra/cookbook_reference/config_rb_metadata.html metadata.rb"
+    identifier = "chef_infra/cookbook_reference/config_rb_metadata.md metadata.rb"
     parent = "chef_infra/cookbook_reference"
     weight = 110
 +++    
@@ -43,13 +42,7 @@ message. If an error message is received from the Chef Infra Server
 about cookbook distribution, verify the `depends` entries in the
 metadata.rb file, and then try again.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 A metadata.json file can be edited directly, should temporary changes be
 required. Any subsequent upload or action that generates metadata will
@@ -58,7 +51,7 @@ generated metadata. Therefore, any permanent changes to cookbook
 metadata should be done in the metadata.rb file, and then re-uploaded to
 the Chef Infra Server.
 
-</div>
+{{< /info >}}
 
 Version Constraints
 ===================
@@ -105,13 +98,7 @@ versions. There are a set of operators common to all fields:
 </tbody>
 </table>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Pessimistic locking is enabled by proper [semantic
 versioning](https://semver.org) of cookbooks. If we're on version 2.2.3
@@ -122,7 +109,7 @@ and right angle bracket "\>"--often called a tilde-rocket or
 "twiddle-wakka"--followed by the major and minor version numbers. For
 example: `~> 2.2`
 
-</div>
+{{< /info >}}
 
 Settings
 ========
@@ -198,13 +185,7 @@ This configuration file has the following settings:
     gem "chef-sugar"
     ```
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    {{< warning >}}
 
     Use the `gem` setting only for making external chef libraries
     shipped as gems accessible in a Chef Infra Client run for libraries
@@ -226,7 +207,7 @@ This configuration file has the following settings:
 
     Pure ruby gems can also be installed with metadata.rb.
 
-    </div>
+    {{< /warning >}}
 
 `issues_url`
 
@@ -365,17 +346,11 @@ This configuration file has the following settings:
     ohai_version "~> 8"
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     This setting is not visible in Chef Supermarket.
 
-    </div>
+    {{< /info >}}
 
 `privacy`
 

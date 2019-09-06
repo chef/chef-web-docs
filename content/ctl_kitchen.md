@@ -1,6 +1,5 @@
 +++
 title = "kitchen (executable)"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/ctl_kitchen.html"
@@ -8,7 +7,7 @@ aliases = "/ctl_kitchen.html"
 [menu]
   [menu.docs]
     title = "kitchen (executable)"
-    identifier = "chef_infra/chefdk/test_kitchen/ctl_kitchen.html kitchen (executable)"
+    identifier = "chef_infra/chefdk/test_kitchen/ctl_kitchen.md kitchen (executable)"
     parent = "chef_infra/chefdk/test_kitchen"
     weight = 20
 +++    
@@ -18,19 +17,13 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 {{% ctl_kitchen_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This topic details functionality that is packaged with Chef Workstation.
 See <https://kitchen.ci/docs/getting-started/> for more information
 about Test Kitchen.
 
-</div>
+{{< /info >}}
 
 Fuzzy Matching
 ==============

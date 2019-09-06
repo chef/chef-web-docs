@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: paludis_package resource
 resource: paludis_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_paludis_package.html
 menu:
   docs:
     title: paludis_package
-    identifier: chef_infra/cookbook_reference/resources/resource_paludis_package.html paludis_package
+    identifier: chef_infra/cookbook_reference/resources/resource_paludis_package.md paludis_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 710
+    weight: 720
 
 
 ######## Basic Resource Data ########

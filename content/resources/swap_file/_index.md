@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: swap_file resource
 resource: swap_file
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_swap_file.html
 menu:
   docs:
     title: swap_file
-    identifier: chef_infra/cookbook_reference/resources/resource_swap_file.html swap_file
+    identifier: chef_infra/cookbook_reference/resources/resource_swap_file.md swap_file
     parent: chef_infra/cookbook_reference/resources
-    weight: 1000
+    weight: 1010
 
 
 ######## Basic Resource Data ########

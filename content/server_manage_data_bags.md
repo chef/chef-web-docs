@@ -1,6 +1,5 @@
 +++
 title = "Manage Data Bags"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_manage_data_bags.html"
@@ -8,7 +7,7 @@ aliases = "/server_manage_data_bags.html"
 [menu]
   [menu.docs]
     title = "Data Bags"
-    identifier = "chef_infra/features/management_console/server_manage_data_bags.html Data Bags"
+    identifier = "chef_infra/features/management_console/server_manage_data_bags.md Data Bags"
     parent = "chef_infra/features/management_console"
     weight = 50
 +++    
@@ -22,18 +21,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% EOL_manage %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This topic is about using the Chef management console to manage data
 bags.
 
-</div>
+{{< /info >}}
 
 {{% data_bag %}}
 
@@ -122,7 +115,7 @@ To delete a data bag item:
 
 5.  Select the **Items** tab.
 
-6.  Select a data bag.
+6.  Select an item.
 
 7.  Click **Delete**.
 

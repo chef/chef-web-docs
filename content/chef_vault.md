@@ -1,6 +1,5 @@
 +++
 title = "`chef-vault`"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_vault.html"
@@ -8,7 +7,7 @@ aliases = "/chef_vault.html"
 [menu]
   [menu.docs]
     title = "chef-vault"
-    identifier = "chef_infra/chefdk/chef_vault.html chef-vault"
+    identifier = "chef_infra/chefdk/chef_vault.md chef-vault"
     parent = "chef_infra/chefdk"
     weight = 70
 +++    
@@ -22,18 +21,12 @@ using the public keys of a list of nodes, allowing only those nodes to
 decrypt the encrypted values. `chef-vault` uses the `knife vault`
 subcommand.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 `chef-vault` does not currently support alternate keying mechanisms like
 GPG and Amazon KMS.
 
-</div>
+{{< /info >}}
 
 -   For more information about using the `chef-vault` cookbook, its
     helper methods and resources, see
@@ -44,13 +37,7 @@ with `chef-vault` itself. This cookbook adds the `chef_vault_item`
 helper method to the Recipe DSL and the `chef_vault_secret` resource.
 Use them both in recipes to work with data bag secrets.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Chef vault requires the use of Chef Infra Client configured to use
 public/private key pairs. Chef vault is incompatible with the practice
@@ -70,7 +57,7 @@ OpenSSL::PKey::RSAError
 Neither PUB key nor PRIV key:: nested asn1 error
 ```
 
-</div>
+{{< /warning >}}
 
 Installation
 ============
@@ -308,18 +295,12 @@ command-line will open an editor to fill out the data*
 > knife vault create passwords root -A "admin1,admin2"
 > ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 A JSON file can be used in place of specifying the values on the command
 line, see global options below for details
 
-</div>
+{{< /info >}}
 
 `update`
 --------

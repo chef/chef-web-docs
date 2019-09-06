@@ -1,6 +1,5 @@
 +++
 title = "Runners"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/runners.html"
@@ -8,7 +7,7 @@ aliases = "/runners.html"
 [menu]
   [menu.docs]
     title = "Runners"
-    identifier = "legacy/chef_automate_1/workflow/runners.html Runners"
+    identifier = "legacy/chef_automate_1/workflow/runners.md Runners"
     parent = "legacy/chef_automate_1/workflow"
     weight = 60
 +++    
@@ -48,13 +47,7 @@ You can add a new runner via `automate-ctl` from your Chef Automate
 server. Log in to your Chef Automate server and run the
 [install-runner](/ctl_automate_server.html#install-runner) command.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 You can pin to a specific ChefDK version through the `--chefdk-version`
 option on the `install-runner` command or by using a version of ChefDK
@@ -63,7 +56,7 @@ that you have installed locally on your Chef Automate server using the
 cookbooks to be Chef Client 13 compliant and the latest version of
 ChefDK installs Chef Client 13 on your runner.
 
-</div>
+{{< /info >}}
 
 After the [install-runner](/ctl_automate_server.html#install-runner)
 command succeeds, the new runner should show up in the UI under

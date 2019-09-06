@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: rpm_package resource
 resource: rpm_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_rpm_package.html
 menu:
   docs:
     title: rpm_package
-    identifier: chef_infra/cookbook_reference/resources/resource_rpm_package.html rpm_package
+    identifier: chef_infra/cookbook_reference/resources/resource_rpm_package.md rpm_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 890
+    weight: 900
 
 
 ######## Basic Resource Data ########

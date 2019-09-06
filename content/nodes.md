@@ -1,6 +1,5 @@
 +++
 title = "About Nodes"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/nodes.html"
@@ -8,9 +7,9 @@ aliases = "/nodes.html"
 [menu]
   [menu.docs]
     title = "Nodes"
-    identifier = "chef_infra/concepts/nodes.html Nodes"
+    identifier = "chef_infra/concepts/nodes.md Nodes"
     parent = "chef_infra/concepts"
-    weight = 20
+    weight = 70
 +++    
 
 [\[edit on
@@ -129,17 +128,11 @@ copy on the Chef Infra Server at the end of each Chef Infra Client run.
 
 {{% node_attribute_when_to_use_unless_variants %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% notes_see_attributes_overview %}}
 
-</div>
+{{< /info >}}
 
 Attribute Types
 ===============

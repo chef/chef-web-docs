@@ -1,6 +1,5 @@
 +++
 title = "kitchen.yml"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_yml_kitchen.html"
@@ -8,7 +7,7 @@ aliases = "/config_yml_kitchen.html"
 [menu]
   [menu.docs]
     title = "kitchen.yml"
-    identifier = "chef_infra/chefdk/test_kitchen/config_yml_kitchen.html kitchen.yml"
+    identifier = "chef_infra/chefdk/test_kitchen/config_yml_kitchen.md kitchen.yml"
     parent = "chef_infra/chefdk/test_kitchen"
     weight = 30
 +++    
@@ -30,19 +29,13 @@ data across any combination of platforms and test suites:
 
 {{% test_kitchen_yml %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This topic details functionality that is packaged with ChefDK. See
 <https://kitchen.ci/docs/getting-started/> for more information about
 Kitchen.
 
-</div>
+{{< /info >}}
 
 Syntax
 ======
@@ -303,19 +296,13 @@ New Provisioner Settings
 </tbody>
 </table>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 There are two community provisioners for Kitchen:
 [kitchen-dsc](https://github.com/smurawski/kitchen-dsc) and
 [kitchen-pester](https://github.com/smurawski/kitchen-pester).
 
-</div>
+{{< /info >}}
 
 Transport Settings
 ==================

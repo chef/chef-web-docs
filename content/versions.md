@@ -1,6 +1,5 @@
 +++
 title = "Supported Versions"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/versions.html"
@@ -8,7 +7,7 @@ aliases = "/versions.html"
 [menu]
   [menu.docs]
     title = "Supported Versions"
-    identifier = "overview/packages_&_platforms/versions.html Supported Versions"
+    identifier = "overview/packages_&_platforms/versions.md Supported Versions"
     parent = "overview/packages_&_platforms"
     weight = 30
 +++    
@@ -63,17 +62,11 @@ use by customers.
 Versions and Status
 -------------------
 
-<div class="important" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Important
-
-</div>
+{{< important >}}
 
 Unless otherwise stated, versions older than those listed below are EOL.
 
-</div>
+{{< /important >}}
 
 Supported Commercial Distributions
 ==================================
@@ -340,12 +333,18 @@ End of Life (EOL) Products
 <td>April 30, 2019</td>
 </tr>
 <tr class="odd">
+<td>Chef Server DRBD HA</td>
+<td>All</td>
+<td>EOL</td>
+<td>March 31, 2019</td>
+</tr>
+<tr class="even">
 <td>Enterprise Chef</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Reporting</td>
 <td>All</td>
 <td>EOL</td>

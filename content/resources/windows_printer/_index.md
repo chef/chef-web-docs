@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: windows_printer resource
 resource: windows_printer
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_windows_printer.html
 menu:
   docs:
     title: windows_printer
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_printer.html windows_printer
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_printer.md windows_printer
     parent: chef_infra/cookbook_reference/resources
-    weight: 1230
+    weight: 1240
 
 
 ######## Basic Resource Data ########

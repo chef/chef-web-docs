@@ -1,6 +1,5 @@
 +++
 title = "Manage Client Keys"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_manage_clients.html"
@@ -8,7 +7,7 @@ aliases = "/server_manage_clients.html"
 [menu]
   [menu.docs]
     title = "Clients"
-    identifier = "chef_infra/features/management_console/server_manage_clients.html Clients"
+    identifier = "chef_infra/features/management_console/server_manage_clients.md Clients"
     parent = "chef_infra/features/management_console"
     weight = 30
 +++    
@@ -22,17 +21,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% EOL_manage %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 This topic is about using the Chef management console to manage keys.
 
-</div>
+{{< /info >}}
 
 A client is an actor that has permission to access the Chef Infra
 Server. A client is most often a node (on which the Chef Infra Client
@@ -51,17 +44,11 @@ Manage Client Keys [manage-client-keys-1]
 
 Client keys can be managed from the Chef management console.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The images below refer to client keys as a "Client".
 
-</div>
+{{< /warning >}}
 
 Add
 ---

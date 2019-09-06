@@ -1,6 +1,5 @@
 +++
 title = "About Chef Licenses"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/chef_license.html"
@@ -8,7 +7,7 @@ aliases = "/chef_license.html"
 [menu]
   [menu.docs]
     title = "About Licensing"
-    identifier = "overview/packages_&_platforms/licensing/chef_license.html About Licensing"
+    identifier = "overview/packages_&_platforms/licensing/chef_license.md About Licensing"
     parent = "overview/packages_&_platforms/licensing"
     weight = 10
 +++    

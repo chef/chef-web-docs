@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: apt_preference resource
 resource: apt_preference
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_apt_preference.html
 menu:
   docs:
     title: apt_preference
-    identifier: chef_infra/cookbook_reference/resources/resource_apt_preference.html apt_preference
+    identifier: chef_infra/cookbook_reference/resources/resource_apt_preference.md apt_preference
     parent: chef_infra/cookbook_reference/resources
-    weight: 60
+    weight: 70
 
 
 ######## Basic Resource Data ########

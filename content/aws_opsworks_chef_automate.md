@@ -1,6 +1,5 @@
 +++
 title = "AWS OpsWorks for Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/aws_opsworks_chef_automate.html"
@@ -8,13 +7,15 @@ aliases = "/aws_opsworks_chef_automate.html"
 [menu]
   [menu.docs]
     title = "AWS OpsWorks for Chef Automate"
-    identifier = "legacy/chef_automate_1/aws_opsworks_chef_automate.html AWS OpsWorks for Chef Automate"
+    identifier = "legacy/chef_automate_1/aws_opsworks_chef_automate.md AWS OpsWorks for Chef Automate"
     parent = "legacy/chef_automate_1"
     weight = 100
 +++    
 
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/aws_opsworks_chef_automate.rst)
+
+<meta name="robots" content="noindex">
 
 [AWS OpsWorks for Chef
 Automate](https://aws.amazon.com/opsworks/chefautomate/) is an AWS

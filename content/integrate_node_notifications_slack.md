@@ -1,6 +1,5 @@
 +++
 title = "Send Node Notifications to Slack"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/integrate_node_notifications_slack.html"
@@ -8,7 +7,7 @@ aliases = "/integrate_node_notifications_slack.html"
 [menu]
   [menu.docs]
     title = "Node Notifications w/Slack"
-    identifier = "legacy/chef_automate_1/nodes/integrate_node_notifications_slack.html Node Notifications w/Slack"
+    identifier = "legacy/chef_automate_1/nodes/integrate_node_notifications_slack.md Node Notifications w/Slack"
     parent = "legacy/chef_automate_1/nodes"
     weight = 10
 +++    
@@ -39,13 +38,7 @@ class="title-ref">delivery.rb</span> file. For more information on the
 proxy settings in Chef Automate, see [Proxy
 Settings](https://docs.chef.io/config_rb_delivery.html#proxy-settings).
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Notifications sent to Slack by Chef Automate do not support retries;
 therefore, notifications sent while Slack is experiencing API issues,
@@ -53,7 +46,7 @@ outages, or some other unplanned downtime may never be received by the
 channel. Undelivered notifications are not re-sent. Attempts to send
 notifications do generate log messages in your Chef Automate server.
 
-</div>
+{{< /info >}}
 
 Create a Webhook
 ================

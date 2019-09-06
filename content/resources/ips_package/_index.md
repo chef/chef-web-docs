@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: ips_package resource
 resource: ips_package
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_ips_package.html
 menu:
   docs:
     title: ips_package
-    identifier: chef_infra/cookbook_reference/resources/resource_ips_package.html ips_package
+    identifier: chef_infra/cookbook_reference/resources/resource_ips_package.md ips_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 450
+    weight: 460
 
 
 ######## Basic Resource Data ########

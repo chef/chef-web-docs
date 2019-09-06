@@ -1,6 +1,5 @@
 +++
 title = "Install Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_chef_automate.html"
@@ -8,7 +7,7 @@ aliases = "/install_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Installation Guide"
-    identifier = "legacy/chef_automate_1/getting_started/install_chef_automate.html Installation Guide"
+    identifier = "legacy/chef_automate_1/getting_started/install_chef_automate.md Installation Guide"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 10
 +++    
@@ -201,19 +200,13 @@ minimum the following machines must be able to reach each other:
 </tbody>
 </table>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Any build nodes/runners must be accessible from the Chef Automate server
 over SSH and they must have a user account configured that has sudo
 privileges.
 
-</div>
+{{< /info >}}
 
 Chef Infra Server Configuration
 ===============================
@@ -317,20 +310,14 @@ Push jobs server is available as an add-on to Chef Infra Server. If you
 only wish to use Push Jobs for deployment testing, you can use runners
 and the new job dispatch system in conjunction with Push jobs server.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Chef Automate is fully compatible with Push jobs server 1.x and 2.x.
 Please use 2.x for new installations. Information about upgrading from
 Push jobs server version 1.x to 2.x can be be found
 [here](/release_notes_push_jobs.html#upgrading-chef-automate-installation-to-use-push-jobs-server-2-1).
 
-</div>
+{{< /info >}}
 
 Download the appropriate package for your platform from
 <https://downloads.chef.io/push-jobs-server/> and copy it to the Chef
@@ -371,19 +358,13 @@ Chef Automate Server Installation and Configuration
 Now that you have your Chef Infra Server set up, install and configure
 Chef Automate by doing the following:
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If you plan to use a private Supermarket with your Chef Automate server,
 please make sure it is set up correctly by following the steps in
 [Install Private Supermarket](/install_supermarket/).
 
-</div>
+{{< /info >}}
 
 1.  Download and install the latest stable Chef Automate package for
     your operating system from <https://downloads.chef.io/automate/> on
@@ -416,18 +397,12 @@ please make sure it is set up correctly by following the steps in
     passing or failing. The end of the check will include a report of
     all failures and remediation steps that you can take to fix them.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     As shown in the example above, this command requires root user
     privileges.
 
-    </div>
+    {{< /info >}}
 
     Please refer to the troubleshooting section for more information
     about the error codes and remediation steps.
@@ -454,19 +429,13 @@ please make sure it is set up correctly by following the steps in
     `AUTOMATE_LICENSE` is the full path and file name of your Chef
     Automate license file. For example: `/root/automate.license`.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     After your Chef Automate server is successfully setup, this file
     will be copied into the `/var/opt/delivery/license` directory as
     `delivery.license`.
 
-    </div>
+    {{< /info >}}
 
     `AUTOMATE_CHEF_USER_KEY` is the `delivery` user key that you created
     on your Chef Infra Server. For example: `/root/delivery.pem`.
@@ -483,17 +452,11 @@ please make sure it is set up correctly by following the steps in
     `ENTERPRISE_NAME` is the name of your enterprise. For example:
     `4thcoffee_inc`.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     Currently, only one enterprise is allowed in Chef Automate.
 
-    </div>
+    {{< /info >}}
 
     If you are using a private Supermarket, tell the setup command about
     it by supplying the `--supermarket-fqdn` command line argument:
@@ -516,19 +479,13 @@ setup and applied configuration at that time. You can bypass this prompt
 by passing in the argument `--configure` to the `setup` command, which
 will run it automatically, or pass in `--no-configure` to skip it.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Your Chef Automate server will not be available for use until you either
 agree to apply the configuration, or manually run
 `sudo automate-ctl reconfigure`.
 
-</div>
+{{< /info >}}
 
 If you've applied the configuration, you will also be prompted to set up
 a Chef Automate runner and submit additional information. Alternatively,
@@ -548,19 +505,13 @@ your Chef Infra Server and Chef Automate server in `/etc/hosts`:
 > AUTOMATE_SERVER_IP     AUTOMATE_SERVER_FQDN
 > ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 If your environment requires going through a proxy server, please see
 [About Proxies](/install_chef_automate.html#about-proxies) for
 information on how to configure proxy settings.
 
-</div>
+{{< /info >}}
 
 For more information about `automate-ctl` and how to use it, see
 [automate-ctl (executable)](/ctl_automate_server.html).
@@ -596,13 +547,7 @@ node](/setup_build_node/).
 
 2.  Run the `install-runner` subcommand.
 
-    <div class="important" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Important
-
-    </div>
+    {{< important >}}
 
     The `install-runner` command creates a new file called `job_runner`
     in the `/etc/sudoers.d` directory that gives the runner the
@@ -613,15 +558,9 @@ node](/setup_build_node/).
     `Defaults requiretty` must not occur in the `/etc/sudoers` file on
     any runner. This will prevent proper installation of runners.
 
-    </div>
+    {{< /important >}}
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    {{< info >}}
 
     You can optionally download the latest ChefDK from
     <https://downloads.chef.io/chefdk/> to specify a local package via
@@ -631,7 +570,7 @@ node](/setup_build_node/).
     `OPTIONAL_CHEF_DK_PACKAGE_PATH`. This option cannot be used with the
     `--chefdk-version` as the version of the local package will be used.
 
-    </div>
+    {{< /info >}}
 
     ``` bash
     automate-ctl install-runner RUNNER_FQDN \
@@ -674,28 +613,16 @@ node](/setup_build_node/).
     you will overwrite a node before installation begins, which you can
     bypass by passing `--yes`.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Certain sensitive files are copied over to a temporary directory on the
 build node/runner. In the event of failure after these files have been
 copied, the installer will attempt to remove them. If it is unable to do
 so, it will provide you with instructions for doing so manually.
 
-</div>
+{{< /info >}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Setting up a build node or a runner involves a Chef Infra Client run on
 the target node. This requires the target node to be able to reach your
@@ -719,7 +646,7 @@ Server Response:
 Cannot fetch the contents of the response.
 ```
 
-</div>
+{{< /info >}}
 
 About Proxies
 -------------

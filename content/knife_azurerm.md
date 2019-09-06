@@ -1,6 +1,5 @@
 +++
 title = "Knife Azurerm"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_azurerm.html"
@@ -8,7 +7,7 @@ aliases = "/knife_azurerm.html"
 [menu]
   [menu.docs]
     title = "Knife Azurerm"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azurerm.html Knife Azurerm"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/knife_azurerm.md Knife Azurerm"
     parent = "chef_infra/getting_started/chef_on_azure_guide"
     weight = 60
 +++    
@@ -21,18 +20,12 @@ Knife Azure Overview
 
 {{% knife_azure %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-</div>
+{{< /info >}}
 
 `knife-azure` version 1.6.0 and later supports Azure Resource Manager.
 Commands starting with `knife azurerm` use the Azure Resource Manager
@@ -79,20 +72,14 @@ from the command line, see [Create service principal with PowerShell /
 Azure CLI
 2.0](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 When creating your user following the example in the Microsoft
 documentation, change <span class="title-ref">-o Reader</span> to <span
 class="title-ref">-o Contributor</span>, otherwise you will not be able
 to spin up or delete machines.
 
-</div>
+{{< /info >}}
 
 After creating the service principal, you will have the values:
 

@@ -1,6 +1,5 @@
 +++
 title = "manage.rb"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_manage.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb_manage.html"
 [menu]
   [menu.docs]
     title = "manage.rb"
-    identifier = "chef_infra/features/management_console/config_rb_manage.html manage.rb"
+    identifier = "chef_infra/features/management_console/config_rb_manage.md manage.rb"
     parent = "chef_infra/features/management_console"
     weight = 100
 +++    
@@ -35,13 +34,7 @@ The configuration file is located at: `/etc/chef-manage/manage.rb`.
 Settings
 ========
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 All of the following settings should be specified without using the
 equals symbol (`=`). For example:
@@ -50,7 +43,7 @@ equals symbol (`=`). For example:
 chef_documentation_url 'https://docs.chef.io'
 ```
 
-</div>
+{{< /warning >}}
 
 This configuration file has the following settings:
 

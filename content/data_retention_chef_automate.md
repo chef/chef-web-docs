@@ -1,6 +1,5 @@
 +++
 title = "Data Retention Management in Chef Automate"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/data_retention_chef_automate.html"
@@ -8,8 +7,8 @@ aliases = "/data_retention_chef_automate.html"
 [menu]
   [menu.docs]
     title = "Data Retention"
-    identifier = "legacy/chef_automate_1/managing_the_server/data_retention_chef_automate.html Data Retention"
-    parent = "legacy/chef_automate_1/managing_the_server"
+    identifier = "legacy/chef_automate_1/managing_the_chef_automate_server/data_retention_chef_automate.md Data Retention"
+    parent = "legacy/chef_automate_1/managing_the_chef_automate_server"
     weight = 50
 +++    
 

@@ -1,6 +1,5 @@
 +++
 title = "config.rb"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb.html"
 [menu]
   [menu.docs]
     title = "config.rb (knife.rb)"
-    identifier = "chef_infra/chefdk/knife/config_rb.html config.rb (knife.rb)"
+    identifier = "chef_infra/chefdk/knife/config_rb.md config.rb (knife.rb)"
     parent = "chef_infra/chefdk/knife"
     weight = 40
 +++    
@@ -16,13 +15,7 @@ aliases = "/config_rb.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb.rst)
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 The `config.rb` file is a replacement for the knife.rb file, starting
 with the Chef Client 12.0 release. The `config.rb` file has identical
@@ -30,7 +23,7 @@ settings and behavior to the knife.rb file. Chef Infra Client looks
 first for the presence of the `config.rb` file and if it is not found,
 then looks for the `knife.rb` file.
 
-</div>
+{{< /warning >}}
 
 A `config.rb` file is used to specify configuration details for knife.
 
@@ -49,19 +42,13 @@ A `config.rb` file:
     exists at the default path or the path specified by the `--config`
     option
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 When running Microsoft Windows, the `config.rb` file is located at
 `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If
 this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 
-</div>
+{{< /info >}}
 
 Settings
 ========
@@ -105,8 +92,8 @@ This configuration file has the following settings:
 
 `client_key`
 
-:   The location of the file that contains the client key. Default
-    value: `/etc/chef/client.pem`. For example:
+:   The location of the file that contains the client key, as an
+    absolute path. Default value: `/etc/chef/client.pem`. For example:
 
     ``` ruby
     client_key '/etc/chef/client.pem'
@@ -504,13 +491,7 @@ start of a Chef Infra Client run:
 
 :   See the description above for this setting.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Review the full list of [optional
 settings](/config_rb_optional_settings/) that can be added to the
@@ -529,4 +510,4 @@ settings only after careful consideration. Do not use optional settings
 in a production environment until after the setting's performance has
 been validated in a safe testing environment.
 
-</div>
+{{< /warning >}}

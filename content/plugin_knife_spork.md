@@ -1,6 +1,5 @@
 +++
 title = "knife-spork"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/plugin_knife_spork.html"
@@ -79,16 +78,10 @@ this plugin (see the GitHub documentation for full details):
 
 :   Upload a cookbook to the Chef Infra Server and freeze it.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 This topic is about a Chef community-authored tool that is packaged as
 part of ChefDK. See <https://github.com/jonlives/knife-spork> for more
 information about the `knife-spork` plugin.
 
-</div>
+{{< /warning >}}

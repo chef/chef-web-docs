@@ -1,6 +1,5 @@
 +++
 title = "config.rb Optional Settings"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/config_rb_optional_settings.html"
@@ -8,7 +7,7 @@ aliases = "/config_rb_optional_settings.html"
 [menu]
   [menu.docs]
     title = "Optional config.rb Settings"
-    identifier = "chef_infra/chefdk/config_rb_optional_settings.html Optional config.rb Settings"
+    identifier = "chef_infra/chefdk/config_rb_optional_settings.md Optional config.rb Settings"
     parent = "chef_infra/chefdk"
     weight = 100
 +++    
@@ -28,13 +27,7 @@ A value passed via the command line will override a value in the
 config.rb file; a value in a config.rb file will override a default
 value.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Many optional settings should not be added to the config.rb file. The
 reasons for not adding them can vary. For example, using `--yes` as a
@@ -50,7 +43,7 @@ consideration. Do not use optional settings in a production environment
 until after the setting's performance has been validated in a safe
 testing environment.
 
-</div>
+{{< /warning >}}
 
 The following list describes all of the optional settings that can be
 added to the configuration file:
@@ -601,18 +594,12 @@ file:
 
 :   Adds the the `--sudo` option.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The `knife bootstrap` subcommand relies on a number of SSH-related
 settings that are handled by the `knife ssh` subcommand.
 
-</div>
+{{< /info >}}
 
 client create
 -------------

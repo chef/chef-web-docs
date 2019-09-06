@@ -1,6 +1,5 @@
 +++
 title = "Install Chef Push Jobs"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/install_push_jobs.html"
@@ -8,7 +7,7 @@ aliases = "/install_push_jobs.html"
 [menu]
   [menu.docs]
     title = "Push Jobs"
-    identifier = "chef_infra/setup/install_push_jobs.html Push Jobs"
+    identifier = "chef_infra/setup/install_push_jobs.md Push Jobs"
     parent = "chef_infra/setup"
     weight = 100
 +++    
@@ -193,18 +192,12 @@ Chef Push Jobs Groups
 
 {{% push_jobs_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 The Chef Infra Server uses role-based access control to define the
 [organizations, groups, and users](/server_orgs.html), including those
 needed by Chef Push Jobs.
 
-</div>
+{{< /info >}}
 
 {{% server_rbac_groups_push_jobs %}}

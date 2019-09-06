@@ -1,6 +1,5 @@
 +++
 title = "Integrate Chef Automate with LDAP for Authentication"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/integrate_delivery_ldap.html"
@@ -8,7 +7,7 @@ aliases = "/integrate_delivery_ldap.html"
 [menu]
   [menu.docs]
     title = "Authentication w/LDAP"
-    identifier = "legacy/chef_automate_1/admin/integrate_delivery_ldap.html Authentication w/LDAP"
+    identifier = "legacy/chef_automate_1/admin/integrate_delivery_ldap.md Authentication w/LDAP"
     parent = "legacy/chef_automate_1/admin"
     weight = 20
 +++    

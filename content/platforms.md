@@ -1,6 +1,5 @@
 +++
 title = "Platforms"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/platforms.html"
@@ -8,7 +7,7 @@ aliases = "/platforms.html"
 [menu]
   [menu.docs]
     title = "Platforms"
-    identifier = "overview/packages_&_platforms/platforms.html Platforms"
+    identifier = "overview/packages_&_platforms/platforms.md Platforms"
     parent = "overview/packages_&_platforms"
     weight = 20
 +++    

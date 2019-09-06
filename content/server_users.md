@@ -1,6 +1,5 @@
 +++
 title = "Users"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/server_users.html"
@@ -8,8 +7,8 @@ aliases = "/server_users.html"
 [menu]
   [menu.docs]
     title = "Users"
-    identifier = "chef_infra/managing_the_server/server_users.html Users"
-    parent = "chef_infra/managing_the_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_users.md Users"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 140
 +++    
 
@@ -80,20 +79,14 @@ org-show
 org-user-add
 ------------
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+{{< warning >}}
 
 Early RC candidates for the Chef Server 12 release named this command
 `org-associate`. This is the same command, with the exception of the
 `--admin` flag, which is added to the command (along with the rename)
 for the upcoming final release of Chef Server 12.
 
-</div>
+{{< /warning >}}
 
 {{% ctl_chef_server_org_user_add %}}
 

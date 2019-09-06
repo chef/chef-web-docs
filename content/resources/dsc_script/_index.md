@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: dsc_script resource
 resource: dsc_script
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_dsc_script.html
 menu:
   docs:
     title: dsc_script
-    identifier: chef_infra/cookbook_reference/resources/resource_dsc_script.html dsc_script
+    identifier: chef_infra/cookbook_reference/resources/resource_dsc_script.md dsc_script
     parent: chef_infra/cookbook_reference/resources
-    weight: 320
+    weight: 330
 
 
 ######## Basic Resource Data ########

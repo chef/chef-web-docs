@@ -1,6 +1,5 @@
 +++
 title = "knife user"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_user.html"
@@ -8,7 +7,7 @@ aliases = "/knife_user.html"
 [menu]
   [menu.docs]
     title = "knife user"
-    identifier = "chef_infra/chefdk/knife/knife_user.html knife user"
+    identifier = "chef_infra/chefdk/knife/knife_user.md knife user"
     parent = "chef_infra/chefdk/knife"
     weight = 330
 +++    
@@ -18,17 +17,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_user_summary %}}
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 create
 ======
@@ -76,17 +69,11 @@ This argument has the following options:
     not specified, the Chef Infra Server will generate a public/private
     key pair.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------
@@ -363,18 +350,12 @@ Use the `reregister` argument to regenerate an RSA key pair for a user.
 The public key will be stored on the Chef Infra Server and the private
 key will be displayed on `STDOUT` or written to a named file.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Running this argument will invalidate the previous RSA key pair, making
 it unusable during authentication to the Chef Infra Server.
 
-</div>
+{{< /info >}}
 
 Syntax
 ------
@@ -394,17 +375,11 @@ This argument has the following options:
 
 :   Save a private key to the specified file name.
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_all_config_options %}}
 
-</div>
+{{< /info >}}
 
 Examples
 --------

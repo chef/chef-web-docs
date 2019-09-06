@@ -1,6 +1,5 @@
 +++
 title = "knife recipe list"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/knife_recipe_list.html"
@@ -8,7 +7,7 @@ aliases = "/knife_recipe_list.html"
 [menu]
   [menu.docs]
     title = "knife recipe list"
-    identifier = "chef_infra/chefdk/knife/knife_recipe_list.html knife recipe list"
+    identifier = "chef_infra/chefdk/knife/knife_recipe_list.md knife recipe list"
     parent = "chef_infra/chefdk/knife"
     weight = 210
 +++    
@@ -30,17 +29,11 @@ $ knife recipe list REGEX
 Options
 =======
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 {{% knife_common_see_common_options_link %}}
 
-</div>
+{{< /info >}}
 
 This command does not have any specific options.
 

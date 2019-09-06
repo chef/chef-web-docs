@@ -1,6 +1,5 @@
 +++
 title = "Chef and VMware"
-description = "DESCRIPTION"
 draft = false
 
 aliases = "/vmware.html"
@@ -8,7 +7,7 @@ aliases = "/vmware.html"
 [menu]
   [menu.docs]
     title = "VMware"
-    identifier = "chef_infra/setup/integrations/vmware.html VMware"
+    identifier = "chef_infra/setup/integrations/vmware.md VMware"
     parent = "chef_infra/setup/integrations"
     weight = 30
 +++    
@@ -69,19 +68,13 @@ $ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips 
 --cspec SPEC --ssh-user USER --ssh-password PASSWORD
 ```
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+{{< info >}}
 
 Add a `-f FOLDERNAME` if you put your `--template` in a directory other
 than the root folder. Use `--dest-folder FOLDERNAME` if you want your VM
 created in `FOLDERNAME` instead of the root folder.
 
-</div>
+{{< /info >}}
 
 **Clone from a folder into the "Datacenter Root" directory:**
 
@@ -263,7 +256,7 @@ Current request status: IN_PROGRESS...
 ```
 
 If you supply the `--purge` option, the server will also be removed from
-the Chef Server
+the Chef Infra Server
 
 **Execute a vRO workflow:**
 

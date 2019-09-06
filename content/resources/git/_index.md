@@ -2,7 +2,6 @@
 ######## Page Data ########
 title: git resource
 resource: git
-description: DESCRIPTION
 draft: false
 
 # redirect from old sphinx url
@@ -11,9 +10,9 @@ aliases: /resource_git.html
 menu:
   docs:
     title: git
-    identifier: chef_infra/cookbook_reference/resources/resource_git.html git
+    identifier: chef_infra/cookbook_reference/resources/resource_git.md git
     parent: chef_infra/cookbook_reference/resources
-    weight: 370
+    weight: 380
 
 
 ######## Basic Resource Data ########
