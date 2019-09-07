@@ -8,7 +8,7 @@ Install ChefDK
 The ChefDK package is produced by the `Chef Omnibus <https://github.com/chef/omnibus>`__ tool for installation on a workstation. ChefDK includes:
 
 * Chef Infra Client
-* An embedded version of Ruby, RubyGems, and the Ruby interpreter, all of which are build from the source. (The Ruby interpreter is not available for Windows)
+* Embedded versions of Ruby, RubyGems, and the Ruby interpreter, all of which are build from the source. (The Ruby interpreter is not available for Windows)
 * An embedded version of OpenSSL
 * Test Kitchen
 * Cookstyle

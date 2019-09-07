@@ -390,7 +390,7 @@ The key components of nodes that are under management by Chef include:
 
      - .. tag chef_client_summary
 
-       Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. The chef-client install package includes a self-contained ruby install and the chef-client code, which runs in the included ruby interpreter runtime. All components of the chef-client live in /opt/chef or c:\\opscode. When a Chef Infra Client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
+       Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. When Chef Infra Client runs, perform sall of the steps required for brining a node into the expected state, including:
 
        * Registering and authenticating the node with Chef Infra Server
        * Building the node object
@@ -403,7 +403,7 @@ The key components of nodes that are under management by Chef include:
 
        .. tag security_key_pairs_chef_client
 
-       RSA public key-pairs are used to authenticate Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
+       Chef Infra Client authenticates with the Chef Infra Server using RSA public key-pairs each time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
 
        .. end_tag
 
