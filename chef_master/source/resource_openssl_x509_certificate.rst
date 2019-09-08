@@ -338,7 +338,7 @@ Examples
 
 .. code-block:: ruby
 
-  openssl_x509 '/etc/httpd/ssl/mycert.pem' do
+  openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
     common_name 'www.f00bar.com'
     org 'Foo Bar'
     org_unit 'Lab'
