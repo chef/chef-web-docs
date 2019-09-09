@@ -43,9 +43,10 @@ What's New in 4.3
   * **kitchen-ec2**
 
     kitchen-ec2 has been updated from 3.0.1 to 3.1.0 with several new features:
-      - Added support for SSH through Session Manager. Thanks `@awiddersheim <https://github.com/awiddersheim>`__
-      - Adds support for searching for multiple security groups, as well as searching by group name. Thanks `@bdwyertech <https://github.com/bdwyertech>`__
-      - Allows asking for multiple instance types and subnets for spot pricing. Thanks `@vmiszczak-teads <https://github.com/vmiszczak-teads>`__
+    
+    - Added support for SSH through Session Manager. Thanks `@awiddersheim <https://github.com/awiddersheim>`__
+    - Adds support for searching for multiple security groups, as well as searching by group name. Thanks `@bdwyertech <https://github.com/bdwyertech>`__
+    - Allows asking for multiple instance types and subnets for spot pricing. Thanks `@vmiszczak-teads <https://github.com/vmiszczak-teads>`__
 
   * **kitchen-vagrant**
 
