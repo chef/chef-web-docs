@@ -816,7 +816,7 @@ What’s New in 14.9
   Errors joining the domain are now properly suppressed from the console and logs if the sensitive property is set to true. Thanks `@Happycoil <https://github.com/Happycoil>`__ for this improvement.
 
 * **windows_certificate**
-  
+
   The delete action now longer fails if a certificate does not exist on the system. Additionally certificates with special characters in their passwords will no longer fail. Thank you for reporting this `@chadmccune <https://github.com/chadmccune>`__
 
 * **windows_printer**
@@ -893,11 +893,11 @@ What’s New in 14.8
     Detection of Linux guests running on Hyper-V has been improved. In addition, Linux guests on Hyper-V hypervisors will also now detect their hypervisor's hostname. Thank you `@safematix <https://github.com/safematix>`__ for contributing this enhancement.
 
   - **LXC / LXD Detection**
-      
+
     On Linux systems running lxc or lxd containers, the lxc/lxd virtualization system will now properly populate the `node['virtualization']['systems']` attribute.
 
   - **BSD Hypervisor Detection**
-  
+
     BSD-based systems can now detect guests running on KVM and Amazon's hypervisor without the need for the dmidecode package.
 
 **New Platform Support**
@@ -912,7 +912,7 @@ What’s New in 14.8
 **Security Updates**
 
 * **OpenSSL updated to 1.0.2q**
-  
+
   * Microarchitecture timing vulnerability in ECC scalar multiplication `CVE-2018-5407 <https://nvd.nist.gov/vuln/detail/CVE-2018-5407>`__
   * Timing vulnerability in DSA signature generation `CVE-2018-0734 <https://nvd.nist.gov/vuln/detail/CVE-2018-0734>`__
 
@@ -928,11 +928,11 @@ What’s New in 14.7
   Thank you `Schuberg Philis <https://schubergphilis.com>`__ for transferring us the `windows_firewall cookbook <https://supermarket.chef.io/cookbooks/windows_firewall>`__ and to `@Happycoil <https://github.com/Happycoil>`__ for porting it to chef-client with a significant refactoring.
 
 * **windows_share**
-  
+
   Use the `windows_share </resource_windows_share.html>`__ resource create or delete Windows file shares.
 
 * **windows_certificate**
-  
+
   Use the `windows_certificate </resource_windows_certificate.html>`__ resource add, remove, or verify certificates in the system or user certificate stores.
 
 **Updated Resources**
@@ -1681,7 +1681,7 @@ Other Changes
   The correct attribute is then provided based on the ``policy_group`` of the node, so with a ``policy_group`` of ``staging`` the attribute would contain "My Staging App".
 
 * **yum_package rewrite**
-  
+
   `yum_package </resource_yum_package.html>`__ received a ground up rewrite that greatly improves both the performance and functionality while also resolving a dozen existing issues. It introduces a new caching method that runs for the duration of chef-client process. This caching method speeds up each package install and takes 1/2 the memory of the previous ``yum-dump.py`` process.
 
   yum_package should now take any argument that ``yum install`` does and operate the same way, including version constraints ,(``foo < 1.2.3``), globs (``foo-1.2*``), and arches (``foo.i386``), in combinations.
@@ -2748,25 +2748,25 @@ What's New in 12.21.26
   * `CVE-2017-5969 <https://www.cvedetails.com/cve/CVE-2017-5969/>`_
   * `CVE-2016-9318 <https://www.cvedetails.com/cve/CVE-2016-9318/>`_
   * `CVE-2016-5131 <https://www.cvedetails.com/cve/CVE-2016-5131/>`__
-   
+
 * **Security release of libxlst** libxlst has been upgraded to 1.1.30 to resolve the following CVEs:
 
   * `CVE-2017-5029 <http://www.cvedetails.com/cve/CVE-2017-5029/>`_
   * `CVE-2015-9019 <http://www.cvedetails.com/cve/CVE-2015-9019/>`_
-   
+
 * **Security release of zlib** zlib has been upgraded to 1.2.11 to resolve the following CVEs:
 
   * `CVE-2016-9840 <https://www.cvedetails.com/cve/CVE-2016-9840/>`_
   * `CVE-2016-9841 <https://www.cvedetails.com/cve/CVE-2016-9841/>`_
   * `CVE-2016-9842 <https://www.cvedetails.com/cve/CVE-2016-9842/>`_
   * `CVE-2016-9843 <https://www.cvedetails.com/cve/CVE-2016-9843/>`__
-   
+
 * **Security release of openssl** openssl has been upgraded to 1.0.2j to resolve the following CVEs:
 
   * `CVE-2017-3731 <http://www.cvedetails.com/cve/CVE-2017-3731>`_
   * `CVE-2017-3732 <http://www.cvedetails.com/cve/CVE-2017-3732>`_
   * `CVE-2016-7055 <http://www.cvedetails.com/cve/CVE-2016-7055>`__
-   
+
 * **Security release of rubygems** rubygems has been upgraded to 2.6.14 to resolve the following CVEs:
 
   - `CVE-2017-0903 <http://www.cvedetails.com/cve/CVE-2017-0903>`__
@@ -2813,7 +2813,7 @@ What's New in 12.21.10
   * `CVE-2017-0900 <https://nvd.nist.gov/vuln/detail/CVE-2017-0900>`_
   * `CVE-2017-0901 <https://nvd.nist.gov/vuln/detail/CVE-2017-0901>`_
   * `CVE-2017-0902 <https://nvd.nist.gov/vuln/detail/CVE-2017-0902>`__
-   
+
 * **Attribute Performance** Attribute performance has been improved when utilizing large numbers of merged attributes
 
 What's New in 12.21.4
@@ -6581,7 +6581,7 @@ Using the **dsc_resource** has the following requirements:
 * Windows Management Framework (WMF) 5.0 February Preview (or higher), which includes Windows PowerShell 5.0.10018.0 (or higher).
 * The ``RefreshMode`` configuration setting in the Local Configuration Manager must be set to ``Disabled``.
 
-  .. note:: 
+  .. note::
 
     Starting with Chef Client 12.6 release, the ``RefreshMode: Disabled`` requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented Chef Client from running in non-disabled refresh mode.
 
@@ -9569,13 +9569,6 @@ This resource has the following properties:
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This resource has the following providers:
-
-``Chef::Provider::Reboot``, ``reboot``
-   The provider that is used to reboot a node.
 
 Example
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

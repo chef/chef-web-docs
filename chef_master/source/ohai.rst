@@ -495,13 +495,6 @@ The ohai resource has the following properties:
 
 .. end_tag
 
-Providers
------------------------------------------------------
-This resource has the following providers:
-
-``Chef::Provider::Ohai``, ``ohai``
-   The default provider for all platforms.
-
 Examples
 -----------------------------------------------------
 The following examples demonstrate various approaches for using resources in recipes:
