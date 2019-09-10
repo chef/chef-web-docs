@@ -12,7 +12,7 @@ From Chef Server 12
 There are three upgrade scenarios for upgrades from earlier versions of Chef Server 12 to a newer version of Chef Server 12:
 
 * `Standalone </upgrade_server.html#standalone>`__
-* `High availability </upgrade_server.html#high-availability>`__
+* `High Availability: Chef Backend </upgrade_server.html#high-availability-chef-backend>`__
 * `Tiered </upgrade_server.html#tiered>`__
 
 .. note:: As of version 12.14, Chef Server will not render passwords outside of the ``/etc/opscode`` directory by default. If you are not using any Chef Infra Server add-ons, or you're using the latest add-on versions, you can set ``insecure_addon_compat`` to ``false`` in ``/etc/opscode/chef-server.rb``. With this option set to ``false``, Chef Infra Server writes all credentials to a single location. Note that this setting should only be applied after both the Chef Infra Server and its add-ons have been upgraded to compatible versions.
@@ -73,12 +73,14 @@ To upgrade to Chef Server 12 from a standalone Chef Server, do the following:
 
       $ chef-server-ctl cleanup
 
-High Availability
+High Availability: Chef Backend
 -----------------------------------------------------
-This section describes the upgrade process from a high availability configuration. The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
+The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
 
-The DRBD/Keepalived based HA system is no longer supported in Chef Infra Server 13. If a high availablity system is needed,
-backup and restore to a Chef Backend based installation.
+For a guide to upgrading to Chef Backend from DRBD see the `Best Best Practices for Migrating Your Chef Server <https://blog.chef.io/2018/04/06/best-practices-for-migrating-your-chef-server/>`__ webinar from the `Chef Blog <https://blog.chef.io/>`__
+
+As of Chef Infra Server 13, the DRBD/Keepalived based HA system is no longer supported.
+For a high availability solution, install Chef Backend based installation after `backing up and restoring </server_backup_restore.html#backup-and-restore-a-chef-backend-install>`_ your data.
 
 Tiered
 -----------------------------------------------------
