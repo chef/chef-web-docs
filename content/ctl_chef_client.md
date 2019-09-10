@@ -436,6 +436,66 @@ Local mode will store temporary and cache files under the
 user to run the Chef Infra Client in local mode without requiring root
 access.
 
+About why-run Mode
+------------------
+
+why-run mode is a way to see what Chef Infra Client would have
+configured, had an actual Chef Infra Client run occurred. This approach
+is similar to the concept of "no-operation" (or "no-op"): decide what
+should be done, but then don't actually do anything until it's done
+right. This approach to configuration management can help identify where
+complexity exists in the system, where inter-dependencies may be
+located, and to verify that everything will be configured in the desired
+manner.
+
+When why-run mode is enabled, a Chef Infra Client run will occur that
+does everything up to the point at which configuration would normally
+occur. This includes getting the configuration data, authenticating to
+the Chef Infra Server, rebuilding the node object, expanding the
+run-list, getting the necessary cookbook files, resetting node
+attributes, identifying the resources, and building the resource
+collection, but does not include mapping each resource to a provider or
+configuring any part of the system.
+
+{{< info >}}
+
+why-run mode is not a replacement for running cookbooks in a test
+environment that mirrors the production environment. Chef uses why-run
+mode to learn more about what is going on, but also Kitchen on developer
+systems, along with an internal OpenStack cloud and external cloud
+providers to test more thoroughly.
+
+{{< /info >}}
+
+When Chef Infra Client is run in why-run mode, certain assumptions are
+made:
+
+-   If the **service** resource cannot find the appropriate command to
+    verify the status of a service, why-run mode will assume that the
+    command would have been installed by a previous resource and that
+    the service would not be running.
+-   For `not_if` and `only_if` properties, why-run mode will assume
+    these are commands or blocks that are safe to run. These conditions
+    are not designed to be used to change the state of the system, but
+    rather to help facilitate idempotency for the resource itself. That
+    said, it may be possible that these attributes are being used in a
+    way that modifies the system state
+-   The closer the current state of the system is to the desired state,
+    the more useful why-run mode will be. For example, if a full
+    run-list is run against a fresh system, that run-list may not be
+    completely correct on the first try, but also that run-list will
+    produce more output than a smaller run-list
+
+For example, the **service** resource can be used to start a service. If
+the action is `:start`, then the service will start if it isn't running
+and do nothing if it is running. If a service is installed from a
+package, then Chef Infra Client cannot check to see if the service is
+running until after the package is installed. In that case, why-run mode
+will indicate what Chef Infra Client would do about the state of the
+service after installing a package. This is important because service
+actions often trigger notifications to other resources, so it is
+important to know that these notifications are triggered correctly.
+
 About chef-zero
 ---------------
 

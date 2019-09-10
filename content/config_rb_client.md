@@ -57,14 +57,10 @@ This configuration file has the following settings:
 :   A hash that blacklists `automatic` attributes, preventing
     blacklisted attributes from being saved.
 
-    *New in Chef Client 13.0.*
-
 `automatic_attribute_whitelist`
 
 :   A hash that whitelists `automatic` attributes, preventing
     non-whitelisted attributes from being saved.
-
-    *New in Chef Client 13.0.*
 
 `cache_path`
 
@@ -86,14 +82,16 @@ This configuration file has the following settings:
 
 `chef_license`
 
-:   Used to accept the Chef license. Performs a no-op on versions where
-    the license is not required. Can be set to `accept` or
-    `accept-no-persist`.
+:   Used to accept the Chef license. Can be set to `accept` or
+    `accept-no-persist`, which persists the license acceptance to disk.
+    If passed to versions where the license is not required this
+    configuration option is a no-op.
 
 `chef_repo_path`
 
-:   The path to the chef-repo. chef-solo sources cookbooks and roles
-    from this directory when running Chef Infra Client.
+:   The path to the chef-repo containing cookbooks and other files, such
+    as environments or data bags, when running Chef Infra Client in
+    local mode.
 
 `chef_server_url`
 
@@ -106,7 +104,8 @@ This configuration file has the following settings:
 `chef_zero.enabled`
 
 :   Enable chef-zero. This setting requires `local_mode` to be set to
-    `true`. Default value: `false`.
+    `true`. Default value: `true` if running in local-mode, otherwise
+    `false`.
 
 `chef_zero.port`
 
@@ -150,8 +149,8 @@ This configuration file has the following settings:
 
 `client_d_dir`
 
-:   A directory that contains additional configuration scripts to load
-    for a Chef Infra Client run.
+:   A directory that contains additional configuration files for Chef
+    Infra Client.
 
 `cookbook_path`
 
@@ -171,9 +170,8 @@ This configuration file has the following settings:
 `data_bag_decrypt_minimum_version`
 
 :   The minimum required version of data bag encryption. Possible
-    values: `0`, `1`, and `2`. When all of the machines in an
-    organization are running Chef Client 11.6 (or higher), it is
-    recommended that this value be set to `2`.
+    values: `1`, `2`, and `3`. It is recommended to use the default
+    value of `3` for additional encrypted data bag security.
 
 `data_bag_path`
 
@@ -194,8 +192,8 @@ This configuration file has the following settings:
 
 :   The Chef Infra Client mode in which the Data Collector will be
     enabled. Possible values: `:solo`, `:client`, or `:both`. The
-    `:solo` value is used for Chef operating in Chef Solo Mode or Chef
-    Solo Legacy Mode. Default value: `both`.
+    `:solo` value is used for Chef Infra Client operating in Chef Solo
+    Mode or Chef Solo Legacy Mode. Default value: `both`.
 
 `data_collector.raise_on_failure`
 
@@ -208,14 +206,10 @@ This configuration file has the following settings:
 :   A hash that blacklists `default` attributes, preventing blacklisted
     attributes from being saved.
 
-    *New in Chef Client 13.0.*
-
 `default_attribute_whitelist`
 
 :   A hash that whitelists `default` attributes, preventing
     non-whitelisted attributes from being saved.
-
-    *New in Chef Client 13.0.*
 
 `diff_disabled`
 
@@ -267,11 +261,11 @@ This configuration file has the following settings:
 
 `environment`
 
-:   The name of the environment.
+:   The name of the Chef Infra environment.
 
 `environment_path`
 
-:   The path to the environment. Default value:
+:   The path to the environment file. Default value:
     `/var/chef/environments`.
 
 `exit_status`
@@ -279,28 +273,10 @@ This configuration file has the following settings:
 :   When set to `:enabled`, Chef Infra Client will use [standardized
     exit
     codes](https://github.com/chef/chef-rfc/blob/master/rfc062-exit-status.md#exit-codes-in-use)
-    for Chef Infra Client run status, and any non-standard exit codes
-    will be converted to `1` or `GENERIC_FAILURE`. This setting can also
-    be set to `:disabled` which preserves the old behavior of using
-    non-standardized exit codes and skips the deprecation warnings.
-    Default value: `nil`.
-
-    {{< info >}}
-
-    The behavior with the default value consists of a warning on the use
-    of deprecated and non-standard exit codes. In the release of Chef
-    Client 13.x and beyond, using standardized exit codes is the default
-    behavior and cannot be changed with this config item.
-
-    {{< /info >}}
-
-    In Chef Client 13.x, you will also need to set `client_fork false`
-    in the config file in order to capture the standard return code.
-    Otherwise, you will be gathering the exit status of the master
-    process, and not that of the forked Chef Infra Client process that
-    did the actual run. Chef Client 14.x allows the standard return
-    codes to be returned to the calling shell in both forking and
-    non-forking mode.
+    for the Chef Infra Client run status, and any non-standard exit
+    codes will be converted to `1` or `GENERIC_FAILURE`. This setting
+    can also be set to `:disabled` to use the pre-Chef Infra Client 13
+    exit code behavior. Default value: `nil`.
 
 `file_atomic_update`
 
@@ -341,8 +317,6 @@ This configuration file has the following settings:
 
 :   Allows OpenSSL to enforce FIPS-validated security during a Chef
     Infra Client run. Set to `true` to enable FIPS-validated security.
-
-    Changed in Chef Server 12.13 to expose FIPS runtime flag on RHEL.
 
 `force_formatter`
 
@@ -439,16 +413,17 @@ This configuration file has the following settings:
 `lockfile`
 
 :   The location of the Chef Infra Client lock file. This value is
-    typically platform-dependent, so should be a location defined by
-    `file_cache_path`. The default location of a lock file should not on
-    an NF mount. Default value: a location defined by `file_cache_path`.
+    typically platform dependent, so it should be a location defined by
+    `file_cache_path`. The default location of a lock file should not be
+    on an NFS mount. Default value: a location defined by
+    `file_cache_path`.
 
 `log_level`
 
 :   The level of logging to be stored in a log file. Possible levels:
-    `:auto` (default), `:debug`, `:info`, `:warn`, `:error`, or
-    `:fatal`. Default value: `:warn` (when a terminal is available) or
-    `:info` (when a terminal is not available).
+    `:auto` (default), `:trace`, `:debug`, `:info`, `:warn`, `:error`,
+    or `:fatal`. Default value: `:warn` (when a terminal is available)
+    or `:info` (when a terminal is not available).
 
 `log_location`
 
@@ -497,28 +472,20 @@ This configuration file has the following settings:
 :   A hash that blacklists `normal` attributes, preventing blacklisted
     attributes from being saved.
 
-    *New in Chef Client 13.0.*
-
 `override_attribute_blacklist`
 
 :   A hash that blacklists `override` attributes, preventing blacklisted
     attributes from being saved.
-
-    *New in Chef Client 13.0.*
 
 `normal_attribute_whitelist`
 
 :   A hash that whitelists `normal` attributes, preventing
     non-whitelisted attributes from being saved.
 
-    *New in Chef Client 13.0.*
-
 `override_attribute_whitelist`
 
 :   A hash that whitelists `override` attributes, preventing
     non-whitelisted attributes from being saved.
-
-    *New in Chef Client 13.0.*
 
 `pid_file`
 
@@ -528,13 +495,25 @@ This configuration file has the following settings:
 
 `policy_group`
 
-:   The name of a policy group that exists on the Chef server.
+:   The name of a policy group that exists on the Chef Infra Server.
     `policy_name` must also be specified.
+
+`policy_group_path`
+
+:   The location of policy_groups on disk.
 
 `policy_name`
 
 :   The name of a policy, as identified by the `name` setting in a
     Policyfile.rb file. `policy_group` must also be specified.
+
+`policy_path`
+
+:   The location of policies on disk.
+
+`recipe_url`
+
+:   A URL to download recipes from when running in local mode.
 
 `rest_timeout`
 
@@ -629,6 +608,14 @@ This configuration file has the following settings:
     Depending on how OpenSSL is configured, the `ssl_ca_path` may need
     to be specified. Default value: `:verify_peer`.
 
+`trusted_certs_dir`
+
+:   A directory that contains additional SSL certificates to trust. Any
+    certificates in this directory will be added to whatever CA bundle
+    ruby is using. Use this to add self-signed certs for your Chef Infra
+    Server or local HTTP file servers. Default value: `trusted_certs`
+    directory in your chef configuration directory.
+
 `umask`
 
 :   The file mode creation mask, or umask. Default value: `0022`.
@@ -676,8 +663,8 @@ This configuration file has the following settings:
 
 `whitelist`
 
-:   A hash that contains the whitelist used by Chef Push Jobs. For
-    example:
+:   A hash that contains the whitelist of allowed commands used by Chef
+    Push Jobs. For example:
 
     ``` ruby
     whitelist {
@@ -690,23 +677,6 @@ This configuration file has the following settings:
     A job entry may also be `'job-name' => {:lock => true}`, which will
     check the `lockfile` setting in the client.rb file before starting
     the job.
-
-    {{< warning >}}
-
-    The `whitelist` setting is available only when using Chef Push Jobs,
-    a tool that runs jobs against nodes in an organization.
-
-    {{< /warning >}}
-
-    *New in Chef Client 13.0.*
-
-`windows_service.watchdog_timeout`
-
-:   The maximum amount of time (in seconds) available for a Chef Infra
-    Client run when it is run as a service on the Microsoft Windows
-    platform. If a Chef Infra Client run fails to complete within the
-    specified timeframe, that Chef Infra Client run is terminated.
-    Default value: `2 * (60 * 60)`.
 
 Automatic Proxy Config
 ----------------------

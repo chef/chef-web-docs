@@ -30,13 +30,7 @@ $ automate-ctl create-backup [NAME] [options]
 The `NAME` value is optional. If omitted, a default name with the
 current time will be used.
 
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+<div class="alert-warning">
 
 In rare circumstances, jobs that are running at the time of backup
 creation may be left in an unrecoverable state. For this reason, it's
@@ -44,13 +38,7 @@ recommended to take a backup when no critical jobs are running.
 
 </div>
 
-<div class="note" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Note
-
-</div>
+<div class="alert-info">
 
 `create-backup` should be run outside of root-only directories like
 `/root`, as it tries to chpst to the user chef-pgsql. This user will

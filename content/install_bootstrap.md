@@ -17,6 +17,8 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/i
 
 {{% chef_client_bootstrap_node %}}
 
+{{% chef_client_bootstrap_stages %}}
+
 knife bootstrap
 ===============
 

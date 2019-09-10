@@ -21,11 +21,11 @@ During every Chef Infra Client run, the following happens:
 <tbody>
 <tr class="odd">
 <td><strong>Get configuration data</strong></td>
-<td>Chef Infra Client gets process configuration data from the client.rb file on the node, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the <code>node_name</code> attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it is typically the FQDN for the node, which is always unique within an organization.</td>
+<td>Chef Infra Client gets process configuration data from the <a href="/config_rb_client/">client.rb</a> file on the <a href="/nodes/">node</a>, and then gets node configuration data from Ohai. One important piece of configuration data is the name of the node, which is found in the <code>node_name</code> attribute in the client.rb file or is provided by Ohai. If Ohai provides the name of a node, it is typically the FQDN for the node, which is always unique within an organization.</td>
 </tr>
 <tr class="even">
-<td><strong>Authenticate to the Chef Infra Server</strong></td>
-<td>Chef Infra Client authenticates to the Chef Infra Server using an RSA private key and the Chef Infra Server API. The name of the node is required as part of the authentication process to the Chef Infra Server. If this is the first Chef Infra Client run for a node, the chef-validator will be used to generate the RSA private key.</td>
+<td><strong>Authenticate to the Chef Server</strong></td>
+<td>Chef Infra Client <a href="/auth/">authenticates</a> to the Chef Infra Server using an RSA private key and the Chef Infra Server API. The name of the node is required as part of the authentication process to the Chef Infra Server. If this is the first Chef Infra Client run for a node, the chef-validator will be used to generate the RSA private key.</td>
 </tr>
 <tr class="odd">
 <td><strong>Get, rebuild the node object</strong></td>
@@ -33,11 +33,11 @@ During every Chef Infra Client run, the following happens:
 </tr>
 <tr class="even">
 <td><strong>Expand the run-list</strong></td>
-<td>Chef Infra Client expands the run-list from the rebuilt node object, compiling a full and complete list of roles and recipes that will be applied to the node, placing the roles and recipes in the same exact order they will be applied. (The run-list is stored in each node object's JSON file, grouped under <code>run_list</code>.)</td>
+<td>Chef Infra Client expands the <a href="/run_lists/">run-list</a> from the rebuilt node object, compiling a full and complete list of roles and recipes that will be applied to the node, placing the roles and recipes in the same exact order they will be applied. (The run-list is stored in each node object's JSON file, grouped under <code>run_list</code>.)</td>
 </tr>
 <tr class="odd">
 <td><strong>Synchronize cookbooks</strong></td>
-<td>Chef Infra Client asks the Chef Infra Server for a list of all cookbook files (including recipes, templates, resources, providers, attributes, libraries, and definitions) that will be required to do every action identified in the run-list for the rebuilt node object. The Chef Infra Server provides to Chef Infra Client a list of all of those files. Chef Infra Client compares this list to the cookbook files cached on the node (from previous Chef Infra Client runs), and then downloads a copy of every file that has changed since the previous Chef Infra Client run, along with any new files.</td>
+<td>Chef Infra Client asks the Chef Infra Server for a list of all <a href="/cookbooks/">cookbook files</a> (including recipes, templates, resources, providers, attributes, libraries, and definitions) that will be required to do every action identified in the run-list for the rebuilt node object. The Chef Infra Server provides to Chef Infra Client a list of all of those files. Chef Infra Client compares this list to the cookbook files cached on the node (from previous Chef Infra Client runs), and then downloads a copy of every file that has changed since the previous Chef Infra Client run, along with any new files.</td>
 </tr>
 <tr class="even">
 <td><strong>Reset node attributes</strong></td>

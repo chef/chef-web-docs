@@ -1,10 +1,4 @@
-<div class="warning" markdown="1">
-
-<div class="admonition-title" markdown="1">
-
-Warning
-
-</div>
+<div class="alert-warning">
 
 The following settings **MUST** be in the config file for LDAP
 authentication to Active Directory to work:
@@ -50,13 +44,7 @@ This configuration file has the following settings for `ldap`:
     'CN=user,OU=Employees,OU=Domainuser,DC=example,DC=com'
     ```
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    <div class="alert-info">
 
     If you need to escape characters in a distinguished name, such as
     when using Active Directory, they must be [escaped with a backslash
@@ -135,25 +123,13 @@ This configuration file has the following settings for `ldap`:
     Default value: `false`. Must be `false` when `ldap['tls_enabled']`
     is `true`.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    <div class="alert-info">
 
     It's recommended that you enable SSL for Active Directory.
 
     </div>
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    <div class="alert-info">
 
     Previous versions of the Chef Infra Server used the
     `ldap['ssl_enabled']` setting to first enable SSL, and then the
@@ -170,13 +146,7 @@ This configuration file has the following settings for `ldap`:
     will display strings like "the corporate login server", "corporate
     login", or "corporate password." Default value: `AD/LDAP`.
 
-    <div class="warning" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Warning
-
-    </div>
+    <div class="alert-warning">
 
     This setting is **not** used by the Chef Infra Server. It is used
     only by the Chef management console.
@@ -195,13 +165,7 @@ This configuration file has the following settings for `ldap`:
     `ldap['port']` is also set to `636`. Default value: `false`. Must be
     `false` when `ldap['ssl_enabled']` is `true`.
 
-    <div class="note" markdown="1">
-
-    <div class="admonition-title" markdown="1">
-
-    Note
-
-    </div>
+    <div class="alert-info">
 
     Previous versions of the Chef Infra Server used the
     `ldap['ssl_enabled']` setting to first enable SSL, and then the
