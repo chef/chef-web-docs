@@ -152,7 +152,7 @@ Check the status of the cluster:
 
      chef-backend-ctl status
 
-DRBD HA to Chef Backend 2.x Migration
+DRBD/Keepalived HA to Chef Backend 2.x
 =====================================================
 
 DRBD configurations are no longer supported. See `End of Life Products <https://docs.chef.io/versions.html#end-of-life-eol-products>`__
