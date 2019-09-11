@@ -54,15 +54,15 @@ The following simple example shows a definition with no arguments (a parameterle
 
 An example showing the use of parameters, with a parameter named ``port`` that defaults to ``4000`` rendered into a **template** resource, would look like:
 
- .. code-block:: ruby
+.. code-block:: ruby
 
-   define :prime_myfile, port: 4000 do
-     template '/etc/myfile' do
-       source 'myfile.erb'
-       variables({
-         port: params[:port],
-       })
-     end
+  define :prime_myfile, port: 4000 do
+    template '/etc/myfile' do
+      source 'myfile.erb'
+      variables({
+        port: params[:port],
+      })
+    end
    end
 
 Or the following definition, which looks like a resource when used in a recipe, but also contained **directory** and **file** resources that were repeated, but with slightly different parameters:

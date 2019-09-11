@@ -517,7 +517,7 @@ This configuration file has the following settings for ``elasticsearch``:
 ``elasticsearch['role_arn']``
    The Amazon Resource Names(ARN) of IAM policies role for Amazon Elasticsearch Service. Default value: ``nil``.
 
-    .. note:: If ``elasticsearch['urls']`` is specified with Amazon elasticsearch url then ``elasticsearch['role_arn']`` value will be required.
+   .. note:: If ``elasticsearch['urls']`` is specified with Amazon elasticsearch url then ``elasticsearch['role_arn']`` value will be required.
 
 ``elasticsearch['config_directory']``
    The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/elasticsearch/conf"``.

@@ -12,9 +12,9 @@ If you do not use a Chef Infra Server in your environment (if you only use ```ch
 
 To enable this functionality, you must perform the following steps:
 
- * Configure a Data Collector token in Chef Automate (see `prior section </data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate>`__)
- * Add Chef Automate SSL certificate to ``trusted_certs`` directory
- * Configure Chef Infra Client to use the Data Collector endpoint in Chef Automate
+* Configure a Data Collector token in Chef Automate (see `prior section </data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate>`__)
+* Add Chef Automate SSL certificate to ``trusted_certs`` directory
+* Configure Chef Infra Client to use the Data Collector endpoint in Chef Automate
 
 
 Add Chef Automate certificate to ``trusted_certs`` directory
@@ -71,6 +71,7 @@ Additional Configuration Options:
 
 Next Steps
 ============================
-   * `Perform a Compliance Scan </perform_compliance_scan.html>`__
-   * `Data Collection  </data_collection.html>`__
-   * `Data Collection with a Chef HA Cluster </data_collection_ha.html>`__
+
+* `Perform a Compliance Scan </perform_compliance_scan.html>`__
+* `Data Collection  </data_collection.html>`__
+* `Data Collection with a Chef HA Cluster </data_collection_ha.html>`__

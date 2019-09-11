@@ -128,15 +128,15 @@ A code editor should support the following: themes, plugins, snippets, syntax Ru
 
 These are a few common editors:
 
-   * `Visual Studio Code (free/open source) <http://code.visualstudio.com>`__
-   * `GitHub Atom - (free/open source) <http://atom.io>`__
-   * `Sublime Text - ($80 USD) <http://sublimetext.com>`__
+* `Visual Studio Code (free/open source) <http://code.visualstudio.com>`__
+* `GitHub Atom - (free/open source) <http://atom.io>`__
+* `Sublime Text - ($80 USD) <http://sublimetext.com>`__
 
 Chef support in editors:
 
-   * `VSCode Chef Extension <https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef>`__
-   * `Chef on Atom <https://atom.io/packages/language-chef>`__
-   * `Chef on Sublime Text <https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef>`__
+* `VSCode Chef Extension <https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef>`__
+* `Chef on Atom <https://atom.io/packages/language-chef>`__
+* `Chef on Sublime Text <https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef>`__
 
 Install and Optimize Git for Chef Development
 -------------------------------------------------------
