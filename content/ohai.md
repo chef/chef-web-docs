@@ -56,53 +56,25 @@ The following list shows the type of plugins that are included with
 Ohai. See the `ohai/lib/ohai/plugins` directory in the version of Ohai
 installed on your system for the full list:
 
+General Purpose Plugins
+-----------------------
+
 ``` ruby
-aix
-  cpu.rb
-  filesystem.rb
-  kernel.rb
-  memory.rb
-  network.rb
-  os.rb
-  platform.rb
-  uptime.rb
-  virtualization.rb
 azure.rb
-bsd
- filesystem.rb
- virtualization.rb
 c.rb
 chef.rb
 cloud.rb
 command.rb
-darwin
-  cpu.rb
-  filesystem.rb
-  hardware.rb
-  memory.rb
-  network.rb
-  platform.rb
-  system_profiler.rb
-  virtualization.rb
+cpu.rb
 digital_ocean.rb
 dmi.rb
 docker.rb
-dragonflybsd
- cpu.rb
- memory.rb
- network.rb
- os.rb
- platform.rb
 ec2.rb
 elixir.rb
 erlang.rb
 eucalyptus.rb
+filesystem.rb
 freebsd
-  cpu.rb
-  memory.rb
-  network.rb
-  os.rb
-  platform.rb
 gce.rb
 go.rb
 groovy.rb
@@ -116,6 +88,75 @@ keys.rb
 languages.rb
 libvirt.rb
 linode.rb
+lua.rb
+mono.rb
+network.rb
+nodejs.rb
+ohai_time.rb
+ohai.rb
+memory.rb
+network.rb
+platform.rb
+openstack.rb
+os.rb
+packages.rb
+perl.rb
+php.rb
+platform.rb
+powershell.rb
+ps.rb
+python.rb
+rackspace.rb
+root_group.rb
+ruby.rb
+rust.rb
+scala.rb
+scaleway.rb
+shard.rb
+shells.rb
+softlayer.rb
+ssh_host_key.rb
+timezone.rb
+uptime.rb
+virtualbox.rb
+vmware.rb
+zpools.rb
+```
+
+Platform Specific Plugins
+-------------------------
+
+``` ruby
+aix
+  kernel.rb
+  memory.rb
+  network.rb
+  platform.rb
+  uptime.rb
+  virtualization.rb
+bsd
+ virtualization.rb
+darwin
+  cpu.rb
+  filesystem.rb
+  hardware.rb
+  memory.rb
+  network.rb
+  platform.rb
+  system_profiler.rb
+  virtualization.rb
+dragonflybsd
+ cpu.rb
+ memory.rb
+ network.rb
+ os.rb
+ platform.rb
+freebsd
+  cpu.rb
+  memory.rb
+  network.rb
+  os.rb
+  platform.rb
 linux
   block_device.rb
   cpu.rb
@@ -130,42 +171,16 @@ linux
   platform.rb
   sessons.rb
   virtualization.rb
-lua.rb
-mono.rb
 netbsd
   cpu.rb
   memory.rb
   network.rb
   platform.rb
-network.rb
-nodejs.rb
-ohai.rb
-ohai_time.rb
 openbsd
   cpu.rb
   memory.rb
   network.rb
   platform.rb
-openstack.rb
-os.rb
-packages.rb
-passwd.rb
-perl.rb
-php.rb
-platform.rb
-powershell.rb
-ps.rb
-python.rb
-rackspace.rb
-root_group.rb
-ruby.rb
-rust.rb
-scala.rb
-scaleway.rb
-scsi.rb
-shard.rb
-shells.rb
-softlayer.rb
 solaris2
   cpu.rb
   dmi.rb
@@ -174,12 +189,6 @@ solaris2
   network.rb
   platform.rb
   virtualization.rb
-ssh_host_key.rb
-sysconf.rb
-timezone.rb
-uptime.rb
-virtualbox.rb
-vmware.rb
 windows
   cpu.rb
   drivers.rb
@@ -190,8 +199,38 @@ windows
   platform.rb
   system_enclosure.rb
   virtualization.rb
-zpools.rb
 ```
+
+Optional Plugins
+================
+
+Ohai ships several plugins that are considered optional and can be
+enabled in the [client.rb configuration file](/config_rb_client.html).
+
+-   <span class="title-ref">Lspci</span> - PCI device information on
+    Linux hosts.
+-   <span class="title-ref">Lsscsi</span> - SCSI device information on
+    Linux hosts.
+-   <span class="title-ref">Passwd</span> - User and Group information
+    on non-Windows hosts. This plugin can result in very large node
+    sizes if a system connects to Active Directory or LDAP.
+-   <span class="title-ref">Sessions</span> - Sessions data from
+    loginctl on Linux hosts.
+-   <span class="title-ref">Sysctl</span> - All sysctl values on Linux
+    hosts.
+
+Enabling Optional Plugins
+-------------------------
+
+Optional plugins can be enabled in the [client.rb configuration
+file](/config_rb_client.html):
+
+> ``` ruby
+> ohai.optional_plugins = [
+>   :Sessions,
+>   :Lspci
+> ]
+> ```
 
 Custom Plugins
 ==============
@@ -230,8 +269,8 @@ end
 ```
 
 Hint files are located in the `/etc/chef/ohai/hints/` directory by
-default. Use the `Ohai.config[:hints_path]` setting in the `client.rb`
-file to customize this location.
+default. Use the `Ohai.config[:hints_path]` setting in the [client.rb
+configuration file](/config_rb_client.html) to customize this location.
 
 ohai Resource
 =============
@@ -283,15 +322,6 @@ Properties
 ----------
 
 {{% resource_ohai_properties %}}
-
-Providers
----------
-
-This resource has the following providers:
-
-`Chef::Provider::Ohai`, `ohai`
-
-:   The default provider for all platforms.
 
 Examples
 --------

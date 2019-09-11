@@ -27,6 +27,8 @@ chef-validator
 
 {{% security_chef_validator %}}
 
+{{% security_chef_validator_context %}}
+
 During a Chef Infra Client Run
 ------------------------------
 

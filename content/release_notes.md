@@ -13017,14 +13017,6 @@ This resource has the following properties:
     :   Specifies that a notification should be run immediately, per
         resource notified.
 
-### Providers
-
-This resource has the following providers:
-
-`Chef::Provider::Reboot`, `reboot`
-
-:   The provider that is used to reboot a node.
-
 ### Example
 
 **Reboot a node immediately**

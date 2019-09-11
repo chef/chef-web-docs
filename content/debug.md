@@ -183,14 +183,6 @@ breakpoint Resource
 
 {{% resource_breakpoint_properties %}}
 
-### Providers
-
-This resource has the following providers:
-
-`Chef::Provider::Breakpoint`, `breakpoint`
-
-:   The default provider for all recipes.
-
 ### Examples
 
 The following examples demonstrate various approaches for using
