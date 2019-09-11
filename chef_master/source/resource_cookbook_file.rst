@@ -594,6 +594,7 @@ The naming of folders within cookbook directories must literally match the host 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Transfer a file**

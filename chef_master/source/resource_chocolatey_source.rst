@@ -245,3 +245,25 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Add a Chocolatey source**
+
+.. code-block:: ruby
+
+   chocolatey_source 'MySource' do
+     source 'http://example.com/something'
+     action :add
+   end
+
+**Remove a Chocolatey source**
+
+.. code-block:: ruby
+
+   chocolatey_source 'MySource' do
+     action :remove
+   end

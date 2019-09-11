@@ -6,7 +6,7 @@ apt_repository resource
 Use the **apt_repository** resource to specify additional APT repositories. Adding a new repository will update the APT package cache immediately.
 
 Syntax
-==========================================
+=====================================================
 An **apt_repository** resource specifies APT repository information and adds an additional APT repository to the existing list of repositories:
 
 .. code-block:: ruby
@@ -285,6 +285,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Add repository with basic settings**
 
