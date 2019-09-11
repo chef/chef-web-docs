@@ -199,8 +199,7 @@ For each frontend server, use the following steps to set up the Chef Infra Serve
 
    .. end_tag
 
-#.
-   .. This topic is hooked in globally to install topics for Chef Infra Server applications.
+#. .. This topic is hooked in globally to install topics for Chef Infra Server applications.
 
    Start the Chef Infra Server:
 

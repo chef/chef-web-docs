@@ -59,26 +59,26 @@ Hardware Requirements
 
 Chef Automate deployments have the following hardware requirements:
 
-  .. list-table::
-     :widths: 150 100 100 100
-     :header-rows: 1
+.. list-table::
+   :widths: 150 100 100 100
+   :header-rows: 1
 
-     * - Function
-       - vCPU
-       - RAM
-       - Free disk space (in /var)
-     * - Chef Automate server
-       - 4
-       - 16GB\*
-       - 80GB
-     * - Chef Server version 12.11.1 or above.
-       - 4
-       - 8GB
-       - 80GB
-     * - Build nodes/Runners (Optional, but required if you use workflow)
-       - 2
-       - 4GB
-       - 60GB
+   * - Function
+     - vCPU
+     - RAM
+     - Free disk space (in /var)
+   * - Chef Automate server
+     - 4
+     - 16GB\*
+     - 80GB
+   * - Chef Server version 12.11.1 or above.
+     - 4
+     - 8GB
+     - 80GB
+   * - Build nodes/Runners (Optional, but required if you use workflow)
+     - 2
+     - 4GB
+     - 60GB
 
 \*If you use your own Elasticsearch cluster instead of the single Elasticsearch instance provided with Chef Automate,
 then the Chef Automate server only requires 8 GB of RAM.
@@ -157,17 +157,17 @@ As noted above, it's a best practice to use a separate organization when managin
 
 #. Create a user named ``delivery``, and specify a first name, last name, email address, and password. A private key will be generated for you, so specify where to save that key using the ``--filename`` option with an absolute path to its intended location.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
         sudo chef-server-ctl user-create delivery FIRST_NAME LAST_NAME EMAIL_ADDRESS 'PASSWORD' --filename AUTOMATE_CHEF_USER_KEY
 
-    The path to the key is referenced as ``AUTOMATE_CHEF_USER_KEY`` in step 4 of `Chef Automate Server Installation and Configuration </install_chef_automate.html#chef-automate-server-installation-and-configuration>`_.
+   The path to the key is referenced as ``AUTOMATE_CHEF_USER_KEY`` in step 4 of `Chef Automate Server Installation and Configuration </install_chef_automate.html#chef-automate-server-installation-and-configuration>`_.
 
 #. Create an organization for managing your Chef Automate cluster and associate the Chef Automate ``delivery`` user with it.
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-        sudo chef-server-ctl org-create AUTOMATE_CHEF_ORG 'org description' --filename ~/AUTOMATE_CHEF_ORG-validator.pem -a delivery
+      sudo chef-server-ctl org-create AUTOMATE_CHEF_ORG 'org description' --filename ~/AUTOMATE_CHEF_ORG-validator.pem -a delivery
 
    The organization name (denoted by the placeholder ``AUTOMATE_CHEF_ORG`` above) must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores, and must be between 1 and 255 characters. For example: ``4thcoffee``.
 
@@ -177,7 +177,7 @@ As noted above, it's a best practice to use a separate organization when managin
 
    An RSA private key is generated automatically. This is the chef-validator key and should be saved to a safe location. The ``--filename`` option will save the RSA private key to the specified absolute path.
 
-  .. note:: The ``--filename`` option is used so that the validator key for your organization will not be shown on-screen. The key is not required for this process.
+   .. note:: The ``--filename`` option is used so that the validator key for your organization will not be shown on-screen. The key is not required for this process.
 
 Push Jobs Server Installation (Optional)
 ------------------------------------------------------
@@ -309,10 +309,10 @@ After setup successfully completes and a configuration has been applied, login c
 
 And if you don't have DNS, specify the fully-qualified domain names for your Chef Infra Server and Chef Automate server in ``/etc/hosts``:
 
-   .. code-block:: none
+.. code-block:: none
 
-      CHEF_SERVER_IP         CHEF_SERVER_FQDN
-      AUTOMATE_SERVER_IP     AUTOMATE_SERVER_FQDN
+   CHEF_SERVER_IP         CHEF_SERVER_FQDN
+   AUTOMATE_SERVER_IP     AUTOMATE_SERVER_FQDN
 
 .. note:: If your environment requires going through a proxy server, please see `About Proxies </install_chef_automate.html#about-proxies>`_ for information on how to configure proxy settings.
 
@@ -412,7 +412,7 @@ Profiles
 
 Chef Automate contains a compliance profiles asset store that provides several built-in profiles covering baseline security checks through CIS benchmarks across multiple operating systems.
 
- The compliance profiles asset store is enabled by default. You can manage your profiles through the `Chef Automate API </api_automate.html>`_ as well as through the Chef Automate UI. See `An Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information on the new integrated compliance functionality.
+The compliance profiles asset store is enabled by default. You can manage your profiles through the `Chef Automate API </api_automate.html>`_ as well as through the Chef Automate UI. See `An Overview of Compliance in Chef Automate </chef_automate_compliance.html>`_ for more information on the new integrated compliance functionality.
 
 Scanning
 ------------------------------------------------------------

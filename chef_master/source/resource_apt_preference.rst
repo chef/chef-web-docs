@@ -223,6 +223,8 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
+The following examples demonstrate various approaches for using resources in recipes:
+
 **Pin a package to a specific version**
 
 This example pins the ``libmysqlclient16`` package to ``version 5.1.49-3``:

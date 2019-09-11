@@ -128,15 +128,15 @@ Step 4: Re-enable failover
 
 Allow failover again:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      % chef-backend-ctl set-cluster-failover on
+   % chef-backend-ctl set-cluster-failover on
 
 Step 5: Verify the cluster is stable
 -----------------------------------------------------
 
 Check the status of the cluster:
 
-  .. code-block:: bash
+.. code-block:: bash
 
-     % chef-backend-ctl status
+   % chef-backend-ctl status

@@ -309,6 +309,6 @@ Bookshelf Settings
 -----------------------------------------------------
 In instances that require cookbooks to be stored within a SQL backend, such as in a high availability setup, you must set the ``storage_type`` to ``:sql``:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      bookshelf['storage_type'] = :sql
+   bookshelf['storage_type'] = :sql

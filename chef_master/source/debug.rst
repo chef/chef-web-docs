@@ -487,13 +487,6 @@ This resource does not have any properties.
 
 .. end_tag
 
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This resource has the following providers:
-
-``Chef::Provider::Breakpoint``, ``breakpoint``
-   The default provider for all recipes.
-
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The following examples demonstrate various approaches for using resources in recipes:

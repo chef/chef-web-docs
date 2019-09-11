@@ -207,3 +207,25 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Set the Chocolatey cacheLocation config**
+
+.. code-block:: ruby
+
+   chocolatey_config 'Set cacheLocation config' do
+     config_key 'cacheLocation'
+     value 'C:	empoco'
+   end
+
+**Unset a Chocolatey config**
+
+.. code-block:: ruby
+
+   chocolatey_config 'BogusConfig' do
+     action :unset
+   end

@@ -381,12 +381,12 @@ Enabling Optional Plugins
 
 Optional plugins can be enabled in the `client.rb configuration file </config_rb_client.html>`__:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      ohai.optional_plugins = [
-        :Sessions,
-        :Lspci
-      ]
+   ohai.optional_plugins = [
+     :Sessions,
+     :Lspci
+   ]
 
 Custom Plugins
 =====================================================
@@ -494,13 +494,6 @@ The ohai resource has the following properties:
    The name of an Ohai plugin to be reloaded. If this property is not specified, Chef Infra Client will reload all plugins.
 
 .. end_tag
-
-Providers
------------------------------------------------------
-This resource has the following providers:
-
-``Chef::Provider::Ohai``, ``ohai``
-   The default provider for all platforms.
 
 Examples
 -----------------------------------------------------

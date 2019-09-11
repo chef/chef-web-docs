@@ -601,6 +601,7 @@ The ``run_status`` object is initialized by Chef Infra Client before the ``repor
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Enable the CloudkickHandler handler**

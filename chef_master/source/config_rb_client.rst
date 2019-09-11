@@ -24,11 +24,11 @@ This configuration file has the following settings:
 ``authentication_protocol_version``
   Sets the authentication protocol that is used to communicate with Chef Infra Server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
 
-   .. code-block:: ruby
+  .. code-block:: ruby
 
-      knife[:authentication_protocol_version] = '1.3'
+    knife[:authentication_protocol_version] = '1.3'
 
-   .. note:: Authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
+  .. note:: Authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
 
 ``automatic_attribute_blacklist``
    A hash that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.

@@ -201,3 +201,24 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Enable the checksumFiles Chocolatey feature**
+
+.. code-block:: ruby
+
+   chocolatey_feature 'checksumFiles' do
+     action :enable
+   end
+
+**Disable the checksumFiles Chocolatey feature**
+
+.. code-block:: ruby
+
+   chocolatey_feature 'checksumFiles' do
+     action :disable
+   end

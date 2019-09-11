@@ -292,6 +292,7 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Use a named provider to run a script**
@@ -385,7 +386,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
        ./install.sh
        EOH
      environment 'PREFIX' => '/usr/local'
-  end
+   end
 
 To read more about ``ruby-build``, see here: https://github.com/sstephenson/ruby-build.
 

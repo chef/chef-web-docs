@@ -158,63 +158,63 @@ Upgrading Add-ons
 =====================================================
 This section details the process for upgrading additional features after the Chef Infra Server has been upgraded.
 
-   **Use Downloads**
+**Use Downloads**
 
-   .. tag ctl_chef_server_install_features_download
+.. tag ctl_chef_server_install_features_download
 
-   The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.
+The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.
 
-   .. list-table::
-      :widths: 100 400
-      :header-rows: 1
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
 
-      * - Feature
-        - Command
-      * - Chef Manage
-        - Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
+   * - Feature
+     - Command
+   * - Chef Manage
+     - Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
-          On the Chef Infra Server, run:
+       On the Chef Infra Server, run:
 
-          .. code-block:: bash
+       .. code-block:: bash
 
-             $ sudo chef-server-ctl install chef-manage
+          $ sudo chef-server-ctl install chef-manage
 
-          then:
+       then:
 
-          .. code-block:: bash
+       .. code-block:: bash
 
-             $ sudo chef-server-ctl reconfigure
+          $ sudo chef-server-ctl reconfigure
 
-          and then:
+       and then:
 
-          .. code-block:: bash
+       .. code-block:: bash
 
-             $ sudo chef-manage-ctl reconfigure
+          $ sudo chef-manage-ctl reconfigure
 
-          To accept the `Chef MLSA </chef_license.html>`__:
+       To accept the `Chef MLSA </chef_license.html>`__:
 
-          .. code-block:: bash
+       .. code-block:: bash
 
-             $ sudo chef-manage-ctl reconfigure --accept-license
+          $ sudo chef-manage-ctl reconfigure --accept-license
 
-   .. end_tag
+.. end_tag
 
-   **Use Local Packages**
+**Use Local Packages**
 
-   .. tag ctl_chef_server_install_features_manual
+.. tag ctl_chef_server_install_features_manual
 
-   The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are behind a firewall (and may not have connectivity to packages.chef.io), these packages can be downloaded from https://downloads.chef.io/chef-manage/, and then installed manually. First download the package that is appropriate for the platform, save it to a local path, and then run the ``install`` command using the ``--path`` option to specify the directory in which the package is located:
+The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are behind a firewall (and may not have connectivity to packages.chef.io), these packages can be downloaded from https://downloads.chef.io/chef-manage/, and then installed manually. First download the package that is appropriate for the platform, save it to a local path, and then run the ``install`` command using the ``--path`` option to specify the directory in which the package is located:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+   $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 
-   For example:
+For example:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ sudo chef-server-ctl install chef-manage --path /root/packages
+   $ sudo chef-server-ctl install chef-manage --path /root/packages
 
-   The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
+The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 
-   .. end_tag
+.. end_tag

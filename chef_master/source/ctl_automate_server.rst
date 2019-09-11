@@ -833,15 +833,15 @@ Explanation of fields
 preflight-check
 =====================================================
 
- The ``preflight-check`` subcommand is used to check for common problems in your infrastructure environment before setup and configuration of Chef Automate begins.
+The ``preflight-check`` subcommand is used to check for common problems in your infrastructure environment before setup and configuration of Chef Automate begins.
 
- New in Chef Automate 0.6.64.
+New in Chef Automate 0.6.64.
 
- This subcommand has the following syntax:
+This subcommand has the following syntax:
 
- .. code-block:: bash
+.. code-block:: bash
 
-    $ automate-ctl preflight-check
+  $ automate-ctl preflight-check
 
 reconfigure
 =====================================================

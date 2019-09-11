@@ -199,7 +199,7 @@ If you have a self-signed certificate or a customer certificate authority then y
 
 * Generate a pem file with your entire certificate chain of the Chef Automate instance and save it to a file. A client machine may run the above openssl command to avoid having to copy/paste the certificate chain around as well. For Example:
 
-    .. code-block:: none
+  .. code-block:: none
 
         $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
 
@@ -219,9 +219,9 @@ If you have a self-signed certificate or a customer certificate authority then y
         ---
         ...
 
-    Create a new file ``yourautomateserver.com.pem`` and copy both of the certificate sections in order. In this example the file should look like:
+  Create a new file ``yourautomateserver.com.pem`` and copy both of the certificate sections in order. In this example the file should look like:
 
-    .. code-block:: none
+  .. code-block:: none
 
         -----BEGIN CERTIFICATE-----
         (server certificate)
@@ -232,14 +232,14 @@ If you have a self-signed certificate or a customer certificate authority then y
 
 * Every workstation will need a copy of this file and the cli.toml should be updated to include this configuration option.
 
-    .. code-block:: none
+  .. code-block:: none
 
         fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem"
 
 
 * When configuring runners you'll need to include the file generated above as an argument to the `install-runner` command. See `Install Runner </ctl_automate_server.html#install-runner>`_.
 
-    .. code-block:: none
+  .. code-block:: none
 
        $ automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
 
@@ -251,32 +251,34 @@ If you experience configuration errors, check the Chef Automate configuration by
 
 Running ``delivery status`` should return something like:
 
-   .. code-block:: none
+.. code-block:: none
 
-      Status information for Automate server automate-server.dev
+   Status information for Automate server automate-server.dev
 
-      Status: up (request took 97 ms)
-      Configuration Mode: standalone
-      FIPS Mode: enabled
-      Upstreams:
-      Lsyncd:
-         status: not_running
-      PostgreSQL:
+   Status: up (request took 97 ms)
+   Configuration Mode: standalone
+   FIPS Mode: enabled
+   Upstreams:
+   Lsyncd:
+      status: not_running
+   PostgreSQL:
+      status: up
+   RabbitMQ:
+      status: up
+      node_health:
          status: up
-      RabbitMQ:
+      vhost_aliveness:
          status: up
-         node_health:
-            status: up
-         vhost_aliveness:
-            status: up
 
-      Your Automate Server is configured in FIPS mode.
-      Please add the following to your cli.toml to enable Automate FIPS mode on your machine:
+Your Automate Server is configured in FIPS mode.
+Please add the following to your cli.toml to enable Automate FIPS mode on your machine:
 
-         fips = true
-         fips_git_port = "OPEN_PORT"
+.. code-block:: none
 
-         Replace OPEN_PORT with any port that is free on your machine.
+   fips = true
+   fips_git_port = "OPEN_PORT"
+
+Replace OPEN_PORT with any port that is free on your machine.
 
 
 Unable to run any delivery commands when FIPS is enabled
@@ -284,7 +286,7 @@ Unable to run any delivery commands when FIPS is enabled
 #. Confirm FIPS is enabled on Chef Automate with ``delivery status``. You should see ``FIPS Mode: enabled``.
 #. Confirm your project's ``cli.toml`` is configured correctly. The following configuration items should be present:
 
-    .. code-block:: none
+   .. code-block:: none
 
         fips_enabled = true
         fips_git_port = "<some open port>"
@@ -296,7 +298,7 @@ Unable to run any delivery commands when FIPS is enabled
 
 #. On Windows you will need to kill the tunnel whenever you make a fips configuration change to ``cli.toml``. To restart the tunnel:
 
-    .. code-block:: none
+   .. code-block:: none
 
         PS C:\Users\user> tasklist /fi "imagename eq stunnel.exe"
 

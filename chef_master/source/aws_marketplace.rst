@@ -171,8 +171,8 @@ After the instance has been provisioned and initial configuration has completed 
 
 Configure the workstation
 -----------------------------------------------------
-#.
-   Download and extract the ``starter_kit.zip`` file to a directory on the workstation. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit. For example:
+
+#. Download and extract the ``starter_kit.zip`` file to a directory on the workstation. Open a command prompt and change into the ``chef-repo`` directory extracted from the starter kit. For example:
 
    .. code-block:: bash
 
@@ -313,12 +313,11 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 
    .. end_tag
 
-#.
-   Open ``.chef/pivotal.rb`` in a text editor and modify the ``chef_server_url`` and ``chef_server_root`` with your new public DNS. For example:
+#. Open ``.chef/pivotal.rb`` in a text editor and modify the ``chef_server_url`` and ``chef_server_root`` with your new public DNS. For example:
 
    .. code-block:: bash
 
-      $ vim ~/chef-repo/.chef/pivotal.rb
+     vim ~/chef-repo/.chef/pivotal.rb
 
    will open a ``pivotal.rb`` file similar to:
 

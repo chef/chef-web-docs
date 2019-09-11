@@ -134,23 +134,23 @@ If "waiting for builder" occurs in the log output on a Chef Automate setup with 
 
 If your Chef Automate system has builders(Push Jobs), then your projects should have the following configuration in .delivery/config.json :
 
-   .. code-block:: json
+.. code-block:: json
 
-       {
-         "job_dispatch": {
-           "version": "v1"
-           }
+   {
+     "job_dispatch": {
+       "version": "v1"
        }
+   }
 
 If your Chef Automate system has runners, then your projects should have the following configuration in .delivery/config.json
 
-   .. code-block:: json
+.. code-block:: json
 
-       {
-         "job_dispatch": {
-           "version": "v2"
-           }
+   {
+     "job_dispatch": {
+       "version": "v2"
        }
+   }
 
 If the ``.delivery/config.json`` is correct, but jobs are not kicking off, then the best thing to do is restart Automate's main service with ``automate-ctl restart delivery``. After restarting the service, queued change jobs should start being processed by the available resources for that job type.
 
@@ -166,23 +166,23 @@ At a minimum, the build-node and runner configuration includes the following:
 
 If your Chef Automate system has builders(Push Jobs), then your projects should have the following configuration in .delivery/config.json :
 
-   .. code-block:: json
+.. code-block:: json
 
-       {
-         "job_dispatch": {
-           "version": "v1"
-           }
+   {
+     "job_dispatch": {
+       "version": "v1"
        }
+   }
 
 If your Chef Automate system has runners, then your projects should have the following configuration in .delivery/config.json
 
-   .. code-block:: json
+.. code-block:: json
 
-       {
-         "job_dispatch": {
-           "version": "v2"
-           }
+   {
+     "job_dispatch": {
+       "version": "v2"
        }
+   }
 
 If you are trying debugging a specific build node or runner and need to ensure that one is available for your projects,
 then modify the build-nodes or job_dispatch default search for your project as described in `Configure a Project </config_json_delivery.html>`__.
