@@ -51,9 +51,9 @@ authentication_protocol_version
 ----------------------------------------------------
 The ``authentication_protocol_version`` option in the ``client.rb`` file is used to determine the authentication protocol that communicates with Chef Infra Server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      knife[:authentication_protocol_version] = '1.3'
+   knife[:authentication_protocol_version] = '1.3'
 
 Note that authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
 

@@ -602,7 +602,7 @@ For example, to show a fatal error in a plugin in the same way that it would be 
       ui.fatal "Be sure to say hello to someone!"
       show_usage
       exit 1
-   end
+    end
 
 Create a Plugin
 =====================================================

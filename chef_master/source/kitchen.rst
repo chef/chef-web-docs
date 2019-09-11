@@ -178,12 +178,12 @@ For example, a very simple kitchen.yml file:
      - name: centos-7
      - name: debian-9
 
-  suites:
-    - name: default
-      run_list:
-        - recipe[apache::httpd]
-      excludes:
-        - debian-9
+   suites:
+     - name: default
+       run_list:
+         - recipe[apache::httpd]
+       excludes:
+         - debian-9
 
 This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Test Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 

@@ -65,12 +65,12 @@ To configure Chef Supermarket to use Chef Identity, do the following:
 
    To define OAuth 2 information for Chef Supermarket, create a Hash similar to:
 
-      .. code-block:: ruby
+   .. code-block:: ruby
 
-         oc_id['applications'] ||= {}
-         oc_id['applications']['supermarket'] = {
-           'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
-         }
+      oc_id['applications'] ||= {}
+      oc_id['applications']['supermarket'] = {
+        'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
+      }
 
    .. end_tag
 

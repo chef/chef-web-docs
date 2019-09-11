@@ -76,19 +76,19 @@ From there, begin using the secrets by calling the ``get_project_secrets`` metho
 
 .. code-block:: ruby
 
-   if push_repo_to_github?
-     secrets = get_project_secrets
-     github_repo = node['delivery']['config']['delivery-truck']['publish']['github']
+    if push_repo_to_github?
+      secrets = get_project_secrets
+      github_repo = node['delivery']['config']['delivery-truck']['publish']['github']
 
-     delivery_github github_repo do
-       deploy_key secrets['github']
-       branch node['delivery']['change']['pipeline']
-       remote_url "git@github.com:#{github_repo}.git"
-       repo_path node['delivery']['workspace']['repo']
-       cache_path node['delivery']['workspace']['cache']
-       action :push
-     end
-  end
+      delivery_github github_repo do
+        deploy_key secrets['github']
+        branch node['delivery']['change']['pipeline']
+        remote_url "git@github.com:#{github_repo}.git"
+        repo_path node['delivery']['workspace']['repo']
+        cache_path node['delivery']['workspace']['cache']
+        action :push
+      end
+    end
 
 This example is part of the ``publish.rb`` recipe in the ``delivery-truck`` cookbook: https://github.com/chef-cookbooks/delivery-truck/blob/master/recipes/publish.rb#L91-L103.
 

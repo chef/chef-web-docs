@@ -317,33 +317,33 @@ ruby_type
 
 The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``true``, ``false``, ``nil``, ``String``, ``Array``, ``Hash``, ``Integer``, ``Symbol``. Use an array of ruby classes to allow a value to be of more than one type. For example:
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :aaaa, String
+   property :aaaa, String
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :bbbb, Integer
+   property :bbbb, Integer
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :cccc, Hash
+   property :cccc, Hash
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :dddd, [true, false]
+   property :dddd, [true, false]
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :eeee, [String, nil]
+   property :eeee, [String, nil]
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :ffff, [Class, String, Symbol]
+   property :ffff, [Class, String, Symbol]
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :gggg, [Array, Hash]
+   property :gggg, [Array, Hash]
 
 .. end_tag
 

@@ -117,12 +117,11 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
    .. end_tag
 
-#.
-   Update your workstation knife configuration. Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
+#. Update your workstation knife configuration. Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
 
    .. code-block:: bash
 
-      $ vim ~/chef-repo/.chef/config.rb
+     vim ~/chef-repo/.chef/config.rb
 
    will open a ``config.rb`` file similar to:
 

@@ -806,6 +806,6 @@ The response will return details for a user, including their name, Chef username
      "tools": {
        "owns": {
          "bacon_tool": "https://supermarket.chef.io/api/v1/tools/bacon_tool"
-    }
-  }
+       }
+     }
    }

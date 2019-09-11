@@ -231,13 +231,13 @@ To onboard a user for an integrated GitHub Enterprise project or one that is hos
 
    *Or*, as an administrator, run the command line tool ``automate-ctl``. The command uses the enterprise name you set when configuring Chef Automate. The username can be an LDAP username (if LDAP integration has been completed), or an internal username:
 
-    For GitHub Enterprise:
+   For GitHub Enterprise:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       $ automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
+      $ automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
 
-    For GitHub:
+   For GitHub:
 
    .. code-block:: bash
 
@@ -256,9 +256,9 @@ For an integrated GitHub Enterprise project or a project that is hosted on `Gith
 
 #. The standard GitHub process should be followed:
 
-      * Clone the desired repository
-      * Make and test changes locally
-      * Submit the changes and initiate the Chef Automate review process by creating a pull request with the ``delivery review`` command
+   * Clone the desired repository
+   * Make and test changes locally
+   * Submit the changes and initiate the Chef Automate review process by creating a pull request with the ``delivery review`` command
 
    The GitHub webui will display a **Delivery Status** box showing what part of the pipeline the pull request is at. When the pull request has passed the **Verify** stage, GitHub will message you in the GitHub webui that approval must be manually entered for the pipeline to proceed.
 

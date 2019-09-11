@@ -207,7 +207,7 @@ Another (much less common) approach is to set a value only if an attribute has n
 * ``default_unless``
 * ``set_unless`` (``normal_unless`` is an alias of ``set_unless``; use either alias to set an attribute with a normal attribute precedence.)
 
-    .. note:: This method was deprecated in Chef Client 12.12 and will be removed in Chef Client 14. Please use ``default_unless`` or ``override_unless`` instead.
+  .. note:: This method was deprecated in Chef Client 12.12 and will be removed in Chef Client 14. Please use ``default_unless`` or ``override_unless`` instead.
 
 * ``override_unless``
 
@@ -844,6 +844,7 @@ Given the following code structure:
    node.default!['foo']['bar'] = {'c' => 'd'}
 
 The ``'!'`` caused the entire 'bar' key to be overwritten:
+
 .. code-block:: ruby
 
    node['foo'] #=> {'bar' => {'c' => 'd'}

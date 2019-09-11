@@ -27,8 +27,8 @@ Automatic Node Run Data Collection with Chef Server
 
 Nodes can send their run data to Chef Automate through the Chef Infra Server automatically. To enable this functionality, you must perform the following steps:
 
- * `Configure a Data Collector token in Chef Automate </data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate>`__
- * `Configure your Chef Infra Server to point to Chef Automate <https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate>`__
+* `Configure a Data Collector token in Chef Automate </data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate>`__
+* `Configure your Chef Infra Server to point to Chef Automate <https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate>`__
 
 Multiple Chef Servers can send data to a single Chef Automate server.
 
@@ -41,16 +41,16 @@ All messages sent to Chef Automate are performed over HTTP and are authenticated
 
 To set your own token, add the following to your ``/etc/delivery/delivery.rb`` file:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      data_collector['token'] = 'sometokenvalue'
-      # Save and close the file
+   data_collector['token'] = 'sometokenvalue'
+   # Save and close the file
 
 To apply the changes, run:
 
-   .. code-block:: shell
+.. code-block:: shell
 
-      sudo automate-ctl reconfigure
+   sudo automate-ctl reconfigure
 
 
 If you do not configure a token, the default token value is: ``93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506``
@@ -61,9 +61,9 @@ In addition to forwarding Chef run data to Automate, Chef Infra Server will send
 
 .. warning:: If running Chef Client releases prior to Chef Client 14, please disable the Ohai Passwd and Sessions plugins on your nodes in ``/etc/chef/client.rb`` or using the Chef Infra Client cookbook to keep the data sent to your Automate system to a minimum. This improves search performance and reduces disk space requirements.
 
-   .. code-block:: shell
+.. code-block:: shell
 
-      ohai.disabled_plugins = [ :Passwd, :Sessions ]
+   ohai.disabled_plugins = [ :Passwd, :Sessions ]
 
 `Ohai Plugin Detail </ohai.html#ohai-settings-in-client-rb>`__
 
@@ -71,26 +71,26 @@ Setting up data collection on Chef Server versions 12.14 and higher
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Channel the token setting through the veil secrets library because the token is considered a secret, and cannot appear in ``/etc/opscode/chef-server.rb``:
 
-   .. code-block:: shell
+.. code-block:: shell
 
-      sudo chef-server-ctl set-secret data_collector token 'TOKEN'
-      sudo chef-server-ctl restart nginx
-      sudo chef-server-ctl restart opscode-erchef
+   sudo chef-server-ctl set-secret data_collector token 'TOKEN'
+   sudo chef-server-ctl restart nginx
+   sudo chef-server-ctl restart opscode-erchef
 
 Then add the following setting to ``/etc/opscode/chef-server.rb`` on the Chef Infra Server:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
-      # Add for compliance scanning
-      profiles['root_url'] = 'https://my-automate-server.mycompany.com'
-      # Save and close the file
+   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+   # Add for compliance scanning
+   profiles['root_url'] = 'https://my-automate-server.mycompany.com'
+   # Save and close the file
 
 To apply the changes, run:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      chef-server-ctl reconfigure
+   chef-server-ctl reconfigure
 
 
 where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server.
@@ -99,19 +99,19 @@ Setting up data collection on Chef Server versions 12.13 and lower
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 On versions 12.13 and prior, simply add the ``'root_url'`` and ``token`` values in ``/etc/opscode/chef-server.rb``:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
-      data_collector['token'] = 'TOKEN'
-      # Add for compliance scanning
-      profiles['root_url'] = 'https://my-automate-server.mycompany.com'
-      # Save and close the file
+   data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+   data_collector['token'] = 'TOKEN'
+   # Add for compliance scanning
+   profiles['root_url'] = 'https://my-automate-server.mycompany.com'
+   # Save and close the file
 
 To apply the changes, run:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      chef-server-ctl reconfigure
+   chef-server-ctl reconfigure
 
 
 where ``my-automate-server.mycompany.com`` is the fully-qualified domain name of your Chef Automate server, and
@@ -203,6 +203,7 @@ This is also true for roles, cookbooks, recipes, attributes, resources, node nam
 
 Next Steps
 ============================
-   * `Perform a Compliance Scan </perform_compliance_scan.html>`__
-   * `Data Collection with a Chef HA Cluster </data_collection_ha.html>`__
-   * `Data Collection without Chef Infra Server </data_collection_without_server.html>`__
+
+* `Perform a Compliance Scan </perform_compliance_scan.html>`__
+* `Data Collection with a Chef HA Cluster </data_collection_ha.html>`__
+* `Data Collection without Chef Infra Server </data_collection_without_server.html>`__
