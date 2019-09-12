@@ -300,29 +300,29 @@ the scenarios and tools shown above to assist in the recovery steps:
     have current enough info. Below is an example error message
     highlighting followers being unable to rejoin:
 
-    > ``` none
-    > 2018-04-25_16:36:29.42242 FATAL:  the database system is starting up
-    > 2018-04-25_16:36:30.90058 LOG:  started streaming WAL from primary at 16F3/2D000000 on timeline 88
-    > 2018-04-25_16:36:30.90124 FATAL:  could not receive data from WAL stream: ERROR:  requested WAL segment      00000058000016F30000002D has already been removed
-    > 2018-04-25_16:36:30.90125
-    > ```
-    >
-    > In a Chef Backend High Availability deployment, the etcd service
-    > is extremely sensitive and can get into a bad state across backend
-    > nodes due to disk and/or network latency. When this happens, it is
-    > common for the cluster to be unable to automatically
-    > failover/recover.
-    >
-    > To attempt manual recovery on a follower that exhibits the
-    > symptoms previously shown, try issuing the following commands on
-    > problematic followers that will not sync. **Do this on one
-    > follower at a time.** You can check output from the
-    > `chef-backend cluster-status` command periodically to watch the
-    > state of the cluster change:
-    >
-    > ``` bash
-    > chef-backend-ctl stop leaderl
-    > chef-backend-ctl cluster-status
-    > PSQL_INTERNAL_OK=true chef-backend-ctl pgsql-follow --force-basebackup --verbose LAST_LEADER_IP
-    > chef-backend-ctl start
-    > ```
+<!-- -->
+
+``` none
+2018-04-25_16:36:29.42242 FATAL:  the database system is starting up
+2018-04-25_16:36:30.90058 LOG:  started streaming WAL from primary at 16F3/2D000000 on timeline 88
+2018-04-25_16:36:30.90124 FATAL:  could not receive data from WAL stream: ERROR:  requested WAL segment      00000058000016F30000002D has already been removed
+2018-04-25_16:36:30.90125
+```
+
+In a Chef Backend High Availability deployment, the etcd service is
+extremely sensitive and can get into a bad state across backend nodes
+due to disk and/or network latency. When this happens, it is common for
+the cluster to be unable to automatically failover/recover.
+
+To attempt manual recovery on a follower that exhibits the symptoms
+previously shown, try issuing the following commands on problematic
+followers that will not sync. **Do this on one follower at a time.** You
+can check output from the `chef-backend cluster-status` command
+periodically to watch the state of the cluster change:
+
+``` bash
+chef-backend-ctl stop leaderl
+chef-backend-ctl cluster-status
+PSQL_INTERNAL_OK=true chef-backend-ctl pgsql-follow --force-basebackup --verbose LAST_LEADER_IP
+chef-backend-ctl start
+```

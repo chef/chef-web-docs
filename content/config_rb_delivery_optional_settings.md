@@ -748,18 +748,12 @@ This configuration file has the following settings for `elasticsearch`:
 :   The Amazon Resource Names(ARN) of IAM policies role for Amazon
     Elasticsearch Service. Default value: `nil`.
 
-    > <div class="note" markdown="1">
-    >
-    > <div class="admonition-title" markdown="1">
-    >
-    > Note
-    >
-    > </div>
-    >
-    > If `elasticsearch['urls']` is specified with Amazon elasticsearch
-    > url then `elasticsearch['role_arn']` value will be required.
-    >
-    > </div>
+    {{< info >}}
+
+    If `elasticsearch['urls']` is specified with Amazon elasticsearch
+    url then `elasticsearch['role_arn']` value will be required.
+
+    {{< /info >}}
 
 `elasticsearch['config_directory']`
 

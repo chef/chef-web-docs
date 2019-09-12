@@ -321,9 +321,9 @@ ensure that hostname is resolvable.
     bracketed (`[ ]`) or the Chef Infra Server will not be able to
     recognize it as an IPv6 address. For example:
 
-    > ``` ruby
-    > bookshelf['url'] "https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]"
-    > ```
+    ``` ruby
+    bookshelf['url'] "https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]"
+    ```
 
 The `api_fqdn` setting can be added to the private-chef.rb file (it is
 not there by default). When added, its value should be equal to the FQDN

@@ -33,16 +33,14 @@ software - as such, it makes the following assumptions:
 -   A server's Fully Qualified Domain Name (FQDN) is the name that will
     be used by other servers to access it
 -   You have a private Ruby gem mirror to supply gems as needed
--   
-
-    You have an artifact store for file downloads. At a minimum, it should have the following packages available:
-
-    :   -   ChefDK
-        -   Chef Infra Client
-        -   Chef Supermarket
-        -   An [install
-            script](/install_chef_air_gap.html#create-an-install-script)
-            for Chef Infra Client
+-   You have an artifact store for file downloads. At a minimum, it
+    should have the following packages available:
+    -   ChefDK
+    -   Chef Infra Client
+    -   Chef Supermarket
+    -   An [install
+        script](/install_chef_air_gap.html#create-an-install-script) for
+        Chef Infra Client
 
 Required cookbooks
 ------------------
@@ -735,24 +733,24 @@ process.
 
 Additional configuration options include:
 
-> -   `data_collector['timeout']`: timeout in milliseconds to abort an
->     attempt to send a message to the Chef Automate server. Default:
->     `30000`.
-> -   `data_collector['http_init_count']`: number of Chef Automate HTTP
->     workers Chef Infra Server should start. Default: `25`.
-> -   `data_collector['http_max_count']`: maximum number of Chef
->     Automate HTTP workers Chef Infra Server should allow to exist at
->     any time. Default: `100`.
-> -   `data_collector['http_max_age']`: maximum age a Chef Automate HTTP
->     worker should be allowed to live, specified as an Erlang tuple.
->     Default: `{70, sec}`.
-> -   `data_collector['http_cull_interval']`: how often Chef Infra
->     Server should cull aged-out Chef Automate HTTP workers that have
->     exceeded their `http_max_age`, specified as an Erlang tuple.
->     Default: `{1, min}`.
-> -   `data_collector['http_max_connection_duration']`: maximum duration
->     an HTTP connection is allowed to exist before it is terminated,
->     specified as an Erlang tuple. Default: `{70, sec}`.
-> -   `opscode_erchef['max_request_size']`: When the request body size
->     is greater than this value, a `413 Request Entity Too Large` error
->     is returned. Default value: `2000000`.
+-   `data_collector['timeout']`: timeout in milliseconds to abort an
+    attempt to send a message to the Chef Automate server. Default:
+    `30000`.
+-   `data_collector['http_init_count']`: number of Chef Automate HTTP
+    workers Chef Infra Server should start. Default: `25`.
+-   `data_collector['http_max_count']`: maximum number of Chef Automate
+    HTTP workers Chef Infra Server should allow to exist at any time.
+    Default: `100`.
+-   `data_collector['http_max_age']`: maximum age a Chef Automate HTTP
+    worker should be allowed to live, specified as an Erlang tuple.
+    Default: `{70, sec}`.
+-   `data_collector['http_cull_interval']`: how often Chef Infra Server
+    should cull aged-out Chef Automate HTTP workers that have exceeded
+    their `http_max_age`, specified as an Erlang tuple. Default:
+    `{1, min}`.
+-   `data_collector['http_max_connection_duration']`: maximum duration
+    an HTTP connection is allowed to exist before it is terminated,
+    specified as an Erlang tuple. Default: `{70, sec}`.
+-   `opscode_erchef['max_request_size']`: When the request body size is
+    greater than this value, a `413 Request Entity Too Large` error is
+    returned. Default value: `2000000`.

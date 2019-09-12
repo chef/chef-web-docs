@@ -203,10 +203,10 @@ copy them directly, or expose them via a common mounted location.
 
 For example, to copy using ssh:
 
-> ``` bash
-> $ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE2>:/home/<USER>
-> $ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE3>:/home/<USER>
-> ```
+``` bash
+$ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE2>:/home/<USER>
+$ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE3>:/home/<USER>
+```
 
 Delete this file from the destination after Step 4 has been completed
 for each backend being joined to the cluster.
@@ -275,10 +275,10 @@ Step 4: Generate Chef Infra Server Configuration
 Log into the node from Step 1, and we will generate our chef-server
 frontend node configuration:
 
-> ``` bash
-> $ chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
-> $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
-> ```
+``` bash
+$ chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
+$ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
+```
 
 {{< info >}}
 
@@ -308,9 +308,9 @@ For each additional frontend node you wish to add to your cluster:
 2.  Generate a new `/etc/opscode/chef-server.rb` from any of the backend
     nodes via
 
-    > ``` bash
-    > $ chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
-    > ```
+    ``` bash
+    $ chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
+    ```
 
 3.  Copy it to `/etc/opscode` on the new frontend node.
 
@@ -325,9 +325,9 @@ For each additional frontend node you wish to add to your cluster:
     For Chef Server versions prior to 12.14, you will also need to copy
     the key files:
 
-    > -   /etc/opscode/webui_priv.pem
-    > -   /etc/opscode/webui_pub.pem
-    > -   /etc/opscode/pivotal.pem
+    -   /etc/opscode/webui_priv.pem
+    -   /etc/opscode/webui_pub.pem
+    -   /etc/opscode/pivotal.pem
 
     {{< /info >}}
 

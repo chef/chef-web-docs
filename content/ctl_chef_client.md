@@ -820,16 +820,20 @@ installing from CD.
 
     ``` bash
     Manage Language Environment
-    ```
 
-    > Move cursor to desired item and press Enter.
-    >
-    > > Change/Show Primary Language Environment Add Additional Language
-    > > Environments Remove Language Environments Change/Show Language
-    > > Hierarchy Set User Languages Change/Show Applications for a
-    > > Language Convert System Messages and Flat Files
-    >
-    > F1=Help F2=Refresh F3=Cancel F8=Image F9=Shell F10=Exit Enter=Do
+    Move cursor to desired item and press Enter.
+
+    Change/Show Primary Language Environment
+    Add Additional Language Environments
+    Remove Language Environments
+    Change/Show Language Hierarchy
+    Set User Languages
+    Change/Show Applications for a Language
+    Convert System Messages and Flat Files
+
+    F1=Help             F2=Refresh          F3=Cancel           F8=Image
+    F9=Shell            F10=Exit            Enter=Do
+    ```
 
 2.  Select `Add Additional Language Environments` and press `Enter`. A
     screen similar to the following is returned:

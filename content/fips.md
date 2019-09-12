@@ -185,54 +185,54 @@ Any time this certificate changes you must re-run this process.
     the above openssl command to avoid having to copy/paste the
     certificate chain around as well. For Example:
 
-    > ``` none
-    > $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
-    >
-    > CONNECTED(00000003)
-    > ---
-    > Certificate chain
-    > 0 s:/C=US/O=Acme/OU=Profit Center/CN=yourautomateserver.com
-    > i:/C=US/O=Acme/OU=Profit Center/CN=Root CA
-    > -----BEGIN CERTIFICATE-----
-    > (server certificate)
-    > -----END CERTIFICATE-----
-    > 1 s:/C=US/O=Acme/OU=Profit Center/CN=Root CA
-    > i:/C=US/O=Acme/OU=Profit Center/CN=Root CA
-    > -----BEGIN CERTIFICATE-----
-    > (root certificate)
-    > -----END CERTIFICATE-----
-    > ---
-    > ...
-    > ```
-    >
-    > Create a new file `yourautomateserver.com.pem` and copy both of
-    > the certificate sections in order. In this example the file should
-    > look like:
-    >
-    > ``` none
-    > -----BEGIN CERTIFICATE-----
-    > (server certificate)
-    > -----END CERTIFICATE-----
-    > -----BEGIN CERTIFICATE-----
-    > (root certificate)
-    > -----END CERTIFICATE-----
-    > ```
+    ``` none
+    $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
+
+    CONNECTED(00000003)
+    ---
+    Certificate chain
+    0 s:/C=US/O=Acme/OU=Profit Center/CN=yourautomateserver.com
+    i:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+    -----BEGIN CERTIFICATE-----
+    (server certificate)
+    -----END CERTIFICATE-----
+    1 s:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+    i:/C=US/O=Acme/OU=Profit Center/CN=Root CA
+    -----BEGIN CERTIFICATE-----
+    (root certificate)
+    -----END CERTIFICATE-----
+    ---
+    ...
+    ```
+
+    Create a new file `yourautomateserver.com.pem` and copy both of the
+    certificate sections in order. In this example the file should look
+    like:
+
+    ``` none
+    -----BEGIN CERTIFICATE-----
+    (server certificate)
+    -----END CERTIFICATE-----
+    -----BEGIN CERTIFICATE-----
+    (root certificate)
+    -----END CERTIFICATE-----
+    ```
 
 -   Every workstation will need a copy of this file and the cli.toml
     should be updated to include this configuration option.
 
-    > ``` none
-    > fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem"
-    > ```
+    ``` none
+    fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem"
+    ```
 
 -   When configuring runners you'll need to include the file generated
     above as an argument to the <span
     class="title-ref">install-runner</span> command. See [Install
     Runner](/ctl_automate_server.html#install-runner).
 
-    > ``` none
-    > $ automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
-    > ```
+    ``` none
+    $ automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
+    ```
 
 Troubleshooting
 ===============
@@ -245,32 +245,34 @@ mode](/delivery_cli.html#check-if-chef-automate-server-has-enabled-fips-mode).
 
 Running `delivery status` should return something like:
 
-> ``` none
-> Status information for Automate server automate-server.dev
->
-> Status: up (request took 97 ms)
-> Configuration Mode: standalone
-> FIPS Mode: enabled
-> Upstreams:
-> Lsyncd:
->    status: not_running
-> PostgreSQL:
->    status: up
-> RabbitMQ:
->    status: up
->    node_health:
->       status: up
->    vhost_aliveness:
->       status: up
->
-> Your Automate Server is configured in FIPS mode.
-> Please add the following to your cli.toml to enable Automate FIPS mode on your machine:
->
->    fips = true
->    fips_git_port = "OPEN_PORT"
->
->    Replace OPEN_PORT with any port that is free on your machine.
-> ```
+``` none
+Status information for Automate server automate-server.dev
+
+Status: up (request took 97 ms)
+Configuration Mode: standalone
+FIPS Mode: enabled
+Upstreams:
+Lsyncd:
+   status: not_running
+PostgreSQL:
+   status: up
+RabbitMQ:
+   status: up
+   node_health:
+      status: up
+   vhost_aliveness:
+      status: up
+```
+
+Your Automate Server is configured in FIPS mode. Please add the
+following to your cli.toml to enable Automate FIPS mode on your machine:
+
+``` none
+fips = true
+fips_git_port = "OPEN_PORT"
+```
+
+Replace OPEN_PORT with any port that is free on your machine.
 
 Unable to run any delivery commands when FIPS is enabled
 --------------------------------------------------------
@@ -281,29 +283,29 @@ Unable to run any delivery commands when FIPS is enabled
 2.  Confirm your project's `cli.toml` is configured correctly. The
     following configuration items should be present:
 
-    > ``` none
-    > fips_enabled = true
-    > fips_git_port = "<some open port>"
-    >
-    > # Below is only used with self-signed certificates or custom certificate
-    > # authorities
-    >
-    > fips_custom_cert_filename = "/path/to/file/with/certificate-chain.pem"
-    > ```
+    ``` none
+    fips_enabled = true
+    fips_git_port = "<some open port>"
+
+    # Below is only used with self-signed certificates or custom certificate
+    # authorities
+
+    fips_custom_cert_filename = "/path/to/file/with/certificate-chain.pem"
+    ```
 
 3.  On Windows you will need to kill the tunnel whenever you make a fips
     configuration change to `cli.toml`. To restart the tunnel:
 
-    > ``` none
-    > PS C:\Users\user> tasklist /fi "imagename eq stunnel.exe"
-    >
-    > Image Name                     PID Session Name        Session#    Mem Usage
-    > ========================= ======== ================ =========== ============
-    > stunnel.exe                   2520 Console                    1      9,040 K
-    >
-    > PS C:\Users\user> taskkill 2520
-    > PS C:\Users\user\example-project> delivery review # will restart the tunnel on the next execution
-    > ```
+    ``` none
+    PS C:\Users\user> tasklist /fi "imagename eq stunnel.exe"
+
+    Image Name                     PID Session Name        Session#    Mem Usage
+    ========================= ======== ================ =========== ============
+    stunnel.exe                   2520 Console                    1      9,040 K
+
+    PS C:\Users\user> taskkill 2520
+    PS C:\Users\user\example-project> delivery review # will restart the tunnel on the next execution
+    ```
 
 Self-signed certificate or custom certificate authority
 -------------------------------------------------------

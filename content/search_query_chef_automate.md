@@ -25,17 +25,17 @@ The dashboard in the **Nodes** tab exposes a search bar that allows you
 to search for nodes based off a defined set of filters. You can search
 on the following terms:
 
-> -   Attribute
-> -   Cookbook
-> -   Environment
-> -   Node Name
-> -   Platform
-> -   Policy Group
-> -   Policy Name
-> -   Policy Revision
-> -   Recipe
-> -   Resource Name
-> -   Role
+-   Attribute
+-   Cookbook
+-   Environment
+-   Node Name
+-   Platform
+-   Policy Group
+-   Policy Name
+-   Policy Revision
+-   Recipe
+-   Resource Name
+-   Role
 
 {{< info >}}
 
@@ -95,20 +95,20 @@ Examples
 
 **Attribute**
 
-> All aws nodes with a public ip: `Attribute: ec2.public_ipv4`
+:   All aws nodes with a public ip: `Attribute: ec2.public_ipv4`
 
 **Cookbook**
 
-> All nodes running the 'postgres' cookbook: `Cookbook: postgresql`
+:   All nodes running the 'postgres' cookbook: `Cookbook: postgresql`
 
 **Recipe**
 
-> All nodes running a 'server' recipe: `Recipe: server`
+:   All nodes running a 'server' recipe: `Recipe: server`
 
 **Resource Name**
 
-> All nodes that manage a resource named '/tmp': `Resource Name: /tmp`
+:   All nodes that manage a resource named '/tmp': `Resource Name: /tmp`
 
 **Node Name**
 
-> The node named 'node1.chef.io': `Node Name: node1.chef.io`
+:   The node named 'node1.chef.io': `Node Name: node1.chef.io`

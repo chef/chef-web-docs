@@ -332,31 +332,29 @@ machine_options:
      paranoid: false
      password: PASSWORD
      port: 22
+
+provisioner:
+  name: chef_zero
+  sudo_command: sudo
+
+verifier:
+  name: inspec
+
+transport:
+  username: root or ssh enabled user
+  password: PASSWORD for root or user
+
+platforms:
+  - name: ubuntu-16.04
+  - name: centos-7
+
+suites:
+  - name: default
+    run_list:
+      - recipe[COOKBOOK::default]
+    attributes:
 ```
 
-> provisioner:
->
-> :   name: chef_zero sudo_command: sudo
->
-> verifier:
->
-> :   name: inspec
->
-> transport:
->
-> :   username: root or ssh enabled user password: PASSWORD for root or
->     user
->
-> platforms:
->
-> :   -   name: ubuntu-16.04
->     -   name: centos-7
->
-> suites:
->
-> :   -   name: default run_list: - recipe\[COOKBOOK::default\]
->         attributes:
->
 kitchen-vcenter
 ---------------
 
@@ -413,11 +411,15 @@ driver:
   tenant: tenant
   base_url: https://vra.corp.local
   verify_ssl: true
-```
 
-> platforms: - name: centos6 driver: catalog_id:
-> e9db1084-d1c6-4c1f-8e3c-eb8f3dc574f9 - name: centos7 driver:
-> catalog_id: c4211950-ab07-42b1-ba80-8f5d3f2c8251
+platforms:
+- name: centos6
+  driver:
+    catalog_id: e9db1084-d1c6-4c1f-8e3c-eb8f3dc574f9
+- name: centos7
+  driver:
+    catalog_id: c4211950-ab07-42b1-ba80-8f5d3f2c8251
+```
 
 kitchen-vro
 -----------

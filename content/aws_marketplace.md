@@ -264,9 +264,7 @@ and Chef Infra Server.
 Configure the workstation
 =========================
 
-\#.
-
-:   Download and extract the `starter_kit.zip` file to a directory on
+1.  Download and extract the `starter_kit.zip` file to a directory on
     the workstation. Open a command prompt and change into the
     `chef-repo` directory extracted from the starter kit. For example:
 
@@ -276,7 +274,7 @@ Configure the workstation
     $ cd starter_kit/chef-repo
     ```
 
-1.  {{% install_aws_chef_server_knife_client_list %}}
+2.  {{% install_aws_chef_server_knife_client_list %}}
 
 Configure backups
 =================
@@ -429,18 +427,18 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
     `chef_server_url` and `chef_server_root` with your new public DNS.
     For example:
 
-    > ``` bash
-    > $ vim ~/chef-repo/.chef/pivotal.rb
-    > ```
-    >
-    > will open a `pivotal.rb` file similar to:
-    >
-    > ``` ruby
-    > node_name        "pivotal"
-    > chef_server_url  "<YOUR NEW PUBLIC DNS>"
-    > chef_server_root "<YOUR NEW PUBLIC DNS>"
-    > client_key       ::File.join(::File.dirname(__FILE__), "pivotal.pem")
-    > ```
+    ``` bash
+    vim ~/chef-repo/.chef/pivotal.rb
+    ```
+
+    will open a `pivotal.rb` file similar to:
+
+    ``` ruby
+    node_name        "pivotal"
+    chef_server_url  "<YOUR NEW PUBLIC DNS>"
+    chef_server_root "<YOUR NEW PUBLIC DNS>"
+    client_key       ::File.join(::File.dirname(__FILE__), "pivotal.pem")
+    ```
 
 16. {{% install_aws_chef_server_knife_ssl_fetch %}}
 

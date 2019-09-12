@@ -89,25 +89,22 @@ Resolved Issues
 
 -   Fixed an issue preventing compliance scanner reports from being
     collected
-
 -   The built-in ssl certificate is no longer a CA keypair and works
     with newer versions of Chrome
-
 -   **Fixed multiple bugs with the reaper:**
-
-    > -   Relocated executable to `/opt/delivery/bin/reaper` from
-    >     `/opt/delivery/embedded/service/reaper/bin/reaper`.
-    > -   Application is now <span class="title-ref">AppBundled</span>
-    >     to ensure high reliability.
-    > -   Logs now append to log file for each execution rather than
-    >     overwrite.
-    > -   Application crash logs are now appended to the logfile.
-    > -   Curator timeout is now configurable. This can set via
-    >     `node['delivery']['elasticsearch']['curator']['timeout']` in
-    >     the delivery.rb or by exporting the environment variable <span
-    >     class="title-ref">CURATOR_ELASTICSEARCH_TIMEOUT</span> when
-    >     running the reaper manually. Default value is 600 seconds (10
-    >     minutes).
+    -   Relocated executable to `/opt/delivery/bin/reaper` from
+        `/opt/delivery/embedded/service/reaper/bin/reaper`.
+    -   Application is now <span class="title-ref">AppBundled</span> to
+        ensure high reliability.
+    -   Logs now append to log file for each execution rather than
+        overwrite.
+    -   Application crash logs are now appended to the logfile.
+    -   Curator timeout is now configurable. This can set via
+        `node['delivery']['elasticsearch']['curator']['timeout']` in the
+        delivery.rb or by exporting the environment variable <span
+        class="title-ref">CURATOR_ELASTICSEARCH_TIMEOUT</span> when
+        running the reaper manually. Default value is 600 seconds (10
+        minutes).
 
 What's New in 1.8.38
 ====================
@@ -133,24 +130,19 @@ Resolved Issues
 ---------------
 
 -   More than 100 nodes are now displayed on the scan job creation page
-
 -   The cron job for the Reaper service runs on schedule again
-
 -   The sudo checkbox on the Scanner Node configuration page is now
     correctly labeled as **Enable Sudo**
-
 -   **RHEL7 CIS Compliance Profile fixes:**
-
-    > -   Corrected control 1.6.1.1 “Ensure SELinux is not disabled in
-    >     bootloader configuration”
-    > -   Corrected control 5.2.14 “Ensure SSH LoginGraceTime is set to
-    >     one minute or less”
-    > -   Corrected control 3.6.2 “Ensure default deny firewall policy”
-    > -   Corrected control 5.2.11 “Ensure only approved ciphers are
-    >     used”
-    > -   Corrected control 5.1.1 “Ensure cron daemon is enabled”
-    > -   Corrected control 1.3.2 “Ensure file system integrity is
-    >     regularly checked”
+    -   Corrected control 1.6.1.1 “Ensure SELinux is not disabled in
+        bootloader configuration”
+    -   Corrected control 5.2.14 “Ensure SSH LoginGraceTime is set to
+        one minute or less”
+    -   Corrected control 3.6.2 “Ensure default deny firewall policy”
+    -   Corrected control 5.2.11 “Ensure only approved ciphers are used”
+    -   Corrected control 5.1.1 “Ensure cron daemon is enabled”
+    -   Corrected control 1.3.2 “Ensure file system integrity is
+        regularly checked”
 
 What's New in 1.8.3
 ===================

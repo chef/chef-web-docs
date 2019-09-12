@@ -103,9 +103,8 @@ if push_repo_to_github?
     cache_path node['delivery']['workspace']['cache']
     action :push
   end
+end
 ```
-
-> end
 
 This example is part of the `publish.rb` recipe in the `delivery-truck`
 cookbook:

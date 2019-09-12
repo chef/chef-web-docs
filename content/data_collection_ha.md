@@ -65,7 +65,7 @@ Chef servers.
 Next Steps
 ==========
 
-> -   [Perform a Compliance Scan](/perform_compliance_scan/)
-> -   [Data Collection](/data_collection/)
-> -   [Data Collection without Chef Infra
->     Server](/data_collection_without_server.html)
+-   [Perform a Compliance Scan](/perform_compliance_scan/)
+-   [Data Collection](/data_collection/)
+-   [Data Collection without Chef Infra
+    Server](/data_collection_without_server/)

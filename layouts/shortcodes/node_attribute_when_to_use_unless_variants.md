@@ -8,19 +8,13 @@ of the attribute priority methods:
     either alias to set an attribute with a normal attribute
     precedence.)
 
-    > <div class="note" markdown="1">
-    >
-    > <div class="admonition-title" markdown="1">
-    >
-    > Note
-    >
-    > </div>
-    >
-    > This method was deprecated in Chef Client 12.12 and will be
-    > removed in Chef Client 14. Please use `default_unless` or
-    > `override_unless` instead.
-    >
-    > </div>
+    <div class="alert-info">
+
+    This method was deprecated in Chef Client 12.12 and will be removed
+    in Chef Client 14. Please use `default_unless` or `override_unless`
+    instead.
+
+    </div>
 
 -   `override_unless`
 
