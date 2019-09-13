@@ -30,7 +30,7 @@ Using the workstation
 -----------------------------------------------------
 You create and test your code on your workstation before you deploy it to other environments. Your workstation is the computer where you author your cookbooks and administer your infrastructure. It's typically the machine you use everyday. It can be any OS you choose, whether it's Linux, macOS, or Windows.
 
-You'll need to install a text editor (whichever you like) to write code and ChefDK to get the tools to test your code. The primary testing tools you'll use are Cookstyle, Foodcritic, ChefSpec, Chef InSpec, and Test Kitchen. With them, you can make sure your Chef code does what you intended before you deploy it to environments used by others, such as staging or production.
+You'll need to install a text editor (whichever you like) to write code and ChefDK to get the tools to test your code. The primary testing tools you'll use are Cookstyle, ChefSpec, Chef InSpec, and Test Kitchen. With them, you can make sure your Chef code does what you intended before you deploy it to environments used by others, such as staging or production.
 
 When you write your code, you use resources to describe your infrastructure. A resource corresponds to some piece of infrastructure, such as a file, a template, or a package. Each resource declares what state a part of the system should be in, but not how to get there. Chef handles these complexities for you. Chef provides many resources that are ready for you to use. You can also utilize resources shipped in community cookbooks, or write your own resources specific to your infrastructure.
 
