@@ -22,7 +22,7 @@ To learn more about Ruby, see:
 
 .. end_tag
 
-As of Chef Client 14.0, Chef ships with Ruby 2.5.
+As of Chef Infra Client 15.x, Chef Infra Client ships with Ruby 2.6.
 
 Ruby Basics
 =====================================================
