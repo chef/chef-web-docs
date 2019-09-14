@@ -544,11 +544,11 @@ For example, a custom resource defines two properties (``content`` and ``path``)
 .. code-block:: ruby
 
    property :content, String
-   property :path, String, name_property: true
+   property :path, String, identity: true
 
-   load_current_value do |desired|
-     if ::File.exist?(desired.path)
-       content IO.read(desired.path)
+   load_current_value do
+     if ::File.exist?(path)
+       content IO.read(path)
      end
    end
 
@@ -577,7 +577,7 @@ The ``converge_if_changed`` method may be used multiple times. The following exa
 
 .. code-block:: ruby
 
-   property :path, String, name_property: true
+   property :path, String
    property :content, String
    property :mode, String
 
@@ -653,9 +653,25 @@ load_current_value
 
 Use the ``load_current_value`` method to load the specified property values from the node, and then use those values when the resource is converged. This method may take a block argument.
 
+.. code-block:: ruby
+
+   property :path, String
+   property :content, String
+   property :mode, String
+
+   load_current_value do |new_resource|
+     if ::File.exist?(new_resource.path)
+       content IO.read(new_resource.path)
+       mode ::File.stat(new_resource.path).mode
+     end
+   end
+
 Use the ``load_current_value`` method to guard against property values being replaced. For example:
 
 .. code-block:: ruby
+
+    property :homepage, String
+    property :page_not_found, String
 
     load_current_value do
       if ::File.exist?('/var/www/html/index.html')
@@ -957,13 +973,14 @@ Block Arguments
 -----------------------------------------------------
 .. tag dsl_custom_resource_method_property_block_argument
 
-Any properties that are marked ``identity: true`` or ``desired_state: false`` will be available from ``load_current_value``. If access to other properties of a resource is needed, use a block argument that contains all of the properties of the requested resource. For example:
+Any properties that are marked ``identity: true``, ``desired_state: false``, or ``name_property: true`` will be available from ``load_current_value``. If access to other properties of a resource is needed, use a block argument with load_current_value. The block argument will have the values of the requested resource. For example:
 
 .. code-block:: ruby
 
-   resource_name :file
+   property :content, String
 
    load_current_value do |desired|
+     puts "The user requestion action = #{desired.action} in the resource"
      puts "The user typed content = #{desired.content} in the resource"
    end
 
