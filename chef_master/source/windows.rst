@@ -26,7 +26,7 @@ Install Chef Infra Client on Windows Nodes
 
 .. tag chef_client_summary
 
-Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. When Chef Infra Client runs, perform sall of the steps required for brining a node into the expected state, including:
+Chef Infra Client is an agent that runs locally on every node that is under management by Chef Infra Server. When Chef Infra Client runs, performs all of the steps required for brining a node into the expected state, including:
 
 * Registering and authenticating the node with Chef Infra Server
 * Building the node object
