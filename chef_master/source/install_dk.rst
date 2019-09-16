@@ -3,20 +3,29 @@ Install ChefDK
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_dk.rst>`__
 
-Use the ChefDK installer to set up ChefDK on a workstation. ChefDK includes Chef Infra Client, an embedded version of Ruby, RubyGems, and OpenSSL, as well as our tools: Test Kitchen, Cookstyle, and ChefSpec. The Chef installer puts everything into a unique directory (``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows) so that these components will not interfere with other applications that may be running on the target machine.
-
-.. note:: The Chef installer must run as a privileged user.
-
 .. note:: `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
+
+The ChefDK package is produced by the `Chef Omnibus <https://github.com/chef/omnibus>`__ tool for installation on a workstation. ChefDK includes:
+
+* Chef Infra Client
+* Embedded versions of Ruby, RubyGems, and the Ruby interpreter, all of which are build from the source. (The Ruby interpreter is not available for Windows)
+* An embedded version of OpenSSL
+* Test Kitchen
+* Cookstyle
+* Foodcritic
+* ChefSpec
+
+
+ChefDK installs to ``/opt/chefdk/`` on macOS / Linux and ``C:\opscode\chefdk\`` on Windows. These file locations should help avoid interference between these components and other applications that may be running on the target machine.
 
 Install
 =====================================================
+The ChefDK installer must run as a privileged user.
 
 macOS
 -----------------------------------------------------
 
-.. note:: ChefDK works without installing Xcode, but Xcode is required for native Ruby Gem installation. Run ``xcode-select --install`` from the terminal to install Xcode.
-
+#. Dependency: Xcode is recommended for running ChefDK on OSX. While ChefDK works without Xcode, it is required for native Ruby Gem installation. Run ``xcode-select --install`` from the terminal to install Xcode.
 #. Visit the `ChefDK downloads page <https://downloads.chef.io/chefdk#mac_os_x>`__ and select the appropriate package for your macOS version. Click on the **Download** button.
 #. Follow the steps to accept the license and install ChefDK. You will have the option to change your install location; by default the installer uses the ``/opt/chefdk/`` directory.
 
