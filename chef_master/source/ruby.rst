@@ -22,7 +22,7 @@ To learn more about Ruby, see:
 
 .. end_tag
 
-As of Chef Client 14.0, Chef ships with Ruby 2.5.
+As of Chef Infra Client 15.x, Chef Infra Client ships with Ruby 2.6.
 
 Ruby Basics
 =====================================================
@@ -772,28 +772,12 @@ Default and override attributes are cleared at the start of a Chef Infra Client 
 
 ``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first Chef Infra Client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
 
-Cookbook Linting with Chef Workstation Tools
-=====================================================
-Chef Workstation includes Foodcritic for linting the Chef specific portion of your cookbook code, and Cookstyle for linting the Ruby specific portion of your code.
-
-Foodcritic Linting
------------------------------------------------------
-All cookbooks should pass Foodcritic rules before being uploaded.
-
-.. code-block:: bash
-
-   $ foodcritic -P -f all your-cookbook
-
-should return nothing.
-
 Cookstyle Linting
------------------------------------------------------
-All cookbooks should pass Cookstyle rules before being uploaded.
+=====================================================
+Chef Workstation includes Cookstyle for linting the Ruby-specific and Chef-specific portions of your cookbook code. All cookbooks should pass Cookstyle rules before being uploaded.
 
 .. code-block:: bash
 
    $ cookstyle your-cookbook
 
 should return ``no offenses detected``
-
-
