@@ -170,7 +170,7 @@ The remote_directory resource has the following properties:
 ``source``
    **Ruby Type:** String | **Default Value:** ``The base portion of the 'path' property.``
 
-   The base name of the source file (andd inferred from the ``path`` property). For example, in the default value, '/some/path/' would be 'path'.
+   The base name of the source file (and inferred from the ``path`` property). For example, in the default value, '/some/path/' would be 'path'.
 
 Common Resource Functionality
 =====================================================
