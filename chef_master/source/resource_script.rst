@@ -583,7 +583,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
        ./install.sh
        EOH
      environment 'PREFIX' => '/usr/local'
-  end
+   end
 
 To read more about ``ruby-build``, see here: https://github.com/sstephenson/ruby-build.
 

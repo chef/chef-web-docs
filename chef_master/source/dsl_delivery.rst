@@ -243,7 +243,6 @@ The following Chef Automate-specific helpers can be used in recipes:
    .. end_tag
 
 ``use_custom_supermarket_credentials``
-
    .. tag delivery_config_json_setting_delivery_truck_publish_supermarket_credentials
 
    Publish cookbooks to Chef Supermarket, but with custom credentials:

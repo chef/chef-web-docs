@@ -24,11 +24,11 @@ This configuration file has the following settings:
 ``authentication_protocol_version``
   Sets the authentication protocol that is used to communicate with Chef Infra Server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
 
-   .. code-block:: ruby
+  .. code-block:: ruby
 
-      knife[:authentication_protocol_version] = '1.3'
+    knife[:authentication_protocol_version] = '1.3'
 
-   .. note:: Authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
+  .. note:: Authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
 
 ``automatic_attribute_blacklist``
    A hash that blacklists ``automatic`` attributes, preventing blacklisted attributes from being saved.
@@ -182,6 +182,21 @@ This configuration file has the following settings:
 ``group``
    The group that owns a process. This is required when starting any executable as a daemon. Default value: ``nil``.
 
+``gem_installer_bundler_options``
+   Additional options to pass to bundler when installing metadata for cookbook. Default value: ``nil``. For example
+
+   .. code-block:: ruby
+
+      gem_installer_bundler_options = [
+        "--local", "--clean"
+      ]
+
+   or 
+
+   .. code-block:: ruby
+
+      gem_installer_bundler_options = "--local"
+
 ``http_proxy``
    The proxy server for HTTP connections. Default value: ``nil``.
 
@@ -292,6 +307,9 @@ This configuration file has the following settings:
 
 ``script_path``
    An array of paths to search for knife exec scripts if they aren't in the current directory
+
+``skip_gem_metadata_installation``
+   when ``skip_gem_metadata_installation`` is set to true, cookbook gem installation will be skipped. Default value: ``false``
 
 ``splay``
    A random number between zero and ``splay`` that is added to ``interval``. Use splay to help balance the load on the Chef Infra Server by ensuring that many Chef Infra Client runs are not occurring at the same interval. Default value: ``nil``.

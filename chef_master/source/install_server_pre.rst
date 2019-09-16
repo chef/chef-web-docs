@@ -305,7 +305,7 @@ The hostname for the Chef Infra Server may be specified using a FQDN or an IP ad
 * **FQDN Hostnames** When the hostname for the Chef Infra Server is a FQDN be sure to include the domain suffix. For example, something like ``mychefserver.example.com`` (and not something like ``mychefserver``).
 * **IP Address Hostnames** When the Chef Infra Server is run in IPv6 mode, a hostname specified using an IP address must also be bracketed (``[ ]``) or the Chef Infra Server will not be able to recognize it as an IPv6 address. For example:
 
-   .. code-block:: ruby
+  .. code-block:: ruby
 
       bookshelf['url'] "https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]"
 

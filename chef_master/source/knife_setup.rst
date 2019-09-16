@@ -116,10 +116,10 @@ Credentials for use with Target Mode (e.g. ``chef-client --target switch.example
 
 There are four ways to select which profile to use and are listed in priority order:
 
-    1. Pass the ``--profile`` option to knife, e.g. ``knife node list --profile dev``.
-    2. Set the profile name in the ``CHEF_PROFILE`` environment variable.
-    3. Write the profile name to the ``~/.chef/context`` file.
-    4. Otherwise, knife will use the 'default' profile.
+#. Pass the ``--profile`` option to knife, e.g. ``knife node list --profile dev``.
+#. Set the profile name in the ``CHEF_PROFILE`` environment variable.
+#. Write the profile name to the ``~/.chef/context`` file.
+#. Otherwise, knife will use the 'default' profile.
 
 Knife Config
 =====================================================

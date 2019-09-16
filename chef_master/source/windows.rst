@@ -99,11 +99,11 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 
 * Run Chef Infra Client process from the administrator account while being logged into another account. Run the following command:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ runas /user:Administrator "cmd /C chef-client"
+     $ runas /user:Administrator "cmd /C chef-client"
 
-   This will prompt for the administrator account password.
+  This will prompt for the administrator account password.
 
 * Open a command prompt by right-clicking on the command prompt application, and then selecting **Run as administrator**. After the command window opens, Chef Infra Client can be run as the administrator
 

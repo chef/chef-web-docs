@@ -490,11 +490,11 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 
 * Run Chef Infra Client process from the administrator account while being logged into another account. Run the following command:
 
-   .. code-block:: bash
+  .. code-block:: bash
 
-      $ runas /user:Administrator "cmd /C chef-client"
+     $ runas /user:Administrator "cmd /C chef-client"
 
-   This will prompt for the administrator account password.
+  This will prompt for the administrator account password.
 
 * Open a command prompt by right-clicking on the command prompt application, and then selecting **Run as administrator**. After the command window opens, Chef Infra Client can be run as the administrator
 
@@ -626,17 +626,17 @@ Remember to point ``INPUT device/directory`` to ``/tmp/rte`` when not installing
 
    .. code-block:: bash
 
-                             Manage Language Environment
+      Manage Language Environment
 
       Move cursor to desired item and press Enter.
 
-        Change/Show Primary Language Environment
-        Add Additional Language Environments
-        Remove Language Environments
-        Change/Show Language Hierarchy
-        Set User Languages
-        Change/Show Applications for a Language
-        Convert System Messages and Flat Files
+      Change/Show Primary Language Environment
+      Add Additional Language Environments
+      Remove Language Environments
+      Change/Show Language Hierarchy
+      Set User Languages
+      Change/Show Applications for a Language
+      Convert System Messages and Flat Files
 
       F1=Help             F2=Refresh          F3=Cancel           F8=Image
       F9=Shell            F10=Exit            Enter=Do

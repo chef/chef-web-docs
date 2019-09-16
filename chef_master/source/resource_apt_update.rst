@@ -45,6 +45,7 @@ will behave the same as:
 
 Actions
 =====================================================
+
 The apt_update resource has the following actions:
 
 ``:nothing``
@@ -220,11 +221,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
-.. tag resources_common_examples_intro
 
 The following examples demonstrate various approaches for using resources in recipes:
-
-.. end_tag
 
 **Update the Apt repository at a specified interval**
 

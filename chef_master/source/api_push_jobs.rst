@@ -176,7 +176,7 @@ where:
 * ``env`` is a JSON object of key-value pairs to assign to the environment.
 * ``file`` is a string that will be stored as a file on each node, with the path provided to the command as an environment variable.
 
-    .. note:: The string has a required prefix of ``raw:`` or ``base64:``, indicating the encoding (if any) of the contents. The path to this file will be made available via the ``CHEF_PUSH_JOB_FILE`` environment variable.
+  .. note:: The string has a required prefix of ``raw:`` or ``base64:``, indicating the encoding (if any) of the contents. The path to this file will be made available via the ``CHEF_PUSH_JOB_FILE`` environment variable.
 
 * ``capture_output`` is a boolean indicating whether to capture the STDOUT and STDERR for this job. Capture is enabled on a per-job basis, meaning that it will affect all nodes that run the job. It is not possible to enable capture on a per-node basis.
 

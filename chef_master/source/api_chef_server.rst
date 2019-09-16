@@ -692,9 +692,9 @@ The verbose response is similar to:
 
 **Optional Filtering**
 
- Filtering on ``/users`` can be done with the ``external_authentication_uid``. This is to support SAML authentication.
+Filtering on ``/users`` can be done with the ``external_authentication_uid``. This is to support SAML authentication.
 
- As an example, to retrieve users whos ``external_authentication_uid`` is ``jane@doe.com``, you would do the following:
+As an example, to retrieve users whos ``external_authentication_uid`` is ``jane@doe.com``, you would do the following:
 
 .. code-block:: none
 

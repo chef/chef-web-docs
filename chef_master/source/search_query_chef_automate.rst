@@ -23,17 +23,17 @@ Node Search Query Reference
 The dashboard in the **Nodes** tab exposes a search bar that allows you to search for nodes based off a
 defined set of filters. You can search on the following terms:
 
-  * Attribute
-  * Cookbook
-  * Environment
-  * Node Name
-  * Platform
-  * Policy Group
-  * Policy Name
-  * Policy Revision
-  * Recipe
-  * Resource Name
-  * Role
+* Attribute
+* Cookbook
+* Environment
+* Node Name
+* Platform
+* Policy Group
+* Policy Name
+* Policy Revision
+* Recipe
+* Resource Name
+* Role
 
 .. note:: The functionality described in this topic is for the search bar in Chef Automate 1.6.87 or later. If you need to continue using the previous search bar that was in earlier versions of Chef Automate, you can enable this view easily. We have included a new feature flag to activate the old search bar by typing ``legacy`` in the UI and toggling on this view in the menu. If you have trouble with the new search bar and find yourself continuing to use the legacy version, please `contact us <https://feedback.chef.io/>`_ with your feedback. Also, the legacy search bar will only be supported for 90 days.
 
@@ -66,21 +66,16 @@ Examples
 ================================
 
 **Attribute**
-
-   All aws nodes with a public ip: ``Attribute: ec2.public_ipv4``
+  All aws nodes with a public ip: ``Attribute: ec2.public_ipv4``
 
 **Cookbook**
-
-   All nodes running the 'postgres' cookbook: ``Cookbook: postgresql``
+  All nodes running the 'postgres' cookbook: ``Cookbook: postgresql``
 
 **Recipe**
-
-   All nodes running a 'server' recipe: ``Recipe: server``
+  All nodes running a 'server' recipe: ``Recipe: server``
 
 **Resource Name**
-
-   All nodes that manage a resource named '/tmp': ``Resource Name: /tmp``
+  All nodes that manage a resource named '/tmp': ``Resource Name: /tmp``
 
 **Node Name**
-
-   The node named 'node1.chef.io': ``Node Name: node1.chef.io``
+  The node named 'node1.chef.io': ``Node Name: node1.chef.io``

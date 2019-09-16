@@ -38,6 +38,7 @@ The following example sets the ``fqdn`` field to ``"my-chef-server.mycompany.com
 
 Next Steps
 ============================
-   * `Perform a Compliance Scan </perform_compliance_scan.html>`__
-   * `Data Collection  </data_collection.html>`__
-   * `Data Collection without Chef Infra Server </data_collection_without_server.html>`__
+
+* `Perform a Compliance Scan </perform_compliance_scan.html>`__
+* `Data Collection  </data_collection.html>`__
+* `Data Collection without Chef Infra Server </data_collection_without_server.html>`__

@@ -26,14 +26,14 @@ Chef provides a fully functional Chef Automate server that can be launched from 
 
    .. note:: Remember the DNS label of the Chef Automate VM. It will be required to access the Chef Automate UI and Chef Infra Server.
 
-#. While the Chef Automate VM is being provisioned, download and install `ChefDK </install_dk.html>`__.  ChefDK is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Foodcritic, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef Infra Server from the command line.
+#. While the Chef Automate VM is being provisioned, download and install `ChefDK </install_dk.html>`__.  ChefDK is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Cookstyle, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef Infra Server from the command line.
 
 #. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef Infra Server. Access the initial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when the VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
 
    .. note::
              In order to use TLS/SSL for the Chef Automate Web UI, the VM will automatically create and use a self-signed SSL certificate. Modern web browsers typically warn about self-signed certificates during login; however, in this case, you can ignore the warning and accept the certificate.
 
-             
+
 
 #. Fill out the setup form and submit it.
 
@@ -76,7 +76,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
       $ /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
       $ tar -czvf chef-backup.tgz -C /tmp/chef-backup
 
-   
+
 
 #. Using the Admin Username and FQDN that you choose when provisioning the Chef Automate Azure VM from the Azure portal, copy the resulting tarball to your Azure VM:
 
@@ -117,12 +117,11 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
    .. end_tag
 
-#.
-   Update your workstation knife configuration. Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
+#. Update your workstation knife configuration. Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
 
    .. code-block:: bash
 
-      $ vim ~/chef-repo/.chef/config.rb
+     vim ~/chef-repo/.chef/config.rb
 
    will open a ``config.rb`` file similar to:
 
@@ -138,7 +137,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
       chef_server_url          'https://<FQDN>/organizations/your_org'
       cookbook_path            ["#{current_dir}/../cookbooks"]
 
-   
+
 
 #. .. tag install_aws_chef_server_knife_ssl_fetch
 

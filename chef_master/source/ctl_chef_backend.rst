@@ -457,7 +457,7 @@ This subcommand has the following options:
 ``--recovery``
   Force this node to rejoin the backend HA cluster if it has been removed via the ``chef-backend-ctl remove-node`` or ``chef-backend-ctl bootstrap --with-quorum-recovery`` commands.
 
-   .. note:: This option will run against the existing ``chef-backend.rb`` file, which means the ``--vip-interface`` and ``--publish-address`` options should not be specified. (They are already defined in the ``chef-backend.rb`` file.)
+  .. note:: This option will run against the existing ``chef-backend.rb`` file, which means the ``--vip-interface`` and ``--publish-address`` options should not be specified. (They are already defined in the ``chef-backend.rb`` file.)
 
 ``-s PATH``, ``--secrets-file-path PATH``
    The path to the location of the ``secrets.json`` file on the bootstrapping node. Default value: ``/etc/chef-backend/secrets.json``.
