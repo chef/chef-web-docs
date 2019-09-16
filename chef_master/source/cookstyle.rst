@@ -21,11 +21,17 @@ Cookstyle vs. Rubocop
 
 Cookstyle is more stable than Rubocop and is customized for Chef Cookbook code. This means that linting Cookbooks with Cookstyle will be more consistent and less likely to produce CI test failures.
 
+Tailored cops
+-----------------------------------------------------
 
 Cookbook development differs from traditional Ruby software development, so we maintain a tailored set of built-in cops from Rubocop. Cops that are not useful for cookbook development are disabled and occasionally we change the configuration of a rule to enforce a different behavior. We've also extended the base RuboCop package with a set of our own Chef Infra-specific cops. These cops are only found in Cookstyle and will help you to write more reliable and future-proof cookbooks.
 
+New cops
+-----------------------------------------------------
 
-New cops are continuously added to Rubocop. New cops can make existing codebases fail CI tests and force authors to constantly update their code. With Cookstyle, we update the RuboCop engine for bug and performance fixes, but we only change the set of cops that will fail tests once a year during Chef Infra's major release in April. All new cops are introduced at RuboCop's "refactor" alert level, meaning they will alert to the screen as you run Cookstyle, but they won't fail a build. This stability means you are free to upgrade releases of Cookstyle without being forced to update your infrastructure code.
+New cops are continuously added to Rubocop. New cops can make existing codebases fail CI tests and force authors to constantly update their code. 
+
+With Cookstyle, we update the RuboCop engine for bug and performance fixes, but we only change the set of cops that will fail tests once a year during Chef Infra's major release in April. All new cops are introduced at RuboCop's "refactor" alert level, meaning they will alert to the screen as you run Cookstyle, but they won't fail a build. This stability means you are free to upgrade releases of Cookstyle without being forced to update your infrastructure code.
 
 
 Run Cookstyle
