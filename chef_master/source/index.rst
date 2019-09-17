@@ -6,7 +6,7 @@ Site Map
 This is the documentation for:
 
 * Chef Infra Server, Chef Infra Client, ChefDK, and related tools
-* Legacy Chef Automate 1
+* Chef Automate 1.0 (deprecated)
 
 For information on Chef Automate 2, Chef Habitat, Chef InSpec, and Chef Workstation, see their respective documentation:
 
