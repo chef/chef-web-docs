@@ -115,7 +115,7 @@ in ``libraries/resource_my_resource.rb``:
          def a_helper
          end
 
-         # NEVER use `def action_run` here -- you defeat use_inline_resources and will break notifications if you (and recent foodcritic will tell you that you are wrong)
+         # NEVER use `def action_run` here -- you defeat use_inline_resources and will break notifications if you do
          # If you don't understand how use_inline_resources is built and why you have to use the `action` method, and what the implications are and how resource notifications
          # break if use_inline_resources is not used and/or is broken, then you should really not be using library providers+resources.  You might feel "closer to the metal",
          # but you're now using a chainsaw without any guard...
