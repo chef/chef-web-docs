@@ -12,7 +12,6 @@ The ChefDK package is produced by the `Chef Omnibus <https://github.com/chef/omn
 * An embedded version of OpenSSL
 * Test Kitchen
 * Cookstyle
-* Foodcritic
 * ChefSpec
 
 
