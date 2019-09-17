@@ -28,6 +28,7 @@ where:
 
 Nameless
 =====================================================
+.. tag nameless_build_essential
 
 This resource can be **nameless**. Add the resource itself to your recipe to get the default behavior:
 
@@ -40,6 +41,8 @@ will behave the same as:
 .. code-block:: ruby
 
    build_essential 'install tools'
+
+.. end_tag
 
 Actions
 =====================================================

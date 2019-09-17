@@ -710,5 +710,6 @@
   "setup_visibility_chef_automate.html": "/data_collection.html",
   "plugin_knife_supermarket.html": "/knife_supermarket.html",
   "release_notes_chef_automate.html": "https://automate.chef.io/release-notes",
-  "server_components.html": "/server_overview.html"
+  "server_components.html": "/server_overview.html",
+  "resource_examples.html": "/resource_reference.html"
 }
