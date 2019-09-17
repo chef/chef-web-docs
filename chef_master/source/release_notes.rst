@@ -5808,6 +5808,7 @@ Unlike definitions, custom resources are able to use `common resource properties
 
 ps_credential Helper
 -----------------------------------------------------
+.. tag ps_credential_helper
 
 Use the ``ps_credential`` helper to embed a ``PSCredential`` object--- `a set of security credentials, such as a user name or password <https://technet.microsoft.com/en-us/magazine/ff714574.aspx>`__ ---within a script, which allows that script to be run using security credentials.
 
@@ -5834,6 +5835,8 @@ For example, assuming the ``CertificateID`` is configured in the local configura
       }
     EOH
   end
+
+.. end_tag
 
 Handler DSL
 -----------------------------------------------------
