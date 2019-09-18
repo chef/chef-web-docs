@@ -241,7 +241,6 @@ Notes about FIPS:
 
 * May be enabled for nodes running on Microsoft Windows and Enterprise Linux platforms
 * Should only be enabled for environments that require FIPS 140-2 compliance
-* May not be enabled for any version earlier than Chef Client 12.8
 
 .. end_tag
 
