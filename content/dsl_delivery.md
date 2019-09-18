@@ -208,8 +208,8 @@ The following Chef Automate-specific helpers can be used in recipes:
 
 `use_custom_supermarket_credentials`
 
-> THIS IS A DTAG
-> delivery_config_json_setting_delivery_truck_publish_supermarket_credentials
+:   THIS IS A DTAG
+    delivery_config_json_setting_delivery_truck_publish_supermarket_credentials
 
 Node Attributes
 ===============

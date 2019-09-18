@@ -149,24 +149,24 @@ restart Automate's main service with `automate-ctl restart delivery`.
 If your Chef Automate system has builders(Push Jobs), then your projects
 should have the following configuration in .delivery/config.json :
 
-> ``` json
-> {
->   "job_dispatch": {
->     "version": "v1"
->     }
-> }
-> ```
+``` json
+{
+  "job_dispatch": {
+    "version": "v1"
+    }
+}
+```
 
 If your Chef Automate system has runners, then your projects should have
 the following configuration in .delivery/config.json
 
-> ``` json
-> {
->   "job_dispatch": {
->     "version": "v2"
->     }
-> }
-> ```
+``` json
+{
+  "job_dispatch": {
+    "version": "v2"
+    }
+}
+```
 
 If the `.delivery/config.json` is correct, but jobs are not kicking off,
 then the best thing to do is restart Automate's main service with
@@ -197,24 +197,24 @@ following:
 If your Chef Automate system has builders(Push Jobs), then your projects
 should have the following configuration in .delivery/config.json :
 
-> ``` json
-> {
->   "job_dispatch": {
->     "version": "v1"
->     }
-> }
-> ```
+``` json
+{
+  "job_dispatch": {
+    "version": "v1"
+    }
+}
+```
 
 If your Chef Automate system has runners, then your projects should have
 the following configuration in .delivery/config.json
 
-> ``` json
-> {
->   "job_dispatch": {
->     "version": "v2"
->     }
-> }
-> ```
+``` json
+{
+  "job_dispatch": {
+    "version": "v2"
+    }
+}
+```
 
 If you are trying debugging a specific build node or runner and need to
 ensure that one is available for your projects, then modify the

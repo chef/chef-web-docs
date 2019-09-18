@@ -1,23 +1,21 @@
-Use the `registry_has_subkeys?` method to find out if a Microsoft
-Windows registry key has one (or more) values.
+Use the `registry_value_exists?` method to find out if a registry key
+value exists. Use `registry_data_exists?` to test for the type and data
+of a registry key value.
 
 <div class="alert-info">
 
-<!-- tag notes_registry_key_not_if_only_if -->
-
-This method can be used in recipes and from within the `not_if` and
-`only_if` blocks in resources. This method is not designed to create or
-modify a registry key. If a registry key needs to be modified, use the
-**registry_key** resource.
-
-<!-- end_tag -->
+{{ readFile "layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
 
 </div>
 
-The syntax for the `registry_has_subkeys?` method is as follows:
+The syntax for the `registry_dvalue_exists?` method is as follows:
 
 ``` ruby
-registry_has_subkeys?(KEY_PATH, ARCHITECTURE)
+registry_value_exists?(
+  KEY_PATH,
+  { name: 'NAME' },
+  ARCHITECTURE
+)
 ```
 
 where:
@@ -29,6 +27,14 @@ where:
     equivalent. The following hives are valid: `HKEY_LOCAL_MACHINE`,
     `HKLM`, `HKEY_CURRENT_CONFIG`, `HKCC`, `HKEY_CLASSES_ROOT`, `HKCR`,
     `HKEY_USERS`, `HKU`, `HKEY_CURRENT_USER`, and `HKCU`.
+-   `{ name: 'NAME' }` is a hash that contains the name of the registry
+    key value; if either `type:` or `:value` are specified in the hash,
+    they are ignored
+-   `type:` represents the values available for registry keys in
+    Microsoft Windows. Use `:binary` for REG_BINARY, `:string` for
+    REG_SZ, `:multi_string` for REG_MULTI_SZ, `:expand_string` for
+    REG_EXPAND_SZ, `:dword` for REG_DWORD, `:dword_big_endian` for
+    REG_DWORD_BIG_ENDIAN, or `:qword` for REG_QWORD.
 -   `ARCHITECTURE` is one of the following values: `:x86_64`, `:i386`,
     or `:machine`. Set to `:i386` to read or write 32-bit registry keys
     on 64-bit machines running Microsoft Windows. Set to`:x86_64` to

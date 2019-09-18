@@ -228,10 +228,10 @@ Upgrading Add-ons
 This section details the process for upgrading additional features after
 the Chef Infra Server has been upgraded.
 
-> **Use Downloads**
->
-> {{% ctl_chef_server_install_features_download %}}
->
-> **Use Local Packages**
->
-> {{% ctl_chef_server_install_features_manual %}}
+**Use Downloads**
+
+{{% ctl_chef_server_install_features_download %}}
+
+**Use Local Packages**
+
+{{% ctl_chef_server_install_features_manual %}}

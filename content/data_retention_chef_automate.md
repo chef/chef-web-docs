@@ -34,9 +34,9 @@ perform any necessary archival tasks.
 Example Configuration (Delete mode)
 ===================================
 
-> We recommend delete mode for most customers as it is the simplest and
-> most reliable. For delete mode, the following is a suitable
-> configuration.
+We recommend delete mode for most customers as it is the simplest and
+most reliable. For delete mode, the following is a suitable
+configuration.
 
 Set the following group of options in `/etc/delivery/delivery.rb` on
 your Automate system and run a `automate-ctl reconfigure` to apply the
@@ -163,20 +163,16 @@ threshold.
 If `evasive maneuvers` is enabled, Reaper performs the following steps
 in a loop after the normal task:
 
-> -   Request disk space utilization information from Elasticsearch's
->     status endpoint
-> -   
->
->     Calculate the amount of free space on every node in the Elasticsearch cluster
->
->     :   -   If the free disk space percentage for each node is greater
->             than the `free_space_threshold_percent`, stop. Evasive
->             maneuvers are complete.
->         -   If the free disk space percentage for any node is less
->             than `free_space_threshold_percent`, delete one day's
->             worth of data.
->
-> -   Repeat the evasive maneuvers loop
+-   Request disk space utilization information from Elasticsearch's
+    status endpoint
+-   Calculate the amount of free space on every node in the
+    Elasticsearch cluster
+-   If the free disk space percentage for each node is greater than the
+    `free_space_threshold_percent`, stop. Evasive maneuvers are
+    complete.
+-   If the free disk space percentage for any node is less than
+    `free_space_threshold_percent`, delete one day's worth of data.
+-   Repeat the evasive maneuvers loop
 
 Regardless of the available free space in your Elasticsearch cluster,
 Reaper will always retain the indices for the current day and one day
@@ -199,15 +195,12 @@ of:
     Reaper and have enabled evasive maneuvers, Reaper may delete more
     Visibility data than you wish if another co-existing application
     suddenly starts consuming large amounts of disk.
-
 -   **Filesystem Archiving**: If you choose to enable archiving and
     choose to archive to the filessytem:
-
-    > -   The filesystem path must exist on all of your Elasticsearch
-    >     nodes
-    > -   The filesystem path must be included in your Elasticsearch
-    >     `path.repo` configuration parameter
-
+    -   The filesystem path must exist on all of your Elasticsearch
+        nodes
+    -   The filesystem path must be included in your Elasticsearch
+        `path.repo` configuration parameter
 -   **S3 Archiving**: If you choose to enable archiving and choose to
     archive to S3, you need to install the [Elasticsearch AWS Cloud
     Plugin](https://www.elastic.co/guide/en/elasticsearch/plugins/current/cloud-aws.html)
@@ -224,13 +217,13 @@ Using Reaper and an External Elasticsearch Service
 The following option applies when `reaper['archive_destination']` is set
 to `'fs'`:
 
-> `reaper['archive_filesystem_path']`: string
->
-> :   **Required.** The full path to the directory/filesystem on your
->     Elasticsearch nodes for storing snapshots. This should be a
->     different filesystem/volume than where Elasticsearch stores its
->     running data.
->
+`reaper['archive_filesystem_path']`: string
+
+:   **Required.** The full path to the directory/filesystem on your
+    Elasticsearch nodes for storing snapshots. This should be a
+    different filesystem/volume than where Elasticsearch stores its
+    running data.
+
 Using Reaper and the Chef Automate AWS S3 Elasticsearch Service
 ---------------------------------------------------------------
 
@@ -278,15 +271,14 @@ own Elasticsearch service must be able to authenticate to S3.
 
 Reaper supports three ways to authenticate:
 
-> -   **Option 1**: Assign an EC2 Instance Profile to each node running
->     Elasticsearch that has permissions to read/write to your S3
->     bucket.
-> -   **Option 2**: Create an [AWS Security Credentials
->     file](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files)
->     on the Chef Automate server in `.aws/credentials` inside the
->     `delivery` user's home directory.
-> -   **Option 3**: Specify the AWS Access Key ID and Security Key in
->     the reaper configuration in `/etc/delivery/delivery.rb`.
+-   **Option 1**: Assign an EC2 Instance Profile to each node running
+    Elasticsearch that has permissions to read/write to your S3 bucket.
+-   **Option 2**: Create an [AWS Security Credentials
+    file](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html#cli-config-files)
+    on the Chef Automate server in `.aws/credentials` inside the
+    `delivery` user's home directory.
+-   **Option 3**: Specify the AWS Access Key ID and Security Key in the
+    reaper configuration in `/etc/delivery/delivery.rb`.
 
 **Option 1 is the preferred solution.** This allows you to use AWS IAM
 best practices to control what nodes can access your S3 buckets and

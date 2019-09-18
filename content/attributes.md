@@ -584,10 +584,11 @@ node.default['foo']['bar'] = {'a' => 'b'}
 node.default!['foo']['bar'] = {'c' => 'd'}
 ```
 
-The `'!'` caused the entire 'bar' key to be overwritten: .. code-block::
-ruby
+The `'!'` caused the entire 'bar' key to be overwritten:
 
-> node\['foo'\] \#=\> {'bar' =\> {'c' =\> 'd'}
+``` ruby
+node['foo'] #=> {'bar' => {'c' => 'd'}
+```
 
 **Multiple components; one "after"**
 

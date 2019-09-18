@@ -35,22 +35,16 @@ This configuration file has the following settings:
     Chef Infra Server. For example, specify protocol version 1.3 to
     enable support for SHA-256 algorithms:
 
-    > ``` ruby
-    > knife[:authentication_protocol_version] = '1.3'
-    > ```
-    >
-    > <div class="note" markdown="1">
-    >
-    > <div class="admonition-title" markdown="1">
-    >
-    > Note
-    >
-    > </div>
-    >
-    > Authentication protocol 1.3 is only supported on Chef Server
-    > versions 12.4.0 and above.
-    >
-    > </div>
+    ``` ruby
+    knife[:authentication_protocol_version] = '1.3'
+    ```
+
+    {{< info >}}
+
+    Authentication protocol 1.3 is only supported on Chef Server
+    versions 12.4.0 and above.
+
+    {{< /info >}}
 
 `automatic_attribute_blacklist`
 

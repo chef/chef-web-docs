@@ -1038,9 +1038,7 @@ has collaborated, and those that are followed.
   "tools": {
     "owns": {
       "bacon_tool": "https://supermarket.chef.io/api/v1/tools/bacon_tool"
- }
+    }
+  }
+}
 ```
-
-> }
->
-> :   }

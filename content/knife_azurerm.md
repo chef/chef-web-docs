@@ -89,12 +89,12 @@ After creating the service principal, you will have the values:
 
 Put the following in your <span class="title-ref">knife.rb</span>
 
-> ``` ruby
-> knife[:azure_tenant_id] # found via: tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
-> knife[:azure_subscription_id] # found via: <subscriptionId>
-> knife[:azure_client_id] # appId=$(azure ad app show --search <principleappcreated> --json | jq -r '.[0].appId')
-> knife[:azure_client_secret] # password you set at the beginning
-> ```
+``` ruby
+knife[:azure_tenant_id] # found via: tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
+knife[:azure_subscription_id] # found via: <subscriptionId>
+knife[:azure_client_id] # appId=$(azure ad app show --search <principleappcreated> --json | jq -r '.[0].appId')
+knife[:azure_client_secret] # password you set at the beginning
+```
 
 Microsoft Azure encourages the use of Azure CLI 2.0. If you are still
 using [azure-xplat-cli](https://github.com/Azure/azure-xplat-cli) _then

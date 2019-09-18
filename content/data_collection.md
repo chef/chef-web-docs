@@ -35,10 +35,10 @@ Nodes can send their run data to Chef Automate through the Chef Infra
 Server automatically. To enable this functionality, you must perform the
 following steps:
 
-> -   [Configure a Data Collector token in Chef
->     Automate](/data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate)
-> -   [Configure your Chef Infra Server to point to Chef
->     Automate](https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate)
+-   [Configure a Data Collector token in Chef
+    Automate](/data_collection.html#step-1-configure-a-data-collector-token-in-chef-automate)
+-   [Configure your Chef Infra Server to point to Chef
+    Automate](https://docs.chef.io/data_collection.html#step-2-configure-your-chef-server-to-point-to-chef-automate)
 
 Multiple Chef Servers can send data to a single Chef Automate server.
 
@@ -62,16 +62,16 @@ best results.
 To set your own token, add the following to your
 `/etc/delivery/delivery.rb` file:
 
-> ``` ruby
-> data_collector['token'] = 'sometokenvalue'
-> # Save and close the file
-> ```
+``` ruby
+data_collector['token'] = 'sometokenvalue'
+# Save and close the file
+```
 
 To apply the changes, run:
 
-> ``` shell
-> sudo automate-ctl reconfigure
-> ```
+``` shell
+sudo automate-ctl reconfigure
+```
 
 If you do not configure a token, the default token value is:
 `93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506`
@@ -92,11 +92,11 @@ the Ohai Passwd and Sessions plugins on your nodes in
 the data sent to your Automate system to a minimum. This improves search
 performance and reduces disk space requirements.
 
+{{< /warning >}}
+
 ``` shell
 ohai.disabled_plugins = [ :Passwd, :Sessions ]
 ```
-
-{{< /warning >}}
 
 [Ohai Plugin Detail](/ohai.html#ohai-settings-in-client-rb)
 
@@ -106,27 +106,27 @@ Channel the token setting through the veil secrets library because the
 token is considered a secret, and cannot appear in
 `/etc/opscode/chef-server.rb`:
 
-> ``` shell
-> sudo chef-server-ctl set-secret data_collector token 'TOKEN'
-> sudo chef-server-ctl restart nginx
-> sudo chef-server-ctl restart opscode-erchef
-> ```
+``` shell
+sudo chef-server-ctl set-secret data_collector token 'TOKEN'
+sudo chef-server-ctl restart nginx
+sudo chef-server-ctl restart opscode-erchef
+```
 
 Then add the following setting to `/etc/opscode/chef-server.rb` on the
 Chef Infra Server:
 
-> ``` ruby
-> data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
-> # Add for compliance scanning
-> profiles['root_url'] = 'https://my-automate-server.mycompany.com'
-> # Save and close the file
-> ```
+``` ruby
+data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+# Add for compliance scanning
+profiles['root_url'] = 'https://my-automate-server.mycompany.com'
+# Save and close the file
+```
 
 To apply the changes, run:
 
-> ``` ruby
-> chef-server-ctl reconfigure
-> ```
+``` ruby
+chef-server-ctl reconfigure
+```
 
 where `my-automate-server.mycompany.com` is the fully-qualified domain
 name of your Chef Automate server.
@@ -136,19 +136,19 @@ name of your Chef Automate server.
 On versions 12.13 and prior, simply add the `'root_url'` and `token`
 values in `/etc/opscode/chef-server.rb`:
 
-> ``` ruby
-> data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
-> data_collector['token'] = 'TOKEN'
-> # Add for compliance scanning
-> profiles['root_url'] = 'https://my-automate-server.mycompany.com'
-> # Save and close the file
-> ```
+``` ruby
+data_collector['root_url'] = 'https://my-automate-server.mycompany.com/data-collector/v0/'
+data_collector['token'] = 'TOKEN'
+# Add for compliance scanning
+profiles['root_url'] = 'https://my-automate-server.mycompany.com'
+# Save and close the file
+```
 
 To apply the changes, run:
 
-> ``` ruby
-> chef-server-ctl reconfigure
-> ```
+``` ruby
+chef-server-ctl reconfigure
+```
 
 where `my-automate-server.mycompany.com` is the fully-qualified domain
 name of your Chef Automate server, and `TOKEN` is either the default
@@ -274,7 +274,7 @@ Troubleshooting: My data does not show up in the UI
 Next Steps
 ==========
 
-> -   [Perform a Compliance Scan](/perform_compliance_scan/)
-> -   [Data Collection with a Chef HA Cluster](/data_collection_ha/)
-> -   [Data Collection without Chef Infra
->     Server](/data_collection_without_server.html)
+-   [Perform a Compliance Scan](/perform_compliance_scan/)
+-   [Data Collection with a Chef HA Cluster](/data_collection_ha/)
+-   [Data Collection without Chef Infra
+    Server](/data_collection_without_server/)

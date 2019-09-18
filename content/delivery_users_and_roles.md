@@ -166,13 +166,13 @@ that is hosted at [Github.com](https://github.com/):
     Automate. The username can be an LDAP username (if LDAP integration
     has been completed), or an internal username:
 
-    > For GitHub Enterprise:
-    >
-    > ``` bash
-    > $ automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
-    > ```
-    >
-    > For GitHub:
+    For GitHub Enterprise:
+
+    ``` bash
+    $ automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
+    ```
+
+    For GitHub:
 
     ``` bash
     $ automate-ctl link-github-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
@@ -194,11 +194,10 @@ submit changes as follows:
 
 1.  The standard GitHub process should be followed:
 
-    > -   Clone the desired repository
-    > -   Make and test changes locally
-    > -   Submit the changes and initiate the Chef Automate review
-    >     process by creating a pull request with the `delivery review`
-    >     command
+    -   Clone the desired repository
+    -   Make and test changes locally
+    -   Submit the changes and initiate the Chef Automate review process
+        by creating a pull request with the `delivery review` command
 
     The GitHub webui will display a **Delivery Status** box showing what
     part of the pipeline the pull request is at. When the pull request

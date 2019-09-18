@@ -122,9 +122,9 @@ any of the objects saved to the Chef Infra Server.
 Install Chef Manage
 ===================
 
-> {{% ctl_chef_server_install_features_download %}}
+{{% ctl_chef_server_install_features_download %}}
 
 Chef Manage Local Installation
 ------------------------------
 
-> {{% ctl_chef_server_install_features_manual %}}
+{{% ctl_chef_server_install_features_manual %}}

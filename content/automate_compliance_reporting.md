@@ -226,41 +226,33 @@ account.
 
 -   **Profile Title:** The name of the profile obtained from the
     **Profile Store** or uploaded.
-
 -   **Version:** The semantic version identifier of the profile; you may
     need to update your profiles to get the most recent version.
-
 -   **Identifier:** The name under which the profile is installed and a
     short profile title.
-
 -   **Filter:** Select a node by clicking on the filter icon on the
     right side of the row.
-
 -   **Scan Results:** Displays a list of all of the nodes on which the
     profile has been run. Selecting the more information arrow will open
     a list of controls within the profile. Expanding the profile list
     will take you to a view of the tests within a control and the
     results. Use the view source button to examine the Chef InSpec
     source code.
-
 -   **More Information:** Selecting the more information icon opens a
     list of all of the controls within the profile.
 
-    > Selecting the **scan results** button displays all of the nodes on
-    > which the selected test has been run. Selecting **more
-    > information** displays individual test results for the selected
-    > control on the selected node.
-    >
-    > ![image](/images/automate_compliance_profile_more_info.png)
-    >
-    > Selecting the more information icon from a node row on this view
-    > displays the scan results of the selected profile on a specific
-    > node.
-    >
-    > > ![image](/images/automate_compliance_profile_on_node.png)
-    >
-    > Selecting the **view source** displays the Chef InSpec controls
-    > and can also be used to display the Chef InSpec control source
-    > code.
-    >
-    > > ![image](/images/automate_compliance_profile_node_control.png)
+Selecting the **scan results** button displays all of the nodes on which
+the selected test has been run. Selecting **more information** displays
+individual test results for the selected control on the selected node.
+
+![image](/images/automate_compliance_profile_more_info.png)
+
+Selecting the more information icon from a node row on this view
+displays the scan results of the selected profile on a specific node.
+
+![image](/images/automate_compliance_profile_on_node.png)
+
+Selecting the **view source** displays the Chef InSpec controls and can
+also be used to display the Chef InSpec control source code.
+
+![image](/images/automate_compliance_profile_node_control.png)

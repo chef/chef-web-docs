@@ -68,51 +68,50 @@ Collection](/data_collection/). Next, configure the audit cookbook
 collector by setting the `reporter`, `server`, `owner`, `refresh_token`
 and `profiles` attributes.
 
-> -   `reporter` - `'chef-automate'` to report to Chef Automate.
-> -   `server` - url of Chef Automate server with `/api`.
-> -   `owner` - Chef Automate user or organization that will receive
->     this scan report.
-> -   `refresh_token` - refresh token for Chef Automate API. Please note
->     that logging out of the user interface revokes the
->     `refresh_token`. To workaround, log in once in a private browser
->     session, grab the token and then close the browser without logging
->     out.
-> -   `insecure` - a `true` value will skip the SSL certificate
->     verification when retrieving an access token. The default value is
->     `false`.
+-   `reporter` - `'chef-automate'` to report to Chef Automate.
+-   `server` - url of Chef Automate server with `/api`.
+-   `owner` - Chef Automate user or organization that will receive this
+    scan report.
+-   `refresh_token` - refresh token for Chef Automate API. Please note
+    that logging out of the user interface revokes the `refresh_token`.
+    To workaround, log in once in a private browser session, grab the
+    token and then close the browser without logging out.
+-   `insecure` - a `true` value will skip the SSL certificate
+    verification when retrieving an access token. The default value is
+    `false`.
 
 A complete audit cookbook attribute configuration will look something
 like this:
 
-> ``` ruby
-> ['audit']['reporter'] = 'chef-automate'
-> ['audit']['server'] = 'https://chef-automate-server/api'
-> ['audit']['owner'] = 'my-comp-org'
-> ['audit']['refresh_token'] = '5/4T...g=='
-> ['audit']['insecure'] = false
-> ['audit']['profiles'] = [
->   {
->    'name': 'windows',
->    'compliance': 'base/windows'
->    }
-> ]
-> ```
+``` ruby
+['audit']['reporter'] = 'chef-automate'
+['audit']['server'] = 'https://chef-automate-server/api'
+['audit']['owner'] = 'my-comp-org'
+['audit']['refresh_token'] = '5/4T...g=='
+['audit']['insecure'] = false
+['audit']['profiles'] = [
+  {
+   'name': 'windows',
+   'compliance': 'base/windows'
+   }
+]
+```
 
 Instead of a refresh token, it is also possible to use a `token` that
 expires in 12h after creation.
 
-> ``` ruby
-> ['audit']['reporter'] = 'chef-automate'
-> ['audit']['server'] =  'https://chef-automate-fqdn/api'
-> ['audit']['owner'] =  'my-comp-org'
-> ['audit']['token'] =  'eyJ........................YQ'
-> ['audit']['profiles'] = [
->    {
->      'name': 'windows',
->      'compliance': 'base/windows'
->      }
->  ]
-> ```
+``` ruby
+['audit']['reporter'] = 'chef-automate'
+['audit']['server'] =  'https://chef-automate-fqdn/api'
+['audit']['owner'] =  'my-comp-org'
+['audit']['token'] =  'eyJ........................YQ'
+['audit']['profiles'] = [
+   {
+     'name': 'windows',
+     'compliance': 'base/windows'
+     }
+ ]
+```
 
 Supported Audit Cookbook Configurations
 =======================================

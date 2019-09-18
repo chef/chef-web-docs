@@ -19,9 +19,8 @@ bash 'install_ruby_build' do
     ./install.sh
     EOH
   environment 'PREFIX' => '/usr/local'
+end
 ```
-
-> end
 
 To read more about `ruby-build`, see here:
 <https://github.com/sstephenson/ruby-build>.

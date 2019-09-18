@@ -71,14 +71,13 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","job":"768b8d57-3cd0-434c-9f98-
 
 where:
 
-> -   `job` is the Job ID. (Not present in Job Feed)
-> -   `command` is the command that was run
-> -   `run_timeout` is the timeout in seconds specified in the job
->     request
-> -   `user` is the user making the job request
-> -   `quorum` is the number of clients required to accept the command
->     as specified in the job request
-> -   `node_count` is the number of nodes in the request
+-   `job` is the Job ID. (Not present in Job Feed)
+-   `command` is the command that was run
+-   `run_timeout` is the timeout in seconds specified in the job request
+-   `user` is the user making the job request
+-   `quorum` is the number of clients required to accept the command as
+    specified in the job request
+-   `node_count` is the number of nodes in the request
 
 quorum_vote
 ------------
@@ -96,12 +95,12 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1","status":"succes
 
 where:
 
-> -   `node` is the name of the node responding to the vote
-> -   `status` is one of the following: `client_died_while_voting` (node
->     went offline during voting), `failure` (node rejected the job),
->     `lost_availability` (node become unavailable during voting),
->     `success` (node accepted the job), `unexpected_commit` (node
->     attempted to vote twice)
+-   `node` is the name of the node responding to the vote
+-   `status` is one of the following: `client_died_while_voting` (node
+    went offline during voting), `failure` (node rejected the job),
+    `lost_availability` (node become unavailable during voting),
+    `success` (node accepted the job), `unexpected_commit` (node
+    attempted to vote twice)
 
 quorum_succeeded
 -----------------
@@ -137,7 +136,7 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1"}
 
 where:
 
-> -   `node` is the name of the node
+-   `node` is the name of the node
 
 run_complete
 -------------
@@ -155,13 +154,13 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","node":"NODE1","status":"crashe
 
 where:
 
-> -   `node` is the name of the node
-> -   `status` is one of the following: `client_died_while_running`
->     (node went offline before finishing the run), `crashed` (node
->     terminated run without returning status), `failure` (run failed),
->     `run_nacked` (node rejected the run after quorum was reached),
->     `run_nacked_while_running` (node rejected the run after starting
->     it), or `success` (the run completed successfully),
+-   `node` is the name of the node
+-   `status` is one of the following: `client_died_while_running` (node
+    went offline before finishing the run), `crashed` (node terminated
+    run without returning status), `failure` (run failed), `run_nacked`
+    (node rejected the run after quorum was reached),
+    `run_nacked_while_running` (node rejected the run after starting
+    it), or `success` (the run completed successfully),
 
 job_complete
 -------------
@@ -178,10 +177,10 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","job":"768b8d57-3cd0-434c-9f98-
 
 where:
 
-> -   `job` is the Job ID (Not present in Job Feed)
-> -   `status` is one of the following: `aborted` (the job was aborted),
->     `complete` (the job completed), `quorum_failed` (the command was
->     not run on any nodes), or `timed_out` (the command timed out)
+-   `job` is the Job ID (Not present in Job Feed)
+-   `status` is one of the following: `aborted` (the job was aborted),
+    `complete` (the job completed), `quorum_failed` (the command was not
+    run on any nodes), or `timed_out` (the command timed out)
 
 start_of_history
 ------------------
@@ -223,8 +222,8 @@ data: {"timestamp":"2014-07-10 05:17:44.995958Z","id":"aaaaaaaaaaaa25fd67fa8715f
 
 where:
 
-> -   `data` is the same Job Summary you would get from the `job/ID`
->     endpoint
+-   `data` is the same Job Summary you would get from the `job/ID`
+    endpoint
 
 Event Stream Examples
 =====================

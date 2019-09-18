@@ -124,20 +124,13 @@ where:
 -   `file` is a string that will be stored as a file on each node, with
     the path provided to the command as an environment variable.
 
-    > <div class="note" markdown="1">
-    >
-    > <div class="admonition-title" markdown="1">
-    >
-    > Note
-    >
-    > </div>
-    >
-    > The string has a required prefix of `raw:` or `base64:`,
-    > indicating the encoding (if any) of the contents. The path to this
-    > file will be made available via the `CHEF_PUSH_JOB_FILE`
-    > environment variable.
-    >
-    > </div>
+    {{< info >}}
+
+    The string has a required prefix of `raw:` or `base64:`, indicating
+    the encoding (if any) of the contents. The path to this file will be
+    made available via the `CHEF_PUSH_JOB_FILE` environment variable.
+
+    {{< /info >}}
 
 -   `capture_output` is a boolean indicating whether to capture the
     STDOUT and STDERR for this job. Capture is enabled on a per-job

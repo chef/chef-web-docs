@@ -225,12 +225,12 @@ Enabling Optional Plugins
 Optional plugins can be enabled in the [client.rb configuration
 file](/config_rb_client.html):
 
-> ``` ruby
-> ohai.optional_plugins = [
->   :Sessions,
->   :Lspci
-> ]
-> ```
+``` ruby
+ohai.optional_plugins = [
+  :Sessions,
+  :Lspci
+]
+```
 
 Custom Plugins
 ==============

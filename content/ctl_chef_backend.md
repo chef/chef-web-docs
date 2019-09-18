@@ -575,20 +575,14 @@ This subcommand has the following options:
     removed via the `chef-backend-ctl remove-node` or
     `chef-backend-ctl bootstrap --with-quorum-recovery` commands.
 
-    > <div class="note" markdown="1">
-    >
-    > <div class="admonition-title" markdown="1">
-    >
-    > Note
-    >
-    > </div>
-    >
-    > This option will run against the existing `chef-backend.rb` file,
-    > which means the `--vip-interface` and `--publish-address` options
-    > should not be specified. (They are already defined in the
-    > `chef-backend.rb` file.)
-    >
-    > </div>
+    {{< info >}}
+
+    This option will run against the existing `chef-backend.rb` file,
+    which means the `--vip-interface` and `--publish-address` options
+    should not be specified. (They are already defined in the
+    `chef-backend.rb` file.)
+
+    {{< /info >}}
 
 `-s PATH`, `--secrets-file-path PATH`
 

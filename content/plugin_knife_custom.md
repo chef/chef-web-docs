@@ -761,9 +761,8 @@ unless name_args.size == 1
   ui.fatal "Be sure to say hello to someone!"
   show_usage
   exit 1
+end
 ```
-
-> end
 
 Create a Plugin
 ===============

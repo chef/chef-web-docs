@@ -158,17 +158,16 @@ To add a project using the Chef Automate web UI:
 
 6.  If you choose **GitHub**, a text area opens. Enter the following:
 
-    > **GitHub Organization Name**
-    >
-    > **GitHub Project Name**
-    >
-    > **Pipeline Branch** The name of the target branch that Chef
-    > Automate will manage (most projects will have master as the target
-    > branch). The target branch must exist in the repository.
-    >
-    > **Verify SSL** When selected, have GitHub perform SSL certificate
-    > verification when it connects to Chef Automate to run its web
-    > hooks.
+    **GitHub Organization Name**
+
+    **GitHub Project Name**
+
+    **Pipeline Branch** The name of the target branch that Chef Automate
+    will manage (most projects will have master as the target branch).
+    The target branch must exist in the repository.
+
+    **Verify SSL** When selected, have GitHub perform SSL certificate
+    verification when it connects to Chef Automate to run its web hooks.
 
 7.  If you choose **Bitbucket**, you must follow the integration steps
     in [Integrate Delivery with

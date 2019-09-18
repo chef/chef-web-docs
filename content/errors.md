@@ -81,12 +81,11 @@ Response:  Failed to authenticate as USERNAME. Ensure that your node_name and cl
 -   Check if the file referenced in the `client_key` setting (usually
     USER.pem) exists. Some common locations include:
 
-        ~/.chef
-        ~/projects/current_project/.chef
-        /etc/chef
+        - ~/.chef
+        - ~/projects/current_project/.chef
+        - /etc/chef
 
-    > If one is present, verify that it has the correct read
-    > permissions.
+    If one is present, verify that it has the correct read permissions.
 
 -   If there's no client.rb file, regenerate it and ensure the values
     for the `node_name` and `client_key` settings are correct.

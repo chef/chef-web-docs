@@ -360,16 +360,15 @@ attempting to authenticate. This is often found in the log messages for
 that Chef Infra Client. Debug logging can be enabled on a Chef Infra
 Client using the following command:
 
-> ``` bash
-> $ chef-client -l debug
-> ```
->
-> When debug logging is enabled, a log entry will look like the
-> following:
->
-> ``` bash
-> [Wed, 05 Oct 2011 22:05:35 +0000] DEBUG: Signing the request as NODE_NAME
-> ```
+``` bash
+chef-client -l debug
+```
+
+When debug logging is enabled, a log entry will look like the following:
+
+``` bash
+[Wed, 05 Oct 2011 22:05:35 +0000] DEBUG: Signing the request as NODE_NAME
+```
 
 If the authentication request occurs during the initial Chef Infra
 Client run, the issue is most likely with the private key.

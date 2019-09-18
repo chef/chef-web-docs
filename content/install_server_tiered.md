@@ -253,14 +253,11 @@ Infra Server:
 
 3.  {{% install_chef_server_reconfigure %}}
 
-4.  .. This topic is hooked in globally to install topics for Chef Infra
-    Server applications.
+4.  Start the Chef Infra Server:
 
-    > Start the Chef Infra Server:
-    >
-    > ``` bash
-    > $ chef-server-ctl start
-    > ```
+    ``` bash
+    $ chef-server-ctl start
+    ```
 
 On a single frontend server, create an administrator and an
 organization:

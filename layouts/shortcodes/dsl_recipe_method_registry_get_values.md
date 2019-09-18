@@ -1,23 +1,16 @@
-Use the `registry_key_exists?` method to find out if a Microsoft Windows
-registry key exists at the specified path.
+Use the `registry_get_values` method to get the registry key values
+(name, type, and data) for a Microsoft Windows registry key.
 
 <div class="alert-info">
 
-<!-- tag notes_registry_key_not_if_only_if -->
-
-This method can be used in recipes and from within the `not_if` and
-`only_if` blocks in resources. This method is not designed to create or
-modify a registry key. If a registry key needs to be modified, use the
-**registry_key** resource.
-
-<!-- end_tag -->
+{{ readFile "layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
 
 </div>
 
-The syntax for the `registry_key_exists?` method is as follows:
+The syntax for the `registry_get_values` method is as follows:
 
 ``` ruby
-registry_key_exists?(KEY_PATH, ARCHITECTURE)
+subkey_array = registry_get_values(KEY_PATH, ARCHITECTURE)
 ```
 
 where:
@@ -38,5 +31,4 @@ where:
     to use the appropriate key location based on your node’s
     architecture. Default value: `:machine`.
 
-This method will return `true` or `false`. (Any registry key values that
-are associated with this registry key are ignored.)
+This returns an array of registry key values.

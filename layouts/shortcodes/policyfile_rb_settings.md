@@ -142,56 +142,56 @@ A `Policyfile.rb` file may contain the following settings:
     [RFC097](https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md)
     for the full specifications of this feature.
 
-> Pull the policyfile lock from `./NAME.lock.json`:
->
-> ``` ruby
-> include_policy "NAME", path: "."
-> ```
->
-> Pull the policyfile lock from `./foo.lock.json`.
->
-> ``` ruby
-> include_policy "NAME", path: "./foo.lock.json"
-> ```
->
-> Pull the policyfile lock from `./bar.lock.json` with revision ID
-> 'revision1'.
->
-> ``` ruby
-> include_policy "NAME", policy_revision_id: "revision1", path: "./bar.lock.json"
-> ```
->
-> Pull the policyfile lock from a remote server
-> `https://internal.example.com/foo.lock.json`.
->
-> ``` ruby
-> include_policy "NAME", remote: "https://internal.example.com/foo.lock.json"
-> ```
->
-> Pull the policyfile lock from a remote server
-> `https://internal.example.com/bar.lock.json` and with revision ID
-> 'revision1'.
->
-> ``` ruby
-> include_policy "NAME", policy_revision_id: "revision1", remote: "https://internal.example.com/foo.lock.json"
-> ```
->
-> Pull the policy `NAME` with revision ID `revision1` from the
-> `http://chef-server.example` Chef Infra Server:
->
-> ``` ruby
-> include_policy "NAME", policy_revision_id: "revision1", server: "http://chef-server.example"
-> ```
->
-> Pull the policy `foo` with revision ID `revision1`:
->
-> ``` ruby
-> include_policy "NAME", policy_name: "foo", policy_revision_id: "revision1", server: "http://chef-server.example"
-> ```
->
-> Pull and lock the current revision for policy `foo` in policy group
-> `prod`:
->
-> ``` ruby
-> include_policy "NAME", policy_name: "foo", policy_group: "prod", server: "http://chef-server.example"
-> ```
+    Pull the policyfile lock from `./NAME.lock.json`:
+
+    ``` ruby
+    include_policy "NAME", path: "."
+    ```
+
+    Pull the policyfile lock from `./foo.lock.json`.
+
+    ``` ruby
+    include_policy "NAME", path: "./foo.lock.json"
+    ```
+
+    Pull the policyfile lock from `./bar.lock.json` with revision ID
+    'revision1'.
+
+    ``` ruby
+    include_policy "NAME", policy_revision_id: "revision1", path: "./bar.lock.json"
+    ```
+
+    Pull the policyfile lock from a remote server
+    `https://internal.example.com/foo.lock.json`.
+
+    ``` ruby
+    include_policy "NAME", remote: "https://internal.example.com/foo.lock.json"
+    ```
+
+    Pull the policyfile lock from a remote server
+    `https://internal.example.com/bar.lock.json` and with revision ID
+    'revision1'.
+
+    ``` ruby
+    include_policy "NAME", policy_revision_id: "revision1", remote: "https://internal.example.com/foo.lock.json"
+    ```
+
+    Pull the policy `NAME` with revision ID `revision1` from the
+    `http://chef-server.example` Chef Infra Server:
+
+    ``` ruby
+    include_policy "NAME", policy_revision_id: "revision1", server: "http://chef-server.example"
+    ```
+
+    Pull the policy `foo` with revision ID `revision1`:
+
+    ``` ruby
+    include_policy "NAME", policy_name: "foo", policy_revision_id: "revision1", server: "http://chef-server.example"
+    ```
+
+    Pull and lock the current revision for policy `foo` in policy group
+    `prod`:
+
+    ``` ruby
+    include_policy "NAME", policy_name: "foo", policy_group: "prod", server: "http://chef-server.example"
+    ```

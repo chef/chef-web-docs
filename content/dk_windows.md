@@ -196,18 +196,18 @@ folder/repository you are working with, and a Git integration.
 
 These are a few common editors:
 
-> -   [Visual Studio Code (free/open
->     source)](http://code.visualstudio.com)
-> -   [GitHub Atom - (free/open source)](http://atom.io)
-> -   [Sublime Text - (\$80 USD)](http://sublimetext.com)
+-   [Visual Studio Code (free/open
+    source)](http://code.visualstudio.com)
+-   [GitHub Atom - (free/open source)](http://atom.io)
+-   [Sublime Text - (\$80 USD)](http://sublimetext.com)
 
 Chef support in editors:
 
-> -   [VSCode Chef
->     Extension](https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef)
-> -   [Chef on Atom](https://atom.io/packages/language-chef)
-> -   [Chef on Sublime
->     Text](https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef)
+-   [VSCode Chef
+    Extension](https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef)
+-   [Chef on Atom](https://atom.io/packages/language-chef)
+-   [Chef on Sublime
+    Text](https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef)
 
 Install and Optimize Git for Chef Development
 ---------------------------------------------
