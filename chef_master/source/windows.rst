@@ -5,7 +5,7 @@ Chef for Microsoft Windows
 
 Overview
 =======================================================
-The Chef Infra Client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
+The Chef Infra Client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 
 .. tag windows_install_overview
 
