@@ -347,26 +347,26 @@ which shows something similar to:
 .. code-block:: none
 
    ...
-   192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+   192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
 
 Use ``knife node show`` to verify:
 
 .. code-block:: bash
 
-   $ knife node show debian-wheezy.int.domain.org
+   $ knife node show debian-buster.int.domain.org
 
 which returns something similar to:
 
 .. code-block:: none
 
-   Node Name:   debian-wheezy.int.domain.org
+   Node Name:   debian-buster.int.domain.org
    Environment: _default
-   FQDN:        debian-wheezy.int.domain.org
+   FQDN:        debian-buster.int.domain.org
    IP:          192.0.2.0
    Run List:    recipe[apt], recipe[xfs], recipe[vim]
    Roles:
    Recipes:     apt, xfs, vim, apt::default, xfs::default, vim::default
-   Platform:    debian 7.4
+   Platform:    debian 10.0
    Tags:
 
 **Use an SSH password**
