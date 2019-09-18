@@ -134,7 +134,6 @@ Cookbook Reference
 `Custom Resources </custom_resources.html>`__ |
 `Converting Definitions to Custom Resources </definitions.html>`__ |
 `All Resources (Single Page) </resource_reference.html>`__ |
-`Examples (by Resource) </resource_examples.html>`__
 
 `apt_package </resource_apt_package.html>`__ |
 `apt_preference </resource_apt_preference.html>`__ |
@@ -752,7 +751,6 @@ Addenda
    resource_dsc_resource
    resource_dsc_script
    resource_erlang_call
-   resource_examples
    resource_execute
    resource_file
    resource_freebsd_package
