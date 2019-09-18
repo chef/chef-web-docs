@@ -24,8 +24,6 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 * Starting with Chef Server 12.0, use the `knife ssl fetch </knife_ssl_fetch.html>`__ command to pull down the SSL certificates from the on-premises Chef Infra Server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
 
-* To bootstrap Chef Infra Client on Microsoft Windows machines, the `knife-windows </knife_windows.html>`__ plugin is required.
-
 Syntax
 =====================================================
 .. tag knife_bootstrap_syntax
