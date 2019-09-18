@@ -206,7 +206,7 @@ But if a user installs Chef Workstation and the first command they ever run is `
 
 ``knife bootstrap`` in Chef Client 14
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-``knife bootstrap`` in Chef Client 14 cannot accept the Chef Infra Client 15 EULA on remote nodes unless you use a `custom template <https://docs.chef.io/knife_bootstrap.html#custom-templates>`__ and add chef_license "accept" to the client.rb.
+The ``knife bootstrap`` command that ships in Chef Client 14 cannot accept the Chef Infra Client 15 EULA on remote nodes unless you use a `custom template <https://docs.chef.io/knife_bootstrap.html#custom-templates>`__ and add chef_license "accept" to the client.rb.
 This applies to workstations who have Chef Infra Client <= 14.x, ChefDK <= 3.x or Chef Workstation <= 0.3 installed.
 
 Pin to Chef 14
