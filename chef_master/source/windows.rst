@@ -74,15 +74,6 @@ After Chef Infra Client is installed, it is located at ``C:\opscode``. The main 
 Information for Windows Users
 ----------------------------------------------------
 
-Set the System Ruby
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To set the system Ruby for the Microsoft Windows platform `the steps described for all platforms are true </install_dk.html#set-system-ruby>`_, but then require the following manual edits to the ``chef shell-init bash`` output for the Microsoft Windows platform:
-
-#. Add quotes around the variable assignment strings.
-#. Convert ``C:/`` to ``/c/``.
-#. Save those changes.
-
-
 Run With Elevated Privileges
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag ctl_chef_client_elevated_privileges
@@ -108,10 +99,6 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 * Open a command prompt by right-clicking on the command prompt application, and then selecting **Run as administrator**. After the command window opens, Chef Infra Client can be run as the administrator
 
 .. end_tag
-
-config.rb
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-When running Microsoft Windows, the config.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\.chef``.
 
 Spaces and Directories
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
