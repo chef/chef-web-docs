@@ -70,7 +70,7 @@ Glossary
    The Chef web-based management console you can use to manage Role Based Access Control (RBAC), edit and delete nodes, and reset private keys. Keep up to date with what's happening during chef client runs across an entire organization or on specific nodes.
 
 **node**
-   A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client.
+   A node is any physical, virtual, or cloud system that is configured to be maintained by a Chef Infra Client.
 
 **node object**
    A history of the attributes, run-lists, and roles that were used to configure a node that is under management by Chef.
