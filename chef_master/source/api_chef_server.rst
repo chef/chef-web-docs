@@ -616,7 +616,7 @@ The response will return something like the following:
                 ...
               }
           }
-	  
+
 /users
 -----------------------------------------------------
 A user is an individual account that is created to allow access to the Chef Infra Server. For example:
@@ -733,11 +733,11 @@ with a request body similar to:
 where:
 
 * ``username`` must begin with a lower-case letter or digit, may only contain lower-case letters, digits, hyphens, and underscores. For example: ``chef``.
-* ``display_name`` is required to be present. 
+* ``display_name`` is required to be present.
 * ``email`` is required to be present and have a valid value. The email validation doesn't allow for all unicode characters.
 * ``username`` is required to be present and have a valid value. A valid username is a dot separated list of elements matching ``a-z0-9!#$%&'*+/=?^_`{|}~-``.
 * Either ``external_authentication_uid`` or ``password`` are required to be present and have a value.
-* During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Server versions.
+* During the POST, the ``public_key`` value will be broken out and resubmitted to the keys portion of the API in the latest Chef Infra Server versions.
 
 **Response**
 

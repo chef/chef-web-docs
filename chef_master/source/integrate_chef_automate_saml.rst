@@ -3,8 +3,8 @@ Integrate Chef Automate with SAML for Authentication
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_chef_automate_saml.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -315,7 +315,7 @@ To allow Chef Infra Server to act as an OpenID Connect client to Chef Automate, 
 
 In the above snippet, the 'manage-client-id' should be a unique string for each Chef Infra Server whose management console will authenticate through SAML. Also, if you have multiple Chef Servers that will authenticate through SAML, you will need to create additional entries for the client id, the client secret and the client redirect URI in the section above for each one.
 
-Configuration of Chef Server
+Configuration of Chef Infra Server
 -----------------------------------------------------
 
 Note that all of the client-related values need to match the configuration in the Chef Infra Server management console.

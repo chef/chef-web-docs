@@ -1,10 +1,10 @@
 ==============================================================
-Data Collection without Chef Server
+Data Collection without Chef Infra Server
 ==============================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_without_server.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. important:: Previous step: `Setup Data Collection </data_collection.html>`__
 

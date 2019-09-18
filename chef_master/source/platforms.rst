@@ -221,7 +221,7 @@ The following platforms are supported only via the community:
      - ``x86_64``
      - ``6.x``, ``7.x``
 
-Chef Server
+Chef Infra Server
 ------------------------------------------------------
 
 Commercial Support

@@ -42,7 +42,7 @@ The following diagram shows the various components that are part of a Chef Infra
    * - Chef Manage
      - Chef Manage is the web interface for the Chef Infra Server, which uses the Chef Infra Server API for all communication to the Chef Infra Server.
 
-   * - Chef Server
+   * - Chef Infra Server
      - .. tag chef_server_component_erchef
 
        Erchef is a complete rewrite of the core API for the Chef Infra Server, which allows it to be faster and more scalable than previous versions. The API itself is still compatible with the original Ruby-based Chef Infra Server, which means that cookbooks and recipes that were authored for the Ruby-based Chef Infra Server will continue to work on the Erlang-based Chef Infra Server. Chef Infra Client is still written in Ruby.
@@ -169,7 +169,7 @@ The following table describes the components that are different from the default
      - The Chef Infra Server will provide signed URLs for cookbook requests made by the various clients (individual users, knife requests, and from the Chef Infra Client that is installed on nodes under management by Chef).
    * - Load Balancer
      - The signed URLs for cookbooks are pointed here, and then routed to cookbook storage, as required.
-   * - Chef Server
+   * - Chef Infra Server
      - .. tag chef_server_component_erchef
 
        Erchef is a complete rewrite of the core API for the Chef Infra Server, which allows it to be faster and more scalable than previous versions. The API itself is still compatible with the original Ruby-based Chef Infra Server, which means that cookbooks and recipes that were authored for the Ruby-based Chef Infra Server will continue to work on the Erlang-based Chef Infra Server. Chef Infra Client is still written in Ruby.
@@ -263,7 +263,7 @@ The following table describes the components in an external PostgreSQL configura
 
    * - Component
      - Description
-   * - Chef Server
+   * - Chef Infra Server
      - The Chef Infra Server configuration file is updated to point to an independently configured set of servers for PostgreSQL.
    * - PostgreSQL
      - .. tag chef_server_component_postgresql
