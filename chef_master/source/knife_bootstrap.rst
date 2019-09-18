@@ -227,7 +227,7 @@ Use the following options with a validatorless bootstrap to specify items that a
 
 .. end_tag
 
-.. note:: The ``--node-name`` option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
+.. note:: The ``--node-name`` option is required for a validatorless bootstrap
 
 FIPS Mode
 -----------------------------------------------------
