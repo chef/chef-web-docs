@@ -199,6 +199,10 @@ WinRM requires that a target node be accessible via the ports configured to supp
 
 .. end_tag
 
+Install Chef Infra Client using the MSI Installer
+-----------------------------------------------------
+A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/>`__.
+
 Msiexec.exe
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec
@@ -239,10 +243,6 @@ First install Chef Infra Client, and then enable it to run as a scheduled task. 
    $ msiexec /qn /i C:\inst\chef-client-14.5.27-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
 
 .. end_tag
-
-Install Chef Infra Client using the MSI Installer
------------------------------------------------------
-A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/>`__.
 
 Enable as a Scheduled Task
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
