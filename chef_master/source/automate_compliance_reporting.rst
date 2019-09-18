@@ -40,7 +40,7 @@ Filters
 * **Control:** Controls are the units of tests that constitute compliance profiles.
 * **Role** A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. For more information, see `About Roles <roles.html>`__.
 * **Recipe** A recipe defines the configuration that is applied to a node. For more information, see `About Recipes <recipes.html>`__.
-* **Calendar:** You can limit the results of your report by selecting dates from the calendar in the search bar.
+* **Calendar:** Limit the results of your report by selecting dates from the calendar in the search bar.
 
 Add Filters
 ---------------------------------------------------------------
@@ -103,7 +103,7 @@ This view provides more detailed insight into the compliance status of the nodes
 * **Environment:** You can filter compliance reports by the environments in any stage of your workflow.
 * **Last Scan:** Time in hours, days, or months since the last scan on that node.
 * **Control Failures:** Shows the number of failing controls, if any.
-* **Filter:** Select a node by clicking on the filter icon on the right side of the row.
+* **Filter:** Select the filter icon on the right side of the row to select a node.
 * **More Information:** Selecting the more information icon will direct you to the results of the most recent compliance scan. In this view, you examine all of the controls run on the node.
 
 .. image:: ../../images/automate_compliance_nodes_more_info.png
