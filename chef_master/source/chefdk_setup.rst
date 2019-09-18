@@ -53,19 +53,6 @@ where ``configuration_file`` is the name of the configuration file for the speci
 
 .. warning:: On Microsoft Windows, ``C:/opscode/chefdk/bin`` must be before ``C:/opscode/chefdk/embedded/bin`` in the ``PATH``.
 
-Install Git
-=====================================================
-An open source distributed version control system called Git must be installed before the chef-repo can be cloned to ChefDK machine from GitHub.
-
-To install Git:
-
-#. Go to the following URL: https://help.github.com/articles/set-up-git.
-
-#. Follow the directions, install Git (https://git-scm.com/downloads), and then complete the remaining configuration steps on that page.
-
-.. note:: It is not necessary to create or fork a repository in order to clone the chef-repo from GitHub.
-
-
 Create the Chef repository
 =====================================================
 
