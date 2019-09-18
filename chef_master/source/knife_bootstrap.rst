@@ -22,7 +22,7 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 * You can create a ``.chef/client.d`` directory on your local workstation and the contents of that ``client.d`` directory will be copied to the system being bootstrapped by the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in ``config.rb`` to point to an arbitrary directory instead of ``.chef/client.d``, and the contents of that directory will be copied to the system being bootstrapped. All config files inside ``client.d`` directory get copied into ``/etc/chef/client.d`` on the system being bootstrapped.
 
-* Starting with Chef Server 12.0, use the `knife ssl fetch </knife_ssl_fetch.html>`__ command to pull down the SSL certificates from the on-premises Chef Infra Server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
+* You can use the `knife ssl fetch </knife_ssl_fetch.html>`__ command to pull down the SSL certificates from the on-premises Chef Infra Server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
 
 Syntax
 =====================================================
