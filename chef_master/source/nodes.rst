@@ -195,12 +195,13 @@ Attributes are defined by:
 * Cookbooks (in attribute files and/or recipes)
 * Roles
 * Environments
+* Policyfiles
 
 During every Chef Infra Client run, Chef Infra Client builds the attribute list using:
 
-* Data about the node collected by Ohai
-* The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run
-* The rebuilt node object from the current Chef Infra Client run, after it is updated for changes to cookbooks (attribute files and/or recipes), roles, and/or environments, and updated for any changes to the state of the node itself
+* Data about the node collected by `[Ohai] </ohai.html>`__.
+* The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run.
+* The rebuilt node object from the current Chef Infra Client run, after it is updated for changes to cookbooks (attribute files and/or recipes), roles, and/or environments, and updated for any changes to the state of the node itself.
 
 After the node object is rebuilt, all of the attributes are compared, and then the node is updated based on attribute precedence. At the end of every Chef Infra Client run, the node object that defines the current state of the node is uploaded to the Chef Infra Server so that it can be indexed for search.
 
@@ -229,7 +230,7 @@ Another (much less common) approach is to set a value only if an attribute has n
 * ``default_unless``
 * ``set_unless`` (``normal_unless`` is an alias of ``set_unless``; use either alias to set an attribute with a normal attribute precedence.)
 
-  .. note:: This method was deprecated in Chef Client 12.12 and will be removed in Chef Client 14. Please use ``default_unless`` or ``override_unless`` instead.
+  .. note:: This method was removed in Chef Client 14. Please use ``default_unless`` or ``override_unless`` instead.
 
 * ``override_unless``
 
@@ -303,7 +304,7 @@ Attribute Persistence
 -----------------------------------------------------
 .. tag node_attribute_persistence
 
-At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of each Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
+All attributes except for normal attributes are reset at the beginning of a Chef Infra Client run. Chef Infra Client rebuilds these attributes using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run, and then uses default and override attributes that are specified in cookbooks, roles, environments, and Policyfiles. All attributes are then merged and applied to the node according to attribute precedence. The attributes that were applied to the node are saved to the Chef Infra Server as part of the node object at the conclusion of each Chef Infra Client run.
 
 .. end_tag
 
