@@ -5,7 +5,7 @@ Reporting
 
 .. meta::
     :robots: noindex
-    
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -29,18 +29,18 @@ Search Bar and Filters
 
 .. image:: ../../images/automate_compliance_searchbar.png
 
-The **Compliance** search allows you to view and filter compliance scan results based on a defined set of filters. 
+The **Compliance** search allows you to view and filter compliance scan results based on a defined set of filters.
 
 Filters
 ---------------------------------------------------------------
 * **Profile:** A profile is a set of controls expressed in the Chef InSpec language that define the preferred configuration of your system.  Chef Automate Compliance currently provides 88 built-in profiles under the `Profiles Store <profile_store.html>`__ You can also upload your own custom profiles expressed using the Chef InSpec language.
-* **Node:** A node is any machine that is under management by Chef.
+* **Node:** A node is any system that is under management by Chef Infra.
 * **Platform:** You can run controls against a variety of platforms, such as AIX, Amazon Linux, Apache Tomcat, AppleOSX, CentOS, Oracle Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft Windows.
 * **Environment:** You can filter compliance reports by the environments in any stage of your workflow.
 * **Control:** Controls are the units of tests that constitute compliance profiles.
 * **Role** A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. For more information, see `About Roles <roles.html>`__.
 * **Recipe** A recipe defines the configuration that is applied to a node. For more information, see `About Recipes <recipes.html>`__.
-* **Calendar:** You can limit the results of your report by selecting dates from the calendar in the search bar. 
+* **Calendar:** You can limit the results of your report by selecting dates from the calendar in the search bar.
 
 Add Filters
 ---------------------------------------------------------------
@@ -98,12 +98,12 @@ Nodes
 ----------------------------------------------------
 This view provides more detailed insight into the compliance status of the nodes in your system. This table can be sorted by node name, platform, environment, last scan, and the number of control failures from the most recent compliance scan.
 
-* **Node:** A node is any machine that is under management by Chef.
+* **Node:** A node is any system that is under management by Chef Infra.
 * **Platform:** The operating system on your node such as AIX, Amazon Linux, Apache Tomcat, AppleOSX, CentOS, Oracle Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft Windows.
 * **Environment:** You can filter compliance reports by the environments in any stage of your workflow.
 * **Last Scan:** Time in hours, days, or months since the last scan on that node.
 * **Control Failures:** Shows the number of failing controls, if any.
-* **Filter:** Select a node by clicking on the filter icon on the right side of the row. 
+* **Filter:** Select a node by clicking on the filter icon on the right side of the row.
 * **More Information:** Selecting the more information icon will direct you to the results of the most recent compliance scan. In this view, you examine all of the controls run on the node.
 
 .. image:: ../../images/automate_compliance_nodes_more_info.png
@@ -142,12 +142,12 @@ The Profiles view of the Compliance Reporting tab lets you examine the complianc
 * **Profile Title:** The name of the profile obtained from the **Profile Store** or uploaded.
 * **Version:** The semantic version identifier of the profile; you may need to update your profiles to get the most recent version.
 * **Identifier:** The name under which the profile is installed and a short profile title.
-* **Filter:** Select a node by clicking on the filter icon on the right side of the row. 
+* **Filter:** Select a node by clicking on the filter icon on the right side of the row.
 * **Scan Results:** Displays a list of all of the nodes on which the profile has been run. Selecting the more information arrow will open a list of controls within the profile. Expanding the profile list will take you to a view of the tests within a control and the results. Use the view source button to examine the Chef InSpec source code.
 * **More Information:** Selecting the more information icon opens a list of all of the controls within the profile.
 
-Selecting the **scan results** button displays all of the nodes on which the selected test has been run. 
-Selecting **more information** displays individual test results for the selected control on the selected node. 
+Selecting the **scan results** button displays all of the nodes on which the selected test has been run.
+Selecting **more information** displays individual test results for the selected control on the selected node.
 
 .. image:: ../../images/automate_compliance_profile_more_info.png
 

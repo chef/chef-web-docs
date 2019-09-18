@@ -63,11 +63,11 @@ Chef has the following major components:
 
      - .. tag node
 
-       A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+       A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
        .. end_tag
 
-       A Chef Infra Client is installed on each node that is under management by Chef. The Chef Infra Client performs all of the configuration tasks that are specified by the run-list and will pull down any required configuration data from the Chef Infra Server as it is needed during a Chef Infra Client run.
+       A Chef Infra Client is installed on each node that is under management by Chef Infra. The Chef Infra Client performs all of the configuration tasks that are specified by the run-list and will pull down any required configuration data from the Chef Infra Server as it is needed during a Chef Infra Client run.
    * - .. image:: ../../images/icon_chef_server.svg
           :width: 100px
           :align: center
@@ -330,7 +330,7 @@ Nodes
 =====================================================
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 

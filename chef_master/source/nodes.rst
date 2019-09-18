@@ -5,7 +5,7 @@ About Nodes
 
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 
@@ -267,7 +267,7 @@ Chef Infra Client uses six types of attributes to determine the value that is ap
 
    * - ``force_default``
      - .. tag node_attribute_type_force_default
-     
+
        Use the ``force_default`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over a ``default`` attribute set by a role or an environment.
 
        .. end_tag
@@ -292,7 +292,7 @@ Chef Infra Client uses six types of attributes to determine the value that is ap
        Use the ``force_override`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over an ``override`` attribute set by a role or an environment.
 
        .. end_tag
-       
+
    * - ``automatic``
      - .. tag node_attribute_type_automatic
 

@@ -5,7 +5,7 @@ knife node
 
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 

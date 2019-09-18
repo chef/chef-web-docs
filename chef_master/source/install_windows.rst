@@ -8,7 +8,7 @@ Nodes
 =====================================================
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 
@@ -16,7 +16,7 @@ A node is any machine---physical, virtual, cloud, network device, etc.---that is
 
 Chef Infra Client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using `knife windows </knife_windows.html>`__ to bootstrap Chef Infra Client; this process requires the target node be available via the WinRM port (typically port 5985)
+* By bootstraping Chef Infra Client using `knife bootstrap </knife_bootstrap.html>`__ from a local workstation using WinRM
 * By downloading Chef Infra Client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
@@ -26,7 +26,7 @@ Use knife windows
 -----------------------------------------------------
 .. tag knife_windows_summary
 
-The ``knife windows`` subcommand is used to configure and interact with nodes that exist on server and/or desktop machines that are running Microsoft Windows. Nodes are configured using WinRM, which allows native objects---batch scripts, Windows PowerShell scripts, or scripting library variables---to be called by external applications. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
+The ``knife windows`` subcommand is used to interact with Windows systems managed by Chef Infra. Nodes are configured using WinRM, which allows native objects---batch scripts, Windows PowerShell scripts, or scripting library variables---to be called by external applications. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
 
 .. end_tag
 
@@ -48,7 +48,7 @@ Msiexec.exe is used to install Chef Infra Client on a node as part of a bootstra
 
    $ msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
 
-where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which Chef Infra Client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/bootstrap/windows-chef-client-msi.erb>`_ bootstrap template. See http://msdn.microsoft.com/en-us/library/aa367988%28v=vs.85%29.aspx for more information about the options available to Msiexec.exe.
+where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which Chef Infra Client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/chef/blob/master/lib/chef/knife/bootstrap/templates/windows-chef-client-msi.erb>`_ bootstrap template. See https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options for more information about the options available to Msiexec.exe.
 
 .. end_tag
 

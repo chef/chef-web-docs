@@ -3,8 +3,8 @@ Manage Nodes
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_nodes.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -24,7 +24,7 @@ Manage Nodes
 
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 
@@ -348,4 +348,3 @@ To view all of the nodes:
 #. The tags for the node appear under the **Tags** header:
 
    .. image:: ../../images/step_manage_webui_nodes_view_tags.png
-

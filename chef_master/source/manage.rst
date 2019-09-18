@@ -25,7 +25,7 @@ Nodes
 =====================================================
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 
@@ -340,7 +340,7 @@ Install Chef Manage
 
 .. tag ctl_chef_server_install_features_download
 
-The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.  
+The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.
 
 .. list-table::
    :widths: 100 400
@@ -370,7 +370,7 @@ The ``install`` subcommand downloads packages from https://packages.chef.io/ by 
           $ sudo chef-manage-ctl reconfigure
 
        To accept the `Chef MLSA </chef_license.html>`__:
-   
+
        .. code-block:: bash
 
           $ sudo chef-manage-ctl reconfigure --accept-license

@@ -150,7 +150,7 @@ Validatorless Bootstrap
 =====================================================
 .. tag knife_bootstrap_no_validator
 
-The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef Infra Server during the initial Chef Infra Client run. Starting with Chef Client 12.1, it is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
+The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef Infra Server during the initial Chef Infra Client run. It possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
 
 To create a node via the USER.pem file, simply delete the ORGANIZATION-validator.pem file on the workstation. For example:
 
