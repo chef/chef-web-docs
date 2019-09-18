@@ -43,15 +43,10 @@ This command has the following syntax:
 
    $ chef-client OPTION VALUE OPTION VALUE ...
 
-This command has the following options specific to Microsoft Windows:
+This command has the following option specific to Microsoft Windows:
 
 ``-A``, ``--fatal-windows-admin-check``
    Cause a Chef Infra Client run to fail when Chef Infra Client does not have administrator privileges in Microsoft Windows.
-
-``-d``, ``--daemonize``
-   Run the executable as a daemon.
-
-   This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a Chef Infra Client service under Microsoft Windows using the Windows Service Wrapper.
 
 System Requirements
 -----------------------------------------------------
