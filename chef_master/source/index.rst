@@ -5,13 +5,15 @@ Site Map
 
 This is the documentation for:
 
-* Chef, including Chef Infra Server, Chef Infra Client, ChefDK, and related tools
-* Chef Automate
+* Chef Infra Server, Chef Infra Client, ChefDK, and related tools
+* Chef Automate 1.0 (deprecated)
 
-For information on Chef Habitat and Chef InSpec, see their respective documentation:
+Documentation for other Chef products: 
 
-* `Chef Habitat documentation <https://www.habitat.sh/docs/>`_
-* `Chef InSpec documentation <https://www.inspec.io/docs/>`_
+* `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart/>`_
+* `Chef Habitat <https://www.habitat.sh/docs/>`_
+* `Chef InSpec <https://www.inspec.io/docs/>`_
+* `Chef Workstation <https://www.chef.sh/docs/chef-workstation/getting-started/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
