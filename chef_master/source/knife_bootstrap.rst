@@ -5,10 +5,10 @@ knife bootstrap
 
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap installs Chef Infra Client on a target system so that it can run as a client and communicate with Chef Infra Server. There are two ways to do this:
+A node is any physical, virtual, or cloud system that is configured to be maintained by a Chef Infra Client. Bootstrapping installs Chef Infra Client on a target system so that it can run as a client and sets the node up to communicate with a Chef Infra Server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
-* Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
+* Run the ``knife bootstrap`` command from a workstation.
+* Perform an unattended install to bootstrap from the node itself, without using SSH or WinRM connectivity
 
 .. end_tag
 
@@ -48,9 +48,6 @@ Options
 
 This subcommand has the following options:
 
-``-A``, ``--forward-agent``
-   Enable SSH agent forwarding.
-
 ``--bootstrap-curl-options OPTIONS``
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
@@ -65,14 +62,17 @@ This subcommand has the following options:
 ``--bootstrap-preinstall-command COMMANDS``
    Custom commands to run before installing Chef Infra Client
 
+``--bootstrap-proxy PROXY_URL``
+   The proxy server for the node that is the target of a bootstrap operation.
+
 ``--bootstrap-proxy-pass PROXY_PASS``
    The proxy authentication password for the node being bootstrapped
 
 ``--bootstrap-proxy-user PROXY_USER``
    The proxy authentication username for the node being bootstrapped
 
-``--bootstrap-proxy PROXY_URL``
-   The proxy server for the node that is the target of a bootstrap operation.
+``--bootstrap-url URL``
+   The URL to a custom installation script.
 
 ``--bootstrap-vault-file VAULT_FILE``
    The path to a JSON file that contains a list of vaults and items to be updated.
@@ -107,15 +107,16 @@ This subcommand has the following options:
 ``--json-attribute-file FILE``
    A JSON file to be added to the first run of Chef Infra Client.
 
-``-N NAME``, ``--node-name NAME``
-   The name of the node.
-
-   .. note:: This option is required for a validatorless bootstrap.
 ``--[no-]fips``
   Allows OpenSSL to enforce FIPS-validated security during Chef Infra Client runs.
 
 ``--[no-]host-key-verify``
    Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
+
+``-N NAME``, ``--node-name NAME``
+   The name of the node.
+
+   .. note:: This option is required for a validatorless bootstrap.
 
 ``--[no-]node-verify-api-cert``
    Verify the SSL certificate on the Chef Infra Server. When ``true``, Chef Infra Client always verifies the SSL certificate. When ``false``, Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. If this option is not specified, the setting for ``verify_api_cert`` in the configuration file is applied.
