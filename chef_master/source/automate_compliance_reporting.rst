@@ -34,7 +34,7 @@ The **Compliance** search allows you to view and filter compliance scan results 
 Filters
 ---------------------------------------------------------------
 * **Profile:** A profile is a set of controls expressed in the Chef InSpec language that define the preferred configuration of your system.  Chef Automate Compliance currently provides 88 built-in profiles under the `Profiles Store <profile_store.html>`__ You can also upload your own custom profiles expressed using the Chef InSpec language.
-* **Node:** A node is any system that is under management by Chef.
+* **Node:** A node is any device that is under management by Chef.
 * **Platform:** You can run controls against a variety of platforms, such as AIX, Amazon Linux, Apache Tomcat, AppleOSX, CentOS, Oracle Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft Windows.
 * **Environment:** You can filter compliance reports by the environments in any stage of your workflow.
 * **Control:** Controls are the units of tests that constitute compliance profiles.
@@ -98,7 +98,7 @@ Nodes
 ----------------------------------------------------
 This view provides more detailed insight into the compliance status of the nodes in your system. This table can be sorted by node name, platform, environment, last scan, and the number of control failures from the most recent compliance scan.
 
-* **Node:** A node is any system that is under management by Chef.
+* **Node:** A node is any device that is under management by Chef.
 * **Platform:** The operating system on your node such as AIX, Amazon Linux, Apache Tomcat, AppleOSX, CentOS, Oracle Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft Windows.
 * **Environment:** You can filter compliance reports by the environments in any stage of your workflow.
 * **Last Scan:** Time in hours, days, or months since the last scan on that node.

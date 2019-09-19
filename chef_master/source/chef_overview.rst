@@ -63,7 +63,7 @@ Chef has the following major components:
 
      - .. tag node
 
-       A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
+       A node is any device---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
        .. end_tag
 
@@ -330,7 +330,7 @@ Nodes
 =====================================================
 .. tag node
 
-A node is any system---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
+A node is any device---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 
