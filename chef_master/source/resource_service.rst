@@ -81,7 +81,7 @@ The service resource has the following actions:
    This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
-   
+
 Properties
 =====================================================
 
@@ -148,7 +148,7 @@ The service resource has the following properties:
    The command used to stop a service.
 
 ``supports``
-   **Ruby Type:** Hash
+   **Ruby Type:** Hash | **Default Value:** ``{"restart" => nil, "reload" => nil, "status" => nil}``
 
    A list of properties that controls how Chef Infra Client is to attempt to manage a service: ``:restart``, ``:reload``, ``:status``. For ``:restart``, the init script or other service provider can use a restart command; if ``:restart`` is not specified, Chef Infra Client attempts to stop and then start a service. For ``:reload``, the init script or other service provider can use a reload command. For ``:status``, the init script or other service provider can use a status command to determine if the service is running; if ``:status`` is not specified, Chef Infra Client attempts to match the ``service_name`` against the process table as a regular expression, unless a pattern is specified as a parameter property. Default value: ``{ restart: false, reload: false, status: false }`` for all platforms (except for the Red Hat platform family, which defaults to ``{ restart: false, reload: false, status: true }``.)
 
@@ -297,6 +297,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

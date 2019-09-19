@@ -3,6 +3,9 @@ AWS Driver Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/provisioning_aws.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag EOL_provisioning
 
 This functionality was available with Chef Provisioning and was packaged in the ChefDK.

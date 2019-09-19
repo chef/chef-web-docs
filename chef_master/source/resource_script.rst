@@ -104,7 +104,8 @@ The script resource has the following actions:
 
 Properties
 =====================================================
-This resource has the following attributes:
+
+The script resource has the following properties:
 
 ``code``
    **Ruby Type:** String
@@ -119,7 +120,7 @@ This resource has the following attributes:
 ``cwd``
    **Ruby Type:** String
 
-   The current working directory.
+   The current working directory from which the command will be run.
 
 ``environment``
    **Ruby Type:** Hash
@@ -238,21 +239,6 @@ Notifications
 
   .. end_tag
 
-.. tag resources_common_notification_timers
-
-A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
-
-``:before``
-   Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
-
-``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
-
-``:immediate``, ``:immediately``
-   Specifies that a notification should be run immediately, per resource notified.
-
-.. end_tag
-
 .. tag resources_common_notification_notifies_syntax
 
 The syntax for ``notifies`` is:
@@ -325,6 +311,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 
@@ -580,7 +568,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
        ./install.sh
        EOH
      environment 'PREFIX' => '/usr/local'
-  end
+   end
 
 To read more about ``ruby-build``, see here: https://github.com/sstephenson/ruby-build.
 

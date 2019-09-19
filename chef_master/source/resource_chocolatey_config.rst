@@ -9,6 +9,7 @@ Use the **chocolatey_config** resource to add or remove Chocolatey configuration
 
 Syntax
 =====================================================
+
 The chocolatey_config resource has the following syntax:
 
 .. code-block:: ruby
@@ -95,6 +96,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -192,6 +194,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -203,3 +207,25 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Set the Chocolatey cacheLocation config**
+
+.. code-block:: ruby
+
+   chocolatey_config 'Set cacheLocation config' do
+     config_key 'cacheLocation'
+     value 'C:	empoco'
+   end
+
+**Unset a Chocolatey config**
+
+.. code-block:: ruby
+
+   chocolatey_config 'BogusConfig' do
+     action :unset
+   end

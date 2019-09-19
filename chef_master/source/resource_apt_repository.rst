@@ -6,7 +6,7 @@ apt_repository resource
 Use the **apt_repository** resource to specify additional APT repositories. Adding a new repository will update the APT package cache immediately.
 
 Syntax
-==========================================
+=====================================================
 An **apt_repository** resource specifies APT repository information and adds an additional APT repository to the existing list of repositories:
 
 .. code-block:: ruby
@@ -60,6 +60,13 @@ The apt_repository resource has the following actions:
 
 ``:remove``
    Removes the repository listing.
+
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
@@ -164,6 +171,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -261,6 +269,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -275,6 +285,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Add repository with basic settings**
 

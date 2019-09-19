@@ -39,8 +39,8 @@ Glossary
 **cookbook**
    A cookbook is the fundamental unit of configuration and policy distribution.
 
-**cookstyle**
-  A linter to enforce Ruby code quality and style based on the popular Rubocop linter.
+**Cookstyle**
+   A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
 
 **data bag**
    A data_bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server.

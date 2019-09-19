@@ -3,6 +3,9 @@ Deprecation: Chef REST (CHEF-9)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chef_rest.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+    
 The ``Chef::REST`` class will be removed.
 
 

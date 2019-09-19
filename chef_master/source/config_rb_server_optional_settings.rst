@@ -90,14 +90,14 @@ The **bookshelf** service is an Amazon Simple Storage Service (S3)-compatible se
 
 .. note:: .. tag notes_server_aws_cookbook_storage
 
-          To `configure the server for external cookbook storage </server_components.html#aws-settings>`_, updates are made to settings for both the **bookshelf** and **opscode-erchef** services.
+          To `configure the server for external cookbook storage </server_overview.html#aws-settings>`_, updates are made to settings for both the **bookshelf** and **opscode-erchef** services.
 
           .. end_tag
 
 This configuration file has the following settings for ``bookshelf``:
 
 ``bookshelf['access_key_id']``
-  The access key identifier. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: **generated**. As of Chef Server 12.14, this is no longer the preferred command.
+  The access key identifier. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_overview.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: **generated**. As of Chef Server 12.14, this is no longer the preferred command.
 
   Please use ``chef-server-ctl set-secret bookshelf access_key_id`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
@@ -135,7 +135,7 @@ This configuration file has the following settings for ``bookshelf``:
    The port on which the service is to listen. Default value: ``4321``.
 
 ``bookshelf['secret_access_key']``
-   The secret key. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: **generated**. As of Chef Server 12.14, this is no longer the preferred command.
+   The secret key. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_overview.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: **generated**. As of Chef Server 12.14, this is no longer the preferred command.
 
    Please use ``chef-server-ctl set-secret bookshelf secret_access_key`` from the `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__ commands.
 
@@ -152,7 +152,7 @@ This configuration file has the following settings for ``bookshelf``:
    Enable stream downloading of cookbooks. This setting (when ``true``) typically results in improved cookbook download performance, especially with the memory usage of the **bookshelf** service and the behavior of load balancers and proxies in-between Chef Infra Client and the Chef Infra Server. Default value: ``true``.
 
 ``bookshelf['vip']``
-   The virtual IP address. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: ``127.0.0.1``.
+   The virtual IP address. This may point at an external storage location, such as Amazon EC2. See `AWS external bookshelf settings </server_overview.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf. Default value: ``127.0.0.1``.
 
 bootstrap
 -----------------------------------------------------
@@ -765,12 +765,12 @@ This configuration file has the following settings for ``oc-id``:
 
    To define OAuth 2 information for Chef Supermarket, create a Hash similar to:
 
-      .. code-block:: ruby
+   .. code-block:: ruby
 
-         oc_id['applications'] ||= {}
-         oc_id['applications']['supermarket'] = {
-           'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
-         }
+      oc_id['applications'] ||= {}
+      oc_id['applications']['supermarket'] = {
+        'redirect_uri' => 'https://supermarket.mycompany.com/auth/chef_oauth2/callback'
+      }
 
    .. end_tag
 
@@ -1009,7 +1009,7 @@ This configuration file has the following settings for ``opscode-erchef``:
    Default value: ``chefAPI``.
 
 ``opscode_erchef['s3_bucket']``
-   The name of the Amazon Simple Storage Service (S3) bucket. This may point at external storage locations, such as Amazon EC2. See `AWS external bookshelf settings </server_components.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf.
+   The name of the Amazon Simple Storage Service (S3) bucket. This may point at external storage locations, such as Amazon EC2. See `AWS external bookshelf settings </server_overview.html#external-bookshelf-settings>`__ for more information on configuring external bookshelf.
 
 ``opscode_erchef['s3_parallel_ops_fanout']``
    Default value: ``20``.

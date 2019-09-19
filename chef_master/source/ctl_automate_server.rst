@@ -3,6 +3,9 @@ automate-ctl (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_automate_server.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -13,7 +16,7 @@ automate-ctl (executable)
 
 .. tag EOL_a1
 
-.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </https://docs.chef.io/versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -830,15 +833,15 @@ Explanation of fields
 preflight-check
 =====================================================
 
- The ``preflight-check`` subcommand is used to check for common problems in your infrastructure environment before setup and configuration of Chef Automate begins.
+The ``preflight-check`` subcommand is used to check for common problems in your infrastructure environment before setup and configuration of Chef Automate begins.
 
- New in Chef Automate 0.6.64.
+New in Chef Automate 0.6.64.
 
- This subcommand has the following syntax:
+This subcommand has the following syntax:
 
- .. code-block:: bash
+.. code-block:: bash
 
-    $ automate-ctl preflight-check
+  $ automate-ctl preflight-check
 
 reconfigure
 =====================================================

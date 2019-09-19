@@ -1,5 +1,5 @@
 =====================================================
-About Knife Cloud Plugins
+Knife Cloud Plugins
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife.rst>`__
 
@@ -11,8 +11,6 @@ A knife plugin is a set of one (or more) subcommands that can be added to knife 
 
 * The same `common options </knife_options.html>`__ used by knife subcommands can also be used by knife plug-ins
 * A knife plugin can make authenticated API requests to the Chef server
-
-Build a `custom plugin </plugin_knife_custom.html>`__ or use one of the following plugins that are maintained by Chef:
 
 The following knife plug-ins are maintained by Chef:
 

@@ -3,6 +3,9 @@ delivery.rb Optional Settings
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery_optional_settings.rst>`__
 
+.. meta::
+    :robots: noindex
+
 .. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see `Automate Server Tuning </delivery_server_tuning.html>`__), but many of them should be left as default values.
 
 Settings
@@ -514,7 +517,7 @@ This configuration file has the following settings for ``elasticsearch``:
 ``elasticsearch['role_arn']``
    The Amazon Resource Names(ARN) of IAM policies role for Amazon Elasticsearch Service. Default value: ``nil``.
 
-    .. note:: If ``elasticsearch['urls']`` is specified with Amazon elasticsearch url then ``elasticsearch['role_arn']`` value will be required.
+   .. note:: If ``elasticsearch['urls']`` is specified with Amazon elasticsearch url then ``elasticsearch['role_arn']`` value will be required.
 
 ``elasticsearch['config_directory']``
    The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/elasticsearch/conf"``.

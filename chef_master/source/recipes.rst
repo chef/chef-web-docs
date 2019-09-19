@@ -8,7 +8,7 @@ About Recipes
 A recipe is the most fundamental configuration element within the organization. A recipe:
 
 * Is authored using Ruby, which is a programming language designed to read and behave in a predictable manner
-* Is mostly a collection of resources, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
+* Is mostly a collection of `resources </resources.html>`__, defined using patterns (resource names, attribute-value pairs, and actions); helper code is added around this using Ruby, when needed
 * Must define everything that is required to configure part of a system
 * Must be stored in a cookbook
 * May be included in another recipe
@@ -56,7 +56,7 @@ Chef Infra Client uses six types of attributes to determine the value that is ap
 
    * - ``force_default``
      - .. tag node_attribute_type_force_default
-     
+
        Use the ``force_default`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over a ``default`` attribute set by a role or an environment.
 
        .. end_tag
@@ -81,7 +81,7 @@ Chef Infra Client uses six types of attributes to determine the value that is ap
        Use the ``force_override`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over an ``override`` attribute set by a role or an environment.
 
        .. end_tag
-       
+
    * - ``automatic``
      - .. tag node_attribute_type_automatic
 
@@ -563,7 +563,7 @@ where ``::default_recipe`` is implied (and does not need to be specified). On a 
      ]
    }
 
-Chef Server
+Chef Infra Server
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 Use knife to add a recipe to the run-list for a node. For example:
 

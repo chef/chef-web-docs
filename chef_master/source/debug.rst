@@ -122,7 +122,7 @@ The log resource has the following properties:
 ``level``
    **Ruby Type:** Symbol | **Default Value:** ``:info``
 
-   The logging level for displaying this message.. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
+   The logging level for displaying this message. Options (in order of priority): ``:debug``, ``:info``, ``:warn``, ``:error``, and ``:fatal``.
 
 ``message``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
@@ -486,13 +486,6 @@ Attributes
 This resource does not have any properties.
 
 .. end_tag
-
-Providers
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-This resource has the following providers:
-
-``Chef::Provider::Breakpoint``, ``breakpoint``
-   The default provider for all recipes.
 
 Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

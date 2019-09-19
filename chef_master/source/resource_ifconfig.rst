@@ -107,7 +107,7 @@ The ifconfig resource has the following properties:
 ``ethtool_opts``
    **Ruby Type:** String
 
-   Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``
+   Options to be passed to ethtool(8). For example: ``-A eth0 autoneg off rx off tx off``.
 
    *New in Chef Client 13.4.*
 
@@ -227,6 +227,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -323,6 +324,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

@@ -152,7 +152,6 @@ The cron_d resource has the following properties:
 
    The hour at which the cron entry is to run (``0 - 23``).
 
-
 ``mailto``
    **Ruby Type:** String
 
@@ -239,6 +238,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -336,6 +336,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -351,7 +353,7 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
-The following examples demonstrate various approaches for using resources in recipes
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Run a program at a specified interval**
 

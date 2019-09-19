@@ -31,10 +31,10 @@ The full syntax for all of the properties that are available to the **paludis_pa
 
   paludis_package 'name' do
     options           String
-    package_name      String, Array
+    package_name      String
     source            String
     timeout           Integer # default value: 3600
-    version           String, Array
+    version           String
     action            Symbol # defaults to :install if not specified
   end
 
@@ -45,10 +45,9 @@ where:
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
-
-
 Actions
 =====================================================
+
 The paludis_package resource has the following actions:
 
 ``:install``
@@ -79,7 +78,7 @@ The paludis_package resource has the following properties:
    One (or more) additional command options that are passed to the command.
 
 ``package_name``
-   **Ruby Type:** String, Array
+   **Ruby Type:** String
 
    An optional property to set the package name if it differs from the resource block's name.
 
@@ -94,7 +93,7 @@ The paludis_package resource has the following properties:
    The amount of time (in seconds) to wait before timing out.
 
 ``version``
-   **Ruby Type:** String, Array
+   **Ruby Type:** String
 
    The version of a package to be installed or upgraded.
 
@@ -231,6 +230,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

@@ -9,6 +9,7 @@ Use the **openssl_rsa_public_key** resource to generate RSA public key files for
 
 Syntax
 =====================================================
+
 The openssl_rsa_public_key resource has the following syntax:
 
 .. code-block:: ruby
@@ -220,6 +221,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -232,9 +235,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 .. end_tag
 
-
 Examples
-=====================================================
+==========================================
 **Create a public key from a private key file**
 
 .. code-block:: ruby

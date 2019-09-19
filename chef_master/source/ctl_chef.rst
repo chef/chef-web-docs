@@ -7,7 +7,6 @@ The chef executable is a command-line tool that does the following:
 
 * Generates repositories, cookbooks, recipes, attributes, templates, and custom resources.
 * Installs gems into the Chef development environment's Ruby installation.
-* Verifies that all components are installed and configured correctly
 
 chef env
 =====================================================
@@ -190,110 +189,6 @@ to return something similar to:
    /Users/user/.chefdk/gem/ruby/2.1.0/gems/knife-config-1.1.0/lib/chef/knife/config.rb
    /Users/user/.chefdk/gem/ruby/2.1.0/gems/knife-config-1.1.0/lib/knife-config.rb
 
-chef generate app
-=====================================================
-.. note:: This command is built around the idea that there should be a middle ground between the "one cookbook per repo" and the "all cookbooks in one repo" approaches.
-
-Use the ``chef generate app`` subcommand to generate a cookbook structure that:
-
-* Supports multiple cookbooks (as many as needed to support an "application")
-* Supports a top-level instance of Kitchen that can be used to test each cookbook in the application
-* Supports a single Policyfile.rb, which is an upcoming feature of ChefDK that defines a workflow around a set of cookbooks and related policy (such as roles, environments, and so on); for more information about Policyfile.rb, see the chef.lists discussions (search for "policyfile")
-
-.. note:: .. tag ruby_style_patterns_hyphens
-
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
-
-          .. end_tag
-
-Syntax
------------------------------------------------------
-This subcommand has the following syntax:
-
-.. code-block:: bash
-
-   $ chef generate app APP_NAME (options)
-
-Options
------------------------------------------------------
-This subcommand has the following options:
-
-``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
-
-``-h``, ``--help``
-   Show help for the command.
-
-``-v``, ``--version``
-   The Chef Infra Client version.
-
-Examples
------------------------------------------------------
-
-**Create an application**
-
-To generate an application, run a command similar to:
-
-.. code-block:: bash
-
-   $ chef generate app chef-repo
-
-will return something similar to:
-
-.. code-block:: bash
-
-   Recipe: code_generator::app
-     * directory[/Users/grantmc/chef-repo] action create
-       - create new directory /Users/grantmc/chef-repo
-
-     * template[/Users/grantmc/chef-repo/.kitchen.yml] action create
-       - create new file /Users/grantmc/chef-repo/.kitchen.yml
-
-     * template[/Users/grantmc/chef-repo/README.md] action create
-       - create new file /Users/grantmc/chef-repo/README.md
-
-     * directory[/Users/grantmc/chef-repo/cookbooks] action create
-       - create new directory /Users/grantmc/chef-repo/cookbooks
-
-     * directory[/Users/grantmc/chef-repo/cookbooks/chef-repo] action create
-       - create new directory /Users/grantmc/chef-repo/cookbooks/chef-repo
-
-     * template[/Users/grantmc/chef-repo/cookbooks/chef-repo/metadata.rb] action create
-       - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/metadata.rb
-
-     * cookbook_file[/Users/grantmc/chef-repo/cookbooks/chef-repo/chefignore] action create
-       - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/chefignore
-
-     * cookbook_file[/Users/grantmc/chef-repo/cookbooks/chef-repo/Berksfile] action create
-       - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/Berksfile
-
-     * directory[/Users/grantmc/chef-repo/cookbooks/chef-repo/recipes] action create
-       - create new directory /Users/grantmc/chef-repo/cookbooks/chef-repo/recipes
-
-     * template[/Users/grantmc/chef-repo/cookbooks/chef-repo/recipes/default.rb] action create
-       - create new file /Users/grantmc/chef-repo/cookbooks/chef-repo/recipes/default.rb
-
-     * execute[initialize-git] action run
-       - execute git init .
-
-     * cookbook_file[/Users/grantmc/chef-repo/.gitignore] action create
-       - create new file /Users/grantmc/chef-repo/.gitignore
-
-and which creates a directory structure similar to::
-
-   /chef-repo
-     /.git
-	 .gitignore
-	 .kitchen.yml
-     /cookbooks
-	   /chef-repo
-	     Berksfile
-		 chefignore
-		 metadata.rb
-		 /recipes
-		   default.rb
-	  README.md
-
 chef generate attribute
 =====================================================
 Use the ``chef generate attribute`` subcommand to generate an attribute file in the ``/attributes`` directory.
@@ -425,8 +320,8 @@ will return something similar to:
      * cookbook_file[/Users/grantmc/chefdocs/Berksfile] action create
        - create new file /Users/grantmc/chefdocs/Berksfile
 
-     * template[/Users/grantmc/chefdocs/.kitchen.yml] action create
-       - create new file /Users/grantmc/chefdocs/.kitchen.yml
+     * template[/Users/grantmc/chefdocs/kitchen.yml] action create
+       - create new file /Users/grantmc/chefdocs/kitchen.yml
 
      * directory[/Users/grantmc/chefdocs/recipes] action create
        - create new directory /Users/grantmc/chefdocs/recipes
@@ -445,7 +340,7 @@ and which creates a directory structure similar to::
    /chefdocs
      /.git
 	 .gitignore
-     .kitchen.yml
+     kitchen.yml
      Berksfile
      chefignore
      metadata.rb
@@ -484,8 +379,8 @@ will return something similar to:
      * cookbook_file[/Users/grantmc/Desktop/chef-repo/test-cookbook/Berksfile] action create
        - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/Berksfile
 
-     * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/.kitchen.yml] action create
-       - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/.kitchen.yml
+     * template[/Users/grantmc/Desktop/chef-repo/test-cookbook/kitchen.yml] action create
+       - create new file /Users/grantmc/Desktop/chef-repo/test-cookbook/kitchen.yml
 
      * directory[/Users/grantmc/Desktop/chef-repo/test-cookbook/recipes] action create
        - create new directory /Users/grantmc/Desktop/chef-repo/test-cookbook/recipes

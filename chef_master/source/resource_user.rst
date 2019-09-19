@@ -19,8 +19,8 @@ A **user** resource block manages users on a node:
 
    user 'a user' do
      comment 'A random user'
-     uid '1234'
-     gid '1234'
+     uid 1234
+     gid 'groupname'
      home '/home/random'
      shell '/bin/bash'
      password '$1$JJsvHslasdfjVEroftprNn4JHtDi'
@@ -310,6 +310,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

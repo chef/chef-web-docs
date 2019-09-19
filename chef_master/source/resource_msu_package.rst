@@ -9,11 +9,13 @@ Use the **msu_package** resource to install Microsoft Update(MSU) packages on Mi
 
 Syntax
 =====================================================
+
 The msu_package resource has the following syntax:
 
 .. code-block:: ruby
 
    msu_package 'name' do
+     package_name               String
      source                     String
      action                     Symbol
    end
@@ -45,6 +47,13 @@ The msu_package resource has the following actions:
 :remove
    Uninstalls the MSU package from its location on disk.
 
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
+
 Properties
 =====================================================
 
@@ -54,6 +63,12 @@ The msu_package resource has the following properties:
    **Ruby Type:** String
 
    SHA-256 digest used to verify the checksum of the downloaded MSU package.
+
+
+``package_name``
+   **Ruby Type:** String, Array
+
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
@@ -194,6 +209,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -207,7 +224,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-=====================================================
+==========================================
 
 **Using local path in source**
 

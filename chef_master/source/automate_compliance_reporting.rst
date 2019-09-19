@@ -3,6 +3,9 @@ Reporting
 =======================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_reporting.html>`__
 
+.. meta::
+    :robots: noindex
+    
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -13,7 +16,7 @@ Reporting
 
 .. tag EOL_a1
 
-.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </https://docs.chef.io/versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -143,15 +146,15 @@ The Profiles view of the Compliance Reporting tab lets you examine the complianc
 * **Scan Results:** Displays a list of all of the nodes on which the profile has been run. Selecting the more information arrow will open a list of controls within the profile. Expanding the profile list will take you to a view of the tests within a control and the results. Use the view source button to examine the Chef InSpec source code.
 * **More Information:** Selecting the more information icon opens a list of all of the controls within the profile.
 
-    Selecting the **scan results** button displays all of the nodes on which the selected test has been run. 
-    Selecting **more information** displays individual test results for the selected control on the selected node. 
+Selecting the **scan results** button displays all of the nodes on which the selected test has been run. 
+Selecting **more information** displays individual test results for the selected control on the selected node. 
 
-    .. image:: ../../images/automate_compliance_profile_more_info.png
+.. image:: ../../images/automate_compliance_profile_more_info.png
 
-    Selecting the more information icon from a node row on this view displays the scan results of the selected profile on a specific node.
+Selecting the more information icon from a node row on this view displays the scan results of the selected profile on a specific node.
 
-      .. image:: ../../images/automate_compliance_profile_on_node.png
+.. image:: ../../images/automate_compliance_profile_on_node.png
 
-    Selecting the **view source** displays the Chef InSpec controls and can also be used to display the Chef InSpec control source code.
+Selecting the **view source** displays the Chef InSpec controls and can also be used to display the Chef InSpec control source code.
 
-      .. image:: ../../images/automate_compliance_profile_node_control.png
+.. image:: ../../images/automate_compliance_profile_node_control.png

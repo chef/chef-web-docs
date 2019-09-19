@@ -58,7 +58,7 @@ After creating the service principal, you will have the values:
 
 Put the following in your `knife.rb`
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
       knife[:azure_tenant_id] # found via: tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
       knife[:azure_subscription_id] # found via: <subscriptionId>

@@ -60,7 +60,7 @@ A test kitchen driver for Google Cloud Platform.
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following is a basic ``.kitchen.yml`` example:
+The following is a basic ``kitchen.yml`` example:
 
 .. code-block:: yaml
 

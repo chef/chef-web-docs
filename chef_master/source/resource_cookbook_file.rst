@@ -506,6 +506,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -520,6 +522,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 File Specificity
 =====================================================
+.. tag cookbook_file_specificity
+
 A cookbook is frequently designed to work across many platforms and is often required to distribute a specific file to a specific platform. A cookbook can be designed to support the distribution of files across platforms, while ensuring that the correct file ends up on each system.
 
 The pattern for file specificity depends on two things: the lookup path and the source attribute. The first pattern that matches is used:
@@ -590,8 +594,11 @@ If the ``apache2_module_conf_generate.pl`` file was located in the cookbook dire
 
 The naming of folders within cookbook directories must literally match the host notation used for file specificity matching. For example, if a host is named ``foo.example.com``, the folder must be named ``host-foo.example.com``.
 
+.. end_tag
+
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Transfer a file**

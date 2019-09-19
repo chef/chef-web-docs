@@ -3,6 +3,9 @@ Manage Data Bags
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_data_bags.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -101,7 +104,7 @@ To delete a data bag item:
 #. Click **Data Bags**.
 #. Select a data bag.
 #. Select the **Items** tab.
-#. Select a data bag.
+#. Select an item.
 #. Click **Delete**.
 
    .. image:: ../../images/step_manage_webui_policy_data_bag_delete_item.png
@@ -117,7 +120,7 @@ To edit a data bag item:
 #. Click **Data Bags**.
 #. Select a data bag.
 #. Select the **Items** tab.
-#. Select a data bag.
+#. Select an item.
 #. Click **Edit**.
 
    .. image:: ../../images/step_manage_webui_policy_data_bag_edit_item.png

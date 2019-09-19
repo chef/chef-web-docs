@@ -9,6 +9,7 @@ Use the **dmg_package** resource to install a package from a ``.dmg`` file. The 
 
 Syntax
 =====================================================
+
 The dmg_package resource has the following syntax:
 
 .. code-block:: ruby
@@ -135,6 +136,7 @@ Chef resources include common properties, notifications, and resource guards.
 
 Common Properties
 -----------------------------------------------------
+
 .. tag resources_common_properties
 
 The following properties are common to every resource:
@@ -163,6 +165,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -260,6 +263,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -271,3 +276,38 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Install Google Chrome via the DMG package**
+
+.. code-block:: ruby
+
+  dmg_package 'Google Chrome' do
+    dmg_name 'googlechrome'
+    source   'https://dl-ssl.google.com/chrome/mac/stable/GGRM/googlechrome.dmg'
+    checksum '7daa2dc5c46d9bfb14f1d7ff4b33884325e5e63e694810adc58f14795165c91a'
+    action   :install
+  end
+
+**Install Virtualbox from the .mpkg**
+
+.. code-block:: ruby
+
+  dmg_package 'Virtualbox' do
+    source 'http://dlc.sun.com.edgesuite.net/virtualbox/4.0.8/VirtualBox-4.0.8-71778-OSX.dmg'
+    type   'mpkg'
+  end
+
+**Install pgAdmin and automatically accept the EULA**
+
+.. code-block:: ruby
+
+  dmg_package 'pgAdmin3' do
+    source   'http://wwwmaster.postgresql.org/redir/198/h/pgadmin3/release/v1.12.3/osx/pgadmin3-1.12.3.dmg'
+    checksum '9435f79d5b52d0febeddfad392adf82db9df159196f496c1ab139a6957242ce9'
+    accept_eula true
+  end

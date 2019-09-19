@@ -9,6 +9,7 @@ Use the **chocolatey_source** resource to add, remove, enable, or disable Chocol
 
 Syntax
 =====================================================
+
 The chocolatey_source resource has the following syntax:
 
 .. code-block:: ruby
@@ -133,6 +134,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -230,6 +232,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -241,3 +245,25 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Add a Chocolatey source**
+
+.. code-block:: ruby
+
+   chocolatey_source 'MySource' do
+     source 'http://example.com/something'
+     action :add
+   end
+
+**Remove a Chocolatey source**
+
+.. code-block:: ruby
+
+   chocolatey_source 'MySource' do
+     action :remove
+   end

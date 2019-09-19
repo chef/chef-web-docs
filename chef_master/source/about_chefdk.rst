@@ -11,7 +11,7 @@ ChefDK, short for Chef Development Kit, is a package that contains everything th
 
 * Chef Infra Client
 * chef and knife command line tools
-* Testing tools such as Test Kitchen, ChefSpec, Cookstyle, and Foodcritic
+* Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
 * Chef InSpec
 * Everything else needed to author cookbooks and upload them to the Chef Infra Server
 
@@ -59,7 +59,7 @@ The most important tools included in ChefDK are:
      - Description
    * - Berkshelf
      - A dependency manager for cookbooks.
-   * - chef
+   * - Chef CLI
      - A workflow tool for Chef.
    * - Chef Infra Client
      - The agent that runs Chef.
@@ -68,13 +68,11 @@ The most important tools included in ChefDK are:
    * - ChefSpec
      - A unit testing framework that tests resources locally.
    * - Cookstyle
-     - A Rubocop-based style-checking tool for writing clean cookbooks.
+     - A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
    * - Delivery CLI
      - A command-line tool for continuous delivery workflow. Is used to setup and execute phase jobs on a Chef Automate server.
    * - Fauxhai
      - A gem for mocking Ohai data in ChefSpec tests.
-   * - Foodcritic
-     - A lint tool for static analysis of recipe code.
    * - Test Kitchen
      - An integration testing framework tool that tests cookbooks across platforms.
    * - kitchen-dokken
@@ -98,7 +96,5 @@ The following tools have been developed by members of the Chef community. These 
 `Berkshelf </berkshelf.html>`_ |
 `Chef Vault </chef_vault.html>`_ |
 `ChefSpec </chefspec.html>`_ |
-`FoodCritic </foodcritic.html>`_ |
 `Test Kitchen </kitchen.html>`_ |
 `kitchen-vagrant </plugin_kitchen_vagrant.html>`_ |
-`Cookstyle </cookstyle.html>`_

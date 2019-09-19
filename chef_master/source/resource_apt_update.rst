@@ -11,7 +11,8 @@ Use the **apt_update** resource to manage APT repository updates on Debian and U
 
 Syntax
 =====================================================
-An **apt_update** resource block defines the update frequency for APT repositories:
+
+The apt_update resource has the following syntax:
 
 .. code-block:: ruby
 
@@ -27,10 +28,9 @@ where:
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``frequency`` is the property available to this resource.
 
-
-
 Nameless
 =====================================================
+.. tag nameless_apt_update
 
 This resource can be **nameless**. Add the resource itself to your recipe to get the default behavior:
 
@@ -44,8 +44,11 @@ will behave the same as:
 
    apt_update 'update'
 
+.. end_tag
+
 Actions
 =====================================================
+
 The apt_update resource has the following actions:
 
 ``:nothing``
@@ -61,8 +64,6 @@ The apt_update resource has the following actions:
 ``:update``
    Update the Apt repository at the start of a Chef Infra Client run.
 
-
-
 Properties
 =====================================================
 
@@ -72,8 +73,6 @@ The apt_update resource has the following properties:
    **Ruby Type:** Integer | **Default Value:** ``86400``
 
    Determines how frequently (in seconds) APT repository updates are made. Use this property when the ``:periodic`` action is specified.
-
-
 
 Common Resource Functionality
 =====================================================
@@ -111,6 +110,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -208,6 +208,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -222,11 +224,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
-.. tag resources_common_examples_intro
 
 The following examples demonstrate various approaches for using resources in recipes:
-
-.. end_tag
 
 **Update the Apt repository at a specified interval**
 

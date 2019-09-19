@@ -3,6 +3,9 @@ Deprecation: Launchd hash Property (CHEF-12)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_launchd_hash_property.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+    
 The launchd resource has a property called ``hash`` which conflicts with the already-existing Ruby ``hash`` method that exists on every object.
 
 

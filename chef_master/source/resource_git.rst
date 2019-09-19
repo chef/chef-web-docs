@@ -294,6 +294,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -378,7 +380,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
        ./install.sh
        EOH
      environment 'PREFIX' => '/usr/local'
-  end
+   end
 
 To read more about ``ruby-build``, see here: https://github.com/sstephenson/ruby-build.
 

@@ -5,8 +5,11 @@ snap_package resource
 
 Use the **snap_package** resource to manage snap packages on Debian and Ubuntu platforms.
 
+**New in Chef Infra Client 15.0.**
+
 Syntax
 =====================================================
+
 The snap_package resource has the following syntax:
 
 .. code-block:: ruby
@@ -132,6 +135,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -228,6 +232,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

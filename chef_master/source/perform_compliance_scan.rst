@@ -3,6 +3,9 @@ Perform a Compliance Scan in Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/perform_complliance_scan.rst>`__
 
+.. meta::
+    :robots: noindex
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -13,7 +16,7 @@ Perform a Compliance Scan in Chef Automate
 
 .. tag EOL_a1
 
-.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </https://docs.chef.io/versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -32,7 +35,7 @@ The following are required when using the built-in compliance capabilities of Ch
 * Chef Automate server
 * Chef Server 12.11.1 or later
 * The audit cookbook 4.0 or later
-* ChefDK 1.4.3 or later installed on your workstation
+* ChefDK or Chef Workstation installed on your workstation
 * Chef InSpec 1.25.1 or later installed by the audit cookbook
 
 Configure Data Collection on Chef Infra Server
@@ -50,7 +53,7 @@ Edit ``/etc/opscode/chef-server.rb`` and add the following information. Token va
 
 After you have finished editing the file, run ``chef-server-ctl reconfigure`` to enable the changes.
 
-Optional: Tune the Chef Server
+Optional: Tune the Chef Infra Server
 -------------------------------------------------------
 
 For larger Chef InSpec profiles, the Chef Infra Server may need to be configured to accept increased request sizes. If you receive the error ``413 Request Entity Too Large`` on your Chef Infra Client run, you can increase these settings from their default values to allow the Chef Infra Server to ingest more data from a Chef Infra Client run.

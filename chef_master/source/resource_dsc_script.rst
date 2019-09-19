@@ -176,19 +176,21 @@ The dsc_script resource has the following properties:
 
 ps_credential Helper
 ----------------------------------------------------
+.. tag ps_credential_helper
+
 Use the ``ps_credential`` helper to embed a ``PSCredential`` object--- `a set of security credentials, such as a user name or password <https://technet.microsoft.com/en-us/magazine/ff714574.aspx>`__ ---within a script, which allows that script to be run using security credentials.
 
 For example, assuming the ``CertificateID`` is configured in the local configuration manager, the ``SeaPower1@3`` object is created and embedded within the ``seapower-user`` script:
 
 .. code-block:: ruby
 
-   dsc_script 'seapower-user' do
-     code <<-EOH
-       User AlbertAtom
-       {
-         UserName = 'AlbertAtom'
-         Password = #{ps_credential('SeaPower1@3')}
-       }
+  dsc_script 'seapower-user' do
+    code <<-EOH
+      User AlbertAtom
+      {
+        UserName = 'AlbertAtom'
+        Password = #{ps_credential('SeaPower1@3')}
+      }
     EOH
     configuration_data <<-EOH
       @{
@@ -202,7 +204,7 @@ For example, assuming the ``CertificateID`` is configured in the local configura
     EOH
   end
 
-
+.. end_tag
 
 Common Resource Functionality
 =====================================================
@@ -336,6 +338,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

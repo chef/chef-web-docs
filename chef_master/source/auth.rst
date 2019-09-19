@@ -44,7 +44,7 @@ Chef Infra Client
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag security_key_pairs_chef_client
 
-RSA public key-pairs are used to authenticate Chef Infra Client with the Chef Infra Server every time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
+Chef Infra Client authenticates with the Chef Infra Server using RSA public key-pairs each time a Chef Infra Client needs access to data that is stored on the Chef Infra Server. This prevents any node from accessing data that it shouldn't and it ensures that only nodes that are properly registered with the Chef Infra Server can be managed.
 
 .. end_tag
 
@@ -404,15 +404,15 @@ In some cases, Chef Infra Client may receive a 401 response to the authenticatio
 
 To debug authentication problems, determine which Chef Infra Client is attempting to authenticate. This is often found in the log messages for that Chef Infra Client. Debug logging can be enabled on a Chef Infra Client using the following command:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ chef-client -l debug
+   chef-client -l debug
 
-   When debug logging is enabled, a log entry will look like the following:
+When debug logging is enabled, a log entry will look like the following:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      [Wed, 05 Oct 2011 22:05:35 +0000] DEBUG: Signing the request as NODE_NAME
+   [Wed, 05 Oct 2011 22:05:35 +0000] DEBUG: Signing the request as NODE_NAME
 
 If the authentication request occurs during the initial Chef Infra Client run, the issue is most likely with the private key.
 
@@ -426,6 +426,6 @@ Authorization
 =====================================================
 For more information about Chef Infra Server Authorization, see `Organizations and Groups </server_orgs.html>`__.
 
-Chef Server API
+Chef Infra Server API
 =====================================================
 For more information about using the Chef Infra Server API endpoints see `Chef Infra Server API </api_chef_server.html>`__.

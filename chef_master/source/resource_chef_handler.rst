@@ -346,6 +346,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -508,7 +510,11 @@ The `json_file <https://github.com/chef/chef/blob/master/lib/chef/handler/json_f
 
 Optional Interfaces
 -----------------------------------------------------
-The following interfaces may be used in a handler in the same way as the ``report`` interface to override the default handler behavior in . That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
+.. tag handler_custom_optional_interfaces
+
+The following interfaces may be used in a handler in the same way as the ``report`` interface to override the default handler behavior in Chef Infra Client. That said, the following interfaces are not typically used in a handler and, for the most part, are completely unnecessary for a handler to work properly and/or as desired.
+
+.. end_tag
 
 data
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -599,6 +605,7 @@ The ``run_status`` object is initialized by Chef Infra Client before the ``repor
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Enable the CloudkickHandler handler**

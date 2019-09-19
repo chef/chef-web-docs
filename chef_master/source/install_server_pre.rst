@@ -29,7 +29,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``12 SP1+``, ``15``
    * - Ubuntu
      - ``x86_64``
      - ``16.04``, ``18.04``
@@ -48,7 +48,7 @@ The following platforms are not tested by Chef Software:
 
 Capacity Planning
 =====================================================
-Read the `guidance around capacity planning </server_components.html#capacity-planning>`__ for information about how to choose the right topology for the Chef Infra Server.
+Read the `guidance around capacity planning </server_overview.html#capacity-planning>`__ for information about how to choose the right topology for the Chef Infra Server.
 
 Hardware Requirements
 =====================================================
@@ -67,7 +67,7 @@ All machines in a Chef Infra Server deployment have the following hardware requi
 * 5 GB of free disk space in ``/opt``
 * 5 GB of free disk space in ``/var``
 
-.. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef Infra Client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_components.html#capacity-planning>`_ for more information on how this metric affects scalability.
+.. note:: The RAM requirement can be lowered down to a minimum of 4 GB of RAM if the number of Chef Infra Client runs (CCRs) per minute are low (i.e. less than 33 CCRs/min). See `Capacity Planning </server_overview.html#capacity-planning>`_ for more information on how this metric affects scalability.
 
 For a high availability deployment:
 
@@ -305,7 +305,7 @@ The hostname for the Chef Infra Server may be specified using a FQDN or an IP ad
 * **FQDN Hostnames** When the hostname for the Chef Infra Server is a FQDN be sure to include the domain suffix. For example, something like ``mychefserver.example.com`` (and not something like ``mychefserver``).
 * **IP Address Hostnames** When the Chef Infra Server is run in IPv6 mode, a hostname specified using an IP address must also be bracketed (``[ ]``) or the Chef Infra Server will not be able to recognize it as an IPv6 address. For example:
 
-   .. code-block:: ruby
+  .. code-block:: ruby
 
       bookshelf['url'] "https://[2001:db8:85a3:8d3:1319:8a2e:370:7348]"
 

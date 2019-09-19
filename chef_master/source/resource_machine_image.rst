@@ -3,6 +3,9 @@ machine_image
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_machine_image.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag resource_machine_image_summary
 
 Use the **machine_image** resource to define a machine image. This image may then be used by the **machine** resource when building machines.

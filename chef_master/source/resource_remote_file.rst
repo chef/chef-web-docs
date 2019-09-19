@@ -608,6 +608,8 @@ Because the ``inherits`` property is not specified, Chef Infra Client will defau
 
 Prevent Re-downloads
 -----------------------------------------------------
+.. tag remote_file_prevent_re_downloads
+
 To prevent Chef Infra Client from re-downloading files that are already present on a node, use one of the following attributes in a recipe: ``use_conditional_get`` (default) or ``checksum``.
 
 * The ``use_conditional_get`` attribute is the default behavior of Chef Infra Client. If the remote file is located on a server that supports ETag and/or If-Modified-Since headers, Chef Infra Client will use a conditional ``GET`` to determine if the file has been updated. If the file has been updated, Chef Infra Client will re-download the file.
@@ -616,8 +618,12 @@ To prevent Chef Infra Client from re-downloading files that are already present 
 
 The desired approach just depends on the desired workflow. For example, if a node requires a new file every day, using the checksum approach would require that the local checksum be updated and/or verified every day as well, in order to ensure that the local checksum was the correct one. Using a conditional ``GET`` in this scenario will greatly simplify the management required to ensure files are being updated accurately.
 
+.. end_tag
+
 Access a remote UNC path on Windows
 -----------------------------------------------------
+.. tag remote_file_unc_path
+
 The ``remote_file`` resource on Windows supports accessing files from a remote SMB/CIFS share. The file name should be specified in the source property as a UNC path e.g. ``\\myserver\myshare\mydirectory\myfile.txt``. This
 allows access to the file at that path location even if the Chef Infra Client process identity does not have permission to access the file. Credentials for authenticating to the remote system can be specified using the ``remote_user``, ``remote_domain``, and ``remote_password`` properties when the user that Chef Infra Client is running does not have access to the remote file. See the "Properties" section for more details on these options.
 
@@ -667,6 +673,8 @@ OR
      remote_user ".\\username"
      remote_password "password"
    end
+
+.. end_tag
 
 Examples
 =====================================================

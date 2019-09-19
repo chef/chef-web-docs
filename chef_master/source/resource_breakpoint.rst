@@ -112,7 +112,7 @@ and then add them to the chef-shell.rb file. Other configuration possibilities i
 
 .. end_tag
 
-Run as a Chhef Infra Client
+Run as a Chef Infra Client
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag chef_shell_run_as_chef_client
 
@@ -564,6 +564,7 @@ To get a list of nodes using a recipe named ``postfix`` use ``search(:node,"reci
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **A recipe without a breakpoint**

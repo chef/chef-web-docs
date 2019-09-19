@@ -3,6 +3,9 @@ AWS OpsWorks for Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/aws_opsworks_chef_automate.rst>`__
 
+.. meta::
+    :robots: noindex
+
 `AWS OpsWorks for Chef Automate <https://aws.amazon.com/opsworks/chefautomate/>`__ is an AWS service which you can use to create a Chef Automate instance.
 
 For documentation on how to setup and create a new instance, please see the `AWS OpsWorks User Guide <http://docs.aws.amazon.com/opsworks/latest/userguide/welcome_opscm.html>`_.

@@ -9,6 +9,7 @@ Use the **build_essential** resource to install the packages required for compil
 
 Syntax
 =====================================================
+
 The build_essential resource has the following syntax:
 
 .. code-block:: ruby
@@ -24,6 +25,24 @@ where:
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``compile_time`` is the property available to this resource.
+
+Nameless
+=====================================================
+.. tag nameless_build_essential
+
+This resource can be **nameless**. Add the resource itself to your recipe to get the default behavior:
+
+.. code-block:: ruby
+
+   build_essential
+
+will behave the same as:
+
+.. code-block:: ruby
+
+   build_essential 'install tools'
+
+.. end_tag
 
 Actions
 =====================================================
@@ -49,7 +68,7 @@ The build_essential resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Install the build essential packages at compile time.
-   
+
 Common Resource Functionality
 =====================================================
 
@@ -86,6 +105,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -183,6 +203,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -194,3 +216,22 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Install compilation packages**
+
+.. code-block:: ruby
+
+   build_essential
+
+**Install compilation packages during the compilation phase**
+
+.. code-block:: ruby
+
+   build_essential 'Install compilation tools' do
+     compile_time true
+   end

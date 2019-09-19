@@ -9,14 +9,14 @@ Use the **chocolatey_feature** resource to enable and disable Chocolatey feature
 
 Syntax
 =====================================================
+
 The chocolatey_feature resource has the following syntax:
 
 .. code-block:: ruby
 
   chocolatey_feature 'name' do
-    feature_name       String # default value: 'name' unless specified
-    feature_state      true, false # default value: false
-    action             Symbol # defaults to :enable if not specified
+    feature_name      String # default value: 'name' unless specified
+    action            Symbol # defaults to :enable if not specified
   end
 
 where:
@@ -24,7 +24,7 @@ where:
 * ``chocolatey_feature`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``feature_name`` and ``feature_state`` are the properties available to this resource.
+* ``feature_name`` is the property available to this resource.
 
 Actions
 =====================================================
@@ -90,6 +90,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -187,6 +188,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -198,3 +201,24 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Enable the checksumFiles Chocolatey feature**
+
+.. code-block:: ruby
+
+   chocolatey_feature 'checksumFiles' do
+     action :enable
+   end
+
+**Disable the checksumFiles Chocolatey feature**
+
+.. code-block:: ruby
+
+   chocolatey_feature 'checksumFiles' do
+     action :disable
+   end

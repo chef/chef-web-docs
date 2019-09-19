@@ -3,6 +3,9 @@ erl_call
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_erlang_call.rst>`__
 
+.. meta::
+    :robots: noindex
+
 Use the **erl_call** resource to connect to a node located within a distributed Erlang system. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
 
@@ -195,9 +198,9 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
-**Attributes**
+**Properties**
 
-.. tag resources_common_guards_attributes
+.. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 

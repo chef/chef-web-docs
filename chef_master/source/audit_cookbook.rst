@@ -3,6 +3,8 @@ Sending Compliance Data to Chef Automate with Audit Cookbook
 =======================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/audit_cookbook.rst>`__
 
+.. meta::
+    :robots: noindex
 
 .. note:: The ``audit`` cookbook uses the Chef InSpec gem. It will check for an installed version of Chef InSpec and install it upon finding none. The latest version of Chef InSpec will be installed by default unless otherwise specified with ``node['audit']['inspec_version']``.
 
@@ -23,42 +25,42 @@ Once the cookbook is available in Chef Infra Server, you will need to add the ``
 
 To configure the audit cookbook to report compliance data directly to Chef Automate, you will first need to configure Chef Infra Client to send node converge data, as described in `Data Collection </data_collection.html>`__. Next, configure the audit cookbook collector by setting the ``reporter``, ``server``, ``owner``, ``refresh_token`` and ``profiles`` attributes.
 
-   * ``reporter`` - ``'chef-automate'`` to report to Chef Automate.
-   * ``server`` - url of Chef Automate server with ``/api``.
-   * ``owner`` - Chef Automate user or organization that will receive this scan report.
-   * ``refresh_token`` - refresh token for Chef Automate API. Please note that logging out of the user interface revokes the ``refresh_token``. To workaround, log in once in a private browser session, grab the token and then close the browser without logging out.
-   * ``insecure`` - a ``true`` value will skip the SSL certificate verification when retrieving an access token. The default value is ``false``.
+* ``reporter`` - ``'chef-automate'`` to report to Chef Automate.
+* ``server`` - url of Chef Automate server with ``/api``.
+* ``owner`` - Chef Automate user or organization that will receive this scan report.
+* ``refresh_token`` - refresh token for Chef Automate API. Please note that logging out of the user interface revokes the ``refresh_token``. To workaround, log in once in a private browser session, grab the token and then close the browser without logging out.
+* ``insecure`` - a ``true`` value will skip the SSL certificate verification when retrieving an access token. The default value is ``false``.
 
 A complete audit cookbook attribute configuration will look something like this:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      ['audit']['reporter'] = 'chef-automate'
-      ['audit']['server'] = 'https://chef-automate-server/api'
-      ['audit']['owner'] = 'my-comp-org'
-      ['audit']['refresh_token'] = '5/4T...g=='
-      ['audit']['insecure'] = false
-      ['audit']['profiles'] = [
-        {
-         'name': 'windows',
-         'compliance': 'base/windows'
-         }
-      ]
+   ['audit']['reporter'] = 'chef-automate'
+   ['audit']['server'] = 'https://chef-automate-server/api'
+   ['audit']['owner'] = 'my-comp-org'
+   ['audit']['refresh_token'] = '5/4T...g=='
+   ['audit']['insecure'] = false
+   ['audit']['profiles'] = [
+     {
+      'name': 'windows',
+      'compliance': 'base/windows'
+      }
+   ]
 
 Instead of a refresh token, it is also possible to use a ``token`` that expires in 12h after creation.
 
-  .. code-block:: ruby
+.. code-block:: ruby
 
-     ['audit']['reporter'] = 'chef-automate'
-     ['audit']['server'] =  'https://chef-automate-fqdn/api'
-     ['audit']['owner'] =  'my-comp-org'
-     ['audit']['token'] =  'eyJ........................YQ'
-     ['audit']['profiles'] = [
-        {
-          'name': 'windows',
-          'compliance': 'base/windows'
-          }
-      ]
+   ['audit']['reporter'] = 'chef-automate'
+   ['audit']['server'] =  'https://chef-automate-fqdn/api'
+   ['audit']['owner'] =  'my-comp-org'
+   ['audit']['token'] =  'eyJ........................YQ'
+   ['audit']['profiles'] = [
+      {
+        'name': 'windows',
+        'compliance': 'base/windows'
+        }
+    ]
 
 
 Supported Audit Cookbook Configurations
@@ -71,7 +73,7 @@ The ``audit`` cookbook supports several different methods of fetching and report
 
 .. end_tag
 
-Fetch From Automate via Chef Server
+Fetch From Automate via Chef Infra Server
 ---------------------------------------------------------------------------
 
 .. note:: The Compliance server must be integrated with Chef Infra Server for use in reporting.
@@ -107,7 +109,7 @@ Fetch From Automate via Chef Server
           # Set in delivery.rb:
           compliance_profiles["enable"] = true
 
-   * - Fetch From Automate via Chef Infra Server and Report to Automate via Chef Server
+   * - Fetch From Automate via Chef Infra Server and Report to Automate via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-automate'
@@ -118,7 +120,7 @@ Fetch From Automate via Chef Server
           #Set in delivery.rb:
           compliance_profiles["enable"] = true
 
-   * - Fetch From Automate via Chef Infra Server and Report to Compliance via Chef Server
+   * - Fetch From Automate via Chef Infra Server and Report to Compliance via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-compliance'
@@ -128,7 +130,7 @@ Fetch From Automate via Chef Server
           #Set in delivery.rb:
           compliance_profiles["enable"] = true
 
-Fetch From Compliance via Chef Server
+Fetch From Compliance via Chef Infra Server
 ---------------------------------------------------------
 .. note:: The Compliance server must be integrated with Chef Infra Server for use in reporting.
 
@@ -158,13 +160,13 @@ Fetch From Compliance via Chef Server
           ['audit']['refresh_token' OR 'token'] = '..'
           ['audit']['owner'] = 'User/Org'
 
-   * - Fetch From Compliance via Chef Infra Server and Report to Compliance via Chef Server
+   * - Fetch From Compliance via Chef Infra Server and Report to Compliance via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-compliance'
           ['audit']['fetcher'] = 'chef-server'
 
-   * - Fetch From Compliance via Chef Infra Server and Report to Automate via Chef Server
+   * - Fetch From Compliance via Chef Infra Server and Report to Automate via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-automate'
@@ -197,7 +199,7 @@ Fetch Directly From Compliance
           ['audit']['server'] = 'https://compliance-server.test/api'
           ['audit']['refresh_token' OR 'token'] = '..'
           ['audit']['owner'] = 'User/Org'
-   * - Fetch from Compliance and Report to Automate via Chef Server
+   * - Fetch from Compliance and Report to Automate via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-automate'
@@ -206,7 +208,7 @@ Fetch Directly From Compliance
           ['audit']['owner'] = 'User/Org'
           #Set in chef-server.rb:
           data_collector['root_url'] = 'https://chef-automate.test/data-collector/v0/'
-   * - Fetch from Compliance and Report to Compliance via Chef Server
+   * - Fetch from Compliance and Report to Compliance via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-compliance'

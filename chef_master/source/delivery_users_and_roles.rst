@@ -3,6 +3,9 @@ Manage Users and Roles
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_users_and_roles.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -13,7 +16,7 @@ Manage Users and Roles
 
 .. tag EOL_a1
 
-.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </https://docs.chef.io/versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -228,13 +231,13 @@ To onboard a user for an integrated GitHub Enterprise project or one that is hos
 
    *Or*, as an administrator, run the command line tool ``automate-ctl``. The command uses the enterprise name you set when configuring Chef Automate. The username can be an LDAP username (if LDAP integration has been completed), or an internal username:
 
-    For GitHub Enterprise:
+   For GitHub Enterprise:
 
-    .. code-block:: bash
+   .. code-block:: bash
 
-       $ automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
+      $ automate-ctl link-github-enterprise-user $AUTOMATE_ENTERPRISE_NAME $AUTOMATE_USERNAME $GITHUB_USERNAME
 
-    For GitHub:
+   For GitHub:
 
    .. code-block:: bash
 
@@ -253,9 +256,9 @@ For an integrated GitHub Enterprise project or a project that is hosted on `Gith
 
 #. The standard GitHub process should be followed:
 
-      * Clone the desired repository
-      * Make and test changes locally
-      * Submit the changes and initiate the Chef Automate review process by creating a pull request with the ``delivery review`` command
+   * Clone the desired repository
+   * Make and test changes locally
+   * Submit the changes and initiate the Chef Automate review process by creating a pull request with the ``delivery review`` command
 
    The GitHub webui will display a **Delivery Status** box showing what part of the pipeline the pull request is at. When the pull request has passed the **Verify** stage, GitHub will message you in the GitHub webui that approval must be manually entered for the pipeline to proceed.
 

@@ -3,6 +3,9 @@ machine_file
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_machine_file.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag resource_machine_file_summary
 
 Use the **machine_file** resource to manage a file on a remote machine in much the same way the **file** resource is used to manage a file on a local machine.

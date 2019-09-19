@@ -3,6 +3,9 @@ Release Notes: Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chef_automate.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+    
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 
@@ -50,11 +53,11 @@ Resolved Issues
 * The built-in ssl certificate is no longer a CA keypair and works with newer versions of Chrome
 * **Fixed multiple bugs with the reaper:**
 
-    * Relocated executable to ``/opt/delivery/bin/reaper`` from ``/opt/delivery/embedded/service/reaper/bin/reaper``.
-    * Application is now `AppBundled` to ensure high reliability.
-    * Logs now append to log file for each execution rather than overwrite.
-    * Application crash logs are now appended to the logfile.
-    * Curator timeout is now configurable. This can set via ``node['delivery']['elasticsearch']['curator']['timeout']`` in the delivery.rb or by exporting the environment variable `CURATOR_ELASTICSEARCH_TIMEOUT` when running the reaper manually. Default value is 600 seconds (10 minutes).
+  * Relocated executable to ``/opt/delivery/bin/reaper`` from ``/opt/delivery/embedded/service/reaper/bin/reaper``.
+  * Application is now `AppBundled` to ensure high reliability.
+  * Logs now append to log file for each execution rather than overwrite.
+  * Application crash logs are now appended to the logfile.
+  * Curator timeout is now configurable. This can set via ``node['delivery']['elasticsearch']['curator']['timeout']`` in the delivery.rb or by exporting the environment variable `CURATOR_ELASTICSEARCH_TIMEOUT` when running the reaper manually. Default value is 600 seconds (10 minutes).
 
 What's New in 1.8.38
 =====================================================
@@ -74,12 +77,12 @@ Resolved Issues
 
 * **RHEL7 CIS Compliance Profile fixes:**
 
-    * Corrected control 1.6.1.1 “Ensure SELinux is not disabled in bootloader configuration”
-    * Corrected control 5.2.14 “Ensure SSH LoginGraceTime is set to one minute or less”
-    * Corrected control 3.6.2 “Ensure default deny firewall policy”
-    * Corrected control 5.2.11 “Ensure only approved ciphers are used”
-    * Corrected control 5.1.1 “Ensure cron daemon is enabled”
-    * Corrected control 1.3.2 “Ensure file system integrity is regularly checked”
+  * Corrected control 1.6.1.1 “Ensure SELinux is not disabled in bootloader configuration”
+  * Corrected control 5.2.14 “Ensure SSH LoginGraceTime is set to one minute or less”
+  * Corrected control 3.6.2 “Ensure default deny firewall policy”
+  * Corrected control 5.2.11 “Ensure only approved ciphers are used”
+  * Corrected control 5.1.1 “Ensure cron daemon is enabled”
+  * Corrected control 1.3.2 “Ensure file system integrity is regularly checked”
 
 What's New in 1.8.3
 =====================================================

@@ -570,6 +570,8 @@ This resource would be matched in the same order as the ``/templates`` directory
 
 Helpers
 -----------------------------------------------------
+.. tag template_helpers
+
 A helper is a method or a module that can be used to extend a template. There are three approaches:
 
 * An inline helper method
@@ -578,8 +580,12 @@ A helper is a method or a module that can be used to extend a template. There ar
 
 Use the ``helper`` attribute in a recipe to define an inline helper method. Use the ``helpers`` attribute to define an inline helper module or a cookbook library module.
 
+.. end_tag
+
 Inline Methods
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag resource_template_inline_method
+
 A template helper method is always defined inline on a per-resource basis. A simple example:
 
 .. code-block:: ruby
@@ -622,8 +628,12 @@ or:
 
    node['app']['log_location'] is: <%= app_conf('log_location') %>
 
+.. end_tag
+
 Inline Modules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag resource_template_inline_module
+
 A template helper module can be defined inline on a per-resource basis. This approach can be useful when a template requires more complex information. For example:
 
 .. code-block:: ruby
@@ -647,6 +657,8 @@ A template helper module can be defined inline on a per-resource basis. This app
    end
 
 where the ``hello_world``, ``app``, and ``app_conf(setting)`` methods comprise the module that extends a template.
+
+.. end_tag
 
 Library Modules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -907,6 +919,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

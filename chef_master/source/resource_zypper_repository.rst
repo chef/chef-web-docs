@@ -9,6 +9,7 @@ Use the **zypper_repository** resource to create Zypper package repositories on 
 
 Syntax
 =====================================================
+
 The zypper_repository resource has the following syntax:
 
 .. code-block:: ruby
@@ -50,13 +51,20 @@ The zypper_repository resource has the following actions:
 
    Default action. Add a new Zypper repository.
 
+``:refresh``
+
+   Refresh a Zypper repository.
+
 ``:remove``
 
    Remove a Zypper repository.
 
-``:refresh``
+``:nothing``
+   .. tag resources_common_actions_nothing
 
-   Refresh a Zypper repository.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
@@ -92,6 +100,7 @@ The zypper_repository resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``true``
 
    Automatically import the specified key when setting up the repository.
+
 ``gpgcheck``
    **Ruby Type:** true, false | **Default Value:** ``true``
 
@@ -141,7 +150,6 @@ The zypper_repository resource has the following properties:
    **Ruby Type:** String
 
    The name of the template for the repository file. Only necessary if you're not using the built in template.
-
 
 ``type``
    **Ruby Type:** String | **Default Value:** ``"NONE"``
@@ -280,6 +288,8 @@ A guard property can be used to evaluate the state of a node during the executio
 A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
 
 .. tag resources_common_guards_properties
 

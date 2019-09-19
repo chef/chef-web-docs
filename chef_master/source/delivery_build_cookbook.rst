@@ -3,6 +3,9 @@ About the build-cookbook
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_build_cookbook.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 Chef Automate uses Chef Infra Client to run recipes for each phase in a build pipeline. The phases are grouped into different stages.
 
 The following illustration shows the phases of each pipeline stage.
@@ -263,13 +266,13 @@ To add a project using the Chef Automate web UI:
 
 #. If you choose **GitHub**, a text area opens. Enter the following:
 
-      **GitHub Organization Name**
+   **GitHub Organization Name**
 
-      **GitHub Project Name**
+   **GitHub Project Name**
 
-      **Pipeline Branch** The name of the target branch that Chef Automate will manage (most projects will have master as the target branch). The target branch must exist in the repository.
+   **Pipeline Branch** The name of the target branch that Chef Automate will manage (most projects will have master as the target branch). The target branch must exist in the repository.
 
-      **Verify SSL**  When selected, have GitHub perform SSL certificate verification when it connects to Chef Automate to run its web hooks.
+   **Verify SSL**  When selected, have GitHub perform SSL certificate verification when it connects to Chef Automate to run its web hooks.
 
 #. If you choose **Bitbucket**, you must follow the integration steps in `Integrate Delivery with Bitbucket </integrate_delivery_bitbucket.html>`__ before you can add a project. After you have done that you can add a new Chef Automate project through this web UI by entering the Bitbucket project key, repository, and target branch information.
 

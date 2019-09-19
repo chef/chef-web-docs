@@ -79,7 +79,7 @@ The cron resource has the following actions:
 
    .. end_tag
 
-.. note:: Chef can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
+.. note:: Chef Infra Client can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
 
   .. code-block:: ruby
 
@@ -218,6 +218,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -315,6 +316,8 @@ A guard property is useful for ensuring that a resource is idempotent by allowin
 
 .. end_tag
 
+**Properties**
+
 .. tag resources_common_guards_properties
 
 The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
@@ -329,6 +332,7 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Run a program at a specified interval**
