@@ -103,7 +103,7 @@ To add a local Chef repository:
 
 The location and authentication details for the Chef Infra Server will be taken from the user's ``config.rb`` by default.
 
-To add multiple Chef Servers:
+To add multiple Chef Infra Servers:
 
 .. code-block:: ruby
 

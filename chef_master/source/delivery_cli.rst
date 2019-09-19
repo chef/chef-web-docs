@@ -3,8 +3,8 @@ Delivery CLI
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_cli.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 The Delivery CLI is the command-line interface for the workflow capabilities in Chef Automate. It sits in-between a local git repository and the Chef Automate server.
 
@@ -764,7 +764,7 @@ Example configuration for commands to run locally:
    [local_phases]
    unit = "rspec spec/"
    lint = "cookstyle"
-   syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
+   syntax = "echo skipping syntax phase"
 
 **Remote project.toml**
 

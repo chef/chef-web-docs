@@ -324,7 +324,7 @@ Cookbooks are comprised of the following components:
           :width: 100px
           :align: center
 
-     - Testing cookbooks improves the quality of those cookbooks by ensuring they are doing what they are supposed to do and that they are authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Test Kitchen, ChefSpec, and Foodcritic.
+     - Testing cookbooks improves the quality of those cookbooks by ensuring they are doing what they are supposed to do and that they are authored in a consistent manner. Unit and integration testing validates the recipes in cookbooks. Syntax testing---often called linting---validates the quality of the code itself. The following tools are popular tools used for testing Chef recipes: Test Kitchen, ChefSpec, and Cookstyle.
 
 Nodes
 =====================================================
@@ -432,7 +432,7 @@ The key components of nodes that are under management by Chef include:
 
        .. end_tag
 
-The Chef Server
+The Chef Infra Server
 =====================================================
 .. tag chef_server
 

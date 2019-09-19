@@ -1,10 +1,10 @@
 ===============================================================
-Publish Cookbooks to Multiple Chef Servers
+Publish Cookbooks to Multiple Chef Infra Servers
 ===============================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/publish_cookbooks_multiple_servers.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -23,14 +23,14 @@ Publish Cookbooks to Multiple Chef Servers
 The ``delivery-sugar`` cookbook exposes some libraries and a resource that you can use to
 publish a cookbook (or multiple cookbooks) to multiple Chef servers or organizations. The following examples show how to publish to both a single Chef Infra Server and how to extend that methodology to publish to multiple Chef servers.
 
-Prerequisites 
+Prerequisites
 ===============================================================
 
-Before you begin, you must copy the ``config.rb`` file 
-and the client key .pem file (referenced as ``client_key`` in ``config.rb``) to the build nodes/runners that you will use in the build-cookbook. This can 
-be done manually by logging in to the build nodes/runners and copying the files or automated through the use of a secure copy tool like ``scp``. 
+Before you begin, you must copy the ``config.rb`` file
+and the client key .pem file (referenced as ``client_key`` in ``config.rb``) to the build nodes/runners that you will use in the build-cookbook. This can
+be done manually by logging in to the build nodes/runners and copying the files or automated through the use of a secure copy tool like ``scp``.
 
-The following is an example of a ``config.rb`` file for a ``test`` user that points to the Chef Infra Server 
+The following is an example of a ``config.rb`` file for a ``test`` user that points to the Chef Infra Server
 ``chef-test-server.example.com`` and the organization ``your_org``. The ``test.pem`` file is the value specified in the ``client_key`` setting.
 
 .. code-block:: ruby
@@ -47,7 +47,7 @@ Publish a cookbook to a single Chef server
 
 To publish a cookbook to a Chef Infra Server, use the ``delivery_chef_cookbook`` resource and reference the ``config.rb`` file that you copied to your build node/runner.
 
-This example shows how to publish a cookbook called ``rally`` to a single Chef Infra Server. 
+This example shows how to publish a cookbook called ``rally`` to a single Chef Infra Server.
 
 .. code-block:: ruby
 
@@ -55,7 +55,7 @@ This example shows how to publish a cookbook called ``rally`` to a single Chef I
 
    delivery_chef_cookbook 'rally' do
      path '/path/to/the/cookbook/in/the/build-node/rally'
-     chef_server DeliverySugar::ChefServer.new(knife_rb) 
+     chef_server DeliverySugar::ChefServer.new(knife_rb)
    end
 
 .. note:: The default action for ``delivery_chef_cookbook`` is ``:upload``, so you do not need to explicitly include that in your ``delivery_chef_cookbook`` implementation.
@@ -81,11 +81,11 @@ This requires that you modify the **Functional** recipe (``recipes/functional.rb
      # Previously generated config.rb files
      ny_knife_rb = '/var/opt/delivery/workspace/chef_servers/ny/config.rb'
      sf_knife_rb = '/var/opt/delivery/workspace/chef_servers/sf/config.rb'
-     
+
      # ChefServer Objects
-     chef_server_ny = DeliverySugar::ChefServer.new(ny_knife_rb) 
-     chef_server_sf = DeliverySugar::ChefServer.new(sf_knife_rb) 
-     
+     chef_server_ny = DeliverySugar::ChefServer.new(ny_knife_rb)
+     chef_server_sf = DeliverySugar::ChefServer.new(sf_knife_rb)
+
      delivery_chef_cookbook delivery_project do
        path delivery_workspace_repo
        chef_server [chef_server_ny, chef_server_sf]

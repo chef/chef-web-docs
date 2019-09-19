@@ -321,6 +321,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Recursive Directories
 -----------------------------------------------------
+.. tag remote_directory_recursive_directories
+
 The **remote_directory** resource can be used to recursively create the path outside of remote directory structures, but the permissions of those outside paths are not managed. This is because the ``recursive`` attribute only applies ``group``, ``mode``, and ``owner`` attribute values to the remote directory itself and any inner directories the resource copies.
 
 A directory structure::
@@ -354,8 +356,12 @@ But with this example, the ``group``, ``mode``, and ``owner`` attribute values w
 
 This approach will create the correct hierarchy---``/foo``, then ``/bar`` in ``/foo``, and then ``/baz`` in ``/bar``---and also with the correct attribute values for ``group``, ``mode``, and ``owner``.
 
+.. end_tag
+
 Example
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag remote_directory_recursive_directories_example
+
 This section contains a more detailed example of how Chef Infra Client manages recursive directory structures:
 
 * A cookbook named ``cumbria`` that is used to build a website
@@ -446,6 +452,8 @@ Chef Infra Client will manage the permissions of the entire directory structure 
    drwxrwx--- 2 hamilton root 4096 /var/www/html/places
    dr--r----- 1 yan      root 4096 /var/www/html/places/furness_abbey.html
    dr--r----- 1 yan      root 4096 /var/www/html/places/hadrians_wall.html
+
+.. end_tag
 
 Windows File Security
 -----------------------------------------------------

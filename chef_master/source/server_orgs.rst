@@ -672,7 +672,7 @@ returns:
 .. code-block:: bash
 
    User bob was removed from server-admins. This user can no longer
-   list, read, and create users for this Chef Server except for where
+   list, read, and create users for this Chef Infra Server except for where
    they have default permissions (such as within an org).
 
 .. end_tag

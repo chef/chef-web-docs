@@ -5,13 +5,15 @@ Site Map
 
 This is the documentation for:
 
-* Chef, including Chef Infra Server, Chef Infra Client, ChefDK, and related tools
-* Chef Automate
+* Chef Infra Server, Chef Infra Client, ChefDK, and related tools
+* Chef Automate 1.0 (deprecated)
 
-For information on Chef Habitat and Chef InSpec, see their respective documentation:
+Documentation for other Chef products: 
 
-* `Chef Habitat documentation <https://www.habitat.sh/docs/>`_
-* `Chef InSpec documentation <https://www.inspec.io/docs/>`_
+* `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart/>`_
+* `Chef Habitat <https://www.habitat.sh/docs/>`_
+* `Chef InSpec <https://www.inspec.io/docs/>`_
+* `Chef Workstation <https://www.chef.sh/docs/chef-workstation/getting-started/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
@@ -105,7 +107,7 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Infra Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -132,7 +134,6 @@ Cookbook Reference
 `Custom Resources </custom_resources.html>`__ |
 `Converting Definitions to Custom Resources </definitions.html>`__ |
 `All Resources (Single Page) </resource_reference.html>`__ |
-`Examples (by Resource) </resource_examples.html>`__
 
 `apt_package </resource_apt_package.html>`__ |
 `apt_preference </resource_apt_preference.html>`__ |
@@ -750,7 +751,6 @@ Addenda
    resource_dsc_resource
    resource_dsc_script
    resource_erlang_call
-   resource_examples
    resource_execute
    resource_file
    resource_freebsd_package

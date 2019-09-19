@@ -29,9 +29,9 @@ The following repositories are the preferred locations for the creation of issue
      - https://github.com/chef/ohai
    * - Chef Workstation
      - https://github.com/chef/chef-workstation
-   * - ChefDK
-     - https://github.com/chef/chef-dk
-   * - Chef Server
+   * - Chef InSpec
+     - https://github.com/inspec/inspec
+   * - Chef Infra Server
      - https://github.com/chef/chef-server
    * - Chef Automate
      - please contact `Chef Support <https://www.chef.io/support/>`_

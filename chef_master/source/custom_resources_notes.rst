@@ -7,7 +7,7 @@ Custom Resources Notes
 
 .. adapted literally from this gist: https://gist.github.com/lamont-granquist/8cda474d6a31fadd3bb3b47a66b0ae78
 
-Custom Resources 12.5-style
+Custom Resources
 =====================================================
 This is the recommended way of writing resources for all users. There are two gotchas which we're working through:
 
@@ -115,7 +115,7 @@ in ``libraries/resource_my_resource.rb``:
          def a_helper
          end
 
-         # NEVER use `def action_run` here -- you defeat use_inline_resources and will break notifications if you (and recent foodcritic will tell you that you are wrong)
+         # NEVER use `def action_run` here -- you defeat use_inline_resources and will break notifications if you do
          # If you don't understand how use_inline_resources is built and why you have to use the `action` method, and what the implications are and how resource notifications
          # break if use_inline_resources is not used and/or is broken, then you should really not be using library providers+resources.  You might feel "closer to the metal",
          # but you're now using a chainsaw without any guard...
@@ -220,7 +220,3 @@ is basically the same as this:
    end
 
 You may see a lot of ``converge_by`` and ``updated_by_last_action`` in the core chef resources. This is sometimes due to the fact that Chef is written as a declarative language with an imperative language, which means someone has to take the first step and write the declarative file resources in imperative Ruby. As such, core Chef resources may not represent ideal code examples with regard to what custom resources should look like.
-
-compat_resources Cookbook
-=====================================================
-Use the ``compat_resources`` cookbook (https://github.com/chef-cookbooks/compat_resource) to assist in converting cookbooks that use the pre-12.5 custom resource model to the new one. Please see the readme in that cookbook for the steps needed.
