@@ -5,7 +5,7 @@ Uninstall
 
 The following sections describe how to uninstall Chef, add-ons, and other components.
 
-Chef Server
+Chef Infra Server
 =====================================================
 .. tag ctl_chef_server_uninstall
 
@@ -141,5 +141,3 @@ Use the following commands to remove ChefDK on Red Hat Enterprise Linux-based pl
 Microsoft Windows
 ----------------------------------------------------
 Use **Add / Remove Programs** to remove ChefDK on the Microsoft Windows platform.
-
-

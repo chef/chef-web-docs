@@ -432,7 +432,7 @@ The key components of nodes that are under management by Chef include:
 
        .. end_tag
 
-The Chef Server
+The Chef Infra Server
 =====================================================
 .. tag chef_server
 

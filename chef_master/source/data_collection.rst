@@ -3,8 +3,8 @@ Configure Data Collection
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. tag chef_automate_mark
 
@@ -20,8 +20,8 @@ Configure Data Collection
 
 .. end_tag
 
-Automatic Node Run Data Collection with Chef Server
-=======================================================
+Automatic Node Run Data Collection with Chef Infra Server
+==========================================================
 
 .. note:: Requires Chef Client 12.16.42 or greater, and Chef Server 12.11.0 or greater.
 
