@@ -25,3 +25,11 @@
     };
   }
 }
+
+.highlight pre code * {
+  white-space: nowrap;
+}
+
+.highlight pre code {
+  white-space: pre;
+}
