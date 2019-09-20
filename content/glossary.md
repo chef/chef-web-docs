@@ -84,10 +84,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/g
 :   A cookbook is the fundamental unit of configuration and policy
     distribution.
 
-**cookstyle**
+**Cookstyle**
 
-:   A linter to enforce Ruby code quality and style based on the popular
-    Rubocop linter.
+:   A linting tool that helps you write better Chef Infra cookbooks by
+    detecting and automatically correcting style, syntax, and logic
+    mistakes in your code.
 
 **data bag**
 

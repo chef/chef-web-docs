@@ -25,11 +25,11 @@ Requirements
 
 Chef Push Jobs has the following requirements:
 
--   An on-premises Chef Server version 11.0.1 (or later); Chef Push Jobs
-    is not supported when running Chef with the hosted Chef server
--   To use the **push-jobs** cookbook to configure the Chef Push Jobs
-    client, Chef Infra Client must also be present on the node (because
-    only Chef Infra Client can use a cookbook to configure a node)
+-   An on-premises Chef Infra Server. Hosted Chef does not support Chef
+    Push Jobs.
+-   The Chef Push Jobs client can be configured using a **push-jobs**
+    cookbook, but Chef Infra Client must also be present on the node.
+    Only Chef Infra Client can use a cookbook to configure a node.
 -   {{% server_firewalls_and_ports_push_jobs %}}
 
 Components

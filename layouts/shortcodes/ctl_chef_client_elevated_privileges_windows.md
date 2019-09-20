@@ -10,11 +10,11 @@ Infra Client as the administrator:
 -   Run Chef Infra Client process from the administrator account while
     being logged into another account. Run the following command:
 
-    > ``` bash
-    > $ runas /user:Administrator "cmd /C chef-client"
-    > ```
-    >
-    > This will prompt for the administrator account password.
+    ``` bash
+    $ runas /user:Administrator "cmd /C chef-client"
+    ```
+
+    This will prompt for the administrator account password.
 
 -   Open a command prompt by right-clicking on the command prompt
     application, and then selecting **Run as administrator**. After the

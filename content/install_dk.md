@@ -15,20 +15,6 @@ aliases = "/install_dk.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_dk.rst)
 
-Use the ChefDK installer to set up ChefDK on a workstation. ChefDK
-includes Chef Infra Client, an embedded version of Ruby, RubyGems, and
-OpenSSL, as well as our tools: Test Kitchen, Cookstyle, Foodcritic and
-ChefSpec. The Chef installer puts everything into a unique directory
-(`/opt/chefdk/` on macOS / Linux and `C:\opscode\chefdk\` on Windows) so
-that these components will not interfere with other applications that
-may be running on the target machine.
-
-{{< info >}}
-
-The Chef installer must run as a privileged user.
-
-{{< /info >}}
-
 {{< info >}}
 
 [Chef Workstation](https://downloads.chef.io/chef-workstation/) gives
@@ -43,25 +29,41 @@ without backporting features.
 
 {{< /info >}}
 
+The ChefDK package is produced by the [Chef
+Omnibus](https://github.com/chef/omnibus) tool for installation on a
+workstation. ChefDK includes:
+
+-   Chef Infra Client
+-   Embedded versions of Ruby, RubyGems, and the Ruby interpreter, all
+    of which are build from the source. (The Ruby interpreter is not
+    available for Windows)
+-   An embedded version of OpenSSL
+-   Test Kitchen
+-   Cookstyle
+-   ChefSpec
+
+ChefDK installs to `/opt/chefdk/` on macOS / Linux and
+`C:\opscode\chefdk\` on Windows. These file locations should help avoid
+interference between these components and other applications that may be
+running on the target machine.
+
 Install
 =======
+
+The ChefDK installer must run as a privileged user.
 
 macOS
 -----
 
-{{< info >}}
-
-ChefDK works without installing Xcode, but Xcode is required for native
-Ruby Gem installation. Run `xcode-select --install` from the terminal to
-install Xcode.
-
-{{< /info >}}
-
-1.  Visit the [ChefDK downloads
+1.  Dependency: Xcode is recommended for running ChefDK on OSX. While
+    ChefDK works without Xcode, it is required for native Ruby Gem
+    installation. Run `xcode-select --install` from the terminal to
+    install Xcode.
+2.  Visit the [ChefDK downloads
     page](https://downloads.chef.io/chefdk#mac_os_x) and select the
     appropriate package for your macOS version. Click on the
     **Download** button.
-2.  Follow the steps to accept the license and install ChefDK. You will
+3.  Follow the steps to accept the license and install ChefDK. You will
     have the option to change your install location; by default the
     installer uses the `/opt/chefdk/` directory.
 

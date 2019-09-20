@@ -40,10 +40,9 @@ Linux, macOS, or Windows.
 
 You'll need to install a text editor (whichever you like) to write code
 and ChefDK to get the tools to test your code. The primary testing tools
-you'll use are Cookstyle, Foodcritic, ChefSpec, Chef InSpec, and Test
-Kitchen. With them, you can make sure your Chef code does what you
-intended before you deploy it to environments used by others, such as
-staging or production.
+you'll use are Cookstyle, ChefSpec, Chef InSpec, and Test Kitchen. With
+them, you can make sure your Chef code does what you intended before you
+deploy it to environments used by others, such as staging or production.
 
 When you write your code, you use resources to describe your
 infrastructure. A resource corresponds to some piece of infrastructure,

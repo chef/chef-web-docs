@@ -52,7 +52,7 @@ please contact <amp@chef.io> to obtain a new license.
 5.  While the Chef Automate VM is being provisioned, download and
     install [ChefDK](/install_dk/). ChefDK is a collection of tools
     ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault,
-    Foodcritic, and more--- and libraries that are all packaged together
+    Cookstyle, and more--- and libraries that are all packaged together
     to get your started with the Chef Automate workflow. You'll need
     this to interact with Chef Automate and Chef Infra Server from the
     command line.

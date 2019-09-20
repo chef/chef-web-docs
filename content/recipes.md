@@ -333,7 +333,7 @@ to:
 }
 ```
 
-### Chef Server
+### Chef Infra Server
 
 Use knife to add a recipe to the run-list for a node. For example:
 

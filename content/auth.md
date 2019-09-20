@@ -396,8 +396,8 @@ Authorization
 For more information about Chef Infra Server Authorization, see
 [Organizations and Groups](/server_orgs/).
 
-Chef Server API
-===============
+Chef Infra Server API
+=====================
 
 For more information about using the Chef Infra Server API endpoints see
 [Chef Infra Server API](/api_chef_server/).

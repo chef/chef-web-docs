@@ -373,8 +373,8 @@ The following platforms are supported only via the community:
 </tbody>
 </table>
 
-Chef Server
------------
+Chef Infra Server
+-----------------
 
 ### Commercial Support
 

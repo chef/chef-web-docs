@@ -28,7 +28,7 @@ Setting up Windows Workstations
 ===============================
 
 To set up your Windows workstation follow the steps on [Chef for
-Microsof Windows](/dk_windows/)
+Microsoft Windows](/dk_windows/)
 
 Install Chef Infra Client on Windows Nodes
 ==========================================

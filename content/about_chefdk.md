@@ -110,7 +110,7 @@ The most important tools included in ChefDK are:
 <td>A dependency manager for cookbooks.</td>
 </tr>
 <tr class="even">
-<td>chef</td>
+<td>Chef CLI</td>
 <td>A workflow tool for Chef.</td>
 </tr>
 <tr class="odd">
@@ -127,7 +127,7 @@ The most important tools included in ChefDK are:
 </tr>
 <tr class="even">
 <td>Cookstyle</td>
-<td>A Rubocop-based style-checking tool for writing clean cookbooks.</td>
+<td>A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.</td>
 </tr>
 <tr class="odd">
 <td>Delivery CLI</td>
@@ -138,22 +138,18 @@ The most important tools included in ChefDK are:
 <td>A gem for mocking Ohai data in ChefSpec tests.</td>
 </tr>
 <tr class="odd">
-<td>Foodcritic</td>
-<td>A lint tool for static analysis of recipe code.</td>
-</tr>
-<tr class="even">
 <td>Test Kitchen</td>
 <td>An integration testing framework tool that tests cookbooks across platforms.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>kitchen-dokken</td>
 <td>A test-kitchen plugin that provides a driver, transport, and provisioner for rapid cookbook testing and container development using Docker and Chef.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>kitchen-vagrant</td>
 <td>A Kitchen driver for Vagrant.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Ruby</td>
 <td>The reference language for Chef.</td>
 </tr>
@@ -178,7 +174,5 @@ part of your workflow is recommended, but at the same time is completely
 optional. Use them in the way that makes sense for your organization:
 
 [Berkshelf](/berkshelf/) | [Chef Vault](/chef_vault/) |
-[ChefSpec](/chefspec/) | [FoodCritic](/foodcritic/) | [Test
-Kitchen](/kitchen/) |
+[ChefSpec](/chefspec/) | [Test Kitchen](/kitchen/) |
 [kitchen-vagrant](/plugin_kitchen_vagrant/) |
-[Cookstyle](/cookstyle/)

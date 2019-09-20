@@ -54,7 +54,7 @@ $ chef:recipe_mode > file "/tmp/ohai2u_shef"
        @resources=[#< Chef::Resource::File:0x1b691ac ...>]>,
        @updated=false,
        @provider=nil,
-       @node=<Chef::Node:0xdeeaae
+       @node=< Chef::Node:0xdeeaae
        @name="eigenstate.local">,
        @recipe_name=nil,
        @not_if=nil,
