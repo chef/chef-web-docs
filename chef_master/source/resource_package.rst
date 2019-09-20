@@ -33,6 +33,7 @@ For more information about specific resources for specific platforms, see the fo
 * `portage_package </resource_portage_package.html>`__
 * `rpm_package </resource_rpm_package.html>`__
 * `smartos_package </resource_smartos_package.html>`__
+* `snap_package </resource_snap_package.html>`__
 * `solaris_package </resource_solaris_package.html>`__
 * `windows_package </resource_windows_package.html>`__
 * `yum_package </resource_yum_package.html>`__
