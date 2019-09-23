@@ -5,7 +5,7 @@ Configure a Project through config.json (Chef Automate)
 
 .. meta::
     :robots: noindex
-    
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
@@ -274,7 +274,7 @@ publish
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 The ``publish`` phase configuration settings specify the location(s) to which cookbooks are published.
 
-Chef Server
+Chef Infra Server
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag delivery_config_json_setting_delivery_truck_publish_chef_server
 

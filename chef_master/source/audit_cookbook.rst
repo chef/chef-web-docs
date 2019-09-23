@@ -5,7 +5,7 @@ Sending Compliance Data to Chef Automate with Audit Cookbook
 
 .. meta::
     :robots: noindex
-    
+
 .. note:: The ``audit`` cookbook uses the Chef InSpec gem. It will check for an installed version of Chef InSpec and install it upon finding none. The latest version of Chef InSpec will be installed by default unless otherwise specified with ``node['audit']['inspec_version']``.
 
 `Cookbooks </cookbooks.html>`__ are Chef's primary unit of configuration management.  For tutorials on working with cookbooks in Chef, see `Learn Chef Rally <https://learn.chef.io>`__.
@@ -73,7 +73,7 @@ The ``audit`` cookbook supports several different methods of fetching and report
 
 .. end_tag
 
-Fetch From Automate via Chef Server
+Fetch From Automate via Chef Infra Server
 ---------------------------------------------------------------------------
 
 .. note:: The Compliance server must be integrated with Chef Infra Server for use in reporting.
@@ -109,7 +109,7 @@ Fetch From Automate via Chef Server
           # Set in delivery.rb:
           compliance_profiles["enable"] = true
 
-   * - Fetch From Automate via Chef Infra Server and Report to Automate via Chef Server
+   * - Fetch From Automate via Chef Infra Server and Report to Automate via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-automate'
@@ -120,7 +120,7 @@ Fetch From Automate via Chef Server
           #Set in delivery.rb:
           compliance_profiles["enable"] = true
 
-   * - Fetch From Automate via Chef Infra Server and Report to Compliance via Chef Server
+   * - Fetch From Automate via Chef Infra Server and Report to Compliance via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-compliance'
@@ -130,7 +130,7 @@ Fetch From Automate via Chef Server
           #Set in delivery.rb:
           compliance_profiles["enable"] = true
 
-Fetch From Compliance via Chef Server
+Fetch From Compliance via Chef Infra Server
 ---------------------------------------------------------
 .. note:: The Compliance server must be integrated with Chef Infra Server for use in reporting.
 
@@ -160,13 +160,13 @@ Fetch From Compliance via Chef Server
           ['audit']['refresh_token' OR 'token'] = '..'
           ['audit']['owner'] = 'User/Org'
 
-   * - Fetch From Compliance via Chef Infra Server and Report to Compliance via Chef Server
+   * - Fetch From Compliance via Chef Infra Server and Report to Compliance via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-compliance'
           ['audit']['fetcher'] = 'chef-server'
 
-   * - Fetch From Compliance via Chef Infra Server and Report to Automate via Chef Server
+   * - Fetch From Compliance via Chef Infra Server and Report to Automate via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-automate'
@@ -199,7 +199,7 @@ Fetch Directly From Compliance
           ['audit']['server'] = 'https://compliance-server.test/api'
           ['audit']['refresh_token' OR 'token'] = '..'
           ['audit']['owner'] = 'User/Org'
-   * - Fetch from Compliance and Report to Automate via Chef Server
+   * - Fetch from Compliance and Report to Automate via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-automate'
@@ -208,7 +208,7 @@ Fetch Directly From Compliance
           ['audit']['owner'] = 'User/Org'
           #Set in chef-server.rb:
           data_collector['root_url'] = 'https://chef-automate.test/data-collector/v0/'
-   * - Fetch from Compliance and Report to Compliance via Chef Server
+   * - Fetch from Compliance and Report to Compliance via Chef Infra Server
      - .. code-block:: ruby
 
           ['audit']['reporter'] = 'chef-server-compliance'

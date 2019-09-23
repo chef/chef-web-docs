@@ -145,7 +145,7 @@ The ``install`` subcommand is used to install premium features of the Chef Infra
 .. warning::
              The ``chef-server-ctl install`` command no longer works in the 12.5 (and earlier) versions of the Chef Infra Server due to a change in how packages are downloaded from Chef.
 
-             
+
 
 **Syntax**
 
@@ -1288,7 +1288,7 @@ returns:
 .. code-block:: bash
 
    User bob was removed from server-admins. This user can no longer
-   list, read, and create users for this Chef Server except for where
+   list, read, and create users for this Chef Infra Server except for where
    they have default permissions (such as within an org).
 
 .. end_tag
