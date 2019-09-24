@@ -150,10 +150,10 @@ cookbook_file_specificity: false
 
 ########Examples ########
 examples_list:
-  - example1:
-      heading: 
-      description: 
-      codeblock:
+  - example:
+    heading: 
+    description: 
+    codeblock:
 
 
 ---
