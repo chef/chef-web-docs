@@ -1,9 +1,0 @@
-<p>The <code>run_report_safely</code> method is used to run the report handler, rescuing and logging errors that may arise as the handler runs and ensuring that all handlers get a chance to run during a Chef Infra Client run (even if some handlers fail during that run). In general, this method should never be used as an interface in a custom handler unless this default behavior simply must be overridden.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">def</span> run_report_safely(run_status)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>  run_report_unsafe(run_status)</span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">rescue</span> <span class="dt">Exception</span> =&gt; e</span>
-<span id="cb1-4"><a href="#cb1-4"></a>  <span class="dt">Chef</span>::<span class="dt">Log</span>.error(<span class="st">&#39;Report handler #{self.class.name} raised #{e.inspect}&#39;</span>)</span>
-<span id="cb1-5"><a href="#cb1-5"></a>  <span class="dt">Array</span>(e.backtrace).each { |line| <span class="dt">Chef</span>::<span class="dt">Log</span>.error(line) }</span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="kw">ensure</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a>  <span class="ot">@run_status</span> = <span class="dv">nil</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="kw">end</span></span></code></pre></div>

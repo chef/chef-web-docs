@@ -321,151 +321,207 @@ weight = 30
       weight = 50
 
       [[menu.docs]]
+      title = "declare_resource"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#declare-resource declare_resource"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#declare-resource"
+      weight = 60
+
+      [[menu.docs]]
+      title = "delete_resource"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#delete-resource delete_resource"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#delete-resource"
+      weight = 70
+
+      [[menu.docs]]
+      title = "delete_resource!"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id1 delete_resource!"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#id1"
+      weight = 80
+
+      [[menu.docs]]
+      title = "edit_resource"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#edit-resource edit_resource"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#edit-resource"
+      weight = 90
+
+      [[menu.docs]]
+      title = "edit_resource!"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id2 edit_resource!"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#id2"
+      weight = 100
+
+      [[menu.docs]]
+      title = "find_resource"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#find-resource find_resource"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#find-resource"
+      weight = 110
+
+      [[menu.docs]]
+      title = "find_resource!"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id3 find_resource!"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#id3"
+      weight = 120
+
+      [[menu.docs]]
       title = "platform?"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#platform platform?"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#platform"
-      weight = 60
+      weight = 130
 
       [[menu.docs]]
       title = "platform_family?"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#platform-family platform_family?"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#platform-family"
-      weight = 70
+      weight = 140
 
       [[menu.docs]]
       title = "reboot_pending?"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#reboot-pending reboot_pending?"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#reboot-pending"
-      weight = 80
+      weight = 150
 
       [[menu.docs]]
       title = "recipe_name"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#recipe-name recipe_name"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#recipe-name"
-      weight = 90
-
-      [[menu.docs]]
-      title = "registry_data_exists?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-data-exists registry_data_exists?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-data-exists"
-      weight = 100
-
-      [[menu.docs]]
-      title = "registry_get_subkeys"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-get-subkeys registry_get_subkeys"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-get-subkeys"
-      weight = 110
-
-      [[menu.docs]]
-      title = "registry_get_values"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-get-values registry_get_values"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-get-values"
-      weight = 120
-
-      [[menu.docs]]
-      title = "registry_has_subkeys?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-has-subkeys registry_has_subkeys?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-has-subkeys"
-      weight = 130
-
-      [[menu.docs]]
-      title = "registry_key_exists?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-key-exists registry_key_exists?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-key-exists"
-      weight = 140
-
-      [[menu.docs]]
-      title = "registry_value_exists?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-value-exists registry_value_exists?"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#registry-value-exists"
-      weight = 150
+      weight = 160
 
       [[menu.docs]]
       title = "resources"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#resources resources"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#resources"
-      weight = 160
+      weight = 170
 
       [[menu.docs]]
       title = "search"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#search search"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#search"
-      weight = 170
+      weight = 180
 
       [[menu.docs]]
       title = "shell_out"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#shell-out shell_out"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#shell-out"
-      weight = 180
+      weight = 190
 
       [[menu.docs]]
       title = "shell_out!"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#shell-out-bang shell_out!"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#id6 shell_out!"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#shell-out-bang"
-      weight = 190
+      url = "/dsl_recipe/#id6"
+      weight = 200
 
       [[menu.docs]]
       title = "shell_out_with_systems_locale"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#shell-out-with-systems-locale shell_out_with_systems_locale"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#shell-out-with-systems-locale"
-      weight = 200
-
-      [[menu.docs]]
-      title = "tag"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#tag-tagged-untag tag"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#tag-tagged-untag"
       weight = 210
 
       [[menu.docs]]
-      title = "tagged?"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#tag-tagged-untag tagged?"
+      title = "tag, tagged?, untag"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#tag-tagged-untag tag, tagged?, untag"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#tag-tagged-untag"
       weight = 220
-
-      [[menu.docs]]
-      title = "untag"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#tag-tagged-untag untag"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#tag-tagged-untag"
-      weight = 230
 
       [[menu.docs]]
       title = "value_for_platform"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#value-for-platform value_for_platform"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#value-for-platform"
-      weight = 240
+      weight = 230
 
       [[menu.docs]]
       title = "value_for_platform_family"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#value-for-platform-family value_for_platform_family"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#value-for-platform-family"
+      weight = 240
+
+      [[menu.docs]]
+      title = "with_run_context"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#with-run-context with_run_context"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#with-run-context"
       weight = 250
+
+      [[menu.docs]]
+      title = "Windows Platform"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#windows-platform Windows Platform"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#windows-platform"
+      weight = 260
+
+      [[menu.docs]]
+      title = "registry_data_exists?"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-data-exists registry_data_exists?"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#registry-data-exists"
+      weight = 270
+
+      [[menu.docs]]
+      title = "registry_get_subkeys"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-get-subkeys registry_get_subkeys"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#registry-get-subkeys"
+      weight = 280
+
+      [[menu.docs]]
+      title = "registry_get_values"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-get-values registry_get_values"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#registry-get-values"
+      weight = 290
+
+      [[menu.docs]]
+      title = "registry_has_subkeys?"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-has-subkeys registry_has_subkeys?"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#registry-has-subkeys"
+      weight = 300
+
+      [[menu.docs]]
+      title = "registry_key_exists?"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-key-exists registry_key_exists?"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#registry-key-exists"
+      weight = 310
+
+      [[menu.docs]]
+      title = "registry_value_exists?"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-value-exists registry_value_exists?"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#registry-value-exists"
+      weight = 320
 
       [[menu.docs]]
       title = "Windows Platform Helpers"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#helpers Windows Platform Helpers"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#helpers"
-      weight = 260
+      weight = 330
+
+      [[menu.docs]]
+      title = "Log Entries"
+      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#log-entries Log Entries"
+      parent = "chef_infra/cookbook_reference/recipe_dsl"
+      url = "/dsl_recipe/#log-entries"
+      weight = 340
 
     [[menu.docs]]
     title = "Resources"
@@ -537,53 +593,46 @@ weight = 30
       weight = 50
 
       [[menu.docs]]
-      title = "chef generate build-cookbook"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-build-cookbook chef generate build-cookbook"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-build-cookbook"
-      weight = 60
-
-      [[menu.docs]]
       title = "chef generate file"
       identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-file chef generate file"
       parent = "chef_infra/chefdk/chef_(executable)"
       url = "/ctl_chef/#chef-generate-file"
-      weight = 70
+      weight = 60
 
       [[menu.docs]]
       title = "chef generate recipe"
       identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-recipe chef generate recipe"
       parent = "chef_infra/chefdk/chef_(executable)"
       url = "/ctl_chef/#chef-generate-recipe"
-      weight = 80
+      weight = 70
 
       [[menu.docs]]
       title = "chef generate repo"
       identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-repo chef generate repo"
       parent = "chef_infra/chefdk/chef_(executable)"
       url = "/ctl_chef/#chef-generate-repo"
-      weight = 90
+      weight = 80
 
       [[menu.docs]]
       title = "chef generate resource"
       identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-resource chef generate resource"
       parent = "chef_infra/chefdk/chef_(executable)"
       url = "/ctl_chef/#chef-generate-resource"
-      weight = 100
+      weight = 90
 
       [[menu.docs]]
       title = "chef generate template"
       identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-template chef generate template"
       parent = "chef_infra/chefdk/chef_(executable)"
       url = "/ctl_chef/#chef-generate-template"
-      weight = 110
+      weight = 100
 
       [[menu.docs]]
       title = "chef shell-init"
       identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-shell-init chef shell-init"
       parent = "chef_infra/chefdk/chef_(executable)"
       url = "/ctl_chef/#chef-shell-init"
-      weight = 120
+      weight = 110
 
     [[menu.docs]]
     title = "Chef Solo"

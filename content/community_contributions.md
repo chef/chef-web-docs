@@ -69,11 +69,11 @@ of issues and bug reports:
 <td><a href="https://github.com/chef/chef-workstation">https://github.com/chef/chef-workstation</a></td>
 </tr>
 <tr class="even">
-<td>ChefDK</td>
-<td><a href="https://github.com/chef/chef-dk">https://github.com/chef/chef-dk</a></td>
+<td>Chef InSpec</td>
+<td><a href="https://github.com/inspec/inspec">https://github.com/inspec/inspec</a></td>
 </tr>
 <tr class="odd">
-<td>Chef Server</td>
+<td>Chef Infra Server</td>
 <td><a href="https://github.com/chef/chef-server">https://github.com/chef/chef-server</a></td>
 </tr>
 <tr class="even">

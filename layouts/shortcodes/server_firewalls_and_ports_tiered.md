@@ -17,75 +17,55 @@ column) are open and accessible via any firewalls that are in use:
 </thead>
 <tbody>
 <tr class="odd">
-<td>80, 443, 9683</td>
-<td><strong>nginx</strong></td>
+<td><p>80, 443, 9683</p></td>
+<td><p><strong>nginx</strong></p>
+<p>{{ readFile "layouts/shortcodes/server_services_nginx.md" | markdownify }}</p>
+<div class="alert-info">
+<p>Port 9683 is used to internally load balance the <strong>oc_bifrost</strong> service.</p>
+</div></td>
+<td><p>yes</p></td>
+</tr>
+<tr class="even">
+<td><p>9463</p></td>
+<td><p><strong>oc_bifrost</strong></p>
+<p>{{ readFile "layouts/shortcodes/server_services_bifrost.md" | markdownify }}</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>8983</p></td>
+<td><p><strong>opscode-solr4</strong></p>
+<p>{{ readFile "layouts/shortcodes/server_services_solr4.md" | markdownify }}</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>5432</p></td>
+<td><p><strong>postgresql</strong></p>
+<p>{{ readFile "layouts/shortcodes/server_services_postgresql.md" | markdownify }}</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>5672, 15672</p></td>
+<td><p><strong>rabbitmq</strong></p>
+<p>{{ readFile "layouts/shortcodes/server_services_rabbitmq.md" | markdownify }}</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>16379</p></td>
+<td><p><strong>redis_lb</strong></p>
+<p>{{ readFile "layouts/shortcodes/server_services_redis.md" | markdownify }}</p></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><p>4321</p></td>
+<td><p><strong>bookshelf</strong></p>
+<p>{{ readFile "layouts/shortcodes/server_services_bookshelf.md" | markdownify }}</p></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><p>8000</p></td>
+<td><p><strong>opscode-erchef</strong></p>
+<p>{{ readFile "layouts/shortcodes/server_services_erchef.md" | markdownify }}</p></td>
 <td></td>
 </tr>
 </tbody>
 </table>
-
-{{ readFile "layouts/shortcodes/server_services_nginx.md" | markdownify }}
-
-> <div class="note" markdown="1">
->
-> <div class="admonition-title" markdown="1">
->
-> Note
->
-> </div>
->
-> Port 9683 is used to internally load balance the **oc_bifrost**
-> service.
->
-> </div>
-
-> -   yes
-
-> -   -   9463
->     -   **oc_bifrost**
->
-{{ readFile "layouts/shortcodes/server_services_bifrost.md" | markdownify }}
-
-> -   
-
-> -   -   8983
->     -   **opscode-solr4**
->
-{{ readFile "layouts/shortcodes/server_services_solr4.md" | markdownify }}
-
-> -   
-
-> -   -   5432
->     -   **postgresql**
->
-{{ readFile "layouts/shortcodes/server_services_postgresql.md" | markdownify }}
-
-> -   
-
-> -   -   5672, 15672
->     -   **rabbitmq**
->
-{{ readFile "layouts/shortcodes/server_services_rabbitmq.md" | markdownify }}
-
-> -   
-
-> -   -   16379
->     -   **redis_lb**
->
-{{ readFile "layouts/shortcodes/server_services_redis.md" | markdownify }}
-
-> -   
-
-> -   -   4321
->     -   **bookshelf**
->
-{{ readFile "layouts/shortcodes/server_services_bookshelf.md" | markdownify }}
-
-> -   
-
-> -   -   8000
->     -   **opscode-erchef**
->
-{{ readFile "layouts/shortcodes/server_services_erchef.md" | markdownify }}
-
-> -   

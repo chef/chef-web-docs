@@ -98,28 +98,6 @@ On Microsoft Windows, `C:/opscode/chefdk/bin` must be before
 
 {{< /warning >}}
 
-Install Git
-===========
-
-An open source distributed version control system called Git must be
-installed before the chef-repo can be cloned to ChefDK machine from
-GitHub.
-
-To install Git:
-
-1.  Go to the following URL:
-    <https://help.github.com/articles/set-up-git>.
-2.  Follow the directions, install Git
-    (<https://git-scm.com/downloads>), and then complete the remaining
-    configuration steps on that page.
-
-{{< info >}}
-
-It is not necessary to create or fork a repository in order to clone the
-chef-repo from GitHub.
-
-{{< /info >}}
-
 Create the Chef repository
 ==========================
 

@@ -203,21 +203,21 @@ cookbook_file_specificity: true
 
 ########Examples ########
 examples_list:
-  - example1:
-      heading: 'Install a package using package manager'
-      description: 
-      codeblock: | 
-        apt_package 'name of package' do
-            action :install
-        end
+  - example:
+    heading: 'Install a package using package manager'
+    description: 
+    codeblock: | 
+      apt_package 'name of package' do
+          action :install
+      end
 
-  - example2:
-      heading: 'Install without using recommend packages as a dependency'
-      description:
-      codeblock: | 
-        package 'apache2' do
-          options '--no-install-recommends'
-        end
+  - example:
+    heading: 'Install without using recommend packages as a dependency'
+    description:
+    codeblock: | 
+      package 'apache2' do
+        options '--no-install-recommends'
+      end
 
 
 ---

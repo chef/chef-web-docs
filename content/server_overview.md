@@ -62,7 +62,7 @@ Chef Infra Server deployment and how they relate to one another.
 <td>Chef Manage is the web interface for the Chef Infra Server, which uses the Chef Infra Server API for all communication to the Chef Infra Server.</td>
 </tr>
 <tr class="even">
-<td>Chef Server</td>
+<td>Chef Infra Server</td>
 <td>{{% chef_server_component_erchef %}}</td>
 </tr>
 <tr class="odd">
@@ -236,7 +236,7 @@ at an external location:
 <td>The signed URLs for cookbooks are pointed here, and then routed to cookbook storage, as required.</td>
 </tr>
 <tr class="odd">
-<td>Chef Server</td>
+<td>Chef Infra Server</td>
 <td>{{% chef_server_component_erchef %}}</td>
 </tr>
 <tr class="even">
@@ -367,7 +367,7 @@ Chef Infra Server:
 </thead>
 <tbody>
 <tr class="odd">
-<td>Chef Server</td>
+<td>Chef Infra Server</td>
 <td>The Chef Infra Server configuration file is updated to point to an independently configured set of servers for PostgreSQL.</td>
 </tr>
 <tr class="even">

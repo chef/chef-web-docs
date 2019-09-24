@@ -28,7 +28,6 @@ Chef Workstation on Azure Cloud Shell lets you use:
 -   [inspec](/docs/reference/cli/)
 -   [knife](//knife.html)
 -   [cookstyle](cookstyle.html)
--   [foodcritic](/foodcritic/)
 -   [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
 Combine the Chef Workstation command utilities with the other tools

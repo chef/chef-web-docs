@@ -15,41 +15,62 @@ aliases = "/cookstyle.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/cookstyle.rst)
 
-Most of the code that is authored when working with Chef is written as
-Ruby. Just about every file within a cookbook---with few
-exceptions!---is a Ruby file.
+Cookstyle is a code linting tool that helps you write better Chef Infra
+cookbooks by detecting and automatically correcting style, syntax, and
+logic mistakes in your code.
 
-Cookstyle is a linting tool based on the RuboCop Ruby linting tool.
-Cookstyle helps you author better cookbook code in the following ways:
+Cookstyle is powered by the RuboCop linting engine. RuboCop ships with
+over three-hundred rules, or cops, designed to detect common Ruby coding
+mistakes and enforce a common coding style. We've customized Cookstyle
+with a subset of those cops that we believe are perfectly tailored for
+cookbook development. We also ship Chef-specific cops that catch common
+cookbook coding mistakes, cleanup portions of code that are no longer
+necessary, and detect deprecations that prevent cookbooks from running
+on the latest releases of Chef Infra Client.
 
--   Enforcing style conventions and best practices
--   Evaluating the code in a cookbook against metrics like "line length"
-    and "function size"
--   Helping every member of a team to author similarly structured code
--   Establishing uniformity of source code
--   Setting expectations for fellow (and future) project contributors
+Cookstyle increases code quality by:
+
+-   Enforcing style conventions and best practices.
+-   Helping every member of a team author similarly structured code.
+-   Maintaining uniformity in the source code.
+-   Setting expectations for fellow (and future) project contributors.
+-   Detecting deprecated code that creates errors after upgrading to a
+    newer Chef Infra Client release.
+-   Detecting common Chef Infra mistakes that cause code to fail or
+    behave incorrectly.
 
 Cookstyle vs. Rubocop
 =====================
 
-Cookstyle resolves many issues when using Rubocop for linting of Chef
-cookbook code:
+Cookstyle is more stable than Rubocop and is customized for Chef
+Cookbook code. This means that linting Cookbooks with Cookstyle will be
+more consistent and less likely to produce CI test failures.
 
--   New releases of RuboCop typically contain new style rules. If the
-    latest Rubocop release is used cookbook tests often fail due to the
-    new rules
--   The default configuration for RuboCop enables many checks that are
-    inappropriate for cookbook development, which requires users to
-    maintain a large list of disabled cops.
+Tailored cops
+-------------
 
-Cookstyle addresses these issues by:
+Cookbook development differs from traditional Ruby software development,
+so we maintain a tailored set of built-in cops from Rubocop. Cops that
+are not useful for cookbook development are disabled and occasionally we
+change the configuration of a rule to enforce a different behavior.
+We've also extended the base RuboCop package with a set of our own Chef
+Infra-specific cops. These cops are only found in Cookstyle and will
+help you to write more reliable and future-proof cookbooks.
 
--   Pinning to a specific version of RuboCop.
--   Replacing the default RuboCop configuration with one that is more
-    appropriate for cookbook development.
+New cops
+--------
 
-When a new version of RuboCop is released, an automated process disables
-new style rules in the default configuration.
+New cops are continuously added to Rubocop. New cops can make existing
+codebases fail CI tests and force authors to constantly update their
+code.
+
+With Cookstyle, we update the RuboCop engine for bug and performance
+fixes, but we only change the set of cops that will fail tests once a
+year during Chef Infra's major release in April. All new cops are
+introduced at RuboCop's "refactor" alert level, meaning they will alert
+to the screen as you run Cookstyle, but they won't fail a build. This
+stability means you are free to upgrade releases of Cookstyle without
+being forced to update your infrastructure code.
 
 Run Cookstyle
 =============
@@ -157,6 +178,10 @@ indicate the result of an evaluation:
 <tr class="odd">
 <td><code>W</code></td>
 <td>The file contains a warning.</td>
+</tr>
+<tr class="even">
+<td><code>R</code></td>
+<td>The file contains code should can be refactored.</td>
 </tr>
 </tbody>
 </table>

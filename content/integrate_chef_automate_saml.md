@@ -453,8 +453,8 @@ authenticate through SAML, you will need to create additional entries
 for the client id, the client secret and the client redirect URI in the
 section above for each one.
 
-Configuration of Chef Server
-----------------------------
+Configuration of Chef Infra Server
+----------------------------------
 
 Note that all of the client-related values need to match the
 configuration in the Chef Infra Server management console. See

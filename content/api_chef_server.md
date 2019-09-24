@@ -837,8 +837,8 @@ where:
 -   Either `external_authentication_uid` or `password` are required to
     be present and have a value.
 -   During the POST, the `public_key` value will be broken out and
-    resubmitted to the keys portion of the API in the latest Chef Server
-    versions.
+    resubmitted to the keys portion of the API in the latest Chef Infra
+    Server versions.
 
 **Response**
 

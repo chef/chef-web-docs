@@ -1,8 +1,0 @@
-<p>To get a list of nodes using a recipe named <code>postfix</code> use <code>search(:node,"recipe:postfix")</code>. To get a list of nodes using a sub-recipe named <code>delivery</code>, use chef-shell. For example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>search(<span class="st">:node</span>, <span class="st">&#39;recipes:postfix\:\:delivery&#39;</span>)</span></code></pre></div>
-<div class="note">
-<div class="admonition-title">
-<p>Note</p>
-</div>
-<p>Single (' ') vs. double (" ") is important. This is because a backslash () needs to be included in the string, instead of having Ruby interpret it as an escape.</p>
-</div>

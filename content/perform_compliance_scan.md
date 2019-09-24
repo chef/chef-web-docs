@@ -52,7 +52,7 @@ capabilities of Chef Automate:
 -   Chef Automate server
 -   Chef Server 12.11.1 or later
 -   The audit cookbook 4.0 or later
--   ChefDK 1.4.3 or later installed on your workstation
+-   ChefDK or Chef Workstation installed on your workstation
 -   Chef InSpec 1.25.1 or later installed by the audit cookbook
 
 Configure Data Collection on Chef Infra Server

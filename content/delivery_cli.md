@@ -801,7 +801,7 @@ Example configuration for commands to run locally:
 [local_phases]
 unit = "rspec spec/"
 lint = "cookstyle"
-syntax = "foodcritic . --exclude spec -f any -t \"~FC064\" -t \"~FC065\""
+syntax = "echo skipping syntax phase"
 ```
 
 **Remote project.toml**

@@ -1,5 +1,5 @@
 +++
-title = "Publish Cookbooks to Multiple Chef Servers"
+title = "Publish Cookbooks to Multiple Chef Infra Servers"
 draft = false
 
 aliases = "/publish_cookbooks_multiple_servers.html"
@@ -65,7 +65,7 @@ knife_rb = '/path/to/the/knife_rb/file/in/the/build-node/config.rb'
 
 delivery_chef_cookbook 'rally' do
   path '/path/to/the/cookbook/in/the/build-node/rally'
-  chef_server DeliverySugar::ChefServer.new(knife_rb) 
+  chef_server DeliverySugar::ChefServer.new(knife_rb)
 end
 ```
 
@@ -107,8 +107,8 @@ if delivery_environment.eql?('delivered')
   sf_knife_rb = '/var/opt/delivery/workspace/chef_servers/sf/config.rb'
 
   # ChefServer Objects
-  chef_server_ny = DeliverySugar::ChefServer.new(ny_knife_rb) 
-  chef_server_sf = DeliverySugar::ChefServer.new(sf_knife_rb) 
+  chef_server_ny = DeliverySugar::ChefServer.new(ny_knife_rb)
+  chef_server_sf = DeliverySugar::ChefServer.new(sf_knife_rb)
 
   delivery_chef_cookbook delivery_project do
     path delivery_workspace_repo

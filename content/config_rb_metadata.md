@@ -254,51 +254,6 @@ This configuration file has the following settings:
     license 'Proprietary - All Rights Reserved'
     ```
 
-`long_description`
-
-:   A longer description that ideally contains full instructions on the
-    proper use of a cookbook, including resources, libraries,
-    dependencies, and so on. There are two ways to use this field: with
-    the contents embedded in the field itself or with the contents
-    pulled from a file at a specified path, such as a README.rdoc
-    located at the top of a cookbook directory.
-
-    For example, to embed the long description within the field itself:
-
-    ``` ruby
-    long_description <<-EOH
-    = DESCRIPTION:
-
-    Complete Debian/Ubuntu style Apache2 configuration.
-
-    = REQUIREMENTS:
-
-    Debian or Ubuntu preferred.
-
-    Red Hat/CentOS and Fedora can be used but will be converted to
-    a Debian/Ubuntu style Apache as it's far easier to manage
-    with Chef.
-
-    = ATTRIBUTES:
-
-    The file attributes/apache.rb contains the following attribute
-    types:
-
-    * platform specific locations and settings.
-    * general settings
-    * pre-fork attributes
-    * worker attributes
-
-    General settings and pre-fork/worker attributes are tunable.
-    EOH
-    ```
-
-    Or to read the contents from a specified file:
-
-    ``` ruby
-    long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
-    ```
-
 `maintainer`
 
 :   The name of the person responsible for maintaining a cookbook,
@@ -360,41 +315,6 @@ This configuration file has the following settings:
 
     ``` ruby
     privacy true
-    ```
-
-`provides`
-
-:   Add a recipe, definition, or resource that is provided by this
-    cookbook, should the auto-populated list be insufficient.
-
-    For example, for recipes:
-
-    ``` ruby
-    provides 'cats::sleep'
-    provides 'cats::eat'
-    ```
-
-    And for resources:
-
-    ``` ruby
-    provides 'service[snuggle]'
-    ```
-
-`recipe`
-
-:   A description for a recipe, mostly for cosmetic value within the
-    Chef Infra Server user interface.
-
-    For example:
-
-    ``` ruby
-    recipe 'cats::sleep', 'For a crazy 20 hours a day.'
-    ```
-
-    or:
-
-    ``` ruby
-    recipe 'cats::eat', 'When they are not sleeping.'
     ```
 
 `source_url`

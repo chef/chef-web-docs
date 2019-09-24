@@ -1,5 +1,5 @@
 +++
-title = "Data Collection without Chef Server"
+title = "Data Collection without Chef Infra Server"
 draft = false
 
 aliases = "/data_collection_without_server.html"

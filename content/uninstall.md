@@ -18,8 +18,8 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/u
 The following sections describe how to uninstall Chef, add-ons, and
 other components.
 
-Chef Server
-===========
+Chef Infra Server
+=================
 
 {{% ctl_chef_server_uninstall %}}
 

@@ -21,8 +21,8 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/d
 
 {{% EOL_a1 %}}
 
-Automatic Node Run Data Collection with Chef Server
-===================================================
+Automatic Node Run Data Collection with Chef Infra Server
+=========================================================
 
 {{< info >}}
 

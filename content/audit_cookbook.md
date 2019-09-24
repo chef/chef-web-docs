@@ -121,8 +121,8 @@ reporting compliance information.
 
 {{% EOL_compliance_server %}}
 
-Fetch From Automate via Chef Server
------------------------------------
+Fetch From Automate via Chef Infra Server
+-----------------------------------------
 
 {{< info >}}
 
@@ -164,7 +164,7 @@ in reporting.
 <span id="cb2-9"><a href="#cb2-9"></a>compliance_profiles[<span class="st">&quot;enable&quot;</span>] = <span class="dv">true</span></span></code></pre></div></td>
 </tr>
 <tr class="odd">
-<td>Fetch From Automate via Chef Infra Server and Report to Automate via Chef Server</td>
+<td>Fetch From Automate via Chef Infra Server and Report to Automate via Chef Infra Server</td>
 <td><div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;reporter&#39;</span>] = <span class="st">&#39;chef-server-automate&#39;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;fetcher&#39;</span>] = <span class="st">&#39;chef-server&#39;</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="co">#Set in chef-server.rb:</span></span>
@@ -174,7 +174,7 @@ in reporting.
 <span id="cb3-7"><a href="#cb3-7"></a>compliance_profiles[<span class="st">&quot;enable&quot;</span>] = <span class="dv">true</span></span></code></pre></div></td>
 </tr>
 <tr class="even">
-<td>Fetch From Automate via Chef Infra Server and Report to Compliance via Chef Server</td>
+<td>Fetch From Automate via Chef Infra Server and Report to Compliance via Chef Infra Server</td>
 <td><div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;reporter&#39;</span>] = <span class="st">&#39;chef-server-compliance&#39;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;fetcher&#39;</span>] = <span class="st">&#39;chef-server&#39;</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">#Set in chef-server.rb:</span></span>
@@ -185,8 +185,8 @@ in reporting.
 </tbody>
 </table>
 
-Fetch From Compliance via Chef Server
--------------------------------------
+Fetch From Compliance via Chef Infra Server
+-------------------------------------------
 
 {{< info >}}
 
@@ -223,12 +223,12 @@ in reporting.
 <span id="cb2-5"><a href="#cb2-5"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;owner&#39;</span>] = <span class="st">&#39;User/Org&#39;</span></span></code></pre></div></td>
 </tr>
 <tr class="odd">
-<td>Fetch From Compliance via Chef Infra Server and Report to Compliance via Chef Server</td>
+<td>Fetch From Compliance via Chef Infra Server and Report to Compliance via Chef Infra Server</td>
 <td><div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;reporter&#39;</span>] = <span class="st">&#39;chef-server-compliance&#39;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;fetcher&#39;</span>] = <span class="st">&#39;chef-server&#39;</span></span></code></pre></div></td>
 </tr>
 <tr class="even">
-<td>Fetch From Compliance via Chef Infra Server and Report to Automate via Chef Server</td>
+<td>Fetch From Compliance via Chef Infra Server and Report to Automate via Chef Infra Server</td>
 <td><div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;reporter&#39;</span>] = <span class="st">&#39;chef-server-automate&#39;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;fetcher&#39;</span>] = <span class="st">&#39;chef-server&#39;</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="co">#Set in chef-server.rb:</span></span>
@@ -267,7 +267,7 @@ Fetch Directly From Compliance
 <span id="cb2-4"><a href="#cb2-4"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;owner&#39;</span>] = <span class="st">&#39;User/Org&#39;</span></span></code></pre></div></td>
 </tr>
 <tr class="odd">
-<td>Fetch from Compliance and Report to Automate via Chef Server</td>
+<td>Fetch from Compliance and Report to Automate via Chef Infra Server</td>
 <td><div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;reporter&#39;</span>] = <span class="st">&#39;chef-server-automate&#39;</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;server&#39;</span>] = <span class="st">&#39;https://compliance-server.test/api&#39;</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;refresh_token&#39;</span> <span class="dt">OR</span> <span class="st">&#39;token&#39;</span>] = <span class="st">&#39;..&#39;</span></span>
@@ -276,7 +276,7 @@ Fetch Directly From Compliance
 <span id="cb3-6"><a href="#cb3-6"></a>data_collector[<span class="st">&#39;root_url&#39;</span>] = <span class="st">&#39;https://chef-automate.test/data-collector/v0/&#39;</span></span></code></pre></div></td>
 </tr>
 <tr class="even">
-<td>Fetch from Compliance and Report to Compliance via Chef Server</td>
+<td>Fetch from Compliance and Report to Compliance via Chef Infra Server</td>
 <td><div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;reporter&#39;</span>] = <span class="st">&#39;chef-server-compliance&#39;</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;server&#39;</span>] = <span class="st">&#39;https://compliance-server.test/api&#39;</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a>[<span class="st">&#39;audit&#39;</span>][<span class="st">&#39;refresh_token&#39;</span> <span class="dt">OR</span> <span class="st">&#39;token&#39;</span>] = <span class="st">&#39;..&#39;</span></span>

@@ -17,15 +17,16 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/i
 
 This is the documentation for:
 
--   Chef, including Chef Infra Server, Chef Infra Client, ChefDK, and
-    related tools
--   Chef Automate
+-   Chef Infra Server, Chef Infra Client, ChefDK, and related tools
+-   Chef Automate 1.0 (deprecated)
 
-For information on Chef Habitat and Chef InSpec, see their respective
-documentation:
+Documentation for other Chef products:
 
--   [Chef Habitat documentation](https://www.habitat.sh/docs/)
--   [Chef InSpec documentation](https://www.inspec.io/docs/)
+-   [Chef Automate 2.0](https://automate.chef.io/docs/quickstart/)
+-   [Chef Habitat](https://www.habitat.sh/docs/)
+-   [Chef InSpec](https://www.inspec.io/docs/)
+-   [Chef
+    Workstation](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
 This page has links to each topic in this doc set. You can also use the
 navigation tool or the search box to find what you're looking for.
@@ -134,7 +135,7 @@ Windows](/install_windows/) | [Install on Junos OS](/junos/) |
 
 **Server**: [Hosted Chef Infra
 Server](https://manage.chef.io/signup.html) | [Install
-Standalone](/install_server.html#standalone) | [Chef Server
+Standalone](/install_server.html#standalone) | [Chef Infra Server
 Prerequisites](/install_server_pre) | [Tiered
 Installation](/install_server_tiered/) | [Install High
 Availability](/install_server_ha/) | [Upgrade High
@@ -170,8 +171,7 @@ Runs](/debug.html)
 Functionality](/resource_common/) | [Custom
 Resources](/custom_resources/) | [Converting Definitions to Custom
 Resources](/definitions/) | [All Resources (Single
-Page)](/resource_reference.html) | [Examples (by
-Resource)](/resource_examples.html)
+Page)](/resource_reference.html) |
 
 [apt_package](/resource_apt_package/) |
 [apt_preference](/resource_apt_preference/) |
@@ -725,37 +725,36 @@ resource_chocolatey_feature resource_chocolatey_package
 resource_common resource_cookbook_file resource_cron resource_csh
 resource_deploy resource_directory resource_dmg_package
 resource_dnf_package resource_dpkg_package resource_dsc_resource
-resource_dsc_script resource_erlang_call resource_examples
-resource_execute resource_file resource_freebsd_package
-resource_gem_package resource_git resource_group
-resource_homebrew_cask resource_homebrew_package
-resource_homebrew_tap resource_hostname resource_http_request
-resource_ifconfig resource_ips_package resource_ksh
-resource_launchd resource_link resource_load_balancer resource_log
-resource_machine resource_machine_batch resource_machine_execute
-resource_machine_file resource_machine_image
-resource_macos_userdefaults resource_macports_package
-resource_mdadm resource_mount resource_msu_package resource_ohai
-resource_ohai_hint resource_openbsd_package
-resource_openssl_dhparam resource_openssl_ec_private_key
-resource_openssl_ec_public_key resource_openssl_rsa_private_key
-resource_openssl_rsa_public_key resource_openssl_x509_certificate
-resource_openssl_x509_crl resource_openssl_x509_request
-resource_osx_profile resource_package resource_pacman_package
-resource_paludis_package resource_perl resource_portage_package
-resource_powershell_package resource_powershell_script
-resource_private_key resource_public_key resource_python
-resource_reboot resource_reference resource_registry_key
-resource_remote_directory resource_remote_file
-resource_rhsm_errata resource_rhsm_errata_level
-resource_rhsm_register resource_rhsm_repo
-resource_rhsm_subscription resource_route resource_rpm_package
-resource_ruby resource_ruby_block resource_script resource_service
-resource_smartos_package resource_snap_package
-resource_solaris_package resource_subversion resource_sudo
-resource_swap_file resource_sysctl resource_systemd_unit
-resource_template resource_timezone resource_user
-resource_windows_ad_join resource_windows_auto_run
+resource_dsc_script resource_erlang_call resource_execute
+resource_file resource_freebsd_package resource_gem_package
+resource_git resource_group resource_homebrew_cask
+resource_homebrew_package resource_homebrew_tap resource_hostname
+resource_http_request resource_ifconfig resource_ips_package
+resource_ksh resource_launchd resource_link resource_load_balancer
+resource_log resource_machine resource_machine_batch
+resource_machine_execute resource_machine_file
+resource_machine_image resource_macos_userdefaults
+resource_macports_package resource_mdadm resource_mount
+resource_msu_package resource_ohai resource_ohai_hint
+resource_openbsd_package resource_openssl_dhparam
+resource_openssl_ec_private_key resource_openssl_ec_public_key
+resource_openssl_rsa_private_key resource_openssl_rsa_public_key
+resource_openssl_x509_certificate resource_openssl_x509_crl
+resource_openssl_x509_request resource_osx_profile
+resource_package resource_pacman_package resource_paludis_package
+resource_perl resource_portage_package resource_powershell_package
+resource_powershell_script resource_private_key
+resource_public_key resource_python resource_reboot
+resource_reference resource_registry_key resource_remote_directory
+resource_remote_file resource_rhsm_errata
+resource_rhsm_errata_level resource_rhsm_register
+resource_rhsm_repo resource_rhsm_subscription resource_route
+resource_rpm_package resource_ruby resource_ruby_block
+resource_script resource_service resource_smartos_package
+resource_snap_package resource_solaris_package resource_subversion
+resource_sudo resource_swap_file resource_sysctl
+resource_systemd_unit resource_template resource_timezone
+resource_user resource_windows_ad_join resource_windows_auto_run
 resource_windows_dfs_folder resource_windows_dfs_namespace
 resource_windows_dfs_server resource_windows_dns_record
 resource_windows_dns_zone resource_windows_env

@@ -259,7 +259,7 @@ the `delivery-truck` configuration setting by phase.
 The `publish` phase configuration settings specify the location(s) to
 which cookbooks are published.
 
-#### Chef Server
+#### Chef Infra Server
 
 {{% delivery_config_json_setting_delivery_truck_publish_chef_server %}}
 

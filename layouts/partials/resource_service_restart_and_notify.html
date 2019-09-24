@@ -1,5 +1,0 @@
-<p>The following example shows how start a service named <code>example_service</code> and immediately notify the Nginx service to restart.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>service <span class="st">&#39;example_service&#39;</span> <span class="kw">do</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a>  action <span class="st">:start</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a>  notifies <span class="st">:restart</span>, <span class="st">&#39;service[nginx]&#39;</span>, <span class="st">:immediately</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="kw">end</span></span></code></pre></div>
