@@ -181,8 +181,8 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
-knife bootstrap Options
------------------------------------------------------
+Bootstrapping with chef-vault
+=====================================================
 Use the following options with a validatorless bootstrap to specify items that are stored in chef-vault:
 
 ``--bootstrap-vault-file VAULT_FILE``
