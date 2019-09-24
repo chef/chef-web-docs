@@ -66,6 +66,15 @@ In addition to the default install behavior, the Chef install script supports th
 ``-P`` (``-project`` on Microsoft Windows)
    The product name to install. A list of valid product names can be found at https://omnitruck.chef.io/products. Default value: ``chef``.
 
+``-s`` (``-install_strategy`` on Microsoft Windows)
+   The method of package installations. default strategy is to always install upon exec. Set to "once" to skip if project is installed.
+
+``-l`` (``-download_url_override`` on Microsoft Windows)
+   Install package downloaded from a direct URL.
+
+``-a`` (``-checksum`` on Microsoft Windows)
+   The SHA256 for download_url_override
+
 ``-v`` (``-version`` on Microsoft Windows)
    The version of the package to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. A two-part version (x.y) is also allowed. For more information about application versioning, see https://semver.org/.
 
