@@ -9,7 +9,7 @@ The following options can be run with all knife subcommands and plug-ins:
    The configuration file to use. For example, when knife is run from a node that is configured to be managed by the Chef Infra Server, this option is used to allow knife to use the same credentials as Chef Infra Client looks when communicating with the Chef Infra Server.
 
 ``--chef-zero-host HOST``
-  The host to start chef-zero on.
+  The host to start Chef Infra Zero on. Chef Infra Zero is a minimal in memory Chef Infra Server.
 
 ``--chef-zero-port PORT``
    The port (or port range) to start chef-zero on. Port ranges like ``1000,1010`` or ``8889-9999`` will try all given ports until one works.
