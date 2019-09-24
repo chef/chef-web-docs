@@ -214,7 +214,7 @@ You would instead use:
 
 This is just an example configuration - see the `PostgreSQL release notes <https://www.postgresql.org/docs/9.6/static/release-9-5.html>`__ for more information on tuning this option. The default setting for ``max_wal_size`` is ``1G``. The PostgreSQL release notes mention a conversion rule: ``max_wal_size = (3 * checkpoint_segments) * 16MB``. They also state that the default value for ``max_wal_size`` (1GB) should be sufficient in most settings, so this conversion is not performed automatically.
 
-The ``shmmax`` and ````shmall`` configuration settings are no longer used, as PostgreSQL 9.6 relies on System V shared memory much less than PostgreSQL 9.2. The ``shared_buffers`` configuration setting is still respected, and can be used to modify the amount of shared memory used by PostgreSQL.
+The ``shmmax`` and ``shmall`` configuration settings are no longer used, as PostgreSQL 9.6 relies on System V shared memory much less than PostgreSQL 9.2. The ``shared_buffers`` configuration setting is still respected, and can be used to modify the amount of shared memory used by PostgreSQL.
 
 This update also adds two new configurables in the "Checkpoints" group: ``min_wal_size`` and ``checkpoint_flush_after``.
 
