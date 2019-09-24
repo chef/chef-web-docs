@@ -46,7 +46,8 @@ Options
 
 .. tag knife_bootstrap_options
 
-This subcommand has the following options:
+General Connection Options
+-----------------------------------------------------
 
 ``-U USERNAME``, ``--connection-user USERNAME``
    Authenticate to the target host with this user account.
@@ -69,6 +70,9 @@ This subcommand has the following options:
 ``--session-timeout SECONDS``
    The number of seconds to wait for each connection operation to be acknowledged while running bootstrap.
 
+WinRM Connection Options
+-----------------------------------------------------
+
 ``--winrm-ssl-peer-fingerprint FINGERPRINT``
    SSL certificate fingerprint expected from the target.
 
@@ -86,6 +90,30 @@ This subcommand has the following options:
 
 ``--winrm-basic-auth-only``
    For WinRM basic authentication when using the 'ssl' auth method.
+
+``-R KERBEROS_REALM``, ``--kerberos-realm KERBEROS_REALM```
+   The Kerberos realm used for authentication.
+
+``-S KERBEROS_SERVICE``, ``--kerberos-service KERBEROS_SERVICE``
+   The Kerberos service used for authentication.
+
+SSH Connection Options
+-----------------------------------------------------
+
+``-G GATEWAY``, ``--ssh-gateway GATEWAY``
+   The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
+
+``--ssh-gateway-identity SSH_GATEWAY_IDENTITY``
+   The SSH identity file used for gateway authentication.
+
+``-A``, ``--ssh-forward-agent``
+   Enable SSH agent forwarding.
+
+``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
+   The SSH identity file used for authentication. Key-based authentication is recommended.
+
+``ssh_verify_host_key``, ``--ssh-verify-host-key VALUE``
+   Verify host key. Default is 'always'
 
 ``--bootstrap-curl-options OPTIONS``
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
@@ -131,14 +159,8 @@ This subcommand has the following options:
 ``-E ENVIRONMENT``, ``--environment ENVIRONMENT``
    The name of the environment. When this option is added to a command, the command will run only against the named environment.
 
-``-G GATEWAY``, ``--ssh-gateway GATEWAY``
-   The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
-
 ``--hint HINT_NAME[=HINT_FILE]``
    An Ohai hint to be set on the target node. See the `Ohai </ohai.html#hints>`__ documentation for more information. ``HINT_FILE`` is the name of the JSON file. ``HINT_NAME`` is the name of a hint in a JSON file. Use multiple ``--hint`` options to specify multiple hints.
-
-``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
-   The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
    A JSON string that is added to the first run of a Chef Infra Client.
