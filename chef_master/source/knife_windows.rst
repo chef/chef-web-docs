@@ -32,7 +32,7 @@ The following WinRM configuration settings should be updated:
    * - ``MaxMemoryPerShellMB``
      - Chef Infra Client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
    * - ``MaxTimeoutms``
-     - A bootstrap command can take longer than allowed by the default setting. Increase this value to ``1800000`` (30 minutes).
+     - Often commands can take longer than the default setting. Increase this value to ``1800000`` (30 minutes).
 
 To update these settings, run the following commands on the Windows target:
 
@@ -53,7 +53,6 @@ Ensure that the Windows Firewall is configured to allow WinRM connections betwee
    C:\> netsh advfirewall firewall set rule name="Windows Remote Management (HTTP-In)" profile=public protocol=tcp localport=5985 remoteip=localsubnet new remoteip=any
 
 
-
 Negotiate, NTLM
 ----------------------------------------------------
 When knife is executed from a Microsoft Windows system, it is no longer necessary to make additional configuration of the WinRM listener on the target node to enable successful authentication from the workstation. It is sufficient to have a WinRM listener on the remote node configured to use the default configuration for ``winrm quickconfig``. This is because ``knife windows`` supports the Microsoft Windows negotiate protocol, including NTLM authentication, which matches the authentication requirements for the default configuration of the WinRM listener.
@@ -64,13 +63,13 @@ For example:
 
 .. code-block:: bash
 
-   $ knife bootstrap windows winrm web1.cloudapp.net -r 'server::web' -x 'proddomain\webuser' -P 'password'
+   $ knife winrm web1.cloudapp.net 'dir' -x 'proddomain\webuser' -P 'password'
 
 and:
 
 .. code-block:: bash
 
-   $ knife bootstrap windows winrm db1.cloudapp.net -r 'server::db' -x '.\localadmin' -P 'password'
+   $ knife winrm db1.cloudapp.net 'dir' -x '.\localadmin' -P 'password'
 
 
 Domain Authentication
@@ -88,18 +87,11 @@ To create the listener over HTTPS, run the following command on the Windows targ
 
 where the ``CertificateThumbprint`` is the thumbprint hex value copied from the certificate details. (The hex value may require that spaces be removed before passing them to the node using the ``knife windows`` plugin.) WinRM 2.0 uses port ``5985`` for HTTP and port ``5986`` for HTTPS traffic, by default.
 
-To bootstrap the target node using the ``knife bootstrap`` subcommand, first use the ``winrm`` argument in the ``knife windows`` plugin to verify communication with the node:
+To validate communication with the Windows system using domain authentication run:
 
 .. code-block:: bash
 
    $ knife winrm 'node1.domain.com' 'dir' -m -x domain\\administrator -P 'super_secret_password' –p 5986
-
-and then run a command similar to the following:
-
-.. code-block:: bash
-
-   $ knife bootstrap windows winrm 'node1.domain.com' -r 'role[webserver]' -x domain\\administrator -P 'password' -p 5986
-
 
 cert generate
 =====================================================
@@ -188,8 +180,6 @@ winrm
 =====================================================
 Use the ``winrm`` argument to create a connection to one or more remote machines. As each connection is created, a password must be provided. This argument uses the same syntax as the ``search`` subcommand.
 
-
-
 .. tag knife_windows_winrm_ports
 
 WinRM requires that a target node be accessible via the ports configured to support access via HTTP or HTTPS.
@@ -203,7 +193,6 @@ This argument has the following syntax:
 .. code-block:: bash
 
    $ knife winrm SEARCH_QUERY SSH_COMMAND (options)
-
 
 
 Options
