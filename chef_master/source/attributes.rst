@@ -17,12 +17,13 @@ Attributes are defined by:
 * Cookbooks (in attribute files and/or recipes)
 * Roles
 * Environments
+* Policyfiles
 
 During every Chef Infra Client run, Chef Infra Client builds the attribute list using:
 
-* Data about the node collected by Ohai
-* The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run
-* The rebuilt node object from the current Chef Infra Client run, after it is updated for changes to cookbooks (attribute files and/or recipes), roles, and/or environments, and updated for any changes to the state of the node itself
+* Data about the node collected by `[Ohai] </ohai.html>`__.
+* The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run.
+* The rebuilt node object from the current Chef Infra Client run, after it is updated for changes to cookbooks (attribute files and/or recipes), roles, and/or environments, and updated for any changes to the state of the node itself.
 
 After the node object is rebuilt, all of the attributes are compared, and then the node is updated based on attribute precedence. At the end of every Chef Infra Client run, the node object that defines the current state of the node is uploaded to the Chef Infra Server so that it can be indexed for search.
 
@@ -34,7 +35,7 @@ Attribute Persistence
 =====================================================
 .. tag node_attribute_persistence
 
-At the beginning of a Chef Infra Client run, all attributes except for normal attributes are reset. Chef Infra Client rebuilds them using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of each Chef Infra Client run, the attributes that were applied to the node are saved to the Chef Infra Server as part of the node object.
+All attributes except for normal attributes are reset at the beginning of a Chef Infra Client run. Chef Infra Client rebuilds these attributes using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run, and then uses default and override attributes that are specified in cookbooks, roles, environments, and Policyfiles. All attributes are then merged and applied to the node according to attribute precedence. The attributes that were applied to the node are saved to the Chef Infra Server as part of the node object at the conclusion of each Chef Infra Client run.
 
 .. end_tag
 
@@ -61,7 +62,7 @@ Chef Infra Client uses six types of attributes to determine the value that is ap
 
    * - ``force_default``
      - .. tag node_attribute_type_force_default
-     
+
        Use the ``force_default`` attribute to ensure that an attribute defined in a cookbook (by an attribute file or by a recipe) takes precedence over a ``default`` attribute set by a role or an environment.
 
        .. end_tag
@@ -103,10 +104,11 @@ Attributes are provided to Chef Infra Client from the following locations:
 * Recipes (in cookbooks)
 * Environments
 * Roles
+* Policyfiles
 
 Notes:
 
-* Many attributes are maintained in the chef-repo for environments, roles, and cookbooks (attribute files and recipes)
+* Many attributes are maintained in the chef-repo for Policyfiles, environments, roles, and cookbooks (attribute files and recipes)
 * Many attributes are collected by Ohai on each individual node at the start of every Chef Infra Client run
 * The attributes that are maintained in the chef-repo are uploaded to the Chef Infra Server from the workstation, periodically
 * Chef Infra Client will pull down the node object from the Chef Infra Server (which contains the attribute data from the previous Chef Infra Client run), after which all attributes (except ``normal`` are reset)
@@ -152,11 +154,7 @@ An automatic attribute is a specific detail about a node, such as an IP address,
 
 .. tag ohai_attribute_list
 
-The list of automatic attributes that are collected by Ohai at the start of each Chef Infra Client run vary from organization to organization, and will often vary between the various server types being configured and the platforms on which those servers are run. All attributes collected by Ohai are unmodifiable by Chef Infra Client. To see which automatic attributes are collected by Ohai for a particular node, run the following command:
-
-.. code-block:: bash
-
-   find  /opt/chefdk/embedded/lib/ruby/gems/*/gems/ohai-*/lib -name "*.rb" -print | xargs grep -R "provides" -h |sed 's/^\s*//g'|sed "s/\\\"/\'/g"|sort|uniq|grep "\sprovides"
+Ohai collects a list of automatic attributes at the start of each Chef Infra Client run. This list will vary from organization to organization, by server type, and by the platform that runs those servers. All the attributes collected by Ohai are unmodifiable by Chef Infra Client. Run the ``ohai`` command on a system to see which automatic attributes Ohai has collected for a particular node.
 
 .. end_tag
 
@@ -207,7 +205,7 @@ Another (much less common) approach is to set a value only if an attribute has n
 * ``default_unless``
 * ``set_unless`` (``normal_unless`` is an alias of ``set_unless``; use either alias to set an attribute with a normal attribute precedence.)
 
-  .. note:: This method was deprecated in Chef Client 12.12 and will be removed in Chef Client 14. Please use ``default_unless`` or ``override_unless`` instead.
+  .. note:: This method was removed in Chef Client 14. Please use ``default_unless`` or ``override_unless`` instead.
 
 * ``override_unless``
 
@@ -592,13 +590,11 @@ or:
 
 Change Attributes
 =====================================================
-Starting with Chef Client 12.0, attribute precedence levels may be
+Attribute precedence levels may be:
 
-* Removed for a specific, named attribute precedence level
-* Removed for all attribute precedence levels
-* Fully assigned attributes
-
-
+* Removed for a specific, named attribute precedence level.
+* Removed for all attribute precedence levels.
+* Fully assigned attributes.
 
 Remove Precedence Level
 ----------------------------------------------------
