@@ -48,6 +48,45 @@ Options
 
 This subcommand has the following options:
 
+``-U USERNAME``, ``--connection-user USERNAME``
+   Authenticate to the target host with this user account.
+
+``-U USERNAME``, ``--connection-user USERNAME``
+   Authenticate to the target host with this user account.
+
+``-P PASSWORD``, ``--connection-password PASSWORD``
+   Authenticate to the target host with this password."
+
+``-p PORT``, ``--connection-port PORT``
+   The port on the target node to connect to."
+
+``-o PROTOCOL``, ``--connection-protocol PROTOCOL``
+   The protocol to use to connect to the target node.
+
+``-W SECONDS``, ``--max-wait SECONDS``
+   The maximum time to wait for the initial connection to be established.
+
+``--session-timeout SECONDS``
+   The number of seconds to wait for each connection operation to be acknowledged while running bootstrap.
+
+``--winrm-ssl-peer-fingerprint FINGERPRINT``
+   SSL certificate fingerprint expected from the target.
+
+``-f CA_TRUST_PATH``, ``--ca-trust-file CA_TRUST_PATH``
+   The Certificate Authority (CA) trust file used for SSL transport
+
+``--winrm-no-verify-cert``
+   Do not verify the SSL certificate of the target node for WinRM.
+
+``--winrm-ssl``
+   Use SSL in the WinRM connection.
+
+``-w AUTH-METHOD``, ``--winrm-auth-method AUTH-METHOD``
+   The WinRM authentication method to use.
+
+``--winrm-basic-auth-only``
+   For WinRM basic authentication when using the 'ssl' auth method.
+
 ``--bootstrap-curl-options OPTIONS``
    Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
