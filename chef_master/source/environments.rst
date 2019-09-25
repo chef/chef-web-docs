@@ -366,7 +366,7 @@ A node is considered to be associated with an environment when the ``chef_enviro
 
 Move Nodes
 -----------------------------------------------------
-Nodes can be moved between environments, such as from a "dev" to a "production" environment by using the ``knife exec`` subcommand. For example:
+Use the ``knife exec`` subcommand to move nodes between environments, such as from a "dev" to a "production" environment. For example:
 
 .. code-block:: bash
 
