@@ -95,7 +95,7 @@ Attribute precedence, when viewed as a table:
 Cookbook Pinning
 =====================================================
 
-Cookbook versions can be pinned per evironment. This allows for the controlled rollout of new cookbook releases through environments for testing before new versions reach production environments. See the environment format examples below for the cookbook pinning syntax.
+Cookbook versions can be pinned in each environment, which allows you to control the rollout of new cookbook releases through successive testing environments before releasing new cookbook versions into production environments. See the environment format examples below for the cookbook pinning syntax.
 
 Environment Formats
 =====================================================
