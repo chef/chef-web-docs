@@ -140,17 +140,17 @@ Each environment is defined as a Ruby file (i.e. a file that ends with ``.rb``).
 
        .. code-block:: ruby
 
-          cookbook_versions({
-            'couchdb'=>'= 11.0.0',
-            'my_rails_app'=>'~> 1.2.0'
-          })
+          cookbook_versions(
+            'couchdb' => '= 11.0.0',
+            'my_rails_app' => '~> 1.2.0'
+          )
 
    * - ``default_attributes``
      - Optional. A set of attributes to be applied to all nodes, assuming the node does not already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they are preserved. For example, to specify that a node that has the attribute ``apache2`` should listen on ports 80 and 443 (unless ports are already specified):
 
        .. code-block:: ruby
 
-          default_attributes 'apache2' => { 'listen_ports' => [ '80', '443' ] }
+          default_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 
    * - ``description``
      - A description of the functionality that is covered. For example:
@@ -178,8 +178,8 @@ Each environment is defined as a Ruby file (i.e. a file that ends with ``.rb``).
        .. code-block:: ruby
 
           override_attributes(
-            :apache2 => {
-              :prefork => { :min_spareservers => '5' }
+            apache2: {
+              prefork: { min_spareservers: '5' },
             }
           )
 
@@ -188,11 +188,11 @@ Each environment is defined as a Ruby file (i.e. a file that ends with ``.rb``).
        .. code-block:: ruby
 
           override_attributes(
-            :apache2 => {
-              :prefork => { :min_spareservers => '5' }
+            apache2: {
+              prefork: { min_spareservers: '5' },
             },
-            :tomcat => {
-              :worker_threads => '100'
+            tomcat: {
+              worker_threads: '100',
             }
           )
 
@@ -213,7 +213,7 @@ where both default and override attributes are optional and either a cookbook or
    name 'dev'
    description 'The development environment'
    cookbook_versions  'couchdb' => '= 11.0.0'
-   default_attributes 'apache2' => { 'listen_ports' => [ '80', '443' ] }
+   default_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 
 Or (using the same scenario) to specify a version constraint for only one cookbook:
 
@@ -226,21 +226,21 @@ More than one cookbook version can be specified:
 .. code-block:: ruby
 
    cookbook_versions({
-     'couchdb'=>'= 11.0.0',
-     'my_rails_app'=>'~> 1.2.0'
+     'couchdb' => '= 11.0.0',
+     'my_rails_app' => '~> 1.2.0'
    })
 
 Attributes are optional and can be set at the default and override levels. These will be processed according to attribute precedence. An environment attribute will be applied to all nodes within the environment, except in places where it is overridden by an attribute with higher precedence. For example:
 
 .. code-block:: ruby
 
-   default_attributes 'apache2' => { 'listen_ports' => [ '80', '443' ] }
+   default_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 
 will have all nodes in the environment (``node[:apache2][:listen_ports]``) set to ``'80'`` and ``'443'`` unless they were overridden by an attribute with higher precedence. For example:
 
 .. code-block:: ruby
 
-   override_attributes 'apache2' => { 'listen_ports' => [ '99', '999' ] }
+   override_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 
 JSON
 -----------------------------------------------------
@@ -432,7 +432,7 @@ and like the following in the Ruby DSL:
    name 'environment_name'
    description 'environment_description'
    cookbook OR cookbook_versions  'cookbook' OR 'cookbook' => 'cookbook_version'
-   default_attributes 'node' => { 'attribute' => [ 'value', 'value', 'etc.' ] }
-   override_attributes 'node' => { 'attribute' => [ 'value', 'value', 'etc.' ] }
+   default_attributes 'node' => { 'attribute' => %w(value value etc.) }
+   override_attributes 'node' => { 'attribute' => %w(value value etc.) }
 
 .. end_tag
