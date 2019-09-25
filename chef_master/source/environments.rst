@@ -127,13 +127,13 @@ Each environment is defined as a Ruby file (i.e. a file that ends with ``.rb``).
 
        .. code-block:: ruby
 
-          cookbook 'my_rails_app', '< 1.2.0'
+          cookbook 'my_rails_app', '= 1.2.0'
 
        or:
 
        .. code-block:: ruby
 
-          cookbook 'gems', '< 1.4.0'
+          cookbook 'gems', '~> 1.4'
 
    * - ``cookbook_versions``
      - A version constraint for a group of cookbooks. For example:
