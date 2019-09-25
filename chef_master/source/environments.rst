@@ -5,21 +5,21 @@ About Environments
 
 .. tag environment
 
-An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments. Generally, an environment is also associated with one (or more) cookbook versions.
+An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments.
 
 .. end_tag
 
 The _default Environment
 =====================================================
-Every organization must have at least one environment. Every organization starts out with a single environment that is named ``_default``, which ensures that at least one environment is always available to the Chef Infra Server. The ``_default`` environment cannot be modified in any way. Nodes, roles, run-lists, cookbooks (and cookbook versions), and attributes specific to an organization can only be associated with a custom environment.
+Every Chef Infra Server organization must have at least one environment. Each organization starts out with a single environment that is named ``_default``. The ``_default`` environment cannot be modified in any way. Nodes, roles, run-lists, cookbooks (and cookbook versions), and attributes specific to an organization can only be associated with a custom environment.
 
 Environment Attributes
 =====================================================
 .. tag environment_attribute
 
-An attribute can be defined in an environment and then used to override the default settings on a node. When an environment is applied during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. When the environment attributes take precedence over the default attributes, Chef Infra Client applies those new settings and values during a Chef Infra Client run.
+Attributes can be defined in an environment and then used to override the default attributes in a cookbook. When an environment is applied during a Chef Infra Client run, environment attributes are compared to the attributes that are already present on the node. When the environment attributes take precedence over the default attributes, Chef Infra Client applies those new settings and values during a Chef Infra Client run.
 
-An environment attribute can only be set to be a default attribute or an override attribute. An environment attribute cannot be set to be a ``normal`` attribute. Use the ``default_attribute`` and ``override_attribute`` methods in the Ruby DSL file or the ``default_attributes`` and ``override_attributes`` hashes in a JSON data file.
+Environment attributes can be set to either ``default`` attribute level or an ``override`` attribute level.
 
 .. end_tag
 
@@ -29,7 +29,7 @@ An environment attribute can only be set to be a default attribute or an overrid
 
           .. end_tag
 
-Attribute Types
+Environment Attribute Types
 -----------------------------------------------------
 There are two types of attributes that can be used with environments:
 
@@ -53,16 +53,11 @@ There are two types of attributes that can be used with environments:
 
        .. end_tag
 
-Attribute Persistence
------------------------------------------------------
-.. tag node_attribute_persistence
-
-All attributes except for normal attributes are reset at the beginning of a Chef Infra Client run. Chef Infra Client rebuilds these attributes using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run, and then uses default and override attributes that are specified in cookbooks, roles, environments, and Policyfiles. All attributes are then merged and applied to the node according to attribute precedence. The attributes that were applied to the node are saved to the Chef Infra Server as part of the node object at the conclusion of each Chef Infra Client run.
-
-.. end_tag
-
 Attribute Precedence
 -----------------------------------------------------
+
+Environments are one of several locations where attributes can be applied in Chef Infra. It's important to understand how the precedence level works in order to understand, which attributes will be applied when Chef Infra Client runs.
+
 .. tag node_attribute_precedence
 
 Attributes are always applied by Chef Infra Client in the following order:
@@ -97,33 +92,21 @@ Attribute precedence, when viewed as a table:
 
 .. end_tag
 
+Cookbook Pinning
+=====================================================
+
+Cookbook versions can be pinned per evironment. This allows for the controlled rollout of new cookbook releases through environments for testing before new versions reach production environments. See the environment format examples below for the cookbook pinning syntax.
+
 Environment Formats
 =====================================================
-Environment data may be stored in two formats:
+
+Environments may be stored on disk (any in source control) in two formats:
 
 * As Ruby (i.e. a file that ends with ``.rb``); this format is not available when running Chef Infra Client in local mode
 * As JSON (i.e. a file that ends with ``.json``)
 
 Ruby DSL
 -----------------------------------------------------
-.. tag ruby_summary
-
-Ruby is a simple programming language:
-
-* Chef uses Ruby as its reference language to define the patterns that are found in resources, recipes, and cookbooks
-* Use these patterns to configure, deploy, and manage nodes across the network
-
-Ruby is also a powerful and complete programming language:
-
-* Use the Ruby programming language to make decisions about what should happen to specific resources and recipes
-* Extend Chef in any manner that your organization requires
-
-To learn more about Ruby, see:
-
-* `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
-* `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
-
-.. end_tag
 
 Each environment is defined as a Ruby file (i.e. a file that ends with ``.rb``). Each environment file should contain the following domain-specific attributes:
 
@@ -313,7 +296,6 @@ Manage Environments
 Once created, an environment can be managed in several ways:
 
 * By using knife and passing the ``-E ENVIRONMENT_NAME`` option with ``knife cookbook upload``
-* By using the Chef management console web user interface
 * By using Ruby or JSON files that are stored in a version source control system. These files are pushed to the Chef Infra Server using the ``knife environment`` subcommand and the ``from file`` argument. This approach allows environment data to be dynamically generated. This approach will not work unless these files are defined in the proper format---Ruby file end with ``.rb``; JSON files end with ``.json``.
 
 These workflows are mutually exclusive: only the most recent environment changes will be kept on the Chef Infra Server, regardless of the source of those changes. All previous changes are overwritten when environment data is updated.
@@ -326,7 +308,7 @@ Use the following syntax to find the current environment from a recipe:
 
 .. code-block:: ruby
 
-   node.environment()
+   node.environment
 
 or:
 
@@ -382,8 +364,37 @@ A node is considered to be associated with an environment when the ``chef_enviro
   .. note:: After the environment has been set via bootstrap, the environment is set in the client.rb file and may not be modified using the Chef management console or the ``edit`` argument of the ``knife node`` subcommand.
 * By setting the ``environment`` configuration entry in the client.rb file ; when Chef Infra Client runs, it will pick up the value and then set the ``chef_environment`` attribute of the node
 
-Set using chef-solo
+Move Nodes
 -----------------------------------------------------
+Nodes can be moved between environments, such as from a "dev" to a "production" environment by using the ``knife exec`` subcommand. For example:
+
+.. code-block:: bash
+
+   $ knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment("production") }'
+
+Search Environments
+-----------------------------------------------------
+.. tag search_environment
+
+When searching, an environment is an attribute. This allows search results to be limited to a specified environment by using Boolean operators and extra search terms. For example, to use knife to search for all of the servers running CentOS in an environment named "QA", enter the following:
+
+.. code-block:: bash
+
+   knife search node "chef_environment:QA AND platform:centos"
+
+Or, to include the same search in a recipe, use a code block similar to:
+
+.. code-block:: ruby
+
+   qa_nodes = search(:node,"chef_environment:QA")
+   qa_nodes.each do |qa_node|
+       # Do useful work specific to qa nodes only
+   end
+
+.. end_tag
+
+Environments in Chef Solo
+=====================================================
 .. tag chef_solo_environments
 
 An environment is defined using JSON or the Ruby DSL. chef-solo will look for environments in ``/var/chef/environments``, but this location can be modified by changing the setting for ``environment_path`` in solo.rb. For example, the following setting in solo.rb:
@@ -423,34 +434,5 @@ and like the following in the Ruby DSL:
    cookbook OR cookbook_versions  'cookbook' OR 'cookbook' => 'cookbook_version'
    default_attributes 'node' => { 'attribute' => [ 'value', 'value', 'etc.' ] }
    override_attributes 'node' => { 'attribute' => [ 'value', 'value', 'etc.' ] }
-
-.. end_tag
-
-Move Nodes
------------------------------------------------------
-Nodes can be moved between environments, such as from a "dev" to a "production" environment by using the ``knife exec`` subcommand. For example:
-
-.. code-block:: bash
-
-   $ knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment("production") }'
-
-Search Environments
------------------------------------------------------
-.. tag search_environment
-
-When searching, an environment is an attribute. This allows search results to be limited to a specified environment by using Boolean operators and extra search terms. For example, to use knife to search for all of the servers running CentOS in an environment named "QA", enter the following:
-
-.. code-block:: bash
-
-   knife search node "chef_environment:QA AND platform:centos"
-
-Or, to include the same search in a recipe, use a code block similar to:
-
-.. code-block:: ruby
-
-   qa_nodes = search(:node,"chef_environment:QA")
-   qa_nodes.each do |qa_node|
-       # Do useful work specific to qa nodes only
-   end
 
 .. end_tag
