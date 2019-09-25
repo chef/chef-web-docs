@@ -11,7 +11,7 @@ An environment is a way to map an organization's real-life workflow to what can 
 
 The _default Environment
 =====================================================
-Every Chef Infra Server organization must have at least one environment. Each organization starts out with a single environment that is named ``_default``. The ``_default`` environment cannot be modified in any way. Nodes, roles, run-lists, cookbooks (and cookbook versions), and attributes specific to an organization can only be associated with a custom environment.
+Every Chef Infra Server organization must have at least one environment. Each organization starts out with a single ``_default`` environment. The ``_default`` environment cannot be modified in any way. Nodes, roles, run-lists, cookbooks (and cookbook versions), and attributes specific to an organization can only be associated with a custom environment.
 
 Environment Attributes
 =====================================================
