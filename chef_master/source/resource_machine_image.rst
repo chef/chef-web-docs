@@ -16,7 +16,7 @@ Use the **machine_image** resource to define a machine image. This image may the
 
              This functionality was available with Chef Provisioning and was packaged in the ChefDK.
 
-             Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019.  The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard organization. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
+             Chef Provisioning was officially end-of-life on August 31, 2019 and is no longer included with Chef DK. The Chef Provisioning source code and drivers have been moved into the chef-boneyard organization. If you are a current user of Chef Provisioning, please contact your Chef Customer Success Manager or Account Representative to review your options.
 
              .. end_tag
 

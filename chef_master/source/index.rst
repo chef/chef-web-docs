@@ -8,7 +8,7 @@ This is the documentation for:
 * Chef Infra Server, Chef Infra Client, ChefDK, and related tools
 * Chef Automate 1.0 (deprecated)
 
-Documentation for other Chef products: 
+Documentation for other Chef products:
 
 * `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart/>`_
 * `Chef Habitat <https://www.habitat.sh/docs/>`_
@@ -697,10 +697,6 @@ Addenda
    policy
    policyfile
    profile_store
-   provisioning
-   provisioning_aws
-   provisioning_fog
-   provisioning_vagrant
    proxies
    publish_cookbooks_multiple_servers
    push_jobs
