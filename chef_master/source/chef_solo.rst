@@ -176,8 +176,8 @@ and like the following in the Ruby DSL:
    name 'environment_name'
    description 'environment_description'
    cookbook OR cookbook_versions  'cookbook' OR 'cookbook' => 'cookbook_version'
-   default_attributes 'node' => { 'attribute' => [ 'value', 'value', 'etc.' ] }
-   override_attributes 'node' => { 'attribute' => [ 'value', 'value', 'etc.' ] }
+   default_attributes 'node' => { 'attribute' => %w(value value etc.) }
+   override_attributes 'node' => { 'attribute' => %w(value value etc.) }
 
 .. end_tag
 
