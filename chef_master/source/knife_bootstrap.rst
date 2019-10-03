@@ -8,7 +8,7 @@ knife bootstrap
 A node is any physical, virtual, or cloud device that is configured and maintained by an instance of Chef Infra Client. Bootstrapping installs Chef Infra Client on a target system so that it can run as a client and sets the node up to communicate with a Chef Infra Server. There are two ways to do this:
 
 * Run the ``knife bootstrap`` command from a workstation.
-* Perform an unattended install to bootstrap from the node itself, without requiring SSH  or WinRM connectivity
+* Perform an unattended install to bootstrap from the node itself, without requiring SSH or WinRM connectivity.
 
 .. end_tag
 
@@ -20,7 +20,7 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 **Considerations:**
 
-* The contents of the ``~/.chef/client.d`` directory on your local workstation will be copied to ``client.d`` directory on the system being bootstrapped with the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in ``config.rb`` to point to an arbitrary directory instead of ``~/.chef/client.d``, and the contents of that directory will be copied to the system being bootstrapped. All config files inside ``client.d`` directory get copied into ``/etc/chef/client.d`` on the system being bootstrapped.
+* Knife will copy the contents of the ``~/.chef/client.d`` directory on your local workstation to the ``client.d`` directory on the device being bootstrapped with the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in the ``config.rb`` file to point to an arbitrary directory instead of ``~/.chef/client.d``, and the contents of that directory will be copied to the device being bootstrapped. All config files inside the ``client.d`` directory will get copied into the ``/etc/chef/client.d`` directory on the system being bootstrapped.
 
 * SSL certificates from an on-premises Chef Infra Server can be copied to the ``/trusted_certs_dir`` directory on your local workstation automatically by running `knife ssl fetch </knife_ssl_fetch.html>`__. These certificates are used during ``knife`` operations to communicate with the Chef Infra Server.
 
@@ -48,9 +48,6 @@ Options
 
 General Connection Options
 -----------------------------------------------------
-
-``-U USERNAME``, ``--connection-user USERNAME``
-   Authenticate to the target host with this user account.
 
 ``-U USERNAME``, ``--connection-user USERNAME``
    Authenticate to the target host with this user account.
@@ -137,7 +134,7 @@ Chef Installation Options
    The URL to a custom installation script.
 
 ``-m URL``, ``--msi-url URL``
-   Location of the Chef Infra Client MSI. The default templates will prefer to download from this location. The MSI will be downloaded from Chef.io if not provided (Windows).",
+   Location of the Chef Infra Client MSI. The default templates will prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
 
 ``--sudo``
    Execute a bootstrap operation with sudo.
@@ -149,7 +146,7 @@ Chef Installation Options
    Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.
 
 ``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
-   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs Chef Infra Client using the Chef Infra installer on all supported platforms.
+   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full`` for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs Chef Infra Client using the Chef Infra installer on all supported platforms.
 
 Proxy Options
 -----------------------------------------------------
@@ -161,10 +158,10 @@ Proxy Options
    The proxy server for the node that is the target of a bootstrap operation.
 
 ``--bootstrap-proxy-pass PROXY_PASS``
-   The proxy authentication password for the node being bootstrapped
+   The proxy authentication password for the node being bootstrapped.
 
 ``--bootstrap-proxy-user PROXY_USER``
-   The proxy authentication username for the node being bootstrapped
+   The proxy authentication username for the node being bootstrapped.
 
 Node Options
 -----------------------------------------------------
@@ -279,7 +276,7 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
-.. note:: The ``--node-name`` option is required for a validatorless bootstrap
+.. note:: The ``--node-name`` option is required for a validatorless bootstrap.
 
 FIPS Mode
 -----------------------------------------------------
