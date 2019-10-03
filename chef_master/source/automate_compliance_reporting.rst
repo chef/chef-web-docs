@@ -98,7 +98,7 @@ Nodes
 ----------------------------------------------------
 This view provides more detailed insight into the compliance status of the nodes in your system. This table can be sorted by node name, platform, environment, last scan, and the number of control failures from the most recent compliance scan.
 
-* **Node:** A node is any device that is under management by Chef.
+* **Node:** A node is any device that is under management by Chef Infra.
 * **Platform:** The operating system on your node such as AIX, Amazon Linux, Apache Tomcat, AppleOSX, CentOS, Oracle Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft Windows.
 * **Environment:** You can filter compliance reports by the environments in any stage of your workflow.
 * **Last Scan:** Time in hours, days, or months since the last scan on that node.
