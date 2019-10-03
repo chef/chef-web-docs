@@ -540,10 +540,10 @@ The Chef installer puts everything into a unique directory (``/opt/chef/``) so t
 
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap installs Chef Infra Client on a target system so that it can run as a client and communicate with Chef Infra Server. There are two ways to do this:
+A node is any physical, virtual, or cloud device that is configured and maintained by an instance of Chef Infra Client. Bootstrapping installs Chef Infra Client on a target system so that it can run as a client and sets the node up to communicate with a Chef Infra Server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
-* Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
+* Run the ``knife bootstrap`` command from a workstation.
+* Perform an unattended install to bootstrap from the node itself, without requiring SSH or WinRM connectivity.
 
 .. end_tag
 
@@ -562,11 +562,10 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
    * - Stages
      - Description
    * - **$ knife bootstrap**
-     - On UNIX- and Linux-based machines: The ``knife bootstrap`` subcommand is issued from a workstation. The hostname, IP address, or FQDN of the target node is issued as part of this command. An SSH connection is established with the target node using port 22. A shell script is assembled using the chef-full.erb (the default bootstrap template), and is then executed on the target node.
+     - Enter the ``knife bootstrap`` subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife will establish an SSH or WinRM connection with the target node using port 22 and assemble a shell script using the chef-full.erb file, which is the default bootstrap template.
 
-       On Microsoft Windows machines: The ``knife bootstrap windows winrm`` subcommand is issued from a workstation. (This command is part of the `knife windows plugin </knife_windows.html>`__.) The hostname, IP address, or FQDN of the target node is issued as part of this command. A connection is established with the target node using WinRM over port 5985. (WinRM must be enabled with the corresponding firewall rules in place.)
    * - **Get the install script from Chef**
-     - On UNIX- and Linux-based machines: The shell script that is derived from the chef-full.erb bootstrap template will make a request to the Chef website to get the most recent version of a second shell script (``install.sh``).
+     - The shell script that is derived from the chef-full.erb bootstrap template will make a request to the Chef website to get the most recent version of a second shell script (``install.sh``).
 
        On Microsoft Windows machines: The batch file that is derived from the windows-chef-client-msi.erb bootstrap template will make a request to the Chef website to get the .msi installer.
    * - **Get the Chef Infra Client package from Chef**
