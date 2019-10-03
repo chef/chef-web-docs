@@ -74,8 +74,8 @@ is similar to:
 
    OpenSSL Configuration:
    * Version: OpenSSL 1.0.1j 15 Oct 2014
-   * Certificate file: `/opt/chef-workstation/embedded/ssl/cert.pem
-   * Certificate directory: `/opt/chef-workstation/embedded/ssl/certs
+   * Certificate file: /opt/chef-workstation/embedded/ssl/cert.pem
+   * Certificate directory: /opt/chef-workstation/embedded/ssl/certs
    Chef SSL Configuration:
    * ssl_ca_path: nil
    * ssl_ca_file: nil
