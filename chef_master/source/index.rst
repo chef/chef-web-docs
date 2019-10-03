@@ -99,8 +99,7 @@ Guides
 Setup
 -----------------------------------------------------
 `Proxies </proxies.html>`__ |
-`Installing Chef on Windows </workstation_windows.html>`__ |
-`Chef Workstation </install_workstation.html>`__
+`Install Chef Workstation </install_workstation.html>`__
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via Script </install_omnibus.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
@@ -550,7 +549,6 @@ Addenda
    deprecations_supports_property
    deprecations_verify_file
    depreciations_ohai_system_profile
-   workstation_windows
    dsl_custom_resource
    dsl_delivery
    dsl_handler
