@@ -14,8 +14,8 @@ The Chef Workstation package is produced by the `Chef Omnibus <https://github.co
 * Cookstyle
 * ChefSpec
 
-Chef Workstation Supported Platforms
------------------------------------------------------
+Supported Platforms
+====================================================
 
 Supported Host Operating Systems:
 
