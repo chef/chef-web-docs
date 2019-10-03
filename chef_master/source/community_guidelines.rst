@@ -145,7 +145,7 @@ person(s) assigned to each role:
    * - Decider
      - Jenny Armstrong-Owen
      - jowen@chef.io
-   * - Community Advocate 
+   * - Community Advocate
      - Mandi Walls
      - mandi@chef.io
    * - Community Advocate
@@ -274,9 +274,9 @@ Attribution
 
 This Code of Conduct is adapted from the following:
 
-* `Contributor Covenant <http://contributor-covenant.org>`_, version 1.4, 
-  available `here <http://contributor-covenant.org/version/1/4/>`_
-* `Rust Code of Conduct <https://www.rust-lang.org/en-US/conduct.html>`_
+* `Contributor Covenant <https://www.contributor-covenant.org/>`_, version 1.4,
+  available `here <https://www.contributor-covenant.org/version/1/4/code-of-conduct.html>`_
+* `Rust Code of Conduct <https://www.rust-lang.org/policies/code-of-conduct>`_
 * `Citizen Code of Conduct <http://citizencodeofconduct.org/>`_
 
 Community Members in Crisis
