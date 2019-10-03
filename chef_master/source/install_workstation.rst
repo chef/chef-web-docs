@@ -15,7 +15,7 @@ The Chef Workstation package is produced by the `Chef Omnibus <https://github.co
 * ChefSpec
 
 
-Chef Workstation installs to ```/opt/chef-workstation/`` on macOS / Linux and ``C:\opscode\Chef Workstation\`` on Windows. These file locations should help avoid interference between these components and other applications that may be running on the target machine.
+Chef Workstation installs to ```/opt/chef-workstation/`` on macOS / Linux and ``C:\opscode\chef-workstation\`` on Windows. These file locations should help avoid interference between these components and other applications that may be running on the target machine.
 
 Install
 =====================================================
@@ -31,7 +31,7 @@ macOS
 Windows
 -----------------------------------------------------
 #. Visit the `Chef Workstation downloads page <https://downloads.chef.io/chef-workstation#windows>`__ and select the appropriate package for your Windows version. Click on the **Download** button.
-#. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the ``C:\opscode\Chef Workstation\`` directory.
+#. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the ``C:\opscode\chef-workstation\`` directory.
 #. **Optional:** Set the default shell. On Microsoft Windows it is strongly recommended to use Windows PowerShell and ``cmd.exe``.
 
 See the `Chef Workstation on Windows </dk_windows.html>`__ guide for additional caveats and configuration options specific to Windows.

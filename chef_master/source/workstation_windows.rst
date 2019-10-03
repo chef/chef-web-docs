@@ -82,7 +82,7 @@ Installing Chef Workstation
 In some cases, such as if you're working with older or unsupported systems, you may need to use Chef Workstation instead of Chef Workstation. Download Chef Workstation by following the installation instructions on `Installing Chef Workstation </install_workstation.html>`_.
 
 #. Visit the `Chef Workstation downloads page <https://downloads.chef.io/chef-workstation>`_ and select the appropriate package for your Windows version. Select the **Download** button.
-#. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the ``C:\opscode\Chef Workstation\`` directory.
+#. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the ``C:\opscode\chef-workstation\`` directory.
 
 Verify the Chef Workstation or Chef Workstation Installation
 ------------------------------------------------------------

@@ -12,7 +12,6 @@ Documentation for other Chef products:
 * `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart/>`_
 * `Chef Habitat <https://www.habitat.sh/docs/>`_
 * `Chef InSpec <https://www.inspec.io/docs/>`_
-* `Chef Workstation <https://www.chef.sh/docs/chef-workstation/getting-started/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.

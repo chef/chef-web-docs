@@ -100,8 +100,6 @@ The workstation is where users do most of their work, including:
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
 
-`Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
-
 Chef Workstation Components and Tools
 -----------------------------------------------------
 Some important tools and components of Chef Workstation include:
