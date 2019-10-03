@@ -67,7 +67,7 @@ In addition to the default install behavior, the Chef install script supports th
    The product name to install. A list of valid product names can be found at https://omnitruck.chef.io/products. Default value: ``chef``.
 
 ``-s`` (``-install_strategy`` on Microsoft Windows)
-   The method of package installations. default strategy is to always install upon exec. Set to "once" to skip if project is installed.
+   The method of package installations. The default strategy is to always install when the install.sh script runs. Set to "once" to skip installation if the product is already installed on the node.
 
 ``-l`` (``-download_url_override`` on Microsoft Windows)
    Install package downloaded from a direct URL.
