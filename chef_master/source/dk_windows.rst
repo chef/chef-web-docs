@@ -138,7 +138,7 @@ Chef support in editors:
 
 Install and Optimize Git for Chef Development
 -------------------------------------------------------
-To install Git on Windows, navigate to the `Github Downloads <https://git-scm.com/downloads>`__ site and download the Windows installer.
+To install Git on Windows, navigate to the `Git Downloads <https://git-scm.com/downloads>`__ site and download the Windows installer.
 
 Download the installer and launch the Git Setup Wizard. Follow the on-screen instructions. We recommend adjusting the following settings to get the optimal set up for Chef development.
 
