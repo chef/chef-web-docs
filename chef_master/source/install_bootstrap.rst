@@ -397,7 +397,7 @@ Use the ``sea:power`` re-creation step above first, to follow the difference in 
 
 Unattended Installs
 =====================================================
-Chef Infra Client can be installed using an unattended bootstrap. This allows Chef Infra Client to be installed from itself, without requiring SSH . For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like ``knife bootstrap`` or ``knife CLOUD_PLUGIN create`` is not practical because the machines are created automatically and someone cannot always be on-hand to initiate the bootstrap process.
+Chef Infra Client can be installed using an unattended bootstrap. This allows Chef Infra Client to be installed from itself, without requiring SSH. For example, machines are often created using environments like AWS Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this scenario, using tooling for attended, single-machine installs like ``knife bootstrap`` or ``knife CLOUD_PLUGIN create`` is not practical because the machines are created automatically and someone cannot always be on-hand to initiate the bootstrap process.
 
 When Chef Infra Client is installed using an unattended bootstrap, remember that Chef Infra Client:
 
