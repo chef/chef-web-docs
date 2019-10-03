@@ -27,7 +27,7 @@ During a ``knife bootstrap`` bootstrap operation, the following happens:
    * - Stages
      - Description
    * - **$ knife bootstrap**
-     - Enter the ``knife bootstrap`` subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife will establish an SSH connection with the target node using port 22 and assemble a shell script using the chef-full.erb file, which is the default bootstrap template.
+     - Enter the ``knife bootstrap`` subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife will establish an SSH or WinRM connection with the target node using port 22 and assemble a shell script using the chef-full.erb file, which is the default bootstrap template.
 
    * - **Get the install script from Chef**
      - The shell script that is derived from the chef-full.erb bootstrap template will make a request to the Chef website to get the most recent version of a second shell script (``install.sh``).
