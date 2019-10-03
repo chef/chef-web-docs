@@ -3,8 +3,8 @@ Manage Environments
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_environments.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. note:: This topic is about using the Chef management console to manage environments.
 
@@ -24,7 +24,7 @@ Manage Environments
 
 .. tag environment
 
-An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments.
+An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra. This mapping is accomplished by setting attributes and pinning cookbooks at the environment level. With environments, cookbook configurations can be changed depending on the system's designation. For example you may want to change the URL to a database server depending on if a system is in a staging or a production environment. Environments also allow organizations to move new cookbook releases from staging to production with confidence by stepping releases through testing environments before entering production.
 
 .. end_tag
 
