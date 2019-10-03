@@ -21,8 +21,8 @@ Glossary
 **Chef Infra Client**
    A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
 
-**ChefDK**
-   A collection of tools to aide in development of Chef cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at `ChefDK <https://downloads.chef.io/chefdk/>`__.
+**Chef Workstation**
+   A collection of tools to aide in development of Chef cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__.
 
 **chef-repo**
    The repository structure in which cookbooks are authored, tested, and maintained. View `an example of the <https://github.com/chef/chef-repo>`__ chef-repo.
@@ -57,8 +57,8 @@ Glossary
 **Foodcritic**
    A linting tool for doing static code analysis on cookbooks.
 
-**kitchen**
-   Kitchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Kitchen is packaged in ChefDK.
+**Test Kitchen**
+   Test itchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Test Kitchen is packaged in Chef Workstation.
 
 **knife**
    A command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef Infra Server, and more.

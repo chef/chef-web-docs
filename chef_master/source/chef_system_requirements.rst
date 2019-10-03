@@ -102,3 +102,4 @@ Chef Workstation
 * 64-bit architecture
 * 4 GB of RAM or more
 * 2 GB of free disk space
+

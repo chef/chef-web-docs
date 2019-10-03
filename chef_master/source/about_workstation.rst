@@ -1,18 +1,16 @@
 =====================================================
-About ChefDK
+About Chef Workstation
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/about_chefdk.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/about_chef_workstation.rst>`__
 
-.. note:: `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef Infra — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
+.. tag chef_workstation
 
-.. tag chef_dk
-
-ChefDK, short for Chef Development Kit, is a package that contains everything that is needed to start using Chef:
+Chef Workstation contains everything that is needed to start using Chef Infra and Chef InSpec:
 
 * Chef Infra Client
+* Chef InSpec
 * chef and knife command line tools
 * Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
-* Chef InSpec
 * Everything else needed to author cookbooks and upload them to the Chef Infra Server
 
 .. end_tag
@@ -21,15 +19,13 @@ Getting Started
 =====================================================
 .. This page is used as the short overview on the index page at docs.chef.io
 
-Chef Infra is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) ChefDK installations, a single server, and every node that will be configured and maintained by Chef Infra Client. Cookbooks (and recipes) are used to tell Chef Infra Client how each node in your organization should be configured. Chef Infra Client---which is installed on every node---does the actual configuration.
-
-
+Chef Infra is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) Chef Workstation installations, a single server, and every node that will be configured and maintained by Chef Infra Client. Cookbooks (and recipes) are used to tell Chef Infra Client how each node in your organization should be configured. Chef Infra Client---which is installed on every node---does the actual configuration.
 
 * `An Overview of Chef </chef_overview.html>`_
-* `Install ChefDK </install_dk.html>`_
+* `Install Chef Workstation </install_workstation.html>`_
 * `Ruby Guide </ruby.html>`_
 
-.. note:: See this `blog post by Irving Popovetsky about running ChefDK on Windows. <https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/>`__
+.. note:: See this `blog post by Irving Popovetsky about running Chef Workstation on Windows. <https://www.chef.io/blog/2014/11/04/the-Chef Workstation-on-windows-survival-guide/>`__
 
 Cookbook Development Workflow
 -----------------------------------------------------
@@ -45,9 +41,9 @@ Chef Infra defines a common workflow for cookbook development:
 
 Tools
 =====================================================
-ChefDK installs a collection of tools and libraries into a single directory structure, which makes it easier to manage any dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
+Chef Workstation installs a collection of tools and libraries into a single directory structure, which makes it easier to manage any dependencies these tools may have on each other and the dependencies that Chef has on Ruby.
 
-The most important tools included in ChefDK are:
+The most important tools included in Chef Workstation are:
 
 .. list-table::
    :widths: 60 420
@@ -82,7 +78,7 @@ The most important tools included in ChefDK are:
 
 Community Tools
 -----------------------------------------------------
-The following tools have been developed by members of the Chef community. These tools are considered to be a useful part of the Chef workflow and have been packaged as part of ChefDK. (They are all available independently of ChefDK, as well.) The use of these tools as part of your workflow is recommended, but at the same time is completely optional. Use them in the way that makes sense for your organization:
+The following tools have been developed by members of the Chef community. These tools are considered to be a useful part of the Chef workflow and have been packaged as part of Chef Workstation. (They are all available independently of Chef Workstation, as well.) The use of these tools as part of your workflow is recommended, but at the same time is completely optional. Use them in the way that makes sense for your organization:
 
 `Berkshelf </berkshelf.html>`_ |
 `Chef Vault </chef_vault.html>`_ |

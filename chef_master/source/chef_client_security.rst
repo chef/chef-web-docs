@@ -97,6 +97,7 @@ A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locatio
 
 * Chef Infra Client: ``/opt/chef/embedded/ssl/certs/cacert.pem``
 * ChefDK: ``/opt/chefdk/embedded/ssl/certs/cacert.pem``
+* Chef Workstation: ```/opt/chef-workstation/embedded/ssl/certs/cacert.pem``
 
 Keeping the default behavior is recommended. To use a custom CA bundle, update the environment variable to specify the path to the custom CA bundle. If (for some reason) SSL certificate verification stops working, ensure the correct value is specified for ``SSL_CERT_FILE``.
 
@@ -189,8 +190,8 @@ is similar to:
 
    OpenSSL Configuration:
    * Version: OpenSSL 1.0.1j 15 Oct 2014
-   * Certificate file: /opt/chefdk/embedded/ssl/cert.pem
-   * Certificate directory: /opt/chefdk/embedded/ssl/certs
+   * Certificate file: `/opt/chef-workstation/embedded/ssl/cert.pem
+   * Certificate directory: `/opt/chef-workstation/embedded/ssl/certs
    Chef SSL Configuration:
    * ssl_ca_path: nil
    * ssl_ca_file: nil

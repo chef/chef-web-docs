@@ -16,7 +16,7 @@ ChefSpec is a framework that tests resources and recipes as part of a simulated 
 
 Run ChefSpec
 =====================================================
-ChefSpec is packaged as part of ChefDK. To run ChefSpec:
+ChefSpec is packaged as part of Chef Workstation. To run ChefSpec:
 
 .. code-block:: bash
 

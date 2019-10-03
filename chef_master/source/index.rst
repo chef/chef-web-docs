@@ -5,7 +5,7 @@ Site Map
 
 This is the documentation for:
 
-* Chef Infra Server, Chef Infra Client, ChefDK, and related tools
+* Chef Infra Server, Chef Infra Client, Chef Workstation, and related tools
 
 Documentation for other Chef products:
 
@@ -100,8 +100,8 @@ Guides
 Setup
 -----------------------------------------------------
 `Proxies </proxies.html>`__ |
-`Installing Chef on Windows </dk_windows.html>`__ |
-`Chef Workstation </install_dk.html>`__
+`Installing Chef on Windows </workstation_windows.html>`__ |
+`Chef Workstation </install_workstation.html>`__
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via Script </install_omnibus.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
@@ -288,10 +288,10 @@ Cookbook Reference
 
 **Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__
 
-ChefDK
+Chef Workstation
 -----------------------------------------------------
 
-`About ChefDK </about_chefdk.html>`__ |
+`About Chef Workstation </about_workstation.html>`__ |
 `Berkshelf </berkshelf.html>`__ |
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__
@@ -425,7 +425,7 @@ Addenda
 .. toctree::
    :hidden:
 
-   about_chefdk
+   about_workstation
    api_chef_server
    api_omnitruck
    api_push_jobs
@@ -454,7 +454,7 @@ Addenda
    chef_solo
    chef_system_requirements
    chef_vault
-   chefdk_setup
+   workstation_setup
    chefspec
    community
    community_contributions
@@ -551,7 +551,7 @@ Addenda
    deprecations_supports_property
    deprecations_verify_file
    depreciations_ohai_system_profile
-   dk_windows
+   workstation_windows
    dsl_custom_resource
    dsl_delivery
    dsl_handler
@@ -569,7 +569,7 @@ Addenda
    handlers
    install_bootstrap
    install_chef_air_gap
-   install_dk
+   install_workstation
    install_omnibus
    install_push_jobs
    install_server

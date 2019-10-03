@@ -1,15 +1,15 @@
 =====================================================
-Configuring ChefDK
+Configuring Chef Workstation
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chefdk_setup.rst>`__
 
-This guide contains common configuration options used when setting up a new ChefDK installation. If you do not have ChefDK installed, see its  `installation guide </install_dk.html>`__ before proceeding further.
+This guide contains common configuration options used when setting up a new Chef Workstation installation. If you do not have Chef Workstation installed, see its  `installation guide </install_workstation.html>`__ before proceeding further.
 
 Configure Ruby Environment
 =====================================================
-For many users of Chef, the version of Ruby that is included in ChefDK should be configured as the default version of Ruby.
+For many users of Chef, the version of Ruby that is included in Chef Workstation should be configured as the default version of Ruby.
 
-.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby environment on Windows, see `ChefDK on Windows </dk_windows.html#configure-environment>`__.
+.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby environment on Windows, see `Chef Workstation on Windows </dk_windows.html#configure-environment>`__.
 
 #. Open a command window and enter the following:
 
@@ -18,7 +18,7 @@ For many users of Chef, the version of Ruby that is included in ChefDK should be
       $ which ruby
 
    which will return something like ``/usr/bin/ruby``.
-#. To use ChefDK version of Ruby as the default Ruby, edit the ``$PATH`` and ``GEM`` environment variables to include paths to ChefDK. For example, on a machine that runs Bash, run:
+#. To use Chef Workstation version of Ruby as the default Ruby, edit the ``$PATH`` and ``GEM`` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
 
    .. code-block:: bash
 
@@ -32,26 +32,26 @@ For many users of Chef, the version of Ruby that is included in ChefDK should be
 
     echo 'eval "$(chef shell-init zsh)"' >> ~/.zshrc
 
-#. Run ``which ruby`` again. It should return ``/opt/chefdk/embedded/bin/ruby``.
+#. Run ``which ruby`` again. It should return ```/opt/chef-workstation/embedded/bin/ruby``.
 
-.. note:: Using ChefDK-provided Ruby as your system Ruby is optional. For many users, Ruby is primarily used for authoring Chef cookbooks and recipes. If that's true for you, then using the ChefDK-provided Ruby is recommended.
+.. note:: Using Chef Workstation-provided Ruby as your system Ruby is optional. For many users, Ruby is primarily used for authoring Chef cookbooks and recipes. If that's true for you, then using the Chef Workstation-provided Ruby is recommended.
 
 
 Add Ruby to $PATH
 =====================================================
-Chef Infra Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running ChefDK. In a command window, type the following:
+Chef Infra Client includes a stable version of Ruby as part of its installer. The path to this version of Ruby must be added to the ``$PATH`` environment variable and saved in the configuration file for the command shell (Bash, csh, and so on) that is used on the machine running Chef Workstation. In a command window, type the following:
 
 .. code-block:: bash
 
-   echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
+   echo 'export PATH="`/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.configuration_file && source ~/.configuration_file
 
 where ``configuration_file`` is the name of the configuration file for the specific command shell. For example, if Bash were the command shell and the configuration file were named ``bash_profile``, the command would look something like the following:
 
 .. code-block:: bash
 
-   echo 'export PATH="/opt/chefdk/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
+   echo 'export PATH="`/opt/chef-workstation/embedded/bin:$PATH"' >> ~/.bash_profile && source ~/.bash_profile
 
-.. warning:: On Microsoft Windows, ``C:/opscode/chefdk/bin`` must be before ``C:/opscode/chefdk/embedded/bin`` in the ``PATH``.
+.. warning:: On Microsoft Windows, ``C:/opscode/Chef Workstation/bin`` must be before ``C:/opscode/Chef Workstation/embedded/bin`` in the ``PATH``.
 
 Create the Chef repository
 =====================================================
@@ -71,7 +71,7 @@ The ``.chef`` directory is used to store three files:
 * ``ORGANIZATION-validator.pem``
 * ``USER.pem``
 
-Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for ChefDK to be able to connect to a Chef Infra Server.
+Where ``ORGANIZATION`` and ``USER`` represent strings that are unique to each organization. These files must be present in the ``.chef`` directory in order for Chef Workstation to be able to connect to a Chef Infra Server.
 
 To create the ``.chef`` directory:
 
@@ -104,7 +104,7 @@ To create the ``.chef`` directory:
 
 Starter Kit
 -----------------------------------------------------
-If you have access to Chef Infra Server through Automate or Chef Manage, you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your ChefDK machine.
+If you have access to Chef Infra Server through Automate or Chef Manage, you can download the starter kit. The starter kit will create the necessary configuration files: the ``.chef`` directory, ``config.rb``, ``ORGANIZATION-validator.pem``, and ``USER.pem``. Simply download the starter kit and then move it to the desired location on your Chef Workstation machine.
 
 Configure the Chef Repository
 =====================================================
@@ -116,7 +116,7 @@ Use the following steps to manually set up the chef-repo and to use the Chef man
 Get Config Files
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-For a ChefDK installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server), log on and download the following files:
+For a Chef Workstation installation that will interact with the Chef Infra Server (including the hosted Chef Infra Server), log on and download the following files:
 
 * ``config.rb``. This configuration file can be downloaded from the **Organizations** page.
 * ``ORGANIZATION-validator.pem``. This private key can be downloaded from the **Organizations** page.
@@ -239,9 +239,9 @@ Navigate to the ``~/chef-repo/.chef`` directory and create the ``config.rb`` usi
 
 At a minimum, you must update the following settings with the appropriate values:
 
-* ``client_key`` should point to the location of the Chef Infra Server user's ``.pem`` file on your ChefDK machine.
+* ``client_key`` should point to the location of the Chef Infra Server user's ``.pem`` file on your Chef Workstation machine.
 * ``validation_client_name`` should be updated with the name of the desired organization that was created on the Chef Infra Server.
-* ``validation_key`` should point to the location of your organization's ``.pem`` file on your ChefDK machine.
+* ``validation_key`` should point to the location of your organization's ``.pem`` file on your Chef Workstation machine.
 * ``chef_server_url`` must be updated with the domain or IP address used to access the Chef Infra Server.
 
 See the `knife config.rb documentation </config_rb.html>`__ for more details.
@@ -260,9 +260,9 @@ See `SSL Certificates </chef_client_security.html#ssl-certificates>`__ for more 
 
 Verify Install
 =====================================================
-The ChefDK is installed correctly when it is able to use ``knife`` to communicate with the Chef Infra Server.
+The Chef Workstation is installed correctly when it is able to use ``knife`` to communicate with the Chef Infra Server.
 
-To verify that ChefDK can connect to the Chef Infra Server:
+To verify that Chef Workstation can connect to the Chef Infra Server:
 
 #. In a command window, navigate to the Chef repository:
 
@@ -276,7 +276,7 @@ To verify that ChefDK can connect to the Chef Infra Server:
 
       knife client list
 
-   to return a list of clients (registered nodes and ChefDK installations) that have access to the Chef Infra Server. For example:
+   to return a list of clients (registered nodes and Chef Workstation installations) that have access to the Chef Infra Server. For example:
 
    .. code-block:: bash
 

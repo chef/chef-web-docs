@@ -88,7 +88,7 @@ To configure config.rb for the private Chef Supermarket, do the following:
 
 Create a Cookbook
 -----------------------------------------------------
-The following examples show how to create a simple cookbook by using the chef command that is built into ChefDK.
+The following examples show how to create a simple cookbook by using the chef command that is built into Chef Workstation.
 
 **Generate a chef-repo**
 

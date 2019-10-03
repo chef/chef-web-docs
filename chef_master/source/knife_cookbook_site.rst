@@ -19,7 +19,7 @@ Use the ``knife cookbook site`` subcommand to interact with cookbooks that are a
 
 .. warning:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-             Please consider managing community cookbooks using the version of Berkshelf that ships with ChefDK. For more information about ChefDK, see `About ChefDK </about_chefdk.html>`__.
+             Please consider managing community cookbooks using the version of Berkshelf that ships with Chef Workstation. For more information about Chef Workstation, see `About Chef Workstation </about_chefdk.html>`__.
 
              .. end_tag
 

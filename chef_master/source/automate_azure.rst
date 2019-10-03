@@ -26,7 +26,7 @@ Chef provides a fully functional Chef Automate server that can be launched from 
 
    .. note:: Remember the DNS label of the Chef Automate VM. It will be required to access the Chef Automate UI and Chef Infra Server.
 
-#. While the Chef Automate VM is being provisioned, download and install `ChefDK </install_dk.html>`__.  ChefDK is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Cookstyle, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef Infra Server from the command line.
+#. While the Chef Automate VM is being provisioned, download and install `Chef Workstation </install_workstation.html>`__.  Chef Workstation is a collection of tools ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault, Cookstyle, and more--- and libraries that are all packaged together to get your started with the Chef Automate workflow. You'll need this to interact with Chef Automate and Chef Infra Server from the command line.
 
 #. After the VM has been provisioned and the Resource Manager has completed (usually 10 to 13 minutes), finish configuring Chef Automate and Chef Infra Server. Access the initial configuration page by loading the ``/biscotti/setup`` route. Build the URL by prepending ``https://`` and appending ``/biscotti/setup`` to the DNS label that you chose when the VM was launched. For example, ``https://<dns_label>.<location>.cloudapp.azure.com/biscotti/setup`` or ``https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup``.
 

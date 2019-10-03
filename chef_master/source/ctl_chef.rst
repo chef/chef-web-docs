@@ -10,7 +10,7 @@ The chef executable is a command-line tool that does the following:
 
 chef env
 =====================================================
-Use the ``chef env`` subcommand to configure the environment for ChefDK.
+Use the ``chef env`` subcommand to configure the environment for Chef Workstation.
 
 Syntax
 -----------------------------------------------------
@@ -30,7 +30,7 @@ None.
 
 chef exec
 =====================================================
-Use the ``chef exec`` subcommand to run arbitrary shell commands with the ``PATH`` environment variable and the ``GEM_HOME`` and ``GEM_PATH`` Ruby environment variables pointed at ChefDK.
+Use the ``chef exec`` subcommand to run arbitrary shell commands with the ``PATH`` environment variable and the ``GEM_HOME`` and ``GEM_PATH`` Ruby environment variables pointed at Chef Workstation.
 
 Syntax
 -----------------------------------------------------
@@ -56,7 +56,7 @@ None.
 
 chef gem
 =====================================================
-The ``chef gem`` subcommand is a wrapper around the ``gem`` command in RubyGems and is used by Chef to install RubyGems into ChefDK development environment. All knife plugins, drivers for Kitchen, and other Ruby applications that are not packaged within ChefDK will be installed to the ``.chefdk`` path in the home directory: ``~/.chefdk/gem/ruby/ver.si.on/bin`` (where ``ver.si.on`` is the version of Ruby that is packaged within ChefDK).
+The ``chef gem`` subcommand is a wrapper around the ``gem`` command in RubyGems and is used by Chef to install RubyGems into Chef Workstation development environment. All knife plugins, drivers for Kitchen, and other Ruby applications that are not packaged within Chef Workstation will be installed to the ``.Chef Workstation`` path in the home directory: ``~/.Chef Workstation/gem/ruby/ver.si.on/bin`` (where ``ver.si.on`` is the version of Ruby that is packaged within Chef Workstation).
 
 Syntax
 -----------------------------------------------------
@@ -160,7 +160,7 @@ to return something similar to:
 
 **Uninstall a gem**
 
-To uninstall a gem from ChefDK environment:
+To uninstall a gem from Chef Workstation environment:
 
 .. code-block:: bash
 
@@ -206,7 +206,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of Chef Workstation.
 
 ``-h``, ``--help``
    Show help for the command.
@@ -260,7 +260,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of Chef Workstation.
 
 ``-b``, ``--berks``
    Create a Berksfile in the cookbook. Default value: enabled. This is disabled if the ``--policy`` option is given.
@@ -350,7 +350,7 @@ and which creates a directory structure similar to::
 
 **Create a cookbook using a custom skeleton cookbook**
 
-If a custom skeleton cookbook is located on a macOS desktop (and in this example, the ``chef_generator`` cookbook is simply a copy of the same cookbook that ships in ChefDK), the following command will use the skeleton cookbook at the custom location to generate a cookbook into the repository from which the ``chef`` command is run:
+If a custom skeleton cookbook is located on a macOS desktop (and in this example, the ``chef_generator`` cookbook is simply a copy of the same cookbook that ships in Chef Workstation), the following command will use the skeleton cookbook at the custom location to generate a cookbook into the repository from which the ``chef`` command is run:
 
 .. code-block:: bash
 
@@ -405,7 +405,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of Chef Workstation.
 
 ``-C COPYRIGHT``, ``--copyright COPYRIGHT``
    Specify the copyright holder for copyright notices in generated files. Default value: ``The Authors``
@@ -446,7 +446,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of Chef Workstation.
 
 ``-h``, ``--help``
    Show help for the command.
@@ -484,7 +484,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of Chef Workstation.
 
 ``-h``, ``--help``
    Show help for the command.
@@ -513,7 +513,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of Chef Workstation.
 
 ``-h``, ``--help``
    Show help for the command.
@@ -589,7 +589,7 @@ Options
 This subcommand has the following options:
 
 ``-g GENERATOR_COOKBOOK_PATH``, ``--generator-cookbook GENERATOR_COOKBOOK_PATH``
-   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of ChefDK.
+   The path at which a cookbook named ``code_generator`` is located. This cookbook is used by the ``chef generate`` subcommands to generate cookbooks, cookbook files, templates, attribute files, and so on. Default value: ``lib/chef-dk/skeletons``, under which is the default ``code_generator`` cookbook that is included as part of Chef Workstation.
 
 ``-h``, ``--help``
    Show help for the command.
@@ -606,7 +606,7 @@ None.
 
 chef shell-init
 =====================================================
-Use the ``chef shell-init`` subcommand to set the Ruby included in ChefDK as the system Ruby. ChefDK is designed to allow the isolation of applications used by ChefDK from other Ruby development tools that may be present on the workstation. This supports Bash, fish, Windows PowerShell (posh), and zsh.
+Use the ``chef shell-init`` subcommand to set the Ruby included in Chef Workstation as the system Ruby. Chef Workstation is designed to allow the isolation of applications used by Chef Workstation from other Ruby development tools that may be present on the workstation. This supports Bash, fish, Windows PowerShell (posh), and zsh.
 
 bash zsh fish PowerShell (posh)
 
@@ -1150,7 +1150,7 @@ Policyfile.lock.json
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag policyfile_lock_json
 
-When the ``chef install`` command is run, ChefDK caches any necessary cookbooks and emits a ``Policyfile.lock.json`` file that describes:
+When the ``chef install`` command is run, Chef Workstation caches any necessary cookbooks and emits a ``Policyfile.lock.json`` file that describes:
 
 * The versions of cookbooks in use
 * A Hash of cookbook content

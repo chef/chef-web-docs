@@ -76,16 +76,16 @@ Chef Workstation App
    - You must have a graphical window manager running
    - Additional libraries may be required. See `Running the Chef Workstation App <https://chef-workstation-app.html>`_ for more details.
 
-Installing ChefDK
+Installing Chef Workstation
 ==================================================
 
-In some cases, such as if you're working with older or unsupported systems, you may need to use ChefDK instead of Chef Workstation. Download ChefDK by following the installation instructions on `Installing ChefDK </install_dk.html>`_.
+In some cases, such as if you're working with older or unsupported systems, you may need to use Chef Workstation instead of Chef Workstation. Download Chef Workstation by following the installation instructions on `Installing Chef Workstation </install_workstation.html>`_.
 
-#. Visit the `ChefDK downloads page <https://downloads.chef.io/chefdk>`_ and select the appropriate package for your Windows version. Select the **Download** button.
-#. Follow the steps to accept the license and install ChefDK. You will have the option to change your install location; by default the installer uses the ``C:\opscode\chefdk\`` directory.
+#. Visit the `Chef Workstation downloads page <https://downloads.chef.io/chef-workstation>`_ and select the appropriate package for your Windows version. Select the **Download** button.
+#. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the ``C:\opscode\Chef Workstation\`` directory.
 
-Verify the Chef Workstation or ChefDK Installation
------------------------------------------------------
+Verify the Chef Workstation or Chef Workstation Installation
+------------------------------------------------------------
 
 To verify the installation, run:
 
@@ -116,7 +116,7 @@ Top-level Directory Names
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_top_level_directory_names
 
-Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install ChefDK on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.
+Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install Chef Workstation on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.
 
 .. end_tag
 

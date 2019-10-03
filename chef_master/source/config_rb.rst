@@ -173,7 +173,6 @@ This configuration file has the following settings:
       versioned_cookbooks true
 
 ``config_log_level``
-   New in ChefDK 1.2.
    Sets the default value of ``log_level`` in the client.rb file of the node being bootstrapped. Possible values are ``:debug``, ``:info``, ``:warn``, ``:error`` and ``:fatal``. For example:
 
    .. code-block:: ruby
@@ -181,7 +180,6 @@ This configuration file has the following settings:
       config_log_level :debug
 
 ``config_log_location``
-   New in ChefDK 1.2.
    Sets the default value of ``log_location`` in the client.rb file of the node being bootstrapped. Possible values are ``/path/to/log_location``, ``STDOUT``, ``STDERR``, ``:win_evt`` and ``:syslog``. For example:
 
    .. code-block:: ruby

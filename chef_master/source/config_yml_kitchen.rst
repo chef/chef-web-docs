@@ -18,7 +18,7 @@ Use a kitchen.yml file to define what is required to run Test Kitchen, including
 
 .. end_tag
 
-.. note:: This topic details functionality that is packaged with ChefDK. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
+.. note:: This topic details functionality that is packaged with Chef Workstation. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
 
 Syntax
 ==========================================================================
@@ -133,7 +133,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``chef_metadata_url``
      - **This will be deprecated in a future version.**
    * - ``chef_omnibus_install_options``
-     - Use to specify the package to be installed. Possible values: ``-P chef`` (for Chef Infra Client) and ``-P chefdk`` (for the Chef Infra Client that is packaged as part of ChefDK). Use ``-n`` to specify the nightly build. For example: ``-P chefdk`` or ``-n -P chefdk``. **This will be deprecated in a future version.** See the ``product_name``, ``product_version``, and ``channel`` settings instead.
+     - Use to specify the package to be installed. Possible values: ``-P chef`` (for Chef Infra Client) and ``-P chef-workstation`` (for the Chef Infra Client that is packaged as part of Chef Workstation). Use ``-n`` to specify the nightly build. For example: ``-P chef-workstation`` or ``-n -P chef-workstation``. **This will be deprecated in a future version.** See the ``product_name``, ``product_version``, and ``channel`` settings instead.
 
    * - ``chef_omnibus_root``
      - Default value: ``/etc/opt`` for UNIX and Linux, ``$env:systemdrive\\opscode\\chef`` on Microsoft Windows.
@@ -188,7 +188,7 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``nodes_path``
      - The relative path to the directory in which node data is located. This data must be defined as JSON.
    * - ``require_chef_omnibus``
-     - Use to install the latest version of Chef Infra Client on a node. Set to ``true`` to install the latest version, ``false`` to not install Chef Infra Client (assumes the box already has it installed), or a version specifier like ``12.19.36`` to install a particular version, or simply ``12`` to install the latest 12.x package. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of Chef Infra Client. Default value: ``true``. **This will be deprecated in a future version.**  See the ``product_version`` and ``install_strategy`` settings.
+     - Use to install the latest version of Chef Infra Client on a node. Set to ``true`` to install the latest version, ``false`` to not install Chef Infra Client (assumes the box already has it installed), or a version specifier like ``15.3.12`` to install a particular version, or simply ``15`` to install the latest 15.x package. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of Chef Infra Client. Default value: ``true``. **This will be deprecated in a future version.**  See the ``product_version`` and ``install_strategy`` settings.
    * - ``roles_path``
      - The relative path to the directory in which role data is located. This data must be defined as JSON.
    * - ``root_path``
@@ -220,7 +220,7 @@ New Provisioner Settings
     - Default
     - Replaces
   * - ``product_name``
-    - ``chef`` or ``chefdk``. This setting must be specified in order to use the new settings. Using this setting overrides Test Kitchen's default behavior based on the ``require_chef_omnibus`` setting.
+    - ``chef`` or ``chef-workstation``. This setting must be specified in order to use the new settings. Using this setting overrides Test Kitchen's default behavior based on the ``require_chef_omnibus`` setting.
     -
     - ``chef_omnibus_install_options``
   * - ``product_version``
@@ -545,28 +545,28 @@ Examples
 ==========================================================================
 The following examples show actual kitchen.yml files used in Chef-maintained cookbooks.
 
-Chef, ChefDK
+Chef, Chef Workstation
 --------------------------------------------------------------------------
-The following example shows the provisioner settings needed to install ChefDK, and then use the version of Chef that is embedded in ChefDK to converge the node.
+The following example shows the provisioner settings needed to install Chef Workstation, and then use the version of Chef that is embedded in Chef Workstation to converge the node.
 
-To install the latest version of ChefDK:
-
-.. code-block:: yaml
-
-   provisioner:
-     ...
-     chef_omnibus_install_options: -P chefdk
-     chef_omnibus_root: /opt/chefdk
-
-and to install a specific version of ChefDK:
+To install the latest version of Chef Workstation:
 
 .. code-block:: yaml
 
    provisioner:
      ...
-     chef_omnibus_install_options: -P chefdk
-     chef_omnibus_root: /opt/chefdk
-     require_chef_omnibus: 3.2.0
+     chef_omnibus_install_options: -P chef-workstation
+     chef_omnibus_root: /opt/chef-workstation
+
+and to install a specific version of Chef Workstation:
+
+.. code-block:: yaml
+
+   provisioner:
+     ...
+     chef_omnibus_install_options: -P chef-workstation
+     chef_omnibus_root: /opt/chef-workstation
+     require_chef_omnibus: 0.9
 
 Microsoft Windows Platform
 --------------------------------------------------------------------------
@@ -811,7 +811,6 @@ Test-Kitchen can handle reboots (when initiated from Chef Infra Client) by setti
    ---
    provisioner:
       name: chef_zero
-      require_chef_omnibus: 12.11 # need the RFC 062 exit codes
       retry_on_exit_code:
         - 35 # 35 is the exit code signaling that the node is rebooting
         - 1

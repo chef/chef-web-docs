@@ -22,9 +22,9 @@ Install Chef Workstation
 
 Install the latest version of Chef Workstation from `Chef Downloads <https://downloads.chef.io/chef-workstation>`__.
 
-For Windows versions older than 2012r2, download `ChefDK <https://downloads.chef.io/chefdk/>`__.
+For Windows versions older than 2012r2, download `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__.
 
-Install Knife Azure 
+Install Knife Azure
 ------------------------------------------------------
 
 If Chef Infra Client was installed using RubyGems, install the ``knife azure`` with the following command:
@@ -53,7 +53,7 @@ For setting up a service principal from the command line, see
 After creating the service principal, you will have the values:
 
 * client id (GUID)
-* client secret(string) 
+* client secret(string)
 * tenant id (GUID).
 
 Put the following in your `knife.rb`
@@ -95,7 +95,7 @@ This argument has the following options:
 ``--azure-extension-client-config CLIENT_PATH``
    Path to a client.rb file for use by the bootstrapped node.
 
-``--azure-image-os-type OSTYPE`` 
+``--azure-image-os-type OSTYPE``
    Specifies the image OS Type for which server needs to be created. Accepted values: ``ubuntu``, ``centos``, ``rhel``, ``debian``, ``windows``.
 
 ``--azure-image-reference-offer OFFER``
@@ -125,7 +125,7 @@ This argument has the following options:
 ``--azure-vnet-name VNET_NAME``
    Specifies the virtual network name. This may be the name of an existing vnet present under the given resource group or this may be the name of a new vnet to be added in the given resource group. If not specified then azure-vm-name will be taken as the default name for vnet name as well. Along with this option, the ``azure-vnet-subnet-name`` option can also be specified or skipped.
 
-``--azure-vnet-subnet-name VNET_SUBNET_NAME`` 
+``--azure-vnet-subnet-name VNET_SUBNET_NAME``
    Specifies the virtual network subnet name. Must be specified only with ``azure-vnet-name`` option. This may be the name of an existing subnet present under the given virtual network or this may be the name of a new subnet to be added virtual network. If not specified then ``azure-vm-name`` will be taken as name for subnet name as well. Note: ``GatewaySubnet`` cannot be used as the name for the ``--azure-vnet-subnet-name`` option.
 
 ``--bootstrap-proxy PROXY_URL``
@@ -200,7 +200,7 @@ This argument has the following options:
 ``-N``, ``--node-name NAME``
    The Chef node name for your new node
 
-``-o DISKNAME``, ``--azure-os-disk-name`` 
+``-o DISKNAME``, ``--azure-os-disk-name``
    Specifies the friendly name of the disk containing the guest OS image in the image repository.
 
 ``--node-ssl-verify-mode [peer|none]``
@@ -227,7 +227,7 @@ This argument has the following options:
 ``--secret-file SECRET_FILE``
    A file containing the secret key to use to encrypt data bag item values.  Can also be defaulted in your config with the key 'secret_file'
 
-``--server-count COUNT`` 
+``--server-count COUNT``
    Number of servers to create with same configuration. Maximum: 5. Default: 1.
 
 ``--server-url URL``
@@ -302,7 +302,7 @@ This argument has the following options:
 ``--[no-]color``
    Use colored output, defaults to enabled.
 
-``--config-option OPTION=VALUE`` 
+``--config-option OPTION=VALUE``
    Override a single configuration option.
 
 ``-d``, ``--disable-editing``
@@ -326,7 +326,7 @@ This argument has the following options:
 ``--[no-]fips``
    Enable fips mode.
 
-``-h``, ``--help`` 
+``-h``, ``--help``
    Show the help message
 
 ``-k``, ``--key KEY``
@@ -396,7 +396,7 @@ This argument has the following options:
 ``--[no-]color``
    Use colored output, defaults to enabled.
 
-``--config-option OPTION=VALUE`` 
+``--config-option OPTION=VALUE``
    Override a single configuration option.
 
 ``-d``, ``--disable-editing``
@@ -417,7 +417,7 @@ This argument has the following options:
 ``--[no-]fips``
    Enable fips mode.
 
-``-h``, ``--help`` 
+``-h``, ``--help``
    Show the help message
 
 ``-k``, ``--key KEY``
@@ -481,7 +481,7 @@ This argument has the following options:
 ``--[no-]color``
    Use colored output, defaults to enabled.
 
-``--config-option OPTION=VALUE`` 
+``--config-option OPTION=VALUE``
    Override a single configuration option.
 
 ``-d``, ``--disable-editing``
@@ -502,7 +502,7 @@ This argument has the following options:
 ``--[no-]fips``
    Enable fips mode.
 
-``-h``, ``--help`` 
+``-h``, ``--help``
    Show the help message
 
 ``-k``, ``--key KEY``

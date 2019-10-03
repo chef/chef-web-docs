@@ -3,7 +3,7 @@ About Berkshelf
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst>`__
 
-Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in ChefDK.
+Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily depend on community cookbooks and have them safely included in your workflow. You can also ensure that your CI systems reproducibly select the same cookbook versions, and can upload and bundle cookbook dependencies without needing a locally maintained copy. Berkshelf is included in Chef Workstation.
 
 .. note:: For new users, we strongly recommend using `Policyfiles </policyfile.html>`__ rather than Berkshelf. Policyfiles provide more predictability, since dependencies are only resolved once, and a much improved way of promoting cookbooks from dev to testing, and then to production.
 
@@ -229,7 +229,7 @@ Solver Keyword
 
 It is possible to configure which engine to use for the `solve <https://github.com/berkshelf/solve>`__ dependency resolution system.
 
-By default, the solver selection depends on your environment. When the ``dep_selector`` gem is installed, as in the case of ChefDK, the ``gecode`` solver is used. Otherwise, the ``ruby`` solver is utilized by default.
+By default, the solver selection depends on your environment. When the ``dep_selector`` gem is installed, as in the case of Chef Workstation, the ``gecode`` solver is used. Otherwise, the ``ruby`` solver is utilized by default.
 
 The ``gecode`` solver matches the engine used by the Chef Infra Server, so will more closely reflect the behavior of the Chef Infra Server in selecting cookbooks:
 
