@@ -3,19 +3,20 @@ Converting Definitions to Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/definitions.rst>`__
 
-Beginning with Chef Client 12.5 (released in 2016), Chef Infra uses `custom resources </custom_resources.html>`__ instead of definitions. While definitions is not deprecated---all existing definitions will continue to work---we recommend converting existing definitions to custom resource patterns. This topic explains definitions and shows how to convert an existing definition to the new custom resource pattern.
+
+In 2016 with Chef Client 12.5 `custom resources </custom_resources.html>`__ were introduced to allow users to easily create their own resources within cookbooks. Custom resources are intended to replace both LWRPs and definitions in cookbook code. While not formally deprecated we *highly* suggest that existing definitions be migrated to custom resources as many features such as notifications, reporting, and why-run mode are not possible with definitions. This topic covers what a definition is and shows how to convert an existing definition to a custom resource.
 
 Definitions
 =====================================================
-A definition behaved like a compile-time macro that was reusable across recipes. A definition was typically created by wrapping arbitrary code around resources that were declared as if they were in a recipe. A definition was then used in one (or more) actual recipes as if the definition were a resource.
+A definition behaved like a compile-time macro that was reusable across recipes. A definition was typically created by wrapping arbitrary code around Chef Infra resources that were declared as if they were in a recipe. A definition was then used in one (or more) actual recipes as if the definition were a resource.
 
 Though a definition looked like a resource, and at first glance seems like it could have been used interchangeably, some important differences exist. A definition:
 
-* Was not a resource or a custom resource
+* Was not a true resource
 * Was processed while the resource collection is compiled (whereas resources are processed while a node is converged)
 * Does not support common resource properties, such as ``notifies``, ``subscribes``, ``only_if``, and ``not_if``
-* Was defined from within the ``/definitions`` directory of a cookbook
 * Did not support why-run mode
+* Did not support reporting to Chef Automate
 
 Syntax
 =====================================================
@@ -119,8 +120,6 @@ The following definition processes unique hostnames and ports, passed on as para
      end
    end
 
-
-
 As a Resource
 ----------------------------------------------------
 The definition is improved by rewriting it as a custom resource:
@@ -166,7 +165,5 @@ Unlike definitions, custom resources are able to use `common resource properties
 
    host_porter 'www1' do
      port 4001
-     only_if '{ node['hostname'] == 'foo.bar.com' }'
+     only_if { node['hostname'] == 'foo.bar.com' }
    end
-
-
