@@ -73,7 +73,7 @@ Glossary
    A node is any physical, virtual, or cloud device that is configured and maintained by an instance of Chef Infra Client.
 
 **node object**
-   A history of the attributes, run-lists, and roles that were used to configure a node that is under management by Chef Infra.
+   A node object is a history of the attributes, run-lists, and roles that were used to configure a node that is under management by Chef Infra.
 
 **ohai**
    Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every run.
