@@ -3,20 +3,20 @@ chef_node
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_node.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. warning:: .. tag EOL_provisioning
 
              This functionality was available with Chef Provisioning and was packaged in the ChefDK.
 
-             Chef Provisioning was officially end-of-life on August 31, 2019 and is no longer included with Chef DK. The Chef Provisioning source code and drivers have been moved into the chef-boneyard organization. If you are a current user of Chef Provisioning, please contact your Chef Customer Success Manager or Account Representative to review your options.
+             Chef Provisioning was officially end-of-life on August 31, 2019 and is no longer included with ChefDK. The Chef Provisioning source code and drivers have been moved into the chef-boneyard organization. If you are a current user of Chef Provisioning, please contact your Chef Customer Success Manager or Account Representative to review your options.
 
              .. end_tag
 
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any device---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 
