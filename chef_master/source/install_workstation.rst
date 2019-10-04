@@ -6,7 +6,7 @@ Install Chef Workstation
 Chef Workstation includes:
 
 * Chef Infra Client
-* Embedded versions of Ruby, RubyGems, and the Ruby interpreter, all of which are build from the source. (The Ruby interpreter is not available for Windows)
+* Embedded versions of Ruby, RubyGems, and the Ruby interpreter
 * An embedded version of OpenSSL
 * Test Kitchen
 * Cookstyle
