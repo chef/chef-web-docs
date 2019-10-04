@@ -3,9 +3,7 @@ Install Chef Workstation
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_workstation.rst>`__
 
-.. note:: `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces Chef Workstation, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain Chef Workstation, but new development will take place in Chef Workstation without backporting features.
-
-The Chef Workstation package is produced by the `Chef Omnibus <https://github.com/chef/omnibus>`__ tool for installation on a workstation. Chef Workstation includes:
+Chef Workstation includes:
 
 * Chef Infra Client
 * Embedded versions of Ruby, RubyGems, and the Ruby interpreter, all of which are build from the source. (The Ruby interpreter is not available for Windows)
