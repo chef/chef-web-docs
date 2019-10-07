@@ -594,12 +594,12 @@ file:
 
 :   Adds the the `--sudo` option.
 
-{{< info >}}
+{{< note >}}
 
 The `knife bootstrap` subcommand relies on a number of SSH-related
 settings that are handled by the `knife ssh` subcommand.
 
-{{< /info >}}
+{{< /note >}}
 
 client create
 -------------

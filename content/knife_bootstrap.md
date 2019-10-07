@@ -46,19 +46,19 @@ Syntax
 Options
 =======
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 {{% knife_bootstrap_options %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Validatorless Bootstrap
 -----------------------
@@ -69,12 +69,12 @@ Validatorless Bootstrap
 
 {{% chef_vault_knife_bootstrap_options %}}
 
-{{< info >}}
+{{< note >}}
 
 The `--node-name` option is required for a validatorless bootstrap
 (Changed in Chef Client 12.4).
 
-{{< /info >}}
+{{< /note >}}
 
 FIPS Mode
 ---------

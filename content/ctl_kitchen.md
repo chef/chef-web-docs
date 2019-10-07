@@ -17,13 +17,13 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 {{% ctl_kitchen_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 This topic details functionality that is packaged with Chef Workstation.
 See <https://kitchen.ci/docs/getting-started/> for more information
 about Test Kitchen.
 
-{{< /info >}}
+{{< /note >}}
 
 Fuzzy Matching
 ==============

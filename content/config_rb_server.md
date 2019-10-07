@@ -38,20 +38,20 @@ Optional Settings
 The following settings are often used for performance tuning of the Chef
 Infra Server in larger installations.
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_config_rb_server_must_reconfigure %}}
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 Review the full list of [optional
 settings](/config_rb_server_optional_settings/) that can be added to
 the chef-server.rb file. Many of these optional settings should not be
 added without first consulting with Chef support.
 
-{{< /info >}}
+{{< /note >}}
 
 bookshelf
 ---------

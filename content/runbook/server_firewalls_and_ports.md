@@ -21,13 +21,13 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% server_firewalls_and_ports_listening %}}
 
-{{< info >}}
+{{< note >}}
 
 An "external" port is external from the perspective of a workstation
 (such as knife), a machine (Chef Infra Client), or any other user that
 accesses the Chef Infra Server via the Chef Infra Server API.
 
-{{< /info >}}
+{{< /note >}}
 
 
 ## Standalone
@@ -67,9 +67,9 @@ any firewalls that are in use:
 <td><p>80, 443, 9683</p></td>
 <td><p><strong>nginx</strong></p>
 <p>{{% server_services_nginx %}}</p>
-{{< info >}}
+{{< note >}}
 <p>Port 9683 is used to internally load balance the <strong>oc_bifrost</strong> service.</p>
-{{< /info >}}</td>
+{{< /note >}}</td>
 <td><p>yes</p></td>
 </tr>
 <tr class="odd">

@@ -97,13 +97,13 @@ Create Build Cookbook
 
 {{% delivery_cookbook_setup %}}
 
-{{< info >}}
+{{< note >}}
 
 This section assumes that Chef Automate is already configured, a project
 exists, a user may access that project and submit changes, and that all
 work is being done from that project's root directory.
 
-{{< /info >}}
+{{< /note >}}
 
 Edit the Berksfile
 ------------------

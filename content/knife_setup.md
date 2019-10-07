@@ -48,13 +48,13 @@ using the following load order:
 -   From `~/.chef/config.rb` (macOS and Linux platforms) or
     `c:\Users\<username>\.chef` (Microsoft Windows platform)
 
-{{< info >}}
+{{< note >}}
 
 When running Microsoft Windows, the config.rb file is located at
 `%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If
 this path needs to be scripted, use `%USERPROFILE%\chef-repo\.chef`.
 
-{{< /info >}}
+{{< /note >}}
 
 config.rb Configuration Within a Chef Repository
 ------------------------------------------------

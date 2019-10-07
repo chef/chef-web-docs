@@ -38,7 +38,7 @@ class="title-ref">delivery.rb</span> file. For more information on the
 proxy settings in Chef Automate, see [Proxy
 Settings](https://docs.chef.io/config_rb_delivery.html#proxy-settings).
 
-{{< info >}}
+{{< note >}}
 
 Notifications sent to Slack by Chef Automate do not support retries;
 therefore, notifications sent while Slack is experiencing API issues,
@@ -46,7 +46,7 @@ outages, or some other unplanned downtime may never be received by the
 channel. Undelivered notifications are not re-sent. Attempts to send
 notifications do generate log messages in your Chef Automate server.
 
-{{< /info >}}
+{{< /note >}}
 
 Create a Webhook
 ================

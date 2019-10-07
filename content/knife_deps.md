@@ -29,11 +29,11 @@ $ knife deps (options)
 Options
 =======
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 This subcommand has the following options:
 
@@ -71,11 +71,11 @@ This subcommand has the following options:
 :   Show dependencies in a visual tree structure (including duplicates,
     if they exist). Default: `false`.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 ========

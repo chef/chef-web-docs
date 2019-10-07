@@ -19,19 +19,19 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_role_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 To add a role to a node and then build out the run-list for that node,
 use the [knife node](/knife_node/) subcommand and its `run_list add`
 argument.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 bulk delete
 ===========
@@ -93,11 +93,11 @@ This argument has the following options:
 :   The description of the role. This value populates the description
     field for the role on the Chef Infra Server.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -238,11 +238,11 @@ Options
 
 This command does not have any specific options.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -318,11 +318,11 @@ This argument has the following options:
 
 :   The attribute (or attributes) to show.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------

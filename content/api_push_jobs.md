@@ -29,7 +29,7 @@ Each authentication request must include
 endpoint. For example: `/organizations/organization_name/pushy/jobs/ID`
 or `/organizations/organization_name/pushy/node_states`.
 
-{{< info >}}
+{{< note >}}
 
 The easiest way to send commands to the Chef Infra Server from your
 workstation is to use the `knife exec` subcommand. Here is an example of
@@ -52,7 +52,7 @@ returned, or JSON inflated. For Push Jobs API endpoints, we recommend
 
 See [knife exec](/knife_exec/) for detailed information on usage.
 
-{{< /info >}}
+{{< /note >}}
 
 connect/NODE_NAME
 ------------------
@@ -124,13 +124,13 @@ where:
 -   `file` is a string that will be stored as a file on each node, with
     the path provided to the command as an environment variable.
 
-    {{< info >}}
+    {{< note >}}
 
     The string has a required prefix of `raw:` or `base64:`, indicating
     the encoding (if any) of the contents. The path to this file will be
     made available via the `CHEF_PUSH_JOB_FILE` environment variable.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   `capture_output` is a boolean indicating whether to capture the
     STDOUT and STDERR for this job. Capture is enabled on a per-job

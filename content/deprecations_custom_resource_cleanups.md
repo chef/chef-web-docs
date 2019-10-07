@@ -136,7 +136,7 @@ substitute. See the
 [updated_by_last_action](/custom_resources_notes.html#updated-by-last-action)
 documentation for more information.
 
-{{< info >}}
+{{< note >}}
 
 Setting `updated_by_last_action` is almost always unnecessary, and
 correct use of `use_inline_resources` (which is the default in Chef
@@ -144,7 +144,7 @@ Client 13 and above) makes the `updated_by_last_action` setting
 redundant. Simply deleting this code is very likely to be the correct
 course of action in nearly all cases.
 
-{{< /info >}}
+{{< /note >}}
 
 Example
 -------

@@ -17,11 +17,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_user_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 create
 ======
@@ -69,11 +69,11 @@ This argument has the following options:
     not specified, the Chef Infra Server will generate a public/private
     key pair.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -350,12 +350,12 @@ Use the `reregister` argument to regenerate an RSA key pair for a user.
 The public key will be stored on the Chef Infra Server and the private
 key will be displayed on `STDOUT` or written to a named file.
 
-{{< info >}}
+{{< note >}}
 
 Running this argument will invalidate the previous RSA key pair, making
 it unusable during authentication to the Chef Infra Server.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -375,11 +375,11 @@ This argument has the following options:
 
 :   Save a private key to the specified file name.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------

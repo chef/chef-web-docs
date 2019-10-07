@@ -141,7 +141,7 @@ want to bring your own license, complete the following steps:
     file, and that it is not publicly readable. If you do not have a
     license, skip this step.
 
-    {{< info >}}
+    {{< note >}}
 
     Placing your license file in S3 is not a requirement for using the
     BYOL functionality, the instance just needs a fully-qualified URL to
@@ -149,7 +149,7 @@ want to bring your own license, complete the following steps:
     to safely store the file and make it accessible to the Chef Automate
     instance.
 
-    {{< /info >}}
+    {{< /note >}}
 
 3.  Copy the S3 bucket ARN.
 
@@ -247,11 +247,11 @@ and Chef Infra Server.
     CloudFormation stack will have the setup URL in the `Outputs`
     section.
 
-    {{< info >}}
+    {{< note >}}
 
     {{% notes_chef_aws_ssl %}}
 
-    {{< /info >}}
+    {{< /note >}}
 
 2.  Use the AWS console or command line tools to determine the Instance
     ID of your Chef Automate instance. The instance ID is required for
@@ -413,11 +413,11 @@ To edit the Amazon Machine Images (AMI) instance size, do the following:
 12. Verify that you can login to Chef Automate webui by navigating to
     `https://<YOUR NEW PUBLIC DNS>/e/default`.
 
-    {{< info >}}
+    {{< note >}}
 
     {{% notes_chef_aws_ssl %}}
 
-    {{< /info >}}
+    {{< /note >}}
 
 13. Open a command prompt and change into your `chef-repo` directory.
 
@@ -474,12 +474,12 @@ To upgrade, do one of the following:
     $ sudo chef-marketplace-ctl upgrade --automate
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     Chef Automate and Chef Infra Server services will be unavailable
     while the software is updated.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   Upgrade the Chef Infra Server package by using the following
     command:
@@ -488,12 +488,12 @@ To upgrade, do one of the following:
     $ sudo chef-marketplace-ctl upgrade --server
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     Chef Infra Server services will be unavailable while the software is
     updated.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   Upgrade the Chef Marketplace package by using the following command:
 

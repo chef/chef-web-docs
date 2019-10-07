@@ -21,12 +21,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% EOL_manage %}}
 
-{{< info >}}
+{{< note >}}
 
 This topic is about using the Chef management console to manage data
 bags.
 
-{{< /info >}}
+{{< /note >}}
 
 {{% data_bag %}}
 

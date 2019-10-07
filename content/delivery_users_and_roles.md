@@ -112,14 +112,14 @@ You may integrate Chef Automate and GitHub Enterprise or
 [Github.com](https://github.com/). If you do this, you will be able to
 use GitHub as a **Source Code Provider** when creating a project.
 
-{{< info >}}
+{{< note >}}
 
 Before you can follow this procedure, you must have integrated Chef
 Automate and GitHub Enterprise or [Github.com](https://github.com/).
 This is the same procedure whether you have Amazon Web Services (AWS)
 provisioning or SSH provisioning.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Add Users
 
@@ -139,7 +139,7 @@ that is hosted at [Github.com](https://github.com/):
     appropriate Chef Automate command that associates a GitHub user with
     a Chef Automate user.
 
-    {{< info >}}
+    {{< note >}}
 
     The Delivery CLI commands are for a user to link their own account
     to GitHub, or others if the user has the **Admin** role; `api` is an
@@ -147,7 +147,7 @@ that is hosted at [Github.com](https://github.com/):
     only be run by an administrator from the Chef Automate server and
     can affect any user.
 
-    {{< /info >}}
+    {{< /note >}}
 
     For GitHub Enterprise:
 

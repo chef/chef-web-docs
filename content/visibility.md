@@ -75,7 +75,7 @@ Further filtering can also be provided by the **Environment** and
 If you wish to share your filtered search with others, you can do so
 with the share and save icons next to the search bar.
 
-{{< info >}}
+{{< note >}}
 
 If you want to see the raw, real-time events coming into Chef Automate
 and perform simple queries and visualizations on them, navigate to
@@ -89,7 +89,7 @@ notes](https://docs.chef.io/release_notes_chef_automate.html#what-s-new-in-1-6-8
 for more details. And for more information on Kibana, see the [Kibana
 User Guide](https://www.elastic.co/guide/en/kibana/current/index.html).
 
-{{< /info >}}
+{{< /note >}}
 
 Compliance status
 -----------------

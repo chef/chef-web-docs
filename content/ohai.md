@@ -33,11 +33,11 @@ Automatic Attributes
 
 {{% ohai_attribute_list %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_see_attributes_overview %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Blacklist Attributes
 --------------------

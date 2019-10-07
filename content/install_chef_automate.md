@@ -200,13 +200,13 @@ minimum the following machines must be able to reach each other:
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 Any build nodes/runners must be accessible from the Chef Automate server
 over SSH and they must have a user account configured that has sudo
 privileges.
 
-{{< /info >}}
+{{< /note >}}
 
 Chef Infra Server Configuration
 ===============================
@@ -284,13 +284,13 @@ Automate cluster:
     `--filename` option will save the RSA private key to the specified
     absolute path.
 
-    {{< info >}}
+    {{< note >}}
 
     The `--filename` option is used so that the validator key for your
     organization will not be shown on-screen. The key is not required
     for this process.
 
-    {{< /info >}}
+    {{< /note >}}
 
 Push Jobs Server Installation (Optional)
 ----------------------------------------
@@ -304,14 +304,14 @@ Push jobs server is available as an add-on to Chef Infra Server. If you
 only wish to use Push Jobs for deployment testing, you can use runners
 and the new job dispatch system in conjunction with Push jobs server.
 
-{{< info >}}
+{{< note >}}
 
 Chef Automate is fully compatible with Push jobs server 1.x and 2.x.
 Please use 2.x for new installations. Information about upgrading from
 Push jobs server version 1.x to 2.x can be be found
 [here](/release_notes_push_jobs.html#upgrading-chef-automate-installation-to-use-push-jobs-server-2-1).
 
-{{< /info >}}
+{{< /note >}}
 
 Download the appropriate package for your platform from
 <https://downloads.chef.io/push-jobs-server/> and copy it to the Chef
@@ -352,13 +352,13 @@ Chef Automate Server Installation and Configuration
 Now that you have your Chef Infra Server set up, install and configure
 Chef Automate by doing the following:
 
-{{< info >}}
+{{< note >}}
 
 If you plan to use a private Supermarket with your Chef Automate server,
 please make sure it is set up correctly by following the steps in
 [Install Private Supermarket](/install_supermarket/).
 
-{{< /info >}}
+{{< /note >}}
 
 1.  Download and install the latest stable Chef Automate package for
     your operating system from <https://downloads.chef.io/automate/> on
@@ -391,12 +391,12 @@ please make sure it is set up correctly by following the steps in
     passing or failing. The end of the check will include a report of
     all failures and remediation steps that you can take to fix them.
 
-    {{< info >}}
+    {{< note >}}
 
     As shown in the example above, this command requires root user
     privileges.
 
-    {{< /info >}}
+    {{< /note >}}
 
     Please refer to the troubleshooting section for more information
     about the error codes and remediation steps.
@@ -423,13 +423,13 @@ please make sure it is set up correctly by following the steps in
     `AUTOMATE_LICENSE` is the full path and file name of your Chef
     Automate license file. For example: `/root/automate.license`.
 
-    {{< info >}}
+    {{< note >}}
 
     After your Chef Automate server is successfully setup, this file
     will be copied into the `/var/opt/delivery/license` directory as
     `delivery.license`.
 
-    {{< /info >}}
+    {{< /note >}}
 
     `AUTOMATE_CHEF_USER_KEY` is the `delivery` user key that you created
     on your Chef Infra Server. For example: `/root/delivery.pem`.
@@ -446,11 +446,11 @@ please make sure it is set up correctly by following the steps in
     `ENTERPRISE_NAME` is the name of your enterprise. For example:
     `4thcoffee_inc`.
 
-    {{< info >}}
+    {{< note >}}
 
     Currently, only one enterprise is allowed in Chef Automate.
 
-    {{< /info >}}
+    {{< /note >}}
 
     If you are using a private Supermarket, tell the setup command about
     it by supplying the `--supermarket-fqdn` command line argument:
@@ -473,13 +473,13 @@ setup and applied configuration at that time. You can bypass this prompt
 by passing in the argument `--configure` to the `setup` command, which
 will run it automatically, or pass in `--no-configure` to skip it.
 
-{{< info >}}
+{{< note >}}
 
 Your Chef Automate server will not be available for use until you either
 agree to apply the configuration, or manually run
 `sudo automate-ctl reconfigure`.
 
-{{< /info >}}
+{{< /note >}}
 
 If you've applied the configuration, you will also be prompted to set up
 a Chef Automate runner and submit additional information. Alternatively,
@@ -499,13 +499,13 @@ CHEF_SERVER_IP         CHEF_SERVER_FQDN
 AUTOMATE_SERVER_IP     AUTOMATE_SERVER_FQDN
 ```
 
-{{< info >}}
+{{< note >}}
 
 If your environment requires going through a proxy server, please see
 [About Proxies](/install_chef_automate.html#about-proxies) for
 information on how to configure proxy settings.
 
-{{< /info >}}
+{{< /note >}}
 
 For more information about `automate-ctl` and how to use it, see
 [automate-ctl (executable)](/ctl_automate_server.html).
@@ -554,7 +554,7 @@ node](/setup_build_node/).
 
     {{< /important >}}
 
-    {{< info >}}
+    {{< note >}}
 
     You can optionally download the latest ChefDK from
     <https://downloads.chef.io/chefdk/> to specify a local package via
@@ -564,7 +564,7 @@ node](/setup_build_node/).
     `OPTIONAL_CHEF_DK_PACKAGE_PATH`. This option cannot be used with the
     `--chefdk-version` as the version of the local package will be used.
 
-    {{< /info >}}
+    {{< /note >}}
 
     ``` bash
     automate-ctl install-runner RUNNER_FQDN \
@@ -607,16 +607,16 @@ node](/setup_build_node/).
     you will overwrite a node before installation begins, which you can
     bypass by passing `--yes`.
 
-{{< info >}}
+{{< note >}}
 
 Certain sensitive files are copied over to a temporary directory on the
 build node/runner. In the event of failure after these files have been
 copied, the installer will attempt to remove them. If it is unable to do
 so, it will provide you with instructions for doing so manually.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 Setting up a build node or a runner involves a Chef Infra Client run on
 the target node. This requires the target node to be able to reach your
@@ -640,7 +640,7 @@ Server Response:
 Cannot fetch the contents of the response.
 ```
 
-{{< /info >}}
+{{< /note >}}
 
 About Proxies
 -------------

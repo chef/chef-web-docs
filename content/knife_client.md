@@ -17,11 +17,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_client_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 bulk delete
 ===========
@@ -94,7 +94,7 @@ This argument has the following options:
 :   Create a user without a public key. This key may be managed later by
     using the `knife user key` subcommands.
 
-    {{< info >}}
+    {{< note >}}
 
     This option is valid only with Chef Infra Server API, version 1.0,
     which was released with Chef Server 12.1. If this option or the
@@ -104,7 +104,7 @@ This argument has the following options:
     12.1, this option will not work; a public key is always generated
     unless `--user-key` is passed in the command.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `-p FILE`, `--public-key FILE`
 
@@ -118,11 +118,11 @@ This argument has the following options:
 
 :   Create the client as the chef-validator. Default value: `true`.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -450,12 +450,12 @@ Use the `reregister` argument to regenerate an RSA key pair for an API
 client. The public key will be stored on the Chef Infra Server and the
 private key will be displayed on `STDOUT` or written to a named file.
 
-{{< info >}}
+{{< note >}}
 
 Running this argument will invalidate the previous RSA key pair, making
 it unusable during authentication to the Chef Infra Server.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -475,11 +475,11 @@ This argument has the following options:
 
 :   Save a private key to the specified file name.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------

@@ -352,13 +352,13 @@ This configuration file has the following settings for `backup`:
     Encryption for backup archives in S3. To use SSE-KMS set the value
     to `aws:kms`. Default value: `AES256`.
 
-{{< info >}}
+{{< note >}}
 
 While the backup utility currently supports encrypting backups with with
 SSE-S3, SSE-KMS, and SSE-C, only SSE-S3 is currently supported for
 restoration.
 
-{{< /info >}}
+{{< /note >}}
 
 `backup['staging_dir']`
 
@@ -646,13 +646,13 @@ This configuration file has the following settings for `delivery`:
     are: `d` (days), `h` (hours), `m` (minutes), or `s` (seconds).
     Default value: `'7d'`.
 
-    {{< info >}}
+    {{< note >}}
 
     While the `delivery['read_ttl']` and `delivery['write_ttl']` values
     may be tuned separately, it is recommended that both values be
     identical.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `delivery['sql_password']`
 
@@ -720,13 +720,13 @@ This configuration file has the following settings for `delivery`:
     are: `d` (days), `h` (hours), `m` (minutes), or `s` (seconds).
     Default value: `'7d'`.
 
-    {{< info >}}
+    {{< note >}}
 
     While the `delivery['read_ttl']` and `delivery['write_ttl']` values
     may be tuned separately, it is recommended that both values be
     identical.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `delivery['vip']`
 
@@ -748,12 +748,12 @@ This configuration file has the following settings for `elasticsearch`:
 :   The Amazon Resource Names(ARN) of IAM policies role for Amazon
     Elasticsearch Service. Default value: `nil`.
 
-    {{< info >}}
+    {{< note >}}
 
     If `elasticsearch['urls']` is specified with Amazon elasticsearch
     url then `elasticsearch['role_arn']` value will be required.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `elasticsearch['config_directory']`
 

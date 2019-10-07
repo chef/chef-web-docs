@@ -301,13 +301,13 @@ suites:
       attributes
 ```
 
-{{< info >}}
+{{< note >}}
 
 As `chef_zero` explicitly tests outside the context of a Chef Infra
 Server, the `policy_groups` concept is not applicable. The value of
 `policy_group` during a converge will be set to `local`.
 
-{{< /info >}}
+{{< /note >}}
 
 chef Commands
 =============
@@ -444,12 +444,12 @@ chef generate repo
 
 {{% ctl_chef_generate_repo %}}
 
-{{< info >}}
+{{< note >}}
 
 This subcommand requires using one (or more) of the options (below) to
 support Policyfile files.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Syntax
 

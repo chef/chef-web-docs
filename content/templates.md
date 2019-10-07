@@ -17,11 +17,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/t
 
 {{% template %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_cookbook_template_erubis %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Requirements
 ============

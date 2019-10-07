@@ -19,12 +19,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 {{% policyfile_rb %}}
 
-{{< info >}}
+{{< note >}}
 
 For more information about Policyfile, see [About
 Policyfile](/policyfile/)
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ======

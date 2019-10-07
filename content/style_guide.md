@@ -335,18 +335,18 @@ Notes
 -----
 
 ```
-{{</* info */>}}
+{{</* note */>}}
 This is a note.
-{{</* /info */>}}
+{{</* /note */>}}
 ```
 
 What a note looks like after it's built:
 
-{{< info >}}
+{{< note >}}
 
 This is a note.
 
-{{< /info >}}
+{{< /note >}}
 
 Warnings
 --------

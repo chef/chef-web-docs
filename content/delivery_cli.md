@@ -107,19 +107,19 @@ A GitHub user name must be associated with Chef Automate in order for
 changes piped to Chef Automate created by GitHub pull requests to be
 associated with the corresponding Chef Automate user.
 
-{{< info >}}
+{{< note >}}
 
 Two GitHub accounts may not be linked to a single Chef Automate user.
 Two Chef Automate users may not share a single GitHub user name.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 You must have previously setup GitHub integration in order for this
 command to work.
 
-{{< /info >}}
+{{< /note >}}
 
 **Link a GitHub enterprise user name**
 
@@ -196,12 +196,12 @@ delivery clone
 
 Use the `clone` subcommand to clone a Chef Automate project.
 
-{{< info >}}
+{{< note >}}
 
 There is a **clone** command in the Chef Automate web UI on the page for
 an existing project.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -751,12 +751,12 @@ Use the `local` subcommand to run a phase or stage of Chef Automate
 locally, based on settings in the `project.toml` file located in the
 project's `.delivery` directory.
 
-{{< info >}}
+{{< note >}}
 
 As of ChefDK 1.2, delivery local now supports options for functional
 phases, running stages, and specifying a remote `project.toml`.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -1098,12 +1098,12 @@ delivery token
 
 Use the `token` subcommand to manage a Chef Automate API token.
 
-{{< info >}}
+{{< note >}}
 
 If you're running this command on Windows in Git Bash with MinTTY you
 must include `winpty` before `delivery token` to avoid errors.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -1114,7 +1114,7 @@ This subcommand has the following syntax:
 $ delivery token (options)
 ```
 
-{{< info >}}
+{{< note >}}
 
 You can also pass in your Chef Automate password through an environment
 variable to the <span class="title-ref">delivery token</span>
@@ -1125,7 +1125,7 @@ password.
 $ AUTOMATE_PASSWORD=secret delivery token -s automate.example.com -e myent -u token
 ```
 
-{{< /info >}}
+{{< /note >}}
 
 Options
 -------

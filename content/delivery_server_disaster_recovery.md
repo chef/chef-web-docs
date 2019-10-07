@@ -27,7 +27,7 @@ configured to replicate data from the primary Chef Automate server. In
 the event of loss of the primary Chef Automate server, the standby is
 then reconfigured to become the primary.
 
-{{< info >}}
+{{< note >}}
 
 Disaster Recovery for Chef Automate pertains to the workflow
 capabilities only. Also, these instructions assume that the primary and
@@ -35,7 +35,7 @@ standby servers are in the same data center. If they are in different
 geographical locations additional considerations are necessary, as well
 as tuning the configuration to account for latency between data centers.
 
-{{< /info >}}
+{{< /note >}}
 
 Requirements
 ============
@@ -46,11 +46,11 @@ requirements:
 -   Two identically-configured Chef Automate servers, one to act as the
     primary server and the other to act as a standby
 
-    {{< info >}}
+    {{< note >}}
 
     You cannot log in to the Chef Automate web UI on the standby server.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   SSH access between both Chef Automate servers via port 22
 
@@ -67,14 +67,14 @@ Install a Standby Chef Automate Server
 The following steps describe how to manually install a Chef Automate
 server for use as a standby.
 
-{{< info >}}
+{{< note >}}
 
 Look for items delimited with `<BRACKETS>`. Replace the bracketed words
 (and the brackets) with the correct values for your configuration. All
 files require default permissions, unless noted. All commands must be
 run as the root user or by using `sudo`.
 
-{{< /info >}}
+{{< /note >}}
 
 1.  Provision a standby server that is exactly the same as the existing
     Chef Automate server.

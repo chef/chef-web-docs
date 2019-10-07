@@ -29,11 +29,11 @@ $ knife recipe list REGEX
 Options
 =======
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 This command does not have any specific options.
 

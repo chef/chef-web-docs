@@ -149,12 +149,12 @@ knife push jobs
 
 {{% plugin_knife_push_jobs_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-{{< /info >}}
+{{< /note >}}
 
 job list
 --------

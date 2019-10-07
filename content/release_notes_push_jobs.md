@@ -122,13 +122,13 @@ upgrade:
 
     -   Run `sudo opscode-push-jobs-server-ctl reconfigure`.
 
-        {{< info >}}
+        {{< note >}}
 
         Once the `reconfigure` command above is issued, build nodes and
         other push clients will not be in communication with the server
         until they are restarted.
 
-        {{< /info >}}
+        {{< /note >}}
 
 -   On each build node:
 

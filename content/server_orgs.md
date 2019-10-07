@@ -43,13 +43,13 @@ Permissions
 
 ### Client Key Permissions
 
-{{< info >}}
+{{< note >}}
 
 This is only necessary after migrating a client from one Chef Infra
 Server to another. Permissions must be reset for client keys after the
 migration.
 
-{{< /info >}}
+{{< /note >}}
 
 {{% server_rbac_permissions_key %}}
 
@@ -115,12 +115,12 @@ The following sections show the default permissions assigned by the Chef
 Infra Server to the `admins`, `billing_admins`, `clients`, and `users`
 groups.
 
-{{< info >}}
+{{< note >}}
 
 The creator of an object on the Chef Infra Server is assigned `create`,
 `delete`, `grant`, `read`, and `update` permission to that object.
 
-{{< /info >}}
+{{< /note >}}
 
 ### admins
 

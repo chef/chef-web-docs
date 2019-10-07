@@ -53,12 +53,12 @@ end
 Resource cloning was deprecated in Chef Client 10.18.0 and will be
 removed in Chef Client 13.
 
-{{< info >}}
+{{< note >}}
 
 Chef will only emit a deprecation warning in the situation that a cloned
 resource is significantly different from the existing one.
 
-{{< /info >}}
+{{< /note >}}
 
 Remediation
 ===========

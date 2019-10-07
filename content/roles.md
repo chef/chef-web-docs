@@ -22,11 +22,11 @@ Role Attributes
 
 {{% role_attribute %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_see_attributes_overview %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Attribute Types
 ---------------

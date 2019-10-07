@@ -17,12 +17,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 <meta name="robots" content="noindex">
 
-{{< info >}}
+{{< note >}}
 
 This topic is about using the Chef management console to manage
 environments.
 
-{{< /info >}}
+{{< /note >}}
 
 {{% chef_automate_mark %}}
 

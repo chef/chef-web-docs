@@ -87,13 +87,13 @@ Automate server to use SSL certificates:
 
     Default value: Default value: `"SSLv3 TLSv1"`.
 
-{{< info >}}
+{{< note >}}
 
 See <https://wiki.mozilla.org/Security/Server_Side_TLS> for more
 information about the values used with the `nginx['ssl_ciphers']` and
 `nginx['ssl_protocols']` settings.
 
-{{< /info >}}
+{{< /note >}}
 
 For example, after copying the SSL certificate files to the Chef
 Automate server, update the `delivery['ssl_certificates']` hash settings
@@ -149,7 +149,7 @@ Optional Settings
 Additional settings are available for performance tuning of the Chef
 Automate server.
 
-{{< info >}}
+{{< note >}}
 
 When changes are made to the `delivery.rb` file the Chef Automate server
 must be reconfigured by running the following command:
@@ -158,13 +158,13 @@ must be reconfigured by running the following command:
 $ delivery-server-ctl reconfigure
 ```
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 Review the full list of [optional
 settings](/config_rb_delivery_optional_settings/) that can be added
 to the `delivery.rb` file. Many of these optional settings should not be
 added without first consulting with Chef support.
 
-{{< /info >}}
+{{< /note >}}

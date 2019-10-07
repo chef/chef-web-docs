@@ -68,13 +68,13 @@ $ knife vsphere vm clone MACHINENAME --template TEMPLATENAME --bootstrap --cips 
 --cspec SPEC --ssh-user USER --ssh-password PASSWORD
 ```
 
-{{< info >}}
+{{< note >}}
 
 Add a `-f FOLDERNAME` if you put your `--template` in a directory other
 than the root folder. Use `--dest-folder FOLDERNAME` if you want your VM
 created in `FOLDERNAME` instead of the root folder.
 
-{{< /info >}}
+{{< /note >}}
 
 **Clone from a folder into the "Datacenter Root" directory:**
 

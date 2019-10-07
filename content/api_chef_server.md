@@ -101,12 +101,12 @@ The following authentication headers are required:
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 Use `X-Ops-Server-API-Info` to identify the version of the Chef Infra
 Server API.
 
-{{< /info >}}
+{{< /note >}}
 
 Example
 -------
@@ -186,7 +186,7 @@ This method has no response body.
 /license
 --------
 
-{{< info >}}
+{{< note >}}
 
 This endpoint is used for information purposes only and to trigger a
 notification in the Chef management console about the number of licenses
@@ -194,7 +194,7 @@ owned vs. the number of licenses that should be owned. No other action
 is taken and the functionality and behavior of the Chef Infra Server and
 any added component does not change.
 
-{{< /info >}}
+{{< /note >}}
 
 The `/license` endpoint has the following methods: `GET`.
 
@@ -383,12 +383,12 @@ where:
 -   `full_name` must begin with a non-white space character and must be
     between 1 and 1023 characters. For example: `Chef Software, Inc.`.
 
-{{< info >}}
+{{< note >}}
 
 An organization isn't usable until a user that belongs to the `admins`
 group is associated with the organization.
 
-{{< /info >}}
+{{< /note >}}
 
 **Response**
 
@@ -1021,20 +1021,20 @@ The `PUT` method is used to update a specific user. If values are not
 specified for the `PUT` method, the Chef Infra Server will use the
 existing values rather than assign default values.
 
-{{< info >}}
+{{< note >}}
 
 `PUT` supports renames. If `PUT /users/foo` is requested with
 `{ "name: "bar""}`, then it will rename `foo` to `bar` and all of the
 content previously associated with `foo` will be associated with `bar`.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 As of 12.1.0, the `"public_key"`, `"private_key"`, and `"create_key"`
 parameters in PUT requests to clients/users will cause a 400 response.
 
-{{< /info >}}
+{{< /note >}}
 
 This method has no parameters.
 
@@ -1966,12 +1966,12 @@ Use the `/clients` endpoint to manage an API client list and their
 associated RSA public key-pairs. The `/clients` endpoint has the
 following methods: `GET` and `POST`.
 
-{{< info >}}
+{{< note >}}
 
 The API client list should be managed using knife or the Chef Infra
 Server management console, as opposed to the Chef Infra Server API.
 
-{{< /info >}}
+{{< /note >}}
 
 ### GET
 
@@ -2032,13 +2032,13 @@ The response is similar to:
 
 The `POST` method is used to create a new API client.
 
-{{< info >}}
+{{< note >}}
 
 As of 12.1.0, the `"admin"` parameter is no longer supported in
 client/user creation and support. If used in the `POST` or `PUT` of a
 client or user, then it is ignored.
 
-{{< /info >}}
+{{< /note >}}
 
 This method has no parameters.
 
@@ -2246,29 +2246,29 @@ The `PUT` method is used to update a specific API client. If values are
 not specified for the `PUT` method, the Chef Infra Server will use the
 existing values rather than assign default values.
 
-{{< info >}}
+{{< note >}}
 
 `PUT` supports renames. If `PUT /user/foo` is requested with
 `{ "name: "bar""}`, then it will rename `foo` to `bar` and all of the
 content previously associated with `foo` will be associated with `bar`.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 As of 12.1.0, the `"admin"` parameter is no longer supported in
 client/user creation and support. If used in the `POST` or `PUT` of a
 client or user, then it is ignored.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 As of 12.1.0, including `"public_key"`, `"private_key"`, or
 `"create_key"` in PUT requests to clients/users will cause a 400
 response.
 
-{{< /info >}}
+{{< /note >}}
 
 **Request**
 
@@ -4727,14 +4727,14 @@ The `GET` method is used to return the `run_list` attribute of the role
 (when the name of the environment is `_default`) or to return
 `env_run_lists[environment_name]` (for non-default environments).
 
-{{< info >}}
+{{< note >}}
 
 The behavior of this endpoint is identical to
 `GET /roles/NAME/environments/NAME`; it is recommended (but not
 required) that `GET /roles/NAME/environments/NAME` be used instead of
 this endpoint.
 
-{{< /info >}}
+{{< /note >}}
 
 This method has no parameters.
 
@@ -6107,7 +6107,7 @@ The response is similar to:
 The `/search` endpoint allows nodes, roles, data bags, environments to
 be searched. This endpoint has the following methods: `GET`.
 
-{{< info >}}
+{{< note >}}
 
 At the end of every Chef Infra Client run, the node object is saved to
 the Chef Infra Server. From the Chef Infra Server, each node object is
@@ -6115,15 +6115,15 @@ then added to the Apache Solr search index. This process is
 asynchronous. By default, node objects are committed to the search index
 every 60 seconds or per 1000 node objects, whichever occurs first.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 This endpoint does not have any ACL restrictions, which means it may be
 used by any user or client that is able to make the request to the Chef
 Infra Server.
 
-{{< /info >}}
+{{< /note >}}
 
 ### GET
 
@@ -6576,9 +6576,9 @@ chef_server_root "https://192.0.2.0:443"
 client_key "#{current_dir}/pivotal.pem"
 ```
 
-{{< info >}}
+{{< note >}}
 
 The `pivotal.pem` file must exist in the specified location and the IP
 addresses must be correct for the Chef Infra Server.
 
-{{< /info >}}
+{{< /note >}}

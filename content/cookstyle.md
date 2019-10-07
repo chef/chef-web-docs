@@ -263,10 +263,10 @@ To generate the .rubocop_todo.yml file, run the following command:
 $ cookstyle --auto-gen-config
 ```
 
-{{< info >}}
+{{< note >}}
 
 Rename this file to .rubocop.yml to adopt this evaluation state as the
 standard. Include this file in the .rubocop.yml file by adding
 `inherit_from: .rubocop_todo.yml` to the top of the .rubocop.yml file.
 
-{{< /info >}}
+{{< /note >}}

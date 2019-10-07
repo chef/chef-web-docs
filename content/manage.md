@@ -43,13 +43,13 @@ Search
 
 {{% search %}}
 
-{{< info >}}
+{{< note >}}
 
 The syntax for search queries in the Chef management console is
 identical to the syntax for search queries used with knife, the command
 line tool used to manage objects on the Chef Infra Server.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Query Syntax
 

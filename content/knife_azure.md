@@ -20,12 +20,12 @@ Knife Azure Overview
 
 {{% knife_azure %}}
 
-{{< info >}}
+{{< note >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-{{< /info >}}
+{{< /note >}}
 
 `knife-azure` version 1.6.0 and later supports Azure Resource Manager.
 Commands starting with `knife azurerm` use the Azure Resource Manager
@@ -93,13 +93,13 @@ Azure platform via the REST APIs. To generate the management certificate
     $ openssl pkcs12 -in cert_decoded.pfx -out managementCertificate.pem -nodes
     ```
 
-{{< info >}}
+{{< note >}}
 
 It is possible to generate certificates, and then upload them. See the
 following link for more information:
 www.windowsazure.com/en-us/manage/linux/common-tasks/manage-certificates/.
 
-{{< /info >}}
+{{< /note >}}
 
 Knife Azure Commands
 --------------------

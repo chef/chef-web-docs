@@ -20,12 +20,12 @@ Knife Windows Overview
 
 {{% knife_windows_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-{{< /info >}}
+{{< /note >}}
 
 Install Knife Windows
 ---------------------
@@ -116,14 +116,14 @@ use the default configuration for `winrm quickconfig`. This is because
 including NTLM authentication, which matches the authentication
 requirements for the default configuration of the WinRM listener.
 
-{{< info >}}
+{{< note >}}
 
 To use Negotiate or NTLM to authenticate as the user specified by the
 `--winrm-user` option, include the user's Microsoft Windows domain,
 using the format `domain\user`, where the backslash (`\`) separates the
 domain from the user.
 
-{{< /info >}}
+{{< /note >}}
 
 For example:
 
@@ -646,11 +646,11 @@ listener create
 Use the `listener create` argument to create a WinRM listener on the
 Microsoft Windows platform.
 
-{{< info >}}
+{{< note >}}
 
 This command may only be used on the Microsoft Windows platform.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------

@@ -52,11 +52,11 @@ Use the verbose logging that is built into knife:
 
 :   Set for more verbose outputs. Use `-VV` for maximum verbosity.
 
-{{< info >}}
+{{< note >}}
 
 Plugins do not always support verbose logging.
 
-{{< /info >}}
+{{< /note >}}
 
 Chef Infra Client
 -----------------

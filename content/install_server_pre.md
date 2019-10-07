@@ -60,7 +60,7 @@ at least two user and group identifiers (UIDs and GIDs). These are used
 to create the `opscode` and `opscode-pgsql` users and their default
 groups.
 
-{{< info >}}
+{{< note >}}
 
 The creation of required user and group identifiers is done
 **automatically** during the installation process for the Chef Infra
@@ -75,7 +75,7 @@ to satisfy reconfiguration requirements.
 -   A group account for each user account, one named `opscode` and the
     other named `opscode-pgsql` under which services will run
 
-{{< /info >}}
+{{< /note >}}
 
 {{< warning >}}
 
@@ -499,12 +499,12 @@ local user and group accounts that will prevent these accounts from
 being created automatically during setup, you will need to create these
 accounts.
 
-{{< info >}}
+{{< note >}}
 
 The Chef Push Jobs feature of the Chef Infra Server use the same user
 and group accounts as the Chef Infra Server.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Group Accounts
 

@@ -19,11 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_cookbook_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 bulk delete
 ===========
@@ -54,11 +54,11 @@ This argument has the following options:
     purging a cookbook disables any other cookbook that references one
     or more files from the cookbook that has been purged.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -77,18 +77,18 @@ $ knife cookbook bulk delete "^[0-9]{3}$" -p
 create
 ======
 
-{{< info >}}
+{{< note >}}
 
 This command was removed in Chef Client 13.0. Use the [chef generate
 cookbook](/ctl_chef.html#chef-generate-cookbook) command instead.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -139,11 +139,11 @@ This argument has the following options:
 :   The document format of the readme file: `md` (markdown) and `rdoc`
     (Ruby docs).
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -206,11 +206,11 @@ This argument has the following options:
     purging a cookbook disables any other cookbook that references one
     or more files from the cookbook that has been purged.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -263,11 +263,11 @@ This argument has the following options:
 
 :   Download the most recent version of a cookbook.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -311,11 +311,11 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -359,11 +359,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -462,11 +462,11 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -583,11 +583,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -608,7 +608,7 @@ that are associated with those cookbooks) from a local repository to the
 Chef Infra Server. Only files that do not already exist on the Chef
 Infra Server will be uploaded.
 
-{{< info >}}
+{{< note >}}
 
 Use a chefignore file to prevent the upload of specific files and file
 types, such as temporary files or files placed in folders by version
@@ -616,15 +616,15 @@ control systems. The chefignore file must be located in the root of the
 cookbook repository and must use rules similar to filename globbing (as
 defined by the Ruby `File.fnmatch` syntax).
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 Empty directories are not uploaded to the Chef Infra Server. To upload
 an empty directory, create a "dot" file---e.g. `.keep`---in that
 directory to ensure that the directory itself is not empty.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -672,11 +672,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------

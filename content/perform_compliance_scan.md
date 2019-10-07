@@ -135,12 +135,12 @@ this section if you have already completed this process.
     Select your profiles to upload and click **Done** when you are
     finished.
 
-    {{< info >}}
+    {{< note >}}
 
     Your profiles must be archived as tarballs with a `.tar.gz`
     extension.
 
-    {{< /info >}}
+    {{< /note >}}
 
 Using the Audit Cookbook
 ========================
@@ -245,12 +245,12 @@ localhost [2017-05-17T21:11:11+00:00] INFO: Report handlers complete
 localhost Chef Client finished, 0/2 resources updated in 18 seconds
 ```
 
-{{< info >}}
+{{< note >}}
 
 The `audit` cookbook also requires a time synchronization policy to be
 in place, such as Network Time Protocol (NTP).
 
-{{< /info >}}
+{{< /note >}}
 
 View the results in Chef Automate
 =================================

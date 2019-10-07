@@ -57,12 +57,12 @@ the following:
 
     {{% config_rb_server_settings_ldap %}}
 
-    {{< info >}}
+    {{< note >}}
 
     If the chef-server.rb file does not exist, create a file called
     `chef-server.rb` and put it in the `/etc/opscode/` directory.
 
-    {{< /info >}}
+    {{< /note >}}
 
 3.  {{% install_chef_server_reconfigure %}}
 

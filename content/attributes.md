@@ -505,12 +505,12 @@ syntax pattern:
 
 -   `node.rm('foo', 'bar')`
 
-{{< info >}}
+{{< note >}}
 
 Using `node['foo'].delete('bar')` will throw an exception that points to
 the new API.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Examples
 

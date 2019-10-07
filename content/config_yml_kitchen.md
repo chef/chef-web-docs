@@ -29,13 +29,13 @@ data across any combination of platforms and test suites:
 
 {{% test_kitchen_yml %}}
 
-{{< info >}}
+{{< note >}}
 
 This topic details functionality that is packaged with ChefDK. See
 <https://kitchen.ci/docs/getting-started/> for more information about
 Kitchen.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ======
@@ -296,13 +296,13 @@ New Provisioner Settings
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 There are two community provisioners for Kitchen:
 [kitchen-dsc](https://github.com/smurawski/kitchen-dsc) and
 [kitchen-pester](https://github.com/smurawski/kitchen-pester).
 
-{{< /info >}}
+{{< /note >}}
 
 Transport Settings
 ==================

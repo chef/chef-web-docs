@@ -27,19 +27,19 @@ This Compliance Scanner is available in Chef Automate 1.8.3 or later; it
 can also be enabled in Chef Automate 1.7.114 by typing `beta` anywhere
 in the UI, and selecting the feature via the popup that appears.
 
-{{< info >}}
+{{< note >}}
 
 Credentials are required to perform a compliance scan. See
 [Credentials](automate_compliance_credentials.html).
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 Profiles must be installed from the Profile Store before performing a
 compliance scan. See [Profile Store](profile_store.html).
 
-{{< /info >}}
+{{< /note >}}
 
 Scan Jobs
 =========

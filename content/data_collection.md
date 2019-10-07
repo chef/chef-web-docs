@@ -24,12 +24,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/d
 Automatic Node Run Data Collection with Chef Infra Server
 =========================================================
 
-{{< info >}}
+{{< note >}}
 
 Requires Chef Client 12.16.42 or greater, and Chef Server 12.11.0 or
 greater.
 
-{{< /info >}}
+{{< /note >}}
 
 Nodes can send their run data to Chef Automate through the Chef Infra
 Server automatically. To enable this functionality, you must perform the
@@ -50,14 +50,14 @@ authenticated with a pre-shared key called a `token`. Every Chef
 Automate installation configures a token by default, but we strongly
 recommend that you create your own.
 
-{{< info >}}
+{{< note >}}
 
 The Data Collector token has no minimum or maximum character length
 restrictions. While the UTF-8 character set is supported,
 [US-ASCII](http://www.columbia.edu/kermit/ascii.html) is recommended for
 best results.
 
-{{< /info >}}
+{{< /note >}}
 
 To set your own token, add the following to your
 `/etc/delivery/delivery.rb` file:

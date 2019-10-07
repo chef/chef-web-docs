@@ -39,12 +39,12 @@ This configuration file has the following settings:
     knife[:authentication_protocol_version] = '1.3'
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     Authentication protocol 1.3 is only supported on Chef Server
     versions 12.4.0 and above.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `automatic_attribute_blacklist`
 
@@ -123,13 +123,13 @@ This configuration file has the following settings:
     within a poorly designed cookbook. Default value: `true`. Set to
     `false` to disable running Chef Infra Client in fork node.
 
-    {{< info >}}
+    {{< note >}}
 
     Must be set to `false` up to Chef Client 13.11.3 to gather the
     standard return code offered by `exit_status true`. Later versions
     run as expected without changes to the configuration file.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `client_key`
 

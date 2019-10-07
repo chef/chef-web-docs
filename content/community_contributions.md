@@ -95,7 +95,7 @@ Support](https://www.chef.io/support/) directly.
 
 {{< /warning >}}
 
-{{< info >}}
+{{< note >}}
 
 Questions on how to use Chef Infra should be sent as Support Tickets if
 you have an SLA, or asked on the [Chef Software Mailing
@@ -103,7 +103,7 @@ List](https://discourse.chef.io/), or [Chef Community
 Slack](https://community-slack.chef.io/). Bug Trackers are not
 appropriate for general purpose questions that are not bugs.
 
-{{< /info >}}
+{{< /note >}}
 
 Contribution Process
 ====================
@@ -420,14 +420,14 @@ Use the following steps to synchronize the master branch.
     $ git rebase chef/master master
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     Use `rebase` instead of `merge` to ensure that a linear history is
     maintained that does not include unnecessary merge commits. `rebase`
     will also rewind, apply, and then reapply commits to the `master`
     branch.
 
-    {{< /info >}}
+    {{< /note >}}
 
 Use Branch
 ----------

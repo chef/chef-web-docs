@@ -38,13 +38,13 @@ To enable this functionality, you must perform the following steps:
 Add Chef Automate certificate to `trusted_certs` directory
 ==========================================================
 
-{{< info >}}
+{{< note >}}
 
 This step only applies to self-signed SSL certificates. If you are using
 an SSL certificate signed by a valid certificate authority, you may skip
 this step.
 
-{{< /info >}}
+{{< /note >}}
 
 Chef requires that the self-signed Chef Automate SSL certificate
 (`HOSTNAME.crt`) is located in the `/etc/chef/trusted_certs` directory
@@ -62,11 +62,11 @@ that will be sending data directly to the Chef Automate server.
 Configure Chef Infra Client to use the Data Collector endpoint in Chef Automate
 ===============================================================================
 
-{{< info >}}
+{{< note >}}
 
 Chef version 12.12.15 or greater is required.
 
-{{< /info >}}
+{{< /note >}}
 
 The data collector functionality is used by Chef Infra Client to send
 node and converge data to Chef Automate. This feature works for the

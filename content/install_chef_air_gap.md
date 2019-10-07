@@ -99,12 +99,12 @@ organization and user. Note that in order to configure Supermarket later
 in this guide, you will need a user that is a member of the `admins`
 group.
 
-{{< info >}}
+{{< note >}}
 
 If you intend to use Chef Automate, create the `delivery` user and add
 it to your organization during this step.
 
-{{< /info >}}
+{{< /note >}}
 
 1.  Download the package from <https://downloads.chef.io/chef-server/>.
 
@@ -517,14 +517,14 @@ user's workstation.
     Supermarket in conjunction with Chef Automate, you should log into
     to Supermarket as the `delivery` user.
 
-{{< info >}}
+{{< note >}}
 
 The redirect URL specified for Chef Identity **MUST** match the FQDN
 hostname of the Chef Supermarket server. The URI must also be correct:
 `/auth/chef_oauth2/callback`. Otherwise, an error message similar to
 `The redirect uri included is not valid.` will be shown.
 
-{{< /info >}}
+{{< /note >}}
 
 Configuration updates
 ---------------------
@@ -595,12 +595,12 @@ Installation
     passing or failing. The end of the check will include a report of
     all failures and remediation steps that you can take to fix them.
 
-    {{< info >}}
+    {{< note >}}
 
     As shown in the example above, this command requires root user
     privileges.
 
-    {{< /info >}}
+    {{< /note >}}
 
     Please refer to the troubleshooting section for more information
     about the error codes and remediation steps.
@@ -643,13 +643,13 @@ setup and applied configuration at that time. You can bypass this prompt
 by passing in the argument `--configure` to the `setup` command, which
 will run it automatically, or pass in `--no-configure` to skip it.
 
-{{< info >}}
+{{< note >}}
 
 Your Chef Automate server will not be available for use until you either
 agree to apply the configuration, or manually run
 `sudo automate-ctl reconfigure`.
 
-{{< /info >}}
+{{< /note >}}
 
 If you've applied the configuration, you will also be prompted to set up
 a Chef Automate runner and submit additional information. In addition to

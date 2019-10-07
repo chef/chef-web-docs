@@ -2137,11 +2137,11 @@ management has been greatly reduced.
     This resource was ported from the build-essential community
     cookbook.
 
-    {{< info >}}
+    {{< note >}}
 
     This resource no longer configures msys2 on Windows systems.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   **chef_handler**
 
@@ -2289,14 +2289,14 @@ management has been greatly reduced.
     the node, and restored if the `:remove` action is used later. This
     resource was ported from the sysctl community cookbook.
 
-    {{< info >}}
+    {{< note >}}
 
     This resource no longer backs up existing key values to the node
     when changing values as we have done in the sysctl cookbook
     previously. The resource has also been renamed from `sysctl_param`
     to `sysctl` with backwards compatibility for the previous name.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   **windows_ad_join**
 
@@ -2324,7 +2324,7 @@ management has been greatly reduced.
     editions of Windows. This resource was ported from the windows
     community cookbook.
 
-    {{< info >}}
+    {{< note >}}
 
     These resources received significant refactoring in the 4.0 version
     of the windows cookbook (March 2018). windows_feature resources
@@ -2334,7 +2334,7 @@ management has been greatly reduced.
     you are using a windows_cookbook version less than 4.0, you may
     need to update cookbooks for Chef 14.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   **windows_font**
 
@@ -3366,14 +3366,14 @@ This release includes Ruby 2.4.2 to fix the following CVEs:
 
 It contains no other changes from version 13.4.19.
 
-{{< info >}}
+{{< note >}}
 
 Due to issues beyond our control, this release is only built for Linux
 (on x86, x86_64 and s390x), FreeBSD, and Windows. We’ll release a new
 build with support for our other platforms (AIX, Solaris, and macOS) as
 soon as possible.
 
-{{< /info >}}
+{{< /note >}}
 
 What's New in 13.4.19
 =====================
@@ -4673,11 +4673,11 @@ client configuration. If you do not have Chef Automate, or the feature
 is disabled on the Chef server, Chef client will detect this and disable
 data collection.
 
-{{< info >}}
+{{< note >}}
 
 Chef Server 12.11.0 or newer is required for this feature.
 
-{{< /info >}}
+{{< /note >}}
 
 RFC018 Partially Implemented: Specify `--field-separator` for attribute filtering
 ---------------------------------------------------------------------------------
@@ -4779,12 +4779,12 @@ cab_package 'Remove .NET 3.5 sp1 via KB958488' do
 end
 ```
 
-{{< info >}}
+{{< note >}}
 
 The `cab_package` resource does not support URL strings in the source
 property.
 
-{{< /info >}}
+{{< /note >}}
 
 exit code 213
 -------------
@@ -4942,11 +4942,11 @@ The `write!` method is also an autovivifying method to set an attribute
 value on a node object; however, it will throw an NoSuchAttribute
 exception if there is a non-hash on an intermediate key.
 
-{{< info >}}
+{{< note >}}
 
 There is currently no non-autovivifying writer method for attributes.
 
-{{< /info >}}
+{{< /note >}}
 
 On the node level, `node.default.write/write!("foo", "bar")` is
 equivalent to `node.write/write!(:default, "foo", "bar")`.
@@ -5016,13 +5016,13 @@ converted to `1` or `GENERIC_FAILURE`. This setting can also be set to
 `:disabled` which preserves the old behavior of using non-standardized
 exit codes and skips the deprecation warnings. Default value: `nil`.
 
-{{< info >}}
+{{< note >}}
 
 The behavior with the default value consists of a warning on the use of
 deprecated and non-standard exit codes. In a future release of Chef
 client, using standardized exit codes will be the default behavior.
 
-{{< /info >}}
+{{< /note >}}
 
 Data collector
 --------------
@@ -5677,13 +5677,13 @@ including certain ciphers and hashing algorithms. Any attempt to use any
 disallowed cryptography will cause Chef Client to throw an exception
 during a chef-client run.
 
-{{< info >}}
+{{< note >}}
 
 Chef uses MD5 hashes to uniquely identify files that are stored on the
 Chef server. MD5 is used only to generate a unique hash identifier and
 is not used for any cryptographic purpose.
 
-{{< /info >}}
+{{< /note >}}
 
 Notes about FIPS:
 
@@ -5769,12 +5769,12 @@ configuration file. The `config.rb`, `company_settings.rb`, and
 `ec2_configuration` files are merged together as if they are a single
 configuration file.
 
-{{< info >}}
+{{< note >}}
 
 If multiple configuration files exists in a `.d` directory, ensure that
 the same setting has the same value in all files.
 
-{{< /info >}}
+{{< /note >}}
 
 launchd
 -------
@@ -7101,14 +7101,14 @@ are executed with this resource are (by their nature) not idempotent, as
 they are typically unique to the environment in which they are run. Use
 `not_if` and `only_if` to guard this resource for idempotence.
 
-{{< info >}}
+{{< note >}}
 
 The **ksh** script resource (which is based on the **script** resource)
 is different from the **ruby_block** resource because Ruby code that is
 run with this resource is created as a temporary file and executed like
 other script resources, rather than run inline.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Syntax
 
@@ -7282,7 +7282,7 @@ Using the **dsc_resource** has the following requirements:
 -   The `RefreshMode` configuration setting in the Local Configuration
     Manager must be set to `Disabled`.
 
-    {{< info >}}
+    {{< note >}}
 
     Starting with Chef Client 12.6 release, this requirement applies
     only for versions of Windows PowerShell earlier than 5.0.10586.0.
@@ -7290,7 +7290,7 @@ Using the **dsc_resource** has the following requirements:
     relaxed the limitation that prevented Chef Client from running in
     non-disabled refresh mode.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   The **dsc_script** resource may not be used in the same run-list
     with the **dsc_resource**. This is because the **dsc_script**
@@ -7298,7 +7298,7 @@ Using the **dsc_resource** has the following requirements:
     Manager be set to `Push`, whereas the **dsc_resource** resource
     requires it to be set to `Disabled`.
 
-    {{< info >}}
+    {{< note >}}
 
     Starting with Chef Client 12.6 release, this requirement applies
     only for versions of Windows PowerShell earlier than 5.0.10586.0.
@@ -7307,7 +7307,7 @@ Using the **dsc_resource** has the following requirements:
     non-disabled refresh mode, which allows the Local Configuration
     Manager to be set to `Push`.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   The **dsc_resource** resource can only use binary- or script-based
     resources. Composite DSC resources may not be used.
@@ -7359,11 +7359,11 @@ The following settings are new for metadata.rb:
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 These settings are not visible in Chef Supermarket.
 
-{{< /info >}}
+{{< /note >}}
 
 knife bootstrap Options
 -----------------------
@@ -7461,12 +7461,12 @@ For example, Chef includes built-in resources to manage files, packages,
 templates, and services, but it does not include a resource that manages
 websites.
 
-{{< info >}}
+{{< note >}}
 
 See /custom_resources.html for more information about custom resources,
 including a scenario that shows how to build a `website` resource.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Syntax
 
@@ -8330,12 +8330,12 @@ Chef Client run fails. This will require:
 -   A way to trigger the exception and test the behavior of the event
     handler
 
-{{< info >}}
+{{< note >}}
 
 See /dsl_handler.html for more information about using event handlers
 in recipes.
 
-{{< /info >}}
+{{< /note >}}
 
 **Define How Email is Sent**
 
@@ -8554,13 +8554,13 @@ enable the use of policy files:
 
     Use this option to set the `chef_environment` value for a node.
 
-    {{< info >}}
+    {{< note >}}
 
     Any environment specified for `chef_environment` by a JSON file will
     take precedence over an environment specified by the `--environment`
     option when both options are part of the same command.
 
-    {{< /info >}}
+    {{< /note >}}
 
     For example, run the following:
 
@@ -9089,7 +9089,7 @@ This argument has the following options:
 :   Create a user without a public key. This key may be managed later by
     using the `knife user key` subcommands.
 
-    {{< info >}}
+    {{< note >}}
 
     This option is valid only with Chef server API, version 1.0, which
     was released with Chef server 12.1. If this option or the
@@ -9099,7 +9099,7 @@ This argument has the following options:
     this option will not work; a public key is always generated unless
     `--user-key` is passed in the command.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `-p FILE`, `--public-key FILE`
 
@@ -9133,7 +9133,7 @@ This argument has the following options:
 :   Create a user without a public key. This key may be managed later by
     using the `knife user key` subcommands.
 
-    {{< info >}}
+    {{< note >}}
 
     This option is valid only with Chef server API, version 1.0, which
     was released with Chef server 12.1. If this option or the
@@ -9143,7 +9143,7 @@ This argument has the following options:
     this option will not work; a public key is always generated unless
     `--user-key` is passed in the command.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `-p PASSWORD`, `--password PASSWORD`
 
@@ -9306,7 +9306,7 @@ Using the **dsc_resource** has the following requirements:
 -   The `RefreshMode` configuration setting in the Local Configuration
     Manager must be set to `Disabled`.
 
-    {{< info >}}
+    {{< note >}}
 
     Starting with Chef Client 12.6 release, the `RefreshMode: Disabled`
     requirement applies only for versions of Windows PowerShell earlier
@@ -9314,7 +9314,7 @@ Using the **dsc_resource** has the following requirements:
     (WMF) 5 has relaxed the limitation that prevented Chef Client from
     running in non-disabled refresh mode.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   The **dsc_script** resource may not be used in the same run-list
     with the **dsc_resource**. This is because the **dsc_script**
@@ -10860,12 +10860,12 @@ The following attribute is new for the **chef_gem** resource:
     chef-client run), or `false` (to remove all warnings). Recommended
     value: `false`.
 
-    {{< info >}}
+    {{< note >}}
 
     This topic is hooked into client.rb topics, starting with 12.1, in
     addition to the resource reference pages.
 
-    {{< /info >}}
+    {{< /note >}}
 
     To suppress warnings for cookbooks authored prior to chef-client
     12.1, use a `respond_to?` check to ensure backward compatibility.
@@ -10895,7 +10895,7 @@ paludis_package
 Use the **paludis_package** resource to manage packages for the Paludis
 platform.
 
-{{< info >}}
+{{< note >}}
 
 In many cases, it is better to use the package resource instead of this
 one. This is because when the package resource is used in a recipe, Chef
@@ -10904,7 +10904,7 @@ Client run to determine the correct package application. Using the
 package resource allows a recipe to be authored in a way that allows it
 to be used across many platforms.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Syntax
 
@@ -11118,7 +11118,7 @@ openbsd_package
 Use the **openbsd_package** resource to manage packages for the OpenBSD
 platform.
 
-{{< info >}}
+{{< note >}}
 
 In many cases, it is better to use the package resource instead of this
 one. This is because when the package resource is used in a recipe, Chef
@@ -11127,7 +11127,7 @@ Client run to determine the correct package application. Using the
 package resource allows a recipe to be authored in a way that allows it
 to be used across many platforms.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Syntax
 
@@ -11341,12 +11341,12 @@ The following client.rb settings are new:
     Client is configuring the node (the "converge phase"). Recommended
     value: `false`.
 
-    {{< info >}}
+    {{< note >}}
 
     This topic is hooked into client.rb topics, starting with 12.1, in
     addition to the resource reference pages.
 
-    {{< /info >}}
+    {{< /note >}}
 
     To suppress warnings for cookbooks authored prior to chef-client
     12.1, use a `respond_to?` check to ensure backward compatibility.
@@ -11429,13 +11429,13 @@ log 'call a notification' do
 end
 ```
 
-{{< info >}}
+{{< note >}}
 
 Notifications and subscriptions do not need to be updated when packages
 and versions are added or removed from the `package_name` or `version`
 properties.
 
-{{< /info >}}
+{{< /note >}}
 
 What's New in 12.0
 ==================
@@ -11768,12 +11768,12 @@ syntax pattern:
 
 -   `node.rm('foo', 'bar')`
 
-{{< info >}}
+{{< note >}}
 
 Using `node['foo'].delete('bar')` will throw an exception that points to
 the new API.
 
-{{< /info >}}
+{{< /note >}}
 
 #### Examples
 
@@ -12094,7 +12094,7 @@ system process limits:
     $ chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     The previous commands may be run against the root user, instead of
     default. For example:
@@ -12103,7 +12103,7 @@ system process limits:
     $ chsec -f /etc/security/limits -s root_user -a "rss=-1"
     ```
 
-    {{< /info >}}
+    {{< /note >}}
 
 3.  Reboot the logical partition (LPAR) to apply the updated system
     process limits.
@@ -12324,13 +12324,13 @@ platform using the installp utility. When a package is installed from a
 local file, it must be added to the node using the **remote_file** or
 **cookbook_file** resources.
 
-{{< info >}}
+{{< note >}}
 
 A Backup File Format (BFF) package may not have a `.bff` file extension.
 Chef Client will still identify the correct provider to use based on the
 platform, regardless of the file extension.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Syntax
 
@@ -13362,11 +13362,11 @@ The following options are new:
     Default value: `chef-full`, which installs Chef Client using the
     omnibus installer on all supported platforms.
 
-    {{< info >}}
+    {{< note >}}
 
     The `--distro` and `--template-file` options are deprecated.
 
-    {{< /info >}}
+    {{< /note >}}
 
 knife status Settings
 ---------------------
@@ -13515,13 +13515,13 @@ value_for_platform(
 }
 ```
 
-{{< info >}}
+{{< note >}}
 
 When two version constraints match it is considered ambiguous and will
 raise an exception. An exact match, however, will always take precedence
 over a version constraint.
 
-{{< /info >}}
+{{< /note >}}
 
 File Specificity
 ----------------
@@ -13696,12 +13696,12 @@ Use `:filter_result` as part of a search query to filter the search
 output based on the pattern specified by a Hash. Only attributes in the
 Hash will be returned.
 
-{{< info >}}
+{{< note >}}
 
 Prior to chef-client 12.0, this functionality was available from the
 `partial_search` cookbook and was referred to as "partial search".
 
-{{< /info >}}
+{{< /note >}}
 
 The syntax for the `search` method that uses `:filter_result` is as
 follows:
@@ -13780,9 +13780,9 @@ The following property is new for the **git** resource:
 <tr class="odd">
 <td><p><code>environment</code></p></td>
 <td><p>A Hash of environment variables in the form of <code>({"ENV_VARIABLE" =&gt; "VALUE"})</code>. (These variables must exist for a command to be run successfully.)</p>
-{{< info >}}
+{{< note >}}
 <p>The <strong>git</strong> provider automatically sets the <code>ENV['HOME']</code> and <code>ENV['GIT_SSH']</code> environment variables. To override this behavior and provide different values, add <code>ENV['HOME']</code> and/or <code>ENV['GIT_SSH']</code> to the <code>environment</code> Hash.</p>
-{{< /info >}}</td>
+{{< /note >}}</td>
 </tr>
 </tbody>
 </table>

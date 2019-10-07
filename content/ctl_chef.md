@@ -292,11 +292,11 @@ chef generate cookbook
 
 Use the `chef generate cookbook` subcommand to generate a cookbook.
 
-{{< info >}}
+{{< note >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -437,12 +437,12 @@ repository from which the `chef` command is run:
 $ chef generate cookbook --generator-cookbook ~/Desktop testcookbook
 ```
 
-{{< info >}}
+{{< note >}}
 
 The `code_generator` cookbook itself is not specified as part of the
 path.
 
-{{< /info >}}
+{{< /note >}}
 
 will return something similar to:
 
@@ -588,11 +588,11 @@ chef generate resource
 Use the `chef generate resource` subcommand to generate a custom
 resource in the `/resources` directory.
 
-{{< info >}}
+{{< note >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------

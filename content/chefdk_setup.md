@@ -25,13 +25,13 @@ Configure Ruby Environment
 For many users of Chef, the version of Ruby that is included in ChefDK
 should be configured as the default version of Ruby.
 
-{{< info >}}
+{{< note >}}
 
 These instructions are intended for macOS and Linux users. For
 instructions on setting up your Ruby environment on Windows, see [ChefDK
 on Windows](/dk_windows.html#configure-environment).
 
-{{< /info >}}
+{{< /note >}}
 
 1.  Open a command window and enter the following:
 
@@ -60,14 +60,14 @@ on Windows](/dk_windows.html#configure-environment).
 3.  Run `which ruby` again. It should return
     `/opt/chefdk/embedded/bin/ruby`.
 
-{{< info >}}
+{{< note >}}
 
 Using ChefDK-provided Ruby as your system Ruby is optional. For many
 users, Ruby is primarily used for authoring Chef cookbooks and recipes.
 If that's true for you, then using the ChefDK-provided Ruby is
 recommended.
 
-{{< /info >}}
+{{< /note >}}
 
 Add Ruby to \$PATH
 ==================

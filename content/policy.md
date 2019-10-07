@@ -22,56 +22,56 @@ Cookbook Versions
 
 {{% cookbooks_version %}}
 
-{{< info >}}
+{{< note >}}
 
 For more information about cookbook versioning, see [About Cookbook
 Versioning](/cookbook_versioning/)
 
-{{< /info >}}
+{{< /note >}}
 
 Data Bags (Secrets)
 ===================
 
 {{% data_bag %}}
 
-{{< info >}}
+{{< note >}}
 
 For more information about data bags, see [About Data
 Bags](/data_bags/)
 
-{{< /info >}}
+{{< /note >}}
 
 Environments
 ============
 
 {{% environment %}}
 
-{{< info >}}
+{{< note >}}
 
 For more information about environments, see [About
 Environments](/environments/)
 
-{{< /info >}}
+{{< /note >}}
 
 Roles
 =====
 
 {{% role %}}
 
-{{< info >}}
+{{< note >}}
 
 For more information about roles, see [About Roles](/roles/)
 
-{{< /info >}}
+{{< /note >}}
 
 Policyfile
 ==========
 
 {{% policyfile_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 For more information about Policyfile, see [About
 Policyfile](/policyfile/)
 
-{{< /info >}}
+{{< /note >}}

@@ -57,11 +57,11 @@ run_list add
 
 {{% knife_node_run_list_add_options %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 ### Examples
 
@@ -100,11 +100,11 @@ run_list remove
 
 This command does not have any specific options.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 ### Examples
 

@@ -113,13 +113,13 @@ $ tar xvzf /supermarket_cookbook_versions.tar.gz
 Database Restore
 ----------------
 
-{{< info >}}
+{{< note >}}
 
 The restore does not support transferring backups across different
 versions of Supermarket. Backups taken must be restored to the same
 version of Supermarket that was in use when they were created.
 
-{{< /info >}}
+{{< /note >}}
 
 For example, to restore a backup in a .dump format, run:
 

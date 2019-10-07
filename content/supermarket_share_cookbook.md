@@ -21,7 +21,7 @@ Supermarket](https://supermarket.chef.io/). The public Supermarket uses
 for user authentication. You will need a Hosted Chef account to share
 cookbooks.
 
-{{< info >}}
+{{< note >}}
 
 If you already use Hosted Chef as your Chef Infra Server, skip to the
 cookbook sharing method of your choice:
@@ -29,7 +29,7 @@ cookbook sharing method of your choice:
 -   [Stove](/supermarket_share_cookbook.html#share-cookbooks-via-stove)
 -   [Knife](/supermarket_share_cookbook.html#share-cookbooks-via-knife)
 
-{{< /info >}}
+{{< /note >}}
 
 Create a Hosted Chef Account
 ============================
@@ -58,14 +58,14 @@ as opposed to the
 [Knife](/supermarket_share_cookbook.html#share-cookbooks-via-knife)
 method which requires a cookbook repository.
 
-{{< info >}}
+{{< note >}}
 
 Stove is included in ChefDK. If you are not using ChefDK, follow the
 [Stove installation
 instructions](https://github.com/sethvargo/stove#installation) to
 install Stove separately.
 
-{{< /info >}}
+{{< /note >}}
 
 1.  Add your Hosted Chef credentials to Stove. Replace `USER` with your
     Hosted Chef user, and `KEY.pem` with your the full path to Hosted
@@ -101,12 +101,12 @@ cookbooks to the Supermarket via Knife. In this section you'll configure
 the chef-repo that was created by the Hosted Chef starter kit, and then
 upload cookbooks from your workstation's cookbook repository.
 
-{{< info >}}
+{{< note >}}
 
 If you're using Hosted Chef as your regular Chef Infra Server, skip to
 the second step.
 
-{{< /info >}}
+{{< /note >}}
 
 1.  The `config.rb` file located under `/chef-repo/.chef/config.rb`
     contains the basic information necessary to authenticate with Hosted
