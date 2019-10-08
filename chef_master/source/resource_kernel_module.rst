@@ -3,7 +3,7 @@ kernel_module resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_kernel_module.rst>`__
 
-Use the **kernel_module** resource to manage kernel modules on Linux systems. This resource can load, unload, blacklist, install, and uninstall modules.
+Use the **kernel_module** resource to manage kernel modules on Linux systems. This resource can load, unload, blacklist, disable, install, and uninstall modules.
 
 **New in Chef Client 14.3.**
 
@@ -17,6 +17,7 @@ The kernel_module resource has the following syntax:
   kernel_module 'name' do
     load_dir        String # default value: "/etc/modules-load.d"
     modname         String # default value: 'name' unless specified
+    options         Array
     unload_dir      String # default value: "/etc/modprobe.d"
     action          Symbol # defaults to :install if not specified
   end
@@ -26,7 +27,7 @@ where:
 * ``kernel_module`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``load_dir``, ``modname``, and ``unload_dir`` are the properties available to this resource.
+* ``load_dir``, ``modname``, ``options``, and ``unload_dir`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -74,6 +75,13 @@ The kernel_module resource has the following properties:
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property to set the kernel module name if it differs from the resource block's name.
+
+``options``
+   **Ruby Type:** Array
+
+   An optional property to set options for the kernel module.
+
+   *New in Chef Infra Client 15.4.*
 
 ``unload_dir``
    **Ruby Type:** String | **Default Value:** ``"/etc/modprobe.d"``
@@ -227,3 +235,56 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+Install and load a kernel module, and ensure it loads on reboot.
+
+.. code-block:: ruby
+  kernel_module 'loop'
+
+Install and load a kernel with a specific set of options, and ensure it loads on reboot. Consult kernel module
+documentation for specific options that are supported.
+
+.. code-block:: ruby
+  kernel_module 'loop' do
+    options [ 'max_loop=4', 'max_part=8' ]
+  end
+
+Load a kernel module.
+
+.. code-block:: ruby
+  kernel_module 'loop' do
+    action :load
+  end
+
+Unload a kernel module and remove module config, so it doesn’t load on reboot.
+
+.. code-block:: ruby
+  kernel_module 'loop' do
+    action :uninstall
+  end
+
+Unload kernel module
+
+.. code-block:: ruby
+  kernel_module 'loop' do
+    action :unload
+  end
+
+Blacklist a module from loading.
+
+.. code-block:: ruby
+  kernel_module 'loop' do
+    action :blacklist
+  end
+
+Disable a kernel module.
+
+.. code-block:: ruby
+  kernel_module 'loop' do
+    action :disable
+  end
