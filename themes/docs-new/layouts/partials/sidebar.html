@@ -39,13 +39,27 @@
                       </ul>
                     </li>
                   {{ else }}
-                    <li{{ if $currentPage.IsMenuCurrent "docs" . }} class="active"{{ end }}><a href="{{ .URL }}">{{ or .Title .Name }}</a></li>
+                    <li{{ if $currentPage.IsMenuCurrent "docs" . }} class="active"{{ end }}>
+                      <a href="{{ .URL }}">
+                        {{ or .Title .Name }}
+                        {{ if eq (print .Pre) "external_link" }}
+                          <div class="external_link_icon"></div>
+                        {{ end }}
+                      </a>
+                    </li>
                   {{ end }}
                 {{ end }}
               </ul>
             </li>
           {{ else }}
-            <li{{ if $currentPage.IsMenuCurrent "docs" . }} class="active"{{ end }}><a href="{{ .URL }}">{{ or .Title .Name }}</a></li>
+            <li {{ if $currentPage.IsMenuCurrent "docs" . }} class="active"{{ end }}>
+              <a href="{{ .URL }}">
+                {{ or .Title .Name }}
+                {{ if eq (print .Pre) "external_link"  }}
+                  <div class="external_link_icon"></div>
+                {{ end }}
+              </a>
+            </li>
           {{ end }}
         {{ end }}
       </ul>

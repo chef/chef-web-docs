@@ -24,7 +24,7 @@
           };
         }
       }
-
+      
       .nested.is-active li.active a {
         font-weight: normal;
         background: none;
@@ -42,4 +42,13 @@
       }
     }
   }
+}
+
+.external_link_icon {
+  display: inline-block;
+  width: 10px;
+  background: url("/images/external-link.svg");
+  background-size: contain;
+  padding: 5px;
+  filter: invert(51%) sepia(0%) saturate(13%) hue-rotate(142deg) brightness(89%) contrast(83%);
 }
