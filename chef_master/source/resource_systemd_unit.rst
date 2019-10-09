@@ -142,6 +142,14 @@ The systemd_unit resource has the following properties:
 
    Specifies if the unit will be verified before installation. Systemd can be overly strict when verifying units, so in certain cases it is preferable not to verify the unit.
 
+Unit file verification
+=====================================================
+
+The unit file is verified via a ``systemd-analyze verify`` call before written to disk.
+
+Be aware of that and make sure, that e.g. the commands and files you reference actually exist.
+
+
 Common Resource Functionality
 =====================================================
 
