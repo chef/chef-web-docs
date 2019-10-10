@@ -23,7 +23,7 @@ Chef Infra Server requires an EULA to be accepted by users before it can be inst
 * ``CHEF_LICENSE="accept" chef-server-ctl reconfigure``
 * ``CHEF_LICENSE="accept-no-persist" chef-server-ctl reconfigure``
 
-Finally, if users run `chef-server-ctl reconfigure` without any of these options, they will receive an interactive prompt asking for license acceptance. If the license is accepted, a marker file will be written to the filesystem unless `accept-no-persist` is specified. Once this marker file is persisted, users no longer need to set any of these flags.
+Finally, if users run ``chef-server-ctl reconfigure`` without any of these options, they will receive an interactive prompt asking for license acceptance. If the license is accepted, a marker file will be written to the filesystem unless ``accept-no-persist`` is specified. Once this marker file is persisted, users no longer need to set any of these flags.
 
 See our `Frequently Asked Questions document <https://www.chef.io/bmc-faq/>`__ for more information on the EULA and license acceptance.
 
