@@ -18,12 +18,12 @@ Chef EULA
 
 Chef Infra Server requires an EULA to be accepted by users before it can be installed. Users can accept the EULA in a variety of ways:
 
-* `chef-server-ctl reconfigure --chef-license accept`
-* `chef-server-ctl reconfigure --chef-license accept-no-persist`
-* `CHEF_LICENSE="accept" chef-server-ctl reconfigure`
-* `CHEF_LICENSE="accept-no-persist" chef-server-ctl reconfigure`
+* ``chef-server-ctl reconfigure --chef-license accept``
+* ``chef-server-ctl reconfigure --chef-license accept-no-persist``
+* ``CHEF_LICENSE="accept" chef-server-ctl reconfigure``
+* ``CHEF_LICENSE="accept-no-persist" chef-server-ctl reconfigure``
 
-Finally, if users run `chef-server-ctl reconfigure` without any of these options, they will receive an interactive prompt asking for license acceptance. If the license is accepted, a marker file will be written to the filesystem unless `accept-no-persist` is specified. Once this marker file is persisted, users no longer need to set any of these flags.
+Finally, if users run ``chef-server-ctl reconfigure`` without any of these options, they will receive an interactive prompt asking for license acceptance. If the license is accepted, a marker file will be written to the filesystem unless ``accept-no-persist`` is specified. Once this marker file is persisted, users no longer need to set any of these flags.
 
 See our `Frequently Asked Questions document <https://www.chef.io/bmc-faq/>`__ for more information on the EULA and license acceptance.
 
@@ -57,7 +57,7 @@ What's New in 12.19.31
 This release was triggered by the update to Habitat base plans. (https://blog.chef.io/2019/01/28/base-plans-refresh-is-coming-to-habitat-core-plans/)
 Omnibus release was done to keep in sync with the Habitat release.
 
-* `chef-server-ctl` leverages HAB_LISTEN_CTL envvar if available.
+* ``chef-server-ctl`` leverages HAB_LISTEN_CTL envvar if available.
 
 
 What's New in 12.19.26
@@ -70,7 +70,7 @@ This release contains some minor improvements and updates to include software:
 * Erlang updated to 18.3.4.9
 
   * Fixed two CVEs CVE-2017-1000385 and CVE-2016-10253. SSL headers got stricter which unfortunately broke LDAP. (Issue #1642)
-  * Removed `et`, `debugger`, `gs`, and `observer` as they depend on `wx`, which is not available on all platforms.
+  * Removed ``et``, ``debugger``, ``gs``, and ``observer`` as they depend on ``wx``, which is not available on all platforms.
   
 * Ruby updated to 2.5.3.
 * Chef Client updated to 14.5.
@@ -78,10 +78,10 @@ This release contains some minor improvements and updates to include software:
 * Added configuration for pedant SSL-signed requests to include mTLS support.
 * Habitat package improvements:
 
-  * Increased `authn:keygen_timeout` amount for `oc_erchef` hab pkg.
-  * Removed `do_end` function from `chef-server-ctl` hab plan.
-  * Enhanced `chef-server-ctl` to function in more habitat environments.
-  * `chef-server-ctl` commands pass relevant TLS options during bifrost API calls.
+  * Increased ``authn:keygen_timeout`` amount for ``oc_erchef`` hab pkg.
+  * Removed ``do_end`` function from ``chef-server-ctl`` hab plan.
+  * Enhanced ``chef-server-ctl`` to function in more habitat environments.
+  * ``chef-server-ctl`` commands pass relevant TLS options during bifrost API calls.
   
 * Used standard ruby-cleanup definition, which shrinks install size by ~5% on disk.
 * Removed unused couchdb configurables.
