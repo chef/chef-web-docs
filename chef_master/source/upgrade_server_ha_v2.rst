@@ -11,12 +11,10 @@ This topic describes the process of upgrading a highly available Chef Infra Serv
 
 Overview
 =====================================================
-These instructions cover the process of upgrading a Chef Backend cluster. Please refer to the appropriate directions for the version of Chef Backend you are using, and the version you intend to upgrade to:
+These instructions cover the process of upgrading a Chef Backend cluster. Please refer to the appropriate directions for the version of Chef Backend that you are using and the version that you intend to upgrade to:
 
 * `Chef Backend 1.x to 2.x Upgrade`_ (downtime upgrade)
 * `Chef Backend Minor Version Upgrade`_ (rolling upgrade)
-
-.. note:: The Minor Version Upgrade is appropriate for all upgrades other than one major version to another major version, for example: 1.x to 1.x upgrades, 2.x to 2.x upgrades
 
 Chef Backend 1.x to 2.x Upgrade
 =====================================================
@@ -82,6 +80,8 @@ Chef Backend 1.x to 2.x Upgrade
 
 Chef Backend Minor Version Upgrade
 =====================================================
+
+The Minor Version Upgrade is appropriate for all upgrades of a Chef Backend cluster other than upgrades from one major version to another major version. For example, 1.x to 1.x upgrades or 2.x to 2.x upgrades.
 
 .. note:: The procedure assumes that the new chef-backend package has been copied to all of the nodes.
 
