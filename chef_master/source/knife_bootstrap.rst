@@ -5,10 +5,10 @@ knife bootstrap
 
 .. tag chef_client_bootstrap_node
 
-A node is any physical, virtual, or cloud machine that is configured to be maintained by a Chef Infra Client. In order to bootstrap a node, you will first need a working installation of the `Chef software package </packages.html>`__. A bootstrap installs Chef Infra Client on a target system so that it can run as a client and communicate with Chef Infra Server. There are two ways to do this:
+A node is any physical, virtual, or cloud device that is configured and maintained by an instance of Chef Infra Client. Bootstrapping installs Chef Infra Client on a target system so that it can run as a client and sets the node up to communicate with a Chef Infra Server. There are two ways to do this:
 
-* Use the ``knife bootstrap`` subcommand to `bootstrap a node using the Chef installer </install_bootstrap.html>`__
-* Use an unattended install to bootstrap a node from itself, without using SSH or WinRM
+* Run the ``knife bootstrap`` command from a workstation.
+* Perform an unattended install to bootstrap from the node itself, without requiring SSH or WinRM connectivity.
 
 .. end_tag
 
@@ -20,11 +20,9 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 **Considerations:**
 
-* As of Chef Server 12.8 you can create a ``.chef/client.d`` directory on your workstation and the contents of that ``client.d`` directory will be copied to the system being bootstrapped by the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in ``config.rb`` to point to an arbitrary directory instead of ``.chef/client.d``, and the contents of that directory will be copied to the system being bootstrapped. All config files inside ``client.d`` directory get copied into ``/etc/chef/client.d`` on the system being bootstrapped.
+* Knife will copy the contents of the ``~/.chef/client.d`` directory on your local workstation to the ``client.d`` directory on the device being bootstrapped with the ``knife bootstrap`` command. You can also set the ``client_d_dir`` option in the ``config.rb`` file to point to an arbitrary directory instead of ``~/.chef/client.d``, and the contents of that directory will be copied to the device being bootstrapped. All config files inside the ``client.d`` directory will get copied into the ``/etc/chef/client.d`` directory on the system being bootstrapped.
 
-* Starting with Chef Server 12.0, use the `knife ssl fetch </knife_ssl_fetch.html>`__ command to pull down the SSL certificates from the on-premises Chef Infra Server and add them to the ``/trusted_certs_dir`` on the workstation. These certificates are used during a ``knife bootstrap`` operation.
-
-* To bootstrap Chef Infra Client on Microsoft Windows machines, the `knife-windows </knife_windows.html>`__ plugin is required.
+* SSL certificates from an on-premises Chef Infra Server can be copied to the ``/trusted_certs_dir`` directory on your local workstation automatically by running `knife ssl fetch </knife_ssl_fetch.html>`__. These certificates are used during ``knife`` operations to communicate with the Chef Infra Server.
 
 Syntax
 =====================================================
@@ -48,33 +46,157 @@ Options
 
 .. tag knife_bootstrap_options
 
-This subcommand has the following options:
+General Connection Options
+-----------------------------------------------------
 
-``-A``, ``--forward-agent``
+``-U USERNAME``, ``--connection-user USERNAME``
+   Authenticate to the target host with this user account.
+
+``-P PASSWORD``, ``--connection-password PASSWORD``
+   Authenticate to the target host with this password."
+
+``-p PORT``, ``--connection-port PORT``
+   The port on the target node to connect to."
+
+``-o PROTOCOL``, ``--connection-protocol PROTOCOL``
+   The protocol to use to connect to the target node.
+
+``-W SECONDS``, ``--max-wait SECONDS``
+   The maximum time to wait for the initial connection to be established.
+
+``--session-timeout SECONDS``
+   The number of seconds to wait for each connection operation to be acknowledged while running bootstrap.
+
+WinRM Connection Options
+-----------------------------------------------------
+
+``--winrm-ssl-peer-fingerprint FINGERPRINT``
+   SSL certificate fingerprint expected from the target.
+
+``-f CA_TRUST_PATH``, ``--ca-trust-file CA_TRUST_PATH``
+   The Certificate Authority (CA) trust file used for SSL transport
+
+``--winrm-no-verify-cert``
+   Do not verify the SSL certificate of the target node for WinRM.
+
+``--winrm-ssl``
+   Use SSL in the WinRM connection.
+
+``-w AUTH-METHOD``, ``--winrm-auth-method AUTH-METHOD``
+   The WinRM authentication method to use.
+
+``--winrm-basic-auth-only``
+   For WinRM basic authentication when using the 'ssl' auth method.
+
+``-R KERBEROS_REALM``, ``--kerberos-realm KERBEROS_REALM```
+   The Kerberos realm used for authentication.
+
+``-S KERBEROS_SERVICE``, ``--kerberos-service KERBEROS_SERVICE``
+   The Kerberos service used for authentication.
+
+SSH Connection Options
+-----------------------------------------------------
+
+``-G GATEWAY``, ``--ssh-gateway GATEWAY``
+   The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
+
+``--ssh-gateway-identity SSH_GATEWAY_IDENTITY``
+   The SSH identity file used for gateway authentication.
+
+``-A``, ``--ssh-forward-agent``
    Enable SSH agent forwarding.
 
-``--bootstrap-curl-options OPTIONS``
-   Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
+``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
+   The SSH identity file used for authentication. Key-based authentication is recommended.
+
+``ssh_verify_host_key``, ``--ssh-verify-host-key VALUE``
+   Verify host key. Default is 'always'
+
+Chef Installation Options
+-----------------------------------------------------
+
+``--bootstrap-version VERSION``
+   The version of Chef Infra Client to install.
 
 ``--bootstrap-install-command COMMAND``
    Execute a custom installation command sequence for Chef Infra Client. This option may not be used in the same command with ``--bootstrap-curl-options`` or ``--bootstrap-wget-options``.
 
-``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
-   A URL or IP address that specifies a location that should not be proxied.
+``--bootstrap-curl-options OPTIONS``
+   Arbitrary options to be added to the bootstrap command when using cURL. This option may not be used in the same command with ``--bootstrap-install-command``.
 
-   .. note:: This option is used internally by Chef to help verify bootstrap operations during testing and should never be used during an actual bootstrap operation.
+``--bootstrap-wget-options OPTIONS``
+   Arbitrary options to be added to the bootstrap command when using GNU Wget. This option may not be used in the same command with ``--bootstrap-install-command``.
 
 ``--bootstrap-preinstall-command COMMANDS``
    Custom commands to run before installing Chef Infra Client
 
-``--bootstrap-proxy-pass PROXY_PASS``
-   The proxy authentication password for the node being bootstrapped
+``--bootstrap-url URL``
+   The URL to a custom installation script.
 
-``--bootstrap-proxy-user PROXY_USER``
-   The proxy authentication username for the node being bootstrapped
+``-m URL``, ``--msi-url URL``
+   Location of the Chef Infra Client MSI. The default templates will prefer to download from this location. The MSI will be downloaded from chef.io if not provided.
+
+``--sudo``
+   Execute a bootstrap operation with sudo.
+
+``--sudo-preserve-home``
+   Use to preserve the non-root user's ``HOME`` environment.
+
+``--use-sudo-password``
+   Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.
+
+``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
+   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full`` for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs Chef Infra Client using the Chef Infra installer on all supported platforms.
+
+Proxy Options
+-----------------------------------------------------
+
+``--bootstrap-no-proxy NO_PROXY_URL_or_IP``
+   A URL or IP address that specifies a location that should not be proxied during the bootstrap.
 
 ``--bootstrap-proxy PROXY_URL``
    The proxy server for the node that is the target of a bootstrap operation.
+
+``--bootstrap-proxy-pass PROXY_PASS``
+   The proxy authentication password for the node being bootstrapped.
+
+``--bootstrap-proxy-user PROXY_USER``
+   The proxy authentication username for the node being bootstrapped.
+
+Node Options
+-----------------------------------------------------
+
+``-N NAME``, ``--node-name NAME``
+   The name of the node.
+
+   .. note:: This option is required for a validatorless bootstrap.
+
+``-E ENVIRONMENT``, ``--environment ENVIRONMENT``
+   The name of the environment to be applied.
+
+``-r RUN_LIST``, ``--run-list RUN_LIST``
+   A comma-separated list of roles and/or recipes to be applied.
+
+``--secret SECRET``
+   The encryption key that is used for values contained within a data bag item.
+
+``--secret-file FILE``
+   The path to the file that contains the encryption key.
+
+``--hint HINT_NAME[=HINT_FILE]``
+   An Ohai hint to be set on the bootstrap target. See the `Ohai </ohai.html#hints>`__ documentation for more information. ``HINT_FILE`` is the name of the JSON file. ``HINT_NAME`` is the name of a hint in a JSON file. Use multiple ``--hint`` options to specify multiple hints.
+
+``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
+   A JSON string that is added to the first run of a Chef Infra Client.
+
+``--json-attribute-file FILE``
+   A JSON file to be added to the first run of Chef Infra Client.
+
+``--[no-]fips``
+  Allows OpenSSL to enforce FIPS-validated security during Chef Infra Client runs.
+
+chef-vault Options
+-----------------------------------------------------
 
 ``--bootstrap-vault-file VAULT_FILE``
    The path to a JSON file that contains a list of vaults and items to be updated.
@@ -85,36 +207,8 @@ This subcommand has the following options:
 ``--bootstrap-vault-json VAULT_JSON``
   A JSON string that contains a list of vaults and items to be updated.  --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
 
-``--bootstrap-version VERSION``
-   The version of Chef Infra Client to install.
-
-``--bootstrap-wget-options OPTIONS``
-   Arbitrary options to be added to the bootstrap command when using GNU Wget. This option may not be used in the same command with ``--bootstrap-install-command``.
-
-``-E ENVIRONMENT``, ``--environment ENVIRONMENT``
-   The name of the environment. When this option is added to a command, the command will run only against the named environment.
-
-``-G GATEWAY``, ``--ssh-gateway GATEWAY``
-   The SSH tunnel or gateway that is used to run a bootstrap action on a machine that is not accessible from the workstation.
-
-``--hint HINT_NAME[=HINT_FILE]``
-   An Ohai hint to be set on the target node. See the `Ohai </ohai.html#hints>`__ documentation for more information. ``HINT_FILE`` is the name of the JSON file. ``HINT_NAME`` is the name of a hint in a JSON file. Use multiple ``--hint`` options to specify multiple hints.
-
-``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTITY_FILE``
-   The SSH identity file used for authentication. Key-based authentication is recommended.
-
-``-j JSON_ATTRIBS``, ``--json-attributes JSON_ATTRIBS``
-   A JSON string that is added to the first run of a Chef Infra Client.
-
-``--json-attribute-file FILE``
-   A JSON file to be added to the first run of Chef Infra Client.
-
-``-N NAME``, ``--node-name NAME``
-   The name of the node.
-
-   .. note:: This option is required for a validatorless bootstrap.
-``--[no-]fips``
-  Allows OpenSSL to enforce FIPS-validated security during Chef Infra Client runs.
+Key Verification Options
+-----------------------------------------------------
 
 ``--[no-]host-key-verify``
    Use ``--no-host-key-verify`` to disable host key verification. Default setting: ``--host-key-verify``.
@@ -129,44 +223,14 @@ This subcommand has the following options:
 
    Use ``peer`` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
 
-``-p PORT``, ``--ssh-port PORT``
-   The SSH port.
-
-``-P PASSWORD``, ``--ssh-password PASSWORD``
-   The SSH password. This can be used to pass the password directly on the command line. If this option is not specified (and a password is required) knife prompts for the password.
-
-``--prerelease``
-   Install pre-release gems.
-
-``-r RUN_LIST``, ``--run-list RUN_LIST``
-   A comma-separated list of roles and/or recipes to be applied.
-
-``--secret SECRET``
-   The encryption key that is used for values contained within a data bag item.
-
-``--secret-file FILE``
-   The path to the file that contains the encryption key.
-
-``--sudo``
-   Execute a bootstrap operation with sudo.
-
-``--sudo-preserve-home``
-   Use to preserve the non-root user's ``HOME`` environment.
-
-``-t TEMPLATE``, ``--bootstrap-template TEMPLATE``
-   The bootstrap template to use. This may be the name of a bootstrap template---``chef-full``, for example---or it may be the full path to an Embedded Ruby (ERB) template that defines a custom bootstrap. Default value: ``chef-full``, which installs Chef Infra Client using the Chef Infra installer on all supported platforms.
-
-``--use-sudo-password``
-   Perform a bootstrap operation with sudo; specify the password with the ``-P`` (or ``--ssh-password``) option.
+Debug Options
+-----------------------------------------------------
 
 ``-V -V``
    Run the initial Chef Infra Client run at the ``debug`` log-level (e.g. ``chef-client -l debug``).
 
 ``-V -V -V``
-   Run the initial Chef Infra Client run at the ``trace`` log-level (e.g. ``chef-client -l trace``). This was added in Chef Client 14.
-
-``-x USERNAME``, ``--ssh-user USERNAME``
-   The SSH user name.
+   Run the initial Chef Infra Client run at the ``trace`` log-level (e.g. ``chef-client -l trace``).
 
 .. end_tag
 
@@ -180,7 +244,7 @@ Validatorless Bootstrap
 -----------------------------------------------------
 .. tag knife_bootstrap_no_validator
 
-The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef Infra Server during the initial Chef Infra Client run. Starting with Chef Client 12.1, it is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
+The ORGANIZATION-validator.pem is typically added to the .chef directory on the workstation. When a node is bootstrapped from that workstation, the ORGANIZATION-validator.pem is used to authenticate the newly-created node to the Chef Infra Server during the initial Chef Infra Client run. It is possible to bootstrap a node using the USER.pem file instead of the ORGANIZATION-validator.pem file. This is known as a "validatorless bootstrap".
 
 To create a node via the USER.pem file, simply delete the ORGANIZATION-validator.pem file on the workstation. For example:
 
@@ -212,24 +276,7 @@ When running a validatorless ``knife bootstrap`` operation, the output is simila
 
 .. end_tag
 
-``knife bootstrap`` Options
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag chef_vault_knife_bootstrap_options
-
-Use the following options with a validatorless bootstrap to specify items that are stored in ``chef-vault``:
-
-``--bootstrap-vault-file VAULT_FILE``
-   The path to a JSON file that contains a list of vaults and items to be updated.
-
-``--bootstrap-vault-item VAULT_ITEM``
-   A single vault and item to update as ``vault:item``.
-
-``--bootstrap-vault-json VAULT_JSON``
-  A JSON string that contains a list of vaults and items to be updated.  --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
-
-.. end_tag
-
-.. note:: The ``--node-name`` option is required for a validatorless bootstrap (Changed in Chef Client 12.4).
+.. note:: The ``--node-name`` option is required for a validatorless bootstrap.
 
 FIPS Mode
 -----------------------------------------------------
@@ -243,7 +290,6 @@ Notes about FIPS:
 
 * May be enabled for nodes running on Microsoft Windows and Enterprise Linux platforms
 * Should only be enabled for environments that require FIPS 140-2 compliance
-* May not be enabled for any version earlier than Chef Client 12.8
 
 .. end_tag
 
@@ -263,7 +309,7 @@ which shows something similar to:
 
    OpenSSL FIPS 140 mode enabled
    ...
-   192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+   192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
 
 .. end_tag
 
@@ -350,26 +396,26 @@ which shows something similar to:
 .. code-block:: none
 
    ...
-   192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+   192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
 
 Use ``knife node show`` to verify:
 
 .. code-block:: bash
 
-   $ knife node show debian-wheezy.int.domain.org
+   $ knife node show debian-buster.int.domain.org
 
 which returns something similar to:
 
 .. code-block:: none
 
-   Node Name:   debian-wheezy.int.domain.org
+   Node Name:   debian-buster.int.domain.org
    Environment: _default
-   FQDN:        debian-wheezy.int.domain.org
+   FQDN:        debian-buster.int.domain.org
    IP:          192.0.2.0
    Run List:    recipe[apt], recipe[xfs], recipe[vim]
    Roles:
    Recipes:     apt, xfs, vim, apt::default, xfs::default, vim::default
-   Platform:    debian 7.4
+   Platform:    debian 10.0
    Tags:
 
 **Use an SSH password**

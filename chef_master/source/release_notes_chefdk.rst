@@ -43,7 +43,7 @@ What's New in 4.3
   * **kitchen-ec2**
 
     kitchen-ec2 has been updated from 3.0.1 to 3.1.0 with several new features:
-    
+
     - Added support for SSH through Session Manager. Thanks `@awiddersheim <https://github.com/awiddersheim>`__
     - Adds support for searching for multiple security groups, as well as searching by group name. Thanks `@bdwyertech <https://github.com/bdwyertech>`__
     - Allows asking for multiple instance types and subnets for spot pricing. Thanks `@vmiszczak-teads <https://github.com/vmiszczak-teads>`__
@@ -216,7 +216,7 @@ What's New in 4.0
 
   * **Chef Provisioning**
 
-    Chef Provisioning is no longer included with Chef DK, and will be officially end of life on August 31, 2019. The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard GitHub organization and will not be further maintained. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
+    Chef Provisioning is no longer included with ChefDK, and will be officially end of life on August 31, 2019. The source code of Chef Provisioning and the drivers have been moved into the chef-boneyard GitHub organization and will not be further maintained. Current users of Chef Provisioning should contact your Chef Customer Success Manager or Account Representative to review your options.
 
   * ** knife bootstrap against cloud providers**
 
@@ -588,7 +588,7 @@ What's New in 3.4
   * **Security Updates**
 
     * Ruby has been updated to 2.5.3 to resolve the following vulnerabilities:
-    
+
       * `CVE-2018-16396`: Tainted flags are not propagated in Array#pack and String#unpack with some directives
       * `CVE-2018-16395`: OpenSSL::X509::Name equality check does not work correctly
 
@@ -658,9 +658,9 @@ What's New in 3.2
 * **Security Updates**
 
   **OpenSSL**
-  
+
   OpenSSL updated to 1.0.2p to resolve:
-  
+
   * Client DoS due to large DH parameter `CVE-2018-0732 <https://nvd.nist.gov/vuln/detail/CVE-2018-0732>`__
   * Cache timing vulnerability in RSA Key Generation `CVE-2018-0737 <https://nvd.nist.gov/vuln/detail/CVE-2018-0737>`__
 
