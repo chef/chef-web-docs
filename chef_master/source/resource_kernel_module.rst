@@ -264,7 +264,7 @@ Load a kernel module.
     action :load
   end
 
-Unload a kernel module and remove module config, so it doesn’t load on reboot.
+Unload a kernel module and remove module config so it doesn’t load on reboot.
 
 .. code-block:: ruby
 
