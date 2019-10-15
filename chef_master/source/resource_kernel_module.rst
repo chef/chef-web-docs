@@ -247,7 +247,7 @@ Install and load a kernel module, and ensure it loads on reboot.
 
   kernel_module 'loop'
 
-Install and load a kernel with a specific set of options, and ensure it loads on reboot. Consult kernel module
+Install and load a kernel with a specific set of options and ensure it loads on reboot. Consult kernel module
 documentation for specific options that are supported.
 
 .. code-block:: ruby
