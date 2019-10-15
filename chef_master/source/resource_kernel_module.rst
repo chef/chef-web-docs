@@ -272,7 +272,7 @@ Unload a kernel module and remove module config, so it doesn’t load on reboot.
     action :uninstall
   end
 
-Unload kernel module
+Unload kernel module.
 
 .. code-block:: ruby
 
