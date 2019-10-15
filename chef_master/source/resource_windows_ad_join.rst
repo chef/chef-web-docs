@@ -22,6 +22,7 @@ The windows_ad_join resource has the following syntax:
     ou_path              String
     reboot               Symbol # default value: :immediate
     sensitive            true, false # default value: true
+    workgroup_name       String
     action               Symbol # defaults to :join if not specified
   end
 
@@ -30,7 +31,7 @@ where:
 * ``windows_ad_join`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``domain_name``, ``domain_password``, ``domain_user``, ``new_hostname``, ``ou_path``, ``reboot``, and ``sensitive`` are the properties available to this resource.
+* ``domain_name``, ``domain_password``, ``domain_user``, ``new_hostname``, ``ou_path``, ``reboot``, ``sensitive``, and ``workgroup_name`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -39,6 +40,10 @@ The windows_ad_join resource has the following actions:
 
 ``:join``
    Default. Join the Active Directory domain.
+
+``:leave``
+
+   Leave an Active Directory domain and re-join a workgroup.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -82,13 +87,19 @@ The windows_ad_join resource has the following properties:
 ``reboot``
    **Ruby Type:** Symbol | **Default Value:** ``:immediate``
 
-   Controls the system reboot behavior after joining the domain, with the following options:
+   Controls the system reboot behavior post domain joining. Reboot immediately, after the Chef Infra Client run completes, or never. Note that a reboot is necessary for changes to take effect.
 
-   * ``:immediate``: reboot immediately
-   * ``:delayed``: reboot after the Chef Infra Client run completes
-   * ``:never``: do not reboot
+``sensitive``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
-   Note that a reboot is necessary for changes to take effect.
+
+
+``workgroup_name``
+   **Ruby Type:** String
+
+   Specifies the name of a workgroup to which the computer is added to when it is removed from the domain. The default value is WORKGROUP. This property is only applicable to the :leave action.
+
+   *New in Chef Infra Client 15.4.*
 
 Common Resource Functionality
 =====================================================
@@ -237,6 +248,8 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
+The following examples demonstrate various approaches for using resources in recipes:
+
 **Join a domain**
 
 .. code-block:: ruby
@@ -254,4 +267,13 @@ Examples
     domain_user 'nick'
     domain_password 'p@ssw0rd1'
     new_hostname 'win-workstation'
+  end
+  
+**Leave the current domain and re-join the `local` workgroup**
+
+.. code-block:: ruby
+
+  windows_ad_join 'Leave domain' do
+    action :leave
+    workgroup 'local'
   end

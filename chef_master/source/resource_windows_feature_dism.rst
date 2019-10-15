@@ -9,6 +9,7 @@ Use the **windows_feature_dism** resource to add, remove, or entirely delete Win
 
 Syntax
 =====================================================
+
 The windows_feature_dism resource has the following syntax:
 
 .. code-block:: ruby
@@ -224,6 +225,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Installing the TelnetClient service**
 

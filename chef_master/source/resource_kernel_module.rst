@@ -244,12 +244,14 @@ The following examples demonstrate various approaches for using resources in rec
 Install and load a kernel module, and ensure it loads on reboot.
 
 .. code-block:: ruby
+
   kernel_module 'loop'
 
 Install and load a kernel with a specific set of options, and ensure it loads on reboot. Consult kernel module
 documentation for specific options that are supported.
 
 .. code-block:: ruby
+
   kernel_module 'loop' do
     options [ 'max_loop=4', 'max_part=8' ]
   end
@@ -257,6 +259,7 @@ documentation for specific options that are supported.
 Load a kernel module.
 
 .. code-block:: ruby
+
   kernel_module 'loop' do
     action :load
   end
@@ -264,6 +267,7 @@ Load a kernel module.
 Unload a kernel module and remove module config, so it doesn’t load on reboot.
 
 .. code-block:: ruby
+
   kernel_module 'loop' do
     action :uninstall
   end
@@ -271,6 +275,7 @@ Unload a kernel module and remove module config, so it doesn’t load on reboot.
 Unload kernel module
 
 .. code-block:: ruby
+
   kernel_module 'loop' do
     action :unload
   end
@@ -278,6 +283,7 @@ Unload kernel module
 Blacklist a module from loading.
 
 .. code-block:: ruby
+
   kernel_module 'loop' do
     action :blacklist
   end
@@ -285,6 +291,7 @@ Blacklist a module from loading.
 Disable a kernel module.
 
 .. code-block:: ruby
+
   kernel_module 'loop' do
     action :disable
   end

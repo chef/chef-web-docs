@@ -237,6 +237,7 @@ The following examples demonstrate various approaches for using resources in rec
 **Disable UAC prompts for the admin**
 
 .. code-block:: ruby
+
   windows_uac 'Disable UAC prompts for the admin' do
     enable_uac true
     prompt_on_secure_desktop false
@@ -246,6 +247,7 @@ The following examples demonstrate various approaches for using resources in rec
 **Disable UAC entirely**
 
 .. code-block:: ruby
+
   windows_uac 'Disable UAC entirely' do
     enable_uac false
   end

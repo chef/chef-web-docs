@@ -7,6 +7,7 @@ Use the **service** resource to manage a service.
 
 Syntax
 =====================================================
+
 The service resource has the following syntax:
 
 .. code-block:: ruby

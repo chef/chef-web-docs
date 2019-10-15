@@ -60,7 +60,7 @@ The windows_feature resource has the following properties:
 ``all``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Install all subfeatures.
+   Install all sub-features.
 
 ``feature_name``
    **Ruby Type:** Array, String | **Default Value:** ``The resource block's name``
@@ -71,7 +71,6 @@ The windows_feature resource has the following properties:
    **Ruby Type:** Symbol | **Default Value:** ``:windows_feature_dism``
 
    The underlying installation method to use for feature installation. Specify ':windows_feature_dism' for DISM or ':windows_feature_powershell' for PowerShell.
-
 
 ``management_tools``
    **Ruby Type:** true, false | **Default Value:** ``false``
@@ -238,6 +237,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Install the DHCP Server feature**
 
