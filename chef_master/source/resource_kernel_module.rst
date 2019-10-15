@@ -241,7 +241,7 @@ Examples
 
 The following examples demonstrate various approaches for using resources in recipes:
 
-Install and load a kernel module, and ensure it loads on reboot.
+Install and load a kernel module and ensure it loads on reboot.
 
 .. code-block:: ruby
 
