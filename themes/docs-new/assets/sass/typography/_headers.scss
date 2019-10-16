@@ -28,7 +28,7 @@ h6, .h6,{
 }
 
 h1, .h1 {
-	@include muli();
+	@include inter();
 	line-height: 1.25;
 	font-weight: normal;
 	letter-spacing: normal;
@@ -38,7 +38,7 @@ h1, .h1 {
 }
 
 h2, .h2 {
-	@include muli();
+	@include inter();
 	line-height: 1.25;
 	font-weight: normal;
 	letter-spacing: normal;
@@ -49,7 +49,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-	@include muli();
+	@include inter();
 	line-height: 1.33;
 	font-weight: normal;
 	letter-spacing: normal;
@@ -60,7 +60,7 @@ h3, .h3 {
 }
 
 h4, .h4 {
-	@include muli();
+	@include inter();
 	line-height: 1.36;
 	font-weight: $bold;
 	letter-spacing: normal;
@@ -70,7 +70,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-	@include muli();
+	@include inter();
 	line-height: 1.67;
 	font-weight: $bold;
 	letter-spacing: normal;
@@ -80,7 +80,7 @@ h5, .h5 {
 }
 
 h6, .h6, {
-	@include muli();
+	@include inter();
 	line-height: 1.25;
 	font-weight: $bold;
 	letter-spacing: normal;

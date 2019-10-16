@@ -9,8 +9,8 @@
 
 
 //font calling
-@mixin muli($weight:null){
-  font-family: 'Muli', sans-serif;
+@mixin inter($weight:null){
+  font-family: 'Inter', sans-serif;
 
 	@if($weight){
 		font-weight: $weight;
@@ -19,7 +19,7 @@
 
 //base typography
 @mixin base-type(){
-	@include muli();
+	@include inter();
 	font-size: 14px;
 	line-height: 1.75;
 	font-weight: normal;
@@ -42,7 +42,7 @@
 	background: none;
 	text-decoration: none;
 
-	@include muli();
+	@include inter();
 	@include transition();
 
 	font-size: 16px;
