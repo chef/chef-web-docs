@@ -4,6 +4,8 @@ draft = false
 
 aliases = "/style_guide.html"
 
+tocbot= false
+
 [menu]
   [menu.docs]
     title = "Docs Style Guide"
@@ -42,6 +44,8 @@ description = "DESCRIPTION"
 draft = false
 
 aliases = "/style_guide.html"
+
+tocbot= false
 
 [menu]
   [menu.docs]

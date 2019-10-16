@@ -20,7 +20,8 @@ $white: #FFFFFF;
 $fa-font-path: "/fonts/fontawesome";
 $font-family-monospace: "Consolas","Inconsolata","Menlo","Monaco","Courier New","monospace";
 
-$grid-container-max: rem-calc(1400);
+$grid-container: 1440px;
+//$grid-container-max: 1000px;
 $body-font-color: #424242;
 $body-font-family: Muli, sans-serif;
 $border-radius-base: 4px;

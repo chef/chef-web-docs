@@ -6,8 +6,8 @@ aliases = "ALIASES"
 
 [menu]
   [menu.docs]
-    title = "Site Map"
-    identifier = "Site Map"
+    title = "Index"
+    identifier = "Index"
     
     weight = 0
 +++    

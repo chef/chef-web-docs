@@ -4,6 +4,13 @@
   @include breakpoint(medium) {
     background-color: $sidebargray;
   }
+
+  &-col {
+    padding-right: rem-calc(12px);
+    a {
+      text-decoration: underline;
+    }
+  }
 }
 
 #hero {
@@ -26,10 +33,6 @@
   }
 }
 
-.highlight pre code * {
-  white-space: nowrap;
-}
-
-.highlight pre code {
-  white-space: pre;
+#documentation-text {
+  max-width: 70rem;
 }

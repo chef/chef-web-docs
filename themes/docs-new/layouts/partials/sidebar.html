@@ -1,8 +1,13 @@
 {{ $currentPage := . }}
 {{ $currentSection := $currentPage.Section }}
 
-<aside class="sticky" data-sticky data-anchor="main-content-col" data-margin-top="4" data-margin-bottom="2">
-  <nav id="sidebar-nav">
+<aside class="sticky" data-sticky data-top-anchor="utility-bar:bottom" data-btm-anchor="footer:top" data-margin-top="0" data-margin-bottom="2">
+  <div id="header-logo">
+  <!-- <div id="header-logo" class="cell large-3 small-11"> -->
+    <a href="/"><img src="{{ "images/chef-logo.svg" | relURL }}" alt="{{ .Site.Title }}"></a>
+  </div>
+  <!-- <nav id="sidebar-nav"> -->
+  <nav>
     {{ if .Site.Params.enable_search }}
     <div class="search">
       <form class="basic-form" method="" action="">

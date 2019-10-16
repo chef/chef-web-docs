@@ -4,19 +4,16 @@
 <body>
   <div class="off-canvas-wrapper has-sidebar">
     <div class="off-canvas-content" data-off-canvas-content>
-      <div class="cell small-12">
+      <div id="utility-bar" class="cell small-12">
         {{ partial "utility-bar" . }}
       </div>
-      <div id="menu" class="cell small-12" data-sticky-container>
-        {{ partial "header" . }}
-      </div>
-      <div id="main-content" class="cell small-12" data-sticky-container>
+      <div id="main-content" class="cell small-12" >
         <div class="grid-container">
           <div class="grid-x">
-            <div class="cell medium-3 col-sidebar">
+            <div id="sidebar-nav" class="cell">
               {{ partial "sidebar" . }}
             </div>
-            <div id="main-content-col" class="cell medium-9 col-content">
+            <div id="main-content-col" class="cell auto col-content grid-x fluid grid-padding-x">
               {{ block "main" . }}
               {{ end }}
             </div>
@@ -54,6 +51,8 @@
       // Which headings to grab inside of the contentSelector element.
       headingSelector: 'h1, h2, h3',
       orderedList: false,
+      scrollSmooth: true,
+      scrollSmoothDuration: 1000,
       //
     });
   </script>

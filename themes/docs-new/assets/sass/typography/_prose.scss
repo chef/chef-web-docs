@@ -1,4 +1,5 @@
 .prose {
+
   h1, h2, h3, h4, h5, h6 {
     .svg-inline--fa {
       padding-left: rem-calc(10px);
@@ -8,7 +9,7 @@
 
   > p, .p {
     @include base-type();
-    margin-bottom: 28px;
+    margin-bottom: 1rem;
     color: $charcoal;
 
     &.intro {
@@ -25,9 +26,5 @@
       font-size: 16px;
       line-height: 1.5;
     }
-  }
-
-  a {
-    text-decoration: underline;
   }
 }

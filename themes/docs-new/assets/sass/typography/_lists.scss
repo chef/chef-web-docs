@@ -2,6 +2,7 @@
 .content {
   ul, ol {
     margin-bottom: 28px;
+    //font-size: 0.8rem;
 
     li {
       @extend .p;
@@ -29,7 +30,7 @@
         content: fa-content($fa-var-circle);
         margin-left: -22px;
         vertical-align: middle;
-        font-size: 6px;
+        font-size: 5px;
         color: $blue;
         position: relative;
         padding-right: 14px;

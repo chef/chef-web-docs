@@ -3,6 +3,12 @@
 }
 
 #sidebar-nav {
+  //display: flex;
+  //align-items: center;
+  //flex-direction: column;
+
+  width: 18rem;
+
   > .nav {
 
     @include breakpoint(medium) {
@@ -12,7 +18,7 @@
     };
 
     > .accordion-menu {
-      font-size: rem-calc(15px);
+      //font-size: rem-calc(14px);
 
       > li {
 
@@ -42,6 +48,11 @@
       }
     }
   }
+
+  > .search{
+   margin: 0 12px;
+   //object-fit: contain;
+  }
 }
 
 .external_link_icon {
@@ -52,3 +63,23 @@
   padding: 5px;
   filter: invert(51%) sepia(0%) saturate(13%) hue-rotate(142deg) brightness(89%) contrast(83%);
 }
+
+#header-logo {
+
+  img {
+    @include transition();
+    padding: 8px 0;
+    width: 90px;
+    margin: 2px 18px;
+  }
+}
+
+/* #header-logo {
+
+  img {
+    @include transition();
+    padding: 8px 0;
+    width: 90px;
+    margin-top: 2px;
+  }
+} */

@@ -2,9 +2,10 @@ code {
   background-color: rgba(255, 255, 255, 0.3);
   border: 1px solid $ash;
   border-radius: $border-radius-base;
-  padding: rem-calc(4px 12px);
+  font-size: 0.8rem;
+  display: inline;
+  max-width: 100%;
 }
-
 
 a {
   code {
@@ -17,14 +18,14 @@ pre {
   background-color: $sidebargray;
   border: 1px solid $ash;
   border-radius: $border-radius-base;
-  padding: rem-calc(4px 8px);
   margin-bottom: rem-calc(24);
+  padding: .25rem;
 
   code {
     background-color: transparent;
     border: none;
     word-wrap: break-word;
-    padding: 0px;
+    padding: 0;
   }
 
   // customization for CodeMirror's line numbers
@@ -59,7 +60,6 @@ pre {
     left: 0px;
 
     > span {
-      padding: 1px 80px;
       border-radius: $border-radius-base;
       color: $white;
       background: $slate-light;
@@ -68,5 +68,16 @@ pre {
   }
 }
 
-
 @import "chroma";
+
+/////////////
+// prevent code blocks from wrapping
+// this makes long code blocks more readable
+
+.highlight pre code * {
+  white-space: nowrap;
+}
+
+.highlight pre code {
+  white-space: pre;
+}

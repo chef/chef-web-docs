@@ -20,7 +20,7 @@
 //base typography
 @mixin base-type(){
 	@include muli();
-	font-size: 16px;
+	font-size: 14px;
 	line-height: 1.75;
 	font-weight: normal;
 	letter-spacing: 0.5px;

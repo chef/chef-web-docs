@@ -16,35 +16,7 @@ enableGitInfo = true
   tag = "tags"
   resource = "resources"
 
-## Main Menu ##
-
-[[menu.main]]
-name = "Learn Chef"
-url = "https://learn.chef.io/"
-weight = 10
-
-[[menu.main]]
-name = "Tutorials"
-url = "https://learn.chef.io/tutorials"
-weight = 20
-
-[[menu.main]]
-name = "Skills Library"
-url = "https://learn.chef.io/skills/"
-weight = 30
-
-[[menu.main]]
-name = "Docs"
-url = "/"
-weight = 40
-
-[[menu.main]]
-name = "Training"
-weight = 50
-url = "https://www.chef.io/training/"
-
 ## Docs Menu ##
-
 
 [[menu.docs]]
 title = "Overview"
@@ -216,6 +188,7 @@ weight = 30
       identifier = "chef_infra/setup/chef_infra_server/https://manage.chef.io/signup Hosted Chef Server"
       parent = "chef_infra/setup/chef_infra_server"
       url = "https://manage.chef.io/signup"
+      pre = "external_link"
       weight = 10
 
       [[menu.docs]]
@@ -250,6 +223,7 @@ weight = 30
       identifier = "chef_infra/setup/supermarket/https://supermarket.chef.io Public Supermarket"
       parent = "chef_infra/setup/supermarket"
       url = "https://supermarket.chef.io"
+      pre = "external_link"
       weight = 10
 
       [[menu.docs]]
@@ -721,6 +695,7 @@ weight = 40
   identifier = "chef_workstation/https://www.chef.sh/ Chef Workstation"
   parent = "chef_workstation"
   url = "https://www.chef.sh/"
+  pre = "external_link"
   weight = 20
 
   [[menu.docs]]
@@ -728,6 +703,7 @@ weight = 40
   identifier = "chef_workstation/https://www.chef.sh/docs/chef-workstation/getting-started/ Documentation"
   parent = "chef_workstation"
   url = "https://www.chef.sh/docs/chef-workstation/getting-started/"
+  pre = "external_link"
   weight = 30
 
 [[menu.docs]]
@@ -740,6 +716,7 @@ weight = 50
   identifier = "chef_habitat/https://www.habitat.sh/docs/ Documentation"
   parent = "chef_habitat"
   url = "https://www.habitat.sh/docs/"
+  pre = "external_link"
   weight = 20
 
   [[menu.docs]]
@@ -747,6 +724,7 @@ weight = 50
   identifier = "chef_habitat/https://www.habitat.sh/tutorials/ Tutorials"
   parent = "chef_habitat"
   url = "https://www.habitat.sh/tutorials/"
+  pre = "external_link"
   weight = 30
 
 [[menu.docs]]
@@ -759,6 +737,7 @@ weight = 60
   identifier = "chef_inspec/https://www.inspec.io/docs/ Documentation"
   parent = "chef_inspec"
   url = "https://www.inspec.io/docs/"
+  pre = "external_link"
   weight = 20
 
   [[menu.docs]]
@@ -766,6 +745,7 @@ weight = 60
   identifier = "chef_inspec/https://www.inspec.io/tutorials/ Tutorials"
   parent = "chef_inspec"
   url = "https://www.inspec.io/tutorials/"
+  pre = "external_link"
   weight = 30
 
 [[menu.docs]]
@@ -778,6 +758,7 @@ weight = 70
   identifier = "automate/https://automate.chef.io/docs/ Documentation"
   parent = "automate"
   url = "https://automate.chef.io/docs/"
+  pre = "external_link"
   weight = 20
 
   [[menu.docs]]
@@ -856,6 +837,7 @@ weight = 90
   identifier = "extension_apis/https://inspec.io/docs/reference/dsl_inspec/ Compliance DSL"
   parent = "extension_apis"
   url = "https://inspec.io/docs/reference/dsl_inspec/"
+  pre = "external_link"
   weight = 20
 
   [[menu.docs]]
@@ -904,12 +886,14 @@ weight = 90
 title = "Available on Github"
 identifier = "github"
 url = "https://github.com/chef/chef-web-docs"
+pre = "external_link"
 weight = 90
 
 [[menu.docs]]
 title = "Get Chef"
 identifier = "get chef"
 url = "https://www.chef.io/chef/get-chef"
+pre = "external_link"
 weight = 100
 
 [[menu.docs]]
@@ -923,10 +907,36 @@ weight = 110
 title = "Support"
 identifier = "support"
 url = "https://www.chef.io/support/"
+pre = "external_link"
 weight = 120
 
 [[menu.docs]]
 title = "Archive"
 identifier = "archive"
 url = "https://docs-archive.chef.io/"
+pre = "external_link"
 weight = 140
+
+[[menu.main]]
+name = "Learn Chef"
+url = "https://learn.chef.io/"
+pre = "external_link"
+weight = 150
+
+[[menu.main]]
+name = "Tutorials"
+url = "https://learn.chef.io/tutorials"
+pre = "external_link"
+weight = 160
+
+[[menu.main]]
+name = "Skills Library"
+url = "https://learn.chef.io/skills/"
+pre = "external_link"
+weight = 170
+
+[[menu.main]]
+name = "Training"
+weight = 190
+url = "https://www.chef.io/training/"
+pre = "external_link"
