@@ -134,7 +134,7 @@ The zypper_repository resource has the following properties:
 ``priority``
    **Ruby Type:** Integer | **Default Value:** ``99``
 
-   Determines the priority of the Zypper repository. 
+   Determines the priority of the Zypper repository.
 
 ``refresh_cache``
    **Ruby Type:** true, false | **Default Value:** ``true``
@@ -192,6 +192,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -304,17 +305,19 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-==========================================
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Add a repository**
 
-This example adds the "Apache" repository for OpenSUSE Leap 42.2:
+This example adds the "Apache" repository for OpenSUSE Leap 15.0:
 
 .. code-block:: ruby
 
    zypper_repository 'apache' do
      baseurl 'http://download.opensuse.org/repositories/Apache'
-     path '/openSUSE_Leap_42.2'
+     path '/openSUSE_Leap_15.0'
      type 'rpm-md'
      priority '100'
    end

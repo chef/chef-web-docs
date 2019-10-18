@@ -9,6 +9,7 @@ Creates a share and DFS namespace on the local server.
 
 Syntax
 =====================================================
+
 The windows_dfs_namespace resource has the following syntax:
 
 .. code-block:: ruby

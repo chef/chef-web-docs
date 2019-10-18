@@ -277,6 +277,7 @@ The following arguments can be used with the ``not_if`` or ``only_if`` guard pro
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Set an environment variable**
