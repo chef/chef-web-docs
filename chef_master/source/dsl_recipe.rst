@@ -1253,7 +1253,7 @@ The following example shows using version constraints to specify a value based o
    value_for_platform(
      'os1' => { '< 1.0' => 'less than 1.0',
                 '~> 2.0' => 'version 2.x',
-                '>= 3.0' => 'version 3.0',
+                '>= 3.0' => 'greater than or equal to version 3.0',
                 '3.0.1' => '3.0.1 will always use this value' }
    )
 
