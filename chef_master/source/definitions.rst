@@ -96,11 +96,11 @@ which was then used in a recipe like this:
      port 4001
    end
 
-Definition vs. Resource
+Migrating to Custom Resources
 =====================================================
 We highly recommend migrating existing definitions to custom resources to unlock the full feature set of Chef Infra resources. The following example shows a definition and that same definition rewritten as a custom resources.
 
-As a Definition
+Initial Definition Code
 ----------------------------------------------------
 The following definition processes unique hostnames and ports, passed on as parameters:
 
@@ -118,9 +118,9 @@ The following definition processes unique hostnames and ports, passed on as para
      end
    end
 
-As a Resource
+Migrated to a Custom Resource
 ----------------------------------------------------
-The definition is improved by rewriting it as a custom resource:
+The definition is improved by rewriting it as a custom resource. This uses properties to accept input and has a single ``:create`` action:
 
 .. code-block:: ruby
 
@@ -139,7 +139,7 @@ The definition is improved by rewriting it as a custom resource:
 
    end
 
-Once built, the custom resource may be used in a recipe just like the any of the resources that are built into Chef. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``host`` with a custom resource in the ``/resources`` directory named ``porter.rb``. Use it in a recipe like this:
+Once written, the custom resource may be used in a recipe just like the any of the resources that are built into Chef Infra. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``host`` with a custom resource in the ``/resources`` directory named ``porter.rb``. Use it in a recipe like this:
 
 .. code-block:: ruby
 
