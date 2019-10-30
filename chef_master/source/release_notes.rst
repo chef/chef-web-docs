@@ -1,11 +1,314 @@
 =====================================================
-Release Notes: Chef Infra Client 12.0 - 15.2
+Release Notes: Chef Infra Client 12.0 - 15.4
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst>`__
 
 Chef Infra Client is released on a monthly schedule with new releases the first Wednesday of every month. Below are the major changes for each release. For a detailed list of changes see the `Chef Infra changelog <https://github.com/chef/chef/blob/master/CHANGELOG.md>`__
 
-Chef Infra Client 15.2
+What's New in 15.4
+=====================================================
+
+converge_if_changed Improvements
+-----------------------------------------------------
+
+Chef Infra Client will now take into account any ``default`` values
+specified in custom resources when making converge determinations with
+the ``converge_if_changed`` helper. Previously, default values would be
+ignored, which caused necessary changes to be skipped. Note: This change
+may cause behavior changes for some users, but we believe this original
+behavior is an impacting bug for enough users to make it outside of a
+major release. Thanks `@ jakauppila <https://github.com/jakauppila>`_ for
+reporting this.
+
+Bootstrap Improvements
+-----------------------------------------------------
+
+Several improvements have been made to the ``knife bootstrap`` command
+to make it more reliable and secure:
+
+* File creation is now wrapped in a umask to avoid potential race conditions
+* ``NameError`` and ``RuntimeError`` failures during bootstrap have been resolved
+* ``Undefined method 'empty?' for nil:NilClass`` during bootstrap have been resolved
+* Single quotes in attributes during bootstrap no longer result in bootstrap failures
+* The bootstrap command no longer appears in PS on the host while bootstrapping is running
+
+knife supermarket list Improvements
+-----------------------------------------------------
+
+The ``knife supermarket list`` command now includes two new options:
+
+* ``--sort-by [recently_updated recently_added most_downloaded most_followed]``: 
+    Sort cookbooks returned from the Supermarket API
+
+* ``--owned_by``: Limit returned cookbooks to a particular owner
+
+Updated Resources
+-----------------------------------------------------
+
+chocolatey_package
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``chocolatey_package`` resource no longer fails when passing options
+with the ``options`` property. Thanks for reporting this issue
+`@kenmacleod <https://github.com/kenmacleod>`_.
+
+kernel_module
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``kernel_module`` resource includes a new ``options`` property,
+which allows users to set module specific parameters and settings.
+Thanks `@ramereth <https://github.com/ramereth>`_ for this new feature.
+
+Example of a kernel_module resource using the new options property:
+
+.. code:: ruby
+
+     kernel_module 'loop' do
+     options [ 'max_loop=4', 'max_part=8' ]
+     end
+
+remote_file
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``remote_file`` resource has been updated to better display progress
+when using the ``show_progress`` resource. Thanks for reporting this
+issue `@isuftin <https://github.com/isuftin>`_.
+
+sudo
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``sudo`` resource now runs sudo config validation against all of the
+sudo configuration files on the system instead of only the file being
+written. This allows us to detect configuration errors that occur when
+configs conflict with each other. Thanks for reporting this issue
+`@drzewiec <https://github.com/drzewiec>`.
+
+windows_ad_join
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``windows_ad_join`` has a new ``:leave`` action for leaving an
+Active Directory domain and rejoining a workgroup. This new action also
+has a new ``workgroup_name`` property for specifying the workgroup to
+join upon leaving the domain. Thanks
+`@jasonwbarnett <https://github.com/jasonwbarnett>`_ for adding this new
+action.
+
+Example of leaving a domain
+
+.. code:: ruby
+
+   windows_ad_join 'Leave the domain' do
+     workgroup_name 'local'
+     action :leave
+   end
+
+windows_package
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``windows_package`` resource no longer updates environmental
+variables before installing the package. This prevents potential
+modifications that may cause a package installation to fail. Thanks
+`@jeremyhage <https://github.com/jeremyhage>`_ for this fix.
+
+windows_service
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``windows_service`` resource no longer updates the service and
+triggers notifications if the case of the ``run_as_user`` property does
+not match the user set on the service. Thanks
+`@jasonwbarnett <https://github.com/jasonwbarnett>`_ for this fix.
+
+windows_share
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``windows_share`` resource is now fully idempotent by better
+validating the provided ``path`` property from the user. Thanks
+`@Happycoil <https://github.com/Happycoil>`_ for this fix.
+
+Security Updates
+-----------------------------------------------------
+
+Ruby
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ruby has been updated from 2.6.4 to 2.6.5 in order to resolve the
+following CVEs:
+
+* `CVE-2019-16255 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255>`__:
+   A code injection vulnerability of Shell#[] and Shell#test
+
+* `CVE-2019-16254 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254>`__:
+   HTTP response splitting in WEBrick (Additional fix)
+
+* `CVE-2019-15845 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845>`__:
+   A NUL injection vulnerability of File.fnmatch and File.fnmatch?
+
+* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`__:
+   Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
+
+What's New in 15.3
+=====================================================
+
+Custom Resource Unified Mode
+-----------------------------------------------------
+
+Chef Infra Client 15.3 introduces an exciting new way to easily write
+custom resources that mix built-in Chef Infra resources with Ruby code.
+Previously custom resources would use Chef Infra’s standard compile and
+converge phases, which meant that Ruby would be evaluated first and then
+the resources would be converged. This often results in confusing and
+undesirable behavior when you are trying to mix resources with Ruby
+logic. Many custom resource authors would attempt to get around this by
+forcing resources to run at compile time so that all the code in their
+resource would execute during the compile phase.
+
+An example of forcing a resource to run at compile time:
+
+.. code:: ruby
+
+   resource_name 'foo' do
+     action :nothing
+   end.run_action(:some_action)
+
+With unified mode, you opt in to a single phase per resource where all
+Ruby and Chef Infra resources are executed at once. This makes it far
+easier to determine how your code will be evaluated and run.
+Additionally, you no longer need to force any resources to run at
+compile time, as all code is run in the compile phase. To enable this
+new mode just add ``unified_mode true`` to your resources like this:
+
+.. code:: ruby
+
+   property :Some_property, String
+
+   unified_mode true
+
+   action :create do
+     # some code
+   end
+
+Interval Mode Now Fails on Windows
+-----------------------------------------------------
+
+Chef Infra Client 15.3 will now raise an error if you attempt to keep
+the chef-client process running long-term by enabling interval runs.
+Interval runs have already raised failures on non-Windows platforms and
+we’ve suggested that users move away from them on Windows for many
+years. The long-running chef-client process on Windows will load and
+reload cookbooks over each other in memory. This could produce a running
+state which is not a representation of the cookbook code that the
+authors wrote or tested, and behavior that may be wildly different
+depending on how long the chef-client process has been running and on
+the sequence that the cookbooks were uploaded.
+
+Updated Resources
+-----------------------------------------------------
+
+ifconfig
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``ifconfig`` resource has been updated to properly support
+interfaces with a hyphen in their name. This is most commonly
+encountered with bridge interfaces that are named ``br-1234``.
+
+archive_file
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``archive_file`` resource now supports archives in the RAR 5.0
+format as well as zip files compressed using xz, lzma, ppmd8 and bzip2
+compression.
+
+user
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+* **macOS 10.14 / 10.15 support**
+
+
+  The ``user`` resource now supports the creation of users on macOS 10.14
+  and 10.15 systems. The updated resource now complies with macOS TCC
+  policies by using a user with admin privileges to create and modify
+  users. The following new properties have been added for macOS user
+  creation:
+
+  * ``admin`` sets a user to be an admin.
+  * ``admin_username`` and ``admin_password`` define the admin user credentials required for toggling SecureToken for a user. The value of ‘admin_username’ must correspond to a system user that is part of the ‘admin’ with SecureToken enabled in order to toggle SecureToken.
+  * ``secure_token`` is a boolean property that sets the desired state for SecureToken. FileVault requires a SecureToken for full disk encryption.
+  * ``secure_token_password`` is the plaintext password required to enable or disable ``secure_token`` for a user. If no salt is specified we assume the ‘password’ property corresponds to a plaintext password and will attempt to use it in place of secure_token_password if it is not set.
+
+* **Password property is now sensitive**
+
+
+  The ``password`` property is now set to sensitive to prevent the password from being shown in debug or failure logs.
+
+* **gid property can now be a string**
+
+
+  The ``gid`` property now allows specifying the user’s gid as a string.
+  For example:
+
+  .. code:: ruby
+
+    user 'tim' do
+      gid '123'
+    end
+
+Platform Support Updates
+-----------------------------------------------------
+
+macOS 10.15 Support
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Chef Infra Client is now validated against macOS 10.15 (Catalina) with
+packages now available at
+`downloads.chef.io <https://downloads.chef.io/>`__ and via the
+`Omnitruck API <https://docs.chef.io/api_omnitruck.html>`__.
+Additionally, Chef Infra Client will no longer be validated against
+macOS 10.12.
+
+AIX 7.2
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Chef Infra Client is now validated against AIX 7.2 with packages now
+available at `downloads.chef.io <https://downloads.chef.io/>`__ and via
+the `Omnitruck API <https://docs.chef.io/api_omnitruck.html>`__.
+
+Chef InSpec 4.16
+-----------------------------------------------------
+
+Chef InSpec has been updated from 4.10.4 to 4.16.0 with the following
+changes:
+
+* A new ``postfix_conf`` has been added for inspecting Postfix configuration files.
+* A new ``plugins`` section has been added to the InSpec configuration file which can be used to pass secrets or other configurations into Chef InSpec plugins.
+* The ``service`` resource now includes a new ``startname`` property for determining which user is starting the Windows services.
+* The ``groups`` resource now properly gathers membership information on macOS hosts.
+
+Security Updates
+-----------------------------------------------------
+
+Ruby
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ruby has been updated from 2.6.3 to 2.6.4 in order to resolve
+`CVE-2012-6708 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6708>`__
+and
+`CVE-2015-9251 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251>`__.
+
+openssl
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+openssl has been updated from 1.0.2s to 1.0.2t in order to resolve
+`CVE-2019-1563 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563>`__
+and
+`CVE-2019-1547 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547>`__.
+
+nokogiri
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve
+`CVE-2019-5477 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477>`__
+
+What's New in 15.2
 =====================================================
 
 Updated Resources
@@ -74,7 +377,7 @@ Security Updates
 
   bzip2 has been updated from 1.0.6 to 1.0.8 to resolve `CVE-2016-3189 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2016-3189>`__ and `CVE-2019-12900 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-12900>`__.
 
-Chef Infra Client 15.1
+What's New in 15.1
 =====================================================
 
 New Resources
@@ -128,7 +431,7 @@ Chef InSpec has been updated from 4.3.2 to 4.6.4 with the following changes:
 * When fetching profiles from GitHub, the URL can now include periods.
 * The performance of InSpec startup has been improved.
 
-Chef Infra Client 15.0.300
+What's New in 15.0.300
 =====================================================
 
 This release includes critical bug fixes for the 15.0 release:
@@ -136,7 +439,7 @@ This release includes critical bug fixes for the 15.0 release:
 * Fix ``knife bootstrap`` over SSH when ``requiretty`` is configured on the host.
 * Added the ``--chef-license`` CLI flag to ``chef-apply`` and ``chef-solo`` commands.
 
-Chef Infra Client 15.0.298
+What's New in 15.0.298
 =====================================================
 
 This release includes critical bug fixes for the 15.0 release:
@@ -148,7 +451,7 @@ This release includes critical bug fixes for the 15.0 release:
 * Avoid failures due to Train::Transports::SSHFailed class not being loaded in ``knife bootstrap``
 * Resolve failures using the ca_trust_file option with ``knife bootstrap``
 
-Chef Infra Client 15.0.293
+What's New in 15.0.293
 =====================================================
 
 Chef Client is now Chef Infra Client
@@ -609,6 +912,145 @@ Removed Flags
 
   The ``Virtualization`` plugin will no longer detect systems running on the circa ~2005 VirtualPC or VirtualServer hypervisors. These hypervisors were long ago deprecated by Microsoft and support can no longer be tested.
 
+What's New in 14.14.25
+=====================================================
+
+Bug Fixes
+-----------------------------------------------------
+
+* Resolved a regression introduced in Chef Infra Client 14.14.14 that broke installation of gems in some scenarios.
+* Fixed Habitat packaging of ``chef-client`` artifacts.
+* Fixed crash in knife when displaying a missing profile error message.
+* Fixed knife subcommand --help not working as intended for some commands.
+* Fixed knife ssh interactive mode exit error.
+* Fixed for ``:day`` option not accepting integer value in the ``windows_task`` resource.
+* Fixed for ``user`` resource not handling a GID if it is specified as a string.
+* Fixed the ``ifconfig`` resource to support interfaces with a - in the name.
+
+
+What's New in 14.14.14
+=====================================================
+
+Platform Updates
+-----------------------------------------------------
+
+Newly Supported Platforms
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following platforms are now packaged and tested for Chef Infra Client:
+
+* Red Hat 8
+* FreeBSD 12
+* macOS 10.15
+* Windows 2019
+* AIX 7.2
+
+Deprecated Platforms
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following platforms have reached EOL status and are no longer packaged or tested for Chef Infra Client:
+
+* FreeBSD 10
+* macOS 10.12
+* SUSE Linux Enterprise Server (SLES) 11
+* Ubuntu 14.04
+
+See Chef's `Platform End-of-Life Policy <https://docs.chef.io/platforms.html#platform-end-of-life-policy>`_ for more information on when Chef ends support for an OS release.
+
+Updated Resources
+-----------------------------------------------------
+
+dnf_package
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``dnf_package`` resource has been updated to fully support RHEL 8.
+
+zypper_package
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``zypper_package`` resource has been updated to properly update packages when using the ``:upgrade`` action.
+
+remote_file
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The ``remote_file`` resource now properly shows download progress when the ``show_progress`` property is set to true.
+
+Improvements
+-----------------------------------------------------
+
+Custom Resource Unified Mode
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Chef Infra Client 14.14 introduces an exciting new way to easily write custom resources that mix built-in Chef Infra resources with Ruby code. Previously, custom resources would use Chef Infra's standard compile and converge phases, which meant that Ruby would be evaluated first and then the resources would be converged. This often results in confusing and undesirable behavior when you are trying to mix resources with Ruby logic. Many custom resource authors would attempt to get around this by forcing resources to run at compile time so that all the code in their resource would execute during the compile phase.
+
+An example of forcing a resource to run at compile time:
+
+.. code-block:: bash
+
+    resource_name 'foo' do
+      action :nothing
+    end.run_action(:some_action)
+
+With unified mode, you opt in to a single phase per resource where all Ruby and Chef Infra resources are executed at once. This makes it far easier to determine how your code will be evaluated and run. Additionally, you no longer need to force any resources to run at compile time, as all code is run in the compile phase. To enable this new mode just add unified_mode true to your resources like this:
+
+.. code-block:: bash
+
+    property :Some_property, String
+
+    unified_mode true
+
+    action :create do
+      # some code
+    end
+
+New Options for installing Ruby Gems From metadata.rb
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Chef Infra Client allows gems to be specified in the cookbook metadata.rb, which can be problematic in some environments. When a cookbook is running in an airgapped environment, Chef Infra Client attempts to connect to `rubygems.org <http://rubygems.org/>`_ even if the gem is already on the system. There are now two additional configuration options that can be set in your client.rb config:
+
+* gem_installer_bundler_options: This allows setting additional bundler options for the install such as --local to install from local cache. Example: ``["--local", "--clean"]``.
+* skip_gem_metadata_installation: If set to true skip gem metadata installation if all gems are already installed.
+
+SLES / openSUSE 15 detection
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ohai now properly detects SLES and openSUSE 15.x. Thanks for this fix `@balasankarc <https://gitlab.com/balasankarc>`_.
+
+Performance Improvements
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+We have improved the performance of Chef Infra Client by resolving bundler errors in our packaging.
+
+Bootstrapping Chef Infra Client 15 will no fail
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Knife now fails with a descriptive error message when attempting to bootstrap nodes with Chef Infra Client 15. You will need to bootstrap these nodes using Knife from Chef Infra Client 15.x. We recommend performing this bootstrap from Chef Workstation, which includes the Knife CLI in addition to other useful tools for managing your infrastructure with Chef Infra.
+
+Security Updates
+-----------------------------------------------------
+
+Ruby
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ruby has been updated from 2.5.5 to 2.5.7 in order to resolve the following CVEs:
+
+* `CVE-2012-6708 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2012-6708>`_
+* `CVE-2015-9251 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251>`_
+* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845>`_
+* `CVE-2019-15845 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2015-9251>`_
+* `CVE-2019-16254 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254>`_
+* `CVE-2019-16255 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255>`_
+
+openssl
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+openssl has been updated from 1.0.2s to 1.0.2t in order to resolve `CVE-2019-1563 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563>`_ and `CVE-2019-1547 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547>`_.
+
+nokogiri
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+nokogori has been updated from 1.10.2 to 1.10.4 in order to resolve `CVE-2019-5477 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477>`_.
+
 What’s New in 14.13
 =====================================================
 
@@ -1049,8 +1491,8 @@ Security Updates
 
 Ruby has been updated to from 2.5.1 to 2.5.3 to resolve multiple CVEs and bugs:
 
-- `CVE-2018-16396 <https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396>`__
-- `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395>`__
+* `CVE-2018-16396 <https://www.ruby-lang.org/en/news/2018/10/17/not-propagated-taint-flag-in-some-formats-of-pack-cve-2018-16396>`__
+* `CVE-2018-16395 <https://www.ruby-lang.org/en/news/2018/10/17/openssl-x509-name-equality-check-does-not-work-correctly-cve-2018-16395>`__
 
 What’s New in 14.5
 =====================================================
