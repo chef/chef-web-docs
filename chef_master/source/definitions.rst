@@ -98,11 +98,7 @@ which was then used in a recipe like this:
 
 Definition vs. Resource
 =====================================================
-The following examples show:
-
-#. A definition
-#. The same definition rewritten as a custom resource
-#. The same definition, rewritten again to use a `common resource property </resource_common.html>`__
+We highly recommend migrating existing definitions to custom resources to unlock the full feature set of Chef Infra resources. The following example shows a definition and that same definition rewritten as a custom resources.
 
 As a Definition
 ----------------------------------------------------
@@ -157,15 +153,4 @@ or:
 
    host_porter 'www1' do
      port 4001
-   end
-
-Use Common Properties
-----------------------------------------------------
-Unlike definitions, custom resources are able to use `common resource properties </resource_common.html>`__. For example, ``only_if``:
-
-.. code-block:: ruby
-
-   host_porter 'www1' do
-     port 4001
-     only_if { node['hostname'] == 'foo.bar.com' }
    end
