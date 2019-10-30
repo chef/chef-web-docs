@@ -4,7 +4,7 @@ Converting Definitions to Custom Resources
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/definitions.rst>`__
 
 
-In 2016 with Chef Client 12.5 `custom resources </custom_resources.html>`__ were introduced to allow users to easily create their own resources within cookbooks. Custom resources are intended to replace both LWRPs and definitions in cookbook code. While not formally deprecated we *highly* suggest that existing definitions be migrated to custom resources as many features such as notifications, reporting, and why-run mode are not possible with definitions. This topic covers what a definition is and shows how to convert an existing definition to a custom resource.
+In 2016 with Chef Client 12.5 `custom resources </custom_resources.html>`__ were introduced to allow users to easily create their own resources within cookbooks. Custom resources are intended to replace both LWRPs and definitions in cookbook code. While not formally deprecated we *highly* suggest that existing definitions be migrated to custom resources as many features such as notifications, reporting, why-run mode, and ChefSpec unit testinng are not possible with definitions. This topic covers what a definition is and shows how to convert an existing definition to a custom resource.
 
 Definitions
 =====================================================
@@ -14,9 +14,11 @@ Though a definition looked like a resource, and at first glance seems like it co
 
 * Was not a true resource
 * Was processed while the resource collection is compiled (whereas resources are processed while a node is converged)
-* Does not support common resource properties, such as ``notifies``, ``subscribes``, ``only_if``, and ``not_if``
+* Did not support common resource properties, such as ``notifies``, ``subscribes``, ``only_if``, ``not_if``, and sensitive
+* Did not support input validation in passed arguments like a resource does with properties
 * Did not support why-run mode
 * Did not support reporting to Chef Automate
+* Cannot be tested with ChefSpec
 
 Syntax
 =====================================================
