@@ -4,7 +4,7 @@ Converting Definitions to Custom Resources
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/definitions.rst>`__
 
 
-In 2016 with Chef Client 12.5 `custom resources </custom_resources.html>`__ were introduced to allow users to easily create their own resources within cookbooks. Custom resources are intended to replace both LWRPs and definitions in cookbook code. While not formally deprecated we *highly* suggest that existing definitions be migrated to custom resources as many features such as notifications, reporting, why-run mode, and ChefSpec unit testinng are not possible with definitions. This topic covers what a definition is and shows how to convert an existing definition to a custom resource.
+This topic covers migrating existing definitions to custom resources. Custom resources are integral to the modern Chef Infra workflow. While definitions are not yet deprecated, we *strongly* advise migrating to custom resources immediately, in order to benefit from the many features of Chef Infra such as notifications, reporting, why-run mode, and ChefSpec unit testing.
 
 Definitions
 =====================================================
