@@ -12,7 +12,7 @@ A definition behaved like a compile-time macro that was reusable across recipes.
 
 Though a definition looked like a resource, and at first glance seems like it could have been used interchangeably, some important differences exist. A definition:
 
-* Was not a true resource
+* Are not true resources
 * Are processed when resource collection is compiled, not when a node is converged
 * Did not support common resource properties, such as ``notifies``, ``subscribes``, ``only_if``, ``not_if``, and sensitive
 * Did not support input validation in passed arguments like a resource does with properties
