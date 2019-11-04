@@ -98,7 +98,7 @@ which was then used in a recipe like this:
 
 Migrating to Custom Resources
 =====================================================
-We highly recommend migrating existing definitions to custom resources to unlock the full feature set of Chef Infra resources. The following example shows a definition and that same definition rewritten as a custom resources.
+We highly recommend migrating existing definitions to custom resources to unlock the full feature set of Chef Infra resources. The following example shows a definition and that same definition rewritten as a custom resource.
 
 Initial Definition Code
 ----------------------------------------------------
