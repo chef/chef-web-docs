@@ -4,7 +4,7 @@ Converting Definitions to Custom Resources
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/definitions.rst>`__
 
 
-This topic covers migrating existing definitions to custom resources. Custom resources are integral to the modern Chef Infra workflow. While definitions are not yet deprecated, we *strongly* advise migrating to custom resources immediately, in order to benefit from the many features of Chef Infra such as notifications, reporting, why-run mode, and ChefSpec unit testing.
+This topic covers migrating existing definitions to custom resources. Custom resources are integral to the modern Chef Infra workflow. While definitions are not yet deprecated, we *strongly* advise migrating to custom resources immediately in order to benefit from the many features of Chef Infra such as notifications, reporting, why-run mode, and ChefSpec unit testing.
 
 Definitions
 =====================================================
