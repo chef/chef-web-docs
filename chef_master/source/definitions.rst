@@ -139,7 +139,7 @@ The definition is improved by rewriting it as a custom resource. This uses prope
 
    end
 
-Once written, the custom resource may be used in a recipe just like the any of the resources that are built into Chef Infra. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``host`` with a custom resource in the ``/resources`` directory named ``porter.rb``. Use it in a recipe like this:
+Once written, a custom resource may be used in a recipe just like any resource that is built into Chef Infra. A custom resource gets its name from the cookbook and the name of its file in the ``/resources`` directory with an underscore (``_``) separating them. For example, a cookbook named ``host`` with a custom resource file named ``porter.rb`` in the ``/resources`` directory would be called ``host_porter``. Use it in a recipe like this:
 
 .. code-block:: ruby
 
