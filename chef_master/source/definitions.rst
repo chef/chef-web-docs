@@ -15,7 +15,7 @@ Though a definition looks like a resource, and at first glance seems like it cou
 * Are not true resources
 * Are processed when resource collection is compiled, not when a node is converged
 * Don't support common resource properties, such as ``notifies``, ``subscribes``, ``only_if``, ``not_if``, and ``sensitive``
-* Don't support input validation in passed arguments, unlike a resource can which supports validation with properties
+* Don't support input validation in passed arguments, unlike a resource which supports validation with properties
 * Don't support ``why-run`` mode
 * Can't report to Chef Automate
 * Cannot be tested with ChefSpec
