@@ -10,7 +10,7 @@ Definitions
 =====================================================
 A definition behaved like a compile-time macro that was reusable across recipes. A definition was typically created by wrapping arbitrary code around Chef Infra resources that were declared as if they were in a recipe. A definition was then used in one (or more) actual recipes as if the definition were a resource.
 
-Though a definition looked like a resource, and at first glance seems like it could have been used interchangeably, some important differences exist. Definitions:
+Though a definition looks like a resource, and at first glance seems like it could be used interchangeably, some important differences exist. Definitions:
 
 * Are not true resources
 * Are processed when resource collection is compiled, not when a node is converged
