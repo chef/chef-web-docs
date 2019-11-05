@@ -106,7 +106,7 @@ The directory resource has the following properties:
 ``recursive``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   When creating parent directories recursively, for the ``owner``, ``group``, and ``mode`` properties, the value of this attribute applies only to the leaf directory. When deleting directories recursively, the referenced directory, along with all subdirectories and files, will be deleted.
+   Create parent directories recursively and delete directories, subdirectories, and files recursively. The ``owner``, ``group``, and ``mode`` properties apply only to the leaf directory.
 
 ``rights``
    **Ruby Type:** Integer, String
