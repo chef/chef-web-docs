@@ -210,6 +210,10 @@ End of Life (EOL) Products
      - All
      - Deprecated
      - August 31, 2019
+   * - Chef Replication/Sync
+     - All
+     - EOL
+     - August 31, 2019
    * - Reporting
      - All
      - EOL

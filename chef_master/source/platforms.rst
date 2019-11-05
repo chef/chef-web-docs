@@ -42,7 +42,7 @@ The following table lists the commercially-supported platforms and versions for 
      - 2013+ and 2.0
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``, ``8.x``
    * - Debian
      - ``i686``, ``x86_64``
      - ``8``, ``9``, ``10``
@@ -51,12 +51,12 @@ The following table lists the commercially-supported platforms and versions for 
      - ``11.x``, ``12.x``
    * - macOS
      - ``x86_64``
-     - ``10.12``, ``10.13``, ``10.14``
+     - ``10.13``, ``10.14``, ``10.15``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``, ``8.x``
    * - Red Hat Enterprise Linux
-     - ``x86_64``, ``s390x``(6.x and 7.x only), ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
+     - ``x86_64``, ``s390x``(6.x and 7.x only), ``ppc64le`` (7.x only), ``ppc64`` (7.x only), ``aarch64`` (7.x only)
      - ``6.x``, ``7.x``, ``8.x``
    * - Solaris
      - ``sparc``, ``i86pc``
@@ -125,7 +125,7 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - macOS
      - ``x86_64``
-     - ``10.12``, ``10.13``, ``10.14``
+     - ``10.13``, ``10.14``, ``10.15``
    * - Red Hat Enterprise Linux
      - ``x86_64``
      - ``6.x``, ``7.x``, ``8.x``
@@ -153,7 +153,7 @@ The following table lists the commercially-supported platforms and versions for 
      - Version
    * - macOS
      - ``x86_64``
-     - ``10.12``, ``10.13``, ``10.14``
+     - ``10.13``, ``10.14``, ``10.15``
    * - Red Hat Enterprise Linux
      - ``x86_64``
      - ``6.x``, ``7.x``, ``8.x``
@@ -189,10 +189,10 @@ The following table lists the commercially-supported platforms and versions for 
      - ``8.x``, ``9.x``, ``10.x``
    * - macOS
      - ``x86_64``
-     - ``10.12``, ``10.13``, ``10.14``
+     - ``10.13``, ``10.14``, ``10.15``
    * - Red Hat Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``, ``8.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
      - ``12 SP1+``, ``15``

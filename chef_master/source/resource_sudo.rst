@@ -301,6 +301,9 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
 **Grant a user sudo privileges for any command**
 
 .. code-block:: ruby

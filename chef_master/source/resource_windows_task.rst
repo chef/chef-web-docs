@@ -377,6 +377,8 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
+The following examples demonstrate various approaches for using resources in recipes:
+
 **Create a scheduled task to run every 15 minutes as the Administrator user**
 
 .. code-block:: ruby

@@ -3,7 +3,7 @@ dnf_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dnf_package.rst>`__
 
-Use the **dnf_package** resource to install, upgrade, and remove packages with DNF for Fedora platforms. The **dnf_package** resource is able to resolve ``provides`` data for packages much like DNF can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
+Use the **dnf_package** resource to install, upgrade, and remove packages with DNF for Fedora and RHEL 8+. The **dnf_package** resource is able to resolve ``provides`` data for packages much like DNF can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
 
 

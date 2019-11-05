@@ -233,6 +233,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -346,11 +347,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
-.. tag resources_common_examples_intro
 
 The following examples demonstrate various approaches for using resources in recipes:
-
-.. end_tag
 
 **Install a package using package manager**
 
