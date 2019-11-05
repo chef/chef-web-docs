@@ -49,6 +49,7 @@ where:
 
 Actions
 =====================================================
+
 The windows_package resource has the following actions:
 
 ``:install``
@@ -96,7 +97,7 @@ The windows_package resource has the following properties:
    A package at a remote location define as a Hash of properties that modifies the properties of the **remote_file** resource.
 
 ``returns``
-   **Ruby Type:** Integer, Array of integers | **Default Value:** ``0``
+   **Ruby Type:** String, Integer, Array of integers | **Default Value:** ``0``
 
    A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely. This code signals a successful ``:install`` action.
 
@@ -277,6 +278,7 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Install a package**

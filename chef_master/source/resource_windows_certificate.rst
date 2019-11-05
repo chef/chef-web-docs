@@ -127,6 +127,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -239,7 +240,9 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-==========================================
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Add PFX cert to local machine personal store and grant accounts read-only access to private key**
 

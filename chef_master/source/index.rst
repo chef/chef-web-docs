@@ -8,7 +8,7 @@ This is the documentation for:
 * Chef Infra Server, Chef Infra Client, ChefDK, and related tools
 * Chef Automate 1.0 (deprecated)
 
-Documentation for other Chef products: 
+Documentation for other Chef products:
 
 * `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart/>`_
 * `Chef Habitat <https://www.habitat.sh/docs/>`_
@@ -105,7 +105,7 @@ Setup
 `Installing Chef on Windows </dk_windows.html>`__ |
 `Chef Workstation </install_dk.html>`__
 
-**Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via URL </install_omnibus.html>`__ | `Install on Windows </install_windows.html>`__ | `Install on Junos OS </junos.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
+**Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via Script </install_omnibus.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
 **Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Infra Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__
 
@@ -697,10 +697,6 @@ Addenda
    policy
    policyfile
    profile_store
-   provisioning
-   provisioning_aws
-   provisioning_fog
-   provisioning_vagrant
    proxies
    publish_cookbooks_multiple_servers
    push_jobs

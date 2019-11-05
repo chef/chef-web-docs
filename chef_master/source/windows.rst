@@ -5,13 +5,13 @@ Chef for Microsoft Windows
 
 Overview
 =======================================================
-The Chef Infra Client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including Windows PowerShell, Internet Information Services (IIS), and SQL Server.
+The Chef Infra Client has specific components that are designed to support unique aspects of the Microsoft Windows platform, including PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 
 .. tag windows_install_overview
 
 Chef Infra Client can be installed on machines running Microsoft Windows in the following ways:
 
-* By using `knife windows </knife_windows.html>`__ to bootstrap Chef Infra Client; this process requires the target node be available via the WinRM port (typically port 5985)
+* By bootstraping Chef Infra Client using `knife bootstrap </knife_bootstrap.html>`__ from a local workstation using WinRM
 * By downloading Chef Infra Client to the target node, and then running the Microsoft Installer Package (MSI) locally
 * By using an existing process already in place for managing Microsoft Windows machines, such as System Center
 
@@ -43,15 +43,10 @@ This command has the following syntax:
 
    $ chef-client OPTION VALUE OPTION VALUE ...
 
-This command has the following options specific to Microsoft Windows:
+This command has the following option specific to Microsoft Windows:
 
 ``-A``, ``--fatal-windows-admin-check``
    Cause a Chef Infra Client run to fail when Chef Infra Client does not have administrator privileges in Microsoft Windows.
-
-``-d``, ``--daemonize``
-   Run the executable as a daemon.
-
-   This option is only available on machines that run in UNIX or Linux environments. For machines that are running Microsoft Windows that require similar functionality, use the ``chef-client::service`` recipe in the ``chef-client`` cookbook: https://supermarket.chef.io/cookbooks/chef-client. This will install a Chef Infra Client service under Microsoft Windows using the Windows Service Wrapper.
 
 System Requirements
 -----------------------------------------------------
@@ -69,19 +64,10 @@ The recommended minimum amount of RAM available to Chef Infra Client during a Ch
      - ``x86``, ``x64``
      - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
-After Chef Infra Client is installed, it is located at ``C:\chef``. The main configuration file for Chef Infra Client is located at ``C:\chef\client.rb``.
+After Chef Infra Client is installed, it is located at ``C:\opscode``. The main configuration file for Chef Infra Client is located at ``C:\chef\client.rb``.
 
 Information for Windows Users
 ----------------------------------------------------
-
-Set the System Ruby
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-To set the system Ruby for the Microsoft Windows platform `the steps described for all platforms are true </install_dk.html#set-system-ruby>`_, but then require the following manual edits to the ``chef shell-init bash`` output for the Microsoft Windows platform:
-
-#. Add quotes around the variable assignment strings.
-#. Convert ``C:/`` to ``/c/``.
-#. Save those changes.
-
 
 Run With Elevated Privileges
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -108,10 +94,6 @@ On Microsoft Windows, running without elevated privileges (when they are necessa
 * Open a command prompt by right-clicking on the command prompt application, and then selecting **Run as administrator**. After the command window opens, Chef Infra Client can be run as the administrator
 
 .. end_tag
-
-config.rb
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-When running Microsoft Windows, the config.rb file is located at ``%HOMEDRIVE%:%HOMEPATH%\.chef`` (e.g. ``c:\Users\<username>\.chef``). If this path needs to be scripted, use ``%USERPROFILE%\.chef``.
 
 Spaces and Directories
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -193,11 +175,11 @@ To configure proxy settings in Microsoft Windows:
 
 .. end_tag
 
-Install Chef Infra Client using knife-windows
+Remotely administering nodes
 -----------------------------------------------------
 .. tag knife_windows_summary
 
-The ``knife windows`` subcommand is used to configure and interact with nodes that exist on server and/or desktop machines that are running Microsoft Windows. Nodes are configured using WinRM, which allows native objects---batch scripts, Windows PowerShell scripts, or scripting library variables---to be called by external applications. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
+The ``knife windows`` subcommand is used to interact with Windows systems managed by Chef Infra. Nodes are configured using WinRM, which allows external applications to call native objects like batch scripts, Windows PowerShell scripts, or scripting library variables. The ``knife windows`` subcommand supports NTLM and Kerberos methods of authentication.
 
 .. end_tag
 
@@ -212,6 +194,10 @@ WinRM requires that a target node be accessible via the ports configured to supp
 
 .. end_tag
 
+Install Chef Infra Client using the MSI Installer
+-----------------------------------------------------
+A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/>`__.
+
 Msiexec.exe
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_msiexec
@@ -222,7 +208,7 @@ Msiexec.exe is used to install Chef Infra Client on a node as part of a bootstra
 
    $ msiexec /qn /i "%LOCAL_DESTINATION_MSI_PATH%"
 
-where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which Chef Infra Client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/knife-windows/blob/master/lib/chef/knife/bootstrap/windows-chef-client-msi.erb>`_ bootstrap template. See http://msdn.microsoft.com/en-us/library/aa367988%28v=vs.85%29.aspx for more information about the options available to Msiexec.exe.
+where ``/qn`` is used to set the user interface level to "No UI", ``/i`` is used to define the location in which Chef Infra Client is installed, and ``"%LOCAL_DESTINATION_MSI_PATH%"`` is a variable defined in the default `windows-chef-client-msi.erb <https://github.com/chef/chef/blob/master/lib/chef/knife/bootstrap/templates/windows-chef-client-msi.erb>`_ bootstrap template. See https://docs.microsoft.com/en-us/windows/win32/msi/command-line-options for more information about the options available to Msiexec.exe.
 
 .. end_tag
 
@@ -249,13 +235,9 @@ First install Chef Infra Client, and then enable it to run as a scheduled task. 
 
 .. code-block:: bash
 
-   $ msiexec /qn /i C:\inst\chef-client-14.5.27-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
+   $ msiexec /qn /i C:\inst\chef-client-15.3.14-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
 
 .. end_tag
-
-Install Chef Infra Client using the MSI Installer
------------------------------------------------------
-A Microsoft Installer Package (MSI) is available for installing Chef Infra Client on a Microsoft Windows machine from `Chef Downloads <https://downloads.chef.io/>`__.
 
 Enable as a Scheduled Task
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -348,31 +330,31 @@ Chef Infra provides a growing number of Windows-specific resources.
 * `dsc_resource </resource_dsc_resource.html>`__
 * `resource_registry_key </resource_registry_key.html>`__
 * `Windows_ad_join </resource_windows_ad_join.html>`__
-* `Windows_ad_join </resource_windows_ad_join.rst>`__
-* `Windows_auto_run </resource_windows_auto_run.rst>`__
-* `Windows_certificate </resource_windows_certificate.rst>`__
-* `Windows_dfs_folder </resource_windows_dfs_folder.rst>`__
-* `Windows_dfs_namespace </resource_windows_dfs_namespace.rst>`__
-* `Windows_dfs_server </resource_windows_dfs_server.rst>`__
-* `Windows_dns_record </resource_windows_dns_record.rst>`__
-* `Windows_dns_zone </resource_windows_dns_zone.rst>`__
-* `Windows_env </resource_windows_env.rst>`__
-* `Windows_feature_dism </resource_windows_feature_dism.rst>`__
-* `Windows_feature_powershell </resource_windows_feature_powershell.rst>`__
-* `Windows_feature </resource_windows_feature.rst>`__
-* `Windows_firewall_rule </resource_windows_firewall_rule.rst>`__
-* `Windows_font </resource_windows_font.rst>`__
-* `Windows_package </resource_windows_package.rst>`__
-* `Windows_pagefile </resource_windows_pagefile.rst>`__
-* `Windows_path </resource_windows_path.rst>`__
-* `Windows_windows_printer_port </resource_windows_printer_port.rst>`__
-* `Windows_printer </resource_windows_printer.rst>`__
-* `Windows_service </resource_windows_service.rst>`__
-* `Windows_share </resource_windows_share.rst>`__
-* `Windows_shortcut </resource_windows_shortcut.rst>`__
-* `Windows_task </resource_windows_task.rst>`__
-* `Windows_uac </resource_windows_uac.rst>`__
-* `Windows_workgroup </resource_windows_workgroup.rst>`__
+* `Windows_ad_join </resource_windows_ad_join.html>`__
+* `Windows_auto_run </resource_windows_auto_run.html>`__
+* `Windows_certificate </resource_windows_certificate.html>`__
+* `Windows_dfs_folder </resource_windows_dfs_folder.html>`__
+* `Windows_dfs_namespace </resource_windows_dfs_namespace.html>`__
+* `Windows_dfs_server </resource_windows_dfs_server.html>`__
+* `Windows_dns_record </resource_windows_dns_record.html>`__
+* `Windows_dns_zone </resource_windows_dns_zone.html>`__
+* `Windows_env </resource_windows_env.html>`__
+* `Windows_feature_dism </resource_windows_feature_dism.html>`__
+* `Windows_feature_powershell </resource_windows_feature_powershell.html>`__
+* `Windows_feature </resource_windows_feature.html>`__
+* `Windows_firewall_rule </resource_windows_firewall_rule.html>`__
+* `Windows_font </resource_windows_font.html>`__
+* `Windows_package </resource_windows_package.html>`__
+* `Windows_pagefile </resource_windows_pagefile.html>`__
+* `Windows_path </resource_windows_path.html>`__
+* `Windows_windows_printer_port </resource_windows_printer_port.html>`__
+* `Windows_printer </resource_windows_printer.html>`__
+* `Windows_service </resource_windows_service.html>`__
+* `Windows_share </resource_windows_share.html>`__
+* `Windows_shortcut </resource_windows_shortcut.html>`__
+* `Windows_task </resource_windows_task.html>`__
+* `Windows_uac </resource_windows_uac.html>`__
+* `Windows_workgroup </resource_windows_workgroup.html>`__
 
 Windows Compatible Resources
 -----------------------------------------------------

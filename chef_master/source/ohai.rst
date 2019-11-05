@@ -67,11 +67,7 @@ An automatic attribute is a specific detail about a node, such as an IP address,
 
 .. tag ohai_attribute_list
 
-The list of automatic attributes that are collected by Ohai at the start of each Chef Infra Client run vary from organization to organization, and will often vary between the various server types being configured and the platforms on which those servers are run. All attributes collected by Ohai are unmodifiable by Chef Infra Client. To see which automatic attributes are collected by Ohai for a particular node, run the following command:
-
-.. code-block:: bash
-
-   find  /opt/chefdk/embedded/lib/ruby/gems/*/gems/ohai-*/lib -name "*.rb" -print | xargs grep -R "provides" -h |sed 's/^\s*//g'|sed "s/\\\"/\'/g"|sort|uniq|grep "\sprovides"
+Ohai collects a list of automatic attributes at the start of each Chef Infra Client run. This list will vary from organization to organization, by server type, and by the platform that runs those servers. All the attributes collected by Ohai are unmodifiable by Chef Infra Client. Run the ``ohai`` command on a system to see which automatic attributes Ohai has collected for a particular node.
 
 .. end_tag
 
@@ -423,7 +419,7 @@ ohai Resource
 =====================================================
 .. tag resources_common_generic
 
-A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `Chef Infra Client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which Chef Infra Client will take any steps that are necessary to repair the node and bring it back into the desired state.
+A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef Infra. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `Chef Infra Client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which Chef Infra Client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
 .. end_tag
 

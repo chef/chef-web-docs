@@ -235,6 +235,8 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
+The following examples demonstrate various approaches for using resources in recipes:
+
 **Create a TCP/IP printer port named 'IP_10.4.64.37' with all defaults**
 
 .. code-block:: ruby

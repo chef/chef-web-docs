@@ -20,6 +20,7 @@ For more information about specific resources for specific platforms, see the fo
 * `cab_package </resource_cab_package.html>`__
 * `chef_gem </resource_chef_gem.html>`__
 * `chocolatey_package </resource_chocolatey_package.html>`__
+* `dmg_package </resource_dmg_package.html>`__
 * `dnf_package </resource_dnf_package.html>`__
 * `dpkg_package </resource_dpkg_package.html>`__
 * `freebsd_package </resource_freebsd_package.html>`__
@@ -27,12 +28,14 @@ For more information about specific resources for specific platforms, see the fo
 * `homebrew_package </resource_homebrew_package.html>`__
 * `ips_package </resource_ips_package.html>`__
 * `macports_package </resource_macports_package.html>`__
+* `msu_package </resource_msu_package.html>`__
 * `openbsd_package </resource_openbsd_package.html>`__
 * `pacman_package </resource_pacman_package.html>`__
 * `paludis_package </resource_paludis_package.html>`__
 * `portage_package </resource_portage_package.html>`__
 * `rpm_package </resource_rpm_package.html>`__
 * `smartos_package </resource_smartos_package.html>`__
+* `snap_package </resource_snap_package.html>`__
 * `solaris_package </resource_solaris_package.html>`__
 * `windows_package </resource_windows_package.html>`__
 * `yum_package </resource_yum_package.html>`__

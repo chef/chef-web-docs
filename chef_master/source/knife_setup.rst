@@ -75,7 +75,7 @@ Credentials for use with Target Mode (e.g. ``chef-client --target switch.example
    [default]
    node_name = "barney"
    client_key = "barney_rubble.pem"
-   chef_server_url = "https://api.chef.io/organisations/bedrock"
+   chef_server_url = "https://api.chef.io/organizations/bedrock"
 
    # a 'config context' such as knife can be is configured as a separate table
    [default.knife]
@@ -134,7 +134,7 @@ You can list your profiles using the ``knife config list-profiles`` command, for
 
    Profile              Client   Key                          Server
    ----------------------------------------------------------------------------------------------------------------
-    default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organisations/bedrock       
+    default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organizations/bedrock       
   * dev                 admin    ~/.chef/admin.pem            https://api.chef-server.dev/organizations/test
     web.preprod         brubble  ~/.chef/preprod-brubble.pem  https://preprod.chef-server.dev/organizations/preprod
     switch.example.org  btm      ~/.chef/btm.pem              https://localhost:443

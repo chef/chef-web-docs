@@ -12,7 +12,7 @@ Berkshelf is a dependency manager for Chef cookbooks. With it, you can easily de
 Quick Start
 ===============
 
-Running ``chef generate cookbook`` will, by default, create a ``Berksfile`` in the root of the cookbook, alongside the cookbook's ``metadata.rb``. As usual, add your cookbook's dependencies to the metadata:
+Run ``chef generate cookbook -b`` or ``--berks`` to create a Berksfile in the root of the cookbook. The Berksfile will be placed alongside the cookbook's metadata.rb file. As usual, add your cookbook's dependencies to the metadata.rb file:
 
 .. code-block:: ruby
 

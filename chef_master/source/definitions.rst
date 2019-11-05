@@ -3,19 +3,22 @@ Converting Definitions to Custom Resources
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/definitions.rst>`__
 
-Beginning with Chef Client 12.5 (released in 2016), Chef Infra uses `custom resources </custom_resources.html>`__ instead of definitions. While definitions is not deprecated---all existing definitions will continue to work---we recommend converting existing definitions to custom resource patterns. This topic explains definitions and shows how to convert an existing definition to the new custom resource pattern.
+
+This topic covers migrating existing definitions to custom resources. Custom resources are integral to the modern Chef Infra workflow. While definitions are not yet deprecated, we *strongly* advise migrating to custom resources immediately in order to benefit from the many features of Chef Infra such as notifications, reporting, why-run mode, and ChefSpec unit testing.
 
 Definitions
 =====================================================
-A definition behaved like a compile-time macro that was reusable across recipes. A definition was typically created by wrapping arbitrary code around resources that were declared as if they were in a recipe. A definition was then used in one (or more) actual recipes as if the definition were a resource.
+A definition behaved like a compile-time macro that was reusable across recipes. A definition was typically created by wrapping arbitrary code around Chef Infra resources that were declared as if they were in a recipe. A definition was then used in one (or more) actual recipes as if the definition were a resource.
 
-Though a definition looked like a resource, and at first glance seems like it could have been used interchangeably, some important differences exist. A definition:
+Though a definition looks like a resource, and at first glance seems like it could be used interchangeably, some important differences exist. Definitions:
 
-* Was not a resource or a custom resource
-* Was processed while the resource collection is compiled (whereas resources are processed while a node is converged)
-* Does not support common resource properties, such as ``notifies``, ``subscribes``, ``only_if``, and ``not_if``
-* Was defined from within the ``/definitions`` directory of a cookbook
-* Did not support why-run mode
+* Are not true resources
+* Are processed when resource collection is compiled, not when a node is converged
+* Don't support common resource properties, such as ``notifies``, ``subscribes``, ``only_if``, ``not_if``, and ``sensitive``
+* Don't support input validation in passed arguments, unlike a resource which supports validation with properties
+* Don't support ``why-run`` mode
+* Can't report to Chef Automate
+* Cannot be tested with ChefSpec
 
 Syntax
 =====================================================
@@ -93,15 +96,11 @@ which was then used in a recipe like this:
      port 4001
    end
 
-Definition vs. Resource
+Migrating to Custom Resources
 =====================================================
-The following examples show:
+We highly recommend migrating existing definitions to custom resources to unlock the full feature set of Chef Infra resources. The following example shows a definition and that same definition rewritten as a custom resource.
 
-#. A definition
-#. The same definition rewritten as a custom resource
-#. The same definition, rewritten again to use a `common resource property </resource_common.html>`__
-
-As a Definition
+Initial Definition Code
 ----------------------------------------------------
 The following definition processes unique hostnames and ports, passed on as parameters:
 
@@ -119,11 +118,9 @@ The following definition processes unique hostnames and ports, passed on as para
      end
    end
 
-
-
-As a Resource
+Migrated to a Custom Resource
 ----------------------------------------------------
-The definition is improved by rewriting it as a custom resource:
+The definition is improved by rewriting it as a custom resource. This uses properties to accept input and has a single ``:create`` action:
 
 .. code-block:: ruby
 
@@ -142,7 +139,7 @@ The definition is improved by rewriting it as a custom resource:
 
    end
 
-Once built, the custom resource may be used in a recipe just like the any of the resources that are built into Chef. The resource gets its name from the cookbook and from the file name in the ``/resources`` directory, with an underscore (``_``) separating them. For example, a cookbook named ``host`` with a custom resource in the ``/resources`` directory named ``porter.rb``. Use it in a recipe like this:
+Once written, a custom resource may be used in a recipe just like any resource that is built into Chef Infra. A custom resource gets its name from the cookbook and the name of its file in the ``/resources`` directory with an underscore (``_``) separating them. For example, a cookbook named ``host`` with a custom resource file named ``porter.rb`` in the ``/resources`` directory would be called ``host_porter``. Use it in a recipe like this:
 
 .. code-block:: ruby
 
@@ -157,16 +154,3 @@ or:
    host_porter 'www1' do
      port 4001
    end
-
-Use Common Properties
-----------------------------------------------------
-Unlike definitions, custom resources are able to use `common resource properties </resource_common.html>`__. For example, ``only_if``:
-
-.. code-block:: ruby
-
-   host_porter 'www1' do
-     port 4001
-     only_if '{ node['hostname'] == 'foo.bar.com' }'
-   end
-
-

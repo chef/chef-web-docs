@@ -228,3 +228,26 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Disable UAC prompts for the admin**
+
+.. code-block:: ruby
+
+  windows_uac 'Disable UAC prompts for the admin' do
+    enable_uac true
+    prompt_on_secure_desktop false
+    consent_behavior_admins :no_prompt
+  end
+
+**Disable UAC entirely**
+
+.. code-block:: ruby
+
+  windows_uac 'Disable UAC entirely' do
+    enable_uac false
+  end

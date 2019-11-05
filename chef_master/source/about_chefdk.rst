@@ -31,15 +31,13 @@ Chef Infra is a systems and cloud infrastructure automation framework that makes
 
 .. note:: See this `blog post by Irving Popovetsky about running ChefDK on Windows. <https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-guide/>`__
 
-About Workflow
+Cookbook Development Workflow
 -----------------------------------------------------
-ChefDK defines a common workflow for cookbook development:
+Chef Infra defines a common workflow for cookbook development:
 
-#. Create a skeleton cookbook. This is a cookbook with the standard files already included. The package manager is often Berkshelf, which is included as part of ChefDK, plus a revision control system, typically Git. Berkshelf helps manage cookbooks and cookbook dependencies.
+#. Create a skeleton cookbook by running `chef generate cookbook MY_COOKBOOK_NAME`. This will generate a cookbook with a single recipe and testing configuration with with ChefSpec  and Delivery Local Mode.
 
-#. Create a virtual machine environment using Test Kitchen. This is the environment that will be used to develop the cookbook, including the location in which automated testing and debugging of that cookbook will be done as it is being developed.
-
-#. Write the recipes for the cookbook and debug those recipes as they are being written. This is typically an iterative process, where cookbook are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Sublime Text, vim, TextMate, EditPad, or any other preferred text editor---is used to author the files in the cookbook.
+#. Write cookbook recipes or resources and debug those recipes as they are being written using Cookstyle and Test Kitchen. This is typically an iterative process, where cookbook are tested as they are developed, bugs are fixed quickly, and then cookbooks are tested again. A text editor---Visual Studio Code, Atom, vim, or any other preferred text editor---is used to author the files in the cookbook.
 
 #. Perform acceptance tests. These tests are not done in a development environment, but rather are done against a full Chef Infra Server using an environment that matches the production environment as closely as possible.
 
@@ -81,13 +79,6 @@ The most important tools included in ChefDK are:
      - A Kitchen driver for Vagrant.
    * - Ruby
      - The reference language for Chef.
-
-ChefDK Tools
------------------------------------------------------
-The following tools are available only in ChefDK:
-
-`chef (executable) </ctl_chef.html>`_ |
-`Policyfiles </policyfile.html>`_
 
 Community Tools
 -----------------------------------------------------

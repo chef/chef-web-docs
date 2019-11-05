@@ -158,10 +158,6 @@ The following products are deprecated or end of life. Users are advised to use n
      - 2.5.x
      - Deprecated
      - TBD
-   * - Chef Provisioning
-     - All
-     - Deprecated
-     - August 31, 2019
    * - Chef Workflow
      - 2.x
      - Deprecated
@@ -210,6 +206,14 @@ End of Life (EOL) Products
      - All
      - EOL
      - December 31, 2018
+   * - Chef Provisioning
+     - All
+     - Deprecated
+     - August 31, 2019
+   * - Chef Replication/Sync
+     - All
+     - EOL
+     - August 31, 2019
    * - Reporting
      - All
      - EOL

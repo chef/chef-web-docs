@@ -9,7 +9,7 @@ Use the **cookbook_file** resource to transfer files from a sub-directory of ``C
 
 .. end_tag
 
-During a Chef Infra Client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef server to a node.
+During a Chef Infra Client run, the checksum for each local file is calculated and then compared against the checksum for the same file as it currently exists in the cookbook on the Chef Infra Server. A file is not transferred when the checksums match. Only files that require an update are transferred from the Chef Infra Server to a node.
 
 Syntax
 =====================================================

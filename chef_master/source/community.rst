@@ -19,17 +19,6 @@ Learn
 * `Chef training <https://training.chef.io/>`_
 * `Self-guided learning <https://learn.chef.io/>`_
 
-Listen
-=====================================================
-* `Food Fight Show <http://foodfightshow.org>`_
-* `The Ship Show <http://theshipshow.com/>`_
-* `Ops All The Things <http://opsallthethings.com>`_
-* `DevOps Cafe <http://devopscafe.com>`_
-* `The Goat Farm <https://itunes.apple.com/us/podcast/the-goat-farm/id963113606?mt=2>`_
-* `Software Defined Talk <http://cote.io/sdt/>`_
-
-.. * `Arrested DevOps <https://www.arresteddevops.com/>`_
-
 Interact
 =====================================================
 * `Community Guidelines </community_guidelines.html>`__
@@ -39,27 +28,18 @@ Interact
 * `Facebook <https://www.facebook.com/getchefdotcom>`_
 * `Chef Community Slack <https://community-slack.chef.io/>`_
 * Join the "Chef Software Users Group" on LinkedIn
-* `Chef Software Mailing List <https://discourse.chef.io>`_ (for discussion among users, developers, and other interested parties)
+* `Chef Software Mailing List <https://discourse.chef.io/>`_ (for discussion among users, developers, and other interested parties)
 
 Read
 =====================================================
-Recommended reading:
 
 * `Effective DevOps (Building a Culture of Collaboration, Affinity, and Tooling at Scale) <http://shop.oreilly.com/product/0636920039846.do>`_
-* `Learning Chef (A Guide to Configuration Management and Automation) <http://shop.oreilly.com/product/0636920032397.do>`_
 * `Customizing Chef (Getting the Most Out of Your Infrastructure Automation) <http://shop.oreilly.com/product/0636920032984.do>`_
-
-More books about Chef:
-
-* `Chef Essentials <https://www.packtpub.com/networking-and-servers/chef-essentials>`_
-* `Instant Chef Starter <https://www.packtpub.com/application-development/instant-chef-starter-instant>`_
+* `Chef: Powerful Infrastructure Automation [Packt Publishing] <https://www.packtpub.com/virtualization-and-cloud/chef-powerful-infrastructure-automation>`_
+* `Chef Cookbook - Third Edition [Packt Publishing] <https://www.packtpub.com/networking-and-servers/chef-cookbook-third-edition>`_
 * `Learning Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/learning-chef>`_
 * `Chef Infrastructure Automation Cookbook - Second Edition [Packt Publishing] <https://www.packtpub.com/networking-and-servers/chef-infrastructure-automation-cookbook-second-edition/>`_
 * `Mastering Chef [Packt Publishing] <https://www.packtpub.com/networking-and-servers/mastering-chef/>`_
-* `Managing Windows Servers with Chef <https://www.packtpub.com/networking-and-servers/managing-windows-servers-chef>`_
-* `Test-Driven Infrastructure with Chef, 2nd Edition <http://shop.oreilly.com/product/0636920030973.do>`_
-* `Chef Cookbook - Third Edition [Packt Publishing] <https://www.packtpub.com/networking-and-servers/chef-cookbook-third-edition>`_
-* `Chef: Powerful Infrastructure Automation [Packt Publishing] <https://www.packtpub.com/virtualization-and-cloud/chef-powerful-infrastructure-automation>`_
 
 Contribute
 =====================================================

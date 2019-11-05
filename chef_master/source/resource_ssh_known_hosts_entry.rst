@@ -259,6 +259,8 @@ The following properties can be used to define a guard that is evaluated during 
 Examples
 =====================================================
 
+The following examples demonstrate various approaches for using resources in recipes:
+
 **Add a single entry for github.com with the key auto detected**
 
 .. code-block:: ruby

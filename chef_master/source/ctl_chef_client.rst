@@ -392,7 +392,6 @@ Notes about FIPS:
 
 * May be enabled for nodes running on Microsoft Windows and Enterprise Linux platforms
 * Should only be enabled for environments that require FIPS 140-2 compliance
-* May not be enabled for any version earlier than Chef Client 12.8
 
 .. end_tag
 
@@ -412,7 +411,7 @@ which shows something similar to:
 
    OpenSSL FIPS 140 mode enabled
    ...
-   192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+   192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
 
 .. end_tag
 
