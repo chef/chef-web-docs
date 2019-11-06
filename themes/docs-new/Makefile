@@ -30,7 +30,6 @@ assets/js/vendor: node_modules
 	cp node_modules/showdown/dist/showdown.min.js assets/js/vendor/showdown.min.js
 	cp node_modules/ua-parser-js/dist/ua-parser.min.js assets/js/vendor/ua-parser.min.js
 	cp node_modules/what-input/dist/what-input.min.js assets/js/vendor/what-input.min.js
-	cp node_modules/tocbot/dist/tocbot.min.js assets/js/vendor/tocbot.min.js
 	cp node_modules/@fortawesome/fontawesome-free/js/all.min.js assets/js/vendor/fontawesome-all.min.js
 	cp node_modules/foundation-sites/dist/js/foundation.min.js assets/js/vendor/foundation.min.js
 

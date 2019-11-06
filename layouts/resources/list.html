@@ -14,15 +14,17 @@
               {{ partial "sidebar" . }}
             </div>
 
-            <div class="toc">
-              <div id="mini-toc">
-                <span><strong><h4>Table Of Contents</h4></strong></span>
-                <div class="js-toc"></div>
-              </div>
-            </div>
+            <aside>
+              <span>
+                <strong>
+                  <h4 class="mini-toc-header">Table Of Contents</h4>
+                </strong>
+              </span>
+              {{ .TableOfContents }}
+            </aside>
 
             <div id="main-content-col" class="cell medium-9 col-content">
-              <div class="js-toc-content">
+
 
                 {{ $SyntaxID := newScratch }}
                 {{ $SyntaxID.Set "Value" 0 }}
@@ -747,7 +749,6 @@
                   <p>This resource does not have any examples.</p>
                 {{ end }}
               </div>
-            </div>
           </div>
         </div>
       </div>
