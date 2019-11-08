@@ -11,8 +11,6 @@ Use the **remote_file** resource to transfer a file from a remote location using
 
 .. note:: Fetching files from the ``files/`` directory in a cookbook should be done with the **cookbook_file** resource.
 
-Changed in 12.4 to support Microsoft Windows UNC.
-
 Syntax
 =====================================================
 A **remote_file** resource block manages files by using files that exist remotely. For example, to write the home page for an Apache website:
