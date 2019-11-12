@@ -224,6 +224,9 @@ This configuration file has the following settings for ``data_collector``:
    The maximum connection duration (in seconds) for the HTTP connection pool that is used by the data collector. Default value: `"{70, sec}"`.
 ``data_collector['ibrowse_options']``
    An array of comma-separated key-value pairs of ibrowse options for the HTTP connection pool that is used by the data collector. Default value: `"[{connect_timeout, 10000}]"`.
+``data_collector['health_check']``
+   A boolean that controls whether the data collector health is included in the overall health at the ``_status`` endpoint. When set to ``true``, Chef Infra Server will report that healthy front end Chef HA cluster members have failed when the `data_collector['root_url']`` cannot be reached. As a result, the load balancer will remove those members from the load balancer pool. Default value: ``true``.
+
 
 estatsd
 -----------------------------------------------------
