@@ -204,20 +204,25 @@ Examples
 
 The following examples demonstrate various approaches for using resources in recipes:
 
-Sleep for 10 seconds
-```ruby
-chef_sleep '10'
-```
+**Sleep for 10 seconds**
 
-Sleep for 10 seconds with a descriptive resource name for logging
-```ruby
+.. code-block:: ruby
+
+chef_sleep '10'
+
+
+**Sleep for 10 seconds with a descriptive resource name for logging**
+
+.. code-block:: ruby
+
 chef_sleep 'wait for the service to start' do
   seconds 10
 end
-````
 
-Use a notification from another resource to sleep only when necessary
-```ruby
+
+**Use a notification from another resource to sleep only when necessary**
+
+.. code-block:: ruby
 service 'Service that is slow to start and reports as started' do
   service_name 'my_database'
   action :start
@@ -228,4 +233,3 @@ chef_sleep 'wait for service start' do
   seconds 30
   action :nothing
 end
-```
