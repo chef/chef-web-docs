@@ -1,58 +1,38 @@
 =====================================================
-sudo resource
+chef_sleep resource
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_sudo.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_sleep.rst>`__
 
-Use the **sudo** resource to add or remove individual sudo entries using ``sudoers.d`` files. Sudo version 1.7.2 or newer is required to use the sudo resource, as it relies on the ``#includedir`` directive introduced in version 1.7.2. This resource does not enforce installation of the required sudo version. Chef-supported releases of Ubuntu, SuSE, Debian, and RHEL (6+) all support this feature.
+Use the **chef_sleep** resource to set the number of seconds to sleep during a Chef Infra Client run. Only use this resource when a command or service exits successfully but is not ready for the next step of the recipe.
 
-**New in Chef Client 14.0.**
+**New in Chef Infra Client 15.5.**
 
 Syntax
 =====================================================
 
-The sudo resource has the following syntax:
+The chef_sleep resource has the following syntax:
 
 .. code-block:: ruby
 
-  sudo 'name' do
-    command_aliases        Array
-    commands               Array # default value: ["ALL"]
-    config_prefix          String # default value: Prefix values based on the node's platform
-    defaults               Array
-    env_keep_add           Array
-    env_keep_subtract      Array
-    filename               String # default value: 'name' unless specified
-    groups                 String, Array
-    host                   String # default value: "ALL"
-    noexec                 true, false # default value: false
-    nopasswd               true, false # default value: false
-    runas                  String # default value: "ALL"
-    setenv                 true, false # default value: false
-    template               String
-    users                  String, Array
-    variables              Hash
-    visudo_binary          String # default value: "/usr/sbin/visudo"
-    visudo_path            String
-    action                 Symbol # defaults to :create if not specified
+  chef_sleep 'name' do
+    seconds      String, Integer # default value: 'name' unless specified
+    action       Symbol # defaults to :sleep if not specified
   end
 
 where:
 
-* ``sudo`` is the resource.
+* ``chef_sleep`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``command_aliases``, ``commands``, ``config_prefix``, ``defaults``, ``env_keep_add``, ``env_keep_subtract``, ``filename``, ``groups``, ``host``, ``noexec``, ``nopasswd``, ``runas``, ``setenv``, ``template``, ``users``, ``variables``, ``visudo_binary``, and ``visudo_path`` are the properties available to this resource.
+* ``seconds`` is the property available to this resource.
 
 Actions
 =====================================================
 
-The sudo resource has the following actions:
+The chef_sleep resource has the following actions:
 
-``:create``
-   Default. Create a single sudoers configuration file in the ``sudoers.d`` directory.
-
-``:delete``
-   Removed a sudoers configuration file from the ``sudoers.d`` directory.
+``:sleep``
+   Sleep the Chef Infra Client run for a specified number of seconds
 
 ``:nothing``
    .. tag resources_common_actions_nothing
@@ -64,92 +44,12 @@ The sudo resource has the following actions:
 Properties
 =====================================================
 
-The sudo resource has the following properties:
+The chef_sleep resource has the following properties:
 
-``command_aliases``
-   **Ruby Type:** Array
+``seconds``
+   **Ruby Type:** String, Integer | **Default Value:** ``The resource block's name``
 
-   Command aliases that can be used as allowed commands later in the configuration.
-
-``commands``
-   **Ruby Type:** Array | **Default Value:** ``["ALL"]``
-
-   An array of commands this sudoer can execute.
-
-``config_prefix``
-   **Ruby Type:** String | **Default Value:** ``Prefix values based on the node's platform``
-
-   The directory that contains the sudoers configuration file.
-
-``defaults``
-   **Ruby Type:** Array
-
-   An array of defaults for the user/group.
-
-``env_keep_add``
-   **Ruby Type:** Array
-
-   An array of strings to add to ``env_keep``.
-
-``env_keep_subtract``
-   **Ruby Type:** Array
-
-   An array of strings to remove from ``env_keep``.
-
-``filename``
-   **Ruby Type:** String | **Default Value:** ``The resource block's name``
-
-   The name of the sudoers.d file if it differs from the name of the resource block
-
-``groups``
-   **Ruby Type:** String, Array
-
-   Group(s) to provide sudo privileges to. This property accepts either an array or a comma-separated list. Leading % on group names is optional.
-
-``host``
-   **Ruby Type:** String | **Default Value:** ``"ALL"``
-
-   The host to set in the sudo configuration.
-
-``noexec``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-
-   Prevent commands from shelling out.
-
-``nopasswd``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-
-   Allow sudo to be run without specifying a password.
-
-``runas``
-   **Ruby Type:** String | **Default Value:** ``"ALL"``
-
-   User that the command(s) can be run as.
-
-``setenv``
-   **Ruby Type:** true, false | **Default Value:** ``false``
-
-   Determines whether or not to permit preservation of the environment with ``sudo -E``.
-
-``template``
-   **Ruby Type:** String
-
-   The name of the ``.erb`` template in your cookbook, if you wish to supply your own template.
-
-``users``
-   **Ruby Type:** String, Array
-
-   User(s) to provide sudo privileges to. This property accepts either an array or a comma-separated list.
-
-``variables``
-   **Ruby Type:** Hash
-
-   The variables to pass to the custom template. This property is ignored if not using a custom template.
-
-``visudo_binary``
-   **Ruby Type:** String | **Default Value:** ``/usr/sbin/visudo``
-
-   The path to ``visudo`` for configuration verification.
+   The number of seconds to sleep.
 
 Common Resource Functionality
 =====================================================
@@ -304,28 +204,28 @@ Examples
 
 The following examples demonstrate various approaches for using resources in recipes:
 
-**Grant a user sudo privileges for any command**
+Sleep for 10 seconds
+```ruby
+chef_sleep '10'
+```
 
-.. code-block:: ruby
+Sleep for 10 seconds with a descriptive resource name for logging
+```ruby
+chef_sleep 'wait for the service to start' do
+  seconds 10
+end
+````
 
-   sudo 'admin' do
-     user 'admin'
-   end
+Use a notification from another resource to sleep only when necessary
+```ruby
+service 'Service that is slow to start and reports as started' do
+  service_name 'my_database'
+  action :start
+  notifies :sleep, chef_sleep['wait for service start']
+end
 
-**Grant a user and groups sudo privileges for any command**
-
-.. code-block:: ruby
-
-   sudo 'admins' do
-     users 'bob'
-     groups 'sysadmins, superusers'
-   end
-
-**Grant passwordless sudo privileges for specific commands**
-
-.. code-block:: ruby
-
-   sudo 'passwordless-access' do
-     commands ['systemctl restart httpd', 'systemctl restart mysql']
-     nopasswd true
-   end
+chef_sleep 'wait for service start' do
+  seconds 30
+  action :nothing
+end
+```

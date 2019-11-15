@@ -3,7 +3,7 @@ rhsm_errata_level resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_rhsm_errata_level.rst>`__
 
-Use the **rhsm_errata_level** resource to install all packages of a specified errata level from the Red Hat Subscription Manager. For example, you can ensure that all packages associated with errata marked at a "Critical" security level are installed.
+Use the **rhsm_errata_level** resource to install all packages of a specified errata level from the Red Hat Subscription Manager. For example, you can ensure that all packages associated with errata marked at a 'Critical' security level are installed.
 
 The available errata levels are: ``critical``, ``moderate``, ``important``, and ``low``.
 

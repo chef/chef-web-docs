@@ -1124,6 +1124,8 @@ The following resources are built into the Chef Client:
 
 .. include:: resource_chef_handler.rst
 
+.. include:: resource_chef_sleep.rst
+
 .. include:: resource_chocolatey_config.rst
 
 .. include:: resource_chocolatey_feature.rst

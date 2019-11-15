@@ -22,7 +22,7 @@ The windows_firewall_rule resource has the following syntax:
     interface_type       Symbol, String # default value: :any
     local_address        String
     local_port           String, Integer, Array
-    profile              Symbol, String # default value: :any
+    profile              Symbol, String, Array # default value: :any
     program              String
     protocol             String # default value: "TCP"
     remote_address       String
@@ -98,7 +98,7 @@ The windows_firewall_rule resource has the following properties:
    The local port the firewall rule applies to.
 
 ``profile``
-   **Ruby Type:** Symbol, String | **Default Value:** ``:any``
+   **Ruby Type:** Symbol, String, Array | **Default Value:** ``:any``
 
    The profile the firewall rule applies to.
 

@@ -79,7 +79,7 @@ The windows_certificate resource has the following properties:
 ``source``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   The source file (for create and acl_add), thumbprint (for delete and acl_add) or subject (for delete).
+   The source file (for create and acl_add), thumbprint (for delete and acl_add) or subject (for delete) if it differs from the resource block's name.
 
 ``store_name``
    **Ruby Type:** String | **Default Value:** ``"MY"``

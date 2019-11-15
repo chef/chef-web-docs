@@ -159,6 +159,7 @@ Cookbook Reference
 `chef_node </resource_chef_node.html>`__ |
 `chef_organization </resource_chef_organization.html>`__ |
 `chef_role </resource_chef_role.html>`__ |
+`chef_sleep </resource_chef_sleep.html>`__ |
 `chef_user </resource_chef_user.html>`__ |
 `chocolatey_config </resource_chocolatey_config.html>`__ |
 `chocolatey_feature </resource_chocolatey_feature.html>`__ |
