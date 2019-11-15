@@ -102,7 +102,7 @@ The windows_package resource has the following properties:
    A comma-delimited list of return codes that indicate the success or failure of the package command that was run.
 
 ``source``
-   **Ruby Type:** String | **Default Value:** ``"The resource block's name"``
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    The path to a package in the local file system. The location of the package may be at a URL.
 
