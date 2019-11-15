@@ -183,13 +183,13 @@ Numbered Lists
 Numbered lists are created like this:
 
     1. text goes here
-    2. text goes here
-    3. text goes here
+    1. text goes here
+    1. text goes here
       
         1. sublist text
-        2. sublist text
+        1. sublist text
       
-    4. text goes here
+    1. text goes here
 
 Start each ordered list item with the number 1 (1.). Hugo will generate the correct sequence of numbers in an ordered list regardless of the numbers that you use. Only using "1." will save you from having to re-number items if you add or remove an item later.
 
