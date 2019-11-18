@@ -3,7 +3,7 @@ chef_sleep resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_sleep.rst>`__
 
-Use the **chef_sleep** resource to set the number of seconds to sleep during a Chef Infra Client run. Only use this resource when a command or service exits successfully but is not ready for the next step of the recipe.
+The **chef_sleep** resource will pause a Chef Infra Client run for a set number of seconds. Only use this resource when a command or service exits successfully but is not ready for the next step of the recipe.
 
 **New in Chef Infra Client 15.5.**
 
