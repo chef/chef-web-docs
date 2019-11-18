@@ -94,7 +94,7 @@ The windows_package resource has the following properties:
 ``remote_file_attributes``
    **Ruby Type:** Hash
 
-   If the source package to install is at a remote location this property allows you to define a hash of properties and their value which will be used by the underlying remote_file resource, which fetches the source.
+   This property allows you to define a hash of properties and their value if the source package to be installed is at a remote location. This hash will be used by the underlying **remote_file** resource which will fetch the source package.
 
 ``returns``
    **Ruby Type:** String, Integer, Array of integers | **Default Value:** ``0``
