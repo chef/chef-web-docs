@@ -32,7 +32,7 @@ Actions
 The chef_sleep resource has the following actions:
 
 ``:sleep``
-   Sleep the Chef Infra Client run for a specified number of seconds
+   Pause the Chef Infra Client run for a specified number of seconds.
 
 ``:nothing``
    .. tag resources_common_actions_nothing
