@@ -32,8 +32,8 @@ The full syntax for all of the properties that are available to the **windows_pa
     package_name                String, Array
     remote_file_attributes      Hash
     returns                     String, Integer, Array # default value: [0]
-    source                      String
-    timeout                     String, Integer # default value: 600
+    source                      String # default value: "The resource block's name"
+    timeout                     String, Integer # default value: 600 (seconds)
     version                     String, Array
     action                      Symbol # defaults to :install if not specified
   end
@@ -94,17 +94,17 @@ The windows_package resource has the following properties:
 ``remote_file_attributes``
    **Ruby Type:** Hash
 
-   A package at a remote location define as a Hash of properties that modifies the properties of the **remote_file** resource.
+   This property allows you to define a hash of properties and their value if the source package to be installed is at a remote location. This hash will be used by the underlying **remote_file** resource which will fetch the source package.
 
 ``returns``
    **Ruby Type:** String, Integer, Array of integers | **Default Value:** ``0``
 
-   A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely. This code signals a successful ``:install`` action.
+   A comma-delimited list of return codes that indicate the success or failure of the package command that was run.
 
 ``source``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
+   The path to a package in the local file system. The location of the package may be at a URL.
 
    If the ``source`` property is not specified, the package name MUST be exactly the same as the display name found in **Add/Remove programs** or exactly the same as the ``DisplayName`` property in the appropriate registry key, which may be one of the following:
 

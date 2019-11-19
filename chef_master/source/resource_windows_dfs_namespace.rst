@@ -57,7 +57,7 @@ The windows_dfs_namespace resource has the following properties:
 ``change_users``
    **Ruby Type:** Array | **Default Value:** ``[]``
 
-    Determines which users should have change access to the share.
+   Determines which users should have change access to the share.
 
 ``description``
    **Ruby Type:** String | ``REQUIRED``
