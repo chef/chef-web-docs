@@ -32,7 +32,7 @@ The full syntax for all of the properties that are available to the **chocolatey
 
   chocolatey_package 'name' do
     options           String
-    package_name      String, Array
+    package_name      String, Array # defaults to 'name' if not specified
     returns           Integer, Array # default value: [0]
     source            String
     timeout           String, Integer
