@@ -3,7 +3,7 @@ chef_sleep resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_sleep.rst>`__
 
-The **chef_sleep** resource will pause a Chef Infra Client run for a set number of seconds. Only use this resource when a command or service exits successfully but is not ready for the next step of the recipe.
+The **chef_sleep** resource will pause a Chef Infra Client run for a set number of seconds. Only use this resource when a command or service exits successfully but is not ready for the next step in a recipe.
 
 **New in Chef Infra Client 15.5.**
 
@@ -208,28 +208,29 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-chef_sleep '10'
+  chef_sleep '10'
 
 
 **Sleep for 10 seconds with a descriptive resource name for logging**
 
 .. code-block:: ruby
 
-chef_sleep 'wait for the service to start' do
-  seconds 10
-end
+  chef_sleep 'wait for the service to start' do
+    seconds 10
+  end
 
 
 **Use a notification from another resource to sleep only when necessary**
 
 .. code-block:: ruby
-service 'Service that is slow to start and reports as started' do
-  service_name 'my_database'
-  action :start
-  notifies :sleep, chef_sleep['wait for service start']
-end
 
-chef_sleep 'wait for service start' do
-  seconds 30
-  action :nothing
-end
+  service 'Service that is slow to start and reports as started' do
+    service_name 'my_database'
+    action :start
+    notifies :sleep, chef_sleep['wait for service start']
+  end
+
+  chef_sleep 'wait for service start' do
+    seconds 30
+    action :nothing
+  end
