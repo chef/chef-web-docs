@@ -770,7 +770,7 @@ div.sidebarinner {
 div.sphinxsidebar-promo {
   max-height: 500px;
   max-width: 230px;
-  min-height: 250px;
+  min-height: 220px;
   min-width: 115px;
   display: flex;
   flex-direction: column;
