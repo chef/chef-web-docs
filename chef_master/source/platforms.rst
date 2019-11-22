@@ -56,13 +56,13 @@ The following table lists the commercially-supported platforms and versions for 
      - ``x86_64``
      - ``6.x``, ``7.x``, ``8.x``
    * - Red Hat Enterprise Linux
-     - ``x86_64``, ``s390x`` (6.x and 7.x only), ``ppc64le`` (7.x only), ``ppc64`` (7.x only), ``aarch64`` (7.x only)
+     - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only), ``aarch64`` (7.x only)
      - ``6.x``, ``7.x``, ``8.x``
    * - Solaris
      - ``sparc``, ``i86pc``
      - ``11.2``, ``11.3``, ``11.4``
    * - SUSE Enterprise Linux Server
-     - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
+     - ``x86_64``, ``ppc64le``, ``ppc64``
      - ``12 SP1+``, ``15``
    * - Ubuntu (LTS releases)
      - ``x86_64``
