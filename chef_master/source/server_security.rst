@@ -7,7 +7,7 @@ This guide covers the security features available in Chef Infra Server.
 
 SSL Certificates
 =====================================================
-Initial configuration of the Chef Infra Server is done automatically using a self-signed certificate to create the certificate and private key files for Nginx. This section details the process for updating a Chef server's SSL certificate.
+Initial configuration of the Chef Infra Server is done automatically using a self-signed certificate to create the certificate and private key files for Nginx. This section details the process for updating a Chef server s SSL certificate.
 
 Automatic Installation (recommended)
 -----------------------------------------------------
@@ -313,7 +313,7 @@ While the file does not contain passwords in plaintext, it is not safe to share 
 SSL Encryption Between Chef Infra Server and External PostgreSQL
 ================================================================
 
-**New in Chef Server X.Y:**  Chef Server X.Y introduces the capability to encrypt traffic between Chef Infra Server and an external PostgreSQL configuration over SSL.  These instructions are not all-encompassing and assume familiarity with PostgreSQL administration, configuration, and troubleshooting.  Consult the appropriate PostgreSQL documentation as necessary, e.g. https://www.postgresql.org/docs/9.6/ssl-tcp.html.
+**New in Chef Server 13.1.13:**  Chef Server 13.1.13 introduces the capability to encrypt traffic between Chef Infra Server and an external PostgreSQL configuration over SSL.  These instructions are not all-encompassing and assume familiarity with PostgreSQL administration, configuration, and troubleshooting.  Consult the appropriate PostgreSQL documentation as necessary, e.g. https://www.postgresql.org/docs/9.6/ssl-tcp.html.
 
 To enable this encryption (typical scenario):
 
@@ -336,9 +336,9 @@ To enable this encryption (typical scenario):
    #ssl_cert_file='<PATH/TO/CERT/FILE>'
    #ssl_key_file='<PATH/TO/KEY/FILE>'
 
-5. Consider forcing the use of SSL connections from the PostgreSQL side, otherwise non-SSL connections could be used.  This can be achieved by editing `pg_hba.conf` on the PostgreSQL machine, and changing the relevant Chef Server connections to `hostssl`.
+5. Consider forcing the use of SSL connections from the PostgreSQL side, otherwise non-SSL connections could be used.  This can be achieved by editing `pg_hba.conf` on the PostgreSQL machine, and changing the relevant Chef Infra Server connections to `hostssl`.
 
-   Here is a sample `pg_hba.conf` file with `hostssl` connections for Chef Server (the contents of your `pg_hba.conf` will be different):
+   Here is a sample `pg_hba.conf` file with `hostssl` connections for Chef Infra Server (the contents of your `pg_hba.conf` will be different):
 
 .. code-block:: bash
 
@@ -360,19 +360,19 @@ To enable this encryption (typical scenario):
 
    $ /<PATH/TO/POSTGRESQL>/postgresql restart
 
-7. Edit /etc/opscode/chef-server.rb on the Chef Server machine and add the following line:
+7. Edit /etc/opscode/chef-server.rb on the Chef Infra Server machine and add the following line:
 
 .. code-block:: ruby
 
    postgresql['sslmode']='require'
 
-8. Run the following command on the Chef Server machine:
+8. Run the following command on the Chef Infra Server machine:
 
 .. code-block:: bash
 
    $ chef-server-ctl reconfigure
 
-9. Verify that SSL is enabled and that SSL connections are up between Chef Server and your running PostgreSQL instance.  One way to do this is by using psql on the PostgreSQL machine:
+9. Verify that SSL is enabled and that SSL connections are up between Chef Infra Server and your running PostgreSQL instance.  One way to do this is by using `chef-server-ctl psql` on the Chef Infra Server machine:
 
 .. code-block:: bash
 
