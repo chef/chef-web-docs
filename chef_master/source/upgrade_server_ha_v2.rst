@@ -14,7 +14,6 @@ Overview
 These instructions cover the process of upgrading a Chef Backend cluster. Please refer to the appropriate directions for the version of Chef Backend that you are using and the version that you intend to upgrade to:
 
 * `Chef Backend 1.x to 2.x Upgrade`_ (downtime upgrade)
-* `Chef Backend 1.x to 1.x Upgrade`_ (rolling upgrade)
 * `DRBD/Keepalived HA to Chef Backend 2.x`_ (migration)
 
 Chef Backend 1.x to 2.x Upgrade
