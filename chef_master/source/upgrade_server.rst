@@ -75,8 +75,9 @@ To upgrade to Chef Server 12 from a standalone Chef Server, do the following:
 
 High Availability: Chef Backend
 -----------------------------------------------------
-The Chef Infra Server can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture
-To upgrade from Chef Infra Server to Chef Backend, follow the steps in `High Availability: Upgrade to Chef Backend 2 </upgrade_server_ha_v2.html>`_.
+The Chef Infra Server can operate in a high availability configuration that provides automated load balancing and failover for stateful components in the system architecture.
+
+To upgrade your Chef Backend installation, see `High Availability: Upgrade to Chef Backend 2 </upgrade_server_ha_v2.html>`_.
 The upgrade process will require downtime equal to the amount of time it takes to stop the server, run dpkg or RPM Package Manager, and then upgrade the server.
 
 To upgrade Chef Backend from an existing DRBD/keepalived configuration, see the `Best Best Practices for Migrating Your Chef Server <https://blog.chef.io/2018/04/06/best-practices-for-migrating-your-chef-server/>`__ webinar from the `Chef Blog <https://blog.chef.io/>`__

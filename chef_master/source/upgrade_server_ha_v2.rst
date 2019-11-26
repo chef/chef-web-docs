@@ -77,7 +77,7 @@ Chef Backend 1.x to 2.x Upgrade
 
       chef-server-ctl reconfigure
 
-#. To continue the upgrades on Chef Infra Server frontends using this backend cluster, see `Upgrade Frontends Associated with a Chef Backend Cluster <https://docs.chef.io/install_server_ha.html#upgrading-chef-server-on-the-frontend-machines>`_
+#. To continue the upgrades on Chef Infra Server frontend nodes using this backend cluster, see `Upgrade Frontends Associated with a Chef Backend Cluster <https://docs.chef.io/install_server_ha.html#upgrading-chef-infra-server-on-the-frontend-machines>`_
 
 Chef Backend Minor Version Upgrade
 =====================================================

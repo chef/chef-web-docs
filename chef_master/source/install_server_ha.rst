@@ -117,7 +117,7 @@ Peer communication, backend cluster
 Installation
 =====================================================
 
-These instructions assume you are using the following versions or newer:
+These instructions assume you are using the minimum versions:
 
 - Chef Server  : 12.5.0
 - Chef Backend : 0.8.0
@@ -266,7 +266,7 @@ On the first frontend node, assuming that the generated configuration was copied
 #. Run ``cp /home/<USER>/chef-server.rb.<FE1> /etc/opscode/chef-server.rb``
 #. As the root user, run ``chef-server-ctl reconfigure``
 
-Adding More Frontends
+Step 6: Adding More Frontend Nodes
 ----------------------------------------------------------------
 
 For each additional frontend node you wish to add to your cluster:
