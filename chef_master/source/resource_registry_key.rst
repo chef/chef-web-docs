@@ -28,11 +28,11 @@ A **registry_key** resource block creates and deletes registry keys in Microsoft
 
 .. code-block:: ruby
 
-   registry_key "HKEY_LOCAL_MACHINE\\...\\System" do
+   registry_key 'HKEY_LOCAL_MACHINE\\...\\System' do
      values [{
-       name: "NewRegistryKeyValue",
+       name: 'NewRegistryKeyValue',
        type: :multi_string,
-       data: ['foo\0bar\0\0']
+       data: %w(foo bar baz),
      }]
      action :create
    end
