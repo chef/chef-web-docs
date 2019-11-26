@@ -1,10 +1,10 @@
 ========================================================
-Data Collection with a Chef High Availability Cluster
+Data Collection with a Chef Backend Cluster
 ========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_ha.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 .. important:: Previous step: `Setup Data Collection </data_collection.html>`__
 
