@@ -14,6 +14,7 @@ An attribute is a specific detail about a node. Attributes are used by Chef Infr
 Attributes are defined by:
 
 * The state of the node itself
+* Attributes passed via JSON on the CLI
 * Cookbooks (in attribute files and/or recipes)
 * Roles
 * Environments
@@ -21,6 +22,7 @@ Attributes are defined by:
 
 During every Chef Infra Client run, Chef Infra Client builds the attribute list using:
 
+* Attributes passed via JSON on the CLI
 * Data about the node collected by `[Ohai] </ohai.html>`__.
 * The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run.
 * The rebuilt node object from the current Chef Infra Client run, after it is updated for changes to cookbooks (attribute files and/or recipes), roles, and/or environments, and updated for any changes to the state of the node itself.
@@ -35,7 +37,7 @@ Attribute Persistence
 =====================================================
 .. tag node_attribute_persistence
 
-All attributes except for normal attributes are reset at the beginning of a Chef Infra Client run. Chef Infra Client rebuilds these attributes using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run, and then uses default and override attributes that are specified in cookbooks, roles, environments, and Policyfiles. All attributes are then merged and applied to the node according to attribute precedence. The attributes that were applied to the node are saved to the Chef Infra Server as part of the node object at the conclusion of each Chef Infra Client run.
+All attributes except for normal attributes are reset at the beginning of a Chef Infra Client run. Attributes set via ``chef-client -j`` with a JSON file have normal precedence and are persisted between Chef Infra Client runs. Chef Infra Client rebuilds these attributes using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run, and then uses default and override attributes that are specified in cookbooks, roles, environments, and Policyfiles. All attributes are then merged and applied to the node according to attribute precedence. The attributes that were applied to the node are saved to the Chef Infra Server as part of the node object at the conclusion of each Chef Infra Client run.
 
 .. end_tag
 
@@ -99,6 +101,7 @@ Attribute Sources
 =====================================================
 Attributes are provided to Chef Infra Client from the following locations:
 
+* JSON files passed via the ``chef-client -j``
 * Nodes (collected by Ohai at the start of each Chef Infra Client run)
 * Attribute files (in cookbooks)
 * Recipes (in cookbooks)
@@ -111,7 +114,7 @@ Notes:
 * Many attributes are maintained in the chef-repo for Policyfiles, environments, roles, and cookbooks (attribute files and recipes)
 * Many attributes are collected by Ohai on each individual node at the start of every Chef Infra Client run
 * The attributes that are maintained in the chef-repo are uploaded to the Chef Infra Server from the workstation, periodically
-* Chef Infra Client will pull down the node object from the Chef Infra Server (which contains the attribute data from the previous Chef Infra Client run), after which all attributes (except ``normal`` are reset)
+* Chef Infra Client will pull down the node object from the Chef Infra Server (which contains the attribute data from the previous Chef Infra Client run, including those set via ``-j`` with JSON files), after which all attributes (except ``normal`` are reset)
 * Chef Infra Client will update the cookbooks on the node (if required), which updates the attributes contained in attribute files and recipes
 * Chef Infra Client will update the role and environment data (if required)
 * Chef Infra Client will rebuild the attribute list and apply attribute precedence while configuring the node
@@ -321,6 +324,7 @@ Attributes are always applied by Chef Infra Client in the following order:
 #. A ``default`` attribute located in a role
 #. A ``force_default`` attribute located in a cookbook attribute file
 #. A ``force_default`` attribute located in a recipe
+#. A ``normal`` attribute located in a JSON file passed via ``chef-client -j``
 #. A ``normal`` attribute located in a cookbook attribute file
 #. A ``normal`` attribute located in a recipe
 #. An ``override`` attribute located in a cookbook attribute file
