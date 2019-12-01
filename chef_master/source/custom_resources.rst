@@ -544,7 +544,7 @@ For example, a custom resource defines two properties (``content`` and ``path``)
 .. code-block:: ruby
 
    property :content, String
-   property :path, String, identity: true
+   property :path, String, name_property: true
 
    load_current_value do
      if ::File.exist?(path)
@@ -973,10 +973,25 @@ Block Arguments
 -----------------------------------------------------
 .. tag dsl_custom_resource_method_property_block_argument
 
-Any properties that are marked ``identity: true``, ``desired_state: false``, or ``name_property: true`` will be available from ``load_current_value``. If access to other properties of a resource is needed, use a block argument with load_current_value. The block argument will have the values of the requested resource. For example:
+Any properties that are marked ``identity: true``, ``desired_state: false``, or ``name_property: true`` will be directly available from ``load_current_value``. If access to other properties of a resource is needed, use a block argument with load_current_value. The block argument will have the values of the requested resource. For example:
 
 .. code-block:: ruby
 
+   // Property is directly available example
+   property :action, String, name_property: true
+   property :content, String
+
+   load_current_value do |desired|
+     puts "The user requestion action = #{action} in the resource"
+     puts "The user typed content = #{desired.content} in the resource"
+   end
+
+.. end_tag
+
+.. code-block:: ruby
+ 
+   // Block argument example
+   property :action, String
    property :content, String
 
    load_current_value do |desired|
