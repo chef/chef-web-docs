@@ -1,63 +1,76 @@
 .sidebar {
-  overflow-y: scroll;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  width: 260px;
 }
 
-#sidebar-nav {
-  //display: flex;
-  //align-items: center;
-  //flex-direction: column;
+#left-nav-off-canvas{
+  border-bottom: 1px solid $border;
+}
 
-  width: 18rem;
+#sidebar-nav{
+  height: 100%;
+  z-index: 25;
+  width: 260px;
+  overflow-y: scroll;
 
-  > .nav {
+  &.offCanvas{
+    width: inherit;
+  }
 
-    @include breakpoint(medium) {
-      overflow: auto;
-      overflow-y: scroll;
-      height: calc(100vh - 140px);
-    };
+> .nav {
+  margin-bottom: 30px;
+  overflow-y: scroll;
 
-    > .accordion-menu {
-      //font-size: rem-calc(14px);
+  @include breakpoint(medium) {
+    overflow-y: scroll;
+  };
 
-      > li {
+  > .accordion-menu {
+    font-size: rem-calc(14px);
 
-        > a {
-          font-weight: 700;
+    > li {
+      padding-right: 8px;
 
-          @include breakpoint(medium) {
-            border-radius: $border-radius-base 0 0 $border-radius-base;
-          };
-        }
-      }
-      
-      .nested.is-active li.active a {
-        font-weight: normal;
-        background: none;
-        color: $blue-darker;
-      }
+      > a {
+        font-weight: 700;
+        color: $charcoal;
 
-      .nested.is-accordion-submenu {
-        margin-left: rem-calc(8);
+        @include breakpoint(medium) {
+          border-radius: $border-radius-base 0 0 $border-radius-base;
+        };
       }
     }
+    
+    .nested.is-active li.active a {
+      font-weight: normal;
+      background: none;
+      color: $menu-item-color-active
+    }
 
-    .menu {
-      a {
-        color: $body-font-color;
-      }
+    .nested.is-accordion-submenu {
+      margin-left: rem-calc(8);
     }
   }
 
-  > .search{
-   margin: 0 12px;
-   //object-fit: contain;
+  .menu {
+    a {
+      color: $body-font-color;
+    }
+  }
+}
+> .search {
+    text-align: center;
+    margin: 12px 12px;
+    object-fit: contain;
   }
 }
 
 .external_link_icon {
   display: inline-block;
-  width: 10px;
+  width: 12px;
+  height: 12px;
   background: url("/images/external-link.svg");
   background-size: contain;
   padding: 5px;
@@ -73,13 +86,3 @@
     margin: 2px 18px;
   }
 }
-
-/* #header-logo {
-
-  img {
-    @include transition();
-    padding: 8px 0;
-    width: 90px;
-    margin-top: 2px;
-  }
-} */

@@ -16,7 +16,6 @@
 
       @include breakpoint(medium) {
         width: auto;
-        //max-width: calc(33.33333% - 10px);
 
         &:not(:last-child){
           margin-right: 10px;

@@ -31,48 +31,6 @@
 	transition: all $speed ease-in-out;
 }
 
-//button
-@mixin button() {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	border: none;
-	border-radius: $border-radius-base;
-	outline: none;
-	background: none;
-	text-decoration: none;
-
-	@include inter();
-	@include transition();
-
-	font-size: 16px;
-  line-height: 1.6;
-  color: $charcoal;
-  font-weight: 700;
-  padding: 11px 36px;
-  background-color: $orange;
-	display: inline-block;
-	text-align: center;
-
-	body:not(.touch-device) & {
-		&:hover {
-			text-decoration: none;
-			color: $charcoal;
-			background-color: $orange-lighter;
-		}
-	}
-
-
-	&:visited {
-		color: $charcoal;
-	}
-
-	&:active, &:focus {
-		outline: none;
-		text-decoration: none;
-	}
-}
-
 //bg cover
 @mixin bg-cover() {
   background-position: center center;

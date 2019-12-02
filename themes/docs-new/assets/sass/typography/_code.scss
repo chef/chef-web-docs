@@ -1,11 +1,12 @@
 code {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: $code-background;
   border: 1px solid $ash;
   border-radius: $border-radius-base;
   font-size: 0.8rem;
   display: inline;
   max-width: 100%;
 }
+
 
 a {
   code {
@@ -68,12 +69,7 @@ pre {
   }
 }
 
-@import "chroma";
-
-/////////////
 // prevent code blocks from wrapping
-// this makes long code blocks more readable
-
 .highlight pre code * {
   white-space: nowrap;
 }
@@ -81,3 +77,5 @@ pre {
 .highlight pre code {
   white-space: pre;
 }
+
+@import "chroma";

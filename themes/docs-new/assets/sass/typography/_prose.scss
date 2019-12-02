@@ -2,8 +2,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     .svg-inline--fa {
-      padding-left: rem-calc(10px);
-      font-size: 90%;
+      font-size: .75em;
     } 
   }
 
@@ -28,3 +27,11 @@
     }
   }
 }
+
+#main-content
+  .index-prose {
+    li {
+      margin-bottom: 0;
+    }
+
+  }

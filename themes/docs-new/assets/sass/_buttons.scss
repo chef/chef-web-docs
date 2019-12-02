@@ -2,56 +2,6 @@ $thick: 3px;
 $pad: 0.7em;
 $extra: calc(#{$pad} * 1.2);
 
-.button {
-  @include button();
-
-  &.transparent {
-    background: transparent;
-    color: $orange;
-    min-width: 0;
-    text-transform: none;
-
-    &:before {
-      @include fa-icon;
-      @extend .fas;
-      content: fa-content($fa-var-angle-right);
-      margin-right: 5px;
-      font-size: 12px;
-      top: -1px;
-      position: relative;
-    }
-
-    &:after {
-      display: none;
-    }
-
-    &:hover {
-      background-color: transparent;
-    }
-
-    body:not(.touch-device) & {
-      &:hover {
-        background-color: transparent;
-        color: $orange-darker;
-      }
-    }
-
-
-    &:visited {
-      color: $orange;
-
-      &:hover {
-        background-color: none;
-
-        body:not(.touch-device) & {
-          background-color: transparent;
-          color: $orange-darker;
-        }
-
-      }
-    }
-  }
-}
 
 .button-animated {
   box-sizing: border-box;
@@ -158,4 +108,9 @@ $extra: calc(#{$pad} * 1.2);
       }
     }
   }
+}
+
+.TOC-button {
+  padding: 5px;
+  margin-bottom: 24px;
 }
