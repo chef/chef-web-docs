@@ -17,9 +17,9 @@ menu:
 
 ######## Basic Resource Data ########
 
-resource_description: "The example resource is an example resource page to demonstrate how the resource YAML files currently work in chef-web-docs using the Hugo theme. This example uses data from other resource pages."
-resource_note: In many cases, it is better to use the package resource instead of this one. This is because when the package resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the package resource allows a recipe to be authored in a way that allows it to be used across many platforms.
-resource_new_in: 52.1  
+resource_description: Id velit magna veniam cillum.
+resource_note: Non tempor commodo Lorem fugiat reprehenderit aliqua ad dolore magna veniam laboris adipisicing. Duis sit sit cillum aute deserunt commodo qui enim ullamco. Incididunt aliqua ad non culpa excepteur exercitation labore excepteur aliquip sunt nulla. Fugiat ea nulla et magna do reprehenderit id ad fugiat anim. Excepteur ad voluptate adipisicing dolor occaecat irure amet sint. Duis ex mollit aliqua ut. In consectetur voluptate ipsum est.
+resource_new_in: x.y  
 
 
 ######## Handler Types ########
