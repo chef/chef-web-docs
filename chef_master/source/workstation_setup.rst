@@ -1,7 +1,7 @@
 =====================================================
 Configuring Chef Workstation
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chefdk_setup.rst>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/workstation_setup.rst>`__
 
 This guide contains common configuration options used when setting up a new Chef Workstation installation. If you do not have Chef Workstation installed, see its  `installation guide </install_workstation.html>`__ before proceeding further.
 
@@ -9,7 +9,7 @@ Configure Ruby Environment
 =====================================================
 For many users of Chef, the version of Ruby that is included in Chef Workstation should be configured as the default version of Ruby.
 
-.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby environment on Windows, see `Chef Workstation on Windows </dk_windows.html#configure-environment>`__.
+.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby environment on Windows, see `Chef Workstation on Windows </install_workstation.html#configure-environment>`__.
 
 #. Open a command window and enter the following:
 

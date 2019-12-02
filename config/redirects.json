@@ -2,7 +2,7 @@
   "install_dk": "/install_workstation.html",
   "workstation_windows": "/install_workstation.html",
   "chefdk_setup": "/workstation_setup.html",
-  "dk_windows": "/workstation_windows.html",
+  "dk_windows": "/install_workstation.html",
   "azure_portal.html#chef-compliance": "/compliance_azure.html",
   "azure_portal.html#chef-automate": "/automate_azure.html",
   "config_rb_knife.html": "/config_rb.html",

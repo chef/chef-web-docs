@@ -19,7 +19,7 @@ Chef Infra Client can be installed on machines running Microsoft Windows in the 
 
 Setting up Windows Workstations
 =======================================================
-To set up your Windows workstation follow the steps on `Chef for Microsoft Windows </dk_windows.html>`__
+To set up your Windows workstation follow the steps on `Chef for Microsoft Windows </install_workstation.html>`__
 
 Install Chef Infra Client on Windows Nodes
 =======================================================

@@ -3,11 +3,16 @@ Install Chef Workstation
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_workstation.rst>`__
 
+Start your infrastructure automation quickly and easily with `Chef Workstation <https://www.chef.sh/>`__ Chef Workstation gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package.
+
+Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without back-porting features.
+
 Chef Workstation includes:
 
 * Chef Infra Client
-* Embedded versions of Ruby, RubyGems, and the Ruby interpreter
-* An embedded version of OpenSSL
+* Chef InSpec
+* Chef Workstation menu bar application
+* Embedded versions of Ruby and RubyGems
 * Test Kitchen
 * Cookstyle
 * ChefSpec
@@ -100,7 +105,7 @@ Linux
 
    .. code-block:: bash
 
-      wget https://packages.chef.io/files/stable/Chef Workstation/3.2.30/ubuntu/18.04/chefdk_3.2.30-1_amd64.deb
+      wget https://packages.chef.io/files/stable/chefworkstation/0.13/ubuntu/18.04/chefworkstation_0.13.0-1_amd64.deb
 
 #. Use your distribution's package manager to install Chef Workstation:
 
@@ -108,13 +113,13 @@ Linux
 
      .. code-block:: bash
 
-        rpm -Uvh Chef Workstation-3.2.30-1.el7.x86_64.rpm
+        rpm -Uvh chefworkstation_0-3.2.30-1.el7.x86_64.rpm
 
    * Debian/Ubuntu:
 
      .. code-block:: bash
 
-        dpkg -i chefdk_3.2.30-1_amd64.deb
+        dpkg -i chefworkstation_0.13.0-1_amd64.deb
 
 Verify the Installation
 ====================================================
