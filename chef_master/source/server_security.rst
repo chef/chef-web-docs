@@ -7,7 +7,7 @@ This guide covers the security features available in Chef Infra Server.
 
 SSL Certificates
 =====================================================
-Initial configuration of the Chef Infra Server is done automatically using a self-signed certificate to create the certificate and private key files for Nginx. This section details the process for updating a Chef server s SSL certificate.
+Initial configuration of the Chef Infra Server is done automatically using a self-signed certificate to create the certificate and private key files for Nginx. This section details the process for updating a Chef Infra Server's SSL certificate.
 
 Automatic Installation (recommended)
 -----------------------------------------------------
