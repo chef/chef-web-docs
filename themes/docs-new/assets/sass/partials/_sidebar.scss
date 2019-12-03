@@ -51,6 +51,11 @@
 
     .nested.is-accordion-submenu {
       margin-left: rem-calc(8);
+
+    .is-accordion-submenu-item a{
+      line-height: 1.4rem;
+      padding: .5rem 1rem;
+    }
     }
   }
 
