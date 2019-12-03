@@ -466,13 +466,13 @@ opscode_erchef['nginx_bookshelf_caching'] = :on
 opscode_erchef['s3_url_expiry_window_size'] = '50%'
 ```
 
-{{< info >}}
+{{< note >}}
 
 The `opscode_solr4`, `postgresql`, and `rabbitmq` services are disabled
 in this configuration file for the frontend machines when running the
 Chef Infra Server with a backend HA cluster.
 
-{{< /info >}}
+{{< /note >}}
 
 help
 ====
@@ -547,12 +547,12 @@ This subcommand has the following options:
     specified in `chef-backend.rb`, this command will prompt to choose
     from a list of interfaces that are currently available on the node.
 
-    {{< info >}}
+    {{< note >}}
 
     This option should only be used the first time a node joins the
     backend HA cluster.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `-p IP_ADDRESS`, `--publish-address IP_ADDRESS`
 
@@ -562,12 +562,12 @@ This subcommand has the following options:
     this command will prompt to choose from a list of IP addresses that
     are currently bound on the node.
 
-    {{< info >}}
+    {{< note >}}
 
     This option should only be used the first time a node joins the
     backend HA cluster.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `--recovery`
 
@@ -575,14 +575,14 @@ This subcommand has the following options:
     removed via the `chef-backend-ctl remove-node` or
     `chef-backend-ctl bootstrap --with-quorum-recovery` commands.
 
-    {{< info >}}
+    {{< note >}}
 
     This option will run against the existing `chef-backend.rb` file,
     which means the `--vip-interface` and `--publish-address` options
     should not be specified. (They are already defined in the
     `chef-backend.rb` file.)
 
-    {{< /info >}}
+    {{< /note >}}
 
 `-s PATH`, `--secrets-file-path PATH`
 
@@ -850,12 +850,12 @@ This subcommand has the following syntax:
 $ chef-backend-ctl uninstall
 ```
 
-{{< info >}}
+{{< note >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-{{< /info >}}
+{{< /note >}}
 
 Service Subcommands
 ===================

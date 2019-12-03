@@ -10,7 +10,6 @@
     "pixrem": "^4.0.1",
     "postcss-cli": "^6.0.1",
     "showdown": "^1.9.0",
-    "tocbot": "^4.7.1",
     "ua-parser-js": "^0.7.20",
     "what-input": "^5.2.3"
   }

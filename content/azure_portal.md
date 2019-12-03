@@ -42,14 +42,14 @@ Through the Azure portal, you can provision a virtual machine with Chef
 Infra Client running as a background service. Once provisioned, these
 virtual machines are ready to be managed by a Chef Infra Server.
 
-{{< info >}}
+{{< note >}}
 
 Virtual machines running on Microsoft Azure can also be provisioned from
 the command-line using the `knife azure` plugin for knife. This approach
 is ideal for cases that require automation or for users who are more
 suited to command-line interfaces.
 
-{{< /info >}}
+{{< /note >}}
 
 Before virtual machines can be created using the Azure portal, some Chef
 Infra Client-specific settings will need to be identified so they can be
@@ -75,7 +75,7 @@ machines with Chef using the following steps:
 4.  Select either **Windows Server** or **Ubuntu Server** in the
     **Recommended** category.
 
-    {{< info >}}
+    {{< note >}}
 
     The Chef extension on the Azure portal may be used on the following
     platforms:
@@ -86,7 +86,7 @@ machines with Chef using the following steps:
     -   RHEL 6+
     -   Debian 7, 8
 
-    {{< /info >}}
+    {{< /note >}}
 
 5.  In the next blade, select the sku/version of the OS that you would
     like to use on your VM and click **Create**.
@@ -94,14 +94,14 @@ machines with Chef using the following steps:
 6.  Fill in the virtual machine configuration information, such as
     machine name, credentials, VM size, and so on.
 
-    {{< info >}}
+    {{< note >}}
 
     It's best to use a new computer name each time through this
     workflow. This will help to avoid conflicts with virtual machine
     names that may have been previously registered on the Chef Infra
     Server.
 
-    {{< /info >}}
+    {{< /note >}}
 
 7.  In Step 3 on the portal UI, open the **Extensions** blade and click
     `Add extension`.
@@ -119,19 +119,19 @@ machines with Chef using the following steps:
 
 11. Upload it through the portal in the **Validation Key** field.
 
-    {{< info >}}
+    {{< note >}}
 
     Because the `.chef` directory is considered a hidden directory, you
     may have to copy this file out to a non-hidden directory on disk
     before you can upload it through the open file dialog box.
 
-    {{< /info >}}
+    {{< /note >}}
 
 12. For **Client Configuration File**, browse to the
     `chef-repo/.chef/config.rb` file and upload it through your web
     browser.
 
-    {{< info >}}
+    {{< note >}}
 
     Because the `.chef` directory is considered a hidden directory, you
     may have to copy this file out to a non-hidden directory on disk
@@ -141,7 +141,7 @@ machines with Chef using the following steps:
     following two settings: `chef_server_url` and
     `validation_client_name`.
 
-    {{< /info >}}
+    {{< /note >}}
 
 13. Optional. [Use a run-list](/run_lists/) to specify what should
     be run when the virtual machine is provisioned, such as using the
@@ -180,12 +180,12 @@ machines with Chef using the following steps:
     Chef Infra Server web user interface or by using the knife command
     line tool.
 
-    {{< info >}}
+    {{< note >}}
 
     A run-list may only refer to roles and/or recipes that have already
     been uploaded to the Chef Infra Server.
 
-    {{< /info >}}
+    {{< /note >}}
 
 14. Click **OK** to complete the page. Click **OK** in the Extensions
     blade and the rest of the setup blades. Provisioning will begin and

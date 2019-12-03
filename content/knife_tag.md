@@ -19,11 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_tag_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 create
 ======

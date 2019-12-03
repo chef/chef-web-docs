@@ -29,11 +29,11 @@ $ knife ssh SEARCH_QUERY SSH_COMMAND (options)
 Options
 =======
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 This subcommand has the following options:
 
@@ -136,11 +136,11 @@ $ knife search node "tags:*ubuntu* OR roles:*ubuntu* OR fqdn:*ubuntu* (etc.)"
 
 :   The SSH user name.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 ========

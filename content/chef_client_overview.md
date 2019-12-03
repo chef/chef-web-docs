@@ -15,13 +15,13 @@ aliases = "/chef_client_overview.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_client_overview.rst)
 
-{{< info >}}
+{{< note >}}
 
 For the `chef-client` command line tool, see
 [chef-client(executable)](/ctl_chef_client.html) The Chef Infra Client
 executable can be run as a daemon.
 
-{{< /info >}}
+{{< /note >}}
 
 <table>
 <colgroup>

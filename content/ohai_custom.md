@@ -523,12 +523,12 @@ end
 Examples
 ========
 
-{{< info >}}
+{{< note >}}
 
 See <https://github.com/rackerlabs/ohai-plugins/tree/master/plugins> for
 some great examples of custom Ohai plugins.
 
-{{< /info >}}
+{{< /note >}}
 
 The following examples show different ways of building Ohai plugins.
 

@@ -56,7 +56,7 @@ Guards [resource_common_guards]
 
 {{% resources_common_guards %}}
 
-{{< info >}}
+{{< note >}}
 
 When using the `not_if` and `only_if` guards with the **execute**
 resource, the guard's environment is inherited from the resource's
@@ -69,7 +69,7 @@ execute 'bundle install' do
 end
 ```
 
-{{< /info >}}
+{{< /note >}}
 
 Properties
 ----------

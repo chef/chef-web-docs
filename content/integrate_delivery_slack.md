@@ -42,14 +42,14 @@ specified at two levels:
 -   By project. A webhook that is specified at the project level enables
     Slack notifications only for that project.
 
-{{< info >}}
+{{< note >}}
 
 Notifications sent to Slack by Chef Automate do not support retries.
 Therefore, notifications sent while Slack is experiencing API issues,
 outages, or some other unplanned downtime may never be received by the
 channel. Undelivered notifications are not re-sent.
 
-{{< /info >}}
+{{< /note >}}
 
 Create a Webhook
 ================

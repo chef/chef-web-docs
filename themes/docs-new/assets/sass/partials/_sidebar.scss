@@ -1,45 +1,93 @@
 .sidebar {
-  overflow-y: scroll;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  width: 260px;
 }
 
-#sidebar-nav {
-  > .nav {
+#left-nav-off-canvas{
+  border-bottom: 1px solid $border;
+}
 
-    @include breakpoint(medium) {
-      overflow: auto;
-      overflow-y: scroll;
-      height: calc(100vh - 140px);
-    };
+#sidebar-nav{
+  height: 100%;
+  z-index: 25;
+  width: 260px;
+  overflow-y: scroll;
 
-    > .accordion-menu {
-      font-size: rem-calc(15px);
+  &.offCanvas{
+    width: inherit;
+  }
 
-      > li {
+> .nav {
+  margin-bottom: 30px;
+  overflow-y: scroll;
 
-        > a {
-          font-weight: 700;
+  @include breakpoint(medium) {
+    overflow-y: scroll;
+  };
 
-          @include breakpoint(medium) {
-            border-radius: $border-radius-base 0 0 $border-radius-base;
-          };
-        }
-      }
+  > .accordion-menu {
+    font-size: rem-calc(14px);
 
-      .nested.is-active li.active a {
-        font-weight: normal;
-        background: none;
-        color: $blue-darker;
-      }
+    > li {
+      padding-right: 8px;
 
-      .nested.is-accordion-submenu {
-        margin-left: rem-calc(8);
-      }
-    }
+      > a {
+        font-weight: 700;
+        color: $charcoal;
 
-    .menu {
-      a {
-        color: $body-font-color;
+        @include breakpoint(medium) {
+          border-radius: $border-radius-base 0 0 $border-radius-base;
+        };
       }
     }
+    
+    .nested.is-active li.active a {
+      font-weight: normal;
+      background: none;
+      color: $menu-item-color-active
+    }
+
+    .nested.is-accordion-submenu {
+      margin-left: rem-calc(8);
+
+    .is-accordion-submenu-item a{
+      line-height: 1.4rem;
+      padding: .5rem 1rem;
+    }
+    }
+  }
+
+  .menu {
+    a {
+      color: $body-font-color;
+    }
+  }
+}
+> .search {
+    text-align: center;
+    margin: 12px 12px;
+    object-fit: contain;
+  }
+}
+
+.external_link_icon {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: url("/images/external-link.svg");
+  background-size: contain;
+  padding: 5px;
+  filter: invert(51%) sepia(0%) saturate(13%) hue-rotate(142deg) brightness(89%) contrast(83%);
+}
+
+#header-logo {
+
+  img {
+    @include transition();
+    padding: 8px 0;
+    width: 90px;
+    margin: 2px 18px;
   }
 }

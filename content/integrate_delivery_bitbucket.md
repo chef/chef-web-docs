@@ -49,12 +49,12 @@ Trust SSL Certificate
 Run the following steps to set up self-signed certificates for Chef
 Automate.
 
-{{< info >}}
+{{< note >}}
 
 This is only required if the Bitbucket uses a self-signed SSL
 certificate or an internal certificate authority.
 
-{{< /info >}}
+{{< /note >}}
 
 Debian
 ------
@@ -95,11 +95,11 @@ higher), do the following:
     yum install ca-certificates
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     For 6.x servers, run this command only once.
 
-    {{< /info >}}
+    {{< /note >}}
 
 3.  Run the following command:
 
@@ -107,11 +107,11 @@ higher), do the following:
     update-ca-trust force-enable
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     For 6.x servers, run this command only once.
 
-    {{< /info >}}
+    {{< /note >}}
 
 4.  Run the following command:
 

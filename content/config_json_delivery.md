@@ -124,12 +124,12 @@ Configuration Settings
         }
         ```
 
-        {{< info >}}
+        {{< note >}}
 
         If you omit this setting or set it to "v1", the previous job
         dispatch system using Push Jobs 1.x will be used instead.
 
-        {{< /info >}}
+        {{< /note >}}
 
     -   `"filters"` Similar to the former Chef Push Jobs-based dispatch
         system, you can set a variety of filters. Filters control which
@@ -242,11 +242,11 @@ Configuration Settings
 
 </div>
 
-{{< info >}}
+{{< note >}}
 
 {{% delivery_cookbook_delivery_truck %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Phase Settings
 --------------

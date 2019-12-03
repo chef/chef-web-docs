@@ -44,12 +44,12 @@ The `netdev` cookbook contains the following custom resources:
 `netdev_interface`, `netdev_l2_interface`, `netdev_lag`, and
 `netdev_vlan`.
 
-{{< info >}}
+{{< note >}}
 
 These custom resources are part of the `netdev` cookbook
 (<https://github.com/chef-cookbooks/netdev>).
 
-{{< /info >}}
+{{< /note >}}
 
 netdev_interface
 -----------------
@@ -229,7 +229,7 @@ The `netdev_lag` custom resource is used to to model the properties and
 to manage the configuration of a link aggregation group (LAG). This is
 referred to as an aggregated Ethernet bundle in Junos OS.
 
-{{< info >}}
+{{< note >}}
 
 The number of supported aggregated Ethernet interfaces on a switch must
 be manually configured before this resource can be used to create LAGs.
@@ -241,7 +241,7 @@ command to configure the number of supported interfaces:
 $ set chassis aggregated-devices ethernet device-count <count-value>
 ```
 
-{{< /info >}}
+{{< /note >}}
 
 ### Actions
 
@@ -293,9 +293,9 @@ This custom resource has the following properties:
 <tr class="even">
 <td><p><code>links</code></p></td>
 <td><p>Required. An array of interfaces to be configured as members of a link aggregation group (LAG).</p>
-{{< info >}}
+{{< note >}}
 <p>If a <code>netdev_lag</code> resource is deleted, interfaces that are defined by this property are also deleted, unless they have been configured elsewhere.</p>
-{{< /info >}}</td>
+{{< /note >}}</td>
 </tr>
 <tr class="odd">
 <td><code>minimum_links</code></td>

@@ -60,24 +60,24 @@ kitchen (executable)
 
 {{% ctl_kitchen_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 For more information about the `kitchen` command line tool, see
 [kitchen](/ctl_kitchen/).
 
-{{< /info >}}
+{{< /note >}}
 
 kitchen.yml
 ===========
 
 {{% test_kitchen_yml %}}
 
-{{< info >}}
+{{< note >}}
 
 For more information about the kitchen.yml file, see
 [kitchen.yml](/config_yml_kitchen.html).
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------

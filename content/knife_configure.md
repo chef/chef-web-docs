@@ -35,11 +35,11 @@ $ knife configure client DIRECTORY
 Options
 =======
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 This subcommand has the following options for use when configuring a
 config.rb file:
@@ -72,11 +72,11 @@ config.rb file:
 :   The path to the validation key used by the client, typically a file
     named chef-validator.pem.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 ========

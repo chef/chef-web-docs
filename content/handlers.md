@@ -279,12 +279,12 @@ needs to be able to collect data for the entire Chef Infra Client run,
 Reporting needs to be enabled before anything else happens at the start
 of a Chef Infra Client run.
 
-{{< info >}}
+{{< note >}}
 
 The start handler used by the Reporting add-on for the Chef Infra Server
 is always installed using the **chef-client** cookbook.
 
-{{< /info >}}
+{{< /note >}}
 
 ### start_handler.rb
 

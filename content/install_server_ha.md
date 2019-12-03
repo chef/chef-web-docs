@@ -40,11 +40,11 @@ the frontend group.
 -   The backend cluster, comprised of three nodes working together,
     provides highly available data persistence for the frontend group.
 
-    {{< info >}}
+    {{< note >}}
 
     At this time, backend clusters can only have three nodes.
 
-    {{< /info >}}
+    {{< /note >}}
 
 ![image](/images/chef_server_ha_cluster.svg)
 
@@ -280,12 +280,12 @@ $ chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
 $ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
 ```
 
-{{< info >}}
+{{< note >}}
 
 `/etc/chef-backend/chef-backend-secrets.json` is *not* made available to
 Chef Infra Server frontend nodes.
 
-{{< /info >}}
+{{< /note >}}
 
 Step 5: Install and Configure First Frontend
 --------------------------------------------
@@ -320,7 +320,7 @@ For each additional frontend node you wish to add to your cluster:
 
     -   /etc/opscode/private-chef-secrets.json
 
-    {{< info >}}
+    {{< note >}}
 
     For Chef Server versions prior to 12.14, you will also need to copy
     the key files:
@@ -329,7 +329,7 @@ For each additional frontend node you wish to add to your cluster:
     -   /etc/opscode/webui_pub.pem
     -   /etc/opscode/pivotal.pem
 
-    {{< /info >}}
+    {{< /note >}}
 
 5.  On the new frontend node run `mkdir -p /var/opt/opscode/upgrades/`.
 
@@ -734,7 +734,7 @@ find if deploying Chef Backend to various cloud providers.
 -   `etcd.snapshot_count 5000` ETCD_SNAPSHOT_COUNT which is the number
     of committed transactions to trigger a snapshot to disk.
 
-{{< info >}}
+{{< note >}}
 
 Even though the defaults assume a high-latency environment, cloud
 deployments should be restricted to the same datacenter, or in AWS, in
@@ -742,7 +742,7 @@ the same region. This means that geographically-dispersed cluster
 deployments are not supported. Multiple Availability Zones *are*
 supported as long as they are in the same region.
 
-{{< /info >}}
+{{< /note >}}
 
 For additional information on the etcd tunables, see
 <https://coreos.com/etcd/docs/latest/tuning.html>.

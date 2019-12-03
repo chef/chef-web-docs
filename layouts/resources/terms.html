@@ -2,354 +2,368 @@
 <html lang="en">
 {{ partial "head" . }}
 <body>
-  <div class="off-canvas-wrapper has-sidebar">
-    <div class="off-canvas-content" data-off-canvas-content>
-      <div class="cell small-12">
-        {{ partial "utility-bar" . }}
-      </div>
-      <div id="menu" class="cell small-12" data-sticky-container>
-        {{ partial "header" . }}
-      </div>
-      <div id="main-content" class="cell small-12" data-sticky-container>
-        <div class="grid-container">
-          <div class="grid-x">
-            <div class="cell medium-3 col-sidebar">
-              {{ partial "sidebar" . }}
-            </div>
+  <a class="skip-main" href="#main-content-col">Skip to main content</a>
+  {{ partial "utility-bar" . }}
+  <div id="left-nav-off-canvas" class="hide-for-medium" data-toggler=".reveal">
+    {{ partial "sidebar-off-canvas" . }}
+  </div>
+  <div class="off-canvas-wrapper">
+    <div class="grid-container">
+      <div class="grid-x">
 
-            <div class="toc">
-              <div id="mini-toc">
-                <span><strong><h4>Table Of Contents</h4></strong></span>
-                <div class="js-toc"></div>
-              </div>
-            </div>
+        <div class="cell position-left off-canvas-absolute reveal-for-medium col-sidebar" id="offCanvasLeft" data-off-canvas data-transition="overlap">
+          {{ partial "sidebar-on-canvas" . }}
+        </div>
 
-            <div id="main-content-col" class="cell medium-9 col-content">
-              <div class="js-toc-content">
+        {{ $SyntaxID := newScratch }}
+        {{ $SyntaxID.Set "Value" 0 }}
+
+        {{ $NamelessID := newScratch }}
+        {{ $NamelessID.Set "Value" 0 }}
+
+        {{ $ActionsID := newScratch }}
+        {{ $ActionsID.Set "Value" 0 }}
+
+        {{ $PropertiesID := newScratch }}
+        {{ $PropertiesID.Set "Value" 0 }}
+
+        {{ $resources_common_atomic_updateID := newScratch }}
+        {{ $resources_common_atomic_updateID.Set "Value" 0 }}
+
+        {{ $resources_common_windows_securityID := newScratch }}
+        {{ $resources_common_windows_securityID.Set "Value" 0 }}
+
+        {{ $remote_file_prevent_re_downloadsID := newScratch }}
+        {{ $remote_file_prevent_re_downloadsID.Set "Value" 0 }}
+
+        {{ $remote_file_unc_pathID := newScratch }}
+        {{ $remote_file_unc_pathID.Set "Value" 0 }}
+
+        {{ $ps_credential_helperID := newScratch }}
+        {{ $ps_credential_helperID.Set "Value" 0 }}
+
+        {{ $FunctionalityID := newScratch }}
+        {{ $FunctionalityID.Set "Value" 0 }}
+
+        {{ $resources_common_propertiesID := newScratch }}
+        {{ $resources_common_propertiesID.Set "Value" 0 }}
+
+        {{ $resources_common_notificationsID := newScratch }}
+        {{ $resources_common_notificationsID.Set "Value" 0 }}
+
+        {{ $resources_common_guardsID := newScratch }}
+        {{ $resources_common_guardsID.Set "Value" 0 }}
+
+        {{ $common_resource_functionality_multiple_packagesID := newScratch }}
+        {{ $common_resource_functionality_multiple_packagesID.Set "Value" 0 }}
+
+        {{ $resources_common_guard_interpreterID := newScratch }}
+        {{ $resources_common_guard_interpreterID.Set "Value" 0 }}
+
+        {{ $resource_directory_recursive_directoriesID := newScratch }}
+        {{ $resource_directory_recursive_directoriesID.Set "Value" 0 }}
+
+        {{ $remote_directory_recursive_directoriesID := newScratch }}
+        {{ $remote_directory_recursive_directoriesID.Set "Value" 0 }}
+
+        {{ $remote_directory_recursive_directories_exampleID := newScratch }}
+        {{ $remote_directory_recursive_directories_exampleID.Set "Value" 0 }}
+
+        {{ $ExamplesID := newScratch }}
+        {{ $ExamplesID.Set "Value" 0 }}
+
+        <div id="main-content" class="cell off-canvas-content cell auto" data-off-canvas-content>
+
+          <main id="main-content-col" tabindex="-1">
+            <div class="col-content">
               <h1 id="resources-reference">Resources Reference</h1>
 
-              This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples.
+              <button type="button" class="TOC-button hide-for-large" data-toggle="offCanvasRightTOC">
+                <i class="fas fa-bars"></i> Table of Contents
+              </button>
 
-              {{ $SyntaxID := newScratch }}
-              {{ $SyntaxID.Set "Value" 0 }}
+              
+              <div class="prose">
 
-              {{ $NamelessID := newScratch }}
-              {{ $NamelessID.Set "Value" 0 }}
+                This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples.
 
-              {{ $ActionsID := newScratch }}
-              {{ $ActionsID.Set "Value" 0 }}
+                <h2 id="common-functionality">Common Functionality</h2>
 
-              {{ $PropertiesID := newScratch }}
-              {{ $PropertiesID.Set "Value" 0 }}
+                <p>The properties and actions in this section apply to all resources.</p>
 
-              {{ $resources_common_atomic_updateID := newScratch }}
-              {{ $resources_common_atomic_updateID.Set "Value" 0 }}
+                <h3 id="common-functionality-actions">Actions</h3>
 
-              {{ $resources_common_windows_securityID := newScratch }}
-              {{ $resources_common_windows_securityID.Set "Value" 0 }}
+                {{ $shortcode := "layouts/shortcodes/resources_common_actions.md" }}
 
-              {{ $remote_file_prevent_re_downloadsID := newScratch }}
-              {{ $remote_file_prevent_re_downloadsID.Set "Value" 0 }}
+                {{ if in (readFile $shortcode) "readFile" }}
+                  {{ $shortcode_text := newScratch }}
+                  {{ $shortcode_text.Set "text" "" }}
+                  {{ range split (readFile $shortcode) "\n"}}
+                    {{ if in . "readFile" }}
+                      {{ if ne $shortcode_text "" }}
+                        {{ $shortcode_text.Get "text" | markdownify }}
+                        {{ $shortcode_text.Set "text" "" }}
+                      {{ end }}
 
-              {{ $remote_file_unc_pathID := newScratch }}
-              {{ $remote_file_unc_pathID.Set "Value" 0 }}
+                      {{ $shortcodeFile := findRE `[\w|-]+\.md` . }}
+                      {{ $readFileInput := delimit (slice `{{ readFile "layouts/shortcodes/` (index $shortcodeFile 0) `" \| markdownify }}`) "" }}
+                      {{ $nestedShortcodeText := readFile (delimit (slice `layouts/shortcodes/` (index $shortcodeFile 0) ) `` )}}
+                      {{ $newLineText := replaceRE $readFileInput $nestedShortcodeText . }}
+                      {{ markdownify (replaceRE $readFileInput $nestedShortcodeText . )}}
 
-              {{ $ps_credential_helperID := newScratch }}
-              {{ $ps_credential_helperID.Set "Value" 0 }}
+                    {{ else }}
+                      {{ $shortcode_text.Add "text" . }}
+                      {{ $shortcode_text.Add "text" "\n" }}
+                    {{ end }}
+                  {{ end }}
+                  {{ $shortcode_text.Get "text" | markdownify }}
+                {{ else }}
+                  {{ readFile $shortcode | markdownify }}
+                {{ end }}
 
-              {{ $FunctionalityID := newScratch }}
-              {{ $FunctionalityID.Set "Value" 0 }}
+                <h4 id="common-functionality-actions-examples">Examples</h4>
 
-              {{ $resources_common_propertiesID := newScratch }}
-              {{ $resources_common_propertiesID.Set "Value" 0 }}
+                <p>The following examples show how to use common actions in a recipe.</p>
 
-              {{ $resources_common_notificationsID := newScratch }}
-              {{ $resources_common_notificationsID.Set "Value" 0 }}
+                <strong>Use the :nothing action</strong>
 
-              {{ $resources_common_guardsID := newScratch }}
-              {{ $resources_common_guardsID.Set "Value" 0 }}
+                {{ readFile "layouts/shortcodes/resource_service_use_nothing_action.md" | markdownify }}
 
-              {{ $common_resource_functionality_multiple_packagesID := newScratch }}
-              {{ $common_resource_functionality_multiple_packagesID.Set "Value" 0 }}
+                <h3 id="common-functionality-properties">Properties</h3>
 
-              {{ $resources_common_guard_interpreterID := newScratch }}
-              {{ $resources_common_guard_interpreterID.Set "Value" 0 }}
+                <p>The following properties are common to every resource:</p>
 
-              {{ $resource_directory_recursive_directoriesID := newScratch }}
-              {{ $resource_directory_recursive_directoriesID.Set "Value" 0 }}
+                <p><code>ignore_failure</code></p>
+                  <p>  <strong>Ruby Type:</strong> true, false | <strong>Default Value:</strong> <code>false</code></p>
 
-              {{ $remote_directory_recursive_directoriesID := newScratch }}
-              {{ $remote_directory_recursive_directoriesID.Set "Value" 0 }}
+                  <p>Continue running a recipe if a resource fails for any reason.</p>
 
-              {{ $remote_directory_recursive_directories_exampleID := newScratch }}
-              {{ $remote_directory_recursive_directories_exampleID.Set "Value" 0 }}
+                <p><code>retries</code></p>
+                  <p>  <strong>Ruby Type:</strong> Integer | <strong>Default Value:</strong> <code>0</code></p>
 
-              {{ $ExamplesID := newScratch }}
-              {{ $ExamplesID.Set "Value" 0 }}
+                  <p>The number of attempts to catch exceptions and retry the resource.</p>
 
+                <p><code>retry_delay</code></p>
+                <p>  <strong>Ruby Type:</strong> Integer | <strong>Default Value:</strong> <code>2</code></p>
 
-              <h2 id="common-functionality">Common Functionality</h2>
+                  The retry delay (in seconds).
 
-              <p>The properties and actions in this section apply to all resources.</p>
+                <p><code>sensitive</code></p>
+                  <p><strong>Ruby Type:</strong> true, false | <strong>Default Value:</strong> <code>false</code></p>
 
-              {{ $ActionsID.Add "Value" 1 }}
-              <h3 id="actions-{{ $ActionsID.Get "Value" }}">Actions</h3>
+                  <p>Ensure that sensitive resource data is not logged by Chef Infra Client.</p>
 
-              {{ readFile "layouts/shortcodes/resources_common_actions.md" | markdownify }}
 
-              {{ $ExamplesID.Add "Value" 1 }}
-              <h4 id="examples-{{ $ExamplesID.Get "Value" }}">Examples</h4>
+                <h4 id="common-functionality-properties-examples">Examples</h4>
 
-              <p>The following examples show how to use common actions in a recipe.</p>
+                <p>The following examples show how to use common properties in a recipe.</p>
 
-              <strong>Use the :nothing action</strong>
+                <strong>Use the ignore_failure common property</strong>
 
-              {{ readFile "layouts/shortcodes/resource_service_use_nothing_action.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_package_use_ignore_failure_attribute.md" | markdownify }}
 
-              {{ $PropertiesID.Add "Value" 1 }}
-              <h3 id="properties-{{ $PropertiesID.Get "Value" }}">Properties</h3>
+                <strong>Use the retries common property</strong>
 
-              <p>The following properties are common to every resource:</p>
+                {{ readFile "layouts/shortcodes/resource_service_use_supports_attribute.md" | markdownify }}
 
-              <p><code>ignore_failure</code></p>
-                <p>  <strong>Ruby Type:</strong> true, false | <strong>Default Value:</strong> <code>false</code></p>
 
-                <p>Continue running a recipe if a resource fails for any reason.</p>
+                <h3 id="common-functionality-guards">Guards</h3>
+                {{ readFile "layouts/shortcodes/resources_common_guards.md" | markdownify }}
 
-              <p><code>retries</code></p>
-                <p>  <strong>Ruby Type:</strong> Integer | <strong>Default Value:</strong> <code>0</code></p>
+                <h4 id="common-functionality-guards-properties">Properties</h4>
 
-                <p>The number of attempts to catch exceptions and retry the resource.</p>
+                {{ readFile "layouts/shortcodes/resources_common_guards_properties.md" | markdownify }}
 
-              <p><code>retry_delay</code></p>
-              <p>  <strong>Ruby Type:</strong> Integer | <strong>Default Value:</strong> <code>2</code></p>
+                <h4 id="common-functionality-guards-arguments">Arguments</h4>
 
-                The retry delay (in seconds).
+                {{ readFile "layouts/shortcodes/resources_common_guards_arguments.md" | markdownify }}
 
-              <p><code>sensitive</code></p>
-                <p><strong>Ruby Type:</strong> true, false | <strong>Default Value:</strong> <code>false</code></p>
+                <h4 id="common-functionality-guards-not-if-examples">not_if Examples</h4>
 
-                <p>Ensure that sensitive resource data is not logged by Chef Infra Client.</p>
+                <p>The following examples show how to use <code>not_if</code> as a condition in a recipe:</p>
 
+                <p><strong>Create a file, but not if an attribute has a specific value</strong></p>
 
+                {{ readFile "layouts/shortcodes/resource_template_add_file_not_if_attribute_has_value.md" | markdownify }}
 
-              {{ $ExamplesID.Add "Value" 1 }}
-              <h4 id="examples-{{ $ExamplesID.Get "Value" }}">Examples</h4>
+                <p><strong>Create a file with a Ruby block, but not if "/etc/passwd" exists</strong></p>
 
-              <p>The following examples show how to use common properties in a recipe.</p>
+                {{ readFile "layouts/shortcodes/resource_template_add_file_not_if_ruby.md" | markdownify }}
 
-              <strong>Use the ignore_failure common property</strong>
+                <p><strong>Create a file with Ruby block that has curly braces, but not if "/etc/passwd" exists</strong></p>
 
-              {{ readFile "layouts/shortcodes/resource_package_use_ignore_failure_attribute.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_template_add_file_not_if_ruby_with_curly_braces.md" | markdownify }}
 
-              <strong>Use the retries common property</strong>
+                <p><strong>Create a file using a string, but not if "/etc/passwd" exists</strong></p>
 
-              {{ readFile "layouts/shortcodes/resource_service_use_supports_attribute.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_template_add_file_not_if_string.md" | markdownify }}
 
+                <h4 id="common-functionality-guards-only-if-examples">only_if Examples</h4>
 
-              <h3 id="guards-0">Guards</h3>
-              {{ readFile "layouts/shortcodes/resources_common_guards.md" | markdownify }}
+                <p>The following examples show how to use <code>only_if</code> as a condition in a recipe:</p>
 
-              {{ $PropertiesID.Add "Value" 1 }}
-              <h4 id="properties-{{ $PropertiesID.Get "Value" }}">Properties</h4>
+                <p><strong>Create a file, but only if an attribute has a specific value</strong></p>
 
-              {{ readFile "layouts/shortcodes/resources_common_guards_properties.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_template_add_file_only_if_attribute_has_value.md" | markdownify }}
 
-              <h4 id="arguments">Arguments</h4>
+                <p><strong>Create a file with a Ruby block, but only if "/etc/passwd" does not exist</strong></p>
 
-              {{ readFile "layouts/shortcodes/resources_common_guards_arguments.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_template_add_file_only_if_ruby.md" | markdownify }}
 
-              <h4 id="not_if_examples">not_if Examples</h4>
+                <p><strong>Create a file using a string, but only if "/etc/passwd" exists</strong></p>
 
-              <p>The following examples show how to use <code>not_if</code> as a condition in a recipe:</p>
+                {{ readFile "layouts/shortcodes/resource_template_add_file_only_if_string.md" | markdownify }}
 
-              <p><strong>Create a file, but not if an attribute has a specific value</strong></p>
+                <h3 id="common-functionality-guard-interpreters">Guard Interpreters</h3>
 
-              {{ readFile "layouts/shortcodes/resource_template_add_file_not_if_attribute_has_value.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
 
-              <p><strong>Create a file with a Ruby block, but not if "/etc/passwd" exists</strong></p>
+                <h4 id="common-functionality-guard-interpreters-attributes">Attributes</h4>
 
-              {{ readFile "layouts/shortcodes/resource_template_add_file_not_if_ruby.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes.md" | markdownify }}
 
-              <p><strong>Create a file with Ruby block that has curly braces, but not if "/etc/passwd" exists</strong></p>
+                <h4 id="common-functionality-guard-interpreters-inheritance">Inheritance</h4>
 
-              {{ readFile "layouts/shortcodes/resource_template_add_file_not_if_ruby_with_curly_braces.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes_inherit.md" | markdownify }}
 
-              <p><strong>Create a file using a string, but not if "/etc/passwd" exists</strong></p>
+                <h4 id="common-functionality-guard-interpreters-examples">Examples</h4>
 
-              {{ readFile "layouts/shortcodes/resource_template_add_file_not_if_string.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_example_default.md" | markdownify }}
 
-              <h4 id="only-if-examples">only_if Examples</h4>
+                <h3 id="common-functionality-lazy-evaluation">Lazy Evaluation</h3>
 
-              <p>The following examples show how to use <code>only_if</code> as a condition in a recipe:</p>
+                {{ readFile "layouts/shortcodes/resources_common_lazy_evaluation.md" | markdownify }}
 
-              <p><strong>Create a file, but only if an attribute has a specific value</strong></p>
+                <h3 id="common-functionality-resources_common_notification">Notifications</h3>
 
-              {{ readFile "layouts/shortcodes/resource_template_add_file_only_if_attribute_has_value.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_notification.md" | markdownify }}
 
-              <p><strong>Create a file with a Ruby block, but only if "/etc/passwd" does not exist</strong></p>
+                <h4 id="common-functionality-resources_common_notification-timers">Timers</h4>
 
-              {{ readFile "layouts/shortcodes/resource_template_add_file_only_if_ruby.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify }}
 
-              <p><strong>Create a file using a string, but only if "/etc/passwd" exists</strong></p>
+                <h4 id="common-functionality-resources_common_notification-notifies">Notifies</h4>
 
-              {{ readFile "layouts/shortcodes/resource_template_add_file_only_if_string.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_notification_notifies.md" | markdownify }}
 
-              <h3 id="guard-intepreters">Guard Interpreters</h3>
+                {{ readFile "layouts/shortcodes/resources_common_notification_notifies_syntax.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
+                <h5 id="common-functionality-resources_common_notification-notifies-examples">Examples</h5>
 
-              <h4 id="attributes">Attributes</h4>
+                <p>The following examples show how to use the <code>notifies</code> notification in a recipe.</p>
 
-              {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes.md" | markdownify }}
+                <strong>Delay notifications</strong>
 
-              <h4 id="inheritance">Inheritance</h4>
+                {{ readFile "layouts/shortcodes/resource_template_notifies_delay.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes_inherit.md" | markdownify }}
+                <strong>Notify immediately</strong>
 
-              {{ $ExamplesID.Add "Value" 1 }}
-              <h4 id = "examples-{{ $ExamplesID.Get "Value" }}">Examples</h4>
+                {{ readFile "layouts/shortcodes/resource_template_notifies_run_immediately.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_example_default.md" | markdownify }}
+                <strong>Notify multiple resources</strong>
 
-              <h3 id="lazy-evaluation">Lazy Evaluation</h3>
+                {{ readFile "layouts/shortcodes/resource_template_notifies_multiple_resources.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resources_common_lazy_evaluation.md" | markdownify }}
+                <strong>Notify in a specific order</strong>
 
-              {{ $resources_common_notificationsID.Add "Value" 1 }}
-              <h3 id="resources_common_notifications-{{ $resources_common_notificationsID.Get "Value" }}">Notifications</h3>
+                {{ readFile "layouts/shortcodes/resource_execute_notifies_specific_order.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resources_common_notification.md" | markdownify }}
+                <strong>Reload a service</strong>
 
-              <h4 id="timers">Timers</h4>
+                {{ readFile "layouts/shortcodes/resource_template_notifies_reload_service.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify }}
+                <strong>Restart a service when a template is modified</strong>
 
-              <h4 id="notifies">Notifies</h4>
+                {{ readFile "layouts/shortcodes/resource_template_notifies_restart_service_when_template_modified.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resources_common_notification_notifies.md" | markdownify }}
+                <strong>Send notifications to multiple resources</strong>
 
-              {{ readFile "layouts/shortcodes/resources_common_notification_notifies_syntax.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_template_notifies_send_notifications_to_multiple_resources.md" | markdownify }}
 
-              {{ $ExamplesID.Add "Value" 1 }}
-              <h5 id = "examples-{{ $ExamplesID.Get "Value" }}">Examples</h5>
+                <strong>Execute a command using a template</strong>
 
-              <p>The following examples show how to use the <code>notifies</code> notification in a recipe.</p>
+                {{ readFile "layouts/shortcodes/resource_execute_command_from_template.md" | markdownify }}
 
-              <strong>Delay notifications</strong>
+                <p><strong>Restart a service, and then notify a different service</strong></p>
 
-              {{ readFile "layouts/shortcodes/resource_template_notifies_delay.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_service_restart_and_notify.md" | markdownify }}
 
-              <strong>Notify immediately</strong>
+                <strong>Restart one service before restarting another</strong>
 
-              {{ readFile "layouts/shortcodes/resource_template_notifies_run_immediately.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_before_notification_restart.md" | markdownify }}
 
-              <strong>Notify multiple resources</strong>
+                <strong>Notify when a remote source changes</strong>
 
-              {{ readFile "layouts/shortcodes/resource_template_notifies_multiple_resources.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resource_remote_file_transfer_remote_source_changes.md" | markdownify }}
 
-              <strong>Notify in a specific order</strong>
+                <h4 id="common-functionality-resources_common_notification-subscribes">Subscribes</h4>
 
-              {{ readFile "layouts/shortcodes/resource_execute_notifies_specific_order.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_notification_subscribes.md" | markdownify }}
 
-              <strong>Reload a service</strong>
+                {{ readFile "layouts/shortcodes/resources_common_notification_subscribes_syntax.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resource_template_notifies_reload_service.md" | markdownify }}
+                <h5 id = "common-functionality-resources_common_notification-subscribes-examples">Examples</h5>
 
-              <strong>Restart a service when a template is modified</strong>
+                The following examples show how to use the <code>subscribes</code> notification in a recipe.
 
-              {{ readFile "layouts/shortcodes/resource_template_notifies_restart_service_when_template_modified.md" | markdownify }}
+                <strong>Prevent restart and reconfigure if configuration is broken</strong>
 
-              <strong>Send notifications to multiple resources</strong>
+                {{ readFile "layouts/shortcodes/resource_execute_subscribes_prevent_restart_and_reconfigure.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resource_template_notifies_send_notifications_to_multiple_resources.md" | markdownify }}
+                <strong>Reload a service using a template</strong>
 
-              <strong>Execute a command using a template</strong>
+                {{ readFile "layouts/shortcodes/resource_service_subscribes_reload_using_template.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resource_execute_command_from_template.md" | markdownify }}
+                <strong>Stash a file in a data bag</strong>
 
-              <p><strong>Restart a service, and then notify a different service</strong></p>
+                {{ readFile "layouts/shortcodes/resource_ruby_block_stash_file_in_data_bag.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resource_service_restart_and_notify.md" | markdownify }}
+                <h3 id="common-functionality-relative-paths">Relative Paths</h3>
 
-              <strong>Restart one service before restarting another</strong>
+                {{ readFile "layouts/shortcodes/resources_common_relative_paths.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resource_before_notification_restart.md" | markdownify }}
+                <h4 id = "common-functionality-relative-paths-examples">Examples</h4>
 
-              <strong>Notify when a remote source changes</strong>
+                {{ readFile "layouts/shortcodes/resource_template_use_relative_paths.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resource_remote_file_transfer_remote_source_changes.md" | markdownify }}
+                <h3 id="common-functionality-run-in-compile-phase">Run in Compile Phase</h3>
 
-              <h4 id="subscribes">Subscribes</h4>
+                {{ readFile "layouts/shortcodes/resources_common_compile.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resources_common_notification_subscribes.md" | markdownify }}
+                <h4 id="common-functionality-run-in-compile-phase-run-actions">run_action</h4>
 
-              {{ readFile "layouts/shortcodes/resources_common_notification_subscribes_syntax.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_compile_begin.md" | markdownify }}
 
-              {{ $ExamplesID.Add "Value" 1 }}
-              <h5 id = "examples-{{ $ExamplesID.Get "Value" }}">Examples</h5>
+                <h3 id="common-functionality-resources_common_atomic_update">Atomic File Updates</h3>
 
-              The following examples show how to use the <code>subscribes</code> notification in a recipe.
+                {{ readFile "layouts/shortcodes/resources_common_atomic_update.md" | markdownify }}
 
-              <strong>Prevent restart and reconfigure if configuration is broken</strong>
 
-              {{ readFile "layouts/shortcodes/resource_execute_subscribes_prevent_restart_and_reconfigure.md" | markdownify }}
+                <h3 id="common-functionality-resources_common_windows_security">Windows File Security</h3>
 
-              <strong>Reload a service using a template</strong>
+                {{ readFile "layouts/shortcodes/resources_common_windows_security.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resource_service_subscribes_reload_using_template.md" | markdownify }}
+                <p><strong>Access Control Lists (ACLs)</strong></p>
 
-              <strong>Stash a file in a data bag</strong>
+                {{ readFile "layouts/shortcodes/resources_common_windows_security_acl.md" | markdownify }}
 
-              {{ readFile "layouts/shortcodes/resource_ruby_block_stash_file_in_data_bag.md" | markdownify }}
 
-              <h3 id="relative-paths">Relative Paths</h3>
+                <p><strong>Inheritance</strong></p>
 
-              {{ readFile "layouts/shortcodes/resources_common_relative_paths.md" | markdownify }}
+                {{ readFile "layouts/shortcodes/resources_common_windows_security_inherits.md" | markdownify }}
 
-              {{ $ExamplesID.Add "Value" 1 }}
-              <h4 id = "examples-{{ $ExamplesID.Get "Value" }}">Examples</h4>
 
-              {{ readFile "layouts/shortcodes/resource_template_use_relative_paths.md" | markdownify }}
-
-              <h3 id="run-in-compile-phase">Run in Compile Phase</h3>
-
-              {{ readFile "layouts/shortcodes/resources_common_compile.md" | markdownify }}
-
-              <h4 id="run-actions">run_action</h4>
-
-              {{ readFile "layouts/shortcodes/resources_common_compile_begin.md" | markdownify }}
-
-              {{ $resources_common_atomic_updateID.Add "Value" 1 }}
-              <h3 id="resources_common_atomic_update-{{ $resources_common_atomic_updateID.Get "Value" }}">Atomic File Updates</h3>
-
-              {{ readFile "layouts/shortcodes/resources_common_atomic_update.md" | markdownify }}
-
-              {{ $resources_common_windows_securityID.Add "Value" 1 }}
-              <h3 id="resources_common_windows_security-{{ $resources_common_windows_securityID.Get "Value" }} ">Windows File Security</h3>
-
-              {{ readFile "layouts/shortcodes/resources_common_windows_security.md" | markdownify }}
-
-              <p><strong>Access Control Lists (ACLs)</strong></p>
-
-              {{ readFile "layouts/shortcodes/resources_common_windows_security_acl.md" | markdownify }}
-
-
-              <p><strong>Inheritance</strong></p>
-
-              {{ readFile "layouts/shortcodes/resources_common_windows_security_inherits.md" | markdownify }}
-
-
-              <h2 id="resources">Resources</h2>
-              <hr>
-              <p>
-              The following resources are built into the Chef Client:
-              </p>
+                <h2 id="resources">Resources</h2>
+                <hr>
+                <p>
+                  The following resources are built into the Chef Client:
+                </p>
 
                 {{ range .Data.Pages }}
 
                   <br>
-                  <h1 id="{{ anchorize ( .Title )}}"><a href="{{ .Permalink }}">{{ .Title }}</a></h1>
+                  <h1 id="{{ anchorize ( .Title )}}">{{ .Title }}</h1>
+                  <a href="{{ .Permalink }}">{{ .Title }} page</a>
                   <hr>
                   <p>{{ .Params.resource_description }}</p>
 
@@ -359,7 +373,7 @@
                   {{ end }}
 
                   {{ if and ( ne .Params.resource_new_in "" ) ( .Params.resource_new_in )}}
-                    <p><strong>New in Chef Infra Client {{ .Params.resource_new_in }}</strong></p>
+                    <p><strong>New in Chef Infra Client {{ .Params.resource_new_in }}.</strong></p>
                   {{ end }}
 
                   <!-------------- Handler Types ------------------->
@@ -614,11 +628,15 @@
                   <!-------------- Nameless ------------------->
 
                   {{ if .Params.nameless_apt_update }}
-                      {{ readFile "layouts/shortcodes/nameless_apt_update.md" | markdownify }}
+                    {{ $NamelessID.Add "Value" 1 }}
+                    <h2 id="nameless-{{ $NamelessID.Get "Value" }}">Nameless</h2>
+                    {{ readFile "layouts/shortcodes/nameless_apt_update.md" | markdownify }}
                   {{ end }}
                   
                   {{ if .Params.nameless_build_essential }}
-                      {{ readFile "layouts/shortcodes/nameless_build_essential.md" | markdownify }}
+                    {{ $NamelessID.Add "Value" 1 }}
+                    <h2 id="nameless-{{ $NamelessID.Get "Value" }}">Nameless</h2>
+                    {{ readFile "layouts/shortcodes/nameless_build_essential.md" | markdownify }}
                   {{ end }}
 
                   <!-------------- Gem Package Options ------------------->
@@ -716,17 +734,13 @@
 
                   {{ if .Params.resources_common_atomic_update }}
                     {{ $resources_common_atomic_updateID.Add "Value" 1 }}
-
                     <h3 id="resources_common_atomic_update-{{ $resources_common_atomic_updateID.Get "Value" }}">Atomic File Updates</h3>
-
                     {{ readFile "layouts/shortcodes/resources_common_atomic_update.md" | markdownify }}
-
                   {{ end }}
 
                   {{ if .Params.properties_resources_common_windows_security }}
                     {{ $resources_common_windows_securityID.Add "Value" 1 }}
-
-                    <h3 id="resources_common_windows_security-{{ $resources_common_windows_securityID.Get "Value" }} ">Windows File Security</h3>
+                    <h3 id="resources-common-windows-security-{{ $resources_common_windows_securityID.Get "Value" }}">Windows File Security</h3>
 
                     {{ readFile "layouts/shortcodes/resources_common_windows_security.md" | markdownify }}
                     <strong>Access Control Lists (ACLs)</strong>
@@ -737,22 +751,20 @@
                   {{ end }}
 
                   {{ if .Params.remote_file_prevent_re_downloads }}
-
                     {{ $remote_file_prevent_re_downloadsID.Add "Value" 1 }}
                     <h3 id="prevent-re-downloads-{{ $remote_file_prevent_re_downloadsID.Get "Value" }}">Prevent Re-downloads</h3>
                     {{ readFile "layouts/shortcodes/remote_file_prevent_re_downloads.md" | markdownify }}
-
                   {{ end }}
 
                   {{ if .Params.remote_file_unc_path }}
                     {{ $remote_file_unc_pathID.Add "Value" 1 }}
-                    <h3 id="access-a-remote-unc-path-on-windows-{{ $remote_file_unc_pathID.Get "Value" }} ">Access a remote UNC path on Windows</h3>
+                    <h3 id="access-a-remote-unc-path-on-windows-{{ $remote_file_unc_pathID.Get "Value" }}">Access a remote UNC path on Windows</h3>
                     {{ readFile "layouts/shortcodes/remote_file_unc_path.md" | markdownify }}
                   {{ end }}
 
                   {{ if .Params.ps_credential_helper }}
                     {{ $ps_credential_helperID.Add "Value" 1 }}
-                    <h3 id="ps_credential-helper-{{ $ps_credential_helperID.Get "Value" }}">ps_credential Helper</h3>
+                    <h3 id="ps_credential-helper-{{ $ps_credential_helperID.Get "Value"}}">ps_credential Helper</h3>
                     {{ readFile "layouts/shortcodes/ps_credential_helper.md" | markdownify }}
                   {{ end }}
 
@@ -814,39 +826,39 @@
 
                   {{ if .Params.template_requirements }}
                     <h2 id="template_requirements">Using Templates</h2>
-                    {{ readFile "layouts/shortcodes/template_requirements.md" }}
+                    {{ readFile "layouts/shortcodes/template_requirements.md" | markdownify }}
 
                     <h3 id="template_specificity">File Specificity</h3>
-                    {{ readFile "layouts/shortcodes/template_specificity.md" }}
-                    {{ readFile "layouts/shortcodes/template_specificity_pattern.md" }}
-                    {{ readFile "layouts/shortcodes/template_specificity_example.md" }}
+                    {{ readFile "layouts/shortcodes/template_specificity.md" | markdownify }}
+                    {{ readFile "layouts/shortcodes/template_specificity_pattern.md" | markdownify }}
+                    {{ readFile "layouts/shortcodes/template_specificity_example.md" | markdownify }}
 
                     <h3 id="template_helpers">Helpers</h3>
-                    {{ readFile "layouts/shortcodes/template_helpers.md" }}
+                    {{ readFile "layouts/shortcodes/template_helpers.md" | markdownify }}
 
                     <h4 id="resource_template_inline_method">Inline Methods</h4>
-                    {{ readFile "layouts/shortcodes/resource_template_inline_method.md" }}
+                    {{ readFile "layouts/shortcodes/resource_template_inline_method.md" | markdownify }}
 
                     <h4 id="resource_template_inline_module">Inline Modules</h4>
-                    {{ readFile "layouts/shortcodes/resource_template_inline_module.md" }}
+                    {{ readFile "layouts/shortcodes/resource_template_inline_module.md" | markdownify }}
 
                     <h4 id="resource_template_library_module">Library Modules</h4>
-                    {{ readFile "layouts/shortcodes/resource_template_library_module.md" }}
+                    {{ readFile "layouts/shortcodes/resource_template_library_module.md" | markdownify }}
 
                     <h3 id="template_host_notation">Host Notation</h3>
-                    {{ readFile "layouts/shortcodes/template_host_notation.md" }}
+                    {{ readFile "layouts/shortcodes/template_host_notation.md" | markdownify }}
 
                     <h3 id="template_partials">Partial Templates</h3>
-                    {{ readFile "layouts/shortcodes/template_partials.md" }}
+                    {{ readFile "layouts/shortcodes/template_partials.md" | markdownify }}
 
                     <h4 id="template_partials_render_method">render Method</h4>
-                    {{ readFile "layouts/shortcodes/template_partials_render_method.md" }}
+                    {{ readFile "layouts/shortcodes/template_partials_render_method.md" | markdownify }}
 
                     <h3 id="template_transfer_frequency">Transfer Frequency</h3>
-                    {{ readFile "layouts/shortcodes/template_transfer_frequency.md" }}
+                    {{ readFile "layouts/shortcodes/template_transfer_frequency.md" | markdownify }}
 
                     <h3 id="template_variables">Variables</h3>
-                    {{ readFile "layouts/shortcodes/template_variables.md" }}
+                    {{ readFile "layouts/shortcodes/template_variables.md" | markdownify }}
 
                   {{ end }}
 
@@ -854,17 +866,15 @@
 
                   <br>
                   {{ $FunctionalityID.Add "Value" 1 }}
-                  <h2 id = "functionality-{{$FunctionalityID.Get "Value"}}">Common Resource Functionality</h2>
+                  <h2 id = "functionality-{{ $FunctionalityID.Get "Value" }}">Common Resource Functionality</h2>
                   <hr>
 
                   <p>Chef resources include common properties, notifications, and resource guards.</p>
 
                   {{ if .Params.resources_common_properties }}
                     {{ $resources_common_propertiesID.Add "Value" 1 }}
-                    <h3 id="resources_common_properties-{{$resources_common_propertiesID.Get "Value"}}">Common Properties</h3>
-
+                    <h3 id="resources_common_properties-{{ $resources_common_propertiesID.Get "Value" }}">Common Properties</h3>
                     {{ readFile "layouts/shortcodes/resources_common_properties.md" | markdownify }}
-
                   {{ end }}
 
                   {{ if .Params.resources_common_notification }}
@@ -889,7 +899,7 @@
 
                   {{ if .Params.resources_common_guards }}
                     {{ $resources_common_guardsID.Add "Value" 1 }}
-                    <h3 id = "guards-{{$resources_common_guardsID.Get "Value"}}">Guards</h3>
+                    <h3 id = "guards-{{ $resources_common_guardsID.Get "Value" }}">Guards</h3>
 
                     {{ readFile "layouts/shortcodes/resources_common_guards.md" | markdownify }}
                     <strong>Properties</strong>
@@ -920,21 +930,18 @@
                   {{ end }}
 
                   {{ if .Params.remote_directory_recursive_directories }}
-
                     {{ $remote_directory_recursive_directoriesID.Add "Value" 1 }}
                     {{ $remote_directory_recursive_directories_exampleID.Add "Value" 1 }}
-
-                    <h3 id="recursive-directories-{{ $remote_directory_recursive_directoriesID.Get "Value" }} ">Recursive Directories</h3>
+                    <h3 id="recursive-directories-{{ $remote_directory_recursive_directoriesID.Get "Value" }}">Recursive Directories</h3>
                     {{ readFile "layouts/shortcodes/remote_directory_recursive_directories.md" | markdownify }}
                     <h4 id="recursive_directories_example-{{ $remote_directory_recursive_directories_exampleID.Get "Value" }}">Example</h4>
                     {{ readFile "layouts/shortcodes/remote_directory_recursive_directories_example.md" | markdownify }}
-
                   {{ end }}
 
                   {{ if .Params.common_resource_functionality_resources_common_windows_security }}
                     {{ $resources_common_windows_securityID.Add "Value" 1 }}
 
-                    <h3 id="resources_common_windows_security-{{ $resources_common_windows_securityID.Get "Value" }} ">Windows File Security</h3>
+                    <h3 id="resources_common_windows_security-{{ $resources_common_windows_securityID.Get "Value" }}">Windows File Security</h3>
 
                     {{ readFile "layouts/shortcodes/resources_common_windows_security.md" | markdownify }}
                     <strong>Access Control Lists (ACLs)</strong>
@@ -976,9 +983,8 @@
                   <!-------------- File Specificity ------------------->
 
                   {{ if .Params.cookbook_file_specificity }}
-
+                    <h2 id="cookbook_file_specificity">File Specificity</h2>
                     {{ readFile "layouts/shortcodes/cookbook_file_specificity.md" | markdownify }}
-
                   {{ end }}
 
                   <!-------------- Examples ------------------->
@@ -1001,21 +1007,31 @@
                     {{ end }}
                   {{ else }}
                     <p>This resource does not have any examples.</p>
-                  {{ end }}
                 {{ end }}
+              {{ end }}<!-- end range .Data.Pages -->
               </div>
-            </div>
+            </div>  
+          </main>
+        </div>
+        <div class="off-canvas position-right reveal-for-large off-canvas-absolute" id="onCanvasRight" data-off-canvas>
+          <div class="toc sticky" data-sticky data-off-canvas-sticky data-top-anchor="utility-bar:bottom"
+            data-btm-anchor="footer:top" data-margin-top="0" data-margin-bottom="0">
+            {{ partial "resource_terms_toc" . }}
           </div>
         </div>
       </div>
-      <div id="footer" class="cell small-12">
-        <div class="grid-x">
-          <div class="cell small-12">
-            <nav>
-              {{ partial "footer" . }}
-            </nav>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div class="off-canvas position-right hide-for-large toc" id="offCanvasRightTOC" data-off-canvas
+    data-transition="overlap">
+    {{ partial "resource_terms_toc" . }}
+  </div>
+  <div id="footer" class="cell small-12">
+    <div class="grid-x">
+      <div class="cell small-12">
+        <nav>
+          {{ partial "footer" . }}
+        </nav>
       </div>
     </div>
   </div>

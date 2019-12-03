@@ -1,9 +1,0 @@
-{{ $headers := findRE "<h[12].*?>(.|\n])+?</h[12]>" .Content }}   
-{{ if and (ge (len $headers) 1) (ne .Params.tocbot false )}}
-  <div class="toc">
-    <div id="mini-toc">
-      <span><strong><h4>Table Of Contents</h4></strong></span>
-      <div class="js-toc"></div>
-    </div>
-  </div>
-{{ end }}

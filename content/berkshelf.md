@@ -22,7 +22,7 @@ select the same cookbook versions, and can upload and bundle cookbook
 dependencies without needing a locally maintained copy. Berkshelf is
 included in ChefDK.
 
-{{< info >}}
+{{< note >}}
 
 For new users, we strongly recommend using
 [Policyfiles](/policyfile/) rather than Berkshelf. Policyfiles
@@ -30,7 +30,7 @@ provide more predictability, since dependencies are only resolved once,
 and a much improved way of promoting cookbooks from dev to testing, and
 then to production.
 
-{{< /info >}}
+{{< /note >}}
 
 Quick Start
 ===========

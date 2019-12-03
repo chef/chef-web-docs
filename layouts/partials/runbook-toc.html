@@ -1,0 +1,28 @@
+<aside class="runbookTOC">
+  <span>
+    <strong>
+      <h4 class="mini-toc-header">Table Of Contents</h4>  
+    </strong>
+    <button class="close-button hide-for-large" aria-label="Close menu" type="button" data-close>
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </span>
+  <p>
+    <a href="#{{ anchorize ( .Title )}}">{{ .Title }}</a>
+  </p>
+
+  {{ $pageCount := 0 }}
+  {{ $pageIDSuffix := slice "a" "b" "c" "d" "e" "f" "g" }}
+
+  {{ range .Pages.ByParam "runbook_weight" }}
+    {{- $pageURL := delimit (slice "<a href=\"#" (anchorize .Title) "\">" .Title "</a>") "" -}}
+    {{- $toc := .Page.TableOfContents -}}
+    {{ $replacement := delimit (slice "<ul><li>" $pageURL "<ul>") "" }}
+    {{- $toc := replaceRE `<ul>\n<li>\n<ul>` $replacement $toc -}}
+    {{ $replacement := delimit (slice `$1-` (index $pageIDSuffix $pageCount) `">`) "" }}
+    {{ $toc := replaceRE `(<a href="#[\w\-]+)\">` $replacement $toc }}
+    {{ $pageCount = add $pageCount 1 }}
+    {{- safeHTML $toc -}}
+  {{ end }}
+
+</aside>

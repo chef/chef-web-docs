@@ -19,11 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_environment_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 compare
 =======
@@ -142,11 +142,11 @@ This argument has the following options:
 :   The description of the environment. This value populates the
     description field for the environment on the Chef Infra Server.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -256,11 +256,11 @@ This argument has the following options:
 
 :   Upload all environments found at the specified path.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------

@@ -47,7 +47,7 @@ You can add a new runner via `automate-ctl` from your Chef Automate
 server. Log in to your Chef Automate server and run the
 [install-runner](/ctl_automate_server.html#install-runner) command.
 
-{{< info >}}
+{{< note >}}
 
 You can pin to a specific ChefDK version through the `--chefdk-version`
 option on the `install-runner` command or by using a version of ChefDK
@@ -56,7 +56,7 @@ that you have installed locally on your Chef Automate server using the
 cookbooks to be Chef Client 13 compliant and the latest version of
 ChefDK installs Chef Client 13 on your runner.
 
-{{< /info >}}
+{{< /note >}}
 
 After the [install-runner](/ctl_automate_server.html#install-runner)
 command succeeds, the new runner should show up in the UI under

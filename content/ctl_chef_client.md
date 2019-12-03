@@ -17,19 +17,19 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 {{% chef_client_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 The Chef Infra Client executable can be run as a daemon.
 
-{{< /info >}}
+{{< /note >}}
 
 The Chef Infra Client executable is run as a command-line tool.
 
-{{< info >}}
+{{< note >}}
 
 {{% config_rb_client_summary %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Options
 =======
@@ -163,13 +163,13 @@ This command has the following options:
 
     Use this option to set the `chef_environment` value for a node.
 
-    {{< info >}}
+    {{< note >}}
 
     Any environment specified for `chef_environment` by a JSON file will
     take precedence over an environment specified by the `--environment`
     option when both options are part of the same command.
 
-    {{< /info >}}
+    {{< /note >}}
 
     For example, run the following:
 
@@ -191,12 +191,12 @@ This command has the following options:
 
     {{% node_ctl_attribute %}}
 
-    {{< info >}}
+    {{< note >}}
 
     This has set the `normal` attribute
     `node['override_attributes']['apptastic']`.
 
-    {{< /info >}}
+    {{< /note >}}
 
     **Specify a policy**
 
@@ -457,7 +457,7 @@ attributes, identifying the resources, and building the resource
 collection, but does not include mapping each resource to a provider or
 configuring any part of the system.
 
-{{< info >}}
+{{< note >}}
 
 why-run mode is not a replacement for running cookbooks in a test
 environment that mirrors the production environment. Chef uses why-run
@@ -465,7 +465,7 @@ mode to learn more about what is going on, but also Kitchen on developer
 systems, along with an internal OpenStack cloud and external cloud
 providers to test more thoroughly.
 
-{{< /info >}}
+{{< /note >}}
 
 When Chef Infra Client is run in why-run mode, certain assumptions are
 made:
@@ -509,7 +509,7 @@ useful for quickly testing and validating the behavior of the Chef Infra
 Client, cookbooks, recipes, and run-lists before uploading that data to
 the actual Chef Infra Server.
 
-{{< info >}}
+{{< note >}}
 
 chef-zero does not save data between restarts. Because it is intended to
 be used locally, chef-zero does not perform input validation,
@@ -517,7 +517,7 @@ authentication, or authorization, as these security measures are not
 necessary for local testing. For these reasons, we strongly recommend
 against using chef-zero as a persistent Chef Infra Server.
 
-{{< /info >}}
+{{< /note >}}
 
 Changed in Chef Client 12.8, now chef-zero supports all Chef Server API
 version 12 endpoints, except `/universe`.
@@ -676,12 +676,12 @@ or:
 cache_path File.join(File.expand_path("~"), ".chef", "cache")
 ```
 
-{{< info >}}
+{{< note >}}
 
 When running the Chef Infra Client using the `--local-mode` option,
 `~/.chef/local-mode-cache` is the default value for `cache_path`.
 
-{{< /info >}}
+{{< /note >}}
 
 Elevate Commands
 ----------------
@@ -768,7 +768,7 @@ threads. To increase the system process limits:
     $ chsec -f /etc/security/limits -s default -a "nofiles=50000"
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     The previous commands may be run against the root user, instead of
     default. For example:
@@ -777,7 +777,7 @@ threads. To increase the system process limits:
     $ chsec -f /etc/security/limits -s root_user -a "rss=-1"
     ```
 
-    {{< /info >}}
+    {{< /note >}}
 
 3.  Reboot the logical partition (LPAR) to apply the updated system
     process limits.

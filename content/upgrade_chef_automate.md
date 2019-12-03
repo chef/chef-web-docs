@@ -93,12 +93,12 @@ To upgrade to the latest version of Chef Automate, do the following:
     are upgrading from a `delivery-cluster` setup, then skip to the
     section below.
 
-    {{< info >}}
+    {{< note >}}
 
     This will restart your Chef Automate services and may result in a
     brief period of unavailability.
 
-    {{< /info >}}
+    {{< /note >}}
 
     {{% delivery_ctl_note %}}
 

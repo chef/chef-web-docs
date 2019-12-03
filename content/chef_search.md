@@ -113,11 +113,11 @@ Query Syntax
 
 {{% search_query_syntax %}}
 
-{{< info >}}
+{{< note >}}
 
 Search queries may not contain newlines.
 
-{{< /info >}}
+{{< /note >}}
 
 Filter Search Results
 =====================
@@ -226,13 +226,13 @@ Roles in Run-lists
 A search query can be made for roles that are at the top-level of a
 run-list and also for a role that is part of an expanded run-list.
 
-{{< info >}}
+{{< note >}}
 
 The `roles` field is updated with each Chef Infra Client run; changes to
 a run-list will not affect `roles` until the next Chef Infra Client run
 on the node.
 
-{{< /info >}}
+{{< /note >}}
 
 <table>
 <colgroup>
@@ -306,13 +306,13 @@ a node are saved on the Chef Infra Server. The expanded lists of roles
 allows for searching within nodes that run a given recipe, even if that
 recipe is included by a role.
 
-{{< info >}}
+{{< note >}}
 
 The `recipes` field is with each Chef Infra Client run; changes to a
 run-list will not affect `recipes` until the next Chef Infra Client run
 on the node.
 
-{{< /info >}}
+{{< /note >}}
 
 <table>
 <colgroup>

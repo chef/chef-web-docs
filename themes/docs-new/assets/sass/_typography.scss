@@ -4,21 +4,21 @@ $bold: 700;
 $extrabold: 800;
 
 @font-face {
-  font-family: 'Muli';
+  font-family: 'Inter';
   font-weight: $regular;
-  src: url('/fonts/Muli-Regular.ttf');
+  src: url('/fonts/Inter-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'Muli';
+  font-family: 'Inter';
   font-weight: $semibold;
-  src: url('/fonts/Muli-SemiBold.ttf');
+  src: url('/fonts/Inter-SemiBold.ttf');
 }
 
 @font-face {
-  font-family: 'Muli';
+  font-family: 'Inter';
   font-weight: $bold;
-  src: url('/fonts/Muli-Bold.ttf');
+  src: url('/fonts/Inter-Bold.ttf');
 }
 
 @import "vendor/fontawesome/fontawesome.scss";
@@ -32,3 +32,4 @@ $extrabold: 800;
 @import "typography/prose";
 @import "typography/text";
 
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro&display=swap');

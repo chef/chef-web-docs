@@ -2,14 +2,8 @@
 title = "Site Map"
 draft = false
 
-aliases = "ALIASES"
+toc = false
 
-[menu]
-  [menu.docs]
-    title = "Site Map"
-    identifier = "Site Map"
-    
-    weight = 0
 +++    
 
 [\[edit on

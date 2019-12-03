@@ -21,11 +21,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_data_bag_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 create
 ======
@@ -64,11 +64,11 @@ This argument has the following options:
 
 :   The path to the file that contains the encryption key.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -168,18 +168,18 @@ This argument has the following options:
 
 :   The path to the file that contains the encryption key.
 
-{{< info >}}
+{{< note >}}
 
 For encrypted data bag items, use *either* `--secret` or
 `--secret-file`, not both.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -263,18 +263,18 @@ This argument has the following options:
 
 :   The path to the file that contains the encryption key.
 
-{{< info >}}
+{{< note >}}
 
 For encrypted data bag items, use *either* `--secret` or
 `--secret-file`, not both.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -372,18 +372,18 @@ This argument has the following options:
 
 :   The path to the file that contains the encryption key.
 
-{{< info >}}
+{{< note >}}
 
 For encrypted data bag items, use *either* `--secret` or
 `--secret-file`, not both.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------

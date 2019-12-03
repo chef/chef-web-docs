@@ -17,12 +17,12 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/p
 
 {{% plugin_knife_push_jobs_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-{{< /info >}}
+{{< /note >}}
 
 job list
 ========

@@ -33,11 +33,11 @@ Environment Attributes
 
 {{% environment_attribute %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_see_attributes_overview %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Attribute Types
 ---------------
@@ -415,14 +415,14 @@ using the following methods:
     file, and then using `knife bootstrap -e environment_name` to
     bootstrap the changes to the specified environment
 
-    {{< info >}}
+    {{< note >}}
 
     After the environment has been set via bootstrap, the environment is
     set in the client.rb file and may not be modified using the Chef
     management console or the `edit` argument of the `knife node`
     subcommand.
 
-    {{< /info >}}
+    {{< /note >}}
 
 -   By setting the `environment` configuration entry in the client.rb
     file ; when Chef Infra Client runs, it will pick up the value and

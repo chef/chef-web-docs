@@ -1,13 +1,3 @@
-.off-canvas-wrapper {
-  overflow: visible;
-}
-
-.off-canvas-content {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
 #utility-bar, #menu, #footer {
   flex-shrink: 0;
 }
@@ -16,13 +6,17 @@
   // Make sure the header offset does not layer above the nav
   z-index: 0;
 
-  flex: 1 0 auto;
+  //flex: 1 0 auto;
 
   > .grid-container {
     height: 100%;
 
     > .grid-x {
       height: 100%;
+
+      .position-left{
+        width: 260px;
+      }
     }
   }
 
@@ -30,6 +24,7 @@
     margin-top: rem-calc(24);
     padding: rem-calc(8 0);
     background-color: $sidebargray;
+    overflow-y: hidden;
 
     @include breakpoint(medium) {
       margin-top: 0;
@@ -41,22 +36,17 @@
   }
 
   .col-content {
-    padding-top: rem-calc(48);
+    padding-top: rem-calc(14);
     background-color: $white;
     height: 100%;
     word-wrap: break-word;
     min-height: 100vh;
-
-    @include breakpoint(medium) {
-      padding: rem-calc(40 0 40 32);
-    }
 
     p img {
       margin-bottom: rem-calc(32);
     }
 
     a {
-
       .fa-link {
         margin-left: rem-calc(8);
         color: $lightgray;
@@ -80,8 +70,3 @@
   }
 }
 
-@include breakpoint(small only) {
-  body {
-    overflow-x: hidden;
-  }
-}

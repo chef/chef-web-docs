@@ -542,12 +542,12 @@ The following parameters can be used with this method:
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 Ohai collects platform information at the start of a Chef Infra Client
 run and stores that information in the `node['platform']` attribute.
 
-{{< /info >}}
+{{< /note >}}
 
 For example:
 
@@ -621,12 +621,12 @@ or:
 platform_family?('slackware', 'suse', 'arch')
 ```
 
-{{< info >}}
+{{< note >}}
 
 `platform_family?` will default to `platform?` when `platform_family?`
 is not explicitly defined.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Examples
 
@@ -1036,11 +1036,11 @@ Windows Platform
 
 {{% dsl_recipe_method_windows_methods %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_dsl_recipe_order_for_windows_methods %}}
 
-{{< /info >}}
+{{< /note >}}
 
 registry_data_exists?
 -----------------------

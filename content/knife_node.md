@@ -19,11 +19,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 {{% knife_node_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 bulk delete
 ===========
@@ -126,11 +126,11 @@ Use the `delete` argument to delete a node from the Chef Infra Server.
 If using Chef Client 12.17 or later, you can delete multiple nodes using
 this subcommand.
 
-{{< info >}}
+{{< note >}}
 
 Deleting a node will not delete any corresponding API clients.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------
@@ -303,11 +303,11 @@ This argument has the following options:
 
 :   Show the corresponding URIs.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -374,22 +374,22 @@ Syntax
 
 {{< /warning >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_windows_quotes_module %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Options
 -------
 
 {{% knife_node_run_list_add_options %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -431,11 +431,11 @@ Options
 
 This command does not have any specific options.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -466,11 +466,11 @@ Syntax
 
 {{< /warning >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_windows_quotes_module %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Options
 -------

@@ -72,7 +72,7 @@ knife subcommand [ARGUMENT] (options)
 
 Each subcommand has its own set of arguments and options.
 
-{{< info >}}
+{{< note >}}
 
 All syntax examples in this document show variables in ALL_CAPS. For
 example `-u PORT_LIST` (where PORT_LIST is a comma-separated list of
@@ -81,7 +81,7 @@ output format, either `summary`, `text`, `json`, `yaml`, or `pp`). These
 variables often require specific values that are unique to each
 organization.
 
-{{< /info >}}
+{{< /note >}}
 
 Built-in Subcommands
 --------------------

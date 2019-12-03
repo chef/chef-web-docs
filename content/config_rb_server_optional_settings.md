@@ -23,11 +23,11 @@ Settings
 The following sections describe the various settings that are available
 in the chef-server.rb file.
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_config_rb_server_must_reconfigure %}}
 
-{{< /info >}}
+{{< /note >}}
 
 General
 -------
@@ -127,11 +127,11 @@ bookshelf
 
 {{% server_services_bookshelf %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_server_aws_cookbook_storage %}}
 
-{{< /info >}}
+{{< /note >}}
 
 This configuration file has the following settings for `bookshelf`:
 

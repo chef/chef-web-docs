@@ -21,7 +21,7 @@ The server configuration file contains a list of all configuration
 options that are available for the Chef Infra Server. Some of these
 values should be modified for large-scale installations.
 
-{{< info >}}
+{{< note >}}
 
 This topic contains general information about how settings can be tuned.
 In many cases, this topic suggests specific values to be used for
@@ -30,7 +30,7 @@ please don't hesitate to contact Chef support to discuss your tuning
 effort so as to help ensure the right value is identified for any
 particular setting.
 
-{{< /info >}}
+{{< /note >}}
 
 
 ## Customize the Config File
@@ -58,11 +58,11 @@ particular setting.
 The following settings are often used to for performance tuning of the
 Chef Infra Server in larger installations.
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_config_rb_server_must_reconfigure %}}
 
-{{< /info >}}
+{{< /note >}}
 
 
 ### bookshelf

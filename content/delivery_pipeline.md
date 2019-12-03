@@ -105,11 +105,11 @@ Configuration Settings
 
     {{% delivery_config_json_setting_dependencies %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% delivery_cookbook_delivery_truck %}}
 
-{{< /info >}}
+{{< /note >}}
 
 build-cookbook Locations
 ------------------------

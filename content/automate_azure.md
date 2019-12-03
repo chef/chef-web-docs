@@ -42,12 +42,12 @@ please contact <amp@chef.io> to obtain a new license.
 4.  Complete each configuration step, agree to the software and
     marketplace terms and create the Chef Automate VM.
 
-    {{< info >}}
+    {{< note >}}
 
     Remember the DNS label of the Chef Automate VM. It will be required
     to access the Chef Automate UI and Chef Infra Server.
 
-    {{< /info >}}
+    {{< /note >}}
 
 5.  While the Chef Automate VM is being provisioned, download and
     install [ChefDK](/install_dk/). ChefDK is a collection of tools
@@ -67,7 +67,7 @@ please contact <amp@chef.io> to obtain a new license.
     or
     `https://chef-automate-01.eastus.cloudapp.azure.com/biscotti/setup`.
 
-    {{< info >}}
+    {{< note >}}
 
     In order to use TLS/SSL for the Chef Automate Web UI, the VM will
     automatically create and use a self-signed SSL certificate. Modern
@@ -75,7 +75,7 @@ please contact <amp@chef.io> to obtain a new license.
     login; however, in this case, you can ignore the warning and accept
     the certificate.
 
-    {{< /info >}}
+    {{< /note >}}
 
 7.  Fill out the setup form and submit it.
 
@@ -136,12 +136,12 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     using file based backups from your existing Chef Infra Server is not
     supported.
 
-    {{< info >}}
+    {{< note >}}
 
     The Chef Infra Server services must be online for the entire
     duration of the backup.
 
-    {{< /info >}}
+    {{< /note >}}
 
     ``` bash
     $ mkdir -p /tmp/chef-backup
@@ -157,14 +157,14 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     $ scp /tmp/chef-backup.tgz <Admin Username>@<FQDN>:/tmp/
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     You can find the FQDN of the Automate VM by checking the deployment
     outputs in the Azure portal. Navigate to the resource group, click
     on the deployment history, select the main template and location the
     FQDN in the outputs section.
 
-    {{< /info >}}
+    {{< /note >}}
 
 2.  Login to your Chef Automate VM and ensure that it is running the
     latest version of the Chef Infra Server:

@@ -21,12 +21,12 @@ using the public keys of a list of nodes, allowing only those nodes to
 decrypt the encrypted values. `chef-vault` uses the `knife vault`
 subcommand.
 
-{{< info >}}
+{{< note >}}
 
 `chef-vault` does not currently support alternate keying mechanisms like
 GPG and Amazon KMS.
 
-{{< /info >}}
+{{< /note >}}
 
 -   For more information about using the `chef-vault` cookbook, its
     helper methods and resources, see
@@ -295,12 +295,12 @@ command-line will open an editor to fill out the data*
 knife vault create passwords root -A "admin1,admin2"
 ```
 
-{{< info >}}
+{{< note >}}
 
 A JSON file can be used in place of specifying the values on the command
 line, see global options below for details
 
-{{< /info >}}
+{{< /note >}}
 
 `update`
 --------

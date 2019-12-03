@@ -57,12 +57,12 @@ The Chef Infra Server has the following prerequisites:
     services will run. See [UIDs and
     GIDs](/install_server_pre.html#uids-and-gids) for more information.
 
-{{< info >}}
+{{< note >}}
 
 See the [expanded list of prerequisites](/install_server_pre/) for a
 detailed list of software and hardware requirements.
 
-{{< /info >}}
+{{< /note >}}
 
 Standalone
 ==========

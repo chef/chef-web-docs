@@ -20,12 +20,12 @@ Knife Azure Overview
 
 {{% knife_azure %}}
 
-{{< info >}}
+{{< note >}}
 
 Review the list of [common options](/knife_options/) available to
 this (and all) knife subcommands and plugins.
 
-{{< /info >}}
+{{< /note >}}
 
 `knife-azure` version 1.6.0 and later supports Azure Resource Manager.
 Commands starting with `knife azurerm` use the Azure Resource Manager
@@ -72,14 +72,14 @@ from the command line, see [Create service principal with PowerShell /
 Azure CLI
 2.0](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal).
 
-{{< info >}}
+{{< note >}}
 
 When creating your user following the example in the Microsoft
 documentation, change <span class="title-ref">-o Reader</span> to <span
 class="title-ref">-o Contributor</span>, otherwise you will not be able
 to spin up or delete machines.
 
-{{< /info >}}
+{{< /note >}}
 
 After creating the service principal, you will have the values:
 

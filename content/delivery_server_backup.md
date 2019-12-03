@@ -84,13 +84,13 @@ usually nested in `/tmp` on Linux systems, but the value of the `TMPDIR`
 environment variable will also be honored. You can configure the staging
 directory by using the `backup['staging_dir']` setting in `delivery.rb`.
 
-{{< info >}}
+{{< note >}}
 
 The backup create will clear any existing files in the staging directory
 at the beginning of the backup procedure. Only use a directory that does
 not contain any other system data.
 
-{{< /info >}}
+{{< /note >}}
 
 S3 Backups
 ----------
@@ -159,25 +159,25 @@ backup['elasticsearch']['type']     = 's3'
 
 `$ automate-ctl reconfigure`
 
-{{< info >}}
+{{< note >}}
 
 Using the same bucket for backup archives and snapshots is supported but
 both must be configured independently.
 
-{{< /info >}}
+{{< /note >}}
 
 SSE-S3 AES256 Server side encryption is supported and enabled by default
 for both backup archives and snapshots. Backup archives can also be
 encrypted with SSE-KMS or SSE-C, though snapshots are currently limited
 to SSE-S3.
 
-{{< info >}}
+{{< note >}}
 
 While the backup utility currently supports encrypting backups with with
 SSE-S3, SSE-KMS, and SSE-C, only SSE-S3 is currently supported for
 restoration.
 
-{{< /info >}}
+{{< /note >}}
 
 See below for valid examples of `delivery.rb` configurations for server
 side encryption.
@@ -249,14 +249,14 @@ The [restore-backup](/ctl_automate_server.html#restore-backup) command
 is used to fully or partially restore a Chef Automate cluster from
 backup archives and/or Elasticsearch snapshots.
 
-{{< info >}}
+{{< note >}}
 
 Backups created with the older `automate-ctl backup-data` command are
 not supported with this command. If you wish to restore an older backup
 please install the version of Chef Automate that took the backup and use
 `automate-ctl restore-data`
 
-{{< /info >}}
+{{< /note >}}
 
 Local Backups
 -------------
@@ -285,12 +285,12 @@ Elasticsearch snapshot:
 
     `$ automate-ctl restore-backup /mnt/ephemeral/2016-10-14-08-38-55-chef-automate-backup.zst 2016-10-14-08-38-55-chef-automate-backup --staging-dir /mnt/ephemeral/restore`
 
-{{< info >}}
+{{< note >}}
 
 Specifying a staging directory is not mandatory but when given it will
 clear **all** existing data from it.
 
-{{< /info >}}
+{{< /note >}}
 
 S3 Backups
 ----------

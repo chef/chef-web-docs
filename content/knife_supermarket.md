@@ -22,7 +22,7 @@ that write data to the Chef Supermarket; however, the following
 arguments do not require a user account: `download`, `search`,
 `install`, and `list`.
 
-{{< info >}}
+{{< note >}}
 
 If you are interested in uploading to the Supermarket as a company you
 might be interested in looking at the [Chef Partner Cookbook
@@ -31,19 +31,19 @@ validate and verify your company cookbook. A selection of Certified
 Partner Cookbooks can be found
 [here](https://supermarket.chef.io/cookbooks?utf8=✓&q=&badges%5B%5D=partner&platforms%5B%5D=).
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_knife_cookbook_site_use_devkit_berkshelf %}}
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 download
 ========
@@ -514,12 +514,12 @@ Use the `unshare` argument to stop the sharing of a cookbook located at
 Chef Supermarket. Only the maintainer of a cookbook may perform this
 action.
 
-{{< info >}}
+{{< note >}}
 
 Unsharing a cookbook will break a cookbook that has set a dependency on
 that cookbook or cookbook version.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------

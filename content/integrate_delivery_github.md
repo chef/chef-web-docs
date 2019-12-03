@@ -37,14 +37,14 @@ Chef Automate's GitHub integration is designed for use with GitHub.com
 and GitHub Enterprise 2.x, and supports connecting a Chef Automate
 enterprise with a single GitHub server URL.
 
-{{< info >}}
+{{< note >}}
 
 The Delivery CLI from the latest
 [ChefDK](https://downloads.chef.io/chefdk/) (version 0.19 or higher)
 must be installed on any workstations that setup and initialize
 GitHub-integrated projects.
 
-{{< /info >}}
+{{< /note >}}
 
 Setting up integration with GitHub
 ==================================
@@ -97,7 +97,7 @@ Trusting a Self-Signed SSL Certificate
 This procedure is only needed when connecting to GitHub Enterprise, and
 when your GitHub Enterprise server uses a self-signed SSL certificate.
 
-{{< info >}}
+{{< note >}}
 
 Even when trusted, self-signed certificates only work when the
 certificate subject is the same as the host running the service. For
@@ -107,7 +107,7 @@ class="title-ref">github.example.com</span>, the URL
 `https://github.example.com` will fail SSL certificate validation while
 the URL `https://10.10.10.10` will pass.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Debian
 
@@ -142,11 +142,11 @@ the URL `https://10.10.10.10` will pass.
     yum install ca-certificates
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     You only need to do this once for 6.x servers.
 
-    {{< /info >}}
+    {{< /note >}}
 
 3.  Enable the dynamic CA configuration feature.
 
@@ -154,11 +154,11 @@ the URL `https://10.10.10.10` will pass.
     update-ca-trust force-enable
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     You only need to do this once for 6.x servers.
 
-    {{< /info >}}
+    {{< /note >}}
 
 4.  Change directory to the `anchors` directory.
 
@@ -255,13 +255,13 @@ Initializing a new GitHub project in Chef Automate
     Chef Automate. At this point, you should be able to see a
     corresponding pull request in GitHub.
 
-    {{< info >}}
+    {{< note >}}
 
     You may also specify a different pipeline than the default
     (`master`) by specifying the argument `--pipeline=$PIPELINE`;
     however, this will not update the `.delivery/cli.toml` file.
 
-    {{< /info >}}
+    {{< /note >}}
 
 Multiple pipelines
 ------------------
@@ -358,7 +358,7 @@ Configure your Delivery CLI and clone your project's code
     delivery clone $PROJECT
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     If you clone from GitHub instead (or make use of a pre-existing
     clone), you will need to add a `delivery` remote. The Chef Automate
@@ -369,7 +369,7 @@ Configure your Delivery CLI and clone your project's code
     git remote add delivery $AUTOMATE_CLONE_URL
     ```
 
-    {{< /info >}}
+    {{< /note >}}
 
 Creating a Change (Pull Request)
 --------------------------------

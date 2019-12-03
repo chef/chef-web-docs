@@ -15,7 +15,7 @@ aliases = "/install_dk.html"
 [\[edit on
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_dk.rst)
 
-{{< info >}}
+{{< note >}}
 
 [Chef Workstation](https://downloads.chef.io/chef-workstation/) gives
 you everything you need to get started with Chef — ad hoc remote
@@ -27,7 +27,7 @@ the new Chef Workstation desktop application. Chef will continue to
 maintain ChefDK, but new development will take place in Chef Workstation
 without backporting features.
 
-{{< /info >}}
+{{< /note >}}
 
 The ChefDK package is produced by the [Chef
 Omnibus](https://github.com/chef/omnibus) tool for installation on a

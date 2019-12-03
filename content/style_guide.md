@@ -43,6 +43,8 @@ draft = false
 
 aliases = "/style_guide.html"
 
+toc = true
+
 [menu]
   [menu.docs]
     title = "Docs Style Guide"
@@ -335,18 +337,18 @@ Notes
 -----
 
 ```
-{{</* info */>}}
+{{</* note */>}}
 This is a note.
-{{</* /info */>}}
+{{</* /note */>}}
 ```
 
 What a note looks like after it's built:
 
-{{< info >}}
+{{< note >}}
 
 This is a note.
 
-{{< /info >}}
+{{< /note >}}
 
 Warnings
 --------

@@ -128,11 +128,11 @@ copy on the Chef Infra Server at the end of each Chef Infra Client run.
 
 {{% node_attribute_when_to_use_unless_variants %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_see_attributes_overview %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Attribute Types
 ===============

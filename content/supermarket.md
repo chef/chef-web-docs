@@ -33,11 +33,11 @@ Private Supermarket
 
 {{% supermarket_private %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% supermarket_private_source_code %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Recommended Tools
 -----------------
@@ -118,12 +118,12 @@ $ cd my_chef_repo
 
 **Generate a cookbook**
 
-{{< info >}}
+{{< note >}}
 
 Duplicate cookbook names on Chef Supermarket are not allowed. So first
 verify that a cookbook name is available.
 
-{{< /info >}}
+{{< /note >}}
 
 To create the `my_apache2_cookbook` cookbook, run the following command:
 

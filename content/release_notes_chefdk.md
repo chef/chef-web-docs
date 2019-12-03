@@ -1420,13 +1420,13 @@ See the detailed [change
 log](https://github.com/chef/chef-dk/blob/master/CHANGELOG.md#v231-2017-09-14)
 for a complete list of changes.
 
-{{< info >}}
+{{< note >}}
 
 Due to issues beyond our control, this release is only built for Linux
 (x86_64) and Windows. We’ll release a new build with macOS support as
 soon as possible.
 
-{{< /info >}}
+{{< /note >}}
 
 What's New in 2.2.1
 ===================

@@ -106,11 +106,11 @@ reset_property
 resource_name
 ==============
 
-{{< info >}}
+{{< note >}}
 
 {{% ruby_style_patterns_hyphens %}}
 
-{{< /info >}}
+{{< /note >}}
 
 {{% dsl_custom_resource_method_resource_name %}}
 

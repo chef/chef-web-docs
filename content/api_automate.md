@@ -160,14 +160,14 @@ server is healthy even if there's a problem with one of the upstream
 systems; however, a response code of 500 will be returned in that case
 (as described in the response code section below).
 
-{{< info >}}
+{{< note >}}
 
 `lsyncd` should always report a status of `not_running` in a standalone
 configuration: any other value would indicate that it's configured when
 it shouldn't be (`lsync` should only run on a disaster recovery
 primary).
 
-{{< /info >}}
+{{< /note >}}
 
 For the primary server in a disaster recovery pair, the response will be
 similar to:
@@ -361,7 +361,7 @@ filters listed below are allowed for inclusion.
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 Timestamps, are returned in and **must** be written in RFC 3339 format.
 The following are examples of acceptable `start_time` and `end_time`
@@ -370,7 +370,7 @@ values for inclusion in a filter:
 -   `2017-03-06T09:18:40Z`
 -   `2017-03-06T09:18:40+00:00`
 
-{{< /info >}}
+{{< /note >}}
 
 /compliance/market [compliance-market-api]
 ------------------

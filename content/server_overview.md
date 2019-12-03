@@ -19,7 +19,7 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% chef_server_component_erchef_background %}}
 
-{{< info >}}
+{{< note >}}
 
 The Chef Infra Server can be configured via the
 `/etc/opscode/chef-server.rb` file. Whenever this file is modified, the
@@ -27,7 +27,7 @@ The Chef Infra Server can be configured via the
 See the [Chef Infra Server settings](/config_rb_server/) guide for
 additional information.
 
-{{< /info >}}
+{{< /note >}}
 
 Server Components
 =================
@@ -420,13 +420,13 @@ configure PostgreSQL for use with the Chef Infra Server:
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 See the list of [error messages that may be
 present](/errors.html#external-postgresql) when configuring the Chef
 Infra Server to use a remote PostgreSQL server.
 
-{{< /info >}}
+{{< /note >}}
 
 Bookshelf Settings
 ------------------

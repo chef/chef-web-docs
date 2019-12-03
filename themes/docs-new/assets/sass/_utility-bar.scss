@@ -1,12 +1,36 @@
 nav {
-  &.utility-bar {
+  &#utility-bar{
     position: relative;
-    background-color: $charcoal;
+    background-color: $topbar-background;
     height: rem-calc(50px);
     margin: 0;
     padding: 0;
     font-size: 13px;
     z-index: 10;
+    justify-content: space-between;
+    border-bottom: 1px solid $border;
+
+
+    button.utility-bar-nav-bars{
+      color: $charcoal;
+      display: inline;
+      position: relative;
+      top: 0.5rem;
+      left: 0.5rem;
+    }
+
+    .utility-bar-logo{
+      display: inline;
+      position: relative;
+      top: 0.5rem;
+      left: 1.25rem;
+      
+
+      .chef{
+        height: 28px;
+        display: inline;
+      }
+    }
 
     .utility-bar {
       &-wrapper {
@@ -149,25 +173,41 @@ nav {
       }
     }
 
-    &.active {
-      .utility-bar {
-        &-wrapper {
-          background-color: $white;
-          @include box-shadow();
-        }
 
-        &-button {
-          color: $charcoal;
 
-          .chef-logo {
-            background-image: url("/images/chef-logo.svg");
+    .utility-bar-wrapper {
+
+      &.active {
+                    background-color: $white;
+            @include box-shadow();
+        .utility-bar {
+          &-wrapper {
+            background-color: $white;
+            @include box-shadow();
           }
-        }
 
-        &-content {
-          display: flex;
+          &-button {
+            color: $charcoal;
+
+            .chef-logo {
+              background-image: url("/images/chef-logo.svg");
+            }
+          }
+
+          &-content {
+            display: flex;
+          }
         }
       }
     }
+  }
+}
+
+#left-nav-off-canvas{
+  display: none;
+
+  &.reveal{
+    display: block;
+    z-index: 10;
   }
 }

@@ -109,12 +109,12 @@ cluster downtime.
 Chef Backend 1.x to 1.x Upgrade
 ===============================
 
-{{< info >}}
+{{< note >}}
 
 The procedure assumes that the new chef-backend package has been copied
 to all of the nodes.
 
-{{< /info >}}
+{{< /note >}}
 
 Step 1: Block Failover
 ----------------------

@@ -22,11 +22,11 @@ Recipe Attributes
 
 {{% cookbooks_attribute %}}
 
-{{< info >}}
+{{< note >}}
 
 {{% notes_see_attributes_overview %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Attribute Types
 ---------------
@@ -166,11 +166,11 @@ If a cookbook has a dependency on a recipe that is located in another
 cookbook, that dependency must be declared in the metadata.rb file for
 that cookbook using the `depends` keyword.
 
-{{< info >}}
+{{< note >}}
 
 Declaring cookbook dependencies is not required with chef-solo.
 
-{{< /info >}}
+{{< /note >}}
 
 For example, if the following recipe is included in a cookbook named
 `my_app`:
@@ -457,12 +457,12 @@ entirely by using an unhandled exception. The `raise` and `fail`
 keywords can be used to stop a Chef Infra Client run in both the compile
 and execute phases.
 
-{{< info >}}
+{{< note >}}
 
 Both `raise` and `fail` behave the same way when triggering unhandled
 exceptions and may be used interchangeably.
 
-{{< /info >}}
+{{< /note >}}
 
 Use these keywords in a recipe---but outside of any resource blocks---to
 trigger an unhandled exception during the compile phase. For example:
@@ -560,13 +560,13 @@ consistent messaging around certain behaviors. That said, this approach
 is not recommended for use within recipes and cookbooks and should only
 be used when the other approaches are not applicable.
 
-{{< info >}}
+{{< note >}}
 
 This approach should be used carefully when Chef Infra Client is run as
 a daemonized service. Some services---such as a runit service---should
 restart, but others---such as an init.d services---likely will not.
 
-{{< /info >}}
+{{< /note >}}
 
 node.run_state
 ---------------

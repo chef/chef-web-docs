@@ -17,25 +17,25 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 {{% config_rb_supermarket_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 The `supermarket.rb` file does not exist by default. To modify the
 settings for the Supermarket server, create a file named
 `supermarket.rb` in the `/etc/supermarket/` directory.
 
-{{< /info >}}
+{{< /note >}}
 
 Settings
 ========
 
 The following settings are available in the `supermarket.rb` file.
 
-{{< info >}}
+{{< note >}}
 
 You must run `supermarket-ctl reconfigure` to apply any changes made in
 the `supermarket.rb` file.
 
-{{< /info >}}
+{{< /note >}}
 
 General
 -------
@@ -121,11 +121,11 @@ Amazon Simple Storage Service (S3)
 Use these settings to upload cookbooks to an Amazon Simple Storage
 Service (S3) bucket.
 
-{{< info >}}
+{{< note >}}
 
 Encrypted S3 buckets are currently not supported.
 
-{{< /info >}}
+{{< /note >}}
 
 `default['supermarket']['cdn_url']`
 

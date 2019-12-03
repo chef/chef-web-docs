@@ -129,11 +129,11 @@ $ knife exec SCRIPT (options)
 Options
 =======
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 This subcommand has the following options:
 
@@ -148,11 +148,11 @@ This subcommand has the following options:
     specified, knife will look for scripts located in
     `chef-repo/.chef/scripts` directory.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 ========

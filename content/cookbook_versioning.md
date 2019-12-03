@@ -36,13 +36,13 @@ syntax with an operator, in the following format:
 operator cookbook_version_syntax
 ```
 
-{{< info >}}
+{{< note >}}
 
 Single digit cookbook versions are not allowed. Cookbook versions must
 specify at least the major and minor version. For example, use `1.0` or
 `1.0.1`; do not use `1`.
 
-{{< /info >}}
+{{< /note >}}
 
 {{% cookbooks_version_constraints_operators %}}
 

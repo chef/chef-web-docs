@@ -28,14 +28,14 @@ addition to seeing your compliance status, you can also easily see which
 controls failed and why to provide you immediate information for
 remediation.
 
-{{< info >}}
+{{< note >}}
 
 If you need to continue using the previous compliance view that was in
 earlier versions of Chef Automate, you can enable this view easily. We
 have included a new feature flag to activate the old compliance view by
 typing `legacy` in the UI and toggling on this view in the menu.
 
-{{< /info >}}
+{{< /note >}}
 
 {{% beta_note %}}
 
@@ -99,12 +99,12 @@ The following CIS Level 1 and 2 benchmark profiles are included:
 -   SUSE Linux Enterprise Server
 -   Ubuntu
 
-{{< info >}}
+{{< note >}}
 
 Chef Automate has multiple profiles supporting different versions of the
 operating systems or environments listed above.
 
-{{< /info >}}
+{{< /note >}}
 
 Baseline profiles
 -----------------

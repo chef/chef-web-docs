@@ -29,11 +29,11 @@ $ knife raw REQUEST_PATH (options)
 Options
 =======
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 This subcommand has the following options:
 
@@ -56,11 +56,11 @@ This subcommand has the following options:
 :   Enable proxy authentication to the Chef Infra Server web user
     interface. Default value: `false`.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 ========

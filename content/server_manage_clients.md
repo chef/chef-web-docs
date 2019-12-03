@@ -21,11 +21,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/s
 
 {{% EOL_manage %}}
 
-{{< info >}}
+{{< note >}}
 
 This topic is about using the Chef management console to manage keys.
 
-{{< /info >}}
+{{< /note >}}
 
 A client is an actor that has permission to access the Chef Infra
 Server. A client is most often a node (on which the Chef Infra Client

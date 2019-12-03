@@ -169,7 +169,7 @@ service 'example_service' do
 end
 ```
 
-{{< info >}}
+{{< note >}}
 
 Changes made to `ENV` only effect the environment of the Chef Infra
 Client process and child processes. Altering the environment in this way
@@ -177,7 +177,7 @@ will often ensure that Chef Infra Client can start a service properly,
 but will not ensure that a service will start properly when started
 using other methods.
 
-{{< /info >}}
+{{< /note >}}
 
 Using Resource Attributes
 -------------------------

@@ -36,11 +36,11 @@ supermarket](/knife_supermarket/) command.
 
 {{< /warning >}}
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Private Supermarket
 ===================
@@ -100,11 +100,11 @@ This argument has the following options:
 :   The URL at which the Chef Supermarket is located. Default value:
     <https://supermarket.chef.io>.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -194,11 +194,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -418,11 +418,11 @@ This argument has the following options:
 :   The directory in which cookbooks are created. This can be a
     colon-separated path.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 --------
@@ -531,12 +531,12 @@ Use the `unshare` argument to stop the sharing of a cookbook at the
 [Chef Supermarket](https://supermarket.chef.io/cookbooks). Only the
 maintainer of a cookbook may perform this action.
 
-{{< info >}}
+{{< note >}}
 
 Unsharing a cookbook will break a cookbook that has set a dependency on
 that cookbook or cookbook version.
 
-{{< /info >}}
+{{< /note >}}
 
 Syntax
 ------

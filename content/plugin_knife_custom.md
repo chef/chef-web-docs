@@ -247,14 +247,14 @@ end
 where the actual path may vary from plugin to plugin, but is typically
 located in the `chef/knife/` directory.
 
-{{< info >}}
+{{< note >}}
 
 Using the `deps` method instead of `require` is recommended, especially
 if the environment in which knife is being run contains a lot of plugins
 and/or any of those plugins have a lot of dependencies and/or
 requirements on other plugins and search functionality.
 
-{{< /info >}}
+{{< /note >}}
 
 ### Requirements
 
@@ -273,14 +273,14 @@ require 'chef/knife/name_of_command'
 where the actual path may vary from plugin to plugin, but is typically
 located in the `chef/knife/` directory.
 
-{{< info >}}
+{{< note >}}
 
 Using the `deps` method instead of `require` is recommended, especially
 when the environment in which knife is being run contains a lot of
 plugins and/or any of those plugins have a lot of dependencies and/or
 requirements on other plugins and search functionality.
 
-{{< /info >}}
+{{< /note >}}
 
 For example, use the following to require a plugin named `bootstrap`:
 

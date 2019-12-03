@@ -38,7 +38,7 @@ configured in your `delivery.rb`. For more information on the proxy
 settings in Chef Automate, see [Proxy
 Settings](https://docs.chef.io/config_rb_delivery.html#proxy-settings).
 
-{{< info >}}
+{{< note >}}
 
 Notifications sent to custom webhooks by Chef Automate do not support
 retries; therefore, notifications sent while your particular webhook
@@ -47,7 +47,7 @@ downtime may never be received. Undelivered notifications are not
 re-sent. Attempts to send notifications do generate log messages in your
 Chef Automate server.
 
-{{< /info >}}
+{{< /note >}}
 
 Add a Webhook to Chef Automate
 ==============================

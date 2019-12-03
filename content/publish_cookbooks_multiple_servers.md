@@ -69,13 +69,13 @@ delivery_chef_cookbook 'rally' do
 end
 ```
 
-{{< info >}}
+{{< note >}}
 
 The default action for `delivery_chef_cookbook` is `:upload`, so you do
 not need to explicitly include that in your `delivery_chef_cookbook`
 implementation.
 
-{{< /info >}}
+{{< /note >}}
 
 Publish Cookbook to Multiple Chef servers
 =========================================

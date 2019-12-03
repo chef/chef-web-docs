@@ -18,13 +18,13 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/b
 This document contains the recommended actions for responding to
 failures in your Chef Backend cluster.
 
-{{< info >}}
+{{< note >}}
 
 If you have concerns about applying the Chef Backend recovery process to
 your cluster, please consult with Support before taking the steps
 outlined in this guide.
 
-{{< /info >}}
+{{< /note >}}
 
 Assumptions
 ===========

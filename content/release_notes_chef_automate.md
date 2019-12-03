@@ -555,7 +555,7 @@ Resolved Issues
 What's New in 1.6.87
 ====================
 
-{{< info >}}
+{{< note >}}
 
 This release contains significant upgrades to the platform; please read
 these release notes carefully. Before you upgrade to this release,
@@ -563,7 +563,7 @@ please make a [complete
 backup](/delivery_server_backup.html#create-backups) of your Chef
 Automate server.
 
-{{< /info >}}
+{{< /note >}}
 
 Important Note when Upgrading from 0.8.5 or Earlier
 ---------------------------------------------------
@@ -783,14 +783,14 @@ During the open beta, we improved a number of compliance capabilities:
 -   Improved the Audit cookbook; please use Audit cookbook version 4.x
 -   Added support for ZIP profile upload
 
-{{< info >}}
+{{< note >}}
 
 If you need to continue using the previous compliance view, you can
 enable it easily. We have included a new feature flag to activate the
 old compliance view by typing `legacy` in the UI and toggling on this
 view in the menu.
 
-{{< /info >}}
+{{< /note >}}
 
 All data that is received by Chef Automate will be available in both the
 new and old compliance view in our releases for the next 3 months, after
@@ -937,12 +937,12 @@ you to toggle on the new compliance views. You can revert to the
 original view with compliance data as a sub-tab on the **Nodes** view by
 deactivating the beta feature flag.
 
-{{< info >}}
+{{< note >}}
 
 The beta views will display new data only. Historical data is displayed
 only in the existing sub-tab view under the **Nodes** page.
 
-{{< /info >}}
+{{< /note >}}
 
 As you explore the beta, we welcome your feedback and invite you to
 visit [Chef’s Community Slack](http://community-slack.chef.io/) and join

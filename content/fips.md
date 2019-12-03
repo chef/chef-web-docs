@@ -137,7 +137,7 @@ Client will default to running in FIPS mode. Otherwise you can add
 For more information on configuring the Chef Automate server, see
 [Delivery CLI](/delivery_cli/).
 
-{{< info >}}
+{{< note >}}
 
 If you set up any runners using a Chef Automate server version `0.7.61`
 or earlier, then you will need to re-run [automate-ctl
@@ -145,7 +145,7 @@ install-runner](/ctl_automate_server.html#install-runner) on every
 existing runner after upgrading your Chef Automate server. Your runners
 will not work with FIPS enabled without re-running the installer.
 
-{{< /info >}}
+{{< /note >}}
 
 Architecture Overview
 =====================
@@ -174,11 +174,11 @@ If you have a self-signed certificate or a customer certificate
 authority then you will need some additional steps to get your Automate
 stack configured.
 
-{{< info >}}
+{{< note >}}
 
 Any time this certificate changes you must re-run this process.
 
-{{< /info >}}
+{{< /note >}}
 
 -   Generate a pem file with your entire certificate chain of the Chef
     Automate instance and save it to a file. A client machine may run

@@ -4,14 +4,14 @@
 {{- $whatInput := resources.Get "js/vendor/what-input.min.js" }}
 {{- $uaParser := resources.Get "js/vendor/ua-parser.min.js" }}
 {{- $showdown := resources.Get "js/vendor/showdown.min.js" }}
-{{- $tocbot := resources.Get "js/vendor/tocbot.min.js" }}
-{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $uaParser $showdown $tocbot | resources.Concat "js/core-bundle.js" | minify | fingerprint }}
+{{- $coreJs := slice $fontawesome $jquery $foundation $whatInput $uaParser $showdown | resources.Concat "js/core-bundle.js" | minify | fingerprint }}
 <script src="{{ $coreJs.Permalink }}" type="text/javascript"></script>
 {{- $segment := resources.Get "js/segment.js" }}
 {{- $omnitruck := resources.Get "js/omnitruck.js" }}
 {{- $releases := resources.Get "js/releases.js" }}
+{{- $copycodebutton := resources.Get "js/copy-code-button.js" }}
 {{- $chefHugo := resources.Get "js/chef-hugo.js" }}
-{{- $customJs := slice $segment $omnitruck $releases $chefHugo | resources.Concat "js/custom-bundle.js" | minify | fingerprint }}
+{{- $customJs := slice $segment $omnitruck $releases $copycodebutton $chefHugo | resources.Concat "js/custom-bundle.js" | minify | fingerprint }}
 <script src="{{ $customJs.Permalink }}" type="text/javascript"></script>
 <script type="text/javascript">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
@@ -20,18 +20,4 @@
   })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
   
   _st('install','ZXHpCfPLzPHWHG5upsR7','2.0.0');
-</script>
-<!-- tocbot options: https://tscanlin.github.io/tocbot/#options -->
-<script type="text/javascript">
-  tocbot.init({
-    // Where to render the table of contents.
-    tocSelector: '.js-toc',
-    // Where to grab the headings to build the table of contents.
-    contentSelector: '.js-toc-content',
-    // Which headings to grab inside of the contentSelector element.
-    headingSelector: 'h1, h2, h3, h4',
-    orderedList: false,
-    fixedSidebarOffset: 'auto',
-    collapseDepth: 3,
-  });
 </script>

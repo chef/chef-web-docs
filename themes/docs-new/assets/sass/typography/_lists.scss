@@ -1,11 +1,11 @@
-.col-content,
+#main-content,
 .content {
   ul, ol {
     margin-bottom: 28px;
 
     li {
       @extend .p;
-      margin-bottom: 16px;
+      margin-bottom: 0px;
     }
   }
 
@@ -21,20 +21,30 @@
     list-style: none;
 
     li {
-      padding-left: 21px;
 
-      &:before {
-        @include fa-icon;
-        @extend .fas;
-        content: fa-content($fa-var-circle);
-        margin-left: -22px;
-        vertical-align: middle;
-        font-size: 6px;
+      &::before {
+        content: "\2022";
         color: $blue;
-        position: relative;
-        padding-right: 14px;
-        top: -1px;
+        display: inline-block;
+        width: 1em;
+        margin-left: -1em;
+        font-weight: 900;
+        font-size: 1.2em;
+
       }
+      p {
+        margin-top: -1.7em;
+        margin-bottom: 2em;
+      }
+      div.highlight{
+        margin-top: -3em;
+        margin-bottom: 3em;
+      }
+      >button.copy-code-button{
+        margin-top: -2em;
+        margin-bottom: 3.7em;
+      }
+
     }
 
     &.reset {
@@ -144,12 +154,11 @@
 
   dl {
     dt {
-      margin-bottom: rem-calc(4px);
+      margin-top: rem-calc(36px);
     }
 
     dd {
-      margin-bottom: rem-calc(16px);
-      margin-left: rem-calc(16px);
+      margin: 0 0 rem-calc(16px) rem-calc(30px);
     }
   }
 }

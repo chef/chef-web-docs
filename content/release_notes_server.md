@@ -171,7 +171,7 @@ This release:
 -   Fix for SUSE SLES-11 sysvinit install
 -   Removed nodejs (a build dependency that was shipped).
 
-{{< info >}}
+{{< note >}}
 
 Chef Server 12.18.14 introduces an incompatibility between older
 versions of Berkshelf and ChefDK. We recommend using the minimum
@@ -181,7 +181,7 @@ of `Net::HTTPServerException: 400 "Bad Request"` and opscode-erchef logs
 containing `status=400` and `req_api_version=1` in the log line for the
 corresponding cookbook upload API request.
 
-{{< /info >}}
+{{< /note >}}
 
 What's New in 12.17.33
 ======================
@@ -516,12 +516,12 @@ you to set these passwords outside of the configuration file. For
 information about these commands see [Secrets
 Management](/ctl_chef_server.html#secrets-management).
 
-{{< info >}}
+{{< note >}}
 
 Users of the DRBD-based HA configuration may still see passwords related
 to keepalived and DRBD in `/var/opt/opscode`.
 
-{{< /info >}}
+{{< /note >}}
 
 For further information see:
 
@@ -1472,14 +1472,14 @@ Chef server:
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 The following `chef-server-ctl` subcommands for managing services are
 disabled when an external PostgreSQL database is configured for the Chef
 server: `hup`, `int`, `kill`, `once`, `restart`, `start`, `stop`,
 `tail`, and `term`.
 
-{{< /info >}}
+{{< /note >}}
 
 Settings
 --------
@@ -3732,9 +3732,9 @@ packages can be installed as described below.
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a>$ <span class="fu">sudo</span> chef-server-ctl reconfigure</span></code></pre></div>
 <p>and then:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1"></a>$ <span class="fu">sudo</span> chef-manage-ctl reconfigure</span></code></pre></div>
-{{< info >}}
+{{< note >}}
 <p>Starting with the Chef management console 2.3.0, the <a href="/chef_license/">Chef MLSA</a> must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a <code>yes</code> to accept it. Or run <code>chef-manage-ctl reconfigure --accept-license</code> to automatically accept the license.</p>
-{{< /info >}}</td>
+{{< /note >}}</td>
 </tr>
 </tbody>
 </table>
@@ -4267,13 +4267,13 @@ The following settings are new:
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 Previous versions of the Chef server used the `ldap['ssl_enabled']`
 setting to first enable SSL, and then the `ldap['encryption']` setting
 to specify the encryption type. These settings are deprecated.
 
-{{< /info >}}
+{{< /note >}}
 
 Key Rotation
 ------------

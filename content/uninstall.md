@@ -38,12 +38,12 @@ To uninstall the Chef management console, do the following:
     management console is installed, and then uninstall the package
     named `chef-manage`.
 
-{{< info >}}
+{{< note >}}
 
 This package used to be named `opscode-manage` and the command line tool
 used to be named `opscode-manage-ctl`.
 
-{{< /info >}}
+{{< /note >}}
 
 Chef Analytics
 ==============
@@ -58,12 +58,12 @@ This subcommand has the following syntax:
 $ opscode-analytics-ctl uninstall
 ```
 
-{{< info >}}
+{{< note >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-{{< /info >}}
+{{< /note >}}
 
 Reporting
 =========
@@ -78,12 +78,12 @@ This subcommand has the following syntax:
 $ opscode-reporting-ctl uninstall
 ```
 
-{{< info >}}
+{{< note >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-{{< /info >}}
+{{< /note >}}
 
 Chef Push Jobs
 ==============
@@ -100,12 +100,12 @@ To uninstall Chef Push Jobs, do the following:
     $ chef-server-ctl reconfigure
     ```
 
-{{< info >}}
+{{< note >}}
 
 This will leave some data in PostgreSQL that is not used by any other
 Chef application or service.
 
-{{< /info >}}
+{{< /note >}}
 
 push-jobs-client
 ----------------

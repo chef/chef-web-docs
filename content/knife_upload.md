@@ -29,11 +29,11 @@ $ knife upload [PATTERN...] (options)
 Options
 =======
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_common_options_link %}}
 
-{{< /info >}}
+{{< /note >}}
 
 This subcommand has the following options:
 
@@ -88,11 +88,11 @@ This subcommand has the following options:
     `hosted_everything` are dynamically selected depending on the server
     type. Default: `everything` / `hosted_everything`.
 
-{{< info >}}
+{{< note >}}
 
 {{% knife_common_see_all_config_options %}}
 
-{{< /info >}}
+{{< /note >}}
 
 Examples
 ========

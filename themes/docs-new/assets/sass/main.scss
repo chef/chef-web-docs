@@ -10,6 +10,13 @@
 @import "typography";
 @import "buttons";
 
+@import "base";
+@import "toc";
+
+@import "header";
+@import "footer";
+@import "homepage";
+
 body {
 	@include font-smoothing();
   @include base-type();
@@ -18,15 +25,12 @@ body {
 @import "partials/alerts";
 @import "partials/grid";
 @import "partials/bg";
-@import "partials/cards";
+
 @import "partials/callout";
 @import "partials/padding";
 @import "partials/sidebar";
 @import "partials/tabs";
 @import "partials/blurbs";
+@import "partials/copycode";
+@import "partials/runbook";
 
-@import "toc";
-
-@import "header";
-@import "footer";
-@import "homepage";

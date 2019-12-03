@@ -214,12 +214,12 @@ This subcommand has the following syntax:
 $ supermarket-ctl uninstall
 ```
 
-{{< info >}}
+{{< note >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-{{< /info >}}
+{{< /note >}}
 
 Service Subcommands
 ===================

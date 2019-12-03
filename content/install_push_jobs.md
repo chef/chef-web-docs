@@ -192,12 +192,12 @@ Chef Push Jobs Groups
 
 {{% push_jobs_summary %}}
 
-{{< info >}}
+{{< note >}}
 
 The Chef Infra Server uses role-based access control to define the
 [organizations, groups, and users](/server_orgs.html), including those
 needed by Chef Push Jobs.
 
-{{< /info >}}
+{{< /note >}}
 
 {{% server_rbac_groups_push_jobs %}}

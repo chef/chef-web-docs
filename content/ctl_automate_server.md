@@ -29,11 +29,11 @@ The Chef Automate server includes a command-line utility named
 -   Start and stop individual services
 -   Tail Chef Automate server log files
 
-{{< info >}}
+{{< note >}}
 
 All commands must be run as `sudo`.
 
-{{< /info >}}
+{{< /note >}}
 
 {{% delivery_ctl_note %}}
 
@@ -77,11 +77,11 @@ This subcommand has the following syntax:
 $ automate-ctl create-enterprise ENT_NAME --ssh-pub-key-file=FILE_NAME
 ```
 
-{{< info >}}
+{{< note >}}
 
 The `ENT_NAME` value must be alphanumeric.
 
-{{< /info >}}
+{{< /note >}}
 
 create-user
 ===========
@@ -469,12 +469,12 @@ address bar:
 
 ![image](/images/chef_automate_node_uuid.png)
 
-{{< info >}}
+{{< note >}}
 
 Compliance data is **not** deleted by default. You must pass `-c` to
 delete these records.
 
-{{< /info >}}
+{{< /note >}}
 
 **Syntax**
 
@@ -666,22 +666,22 @@ $ automate-ctl install-runner FQDN USERNAME [options]
    --full-ohai                           If `--full-ohai` flag set, Chef will run with full Ohai plugins.
 ```
 
-{{< info >}}
+{{< note >}}
 
 The username provided must be a user who has sudo access on the remote
 node. If the user is a member of a domain, then the username value
 should be entered as `user@domain`.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 At least one of `--password [PASSWORD]` or `--ssh-identity-file FILE`
 are necessary for ssh access.
 
-{{< /info >}}
+{{< /note >}}
 
-{{< info >}}
+{{< note >}}
 
 `install-runner` calls the `knife bootstrap` subcommand to configure the
 runner, so custom configurations can be installed on the runner by using
@@ -689,7 +689,7 @@ the [client.d copying feature](/knife_bootstrap.html). All config files
 inside `~/.chef/client.d` directory on the Chef Automate server get
 copied into the `/etc/chef/client.d` directory on the runner.
 
-{{< /info >}}
+{{< /note >}}
 
 **Example**
 
@@ -1072,14 +1072,14 @@ The command is intended to restore an Automate instance completely from
 backup, however, it does support restoring only specific data types when
 given compatible backup archives and snapshots.
 
-{{< info >}}
+{{< note >}}
 
 Backups created with the older `automate-ctl backup-data` command are
 not supported with this command. If you wish to restore an older backup
 please install the version of Chef Automate that took the backup and use
 `automate-ctl restore-data`
 
-{{< /info >}}
+{{< /note >}}
 
 **Syntax**
 
@@ -1107,12 +1107,12 @@ $ automate-ctl restore-backup ELASTICSEARCH_SNAPSHOT [options]
  -h, --help                       Show the usage message
 ```
 
-{{< info >}}
+{{< note >}}
 
 The `ELASTICSEARCH_SNAPSHOT` value is optional when given a backup
 archive path.
 
-{{< /info >}}
+{{< /note >}}
 
 **Examples**
 
@@ -1206,12 +1206,12 @@ This subcommand has the following syntax:
 $ automate-ctl uninstall
 ```
 
-{{< info >}}
+{{< note >}}
 
 To revert the `uninstall` subcommand, run the `reconfigure` subcommand
 (because the `start` subcommand is disabled by the `uninstall` command).
 
-{{< /info >}}
+{{< /note >}}
 
 update-project-hooks
 ====================

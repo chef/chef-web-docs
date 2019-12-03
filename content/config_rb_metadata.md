@@ -42,7 +42,7 @@ message. If an error message is received from the Chef Infra Server
 about cookbook distribution, verify the `depends` entries in the
 metadata.rb file, and then try again.
 
-{{< info >}}
+{{< note >}}
 
 A metadata.json file can be edited directly, should temporary changes be
 required. Any subsequent upload or action that generates metadata will
@@ -51,7 +51,7 @@ generated metadata. Therefore, any permanent changes to cookbook
 metadata should be done in the metadata.rb file, and then re-uploaded to
 the Chef Infra Server.
 
-{{< /info >}}
+{{< /note >}}
 
 Version Constraints
 ===================
@@ -98,7 +98,7 @@ versions. There are a set of operators common to all fields:
 </tbody>
 </table>
 
-{{< info >}}
+{{< note >}}
 
 Pessimistic locking is enabled by proper [semantic
 versioning](https://semver.org) of cookbooks. If we're on version 2.2.3
@@ -109,7 +109,7 @@ and right angle bracket "\>"--often called a tilde-rocket or
 "twiddle-wakka"--followed by the major and minor version numbers. For
 example: `~> 2.2`
 
-{{< /info >}}
+{{< /note >}}
 
 Settings
 ========
@@ -301,11 +301,11 @@ This configuration file has the following settings:
     ohai_version "~> 8"
     ```
 
-    {{< info >}}
+    {{< note >}}
 
     This setting is not visible in Chef Supermarket.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `privacy`
 

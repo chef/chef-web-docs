@@ -592,13 +592,13 @@ generate the new service credentials. Then copy the secrets file to each
 Chef Infra Server and run `sudo chef-server-ctl reconfigure` on each
 server to complete the rotation process.
 
-{{< info >}}
+{{< note >}}
 
 Credential rotation does not rotate the pivotal, user, or client keys,
 or remove any Chef Infra Server policy or cookbooks that have been
 uploaded.
 
-{{< /info >}}
+{{< /note >}}
 
 *New in Chef Server 12.7*
 

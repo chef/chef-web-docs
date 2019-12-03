@@ -166,25 +166,25 @@ The extension has the following options that can be provided in the
 :   Tells the extension whether the supplied validation key is
     `plaintext` or `base64encoded`.
 
-    {{< info >}}
+    {{< note >}}
 
     If using the Chef extension in an ARM template, it is recommended
     that you base64 encode your validation key and set this option to
     `base64encoded`
 
-    {{< /info >}}
+    {{< /note >}}
 
 `bootstrap_version`
 
 :   The version of Chef Infra Client that will be installed on the
     system. **linux only**
 
-    {{< info >}}
+    {{< note >}}
 
     Due to constraints in Azure, the `bootstrap_version` option is only
     available on the `LinuxChefClient` extension.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `bootstrap_options`
 
@@ -192,12 +192,12 @@ The extension has the following options that can be provided in the
     `chef_server_url`, `environment`, `secret`, and
     `validation_client_name`.
 
-    {{< info >}}
+    {{< note >}}
 
     Options that are supplied in the bootstrap items will take
     precedence over any conflicts found in the `client.rb` file.
 
-    {{< /info >}}
+    {{< /note >}}
 
 `chef_node_name`
 
@@ -352,9 +352,9 @@ verification turned off and given a data bag secret**
  }
 ```
 
-{{< info >}}
+{{< note >}}
 
 Here we're also base64 encoding our validator key which is a recommended
 approach when using the Azure Chef extension in an ARM template
 
-{{< /info >}}
+{{< /note >}}

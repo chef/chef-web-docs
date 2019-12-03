@@ -19,14 +19,14 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/d
 
 {{% delivery_cookbook_delivery_truck %}}
 
-{{< info >}}
+{{< note >}}
 
 The `delivery-truck` cookbook has a dependency on the `delivery-sugar`
 cookbook, which contains a set of helper methods and custom resources
 that may be used in build cookbook recipes. Using these helper methods
 and custom resources in a build cookbook is optional.
 
-{{< /info >}}
+{{< /note >}}
 
 delivery-truck Recipes
 ======================
@@ -83,13 +83,13 @@ Create a build-cookbook
 
 {{% delivery_cookbook_setup %}}
 
-{{< info >}}
+{{< note >}}
 
 This section assumes that Chef Automate is already configured, a project
 exists, a user may access that project and submit changes, and that all
 work is being done from that project's root directory.
 
-{{< /info >}}
+{{< /note >}}
 
 Edit the Berksfile
 ------------------
@@ -297,14 +297,14 @@ at this point where the project application version is pinned, uploaded
 to the Chef Infra Server as a data bag item, and then used through the
 remaining stages.
 
-{{< info >}}
+{{< note >}}
 
 The `define_project_application` helper method is available from the
 `delivery-sugar` cookbook, which is a dependency of the `delivery-truck`
 cookbook. This helper is available when the `publish.rb` recipe has
 `include_recipe 'delivery-truck::publish'` defined.
 
-{{< /info >}}
+{{< /note >}}
 
 To define a project application, do the following:
 
@@ -340,12 +340,12 @@ To define a project application, do the following:
     where `<app_name>` is a list of one (or more) applications this
     `build-cookbook` should be aware of.
 
-    {{< info >}}
+    {{< note >}}
 
     If the `/attributes/default.rb` directory and/or file does not
     exist, create it.
 
-    {{< /info >}}
+    {{< /note >}}
 
 3.  Open the `default.rb` recipe in the `build-cookbook` and edit it to
     contain:
@@ -357,7 +357,7 @@ To define a project application, do the following:
     where `'hash_of_attributes'` is a list of one (or more) attributes
     defined in the `define_project_application` block.
 
-    {{< info >}}
+    {{< note >}}
 
     Do not pass `'id'`, `'version'`, or `'name'` as part of the
     `'hash_of_attributes'` as these are already defined in the
@@ -365,7 +365,7 @@ To define a project application, do the following:
     the `get_project_application` helper method, and will overwrite any
     value specified in the Hash.
 
-    {{< /info >}}
+    {{< /note >}}
 
 Example Project Application
 ---------------------------
@@ -468,12 +468,12 @@ cookbook to be delivered through Chef Automate using the [delivery-truck
 cookbook](https://github.com/chef-cookbooks/delivery-truck) in that
 environment.
 
-{{< info >}}
+{{< note >}}
 
 By default, the delivery-truck cookbook is configured for use with Chef
 Automate-backed cookbook projects.
 
-{{< /info >}}
+{{< /note >}}
 
 Prerequisites
 -------------
