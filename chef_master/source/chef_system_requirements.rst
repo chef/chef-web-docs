@@ -96,6 +96,9 @@ Chef Infra Client
 * The Chef Infra Client binaries are stored in the ``/opt/chef`` directory, which requires a minimum of 200MB of disk space. On Windows, the Chef Infra Client binaries can be found in ``C:\opscode\``, and they require a minimum of 600MB of disk space.
 * Chef Infra Client caches to ``/var/chef/cache`` during a Chef Infra Client run. This is the location in which downloaded cookbooks, packages required by those cookbooks, and other large files are stored. This directory requires enough space to save all of this data and should be generously sized. 5GB is a safe number as a starting point, but tune the size of ``/var/chef/cache`` as necessary. This location is tunable in a node's `client.rb <https://docs.chef.io/config_rb_client.html>`__ file via the ``file_cache_path`` setting.
 
-ChefDK
+Chef Workstation
 =====================================================
-ChefDK has the same requirements as Chef Infra Client.
+
+* 64-bit architecture
+* 4 GB of RAM or more
+* 2 GB of free disk space
