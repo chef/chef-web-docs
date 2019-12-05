@@ -15,7 +15,7 @@ Improvements/Bug Fixes
 * Data collector proxy-header X-Forwarded is set as expected.
 * ``chef-server-ctl`` is no longer installed in the user path. Now only the appbundled version is installed in the user path.
 * Fixed an issue with Chef Support Zendesk sign-ins when a first name is not set in Hosted Chef.
-* Added support for running the Chef Infra Server on Red Hat Enterprise Linux 8
+* Added support for running the Chef Infra Server on Red Hat Enterprise Linux 8.
 * Improvements to ``chef-server-ctl gather-logs``
 
  * Add AWS to known platforms
