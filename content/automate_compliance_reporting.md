@@ -45,7 +45,8 @@ Filters
     profiles under the [Profiles Store](profile_store.html) You can also
     upload your own custom profiles expressed using the Chef InSpec
     language.
--   **Node:** A node is any machine that is under management by Chef.
+-   **Node:** A node is any device that is under management by Chef
+    Infra.
 -   **Platform:** You can run controls against a variety of platforms,
     such as AIX, Amazon Linux, Apache Tomcat, AppleOSX, CentOS, Oracle
     Linux, Oracle Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft
@@ -59,8 +60,8 @@ Filters
     job function. For more information, see [About Roles](roles.html).
 -   **Recipe** A recipe defines the configuration that is applied to a
     node. For more information, see [About Recipes](recipes.html).
--   **Calendar:** You can limit the results of your report by selecting
-    dates from the calendar in the search bar.
+-   **Calendar:** Limit the results of your report by selecting dates
+    from the calendar in the search bar.
 
 Add Filters
 -----------
@@ -164,7 +165,8 @@ the nodes in your system. This table can be sorted by node name,
 platform, environment, last scan, and the number of control failures
 from the most recent compliance scan.
 
--   **Node:** A node is any machine that is under management by Chef.
+-   **Node:** A node is any device that is under management by Chef
+    Infra.
 -   **Platform:** The operating system on your node such as AIX, Amazon
     Linux, Apache Tomcat, AppleOSX, CentOS, Oracle Linux, Oracle
     Solaris, RHEL, SUSE Linux, Ubuntu, and Microsoft Windows.
@@ -173,8 +175,8 @@ from the most recent compliance scan.
 -   **Last Scan:** Time in hours, days, or months since the last scan on
     that node.
 -   **Control Failures:** Shows the number of failing controls, if any.
--   **Filter:** Select a node by clicking on the filter icon on the
-    right side of the row.
+-   **Filter:** Select the filter icon on the right side of the row to
+    select a node.
 -   **More Information:** Selecting the more information icon will
     direct you to the results of the most recent compliance scan. In
     this view, you examine all of the controls run on the node.

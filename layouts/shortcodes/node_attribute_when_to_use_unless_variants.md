@@ -10,9 +10,8 @@ of the attribute priority methods:
 
     <div class="alert-info">
 
-    This method was deprecated in Chef Client 12.12 and will be removed
-    in Chef Client 14. Please use `default_unless` or `override_unless`
-    instead.
+    This method was removed in Chef Client 14. Please use
+    `default_unless` or `override_unless` instead.
 
     </div>
 

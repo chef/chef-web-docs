@@ -19,13 +19,12 @@ During a `knife bootstrap` bootstrap operation, the following happens:
 </thead>
 <tbody>
 <tr class="odd">
-<td><p><strong>$ knife bootstrap</strong></p></td>
-<td><p>On UNIX- and Linux-based machines: The <code>knife bootstrap</code> subcommand is issued from a workstation. The hostname, IP address, or FQDN of the target node is issued as part of this command. An SSH connection is established with the target node using port 22. A shell script is assembled using the chef-full.erb (the default bootstrap template), and is then executed on the target node.</p>
-<p>On Microsoft Windows machines: The <code>knife bootstrap windows winrm</code> subcommand is issued from a workstation. (This command is part of the <a href="/knife_windows/">knife windows plugin</a>.) The hostname, IP address, or FQDN of the target node is issued as part of this command. A connection is established with the target node using WinRM over port 5985. (WinRM must be enabled with the corresponding firewall rules in place.)</p></td>
+<td><strong>$ knife bootstrap</strong></td>
+<td>Enter the <code>knife bootstrap</code> subcommand from a workstation. Include the hostname, IP address, or FQDN of the target node as part of this command. Knife will establish an SSH or WinRM connection with the target node using port 22 and assemble a shell script using the chef-full.erb file, which is the default bootstrap template.</td>
 </tr>
 <tr class="even">
 <td><p><strong>Get the install script from Chef</strong></p></td>
-<td><p>On UNIX- and Linux-based machines: The shell script that is derived from the chef-full.erb bootstrap template will make a request to the Chef website to get the most recent version of a second shell script (<code>install.sh</code>).</p>
+<td><p>The shell script that is derived from the chef-full.erb bootstrap template will make a request to the Chef website to get the most recent version of a second shell script (<code>install.sh</code>).</p>
 <p>On Microsoft Windows machines: The batch file that is derived from the windows-chef-client-msi.erb bootstrap template will make a request to the Chef website to get the .msi installer.</p></td>
 </tr>
 <tr class="odd">

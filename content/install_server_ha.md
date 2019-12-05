@@ -1,5 +1,5 @@
 +++
-title = "High Availability: Backend Cluster"
+title = "High Availability: Chef Backend"
 draft = false
 
 aliases = "/install_server_ha.html"
@@ -16,10 +16,10 @@ aliases = "/install_server_ha.html"
 GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_ha.rst)
 
 This topic introduces the underlying concepts behind the architecture of
-the highly available Chef Infra Server cluster. The topic then describes
-the setup and installation process for a highly available Chef Infra
-Server cluster comprised of five total nodes (two frontend and three
-backend).
+the high availability Chef Infra Server cluster. The topic then
+describes the setup and installation process for a high availability
+Chef Infra Server cluster comprised of five total nodes (two frontend
+and three backend).
 
 Overview
 ========
@@ -38,7 +38,7 @@ the frontend group.
     requests.
 
 -   The backend cluster, comprised of three nodes working together,
-    provides highly available data persistence for the frontend group.
+    provides high availability data persistence for the frontend group.
 
     {{< note >}}
 
@@ -60,21 +60,21 @@ across multiple Availability Zones within the same region.
 Key Differences From Standalone Chef server
 -------------------------------------------
 
-There are several key differences between the highly available Chef
+There are several key differences between the high availability Chef
 Infra Server cluster and a standalone Chef Infra Server instance.
 
 -   While Apache Solr is used in standalone Chef Infra Server instances,
-    in the highly available Chef Infra Server cluster it is replaced
+    in the high availability Chef Infra Server cluster it is replaced
     with Elasticsearch. Elasticsearch provides more flexible clustering
     options while maintaining search API compatibility with Apache Solr.
 -   Writes to the search engine and the database are handled
     asynchronously via RabbitMQ and chef-expander in standalone Chef
-    Infra Server instances. However, the highly available Chef server
+    Infra Server instances. However, the high availability Chef server
     cluster writes to the search engine and the database simultaneously.
     As such the RabbitMQ and chef-expander services are no longer
-    present in the highly available Chef Infra Server cluster.
+    present in the high availability Chef Infra Server cluster.
 -   Standalone Chef Infra Server instances write Bookshelf data to the
-    filesystem. In a highly available Chef Infra Server cluster,
+    filesystem. In a high availability Chef Infra Server cluster,
     Bookshelf data is written to the database.
 
 Recommended Cluster Topology
@@ -136,15 +136,14 @@ Network Port Requirements
 Installation
 ============
 
-These instructions assume you are using the following versions or newer:
+These instructions assume you are using the minimum versions:
 
 -   Chef Server : 12.5.0
 -   Chef Backend : 0.8.0
 
 Download [Chef Infra Server](https://downloads.chef.io/chef-server/) and
-[Chef High Availability
-(chef-backend)](https://downloads.chef.io/chef-backend/) if you do not
-have them already.
+[Chef Backend (chef-backend)](https://downloads.chef.io/chef-backend/)
+if you do not have them already.
 
 Before creating the backend HA cluster and building at least one Chef
 Infra Server to be part of the frontend group, verify:
@@ -170,6 +169,11 @@ cluster comes online. After bootstrap completes this node is no
 different from any other back-end node.
 
 1.  Install the Chef Backend package on the first backend node as root.
+
+    -   Download [Chef Backend
+        (chef-backend)](https://downloads.chef.io/chef-backend/)
+    -   In RedHat/CentOS: `yum install PATH_TO_RPM`
+    -   In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
 
 2.  Update `/etc/chef-backend/chef-backend.rb` with the following
     content:
@@ -204,8 +208,8 @@ copy them directly, or expose them via a common mounted location.
 For example, to copy using ssh:
 
 ``` bash
-$ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE2>:/home/<USER>
-$ scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE3>:/home/<USER>
+scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE2>:/home/<USER>
+scp /etc/chef-backend/chef-backend-secrets.json <USER>@<IP_BE3>:/home/<USER>
 ```
 
 Delete this file from the destination after Step 4 has been completed
@@ -217,7 +221,12 @@ Step 3: Install and Configure Remaining Backend Nodes
 For each additional node do the following in sequence (if you attempt to
 join nodes in parallel the cluster may fail to become available):
 
-1.  Install backend package on the node.
+1.  Install the Chef Backend package on the node.
+
+    -   Download [Chef Backend
+        (chef-backend)](https://downloads.chef.io/chef-backend/)
+    -   In RedHat/CentOS: `yum install PATH_TO_RPM`
+    -   In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
 
 2.  If you added a `postgresql.md5_auth_cidr_addresses` line to the
     leader's `/etc/chef-backend/chef-backend.rb` in [Step 1: Create
@@ -225,8 +234,9 @@ join nodes in parallel the cluster may fail to become available):
     this node's `/etc/chef-backend/chef-backend.rb` with the following
     content where `postgresql.md5_auth_cidr_addresses` is set to the
     same value used in the leader's `chef-backend.rb`. If all of the
-    backends and frontends are in the same network then you don't need
-    to modify this node's `/etc/chef-backend/chef-backend.rb` at all.
+    backend and frontend clusters are in the same network then you don't
+    need to modify this node's `/etc/chef-backend/chef-backend.rb` at
+    all.
 
     ``` ruby
     publish_address 'external_IP_address_of_this_box' # External ip address of this backend box
@@ -236,7 +246,7 @@ join nodes in parallel the cluster may fail to become available):
 3.  As root or with sudo:
 
     ``` bash
-    $ chef-backend-ctl join-cluster <IP_BE1> -s /home/<USER>/chef-backend-secrets.json
+    chef-backend-ctl join-cluster <IP_BE1> -s /home/<USER>/chef-backend-secrets.json
     ```
 
 4.  Answer the prompts regarding which public IP to use. As an
@@ -256,7 +266,7 @@ join nodes in parallel the cluster may fail to become available):
     run the following command:
 
     ``` bash
-    $ chef-backend-ctl status
+    chef-backend-ctl status
     ```
 
     should return something like:
@@ -276,8 +286,8 @@ Log into the node from Step 1, and we will generate our chef-server
 frontend node configuration:
 
 ``` bash
-$ chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
-$ scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
+chef-backend-ctl gen-server-config <FE1-FQDN> -f chef-server.rb.FE1
+scp chef-server.rb.FE1 USER@<IP_FE1>:/home/<USER>
 ```
 
 {{< note >}}
@@ -298,8 +308,8 @@ was copied as detailed in Step 4:
     `cp /home/<USER>/chef-server.rb.<FE1> /etc/opscode/chef-server.rb`
 3.  As the root user, run `chef-server-ctl reconfigure`
 
-Adding More Frontends
----------------------
+Step 6: Adding More Frontend Nodes
+----------------------------------
 
 For each additional frontend node you wish to add to your cluster:
 
@@ -309,7 +319,7 @@ For each additional frontend node you wish to add to your cluster:
     nodes via
 
     ``` bash
-    $ chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
+    chef-backend-ctl gen-server-config <FE_NAME-FQDN> > chef-server.rb.<FE_NAME>
     ```
 
 3.  Copy it to `/etc/opscode` on the new frontend node.
@@ -350,9 +360,9 @@ Upgrading Chef Infra Server on the Frontend Machines
     upgraded frontend to `/var/opt/opscode/upgrades/migration-level` on
     each of the remaining frontends.
 3.  Once the updated file has been copied to each of the remaining
-    frontends, perform the
-    [standalone upgrade process /upgrade_server.html\#standalone](standalone%20upgrade%20process%20/upgrade_server.html#standalone)
-    on each of the frontend servers.
+    frontends, perform the [standalone upgrade
+    process](/upgrade_server.html#standalone) on each of the frontend
+    servers.
 
 Configuring Frontend and Backend Members on Different Networks
 --------------------------------------------------------------
@@ -378,7 +388,7 @@ usage by adding the following line to the
 postgresql.md5_auth_cidr_addresses = ["samehost", "samenet", "<YOURNET IN CIDR>"]
 ```
 
-Afer setting the `md5_auth_cidr_addresses` value and reconfiguring the
+After setting the `md5_auth_cidr_addresses` value and reconfiguring the
 server, two entries will be created in `pg_hba.conf` for each value in
 the `md5_auth_cidr_addresses` array. Existing values in `pg_hba.conf`
 will be overwritten by the values in the array, so we must also specify

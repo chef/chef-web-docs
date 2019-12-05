@@ -293,10 +293,9 @@ Acceptance:
 
 -   **Provision**. Provision infrastructure needed to test the
     artifact(s). Examples include instantiating new infrastructure with
-    Chef Provisioning (or another API-accessible mechanism) and
-    manipulating Chef Infra Server environments to designate the nodes
-    used by the current stage. Of course, what executes in any phase is
-    up to you and determined by the project's build cookbook.
+    and manipulating Chef Infra Server environments to designate the
+    nodes used by the current stage. Of course, what executes in any
+    phase is up to you and determined by the project's build cookbook.
 -   **Deploy**. Deploy the artifacts published in the Build stage to the
     portion of your infrastructure that has been set aside for
     acceptance testing.

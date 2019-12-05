@@ -19,7 +19,7 @@ menu:
 
 resource_description: Id velit magna veniam cillum.
 resource_note: Non tempor commodo Lorem fugiat reprehenderit aliqua ad dolore magna veniam laboris adipisicing. Duis sit sit cillum aute deserunt commodo qui enim ullamco. Incididunt aliqua ad non culpa excepteur exercitation labore excepteur aliquip sunt nulla. Fugiat ea nulla et magna do reprehenderit id ad fugiat anim. Excepteur ad voluptate adipisicing dolor occaecat irure amet sint. Duis ex mollit aliqua ut. In consectetur voluptate ipsum est.
-resource_new_in: x.y  
+resource_new_in: x.y 
 
 
 ######## Handler Types ########

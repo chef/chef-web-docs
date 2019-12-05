@@ -82,11 +82,12 @@ locations:
 -   Recipes (in cookbooks)
 -   Environments
 -   Roles
+-   Policyfiles
 
 Notes:
 
--   Many attributes are maintained in the chef-repo for environments,
-    roles, and cookbooks (attribute files and recipes)
+-   Many attributes are maintained in the chef-repo for Policyfiles,
+    environments, roles, and cookbooks (attribute files and recipes)
 -   Many attributes are collected by Ohai on each individual node at the
     start of every Chef Infra Client run
 -   The attributes that are maintained in the chef-repo are uploaded to
@@ -329,11 +330,11 @@ override!['attribute'] = "The '!' means I win!"
 Change Attributes
 =================
 
-Starting with Chef Client 12.0, attribute precedence levels may be
+Attribute precedence levels may be:
 
--   Removed for a specific, named attribute precedence level
--   Removed for all attribute precedence levels
--   Fully assigned attributes
+-   Removed for a specific, named attribute precedence level.
+-   Removed for all attribute precedence levels.
+-   Fully assigned attributes.
 
 Remove Precedence Level
 -----------------------

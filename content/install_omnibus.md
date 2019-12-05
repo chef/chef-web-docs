@@ -1,13 +1,13 @@
 +++
-title = "Install via URL"
+title = "Install via Install Script"
 draft = false
 
 aliases = "/install_omnibus.html"
 
 [menu]
   [menu.docs]
-    title = "Install via URL"
-    identifier = "chef_infra/setup/nodes/install_omnibus.md Install via URL"
+    title = "Install via Install Script"
+    identifier = "chef_infra/setup/nodes/install_omnibus.md Install via Install Script"
     parent = "chef_infra/setup/nodes"
     weight = 20
 +++    

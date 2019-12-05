@@ -9,7 +9,7 @@ aliases = "/chef_client_security.html"
     title = "Security"
     identifier = "chef_infra/setup/nodes/chef_client_security.md Security"
     parent = "chef_infra/setup/nodes"
-    weight = 70
+    weight = 60
 +++    
 
 [\[edit on

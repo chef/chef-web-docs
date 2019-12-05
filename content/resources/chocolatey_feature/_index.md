@@ -12,7 +12,7 @@ menu:
     title: chocolatey_feature
     identifier: chef_infra/cookbook_reference/resources/resource_chocolatey_feature.md chocolatey_feature
     parent: chef_infra/cookbook_reference/resources
-    weight: 200
+    weight: 210
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

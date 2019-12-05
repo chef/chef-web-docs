@@ -27,7 +27,8 @@ plug-ins:
 
 `--chef-zero-host HOST`
 
-:   The host to start chef-zero on.
+:   The host to start Chef Infra Zero on. Chef Infra Zero is a
+    lightweight, in-memory Chef Infra Server.
 
 `--chef-zero-port PORT`
 

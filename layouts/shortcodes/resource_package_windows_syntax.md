@@ -20,8 +20,8 @@ windows_package 'name' do
   package_name                String, Array
   remote_file_attributes      Hash
   returns                     String, Integer, Array # default value: [0]
-  source                      String
-  timeout                     String, Integer # default value: 600
+  source                      String # default value: "The resource block's name"
+  timeout                     String, Integer # default value: 600 (seconds)
   version                     String, Array
   action                      Symbol # defaults to :install if not specified
 end

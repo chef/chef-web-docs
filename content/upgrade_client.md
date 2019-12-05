@@ -9,7 +9,7 @@ aliases = "/upgrade_client.html"
     title = "Upgrades"
     identifier = "chef_infra/setup/nodes/upgrade_client.md Upgrades"
     parent = "chef_infra/setup/nodes"
-    weight = 60
+    weight = 50
 +++    
 
 [\[edit on

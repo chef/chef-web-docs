@@ -121,9 +121,8 @@ Setup
 Windows](/dk_windows/) | [Chef Workstation](/install_dk/)
 
 **Nodes**: [Install via Bootstrap](/install_bootstrap/) | [Install
-via URL](/install_omnibus/) | [Install on
-Windows](/install_windows/) | [Install on Junos OS](/junos/) |
-[chef-client (executable)](/ctl_chef_client.html) |
+via Script](/install_omnibus/) | [chef-client
+(executable)](/ctl_chef_client.html) |
 [client.rb](/config_rb_client.html) | [Upgrades](/upgrade_client/)
 | [Security](/chef_client_security/)
 
@@ -190,6 +189,7 @@ Page)](/resource_reference.html) |
 [chef_node](/resource_chef_node/) |
 [chef_organization](/resource_chef_organization/) |
 [chef_role](/resource_chef_role/) |
+[chef_sleep](/resource_chef_sleep/) |
 [chef_user](/resource_chef_user/) |
 [chocolatey_config](/resource_chocolatey_config/) |
 [chocolatey_feature](/resource_chocolatey_feature/) |
@@ -582,8 +582,7 @@ Resources
 [search](/dsl_recipe.html#search) |
 [shell_out](/dsl_recipe.html#shell-out) |
 [shell_out!](/dsl_recipe.html#shell-out-bang) |
-[shell_out_with_systems_locale](/dsl_recipe.html#shell-out-with-systems-locale)
-| [tag](/dsl_recipe.html#tag-tagged-untag) |
+[tag](/dsl_recipe.html#tag-tagged-untag) |
 [tagged?](/dsl_recipe.html#tag-tagged-untag) |
 [untag](/dsl_recipe.html#tag-tagged-untag) |
 [value_for_platform](/dsl_recipe.html#value-for-platform) |
@@ -701,10 +700,9 @@ knife_xargs libraries manage nodes ohai ohai_custom packages
 perform_compliance_scan platform_overview platforms plugin_community
 plugin_kitchen_vagrant plugin_knife plugin_knife_custom
 plugin_knife_opc plugin_knife_push_jobs plugin_knife_spork policy
-policyfile profile_store provisioning provisioning_aws
-provisioning_fog provisioning_vagrant proxies
-publish_cookbooks_multiple_servers push_jobs quick_start recipes
-release_notes release_notes_chef_automate release_notes_chefdk
+policyfile profile_store proxies publish_cookbooks_multiple_servers
+push_jobs quick_start recipes release_notes
+release_notes_chef_automate release_notes_chefdk
 release_notes_push_jobs release_notes_server resource
 resource_apt_package resource_apt_preference
 resource_apt_repository resource_apt_update resource_archive_file

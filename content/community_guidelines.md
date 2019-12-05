@@ -327,9 +327,11 @@ Attribution
 
 This Code of Conduct is adapted from the following:
 
--   [Contributor Covenant](http://contributor-covenant.org), version
-    1.4, available [here](http://contributor-covenant.org/version/1/4/)
--   [Rust Code of Conduct](https://www.rust-lang.org/en-US/conduct.html)
+-   [Contributor Covenant](https://www.contributor-covenant.org/),
+    version 1.4, available
+    [here](https://www.contributor-covenant.org/version/1/4/code-of-conduct.html)
+-   [Rust Code of
+    Conduct](https://www.rust-lang.org/policies/code-of-conduct)
 -   [Citizen Code of Conduct](http://citizencodeofconduct.org/)
 
 Community Members in Crisis

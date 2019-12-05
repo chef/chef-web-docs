@@ -12,7 +12,7 @@ menu:
     title: openssl_rsa_public_key
     identifier: chef_infra/cookbook_reference/resources/resource_openssl_rsa_public_key.md openssl_rsa_public_key
     parent: chef_infra/cookbook_reference/resources
-    weight: 650
+    weight: 660
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

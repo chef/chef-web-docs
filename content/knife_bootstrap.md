@@ -21,22 +21,20 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/k
 
 **Considerations:**
 
--   As of Chef Server 12.8 you can create a `.chef/client.d` directory
-    on your workstation and the contents of that `client.d` directory
-    will be copied to the system being bootstrapped by the
-    `knife bootstrap` command. You can also set the `client_d_dir`
-    option in `config.rb` to point to an arbitrary directory instead of
-    `.chef/client.d`, and the contents of that directory will be copied
-    to the system being bootstrapped. All config files inside `client.d`
-    directory get copied into `/etc/chef/client.d` on the system being
+-   Knife will copy the contents of the `~/.chef/client.d` directory on
+    your local workstation to the `client.d` directory on the device
+    being bootstrapped with the `knife bootstrap` command. You can also
+    set the `client_d_dir` option in the `config.rb` file to point to an
+    arbitrary directory instead of `~/.chef/client.d`, and the contents
+    of that directory will be copied to the device being bootstrapped.
+    All config files inside the `client.d` directory will get copied
+    into the `/etc/chef/client.d` directory on the system being
     bootstrapped.
--   Starting with Chef Server 12.0, use the [knife ssl
-    fetch](/knife_ssl_fetch/) command to pull down the SSL
-    certificates from the on-premises Chef Infra Server and add them to
-    the `/trusted_certs_dir` on the workstation. These certificates are
-    used during a `knife bootstrap` operation.
--   To bootstrap Chef Infra Client on Microsoft Windows machines, the
-    [knife-windows](/knife_windows/) plugin is required.
+-   SSL certificates from an on-premises Chef Infra Server can be copied
+    to the `/trusted_certs_dir` directory on your local workstation
+    automatically by running [knife ssl fetch](/knife_ssl_fetch/).
+    These certificates are used during `knife` operations to communicate
+    with the Chef Infra Server.
 
 Syntax
 ======
@@ -65,14 +63,9 @@ Validatorless Bootstrap
 
 {{% knife_bootstrap_no_validator %}}
 
-### `knife bootstrap` Options
-
-{{% chef_vault_knife_bootstrap_options %}}
-
 {{< note >}}
 
-The `--node-name` option is required for a validatorless bootstrap
-(Changed in Chef Client 12.4).
+The `--node-name` option is required for a validatorless bootstrap.
 
 {{< /note >}}
 
@@ -194,26 +187,26 @@ which shows something similar to:
 
 ``` none
 ...
-192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
 ```
 
 Use `knife node show` to verify:
 
 ``` bash
-$ knife node show debian-wheezy.int.domain.org
+$ knife node show debian-buster.int.domain.org
 ```
 
 which returns something similar to:
 
 ``` none
-Node Name:   debian-wheezy.int.domain.org
+Node Name:   debian-buster.int.domain.org
 Environment: _default
-FQDN:        debian-wheezy.int.domain.org
+FQDN:        debian-buster.int.domain.org
 IP:          192.0.2.0
 Run List:    recipe[apt], recipe[xfs], recipe[vim]
 Roles:
 Recipes:     apt, xfs, vim, apt::default, xfs::default, vim::default
-Platform:    debian 7.4
+Platform:    debian 10.0
 Tags:
 ```
 

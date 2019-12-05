@@ -385,6 +385,17 @@ This configuration file has the following settings for `data_collector`:
     value: <span class="title-ref">"\[{connect_timeout,
     10000}\]"</span>.
 
+`data_collector['health_check']`
+
+:   A boolean that controls whether the data collector health is
+    included in the overall health at the `_status` endpoint. When set
+    to `true`, Chef Infra Server will report that healthy front end Chef
+    HA cluster members have failed when the <span
+    class="title-ref">data_collector\['root_url'\]</span><span
+    class="title-ref"> cannot be reached. As a result, the load balancer
+    will remove those members from the load balancer pool. Default
+    value: </span><span class="title-ref">true</span>\`.
+
 estatsd
 -------
 

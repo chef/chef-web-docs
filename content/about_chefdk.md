@@ -55,31 +55,26 @@ Windows.](https://www.chef.io/blog/2014/11/04/the-chefdk-on-windows-survival-gui
 
 {{< /note >}}
 
-About Workflow
---------------
+Cookbook Development Workflow
+-----------------------------
 
-ChefDK defines a common workflow for cookbook development:
+Chef Infra defines a common workflow for cookbook development:
 
-1.  Create a skeleton cookbook. This is a cookbook with the standard
-    files already included. The package manager is often Berkshelf,
-    which is included as part of ChefDK, plus a revision control system,
-    typically Git. Berkshelf helps manage cookbooks and cookbook
-    dependencies.
-2.  Create a virtual machine environment using Test Kitchen. This is the
-    environment that will be used to develop the cookbook, including the
-    location in which automated testing and debugging of that cookbook
-    will be done as it is being developed.
-3.  Write the recipes for the cookbook and debug those recipes as they
-    are being written. This is typically an iterative process, where
-    cookbook are tested as they are developed, bugs are fixed quickly,
-    and then cookbooks are tested again. A text editor---Sublime Text,
-    vim, TextMate, EditPad, or any other preferred text editor---is used
-    to author the files in the cookbook.
-4.  Perform acceptance tests. These tests are not done in a development
+1.  Create a skeleton cookbook by running <span class="title-ref">chef
+    generate cookbook MY_COOKBOOK_NAME</span>. This will generate a
+    cookbook with a single recipe and testing configuration with with
+    ChefSpec and Delivery Local Mode.
+2.  Write cookbook recipes or resources and debug those recipes as they
+    are being written using Cookstyle and Test Kitchen. This is
+    typically an iterative process, where cookbook are tested as they
+    are developed, bugs are fixed quickly, and then cookbooks are tested
+    again. A text editor---Visual Studio Code, Atom, vim, or any other
+    preferred text editor---is used to author the files in the cookbook.
+3.  Perform acceptance tests. These tests are not done in a development
     environment, but rather are done against a full Chef Infra Server
     using an environment that matches the production environment as
     closely as possible.
-5.  When the cookbooks pass all the acceptance tests and have been
+4.  When the cookbooks pass all the acceptance tests and have been
     verified to work in the desired manner, deploy the cookbooks to the
     production environment.
 
@@ -155,13 +150,6 @@ The most important tools included in ChefDK are:
 </tr>
 </tbody>
 </table>
-
-ChefDK Tools
-------------
-
-The following tools are available only in ChefDK:
-
-[chef (executable)](/ctl_chef.html) | [Policyfiles](/policyfile/)
 
 Community Tools
 ---------------

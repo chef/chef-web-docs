@@ -830,21 +830,6 @@ shell_out!(command_args)
 where `command_args` is the command that is run against the node. This
 method will return `true` or `false`.
 
-shell_out_with_systems_locale
----------------------------------
-
-The `shell_out_with_systems_locale` method can be used to run a command
-against the node (via the `shell_out` method), but using the `LC_ALL`
-environment variable.
-
-The syntax for the `shell_out_with_systems_locale` method is as follows:
-
-``` ruby
-shell_out_with_systems_locale(command_args)
-```
-
-where `command_args` is the command that is run against the node.
-
 tag, tagged?, untag
 -------------------
 
@@ -936,7 +921,7 @@ based on the version:
 value_for_platform(
   'os1' => { '< 1.0' => 'less than 1.0',
              '~> 2.0' => 'version 2.x',
-             '>= 3.0' => 'version 3.0',
+             '>= 3.0' => 'greater than or equal to version 3.0',
              '3.0.1' => '3.0.1 will always use this value' }
 )
 ```

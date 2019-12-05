@@ -145,13 +145,14 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/g
 
 **node**
 
-:   A node is any physical, virtual, or cloud machine that is configured
-    to be maintained by a Chef Infra Client.
+:   A node is any physical, virtual, or cloud device that is configured
+    and maintained by an instance of Chef Infra Client.
 
 **node object**
 
-:   A history of the attributes, run-lists, and roles that were used to
-    configure a node that is under management by Chef.
+:   A node object is a history of the attributes, run-lists, and roles
+    that were used to configure a node that is under management by Chef
+    Infra.
 
 **ohai**
 

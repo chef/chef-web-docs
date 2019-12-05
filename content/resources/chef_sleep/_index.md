@@ -1,18 +1,18 @@
 ---
 ######## Page Data ########
-title: msu_package resource
-resource: msu_package
+title: chef_sleep resource
+resource: chef_sleep
 draft: false
 
 # redirect from old sphinx url
-aliases: /resource_msu_package.html
+aliases: /resource_chef_sleep.html
 
 menu:
   docs:
-    title: msu_package
-    identifier: chef_infra/cookbook_reference/resources/resource_msu_package.md msu_package
+    title: chef_sleep
+    identifier: chef_infra/cookbook_reference/resources/resource_chef_sleep.md chef_sleep
     parent: chef_infra/cookbook_reference/resources
-    weight: 580
+    weight: 190
 
 
 ######## Basic Resource Data ########

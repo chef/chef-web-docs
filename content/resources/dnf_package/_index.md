@@ -12,7 +12,7 @@ menu:
     title: dnf_package
     identifier: chef_infra/cookbook_reference/resources/resource_dnf_package.md dnf_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 300
+    weight: 310
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

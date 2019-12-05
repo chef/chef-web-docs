@@ -9,7 +9,7 @@ aliases = "/config_rb_client.html"
     title = "client.rb"
     identifier = "chef_infra/setup/nodes/config_rb_client.md client.rb"
     parent = "chef_infra/setup/nodes"
-    weight = 50
+    weight = 40
 +++    
 
 [\[edit on

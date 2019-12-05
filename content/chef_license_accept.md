@@ -34,8 +34,8 @@ There are three ways to accept the Chef MLSA:
     this directory, the Chef MLSA is accepted and the reconfigure
     process will not prompt for `yes`.
 2.  Run the `chef-<PRODUCT-NAME>-ctl reconfigure` command using the
-    `--accept-license` option. This automatically types `yes` and skips
-    printing the Chef MLSA.
+    `--chef-license=accept` option. This automatically types `yes` and
+    skips printing the Chef MLSA.
 3.  Add a `.license.accepted` file to the `/var/opt/<PRODUCT-NAME>/`
     directory. The contents of this file do not matter. As long as this
     file exists in this directory, the Chef MLSA is accepted and the
@@ -322,8 +322,8 @@ the Chef Infra Client product.
 
 #### `knife bootstrap` in Chef Client 14
 
-`knife bootstrap` in Chef Client 14 cannot accept the Chef Infra Client
-15 EULA on remote nodes unless you use a [custom
+The `knife bootstrap` command in Chef Client 14 cannot accept the Chef
+Infra Client 15 EULA on remote nodes unless you use a [custom
 template](https://docs.chef.io/knife_bootstrap.html#custom-templates)
 and add chef_license "accept" to the client.rb. This applies to
 workstations who have Chef Infra Client \<= 14.x, ChefDK \<= 3.x or Chef

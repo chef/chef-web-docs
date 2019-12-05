@@ -1,5 +1,5 @@
 +++
-title = "Data Collection with a Chef High Availability Cluster"
+title = "Data Collection with a Chef Backend Cluster"
 draft = false
 
 aliases = "/data_collection_ha.html"

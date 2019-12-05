@@ -20,13 +20,14 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/e
 The _default Environment
 =========================
 
-Every organization must have at least one environment. Every
-organization starts out with a single environment that is named
-`_default`, which ensures that at least one environment is always
-available to the Chef Infra Server. The `_default` environment cannot be
-modified in any way. Nodes, roles, run-lists, cookbooks (and cookbook
-versions), and attributes specific to an organization can only be
-associated with a custom environment.
+Every Chef Infra Server organization must have at least one environment.
+Each organization starts out with a single `_default` environment. The
+`_default` environment cannot be modified in any way. Nodes, roles,
+run-lists, cookbooks (and cookbook versions), and attributes specific to
+an organization can only be associated with a custom environment.
+Additional environments can be created to reflect each organization's
+patterns and workflow. For example, creating `production`, `staging`,
+`testing`, and `development` environments.
 
 Environment Attributes
 ======================
@@ -39,8 +40,8 @@ Environment Attributes
 
 {{< /note >}}
 
-Attribute Types
----------------
+Environment Attribute Types
+---------------------------
 
 There are two types of attributes that can be used with environments:
 
@@ -67,29 +68,30 @@ There are two types of attributes that can be used with environments:
 </tbody>
 </table>
 
-Attribute Persistence
----------------------
-
-{{% node_attribute_persistence %}}
-
 Attribute Precedence
 --------------------
 
+Environments are one of several locations where attributes can be
+applied in Chef Infra. It's important to understand how the precedence
+level works in order to understand, which attributes will be applied
+when Chef Infra Client runs.
+
 {{% node_attribute_precedence %}}
 
-Blacklist Attributes
---------------------
+Cookbook Pinning
+================
 
-{{% node_attribute_blacklist %}}
-
-### Whitelist Attributes
-
-{{% node_attribute_whitelist %}}
+Cookbook versions can be pinned in each environment, which allows you to
+control the rollout of new cookbook releases through successive testing
+environments before releasing new cookbook versions into production
+environments. See the environment format examples below for the cookbook
+pinning syntax.
 
 Environment Formats
 ===================
 
-Environment data may be stored in two formats:
+Environments may be stored on disk (any in source control) in two
+formats:
 
 -   As Ruby (i.e. a file that ends with `.rb`); this format is not
     available when running Chef Infra Client in local mode
@@ -97,8 +99,6 @@ Environment data may be stored in two formats:
 
 Ruby DSL
 --------
-
-{{% ruby_summary %}}
 
 Each environment is defined as a Ruby file (i.e. a file that ends with
 `.rb`). Each environment file should contain the following
@@ -121,22 +121,22 @@ domain-specific attributes:
 <td><p>A version constraint for a single cookbook. For example:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb1-1"><a href="#cb1-1"></a>cookbook <span class="st">&#39;couchdb&#39;</span>, <span class="st">&#39;&lt; 11.0.0&#39;</span></span></code></pre></div>
 <p>or:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>cookbook <span class="st">&#39;my_rails_app&#39;</span>, <span class="st">&#39;&lt; 1.2.0&#39;</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb2-1"><a href="#cb2-1"></a>cookbook <span class="st">&#39;my_rails_app&#39;</span>, <span class="st">&#39;= 1.2.0&#39;</span></span></code></pre></div>
 <p>or:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>cookbook <span class="st">&#39;gems&#39;</span>, <span class="st">&#39;&lt; 1.4.0&#39;</span></span></code></pre></div></td>
+<div class="sourceCode" id="cb3"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb3-1"><a href="#cb3-1"></a>cookbook <span class="st">&#39;gems&#39;</span>, <span class="st">&#39;~&gt; 1.4&#39;</span></span></code></pre></div></td>
 </tr>
 <tr class="even">
 <td><p><code>cookbook_versions</code></p></td>
 <td><p>A version constraint for a group of cookbooks. For example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>cookbook_versions({</span>
-<span id="cb4-2"><a href="#cb4-2"></a>  <span class="st">&#39;couchdb&#39;</span>=&gt;<span class="st">&#39;= 11.0.0&#39;</span>,</span>
-<span id="cb4-3"><a href="#cb4-3"></a>  <span class="st">&#39;my_rails_app&#39;</span>=&gt;<span class="st">&#39;~&gt; 1.2.0&#39;</span></span>
-<span id="cb4-4"><a href="#cb4-4"></a>})</span></code></pre></div></td>
+<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1"></a>cookbook_versions(</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="st">&#39;couchdb&#39;</span> =&gt; <span class="st">&#39;= 11.0.0&#39;</span>,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="st">&#39;my_rails_app&#39;</span> =&gt; <span class="st">&#39;~&gt; 1.2.0&#39;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>)</span></code></pre></div></td>
 </tr>
 <tr class="odd">
 <td><p><code>default_attributes</code></p></td>
 <td><p>Optional. A set of attributes to be applied to all nodes, assuming the node does not already have a value for the attribute. This is useful for setting global defaults that can then be overridden for specific nodes. If more than one role attempts to set a default value for the same attribute, the last role applied is the role to set the attribute value. When nested attributes are present, they are preserved. For example, to specify that a node that has the attribute <code>apache2</code> should listen on ports 80 and 443 (unless ports are already specified):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>default_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;listen_ports&#39;</span> =&gt; [ <span class="st">&#39;80&#39;</span>, <span class="st">&#39;443&#39;</span> ] }</span></code></pre></div></td>
+<div class="sourceCode" id="cb5"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb5-1"><a href="#cb5-1"></a>default_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;listen_ports&#39;</span> =&gt;<span class="ot"> %w(</span><span class="st">80 443</span><span class="ot">)</span> }</span></code></pre></div></td>
 </tr>
 <tr class="even">
 <td><p><code>description</code></p></td>
@@ -154,17 +154,17 @@ domain-specific attributes:
 <div class="sourceCode" id="cb8"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb8-1"><a href="#cb8-1"></a>override_attributes <span class="st">&#39;apache2&#39;</span> =&gt; { <span class="st">&#39;max_children&#39;</span> =&gt; <span class="st">&#39;50&#39;</span> }</span></code></pre></div>
 <p>The parameters in a Ruby file are actually Ruby method calls, so parentheses can be used to provide clarity when specifying numerous or deeply-nested attributes. For example:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb9-1"><a href="#cb9-1"></a>override_attributes(</span>
-<span id="cb9-2"><a href="#cb9-2"></a>  <span class="st">:apache2</span> =&gt; {</span>
-<span id="cb9-3"><a href="#cb9-3"></a>    <span class="st">:prefork</span> =&gt; { <span class="st">:min_spareservers</span> =&gt; <span class="ch">&#39;5&#39;</span> }</span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="st">apache2: </span>{</span>
+<span id="cb9-3"><a href="#cb9-3"></a>    <span class="st">prefork: </span>{ <span class="st">min_spareservers: </span><span class="ch">&#39;5&#39;</span> },</span>
 <span id="cb9-4"><a href="#cb9-4"></a>  }</span>
 <span id="cb9-5"><a href="#cb9-5"></a>)</span></code></pre></div>
 <p>or:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb10-1"><a href="#cb10-1"></a>override_attributes(</span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="st">:apache2</span> =&gt; {</span>
-<span id="cb10-3"><a href="#cb10-3"></a>    <span class="st">:prefork</span> =&gt; { <span class="st">:min_spareservers</span> =&gt; <span class="ch">&#39;5&#39;</span> }</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="st">apache2: </span>{</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    <span class="st">prefork: </span>{ <span class="st">min_spareservers: </span><span class="ch">&#39;5&#39;</span> },</span>
 <span id="cb10-4"><a href="#cb10-4"></a>  },</span>
-<span id="cb10-5"><a href="#cb10-5"></a>  <span class="st">:tomcat</span> =&gt; {</span>
-<span id="cb10-6"><a href="#cb10-6"></a>    <span class="st">:worker_threads</span> =&gt; <span class="st">&#39;100&#39;</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="st">tomcat: </span>{</span>
+<span id="cb10-6"><a href="#cb10-6"></a>    <span class="st">worker_threads: &#39;100&#39;</span>,</span>
 <span id="cb10-7"><a href="#cb10-7"></a>  }</span>
 <span id="cb10-8"><a href="#cb10-8"></a>)</span></code></pre></div></td>
 </tr>
@@ -193,7 +193,7 @@ an environment named `dev` that uses the `couchdb` cookbook (version
 name 'dev'
 description 'The development environment'
 cookbook_versions  'couchdb' => '= 11.0.0'
-default_attributes 'apache2' => { 'listen_ports' => [ '80', '443' ] }
+default_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 ```
 
 Or (using the same scenario) to specify a version constraint for only
@@ -207,8 +207,8 @@ More than one cookbook version can be specified:
 
 ``` ruby
 cookbook_versions({
-  'couchdb'=>'= 11.0.0',
-  'my_rails_app'=>'~> 1.2.0'
+  'couchdb' => '= 11.0.0',
+  'my_rails_app' => '~> 1.2.0'
 })
 ```
 
@@ -219,7 +219,7 @@ environment, except in places where it is overridden by an attribute
 with higher precedence. For example:
 
 ``` ruby
-default_attributes 'apache2' => { 'listen_ports' => [ '80', '443' ] }
+default_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 ```
 
 will have all nodes in the environment (`node[:apache2][:listen_ports]`)
@@ -227,7 +227,7 @@ set to `'80'` and `'443'` unless they were overridden by an attribute
 with higher precedence. For example:
 
 ``` ruby
-override_attributes 'apache2' => { 'listen_ports' => [ '99', '999' ] }
+override_attributes 'apache2' => { 'listen_ports' => %w(80 443) }
 ```
 
 JSON
@@ -307,7 +307,6 @@ Once created, an environment can be managed in several ways:
 
 -   By using knife and passing the `-E ENVIRONMENT_NAME` option with
     `knife cookbook upload`
--   By using the Chef management console web user interface
 -   By using Ruby or JSON files that are stored in a version source
     control system. These files are pushed to the Chef Infra Server
     using the `knife environment` subcommand and the `from file`
@@ -331,7 +330,7 @@ Find Environment from Recipe
 Use the following syntax to find the current environment from a recipe:
 
 ``` ruby
-node.environment()
+node.environment
 ```
 
 or:
@@ -428,17 +427,11 @@ using the following methods:
     file ; when Chef Infra Client runs, it will pick up the value and
     then set the `chef_environment` attribute of the node
 
-Set using chef-solo
--------------------
-
-{{% chef_solo_environments %}}
-
 Move Nodes
 ----------
 
-Nodes can be moved between environments, such as from a "dev" to a
-"production" environment by using the `knife exec` subcommand. For
-example:
+Use the `knife exec` subcommand to move nodes between environments, such
+as from a "dev" to a "production" environment. For example:
 
 ``` bash
 $ knife exec -E 'nodes.transform("chef_environment:dev") { |n| n.chef_environment("production") }'
@@ -448,3 +441,8 @@ Search Environments
 -------------------
 
 {{% search_environment %}}
+
+Environments in Chef Solo
+=========================
+
+{{% chef_solo_environments %}}
