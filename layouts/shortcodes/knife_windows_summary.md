@@ -1,7 +1,5 @@
-The `knife windows` subcommand is used to configure and interact with
-nodes that exist on server and/or desktop machines that are running
-Microsoft Windows. Nodes are configured using WinRM, which allows native
-objects---batch scripts, Windows PowerShell scripts, or scripting
-library variables---to be called by external applications. The
-`knife windows` subcommand supports NTLM and Kerberos methods of
-authentication.
+The `knife windows` subcommand is used to interact with Windows systems
+managed by Chef Infra. Nodes are configured using WinRM, which allows
+external applications to call native objects like batch scripts, Windows
+PowerShell scripts, or scripting library variables. The `knife windows`
+subcommand supports NTLM and Kerberos methods of authentication.

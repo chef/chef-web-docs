@@ -12,7 +12,7 @@ menu:
     title: kernel_module
     identifier: chef_infra/cookbook_reference/resources/resource_kernel_module.md kernel_module
     parent: chef_infra/cookbook_reference/resources
-    weight: 470
+    weight: 480
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

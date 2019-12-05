@@ -1,5 +1,5 @@
 +++
-title = "High Availability: Backend Cluster"
+title = "High Availability: Upgrade to Chef Backend 2"
 draft = false
 
 aliases = "/upgrade_server_ha_v2.html"
@@ -17,7 +17,7 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/u
 
 <img src="/images/chef_automate_full.png" width="40" height="17" alt="image" />
 
-This topic describes the process of upgrading a highly available Chef
+This topic describes the process of upgrading a high availability Chef
 Infra Server cluster.
 
 Overview
@@ -25,12 +25,13 @@ Overview
 
 These instructions cover the process of upgrading a Chef Backend
 cluster. Please refer to the appropriate directions for the version of
-Chef Backend you are using, and the version you intend to upgrade to:
+Chef Backend that you are using and the version that you intend to
+upgrade to:
 
 -   [Chef Backend 1.x to 2.x Upgrade](#chef-backend-1.x-to-2.x-upgrade)
     (downtime upgrade)
--   [Chef Backend 1.x to 1.x Upgrade](#chef-backend-1.x-to-1.x-upgrade)
-    (rolling upgrade)
+-   [DRBD/Keepalived HA to Chef Backend
+    2.x](#drbdkeepalived-ha-to-chef-backend-2.x) (migration)
 
 Chef Backend 1.x to 2.x Upgrade
 ===============================
@@ -57,17 +58,17 @@ cluster downtime.
 
 2.  Install the new Chef Backend package on all nodes in the cluster:
 
-    -   RHEL and CentOS:
+    RHEL and CentOS:
 
-        ``` bash
-        yum install PATH_TO_FILE.rpm
-        ```
+    > ``` bash
+    > yum install PATH_TO_FILE.rpm
+    > ```
 
-    -   Debian and Ubuntu:
+    Debian and Ubuntu:
 
-        ``` bash
-        dpkg -i PATH_TO_FILE.deb
-        ```
+    > ``` bash
+    > dpkg -i PATH_TO_FILE.deb
+    > ```
 
 3.  On the leader, run the following command to take the node down for
     the upgrade:
@@ -101,13 +102,17 @@ cluster downtime.
     chef-server-ctl reconfigure
     ```
 
-8.  To continue the upgrades on Chef Infra Server frontends using this
-    backend cluster, see [Upgrade Frontends Associated with a Chef
+8.  To continue the upgrades on Chef Infra Server frontend nodes using
+    this backend cluster, see [Upgrade Frontends Associated with a Chef
     Backend
-    Cluster](https://docs.chef.io/install_server_ha.html#upgrading-chef-server-on-the-frontend-machines)
+    Cluster](https://docs.chef.io/install_server_ha.html#upgrading-chef-infra-server-on-the-frontend-machines)
 
-Chef Backend 1.x to 1.x Upgrade
-===============================
+Chef Backend Minor Version Upgrade
+==================================
+
+The Minor Version Upgrade is appropriate for all upgrades of a Chef
+Backend cluster other than upgrades from one major version to another
+major version. For example, 1.x to 1.x upgrades or 2.x to 2.x upgrades.
 
 {{< note >}}
 
@@ -132,16 +137,26 @@ is not supported and may result in data loss. Verify the successful
 rejoin after each upgrade.
 
 1.  Install the new chef-backend package
-    -   In RedHat/CentOS: `yum install PATH_TO_RPM`
-    -   In Debian/Ubuntu: `dpkg -i PATH_TO_DEB`
 
-You may also want to look at the chef-ingredient cookbook to automate
-downloading and installing the latest package.
+    RHEL and CentOS:
 
-1.  Run the upgrade command
+    > ``` bash
+    > yum install PATH_TO_FILE.rpm
+    > ```
+
+    Debian and Ubuntu:
+
+    > ``` bash
+    > dpkg -i PATH_TO_FILE.deb
+    > ```
+
+    > You may also want to look at the chef-ingredient cookbook to
+    > automate downloading and installing the latest package.
+
+2.  Run the upgrade command
 
     ``` bash
-    % chef-backend-ctl upgrade
+    chef-backend-ctl upgrade
     ```
 
 The upgrade command will make any changes necessary to start the new
@@ -175,5 +190,16 @@ Step 5: Verify the cluster is stable
 Check the status of the cluster:
 
 ``` bash
-% chef-backend-ctl status
+chef-backend-ctl status
 ```
+
+DRBD/Keepalived HA to Chef Backend 2.x
+======================================
+
+DRBD configurations are no longer supported. See [End of Life
+Products](https://docs.chef.io/versions.html#end-of-life-eol-products)
+
+For a guide to migrating to Chef Backend from DRBD see the [Best Best
+Practices for Migrating Your Chef
+Server](https://blog.chef.io/2018/04/06/best-practices-for-migrating-your-chef-server/)
+webinar from the [Chef Blog](https://blog.chef.io/)

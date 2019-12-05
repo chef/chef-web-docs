@@ -9,7 +9,7 @@ aliases = "/ctl_chef_client.html"
     title = "chef-client (executable)"
     identifier = "chef_infra/setup/nodes/ctl_chef_client.md chef-client (executable)"
     parent = "chef_infra/setup/nodes"
-    weight = 40
+    weight = 30
 +++    
 
 [\[edit on

@@ -263,24 +263,18 @@ to use newer versions or products.
 <td>TBD</td>
 </tr>
 <tr class="odd">
-<td>Chef Provisioning</td>
-<td>All</td>
-<td>Deprecated</td>
-<td>August 31, 2019</td>
-</tr>
-<tr class="even">
 <td>Chef Workflow</td>
 <td>2.x</td>
 <td>Deprecated</td>
 <td>TBD</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef InSpec</td>
 <td>1.x</td>
 <td>Deprecated</td>
 <td>December 31, 2019</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>Chef InSpec</td>
 <td>2.x</td>
 <td>Deprecated</td>
@@ -343,6 +337,18 @@ End of Life (EOL) Products
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
+</tr>
+<tr class="odd">
+<td>Chef Provisioning</td>
+<td>All</td>
+<td>Deprecated</td>
+<td>August 31, 2019</td>
+</tr>
+<tr class="even">
+<td>Chef Replication/Sync</td>
+<td>All</td>
+<td>EOL</td>
+<td>August 31, 2019</td>
 </tr>
 <tr class="odd">
 <td>Reporting</td>

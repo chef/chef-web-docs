@@ -12,7 +12,7 @@ menu:
     title: reboot
     identifier: chef_infra/cookbook_reference/resources/resource_reboot.md reboot
     parent: chef_infra/cookbook_reference/resources
-    weight: 790
+    weight: 800
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

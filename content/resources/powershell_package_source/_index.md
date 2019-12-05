@@ -12,7 +12,7 @@ menu:
     title: powershell_package_source
     identifier: chef_infra/cookbook_reference/resources/resource_powershell_package_source.md powershell_package_source
     parent: chef_infra/cookbook_reference/resources
-    weight: 760
+    weight: 770
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

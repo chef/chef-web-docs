@@ -101,7 +101,7 @@ be passed to train, such as `port`.
 [default]
 node_name = "barney"
 client_key = "barney_rubble.pem"
-chef_server_url = "https://api.chef.io/organisations/bedrock"
+chef_server_url = "https://api.chef.io/organizations/bedrock"
 
 # a 'config context' such as knife can be is configured as a separate table
 [default.knife]
@@ -163,7 +163,7 @@ command, for example:
 ``` bash
 Profile              Client   Key                          Server
 ----------------------------------------------------------------------------------------------------------------
- default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organisations/bedrock       
+ default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organizations/bedrock       
 ```
 
 > -   dev admin \~/.chef/admin.pem

@@ -12,7 +12,7 @@ menu:
     title: windows_dns_record
     identifier: chef_infra/cookbook_reference/resources/resource_windows_dns_record.md windows_dns_record
     parent: chef_infra/cookbook_reference/resources
-    weight: 1130
+    weight: 1140
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

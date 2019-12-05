@@ -401,102 +401,95 @@ weight = 30
       weight = 200
 
       [[menu.docs]]
-      title = "shell_out_with_systems_locale"
-      identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#shell-out-with-systems-locale shell_out_with_systems_locale"
-      parent = "chef_infra/cookbook_reference/recipe_dsl"
-      url = "/dsl_recipe/#shell-out-with-systems-locale"
-      weight = 210
-
-      [[menu.docs]]
       title = "tag, tagged?, untag"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#tag-tagged-untag tag, tagged?, untag"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#tag-tagged-untag"
-      weight = 220
+      weight = 210
 
       [[menu.docs]]
       title = "value_for_platform"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#value-for-platform value_for_platform"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#value-for-platform"
-      weight = 230
+      weight = 220
 
       [[menu.docs]]
       title = "value_for_platform_family"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#value-for-platform-family value_for_platform_family"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#value-for-platform-family"
-      weight = 240
+      weight = 230
 
       [[menu.docs]]
       title = "with_run_context"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#with-run-context with_run_context"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#with-run-context"
-      weight = 250
+      weight = 240
 
       [[menu.docs]]
       title = "Windows Platform"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#windows-platform Windows Platform"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#windows-platform"
-      weight = 260
+      weight = 250
 
       [[menu.docs]]
       title = "registry_data_exists?"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-data-exists registry_data_exists?"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#registry-data-exists"
-      weight = 270
+      weight = 260
 
       [[menu.docs]]
       title = "registry_get_subkeys"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-get-subkeys registry_get_subkeys"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#registry-get-subkeys"
-      weight = 280
+      weight = 270
 
       [[menu.docs]]
       title = "registry_get_values"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-get-values registry_get_values"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#registry-get-values"
-      weight = 290
+      weight = 280
 
       [[menu.docs]]
       title = "registry_has_subkeys?"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-has-subkeys registry_has_subkeys?"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#registry-has-subkeys"
-      weight = 300
+      weight = 290
 
       [[menu.docs]]
       title = "registry_key_exists?"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-key-exists registry_key_exists?"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#registry-key-exists"
-      weight = 310
+      weight = 300
 
       [[menu.docs]]
       title = "registry_value_exists?"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#registry-value-exists registry_value_exists?"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#registry-value-exists"
-      weight = 320
+      weight = 310
 
       [[menu.docs]]
       title = "Windows Platform Helpers"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#helpers Windows Platform Helpers"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#helpers"
-      weight = 330
+      weight = 320
 
       [[menu.docs]]
       title = "Log Entries"
       identifier = "chef_infra/cookbook_reference/recipe_dsl/dsl_recipe.md#log-entries Log Entries"
       parent = "chef_infra/cookbook_reference/recipe_dsl"
       url = "/dsl_recipe/#log-entries"
-      weight = 340
+      weight = 330
 
     [[menu.docs]]
     title = "Resources"
@@ -517,7 +510,7 @@ weight = 30
       identifier = "chef_infra/cookbook_reference/resources/resource_reference.md reference"
       parent = "chef_infra/cookbook_reference/resources"
       url = "/resource_reference/"
-      weight = 800
+      weight = 810
       aliases = "/resource_reference.html"
 
   [[menu.docs]]
@@ -882,7 +875,6 @@ weight = 90
     url = "/plugin_community/#ohai"
     weight = 20
 
-
 [[menu.docs]]
 title = "Available on Github"
 identifier = "github"
@@ -916,28 +908,18 @@ title = "Archive"
 identifier = "archive"
 url = "https://docs-archive.chef.io/"
 pre = "external_link"
-weight = 140
+weight = 130
 
-[[menu.main]]
+[[menu.docs]]
 name = "Learn Chef"
+identifier = "learn chef"
 url = "https://learn.chef.io/"
 pre = "external_link"
-weight = 150
+weight = 140
 
-[[menu.main]]
-name = "Tutorials"
-url = "https://learn.chef.io/tutorials"
-pre = "external_link"
-weight = 160
-
-[[menu.main]]
-name = "Skills Library"
-url = "https://learn.chef.io/skills/"
-pre = "external_link"
-weight = 170
-
-[[menu.main]]
+[[menu.docs]]
 name = "Training"
-weight = 190
+identifier = "training"
 url = "https://www.chef.io/training/"
 pre = "external_link"
+weight = 150

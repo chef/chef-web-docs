@@ -22,9 +22,24 @@ supports the following options:
 
 `-P` (`-project` on Microsoft Windows)
 
-:   The product name to install. A list of valid product names can be
-    found at <https://omnitruck.chef.io/products>. Default value:
-    `chef`.
+:   The product name to install. Supported versions of Chef products are
+    `automate`, `chef`, `chef-server`, `inspec`, `chefdk`,
+    `supermarket`, `chef-backend`, `push-jobs-client`, and
+    `push-jobs-server`. Default value: `chef`.
+
+`-s` (`-install_strategy` on Microsoft Windows)
+
+:   The method of package installations. The default strategy is to
+    always install when the install.sh script runs. Set to "once" to
+    skip installation if the product is already installed on the node.
+
+`-l` (`-download_url_override` on Microsoft Windows)
+
+:   Install package downloaded from a direct URL.
+
+`-a` (`-checksum` on Microsoft Windows)
+
+:   The SHA256 for download_url_override
 
 `-v` (`-version` on Microsoft Windows)
 

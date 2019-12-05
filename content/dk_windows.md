@@ -170,11 +170,11 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-ChefDK Version: 3.2.30
-chef-client version: 14.4.56
-berks version: 7.0.6
-kitchen version: 1.23.2
-InSpec version: 2.2.70
+ChefDK version: 4.4.27
+Chef Infra Client version: 15.3.14
+Chef InSpec version: 4.16.0
+Test Kitchen version: 2.3.3
+Cookstyle version: 5.6.2
 ```
 
 ### Spaces and Directories
@@ -197,44 +197,19 @@ folder/repository you are working with, and a Git integration.
 These are a few common editors:
 
 -   [Visual Studio Code (free/open
-    source)](http://code.visualstudio.com)
--   [GitHub Atom - (free/open source)](http://atom.io)
--   [Sublime Text - (\$80 USD)](http://sublimetext.com)
+    source)](https://code.visualstudio.com/)
+-   [GitHub Atom - (free/open source)](https://atom.io/)
 
 Chef support in editors:
 
 -   [VSCode Chef
-    Extension](https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef)
+    Extension](https://marketplace.visualstudio.com/items?itemName=chef-software.Chef)
 -   [Chef on Atom](https://atom.io/packages/language-chef)
--   [Chef on Sublime
-    Text](https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef)
-
-Install and Optimize Git for Chef Development
----------------------------------------------
-
-To install Git on Windows, navigate to the [Github
-Downloads](https://git-scm.com/downloads) site and download the Windows
-installer.
-
-Download the installer and launch the Git Setup Wizard. Follow the
-on-screen instructions. We recommend adjusting the following settings to
-get the optimal set up for Chef development.
-
--   When given the option to adjust your PATH environment you should
-    select the option to `Use Git from the Windows Command Prompt` to
-    ensure Git is available to all processes on the system, as shown in
-    Figure
--   When asked to configure the terminal emulator to use with Git Bash,
-    select `Use Windows` default console window as shown in Figure 1-11
-    as this is most compatible with the command-line tools used in Chef
-    development.
--   When given the option for a Git integration, select your code editor
-    from the list.
 
 Install the Windows Tools
 -------------------------
 
-> -   [Azure-cli](https://azure.microsoft.com/en-gb/downloads)
+> -   [Azure-cli](https://azure.microsoft.com/en-gb/downloads/)
 > -   [Azure Resource Manager
 >     Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
 > -   If you are using Visual Studio Code, add the [Microsoft Azure SDK

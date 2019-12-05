@@ -12,7 +12,7 @@ menu:
     title: windows_auto_run
     identifier: chef_infra/cookbook_reference/resources/resource_windows_auto_run.md windows_auto_run
     parent: chef_infra/cookbook_reference/resources
-    weight: 1080
+    weight: 1090
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

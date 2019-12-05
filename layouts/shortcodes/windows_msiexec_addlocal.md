@@ -32,5 +32,5 @@ First install Chef Infra Client, and then enable it to run as a
 scheduled task. For example:
 
 ``` bash
-$ msiexec /qn /i C:\inst\chef-client-14.5.27-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
+$ msiexec /qn /i C:\inst\chef-client-15.3.14-1-x64.msi ADDLOCAL="ChefClientFeature,ChefSchTaskFeature,ChefPSModuleFeature"
 ```

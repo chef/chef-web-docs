@@ -77,7 +77,7 @@ versions for Chef Infra Client:
 <tr class="odd">
 <td>CentOS</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>Debian</td>
@@ -92,16 +92,16 @@ versions for Chef Infra Client:
 <tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
+<td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
 </tr>
 <tr class="odd">
 <td>Oracle Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
-<td><code>x86_64</code>, <code>s390x</code>(6.x and 7.x only), <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only)</td>
+<td><code>x86_64</code>, <code>ppc64le</code> (7.x only), <code>ppc64</code> (7.x only), <code>aarch64</code> (7.x only)</td>
 <td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="odd">
@@ -111,7 +111,7 @@ versions for Chef Infra Client:
 </tr>
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>
-<td><code>x86_64</code>, <code>s390x</code>, <code>ppc64le</code>, <code>ppc64</code></td>
+<td><code>x86_64</code>, <code>ppc64le</code>, <code>ppc64</code></td>
 <td><code>12 SP1+</code>, <code>15</code></td>
 </tr>
 <tr class="odd">
@@ -213,7 +213,7 @@ versions for the Chef Workstation:
 <tr class="odd">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
+<td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
@@ -258,7 +258,7 @@ versions for Chef InSpec:
 <tr class="odd">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
+<td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
@@ -317,12 +317,12 @@ versions for ChefDK:
 <tr class="even">
 <td>macOS</td>
 <td><code>x86_64</code></td>
-<td><code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
+<td><code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux</td>
 <td><code>x86_64</code></td>
-<td><code>6.x</code>, <code>7.x</code></td>
+<td><code>6.x</code>, <code>7.x</code>, <code>8.x</code></td>
 </tr>
 <tr class="even">
 <td>SUSE Enterprise Linux Server</td>

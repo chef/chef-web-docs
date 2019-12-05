@@ -36,25 +36,26 @@ The windows_package resource has the following properties:
 
 :   **Ruby Type:** Hash
 
-    A package at a remote location define as a Hash of properties that
-    modifies the properties of the **remote_file** resource.
+    This property allows you to define a hash of properties and their
+    value if the source package to be installed is at a remote location.
+    This hash will be used by the underlying **remote_file** resource
+    which will fetch the source package.
 
 `returns`
 
-:   **Ruby Type:** Integer, Array of integers \| **Default Value:** `0`
+:   **Ruby Type:** String, Integer, Array of integers \| **Default
+    Value:** `0`
 
     A comma-delimited list of return codes that indicate the success or
-    failure of the command that was run remotely. This code signals a
-    successful `:install` action.
+    failure of the package command that was run.
 
 `source`
 
-:   **Ruby Type:** String
+:   **Ruby Type:** String \| **Default Value:**
+    `The resource block's name`
 
-    Optional. The path to a package in the local file system. The
-    location of the package may be at a URL. Default value: the `name`
-    of the resource block. See the "Syntax" section above for more
-    information.
+    The path to a package in the local file system. The location of the
+    package may be at a URL.
 
     If the `source` property is not specified, the package name MUST be
     exactly the same as the display name found in **Add/Remove

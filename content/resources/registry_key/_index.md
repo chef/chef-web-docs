@@ -12,7 +12,7 @@ menu:
     title: registry_key
     identifier: chef_infra/cookbook_reference/resources/resource_registry_key.md registry_key
     parent: chef_infra/cookbook_reference/resources
-    weight: 810
+    weight: 820
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

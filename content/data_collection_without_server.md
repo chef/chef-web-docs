@@ -6,8 +6,8 @@ aliases = "/data_collection_without_server.html"
 
 [menu]
   [menu.docs]
-    title = "Configure Data Collection without Chef Infra Server"
-    identifier = "legacy/chef_automate_1/getting_started/data_collection_without_server.md Configure Data Collection without Chef Infra Server"
+    title = "Data Collection without Chef Infra Server"
+    identifier = "legacy/chef_automate_1/getting_started/data_collection_without_server.md Data Collection without Chef Infra Server"
     parent = "legacy/chef_automate_1/getting_started"
     weight = 60
 +++    

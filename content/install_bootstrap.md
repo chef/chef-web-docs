@@ -142,8 +142,8 @@ Validatorless Bootstrap
 
 {{% knife_bootstrap_no_validator %}}
 
-knife bootstrap Options
------------------------
+Bootstrapping with chef-vault
+=============================
 
 Use the following options with a validatorless bootstrap to specify
 items that are stored in chef-vault:
@@ -387,9 +387,9 @@ Unattended Installs
 ===================
 
 Chef Infra Client can be installed using an unattended bootstrap. This
-allows Chef Infra Client to be installed from itself, without using SSH.
-For example, machines are often created using environments like AWS Auto
-Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this
+allows Chef Infra Client to be installed from itself, without requiring
+SSH. For example, machines are often created using environments like AWS
+Auto Scaling, AWS CloudFormation, Rackspace Auto Scale, and PXE. In this
 scenario, using tooling for attended, single-machine installs like
 `knife bootstrap` or `knife CLOUD_PLUGIN create` is not practical
 because the machines are created automatically and someone cannot always

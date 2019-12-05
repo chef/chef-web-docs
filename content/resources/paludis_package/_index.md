@@ -12,7 +12,7 @@ menu:
     title: paludis_package
     identifier: chef_infra/cookbook_reference/resources/resource_paludis_package.md paludis_package
     parent: chef_infra/cookbook_reference/resources
-    weight: 720
+    weight: 730
 
 
 ######## Basic Resource Data ########
@@ -47,8 +47,9 @@ registry_key: false
 
 ######## Nameless ########
 
-##Activates the Nameless section in apt_update resource
-nameless: false
+##Activates the Nameless section in apt_update or build_essential resource
+nameless_apt_update: false
+nameless_build_essential: false
 
 
 ######## Gem Package Options ########

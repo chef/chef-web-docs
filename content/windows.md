@@ -20,7 +20,7 @@ Overview
 
 The Chef Infra Client has specific components that are designed to
 support unique aspects of the Microsoft Windows platform, including
-Windows PowerShell, Internet Information Services (IIS), and SQL Server.
+PowerShell, PowerShell DSC, and Internet Information Services (IIS).
 
 {{% windows_install_overview %}}
 
@@ -41,24 +41,12 @@ This command has the following syntax:
 $ chef-client OPTION VALUE OPTION VALUE ...
 ```
 
-This command has the following options specific to Microsoft Windows:
+This command has the following option specific to Microsoft Windows:
 
 `-A`, `--fatal-windows-admin-check`
 
 :   Cause a Chef Infra Client run to fail when Chef Infra Client does
     not have administrator privileges in Microsoft Windows.
-
-`-d`, `--daemonize`
-
-:   Run the executable as a daemon.
-
-    This option is only available on machines that run in UNIX or Linux
-    environments. For machines that are running Microsoft Windows that
-    require similar functionality, use the `chef-client::service` recipe
-    in the `chef-client` cookbook:
-    <https://supermarket.chef.io/cookbooks/chef-client>. This will
-    install a Chef Infra Client service under Microsoft Windows using
-    the Windows Service Wrapper.
 
 System Requirements
 -------------------
@@ -91,35 +79,18 @@ Windows:
 </tbody>
 </table>
 
-After Chef Infra Client is installed, it is located at `C:\chef`. The
+After Chef Infra Client is installed, it is located at `C:\opscode`. The
 main configuration file for Chef Infra Client is located at
 `C:\chef\client.rb`.
 
 Information for Windows Users
 -----------------------------
 
-### Set the System Ruby
-
-To set the system Ruby for the Microsoft Windows platform [the steps
-described for all platforms are true](/install_dk.html#set-system-ruby),
-but then require the following manual edits to the
-`chef shell-init bash` output for the Microsoft Windows platform:
-
-1.  Add quotes around the variable assignment strings.
-2.  Convert `C:/` to `/c/`.
-3.  Save those changes.
-
 ### Run With Elevated Privileges
 
 {{% ctl_chef_client_elevated_privileges %}}
 
 {{% ctl_chef_client_elevated_privileges_windows %}}
-
-### config.rb
-
-When running Microsoft Windows, the config.rb file is located at
-`%HOMEDRIVE%:%HOMEPATH%\.chef` (e.g. `c:\Users\<username>\.chef`). If
-this path needs to be scripted, use `%USERPROFILE%\.chef`.
 
 ### Spaces and Directories
 
@@ -137,8 +108,8 @@ this path needs to be scripted, use `%USERPROFILE%\.chef`.
 
 {{% proxy_windows %}}
 
-Install Chef Infra Client using knife-windows
----------------------------------------------
+Remotely administering nodes
+----------------------------
 
 {{% knife_windows_summary %}}
 
@@ -148,6 +119,13 @@ Se the [knife windows](/knife_windows/) for more information.
 
 {{% knife_windows_winrm_ports %}}
 
+Install Chef Infra Client using the MSI Installer
+-------------------------------------------------
+
+A Microsoft Installer Package (MSI) is available for installing Chef
+Infra Client on a Microsoft Windows machine from [Chef
+Downloads](https://downloads.chef.io/).
+
 ### Msiexec.exe
 
 {{% windows_msiexec %}}
@@ -155,13 +133,6 @@ Se the [knife windows](/knife_windows/) for more information.
 ### ADDLOCAL Options
 
 {{% windows_msiexec_addlocal %}}
-
-Install Chef Infra Client using the MSI Installer
--------------------------------------------------
-
-A Microsoft Installer Package (MSI) is available for installing Chef
-Infra Client on a Microsoft Windows machine from [Chef
-Downloads](https://downloads.chef.io/).
 
 ### Enable as a Scheduled Task
 
@@ -258,31 +229,31 @@ Chef Infra provides a growing number of Windows-specific resources.
 -   [dsc_resource](/resource_dsc_resource/)
 -   [resource_registry_key](/resource_registry_key/)
 -   [Windows_ad_join](/resource_windows_ad_join/)
--   [Windows_ad_join](/resource_windows_ad_join.rst)
--   [Windows_auto_run](/resource_windows_auto_run.rst)
--   [Windows_certificate](/resource_windows_certificate.rst)
--   [Windows_dfs_folder](/resource_windows_dfs_folder.rst)
--   [Windows_dfs_namespace](/resource_windows_dfs_namespace.rst)
--   [Windows_dfs_server](/resource_windows_dfs_server.rst)
--   [Windows_dns_record](/resource_windows_dns_record.rst)
--   [Windows_dns_zone](/resource_windows_dns_zone.rst)
--   [Windows_env](/resource_windows_env.rst)
--   [Windows_feature_dism](/resource_windows_feature_dism.rst)
--   [Windows_feature_powershell](/resource_windows_feature_powershell.rst)
--   [Windows_feature](/resource_windows_feature.rst)
--   [Windows_firewall_rule](/resource_windows_firewall_rule.rst)
--   [Windows_font](/resource_windows_font.rst)
--   [Windows_package](/resource_windows_package.rst)
--   [Windows_pagefile](/resource_windows_pagefile.rst)
--   [Windows_path](/resource_windows_path.rst)
--   [Windows_windows_printer_port](/resource_windows_printer_port.rst)
--   [Windows_printer](/resource_windows_printer.rst)
--   [Windows_service](/resource_windows_service.rst)
--   [Windows_share](/resource_windows_share.rst)
--   [Windows_shortcut](/resource_windows_shortcut.rst)
--   [Windows_task](/resource_windows_task.rst)
--   [Windows_uac](/resource_windows_uac.rst)
--   [Windows_workgroup](/resource_windows_workgroup.rst)
+-   [Windows_ad_join](/resource_windows_ad_join/)
+-   [Windows_auto_run](/resource_windows_auto_run/)
+-   [Windows_certificate](/resource_windows_certificate/)
+-   [Windows_dfs_folder](/resource_windows_dfs_folder/)
+-   [Windows_dfs_namespace](/resource_windows_dfs_namespace/)
+-   [Windows_dfs_server](/resource_windows_dfs_server/)
+-   [Windows_dns_record](/resource_windows_dns_record/)
+-   [Windows_dns_zone](/resource_windows_dns_zone/)
+-   [Windows_env](/resource_windows_env/)
+-   [Windows_feature_dism](/resource_windows_feature_dism/)
+-   [Windows_feature_powershell](/resource_windows_feature_powershell/)
+-   [Windows_feature](/resource_windows_feature/)
+-   [Windows_firewall_rule](/resource_windows_firewall_rule/)
+-   [Windows_font](/resource_windows_font/)
+-   [Windows_package](/resource_windows_package/)
+-   [Windows_pagefile](/resource_windows_pagefile/)
+-   [Windows_path](/resource_windows_path/)
+-   [Windows_windows_printer_port](/resource_windows_printer_port/)
+-   [Windows_printer](/resource_windows_printer/)
+-   [Windows_service](/resource_windows_service/)
+-   [Windows_share](/resource_windows_share/)
+-   [Windows_shortcut](/resource_windows_shortcut/)
+-   [Windows_task](/resource_windows_task/)
+-   [Windows_uac](/resource_windows_uac/)
+-   [Windows_workgroup](/resource_windows_workgroup/)
 
 Windows Compatible Resources
 ----------------------------
