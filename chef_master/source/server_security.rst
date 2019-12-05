@@ -313,7 +313,7 @@ While the file does not contain passwords in plaintext, it is not safe to share 
 SSL Encryption Between Chef Infra Server and External PostgreSQL
 ================================================================
 
-**New in Chef Server 13.1.13:**  Chef Server 13.1.13 introduces the capability to encrypt traffic between Chef Infra Server and an external PostgreSQL configuration over SSL.  These instructions are not all-encompassing and assume familiarity with PostgreSQL administration, configuration, and troubleshooting.  Consult the appropriate PostgreSQL documentation as necessary, e.g. https://www.postgresql.org/docs/9.6/ssl-tcp.html.
+**New in Chef Server 13.1.13:**  Chef Server 13.1.13 introduces the capability to encrypt traffic between Chef Infra Server and an external PostgreSQL server over SSL.  These instructions are not all-encompassing and assume familiarity with PostgreSQL administration, configuration, and troubleshooting.  Consult the appropriate PostgreSQL documentation as necessary, e.g. https://www.postgresql.org/docs/9.6/ssl-tcp.html.
 
 To enable this encryption (typical scenario):
 
@@ -362,7 +362,7 @@ To enable this encryption (typical scenario):
    
       postgresql['sslmode']='require'
 
-#. Run the following command on the Chef Infra Server machine:
+#. Run reconfigure on the Chef Infra Server machine:
 
    .. code-block:: bash
    
