@@ -26,7 +26,7 @@ Improvements/Bug Fixes
 Deprecation Notice
 -----------------------------------------------------
 
-* SLES 11 is no longer supported per our [platform policy](https://docs.chef.io/platforms.html#platform-end-of-life-policy), as upstream support ended in March of this year.
+* SLES 11 is no longer supported per our `platform policy </platforms.html#platform-end-of-life-policy>`_, as upstream support ended in March of this year.
 
 Updates and Improvements
 -----------------------------------------------------
