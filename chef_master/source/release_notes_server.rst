@@ -17,6 +17,7 @@ Improvements/Bug Fixes
 * Fixes issue with Chef Support Zendesk sign-ins when a first name is not set in Hosted Chef
 * Added support for running the Chef Infra Server on Red Hat Enterprise Linux 8
 * Improvements to ``chef-server-ctl gather-logs``
+
  * Add AWS to known platforms
  * Add AWS Native Chef Server info
  * Add elasticsearch info
