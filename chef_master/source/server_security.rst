@@ -331,7 +331,7 @@ Here is a walkthrough of a typical scenario for enabling encryption between a Ch
 
 #. Enable SSL on PostgreSQL, and specify paths to the SSL certificates.  This can be done by editing ``postgresql.conf`` on the PostgreSQL machine and ensuring the relevant entries are present (substitute the appropriate paths):
 
-   .. code-block:: bash
+   .. code-block:: text
    
       ssl=on
    
@@ -342,7 +342,7 @@ Here is a walkthrough of a typical scenario for enabling encryption between a Ch
 
    Here is a sample ``pg_hba.conf`` file with `hostssl` connections for Chef Infra Server (the contents of your ``pg_hba.conf`` will be different):
 
-   .. code-block:: bash
+   .. code-block:: text
    
       # "local" is for Unix domain socket connections only
       local      all             all                                     peer
@@ -374,18 +374,28 @@ Here is a walkthrough of a typical scenario for enabling encryption between a Ch
    
       $ chef-server-ctl reconfigure
 
-#. Verify that SSL is enabled and that SSL connections are up between Chef Infra Server and your running PostgreSQL instance.  One way to do this is by running ``chef-server-ctl psql`` on the Chef Infra Server machine and confirming that most connections in the ssl column are marked 't' (true):
+#. Verify that SSL is enabled and that SSL connections are up between Chef Infra Server and your running PostgreSQL instance.  One way to do this is to log into the PostgreSQL database from the Chef Infra Server machine by runnning ``chef-server-ctl psql`` and examine the SSL state using SQL queries.
+
+   Start a psql session:
 
    .. code-block:: bash
    
       $ chef-server-ctl psql opscode_chef 
-   
+
+   From the ``psql`` session, enter ``postgres=# show ssl;`` which will show if ssl is enabled:
+
+   .. code-block:: sql
+
       postgres=# show ssl;
        ssl
       -----
        on
       (1 row)
    
+   Then enter ``postgres=# select * from pg_stat_ssl;`` which will return true (``t``) in rows with SSL connections:
+   
+   .. code-block:: sql
+
       postgres=# select * from pg_stat_ssl;
    
         pid  | ssl | version |           cipher            | bits | compression | clientdn
@@ -412,8 +422,6 @@ Here is a walkthrough of a typical scenario for enabling encryption between a Ch
        16102 | t   | TLSv1.2 | ECDHE-RSA-AES256-GCM-SHA384 |  256 | f           |
        16119 | f   |         |                             |      |             |
       (21 rows)
-
-      postgres=# \q
 
 Key Rotation
 =====================================================
