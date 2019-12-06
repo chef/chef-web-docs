@@ -5,6 +5,45 @@ Release Notes: Chef Infra Server 12.0 - 13.0.11
 
 Chef Server acts as a hub for configuration data by storing cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is managed by the chef-client.
 
+What's New in 13.1.13
+=====================================================
+
+Improvements/Bug Fixes
+-----------------------------------------------------
+
+* The ``_status`` endpoint now reports healthy even if the ``data_collector`` is down which will no longer cause unnecessary failovers.
+* Data collector proxy-header X-Forwarded is set as expected.
+* ``chef-server-ctl`` is no longer installed in the user path. Now only the appbundled version is installed in the user path.
+* Fixed an issue with Chef Support Zendesk sign-ins when a first name is not set in Hosted Chef.
+* Added support for running the Chef Infra Server on Red Hat Enterprise Linux 8.
+* ``chef-server-ctl gather-logs`` was updated with the following improvements:
+
+ * Add AWS to known platforms
+ * Add AWS Native Chef Server info
+ * Add elasticsearch info
+ * Switched compression from bzip2 to gzip
+
+Deprecation Notice
+-----------------------------------------------------
+
+* SLES 11 is no longer supported per our `platform policy </platforms.html#platform-end-of-life-policy>`_, as upstream support ended in March of this year.
+
+Updates and Improvements
+-----------------------------------------------------
+
+* Yard 0.9.19 -> 0.9.20
+* Bundler 1.17.2 -> 1.17.2
+* Postgres 9.6.10 -> 9.6.15
+* Chef v15.3.14 -> v15.4.45
+* OpenResty 1.13.6.2 -> 1.15.8.1
+* Nokogiri 1.8.5 -> 1.10.4
+* Rebar3 -> 3.12.0
+* Updated erlang deps to be the latest
+* Loofah 2.2.3 -> 2.3.1
+* Erlang R18 -> 20.3.8.9
+* Updated for cookstyle
+* Ruby 2.5.5 -> 2.6.3
+
 What's New in 13.0.11
 =====================================================
 

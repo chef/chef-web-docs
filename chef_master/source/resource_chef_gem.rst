@@ -141,7 +141,7 @@ The chef_gem resource has the following properties:
    **Ruby Type:** String
 
    The version of a gem to be installed or upgraded.
-   
+
 Common Resource Functionality
 =====================================================
 
@@ -330,12 +330,8 @@ To install a gem while the resource collection is being built (the “compile ph
 
    apt_update
 
-   node.override['build_essential']['compiletime'] = true
-   include_recipe 'build-essential'
-   include_recipe 'mysql::client'
-
-   node['mysql']['client']['packages'].each do |mysql_pack|
-     resources("package[#{mysql_pack}]").run_action(:install)
+   build_essential 'install compilation tools' do
+     compile_time true
    end
 
    chef_gem 'mysql'
