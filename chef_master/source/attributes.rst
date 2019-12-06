@@ -114,7 +114,7 @@ Notes:
 * Many attributes are maintained in the chef-repo for Policyfiles, environments, roles, and cookbooks (attribute files and recipes)
 * Many attributes are collected by Ohai on each individual node at the start of every Chef Infra Client run
 * The attributes that are maintained in the chef-repo are uploaded to the Chef Infra Server from the workstation, periodically
-* Chef Infra Client will pull down the node object from the Chef Infra Server (which contains the attribute data from the previous Chef Infra Client run, including those set via ``-j`` with JSON files), after which all attributes (except ``normal`` are reset)
+* Chef Infra Client will pull down the node object from the Chef Infra Server and then reset all the attributes except ``normal``. The node object will contain the attribute data from the previous Chef Infra Client run including attributes set with JSON files via ``-j``.
 * Chef Infra Client will update the cookbooks on the node (if required), which updates the attributes contained in attribute files and recipes
 * Chef Infra Client will update the role and environment data (if required)
 * Chef Infra Client will rebuild the attribute list and apply attribute precedence while configuring the node
