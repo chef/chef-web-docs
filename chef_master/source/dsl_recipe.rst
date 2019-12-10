@@ -475,8 +475,6 @@ The following parameters can be used with this method:
      - NetBSD. All platform variants of NetBSD return ``netbsd``.
    * - ``openbsd``
      - OpenBSD. All platform variants of OpenBSD return ``openbsd``.
-   * - ``opensuse``
-     - openSUSE
    * - ``opensuseleap``
      - openSUSE leap
    * - ``slackware``

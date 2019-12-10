@@ -384,7 +384,6 @@ where ``mysql`` is the cookbook and ``8.5.1`` is the cookbook version. This will
       centos:       >= 6.0
       debian:       >= 7.0
       fedora:       >= 0.0.0
-      opensuse:     >= 13.0
       opensuseleap: >= 0.0.0
       oracle:       >= 6.0
       redhat:       >= 6.0
