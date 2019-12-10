@@ -356,7 +356,7 @@ The following is a typical scenario for enabling encryption between a machine ru
       # nonlocal connections
       hostssl    all             all            192.168.33.100/32        md5
 
-#. Restart PostgreSQL.  This can typically be done with the following command on the PostgreSQL machine (substitute the appropriate path):
+#. Restart PostgreSQL.  This can typically be done with the following command on the PostgreSQL machine:
 
    .. code-block:: bash
    
