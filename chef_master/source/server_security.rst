@@ -327,7 +327,7 @@ Here is a walkthrough of a typical scenario for enabling encryption between a Ch
 
 #. Ensure that PostgreSQL is installed on the PostgreSQL machine and has SSL support compiled-in.  This applies whether you are compiling your own source or using a pre-compiled binary.
 
-#. Place SSL certificates in the proper directories on the PostgreSQL machine, and ensure they have correct filenames, ownerships, and permissions.
+#. Place SSL certificates in the proper directories on the PostgreSQL machine and ensure they have correct filenames, ownerships, and permissions.
 
 #. Enable SSL on PostgreSQL, and specify paths to the SSL certificates.  This can be done by editing ``postgresql.conf`` on the PostgreSQL machine and ensuring the relevant entries are present (substitute the appropriate paths):
 
