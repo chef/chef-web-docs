@@ -315,7 +315,7 @@ SSL Encryption Between Chef Infra Server and External PostgreSQL
 
 **New in Chef Infra Server 13.1.13:**  Chef Infra Server 13.1.13 introduces the ability to encrypt traffic between Chef Infra Server and an external PostgreSQL server over SSL.  These instructions are not all-encompassing and assume some familiarity with PostgreSQL administration, configuration, and troubleshooting. Consult the `PostgreSQL documentation <https://www.postgresql.org/docs/9.6/ssl-tcp.html>`_ for more information.
 
-Here is a walkthrough of a typical scenario for enabling encryption between a Chef Infra Server machine and an external PostgreSQL machine.  It is assumed that both machines are networked together and user-accessible.
+The following is a typical scenario for enabling encryption between a machine running Chef Infra Server and an external machine running PostgreSQL.  Both machines must be networked together and accessible to the user.
 
 #. Run the following command on both machines to gain root access:
 
