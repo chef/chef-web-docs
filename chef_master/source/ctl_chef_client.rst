@@ -111,7 +111,7 @@ This command has the following options:
    The frequency (in seconds) at which Chef Infra Client runs. When running Chef Infra Client at intervals, apply ``--splay`` and ``--interval`` values before a Chef Infra Client run. Default value: ``1800``.
 
 ``-j PATH``, ``--json-attributes PATH``
-   The path to a file that contains JSON data. Used to setup the first client run. For all the future runs with option -i the attributes are expected to be persisted in the chef-server.
+   The path to a file that contains JSON data. Used to setup the first client run. The attributes will persist on the Chef Infra Server for all future runs with option ``-j``.
 
    **Run-lists**
 

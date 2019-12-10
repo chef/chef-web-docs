@@ -69,6 +69,7 @@ Attributes are always applied by Chef Infra Client in the following order:
 #. A ``default`` attribute located in a role
 #. A ``force_default`` attribute located in a cookbook attribute file
 #. A ``force_default`` attribute located in a recipe
+#. A ``normal`` attribute located in a JSON file passed via ``chef-client -j``
 #. A ``normal`` attribute located in a cookbook attribute file
 #. A ``normal`` attribute located in a recipe
 #. An ``override`` attribute located in a cookbook attribute file
