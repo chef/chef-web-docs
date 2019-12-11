@@ -329,7 +329,7 @@ The following is a typical scenario for enabling encryption between a machine ru
 
 #. Place SSL certificates in the proper directories on the PostgreSQL machine and ensure they have correct filenames, ownerships, and permissions.
 
-#. Enable SSL on PostgreSQL, and specify paths to the SSL certificates.  This can be done by editing ``postgresql.conf`` on the PostgreSQL machine and ensuring the relevant entries are present (substitute the appropriate paths):
+#. Enable SSL on PostgreSQL by editing the ``postgresql.conf`` file. Set ``ssl = on`` and specify the paths to the SSL certificates:
 
    .. code-block:: text
    
