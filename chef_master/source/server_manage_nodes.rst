@@ -85,6 +85,7 @@ An attribute is a specific detail about a node. Attributes are used by Chef Infr
 Attributes are defined by:
 
 * The state of the node itself
+* Attributes passed via JSON on the CLI
 * Cookbooks (in attribute files and/or recipes)
 * Roles
 * Environments
@@ -92,6 +93,7 @@ Attributes are defined by:
 
 During every Chef Infra Client run, Chef Infra Client builds the attribute list using:
 
+* Attributes passed via JSON on the CLI
 * Data about the node collected by `[Ohai] </ohai.html>`__.
 * The node object that was saved to the Chef Infra Server at the end of the previous Chef Infra Client run.
 * The rebuilt node object from the current Chef Infra Client run, after it is updated for changes to cookbooks (attribute files and/or recipes), roles, and/or environments, and updated for any changes to the state of the node itself.

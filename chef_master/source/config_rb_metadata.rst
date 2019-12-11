@@ -230,7 +230,7 @@ This configuration file has the following settings:
 
    .. code-block:: ruby
 
-      %w( aix amazon centos fedora freebsd debian oracle mac_os_x redhat suse opensuse opensuseleap ubuntu windows zlinux ).each do |os|
+      %w( aix amazon centos fedora freebsd debian oracle mac_os_x redhat suse opensuseleap ubuntu windows zlinux ).each do |os|
         supports os
       end
 
