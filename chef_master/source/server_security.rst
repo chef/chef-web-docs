@@ -372,7 +372,7 @@ The following is a typical scenario for enabling encryption between a machine ru
 
    .. code-block:: bash
    
-      $ chef-server-ctl reconfigure
+      chef-server-ctl reconfigure
 
 #. Verify that SSL is enabled and that SSL connections are up between Chef Infra Server and your running PostgreSQL instance.  One way to do this is to log into the PostgreSQL database from the Chef Infra Server by runnning ``chef-server-ctl psql`` and examine the SSL state using SQL queries.
 
