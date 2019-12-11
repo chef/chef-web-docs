@@ -338,7 +338,7 @@ The following is a typical scenario for enabling encryption between a machine ru
       ssl_cert_file='/path/to/cert/file'
       ssl_key_file='/path/to/key/file'
 
-#. To prevent PostgreSQL from accepting non-SSL connections, edit ``pg_hba.conf`` on the PostgreSQL machine and change the relevant Chef Infra Server connections to `hostssl`.
+#. To prevent PostgreSQL from accepting non-SSL connections, edit ``pg_hba.conf`` on the PostgreSQL machine and change the relevant Chef Infra Server connections to ``hostssl``.
 
    Here is a sample ``pg_hba.conf`` file with `hostssl` connections for Chef Infra Server (the contents of your ``pg_hba.conf`` will be different):
 
