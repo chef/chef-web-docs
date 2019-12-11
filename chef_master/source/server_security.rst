@@ -368,7 +368,7 @@ The following is a typical scenario for enabling encryption between a machine ru
    
       postgresql['sslmode']='require'
 
-#. Run reconfigure on the Chef Infra Server machine:
+#. Run reconfigure on the Chef Infra Server:
 
    .. code-block:: bash
    
