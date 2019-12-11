@@ -325,7 +325,7 @@ The following is a typical scenario for enabling encryption between a machine ru
 
 #. Ensure that `OpenSSL <https://www.openssl.org>`_ is installed on the PostgreSQL machine.
 
-#. Ensure that PostgreSQL is installed on the PostgreSQL machine and has SSL support compiled-in.  This applies whether you are compiling your own source or using a pre-compiled binary.
+#. Ensure that SSL support is compiled in on PostgreSQL.  This applies whether you are compiling your own source or using a pre-compiled binary.
 
 #. Place SSL certificates in the proper directories on the PostgreSQL machine and ensure they have correct filenames, ownerships, and permissions.
 
