@@ -360,7 +360,7 @@ The following is a typical scenario for enabling encryption between a machine ru
 
    .. code-block:: bash
    
-      $ /path/to/postgresql/postgresql restart
+      /path/to/postgresql/postgresql restart
 
 #. Edit ``/etc/opscode/chef-server.rb`` on the Chef Infra Server and add the following line:
 
