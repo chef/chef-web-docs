@@ -362,7 +362,7 @@ The following is a typical scenario for enabling encryption between a machine ru
    
       $ /path/to/postgresql/postgresql restart
 
-#. Edit ``/etc/opscode/chef-server.rb`` on the Chef Infra Server machine and add the following line:
+#. Edit ``/etc/opscode/chef-server.rb`` on the Chef Infra Server and add the following line:
 
    .. code-block:: ruby
    
