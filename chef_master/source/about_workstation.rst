@@ -25,8 +25,6 @@ Chef Infra is a systems and cloud infrastructure automation framework that makes
 * `Install Chef Workstation </install_workstation.html>`_
 * `Ruby Guide </ruby.html>`_
 
-.. note:: See this `blog post by Irving Popovetsky about running Chef Workstation on Windows. <https://www.chef.io/blog/2014/11/04/the-Chef Workstation-on-windows-survival-guide/>`__
-
 Cookbook Development Workflow
 -----------------------------------------------------
 Chef Infra defines a common workflow for cookbook development:
