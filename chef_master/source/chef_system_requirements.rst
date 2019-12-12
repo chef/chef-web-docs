@@ -5,11 +5,11 @@ System Requirements
 
 Before installing Chef Infra:
 
-* Ensure that each machine that will be a node is running a `supported platform </platforms.html>`__
+* Ensure that each system you will be managing is running a `supported platform </platforms.html>`__
 * Ensure that the machine that will run the Chef Infra Server is sufficiently powerful
 * Ensure that any network and firewall settings are configured correctly
 
-Install and configure the Chef Infra Server, then install and configure a workstation, and then run the bootstrap command from the workstation to install Chef Infra Client on each node.
+Install and configure the Chef Infra Server, then install and configure Chef Workstation, and then run the bootstrap command from Chef Workstation to install Chef Infra Client on each node.
 
 The Chef Infra Server
 =====================================================
