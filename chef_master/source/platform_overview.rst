@@ -26,17 +26,17 @@ This diagram shows how you develop, test, and deploy your Chef Infra code.
 
 .. end_tag
 
-Using the workstation
+Using Chef Workstation
 -----------------------------------------------------
-You create and test your code on your workstation before you deploy it to other environments. Your workstation is the computer where you author your cookbooks and administer your infrastructure. It's typically the machine you use everyday. It can be any OS you choose, whether it's Linux, macOS, or Windows.
+Chef Workstation allows you to author cookbooks and administer your infrastructure. Chef Workstation runs on the computer you use everyday, whether it's Linux, macOS, or Windows.
 
-You'll need to install a text editor (whichever you like) to write code and Chef Workstation to get the tools to test your code. The primary testing tools you'll use are Cookstyle, ChefSpec, Chef InSpec, and Test Kitchen. With them, you can make sure your Chef code does what you intended before you deploy it to environments used by others, such as staging or production.
+Chef Workstation ships with Cookstyle, ChefSpec, Chef InSpec, and Test Kitchen testing tools. With them, you can make sure your Chef Infra code does what you intended before you deploy it to environments used by others, such as staging or production.
 
-When you write your code, you use resources to describe your infrastructure. A resource corresponds to some piece of infrastructure, such as a file, a template, or a package. Each resource declares what state a part of the system should be in, but not how to get there. Chef handles these complexities for you. Chef provides many resources that are ready for you to use. You can also utilize resources shipped in community cookbooks, or write your own resources specific to your infrastructure.
+When you write your code, you use resources to describe your infrastructure. A resource corresponds to some piece of infrastructure, such as a file, a template, or a package. Each resource declares what state a part of the system should be in, but not how to get there. Chef Infra handles these complexities for you. Chef Infra provides many resources that are ready for you to use. You can also utilize resources shipped in community cookbooks, or write your own resources specific to your infrastructure.
 
-A Chef recipe is a file that groups related resources, such as everything needed to configure a web server, database server, or a load balancer. A Chef cookbook provides structure to your recipes and, in general, helps you stay organized.
+A Chef Infra recipe is a file that groups related resources, such as everything needed to configure a web server, database server, or a load balancer. A Chef Infra cookbook provides structure to your recipes and, in general, helps you stay organized.
 
-The Chef Workstation includes other command line tools for interacting with Chef. These include knife for interacting with the Chef Infra Server, and chef for interacting with your local chef code repository (chef-repo).
+The Chef Workstation includes other command line tools for interacting with Chef Infra. These include knife for interacting with the Chef Infra Server, and chef for interacting with your local chef code repository (chef-repo).
 
 Uploading your code to Chef Infra Server
 -----------------------------------------------------
@@ -45,7 +45,7 @@ Once you're done developing and testing code on your local workstation, you can 
 
 Configuring nodes with Chef Infra Client
 -----------------------------------------------------
-Chef Infra is constructed so that most of the computational effort occurs on the nodes rather than on the Chef Infra Server.  A node represents a server and is typically a virtual machine, container instance, or physical server. Basically, it's any compute resource in your infrastructure that's managed by Chef. All nodes have Chef Infra Client installed on them.
+Chef Infra is constructed so that most of the computational effort occurs on the nodes rather than on the Chef Infra Server. A node represents any system you manage and is typically a virtual machine, container instance, or physical server. Basically, it's any compute resource in your infrastructure that's managed by Chef Infra. All nodes have Chef Infra Client installed on them, and Chef Infra Client is available for multiple platforms including Linux, macOS, Windows, AIX, and Solaris.
 
 Periodically, Chef Infra Client contacts the Chef Infra Server to retrieve the latest cookbooks. If (and only if) the current state of the node doesn't conform to what the cookbook says it should be, Chef Infra Client executes the cookbook instructions. This iterative process ensures that the network as a whole converges to the state envisioned by business policy.
 
