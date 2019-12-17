@@ -81,7 +81,7 @@ Chef has the following major components:
 
      - Chef Supermarket is the location in which community cookbooks are shared and managed. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
 
-Chef management console, Chef Infra Client run reporting, high availability configurations, and Chef Infra Server replication are available as part of Chef Automate.
+Chef Infra Client run reporting, compliance reporting, high availability configurations, and Chef Infra Server replication are available as part of Chef Automate.
 
 The following sections discuss these elements (and their various components) in more detail.
 
