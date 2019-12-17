@@ -95,7 +95,7 @@ To set up a Yum package repository for Enterprise Linux platforms:
 
    Replace ``<CHANNEL>`` with the release channel: ``stable`` or ``current``.
 
-   Replace ``<VERSION>`` with your Enterprise Linux version; the allowable versions are ``6``, or ``7``.
+   Replace ``<VERSION>`` with your Enterprise Linux version; the allowable versions are ``6``, ``7``, or ``8``.
 
 #. Update the package repository list:
 
