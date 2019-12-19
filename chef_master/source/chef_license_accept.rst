@@ -13,7 +13,7 @@ Accept the Chef MLSA
 -----------------------------------------------------
 There are three ways to accept the Chef MLSA:
 
-#. When running ``chef-<PRODUCT-NAME>-ctl reconfigure`` the Chef MLSA is printed. Type ``yes`` to accept it. Anything other than typing ``yes`` rejects the Chef MLSA, and the upgrade process will exit. Typing ``yes`` adds a ``.license.accepted`` file to the ``/var/opt/<PRODUCT-NAME>/`` directory. As long as this file exists in this directory, the Chef MLSA is accepted and the reconfigure process will not prompt for ``yes``.
+#. When running ``chef-<PRODUCT-NAME>-ctl reconfigure`` the Chef MLSA is printed. Type ``yes`` to accept it. Anything other than typing ``yes`` rejects the Chef MLSA, and the upgrade process will exit. Typing ``yes`` adds a ``.license.accepted`` file to the ``/etc/chef/accepted_licenses/<PRODUCT-NAME>`` file. As long as this file exists in this directory, the Chef MLSA is accepted and the reconfigure process will not prompt for ``yes``.
 
 #. Run the ``chef-<PRODUCT-NAME>-ctl reconfigure`` command using the ``--chef-license=accept`` option. This automatically types ``yes`` and skips printing the Chef MLSA.
 
