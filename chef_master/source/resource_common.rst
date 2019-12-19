@@ -1,11 +1,9 @@
 =====================================================
-Common Functionality
+Common Resource Functionality
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_common.rst>`__
 
 All resources (including custom resources) share a set of common actions, properties, conditional executions, notifications, and relative path options.
-
-
 
 .. _resource_common_actions:
 

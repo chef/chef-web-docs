@@ -121,7 +121,7 @@ Cookbook Reference
 
 **Resources**:
 `About Resources </resource.html>`__ |
-`Common Functionality </resource_common.html>`__ |
+`Common Resource Functionality </resource_common.html>`__ |
 `Custom Resources </custom_resources.html>`__ |
 `Converting Definitions to Custom Resources </definitions.html>`__ |
 `All Resources (Single Page) </resource_reference.html>`__ |
