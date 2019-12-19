@@ -44,18 +44,14 @@ Packages and Platform Support
 `Supported Versions </versions.html>`__ |
 `Omnitruck API </api_omnitruck.html>`__
 
-Chef
+Chef Infra
 =====================================================
 
 Getting Started
 -----------------------------------------------------
-`Chef Overview </chef_overview.html>`__ |
+`Chef Infra Overview </chef_overview.html>`__ |
 `Quick Start </quick_start.html>`__ |
 `System Requirements </chef_system_requirements.html>`__
-
-**Chef Workstation**:
-`Chef Workstation <https://www.chef.sh/>`__ |
-`Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
 `Chef Infra Client </release_notes.html>`__ |
