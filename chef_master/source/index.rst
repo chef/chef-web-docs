@@ -72,7 +72,6 @@ Concepts
 `Search </chef_search.html>`__ |
 `Cookbooks </cookbooks.html>`__ |
 `Handlers </handlers.html>`__ |
-`Management Console </manage.html>`__
 
 **Policy**: `About Policy </policy.html>`__ | `Data Bags </data_bags.html>`__ | `Environments </environments.html>`__ | `Roles </roles.html>`__
 
