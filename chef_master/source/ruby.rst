@@ -192,8 +192,6 @@ Create lists using arrays:
 
 Whitespace Arrays
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ruby_style_basics_array_shortcut
-
 The ``%w`` syntax is a Ruby shortcut for creating an array without requiring quotes and commas around the elements.
 
 For example:
@@ -204,7 +202,7 @@ For example:
      # do debian/ubuntu things with the Ruby array %w() shortcut
    end
 
-.. end_tag
+
 
 .. tag ruby_style_patterns_string_quoting_vs_whitespace_array
 
@@ -314,8 +312,6 @@ or a ``case`` statement:
 
 if
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ruby_style_basics_statement_if
-
 An ``if`` statement can be used to specify part of a recipe to be used when certain conditions are met. ``else`` and ``elseif`` statements can be used to handle situations where either the initial condition is not met or when there are other possible conditions that can be met. Since this behavior is 100% Ruby, do this in a recipe the same way here as anywhere else.
 
 For example, using an ``if`` statement with the ``platform`` node attribute:
@@ -336,12 +332,10 @@ For example, using an ``if`` statement with the ``platform`` node attribute:
 .. future example: step_resource_scm_use_different_branches
 .. future example: step_resource_service_stop_do_stuff_start
 
-.. end_tag
+
 
 case
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ruby_style_basics_statement_case
-
 A ``case`` statement can be used to handle a situation where there are a lot of conditions. Use the ``when`` statement for each condition, as many as are required.
 
 For example, using a ``case`` statement with the ``platform`` node attribute:
@@ -370,7 +364,7 @@ For example, using a ``case`` statement with the ``platform_family`` node attrib
 .. future example: step_resource_package_use_case_statement
 .. future example: step_resource_service_manage_ssh_based_on_node_platform
 
-.. end_tag
+
 
 Call a Method
 -----------------------------------------------------
@@ -421,9 +415,7 @@ Use ``:include`` to include another Ruby class. For example:
 In non-Chef Ruby, the syntax is ``include`` (without the ``:`` prefix), but without the ``:`` prefix Chef Infra Client will try to find a provider named ``include``. Using the ``:`` prefix tells Chef Infra Client to look for the specified class that follows.
 
 Include a Parameter
------------------------------------------------------
-.. tag ruby_style_basics_parameter_include
-
+----------------------------------------------------
 The ``include?`` method can be used to ensure that a specific parameter is included before an action is taken. For example, using the ``include?`` method to find a specific parameter:
 
 .. code-block:: ruby
@@ -440,7 +432,7 @@ or:
      # do RHEL things
    end
 
-.. end_tag
+
 
 Patterns to Follow
 =====================================================

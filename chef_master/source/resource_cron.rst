@@ -3,13 +3,11 @@ cron resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cron.rst>`__
 
-.. tag resource_cron_summary
-
 Use the **cron** resource to manage cron entries for time-based job scheduling.
 
 .. warning:: The **cron** resource should only be used to modify an entry in a crontab file. The ``cron_d`` resource directly manages cron.d files. This resource ships in Chef 14.4 or later and can also be found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) for previous chef-client releases.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -337,8 +335,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Run a program at a specified interval**
 
-.. tag resource_cron_run_program_on_fifth_hour
-
 .. To run a program on the fifth hour of the day:
 
 .. code-block:: ruby
@@ -349,11 +345,9 @@ The following examples demonstrate various approaches for using resources in rec
      command '/bin/true'
    end
 
-.. end_tag
+
 
 **Run an entry if a folder exists**
-
-.. tag resource_cron_run_entry_when_folder_exists
 
 .. To run an entry if a folder exists:
 
@@ -368,11 +362,9 @@ The following examples demonstrate various approaches for using resources in rec
      only_if do File.exist?('/home/jboss') end
    end
 
-.. end_tag
+
 
 **Run every Saturday, 8:00 AM**
-
-.. tag resource_cron_run_every_saturday
 
 The following example shows a schedule that will run every hour at 8:00 each Saturday morning, and will then send an email to "admin@example.com" after each run.
 
@@ -386,11 +378,9 @@ The following example shows a schedule that will run every hour at 8:00 each Sat
      action :create
    end
 
-.. end_tag
+
 
 **Run only in November**
-
-.. tag resource_cron_run_only_in_november
 
 The following example shows a schedule that will run at 8:00 PM, every weekday (Monday through Friday), but only in November:
 
@@ -405,4 +395,4 @@ The following example shows a schedule that will run at 8:00 PM, every weekday (
      action :create
    end
 
-.. end_tag
+

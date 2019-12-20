@@ -6,11 +6,9 @@ machine_image
 .. meta::
     :robots: noindex
 
-.. tag resource_machine_image_summary
-
 Use the **machine_image** resource to define a machine image. This image may then be used by the **machine** resource when building machines.
 
-.. end_tag
+
 
 .. warning:: .. tag EOL_provisioning
 
@@ -22,7 +20,6 @@ Use the **machine_image** resource to define a machine image. This image may the
 
 Syntax
 =====================================================
-.. tag resource_machine_image_syntax
 
 The syntax for using the **machine_image** resource in a recipe is as follows:
 
@@ -40,8 +37,6 @@ where
 * ``name`` is the name of the resource block and also the name of the machine image
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
-
-.. end_tag
 
 Actions
 =====================================================
@@ -65,8 +60,6 @@ This resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_machine_image_attributes
-
 This resource has the following properties:
 
 ``attributes``
@@ -113,7 +106,7 @@ This resource has the following properties:
 ``tags``
    Use to specify the list of tags to be applied to the machine image. Any tag not specified in this list will be removed.
 
-.. end_tag
+
 
 Examples
 =====================================================

@@ -3,15 +3,12 @@ batch resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_batch.rst>`__
 
-.. tag resource_batch_summary
-
 Use the **batch** resource to execute a batch script using the cmd.exe interpreter on Windows. The **batch** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
-.. end_tag
+
 
 Syntax
 =====================================================
-.. tag resource_batch_syntax
 
 A **batch** resource block executes a batch script using the cmd.exe interpreter:
 
@@ -55,8 +52,6 @@ where:
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``creates``, ``cwd``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``timeout``, ``user``, ``password`` and ``domain`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
-
 Actions
 =====================================================
 
@@ -74,8 +69,6 @@ The batch resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_batch_properties
-
 The batch resource has the following properties:
 
 ``architecture``
@@ -152,7 +145,7 @@ The batch resource has the following properties:
 
 .. note:: See https://docs.microsoft.com/en-us/windows-server/administration/windows-commands/cmd for more information about the cmd.exe interpreter.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -308,8 +301,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Unzip a file, and then move it**
 
-.. tag resource_batch_unzip_file_and_move
-
 To run a batch file that unzips and then moves Ruby, do something like:
 
 .. code-block:: ruby
@@ -347,7 +338,7 @@ or:
      code 'echo %TEMP%\\necho %SYSTEMDRIVE%\\necho %PATH%\\necho %WINDIR%'
    end
 
-.. end_tag
+
 
 **Run a command as an alternate user**
 

@@ -157,8 +157,6 @@ If you need to troubleshoot any settings, you can verify the value that knife is
 Setting Your Text Editor
 =====================================================
 
-.. tag knife_common_set_editor
-
 Some knife commands, such as ``knife data bag edit``, require that information be edited as JSON data using a text editor. For example, the following command:
 
 .. code-block:: bash
@@ -222,7 +220,7 @@ and for vim:
 
    knife[:editor] = '"C:\Program Files (x86)\vim\vim74\gvim.exe"'
 
-.. end_tag
+
 
 Using Quotes
 -----------------------------------------------------

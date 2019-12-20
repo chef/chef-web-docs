@@ -3,8 +3,6 @@ About Knife
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife.rst>`__
 
-.. tag knife_summary
-
 knife is a command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. knife helps users to manage:
 
 * Nodes
@@ -14,7 +12,7 @@ knife is a command-line tool that provides an interface between a local chef-rep
 * The installation of Chef Infra Client onto nodes
 * Searching of indexed data on the Chef Infra Server
 
-.. end_tag
+
 
 The Knife Quick Reference provides an all-in-one quick reference of knife commands. You can view the `overview <https://github.com/chef/quick-reference/blob/master/qr_knife_web.png>`_ or download the `source files <https://github.com/chef/quick-reference>`_.
 

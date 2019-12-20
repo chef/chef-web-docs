@@ -3,11 +3,9 @@ openbsd_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_openbsd_package.rst>`__
 
-.. tag resource_package_openbsd
-
 Use the **openbsd_package** resource to manage packages for the OpenBSD platform.
 
-.. end_tag
+
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -247,8 +245,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_openbsd_package_install
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -257,4 +253,4 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+

@@ -89,8 +89,6 @@ The following sections discuss these elements (and their various components) in 
 
 Workstations
 =====================================================
-.. tag workstation_summary
-
 A workstation is a computer running Chef Workstation that is used to author cookbooks, interact with the Chef Infra Server, and interact with nodes.
 
 The workstation is where users do most of their work, including:
@@ -101,7 +99,6 @@ The workstation is where users do most of their work, including:
 * Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
-.. end_tag
 
 `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
 
@@ -153,20 +150,15 @@ Some important tools and components of Chef Workstation include:
           :width: 100px
           :align: center
 
-     - .. tag chef_repo_summary
-
-       The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
+     
+     - The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
 
        * Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata
        * The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code
 
-       .. end_tag
-
-       .. tag chef_repo_structure
-
        The directory structure within the chef-repo varies. Some organizations prefer to keep all of their cookbooks in a single chef-repo, while other organizations prefer to use a chef-repo for every cookbook.
 
-       .. end_tag
+       
 
    * - .. image:: ../../images/icon_kitchen.svg
           :width: 100px
@@ -560,8 +552,5 @@ Some important aspects of policy include:
 
 Conclusion
 =====================================================
-.. tag chef_about
-
 Chef is a thin DSL (domain-specific language) built on top of Ruby. This approach allows Chef to provide just enough abstraction to make reasoning about your infrastructure easy. Chef includes a built-in taxonomy of all the basic resources one might configure on a system, plus a defined mechanism to extend that taxonomy using the full power of the Ruby language. Ruby was chosen because it provides the flexibility to use both the simple built-in taxonomy, as well as being able to handle any customization path your organization requires.
 
-.. end_tag

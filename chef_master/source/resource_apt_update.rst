@@ -3,11 +3,9 @@ apt_update resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_update.rst>`__
 
-.. tag resource_apt_update_summary
-
 Use the **apt_update** resource to manage APT repository updates on Debian and Ubuntu platforms.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -30,8 +28,6 @@ where:
 
 Nameless
 =====================================================
-.. tag nameless_apt_update
-
 This resource can be **nameless**. Add the resource itself to your recipe to get the default behavior:
 
 .. code-block:: ruby
@@ -44,7 +40,7 @@ will behave the same as:
 
    apt_update 'update'
 
-.. end_tag
+
 
 Actions
 =====================================================
@@ -229,8 +225,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Update the Apt repository at a specified interval**
 
-.. tag resource_apt_update_periodic
-
 .. To update the Apt repository at a specified interval:
 
 .. code-block:: ruby
@@ -240,11 +234,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :periodic
    end
 
-.. end_tag
+
 
 **Update the Apt repository at the start of a Chef Infra Client run**
-
-.. tag resource_apt_update_at_start_of_client_run
 
 .. To update the Apt repository at the start of a Chef Infra Client run:
 
@@ -252,4 +244,4 @@ The following examples demonstrate various approaches for using resources in rec
 
    apt_update 'update'
 
-.. end_tag
+

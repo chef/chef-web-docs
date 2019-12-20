@@ -3,11 +3,9 @@ reboot resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_reboot.rst>`__
 
-.. tag resource_service_reboot
-
 Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -219,8 +217,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Reboot a node immediately**
 
-.. tag resource_service_reboot_immediately
-
 .. To reboot immediately:
 
 .. code-block:: ruby
@@ -236,11 +232,9 @@ The following examples demonstrate various approaches for using resources in rec
      notifies :reboot_now, 'reboot[now]', :immediately
    end
 
-.. end_tag
+
 
 **Reboot a node at the end of a Chef Infra Client run**
-
-.. tag resource_service_reboot_request
 
 .. To reboot a node at the end of a Chef Infra Client run:
 
@@ -252,11 +246,9 @@ The following examples demonstrate various approaches for using resources in rec
      delay_mins 5
    end
 
-.. end_tag
+
 
 **Cancel a reboot**
-
-.. tag resource_service_reboot_cancel
 
 .. To cancel a reboot request:
 
@@ -267,7 +259,7 @@ The following examples demonstrate various approaches for using resources in rec
      reason 'Cancel a previous end-of-run reboot request.'
    end
 
-.. end_tag
+
 
 **Rename computer, join domain, reboot**
 

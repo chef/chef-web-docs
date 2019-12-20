@@ -3,11 +3,9 @@ file resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_file.rst>`__
 
-.. tag resource_file_summary
-
 Use the **file** resource to manage files directly on a node.
 
-.. end_tag
+
 
 .. note:: Use the **cookbook_file** resource to copy a file from a cookbook's ``/files`` directory. Use the **template** resource to create a file based on a template in a cookbook's ``/templates`` directory. And use the **remote_file** resource to transfer a file to a node from a remote location.
 
@@ -512,8 +510,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create a file**
 
-.. tag resource_file_create
-
 .. To create a file:
 
 .. code-block:: ruby
@@ -525,11 +521,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :create
    end
 
-.. end_tag
+
 
 **Create a file in Microsoft Windows**
-
-.. tag resource_file_create_in_windows
 
 To create a file in Microsoft Windows, be sure to add an escape character---``\``---before the backslashes in the paths:
 
@@ -541,11 +535,9 @@ To create a file in Microsoft Windows, be sure to add an escape character---``\`
      action :create
    end
 
-.. end_tag
+
 
 **Remove a file**
-
-.. tag resource_file_remove
 
 .. To remove a file:
 
@@ -555,11 +547,9 @@ To create a file in Microsoft Windows, be sure to add an escape character---``\`
      action :delete
    end
 
-.. end_tag
+
 
 **Set file modes**
-
-.. tag resource_file_set_file_mode
 
 .. To set a file mode:
 
@@ -569,7 +559,7 @@ To create a file in Microsoft Windows, be sure to add an escape character---``\`
      mode '0755'
    end
 
-.. end_tag
+
 
 **Delete a repository using yum to scrub the cache**
 
@@ -596,8 +586,6 @@ To create a file in Microsoft Windows, be sure to add an escape character---``\`
 
 **Add the value of a data bag item to a file**
 
-.. tag resource_file_content_data_bag
-
 The following example shows how to get the contents of a data bag item named ``impossible_things``, create a .pem file located at ``some/directory/path/``, and then use the ``content`` attribute to update the contents of that file with the value of the ``impossible_things`` data bag item:
 
 .. code-block:: ruby
@@ -611,11 +599,9 @@ The following example shows how to get the contents of a data bag item named ``i
      mode '0755'
    end
 
-.. end_tag
+
 
 **Write a YAML file**
-
-.. tag resource_file_content_yaml_config
 
 The following example shows how to use the ``content`` property to write a YAML file:
 
@@ -628,11 +614,9 @@ The following example shows how to use the ``content`` property to write a YAML 
      content app.to_yaml
    end
 
-.. end_tag
+
 
 **Write a string to a file**
-
-.. tag resource_file_content_add_string
 
 The following example specifies a directory, and then uses the ``content`` property to add a string to the file created in that directory:
 
@@ -647,11 +631,9 @@ The following example specifies a directory, and then uses the ``content`` prope
      content 'My favourite foremost coastal Antarctic shelf, oh Larsen B!'
    end
 
-.. end_tag
+
 
 **Create a file from a copy**
-
-.. tag resource_file_copy
 
 The following example shows how to copy a file from one directory to another, locally on a node:
 
@@ -664,4 +646,4 @@ The following example shows how to copy a file from one directory to another, lo
 
 where the ``content`` attribute uses the Ruby ``IO.read`` method to get the contents of the ``/tmp/1.txt`` file.
 
-.. end_tag
+

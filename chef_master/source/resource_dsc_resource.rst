@@ -15,14 +15,11 @@ Desired State Configuration (DSC) is a feature of Windows PowerShell that provid
 
 .. end_tag
 
-.. tag resource_dsc_resource_summary
-
 The **dsc_resource** resource allows any DSC resource to be used in a Chef recipe, as well as any custom resources that have been added to your Windows PowerShell environment. Microsoft `frequently adds new resources <https://github.com/powershell/DscResources>`_ to the DSC resource collection.
 
-.. end_tag
 
-.. warning:: .. tag resource_dsc_resource_requirements
 
+.. warning::
              Using the **dsc_resource** has the following requirements:
 
              * Windows Management Framework (WMF) 5.0 February Preview (or higher), which includes Windows PowerShell 5.0.10018.0 (or higher).
@@ -38,11 +35,10 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
 
                This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
 
-             .. end_tag
+             
 
 Syntax
 =====================================================
-.. tag resource_dsc_resource_syntax
 
 A **dsc_resource** resource block allows DSC resources to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
 
@@ -87,7 +83,6 @@ where:
 * ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by Chef Infra Client
 * ``module_name``, ``module_version``, ``property``, ``reboot_action``, ``resource``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
 
 Actions
 =====================================================
@@ -107,8 +102,6 @@ The dsc_resource resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_dsc_resource_properties
-
 The dsc_resource resource has the following properties:
 
 ``module_name``
@@ -205,7 +198,7 @@ The dsc_resource resource has the following properties:
 
    The amount of time (in seconds) a command is to wait before timing out.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -362,8 +355,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Open a Zip file**
 
-.. tag resource_dsc_resource_zip_file
-
 .. To use a zip file:
 
 .. code-block:: ruby
@@ -375,11 +366,9 @@ The following examples demonstrate various approaches for using resources in rec
       property :destination, 'C:\Users\Public\Documents\ExtractionPath'
     end
 
-.. end_tag
+
 
 **Manage users and groups**
-
-.. tag resource_dsc_resource_manage_users
 
 .. To manage users and groups
 
@@ -405,7 +394,7 @@ The following examples demonstrate various approaches for using resources in rec
      property :MembersToInclude, ['Foobar1']
    end
 
-.. end_tag
+
 
 **Create and register a windows service**
 
@@ -428,8 +417,6 @@ in case the executable is not at the defined location:
 
 
 **Create a test message queue**
-
-.. tag resource_dsc_resource_manage_msmq
 
 .. To manage a message queue:
 
@@ -468,11 +455,9 @@ The following example creates a file on a node (based on one that is located in 
      property :ReadUsers, node['msmq']['read_user']
    end
 
-.. end_tag
+
 
 **Example to show usage of module properties**
-
-.. tag resource_dsc_resource_module_properties_usage
 
 .. To show usage of module properties:
 
@@ -487,4 +472,4 @@ The following example creates a file on a node (based on one that is located in 
      property :domainadministratorcredential, ps_credential('abcd')
    end
 
-.. end_tag
+

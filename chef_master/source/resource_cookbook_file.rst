@@ -522,8 +522,6 @@ The following properties can be used to define a guard that is evaluated during 
 
 File Specificity
 =====================================================
-.. tag cookbook_file_specificity
-
 A cookbook is frequently designed to work across many platforms and is often required to distribute a specific file to a specific platform. A cookbook can be designed to support the distribution of files across platforms, while ensuring that the correct file ends up on each system.
 
 The pattern for file specificity depends on two things: the lookup path and the source attribute. The first pattern that matches is used:
@@ -594,7 +592,7 @@ If the ``apache2_module_conf_generate.pl`` file was located in the cookbook dire
 
 The naming of folders within cookbook directories must literally match the host notation used for file specificity matching. For example, if a host is named ``foo.example.com``, the folder must be named ``host-foo.example.com``.
 
-.. end_tag
+
 
 Examples
 =====================================================
@@ -602,8 +600,6 @@ Examples
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Transfer a file**
-
-.. tag resource_cookbook_file_transfer_a_file
 
 .. To transfer a file in a cookbook:
 
@@ -613,11 +609,9 @@ The following examples demonstrate various approaches for using resources in rec
      mode '0755'
    end
 
-.. end_tag
+
 
 **Handle cookbook_file and package resources in the same recipe**
-
-.. tag resource_package_handle_cookbook_file_and_package
 
 .. To handle cookbook_file and package when both called in the same recipe
 
@@ -635,7 +629,7 @@ When a **cookbook_file** resource and a **package** resource are both called fro
      flush_cache [ :before ]
    end
 
-.. end_tag
+
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
@@ -668,8 +662,6 @@ The following example shows how to install new Yum repositories from a file, whe
 
 **Use a case statement**
 
-.. tag resource_cookbook_file_use_case_statement
-
 The following example shows how a case statement can be used to handle a situation where an application needs to be installed on multiple platforms, but where the install directories are different paths, depending on the platform:
 
 .. code-block:: ruby
@@ -689,7 +681,7 @@ The following example shows how a case statement can be used to handle a situati
      mode '0755'
    end
 
-.. end_tag
+
 
 **Manage dotfiles**
 

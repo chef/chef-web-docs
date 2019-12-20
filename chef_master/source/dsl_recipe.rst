@@ -1507,9 +1507,7 @@ This method will return ``true`` or ``false``.
 .. end_tag
 
 Helpers
------------------------------------------------------
-.. tag dsl_recipe_helper_windows_platform
-
+----------------------------------------------------
 A recipe can define specific behaviors for specific Microsoft Windows platform versions by using a series of helper methods. To enable these helper methods, add the following to a recipe:
 
 .. code-block:: ruby
@@ -1546,9 +1544,7 @@ And then use this variable to define specific behaviors for specific Microsoft W
 
    end
 
-.. end_tag
 
-.. tag dsl_recipe_helper_windows_platform_helpers
 
 The following Microsoft Windows platform-specific helpers can be used in recipes:
 
@@ -1599,9 +1595,7 @@ The following Microsoft Windows platform-specific helpers can be used in recipes
    * - ``windows_xp?``
      - Use to test for Windows XP.
 
-.. end_tag
 
-.. tag dsl_recipe_helper_windows_platform_summary
 
 The following example installs Windows PowerShell 2.0 on systems that do not already have it installed. Microsoft Windows platform helper methods are used to define specific behaviors for specific platform versions:
 
@@ -1653,7 +1647,7 @@ The following example installs Windows PowerShell 2.0 on systems that do not alr
 
 The previous example is from the `ms_dotnet2 cookbook <https://github.com/juliandunn/ms_dotnet2>`_, created by community member ``juliandunn``.
 
-.. end_tag
+
 
 Log Entries
 -----------------------------------------------------

@@ -3,13 +3,11 @@ bff_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_bff_package.rst>`__
 
-.. tag resource_package_bff
-
 Use the **bff_package** resource to manage packages for the AIX platform using the installp utility. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
 .. note:: A Backup File Format (BFF) package may not have a ``.bff`` file extension. Chef Infra Client will still identify the correct provider to use based on the platform, regardless of the file extension.
 
-.. end_tag
+
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -255,8 +253,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_bff_package_install
-
 .. To install a package:
 
 The **bff_package** resource is the default package provider on the AIX platform. The base **package** resource may be used, and then when the platform is AIX, Chef Infra Client will identify the correct package provider. The following examples show how to install part of the IBM XL C/C++ compiler.
@@ -279,4 +275,4 @@ Using the **bff_package** resource:
      action :install
    end
 
-.. end_tag
+

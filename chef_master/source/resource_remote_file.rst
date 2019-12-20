@@ -3,11 +3,9 @@ remote_file resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_remote_file.rst>`__
 
-.. tag resource_remote_file_summary
-
 Use the **remote_file** resource to transfer a file from a remote location using file specificity. This resource is similar to the **file** resource.
 
-.. end_tag
+
 
 .. note:: Fetching files from the ``files/`` directory in a cookbook should be done with the **cookbook_file** resource.
 
@@ -605,9 +603,7 @@ Because the ``inherits`` property is not specified, Chef Infra Client will defau
 .. end_tag
 
 Prevent Re-downloads
------------------------------------------------------
-.. tag remote_file_prevent_re_downloads
-
+----------------------------------------------------
 To prevent Chef Infra Client from re-downloading files that are already present on a node, use one of the following attributes in a recipe: ``use_conditional_get`` (default) or ``checksum``.
 
 * The ``use_conditional_get`` attribute is the default behavior of Chef Infra Client. If the remote file is located on a server that supports ETag and/or If-Modified-Since headers, Chef Infra Client will use a conditional ``GET`` to determine if the file has been updated. If the file has been updated, Chef Infra Client will re-download the file.
@@ -616,12 +612,10 @@ To prevent Chef Infra Client from re-downloading files that are already present 
 
 The desired approach just depends on the desired workflow. For example, if a node requires a new file every day, using the checksum approach would require that the local checksum be updated and/or verified every day as well, in order to ensure that the local checksum was the correct one. Using a conditional ``GET`` in this scenario will greatly simplify the management required to ensure files are being updated accurately.
 
-.. end_tag
+
 
 Access a remote UNC path on Windows
------------------------------------------------------
-.. tag remote_file_unc_path
-
+----------------------------------------------------
 The ``remote_file`` resource on Windows supports accessing files from a remote SMB/CIFS share. The file name should be specified in the source property as a UNC path e.g. ``\\myserver\myshare\mydirectory\myfile.txt``. This
 allows access to the file at that path location even if the Chef Infra Client process identity does not have permission to access the file. Credentials for authenticating to the remote system can be specified using the ``remote_user``, ``remote_domain``, and ``remote_password`` properties when the user that Chef Infra Client is running does not have access to the remote file. See the "Properties" section for more details on these options.
 
@@ -672,15 +666,13 @@ OR
      remote_password "password"
    end
 
-.. end_tag
+
 
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Transfer a file from a URL**
-
-.. tag resource_remote_file_transfer_from_url
 
 .. To transfer a file from a URL:
 
@@ -692,7 +684,7 @@ The following examples demonstrate various approaches for using resources in rec
      checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
    end
 
-.. end_tag
+
 
 **Transfer a file only when the source has changed**
 
@@ -860,8 +852,6 @@ where a command for installing Python might look something like:
 
 **Specify local Windows file path as a valid URI**
 
-.. tag resource_remote_file_local_windows_path
-
 When specifying a local Microsoft Windows file path as a valid file URI, an additional forward slash (``/``) is required. For example:
 
 .. code-block:: ruby
@@ -870,4 +860,4 @@ When specifying a local Microsoft Windows file path as a valid file URI, an addi
      ...       # other attributes
    end
 
-.. end_tag
+

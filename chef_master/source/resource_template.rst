@@ -15,11 +15,9 @@ A cookbook template is an Embedded Ruby (ERB) template that is used to dynamical
 
           .. end_tag
 
-.. tag resource_template_summary
-
 Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running Chef Infra Client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -569,9 +567,7 @@ This resource would be matched in the same order as the ``/templates`` directory
 .. end_tag
 
 Helpers
------------------------------------------------------
-.. tag template_helpers
-
+----------------------------------------------------
 A helper is a method or a module that can be used to extend a template. There are three approaches:
 
 * An inline helper method
@@ -580,12 +576,10 @@ A helper is a method or a module that can be used to extend a template. There ar
 
 Use the ``helper`` attribute in a recipe to define an inline helper method. Use the ``helpers`` attribute to define an inline helper module or a cookbook library module.
 
-.. end_tag
+
 
 Inline Methods
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_template_inline_method
-
 A template helper method is always defined inline on a per-resource basis. A simple example:
 
 .. code-block:: ruby
@@ -628,12 +622,10 @@ or:
 
    node['app']['log_location'] is: <%= app_conf('log_location') %>
 
-.. end_tag
+
 
 Inline Modules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag resource_template_inline_module
-
 A template helper module can be defined inline on a per-resource basis. This approach can be useful when a template requires more complex information. For example:
 
 .. code-block:: ruby
@@ -658,7 +650,7 @@ A template helper module can be defined inline on a per-resource basis. This app
 
 where the ``hello_world``, ``app``, and ``app_conf(setting)`` methods comprise the module that extends a template.
 
-.. end_tag
+
 
 Library Modules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -941,8 +933,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Configure a file from a template**
 
-.. tag resource_template_configure_file
-
 .. To configure a file from a template:
 
 .. code-block:: ruby
@@ -951,11 +941,9 @@ The following examples demonstrate various approaches for using resources in rec
      source 'config.conf.erb'
    end
 
-.. end_tag
+
 
 **Configure a file from a local template**
-
-.. tag resource_template_configure_file_from_local
 
 .. To configure a file from a local template:
 
@@ -966,11 +954,9 @@ The following examples demonstrate various approaches for using resources in rec
      source '/tmp/config.conf.erb'
    end
 
-.. end_tag
+
 
 **Configure a file using a variable map**
-
-.. tag resource_template_configure_file_with_variable_map
 
 .. To configure a file from a template with a variable map:
 
@@ -983,7 +969,7 @@ The following examples demonstrate various approaches for using resources in rec
      )
    end
 
-.. end_tag
+
 
 **Use the not_if condition**
 
@@ -1091,8 +1077,6 @@ The following example shows how to use the ``only_if`` condition to create a fil
 
 **Use a whitespace array (%w)**
 
-.. tag resource_template_use_whitespace_array
-
 The following example shows how to use a Ruby whitespace array to define a list of configuration tools, and then use that list of tools within the **template** resource to ensure that all of these configuration tools are using the same RSA key:
 
 .. code-block:: ruby
@@ -1106,7 +1090,7 @@ The following example shows how to use a Ruby whitespace array to define a list 
      end
    end
 
-.. end_tag
+
 
 **Use a relative path**
 
@@ -1333,8 +1317,6 @@ where the ``command`` property for the **execute** resource contains the command
 
 **Apply proxy settings consistently across a Chef organization**
 
-.. tag resource_template_consistent_proxy_settings
-
 The following example shows how a template can be used to apply consistent proxy settings for all nodes of the same type:
 
 .. code-block:: ruby
@@ -1357,11 +1339,9 @@ The following example shows how a template can be used to apply consistent proxy
 
 where ``matching_node`` represents a type of node (like Nginx) and ``site_proxy`` represents the type of proxy being used for that type of node (like Nexus).
 
-.. end_tag
+
 
 **Get template settings from a local file**
-
-.. tag resource_template_get_settings_from_local_file
 
 The **template** resource can be used to render a template based on settings contained in a local file on disk or to get the settings from a template in a cookbook. Most of the time, the settings are retrieved from a template in a cookbook. The following example shows how the **template** resource can be used to retrieve these settings from a local file.
 
@@ -1438,11 +1418,9 @@ This example showed how to use the **template** resource to render a template ba
 * How do developers run the application locally?
 * Does this work with chef-solo?
 
-.. end_tag
+
 
 **Pass values from recipe to template**
-
-.. tag resource_template_pass_values_to_template_from_recipe
 
 The following example shows how pass a value to a template using the ``variables`` property in the **template** resource. The template file is similar to:
 
@@ -1471,4 +1449,4 @@ The recipe then uses the ``variables`` attribute to find the values for ``splunk
 
 This example can be found in the ``client.rb`` recipe and the ``outputs.conf.erb`` template files that are located in the `chef-splunk cookbook <https://github.com/chef-cookbooks/chef-splunk/>`_  that is maintained by Chef.
 
-.. end_tag
+

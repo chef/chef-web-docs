@@ -3,13 +3,11 @@ script resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_script.rst>`__
 
-.. tag resource_script_summary
-
 Use the **script** resource to execute scripts using a specified interpreter, such as Bash, csh, Perl, Python, or Ruby. This resource may also use any of the actions and properties that are available to the **execute** resource. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
 .. note:: The **script** resource is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
-.. end_tag
+
 
 This resource is the base resource for several other resources used for scripting on specific platforms. For more information about specific resources for specific platforms, see the following topics:
 
@@ -461,8 +459,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Run a script**
 
-.. tag resource_script_bash_script
-
 .. To run a Bash script:
 
 .. code-block:: ruby
@@ -498,7 +494,7 @@ or something like:
 
 where ``code`` contains the OpenSSL command to be run. The ``not_if`` property tells Chef Infra Client not to run the command if the file already exists.
 
-.. end_tag
+
 
 **Install a file from a remote location using bash**
 

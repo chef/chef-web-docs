@@ -40,12 +40,10 @@ After the initial Chef Infra Client run has completed successfully, the chef-val
 .. end_tag
 
 During a Chef Infra Client Run
------------------------------------------------------
-.. tag chef_auth_authentication_chef_run
-
+----------------------------------------------------
 As part of `every Chef Infra Client run </chef_client.html#the-chef-client-run>`_, Chef Infra Client authenticates to the Chef Infra Server using an RSA private key and the Chef Infra Server API.
 
-.. end_tag
+
 
 authentication_protocol_version
 ----------------------------------------------------
@@ -83,20 +81,16 @@ This is by design and will occur until a verifiable certificate is added to the 
 .. end_tag
 
 ``/.chef/trusted_certs``
------------------------------------------------------
-.. tag chef_repo_directory_trusted_certs
-
+----------------------------------------------------
 The ``/.chef/trusted_certs`` directory stores trusted SSL certificates used to access the Chef Infra Server:
 
 * On each workstation, this directory is the location into which SSL certificates are placed after they are downloaded from the Chef Infra Server using the ``knife ssl fetch`` subcommand
 * On every node, this directory is the location into which SSL certificates are placed when a node has been bootstrapped with Chef Infra Client from a workstation
 
-.. end_tag
+
 
 SSL_CERT_FILE
------------------------------------------------------
-.. tag environment_variables_ssl_cert_file
-
+----------------------------------------------------
 Use the ``SSL_CERT_FILE`` environment variable to specify the location for the SSL certificate authority (CA) bundle that is used by Chef Infra Client.
 
 A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef Infra will look for SSL certificates are:
@@ -106,12 +100,10 @@ A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locatio
 
 Keeping the default behavior is recommended. To use a custom CA bundle, update the environment variable to specify the path to the custom CA bundle. If (for some reason) SSL certificate verification stops working, ensure the correct value is specified for ``SSL_CERT_FILE``.
 
-.. end_tag
+
 
 client.rb Settings
------------------------------------------------------
-.. tag chef_client_ssl_config_settings
-
+----------------------------------------------------
 Use following client.rb settings to manage SSL certificate preferences:
 
 .. list-table::
@@ -140,7 +132,7 @@ Use following client.rb settings to manage SSL certificate preferences:
    * - ``verify_api_cert``
      - Verify the SSL certificate on the Chef Infra Server. When ``true``, Chef Infra Client always verifies the SSL certificate. When ``false``, Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
-.. end_tag
+
 
 Knife Subcommands
 -----------------------------------------------------

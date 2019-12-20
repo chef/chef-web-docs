@@ -3,11 +3,9 @@ ruby_block resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ruby_block.rst>`__
 
-.. tag resource_ruby_block_summary
-
 Use the **ruby_block** resource to execute Ruby code during a Chef Infra Client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -177,8 +175,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Re-read configuration data**
 
-.. tag resource_ruby_block_reread_chef_client
-
 .. To re-read Chef Infra Client configuration during a Chef Infra Client run:
 
 .. code-block:: ruby
@@ -190,7 +186,7 @@ The following examples demonstrate various approaches for using resources in rec
      action :run
    end
 
-.. end_tag
+
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
@@ -279,8 +275,6 @@ The following example shows how to use the **ruby_block** resource to stash a Bi
 
 **Update the /etc/hosts file**
 
-.. tag resource_ruby_block_update_etc_host
-
 The following example shows how the **ruby_block** resource can be used to update the ``/etc/hosts`` file:
 
 .. code-block:: ruby
@@ -297,11 +291,9 @@ The following example shows how the **ruby_block** resource can be used to updat
      end
    end
 
-.. end_tag
+
 
 **Set environment variables**
-
-.. tag resource_ruby_block_use_variables_to_set_env_variables
 
 The following example shows how to use variables within a Ruby block to set environment variables using rbenv.
 
@@ -317,11 +309,9 @@ The following example shows how to use variables within a Ruby block to set envi
      end
    end
 
-.. end_tag
+
 
 **Set JAVA_HOME**
-
-.. tag resource_ruby_block_use_variables_to_set_java_home
 
 The following example shows how to use a variable within a Ruby block to set the ``java_home`` environment variable:
 
@@ -333,7 +323,7 @@ The following example shows how to use a variable within a Ruby block to set the
      end
    end
 
-.. end_tag
+
 
 **Run specific blocks of Ruby code on specific platforms**
 

@@ -3,11 +3,7 @@ registry_key resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_registry_key.rst>`__
 
-.. tag resource_registry_key_summary
-
 Use the **registry_key** resource to create and delete registry keys in Microsoft Windows.
-
-.. end_tag
 
 .. note::
           64-bit versions of Microsoft Windows have a 32-bit compatibility layer in the registry that reflects and redirects certain keys (and their values) into specific locations (or logical views) of the registry hive.
@@ -22,7 +18,6 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 
 Syntax
 =====================================================
-.. tag resource_registry_key_syntax
 
 A **registry_key** resource block creates and deletes registry keys in Microsoft Windows:
 
@@ -72,12 +67,8 @@ where
 * ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``architecture``, ``key``, ``recursive`` and ``values`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
-
 Registry Key Path Separators
------------------------------------------------------
-.. tag windows_registry_key_backslashes
-
+----------------------------------------------------
 A Microsoft Windows registry key can be used as a string in Ruby code, such as when a registry key is used as the name of a recipe. In Ruby, when a registry key is enclosed in a double-quoted string (``" "``), the same backslash character (``\``) that is used to define the registry key path separator is also used in Ruby to define an escape character. Therefore, the registry key path separators must be escaped when they are enclosed in a double-quoted string. For example, the following registry key:
 
 .. code-block:: ruby
@@ -96,7 +87,7 @@ or may be enclosed in a double-quoted string with an extra backslash as an escap
 
    "HKCU\\SOFTWARE\\path\\to\\key\\Themes"
 
-.. end_tag
+
 
 Recipe DSL Methods
 -----------------------------------------------------
@@ -288,8 +279,6 @@ This method will return ``true`` or ``false``.
 
 Actions
 =====================================================
-.. tag resource_registry_key_actions
-
 The registry_key resource has the following actions:
 
 ``:create``
@@ -311,12 +300,8 @@ The registry_key resource has the following actions:
 
    .. end_tag
 
-.. end_tag
-
 Properties
 =====================================================
-.. tag resource_registry_key_properties
-
 The registry_key resource has the following properties:
 
 ``architecture``
@@ -346,15 +331,12 @@ The registry_key resource has the following properties:
 
    .. warning:: ``:multi_string`` must be an array, even if there is only a single string.
 
-.. end_tag
 
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Create a registry key**
-
-.. tag resource_registry_key_create
 
 .. To disable a registry key:
 
@@ -384,11 +366,8 @@ or a single-quoted string:
      action :create
    end
 
-.. end_tag
 
 **Delete a registry key value**
-
-.. tag resource_registry_key_delete_value
 
 .. To delete a registry key:
 
@@ -420,11 +399,8 @@ or a single-quoted string:
 
 .. note:: If ``data:`` is not specified, you get an error: ``Missing data key in RegistryKey values hash``
 
-.. end_tag
 
 **Delete a registry key and its subkeys, recursively**
-
-.. tag resource_registry_key_delete_recursively
 
 .. To delete a registry key and all of its subkeys recursively:
 
@@ -446,17 +422,12 @@ or a single-quoted string:
      action :delete_key
    end
 
-.. end_tag
-
-.. note:: .. tag notes_registry_key_resource_recursive
-
+.. note::
           Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by Chef Infra Client.
 
-          .. end_tag
+          
 
 **Use re-directed keys**
-
-.. tag resource_registry_key_redirect
 
 In 64-bit versions of Microsoft Windows, ``HKEY_LOCAL_MACHINE\SOFTWARE\Example`` is a re-directed key. In the following examples, because ``HKEY_LOCAL_MACHINE\SOFTWARE\Example`` is a 32-bit key, the output will be "Found 32-bit key" if they are run on a version of Microsoft Windows that is 64-bit:
 
@@ -506,11 +477,8 @@ or:
      }
    end
 
-.. end_tag
 
 **Set proxy settings to be the same as those used by Chef Infra Client**
-
-.. tag resource_registry_key_set_proxy_settings_to_same_as_chef_client
 
 .. To set system proxy settings to be the same as used by Chef Infra Client:
 
@@ -540,11 +508,8 @@ or a single-quoted string:
      action :create
    end
 
-.. end_tag
 
 **Set the name of a registry key to "(Default)"**
-
-.. tag resource_registry_key_set_default
 
 .. To set the "(Default)" name of a registry key:
 
@@ -573,5 +538,3 @@ or a single-quoted string:
    end
 
 where ``name: ''`` contains an empty string, which will set the name of the registry key to ``(Default)``.
-
-.. end_tag
