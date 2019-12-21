@@ -32,8 +32,11 @@ The full syntax for all of the properties that are available to the **chocolatey
 
   chocolatey_package 'name' do
     options           String
+    list_options      String
     package_name      String, Array # defaults to 'name' if not specified
-    returns           Integer, Array # default value: [0]
+    user              String
+    password          String
+    returns           Integer, Array # default value: [0, 2]
     source            String
     timeout           String, Integer
     version           String, Array
@@ -45,7 +48,7 @@ where:
 * ``chocolatey_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``options``, ``list_options``, ``package_name``, ``user``, ``password``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -89,21 +92,50 @@ The chocolatey_package resource has the following properties:
 
    One (or more) additional options that are passed to the command.
 
+``list_options``
+   **Ruby Type:** String
+
+   One (or more) additional list options that are passed to the command.
+
+   *New in Chef Infra Client 15.4.*
+
 ``package_name``
    **Ruby Type:** String, Array
 
    The name of the package. Default value: the name of the resource block.
 
+``user``
+   **Ruby Type:** String
+
+   The username to authenticate feeds.
+
+   *New in Chef Infra Client 15.4.*
+
+``password``
+   **Ruby Type:** String
+
+   The password to authenticate to the source.
+
+   *New in Chef Infra Client 15.4.*
+
 ``returns``
-   **Ruby Type:** Integer, Array | **Default Value:** ``[0]``
+   **Ruby Type:** Integer, Array | **Default Value:** ``[0, 2]``
 
    The exit code(s) returned a chocolatey package that indicate success.
+
+   0: operation was successful, no issues detected
+
+   2: no results (enhanced)
+
+   NOTE: Starting in v0.10.12, if you have the feature 'useEnhancedExitCodes' turned on, then choco will provide enhanced exit codes that allow better integration and scripting.
 
    The syntax for ``returns`` is:
 
    .. code-block:: ruby
 
-      returns [0, 1605, 1614, 1641]
+      returns [0, 2, 1605, 1614, 1641]
+
+   *Updated in Chef Infra Client 15.4.*
 
 ``source``
    **Ruby Type:** String
