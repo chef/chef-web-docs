@@ -11,7 +11,9 @@ Use the **link** resource to create symbolic or hard links.
 
 A symbolic link---sometimes referred to as a soft link---is a directory entry that associates a file name with a string that contains an absolute or relative path to a file on any file system. In other words, "a file that contains a path that points to another file." A symbolic link creates a new file with a new inode that points to the inode location of the original file.
 
-A hard link is a directory entry that associates a file with another file in the same file system. In other words, "multiple directory entries to the same file." A hard link creates a new file that points to the same inode as the original file.
+A hard link is a directory entry that associates a file with another file in the same file system. In other words, "multiple directory entries to the same file." A hard link creates a new file that points to the same inode as the original file.\
+
+On Windows, this resource can be used to create directory junction/reparse points.
 
 Syntax
 =====================================================
@@ -84,7 +86,7 @@ The link resource has the following properties:
 ``link_type``
    **Ruby Type:** String, Symbol | **Default Value:** ``:symbolic``
 
-   The type of link: ``:symbolic`` or ``:hard``.
+   The type of link: ``:symbolic`` or ``:hard``. On Windows, ``:symbolic`` will create a junction point if the target is a directory.
 
 ``mode``
    **Ruby Type:** Integer, String | **Default Value:** ``777``
@@ -358,5 +360,22 @@ The following example shows installing a filter module on Apache. The package na
    ...
 
 For the entire recipe, see https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb.
+
+.. end_tag
+
+**Create Windows junction/reparse points**
+
+.. tag resource_link_windows_junctions
+
+This example demonstrates how to create a directory junction/reparse point. In this example, ``C:\destination`` will be a junction/reparse point to the ``C:\source`` directory.
+
+.. code-block:: ruby
+
+    directory 'C:/source'
+
+    link 'C:/destination' do
+        link_type :symbolic
+        to 'C:/source'
+    end
 
 .. end_tag
