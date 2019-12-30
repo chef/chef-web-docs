@@ -3,11 +3,9 @@ directory resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_directory.rst>`__
 
-.. tag resource_directory_summary
-
 Use the **directory** resource to manage a directory, which is a hierarchy of folders that comprises all of the information stored on a computer. The root directory is the top-level, under which the rest of the directory is organized. The **directory** resource uses the ``name`` property to specify the path to a location in a directory. Typically, permission to access that location in the directory is required.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -442,8 +440,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create a directory**
 
-.. tag resource_directory_create
-
 .. To create a directory:
 
 .. code-block:: ruby
@@ -455,11 +451,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :create
    end
 
-.. end_tag
+
 
 **Create a directory in Microsoft Windows**
-
-.. tag resource_directory_create_in_windows
 
 .. To create a directory in Microsoft Windows:
 
@@ -483,11 +477,9 @@ or:
 
 .. note:: The difference between the two previous examples is the single- versus double-quoted strings, where if the double quotes are used, the backslash character (``\``) must be escaped using the Ruby escape character (which is a backslash).
 
-.. end_tag
+
 
 **Create a directory recursively**
-
-.. tag resource_directory_create_recursively
 
 .. To create a directory recursively:
 
@@ -503,11 +495,9 @@ or:
      end
    end
 
-.. end_tag
+
 
 **Delete a directory**
-
-.. tag resource_directory_delete
 
 .. To delete a directory:
 
@@ -518,11 +508,9 @@ or:
      action :delete
    end
 
-.. end_tag
+
 
 **Set directory permissions using a variable**
-
-.. tag resource_directory_set_permissions_with_variable
 
 The following example shows how read/write/execute permissions can be set using a variable named ``user_home``, and then for owners and groups on any matching node:
 
@@ -550,11 +538,9 @@ where ``matching_node`` represents a type of node. For example, if the ``user_ho
      action :create
    end
 
-.. end_tag
+
 
 **Set directory permissions for a specific type of node**
-
-.. tag resource_directory_set_permissions_for_specific_node
 
 The following example shows how permissions can be set for the ``/certificates`` directory on any node that is running Nginx. In this example, permissions are being set for the ``owner`` and ``group`` properties as ``root``, and then read/write permissions are granted to the root.
 
@@ -567,7 +553,7 @@ The following example shows how permissions can be set for the ``/certificates``
      recursive true
    end
 
-.. end_tag
+
 
 **Reload the configuration**
 

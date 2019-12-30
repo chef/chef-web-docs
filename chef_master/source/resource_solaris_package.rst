@@ -249,8 +249,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_solaris_package_install
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -260,4 +258,4 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+

@@ -3,11 +3,9 @@ remote_directory resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_remote_directory.rst>`__
 
-.. tag resource_remote_directory_summary
-
 Use the **remote_directory** resource to incrementally transfer a directory from a cookbook to a node. The directory that is copied from the cookbook should be located under ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``. The **remote_directory** resource will obey file specificity.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -320,7 +318,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Recursive Directories
------------------------------------------------------
+----------------------------------------------------
 .. tag remote_directory_recursive_directories
 
 The **remote_directory** resource can be used to recursively create the path outside of remote directory structures, but the permissions of those outside paths are not managed. This is because the ``recursive`` attribute only applies ``group``, ``mode``, and ``owner`` attribute values to the remote directory itself and any inner directories the resource copies.
@@ -600,8 +598,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Recursively transfer a directory from a remote location**
 
-.. tag resource_remote_directory_recursive_transfer
-
 .. To recursively transfer a directory from a remote location:
 
 .. code-block:: ruby
@@ -619,11 +615,9 @@ The following examples demonstrate various approaches for using resources in rec
      mode '0755'
    end
 
-.. end_tag
+
 
 **Use with the chef_handler resource**
-
-.. tag resource_remote_directory_report_handler
 
 The following example shows how to use the **remote_directory** resource and the **chef_handler** resource to reboot a handler named ``WindowsRebootHandler``:
 
@@ -646,4 +640,4 @@ The following example shows how to use the **remote_directory** resource and the
      action :enable
    end
 
-.. end_tag
+

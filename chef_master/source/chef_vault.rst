@@ -544,8 +544,6 @@ Global Options
 
 Options for knife bootstrap
 =====================================================
-.. tag chef_vault_knife_bootstrap_options
-
 Use the following options with a validatorless bootstrap to specify items that are stored in ``chef-vault``:
 
 ``--bootstrap-vault-file VAULT_FILE``
@@ -557,7 +555,7 @@ Use the following options with a validatorless bootstrap to specify items that a
 ``--bootstrap-vault-json VAULT_JSON``
   A JSON string that contains a list of vaults and items to be updated.  --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
 
-.. end_tag
+
 
 Using ``chef-vault`` in recipes
 -----------------------------------------------

@@ -26,15 +26,13 @@ Use the ``knife bootstrap`` subcommand to run a bootstrap operation that install
 
 Syntax
 =====================================================
-.. tag knife_bootstrap_syntax
-
 This subcommand has the following syntax:
 
 .. code-block:: bash
 
    $ knife bootstrap FQDN_or_IP_ADDRESS (options)
 
-.. end_tag
+
 
 Options
 =====================================================
@@ -43,8 +41,6 @@ Options
           Review the list of `common options </knife_options.html>`__ available to this (and all) knife subcommands and plugins.
 
           .. end_tag
-
-.. tag knife_bootstrap_options
 
 General Connection Options
 -----------------------------------------------------
@@ -232,7 +228,7 @@ Debug Options
 ``-V -V -V``
    Run the initial Chef Infra Client run at the ``trace`` log-level (e.g. ``chef-client -l trace``).
 
-.. end_tag
+
 
 .. note:: .. tag knife_common_see_all_config_options
 

@@ -603,8 +603,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Transfer a file**
 
-.. tag resource_cookbook_file_transfer_a_file
-
 .. To transfer a file in a cookbook:
 
 .. code-block:: ruby
@@ -613,11 +611,9 @@ The following examples demonstrate various approaches for using resources in rec
      mode '0755'
    end
 
-.. end_tag
+
 
 **Handle cookbook_file and package resources in the same recipe**
-
-.. tag resource_package_handle_cookbook_file_and_package
 
 .. To handle cookbook_file and package when both called in the same recipe
 
@@ -635,7 +631,7 @@ When a **cookbook_file** resource and a **package** resource are both called fro
      flush_cache [ :before ]
    end
 
-.. end_tag
+
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
@@ -668,8 +664,6 @@ The following example shows how to install new Yum repositories from a file, whe
 
 **Use a case statement**
 
-.. tag resource_cookbook_file_use_case_statement
-
 The following example shows how a case statement can be used to handle a situation where an application needs to be installed on multiple platforms, but where the install directories are different paths, depending on the platform:
 
 .. code-block:: ruby
@@ -689,7 +683,7 @@ The following example shows how a case statement can be used to handle a situati
      mode '0755'
    end
 
-.. end_tag
+
 
 **Manage dotfiles**
 

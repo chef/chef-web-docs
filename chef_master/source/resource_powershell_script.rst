@@ -3,19 +3,16 @@ powershell_script resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_script.rst>`__
 
-.. tag resource_powershell_script_summary
-
 Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the **script** and **script**-based resources---**bash**, **csh**, **perl**, **python**, and **ruby**---are used. The **powershell_script** is specific to the Microsoft Windows platform and the Windows PowerShell interpreter.
 
 The **powershell_script** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
-.. end_tag
+
 
 Changed in 12.19 to support windows alternate user identity in execute resources
 
 Syntax
 =====================================================
-.. tag resource_powershell_script_syntax
 
 A **powershell_script** resource block executes a batch script using the Windows PowerShell interpreter. For example, writing to an interpolated path:
 
@@ -62,12 +59,8 @@ where:
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
-
 Actions
 =====================================================
-.. tag resource_powershell_script_actions
-
 The powershell_script resource has the following actions:
 
 ``:nothing``
@@ -76,12 +69,10 @@ The powershell_script resource has the following actions:
 ``:run``
    Default. Run the script.
 
-.. end_tag
+
 
 Properties
 =====================================================
-.. tag resource_powershell_script_properties
-
 The powershell_script resource has the following properties:
 
 ``architecture``
@@ -194,7 +185,7 @@ The powershell_script resource has the following properties:
 
     Because this requires a login, the ``user`` and ``password`` properties are required.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -350,8 +341,6 @@ The following examples demonstrate different approaches for using resources in r
 
 **Write to an interpolated path**
 
-.. tag resource_powershell_write_to_interpolated_path
-
 .. To write out to an interpolated path:
 
 .. code-block:: ruby
@@ -364,11 +353,9 @@ The following examples demonstrate different approaches for using resources in r
      EOH
    end
 
-.. end_tag
+
 
 **Change the working directory**
-
-.. tag resource_powershell_cwd
 
 .. To use the change working directory (``cwd``) attribute:
 
@@ -388,11 +375,9 @@ The following examples demonstrate different approaches for using resources in r
      EOH
    end
 
-.. end_tag
+
 
 **Change the working directory in Microsoft Windows**
-
-.. tag resource_powershell_cwd_microsoft_env
 
 .. To change the working directory to a Microsoft Windows environment variable:
 
@@ -407,11 +392,9 @@ The following examples demonstrate different approaches for using resources in r
      EOH
    end
 
-.. end_tag
+
 
 **Pass an environment variable to a script**
-
-.. tag resource_powershell_pass_env_to_script
 
 .. To pass a Microsoft Windows environment variable to a script:
 
@@ -427,11 +410,9 @@ The following examples demonstrate different approaches for using resources in r
      EOH
    end
 
-.. end_tag
+
 
 **Evaluate for true and/or false**
-
-.. tag resource_powershell_convert_boolean_return
 
 .. To return ``0`` for true, ``1`` for false:
 
@@ -460,11 +441,9 @@ whereas the following will raise an exception:
      code '$false'
    end
 
-.. end_tag
+
 
 **Use the flags attribute**
-
-.. tag resource_powershell_script_use_flag
 
 .. To use the flags attribute:
 
@@ -480,7 +459,7 @@ whereas the following will raise an exception:
      not_if '(Get-WindowsFeature -Name Web-Server).Installed'
    end
 
-.. end_tag
+
 
 **Rename computer, join domain, reboot**
 

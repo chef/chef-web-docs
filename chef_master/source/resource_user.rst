@@ -3,13 +3,11 @@ user resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_user.rst>`__
 
-.. tag resource_user_summary
-
 Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
 .. note:: System attributes are collected by Ohai at the start of every Chef Infra Client run. By design, the actions available to the **user** resource are processed **after** the start of a Chef Infra Client run. This means that system attributes added or modified by the **user** resource during a Chef Infra Client run must be reloaded before they can be available to Chef Infra Client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) Chef Infra Client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current Chef Infra Client run.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -331,8 +329,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create a user named "random"**
 
-.. tag resource_user_create_random
-
 .. To create a user named "random":
 
 .. code-block:: ruby
@@ -347,11 +343,9 @@ The following examples demonstrate various approaches for using resources in rec
      password '$1$JJsvHslV$szsCjVEroftprNn4JHtDi'
    end
 
-.. end_tag
+
 
 **Create a system user**
-
-.. tag resource_user_create_system
 
 .. To create a system user:
 
@@ -363,11 +357,9 @@ The following examples demonstrate various approaches for using resources in rec
      shell '/bin/false'
    end
 
-.. end_tag
+
 
 **Create a system user with a variable**
-
-.. tag resource_user_create_system_user_with_variable
 
 The following example shows how to create a system user. In this instance, the ``home`` value is calculated and stored in a variable called ``user_home`` which sets the user's ``home`` attribute.
 
@@ -383,11 +375,9 @@ The following example shows how to create a system user. In this instance, the `
      action :create
    end
 
-.. end_tag
+
 
 **Use SALTED-SHA512-PBKDF2 passwords**
-
-.. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
 
 macOS 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for macOS 10.8 (and higher):
 
@@ -416,4 +406,4 @@ Use the calculated password shadow hash with the **user** resource:
      iterations 25000
    end
 
-.. end_tag
+

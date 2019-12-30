@@ -3,13 +3,9 @@ package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_package.rst>`__
 
-.. tag resource_package_summary
-
 Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems, dpkg, or RPM Package Manager), the file must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-.. end_tag
 
-.. tag package_resource
 
 This resource is the base resource for several other resources used for package management on specific platforms. While it is possible to use each of these specific resources, it is recommended to use the **package** resource as often as possible.
 
@@ -41,7 +37,7 @@ For more information about specific resources for specific platforms, see the fo
 * `yum_package </resource_yum_package.html>`__
 * `zypper_package </resource_zypper_package.html>`__
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -510,8 +506,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a gems file for use in recipes**
 
-.. tag resource_package_install_gems_for_chef_recipe
-
 .. To install a gem only for use in recipes:
 
 .. code-block:: ruby
@@ -522,7 +516,7 @@ The following examples demonstrate various approaches for using resources in rec
 
    require 'right_aws'
 
-.. end_tag
+
 
 **Install a gems file from the local file system**
 
@@ -541,8 +535,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_package_install
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -551,11 +543,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+
 
 **Install a package version**
-
-.. tag resource_package_install_version
 
 .. To install a specific package version:
 
@@ -566,11 +556,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+
 
 **Install a package with options**
-
-.. tag resource_package_install_with_options
 
 .. To install a package with options:
 
@@ -581,11 +569,9 @@ The following examples demonstrate various approaches for using resources in rec
      options '--force-yes'
    end
 
-.. end_tag
+
 
 **Install a package with a response_file**
-
-.. tag resource_package_install_with_response_file
 
 Use of a ``response_file`` is only supported on Debian and Ubuntu at this time. Custom resources must be written to support the use of a ``response_file``, which contains debconf answers to questions normally asked by the package manager on installation. Put the file in ``/files/default`` of the cookbook where the package is specified and Chef Infra Client will use the **cookbook_file** resource to retrieve it.
 
@@ -597,11 +583,9 @@ To install a package with a ``response_file``:
      response_file 'java.seed'
    end
 
-.. end_tag
+
 
 **Install a specified architecture using a named provider**
-
-.. tag resource_package_install_with_yum
 
 .. To install a Yum package with a specified architecture:
 
@@ -611,11 +595,9 @@ To install a package with a ``response_file``:
      arch 'i386'
    end
 
-.. end_tag
+
 
 **Purge a package**
-
-.. tag resource_package_purge
 
 .. To purge a package:
 
@@ -625,11 +607,9 @@ To install a package with a ``response_file``:
      action :purge
    end
 
-.. end_tag
+
 
 **Remove a package**
-
-.. tag resource_package_remove
 
 .. To remove a package:
 
@@ -639,11 +619,9 @@ To install a package with a ``response_file``:
      action :remove
    end
 
-.. end_tag
+
 
 **Upgrade a package**
-
-.. tag resource_package_upgrade
 
 .. To upgrade a package
 
@@ -653,7 +631,7 @@ To install a package with a ``response_file``:
      action :upgrade
    end
 
-.. end_tag
+
 
 **Use the ignore_failure common attribute**
 
@@ -671,8 +649,6 @@ To install a package with a ``response_file``:
 .. end_tag
 
 **Avoid unnecessary string interpolation**
-
-.. tag resource_package_avoid_unnecessary_string_interpolation
 
 .. To avoid unnecessary string interpolation
 
@@ -694,11 +670,9 @@ and not this:
      action :install
    end
 
-.. end_tag
+
 
 **Install a package in a platform**
-
-.. tag resource_package_install_package_on_platform
 
 The following example shows how to use the **package** resource to install an application named ``app`` and ensure that the correct packages are installed for the correct platform:
 
@@ -719,11 +693,9 @@ The following example shows how to use the **package** resource to install an ap
      end
    end
 
-.. end_tag
+
 
 **Install sudo, then configure /etc/sudoers/ file**
-
-.. tag resource_package_install_sudo_configure_etc_sudoers
 
 The following example shows how to install sudo and then configure the ``/etc/sudoers`` file:
 
@@ -771,11 +743,9 @@ where
 * the **template** resource tells Chef Infra Client where to find the ``sudoers`` template
 * the ``variables`` property is a hash that passes values to template files (that are located in the ``templates/`` directory for the cookbook
 
-.. end_tag
+
 
 **Use a case statement to specify the platform**
-
-.. tag resource_package_use_case_statement
 
 The following example shows how to use a case statement to tell Chef Infra Client which platforms and packages to install using cURL.
 
@@ -811,11 +781,9 @@ where ``node[:platform]`` for each node is identified by Ohai during every Chef 
      end
    end
 
-.. end_tag
+
 
 **Use symbols to reference attributes**
-
-.. tag resource_package_use_symbols_to_reference_attributes
 
 .. To use symbols to reference attributes
 
@@ -837,11 +805,9 @@ instead of strings:
      action :install
    end
 
-.. end_tag
+
 
 **Use a whitespace array to simplify a recipe**
-
-.. tag resource_package_use_whitespace_array
 
 The following examples show different ways of doing the same thing. The first shows a series of packages that will be upgraded:
 
@@ -871,7 +837,7 @@ and the next uses a single **package** resource and a whitespace array (``%w``):
      action :upgrade
    end
 
-.. end_tag
+
 
 **Specify the Homebrew user with a UUID**
 

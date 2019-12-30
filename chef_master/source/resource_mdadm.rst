@@ -245,8 +245,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create and assemble a RAID 0 array**
 
-.. tag resource_mdadm_raid0
-
 The mdadm command can be used to create RAID arrays. For example, a RAID 0 array named ``/dev/md0`` with 10 devices would have a command similar to the following:
 
 .. code-block:: bash
@@ -265,11 +263,9 @@ where ``/dev/s01 .. /dev/s10`` represents 10 devices (01, 02, 03, and so on). Th
 
 (again, where ``/dev/s01 .. /dev/s10`` represents devices /dev/s01, /dev/s02, /dev/s03, and so on).
 
-.. end_tag
+
 
 **Create and assemble a RAID 1 array**
-
-.. tag resource_mdadm_raid1
 
 .. To create and assemble a RAID 1 array from two disks with a 64k chunk size:
 
@@ -281,11 +277,9 @@ where ``/dev/s01 .. /dev/s10`` represents 10 devices (01, 02, 03, and so on). Th
      action [ :create, :assemble ]
    end
 
-.. end_tag
+
 
 **Create and assemble a RAID 5 array**
-
-.. tag resource_mdadm_raid5
 
 The mdadm command can be used to create RAID arrays. For example, a RAID 5 array named ``/dev/sd0`` with 4, and a superblock type of ``0.90`` would be similar to:
 
@@ -299,4 +293,4 @@ The mdadm command can be used to create RAID arrays. For example, a RAID 5 array
      action :create
    end
 
-.. end_tag
+

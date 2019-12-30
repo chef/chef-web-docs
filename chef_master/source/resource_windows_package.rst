@@ -3,16 +3,12 @@ windows_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_package.rst>`__
 
-.. tag resource_package_windows
-
 Use the **windows_package** resource to manage Microsoft Installer Package (MSI) packages for the Microsoft Windows platform.
 
-.. end_tag
+
 
 Syntax
 =====================================================
-.. tag resource_package_windows_syntax
-
 A **windows_package** resource block manages a package on a node, typically by installing it. The simplest use of the **windows_package** resource is:
 
 .. code-block:: ruby
@@ -45,7 +41,7 @@ where:
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
@@ -67,8 +63,6 @@ The windows_package resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_package_windows_properties
-
 The windows_package resource has the following properties:
 
 ``checksum``
@@ -126,7 +120,7 @@ The windows_package resource has the following properties:
 
    The version of a package to be installed or upgraded.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -283,8 +277,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_windows_package_install
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -294,11 +286,9 @@ The following examples demonstrate various approaches for using resources in rec
      source 'C:\7z920.msi'
    end
 
-.. end_tag
+
 
 **Specify a URL for the source attribute**
-
-.. tag resource_package_windows_source_url
 
 .. To install a package using a URL for the source:
 
@@ -308,11 +298,9 @@ The following examples demonstrate various approaches for using resources in rec
      source 'http://www.7-zip.org/a/7z938-x64.msi'
    end
 
-.. end_tag
+
 
 **Specify path and checksum**
-
-.. tag resource_package_windows_source_url_checksum
 
 .. To install a package using a URL for the source and specifying a checksum:
 
@@ -323,11 +311,9 @@ The following examples demonstrate various approaches for using resources in rec
      checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'
    end
 
-.. end_tag
+
 
 **Modify remote_file resource attributes**
-
-.. tag resource_package_windows_source_remote_file_properties
 
 The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifies the properties of the `remote_file resource </resource_remote_file.html>`__.
 
@@ -343,11 +329,9 @@ For example:
      })
    end
 
-.. end_tag
+
 
 **Download a nsis (Nullsoft) package resource**
-
-.. tag resource_package_windows_download_nsis_package
 
 .. To download a nsis (Nullsoft) package resource:
 
@@ -358,11 +342,9 @@ For example:
      checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'
    end
 
-.. end_tag
+
 
 **Download a custom package**
-
-.. tag resource_package_windows_download_custom_package
 
 .. To download a custom package:
 
@@ -374,4 +356,4 @@ For example:
      options '/Q'
    end
 
-.. end_tag
+

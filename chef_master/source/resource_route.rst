@@ -3,11 +3,9 @@ route resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_route.rst>`__
 
-.. tag resource_route_summary
-
 Use the **route** resource to manage the system routing table in a Linux environment.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -255,8 +253,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Add a host route**
 
-.. tag resource_route_add_host
-
 .. To add a host route:
 
 .. code-block:: ruby
@@ -266,7 +262,7 @@ The following examples demonstrate various approaches for using resources in rec
      device 'eth1'
    end
 
-.. end_tag
+
 
 **Add a default route**
 
@@ -282,8 +278,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Delete a network route**
 
-.. tag resource_route_delete_network
-
 .. To delete a network route:
 
 .. code-block:: ruby
@@ -293,4 +287,4 @@ The following examples demonstrate various approaches for using resources in rec
      action :delete
    end
 
-.. end_tag
+

@@ -3,11 +3,9 @@ group resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_group.rst>`__
 
-.. tag resource_group_summary
-
 Use the **group** resource to manage a local group.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -260,8 +258,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Append users to groups**
 
-.. tag resource_group_append_user
-
 .. To append a user to an existing group:
 
 .. code-block:: ruby
@@ -272,11 +268,9 @@ The following examples demonstrate various approaches for using resources in rec
      append true
    end
 
-.. end_tag
+
 
 **Add a user to group on the Windows platform**
-
-.. tag resource_group_add_user_on_windows
 
 .. To add a group on the Windows platform:
 
@@ -288,4 +282,4 @@ The following examples demonstrate various approaches for using resources in rec
      action :modify
    end
 
-.. end_tag
+

@@ -189,19 +189,15 @@ Examples
 
 **Run chef-solo using solo.rb settings**
 
-.. tag ctl_chef_solo_use_solo_rb
-
 .. To use solo.rb settings:
 
 .. code-block:: bash
 
    $ chef-solo -c ~/chef/solo.rb
 
-.. end_tag
+
 
 **Use a URL**
-
-.. tag ctl_chef_solo_use_url
 
 .. To use a URL:
 
@@ -211,11 +207,9 @@ Examples
 
 The tar.gz is archived into the ``file_cache_path``, and then extracted to ``cookbooks_path``.
 
-.. end_tag
+
 
 **Use a directory**
-
-.. tag ctl_chef_solo_use_directory
 
 .. To use a directory:
 
@@ -225,11 +219,9 @@ The tar.gz is archived into the ``file_cache_path``, and then extracted to ``coo
 
 chef-solo will look in the solo.rb file to determine the directory in which cookbooks are located.
 
-.. end_tag
+
 
 **Use a URL for cookbook and JSON data**
-
-.. tag ctl_chef_solo_url_for_cookbook_and_json
 
 .. To use a URL for cookbook and JSON data:
 
@@ -239,4 +231,4 @@ chef-solo will look in the solo.rb file to determine the directory in which cook
 
 where ``--recipe-url`` corresponds to ``recipe_url`` and ``-j`` corresponds to ``json_attribs``, both of which are `configuration options </config_rb_solo.html>`__ in ``solo.rb``.
 
-.. end_tag
+

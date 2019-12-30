@@ -3,11 +3,9 @@ git resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_git.rst>`__
 
-.. tag resource_scm_git
-
 Use the **git** resource to manage source control resources that exist in a git repository. git version 1.6.5 (or higher) is required to use all of the functionality in the **git** resource.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -314,8 +312,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Use the git mirror**
 
-.. tag resource_scm_use_git_mirror
-
 .. To use the git mirror:
 
 .. code-block:: ruby
@@ -326,11 +322,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :sync
    end
 
-.. end_tag
+
 
 **Use different branches**
-
-.. tag resource_scm_use_different_branches
 
 To use different branches, depending on the environment of the node:
 
@@ -356,7 +350,7 @@ where the ``branch_name`` variable is set to ``staging`` or ``master``, dependin
 
    $ sudo chef-client -l debug
 
-.. end_tag
+
 
 **Install an application from git using bash**
 
@@ -388,8 +382,6 @@ To read more about ``ruby-build``, see here: https://github.com/sstephenson/ruby
 
 **Upgrade packages from git**
 
-.. tag resource_scm_upgrade_packages
-
 The following example uses the **git** resource to upgrade packages:
 
 .. code-block:: ruby
@@ -405,11 +397,9 @@ The following example uses the **git** resource to upgrade packages:
      notifies :run, 'bash[compile_libvpx]', :immediately
    end
 
-.. end_tag
+
 
 **Pass in environment variables**
-
-.. tag resource_scm_git_environment_variables
 
 .. To pass in environment variables:
 
@@ -422,4 +412,4 @@ The following example uses the **git** resource to upgrade packages:
      action :sync
    end
 
-.. end_tag
+

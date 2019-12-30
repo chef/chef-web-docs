@@ -3,11 +3,9 @@ http_request resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_http_request.rst>`__
 
-.. tag resource_http_request_summary
-
 Use the **http_request** resource to send an HTTP request (``GET``, ``PUT``, ``POST``, ``DELETE``, ``HEAD``, or ``OPTIONS``) with an arbitrary message. This resource is often useful when custom callbacks are necessary.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -244,8 +242,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Send a GET request**
 
-.. tag resource_http_request_send_get
-
 .. To send a GET request:
 
 .. code-block:: ruby
@@ -256,11 +252,9 @@ The following examples demonstrate various approaches for using resources in rec
 
 The message is sent as ``http://example.com/check_in?message=some_message``.
 
-.. end_tag
+
 
 **Send a POST request**
-
-.. tag resource_http_request_send_post
 
 To send a ``POST`` request as JSON data, convert the message to JSON and include the correct content-type header. For example:
 
@@ -276,7 +270,7 @@ To send a ``POST`` request as JSON data, convert the message to JSON and include
      })
    end
 
-.. end_tag
+
 
 **Transfer a file only when the remote source changes**
 

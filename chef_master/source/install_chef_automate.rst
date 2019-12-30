@@ -360,11 +360,10 @@ The following steps show how to set up a runner from a Chef Automate server. Whi
 
    For more ``install-runner`` usage examples, see `install-runner </ctl_automate_server.html#install-runner>`__, and for more information on runners and the SSH-based job dispatch system, see `Runners </runners.html>`_.
 
-   .. tag chef_automate_build_nodes
-
+  
    .. note:: Legacy build nodes created by ``delivery-cluster`` can be used with a Chef Automate server.  Some node visibility features are designed to only work with new build nodes and runners installed through the command line process, but the workflow feature in Chef Automate can use legacy, new, or mixed node pools; however, you cannot upgrade a legacy build node to the new build node or runner models.  If you would like to use new build nodes/runners, please use fresh hosts or completely wipe your legacy build nodes before attempting to run ``automate-ctl install-build-node`` or ``automate-ctl install-runner``.
 
-   .. end_tag
+   
 
    Depending on whether you created runners or build nodes, you can view the logs at either ``/var/log/delivery-ctl/runner-install_$RUNNER_FDQN.log`` or ``/var/log/delivery-ctl/build-node-install_$BUILD_NODE_FDQN.log``.
 

@@ -15,11 +15,9 @@ Desired State Configuration (DSC) is a feature of Windows PowerShell that provid
 
 .. end_tag
 
-.. tag resource_dsc_script_summary
-
 Many DSC resources are comparable to built-in Chef resources. For example, both DSC and Chef have **file**, **package**, and **service** resources. The **dsc_script** resource is most useful for those DSC resources that do not have a direct comparison to a resource in Chef, such as the ``Archive`` resource, a custom DSC resource, an existing DSC script that performs an important task, and so on. Use the **dsc_script** resource to embed the code that defines a DSC configuration directly within a Chef recipe.
 
-.. end_tag
+
 
 .. note:: Windows PowerShell 4.0 is required for using the **dsc_script** resource with Chef.
 
@@ -29,7 +27,6 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 
 Syntax
 =====================================================
-.. tag resource_dsc_script_syntax
 
 A **dsc_script** resource block embeds the code that defines a DSC configuration directly within a Chef recipe:
 
@@ -73,8 +70,6 @@ where:
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``code``, ``command``, ``configuration_data``, ``configuration_data_script``, ``configuration_name``, ``cwd``, ``environment``, ``flags``, ``imports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
-
 Actions
 =====================================================
 The dsc_script resource has the following actions:
@@ -92,8 +87,6 @@ The dsc_script resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_dsc_script_properties
-
 The dsc_script resource has the following properties:
 
 ``code``
@@ -172,7 +165,7 @@ The dsc_script resource has the following properties:
 
    The amount of time (in seconds) a command is to wait before timing out.
 
-.. end_tag
+
 
 ps_credential Helper
 ----------------------------------------------------
@@ -359,8 +352,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Specify DSC code directly**
 
-.. tag resource_dsc_script_code
-
 DSC data can be specified directly in a recipe:
 
 .. code-block:: ruby
@@ -375,11 +366,9 @@ DSC data can be specified directly in a recipe:
      EOH
    end
 
-.. end_tag
+
 
 **Specify DSC code using a Windows PowerShell data file**
-
-.. tag resource_dsc_script_command
 
 Use the ``command`` property to specify the path to a Windows PowerShell data file. For example, the following Windows PowerShell script defines the ``DefaultEditor``:
 
@@ -402,11 +391,9 @@ Use the following recipe to specify the location of that data file:
      command 'c:\dsc_scripts\emacs.ps1'
    end
 
-.. end_tag
+
 
 **Pass parameters to DSC configurations**
-
-.. tag resource_dsc_script_flags
 
 If a DSC script contains configuration data that takes parameters, those parameters may be passed using the ``flags`` property. For example, the following Windows PowerShell script takes parameters for the ``EditorChoice`` and ``EditorFlags`` settings:
 
@@ -437,11 +424,9 @@ Use the following recipe to set those parameters:
      command 'c:\dsc_scripts\editors.ps1'
    end
 
-.. end_tag
+
 
 **Use custom configuration data**
-
-.. tag resource_dsc_script_custom_config_data
 
 Configuration data in DSC scripts may be customized from a recipe. For example, scripts are typically customized to set the behavior for Windows PowerShell credential data types. Configuration data may be specified in one of three ways:
 
@@ -449,9 +434,7 @@ Configuration data in DSC scripts may be customized from a recipe. For example, 
 * By using the ``configuration_data_script`` attribute
 * By specifying the path to a valid Windows PowerShell data file
 
-.. end_tag
 
-.. tag resource_dsc_script_configuration_data
 
 The following example shows how to specify custom configuration data using the ``configuration_data`` property:
 
@@ -485,9 +468,7 @@ The following example shows how to specify custom configuration data using the `
       EOH
    end
 
-.. end_tag
 
-.. tag resource_dsc_script_configuration_name
 
 The following example shows how to specify custom configuration data using the ``configuration_name`` property. For example, the following Windows PowerShell script defines the ``vi`` configuration:
 
@@ -520,11 +501,9 @@ Use the following recipe to specify that configuration:
      command 'C:\dsc_scripts\editors.ps1'
    end
 
-.. end_tag
+
 
 **Using DSC with other Chef resources**
-
-.. tag resource_dsc_script_remote_files
 
 The **dsc_script** resource can be used with other resources. The following example shows how to download a file using the **remote_file** resource, and then uncompress it using the DSC ``Archive`` resource:
 
@@ -545,4 +524,4 @@ The **dsc_script** resource can be used with other resources. The following exam
      EOH
    end
 
-.. end_tag
+

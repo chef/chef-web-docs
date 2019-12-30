@@ -319,8 +319,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Start a service**
 
-.. tag resource_service_start_service
-
 .. To start a service when it is not running:
 
 .. code-block:: ruby
@@ -329,11 +327,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :start
    end
 
-.. end_tag
+
 
 **Start a service, enable it**
-
-.. tag resource_service_start_service_and_enable_at_boot
 
 .. To start the service when it is not running and enable it so that it starts at system boot time:
 
@@ -344,11 +340,9 @@ The following examples demonstrate various approaches for using resources in rec
      action [ :enable, :start ]
    end
 
-.. end_tag
+
 
 **Use a pattern**
-
-.. tag resource_service_process_table_has_different_value
 
 .. To handle situations when the process table has a different value than the name of the service script:
 
@@ -359,7 +353,7 @@ The following examples demonstrate various approaches for using resources in rec
      action [:enable, :start]
    end
 
-.. end_tag
+
 
 **Use the :nothing common action**
 
@@ -392,8 +386,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Manage a service, depending on the node platform**
 
-.. tag resource_service_manage_ssh_based_on_node_platform
-
 .. To manage a service whose name depends on the platform of the node on which it runs:
 
 .. code-block:: ruby
@@ -409,11 +401,9 @@ The following examples demonstrate various approaches for using resources in rec
      action [ :enable, :start ]
    end
 
-.. end_tag
+
 
 **Change a service provider, depending on the node platform**
-
-.. tag resource_service_change_service_provider_based_on_node
 
 .. To change a service provider depending on a node's platform:
 
@@ -426,7 +416,7 @@ The following examples demonstrate various approaches for using resources in rec
      action [:enable, :start]
    end
 
-.. end_tag
+
 
 **Reload a service using a template**
 
@@ -452,8 +442,6 @@ where the ``subscribes`` notification is used to reload the service whenever the
 
 **Enable a service after a restart or reload**
 
-.. tag resource_service_notifies_enable_after_restart_or_reload
-
 .. To enable a service after restarting or reloading it:
 
 .. code-block:: ruby
@@ -463,7 +451,7 @@ where the ``subscribes`` notification is used to reload the service whenever the
      action :enable
    end
 
-.. end_tag
+
 
 **Set an IP address using variables and a template**
 
@@ -519,8 +507,6 @@ where the ``variables`` property tells the template to use the variables set at 
 
 **Use a cron timer to manage a service**
 
-.. tag resource_service_use_variable
-
 The following example shows how to install the crond application using two resources and a variable:
 
 .. code-block:: ruby
@@ -555,7 +541,7 @@ where
 * the **package** resource uses the ``cron_package`` variable to determine how to install the crond application on various nodes (with various platforms)
 * the **service** resource enables the crond application on nodes that have Red Hat, CentOS, Red Hat Enterprise Linux, Fedora, or Amazon Web Services (AWS), and the cron service on nodes that run Debian, Ubuntu, or openSUSE
 
-.. end_tag
+
 
 **Restart a service, and then notify a different service**
 

@@ -3,11 +3,9 @@ osx_profile resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_osx_profile.rst>`__
 
-.. tag resource_osx_profile_summary
-
 Use the **osx_profile** resource to manage configuration profiles (``.mobileconfig`` files) on the macOS platform. The **osx_profile** resource installs profiles by using the ``uuidgen`` library to generate a unique ``ProfileUUID``, and then using the ``profiles`` command to install the profile on the system.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -232,19 +230,15 @@ The following examples demonstrate various approaches for using resources in rec
 
 **One liner to install profile from cookbook file**
 
-.. tag resource_osx_profile_install_file_oneline
-
 The ``profiles`` command will be used to install the specified configuration profile.
 
 .. code-block:: ruby
 
    osx_profile 'com.company.screensaver.mobileconfig'
 
-.. end_tag
+
 
 **Install profile from cookbook file**
-
-.. tag resource_osx_profile_install_file
 
 The ``profiles`` command will be used to install the specified configuration profile. It can be in sub-directory within a cookbook.
 
@@ -254,11 +248,9 @@ The ``profiles`` command will be used to install the specified configuration pro
      profile 'screensaver/com.company.screensaver.mobileconfig'
    end
 
-.. end_tag
+
 
 **Install profile from a hash**
-
-.. tag resource_osx_profile_install_hash
 
 The ``profiles`` command will be used to install the configuration profile, which is provided as a hash.
 
@@ -300,11 +292,9 @@ The ``profiles`` command will be used to install the configuration profile, whic
      profile profile_hash
    end
 
-.. end_tag
+
 
 **Remove profile using identifier in resource name**
-
-.. tag resource_osx_profile_remove_by_name
 
 The ``profiles`` command will be used to remove the configuration profile specified by the provided ``identifier`` property.
 
@@ -314,11 +304,9 @@ The ``profiles`` command will be used to remove the configuration profile specif
      action :remove
    end
 
-.. end_tag
+
 
 **Remove profile by identifier and user friendly resource name**
-
-.. tag resource_osx_profile_remove_by_identifier
 
 The ``profiles`` command will be used to remove the configuration profile specified by the provided ``identifier`` property.
 
@@ -329,4 +317,4 @@ The ``profiles`` command will be used to remove the configuration profile specif
      action :remove
    end
 
-.. end_tag
+

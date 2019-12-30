@@ -9,8 +9,6 @@ The Chef Infra Server uses role-based access control (RBAC) to restrict access t
 
 .. end_tag
 
-.. tag server_rbac_components
-
 The Chef Infra Server uses organizations, groups, and users to define role-based access control:
 
 .. list-table::
@@ -43,9 +41,7 @@ The Chef Infra Server uses organizations, groups, and users to define role-based
 
      -  A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.
 
-.. end_tag
 
-.. tag server_rbac_workflow
 
 When a user makes a request to the Chef Infra Server using the Chef Infra Server API, permission to perform that action is determined by the following process:
 
@@ -55,12 +51,10 @@ When a user makes a request to the Chef Infra Server using the Chef Infra Server
 
 Permissions are managed using the Chef management console add-on in the Chef Infra Server web user interface.
 
-.. end_tag
+
 
 Organizations
 =====================================================
-.. tag server_rbac_orgs_multi
-
 A single instance of the Chef Infra Server can support many organizations. Each organization has a unique set of groups and users. Each organization manages a unique set of nodes, on which a Chef Infra Client is installed and configured so that it may interact with a single organization on the Chef Infra Server.
 
 .. image:: ../../images/server_rbac_orgs_groups_and_users.png
@@ -70,9 +64,7 @@ A user may belong to multiple organizations under the following conditions:
 * Role-based access control is configured per-organization
 * For a single user to interact with the Chef Infra Server using knife from the same chef-repo, that user may need to edit their config.rb file prior to that interaction
 
-.. end_tag
 
-.. tag server_rbac_orgs_multi_use
 
 Using multiple organizations within the Chef Infra Server ensures that the same toolset, coding patterns and practices, physical hardware, and product support effort is being applied across the entire company, even when:
 
@@ -80,7 +72,7 @@ Using multiple organizations within the Chef Infra Server ensures that the same 
 * Updates occur on different schedules---the nodes in one organization are managed completely independently from the nodes in another
 * Individual teams have competing needs for object and object types---data bags, environments, roles, and cookbooks are unique to each organization, even if they share the same name
 
-.. end_tag
+
 
 Permissions
 -----------------------------------------------------
@@ -115,8 +107,6 @@ The Chef Infra Server includes the following object permissions:
 
 Global Permissions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag server_rbac_permissions_global
-
 The Chef Infra Server includes the following global permissions:
 
 .. list-table::
@@ -132,13 +122,11 @@ The Chef Infra Server includes the following global permissions:
 
 These permissions set the default permissions for the following Chef Infra Server object types: clients, cookbooks, data bags, environments, groups, nodes, roles, and sandboxes.
 
-.. end_tag
+
 
 Client Key Permissions
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. note:: This is only necessary after migrating a client from one Chef Infra Server to another. Permissions must be reset for client keys after the migration.
-
-.. tag server_rbac_permissions_key
 
 Keys should have ``DELETE``, ``GRANT``, ``READ`` and ``UPDATE`` permissions.
 
@@ -169,7 +157,7 @@ Save it as a Ruby script---``chef_server_permissions.rb``, for example---in the 
 
    $ knife exec chef_server_permissions.rb
 
-.. end_tag
+
 
 Knife ACL
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

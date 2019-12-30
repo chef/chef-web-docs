@@ -139,8 +139,6 @@ At this point, all users should be able to use their Active Directory or LDAP us
 
 Test LDAP Connectivity
 =====================================================
-.. tag server_ldap_test
-
 Use ``ldapsearch`` to test the ability of the Chef Infra Server to use Active Directory or LDAP. First, translate the Chef Infra Server LDAP settings into ``ldapsearch`` parameters:
 
 .. list-table::
@@ -193,4 +191,4 @@ Output similar to the following is returned:
 
 .. note:: The ``ldapsearch`` command may need to be installed on the platform. It is not included as part of the Chef Infra Server package.
 
-.. end_tag
+

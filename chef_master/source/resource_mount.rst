@@ -292,8 +292,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Mount a labeled file system**
 
-.. tag resource_mount_labeled_file_system
-
 .. To mount a labeled file system:
 
 .. code-block:: ruby
@@ -305,11 +303,9 @@ The following examples demonstrate various approaches for using resources in rec
      options 'rw'
    end
 
-.. end_tag
+
 
 **Mount a local block drive**
-
-.. tag resource_mount_local_block_device
 
 .. To mount a local block device:
 
@@ -320,11 +316,9 @@ The following examples demonstrate various approaches for using resources in rec
      fstype 'ext3'
    end
 
-.. end_tag
+
 
 **Mount a non-block file system**
-
-.. tag resource_mount_nonblock_file_system
 
 .. To mount a non-block file system
 
@@ -338,11 +332,9 @@ The following examples demonstrate various approaches for using resources in rec
      action   [:mount, :enable]
    end
 
-.. end_tag
+
 
 **Mount and add to the file systems table**
-
-.. tag resource_mount_remote_file_system_add_to_fstab
 
 .. To mount a remote file system and add it to the file systems table:
 
@@ -355,11 +347,9 @@ The following examples demonstrate various approaches for using resources in rec
      action [:mount, :enable]
    end
 
-.. end_tag
+
 
 **Mount a remote file system**
-
-.. tag resource_mount_remote_file_system
 
 .. To mount a remote file system:
 
@@ -371,11 +361,9 @@ The following examples demonstrate various approaches for using resources in rec
      options 'rw'
    end
 
-.. end_tag
+
 
 **Mount a remote folder in Microsoft Windows**
-
-.. tag resource_mount_remote_windows_folder
 
 .. To mount a remote Microsoft Windows folder on local drive letter T:
 
@@ -386,11 +374,9 @@ The following examples demonstrate various approaches for using resources in rec
      device '\\\\hostname.example.com\\folder'
    end
 
-.. end_tag
+
 
 **Unmount a remote folder in Microsoft Windows**
-
-.. tag resource_mount_unmount_remote_windows_drive
 
 .. To un-mount a remote Microsoft Windows D: drive attached as local drive letter T:
 
@@ -401,7 +387,7 @@ The following examples demonstrate various approaches for using resources in rec
      device '\\\\hostname.example.com\\D$'
    end
 
-.. end_tag
+
 
 **Stop a service, do stuff, and then restart it**
 

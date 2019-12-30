@@ -9,8 +9,6 @@ chef_gem resource
 
              .. end_tag
 
-.. tag resource_package_chef_gem
-
 Use the **chef_gem** resource to install a gem only for the instance of Ruby that is dedicated to Chef Infra Client. When a gem is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
 The **chef_gem** resource works with all of the same properties and options as the **gem_package** resource, but does not accept the ``gem_binary`` property because it always uses the ``CurrentGemEnvironment`` under which Chef Infra Client is running. In addition to performing actions similar to the **gem_package** resource, the **chef_gem** resource does the following:
@@ -18,7 +16,7 @@ The **chef_gem** resource works with all of the same properties and options as t
 * Runs its actions immediately, before convergence, allowing a gem to be used in a recipe immediately after it is installed
 * Runs ``Gem.clear_paths`` after the action, ensuring that gem is aware of changes so that it can be required immediately after it is installed
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -296,8 +294,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Compile time vs. converge time installation of gems**
 
-.. tag resource_chef_gem_install_for_use_in_recipes
-
 .. To install a gems file for use in a recipe:
 
 To install a gem while Chef Infra Client is configuring the node (the “converge phase”), set the ``compile_time`` property to ``false``:
@@ -318,11 +314,9 @@ To install a gem while the resource collection is being built (the “compile ph
      action :install
    end
 
-.. end_tag
+
 
 **Install MySQL for Chef**
-
-.. tag resource_chef_gem_install_mysql
 
 .. To install MySQL:
 
@@ -336,4 +330,4 @@ To install a gem while the resource collection is being built (the “compile ph
 
    chef_gem 'mysql'
 
-.. end_tag
+

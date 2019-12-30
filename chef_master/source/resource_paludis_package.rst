@@ -3,11 +3,9 @@ paludis_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_paludis_package.rst>`__
 
-.. tag resource_package_paludis
-
 Use the **paludis_package** resource to manage packages for the Paludis platform.
 
-.. end_tag
+
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -252,8 +250,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_paludis_package_install
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -262,4 +258,4 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+

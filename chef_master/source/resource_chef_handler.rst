@@ -3,15 +3,13 @@ chef_handler resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_handler.rst>`__
 
-.. tag resource_chef_handler_summary
-
 Use the **chef_handler** resource to enable handlers during a Chef Infra Client run. The resource allows arguments to be passed to Chef Infra Client, which then applies the conditions defined by the custom handler to the node attribute data collected during a Chef Infra Client run, and then processes the handler based on that data.
 
 The **chef_handler** resource is typically defined early in a node's run-list (often being the first item). This ensures that all of the handlers will be available for the entire Chef Infra Client run.
 
 **New in Chef Client 14.0.**
 
-.. end_tag
+
 
 Handler Types
 =====================================================
@@ -610,8 +608,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Enable the CloudkickHandler handler**
 
-.. tag resource_chef_handler_enable_cloudkickhandler
-
 The following example shows how to enable the ``CloudkickHandler`` handler, which adds it to the default handler path and passes the ``oauth`` key/secret to the handler's initializer:
 
 .. code-block:: ruby
@@ -622,11 +618,9 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
      action :enable
    end
 
-.. end_tag
+
 
 **Enable handlers during the compile phase**
-
-.. tag resource_chef_handler_enable_during_compile
 
 .. To enable a handler during the compile phase:
 
@@ -638,11 +632,9 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
      action :nothing
    end.run_action(:enable)
 
-.. end_tag
+
 
 **Handle only exceptions**
-
-.. tag resource_chef_handler_exceptions_only
 
 .. To handle exceptions only:
 
@@ -655,7 +647,7 @@ The following example shows how to enable the ``CloudkickHandler`` handler, whic
      action :enable
    end
 
-.. end_tag
+
 
 **Cookbook Versions (a custom handler)**
 
@@ -760,8 +752,6 @@ After it has run, the run status data can be loaded and inspected via Interactiv
 
 **Register the JsonFile handler**
 
-.. tag resource_chef_handler_register
-
 .. To register the ``Chef::Handler::JsonFile`` handler:
 
 .. code-block:: ruby
@@ -772,7 +762,7 @@ After it has run, the run status data can be loaded and inspected via Interactiv
      action :enable
    end
 
-.. end_tag
+
 
 **ErrorReport Handler**
 
