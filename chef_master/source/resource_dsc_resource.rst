@@ -19,8 +19,7 @@ The **dsc_resource** resource allows any DSC resource to be used in a Chef recip
 
 
 
-.. warning::
-             Using the **dsc_resource** has the following requirements:
+.. warning:: Using the **dsc_resource** has the following requirements:
 
              * Windows Management Framework (WMF) 5.0 February Preview (or higher), which includes Windows PowerShell 5.0.10018.0 (or higher).
              * The ``RefreshMode`` configuration setting in the Local Configuration Manager must be set to ``Disabled``.

@@ -568,6 +568,8 @@ This resource would be matched in the same order as the ``/templates`` directory
 
 Helpers
 ----------------------------------------------------
+.. tag template_helpers
+
 A helper is a method or a module that can be used to extend a template. There are three approaches:
 
 * An inline helper method
@@ -576,10 +578,12 @@ A helper is a method or a module that can be used to extend a template. There ar
 
 Use the ``helper`` attribute in a recipe to define an inline helper method. Use the ``helpers`` attribute to define an inline helper module or a cookbook library module.
 
-
+.. end_tag
 
 Inline Methods
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag resource_template_inline_method
+
 A template helper method is always defined inline on a per-resource basis. A simple example:
 
 .. code-block:: ruby
@@ -622,10 +626,12 @@ or:
 
    node['app']['log_location'] is: <%= app_conf('log_location') %>
 
-
+.. end_tag
 
 Inline Modules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
+.. tag resource_template_inline_module
+
 A template helper module can be defined inline on a per-resource basis. This approach can be useful when a template requires more complex information. For example:
 
 .. code-block:: ruby
@@ -650,7 +656,7 @@ A template helper module can be defined inline on a per-resource basis. This app
 
 where the ``hello_world``, ``app``, and ``app_conf(setting)`` methods comprise the module that extends a template.
 
-
+.. end_tag
 
 Library Modules
 +++++++++++++++++++++++++++++++++++++++++++++++++++++

@@ -359,8 +359,6 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-
-
 **Install without using recommend packages as a dependency**
 
 .. To install without using recommend packages as a dependency:

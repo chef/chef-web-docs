@@ -5,8 +5,6 @@ apt_update resource
 
 Use the **apt_update** resource to manage APT repository updates on Debian and Ubuntu platforms.
 
-
-
 Syntax
 =====================================================
 
@@ -28,6 +26,8 @@ where:
 
 Nameless
 =====================================================
+.. tag nameless_apt_update
+
 This resource can be **nameless**. Add the resource itself to your recipe to get the default behavior:
 
 .. code-block:: ruby
@@ -40,7 +40,7 @@ will behave the same as:
 
    apt_update 'update'
 
-
+.. end_tag
 
 Actions
 =====================================================
