@@ -64,7 +64,7 @@ In addition to the default install behavior, the Chef install script supports th
    The name of the file and the path at which that file is located. When a filename already exists at this path and the checksum matches, the package is not re-downloaded. When ``-d`` and ``-f`` are not specified, a package is downloaded to a temporary directory.
 
 ``-P`` (``-project`` on Microsoft Windows)
-   The product name to install. Supported versions of Chef products are ``automate``, ``chef``, ``chef-server``, ``inspec``, ``chefdk``, ``supermarket``, ``chef-backend``, ``push-jobs-client``, and ``push-jobs-server``. Default value: ``chef``.
+   The product name to install. Supported versions of Chef products are ``automate``, ``chef``, ``chef-server``, ``inspec``, ``chef-workstation``, ``chefdk``, ``supermarket``, ``chef-backend``, ``push-jobs-client``, and ``push-jobs-server``. Default value: ``chef``.
 
 ``-s`` (``-install_strategy`` on Microsoft Windows)
    The method of package installations. The default strategy is to always install when the install.sh script runs. Set to "once" to skip installation if the product is already installed on the node.
