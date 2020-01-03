@@ -1,7 +1,7 @@
 =======================================
 Reporting
 =======================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_reporting.html>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_reporting.rst>`__
 
 .. meta::
     :robots: noindex

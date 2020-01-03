@@ -1,7 +1,7 @@
 =====================================================
 Scanner
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_scanner.html>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_scanner.rst>`__
 
 .. meta:: 
     :robots: noindex 

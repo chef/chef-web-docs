@@ -1,7 +1,7 @@
 =====================================================
 An Overview of Compliance in Chef Automate
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_automate_compliance.html>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_automate_compliance.rst>`__
 
 .. meta:: 
     :robots: noindex 
