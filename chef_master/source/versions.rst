@@ -150,10 +150,6 @@ The following products are deprecated or end of life. Users are advised to use n
      - Version
      - Lifecycle Status
      - EOL Date
-   * - Chef Automate
-     - 1.x
-     - Deprecated
-     - December 31, 2019
    * - Chef Manage
      - 2.5.x
      - Deprecated
@@ -166,21 +162,13 @@ The following products are deprecated or end of life. Users are advised to use n
      - 2.x
      - Deprecated
      - TBD
-   * - Chef InSpec
-     - 1.x
-     - Deprecated
-     - December 31, 2019
-   * - Chef InSpec
-     - 2.x
-     - Deprecated
-     - December 31, 2019
 
 End of Life (EOL) Products
 ===================================================
 
 .. list-table::
    :header-rows: 1
-   :widths: 150, 250, 200, 200
+   :widths: 200, 200, 200, 200
 
    * - Product
      - Version
@@ -190,6 +178,10 @@ End of Life (EOL) Products
      - All
      - EOL
      - December 31, 2018
+   * - Automate
+     - 1.x
+     - EOL
+     - December 31, 2019
    * - Chef Client
      - 13 and under
      - EOL
@@ -202,17 +194,17 @@ End of Life (EOL) Products
      - 2 and under
      - EOL
      - April 30, 2019
-   * - Chef Server DRBD HA
-     - All
-     - EOL
-     - March 31, 2019
    * - Enterprise Chef
      - All
      - EOL
      - December 31, 2018
+   * - Chef InSpec
+     - 2 and under
+     - EOL
+     - December 31, 2019
    * - Chef Provisioning
      - All
-     - Deprecated
+     - EOL
      - August 31, 2019
    * - Chef Replication/Sync
      - All
@@ -222,3 +214,7 @@ End of Life (EOL) Products
      - All
      - EOL
      - December 31, 2018
+   * - Chef Server DRBD HA
+     - All
+     - EOL
+     - March 31, 2019
