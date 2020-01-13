@@ -92,9 +92,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
       $ chef-marketplace-ctl upgrade --server
 
-#. .. tag chef_automate_reconfigure_for_marketplace
-
-   Reconfigure Chef Automate and the Chef Infra Server:
+#. Reconfigure Chef Automate and the Chef Infra Server
 
    .. code-block:: bash
 
@@ -103,9 +101,7 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
    .. end_tag
 
-#. .. tag chef_server_backup_restore_for_automate
-
-   Restore the backup:
+#. Restore the backup
 
    .. code-block:: bash
 
@@ -114,8 +110,6 @@ After verifying that your existing Chef Infra Server installation is up to date,
       $ cd /tmp/chef-backup
       $ tar -ztf chef-backup.tgz
       $ /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
-
-   .. end_tag
 
 #. Update your workstation knife configuration. Open ``.chef/config.rb`` in a text editor and modify the ``chef_server_url`` with your Azure VM FQDN. For example:
 
