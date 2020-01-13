@@ -3,17 +3,11 @@ Glossary
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/glossary.rst>`__
 
-**Acceptance**
-   A Chef Automate stage. The Acceptance stage is where your team decides whether the submitted change should ship all the way out to its final destination.
-
 **analytics rules**
    Event tracking during a Chef Infra Client run that generates data made visible to Chef Automate.
 
 **Berkshelf**
    Manage cookbook dependencies.
-
-**Build**
-   A Chef Automate stage. The purpose of the Build stage is to assemble one or more potentially releasable artifacts and make them available to the remaining stages of the pipeline. Using Berkshelf can help to manage cookbook dependencies.
 
 **chef-apply**
    A command-line tool that allows a single recipe to be run from the command line.
@@ -48,9 +42,6 @@ Glossary
 **definition**
    A definition is code that is reused across recipes, similar to a compile-time macro, and is defined in a cookbook.
 
-**Delivered**
-   A Chef Automate stage. Delivered is the final stage of the pipeline, what it means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
-
 **environment**
    An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server.
 
@@ -67,7 +58,7 @@ Glossary
    A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to Chef Infra Client or by implementing entirely new functionality.
 
 **Management Console**
-   The Chef web-based management console you can use to manage Role Based Access Control (RBAC), edit and delete nodes, and reset private keys. Keep up to date with what's happening during chef client runs across an entire organization or on specific nodes.
+   The Chef web-based management console you can use to manage Role Based Access Control (RBAC), edit and delete nodes, and reset private keys. Keep up to date with what's happening during Chef Infra Client runs across an entire organization or on specific nodes.
 
 **node**
    A node is any physical, virtual, or cloud device that is configured and maintained by an instance of Chef Infra Client.
@@ -82,7 +73,7 @@ Glossary
    An organization is a single instance of a Chef Infra Server, including all of the nodes that are managed by that Chef Infra Server and each of the workstations that will run knife and access the Chef Infra Server using the Chef Infra Server API.
 
 **pipeline**
-   A pipeline is series of automated and manual quality gates that take software changes from development to delivery. Pipelines in Chef Automate have six stages: Verify, Build, Acceptance, Union, Rehearsal, and Delivered.
+   A pipeline is series of automated and manual quality gates that take software changes from development to delivery.
 
 **policy**
    Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the Chef Infra Server. See roles, environments, and data bags.
@@ -92,9 +83,6 @@ Glossary
 
 **recipe**
    A recipe is a collection of resources that tells Chef Infra Client how to configure a node.
-
-**Rehearsal**
-   If all phases of Union succeed, then the Rehearsal stage is triggered. Rehearsal increases confidence in the artifacts and the deployment by repeating the process that occurred in Union in a different environment.
 
 **Reporting**
    Capture and visualize what happens during the execution of Chef Infra Client runs across all of your Chef-managed infrastructure.
@@ -111,14 +99,5 @@ Glossary
 **test-kitchen**
    See kitchen.
 
-**Union**
-  A Chef Automate stage. Union is the first of the three shared pipeline stages. The purpose of the Union stage is to assess the impact of the change in the context of a complete (or as close as possible) installation of the set of projects that comprise the system as a whole.
-
-**Verify**
-  A Chef Automate stage. The purpose of Verify is to run checks so that the system can decide if it's worth the time of a human to review the submitted change.
-
 **visibility**
    A feature of Chef Automate that provides real-time visibility into what is happening on the Chef Infra Server, including what's changing, who made those changes, and when they occurred.
-
-**workflow**
-   A feature of Chef Automate that manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the `Chef Automate Overview </chef_automate.html>`__.

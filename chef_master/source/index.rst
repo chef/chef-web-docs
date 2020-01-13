@@ -376,57 +376,6 @@ Chef InSpec
 
 **Tutorials**: `Chef InSpec Tutorials <https://www.inspec.io/tutorials/>`_
 
-
-Legacy
-=====================================================
-
-Chef Automate 1
------------------------------------------------------
-
-**Overview**:
-`Chef Automate Overview </chef_automate.html>`__ |
-`Workflow Overview </workflow.html>`__ |
-`Nodes Overview </visibility.html>`__ |
-`Compliance Overview </chef_automate_compliance.html>`__ |
-`Administration Overview </automate_admin.html>`__
-
-**Getting Started**:
-`Installation Guide </install_chef_automate.html>`__ |
-`Configure a Pipeline </delivery_pipeline.html>`__ |
-`Configure a Project </config_json_delivery.html>`__ |
-`Configure Data Collection </data_collection.html>`__ |
-`Data Collection and Chef HA </data_collection_ha.html>`__ |
-`Data Collection without Chef Infra Server </data_collection_without_server.html>`__ |
-`Stream Data </stream_data_chef_automate.html>`__ |
-`Upgrades </upgrade_chef_automate.html>`_
-
-**Release Notes**: `Release Notes </release_notes_chef_automate.html>`__
-
-**Nodes**:
-`Node Notifications w/Slack </integrate_node_notifications_slack.html>`__ |
-`Node Notifications w/Webhooks </integrate_node_notifications_webhook.html>`__ |
-`Node Search Reference </search_query_chef_automate.html>`__
-
-**Compliance**:
-`Reporting </automate_compliance_reporting.html>`__ |
-`Scanner </automate_compliance_scanner.html>`__ |
-`Profile Store </profile_store.html>`__ |
-`Credentials </automate_compliance_credentials.html>`__
-
-**Workflow**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Manage Dependencies </delivery_manage_dependencies.html>`__ | `Runners </runners.html>`__ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`__ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`__ | `Workflow w/GitHub </integrate_delivery_github.html>`__ | `Workflow w/Slack </integrate_delivery_slack.html>`__
-
-**Admin**: `Authentication w/LDAP </integrate_delivery_ldap.html>`__ | `Authentication w/SAML </integrate_chef_automate_saml.html>`__
-
-**Managing the Server**: `Backups </delivery_server_backup.html>`__ | `Capacity Planning </scaling_capacity_planning_chef_automate.html>`__ | `Disaster Recovery </delivery_server_disaster_recovery.html>`__ | `Elasticsearch and Kibana Authentication </elasticsearch_and_kibana_auth.html>`__ | `Secrets </delivery_manage_secrets.html>`__ | `Data Retention Management in Chef Automate </data_retention_chef_automate.html>`__ | `Tuning </delivery_server_tuning.html>`__ | `Users and Roles </delivery_users_and_roles.html>`__
-
-**Reference**: `Chef Automate API </api_automate.html>`__ | `Automate CTL </ctl_automate_server.html>`__ | `Delivery CLI </delivery_cli.html>`__ | `delivery.rb </config_rb_delivery.html>`__ | `Workflow DSL </dsl_delivery.html>`__
-
-**Chef Automate for Microsoft Azure**: `Chef Automate for Microsoft Azure </automate_azure.html>`__
-
-**AWS OpsWorks for Chef Automate**: `AWS OpsWorks for Chef Automate </aws_opsworks_chef_automate.html>`__
-
-**Troubleshooting**: `Troubleshooting </troubleshooting_chef_automate.html>`__
-
 Extension APIs
 =====================================================
 
@@ -473,17 +422,14 @@ Addenda
    :hidden:
 
    about_chefdk
-   api_automate
    api_chef_server
    api_omnitruck
    api_push_jobs
+   aws_marketplace
    attributes
    audit_cookbook
    auth
    automate_azure
-   automate_compliance_credentials
-   automate_compliance_reporting
-   automate_compliance_scanner
    aws_marketplace
    aws_opsworks_chef_automate
    azure_chef_cli
@@ -492,8 +438,6 @@ Addenda
    azure_powershell
    backend_failure_recovery
    berkshelf
-   chef_automate
-   chef_automate_compliance
    chef_client_overview
    chef_client_security
    chef_deprecations_client
@@ -551,7 +495,6 @@ Addenda
    data_collection
    data_collection_ha
    data_collection_without_server
-   data_retention_chef_automate
    debug
    definitions
    delivery_build_cookbook
@@ -609,13 +552,11 @@ Addenda
    dsl_delivery
    dsl_handler
    dsl_recipe
-   elasticsearch_and_kibana_auth
    environment_variables
    environments
    errors
    feedback
    files
-   filter_compliance_scan
    fips
    foodcritic
    glossary
@@ -623,7 +564,6 @@ Addenda
    handlers
    install_bootstrap
    install_chef_air_gap
-   install_chef_automate
    install_dk
    install_omnibus
    install_push_jobs
@@ -633,14 +573,11 @@ Addenda
    install_server_tiered
    install_supermarket
    install_windows
-   integrate_chef_automate_saml
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
    integrate_delivery_slack
    integrate_delivery_smtp
-   integrate_node_notifications_slack
-   integrate_node_notifications_webhook
    junos
    kitchen
    knife
@@ -685,7 +622,6 @@ Addenda
    ohai
    ohai_custom
    packages
-   perform_compliance_scan
    platform_overview
    platforms
    plugin_community
@@ -697,14 +633,12 @@ Addenda
    plugin_knife_spork
    policy
    policyfile
-   profile_store
    proxies
    publish_cookbooks_multiple_servers
    push_jobs
    quick_start
    recipes
    release_notes
-   release_notes_chef_automate
    release_notes_chefdk
    release_notes_push_jobs
    release_notes_server
@@ -854,8 +788,6 @@ Addenda
    run_lists
    runbook
    runners
-   scaling_capacity_planning_chef_automate
-   search_query_chef_automate
    secrets
    server_backup_restore
    server_configure_saml
@@ -876,7 +808,6 @@ Addenda
    server_services
    server_tuning
    server_users
-   stream_data_chef_automate
    style_guide
    supermarket
    supermarket_api
@@ -885,14 +816,11 @@ Addenda
    supermarket_monitor
    supermarket_share_cookbook
    templates
-   troubleshooting_chef_automate
    uninstall
-   upgrade_chef_automate
    upgrade_client
    upgrade_server
    upgrade_server_ha_v2
    versions
-   visibility
    vmware
    windows
    workflow
