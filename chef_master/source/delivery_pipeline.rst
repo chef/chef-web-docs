@@ -43,7 +43,7 @@ This code logs that the unit tests are running and runs JUnit tests against the 
 
 .. tag delivery_config_example_test_patterns
 
-The following example shows how to configure Chef Automate to ignore and/or run certain Foodcritic rules, and to exclude running tests that are located in the specified cookbook directories:
+The following example shows how to configure Chef Automate to ignore and/or run certain Foodcritic rules, note Foodcritic is deprecated, and to exclude running tests that are located in the specified cookbook directories:
 
 .. code-block:: javascript
 
