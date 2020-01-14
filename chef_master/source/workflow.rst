@@ -168,16 +168,6 @@ Delivered Stage
 -----------------------------------------------------
 Delivered is the final stage of the pipeline. What "delivered" means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
 
-Components
-=====================================================
-The following diagram shows the servers that are involved in a Workflow installation.
-
-.. image:: ../../images/automate_architecture_workflow.svg
-   :width: 600px
-   :align: center
-
-The build cookbook, hosted on the Chef Infra Server, determines what happens during each phase job. Runners, under control of the Chef Infra Server, run the phase jobs. It's a good idea to have at least three runners so that the lint, syntax and unit phases can run in parallel.
-
 Environments
 =====================================================
 As changes flow through the Workflow pipeline, they are tested in a series of runtime environments that are increasingly similar to the final runtime target environment.
