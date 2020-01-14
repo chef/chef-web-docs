@@ -30,10 +30,10 @@ Actions
 
 The cab_package resource has the following actions:
 
-:install
+``:install``
    Installs the cabinet package.
 
-:remove
+``:remove``
    Removes the cabinet package.
 
 Properties
