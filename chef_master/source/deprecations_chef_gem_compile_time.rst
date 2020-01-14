@@ -3,14 +3,15 @@ Deprecation: Chef Gem Compile Time (CHEF-3)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chef_gem_compile_time.rst>`__
 
-.. tag deprecations_chef_gem_compile_time
-
-Originally, the `chef gem </resource_chef_gem.html>`__ resource always ran during the `compile` phase (see this section on `the Chef client run </chef_client_overview.html#the-chef-client-run>`__ for further details).
+.. meta:: 
+    :robots: noindex 
+    
+Originally, the `chef gem </resource_chef_gem.html>`__ resource always ran during the `compile` phase (see this section on `Chef Infra Client runs </chef_client_overview.html#the-chef-client-run>`__ for further details).
 It is now possible to control which phase the resource is run in. Calling ``chef_gem`` without specifying the phase is now deprecated.
 
-.. end_tag
 
-This deprecation warning was added in Chef 12.1.0, and using ``chef_gem`` without specifying a phase will become an error in Chef 13.
+
+This deprecation warning was added in Chef Client 12.1.0, and using ``chef_gem`` without specifying a phase will become an error in Chef Client 13.
 
 Remediation
 ================
@@ -28,6 +29,5 @@ The first is to set the ``compile_time`` property on the resource. To maintain t
 The second, and preferred, is to add a `gem dependency </config_rb_metadata.html>`__ in your cookbook metadata.
 
 .. code-block:: ruby
-  
-  gem "etcd"
 
+  gem "etcd"

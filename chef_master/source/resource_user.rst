@@ -3,13 +3,11 @@ user resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_user.rst>`__
 
-.. tag resource_user_summary
-
 Use the **user** resource to add users, update existing users, remove users, and to lock/unlock user passwords.
 
-.. note:: System attributes are collected by Ohai at the start of every chef-client run. By design, the actions available to the **user** resource are processed **after** the start of the chef-client run. This means that system attributes added or modified by the **user** resource during the chef-client run must be reloaded before they can be available to the chef-client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) chef-client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current chef-client run.
+.. note:: System attributes are collected by Ohai at the start of every Chef Infra Client run. By design, the actions available to the **user** resource are processed **after** the start of a Chef Infra Client run. This means that system attributes added or modified by the **user** resource during a Chef Infra Client run must be reloaded before they can be available to Chef Infra Client. These system attributes can be reloaded in two ways: by picking up the values at the start of the (next) Chef Infra Client run or by using the `ohai resource </resource_ohai.html>`__ to reload the system attributes during the current Chef Infra Client run.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -19,8 +17,8 @@ A **user** resource block manages users on a node:
 
    user 'a user' do
      comment 'A random user'
-     uid '1234'
-     gid '1234'
+     uid 1234
+     gid 'groupname'
      home '/home/random'
      shell '/bin/bash'
      password '$1$JJsvHslasdfjVEroftprNn4JHtDi'
@@ -51,7 +49,7 @@ where
 
 * ``user`` is the resource
 * ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``comment``, ``force``, ``gid``, ``home``, ``iterations``, ``manage_home``, ``non_unique``, ``password``, ``salt``, ``shell``, ``system``, ``uid``, and ``username`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -73,7 +71,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -207,7 +205,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -225,13 +223,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -274,13 +272,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -302,17 +300,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -328,8 +329,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create a user named "random"**
 
-.. tag resource_user_create_random
-
 .. To create a user named "random":
 
 .. code-block:: ruby
@@ -344,11 +343,9 @@ The following examples demonstrate various approaches for using resources in rec
      password '$1$JJsvHslV$szsCjVEroftprNn4JHtDi'
    end
 
-.. end_tag
+
 
 **Create a system user**
-
-.. tag resource_user_create_system
 
 .. To create a system user:
 
@@ -360,11 +357,9 @@ The following examples demonstrate various approaches for using resources in rec
      shell '/bin/false'
    end
 
-.. end_tag
+
 
 **Create a system user with a variable**
-
-.. tag resource_user_create_system_user_with_variable
 
 The following example shows how to create a system user. In this instance, the ``home`` value is calculated and stored in a variable called ``user_home`` which sets the user's ``home`` attribute.
 
@@ -380,11 +375,9 @@ The following example shows how to create a system user. In this instance, the `
      action :create
    end
 
-.. end_tag
+
 
 **Use SALTED-SHA512-PBKDF2 passwords**
-
-.. tag resource_user_password_shadow_hash_salted_sha512_pbkdf2
 
 macOS 10.8 (and higher) calculates the password shadow hash using SALTED-SHA512-PBKDF2. The length of the shadow hash value is 128 bytes, the salt value is 32 bytes, and an integer specifies the number of iterations. The following code will calculate password shadow hashes for macOS 10.8 (and higher):
 
@@ -413,4 +406,4 @@ Use the calculated password shadow hash with the **user** resource:
      iterations 25000
    end
 
-.. end_tag
+

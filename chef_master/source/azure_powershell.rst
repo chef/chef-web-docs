@@ -57,10 +57,10 @@ Options
 This cmdlet has the following options:
 
 ``-AutoUpdateChefClient``
-   Auto-update the chef-client. Set to ``true`` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published.
+   Auto-update . Set to ``true`` to auto update the version of the Azure Chef Extension when the virtual machine is restarted. For example, if this option is enabled, a virtual machine that has version ``1205.12.2.0`` will be updated automatically to ``1205.12.2.1`` when it is published.
 
 ``-BootstrapOptions <string>``
-   A JSON string that is added to the first run of a chef-client. For example:
+   A JSON string that is added to the first run of a Chef Infra Client. For example:
 
    .. code-block:: bash
 
@@ -69,7 +69,7 @@ This cmdlet has the following options:
    Supported options: ``"chef_node_name"``, ``"chef_server_url"`` (required), ``"environment"``, ``"secret"``, and ``"validation_client_name"`` (required).
 
 ``-ChefServerUrl <string>``
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``-ClientRb <string>``
    The path to the ``client.rb`` file.
@@ -81,16 +81,16 @@ This cmdlet has the following options:
    Sets the Azure Chef Extension to run Linux.
 
 ``-OrganizationName <string>``
-   The name of the organization on the Chef server.
+   The name of the organization on the Chef Infra Server.
 
 ``-RunList <string>``
    A comma-separated list of roles and/or recipes to be applied.
 
 ``-ValidationClientName <string>``
-   The name of the chef-validator key that is used by the chef-client to access the Chef server during the initial chef-client run.
+   The name of the chef-validator key Chef Infra Client uses to access the Chef Infra Server during the initial Chef Infra Client run.
 
 ``-ValidationPem  <string>``
-   The location of the file that contains the key used when a chef-client is registered with a Chef server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
+   The location of the file that contains the key used when a Chef Infra Client is registered with a Chef Infra Server. A validation key is signed using the ``validation_client_name`` for authentication. Default value: ``/etc/chef/validation.pem``.
 
 ``-Version <string>``
    Specify the version number for the Azure Chef Extension extension. Default is to use the latest extension's version number.

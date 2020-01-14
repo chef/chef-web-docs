@@ -5,10 +5,14 @@ slack:
 
 github:
   delete_branch_on_merge: true
+  release_branch:
+    - master
+    - hugo-migration
 
 pipelines:
   - verify:
       description: Validate PRs for chef/chef-web-docs
+      public: true
   - deploy/acceptance:
       definition: .expeditor/deploy.pipeline.yml
       description: Deploy to chef-web-docs-acceptance.cd.chef.co

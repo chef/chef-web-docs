@@ -416,11 +416,7 @@ The response will return details for a cookbook version, including the license u
 /search
 -----------------------------------------------------
 
-.. tag search
-
-Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
-
-.. end_tag
+Search performs a fuzzy, keyword search on cookbook names, cookbook descriptions, and the cookbook owners' usernames.
 
 The ``/search`` endpoint has the following methods: ``GET``.
 
@@ -435,7 +431,7 @@ The ``GET`` method is used to get a list of cookbooks that match a search query.
    * - Parameter
      - Description
    * - ``q``
-     - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
+     - The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
    * - ``start``
      - The row at which return results begin.
    * - ``items``
@@ -558,7 +554,7 @@ The response will return the name of the tool, a type, description, owner, sourc
           "tool_name": "ChefAPI",
           "tool_type": "chef_tool",
           "tool_source_url": "https://github.com/sethvargo/chef-api",
-          "tool_description": "ChefAPI is a dependency-minimal Ruby client for interacting with a Chef Server. It adopts many patterns and principles from Rails",
+          "tool_description": "ChefAPI is a dependency-minimal Ruby client for interacting with a Chef Infra Server. It adopts many patterns and principles from Rails",
           "tool_owner": "sethvargo",
           "tool": "https://supermarket.chef.io/api/v1/tools/chef-api"
         }
@@ -589,7 +585,7 @@ The ``GET`` method is used to get a list of tools that match a search query. Use
    * - Parameter
      - Description
    * - ``q``
-     - The search query used to identify a list of items on a Chef server. This option uses the same syntax as the ``search`` subcommand.
+     - The search query used to identify a list of items on a Chef Infra Server. This option uses the same syntax as the ``search`` subcommand.
    * - ``start``
      - The row at which return results begin.
    * - ``items``
@@ -810,6 +806,6 @@ The response will return details for a user, including their name, Chef username
      "tools": {
        "owns": {
          "bacon_tool": "https://supermarket.chef.io/api/v1/tools/bacon_tool"
-    }
-  }
+       }
+     }
    }

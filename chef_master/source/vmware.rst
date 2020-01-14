@@ -72,7 +72,7 @@ Usage Examples
 
    $ knife vsphere vm delete MACHINENAME
 
-This command can be used with the ``-P`` option to remove the machine from the Chef server.
+This command can be used with the ``-P`` option to remove the machine from the Chef Infra Server.
 
 knife-vcenter
 -----------------------------------------------------
@@ -206,7 +206,7 @@ Usage Examples
    Current request status: IN_PROGRESS...
    ...
 
-If you supply the ``--purge`` option, the server will also be removed from the Chef Server
+If you supply the ``--purge`` option, the server will also be removed from the Chef Infra Server
 
 **Execute a vRO workflow:**
 
@@ -244,7 +244,7 @@ kitchen-vsphere (chef-provisioning-vsphere)
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-There is an `example cookbook <https://github.com/jjasghar/vsphere_testing>`__ that attempts to capture everything required. The following is a basic ``.kitchen.yml`` example:
+There is an `example cookbook <https://github.com/jjasghar/vsphere_testing>`__ that attempts to capture everything required. The following is a basic ``kitchen.yml`` example:
 
 .. code-block:: yaml
 
@@ -274,26 +274,26 @@ There is an `example cookbook <https://github.com/jjasghar/vsphere_testing>`__ t
         password: PASSWORD
         port: 22
 
-  provisioner:
-    name: chef_zero
-    sudo_command: sudo
+   provisioner:
+     name: chef_zero
+     sudo_command: sudo
 
-  verifier:
-    name: inspec
+   verifier:
+     name: inspec
 
-  transport:
-    username: root or ssh enabled user
-    password: PASSWORD for root or user
+   transport:
+     username: root or ssh enabled user
+     password: PASSWORD for root or user
 
-  platforms:
-    - name: ubuntu-16.04
-    - name: centos-7
+   platforms:
+     - name: ubuntu-16.04
+     - name: centos-7
 
-  suites:
-    - name: default
-      run_list:
-        - recipe[COOKBOOK::default]
-      attributes:
+   suites:
+     - name: default
+       run_list:
+         - recipe[COOKBOOK::default]
+       attributes:
 
 kitchen-vcenter
 -----------------------------------------------------
@@ -307,27 +307,27 @@ kitchen-vcenter
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following is a basic ``.kitchen.yml`` for vCenter:
+The following is a basic ``kitchen.yml`` for vCenter:
 
 .. code-block:: yaml
 
-  driver:
-    name: vcenter
-    vcenter_username: <%= ENV['VCENTER_USER'] || "administrator@vsphere.local" %>
-    vcenter_password: <%= ENV['VCENTER_PASSWORD'] || "password" %>
-    vcenter_host: vcenter.chef.io
-    vcenter_disable_ssl_verify: true
-    driver_config:
-      targethost: 172.16.20.41
-      datacenter: "Datacenter"
+   driver:
+     name: vcenter
+     vcenter_username: <%= ENV['VCENTER_USER'] || "administrator@vsphere.local" %>
+     vcenter_password: <%= ENV['VCENTER_PASSWORD'] || "password" %>
+     vcenter_host: vcenter.chef.io
+     vcenter_disable_ssl_verify: true
+     driver_config:
+       targethost: 172.16.20.41
+       datacenter: "Datacenter"
 
-  platforms:
-    - name: ubuntu-1604
-      driver_config:
-        template: ubuntu16-template
-    - name: centos-7
-      driver_config:
-        template: centos7-template
+   platforms:
+     - name: ubuntu-1604
+       driver_config:
+         template: ubuntu16-template
+     - name: centos-7
+       driver_config:
+         template: centos7-template
 
 
 kitchen-vra
@@ -341,7 +341,7 @@ kitchen-vra
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following is a basic ``.kitchen.yml`` example:
+The following is a basic ``kitchen.yml`` example:
 
 .. code-block:: yaml
 
@@ -353,13 +353,13 @@ The following is a basic ``.kitchen.yml`` example:
      base_url: https://vra.corp.local
      verify_ssl: true
 
-  platforms:
-  - name: centos6
-    driver:
-      catalog_id: e9db1084-d1c6-4c1f-8e3c-eb8f3dc574f9
-  - name: centos7
-    driver:
-      catalog_id: c4211950-ab07-42b1-ba80-8f5d3f2c8251
+   platforms:
+   - name: centos6
+     driver:
+       catalog_id: e9db1084-d1c6-4c1f-8e3c-eb8f3dc574f9
+   - name: centos7
+     driver:
+       catalog_id: c4211950-ab07-42b1-ba80-8f5d3f2c8251
 
 kitchen-vro
 -----------------------------------------------------
@@ -372,36 +372,36 @@ kitchen-vro
 Usage Examples
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following is a basic ``.kitchen.yml`` example:
+The following is a basic ``kitchen.yml`` example:
 
 .. code-block:: yaml
 
-  driver:
-    name: vro
-    vro_username: user@domain.com
-    vro_password: password
-    vro_base_url: https://vra.corp.local:8281
-    create_workflow_name: Create TK Server
-    destroy_workflow_name: Destroy TK Server
+   driver:
+     name: vro
+     vro_username: user@domain.com
+     vro_password: password
+     vro_base_url: https://vra.corp.local:8281
+     create_workflow_name: Create TK Server
+     destroy_workflow_name: Destroy TK Server
 
-  platforms:
-    - name: centos
-      driver:
-        create_workflow_parameters:
-          os_name: centos
-          os_version: 6.7
-    - name: windows
-      driver:
-        create_workflow_parameters:
-          os_name: windows
-          os_version: server2012
-          cpus: 4
-          memory: 4096
+   platforms:
+     - name: centos
+       driver:
+         create_workflow_parameters:
+           os_name: centos
+           os_version: 6.7
+     - name: windows
+       driver:
+         create_workflow_parameters:
+           os_name: windows
+           os_version: server2012
+           cpus: 4
+           memory: 4096
 
-InSpec
+Chef InSpec
 =====================================================
 
-The InSpec VMware plugin is used to verify the vCenter and ESXi VMware stack.
+The Chef InSpec VMware plugin is used to verify the vCenter and ESXi VMware stack.
 
 inspec-vmware
 -----------------------------------------------------
@@ -418,13 +418,13 @@ An example demo control:
 
 .. code-block:: ruby
 
-  control "vmware-1" do
-    impact 0.7
-    title 'Checks that soft power off is disabled'
-    describe vmware_vm_advancedsetting({datacenter: 'ha-datacenter', vm: 'testvm'}) do
-      its('softPowerOff') { should cmp 'false' }
-    end
-  end
+   control "vmware-1" do
+     impact 0.7
+     title 'Checks that soft power off is disabled'
+     describe vmware_vm_advancedsetting({datacenter: 'ha-datacenter', vm: 'testvm'}) do
+       its('softPowerOff') { should cmp 'false' }
+     end
+   end
 
 Chef integrations inside of the VMware Suite
 =====================================================

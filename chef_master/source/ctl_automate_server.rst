@@ -3,12 +3,20 @@ automate-ctl (executable)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_automate_server.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -54,7 +62,7 @@ The ``create-backup`` subcommand is used to create Chef Automate backups. By def
 .. code-block:: none
 
    $ automate-ctl create-backup [NAME] [options]
-        --chef-server-config         Backup up the Chef Server config if present
+        --chef-server-config         Backup up the Chef Infra Server config if present
         --digest [int]               The SHA digest length to output. 256, 384, and 512 are valid
         --force                      Agree to all warnings and prompts
         --name [string]              The output name of the backup
@@ -238,7 +246,7 @@ Explanation of fields
 ``os_mem_used_in_b``
    The operating system's total memory used in bytes.
 ``converges``
-   The count of chef-client converges have started.
+   The count of Chef Infra Client converges have started.
 ``deleted_nodes``
    Count of nodes that have been deleted but not purged from Chef Automate.
 ``docs``
@@ -293,7 +301,7 @@ Added in Chef Automate version 1.6.87.
         --force                      Agree to all warnings and prompts
         --stale-lock-only            Only delete the lock if it is older than the Elasticsearch process
     -h, --help                       Show the usage message
-        --stale-lock-only            Cleans stale lock files 
+        --stale-lock-only            Cleans stale lock files
 
 **Examples**
 
@@ -375,7 +383,7 @@ Added in Chef Automate version 1.7.114.
      Options:
       -h, --help                            Show the usage message
       -e, --enterprise                      Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to delete the runner from
-      -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
+      -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Infra Server nodes of the same name as FQDN
 
 
 **Example**
@@ -567,7 +575,7 @@ The ``install-runner`` subcommand configures a remote node as a job runner, whic
                                             This option cannot be passed with --installer as that option specifies using a package local to this server.
                                             If neither are passed, the latest ChefDK will be downloaded remotely
 
-      -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Server nodes of the same name as FQDN
+      -y, --yes                             Skip configuration confirmation and overwrite any existing Chef Infra Server nodes of the same name as FQDN
       -e, --enterprise                      Legacy option, only required if you have more than one enterprise configured. Workflow enterprise to add the runner into
       --fips-custom-cert-filename FILENAME  If you have a self-signed or self-owned Certificate Authority (CA) and wish to operate in FIPS mode, pass this flag the path to a file containing your custom certificate chain on your Automate server. This file will be copied to the runner and used when running jobs in FIPS mode. If you have purchased a certificate from a known CA for Automate server, you can ignore this flag. Please see the Automate FIPS docs for details.
       --full-ohai                           If `--full-ohai` flag set, Chef will run with full Ohai plugins.
@@ -727,7 +735,7 @@ The ``node-summary`` subcommand produces a summary of the nodes that are known t
 
 New in Chef Automate 0.5.328.
 
-The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via the Chef Client, InSpec, or the liveness agent.
+The default setting for ``node-summary`` is to display the name, UUID, status, and the last time the nodes checked in via Chef Infra Client, Chef InSpec, or the liveness agent.
 
 **Syntax**
 
@@ -777,9 +785,9 @@ Produce a summary of nodes known to Automate in JSON.
 Explanation of fields
 -----------------------------------------------------
 ``chef_version``
-   The version of the Chef Client that ran on the node.
+   The Chef Infra Client version of that ran on the node.
 ``checkin``
-   The last time Chef Client ran on the node.
+   The last time Chef Infra Client ran on the node.
 ``@timestamp``
    The time when the node's information was received by Chef Automate.
 ``platform_version``
@@ -787,21 +795,21 @@ Explanation of fields
 ``fqdn``
    Fully qualified domain name of the node.
 ``name``
-   Name of the node in Chef Server.
+   Name of the node in Chef Infra Server.
 ``organization_name``
-   The name of the Chef Server organization the node belongs to.
+   The name of the Chef Infra Server organization the node belongs to.
 ``platform_family``
    Platform family information discovered by ohai on the node.
 ``platform``
    Platform information discovered by ohai on the node.
 ``status``
-   ``success`` if the last Chef Client run succeeded on the node.
+   ``success`` if the last Chef Infra Client run succeeded on the node.
 
-   ``failure`` if the last Chef Client run failed on the node.
+   ``failure`` if the last Chef Infra Client run failed on the node.
 
-   ``live`` if the liveness agent has successfully updated Chef Automate, but the Chef Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
+   ``live`` if the liveness agent has successfully updated Chef Automate, but Chef Infra Client has not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 
-   ``missing`` if Chef Client did not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
+   ``missing`` if Chef Infra Client did not run within the expected check-in duration configured in Chef Automate (default is 12 hours).
 
    ``scan-failed`` if a node set up for `ad-hoc scanning <automate_compliance_scanner.html>`__ failed its latest compliance scan.
 
@@ -816,24 +824,24 @@ Explanation of fields
 ``chef_server_status``
    This field is only populated in Opsworks for Chef Automate instances.
 
-   ``present``: Node is still present on the Chef Server.
+   ``present``: Node is still present on the Chef Infra Server.
 
-   ``missing``: Node is still present on the Chef Server.
+   ``missing``: Node is still present on the Chef Infra Server.
 ``ec2``
    EC2 information discovered by ohai on the node. This field is only populated in Chef Automate instances that are running on EC2
 
 preflight-check
 =====================================================
 
- The ``preflight-check`` subcommand is used to check for common problems in your infrastructure environment before setup and configuration of Chef Automate begins.
+The ``preflight-check`` subcommand is used to check for common problems in your infrastructure environment before setup and configuration of Chef Automate begins.
 
- New in Chef Automate 0.6.64.
+New in Chef Automate 0.6.64.
 
- This subcommand has the following syntax:
+This subcommand has the following syntax:
 
- .. code-block:: bash
+.. code-block:: bash
 
-    $ automate-ctl preflight-check
+  $ automate-ctl preflight-check
 
 reconfigure
 =====================================================
@@ -886,7 +894,7 @@ The command is intended to restore an Automate instance completely from backup, 
    $ automate-ctl restore-backup ELASTICSEARCH_SNAPSHOT [options]
         --digest [int]               The SHA digest of the backup archive
         --force                      Agree to all warnings and prompts
-        --no-chef-server-config      Do not restore the Chef Server config if present
+        --no-chef-server-config      Do not restore the Chef Infra Server config if present
         --no-census                  Do not restore Chef Automate's census data
         --no-compliance-profiles     Do not restore Chef Automate's compliance profiles
         --no-config                  Do not restore Chef Automate's configuration directory
@@ -949,7 +957,7 @@ This subcommand has the following syntax:
         -l, --license LICENSE            Location of Chef Automate license file.
         -f, --fqdn FQDN                  The external fully qualified domain name of this node (Already set in delivery.rb.  Do not set via flag.)
         -k, --key CHEF_AUTOMATE_USER_KEY Location of Chef Automate user key (Already set in delivery.rb.  Do not set via flag.)
-        --server-url CHEF_SERVER_URL Chef Server URL (Already set in delivery.rb.  Do not set via flag.)
+        --server-url CHEF_SERVER_URL Chef Infra Server URL (Already set in delivery.rb.  Do not set via flag.)
         --supermarket-fqdn SUPERMARKET_FQDN
                                      Internal Supermarket FQDN
         -e CHEF_AUTOMATE_ENTERPRISE_NAME,

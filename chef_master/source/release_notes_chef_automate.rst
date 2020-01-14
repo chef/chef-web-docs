@@ -3,17 +3,15 @@ Release Notes: Chef Automate
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_chef_automate.rst>`__
 
-.. tag chef_automate_mark
-
+.. meta:: 
+    :robots: noindex 
+    
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 
 .. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
 
-.. end_tag
-
 Chef Automate provides a full suite of enterprise capabilities for workflow, visibility and compliance that allow you to manage and monitor application and cookbook deployments across a cluster of nodes in your environment.
-
 
 What's New in 1.8.96
 =====================================================
@@ -30,7 +28,6 @@ Resolved Issues
 -----------------------------------------------------
 * Resolved an issue with Workflow jobs becoming stuck
 * Corrected the release metadata on a number of profiles so the profiles are compatible with target hosts.
-
 
 What's New in 1.8.85
 =====================================================
@@ -56,11 +53,11 @@ Resolved Issues
 * The built-in ssl certificate is no longer a CA keypair and works with newer versions of Chrome
 * **Fixed multiple bugs with the reaper:**
 
-    * Relocated executable to ``/opt/delivery/bin/reaper`` from ``/opt/delivery/embedded/service/reaper/bin/reaper``.
-    * Application is now `AppBundled` to ensure high reliability.
-    * Logs now append to log file for each execution rather than overwrite.
-    * Application crash logs are now appended to the logfile.
-    * Curator timeout is now configurable. This can set via ``node['delivery']['elasticsearch']['curator']['timeout']`` in the delivery.rb or by exporting the environment variable `CURATOR_ELASTICSEARCH_TIMEOUT` when running the reaper manually. Default value is 600 seconds (10 minutes).
+  * Relocated executable to ``/opt/delivery/bin/reaper`` from ``/opt/delivery/embedded/service/reaper/bin/reaper``.
+  * Application is now `AppBundled` to ensure high reliability.
+  * Logs now append to log file for each execution rather than overwrite.
+  * Application crash logs are now appended to the logfile.
+  * Curator timeout is now configurable. This can set via ``node['delivery']['elasticsearch']['curator']['timeout']`` in the delivery.rb or by exporting the environment variable `CURATOR_ELASTICSEARCH_TIMEOUT` when running the reaper manually. Default value is 600 seconds (10 minutes).
 
 What's New in 1.8.38
 =====================================================
@@ -80,12 +77,12 @@ Resolved Issues
 
 * **RHEL7 CIS Compliance Profile fixes:**
 
-    * Corrected control 1.6.1.1 “Ensure SELinux is not disabled in bootloader configuration”
-    * Corrected control 5.2.14 “Ensure SSH LoginGraceTime is set to one minute or less”
-    * Corrected control 3.6.2 “Ensure default deny firewall policy”
-    * Corrected control 5.2.11 “Ensure only approved ciphers are used”
-    * Corrected control 5.1.1 “Ensure cron daemon is enabled”
-    * Corrected control 1.3.2 “Ensure file system integrity is regularly checked”
+  * Corrected control 1.6.1.1 “Ensure SELinux is not disabled in bootloader configuration”
+  * Corrected control 5.2.14 “Ensure SSH LoginGraceTime is set to one minute or less”
+  * Corrected control 3.6.2 “Ensure default deny firewall policy”
+  * Corrected control 5.2.11 “Ensure only approved ciphers are used”
+  * Corrected control 5.1.1 “Ensure cron daemon is enabled”
+  * Corrected control 1.3.2 “Ensure file system integrity is regularly checked”
 
 What's New in 1.8.3
 =====================================================
@@ -153,9 +150,9 @@ New Features
 
 * **Performance Improvements for Compliance Profiles**
 
-  Windows performance has been considerably improved with the release of `audit cookbook v6 <https://supermarket.chef.io/cookbooks/audit>`__, which leverages new mechanisms in InSpec and Train to speed up all tests. This is achieved with a caching approach that allows for considerably faster execution of all calls and resources on Microsoft Windows. On average, we found the CIS Windows benchmarks for execution time were reduced by 90%, allowing for a significant increase in speed. CIS for Linux benchmarks saw an average of 30% reduction in execution time.
+  Windows performance has been considerably improved with the release of `audit cookbook v6 <https://supermarket.chef.io/cookbooks/audit>`__, which leverages new mechanisms in Chef InSpec and Train to speed up all tests. This is achieved with a caching approach that allows for considerably faster execution of all calls and resources on Microsoft Windows. On average, we found the CIS Windows benchmarks for execution time were reduced by 90%, allowing for a significant increase in speed. CIS for Linux benchmarks saw an average of 30% reduction in execution time.
 
-  By default, caching is now enabled with audit cookbook v6. Please update it alongside Chef Automate and InSpec on your nodes to fully leverage these performance gains.
+  By default, caching is now enabled with audit cookbook v6. Please update it alongside Chef Automate and Chef InSpec on your nodes to fully leverage these performance gains.
 
 * **Performance Improvements for Compliance Reporting**
 
@@ -222,7 +219,6 @@ Resolved Issues
 * OpsWorks for Chef Automate and the cloud marketplace instances of Chef Automate rely on self-signed SSL certificates. As of Chrome 58, self-signed certificates with x509 version 3 without the SubjectAltName extension are invalid. We added the correct extension for the self-signed cert.
 * Bitbucket integration now works with usernames containing the @ symbol.
 
-
 What's New in 1.7.10
 =====================================================
 
@@ -231,7 +227,7 @@ New Features
 
 Compliance Scanner Open Beta
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
-Previously, the only way to orchestrate remote InSpec runs was through the use of Chef Compliance, a standalone application which does not report data to Chef Automate. The compliance scanner, now available as an open beta feature in Chef Automate, allows you to add nodes and execute ad hoc remote compliance scans from within Chef Automate. In a future release we will add the ability to set up scheduled scan jobs.
+Previously, the only way to orchestrate remote Chef InSpec runs was through the use of Chef Compliance, a standalone application which does not report data to Chef Automate. The compliance scanner, now available as an open beta feature in Chef Automate, allows you to add nodes and execute ad hoc remote compliance scans from within Chef Automate. In a future release we will add the ability to set up scheduled scan jobs.
 
 Remote scans provide an important capability for any systems that may not have an agent installed, as well as for other endpoints and devices. The scanner, combined with existing reporting capabilities and profiles, offers a major enhancement to remote compliance testing with Chef Automate.
 
@@ -248,7 +244,6 @@ Chef Automate Statistics
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 The new ``automate-ctl data-summary`` command gives the total number of Chef client run records and compliance scan records, as well as how much storage is being consumed. For more information, see the `automate-ctl documentation </ctl_automate_server.html#data-summary>`__
 
-
 Command Line Option for Reaper
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 Override Reaper settings to run a manual Reaper job to remove data from Elasticsearch. Specify a retention period for a single reaper job from the command line. For more details, see `Data Retention Management in Chef Automate <https://docs.chef.io/data_retention_chef_automate.html>`__.
@@ -257,7 +252,6 @@ Removed Legacy Compliance Views
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 The original compliance data views under the Nodes tab have been accessible via the ``legacy`` flag since the release of Chef Automate 1.5 in July.  With this release those views have been removed from the product, and data is no longer written to the underlying data indices.  Both historical and new compliance data is stored in new indices.  To remove the legacy data and reduce storage volume, see `Data Retention Management in Chef Automate <https://docs.chef.io/data_retention_chef_automate.html>`__.
-
 
 Resolved Issues
 -----------------------------------------------------
@@ -291,7 +285,6 @@ Resolved Issues
 * Resolved an issue where ``automate-ctl delete-node`` was not removing nodes from the compliance UI
 * Corrected a regression with the ``mark-nodes-missing`` script; nodes will now be set to missing if they have not checked in for 12 hours
 * Upgraded Ruby to version 2.4.2 to address multiple CVEs
-
 
 What's New in 1.6.99
 =====================================================
@@ -346,7 +339,6 @@ If you plan to upgrade to Chef Automate 1.6.87 by restoring a backup from an exi
    .. code-block:: bash
 
       automate-ctl restore-backup my-backup
-
 
 New Features
 -----------------------------------------------------
@@ -437,7 +429,6 @@ Resolved Issues
 * Fixed an issue that limited the list of compliance profiles in the report to 10
 * Small UI fixes in the compliance view around scan results filter, profile suggestions, and reports with multiple scan results
 
-
 What's New in 1.5.46
 =====================================================
 
@@ -447,7 +438,7 @@ New Features
 Compliance GA
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-With this release, we are moving to a new view for InSpec data in Chef Automate. It provides better insights for common user queries around the compliance state of nodes and the state of profiles and their controls, with powerful search queries to see the right sets of data. After a beta period since the last release it is now the new default view for all compliance and InSpec data.
+With this release, we are moving to a new view for Chef InSpec data in Chef Automate. It provides better insights for common user queries around the compliance state of nodes and the state of profiles and their controls, with powerful search queries to see the right sets of data. After a beta period since the last release it is now the new default view for all compliance and InSpec data.
 
 The previous **Compliance** sub-tab in the **Nodes** tab has been replaced with a new tab on the top-level navigation bar. This new **Compliance** tab provides access to both profiles and reporting capabilities.
 
@@ -513,7 +504,6 @@ Resolved Issues
 * In **Workflow**, under the **Review** tab, the expandable comments below a change in diff view will now display properly
 * Default permissions for Chef Automate’s primary configuration file ``/etc/delivery/delivery.rb`` have been tightened from 0644 to 0640 so that the file is no longer world readable
 
-
 What's New in 0.8.5
 =====================================================
 
@@ -523,11 +513,11 @@ New Features
 Compliance in Chef Automate - Open Beta
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-With this release we have brought compliance capabilities into Chef Automate, without the need to install and operate a standalone compliance server. You can now manage InSpec compliance profiles in Chef Automate with features such as:
+With this release we have brought compliance capabilities into Chef Automate, without the need to install and operate a standalone compliance server. You can now manage Chef InSpec compliance profiles in Chef Automate with features such as:
 
 * Compliance profile installation and updates, when new versions become available
 * 80 pre-shipped compliance profiles for all major operating systems
-* View profiles, their metadata and controls, as well as InSpec code
+* View profiles, their metadata and controls, as well as Chef InSpec code
 * Search for profiles to view and install them
 * Add custom profiles
 * API endpoints to query profile contents
@@ -551,7 +541,6 @@ SUSE Linux Enterprise Server Support
 
 Chef Automate can now be installed on SUSE Linux Enterprise Server (SLES) 11 SP4 and 12 SP2 or above.
 
-
 Resolved Issues
 -----------------------------------------------------
 
@@ -559,7 +548,6 @@ Resolved Issues
 * Added retries to RabbitMQ service on startup to correct a problem reported in OpsWorks for Chef Automate.
 * Corrected a bug with failing to connect to Bitbucket when using a lengthy URL for the Bitbucket server.
 * Corrected an issue with pagination when several pages of run history are displayed.
-
 
 What's New in 0.7.239
 =====================================================

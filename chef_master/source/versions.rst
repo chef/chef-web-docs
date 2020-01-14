@@ -42,6 +42,8 @@ Versions and Status
 Supported Commercial Distributions
 ==============================================
 
+Use of these and later versions of these distributions must be in accordance with the `Chef End User License Agreement <https://www.chef.io/end-user-license-agreement/>`__ or a commercial agreement with Chef. Additional information is available in `this announcement <https://blog.chef.io/2019/04/02/chef-software-announces-the-enterprise-automation-stack/>`__.
+
 .. list-table::
    :header-rows: 1
    :widths: 150, 250, 200, 200
@@ -51,48 +53,52 @@ Supported Commercial Distributions
      - Lifecycle Status
      - EOL Date
    * - Chef Automate
-     - 2.x
+     - 2
      - GA
      - n/a
    * - Chef Infra Client
      - 15.x
-     - Releasing Soon
+     - GA
      - n/a
    * - Chef Infra Server
      - 13.x
-     - Releasing Soon
+     - GA
      - n/a
    * - Chef Habitat
-     - 0.8
-     - Releasing Soon
+     - 0.81+
+     - GA
      - n/a
    * - Chef InSpec
      - 4.x
-     - Releasing Soon
+     - GA
      - n/a
    * - Chef Workstation
-     - 0.3
-     - Releasing Soon
+     - 0.4+
+     - GA
      - n/a
    * - ChefDK
      - 4.x
-     - Releasing Soon
+     - GA
      - n/a
-   * - Supermarket
+   * - Supermarket¹
      - 4.x
      - Releasing Soon
      - n/a
-   * - Chef Backend
+   * - Chef Backend¹
      - 3.x
      - Releasing Soon
      - n/a
-   * - Push Jobs
+   * - Push Jobs¹
      - 3.x
      - Releasing Soon
      - n/a
 
+1. These distributions do not directly require acceptance of the Chef EULA, but have functionality that requires its acceptance in other products.
+
 Supported Free Distributions
 ==============================================
+
+Use of the following distributions is governed by the Apache License, version 2.0.
 
 .. list-table::
    :header-rows: 1
@@ -106,6 +112,10 @@ Supported Free Distributions
      - 14.x
      - GA
      - April 30, 2020
+   * - Chef Workstation
+     - 0.3
+     - GA
+     - April 30, 2020
    * - ChefDK
      - 3.x
      - GA
@@ -114,7 +124,7 @@ Supported Free Distributions
      - 12.x
      - GA
      - April 30, 2020
-   * - InSpec
+   * - Chef InSpec
      - 3.x
      - GA
      - April 30, 2020
@@ -130,6 +140,8 @@ Supported Free Distributions
 Deprecated Products and Versions
 ===================================================
 
+The following products are deprecated or end of life. Users are advised to use newer versions or products.
+
 .. list-table::
    :header-rows: 1
    :widths: 150, 250, 200, 200
@@ -142,31 +154,19 @@ Deprecated Products and Versions
      - 1.x
      - Deprecated
      - December 31, 2019
-   * - Chef Client
-     - 13.x
-     - Deprecated
-     - April 30, 2019
-   * - ChefDK
-     - 2.x
-     - Deprecated
-     - April 30, 2019
    * - Chef Manage
      - 2.5.x
      - Deprecated
      - TBD
-   * - Chef Provisioning
-     - All
-     - Deprecated
-     - August 31, 2019
    * - Chef Workflow
      - 2.x
      - Deprecated
      - TBD
-   * - InSpec
+   * - Chef InSpec
      - 1.x
      - Deprecated
      - December 31, 2019
-   * - InSpec
+   * - Chef InSpec
      - 2.x
      - Deprecated
      - December 31, 2019
@@ -186,14 +186,34 @@ End of Life (EOL) Products
      - All
      - EOL
      - December 31, 2018
+   * - Chef Client
+     - 13 and under
+     - EOL
+     - April 30, 2019
    * - Chef Compliance
      - All
      - EOL
      - December 31, 2018
+   * - ChefDK
+     - 2 and under
+     - EOL
+     - April 30, 2019
+   * - Chef Server DRBD HA
+     - All
+     - EOL
+     - March 31, 2019
    * - Enterprise Chef
      - All
      - EOL
      - December 31, 2018
+   * - Chef Provisioning
+     - All
+     - Deprecated
+     - August 31, 2019
+   * - Chef Replication/Sync
+     - All
+     - EOL
+     - August 31, 2019
    * - Reporting
      - All
      - EOL

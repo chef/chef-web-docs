@@ -5,7 +5,7 @@ ohai (executable)
 
 .. tag ctl_ohai_summary
 
-ohai is the command-line interface for Ohai, a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every chef-client run.
+ohai is the command-line interface for Ohai, a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every Chef Infra Client run.
 
 .. end_tag
 
@@ -48,9 +48,9 @@ Examples
 =====================================================
 The following examples show how to use the Ohai command-line tool:
 
-**Run a plugin independently of a chef-client run**
+**Run a plugin independently of a Chef Infra Client run**
 
-An Ohai plugin can be run independently of a chef-client run. First, ensure that the plugin is located in the ``/plugins`` directory and then use the ``-f`` option when running Ohai from the command line. For example, a plugin named ``sl_installed`` may look like the following:
+An Ohai plugin can be run independently of a Chef Infra Client run. First, ensure that the plugin is located in the ``/plugins`` directory and then use the ``-f`` option when running Ohai from the command line. For example, a plugin named ``sl_installed`` may look like the following:
 
 .. code-block:: ruby
 

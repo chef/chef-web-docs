@@ -3,15 +3,11 @@ remote_file resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_remote_file.rst>`__
 
-.. tag resource_remote_file_summary
-
 Use the **remote_file** resource to transfer a file from a remote location using file specificity. This resource is similar to the **file** resource.
 
-.. end_tag
+
 
 .. note:: Fetching files from the ``files/`` directory in a cookbook should be done with the **cookbook_file** resource.
-
-Changed in 12.4 to support Microsoft Windows UNC.
 
 Syntax
 =====================================================
@@ -73,7 +69,7 @@ where:
 
 * ``remote_file`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``atomic_update``, ``authentication``, ``backup``, ``checksum``, ``content``, ``diff``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``remote_domain``, ``remote_password``, ``remote_user``, ``show_progress``, ``use_etag``, ``use_last_modified``, and ``verifications`` are the properties available to this resource.
 
 Actions
@@ -93,7 +89,7 @@ The remote_file resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -118,17 +114,17 @@ The remote_file resource has the following properties:
 ``checksum``
    **Ruby Type:** String
 
-   Optional, see ``use_conditional_get``. The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it.
+   Optional, see ``use_conditional_get``. The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, Chef Infra Client does not download it.
 
 ``force_unlink``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   How the chef-client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for the chef-client delete the non-file target and replace it with the specified file. Set to ``false`` for the chef-client to raise an error.
+   How Chef Infra Client handles certain situations when the target file turns out not to be a file. For example, when a target file is actually a symlink. Set to ``true`` for Chef Infra Client delete the non-file target and replace it with the specified file. Set to ``false`` for Chef Infra Client to raise an error.
 
 ``ftp_active_mode``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Whether the chef-client uses active or passive FTP. Set to ``true`` to use active FTP.
+   Whether Chef Infra Client uses active or passive FTP. Set to ``true`` to use active FTP.
 
 ``group``
    **Ruby Type:** Integer, String
@@ -176,7 +172,7 @@ The remote_file resource has the following properties:
 ``mode``
    **Ruby Type:** Integer, String
 
-   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, the chef-client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, the chef-client uses the default value of ``'0755'``.
+   A quoted 3-5 character string that defines the octal mode. For example: ``'755'``, ``'0755'``, or ``00755``. If ``mode`` is not specified and if the file already exists, the existing mode on the file is used. If ``mode`` is not specified, the file does not exist, and the ``:create`` action is specified, Chef Infra Client assumes a mask value of ``'0777'`` and then applies the umask for the system on which the file is to be created to the ``mask`` value. For example, if the umask on a system is ``'022'``, Chef Infra Client uses the default value of ``'0755'``.
 
    The behavior is different depending on the platform.
 
@@ -195,13 +191,13 @@ The remote_file resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -323,7 +319,7 @@ The remote_file resource has the following properties:
 
       source ['http://seapower/spring.png', 'http://seapower/has_sprung.png']
 
-   When multiple paths are specified, the chef-client will attempt to download the files in the order listed, stopping after the first successful download.
+   When multiple paths are specified, Chef Infra Client will attempt to download the files in the order listed, stopping after the first successful download.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'
@@ -351,13 +347,13 @@ The remote_file resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -399,7 +395,7 @@ The remote_file resource has the following properties:
 
    A block or a string that returns ``true`` or ``false``. A string, when ``true`` is executed as a system command.
 
-   A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block is ``true``, the chef-client will continue to update the file as appropriate.
+   A block is arbitrary Ruby defined within the resource block by using the ``verify`` property. When a block is ``true``, Chef Infra Client will continue to update the file as appropriate.
 
    For example, this should return ``true``:
 
@@ -417,7 +413,7 @@ The remote_file resource has the following properties:
         verify 'nginx -t -c %{path}'
       end
 
-   .. warning:: For releases of the chef-client prior to 12.5 (chef-client 12.4 and earlier) the correct syntax is:
+   .. warning:: For releases of Chef Infra Client prior to 12.5 (chef-client 12.4 and earlier) the correct syntax is:
 
       .. code-block:: ruby
 
@@ -453,7 +449,7 @@ The remote_file resource has the following properties:
         verify '/usr/bin/false'
       end
 
-   If a string or a block return ``false``, the chef-client run will stop and an error is returned.
+   If a string or a block return ``false``, the Chef Infra Client run will stop and an error is returned.
 
 Atomic File Updates
 -----------------------------------------------------
@@ -463,7 +459,7 @@ Atomic updates are used with **file**-based resources to help ensure that file u
 
 Atomic updates are enabled by default. They can be managed globally using the ``file_atomic_update`` setting in the client.rb file. They can be managed on a per-resource basis using the ``atomic_update`` property that is available with the **cookbook_file**, **file**, **remote_file**, and **template** resources.
 
-.. note:: On certain platforms, and after a file has been moved into place, the chef-client may modify file permissions to support features specific to those platforms. On platforms with SELinux enabled, the chef-client will fix up the security contexts after a file has been moved into the correct location by running the ``restorecon`` command. On the Microsoft Windows platform, the chef-client will create files so that ACL inheritance works as expected.
+.. note:: On certain platforms, and after a file has been moved into place, Chef Infra Client may modify file permissions to support features specific to those platforms. On platforms with SELinux enabled, Chef Infra Client will fix up the security contexts after a file has been moved into the correct location by running the ``restorecon`` command. On the Microsoft Windows platform, Chef Infra Client will create files so that ACL inheritance works as expected.
 
 .. end_tag
 
@@ -479,7 +475,7 @@ To support Microsoft Windows security, the **template**, **file**, **remote_file
 
 .. tag resources_common_windows_security_acl
 
-The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; the chef-client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
+The ``rights`` property can be used in a recipe to manage access control lists (ACLs), which allow permissions to be given to multiple users and groups. Use the ``rights`` property can be used as many times as necessary; Chef Infra Client will apply them to the file or directory as required. The syntax for the ``rights`` property is as follows:
 
 .. code-block:: ruby
 
@@ -495,7 +491,7 @@ where
    (For those who know the Microsoft Windows API: ``:read`` corresponds to ``GENERIC_READ``; ``:write`` corresponds to ``GENERIC_WRITE``; ``:read_execute`` corresponds to ``GENERIC_READ`` and ``GENERIC_EXECUTE``; ``:modify`` corresponds to ``GENERIC_WRITE``, ``GENERIC_READ``, ``GENERIC_EXECUTE``, and ``DELETE``; ``:full_control`` corresponds to ``GENERIC_ALL``, which allows a user to change the owner and other metadata about a file.)
 
 ``principal``
-   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. The chef-client does not need to know if a principal is a user or a group.
+   Use to specify a group or user name. This is identical to what is entered in the login box for Microsoft Windows, such as ``user_name``, ``domain\user_name``, or ``user_name@fully_qualified_domain_name``. Chef Infra Client does not need to know if a principal is a user or a group.
 
 ``option_type``
    A hash that contains advanced rights options. For example, the rights to a directory that only applies to the first level of children might look something like: ``rights :write, 'domain\group_name', :one_level_deep => true``. Possible option types:
@@ -535,7 +531,7 @@ or:
 Some other important things to know when using the ``rights`` attribute:
 
 * Only inherited rights remain. All existing explicit rights on the object are removed and replaced.
-* If rights are not specified, nothing will be changed. The chef-client does not clear out the rights on a file or directory if rights are not specified.
+* If rights are not specified, nothing will be changed. Chef Infra Client does not clear out the rights on a file or directory if rights are not specified.
 * Changing inherited rights can be expensive. Microsoft Windows will propagate rights to all children recursively due to inheritance. This is a normal aspect of Microsoft Windows, so consider the frequency with which this type of action is necessary and take steps to control this type of action if performance is the primary consideration.
 
 Use the ``deny_rights`` property to deny specific rights to specific users. The ordering is independent of using the ``rights`` property. For example, it doesn't matter if rights are granted to everyone is placed before or after ``deny_rights :read, ['Julian', 'Lewis']``, both Julian and Lewis will be unable to read the document. For example:
@@ -562,7 +558,7 @@ or:
 
 .. tag resources_common_windows_security_inherits
 
-By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell the chef-client to apply (or not apply) inherited rights from its parent directory.
+By default, a file or directory inherits rights from its parent directory. Most of the time this is the preferred behavior, but sometimes it may be necessary to take steps to more specifically control rights. The ``inherits`` property can be used to specifically tell Chef Infra Client to apply (or not apply) inherited rights from its parent directory.
 
 For example, the following example specifies the rights for a directory:
 
@@ -602,26 +598,32 @@ but then not use the ``inherits`` property to deny those rights on a child direc
      deny_rights :read, 'MORDOR\Minions' # Oops, not specific enough
    end
 
-Because the ``inherits`` property is not specified, the chef-client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
+Because the ``inherits`` property is not specified, Chef Infra Client will default it to ``true``, which will ensure that security settings for existing files remain unchanged.
 
 .. end_tag
 
 Prevent Re-downloads
------------------------------------------------------
-To prevent the chef-client from re-downloading files that are already present on a node, use one of the following attributes in a recipe: ``use_conditional_get`` (default) or ``checksum``.
+----------------------------------------------------
+.. tag remote_file_prevent_re_downloads
 
-* The ``use_conditional_get`` attribute is the default behavior of the chef-client. If the remote file is located on a server that supports ETag and/or If-Modified-Since headers, the chef-client will use a conditional ``GET`` to determine if the file has been updated. If the file has been updated, the chef-client will re-download the file.
+To prevent Chef Infra Client from re-downloading files that are already present on a node, use one of the following attributes in a recipe: ``use_conditional_get`` (default) or ``checksum``.
 
-* The ``checksum`` attribute will ask the chef-client to compare the checksum for the local file to the one at the remote location. If they match, the chef-client will not re-download the file. Using a local checksum for comparison requires that the local checksum be the correct checksum.
+* The ``use_conditional_get`` attribute is the default behavior of Chef Infra Client. If the remote file is located on a server that supports ETag and/or If-Modified-Since headers, Chef Infra Client will use a conditional ``GET`` to determine if the file has been updated. If the file has been updated, Chef Infra Client will re-download the file.
+
+* The ``checksum`` attribute will ask Chef Infra Client to compare the checksum for the local file to the one at the remote location. If they match, Chef Infra Client will not re-download the file. Using a local checksum for comparison requires that the local checksum be the correct checksum.
 
 The desired approach just depends on the desired workflow. For example, if a node requires a new file every day, using the checksum approach would require that the local checksum be updated and/or verified every day as well, in order to ensure that the local checksum was the correct one. Using a conditional ``GET`` in this scenario will greatly simplify the management required to ensure files are being updated accurately.
 
-Access a remote UNC path on Windows
------------------------------------------------------
-The ``remote_file`` resource on Windows supports accessing files from a remote SMB/CIFS share. The file name should be specified in the source property as a UNC path e.g. ``\\myserver\myshare\mydirectory\myfile.txt``. This
-allows access to the file at that path location even if the Chef client process identity does not have permission to access the file. Credentials for authenticating to the remote system can be specified using the ``remote_user``, ``remote_domain``, and ``remote_password`` properties when the user that the Chef client is running does not have access to the remote file. See the "Properties" section for more details on these options.
+.. end_tag
 
-**Note**: This is primarily for accessing remote files when the user that the Chef client is running as does not have sufficient access, and alternative credentials need to be specified. If the user already has access, the credentials do not need to be specified.
+Access a remote UNC path on Windows
+----------------------------------------------------
+.. tag remote_file_unc_path
+
+The ``remote_file`` resource on Windows supports accessing files from a remote SMB/CIFS share. The file name should be specified in the source property as a UNC path e.g. ``\\myserver\myshare\mydirectory\myfile.txt``. This
+allows access to the file at that path location even if the Chef Infra Client process identity does not have permission to access the file. Credentials for authenticating to the remote system can be specified using the ``remote_user``, ``remote_domain``, and ``remote_password`` properties when the user that Chef Infra Client is running does not have access to the remote file. See the "Properties" section for more details on these options.
+
+**Note**: This is primarily for accessing remote files when the user that Chef Infra Client is running as does not have sufficient access, and alternative credentials need to be specified. If the user already has access, the credentials do not need to be specified.
 In a case where the local system and remote system are in the same domain, the ``remote_user`` and ``remote_password`` properties often do not need to be specified, as the user may already have access to the remote file share.
 
 Examples:
@@ -668,13 +670,13 @@ OR
      remote_password "password"
    end
 
+.. end_tag
+
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Transfer a file from a URL**
-
-.. tag resource_remote_file_transfer_from_url
 
 .. To transfer a file from a URL:
 
@@ -686,7 +688,7 @@ The following examples demonstrate various approaches for using resources in rec
      checksum '3a7dac00b1' # A SHA256 (or portion thereof) of the file.
    end
 
-.. end_tag
+
 
 **Transfer a file only when the source has changed**
 
@@ -694,7 +696,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. To transfer a file only if the remote source has changed (using the |resource http request| resource):
 
-.. The "Transfer a file only when the source has changed" example is deprecated in chef-client 11-6
+.. The "Transfer a file only when the source has changed" example is deprecated in Chef Client 11.6
 
 .. code-block:: ruby
 
@@ -854,8 +856,6 @@ where a command for installing Python might look something like:
 
 **Specify local Windows file path as a valid URI**
 
-.. tag resource_remote_file_local_windows_path
-
 When specifying a local Microsoft Windows file path as a valid file URI, an additional forward slash (``/``) is required. For example:
 
 .. code-block:: ruby
@@ -864,4 +864,4 @@ When specifying a local Microsoft Windows file path as a valid file URI, an addi
      ...       # other attributes
    end
 
-.. end_tag
+

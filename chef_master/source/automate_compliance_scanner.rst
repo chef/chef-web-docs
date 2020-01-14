@@ -1,7 +1,10 @@
 =====================================================
 Scanner
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_scanner.html>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_compliance_scanner.rst>`__
+
+.. meta:: 
+    :robots: noindex 
 
 Automate allows you to define the configuration and security needs of your systems with compliance profiles. Use the compliance scanner to put the profile into action with an ad-hoc or scheduled scan. The Automate compliance scanner lets you add and edit nodes and scan jobs using the user interface.
 

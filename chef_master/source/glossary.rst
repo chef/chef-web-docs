@@ -7,7 +7,7 @@ Glossary
    A Chef Automate stage. The Acceptance stage is where your team decides whether the submitted change should ship all the way out to its final destination.
 
 **analytics rules**
-   Event tracking during the chef-client run that generates data made visible to Chef Automate.
+   Event tracking during a Chef Infra Client run that generates data made visible to Chef Automate.
 
 **Berkshelf**
    Manage cookbook dependencies.
@@ -18,32 +18,32 @@ Glossary
 **chef-apply**
    A command-line tool that allows a single recipe to be run from the command line.
 
-**chef-client**
+**Chef Infra Client**
    A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
 
-**Chef Development Kit (DK)**
-   A collection of tools to aide in development of Chef cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at `Chef Development Kit <https://downloads.chef.io/chefdk/>`__.
+**ChefDK**
+   A collection of tools to aide in development of Chef cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at `ChefDK <https://downloads.chef.io/chefdk/>`__.
 
 **chef-repo**
    The repository structure in which cookbooks are authored, tested, and maintained. View `an example of the <https://github.com/chef/chef-repo>`__ chef-repo.
 
-**Chef server**
-   The Chef server acts as a hub for configuration data. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions.
+**Chef Infra Server**
+   The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
 
 **ChefSpec**
    ChefSpec is a unit-testing framework for testing Chef cookbooks.
 
 **chef-zero**
-   A very lightweight Chef server that runs in-memory on the local machine during the chef-client run. Also known as local mode.
+   A very lightweight Chef Infra Server that runs in-memory on the local machine during a Chef Infra Client run. Also known as local mode.
 
 **cookbook**
    A cookbook is the fundamental unit of configuration and policy distribution.
 
-**cookstyle**
-  A linter to enforce Ruby code quality and style based on the popular Rubocop linter.
+**Cookstyle**
+   A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
 
 **data bag**
-   A data_bag is a global variable that is stored as JSON data and is accessible from a Chef server.
+   A data_bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server.
 
 **definition**
    A definition is code that is reused across recipes, similar to a compile-time macro, and is defined in a cookbook.
@@ -52,52 +52,52 @@ Glossary
    A Chef Automate stage. Delivered is the final stage of the pipeline, what it means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
 
 **environment**
-   An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef server.
+   An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server.
 
 **Foodcritic**
    A linting tool for doing static code analysis on cookbooks.
 
 **kitchen**
-   Kitchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Kitchen is packaged in the Chef development kit.
+   Kitchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Kitchen is packaged in ChefDK.
 
 **knife**
-   A command-line tool that provides an interface between a local chef-repo and the Chef server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef server, and more.
+   A command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef Infra Server, and more.
 
 **library**
-   A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to the chef-client or by implementing entirely new functionality.
+   A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to Chef Infra Client or by implementing entirely new functionality.
 
 **Management Console**
    The Chef web-based management console you can use to manage Role Based Access Control (RBAC), edit and delete nodes, and reset private keys. Keep up to date with what's happening during chef client runs across an entire organization or on specific nodes.
 
 **node**
-   A node is any physical, virtual, or cloud machine that is configured to be maintained by a chef-client.
+   A node is any physical, virtual, or cloud device that is configured and maintained by an instance of Chef Infra Client.
 
 **node object**
-   A history of the attributes, run-lists, and roles that were used to configure a node that is under management by Chef.
+   A node object is a history of the attributes, run-lists, and roles that were used to configure a node that is under management by Chef Infra.
 
 **ohai**
-   Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every run.
+   Ohai is a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every run.
 
 **organization**
-   An organization is a single instance of a Chef server, including all of the nodes that are managed by that Chef server and each of the workstations that will run knife and access the Chef server using the Chef server API.
+   An organization is a single instance of a Chef Infra Server, including all of the nodes that are managed by that Chef Infra Server and each of the workstations that will run knife and access the Chef Infra Server using the Chef Infra Server API.
 
 **pipeline**
    A pipeline is series of automated and manual quality gates that take software changes from development to delivery. Pipelines in Chef Automate have six stages: Verify, Build, Acceptance, Union, Rehearsal, and Delivered.
 
 **policy**
-   Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the Chef server. See roles, environments, and data bags.
+   Policy settings can be used to map business and operational requirements, such as process and workflow, to settings and objects stored on the Chef Infra Server. See roles, environments, and data bags.
 
 **Push Jobs**
    Allows you to execute commands across hundreds or even thousands of nodes in your Chef-managed infrastructure.
 
 **recipe**
-   A recipe is a collection of resources that tells the chef-client how to configure a node.
+   A recipe is a collection of resources that tells Chef Infra Client how to configure a node.
 
 **Rehearsal**
    If all phases of Union succeed, then the Rehearsal stage is triggered. Rehearsal increases confidence in the artifacts and the deployment by repeating the process that occurred in Union in a different environment.
 
 **Reporting**
-   Capture and visualize what happens during the execution of chef-client runs across all of your Chef-managed infrastructure.
+   Capture and visualize what happens during the execution of Chef Infra Client runs across all of your Chef-managed infrastructure.
 
 **resource**
    A resource is a statement of configuration policy that describes the desired state of an piece within your infrastructure, along with the steps needed to bring that item to the desired state.
@@ -118,7 +118,7 @@ Glossary
   A Chef Automate stage. The purpose of Verify is to run checks so that the system can decide if it's worth the time of a human to review the submitted change.
 
 **visibility**
-   A feature of Chef Automate that provides real-time visibility into what is happening on the Chef server, including what's changing, who made those changes, and when they occurred.
+   A feature of Chef Automate that provides real-time visibility into what is happening on the Chef Infra Server, including what's changing, who made those changes, and when they occurred.
 
 **workflow**
    A feature of Chef Automate that manages changes to both infrastructure and application code, giving your operations and development teams a common platform for developing, building, testing, and deploying cookbooks, applications, and more. For more information see the `Chef Automate Overview </chef_automate.html>`__.

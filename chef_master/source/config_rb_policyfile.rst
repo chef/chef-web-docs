@@ -5,13 +5,13 @@ Policyfile.rb
 
 .. tag policyfile_summary
 
-A Policyfile is an optional way to manage role, environment, and community cookbook data with a single document that is uploaded to the Chef server. The file is associated with a group of nodes, cookbooks, and settings. When these nodes perform a Chef client run, they utilize recipes specified in the Policyfile run-list.
+A Policyfile is an optional way to manage role, environment, and community cookbook data with a single document that is uploaded to the Chef Infra Server. The file is associated with a group of nodes, cookbooks, and settings. When these nodes perform a Chef Infra Client run, they utilize recipes specified in the Policyfile run-list.
 
 .. end_tag
 
 .. tag policyfile_rb
 
-A Policyfile file allows you to specify in a single document the cookbook revisions and recipes that should be applied by the chef-client. A Policyfile file is uploaded to the Chef server, where it is associated with a group of nodes. When these nodes are configured by the chef-client, the chef-client will make decisions based on settings in the policy file, and will build a run-list based on that information. A Policyfile file may be versioned, and then promoted through deployment stages to safely and reliably deploy new configuration.
+A Policyfile file allows you to specify in a single document the cookbook revisions and recipes that Chef Infra Client will apply. A Policyfile file is uploaded to the Chef Infra Server, where it is associated with a group of nodes. When these nodes are configured during a Chef Infra Client run, Chef Infra Client will make decisions based on your Policyfile settings and will build a run-list based on that information. A Policyfile file may be versioned, and then promoted through deployment stages to safely and reliably deploy new configuration.
 
 .. end_tag
 
@@ -42,7 +42,7 @@ A ``Policyfile.rb`` file may contain the following settings:
    Required. The name of the policy. Use a name that reflects the purpose of the machines against which the policy will run.
 
 ``run_list "ITEM", "ITEM", ...``
-   Required. The run-list the chef-client will use to apply the policy to one (or more) nodes.
+   Required. The run-list Chef Infra Client will use to apply the policy to one (or more) nodes.
 
 ``default_source :SOURCE_TYPE, *args``
    The location in which any cookbooks not specified by ``cookbook`` are located. Possible values: ``chef_repo``, ``chef_server``, ``:community``, ``:supermarket``, and ``:artifactory``. Use more than one ``default_source`` to specify more than one location for cookbooks.
@@ -51,7 +51,7 @@ A ``Policyfile.rb`` file may contain the following settings:
 
    ``default_source :supermarket, "https://mysupermarket.example"`` pulls cookbooks from a named private Chef Supermarket.
 
-   ``default_source :chef_server, "https://chef-server.example/organizations/example"`` pulls cookbooks from the Chef Server.
+   ``default_source :chef_server, "https://chef-server.example/organizations/example"`` pulls cookbooks from the Chef Infra Server.
 
    ``default_source :community`` is an alias for ``:supermarket``.
 
@@ -133,7 +133,7 @@ A ``Policyfile.rb`` file may contain the following settings:
       named_run_list :update_app, "my_app_cookbook::default"
 
 ``include_policy "NAME", *args``
-   **New in ChefDK 2.4** Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from a local file or from Chef server. When the policyfile lock is included, its run-lists will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
+  Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from a local or remote file, from a Chef Infra Server, or from a git repository. When the policyfile lock is included, its run-list will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
 
 
   Pull the policyfile lock from ``./NAME.lock.json``:
@@ -148,7 +148,25 @@ A ``Policyfile.rb`` file may contain the following settings:
 
      include_policy "NAME", path: "./foo.lock.json"
 
-  Pull the policy ``NAME`` with revision ID ``revision1`` from the ``http://chef-server.example`` Chef server:
+  Pull the policyfile lock from ``./bar.lock.json`` with revision ID 'revision1'.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", path: "./bar.lock.json"
+
+  Pull the policyfile lock from a remote server ``https://internal.example.com/foo.lock.json``.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", remote: "https://internal.example.com/foo.lock.json"
+
+  Pull the policyfile lock from a remote server ``https://internal.example.com/bar.lock.json`` and with revision ID 'revision1'.
+
+  .. code-block:: ruby
+
+     include_policy "NAME", policy_revision_id: "revision1", remote: "https://internal.example.com/foo.lock.json"
+
+  Pull the policy ``NAME`` with revision ID ``revision1`` from the ``http://chef-server.example`` Chef Infra Server:
 
   .. code-block:: ruby
 

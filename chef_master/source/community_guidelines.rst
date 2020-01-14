@@ -1,123 +1,286 @@
 =====================================================
-Community Guidelines
+Chef Contributor Covenant Code of Conduct
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/community_guidelines.rst>`__
 
-The Chef community is a mixture of professionals and volunteers who come from all over the world and work together to make Chef better. Community members fulfill many roles, including mentoring, teaching, and connecting with other members of the community.
+**Note**: If you are in a physical space (e.g. ChefConf, Meetup, etc), please
+see the `Physical Spaces Code of Conduct <https://www.chef.io/code-of-conduct/physical-spaces/>`_.
 
-Diversity is one of our biggest strengths, but it can also bring increased communication challenges at times.
+Our Pledge
+=====================================================
 
-Be careful in the words that you choose. Be kind to others. Do not insult or put down others. Remember that sexist, racist, and other exclusionary jokes can be offensive to those around you. If you think your conversation is making another community member uncomfortable, try to make amends and move forward.
+Diversity is one of the greatest strengths that a community can have, and many times
+that strength is born from the friction that can only come through sharing of
+differing perspectives.
 
-Our community convenes in many physical and virtual spaces. These guidelines may be used in any location where the Chef community has gathered or is working. However, events that take place in public spaces, such as conferences and meetup groups, will generally have their own code of conduct or similar community guidelines. As such, the guidelines for a specific event should be followed.
+In the interest of fostering an open, welcoming, and encouraging environment, we
+as contributors, maintainers, and community members pledge to making
+participation in our projects and our community a harassment-free experience for
+everyone, regardless of age, body size, disability, ethnicity, gender identity
+and expression, level of experience, nationality, personal appearance, race,
+religion, veteran status, or sexual identity and orientation.
 
-As you are working with other members of the community, please keep in mind the following guidelines, which apply equally to founders, mentors, those who submit new features and pull requests, and to anyone who is seeking help and guidance.
+Our Standards
+=====================================================
 
-The following list isn't exhaustive; it is intended to help all of us communicate well so that the community can work better together:
+The Chef community contains a diverse group of professionals and volunteers
+who come from all over the world to make Chef better. Community members may
+fulfill many roles including mentoring, teaching, and connecting with other
+members of the community.
 
-* **Be welcoming, inclusive, friendly, and patient.**
-* **Be considerate.**
-* **Be respectful.**
-* **Be professional.**
-* **Be careful in the words that you choose.**
-* **When we disagree, let's all work together to understand why.**
+Be careful in the words that you choose. Be kind to others. Practice empathy.
+Don't insult or put down others. Remember that sexist, racist, ableist, ageist, and other
+exclusionary jokes can be offensive to those around you. If you think your
+conversation is making another community member uncomfortable *or* if they tell
+you so, stop immediately, make amends, and move forward.
 
-The previous list applies to all forms of communication: slack, the mailing list, the issue tracker, and any other forum that is used by the community.
+As you are working with other members of the community, please keep in mind that the
+following guidelines apply equally to founders, mentors, those who submit
+new features/pull requests, and anyone who is seeking help and guidance.
+
+The following list isn’t exhaustive, but these few examples can help all of us
+communicate well, so that the community can work better together:
+
+* Use welcoming and inclusive language
+* Exercise patience and friendliness
+* Be respectful of differing viewpoints and experiences
+* Gracefully accept constructive criticism
+* Focus on what is best for the community
+* Show empathy towards other community members
+
+The previous list applies to all forms of communication: Slack (or any web
+chat), Discourse, the issue tracker, and any other forum that is used by the
+community.
 
 Please keep in mind that:
 
 * Your work will be used by other people, and you, in turn, will depend on the work of others.
-* Decisions that you make will often affect others in the community.
-* Disagreements happen, but should not be an excuse for poor behavior and bad manners. When disagreements do happen, let's work together to solve them effectively and in a way that ensures that everyone understands what the disagreement was.
-* People may not understand jokes, sarcasm, and oblique references in the same way that you do. So remember that and be kind to the other members of the community.
-* Sexist, racist, and other prejudicial or exclusionary comments are not welcome in the community.
+* Decisions that you make often will affect others in the community.
+* Disagreements happen, but should not be an excuse for poor behavior and bad 
+  manners. When disagreements do happen, let’s work together to solve them effectively 
+  and in a way that ensures that everyone understands what the disagreements were.
+* Our community spans languages, cultures, perspectives (and continents!), and as 
+  such people may not understand jokes, sarcasm, and oblique references in the 
+  same way that you do. Remember that and be kind to the other members of the community.
+* Be cautious about making assumptions about what someone does or does not know 
+  about something - assuming that someone does not understand an issue and over 
+  explaining can be condescending (even when not intended to be so).
+* Sexist, racist, ableist, ageist, and other prejudicial or exclusionary comments 
+  are not welcome in the community.
 
 Unacceptable Behavior
 =====================================================
-Harassment comes in many forms, including but not limited to: offensive verbal or written comments related to gender, sexual orientation, disability, physical appearance, body size, race, religion, and sexual images.
 
-As a community that often meets at public spaces, harassment also includes: stalking, persistent following, intrusive or otherwise unwanted photography or recording, sustained disruption of talks or other events, inappropriate physical contact, and unwelcome sexual attention.
+Harassment comes in many forms, including but not limited to:
 
-Harassment and other exclusionary behavior aren't acceptable. This includes, but is not limited to:
+* Offensive comments related to gender, sexual orientation, age, disability, 
+  physical appearance, body size, race, veteran status, or religion.
+* Posting/Exposing sexually explicit or violent images.
+* Deliberate (or implied) intimidation.
+* Trolling, insulting/derogatory comments, and personal or political attacks 
+  particularly those related to gender, sexual orientation, age, race, religion or disability.
+* Publishing others' private information, such as a physical or electronic address, 
+  without explicit permission ("doxing").
 
-* Violent threats or language directed against another person.
-* Sexist, racist, or otherwise discriminatory jokes and language.
-* Posting sexually explicit or violent material.
-* Posting (or threatening to post) other people's personally identifying information ("doxing").
-* Personal insults, especially those using racist or sexist terms.
-* Unwelcome sexual attention.
-* Advocating for, or encouraging, any of the above behavior.
-* Repeated harassment of others. In general, if someone asks you to stop, then stop.
+As a community that meets in physical public spaces, harassment also includes:
 
-Any physical violence or intimidation, threatened or acted on, is a serious offense.
+* Stalking or persistent following.
+* Intrusive or otherwise unwanted photography or recording.
+* Sustained disruption of talks or other events.
+* Inappropriate physical contact or unwelcome sexual attention.
+
+**NOTE**: If you are in a physical space -- e.g. Chef Conf, Meetup, etc. -- please
+see the `Physical Spaces Code of Conduct <https://www.chef.io/code-of-conduct/physical-spaces/>`_.
+
+If you have any lack of clarity about behaviors we include in the definition of
+"harassment", please read the `Citizen Code of
+Conduct <http://citizencodeofconduct.org/>`_. In particular, we do not tolerate
+behavior that excludes people in socially marginalized groups.
+
+Enforcement/Getting Help
+=====================================================
+
+Instances of abusive, harassing, or otherwise unacceptable behavior should be
+reported by contacting any of the Community Advocates directly. Each person's
+contact information and role is listed in the repo that links to this document.
+If you were not linked here, then contact the `individuals listed below <#roles>`_. All
+complaints will be reviewed, investigated, and will result in a response that
+is deemed necessary and appropriate to the circumstances. The project team is
+obligated to maintain confidentiality with regard to the reporter of an
+incident. Further details of specific enforcement policies may be posted
+separately.
+
+Community Organizers who do not follow or enforce the Code of Conduct in good
+faith may face temporary or permanent repercussions as determined by other
+members of the project's leadership.
 
 Roles
 =====================================================
-* The **Decider** has final say on community guidelines and final authority on punitive actions and appeals. As per the `Chef RFC process <https://github.com/chef/chef-rfc/blob/master/rfc000-rfc-process.md>`__, the top-level decider is Adam Jacob (adam @ chef.io).
-* The **Community Ombudsperson** guides and meets regularly with community advocates, helps enforce punitive actions, hears appeals, is responsible for maintaining a list of incidents, and ensures pertinent information is shared with necessary parties. The community ombudsperson is appointed by the decider.
-* **Community Advocates** may be assigned for each area where the community convenes online (slack, email list, GitHub, etc.). Advocates are responsible for helping enforce the community guidelines.
-* A **Community Member** is anyone who participates with the community whether in-person or via online channels. Community members are responsible for following the community guidelines, suggesting updates to the guidelines when warranted, and helping enforce community guidelines.
 
-Community advocates must be agreed on by the community: a simple majority of other advocates must approve. The decider retains veto power. Create a pull request against this document to volunteer or nominate someone as a community advocate for a particular area. Create a pull request against this document to propose an area that needs coverage.
+The following are the various roles of our **Community Organizers** and the
+person(s) assigned to each role:
 
-Incident Handling
-=====================================================
-**When we disagree, we consult others**
-
-Disagreements, both social and technical, happen all the time. When they occur, we seek to resolve disagreements and differing views constructively and with the help of the community and community processes. When disagreements escalate, we ask our community advocates to step in to moderate, mediate, and help resolve tense situations.
-
-The Chef community advocates are well informed on how to deal with incidents. Report the incident (preferably in writing) to one of the community advocates listed below.
+* The **Deciders** have final say on community guidelines and final authority on 
+  correct actions and appeals.
+* The **Community Advocates** may be assigned for each area where the community 
+  convenes online (Slack, email list, GitHub, etc.). Community Advocates are volunteers 
+  who have the best interests of our community in mind. They act in good faith to 
+  help enforce our community guidelines and respond to incidents when they occur.
+* The **Project Maintainers** are expected to conduct their
+  behavior in line with the Code of Conduct and are individually responsible
+  for both escalating to a **Community Advocate** in case of witnessing an
+  incident, and helping to foster the community.
+* A **Community Member** is anyone who participates with the community
+  whether in-person or via online channels. Community members are responsible
+  for following the community guidelines, suggesting updates to the guidelines
+  when warranted, and helping enforce community guidelines.
 
 .. list-table::
-   :widths: 60 420
+   :widths: 200 200 200
    :header-rows: 1
 
    * - Role
-     - Advocates
+     - Name
+     - Contact Info
    * - Decider
-     - Adam Jacob - adam @ chef.io
-   * - Ombudsperson
-     - Mandi Walls - mandi @ chef.io; phone - +1 703-582-7396; slack - lnxchk
-   * - Advocates
-     - The `list of advocates <https://github.com/chef/chef-rfc/blob/master/rfc020-community-guidelines.md>`__ for the various locations in which Chef community discussions take place is maintained in the RFC.
+     - Jenny Armstrong-Owen
+     - jowen@chef.io
+   * - Community Advocate
+     - Mandi Walls
+     - mandi@chef.io
+   * - Community Advocate
+     - Nell Shamrell-Harrington
+     - nshamrell@chef.io
+   * - Community Advocate
+     - Robb Kidd
+     - rkidd@chef.io
+
+Consequences of Unacceptable Behavior
+=====================================================
+
+Unacceptable behavior from any community member, including sponsors and those
+with decision-making authority, will *not* be tolerated.
+
+Anyone who is asked to stop unacceptable behavior is expected to comply immediately.
+
+If a community member engages in unacceptable behavior, the community organizers
+may take action that they deem appropriate -- up to and including a temporary ban or
+permanent expulsion from the community *without warning* (and without refund, in
+the case of a paid event). If you have been involved in unacceptable behavior
+with current Chef community members outside the boundaries of the Chef
+Community, the Community Organizers retain the right to treat those external
+incidents in the same manner as internal incidents.
+
+Any physical violence *or* intimidation, threatened or acted on, is a serious
+offense and will result in immediate exclusion from the community and
+appropriate follow up with law enforcement. No, we are not kidding.
+
+Procedure for Handling Disagreements and Incidents
+=====================================================
+
+Disagreements are inherent to a group of impassioned people. When they occur, we
+seek to resolve disagreements and differing views constructively and with the
+help of the community and community processes. When disagreements escalate, we
+ask our Community Advocates to step in to moderate, mediate, and help resolve
+tense situations.
+
+The Chef Community Advocates are well informed on how to deal with incidents.
+Report the incident (preferably in writing) to one of the Community Advocates
+listed in the `Roles <#roles>`_ section.
+
+Handling Incidents
+-----------------------------------------------------
+
+**NOTE**: If you are in a physical space -- e.g. Chef Conf, Meetup, etc. -- please
+see the `Physical Spaces Code of Conduct <https://www.chef.io/code-of-conduct/physical-spaces/>`_.
+
+When a Community Organizer or Project Maintainer notices someone behaving in a
+way that is outside of our guidelines (a violator), the Community Advocate should
+make every reasonable attempt to help curtail that behavior. The Community
+Advocate may:
+
+* Remind the violator about our Community Code of Conduct and provide a link to this document.
+* Ask the violator to stop the unacceptable behavior.
+* Raise the issue with a maintainer, the community manager, or any member of the core project team.
+* Allow time for the violator to correct the behavior.
+
+The Community Advocate should take the following steps if the behavior is not
+brought in-line with our guidelines or the incident is not resolved:
+
+* Consult with another Community Organizer to make a judgment call about what 
+  reasonable corrective actions are warranted.
+* In the case that no conclusion can be made, escalate to include the next level 
+  of Community Organizers.
+* If still no conclusion can be made, report the incident to the **Deciders** listed above.
+* Apply the corrective action.
+* Document the incident as described below.
+
+Documenting Incidents
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+All incident reports will be kept in a private repository that is shared with
+the aforementioned Community Advocates and Deciders under the `Roles <#roles>`_
+section. No other individuals or project contributors will be given access to
+these incident reports. **This repo will hold no personal information on the
+victim of an incident.** On the displacement of any Community Organizer in the
+`Roles <#roles>`_ list above, that individual will immediately lose access to this
+repository and will terminate any local copies of the repository.
 
 The important information to report consists of:
 
-* Identifying information (name, email address, slack name, etc.) of the person doing the harassing
-* The behavior that was in violation
-* The approximate time of the behavior
-* The circumstances surrounding the incident
-* Other people involved in the incident
+* Identifying information (name, email address, Slack username, etc.) of the
+  person doing the harassing.
+* The behavior that was in violation.
+* The approximate time and date of the behavior.
+* The circumstances surrounding the incident.
+* Where applicable, contextual information/proof (email body, chat log, GitHub
+  Issue, etc.).
+* Contact information for witnesses to the incident.
 
-If you feel your safety is in jeopardy please do not hesitate to contact local law enforcement.
+If you feel your safety is in jeopardy, please do not hesitate to contact local
+law enforcement.
 
-.. note:: Incidents that violate the community guidelines are extremely damaging to the community, and they will not be tolerated. The silver lining is that, in many cases, these incidents present a chance for the community as a whole to grow, learn, and become better. The community advocate team requests that they be your first resource when reporting a Chef community-related incident, so that they may enforce the community guidelines and take quick action toward a resolution.
+**Note:** Incidents that violate the Community Code of Conduct are extremely
+damaging to the community. The silver lining is that, in many cases, these
+incidents present a chance for the community as a whole to grow, learn, and
+become better.
 
-Documenting Incidents
+Our Responsibilities
 =====================================================
-All incident reports will be kept in a private repository that is shared with the community advocates, community ombudsperson, and the decider.
 
-Punitive Actions
------------------------------------------------------
-Crafting a list of quid pro quo punitive actions in our community guidelines would be inadequate and incomplete. Each incident will be dealt with on a case-by-case basis. The community advocates and community ombudsperson will maintain a list of incidents and actions taken. If patterns emerge this section may be updated to include some suggested punitive actions.
+Community Organizers are responsible for clarifying the standards of acceptable
+behavior and are expected to take appropriate and fair corrective action in
+response to any instances of unacceptable behavior.
 
-Our first response should always be to ensure the immediate safety and well being of all parties involved. In the ideal case, an attempt to stop and prevent the violation behavior would be made before any punitive action is decided.
+Community Organizers have the right and responsibility to remove, edit, or
+reject comments, commits, code, wiki edits, issues, messages, tweets, and other
+contributions that are not aligned with this Code of Conduct, or to ban
+temporarily or permanently any contributor for other behaviors that they deem
+inappropriate, threatening, offensive, or harmful.
 
-When punitive action is warranted, a community advocate may use one or more of the following remedies:
-
-* Removal from the space where the incident occurred for a period of time.
-* Banned from the space where the incident occurred indefinitely.
-* Removed or banned from other online spaces.
-* Banned from one or more upcoming in-person events.
-
-Appeals
+Scope
 =====================================================
-People subjected to punitive action may appeal the action by contacting a community advocate, ombudsperson, or the decider. An appeal will be acknowledged within 48 hours and processed within seven days.
 
-Influences
------------------------------------------------------
-This Code of Conduct was forked from the example policy from the `Geek Feminism wiki, created by the Ada Initiative and other volunteers <http://geekfeminism.wikia.com/wiki/Conference_anti-harassment/Policy>`__, which is under a Creative Commons Zero (CC0) license. This document has also been inspired by the Speak Up! project, `the Django code of conduct <https://www.djangoproject.com/conduct/>`__, and the `PyCon Code of Conduct <https://github.com/python/pycon-code-of-conduct>`__.
+Our community will convene in both physical and virtual spaces. This Code of
+Conduct applies within project spaces and in public spaces when an individual is
+representing the project or its community. Examples of representing a project or
+community include using an official project e-mail address, posting via an
+official social media account, or acting as an appointed representative at an
+online or offline event. Representation of a project may be further defined and
+clarified by project maintainers and community organizers.
 
-Copyright
+Attribution
 =====================================================
-This Code of Conduct is in the public domain. In jurisdictions that do not allow for this, this work is available under CC0. To the extent possible under law, the person who associated CC0 with this work has waived all copyright and related or neighboring rights to this work.
+
+This Code of Conduct is adapted from the following:
+
+* `Contributor Covenant <https://www.contributor-covenant.org/>`_, version 1.4,
+  available `here <https://www.contributor-covenant.org/version/1/4/code-of-conduct.html>`_
+* `Rust Code of Conduct <https://www.rust-lang.org/policies/code-of-conduct>`_
+* `Citizen Code of Conduct <http://citizencodeofconduct.org/>`_
+
+Community Members in Crisis
+=====================================================
+
+If a community member is in or appears to be in crisis, please refer to the 
+`Community Members in Crisis Guide <https://github.com/chef/chef-oss-practices/blob/master/communication/community-members-in-crisis.md>`_.

@@ -40,7 +40,7 @@ This subcommand has the following options:
    Show a diff when a file changes. Default: ``--diff``.
 
 ``--dry-run``
-   Prevent changes from being uploaded to the Chef server. Default: ``false``.
+   Prevent changes from being uploaded to the Chef Infra Server. Default: ``false``.
 
 ``--[no-]force``
    Force the upload of files even if they haven't been changed. Default: ``--no-force``.

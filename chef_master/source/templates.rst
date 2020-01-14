@@ -11,7 +11,7 @@ A cookbook template is an Embedded Ruby (ERB) template that is used to dynamical
 
 .. note:: .. tag notes_cookbook_template_erubis
 
-          The Chef Client uses Erubis for templates, which is a fast, secure, and extensible implementation of embedded Ruby. Erubis should be familiar to members of the Ruby on Rails, Merb, or Puppet communities. For more information about Erubis, see: http://www.kuwata-lab.com/erubis/.
+          The Chef Infra Client uses Erubis for templates, which is a fast, secure, and extensible implementation of embedded Ruby. Erubis should be familiar to members of the Ruby on Rails, Merb, or Puppet communities. For more information about Erubis, see: http://www.kuwata-lab.com/erubis/.
 
           .. end_tag
 
@@ -95,7 +95,7 @@ A statement is delimited by a modifier, such as ``if``, ``elseif``, and ``else``
 
 Using a Ruby expression is the most common approach for defining template variables because this is how all variables that are sent to a template are referenced. Whenever a template needs to use an ``each``, ``if``, or ``end``, use a Ruby statement.
 
-When a template is rendered, Ruby expressions and statements are evaluated by the Chef Client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. The Chef Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
+When a template is rendered, Ruby expressions and statements are evaluated by Chef Infra Client. The variables listed in the **template** resource's ``variables`` parameter and in the node object are evaluated. Chef Infra Client then passes these variables to the template, where they will be accessible as instance variables within the template. The node object can be accessed just as if it were part of a recipe, using the same syntax.
 
 For example, a simple template resource like this:
 
@@ -213,7 +213,7 @@ Transfer Frequency
 =====================================================
 .. tag template_transfer_frequency
 
-The Chef Client caches a template when it is first requested. On each subsequent request for that template, the Chef Client compares that request to the template located on the Chef server. If the templates are the same, no transfer occurs.
+The Chef Infra Client caches a template when it is first requested. On each subsequent request for that template, the Chef Infra Client compares that request to the template located on the Chef Infra Server. If the templates are the same, no transfer occurs.
 
 .. end_tag
 
@@ -263,7 +263,7 @@ Use the ``render`` method in a template to reference a partial template file:
 
 .. code-block:: ruby
 
-   <%= render "partial_name.txt.erb", :option => {} %>
+   <%= render 'partial_name.txt.erb', :option => {} %>
 
 where ``partial_name`` is the name of the partial template file and ``:option`` is one (or more) of the following:
 
@@ -286,6 +286,6 @@ For example:
 
 .. code-block:: ruby
 
-   <%= render "simple.txt.erb", :variables => {:user => Etc.getlogin }, :local => true %>
+   <%= render 'simple.txt.erb', :variables => {:user => Etc.getlogin }, :local => true %>
 
 .. end_tag

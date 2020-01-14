@@ -3,17 +3,17 @@
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_vault.rst>`__
 
-``chef-vault`` is a Ruby Gem that is included in Chef Workstation and the chef-client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
+``chef-vault`` is a Ruby Gem that is included in Chef Workstation and Chef Infra Client. ``chef-vault`` allows the encryption of a data bag item by using the public keys of a list of nodes, allowing only those nodes to decrypt the encrypted values. ``chef-vault`` uses the ``knife vault`` subcommand.
 
 .. note:: ``chef-vault`` does not currently support alternate keying mechanisms like GPG and Amazon KMS.
 
 * For more information about using the ``chef-vault`` cookbook, its helper methods and resources, see https://github.com/chef-cookbooks/chef-vault
 
-The ``chef-vault cookbook`` is maintained by Chef. Use it along with ``chef-vault`` itself. This cookbook adds the ``chef_vault_item`` helper method to the Recipe DSL and the ``chef_vault_secret`` resource. Use them both in recipes to work with data bag secrets.
+The ``chef-vault cookbook`` is maintained by Chef Software. Use it along with ``chef-vault`` itself. This cookbook adds the ``chef_vault_item`` helper method to the Recipe DSL and the ``chef_vault_secret`` resource. Use them both in recipes to work with data bag secrets.
 
 .. warning::
 
-   Chef vault requires the use of chef-client configured to use public/private key pairs. Chef vault is incompatible with the practice of using chef-client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef server database. To update existing nodes to use ``chef-vault``, first re-register your chef-client nodes with the Chef server, which will generate public/private key pairs, and then install Chef vault on each node. Chef vault will generate the following error if used with a chef-client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef server database:
+   Chef vault requires the use of Chef Infra Client configured to use public/private key pairs. Chef vault is incompatible with the practice of using Chef Infra Client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef Infra Server database. To update existing nodes to use ``chef-vault``, first re-register your Chef Infra Client nodes with the Chef Infra Server, which will generate public/private key pairs, and then install Chef vault on each node. Chef vault will generate the following error if used with a Chef Infra Client with a private key as ``client.pem`` and a certificate set as its public identity in the Chef Infra Server database:
 
    .. code-block:: none
 
@@ -82,7 +82,7 @@ Vault Common Options
       Chef users to be added as admins
 
 ``-s``, ``--server-url URL``
-      Chef Server URL
+      Chef Infra Server URL
 
 ``--chef-zero-host HOST``
       Host to start chef-zero on
@@ -170,49 +170,49 @@ Example Commands
 
 Create a vault called passwords and put an item called root in it with the given values for username and password encrypted for clients role:webserver, client1 & client2 and admins admin1 & admin2
 
-      .. code-block:: bash
+.. code-block:: bash
 
-         knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+   knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
 
 
 Create a vault called passwords and put an item called root in it with the given values for username and password encrypted for clients role:webserver and admins admin1 & admin2
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
+   knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
 
 
 Create a vault called passwords and put an item called root in it with the given values for username and password encrypted for clients role:webserver, client1 & client2
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2"
+   knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2"
 
 
 Create a vault called passwords and put an item called root in it with the given values for username and password encrypted for clients role:webserver
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
+   knife vault create passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
 
 Create a vault called passwords and put an item called root in it with the given values for username and password encrypted for clients client1 & client2
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault create passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
+   knife vault create passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
 
 Create a vault called passwords and put an item called root in it with the given values for username and password encrypted for admins admin1 & admin2
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault create passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
+   knife vault create passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
 
 
 Create a vault called passwords and put an item called root in it encrypted for admins admin1 & admin2.  *Leaving the data off the command-line will open an editor to fill out the data*
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault create passwords root -A "admin1,admin2"
+   knife vault create passwords root -A "admin1,admin2"
 
 .. note:: A JSON file can be used in place of specifying the values on the command line, see global options below for details
 
@@ -220,75 +220,75 @@ Create a vault called passwords and put an item called root in it encrypted for 
 --------------------------------------------------
 Update the values in username and password in the vault passwords and item root.  Will overwrite existing values if values already exist!
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root '{"username": "root", "password": "mypassword"}'
+   knife vault update passwords root '{"username": "root", "password": "mypassword"}'
 
 Update the values in username and password in the vault passwords and item root and add role:webserver, client1 & client2 to the encrypted clients and admin1 & admin2 to the encrypted admins.  Will overwrite existing values if values already exist!
 
-      .. code-block:: shell
+.. code-block:: shell
 
-          knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+    knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
 
 Update the values in username and password in the vault passwords and item root and add role:webserver to the encrypted clients and admin1 & admin2 to the encrypted admins.  Will overwrite existing values if values already exist!
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
+   knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
 
 Update the values in username and password in the vault passwords and item root and add role:webserver to the encrypted clients.  Will overwrite existing values if values already exist!
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
+   knife vault update passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
 
 Update the values in username and password in the vault passwords and item root and add client1 & client2 to the encrypted clients.  Will overwrite existing values if values already exist!
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
+   knife vault update passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
 
 Update the values in username and password in the vault passwords and item root and add admin1 & admin2 to the encrypted admins.  Will overwrite existing values if values already exist!
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
+   knife vault update passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
 
 Add role:webserver to encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root -S "role:webserver"
+   knife vault update passwords root -S "role:webserver"
 
 Add client1 & client2 to encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root -C "client1,client2"
+   knife vault update passwords root -C "client1,client2"
 
 Add admin1 & admin2 to encrypted admins for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root -A "admin1,admin2"
+   knife vault update passwords root -A "admin1,admin2"
 
 Add admin1 & admin2 to encrypted admins and role:webserver, client1 & client2 to encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+   knife vault update passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
 
 Add admin1 & admin2 to encrypted admins and role:webserver to encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root -S "role:webserver" -A "admin1,admin2"
+   knife vault update passwords root -S "role:webserver" -A "admin1,admin2"
 
 Add admin1 & admin2 to encrypted admins and client1 & client2 to encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault update passwords root -C "client1,client2" -A "admin1,admin2"
+   knife vault update passwords root -C "client1,client2" -A "admin1,admin2"
 
 ..Note:: A JSON file can be used in place of specifying the values on the command line, see global options below for details
 
@@ -296,190 +296,190 @@ Add admin1 & admin2 to encrypted admins and client1 & client2 to encrypted clien
 --------------------------------------------------
 Remove the values in username and password from the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root '{"username": "root", "password": "mypassword"}'
+   knife vault remove passwords root '{"username": "root", "password": "mypassword"}'
 
 Remove the values in username and password from the vault passwords and item root and remove role:webserver, client1 & client2 from the encrypted clients and admin1 & admin2 from the encrypted admins.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+   knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
 
 Remove the values in username and password from the vault passwords and item root and remove role:webserver from the encrypted clients and admin1 & admin2 from the encrypted admins.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
+   knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver" -A "admin1,admin2"
 
 Remove the values in username and password from the vault passwords and item root and remove client1 & client2 from the encrypted clients and admin1 & admin2 from the encrypted admins.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2" -A "admin1,admin2"
+   knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2" -A "admin1,admin2"
 
 Remove the values in username and password from the vault passwords and item root and remove role:webserver from the encrypted clients.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
+   knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -S "role:webserver"
 
 Remove the values in username and password from the vault passwords and item root and remove client1 & client2 from the encrypted clients.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
+   knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -C "client1,client2"
 
 Remove the values in username and password from the vault passwords and item root and remove admin1 & admin2 from the encrypted admins.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
+   knife vault remove passwords root '{"username": "root", "password": "mypassword"}' -A "admin1,admin2"
 
 Remove admin1 & admin2 from encrypted admins and role:webserver, client1 & client2 from encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
+   knife vault remove passwords root -S "role:webserver" -C "client1,client2" -A "admin1,admin2"
 
 Remove admin1 & admin2 from encrypted admins and role:webserver from encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root -S "role:webserver" -A "admin1,admin2"
+   knife vault remove passwords root -S "role:webserver" -A "admin1,admin2"
 
 Remove role:webserver from encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root -S "role:webserver"
+   knife vault remove passwords root -S "role:webserver"
 
 Remove client1 & client2 from encrypted clients for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root -C "client1,client2"
+   knife vault remove passwords root -C "client1,client2"
 
 Remove admin1 & admin2 from encrypted admins for the vault passwords and item root.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault remove passwords root -A "admin1,admin2"
+   knife vault remove passwords root -A "admin1,admin2"
 
 ``delete``
 --------------------------------------------------
 Delete the item root from the vault passwords
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault delete passwords root
+   knife vault delete passwords root
 
 ``show``
 --------------------------------------------------
 Show the items in a vault.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault show passwords
+   knife vault show passwords
 
 Show the entire root item in the passwords vault and print in JSON format.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault show passwords root -Fjson
+   knife vault show passwords root -Fjson
 
 Show the entire root item in the passwords vault and print in JSON format, including the search query, clients, and admins.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault show passwords root -Fjson -p all
+   knife vault show passwords root -Fjson -p all
 
 Show the username and password for the item root in the vault passwords.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault show passwords root "username, password"
+   knife vault show passwords root "username, password"
 
 Show the contents for the item user_pem in the vault certs.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault show certs user_pem "contents"
+   knife vault show certs user_pem "contents"
 
 ``edit``
 --------------------------------------------------
 
 Decrypt the entire root item in the passwords vault and open it in json format in your $EDITOR.  Writing and exiting out the editor will save and encrypt the vault item.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault edit passwords root
+   knife vault edit passwords root
 
 ``download``
 --------------------------------------------------
 Decrypt and download an encrypted file to the specified path.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault download certs user_pem ~/downloaded_user_pem
+   knife vault download certs user_pem ~/downloaded_user_pem
 
 ``rotate keys``
 --------------------------------------------------
 Rotate the shared key for the vault passwords and item root. The shared key is that which is used for the chef encrypted data bag item.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault rotate keys passwords root
+   knife vault rotate keys passwords root
 
 To remove clients which have been deleted from Chef but not from the vault, add the ``--clean-unknown-clients`` switch:
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault rotate keys passwords root --clean-unknown-clients
+   knife vault rotate keys passwords root --clean-unknown-clients
 
 ``rotate all keys``
 --------------------------------------------------
 Rotate the shared key for all vaults and items. The shared key is that which is used for the chef encrypted data bag item.
 
-      .. code-block:: shell
+.. code-block:: shell
 
-         knife vault rotate all keys
+   knife vault rotate all keys
 
 Removes clients which have been deleted from Chef but not from the vault.
 
-     .. code-block:: shell
+.. code-block:: shell
 
-        knife vault rotate keys passwords root --clean-unknown-clients
+   knife vault rotate keys passwords root --clean-unknown-clients
 
 ``refresh``
 --------------------------------------------------
 This command reads the search_query in the vault item, performs the search, and reapplies the results.
 
-     .. code-block:: shell
+.. code-block:: shell
 
-        knife vault refresh VAULT ITEM
+   knife vault refresh VAULT ITEM
 
 To remove clients which have been deleted from Chef but not from the vault, add the ``--clean-unknown-clients`` switch:
 
-     .. code-block:: shell
+.. code-block:: shell
 
-        knife vault refresh passwords root --clean-unknown-clients
+   knife vault refresh passwords root --clean-unknown-clients
 
 ``isvault``
 --------------------------------------------------
 This command checks if the given item is a vault or not, and exit with a status of 0 if it is and 1 if it is not.
 
-     .. code-block:: shell
+.. code-block:: shell
 
-        knife vault isvault VAULT ITEM
+   knife vault isvault VAULT ITEM
 
 ``itemtype``
 --------------------------------------------------
 This command outputs the type of the data bag item: normal, encrypted or vault
 
-     .. code-block:: shell
+.. code-block:: shell
 
-        knife vault itemtype VAULT ITEM
+   knife vault itemtype VAULT ITEM
 
 Global Options
 ------------------------------------------------------------
@@ -501,7 +501,7 @@ Global Options
      - all
    * - ``-S`` ``SEARCH``
      - ``--search SEARCH``
-     - Chef Server SOLR Search Of Nodes
+     - Chef Infra Server SOLR Search Of Nodes
      - none
      - none
      - ``create``, ``remove`` , ``update``
@@ -544,8 +544,6 @@ Global Options
 
 Options for knife bootstrap
 =====================================================
-.. tag chef_vault_knife_bootstrap_options
-
 Use the following options with a validatorless bootstrap to specify items that are stored in ``chef-vault``:
 
 ``--bootstrap-vault-file VAULT_FILE``
@@ -555,19 +553,9 @@ Use the following options with a validatorless bootstrap to specify items that a
    A single vault and item to update as ``vault:item``.
 
 ``--bootstrap-vault-json VAULT_JSON``
-   A JSON string that contains a list of vaults and items to be updated.
+  A JSON string that contains a list of vaults and items to be updated.  --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
 
-   .. tag knife_bootstrap_vault_json
 
-   For example:
-
-   .. code-block:: none
-
-      --bootstrap-vault-json '{ "vault1": ["item1", "item2"], "vault2": "item2" }'
-
-   .. end_tag
-
-.. end_tag
 
 Using ``chef-vault`` in recipes
 -----------------------------------------------
@@ -674,14 +662,17 @@ recipe code, for example some other script where you want to protect a
 password.
 
 It does still require that the data bag has been encrypted for the user's or
-client's pem and pushed to the Chef server. It mixes Chef into the gem and
+client's pem and pushed to the Chef Infra Server. It mixes Chef into the gem and
 uses it to go grab the data bag.
 
 Use ``chef-vault --help`` to see all all available options
 
 Example usage (password)
 --------------------------------------------------
-    chef-vault -v passwords -i root -a password -k /etc/chef/config.rb
+
+.. code-block:: none
+   
+   chef-vault -v passwords -i root -a password -k /etc/chef/config.rb
 
 Testing
 ----------------------------------------------------------------------------

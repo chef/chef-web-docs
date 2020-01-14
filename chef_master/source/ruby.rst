@@ -1,5 +1,5 @@
 =====================================================
-Chef Style Guide
+Ruby Guide
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ruby.rst>`__
 
@@ -19,11 +19,10 @@ To learn more about Ruby, see:
 
 * `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
 * `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
-* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
 
 .. end_tag
 
-As of Chef Client 14.0, Chef ships with Ruby 2.5.
+As of Chef Infra Client 15.x, Chef Infra Client ships with Ruby 2.6.
 
 Ruby Basics
 =====================================================
@@ -193,8 +192,6 @@ Create lists using arrays:
 
 Whitespace Arrays
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ruby_style_basics_array_shortcut
-
 The ``%w`` syntax is a Ruby shortcut for creating an array without requiring quotes and commas around the elements.
 
 For example:
@@ -205,7 +202,7 @@ For example:
      # do debian/ubuntu things with the Ruby array %w() shortcut
    end
 
-.. end_tag
+
 
 .. tag ruby_style_patterns_string_quoting_vs_whitespace_array
 
@@ -237,7 +234,7 @@ Wrong:
 
 **Example**
 
-WiX includes several tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the InSpec ``file`` audit resource to verify if these three tools are present:
+WiX includes several tools -- such as ``candle`` (preprocesses and compiles source files into object files), ``light`` (links and binds object files to an installer database), and ``heat`` (harvests files from various input formats). The following example uses a whitespace array and the Chef InSpec ``file`` audit resource to verify if these three tools are present:
 
 .. code-block:: ruby
 
@@ -315,8 +312,6 @@ or a ``case`` statement:
 
 if
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ruby_style_basics_statement_if
-
 An ``if`` statement can be used to specify part of a recipe to be used when certain conditions are met. ``else`` and ``elseif`` statements can be used to handle situations where either the initial condition is not met or when there are other possible conditions that can be met. Since this behavior is 100% Ruby, do this in a recipe the same way here as anywhere else.
 
 For example, using an ``if`` statement with the ``platform`` node attribute:
@@ -337,12 +332,10 @@ For example, using an ``if`` statement with the ``platform`` node attribute:
 .. future example: step_resource_scm_use_different_branches
 .. future example: step_resource_service_stop_do_stuff_start
 
-.. end_tag
+
 
 case
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag ruby_style_basics_statement_case
-
 A ``case`` statement can be used to handle a situation where there are a lot of conditions. Use the ``when`` statement for each condition, as many as are required.
 
 For example, using a ``case`` statement with the ``platform`` node attribute:
@@ -371,7 +364,7 @@ For example, using a ``case`` statement with the ``platform_family`` node attrib
 .. future example: step_resource_package_use_case_statement
 .. future example: step_resource_service_manage_ssh_based_on_node_platform
 
-.. end_tag
+
 
 Call a Method
 -----------------------------------------------------
@@ -419,12 +412,10 @@ Use ``:include`` to include another Ruby class. For example:
 
    ::Chef::Recipe.send(:include, Opscode::OpenSSL::Password)
 
-In non-Chef Ruby, the syntax is ``include`` (without the ``:`` prefix), but without the ``:`` prefix the chef-client will try to find a provider named ``include``. Using the ``:`` prefix tells the chef-client to look for the specified class that follows.
+In non-Chef Ruby, the syntax is ``include`` (without the ``:`` prefix), but without the ``:`` prefix Chef Infra Client will try to find a provider named ``include``. Using the ``:`` prefix tells Chef Infra Client to look for the specified class that follows.
 
 Include a Parameter
------------------------------------------------------
-.. tag ruby_style_basics_parameter_include
-
+----------------------------------------------------
 The ``include?`` method can be used to ensure that a specific parameter is included before an action is taken. For example, using the ``include?`` method to find a specific parameter:
 
 .. code-block:: ruby
@@ -441,7 +432,7 @@ or:
      # do RHEL things
    end
 
-.. end_tag
+
 
 Patterns to Follow
 =====================================================
@@ -460,7 +451,7 @@ Use of Hyphens
 -----------------------------------------------------
 .. tag ruby_style_patterns_hyphens
 
-Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The chef-client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
 .. end_tag
 
@@ -542,7 +533,7 @@ Wrong:
 
 Specify Resource Action?
 -----------------------------------------------------
-A resource declaration does not require the action to be specified because the chef-client will apply the default action for a resource automatically if it's not specified within the resource block. For example:
+A resource declaration does not require the action to be specified because Chef Infra Client will apply the default action for a resource automatically if it's not specified within the resource block. For example:
 
 .. code-block:: ruby
 
@@ -618,7 +609,6 @@ Constructs to Avoid
 -----------------------------------------------------
 Avoid the following patterns:
 
-* ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
 * ``node.normal`` - Avoid using attributes at normal precedence since they are set directly on the node object itself, rather than implied (computed) at runtime.
 * if ``node.run_list.include?('foo')`` i.e. branching in recipes based on what's in the node's run-list. Better and more readable to use a feature flag and set its precedence appropriately.
 
@@ -770,32 +760,16 @@ node.set
 -----------------------------------------------------
 Use ``node.default`` (or maybe ``node.override``) instead of ``node.set`` because ``node.set`` is an alias for ``node.normal``. Normal data is persisted on the node object. Therefore, using ``node.set`` will persist data in the node object. If the code that uses ``node.set`` is later removed, if that data has already been set on the node, it will remain.
 
-Default and override attributes are cleared at the start of the chef-client run, and are then rebuilt as part of the run based on the code in the cookbooks and recipes at that time.
+Default and override attributes are cleared at the start of a Chef Infra Client run, and are then rebuilt as part of the run based on the code in the cookbooks and recipes at that time.
 
-``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first chef-client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
-
-Cookbook Linting with Chef Workstation Tools
-=====================================================
-Chef Workstation includes Foodcritic for linting the Chef specific portion of your cookbook code, and Cookstyle for linting the Ruby specific portion of your code.
-
-Foodcritic Linting
------------------------------------------------------
-All cookbooks should pass Foodcritic rules before being uploaded.
-
-.. code-block:: bash
-
-   $ foodcritic -P -f all your-cookbook
-
-should return nothing.
+``node.set`` (and ``node.normal``) should only be used to do something like generate a password for a database on the first Chef Infra Client run, after which it's remembered (instead of persisted). Even this case should be avoided, as using a data bag is the recommended way to store this type of data.
 
 Cookstyle Linting
------------------------------------------------------
-All cookbooks should pass Cookstyle rules before being uploaded.
+=====================================================
+Chef Workstation includes Cookstyle for linting the Ruby-specific and Chef-specific portions of your cookbook code. All cookbooks should pass Cookstyle rules before being uploaded.
 
 .. code-block:: bash
 
    $ cookstyle your-cookbook
 
 should return ``no offenses detected``
-
-

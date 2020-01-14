@@ -15,11 +15,9 @@ Desired State Configuration (DSC) is a feature of Windows PowerShell that provid
 
 .. end_tag
 
-.. tag resource_dsc_script_summary
-
 Many DSC resources are comparable to built-in Chef resources. For example, both DSC and Chef have **file**, **package**, and **service** resources. The **dsc_script** resource is most useful for those DSC resources that do not have a direct comparison to a resource in Chef, such as the ``Archive`` resource, a custom DSC resource, an existing DSC script that performs an important task, and so on. Use the **dsc_script** resource to embed the code that defines a DSC configuration directly within a Chef recipe.
 
-.. end_tag
+
 
 .. note:: Windows PowerShell 4.0 is required for using the **dsc_script** resource with Chef.
 
@@ -29,7 +27,6 @@ Many DSC resources are comparable to built-in Chef resources. For example, both 
 
 Syntax
 =====================================================
-.. tag resource_dsc_script_syntax
 
 A **dsc_script** resource block embeds the code that defines a DSC configuration directly within a Chef recipe:
 
@@ -70,34 +67,26 @@ where:
 
 * ``dsc_script`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``code``, ``command``, ``configuration_data``, ``configuration_data_script``, ``configuration_name``, ``cwd``, ``environment``, ``flags``, ``imports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
 
 Actions
 =====================================================
-.. tag resource_dsc_script_actions
-
 The dsc_script resource has the following actions:
 
 ``:nothing``
 
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
 ``:run``
    Default. Use to run the DSC configuration defined as defined in this resource.
 
-.. end_tag
-
 Properties
 =====================================================
-.. tag resource_dsc_script_properties
-
 The dsc_script resource has the following properties:
 
 ``code``
@@ -176,11 +165,11 @@ The dsc_script resource has the following properties:
 
    The amount of time (in seconds) a command is to wait before timing out.
 
-.. end_tag
+
 
 ps_credential Helper
------------------------------------------------------
-.. tag resource_dsc_script_helper_ps_credential
+----------------------------------------------------
+.. tag ps_credential_helper
 
 Use the ``ps_credential`` helper to embed a ``PSCredential`` object--- `a set of security credentials, such as a user name or password <https://technet.microsoft.com/en-us/magazine/ff714574.aspx>`__ ---within a script, which allows that script to be run using security credentials.
 
@@ -188,13 +177,13 @@ For example, assuming the ``CertificateID`` is configured in the local configura
 
 .. code-block:: ruby
 
-   dsc_script 'seapower-user' do
-     code <<-EOH
-       User AlbertAtom
-       {
-         UserName = 'AlbertAtom'
-         Password = #{ps_credential('SeaPower1@3')}
-       }
+  dsc_script 'seapower-user' do
+    code <<-EOH
+      User AlbertAtom
+      {
+        UserName = 'AlbertAtom'
+        Password = #{ps_credential('SeaPower1@3')}
+      }
     EOH
     configuration_data <<-EOH
       @{
@@ -240,7 +229,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -257,13 +246,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -306,13 +295,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -334,17 +323,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -360,8 +352,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Specify DSC code directly**
 
-.. tag resource_dsc_script_code
-
 DSC data can be specified directly in a recipe:
 
 .. code-block:: ruby
@@ -376,11 +366,9 @@ DSC data can be specified directly in a recipe:
      EOH
    end
 
-.. end_tag
+
 
 **Specify DSC code using a Windows PowerShell data file**
-
-.. tag resource_dsc_script_command
 
 Use the ``command`` property to specify the path to a Windows PowerShell data file. For example, the following Windows PowerShell script defines the ``DefaultEditor``:
 
@@ -403,11 +391,9 @@ Use the following recipe to specify the location of that data file:
      command 'c:\dsc_scripts\emacs.ps1'
    end
 
-.. end_tag
+
 
 **Pass parameters to DSC configurations**
-
-.. tag resource_dsc_script_flags
 
 If a DSC script contains configuration data that takes parameters, those parameters may be passed using the ``flags`` property. For example, the following Windows PowerShell script takes parameters for the ``EditorChoice`` and ``EditorFlags`` settings:
 
@@ -438,11 +424,9 @@ Use the following recipe to set those parameters:
      command 'c:\dsc_scripts\editors.ps1'
    end
 
-.. end_tag
+
 
 **Use custom configuration data**
-
-.. tag resource_dsc_script_custom_config_data
 
 Configuration data in DSC scripts may be customized from a recipe. For example, scripts are typically customized to set the behavior for Windows PowerShell credential data types. Configuration data may be specified in one of three ways:
 
@@ -450,9 +434,7 @@ Configuration data in DSC scripts may be customized from a recipe. For example, 
 * By using the ``configuration_data_script`` attribute
 * By specifying the path to a valid Windows PowerShell data file
 
-.. end_tag
 
-.. tag resource_dsc_script_configuration_data
 
 The following example shows how to specify custom configuration data using the ``configuration_data`` property:
 
@@ -486,9 +468,7 @@ The following example shows how to specify custom configuration data using the `
       EOH
    end
 
-.. end_tag
 
-.. tag resource_dsc_script_configuration_name
 
 The following example shows how to specify custom configuration data using the ``configuration_name`` property. For example, the following Windows PowerShell script defines the ``vi`` configuration:
 
@@ -521,11 +501,9 @@ Use the following recipe to specify that configuration:
      command 'C:\dsc_scripts\editors.ps1'
    end
 
-.. end_tag
+
 
 **Using DSC with other Chef resources**
-
-.. tag resource_dsc_script_remote_files
 
 The **dsc_script** resource can be used with other resources. The following example shows how to download a file using the **remote_file** resource, and then uncompress it using the DSC ``Archive`` resource:
 
@@ -546,4 +524,4 @@ The **dsc_script** resource can be used with other resources. The following exam
      EOH
    end
 
-.. end_tag
+

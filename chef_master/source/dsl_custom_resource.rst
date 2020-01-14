@@ -3,15 +3,13 @@ About the Custom Resource DSL
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dsl_custom_resource.rst>`__
 
-.. tag dsl_custom_resource_summary
-
 Use the Custom Resource DSL to define property behaviors within custom resources, such as:
 
 * Loading the value of a specific property
 * Comparing the current property value against a desired property value
-* Telling the chef-client when and how to make changes
+* Telling Chef Infra Client when and how to make changes
 
-.. end_tag
+
 
 action_class
 =====================================================
@@ -47,7 +45,7 @@ where
 * A ``converge_if_changed`` block tests only ``content``
 * A ``converge_if_changed`` block tests only ``mode``
 
-The chef-client will only update the property values that require updates and will not make changes when the property values are already in the desired state
+Chef Infra Client will only update the property values that require updates and will not make changes when the property values are already in the desired state
 
 .. end_tag
 
@@ -69,7 +67,7 @@ To use the ``converge_if_changed`` method, wrap it around the part of a recipe o
 
    end
 
-For example, a custom resource defines two properties (``content`` and ``path``) and a single action (``:create``). Use the ``load_current_value`` method to load the property value to be compared, and then use the ``converge_if_changed`` method to tell the chef-client what to do if that value is not the desired value:
+For example, a custom resource defines two properties (``content`` and ``path``) and a single action (``:create``). Use the ``load_current_value`` method to load the property value to be compared, and then use the ``converge_if_changed`` method to tell Chef Infra Client what to do if that value is not the desired value:
 
 .. code-block:: ruby
 
@@ -88,7 +86,7 @@ For example, a custom resource defines two properties (``content`` and ``path``)
      end
    end
 
-When the file does not exist, the ``IO.write(new_resource.path, new_resource.content)`` code is executed and the chef-client output will print something similar to:
+When the file does not exist, the ``IO.write(new_resource.path, new_resource.content)`` code is executed and the Chef Infra Client output will print something similar to:
 
 .. code-block:: bash
 
@@ -133,7 +131,7 @@ where
 * A ``converge_if_changed`` block tests only ``content``
 * A ``converge_if_changed`` block tests only ``mode``
 
-The chef-client will only update the property values that require updates and will not make changes when the property values are already in the desired state
+Chef Infra Client will only update the property values that require updates and will not make changes when the property values are already in the desired state
 
 .. end_tag
 
@@ -197,7 +195,7 @@ Use the ``load_current_value`` method to guard against property values being rep
       end
     end
 
-This ensures the values for ``homepage`` and ``page_not_found`` are not changed to the default values when the chef-client configures the node.
+This ensures the values for ``homepage`` and ``page_not_found`` are not changed to the default values when Chef Infra Client configures the node.
 
 .. end_tag
 
@@ -248,7 +246,7 @@ where the ``property :cwd``, ``property :environment``, ``property :user``, and 
    -------------
    wrong number of arguments (0 for 1)
 
-To prevent this behavior, use ``new_resource.`` to tell the chef-client to process the properties from the core resource instead of the properties in the custom resource. For example:
+To prevent this behavior, use ``new_resource.`` to tell Chef Infra Client to process the properties from the core resource instead of the properties in the custom resource. For example:
 
 .. code-block:: ruby
 
@@ -319,33 +317,33 @@ ruby_type
 
 The property ruby_type is a positional parameter. Use to ensure a property value is of a particular ruby class, such as ``true``, ``false``, ``nil``, ``String``, ``Array``, ``Hash``, ``Integer``, ``Symbol``. Use an array of ruby classes to allow a value to be of more than one type. For example:
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :aaaa, String
+   property :aaaa, String
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :bbbb, Integer
+   property :bbbb, Integer
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :cccc, Hash
+   property :cccc, Hash
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :dddd, [true, false]
+   property :dddd, [true, false]
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :eeee, [String, nil]
+   property :eeee, [String, nil]
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :ffff, [Class, String, Symbol]
+   property :ffff, [Class, String, Symbol]
 
-       .. code-block:: ruby
+.. code-block:: ruby
 
-          property :gggg, [Array, Hash]
+   property :gggg, [Array, Hash]
 
 .. end_tag
 
@@ -504,7 +502,7 @@ Use the ``property_is_set?`` method to check if the value for a property is set.
 
 The ``property_is_set?`` method will return ``true`` if the property is set.
 
-For example, the following custom resource creates and/or updates user properties, but not their password. The ``property_is_set?`` method checks if the user has specified a password and then tells the chef-client what to do if the password is not identical:
+For example, the following custom resource creates and/or updates user properties, but not their password. The ``property_is_set?`` method checks if the user has specified a password and then tells Chef Infra Client what to do if the password is not identical:
 
 .. code-block:: ruby
 
@@ -560,7 +558,7 @@ override
 -----------------------------------------------------
 .. tag dsl_custom_resource_method_provides_override
 
-Chef will warn you if the Recipe DSL is provided by another custom resource or built-in resource. For example:
+Chef Infra Client will warn you if the Recipe DSL is provided by another custom resource or built-in resource. For example:
 
 .. code-block:: ruby
 
@@ -602,7 +600,7 @@ resource_name
 =====================================================
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The chef-client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 

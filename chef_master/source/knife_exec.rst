@@ -5,13 +5,13 @@ knife exec
 
 .. tag knife_exec_summary
 
-Use the ``knife exec`` subcommand to execute Ruby scripts in the context of a fully configured chef-client. Use this subcommand to run scripts that will only access Chef server one time (or otherwise very infrequently) or any time that an operation does not warrant full usage of the knife subcommand library.
+Use the ``knife exec`` subcommand to execute Ruby scripts in the context of a fully configured Chef Infra Client. Use this subcommand to run scripts that will only access Chef Infra Server one time (or otherwise very infrequently) or any time that an operation does not warrant full usage of the knife subcommand library.
 
 .. end_tag
 
 Authenticated API Requests
 =====================================================
-The ``knife exec`` subcommand can be used to make authenticated API requests to the Chef server using the following methods:
+The ``knife exec`` subcommand can be used to make authenticated API requests to the Chef Infra Server using the following methods:
 
 .. list-table::
    :widths: 60 420
@@ -20,13 +20,13 @@ The ``knife exec`` subcommand can be used to make authenticated API requests to 
    * - Method
      - Description
    * - ``api.delete``
-     - Use to delete an object from the Chef server.
+     - Use to delete an object from the Chef Infra Server.
    * - ``api.get``
-     - Use to get the details of an object on the Chef server.
+     - Use to get the details of an object on the Chef Infra Server.
    * - ``api.post``
-     - Use to add an object to the Chef server.
+     - Use to add an object to the Chef Infra Server.
    * - ``api.put``
-     - Use to update an object on the Chef server.
+     - Use to update an object on the Chef Infra Server.
 
 These methods are used with the ``-E`` option, which executes that string locally on the workstation using chef-shell. These methods have the following syntax:
 
@@ -37,7 +37,7 @@ These methods are used with the ``-E`` option, which executes that string locall
 where:
 
 * ``api.method`` is the corresponding authentication method --- ``api.delete``, ``api.get``, ``api.post``, or ``api.put``
-* ``/endpoint`` is an endpoint in the Chef server API
+* ``/endpoint`` is an endpoint in the Chef Infra Server API
 
 For example, to get the data for a node named "Example_Node":
 
@@ -69,9 +69,9 @@ Ruby Scripts
 =====================================================
 For Ruby scripts that will be run using the ``exec`` subcommand, note the following:
 
-  * The Ruby script must be located on the system from which knife is run (and not be located on any of the systems that knife will be managing).
-  * Shell commands will be run from a management workstation. For example, something like ``%x[ls -lash /opt/only-on-a-node]`` would give you the directory listing for the "opt/only-on-a-node" directory or a "No such file or directory" error if the file does not already exist locally.
-  * When the chef-shell DSL is available, the chef-client DSL will not be (unless the management workstation is also a chef-client). Without the chef-client DSL, a bash block cannot be used to run bash commands.
+* The Ruby script must be located on the system from which knife is run (and not be located on any of the systems that knife will be managing).
+* Shell commands will be run from a management workstation. For example, something like ``%x[ls -lash /opt/only-on-a-node]`` would give you the directory listing for the "opt/only-on-a-node" directory or a "No such file or directory" error if the file does not already exist locally.
+* When the chef-shell DSL is available, the Chef Infra Client DSL will not be (unless the management workstation is also a Chef Infra Client). Without the Chef Infra Client DSL, a bash block cannot be used to run bash commands.
 
 Syntax
 =====================================================

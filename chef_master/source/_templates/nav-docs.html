@@ -34,6 +34,11 @@
             "title": "Docs Style Guide",
             "hasSubItems": false,
             "url": "/style_guide.html"
+          },
+          {
+            "title": "Send Feedback",
+            "hasSubItems": false,
+            "url": "/feedback.html"
           }
         ]
       },
@@ -63,15 +68,26 @@
           },
           {
             "title": "Licensing",
-            "hasSubItems": false,
-            "url": "/chef_license.html"
+            "hasSubItems": true,
+            "subItems": [
+              {
+                "title": "About Licensing",
+                "hasSubItems": false,
+                "url": "/chef_license.html"
+              },
+              {
+                "title": "Accepting License",
+                "hasSubItems": false,
+                "url": "/chef_license_accept.html"
+              }
+            ]
           }
         ]
       }
     ]
   },
   {
-    "title": "Chef",
+    "title": "Chef Infra",
     "image": "chef-logo-gray.svg",
     "subItems": [
       {
@@ -79,7 +95,7 @@
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Chef Overview",
+            "title": "Chef Infra Overview",
             "hasSubItems": false,
             "url": "/chef_overview.html"
           },
@@ -154,7 +170,7 @@
                 "url": "/dk_windows.html"
               },
               {
-                "title": "Chef Client on Windows",
+                "title": "Chef Infra Client on Windows",
                 "hasSubItems": false,
                 "url": "/install_windows.html"
               },
@@ -169,6 +185,11 @@
             "title": "Glossary",
             "hasSubItems": false,
             "url": "/glossary.html"
+          },
+          {
+            "title": "Uninstall",
+            "hasSubItems": false,
+            "url": "/uninstall.html"
           }
         ]
       },
@@ -182,20 +203,16 @@
             "url": "/about_chefdk.html"
           },
           {
-            "title": "Nodes",
-            "hasSubItems": false,
-            "url": "/nodes.html"
-          },
-          {
-            "title": "Chef Client Overview",
+            "title": "Chef Infra Client Overview",
             "hasSubItems": false,
             "url": "/chef_client_overview.html"
           },
           {
-            "title": "Server",
+            "title": "Chef Infra Server Overview",
             "hasSubItems": false,
-            "url": "/server_components.html"
+            "url": "/server_overview.html"
           },
+
           {
             "title": "chef-repo",
             "hasSubItems": false,
@@ -210,6 +227,11 @@
             "title": "Custom Resources",
             "hasSubItems": false,
             "url": "/custom_resources.html"
+          },
+          {
+            "title": "Nodes",
+            "hasSubItems": false,
+            "url": "/nodes.html"
           },
           {
             "title": "Policy",
@@ -258,10 +280,20 @@
             "url": "/auth.html#authorization"
           },
           {
+            "title": "Environment Variables",
+            "hasSubItems": false,
+            "url": "/environment_variables.html"
+          },
+          {
             "title": "Supermarket",
             "hasSubItems": true,
             "subItems": [
-              {
+            {
+              "title": "Supermarket",
+               "hasSubItems": false,
+               "url": "/supermarket.html"
+             },
+             {
                "title": "Public Supermarket",
                 "hasSubItems": false,
                 "url": "/supermarket.html#public-supermarket"
@@ -270,6 +302,11 @@
                 "title": "Private Supermarket",
                 "hasSubItems": false,
                 "url": "/supermarket.html#private-supermarket"
+              },
+              {
+                "title": "Share Cookbooks",
+                "hasSubItems": false,
+                "url": "/supermarket_share_cookbook.html"
               }
             ]
           },
@@ -279,11 +316,6 @@
         "title": "Features",
         "hasSubItems": true,
         "subItems": [
-          {
-            "title": "FIPS-mode",
-            "hasSubItems": false,
-            "url": "/ctl_chef_client.html#run-in-fips-mode"
-          },
          {
             "title": "Handlers",
             "hasSubItems": false,
@@ -387,13 +419,8 @@
               },
               {
                 "hasSubItems": false,
-                "title": "Install via URL",
+                "title": "Install via Install Script",
                 "url": "/install_omnibus.html"
-              },
-              {
-                "title": "Install on Junos OS",
-                "hasSubItems": false,
-                "url": "/junos.html"
               },
               {
                 "title": "chef-client (executable)",
@@ -418,7 +445,7 @@
             ]
           },
           {
-            "title": "Server",
+            "title": "Chef Infra Server",
             "hasSubItems": true,
             "subItems": [
               {
@@ -427,9 +454,24 @@
                 "url": "https://manage.chef.io/signup"
               },
               {
+                "title": "Install Chef Infra Server",
+                "hasSubItems": false,
+                "url": "/install_server.html"
+              },
+              {
                 "title": "Install Standalone",
                 "hasSubItems": false,
                 "url": "/install_server.html#standalone"
+              },
+              {
+                "title": "Chef Infra Server Prerequisites",
+                "hasSubItems": false,
+                "url": "/install_server_pre.html"
+              },
+              {
+                "title": "Tiered Installation",
+                "hasSubItems": false,
+                "url": "/install_server_tiered.html"
               },
               {
                 "title": "Install High Availability",
@@ -447,6 +489,11 @@
             "title": "Air-gapped Installation",
             "hasSubItems": false,
             "url": "/install_chef_air_gap.html"
+          },
+          {
+            "title": "FIPS-mode",
+            "hasSubItems": false,
+            "url": "/ctl_chef_client.html#run-in-fips-mode"
           },
           {
             "title": "Integrations",
@@ -582,6 +629,11 @@
             "hasSubItems": true,
             "subItems": [
               {
+                "title": "DSL Overview",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html"
+              },
+              {
                 "title": "attribute?",
                 "hasSubItems": false,
                 "url": "/dsl_recipe.html#attribute"
@@ -602,6 +654,41 @@
                 "url": "/dsl_recipe.html#data-bag-item"
               },
               {
+                "title": "declare_resource",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#declare-resource"
+              },
+              {
+                "title": "delete_resource",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#delete-resource"
+              },
+              {
+                "title": "delete_resource!",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#id1"
+              },
+              {
+                "title": "edit_resource",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#edit-resource"
+              },
+              {
+                "title": "edit_resource!",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#id2"
+              },
+              {
+                "title": "find_resource",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#find-resource"
+              },
+              {
+                "title": "find_resource!",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#id3"
+              },
+              {
                 "title": "platform?",
                 "hasSubItems": false,
                 "url": "/dsl_recipe.html#platform"
@@ -620,6 +707,51 @@
                 "title": "recipe_name",
                 "hasSubItems": false,
                 "url": "/dsl_recipe.html#recipe-name"
+              },
+              {
+                "title": "resources",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#resources"
+              },
+              {
+                "title": "search",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#search"
+              },
+              {
+                "title": "shell_out",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#shell-out"
+              },
+              {
+                "title": "shell_out!",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#id6"
+              },
+              {
+                "title": "tag, tagged?, untag",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#tag-tagged-untag"
+              },
+              {
+                "title": "value_for_platform",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#value-for-platform"
+              },
+              {
+                "title": "value_for_platform_family",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#value-for-platform-family"
+              },
+              {
+                "title": "with_run_context",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#with-run-context"
+              },
+              {
+                "title": "Windows Platform",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#windows-platform"
               },
               {
                 "title": "registry_data_exists?",
@@ -652,61 +784,21 @@
                 "url": "/dsl_recipe.html#registry-value-exists"
               },
               {
-                "title": "resources",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#resources"
-              },
-              {
-                "title": "search",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#search"
-              },
-              {
-                "title": "shell_out",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#shell-out"
-              },
-              {
-                "title": "shell_out!",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#shell-out-bang"
-              },
-              {
-                "title": "shell_out_with_systems_locale",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#shell-out-with-systems-locale"
-              },
-              {
-                "title": "tag",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#tag-tagged-untag"
-              },
-              {
-                "title": "tagged?",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#tag-tagged-untag"
-              },
-              {
-                "title": "untag",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#tag-tagged-untag"
-              },
-              {
-                "title": "value_for_platform",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#value-for-platform"
-              },
-              {
-                "title": "value_for_platform_family",
-                "hasSubItems": false,
-                "url": "/dsl_recipe.html#value-for-platform-family"
-              },
-              {
                 "title": "Windows Platform Helpers",
                 "hasSubItems": false,
                 "url": "/dsl_recipe.html#helpers"
+              },
+              {
+                "title": "Log Entries",
+                "hasSubItems": false,
+                "url": "/dsl_recipe.html#log-entries"
               }
             ],
+          },
+          {
+            "title": "Custom Resources DSL",
+            "hasSubItems": false,
+            "url": "/dsl_custom_resource.html"
           },
           {
             "title": "Resources",
@@ -721,6 +813,11 @@
                 "title": "Common Functionality",
                 "hasSubItems": false,
                 "url": "/resource_common.html"
+              },
+              {
+                "title": "Migrating from Definitions",
+                "hasSubItems": false,
+                "url": "/definitions.html"
               },
               {
                 "title": "Custom Resources",
@@ -753,6 +850,11 @@
                 "url": "/resource_apt_update.html"
               },
               {
+                "title": "archive_file",
+                "hasSubItems": false,
+                "url": "/resource_archive_file.html"
+              },
+              {
                 "title": "bash",
                 "hasSubItems": false,
                 "url": "/resource_bash.html"
@@ -773,6 +875,11 @@
                 "url": "/resource_breakpoint.html"
               },
               {
+                "title": "build_essential",
+                "hasSubItems": false,
+                "url": "/resource_build_essential.html"
+              },
+              {
                 "title": "cab_package",
                 "hasSubItems": false,
                 "url": "/resource_cab_package.html"
@@ -788,9 +895,19 @@
                 "url": "/resource_chef_handler.html"
               },
               {
+                "title": "chef_sleep",
+                "hasSubItems": false,
+                "url": "/resource_chef_sleep.html"
+              },
+              {
                 "title": "chocolatey_config",
                 "hasSubItems": false,
                 "url": "/resource_chocolatey_config.html"
+              },
+              {
+                "title": "chocolatey_feature",
+                "hasSubItems": false,
+                "url": "/resource_chocolatey_feature.html"
               },
               {
                 "title": "chocolatey_package",
@@ -1088,6 +1205,11 @@
                 "url": "/resource_reboot.html"
               },
               {
+                "title": "reference",
+                "hasSubItems": false,
+                "url": "/resource_reference.html"
+              },
+              {
                 "title": "registry_key",
                 "hasSubItems": false,
                 "url": "/resource_registry_key.html"
@@ -1163,6 +1285,11 @@
                 "url": "/resource_smartos_package.html"
               },
               {
+                "title": "snap_package",
+                "hasSubItems": false,
+                "url": "/resource_snap_package.html"
+              },
+              {
                 "title": "solaris_package",
                 "hasSubItems": false,
                 "url": "/resource_solaris_package.html"
@@ -1226,6 +1353,31 @@
                 "title": "windows_certificate",
                 "hasSubItems": false,
                 "url": "/resource_windows_certificate.html"
+              },
+              {
+                "title": "windows_dfs_folder",
+                "hasSubItems": false,
+                "url": "/resource_windows_dfs_folder.html"
+              },
+              {
+                "title": "windows_dfs_namespace",
+                "hasSubItems": false,
+                "url": "/resource_windows_dfs_namespace.html"
+              },
+              {
+                "title": "windows_dfs_server",
+                "hasSubItems": false,
+                "url": "/resource_windows_dfs_server.html"
+              },
+              {
+                "title": "windows_dns_record",
+                "hasSubItems": false,
+                "url": "/resource_windows_dns_record.html"
+              },
+              {
+                "title": "windows_dns_zone",
+                "hasSubItems": false,
+                "url": "/resource_windows_dns_zone.html"
               },
               {
                 "title": "windows_env",
@@ -1303,6 +1455,11 @@
                 "url": "/resource_windows_task.html"
               },
               {
+                "title": "windows_uac",
+                "hasSubItems": false,
+                "url": "/resource_windows_uac.html"
+              },
+              {
                 "title": "windows_workgroup",
                 "hasSubItems": false,
                 "url": "/resource_windows_workgroup.html"
@@ -1326,11 +1483,6 @@
                 "title": "zypper_repository",
                 "hasSubItems": false,
                 "url": "/resource_zypper_repository.html"
-              },
-              {
-                "title": "Examples (by Resource)",
-                "hasSubItems": false,
-                "url": "/resource_examples.html"
               }
             ]
           },
@@ -1355,7 +1507,7 @@
             "url": "/cookbook_versioning.html"
           },
           {
-            "title": "Ruby",
+            "title": "Ruby Guide",
             "hasSubItems": false,
             "url": "/ruby.html"
           }
@@ -1410,11 +1562,6 @@
                 "url": "/ctl_chef.html#chef-generate-cookbook"
               },
               {
-                "title": "chef generate build-cookbook",
-                "hasSubItems": false,
-                "url": "/ctl_chef.html#chef-generate-build-cookbook"
-              },
-              {
                 "title": "chef generate file",
                 "hasSubItems": false,
                 "url": "/ctl_chef.html#chef-generate-file"
@@ -1445,6 +1592,10 @@
                 "url": "/ctl_chef.html#chef-shell-init"
               }
             ]
+          },
+          { "title": "chef-apply (executable)",
+            "hasSubItems": false,
+            "url": "/ctl_chef_apply.html"
           },
           {
             "title": "Chef Solo",
@@ -1483,6 +1634,11 @@
             "url": "/config_rb.html"
           },
           {
+            "title": "Optional config.rb Settings",
+            "hasSubItems": false,
+            "url": "/config_rb_optional_settings.html"
+          },
+          {
             "title": "cookstyle",
             "hasSubItems": false,
             "url": "/cookstyle.html"
@@ -1512,7 +1668,7 @@
                 "url": "/ctl_kitchen.html"
               },
               {
-                "title": ".kitchen.yml",
+                "title": "kitchen.yml",
                 "hasSubItems": false,
                 "url": "/config_yml_kitchen.html"
               },
@@ -1653,11 +1809,6 @@
                 "url": "/knife_show.html"
               },
               {
-                "title": "knife spork",
-                "hasSubItems": false,
-                "url": "/plugin_knife_spork.html"
-              },
-              {
                 "title": "knife ssh",
                 "hasSubItems": false,
                 "url": "/knife_ssh.html"
@@ -1749,7 +1900,7 @@
         ]
       },
       {
-        "title": "Managing the Server",
+        "title": "Managing Chef Infra Server",
         "hasSubItems": true,
         "subItems": [
           {
@@ -1763,9 +1914,9 @@
             "url": "/server_backup_restore.html"
           },
           {
-            "title": "Data Storage",
+            "title": "Backend Failure Recovery",
             "hasSubItems": false,
-            "url": "/server_data.html"
+            "url": "/backend_failure_recovery.html"
           },
           {
             "title": "Firewalls &amp; Ports",
@@ -1838,12 +1989,17 @@
             "url": "/config_rb_server.html"
           },
           {
+          "title": "Chef Infra Server Optional Settings",
+          "hasSubItems": false,
+          "url": "/config_rb_server_optional_settings.html"
+          },
+          {
             "title": "opscode-expander-ctl",
             "hasSubItems": false,
             "url": "/ctl_opscode_expander.html"
           },
           {
-            "title": "Chef Server API",
+            "title": "Chef Infra Server API",
             "hasSubItems": false,
             "url": "/api_chef_server.html"
           },
@@ -1877,7 +2033,7 @@
                 "url": "/api_push_jobs.html"
               },
               {
-                "title": "Server Sent Events",
+                "title": "Chef Infra Server Sent Events",
                 "hasSubItems": false,
                 "url": "/server_sent_events.html"
               }
@@ -1890,7 +2046,7 @@
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Chef Client",
+            "title": "Chef Infra Client",
             "hasSubItems": false,
             "url": "/release_notes.html"
           },
@@ -1900,7 +2056,7 @@
             "url": "/release_notes_chefdk.html"
           },
           {
-            "title": "Chef Server",
+            "title": "Chef Infra Server",
             "hasSubItems": false,
             "url": "/release_notes_server.html"
           },
@@ -1936,7 +2092,7 @@
     ]
   },
   {
-    "title": "Habitat",
+    "title": "Chef Habitat",
     "image": "habitat-sprout.svg",
     "subItems": [
       {
@@ -1950,7 +2106,7 @@
     ]
   },
   {
-    "title": "InSpec",
+    "title": "Chef InSpec",
     "image": "inspec_logo.png",
     "subItems": [
       {
@@ -1964,11 +2120,11 @@
     ]
   },
   {
-    "title": "Automate",
+    "title": "Chef Automate",
     "iconClass": "fa-cogs",
     "subItems": [
       {
-        "title": "Documentation",
+        "title": "Chef Automate Documentation",
         "url": "https://automate.chef.io/docs/"
       },
       {
@@ -2046,7 +2202,7 @@
                "url": "/data_collection_ha.html"
               },
               {
-               "title": "Configure Data Collection without Chef Server",
+               "title": "Data Collection without Chef Infra Server",
                "hasSubItems": false,
                "url": "/data_collection_without_server.html"
               },
@@ -2149,7 +2305,7 @@
                 "url": "/delivery_manage_secrets.html"
               },
               {
-                "title": "Publish to Multiple Chef Servers",
+                "title": "Publish to Multiple Chef Infra Servers",
                 "hasSubItems": false,
                 "url": "/publish_cookbooks_multiple_servers.html"
               },
@@ -2202,7 +2358,7 @@
             ]
           },
           {
-            "title": "Managing the Server",
+            "title": "Managing the Chef Automate Server",
             "hasSubItems": true,
             "subItems": [
               {
@@ -2322,19 +2478,14 @@
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "About Cloud Plugins",
+            "title": "Cloud Plugins",
             "hasSubItems": false,
             "url": "/plugin_knife.html"
           },
           {
-            "title": "Custom Plugins",
+            "title": "Writing Custom Plugins",
             "hasSubItems": false,
             "url": "/plugin_knife_custom.html"
-          },
-          {
-            "title": "Community Plugins",
-            "hasSubItems": false,
-            "url": "/plugin_community.html#knife"
           }
         ]
       },
@@ -2353,11 +2504,6 @@
             "url": "/plugin_community.html#ohai"
           }
         ]
-      },
-      {
-        "title": "Chef Client Plugins",
-        "hasSubItems": false,
-        "url": "/plugin_community.html#chef-client"
       }
     ]
   }

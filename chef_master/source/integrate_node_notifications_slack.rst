@@ -3,19 +3,27 @@ Send Node Notifications to Slack
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_node_notifications_slack.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
 Chef Automate may be configured to notify a particular Slack channel or user when it detects certain issues with the nodes you are managing. Currently, those issues include:
 
-* A Chef client run failure on any node in your fleet.
-* A critical InSpec compliance scan failure on any node in your fleet.
+* A Chef Infra Client run failure on any node in your fleet.
+* A critical Chef InSpec compliance scan failure on any node in your fleet.
 
 Integrating Chef Automate with Slack requires a webhook to be created in Slack, and then saving that webhook in Chef Automate. Currently, any user of Chef Automate may create and manage notifications. Notifications sent to Slack by Chef Automate will respect any outbound proxy settings
 that you may have configured in your `delivery.rb` file. For more information on the proxy settings in Chef Automate, see `Proxy Settings <https://docs.chef.io/config_rb_delivery.html#proxy-settings>`_. 
@@ -38,7 +46,7 @@ To add a Slack webhook for Chef Automate:
 
 #. On the Chef Automate server, select **Notifications** under the **Nodes** tab.
 #. Click **Create Notification** and select **Add Slack notification** from the drop-down menu.
-#. Pick the event you want to be notified about. Currently, you can choose to be notified on any Chef client run failures or any InSpec compliance scan failures.
+#. Pick the event you want to be notified about. Currently, you can choose to be notified on any Chef Infra Client run failures or any Chef InSpec compliance scan failures.
 #. Pick a meaningful name for the webhook, and then paste the Slack webhook URL from the previous section.
 #. Click **Send Test**. If a test notification is successful, click **Save**. If the test is unsuccessful, make sure the Slack webhook URL was copied correctly and then try sending a test notification again.
 

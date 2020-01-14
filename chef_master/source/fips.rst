@@ -3,6 +3,9 @@ FIPS (Federal Information Processing Standards)
 ==================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/fips.rst>`__
 
+.. meta::
+    :robots: noindex
+
 What is FIPS?
 ==================================================================
 .. tag fips_intro
@@ -26,13 +29,13 @@ Supported Products
 **Supported:**
 
 * `Chef Automate </fips.html#how-to-enable-fips-mode-for-the-chef-automate-server>`__
-* `Chef Client </fips.html#how-to-enable-fips-mode-for-the-chef-client>`__
+* `Chef Infra Client </fips.html#how-to-enable-fips-mode-for-the-chef-client>`__
 * `ChefDK </fips.html#how-to-enable-fips-mode-for-workstations>`__
-* `Chef server </fips.html#how-to-enable-fips-mode-for-the-chef-server>`__
+* `Chef Infra Server </fips.html#how-to-enable-fips-mode-for-the-chef-server>`__
 
 **Unsupported:**
 
-FIPS mode is not supported for Chef Server add-ons. This includes:
+FIPS mode is not supported for Chef Infra Server add-ons. This includes:
 
 * Chef Manage
 * Push Jobs
@@ -44,7 +47,7 @@ FIPS kernel settings
 ------------------------------------------------------------------
 Windows and Red Hat Enterprise Linux can both be configured for FIPS mode using a kernel-level setting. After FIPS mode is enabled at the kernel level, the operating system will only use FIPS approved algorithms and keys during operation.
 
-All of the tools Chef produces that have FIPS support read this kernel setting and default their mode of operation to match it with the exception of the workstation, which requires designating a port in the ``fips_git_port`` setting of the ``cli.toml``.  For the other Chef tools, Chef Client, for example, if ``chef-client`` is run on an  operating system configured into FIPS mode and you run, that Chef run will automatically be in FIPS mode unless the user disables it.
+All of the tools Chef produces that have FIPS support read this kernel setting and default their mode of operation to match it with the exception of the workstation, which requires designating a port in the ``fips_git_port`` setting of the ``cli.toml``.  For the other Chef tools, Chef Infra Client, for example, if ``chef-client`` is run on an  operating system configured into FIPS mode and you run, that Chef run will automatically be in FIPS mode unless the user disables it.
 
 To enable FIPS on your platform follow these instructions:
 
@@ -52,7 +55,7 @@ To enable FIPS on your platform follow these instructions:
 * `Red Hat Enterprise Linux 7 <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Security_Guide/chap-Federal_Standards_and_Regulations.html#sec-Enabling-FIPS-Mode>`_
 * `Windows <https://technet.microsoft.com/en-us/library/cc750357.aspx>`_
 
-How to enable FIPS mode for the Chef Server
+How to enable FIPS mode for the Chef Infra Server
 ==================================================================
 
 Prerequisites
@@ -63,13 +66,13 @@ Prerequisites
 Configuration
 ------------------------------------------------------------------
 If you have FIPS compliance enabled at the kernel level and install or
-reconfigure the Chef Server then it will default to running in FIPS mode.
+reconfigure the Chef Infra Server then it will default to running in FIPS mode.
 
-To enable FIPS manually for the Chef Server, can add ``fips true`` to the
+To enable FIPS manually for the Chef Infra Server, can add ``fips true`` to the
 ``/etc/opscode/chef-server.rb`` and reconfigure.  For more configuration information see `Chef
 Server </config_rb_server_optional_settings.html>`_.
 
-How to enable FIPS mode for the Chef client
+How to enable FIPS mode for the Chef Client
 ==================================================================
 
 Prerequisites
@@ -80,13 +83,11 @@ Prerequisites
 Configuration
 ------------------------------------------------------------------
 
-If you have FIPS compliance enabled at the kernel level then chef-client will
+If you have FIPS compliance enabled at the kernel level then Chef Infra Client will
 default to running in FIPS mode. Otherwise you can add ``fips true`` to the
 ``/etc/chef/client.rb`` or ``C:\\chef\\client.rb``.
 
-.. tag chef_client_fips_mode
 
-.. end_tag
 
 **Bootstrap a node using FIPS**
 
@@ -104,7 +105,7 @@ which shows something similar to:
 
    OpenSSL FIPS 140 mode enabled
    ...
-   192.0.2.0 Chef Client finished, 12/12 resources updated in 78.942455583 seconds
+   192.0.2.0 Chef Infra Client finished, 12/12 resources updated in 78.942455583 seconds
 
 .. end_tag
 
@@ -154,7 +155,7 @@ If you are using a custom certificate authority or a self-signed certificate the
 How to enable FIPS mode for workstations
 ==================================================================
 
-A workstation is a computer running the Chef Development Kit (ChefDK) that is used to author cookbooks, interact with the Chef server, and interact with nodes.
+A workstation is a computer running ChefDK that is used to author cookbooks, interact with the Chef Infra Server, and interact with nodes.
 
 Prerequisites
 ------------------------------------------------------------------
@@ -198,7 +199,7 @@ If you have a self-signed certificate or a customer certificate authority then y
 
 * Generate a pem file with your entire certificate chain of the Chef Automate instance and save it to a file. A client machine may run the above openssl command to avoid having to copy/paste the certificate chain around as well. For Example:
 
-    .. code-block:: none
+  .. code-block:: none
 
         $ echo "q" | openssl s_client -showcerts -connect yourautomateserver.com:443 </dev/null 2> /dev/null
 
@@ -218,9 +219,9 @@ If you have a self-signed certificate or a customer certificate authority then y
         ---
         ...
 
-    Create a new file ``yourautomateserver.com.pem`` and copy both of the certificate sections in order. In this example the file should look like:
+  Create a new file ``yourautomateserver.com.pem`` and copy both of the certificate sections in order. In this example the file should look like:
 
-    .. code-block:: none
+  .. code-block:: none
 
         -----BEGIN CERTIFICATE-----
         (server certificate)
@@ -231,14 +232,14 @@ If you have a self-signed certificate or a customer certificate authority then y
 
 * Every workstation will need a copy of this file and the cli.toml should be updated to include this configuration option.
 
-    .. code-block:: none
+  .. code-block:: none
 
         fips_custom_cert_filename = "/full/path/to/your/certificate-chain.pem"
 
 
 * When configuring runners you'll need to include the file generated above as an argument to the `install-runner` command. See `Install Runner </ctl_automate_server.html#install-runner>`_.
 
-    .. code-block:: none
+  .. code-block:: none
 
        $ automate-ctl install-runner [server fqdn] [ssh user] --fips-custom-cert-filename path/to/your/certificate-chain.pem [other options...]
 
@@ -250,32 +251,34 @@ If you experience configuration errors, check the Chef Automate configuration by
 
 Running ``delivery status`` should return something like:
 
-   .. code-block:: none
+.. code-block:: none
 
-      Status information for Automate server automate-server.dev
+   Status information for Automate server automate-server.dev
 
-      Status: up (request took 97 ms)
-      Configuration Mode: standalone
-      FIPS Mode: enabled
-      Upstreams:
-      Lsyncd:
-         status: not_running
-      PostgreSQL:
+   Status: up (request took 97 ms)
+   Configuration Mode: standalone
+   FIPS Mode: enabled
+   Upstreams:
+   Lsyncd:
+      status: not_running
+   PostgreSQL:
+      status: up
+   RabbitMQ:
+      status: up
+      node_health:
          status: up
-      RabbitMQ:
+      vhost_aliveness:
          status: up
-         node_health:
-            status: up
-         vhost_aliveness:
-            status: up
 
-      Your Automate Server is configured in FIPS mode.
-      Please add the following to your cli.toml to enable Automate FIPS mode on your machine:
+Your Automate Server is configured in FIPS mode.
+Please add the following to your cli.toml to enable Automate FIPS mode on your machine:
 
-         fips = true
-         fips_git_port = "OPEN_PORT"
+.. code-block:: none
 
-         Replace OPEN_PORT with any port that is free on your machine.
+   fips = true
+   fips_git_port = "OPEN_PORT"
+
+Replace OPEN_PORT with any port that is free on your machine.
 
 
 Unable to run any delivery commands when FIPS is enabled
@@ -283,7 +286,7 @@ Unable to run any delivery commands when FIPS is enabled
 #. Confirm FIPS is enabled on Chef Automate with ``delivery status``. You should see ``FIPS Mode: enabled``.
 #. Confirm your project's ``cli.toml`` is configured correctly. The following configuration items should be present:
 
-    .. code-block:: none
+   .. code-block:: none
 
         fips_enabled = true
         fips_git_port = "<some open port>"
@@ -295,7 +298,7 @@ Unable to run any delivery commands when FIPS is enabled
 
 #. On Windows you will need to kill the tunnel whenever you make a fips configuration change to ``cli.toml``. To restart the tunnel:
 
-    .. code-block:: none
+   .. code-block:: none
 
         PS C:\Users\user> tasklist /fi "imagename eq stunnel.exe"
 

@@ -3,7 +3,10 @@ Deprecation: Removal of support for Ohai version 6 plugins (OHAI-10)
 ======================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_v6_plugins.rst>`__
 
-Ohai 7.0 released with Chef 11.12 introduced an improved plugin DSL model. At the time we introduced deprecations for the existing plugin DSL, which we referred to as V6 plugins. In Chef / Ohai 14 we will remove the support for Ohai V6 plugins, causing a runtime error if they are used.
+.. meta::
+    :robots: noindex
+    
+Ohai 7.0 released with Chef Client 11.12 introduced an improved plugin DSL model. At the time we introduced deprecations for the existing plugin DSL, which we referred to as V6 plugins. In Ohai/Chef Client 14 we will remove the support for Ohai V6 plugins, causing a runtime error if they are used.
 
 Remediation
 =============

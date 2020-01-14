@@ -5,13 +5,13 @@ knife node
 
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any device---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 
 .. tag knife_node_summary
 
-Use the ``knife node`` subcommand to manage the nodes that exist on a Chef server.
+Use the ``knife node`` subcommand to manage the nodes that exist on a Chef Infra Server.
 
 .. end_tag
 
@@ -53,7 +53,7 @@ Type ``Y`` to confirm a deletion.
 
 create
 =====================================================
-Use the ``create`` argument to add a node to the Chef server. Node data is stored as JSON on the Chef server.
+Use the ``create`` argument to add a node to the Chef Infra Server. Node data is stored as JSON on the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -105,7 +105,7 @@ When finished, save it.
 
 delete
 =====================================================
-Use the ``delete`` argument to delete a node from the Chef server. If using Chef client 12.17 or later, you can delete multiple nodes using this subcommand.
+Use the ``delete`` argument to delete a node from the Chef Infra Server. If using Chef Client 12.17 or later, you can delete multiple nodes using this subcommand.
 
 .. note:: Deleting a node will not delete any corresponding API clients.
 
@@ -135,7 +135,7 @@ To delete a node named ``node1``, enter:
 
 edit
 =====================================================
-Use the ``edit`` argument to edit the details of a node on a Chef server. Node data is stored as JSON on the Chef server.
+Use the ``edit`` argument to edit the details of a node on a Chef Infra Server. Node data is stored as JSON on the Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -238,7 +238,7 @@ To add a node using data contained in a JSON file:
 
 list
 =====================================================
-Use the ``list`` argument to view all of the nodes that exist on a Chef server.
+Use the ``list`` argument to view all of the nodes that exist on a Chef Infra Server.
 
 Syntax
 -----------------------------------------------------
@@ -267,7 +267,7 @@ The following examples show how to use this knife subcommand:
 
 **View a list of nodes**
 
-To verify the list of nodes that are registered with the Chef server, enter:
+To verify the list of nodes that are registered with the Chef Infra Server, enter:
 
 .. code-block:: bash
 
@@ -306,10 +306,10 @@ run_list add
 
 A run-list defines all of the information necessary for Chef to configure a node into the desired state. A run-list is:
 
-* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, the chef-client will not run it twice
+* An ordered list of roles and/or recipes that are run in the exact order defined in the run-list; if a recipe appears more than once in the run-list, Chef Infra Client will not run it twice
 * Always specific to the node on which it runs; nodes may have a run-list that is identical to the run-list used by other nodes
 * Stored as part of the node object on the Chef server
-* Maintained using knife and then uploaded from the workstation to the Chef server, or maintained using Chef Automate
+* Maintained using knife and then uploaded from the workstation to the Chef Infra Server, or maintained using Chef Automate
 
 .. end_tag
 
@@ -373,7 +373,7 @@ This argument has the following syntax:
 
 .. note:: .. tag knife_common_windows_quotes_module
 
-          The chef-client version 12.4 release adds an optional feature to the Microsoft Installer Package (MSI) for Chef. This feature enables the ability to pass quoted strings from the Windows PowerShell command line without the need for triple single quotes (``''' '''``). This feature installs a Windows PowerShell module (typically in ``C:\opscode\chef\modules``) that is also appended to the ``PSModulePath`` environment variable. This feature is not enabled by default. To activate this feature, run the following command from within Windows PowerShell:
+          The Chef Client 12.4 release adds an optional feature to the Microsoft Installer Package (MSI) for Chef. This feature enables the ability to pass quoted strings from the Windows PowerShell command line without the need for triple single quotes (``''' '''``). This feature installs a Windows PowerShell module (typically in ``C:\opscode\chef\modules``) that is also appended to the ``PSModulePath`` environment variable. This feature is not enabled by default. To activate this feature, run the following command from within Windows PowerShell:
 
           .. code-block:: bash
 
@@ -601,7 +601,7 @@ This argument has the following syntax:
 
 .. note:: .. tag knife_common_windows_quotes_module
 
-          The chef-client version 12.4 release adds an optional feature to the Microsoft Installer Package (MSI) for Chef. This feature enables the ability to pass quoted strings from the Windows PowerShell command line without the need for triple single quotes (``''' '''``). This feature installs a Windows PowerShell module (typically in ``C:\opscode\chef\modules``) that is also appended to the ``PSModulePath`` environment variable. This feature is not enabled by default. To activate this feature, run the following command from within Windows PowerShell:
+          The Chef Client 12.4 release adds an optional feature to the Microsoft Installer Package (MSI) for Chef. This feature enables the ability to pass quoted strings from the Windows PowerShell command line without the need for triple single quotes (``''' '''``). This feature installs a Windows PowerShell module (typically in ``C:\opscode\chef\modules``) that is also appended to the ``PSModulePath`` environment variable. This feature is not enabled by default. To activate this feature, run the following command from within Windows PowerShell:
 
           .. code-block:: bash
 

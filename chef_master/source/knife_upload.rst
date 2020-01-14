@@ -5,7 +5,7 @@ knife upload
 
 .. tag knife_upload_summary
 
-Use the ``knife upload`` subcommand to upload data to the  Chef server from the current working directory in the chef-repo. The following types of data may be uploaded with this subcommand:
+Use the ``knife upload`` subcommand to upload data to the  Chef Infra Server from the current working directory in the chef-repo. The following types of data may be uploaded with this subcommand:
 
 * Cookbooks
 * Data bags
@@ -53,7 +53,7 @@ This subcommand has the following options:
    Take no action and only print out results. Default: ``false``.
 
 ``--[no-]purge``
-   Use ``--purge`` to delete roles, cookbooks, etc. from the Chef server if their corresponding files do not exist in the chef-repo. By default, such objects are left alone and NOT purged. Default: ``--no-purge``.
+   Use ``--purge`` to delete roles, cookbooks, etc. from the Chef Infra Server if their corresponding files do not exist in the chef-repo. By default, such objects are left alone and NOT purged. Default: ``--no-purge``.
 
 ``--[no-]recurse``
    Use ``--no-recurse`` to disable uploading a directory recursively. Default: ``--recurse``.

@@ -45,7 +45,7 @@ will load the following file:
 
    data_bags/BAG_NAME/ITEM_NAME.json
 
-Continuing the example above, if you are in the "admins" directory and make changes to the file charlie.json, then to upload that change to the Chef server use the following command:
+Continuing the example above, if you are in the "admins" directory and make changes to the file charlie.json, then to upload that change to the Chef Infra Server use the following command:
 
 .. code-block:: bash
 
@@ -167,7 +167,7 @@ Encrypt a Data Bag Item
 
 A data bag item may be encrypted using `shared secret encryption <https://en.wikipedia.org/wiki/Symmetric-key_algorithm>`_. This allows each data bag item to store confidential information (such as a database password) or to be managed in a source control system (without plain-text data appearing in revision history). Each data bag item may be encrypted individually; if a data bag contains multiple encrypted data bag items, these data bag items are not required to share the same encryption keys.
 
-.. note:: Because the contents of encrypted data bag items are not visible to the chef-server, search queries against data bags with encrypted items will not return any results.
+.. note:: Because the contents of encrypted data bag items are not visible to the Chef Infra Server, search queries against data bags with encrypted items will not return any results.
 
 .. end_tag
 
@@ -175,32 +175,32 @@ Encryption Versions
 -----------------------------------------------------
 .. tag data_bag_encryption_versions
 
-The manner by which a data bag item is encrypted depends on the version of the chef-client. See the following:
+The manner by which a data bag item is encrypted depends on the Chef Infra Client version used. See the following:
 
 .. image:: ../../images/essentials_data_bags_versions.png
 
 where R is read, W is write, and D is disable. (Disabling support for older encryption version formats will be in the next version and, if desired, will require a configuration change.)
 
-For version 0 (default, through chef-client version 10.18):
+For version 0 (default, through Chef Client 10.18):
 
 * An encrypted data bag item is written using YAML as the serialization format
 * Base64 encoding is used to preserve special characters in encrypted contents
 * Data is encrypted using AES-256-CBC (as defined by the OpenSSL package in the Ruby Standard Library)
-* The chef-client uses `shared secret encryption <https://en.wikipedia.org/wiki/Symmetric-key_algorithm>`_; an encrypted file can only be decrypted by a node or a user with the same shared secret
+* Chef Infra Client uses `shared secret encryption <https://en.wikipedia.org/wiki/Symmetric-key_algorithm>`_; an encrypted file can only be decrypted by a node or a user with the same shared secret
 * A recipe can load encrypted data as long as the shared secret is present in a file on the node or is accessible from a URI path
 * Only the values of a data bag item are decrypted; keys are still searchable. The values associated with the ``id`` key of a data bag item are not encrypted (because they are needed when tracking the data bag item)
 
-For version 1 (default, starting with chef-client version 11.0):
+For version 1 (default, starting with Chef Client 11.0):
 
 * An encrypted data bag item is written using JSON as the serialization format
 * Base64 encoding is used to preserve special characters in encrypted contents
 * Data is encrypted using AES-256-CBC (as defined by the OpenSSL package in the Ruby Standard Library)
 * A data bag item is encrypted using a random initialization vector each time a value is encrypted, which helps protect against some forms of cryptanalysis
-* The chef-client uses `shared secret encryption <https://en.wikipedia.org/wiki/Symmetric-key_algorithm>`_; an encrypted file can only be decrypted by a node or a user with the same shared secret
+* Chef Infra Client uses `shared secret encryption <https://en.wikipedia.org/wiki/Symmetric-key_algorithm>`_; an encrypted file can only be decrypted by a node or a user with the same shared secret
 * A recipe can load encrypted data as long as the shared secret is present in a file on the node or is accessible from a URI path
-* Only the values of a data bag item are decrypted; keys are still searchable. The values associated with the ``id`` key of a data bag item are not encrypted (because they are needed by the chef-client when tracking the data bag item)
+* Only the values of a data bag item are decrypted; keys are still searchable. The values associated with the ``id`` key of a data bag item are not encrypted (because they are needed by Chef Infra Client when tracking the data bag item)
 
-For version 2 (available, starting with chef-client version 11.6):
+For version 2 (available, starting with Chef Client 11.6):
 
 * Same as version 1
 * Can disable version 0 and version 1 data bag item encryption formats
@@ -221,7 +221,7 @@ knife can encrypt and decrypt data bag items when the ``knife data bag`` subcomm
    * - Option
      - Description
    * - ``--secret SECRET``
-     - The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, the chef-client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
+     - The encryption key that is used for values contained within a data bag item. If ``secret`` is not specified, Chef Infra Client looks for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
    * - ``--secret-file FILE``
      - The path to the file that contains the encryption key.
 
@@ -323,7 +323,7 @@ Using Knife
 -----------------------------------------------------
 .. tag knife_data_bag_edit
 
-Use the ``edit`` argument to edit the data contained in a data bag. If encryption is being used, the data bag will be decrypted, the data will be made available in the $EDITOR, and then encrypted again before saving it to the Chef server.
+Use the ``edit`` argument to edit the data contained in a data bag. If encryption is being used, the data bag will be decrypted, the data will be made available in the $EDITOR, and then encrypted again before saving it to the Chef Infra Server.
 
 .. end_tag
 
@@ -335,7 +335,7 @@ To edit an item named "charlie" that is contained in a data bag named "admins", 
 
    $ knife data bag edit admins charlie
 
-to open the $EDITOR. Once opened, you can update the data before saving it to the Chef server. For example, by changing:
+to open the $EDITOR. Once opened, you can update the data before saving it to the Chef Infra Server. For example, by changing:
 
 .. code-block:: javascript
 
@@ -368,7 +368,7 @@ To edit a data bag item:
 #. Click **Data Bags**.
 #. Select a data bag.
 #. Select the **Items** tab.
-#. Select a data bag.
+#. Select an item.
 #. Click **Edit**.
 
    .. image:: ../../images/step_manage_webui_policy_data_bag_edit_item.png
@@ -382,7 +382,7 @@ Use Data Bags
 =====================================================
 Data bags can be accessed in the following ways:
 
-with Search
+Search
 -----------------------------------------------------
 .. tag data_bag_search
 
@@ -491,7 +491,7 @@ And then the same recipe, modified to load administrators using a search query (
 
 .. end_tag
 
-with Environments
+Environments
 -----------------------------------------------------
 .. tag data_bag_environments
 
@@ -521,7 +521,7 @@ The other approach is to use separate items for each environment. Depending on t
 
 .. end_tag
 
-with Recipes
+Recipes
 -----------------------------------------------------
 .. tag data_bag_recipes
 
@@ -539,7 +539,7 @@ Load with Recipe DSL
 The Recipe DSL provides access to data bags and data bag items (including encrypted data bag items) with the following methods:
 
 * ``data_bag(bag)``, where ``bag`` is the name of the data bag.
-* ``data_bag_item('bag_name', 'item', 'secret')``, where ``bag`` is the name of the data bag and ``item`` is the name of the data bag item. If ``'secret'`` is not specified, the chef-client will look for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
+* ``data_bag_item('bag_name', 'item', 'secret')``, where ``bag`` is the name of the data bag and ``item`` is the name of the data bag item. If ``'secret'`` is not specified, Chef Infra Client will look for a secret at the path specified by the ``encrypted_data_bag_secret`` setting in the client.rb file.
 
 The ``data_bag`` method returns an array with a key for each of the data bag items that are found in the data bag.
 
@@ -579,8 +579,8 @@ Create and edit
 
 Creating and editing the contents of a data bag or a data bag item from a recipe is not recommended. The recommended method of updating a data bag or a data bag item is to use knife and the ``knife data bag`` subcommand. If this action must be done from a recipe, please note the following:
 
-* If two operations concurrently attempt to update the contents of a data bag, the last-written attempt will be the operation to update the contents of the data bag. This situation can lead to data loss, so organizations should take steps to ensure that only one chef-client is making updates to a data bag at a time.
-* Altering data bags from the node when using the open source Chef server requires the node's API client to be granted admin privileges. In most cases, this is not advisable.
+* If two operations concurrently attempt to update the contents of a data bag, the last-written attempt will be the operation to update the contents of the data bag. This situation can lead to data loss, so organizations should take steps to ensure that only one Chef Infra Client is making updates to a data bag at a time.
+* Altering data bags from the node when using the open source Chef Infra Server requires the node's API client to be granted admin privileges. In most cases, this is not advisable.
 
 and then take steps to ensure that any subsequent actions are done carefully. The following examples show how a recipe can be used to create and edit the contents of a data bag or a data bag item using the ``Chef::DataBag`` and ``Chef::DataBagItem`` objects.
 
@@ -620,7 +620,7 @@ Create users
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag data_bag_recipes_create_users
 
-The chef-client can create users on systems based on the contents of a data bag. For example, a data bag named "admins" can contain a data bag item for each of the administrators that will manage the various systems that each chef-client is maintaining. A recipe can load the data bag items and then create user accounts on the target system with code similar to the following:
+Chef Infra Client can create users on systems based on the contents of a data bag. For example, a data bag named "admins" can contain a data bag item for each of the administrators that will manage the various systems that each Chef Infra Client is maintaining. A recipe can load the data bag items and then create user accounts on the target system with code similar to the following:
 
 .. code-block:: ruby
 
@@ -655,7 +655,7 @@ The chef-client can create users on systems based on the contents of a data bag.
 
 .. end_tag
 
-with chef-solo
+chef-solo
 -----------------------------------------------------
 .. tag data_bag_chef_solo
 

@@ -3,12 +3,20 @@ Integrate Chef Automate with SAML for Authentication
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_chef_automate_saml.rst>`__
 
+.. meta::
+    :robots: noindex
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -112,19 +120,19 @@ To configure your IdP to accept SAML requests, you need the following:
 
 * The entity identification, or the issuer. If you have not overridden this setting in your `delivery.rb` (see below), enter:
 
-   .. code-block:: none
+  .. code-block:: none
 
       https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
 
 * Assertion Consumer Service / Reply URL. This is where Chef Automate receives SAML assertions from the Identity Provider:
 
-   .. code-block:: none
+  .. code-block:: none
 
       https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/consume
 
 * Audience. This will be the metadata URL for Chef Automate:
 
-   .. code-block:: none
+  .. code-block:: none
 
       https://<yourChefAutomateDomain>/api/v0/e/<yourEnterprise>/saml/metadata
 
@@ -243,7 +251,7 @@ The Workflow CLI in Chef Automate (``delivery-cli``) can be used with SAML-authe
 Enabling SAML proxying for Chef Server
 =====================================================
 
-The integration between the management console in Chef Server and Chef Automate's SAML capabilities is done using OpenID Connect.
+The integration between the management console in Chef Infra Server and Chef Automate's SAML capabilities is done using OpenID Connect.
 
 OpenID Connect Signing Key
 -----------------------------------------------------
@@ -291,10 +299,10 @@ You can verify that Chef Automate can read and parse your key by accessing ``htt
 
 If no key is configured or the key file can't be read, the keys array will be empty: ``[]``.
 
-Chef Server as OpenID Connect client
+Chef Infra Server as OpenID Connect client
 ---------------------------------------------------
 
-To allow Chef Server to act as an OpenID Connect client to Chef Automate, it needs to be known to Chef Automate. To achieve this, add the following to your ``/etc/delivery/delivery.rb``
+To allow Chef Infra Server to act as an OpenID Connect client to Chef Automate, it needs to be known to Chef Automate. To achieve this, add the following to your ``/etc/delivery/delivery.rb``
 
 .. code-block:: ruby
 
@@ -305,12 +313,12 @@ To allow Chef Server to act as an OpenID Connect client to Chef Automate, it nee
       }
    }
 
-In the above snippet, the 'manage-client-id' should be a unique string for each Chef Server whose management console will authenticate through SAML. Also, if you have multiple Chef Servers that will authenticate through SAML, you will need to create additional entries for the client id, the client secret and the client redirect URI in the section above for each one.
+In the above snippet, the 'manage-client-id' should be a unique string for each Chef Infra Server whose management console will authenticate through SAML. Also, if you have multiple Chef Servers that will authenticate through SAML, you will need to create additional entries for the client id, the client secret and the client redirect URI in the section above for each one.
 
-Configuration of Chef Server
+Configuration of Chef Infra Server
 -----------------------------------------------------
 
-Note that all of the client-related values need to match the configuration in the Chef Server management console.
+Note that all of the client-related values need to match the configuration in the Chef Infra Server management console.
 See `Configuring for SAML Authentication </server_configure_saml.html>`__ for more details.
 
 Troubleshooting

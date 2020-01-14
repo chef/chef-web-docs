@@ -15,34 +15,29 @@ Desired State Configuration (DSC) is a feature of Windows PowerShell that provid
 
 .. end_tag
 
-.. tag resource_dsc_resource_summary
-
 The **dsc_resource** resource allows any DSC resource to be used in a Chef recipe, as well as any custom resources that have been added to your Windows PowerShell environment. Microsoft `frequently adds new resources <https://github.com/powershell/DscResources>`_ to the DSC resource collection.
 
-.. end_tag
 
-.. warning:: .. tag resource_dsc_resource_requirements
 
-             Using the **dsc_resource** has the following requirements:
+.. warning:: Using the **dsc_resource** has the following requirements:
 
              * Windows Management Framework (WMF) 5.0 February Preview (or higher), which includes Windows PowerShell 5.0.10018.0 (or higher).
              * The ``RefreshMode`` configuration setting in the Local Configuration Manager must be set to ``Disabled``.
 
-               **NOTE:** Starting with the chef-client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode.
+               **NOTE:** Starting with the Chef Client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented Chef Infra Client from running in non-disabled refresh mode.
 
              * The **dsc_script** resource  may not be used in the same run-list with the **dsc_resource**. This is because the **dsc_script** resource requires that ``RefreshMode`` in the Local Configuration Manager be set to ``Push``, whereas the **dsc_resource** resource requires it to be set to ``Disabled``.
 
-               **NOTE:** Starting with the chef-client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented the chef-client from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``.
+               **NOTE:** Starting with the Chef Client 12.6 release, this requirement applies only for versions of Windows PowerShell earlier than 5.0.10586.0. The latest version of Windows Management Framework (WMF) 5 has relaxed the limitation that prevented Chef Infra Client from running in non-disabled refresh mode, which allows the Local Configuration Manager to be set to ``Push``.
 
              * The **dsc_resource** resource can only use binary- or script-based resources. Composite DSC resources may not be used.
 
                This is because composite resources aren't "real" resources from the perspective of the Local Configuration Manager (LCM). Composite resources are used by the "configuration" keyword from the ``PSDesiredStateConfiguration`` module, and then evaluated in that context. When using DSC to create the configuration document (the Managed Object Framework (MOF) file) from the configuration command, the composite resource is evaluated. Any individual resources from that composite resource are written into the Managed Object Framework (MOF) document. As far as the Local Configuration Manager (LCM) is concerned, there is no such thing as a composite resource. Unless that changes, the **dsc_resource** resource and/or ``Invoke-DscResource`` command cannot directly use them.
 
-             .. end_tag
+             
 
 Syntax
 =====================================================
-.. tag resource_dsc_resource_syntax
 
 A **dsc_resource** resource block allows DSC resources to be used in a Chef recipe. For example, the DSC ``Archive`` resource:
 
@@ -83,11 +78,10 @@ where:
 
 * ``dsc_resource`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by the chef-client
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
+* ``property`` is zero (or more) properties in the DSC resource, where each property is entered on a separate line, ``:dsc_property_name`` is the case-insensitive name of that property, and ``"property_value"`` is a Ruby value to be applied by Chef Infra Client
 * ``module_name``, ``module_version``, ``property``, ``reboot_action``, ``resource``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
 
 Actions
 =====================================================
@@ -98,7 +92,7 @@ The dsc_resource resource has the following actions:
 
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -107,8 +101,6 @@ The dsc_resource resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_dsc_resource_properties
-
 The dsc_resource resource has the following properties:
 
 ``module_name``
@@ -127,8 +119,6 @@ The dsc_resource resource has the following properties:
    A property from a Desired State Configuration (DSC) resource. Use this property multiple times, one for each property in the Desired State Configuration (DSC) resource. The format for this property must follow ``property :dsc_property_name, "property_value"`` for each DSC property added to the resource block.
 
    The ``:dsc_property_name`` must be a symbol.
-
-   .. tag resource_dsc_resource_ruby_types
 
    Use the following Ruby types to define ``property_value``:
 
@@ -153,9 +143,7 @@ The dsc_resource resource has the following properties:
       * - ``True``
         - ``bool($true)``
 
-   These are converted into the corresponding Windows PowerShell type during the chef-client run.
-
-   .. end_tag
+   These are converted into the corresponding Windows PowerShell type during a Chef Infra Client run.
 
 ``reboot_action``
    **Ruby Type:** Symbol | **Default Value:** ``:nothing``
@@ -166,8 +154,6 @@ The dsc_resource resource has the following properties:
    **Ruby Type:** Symbol
 
    The name of the DSC resource. This value is case-insensitive and must be a symbol that matches the name of the DSC resource.
-
-   .. tag resource_dsc_resource_features
 
    For built-in DSC resources, use the following values:
 
@@ -204,16 +190,14 @@ The dsc_resource resource has the following properties:
       * - ``:windowsprocess``
         - Use to `configure Windows processes <https://msdn.microsoft.com/en-us/powershell/dsc/windowsprocessresource>`_.
 
-   Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to the chef-client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
-
-   .. end_tag
+   Any DSC resource may be used in a Chef recipe. For example, the DSC Resource Kit contains resources for `configuring Active Directory components <http://www.powershellgallery.com/packages/xActiveDirectory/2.8.0.0>`_, such as ``xADDomain``, ``xADDomainController``, and ``xADUser``. Assuming that these resources are available to Chef Infra Client, the corresponding values for the ``resource`` attribute would be: ``:xADDomain``, ``:xADDomainController``, and ``xADUser``.
 
 ``timeout``
    **Ruby Type:** Integer
 
    The amount of time (in seconds) a command is to wait before timing out.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -245,12 +229,13 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -262,13 +247,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -311,13 +296,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -339,17 +324,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -366,8 +354,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Open a Zip file**
 
-.. tag resource_dsc_resource_zip_file
-
 .. To use a zip file:
 
 .. code-block:: ruby
@@ -379,11 +365,9 @@ The following examples demonstrate various approaches for using resources in rec
       property :destination, 'C:\Users\Public\Documents\ExtractionPath'
     end
 
-.. end_tag
+
 
 **Manage users and groups**
-
-.. tag resource_dsc_resource_manage_users
 
 .. To manage users and groups
 
@@ -409,11 +393,9 @@ The following examples demonstrate various approaches for using resources in rec
      property :MembersToInclude, ['Foobar1']
    end
 
-.. end_tag
+
 
 **Create and register a windows service**
-
-.. tag resource_dsc_resource_windows_service
 
 .. To create a windows service:
 
@@ -431,11 +413,9 @@ in case the executable is not at the defined location:
     property :state, 'Stopped'
   end
 
-.. end_tag
+
 
 **Create a test message queue**
-
-.. tag resource_dsc_resource_manage_msmq
 
 .. To manage a message queue:
 
@@ -474,11 +454,9 @@ The following example creates a file on a node (based on one that is located in 
      property :ReadUsers, node['msmq']['read_user']
    end
 
-.. end_tag
+
 
 **Example to show usage of module properties**
-
-.. tag resource_dsc_resource_module_properties_usage
 
 .. To show usage of module properties:
 
@@ -493,4 +471,4 @@ The following example creates a file on a node (based on one that is located in 
      property :domainadministratorcredential, ps_credential('abcd')
    end
 
-.. end_tag
+

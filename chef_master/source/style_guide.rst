@@ -91,23 +91,35 @@ Bulleted Lists
 -----------------------------------------------------
 Bulleted lists break up text blocks and draw attention to a group of items::
 
-   * text goes here
-   * text goes here
-   * text goes here
-   * text goes here
+  Introductory sentence:
 
-Use the asterisk symbol (*) only for bulleted lists, even though Sphinx supports using other symbols.
+  * list item
+  * list item
+  
+    * sublist item
+    * sublist item
+    
+  * list item
+  * list item
+
+Use the asterisk symbol (`*`) only for bulleted lists, even though Sphinx supports using other symbols. Leave a blank line before the first list item and after the last, and leave blank lines around nested list items. Do not indent list items, but nested list items should be indented **two** spaces.
 
 Numbered Lists
 -----------------------------------------------------
 Numbered lists are created like this::
 
-   #. text goes here
-   #. text goes here
-   #. text goes here
-   #. text goes here
+  Introductory sentence:
 
-Use the number symbol (#) to let Sphinx handle the actual ordering. If the number list needs to change later, you don't have to worry about making sure the numbers are in the correct order.
+  #. numbered list item
+  #. numbered list item
+
+     #. sublist item 1
+     #. sublist item 2
+     #. sublist item 3
+
+  #. numbered list item
+
+Use the number symbol (#) to let Sphinx handle the actual ordering. If the number list needs to change later, you don't have to worry about making sure the numbers are in the correct order. Leave a blank line before the first list item and after the last, and leave blank lines around nested list items. Don't indent list items, but nested list items should be indented **three** spaces.
 
 Definition Lists
 -----------------------------------------------------
@@ -194,7 +206,7 @@ Use this approach to show code blocks that use Ruby::
 
 Bash
 -----------------------------------------------------
-Use this approach to show code blocks that use any type of shell command, such as for Knife or the chef-client or for any other command-line example that may be required::
+Use this approach to show code blocks that use any type of shell command, such as for Knife or the Chef Infra Client or for any other command-line example that may be required::
 
    .. code-block:: bash
 
@@ -230,17 +242,17 @@ Tagged Regions
 -----------------------------------------------------
 Chef docs uses tags to indicate text that is used in more than one topic::
 
-   .. tag chef
+    .. tag chef
 
-   Chef is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
+    Chef Infra is a powerful automation platform that transforms infrastructure into code. Whether you’re operating in the cloud, on-premises, or in a hybrid environment, Chef Infra automates how infrastructure is configured, deployed, and managed across your network, no matter its size.
 
-   This diagram shows how you develop, test, and deploy your Chef code.
+    This diagram shows how you develop, test, and deploy your Chef Infra code.
 
-   .. image:: ../../images/start_chef.svg
-      :width: 700px
-      :align: center
+    .. image:: ../../images/start_chef.svg
+       :width: 700px
+       :align: center
 
-   .. end_tag
+    .. end_tag
 
 The docs will only build if all tagged regions with the same tag name have the same content. The ``dtags`` utility is included to help synchronize tagged regions. Refer to the `README.md <https://github.com/chef/chef-web-docs/blob/master/README.md>`__ file in the `chef/chef-web-docs <https://github.com/chef/chef-web-docs>`__ repo for more information.
 
@@ -306,7 +318,7 @@ https://github.com/chef/chef-web-docs
 
 The ``build`` directory contains the output of the ``make`` command.
 
-In the past, the chef-web-docs repo contained documentation for prior verions of Chef components. Currently, the repo is limited to the current major versions of Chef components.
+In the past, the chef-web-docs repo contained documentation for prior versions of Chef components. Currently, the repo is limited to the current major versions of Chef components.
 
 When submitting a GitHub pull request or issue to chef-web-docs, remember:
 
@@ -319,9 +331,11 @@ Official Names
 =====================================================
 For Chef applications and components, use:
 
-* ``Chef`` for Chef, the company, and for the Chef client, server and development kit .
-* ``Chef server`` for the Chef server
-* ``chef-client`` for the Chef client
+* ``Chef Software`` for Chef, the company
+* ``Chef Server`` for the Chef Infra Server up to version 12.x
+* ``Chef Infra Server`` for the Chef Server version 13 and above
+* ``Chef Client`` for the Chef client up to version 14.x
+* ``Chef Infra Client`` for Chef Infra Client version 15 and above
 * ``Chef Automate`` for the Chef Automate product
 
 TOC Trees
@@ -382,4 +396,3 @@ Chef has added this configuration setting to every conf.py file to help streamli
    .. include:: ../../swaps/swap_descriptions.txt
    .. include:: ../../swaps/swap_names.txt
    """
-

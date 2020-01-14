@@ -6,10 +6,10 @@ Knife Common Options
 The following options can be run with all knife subcommands and plug-ins:
 
 ``-c CONFIG_FILE``, ``--config CONFIG_FILE``
-   The configuration file to use. For example, when knife is run from a node that is configured to be managed by the Chef server, this option is used to allow knife to use the same credentials as the chef-client when communicating with the Chef server.
+   The configuration file to use. For example, when knife is run from a node that is configured to be managed by the Chef Infra Server, this option is used to allow knife to use the same credentials as Chef Infra Client looks when communicating with the Chef Infra Server.
 
 ``--chef-zero-host HOST``
-  The host to start chef-zero on.
+  The host to start Chef Infra Zero on. Chef Infra Zero is a lightweight, in-memory Chef Infra Server.
 
 ``--chef-zero-port PORT``
    The port (or port range) to start chef-zero on. Port ranges like ``1000,1010`` or ``8889-9999`` will try all given ports until one works.
@@ -33,25 +33,25 @@ The following options can be run with all knife subcommands and plug-ins:
    Show help for the command.
 
 ``-k KEY``, ``--key KEY``
-   The USER.pem file that knife uses to sign requests made by the API client to the Chef server.
+   The USER.pem file that knife uses to sign requests made by the API client to the Chef Infra Server.
 
 ``--[no-]color``
    View colored output.
 
 ``--[no-]fips``
-  Allows OpenSSL to enforce FIPS-validated security during the chef-client run.
+  Allows OpenSSL to enforce FIPS-validated security during a Chef Infra Client run.
 
 ``--print-after``
    Show data after a destructive operation.
 
 ``-s URL``, ``--server-url URL``
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``-u USER``, ``--user USER``
-   The user name used by knife to sign requests made by the API client to the Chef server. Authentication fails if the user name does not match the private key.
+   The user name used by knife to sign requests made by the API client to the Chef Infra Server. Authentication fails if the user name does not match the private key.
 
 ``-v``, ``--version``
-   The version of the chef-client.
+   The Chef Infra Client version.
 
 ``-V``, ``--verbose``
    Set for more verbose outputs. Use ``-VV`` for much more verbose outputs. Use ``-VVV`` for maximum verbosity, which may provide more information than is actually helpful.
@@ -60,4 +60,4 @@ The following options can be run with all knife subcommands and plug-ins:
    Respond to all confirmation prompts with "Yes".
 
 ``-z``, ``--local-mode``
-   Run the chef-client in local mode. This allows all commands that work against the Chef server to also work against the local chef-repo.
+   Run Chef Infra Client looks in local mode. This allows all commands that work against the Chef Infra Server to also work against the local chef-repo.

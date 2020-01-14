@@ -1,14 +1,22 @@
 =====================================================
 An Overview of Compliance in Chef Automate
 =====================================================
-`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_automate_compliance.html>`__
+`[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_automate_compliance.rst>`__
+
+.. meta:: 
+    :robots: noindex 
 
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -35,8 +43,6 @@ Powerful filtering of report data
 Chef Automate provides the ability to filter on the compliance status of the nodes in your cluster. You can filter your data on categories such as the profile used, platform of the node, environment, and so on. You can also chain these filters together to get precise results over your report data. 
 
 .. image:: ../../images/automate_compliance_filter.png
-
-See `Filter Compliance Scans in Chef Automate </filter_compliance_scan.html>`_ for more information.
 
 Profile Store
 =====================================================

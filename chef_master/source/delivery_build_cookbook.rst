@@ -3,7 +3,10 @@ About the build-cookbook
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_build_cookbook.rst>`__
 
-Chef Automate uses the chef-client to run recipes for each phase in a build pipeline. The phases are grouped into different stages.
+.. meta:: 
+    :robots: noindex 
+
+Chef Automate uses Chef Infra Client to run recipes for each phase in a build pipeline. The phases are grouped into different stages.
 
 The following illustration shows the phases of each pipeline stage.
 
@@ -17,14 +20,14 @@ Build Cookbook Structure
 =======================================================
 A ``build-cookbook`` is located in the ``.delivery`` directory in a project and defines how the Chef Automate pipeline will build, test, and deploy a project. A ``build-cookbook`` should be initially configured to use the ``delivery-truck`` cookbook as a dependency in all recipes, after which it may be modified as necessary. The ``build-cookbook`` is effectively a wrapper cookbook for the ``delivery-truck`` cookbook.
 
-A build node is configured via two isolated chef-client runs: First, the ``default.rb`` recipe is run by the chef-client as the root user, after which the phase-specific recipe is run by the chef-client as the build user (``dbuild``). For example, during the unit phase the first run is the ``default.rb`` file, and then the second is the ``unit.rb`` file.
+A build node is configured via two isolated Chef Infra Client runs: First, the ``default.rb`` recipe is run by Chef Infra Client as the root user, after which the phase-specific recipe is run by Chef Infra Client as the build user (``dbuild``). For example, during the unit phase the first run is the ``default.rb`` file, and then the second is the ``unit.rb`` file.
 
 The following recipes should be configured to include the corresponding ``delivery-truck`` recipe as a dependency:
 
 ``default.rb``
    .. tag delivery_cookbook_common_recipe_default
 
-   Use the ``default.rb`` recipe to configure a project on a build node. This recipe is run by the chef-client as the root user and is a standard default recipe, i.e. the chef-client may use this recipe to configure this project on any node, whether or not it's part of a Chef Automate pipeline.
+   Use the ``default.rb`` recipe to configure a project on a build node. This recipe is run by Chef Infra Client as the root user and is a standard default recipe, i.e. Chef Infra Client may use this recipe to configure this project on any node, whether or not it's part of a Chef Automate pipeline.
 
    .. end_tag
 
@@ -223,7 +226,7 @@ The following example shows how to create a cookbook, with project and pipeline,
 
       $ cd NEW-COOKBOOK-NAME
 
-   This uses the Chef development kit to generate a new cookbook, including a default recipe and default ChefSpec tests.
+   This uses ChefDK to generate a new cookbook, including a default recipe and default ChefSpec tests.
 
 #. Create an initial commit (use ``git status`` to verify the change) on the "master" branch:
 
@@ -263,13 +266,13 @@ To add a project using the Chef Automate web UI:
 
 #. If you choose **GitHub**, a text area opens. Enter the following:
 
-      **GitHub Organization Name**
+   **GitHub Organization Name**
 
-      **GitHub Project Name**
+   **GitHub Project Name**
 
-      **Pipeline Branch** The name of the target branch that Chef Automate will manage (most projects will have master as the target branch). The target branch must exist in the repository.
+   **Pipeline Branch** The name of the target branch that Chef Automate will manage (most projects will have master as the target branch). The target branch must exist in the repository.
 
-      **Verify SSL**  When selected, have GitHub perform SSL certificate verification when it connects to Chef Automate to run its web hooks.
+   **Verify SSL**  When selected, have GitHub perform SSL certificate verification when it connects to Chef Automate to run its web hooks.
 
 #. If you choose **Bitbucket**, you must follow the integration steps in `Integrate Delivery with Bitbucket </integrate_delivery_bitbucket.html>`__ before you can add a project. After you have done that you can add a new Chef Automate project through this web UI by entering the Bitbucket project key, repository, and target branch information.
 
