@@ -14,8 +14,6 @@ Audit Cookbook
 =================================
 .. note:: Audit Cookbook version 4.2.0 or later requires Chef InSpec 1.25.1 or later. You can upgrade your Chef InSpec package in several different ways: by upgrading Automate, by upgrading the ChefDK, by upgrading Chef Infra Client, or by setting the ``node['audit']['inspec_version']`` attribute in your cookbook.
 
-
-
 To send compliance data gathered by Chef InSpec as part of a Chef Infra Client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles configured to run during the audit cookbook execution will send their results back to the Chef Automate server.
 
 Configure the Node for Audit Cookbook

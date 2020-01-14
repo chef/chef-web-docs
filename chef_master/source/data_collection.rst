@@ -16,7 +16,7 @@ Configure Data Collection
 
 .. tag EOL_a1
 
-.. danger:: This documentation applies to a deprecated product </versions.html#deprecated-products-and-versions>`__. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+.. danger:: This documentation applies to a deprecated product </versions.html#deprecated-products-and-versions>`__. Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. Chef Automate is included as part of the Workflow license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
