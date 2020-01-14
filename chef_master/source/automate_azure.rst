@@ -99,8 +99,6 @@ After verifying that your existing Chef Infra Server installation is up to date,
       $ sudo automate-ctl reconfigure
       $ sudo chef-server-ctl reconfigure
 
-   .. end_tag
-
 #. Restore the backup
 
    .. code-block:: bash

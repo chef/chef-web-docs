@@ -9,7 +9,6 @@ Sending Compliance Data to Chef Automate with Audit Cookbook
 .. note:: The ``audit`` cookbook uses the Chef InSpec gem. It will check for an installed version of Chef InSpec and install it upon finding none. The latest version of Chef InSpec will be installed by default unless otherwise specified with ``node['audit']['inspec_version']``.
 
 `Cookbooks </cookbooks.html>`__ are Chef's primary unit of configuration management.  For tutorials on working with cookbooks in Chef, see `Learn Chef Rally <https://learn.chef.io>`__.
-For more information specifically on using the ``audit`` cookbook with Automate, see `perform a compliance scan </perform_compliance_scan.html>`__.
 
 Audit Cookbook
 =================================

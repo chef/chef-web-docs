@@ -190,7 +190,7 @@ Configure the workstation
 
 Configure backups
 -----------------------------------------------------
-Follow the Chef Automate `instructions <delivery_server_backup.html#s3-backups>`__ for configuring backups.
+Follow the Workflow `instructions <delivery_server_backup.html#s3-backups>`__ for configuring backups.
 
 Troubleshooting
 -----------------------------------------------------

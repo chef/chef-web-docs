@@ -1,5 +1,5 @@
 =========================================================
-Configure a Project through config.json (Chef Automate)
+Configure a Project through config.json
 =========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_json_delivery.rst>`__
 
@@ -20,7 +20,7 @@ Configure a Project through config.json (Chef Automate)
 
 .. end_tag
 
-The ``config.json`` file is located at the root of the ``.delivery`` folder that is located within a project managed by Chef Automate and configures that project to publish to a Chef Automate pipeline.
+The ``config.json`` file is located at the root of the ``.delivery`` folder that is located within a project managed by Workflow and configures that project to publish to a pipeline.
 
 Structure
 =====================================================

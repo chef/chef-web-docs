@@ -372,9 +372,14 @@ Chef Habitat
 Chef InSpec
 =====================================================
 
-**Documentation**: `Chef InSpec Documentation <https://www.inspec.io/docs/>`_
+**Documentation**: `Chef InSpec Documentation <https://www.inspec.io/docs/>`__
 
-**Tutorials**: `Chef InSpec Tutorials <https://www.inspec.io/tutorials/>`_
+**Tutorials**: `Chef InSpec Tutorials <https://www.inspec.io/tutorials/>`__
+
+Legacy
+=====================================================
+
+**Workflow**: `Workflow Overview </workflow.html>`_ | `build-cookbook (cookbook) </delivery_build_cookbook.html>`_ | `Delivery Pipeline </delivery_pipeline.html>`_ | `Delivery Server Backup </delivery_server_backup.html>`_ | `Delivery Server Disaster Recovery </delivery_server_disaster_recovery.html>`_ | `Delivery Server Tuning </delivery_server_tuning.html>`_ | `delivery-truck (cookbook) </delivery_truck.html>`_ | `Manage Dependencies </delivery_manage_dependencies.html>`_ | `Manage Secrets </delivery_manage_secrets.html>`_ | `Runners </runners.html>`_ | `Workflow w/Bitbucket </integrate_delivery_bitbucket.html>`_ | `Workflow w/Email (SMTP) </integrate_delivery_smtp.html>`_ | `Workflow w/GitHub </integrate_delivery_github.html>`_ | `Workflow w/LDAP </integrate_delivery_ldap.html>`_ | `Workflow w/Slack </integrate_delivery_slack.html>`_ | `Audit Cookbook </audit_cookbook.html>`_
 
 Extension APIs
 =====================================================
