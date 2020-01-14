@@ -338,17 +338,17 @@
 
               <!-------------- Actions ------------------->
 
-              {{ if and ( .Params.actions_list ) ( ne .Params.actions_list "" )}}
+              {{ if .Params.actions_list }}
                 <h2 id = "actions">Actions</h2>
                 <hr>
 
                 <p>The {{ .Title }} has the following actions:</p>
-
-                {{ range $k, $v := .Params.actions_list }}
-                  <p>
-                    <code>{{ $k }}</code> {{ $v }}
-                  </p>
-                {{ end }}
+								<dl>
+									{{ range $k, $v := .Params.actions_list }}
+									<dt><code>{{ $k | markdownify }}</code></dt>
+									<dd>{{ $v }}</dd>
+	                {{ end }}
+								</dl>
                 <br>
               {{ end }}
 

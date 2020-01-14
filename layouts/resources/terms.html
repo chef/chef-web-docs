@@ -661,21 +661,21 @@
                   {{ end }}
 
                   <!-------------- Actions ------------------->
+									
+									{{ if .Params.actions_list }}
+										{{ $ActionsID.Add "Value" 1 }}
+										<h2 id = "actions-{{ $ActionsID.Get "Value" }}">Actions</h2>
+										<hr>
 
-                  {{ if and ( .Params.actions_list ) ( ne .Params.actions_list "" )}}
-                    {{ $ActionsID.Add "Value" 1 }}
-                    <h2 id = "actions-{{ $ActionsID.Get "Value" }}">Actions</h2>
-                    <hr>
-
-                    <p>The {{ .Title }} has the following actions:</p>
-
-                    {{ range $k, $v := .Params.actions_list }}
-                      <p>
-                        <code>{{ $k }}</code> {{ $v }}
-                      </p>
-                    {{ end }}
-                    <br>
-                  {{ end }}
+										<p>The {{ .Title }} has the following actions:</p>
+										<dl>
+											{{ range $k, $v := .Params.actions_list }}
+											<dt><code>{{ $k }}</code></dt>
+											<dd>{{ $v | markdownify }}</dd>
+											{{ end }}
+										</dl>
+										<br>
+									{{ end }}
 
                   <!-------------- Properties ------------------->
 
