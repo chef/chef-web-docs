@@ -39,7 +39,7 @@
 
             <div class="prose">
             
-              <p>{{ .Params.resource_description }}</p>
+              <p>{{ .Params.resource_description | markdownify }}</p>
 
               {{ if and (.Params.resource_note) (ne .Params.resource_note "")}}
 
