@@ -400,7 +400,12 @@
 														{{ end }}
 		                      </p>
 		                    {{ end }}
-											
+												{{ if and (.note) (ne .note nil) }}
+													<div class="admonition-note">
+														<p class="admonition-note-title">Note</p>
+														<div class="admonition-note-text">{{- .note | markdownify -}}</div>
+													</div>
+												{{ end }}
 											</dd>
                     </dl>
 
