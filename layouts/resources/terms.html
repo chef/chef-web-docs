@@ -682,43 +682,49 @@
                   {{ $PropertiesID.Add "Value" 1 }}
                   <h2 id = "properties-{{ $PropertiesID.Get "Value" }}">Properties</h2>
                   <hr>
-                  {{ if .Params.properties_list }}
-                    {{ if ne (index .Params.properties_list 0 "property") nil }}
-                      <p>The {{ .Title }} has the following properties:</p>
-                      {{ range .Params.properties_list }}
-                        <p>
-                          {{ if and (.property) (ne .property nil) }}
-                            <code>
-                              {{ .property }}
-                            </code>
-                          {{ end }}
-                        </p>
+									{{ if .Params.properties_list }}
+										{{ if ne (index .Params.properties_list 0 "property") nil }}
+											<p>The {{ .Title }} has the following properties:</p>
+											{{ range .Params.properties_list }}
+												<dl>
+													{{ if and (.property) (ne .property nil) }}
+														<dt>
+															<code>{{ .property }}</code>
+														</dt>
+													{{ end }}
+													
+													<dd>
+														{{ if ne .ruby_type nil }}
+																<strong>Ruby Type:</strong> {{ .ruby_type }} {{ if .default_value }}| <strong>Default Value:</strong> <code>{{ .default_value }}</code>{{ end }} {{ if .required }}| <code>REQUIRED</code>{{ end }}
+															</p>
+														{{ end }}
 
-                        {{ if ne .ruby_type nil }}
-                          <p>
-                            <strong>Ruby Type:</strong> {{ .ruby_type }} {{ if .default_value }}| <strong>Default Value:</strong> {{ .default_value }}{{ end }}
-                          </p>
-                        {{ end }}
+														{{ if ne .description nil }}
+															<p>
+																{{ .description | markdownify }}
+															</p>
+														{{ end }}
 
-                        {{ if ne .description nil }}
-                          <p>
-                            {{ .description }}
-                          </p>
-                        {{ end }}
+														{{ if and (.new_in) (ne .new_in nil) }}
+															<p>
+																{{ if ge .new_in 15 }}
+																	New in Chef Infra Client {{ .new_in }}
+																{{ else }}
+																	New in Chef Client {{ .new_in }}
+																{{ end }}
+															</p>
+														{{ end }}
+													
+													</dd>
+												</dl>
 
-                        {{ if and (.new_in) (ne .new_in nil) }}
-                          <p>
-                          New in Chef Infra Client {{ .new_in }}
-                          </p>
-                        {{ end }}
-                        <br>
-                      {{ end }}
-                    {{ else }}
-                      <p>This resource does not have any properties.</p>
-                    {{ end }}
-                  {{ else }}
-                    <p>This resource does not have any properties.</p>
-                  {{ end }}
+											{{ end }}
+										{{ else }}
+											<p>This resource does not have any properties.</p>
+										{{ end }}
+									{{ else }}
+										<p>This resource does not have any properties.</p>
+									{{ end }}
 
                   {{ if .Params.properties_multiple_packages }}
                     {{ $common_resource_functionality_multiple_packagesID.Add "Value" 1 }}
