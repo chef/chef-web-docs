@@ -59,7 +59,7 @@ What's New in 4.5
     * `CVE-2019-15845 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845>`_: A NUL injection vulnerability of File.fnmatch and File.fnmatch?
     * `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`_: Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
 
-What's New in ChefDK 4.4
+What's New in 4.4
 =====================================================
 
 * **Updated Components**
@@ -91,9 +91,9 @@ What's New in ChefDK 4.4
     You can run cookstyle with just a single department:
 
     .. code-block:: bash
-    
+
         cookstyle --only ChefDeprecations
-  
+
 
     You can also exclude a specific department from the command line:
 
