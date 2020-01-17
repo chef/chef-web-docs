@@ -69,7 +69,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x64``
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
+     - ``8.1``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -201,7 +201,7 @@ The following table lists the commercially-supported platforms and versions for 
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x64``
-     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
+     - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -340,7 +340,7 @@ The following table lists the commercially-supported platforms for the Chef Push
      - ``16.04``, ``18.04``
    * - Microsoft Windows
      - ``x86``, ``x64``
-     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
+     - ``2012``, ``2012 R2``, ``2016``, ``10``
 
 
 
