@@ -526,14 +526,19 @@ The response will return the JSON for the updated organization.
 
 /_status
 ----------------------------------------------------
-The ``/_status`` endpoint can be used to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers.
+The ``/_status`` endpoint can be used to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers. Use of the ``/_status`` endpoint does not require adding authentication headers
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method is used to get the details for the named organization.
 
 **Request**
 
 .. code-block:: none
 
-   api.get("https://chef_server.front_end.url/_status")
+   GET /_status
 
+This method has no parameters.
 This method has no request body.
 
 **Response**
@@ -549,6 +554,11 @@ The response will return something like the following:
          "service_name": "pong",
          "service_name": "pong",
          ...
+       }
+     "keygen":
+       {
+         "keys": 10,
+         ....
        }
     }
 
