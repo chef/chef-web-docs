@@ -104,7 +104,6 @@ For example:
 
    $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
 
-
 After Chef Infra Client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
 
 .. end_tag
