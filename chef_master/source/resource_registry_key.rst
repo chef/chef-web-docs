@@ -24,11 +24,7 @@ A **registry_key** resource block creates and deletes registry keys in Microsoft
 .. code-block:: ruby
 
    registry_key 'HKEY_LOCAL_MACHINE\\...\\System' do
-     values [{
-       name: 'NewRegistryKeyValue',
-       type: :multi_string,
-       data: %w(foo bar baz),
-     }]
+     values [{ name: 'NewRegistryKeyValue', type: :multi_string, data: %w(foo bar baz) }]
      action :create
    end
 
@@ -37,10 +33,9 @@ Use multiple registry key entries with key values that are based on node attribu
 .. code-block:: ruby
 
    registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\name_of_registry_key' do
-     values [{name: 'key_name', type: :string, data: 'C:\Windows\System32\file_name.bmp'},
-             {name: 'key_name', type: :string, data: node['node_name']['attribute']['value']},
-             {name: 'key_name', type: :string, data: node['node_name']['attribute']['value']}
-            ]
+     values [{ name: 'key_name', type: :string, data: 'C:\Windows\System32\file_name.bmp' },
+             { name: 'key_name', type: :string, data: node['node_name']['attribute']['value'] },
+             { name: 'key_name', type: :string, data: node['node_name']['attribute']['value'] }]
      action :create
    end
 
@@ -347,11 +342,7 @@ Use a double-quoted string:
 .. code-block:: ruby
 
    registry_key "HKEY_LOCAL_MACHINE\\path-to-key\\Policies\\System" do
-     values [{
-       name: 'EnableLUA',
-       type: :dword,
-       data: 0
-     }]
+     values [{ name: 'EnableLUA', type: :dword, data: 0 }]
      action :create
    end
 
@@ -359,12 +350,8 @@ or a single-quoted string:
 
 .. code-block:: ruby
 
-   registry_key 'HKEY_LOCAL_MACHINE\path-to-key\Policies\System' do
-     values [{
-       name: 'EnableLUA',
-       type: :dword,
-       data: 0
-     }]
+   registry_key 'HKLM\path-to-key\Policies\System' do
+     values [{ name: 'EnableLUA', type: :dword, data: 0 }]
      action :create
    end
 
@@ -377,12 +364,8 @@ Use a double-quoted string:
 
 .. code-block:: ruby
 
-   registry_key "HKEY_LOCAL_MACHINE\\SOFTWARE\\path\\to\\key\\AU" do
-     values [{
-       name: 'NoAutoRebootWithLoggedOnUsers',
-       type: :dword,
-       data: ''
-       }]
+   registry_key "HKLM\\SOFTWARE\\path\\to\\key\\AU" do
+     values [{ name: 'NoAutoRebootWithLoggedOnUsers', type: :dword, data: '' }]
      action :delete
    end
 
@@ -390,12 +373,8 @@ or a single-quoted string:
 
 .. code-block:: ruby
 
-   registry_key 'HKEY_LOCAL_MACHINE\SOFTWARE\path\to\key\AU' do
-     values [{
-       name: 'NoAutoRebootWithLoggedOnUsers',
-       type: :dword,
-       data: ''
-       }]
+   registry_key 'HKLM\SOFTWARE\path\to\key\AU' do
+     values [{ name: 'NoAutoRebootWithLoggedOnUsers', type: :dword, data: '' }]
      action :delete
    end
 
@@ -427,7 +406,7 @@ or a single-quoted string:
 .. note::
           Be careful when using the ``:delete_key`` action with the ``recursive`` attribute. This will delete the registry key, all of its values and all of the names, types, and data associated with them. This cannot be undone by Chef Infra Client.
 
-          
+
 
 **Use re-directed keys**
 
@@ -490,10 +469,9 @@ Use a double-quoted string:
 
    proxy = URI.parse(Chef::Config[:http_proxy])
    registry_key 'HKCU\Software\Microsoft\path\to\key\Internet Settings' do
-     values [{name: 'ProxyEnable', type: :reg_dword, data: 1},
-             {name: 'ProxyServer', data: "#{proxy.host}:#{proxy.port}"},
-             {name: 'ProxyOverride', type: :reg_string, data: <local>},
-            ]
+     values [{ name: 'ProxyEnable', type: :reg_dword, data: 1 },
+             { name: 'ProxyServer', data: "#{proxy.host}:#{proxy.port}" },
+             { name: 'ProxyOverride', type: :reg_string, data: <local> }]
      action :create
    end
 
@@ -503,10 +481,9 @@ or a single-quoted string:
 
    proxy = URI.parse(Chef::Config[:http_proxy])
    registry_key 'HKCU\Software\Microsoft\path\to\key\Internet Settings' do
-     values [{name: 'ProxyEnable', type: :reg_dword, data: 1},
-             {name: 'ProxyServer', data: "#{proxy.host}:#{proxy.port}"},
-             {name: 'ProxyOverride', type: :reg_string, data: <local>},
-            ]
+     values [{ name: 'ProxyEnable', type: :reg_dword, data: 1 },
+             { name: 'ProxyServer', data: "#{proxy.host}:#{proxy.port}" },
+             { name: 'ProxyOverride', type: :reg_string, data: <local> }]
      action :create
    end
 
@@ -521,9 +498,7 @@ Use a double-quoted string:
 
    registry_key 'Set (Default) value' do
      key "HKLM\\Software\\Test\\Key\\Path"
-     values [
-       {name: '', type: :string, data: 'test'},
-     ]
+     values [{ name: '', type: :string, data: 'test' }]
      action :create
    end
 
@@ -533,9 +508,7 @@ or a single-quoted string:
 
    registry_key 'Set (Default) value' do
      key 'HKLM\Software\Test\Key\Path'
-     values [
-       {name: '', type: :string, data: 'test'},
-     ]
+     values [{ name: '', type: :string, data: 'test' }]
      action :create
    end
 
