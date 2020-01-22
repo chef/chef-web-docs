@@ -670,22 +670,40 @@
 
               <h2 id = "examples">Examples</h2>
               <hr>
-              {{ if .Params.examples_list }}
-                {{ if ne (index .Params.examples_list 0 "codeblock") nil }}
-                  <p>The {{ .Title }} has the following examples:</p>
-                  {{ range .Params.examples_list }}
-                    <p><strong>{{ .heading }}</strong></p>
-                    {{ if and (.description) (ne .description "") }}
-                      <p>{{ .description }}</p>
-                    {{ end }}
-                    {{- highlight (trim .codeblock "\n" ) "ruby" "" -}}
-                  {{ end }}
-                {{ else }}
-                  <p>This resource does not have any examples.</p>
-                {{ end }}
-              {{ else }}
-                <p>This resource does not have any examples.</p>
-              {{ end }}
+							{{ if .Params.examples_list }}
+								<p>The following examples demonstrate various approaches for using resources in recipes:</p>
+								{{ range .Params.examples_list }}
+									<p><strong>{{ index . "example_heading" }}</strong></p>
+									{{ range index . "text_blocks"}}
+									
+										{{ range $key, $value := . }}
+											{{ if eq $key "code_block" }}
+												{{- highlight $value "ruby" "" -}}
+											{{ end }}
+											
+											{{ if eq $key "note" }}
+												<div class="admonition-note">
+													<p class="admonition-note-title">Note</p>
+													<div class="admonition-note-text">
+														{{- $value -}}
+													</div>
+												</div>
+											{{ end }}
+											
+											{{ if eq $key "shortcode" }}
+												{{ readFile (delimit (slice `layouts/shortcodes/` $value `.md`) "") | markdownify }}
+											{{ end }}
+											
+											{{ if eq $key "string" }}
+												<p>{{- $value | markdownify -}}</p>
+											{{ end }}
+											
+										{{ end }}
+									{{ end }}
+								{{ end }}
+							{{ else }}
+								<p>This resource does not have any examples.</p>
+							{{ end }}
             </div>
           </main>
         </div>
