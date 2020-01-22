@@ -277,8 +277,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Get the latest version of an application**
 
-.. tag resource_scm_get_latest_version
-
 .. To get the latest version of CouchDB:
 
 .. code-block:: ruby
@@ -290,4 +288,4 @@ The following examples demonstrate various approaches for using resources in rec
      action :sync
    end
 
-.. end_tag
+

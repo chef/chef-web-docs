@@ -3,11 +3,9 @@ ips_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ips_package.rst>`__
 
-.. tag resource_package_ips
-
 Use the **ips_package** resource to manage packages (using Image Packaging System (IPS)) on the Solaris 11 platform.
 
-.. end_tag
+
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -256,8 +254,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_ips_package_install
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -266,4 +262,4 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+

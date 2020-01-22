@@ -3,11 +3,9 @@ execute resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_execute.rst>`__
 
-.. tag resource_execute_summary
-
 Use the **execute** resource to execute a single command. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
-.. end_tag
+
 
 .. note:: Use the **script** resource to execute a script using a specific interpreter (Ruby, Python, Perl, csh, or Bash).
 
@@ -327,8 +325,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Run a command upon notification**
 
-.. tag resource_execute_command_upon_notification
-
 .. To execute a command only upon notification:
 
 .. code-block:: ruby
@@ -344,11 +340,9 @@ The following examples demonstrate various approaches for using resources in rec
      notifies :run, 'execute[slapadd]', :immediately
    end
 
-.. end_tag
+
 
 **Run a touch file only once while running a command**
-
-.. tag resource_execute_command_with_touch_file
 
 .. To execute a command with a touch file running only once:
 
@@ -360,11 +354,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :run
    end
 
-.. end_tag
+
 
 **Run a command which requires an environment variable**
-
-.. tag resource_execute_command_with_variable
 
 .. To execute a command with an environment variable:
 
@@ -377,7 +369,7 @@ The following examples demonstrate various approaches for using resources in rec
      environment ({'HOME' => '/home/myhome'})
    end
 
-.. end_tag
+
 
 **Delete a repository using yum to scrub the cache**
 
@@ -707,8 +699,6 @@ where
 
 **Enable remote login for macOS**
 
-.. tag resource_execute_enable_remote_login
-
 .. To enable remote login on macOS:
 
 .. code-block:: ruby
@@ -719,7 +709,7 @@ where
      action :run
    end
 
-.. end_tag
+
 
 **Execute code immediately, based on the template resource**
 
@@ -747,8 +737,6 @@ and then Chef Infra Client would immediately run the following:
 
 **Sourcing a file**
 
-.. tag resource_execute_source_a_file
-
 The **execute** resource cannot be used to source a file (e.g. ``command 'source filename'``). The following example will fail because ``source`` is not an executable:
 
 .. code-block:: ruby
@@ -765,11 +753,9 @@ Instead, use the **script** resource or one of the **script**-based resources (*
      code 'source /tmp/foo.sh'
    end
 
-.. end_tag
+
 
 **Run a Knife command**
-
-.. tag resource_execute_knife_user_create
 
 .. To create a user with knife user create:
 
@@ -786,11 +772,9 @@ Instead, use the **script** resource or one of the **script**-based resources (*
        EOM
    end
 
-.. end_tag
+
 
 **Run install command into virtual environment**
-
-.. tag resource_execute_install_q
 
 The following example shows how to install a lightweight JavaScript framework into Vagrant:
 
@@ -804,11 +788,9 @@ The following example shows how to install a lightweight JavaScript framework in
      action :run
    end
 
-.. end_tag
+
 
 **Run a command as a named user**
-
-.. tag resource_execute_bundle_install
 
 The following example shows how to run ``bundle install`` from a Chef Infra Client run as a specific user. This will put the gem into the path of the user (``vagrant``) instead of the root user (under which the Chef Infra Client runs):
 
@@ -824,7 +806,7 @@ The following example shows how to run ``bundle install`` from a Chef Infra Clie
      not_if 'bundle check'
    end
 
-.. end_tag
+
 
 **Run a command as an alternate user**
 

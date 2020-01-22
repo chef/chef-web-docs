@@ -3,11 +3,9 @@ yum_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_yum_package.rst>`__
 
-.. tag resource_package_yum
-
 Use the **yum_package** resource to install, upgrade, and remove packages with Yum for the Red Hat and CentOS platforms. The **yum_package** resource is able to resolve ``provides`` data for packages much like Yum can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
-.. end_tag
+
 
 .. note:: Support for using file names to install packages (as in ``yum_package "/bin/sh"``) is not available because the volume of data required to parse for this is excessive.
 
@@ -382,19 +380,15 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install an exact version**
 
-.. tag resource_yum_package_install_exact_version
-
 .. To install an exact version:
 
 .. code-block:: ruby
 
    yum_package 'netpbm = 10.35.58-8.el5'
 
-.. end_tag
+
 
 **Install a minimum version**
-
-.. tag resource_yum_package_install_minimum_version
 
 .. To install a minimum version:
 
@@ -402,11 +396,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    yum_package 'netpbm >= 10.35.58-8.el5'
 
-.. end_tag
+
 
 **Install a minimum version using the default action**
-
-.. tag resource_yum_package_install_package_using_default_action
 
 .. To install the same package using the default action:
 
@@ -414,11 +406,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    yum_package 'netpbm'
 
-.. end_tag
+
 
 **To install a package**
-
-.. tag resource_yum_package_install_package
 
 .. To install a package:
 
@@ -428,11 +418,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+
 
 **To install a partial minimum version**
-
-.. tag resource_yum_package_install_partial_minimum_version
 
 .. To install a partial minimum version:
 
@@ -440,11 +428,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    yum_package 'netpbm >= 10'
 
-.. end_tag
+
 
 **To install a specific architecture**
-
-.. tag resource_yum_package_install_specific_architecture
 
 .. To install a specific architecture:
 
@@ -460,11 +446,9 @@ or:
 
    yum_package 'netpbm.x86_64'
 
-.. end_tag
+
 
 **To install a specific version-release**
-
-.. tag resource_yum_package_install_specific_version_release
 
 .. To install a specific version-release:
 
@@ -474,7 +458,7 @@ or:
      version '10.35.58-8.el5'
    end
 
-.. end_tag
+
 
 **Handle cookbook_file and yum_package resources in the same recipe**
 

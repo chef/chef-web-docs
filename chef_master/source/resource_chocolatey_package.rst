@@ -3,11 +3,9 @@ chocolatey_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_package.rst>`__
 
-.. tag resource_package_chocolatey
-
 Use the **chocolatey_package** resource to manage packages using Chocolatey on the Microsoft Windows platform.
 
-.. end_tag
+
 
 .. warning::
              The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
@@ -307,8 +305,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_chocolatey_package_install
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -328,4 +324,4 @@ This example uses Chocolatey's ``--checksum`` option:
      action :install
    end
 
-.. end_tag
+

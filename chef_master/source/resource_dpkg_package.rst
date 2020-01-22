@@ -3,11 +3,9 @@ dpkg_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dpkg_package.rst>`__
 
-.. tag resource_package_dpkg
-
 Use the **dpkg_package** resource to manage packages for the dpkg platform. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-.. end_tag
+
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -263,8 +261,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package**
 
-.. tag resource_dpkg_package_install
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -274,4 +270,4 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+

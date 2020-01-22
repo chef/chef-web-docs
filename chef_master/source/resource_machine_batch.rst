@@ -6,11 +6,9 @@ machine_batch
 .. meta::
     :robots: noindex
 
-.. tag resource_machine_batch_summary
-
 Use the **machine_batch** resource to explicitly declare a parallel process when building machines.
 
-.. end_tag
+
 
 .. warning:: .. tag EOL_provisioning
 
@@ -22,7 +20,6 @@ Use the **machine_batch** resource to explicitly declare a parallel process when
 
 Syntax
 =====================================================
-.. tag resource_machine_batch_syntax
 
 The syntax for using the **machine_batch** resource in a recipe is as follows:
 
@@ -40,8 +37,6 @@ where
 * ``name`` is the name of the resource block
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
-
-.. end_tag
 
 Actions
 =====================================================
@@ -143,8 +138,6 @@ At the end, it shows ``1/1 resources updated``. The three **machine** resources 
 
 Properties
 =====================================================
-.. tag resource_machine_batch_attributes
-
 This resource has the following attributes:
 
 ``chef_server``
@@ -172,15 +165,13 @@ This resource has the following attributes:
 ``max_simultaneous``
    ...
 
-.. end_tag
+
 
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Set up multiple machines, in-parallel**
-
-.. tag resource_machine_batch_setup_n_machines
 
 .. To setup multiple machines in-parallel:
 
@@ -191,11 +182,9 @@ The following examples demonstrate various approaches for using resources in rec
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
+
 
 **Converge multiple machines, in-parallel**
-
-.. tag resource_machine_batch_converge_n_machines
 
 .. To converge multiple machines in-parallel:
 
@@ -206,11 +195,9 @@ The following examples demonstrate various approaches for using resources in rec
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
+
 
 **Stop multiple machines, in-parallel**
-
-.. tag resource_machine_batch_stop_n_machines
 
 .. To stop multiple machines in-parallel:
 
@@ -221,11 +208,9 @@ The following examples demonstrate various approaches for using resources in rec
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
+
 
 **Destroy multiple machines, in-parallel**
-
-.. tag resource_machine_batch_destroy_n_machines
 
 .. To delete multiple machines in-parallel:
 
@@ -236,7 +221,7 @@ The following examples demonstrate various approaches for using resources in rec
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
+
 
 **Destroy all machines**
 
@@ -302,8 +287,6 @@ The **machine_batch** resource can be used to converge multiple machine types, i
 
 **Destroy EBS volumes for batch of machines, along with keys**
 
-.. tag resource_provisioning_aws_ebs_volume_delete_machine_and_keys
-
 .. To destroy a named group of machines along with keys:
 
 The following example destroys an Amazon Elastic Block Store (EBS) volume for the specified batch of machines, along with any associated public and/or private keys:
@@ -325,11 +308,9 @@ The following example destroys an Amazon Elastic Block Store (EBS) volume for th
      action :destroy
    end
 
-.. end_tag
+
 
 **Define subnets for a batch of machines on Amazon AWS**
-
-.. tag resource_provisioning_aws_security_group_machine_batch
 
 .. To define a VPC, subnets, and security group for a batch of machines:
 
@@ -385,4 +366,4 @@ The following example destroys an Amazon Elastic Block Store (EBS) volume for th
      vpc 'provisioning-vpc'
    end
 
-.. end_tag
+

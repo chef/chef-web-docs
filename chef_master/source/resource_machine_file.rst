@@ -6,11 +6,9 @@ machine_file
 .. meta::
     :robots: noindex
 
-.. tag resource_machine_file_summary
-
 Use the **machine_file** resource to manage a file on a remote machine in much the same way the **file** resource is used to manage a file on a local machine.
 
-.. end_tag
+
 
 .. warning:: .. tag EOL_provisioning
 
@@ -22,7 +20,6 @@ Use the **machine_file** resource to manage a file on a remote machine in much t
 
 Syntax
 =====================================================
-.. tag resource_machine_file_syntax
 
 The syntax for using the **machine_file** resource in a recipe is as follows:
 
@@ -40,8 +37,6 @@ where
 * ``name`` is the name of the resource block; when the ``path`` property is not specified as part of a recipe, ``name`` is also the path to a file
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
-
-.. end_tag
 
 Actions
 =====================================================
@@ -65,8 +60,6 @@ This resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_machine_file_attributes
-
 This resource has the following properties:
 
 ``chef_server``
@@ -108,7 +101,7 @@ This resource has the following properties:
 
    Microsoft Windows: A quoted 3-5 character string that defines the octal mode that is translated into rights for Microsoft Windows security. For example: ``'755'``, ``'0755'``, or ``00755``. Values up to ``'0777'`` are allowed (no sticky bits) and mean the same in Microsoft Windows as they do in UNIX, where ``4`` equals ``GENERIC_READ``, ``2`` equals ``GENERIC_WRITE``, and ``1`` equals ``GENERIC_EXECUTE``. This property cannot be used to set ``:full_control``. This property has no effect if not specified, but when it and ``rights`` are both specified, the effects are cumulative.
 
-.. end_tag
+
 
 Examples
 =====================================================

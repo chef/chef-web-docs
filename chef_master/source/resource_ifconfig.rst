@@ -3,11 +3,9 @@ ifconfig resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ifconfig.rst>`__
 
-.. tag resource_ifconfig_summary
-
 Use the **ifconfig** resource to manage interfaces on Unix and Linux systems.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -345,8 +343,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Configure a network interface**
 
-.. tag resource_ifconfig_boot_protocol
-
 .. To specify a boot protocol:
 
 .. code-block:: ruby
@@ -363,11 +359,9 @@ will create the following interface:
    vagrant@default-ubuntu-1204:~$ cat /etc/network/interfaces.d/ifcfg-eth1
    iface eth1 inet dhcp
 
-.. end_tag
+
 
 **Specify a boot protocol**
-
-.. tag resource_ifconfig_configure_network_interface
 
 .. To configure a network interface:
 
@@ -377,11 +371,9 @@ will create the following interface:
      device 'eth0'
    end
 
-.. end_tag
+
 
 **Specify a static IP address**
-
-.. tag resource_ifconfig_static_ip_address
 
 .. To specify a static IP address:
 
@@ -398,11 +390,9 @@ will create the following interface:
    iface eth1 inet static
      address 33.33.33.80
 
-.. end_tag
+
 
 **Update a static IP address with a boot protocol**
-
-.. tag resource_ifconfig_update_static_ip_with_boot_protocol
 
 .. To update a static IP address with a boot protocol*:
 
@@ -420,4 +410,4 @@ will update the interface from ``static`` to ``dhcp``:
    iface eth1 inet dhcp
      address 33.33.33.80
 
-.. end_tag
+

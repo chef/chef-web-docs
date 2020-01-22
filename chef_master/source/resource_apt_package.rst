@@ -3,11 +3,9 @@ apt_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_apt_package.rst>`__
 
-.. tag resource_package_apt
-
 Use the **apt_package** resource to manage packages on Debian and Ubuntu platforms.
 
-.. end_tag
+
 
 .. note:: .. tag notes_resource_based_on_package
 
@@ -353,8 +351,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install a package using package manager**
 
-.. tag resource_apt_package_install_package
-
 .. To install a package using package manager:
 
 .. code-block:: ruby
@@ -363,11 +359,7 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
-
 **Install without using recommend packages as a dependency**
-
-.. tag resource_apt_package_install_without_recommends_suggests
 
 .. To install without using recommend packages as a dependency:
 
@@ -377,4 +369,4 @@ The following examples demonstrate various approaches for using resources in rec
      options '--no-install-recommends'
    end
 
-.. end_tag
+

@@ -3,11 +3,8 @@ Chef Infra Server API
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_chef_server.rst>`__
 
-.. tag api_chef_server_summary
-
 The Chef Infra Server API is a REST API that provides access to objects on the Chef Infra Server, including nodes, environments, roles, cookbooks (and cookbook versions), and to manage an API client list and the associated RSA public key-pairs.
 
-.. end_tag
 
 Requirements
 =====================================================
@@ -23,18 +20,13 @@ The Chef Infra Server API has the following requirements:
 
 Authentication Headers
 =====================================================
-.. tag api_chef_server_headers
-
 Authentication to the Chef Infra Server occurs when a specific set of HTTP headers are signed using a private key that is associated with the machine from which the request is made. The request is authorized if the Chef Infra Server can verify the signature using the public key. Only authorized actions are allowed.
 
 .. note:: Most authentication requests made to the Chef Infra Server are abstracted from the user. Such as when using knife or the Chef Infra Server user interface. In some cases, such as when using the ``knife exec`` subcommand, the authentication requests need to be made more explicitly, but still in a way that does not require authentication headers. In a few cases, such as when using arbitrary Ruby code or cURL, it may be necessary to include the full authentication header as part of the request to the Chef Infra Server.
 
-.. end_tag
 
 Header Format
------------------------------------------------------
-.. tag api_chef_server_headers_format
-
+----------------------------------------------------
 By default, all hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters. Each canonical header should be encoded in the following format:
 
 .. code-block:: none
@@ -67,7 +59,7 @@ And on Chef knife via ``config.rb``:
 
    knife[:authentication_protocol_version] = '1.3'
 
-.. end_tag
+
 
 Required Headers
 -----------------------------------------------------
@@ -80,79 +72,49 @@ The following authentication headers are required:
    * - Feature
      - Description
    * - ``Accept``
-     - .. tag api_chef_server_headers_accept
-
-       The format in which response data from the Chef Infra Server is provided. This header must be set to ``application/json``.
-
-       .. end_tag
+     
+     - The format in which response data from the Chef Infra Server is provided. This header must be set to ``application/json``.
 
    * - ``Content-Type``
 
      - The format in which data is sent to the Chef Infra Server. This header is required for ``PUT`` and ``POST`` requests and must be set to ``application/json``.
 
-
-
    * - ``Host``
-     - .. tag api_chef_server_headers_host
-
-       The host name (and port number) to which a request is sent. (Port number ``80`` does not need to be specified.) For example: ``api.opscode.com`` (which is the same as ``api.opscode.com:80``) or ``api.opscode.com:443``.
-
-       .. end_tag
+     
+     - The host name (and port number) to which a request is sent. (Port number ``80`` does not need to be specified.) For example: ``api.opscode.com`` (which is the same as ``api.opscode.com:80``) or ``api.opscode.com:443``.
 
    * - ``X-Chef-Version``
-     - .. tag api_chef_server_headers_x_chef_version
-
-       The version of the Chef Infra Client executable from which a request is made. This header ensures that responses are in the correct format. For example: ``12.0.2`` or ``11.16.x``.
-
-       .. end_tag
+     
+     - The version of the Chef Infra Client executable from which a request is made. This header ensures that responses are in the correct format. For example: ``12.0.2`` or ``11.16.x``.
 
    * - ``X-Ops-Authorization-N``
-     - .. tag api_chef_server_headers_x_ops_authorization
-
-       One (or more) 60 character segments that comprise the canonical header. A canonical header is signed with the private key used by the client machine from which the request is sent, and is also encoded using Base64. If more than one segment is required, each should be named sequentially, e.g. ``X-Ops-Authorization-1``, ``X-Ops-Authorization-2``, ``X-Ops-Authorization-N``, where ``N`` represents the integer used by the last header that is part of the request.
-
-       .. end_tag
+     
+     - One (or more) 60 character segments that comprise the canonical header. A canonical header is signed with the private key used by the client machine from which the request is sent, and is also encoded using Base64. If more than one segment is required, each should be named sequentially, e.g. ``X-Ops-Authorization-1``, ``X-Ops-Authorization-2``, ``X-Ops-Authorization-N``, where ``N`` represents the integer used by the last header that is part of the request.
 
    * - ``X-Ops-Content-Hash``
-     - .. tag api_chef_server_headers_x_ops_content_hash
-
-       The body of the request. The body should be hashed using SHA-1 and encoded using Base64. All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters.
-
-       .. end_tag
+     
+     - The body of the request. The body should be hashed using SHA-1 and encoded using Base64. All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters.
 
    * - ``X-Ops-Server-API-Version``
 
      - Use ``X-Ops-Server-API-Version`` to specify the version of the Chef Infra Server API. For example: ``X-Ops-Server-API-Version: 1``. ``X-Ops-Server-API-Version: 0`` is supported for use with Chef Server version 12, but will be deprecated as part of the next major release.
 
-
-
    * - ``X-Ops-Sign``
-     - .. tag api_chef_server_headers_x_ops_sign
-
-       Set this header to the following value: ``version=1.0``.
-
-       .. end_tag
+     
+     - Set this header to the following value: ``version=1.0``.
 
    * - ``X-Ops-Timestamp``
-     - .. tag api_chef_server_headers_x_ops_timestamp
-
-       The timestamp, in ISO-8601 format and with UTC indicated by a trailing ``Z`` and separated by the character ``T``. For example: ``2013-03-10T14:14:44Z``.
-
-       .. end_tag
+     
+     - The timestamp, in ISO-8601 format and with UTC indicated by a trailing ``Z`` and separated by the character ``T``. For example: ``2013-03-10T14:14:44Z``.
 
    * - ``X-Ops-UserId``
-     - .. tag api_chef_server_headers_x_ops_userid
-
-       The name of the API client whose private key will be used to create the authorization header.
-
-       .. end_tag
+     
+     - The name of the API client whose private key will be used to create the authorization header.
 
 .. note:: Use ``X-Ops-Server-API-Info`` to identify the version of the Chef Infra Server API.
 
 Example
------------------------------------------------------
-.. tag api_chef_server_headers_example
-
+----------------------------------------------------
 The following example shows an authentication request:
 
 .. code-block:: none
@@ -174,8 +136,6 @@ The following example shows an authentication request:
      X-Ops-Server-API-Info: 1
      X-Chef-Version: 12.0.2
      User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
-
-.. end_tag
 
 Knife API Requests
 -----------------------------------------------------
@@ -1176,8 +1136,6 @@ The response contains the updated inforamtion for the key, and is similar to:
 
 Organization Endpoints
 =====================================================
-.. tag api_chef_server_endpoints
-
 Each organization-specific authentication request must include ``/organizations/NAME`` as part of the name for the endpoint. For example, the full endpoint for getting a list of roles:
 
 .. code-block:: none
@@ -1186,7 +1144,7 @@ Each organization-specific authentication request must include ``/organizations/
 
 where ``ORG_NAME`` is the name of the organization.
 
-.. end_tag
+
 
 /association_requests
 -----------------------------------------------------
@@ -5009,19 +4967,15 @@ The response will return an embedded hash, with the name of each cookbook as a t
 
 
 /updated_since
------------------------------------------------------
-.. tag api_chef_server_endpoint_org_name_updated_since
-
+----------------------------------------------------
 The ``/updated_since`` endpoint ensures that replica instances of the Chef Infra Server are able to synchronize with the primary Chef Infra Server. The ``/organizations/NAME/updated_since`` endpoint has the following methods: ``GET``.
 
-.. end_tag
+
 
 .. warning:: This update is available after Chef replication is installed on the Chef Infra Server.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-.. tag api_chef_server_endpoint_org_name_updated_since_get
-
 The ``GET`` method is used to return the details of an organization as JSON.
 
 **Request**
@@ -5078,7 +5032,7 @@ The response will return an array of paths for objects that have been created, u
    * - ``404``
      - Not found. The requested object does not exist.
 
-.. end_tag
+
 
 Examples
 =====================================================

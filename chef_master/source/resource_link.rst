@@ -3,11 +3,9 @@ link resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_link.rst>`__
 
-.. tag resource_link_summary
-
 Use the **link** resource to create symbolic or hard links.
 
-.. end_tag
+
 
 A symbolic link---sometimes referred to as a soft link---is a directory entry that associates a file name with a string that contains an absolute or relative path to a file on any file system. In other words, "a file that contains a path that points to another file." A symbolic link creates a new file with a new inode that points to the inode location of the original file.
 
@@ -266,8 +264,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Create symbolic links**
 
-.. tag resource_link_create_symbolic
-
 The following example will create a symbolic link from ``/tmp/file`` to ``/etc/file``:
 
 .. code-block:: ruby
@@ -276,11 +272,9 @@ The following example will create a symbolic link from ``/tmp/file`` to ``/etc/f
      to '/etc/file'
    end
 
-.. end_tag
+
 
 **Create hard links**
-
-.. tag resource_link_create_hard
 
 The following example will create a hard link from ``/tmp/file`` to ``/etc/file``:
 
@@ -291,11 +285,9 @@ The following example will create a hard link from ``/tmp/file`` to ``/etc/file`
      link_type :hard
    end
 
-.. end_tag
+
 
 **Delete links**
-
-.. tag resource_link_delete
 
 The following example will delete the ``/tmp/file`` symbolic link and uses the ``only_if`` guard to run the ``test -L`` command, which verifies that ``/tmp/file`` is a symbolic link, and then only deletes ``/tmp/file`` if the test passes:
 
@@ -306,11 +298,9 @@ The following example will delete the ``/tmp/file`` symbolic link and uses the `
      only_if 'test -L /tmp/file'
    end
 
-.. end_tag
+
 
 **Create multiple symbolic links**
-
-.. tag resource_link_multiple_links_files
 
 The following example creates symbolic links from two files in the ``/vol/webserver/cert/`` directory to files located in the ``/etc/ssl/certs/`` directory:
 
@@ -324,11 +314,9 @@ The following example creates symbolic links from two files in the ``/vol/webser
      to '/etc/ssl/certs/ssl-cert-name.key'
    end
 
-.. end_tag
+
 
 **Create platform-specific symbolic links**
-
-.. tag resource_link_multiple_links_redhat
 
 The following example shows installing a filter module on Apache. The package name is different for different platforms, and for the Red Hat Enterprise Linux family, a symbolic link is required:
 
@@ -359,4 +347,4 @@ The following example shows installing a filter module on Apache. The package na
 
 For the entire recipe, see https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb.
 
-.. end_tag
+

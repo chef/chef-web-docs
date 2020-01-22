@@ -417,17 +417,13 @@ Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Us
 
 ohai Resource
 =====================================================
-.. tag resources_common_generic
-
 A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef Infra. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `Chef Infra Client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which Chef Infra Client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
-.. end_tag
 
-.. tag resource_ohai_summary
 
 Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run.
 
-.. end_tag
+
 
 Syntax
 ----------------------------------------------------

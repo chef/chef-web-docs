@@ -6,11 +6,9 @@ machine_execute
 .. meta::
     :robots: noindex
 
-.. tag resource_machine_execute_summary
-
 Use the **machine_execute** resource to run a command on a remote machine in much the same way the **execute** resource is used to run a command on a local machine.
 
-.. end_tag
+
 
 .. warning:: .. tag EOL_provisioning
 
@@ -22,7 +20,6 @@ Use the **machine_execute** resource to run a command on a remote machine in muc
 
 Syntax
 =====================================================
-.. tag resource_machine_execute_syntax
 
 The syntax for using the **machine_execute** resource in a recipe is as follows:
 
@@ -41,8 +38,6 @@ where
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
 
-.. end_tag
-
 Actions
 =====================================================
 This resource has the following actions:
@@ -59,8 +54,6 @@ This resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_machine_execute_attributes
-
 This resource has the following properties:
 
 ``chef_server``
@@ -86,4 +79,4 @@ This resource has the following properties:
 
    Use to specify the machine type.
 
-.. end_tag
+

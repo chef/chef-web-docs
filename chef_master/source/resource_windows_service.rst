@@ -7,7 +7,6 @@ Use the **windows_service** resource to create, delete, or manage a service on t
 
 Syntax
 =====================================================
-.. tag resource_service_windows_syntax
 
 A **windows_service** resource block manages the state of a service on a machine that is running Microsoft Windows. For example:
 
@@ -55,7 +54,6 @@ where:
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``binary_path_name``, ``display_name``, ``desired_access``, ``delayed_start``, ``dependencies``, ``description``, ``error_control``, ``init_command``, ``load_order_group``, ``pattern``, ``reload_command``, ``restart_command``, ``run_as_password``, ``run_as_user``, ``service_name``, ``service_type``, ``start_command``, ``startup_type``, ``status_command``, ``stop_command``, ``supports``, and ``timeout`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
 
 Actions
 =====================================================
@@ -109,8 +107,6 @@ The windows_service resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_service_windows_properties
-
 The windows_service resource has the following properties:
 
 ``binary_path_name``
@@ -223,7 +219,7 @@ The windows_service resource has the following properties:
 
    The amount of time (in seconds) to wait before timing out.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -380,8 +376,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Start a service manually**
 
-.. tag resource_service_windows_manual_start
-
 .. To install a package:
 
 .. code-block:: ruby
@@ -391,7 +385,7 @@ The following examples demonstrate various approaches for using resources in rec
      startup_type :manual
    end
 
-.. end_tag
+
 
 **Create a service**
 

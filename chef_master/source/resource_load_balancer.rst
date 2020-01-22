@@ -14,15 +14,12 @@ load_balancer
 
              .. end_tag
 
-.. tag resource_load_balancer_summary
-
 Use the **load_balancer** resource to create or destroy a load balancer.
 
-.. end_tag
+
 
 Syntax
 =====================================================
-.. tag resource_load_balancer_syntax
 
 The syntax for using the **load_balancer** resource in a recipe is as follows:
 
@@ -40,8 +37,6 @@ where
 * ``name`` is the name of the resource block
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
-
-.. end_tag
 
 Actions
 =====================================================
@@ -61,8 +56,6 @@ This resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_load_balancer_attributes
-
 This resource has the following properties:
 
 ``driver``
@@ -81,4 +74,4 @@ This resource has the following properties:
 
    The name of the load balancer.
 
-.. end_tag
+

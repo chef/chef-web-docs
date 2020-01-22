@@ -6,13 +6,11 @@ machine
 .. meta::
     :robots: noindex
 
-.. tag resource_machine_summary
-
 Use the **machine** resource to define one (or more) machines, and then converge entire clusters of machines. This allows clusters to be maintained in a version control system and to be defined using multi-machine orchestration scenarios. For example, spinning up small test clusters and using them for continuous integration and local testing, building clusters that auto-scale, moving a set of machines in one cluster to another, building images, and so on.
 
 Each machine is declared as a separate application topology, defined using operating system- and provisioner-independent files. Recipes (defined in cookbooks) are used to manage them. Chef Infra Client is used to converge the individual nodes (machines) within the cluster.
 
-.. end_tag
+
 
 .. warning:: .. tag EOL_provisioning
 
@@ -24,7 +22,6 @@ Each machine is declared as a separate application topology, defined using opera
 
 Syntax
 =====================================================
-.. tag resource_machine_syntax
 
 The syntax for using the **machine** resource in a recipe is as follows:
 
@@ -42,8 +39,6 @@ where
 * ``name`` is the name of the resource block and also the name of the machine
 * ``attribute`` is zero (or more) of the properties that are available for this resource
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
-
-.. end_tag
 
 Actions
 =====================================================
@@ -151,8 +146,6 @@ At the end, it shows ``1/1 resources updated``. The three **machine** resources 
 
 Properties
 =====================================================
-.. tag resource_machine_attributes
-
 This resource has the following properties:
 
 ``admin``
@@ -367,15 +360,13 @@ This resource has the following properties:
 
    Use to specify if Chef Infra Client is a chef-validator.
 
-.. end_tag
+
 
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Build machines dynamically**
-
-.. tag resource_machines_build_machines_dynamically
 
 .. To build machines dynamically:
 
@@ -396,7 +387,7 @@ The following examples demonstrate various approaches for using resources in rec
      end
    end
 
-.. end_tag
+
 
 **Get a remote file onto a new machine**
 
@@ -429,8 +420,6 @@ A deployment process requires more than just setting up machines. For example, f
 
 **Build machines that depend on each other**
 
-.. tag resource_machines_codependent_servers
-
 The following example shows how to create two identical machines, both of which cannot exist without the other. The first **machine** resource block creates the first machine by omitting the recipe that requires the other machine to be defined. The second resource block creates the second machine; because the first machine exists, both recipes can be run. The third resource block applies the second recipe to the first machine:
 
 .. code-block:: ruby
@@ -448,11 +437,9 @@ The following example shows how to create two identical machines, both of which 
      recipe 'theserver'
    end
 
-.. end_tag
+
 
 **Use a loop to build many machines**
-
-.. tag resource_machines_use_a_loop_to_create_many_machines
 
 .. To create multiple machines using a loop:
 
@@ -464,7 +451,7 @@ The following example shows how to create two identical machines, both of which 
      end
    end
 
-.. end_tag
+
 
 **Converge multiple machine types, in-parallel**
 
@@ -532,8 +519,6 @@ where ``provisioning_driver`` and ``:driver_options`` specify the actual ``drive
 
 **Set up a VPC, route table, key pair, and machine for Amazon AWS**
 
-.. tag resource_provisioning_aws_route_table_define_vpc_key_machine
-
 .. To define a VPC, route table, key pair, and machine:
 
 .. code-block:: ruby
@@ -558,4 +543,4 @@ where ``provisioning_driver`` and ``:driver_options`` specify the actual ``drive
      machine_options bootstrap_options: { key_name: 'ref-key-pair' }
    end
 
-.. end_tag
+

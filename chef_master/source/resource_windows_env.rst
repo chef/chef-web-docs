@@ -3,13 +3,11 @@ windows_env resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_env.rst>`__
 
-.. tag resource_env_summary
-
 Use the **windows_env** resource to manage environment keys in Microsoft Windows. After an environment key is set, Microsoft Windows must be restarted before the environment key will be available to the Task Scheduler.
 
 This resource was previously called the **env** resource; its name was updated in Chef Client 14.0 to reflect the fact that only Windows is supported. Existing cookbooks using ``env`` will continue to function, but should be updated to use the new name.
 
-.. end_tag
+
 
 .. note:: On UNIX-based systems, the best way to manipulate environment keys is with the ``ENV`` variable in Ruby; however, this approach does not have the same permanent effect as using the **windows_env** resource.
 
@@ -58,8 +56,6 @@ The windows_env resource has the following actions:
 
 Properties
 =====================================================
-.. tag resource_env_properties
-
 The windows_env resource has the following properties:
 
 ``delim``
@@ -80,7 +76,7 @@ The windows_env resource has the following properties:
 
    The value of the environmental variable to set.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -282,8 +278,6 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Set an environment variable**
 
-.. tag resource_environment_set_variable
-
 .. To set an environment variable:
 
 .. code-block:: ruby
@@ -292,4 +286,4 @@ The following examples demonstrate various approaches for using resources in rec
      value "C:\\Windows\\system32\\cmd.exe"
    end
 
-.. end_tag
+
