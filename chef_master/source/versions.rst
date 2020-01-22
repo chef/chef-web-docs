@@ -208,7 +208,7 @@ End of Life (EOL) Products
      - December 31, 2018
    * - Chef Provisioning
      - All
-     - Deprecated
+     - EOL
      - August 31, 2019
    * - Chef Replication/Sync
      - All
