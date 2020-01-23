@@ -7,8 +7,6 @@ Use the **script** resource to execute scripts using a specified interpreter, su
 
 .. note:: The **script** resource is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
-
-
 This resource is the base resource for several other resources used for scripting on specific platforms. For more information about specific resources for specific platforms, see the following topics:
 
 * `bash </resource_bash.html>`__

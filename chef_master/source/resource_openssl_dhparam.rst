@@ -230,7 +230,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-==========================================
+=====================================================
 
 **Create a dhparam file**
 

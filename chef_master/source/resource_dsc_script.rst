@@ -72,10 +72,10 @@ where:
 
 Actions
 =====================================================
+
 The dsc_script resource has the following actions:
 
 ``:nothing``
-
    .. tag resources_common_actions_nothing
 
    This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
@@ -235,6 +235,7 @@ The following properties are common to every resource:
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -523,5 +524,4 @@ The **dsc_script** resource can be used with other resources. The following exam
        }
      EOH
    end
-
 

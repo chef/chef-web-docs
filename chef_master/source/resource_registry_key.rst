@@ -14,8 +14,6 @@ Use the **registry_key** resource to create and delete registry keys in Microsof
 
           For more information, see: `Registry Reflection <https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx>`_.
 
-
-
 Syntax
 =====================================================
 

@@ -236,7 +236,10 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-==========================================
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
 **Create a public key from a private key file**
 
 .. code-block:: ruby

@@ -5,8 +5,6 @@ remote_file resource
 
 Use the **remote_file** resource to transfer a file from a remote location using file specificity. This resource is similar to the **file** resource.
 
-
-
 .. note:: Fetching files from the ``files/`` directory in a cookbook should be done with the **cookbook_file** resource.
 
 Syntax
@@ -863,5 +861,4 @@ When specifying a local Microsoft Windows file path as a valid file URI, an addi
    remote_file 'file:///c:/path/to/file' do
      ...       # other attributes
    end
-
 

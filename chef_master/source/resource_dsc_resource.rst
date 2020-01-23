@@ -471,4 +471,3 @@ The following example creates a file on a node (based on one that is located in 
      property :domainadministratorcredential, ps_credential('abcd')
    end
 
-

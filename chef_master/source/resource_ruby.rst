@@ -7,10 +7,9 @@ Use the **ruby** resource to execute scripts using the Ruby interpreter. This re
 
 .. note:: The **ruby** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
-
-
 Syntax
 =====================================================
+
 A **ruby** resource block executes scripts using Ruby:
 
 .. code-block:: ruby
