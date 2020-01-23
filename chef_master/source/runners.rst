@@ -8,13 +8,7 @@ Runners
 
 Chef Automate's workflow engine automatically creates phase jobs as project code is promoted through the phases of a workflow pipeline. These phase jobs are dispatched to special nodes, called runners, that automatically execute each job as it is created.
 
-
-
-.. tag DK2_automate_note
-
 .. warning:: ChefDK 2.0 or later should only be installed on runners that are associated with Chef Automate 1.5 or later. Using ChefDK 2.0 on runners that are associated with an earlier version of Chef Automate will result in an error during deployment. If you are running an older version of Chef Automate, you should either downgrade your runners to use ChefDK 1.x or upgrade to Chef Automate 1.5 or later.
-
-.. end_tag
 
 Terms
 =====================================================
