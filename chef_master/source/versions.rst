@@ -158,6 +158,10 @@ The following products are deprecated or end of life. Users are advised to use n
      - 2.5.x
      - Deprecated
      - TBD
+   * - Chef Infra Server
+     - 12.x
+     - Deprecated
+     - TBD
    * - Chef Workflow
      - 2.x
      - Deprecated
