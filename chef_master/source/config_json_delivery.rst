@@ -1,5 +1,5 @@
 =========================================================
-Configure a Project through config.json (Chef Automate)
+Configure a Project through config.json
 =========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_json_delivery.rst>`__
 
@@ -16,11 +16,11 @@ Configure a Project through config.json (Chef Automate)
 
 .. tag EOL_a1
 
-.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+.. danger:: This documentation applies to a `deprecated product </versions.html#deprecated-products-and-versions>`__. Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. Chef Automate is included as part of the Workflow license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
-The ``config.json`` file is located at the root of the ``.delivery`` folder that is located within a project managed by Chef Automate and configures that project to publish to a Chef Automate pipeline.
+The ``config.json`` file is located at the root of the ``.delivery`` folder that is located within a project managed by Workflow and configures that project to publish to a pipeline.
 
 Structure
 =====================================================
@@ -379,11 +379,7 @@ see `Handling Secrets <https://github.com/chef-cookbooks/delivery-sugar#handling
 
 .. end_tag
 
-.. tag automate_supermarket
-
 .. note:: To enable Chef Automate to upload cookbooks to a private Supermarket, you have to manually log into the Supermarket server with the ``delivery`` user, and when it prompts you to enable the user for Supermarket, enter ``yes``. Also, you must copy the Supermarket certificate file to ``/etc/delivery/supermarket.crt`` on the Chef Automate server.
-
-.. end_tag
 
 Multiple Locations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
