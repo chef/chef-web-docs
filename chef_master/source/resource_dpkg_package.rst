@@ -5,8 +5,6 @@ dpkg_package resource
 
 Use the **dpkg_package** resource to manage packages for the dpkg platform. When a package is installed from a local file, it must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-
-
 .. note:: .. tag notes_resource_based_on_package
 
           In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
@@ -269,5 +267,4 @@ The following examples demonstrate various approaches for using resources in rec
      source '/foo/bar/wget_1.13.4-2ubuntu1.4_amd64.deb'
      action :install
    end
-
 

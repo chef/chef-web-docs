@@ -203,6 +203,9 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
 **Install all files from the "important" errata level**
 
 .. code-block:: ruby

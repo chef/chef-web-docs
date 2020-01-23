@@ -5,8 +5,6 @@ reboot resource
 
 Use the **reboot** resource to reboot a node, a necessary step with some installations on certain platforms. This resource is supported for use on the Microsoft Windows, macOS, and Linux platforms.
 
-
-
 Syntax
 =====================================================
 
@@ -29,6 +27,7 @@ where:
 
 Actions
 =====================================================
+
 The reboot resource has the following actions:
 
 ``:cancel``
@@ -213,6 +212,7 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Reboot a node immediately**

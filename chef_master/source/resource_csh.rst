@@ -7,8 +7,6 @@ Use the **csh** resource to execute scripts using the csh interpreter. This reso
 
 .. note:: The **csh** script resource (which is based on the **script** resource) is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
-
-
 Syntax
 =====================================================
 A **csh** resource block executes scripts using csh:
