@@ -8,7 +8,7 @@ Use the **chocolatey_config** resource to add or remove Chocolatey configuration
 **New in Chef Client 14.3.**
 
 .. note::
-          The Chocolatey package manager is not installed on Windows by default. Install it prior to using this resource by adding the `[Chocolatey cookbook] <https://supermarket.chef.io/cookbooks/chocolatey/>`_ to your node's run list.
+          The Chocolatey package manager is not installed on Windows by default. Install it prior to using this resource by adding the `Chocolatey cookbook <https://supermarket.chef.io/cookbooks/chocolatey/>`_ to your node's run list.
 
 Syntax
 =====================================================
