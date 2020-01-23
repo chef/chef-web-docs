@@ -7,6 +7,9 @@ Use the **chocolatey_feature** resource to enable and disable Chocolatey feature
 
 **New in Chef Infra Client 15.1.**
 
+.. note::
+          The Chocolatey package manager is not installed on Windows by default. Install it prior to using this resource by adding the `[Chocolatey cookbook] <https://supermarket.chef.io/cookbooks/chocolatey/>`_ to your node's run list.
+
 Syntax
 =====================================================
 
