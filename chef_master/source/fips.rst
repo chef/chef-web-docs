@@ -3,9 +3,6 @@ FIPS (Federal Information Processing Standards)
 ==================================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/fips.rst>`__
 
-.. meta::
-    :robots: noindex
-
 What is FIPS?
 ==================================================================
 .. tag fips_intro
@@ -16,11 +13,11 @@ FIPS 140-2 is a specific federal government security standard used to approve cr
 
 .. end_tag
 
-Why would you want to enable it?
+Who should enable FIPS?
 ------------------------------------------------------------------
 You may be legally required to enable FIPS if you are a United States non-military government agency, or are contracting with one. If you are not sure if you need to enable FIPS, please check with your compliance department.
 
-Why might you not need to enable it?
+Who shouldn't enable FIPS?
 ------------------------------------------------------------------
 You will only need to enable FIPS if you are a US non-military government agency, or contracting with one, and you are contractually obligated to meet federal government security standards.  If you are not a US non-military governmental agency, or you are not contracting with one, and you are not contractually obligated to meet federal government security standards, then do not enable FIPS.  Chef products have robust security standards even without FIPS, and FIPS prevents the use of certain hashing algorithms you might want to use, so we only recommend enabling FIPS if it is contractually necessary.
 
