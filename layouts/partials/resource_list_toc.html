@@ -195,58 +195,59 @@
       </li>
     </ul>
     {{ end }}
+		{{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.common_resource_functionality_multiple_packages ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
+	    <li>
+	      <a href="#functionality">Common Resource Functionality</a>
 
-    <li>
-      <a href="#functionality">Common Resource Functionality</a>
+	      {{ if .Params.resources_common_properties }}
+	      <ul>
+	        <li><a href="#resources_common_properties">Common Properties</a></li>
+	      </ul>
+	      {{ end }}
 
-      {{ if .Params.resources_common_properties }}
-      <ul>
-        <li><a href="#resources_common_properties">Common Properties</a></li>
-      </ul>
-      {{ end }}
+	      {{ if .Params.resources_common_notification }}
+	      <ul>
+	        <li><a href="#resources_common_notifications">Notifications</a></li>
+	      </ul>
+	      {{ end }}
 
-      {{ if .Params.resources_common_notification }}
-      <ul>
-        <li><a href="#resources_common_notifications">Notifications</a></li>
-      </ul>
-      {{ end }}
+	      {{ if .Params.resources_common_guards }}
+	      <ul>
+	        <li><a href="#guards">Guards</a></li>
+	      </ul>
+	      {{ end }}
 
-      {{ if .Params.resources_common_guards }}
-      <ul>
-        <li><a href="#guards">Guards</a></li>
-      </ul>
-      {{ end }}
+	      {{ if .Params.common_resource_functionality_multiple_packages }}
+	      <ul>
+	        <li><a href="#multiple-packages">Multiple Packages</a></li>
+	      </ul>
+	      {{ end }}
 
-      {{ if .Params.common_resource_functionality_multiple_packages }}
-      <ul>
-        <li><a href="#multiple-packages">Multiple Packages</a></li>
-      </ul>
-      {{ end }}
+	      {{ if .Params.resources_common_guard_interpreter }}
+	      <ul>
+	        <li><a href="#guard-interpreter">Guard Interpreter</a></li>
+	      </ul>
+	      {{ end }}
 
-      {{ if .Params.resources_common_guard_interpreter }}
-      <ul>
-        <li><a href="#guard-interpreter">Guard Interpreter</a></li>
-      </ul>
-      {{ end }}
-
-      {{ if .Params.remote_directory_recursive_directories }}
-      <ul>
-        <li>
-          <a href="#recursive-directories">Recursive Directories</a>
-          <ul>
-            <li><a href="#recursive_directories_example">Example</a></li>
-          </ul>
-        </li>
-      </ul>
-      {{ end }}
+	      {{ if .Params.remote_directory_recursive_directories }}
+	      <ul>
+	        <li>
+	          <a href="#recursive-directories">Recursive Directories</a>
+	          <ul>
+	            <li><a href="#recursive_directories_example">Example</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      {{ end }}
 
 
-      {{ if .Params.common_resource_functionality_resources_common_windows_security }}
-      <ul>
-        <li><a href="#resources_common_windows_security">Windows File Security</a></li>
-      </ul>
-      {{ end }}
-    </li>
+	      {{ if .Params.common_resource_functionality_resources_common_windows_security }}
+	      <ul>
+	        <li><a href="#resources_common_windows_security">Windows File Security</a></li>
+	      </ul>
+	      {{ end }}
+	    </li>
+		{{ end }}
 
     {{ if .Params.handler_custom }}
     <li>
