@@ -17,8 +17,6 @@ A cookbook template is an Embedded Ruby (ERB) template that is used to dynamical
 
 Use the **template** resource to manage the contents of a file using an Embedded Ruby (ERB) template by transferring files from a sub-directory of ``COOKBOOK_NAME/templates/`` to a specified path located on a host that is running Chef Infra Client. This resource includes actions and properties from the **file** resource. Template files managed by the **template** resource follow the same file specificity rules as the **remote_file** and **file** resources.
 
-
-
 Syntax
 =====================================================
 A **template** resource block typically declares the location in which a file is to be created, the source template that will be used to create the file, and the permissions needed on that file. For example:
@@ -1454,5 +1452,4 @@ The recipe then uses the ``variables`` attribute to find the values for ``splunk
    end
 
 This example can be found in the ``client.rb`` recipe and the ``outputs.conf.erb`` template files that are located in the `chef-splunk cookbook <https://github.com/chef-cookbooks/chef-splunk/>`_  that is maintained by Chef.
-
 

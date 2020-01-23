@@ -5,8 +5,6 @@ package resource
 
 Use the **package** resource to manage packages. When the package is installed from a local file (such as with RubyGems, dpkg, or RPM Package Manager), the file must be added to the node using the **remote_file** or **cookbook_file** resources.
 
-
-
 This resource is the base resource for several other resources used for package management on specific platforms. While it is possible to use each of these specific resources, it is recommended to use the **package** resource as often as possible.
 
 For more information about specific resources for specific platforms, see the following topics:
@@ -36,8 +34,6 @@ For more information about specific resources for specific platforms, see the fo
 * `windows_package </resource_windows_package.html>`__
 * `yum_package </resource_yum_package.html>`__
 * `zypper_package </resource_zypper_package.html>`__
-
-
 
 Syntax
 =====================================================

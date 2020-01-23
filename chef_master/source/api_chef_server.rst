@@ -257,6 +257,8 @@ This method has no parameters.
 
    GET /license
 
+This method has no request body.
+
 **Response**
 
 The response is similar to:
@@ -264,9 +266,9 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "limit_exceeded": "false",
-     "node_license": "25",
-     "node_count": "12",
+     "limit_exceeded": false,
+     "node_license": 25,
+     "node_count": 12,
      "upgrade_url": "http://www.chef.io/contact/on-premises-simple"
    }
 
@@ -299,8 +301,6 @@ The chef-server.rb file contains settings that can be used to edit the number of
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``404``
-     - Not found. The requested object does not exist.
 
 /organizations
 -----------------------------------------------------

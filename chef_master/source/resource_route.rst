@@ -5,8 +5,6 @@ route resource
 
 Use the **route** resource to manage the system routing table in a Linux environment.
 
-
-
 Syntax
 =====================================================
 A **route** resource block manages the system routing table in a Linux environment:
@@ -249,6 +247,7 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Add a host route**

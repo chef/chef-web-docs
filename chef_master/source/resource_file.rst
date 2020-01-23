@@ -5,8 +5,6 @@ file resource
 
 Use the **file** resource to manage files directly on a node.
 
-
-
 .. note:: Use the **cookbook_file** resource to copy a file from a cookbook's ``/files`` directory. Use the **template** resource to create a file based on a template in a cookbook's ``/templates`` directory. And use the **remote_file** resource to transfer a file to a node from a remote location.
 
 Syntax
@@ -645,5 +643,4 @@ The following example shows how to copy a file from one directory to another, lo
    end
 
 where the ``content`` attribute uses the Ruby ``IO.read`` method to get the contents of the ``/tmp/1.txt`` file.
-
 
