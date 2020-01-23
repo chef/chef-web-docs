@@ -7,7 +7,7 @@ https://docs.chef.io/
 
 If you spot something in the docs that needs to be fixed, the fastest way to get in the change is to edit the file on the GitHub website using the GitHub UI.
 
-To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at the top ofthe page you want to edit. The link takes you to that topic's GitHub page. In GitHub, click on the pencil icon and make your changes. You can preview how they'll look right on the page ("Preview Changes" tab).
+To perform edits using the GitHub UI, click on the `[edit on GitHub]` link at the top of the page you want to edit. The link takes you to that topic's GitHub page. In GitHub, click on the pencil icon and make your changes. You can preview how they'll look right on the page ("Preview Changes" tab).
 
 We no longer use "swaps" and include files, so you'll be able to see
 all of text in one place for each topic. If you need tips on the
