@@ -95,7 +95,7 @@ The chocolatey_package resource has the following properties:
 
    One (or more) additional list options that are passed to the command.
 
-   *New in Chef Infra Client 15.4.*
+   *New in Chef Infra Client 15.3.*
 
 ``package_name``
    **Ruby Type:** String, Array
@@ -107,14 +107,14 @@ The chocolatey_package resource has the following properties:
 
    The username to authenticate feeds.
 
-   *New in Chef Infra Client 15.4.*
+   *New in Chef Infra Client 15.3.*
 
 ``password``
    **Ruby Type:** String
 
    The password to authenticate to the source.
 
-   *New in Chef Infra Client 15.4.*
+   *New in Chef Infra Client 15.3.*
 
 ``returns``
    **Ruby Type:** Integer, Array | **Default Value:** ``[0, 2]``
@@ -133,7 +133,7 @@ The chocolatey_package resource has the following properties:
 
       returns [0, 2, 1605, 1614, 1641]
 
-   *Updated in Chef Infra Client 15.4.*
+   *Updated in Chef Infra Client 15.3.*
 
 ``source``
    **Ruby Type:** String
