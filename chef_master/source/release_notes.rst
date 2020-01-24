@@ -2867,7 +2867,7 @@ The new ``gateway_identity_file`` option allows the operator to specify the key 
 Windows Task resource added
 -----------------------------------------------------
 The ``windows_task`` resource has been ported from the windows cookbook.
-Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2012 due to API usage.
+Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 due to API usage.
 
 **Note**: ``:change`` action has been removed from ``windows_task`` resource. ``:create`` action can be used to update an existing task.
 
