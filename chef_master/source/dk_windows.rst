@@ -24,11 +24,11 @@ Supported Host Operating Systems:
    * - Platform
      - Version
    * - Apple macOS
-     - 10.11, 10.12, 10.13, 10.14
+     - 10.13, 10.14, 10.15
    * - Microsoft Windows
-     - 10, Server 2008 R2, Server 2012, Server 2012 R2, Server 2016
+     - 10, Server 2012, Server 2012 R2, Server 2016, Server 2019
    * - Red Hat Enterprise Linux / CentOS
-     - 6.x, 7.x
+     - 6.x, 7.x, 8.x
    * - SUSE Enterprise Linux Server
      - 11 SP4, 12 SP1+, 15
    * - Ubuntu
@@ -43,9 +43,9 @@ Supported Host Operating Systems:
    * - Platform
      - Version
    * - Microsoft Windows
-     - 10, Server 2008 R2, Server 2012, Server 2012 R2, Server 2016
+     - 10, Server 2012, Server 2012 R2, Server 2016, Server 2019
    * - Red Hat Enterprise Linux
-     - 6.x, 7.x
+     - 6.x, 7.x, 8.x
    * - SUSE Enterprise Linux Server
      - 11 SP4, 12 SP1+, 15
    * - Ubuntu
