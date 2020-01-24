@@ -506,6 +506,8 @@ The pattern for template specificity depends on two things: the lookup path and 
 #. ``/default/$source``
 #. ``/$source``
 
+.. note:: To specify a particular Windows version, use the `operating system version number <https://docs.microsoft.com/en-us/windows/win32/sysinfo/operating-system-version>`_. For example, a template in ``templates/windows-6.3`` will be deployed on systems installed with Windows 8.1.
+
 Use an array with the ``source`` property to define an explicit lookup path. For example:
 
 .. code-block:: ruby
