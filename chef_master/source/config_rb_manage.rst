@@ -3,9 +3,32 @@ manage.rb
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_manage.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
+.. tag chef_automate_mark
+
+.. image:: ../../images/a2_docs_banner.svg
+   :target: https://automate.chef.io/docs
+
+.. end_tag
+
+.. tag EOL_manage
+
+.. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a `deprecated product </versions.html#deprecated-products-and-versions>`__. Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. Chef Automate is included as part of the Workflow license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
+
+.. end_tag
+
 .. tag chef_manager
 
-Chef management console is a web-based interface for the Chef server that provides users a way to manage the following objects:
+Chef management console is a web-based interface for the Chef Infra Server that provides users a way to manage the following objects:
 
 * Nodes
 * Cookbooks and recipes
@@ -20,12 +43,6 @@ Chef management console is a web-based interface for the Chef server that provid
 The manage.rb file is the default configuration file used by Chef management console. These settings are applied every time ``chef-manage-ctl reconfigure`` is run.
 
 The configuration file is located at: ``/etc/chef-manage/manage.rb``.
-
-.. note:: .. tag chef_subscriptions
-
-          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
-
-          .. end_tag
 
 Settings
 ==========================================================================
@@ -48,13 +65,13 @@ This configuration file has the following settings:
    Use to disable sign-up and only allow sign-in. Default value: ``false``.
 
 ``email_from_address``
-   The email address from which Chef server notifications are sent. Default value: ``'Chef Notifications <notifications@chef.io>'``.
+   The email address from which Chef Infra Server notifications are sent. Default value: ``'Chef Notifications <notifications@chef.io>'``.
 
 ``events.port``
    The port on which the events services run. Default value: ``11001``.
 
 ``logging.chef_log_level``
-   The log level used for requests to the Chef server from the web application. Default value: ``info``.
+   The log level used for requests to the Chef Infra Server from the web application. Default value: ``info``.
 
 ``logging.log_level``
    The log level for Ruby on Rails services. Default value: ``info``.
@@ -69,7 +86,7 @@ This configuration file has the following settings:
    Whether or not users can create new organizations from Chef management console.  Default value: ``true``.
 
 ``platform.user``
-   The name of the privileged user that manages requests to the Chef server. Default value: ``'pivotal'``.
+   The name of the privileged user that manages requests to the Chef Infra Server. Default value: ``'pivotal'``.
 
 ``public_port``
    The port on which the external load balancer will listen. Default value: ``443``.
@@ -153,7 +170,7 @@ This configuration file has the following settings:
 
 Web UI Private Key
 ==========================================================================
-Chef Manage uses the Web UI private key for signing requests sent to the Chef server.
+Chef Manage uses the Web UI private key for signing requests sent to the Chef Infra Server.
 The key is subject to Chef server's `Secrets Management </ctl_chef_server.html#ctl-chef-server-secrets-management>`__, and will be stored in ``/etc/opscode/private-chef-secrets.json``.
 
 Any run of ``chef-server-ctl reconfigure`` will ensure the key exists and is stored without any additional steps.

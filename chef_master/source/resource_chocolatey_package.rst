@@ -3,24 +3,22 @@ chocolatey_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chocolatey_package.rst>`__
 
-.. tag resource_package_chocolatey
-
 Use the **chocolatey_package** resource to manage packages using Chocolatey on the Microsoft Windows platform.
 
-.. end_tag
 
-.. warning:: .. tag notes_resource_chocolatey_package
 
+.. warning::
              The **chocolatey_package** resource must be specified as ``chocolatey_package`` and cannot be shortened to ``package`` in a recipe.
 
-             .. end_tag
+
 
 **New in Chef Client 12.7.**
 
+.. note::
+          The Chocolatey package manager is not installed on Windows by default. Install it prior to using this resource by adding the `Chocolatey cookbook <https://supermarket.chef.io/cookbooks/chocolatey/>`_ to your node's run list.
+
 Syntax
 =====================================================
-.. tag resource_package_chocolatey_syntax
-
 A **chocolatey_package** resource manages packages using Chocolatey on the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:
 
 .. code-block:: ruby
@@ -33,28 +31,25 @@ The full syntax for all of the properties that are available to the **chocolatey
 
 .. code-block:: ruby
 
-   chocolatey_package 'name' do
-     options                    String
-     package_name               String, Array # defaults to 'name' if not specified
-     returns                    Integer, Array # default value: [0]
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     action                     Symbol # defaults to :install if not specified
-   end
+  chocolatey_package 'name' do
+    options           String
+    package_name      String, Array # defaults to 'name' if not specified
+    returns           Integer, Array # default value: [0]
+    source            String
+    timeout           String, Integer
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``chocolatey_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
+* ``options``, ``package_name``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
-.. tag resource_package_chocolatey_actions
 
 The chocolatey_package resource has the following actions:
 
@@ -64,7 +59,7 @@ The chocolatey_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -85,11 +80,8 @@ The chocolatey_package resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version.
 
-.. end_tag
-
 Properties
 =====================================================
-.. tag resource_package_chocolatey_properties
 
 The chocolatey_package resource has the following properties:
 
@@ -101,7 +93,7 @@ The chocolatey_package resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   The name of the package. Default value: the name of the resource block.
 
 ``returns``
    **Ruby Type:** Integer, Array | **Default Value:** ``[0]``
@@ -128,9 +120,6 @@ The chocolatey_package resource has the following properties:
    **Ruby Type:** String, Array
 
    The version of a package to be installed or upgraded.
-
-.. end_tag
-
 
 Common Resource Functionality
 =====================================================
@@ -162,12 +151,13 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -179,13 +169,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -228,13 +218,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -256,17 +246,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -278,11 +271,10 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Install a package**
-
-.. tag resource_chocolatey_package_install
 
 .. To install a package:
 
@@ -303,4 +295,4 @@ This example uses Chocolatey's ``--checksum`` option:
      action :install
    end
 
-.. end_tag
+

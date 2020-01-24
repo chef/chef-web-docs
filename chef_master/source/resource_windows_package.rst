@@ -3,16 +3,12 @@ windows_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_package.rst>`__
 
-.. tag resource_package_windows
-
 Use the **windows_package** resource to manage Microsoft Installer Package (MSI) packages for the Microsoft Windows platform.
 
-.. end_tag
+
 
 Syntax
 =====================================================
-.. tag resource_package_windows_syntax
-
 A **windows_package** resource block manages a package on a node, typically by installing it. The simplest use of the **windows_package** resource is:
 
 .. code-block:: ruby
@@ -26,32 +22,29 @@ The full syntax for all of the properties that are available to the **windows_pa
 .. code-block:: ruby
 
   windows_package 'name' do
-    checksum                     String
-    installer_type               Symbol
-    options                      String
-    package_name                 String, Array
-    remote_file_attributes       Hash
-    response_file                String
-    response_file_variables      Hash
-    returns                      String, Integer, Array # default value: [0]
-    source                       String
-    timeout                      String, Integer # default value: 600
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    checksum                    String
+    installer_type              Symbol
+    options                     String
+    package_name                String, Array
+    remote_file_attributes      Hash
+    returns                     String, Integer, Array # default value: [0]
+    source                      String # default value: "The resource block's name"
+    timeout                     String, Integer # default value: 600 (seconds)
+    version                     String, Array
+    action                      Symbol # defaults to :install if not specified
   end
 
 where:
 
 * ``windows_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``response_file``, ``response_file_variables``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
+* ``checksum``, ``installer_type``, ``options``, ``package_name``, ``remote_file_attributes``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
-.. end_tag
+
 
 Actions
 =====================================================
-.. tag resource_package_windows_actions
 
 The windows_package resource has the following actions:
 
@@ -61,25 +54,21 @@ The windows_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
 ``:remove``
    Remove a package.
 
-.. end_tag
-
 Properties
 =====================================================
-.. tag resource_package_windows_properties
-
 The windows_package resource has the following properties:
 
 ``checksum``
    **Ruby Type:** String
 
-   The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, the chef-client does not download it. Use when a URL is specified by the ``source`` property.
+   The SHA-256 checksum of the file. Use to prevent a file from being re-downloaded. When the local file matches the checksum, Chef Infra Client does not download it. Use when a URL is specified by the ``source`` property.
 
 ``installer_type``
    **Ruby Type:** Symbol
@@ -94,22 +83,22 @@ The windows_package resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   The name of the package. Defaults to the name of the resource block unless specified.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``remote_file_attributes``
    **Ruby Type:** Hash
 
-   A package at a remote location define as a Hash of properties that modifies the properties of the **remote_file** resource.
+   This property allows you to define a hash of properties and their value if the source package to be installed is at a remote location. This hash will be used by the underlying **remote_file** resource which will fetch the source package.
 
 ``returns``
-   **Ruby Type:** Integer, Array of integers | **Default Value:** ``0``
+   **Ruby Type:** String, Integer, Array of integers | **Default Value:** ``0``
 
-   A comma-delimited list of return codes that indicate the success or failure of the command that was run remotely. This code signals a successful ``:install`` action.
+   A comma-delimited list of return codes that indicate the success or failure of the package command that was run.
 
 ``source``
-   **Ruby Type:** String
+   **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Optional. The path to a package in the local file system. The location of the package may be at a URL. Default value: the ``name`` of the resource block. See the "Syntax" section above for more information.
+   The path to a package in the local file system. The location of the package may be at a URL.
 
    If the ``source`` property is not specified, the package name MUST be exactly the same as the display name found in **Add/Remove programs** or exactly the same as the ``DisplayName`` property in the appropriate registry key, which may be one of the following:
 
@@ -131,7 +120,7 @@ The windows_package resource has the following properties:
 
    The version of a package to be installed or upgraded.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -163,7 +152,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -181,13 +170,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -230,13 +219,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -258,17 +247,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -280,11 +272,10 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Install a package**
-
-.. tag resource_windows_package_install
 
 .. To install a package:
 
@@ -295,11 +286,9 @@ The following examples demonstrate various approaches for using resources in rec
      source 'C:\7z920.msi'
    end
 
-.. end_tag
+
 
 **Specify a URL for the source attribute**
-
-.. tag resource_package_windows_source_url
 
 .. To install a package using a URL for the source:
 
@@ -309,11 +298,9 @@ The following examples demonstrate various approaches for using resources in rec
      source 'http://www.7-zip.org/a/7z938-x64.msi'
    end
 
-.. end_tag
+
 
 **Specify path and checksum**
-
-.. tag resource_package_windows_source_url_checksum
 
 .. To install a package using a URL for the source and specifying a checksum:
 
@@ -324,11 +311,9 @@ The following examples demonstrate various approaches for using resources in rec
      checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'
    end
 
-.. end_tag
+
 
 **Modify remote_file resource attributes**
-
-.. tag resource_package_windows_source_remote_file_properties
 
 The **windows_package** resource may specify a package at a remote location using the ``remote_file_attributes`` property. This uses the **remote_file** resource to download the contents at the specified URL and passes in a Hash that modifies the properties of the `remote_file resource </resource_remote_file.html>`__.
 
@@ -344,11 +329,9 @@ For example:
      })
    end
 
-.. end_tag
+
 
 **Download a nsis (Nullsoft) package resource**
-
-.. tag resource_package_windows_download_nsis_package
 
 .. To download a nsis (Nullsoft) package resource:
 
@@ -359,11 +342,9 @@ For example:
      checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'
    end
 
-.. end_tag
+
 
 **Download a custom package**
-
-.. tag resource_package_windows_download_custom_package
 
 .. To download a custom package:
 
@@ -375,4 +356,4 @@ For example:
      options '/Q'
    end
 
-.. end_tag
+

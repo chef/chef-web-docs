@@ -6,6 +6,7 @@ $nav-border: 3px solid lighten($chef-grey, 30%);
 
 .downloads .nav-main {
   margin-bottom: 20px;
+  position: fixed;
 }
 
 // Top Bar
@@ -31,8 +32,9 @@ nav.nav-main {
     }
   }
   @media (min-width: $nav-breakpoint) {
-    position: relative;
+    position: fixed;
     padding: 11px 20px;
+    z-index: 5;
     h1 {
       padding: 5px 0;
     }
@@ -43,6 +45,10 @@ nav.nav-main {
   max-width: 1295px;
   margin: 0 auto;
   position: relative;
+}
+
+.left {
+  float: left;
 }
 
 // List of Nav Links
@@ -117,11 +123,11 @@ nav.nav-main {
       padding-bottom: 3px;
       border-bottom: 3px solid transparent;
       &:hover {
-        border-bottom: 3px solid $nav-links-hover; 
+        border-bottom: 3px solid $nav-links-hover;
       }
     }
     &.is-active a {
-      border-bottom: 3px solid $nav-links-hover; 
+      border-bottom: 3px solid $nav-links-hover;
     }
   }
 }

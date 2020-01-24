@@ -3,17 +3,15 @@ yum_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_yum_package.rst>`__
 
-.. tag resource_package_yum
-
 Use the **yum_package** resource to install, upgrade, and remove packages with Yum for the Red Hat and CentOS platforms. The **yum_package** resource is able to resolve ``provides`` data for packages much like Yum can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
-.. end_tag
+
 
 .. note:: Support for using file names to install packages (as in ``yum_package "/bin/sh"``) is not available because the volume of data required to parse for this is excessive.
 
 .. note:: .. tag notes_resource_based_on_package
 
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
+          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
 
           .. end_tag
 
@@ -31,25 +29,25 @@ The yum_package resource has the following syntax:
 
 .. code-block:: ruby
 
-   yum_package 'name' do
-     allow_downgrade            true, false # default value: false
-     arch                       String, Array
-     flush_cache                Hash # default value: {"before"=>false, "after"=>false}
-     options                    String, Array
-     package_name               String, Array # defaults to 'name' if not specified
-     source                     String
-     timeout                    String, Integer
-     version                    String, Array
-     yum_binary                 String
-     action                     Symbol # defaults to :install if not specified
-   end
+  yum_package 'name' do
+    allow_downgrade      true, false # default value: true
+    arch                 String, Array
+    flush_cache          Hash # default value: {"before"=>false, "after"=>false}
+    options              String, Array
+    package_name         String, Array
+    source               String
+    timeout              String, Integer
+    version              String, Array
+    yum_binary           String
+    action               Symbol # defaults to :install if not specified
+  end
 
 where:
 
 * ``yum_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``response_file``, ``response_file_variables``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
+* ``allow_downgrade``, ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, ``version``, and ``yum_binary`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -65,7 +63,7 @@ The yum_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -81,13 +79,20 @@ The yum_package resource has the following actions:
 ``:upgrade``
    Install a package and/or ensure that a package is the latest version. This action will ignore the ``version`` attribute.
 
+``:nothing``
+   .. tag resources_common_actions_nothing
+
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
+
 Properties
 =====================================================
 
 The yum_package resource has the following properties:
 
 ``allow_downgrade``
-   **Ruby Type:** true, false | **Default Value:** ``false``
+   **Ruby Type:** true, false | **Default Value:** ``true``
 
    Downgrade a package to satisfy requested version requirements.
 
@@ -103,7 +108,7 @@ The yum_package resource has the following properties:
 
    .. tag resources_common_package_yum_cache
 
-   Yum automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
+   Yum automatically synchronizes remote metadata to a local cache. Chef Infra Client creates a copy of the local cache, and then stores it in-memory during a Chef Infra Client run. The in-memory cache allows packages to be installed during a Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while the Chef Infra Client run is in-progress.
 
    .. end_tag
 
@@ -187,7 +192,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -205,13 +210,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -254,13 +259,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -282,17 +287,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -309,7 +317,7 @@ Multiple Packages
 A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
-* Update or install multiple packages with a single resource during the chef-client run
+* Update or install multiple packages with a single resource during a Chef Infra Client run
 
 For example, installing multiple packages:
 
@@ -367,11 +375,10 @@ Notifications, via an implicit name:
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Install an exact version**
-
-.. tag resource_yum_package_install_exact_version
 
 .. To install an exact version:
 
@@ -379,11 +386,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    yum_package 'netpbm = 10.35.58-8.el5'
 
-.. end_tag
+
 
 **Install a minimum version**
-
-.. tag resource_yum_package_install_minimum_version
 
 .. To install a minimum version:
 
@@ -391,11 +396,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    yum_package 'netpbm >= 10.35.58-8.el5'
 
-.. end_tag
+
 
 **Install a minimum version using the default action**
-
-.. tag resource_yum_package_install_package_using_default_action
 
 .. To install the same package using the default action:
 
@@ -403,11 +406,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    yum_package 'netpbm'
 
-.. end_tag
+
 
 **To install a package**
-
-.. tag resource_yum_package_install_package
 
 .. To install a package:
 
@@ -417,11 +418,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+
 
 **To install a partial minimum version**
-
-.. tag resource_yum_package_install_partial_minimum_version
 
 .. To install a partial minimum version:
 
@@ -429,11 +428,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    yum_package 'netpbm >= 10'
 
-.. end_tag
+
 
 **To install a specific architecture**
-
-.. tag resource_yum_package_install_specific_architecture
 
 .. To install a specific architecture:
 
@@ -449,11 +446,9 @@ or:
 
    yum_package 'netpbm.x86_64'
 
-.. end_tag
+
 
 **To install a specific version-release**
-
-.. tag resource_yum_package_install_specific_version_release
 
 .. To install a specific version-release:
 
@@ -463,26 +458,9 @@ or:
      version '10.35.58-8.el5'
    end
 
-.. end_tag
 
-**To install a specific version (even when older than the current)**
-
-.. tag resource_yum_package_install_specific_version
-
-.. To install a specific version (even if it is older than the version currently installed):
-
-.. code-block:: ruby
-
-   yum_package 'tzdata' do
-     version '2011b-1.el5'
-     allow_downgrade true
-   end
-
-.. end_tag
 
 **Handle cookbook_file and yum_package resources in the same recipe**
-
-.. tag resource_package_handle_cookbook_file_and_yum_package
 
 .. To handle cookbook_file and package when both called in the same recipe
 
@@ -500,4 +478,4 @@ When a **cookbook_file** resource and a **yum_package** resource are both called
      flush_cache [ :before ]
    end
 
-.. end_tag
+

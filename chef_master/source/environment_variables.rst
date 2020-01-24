@@ -48,7 +48,7 @@ As mentioned, the child process gets a copy of its parent's environment. This me
 
 The principles mentioned above (a child process receives a copy of its parent's environment and cannot affect their parent's environment) apply in Ruby just as they do in Bash.
 
-In Ruby, the current environment can be altered via the ``ENV`` variable. Any changes made to the environment will also be available to child process started by the chef-client. For example, consider the following recipe:
+In Ruby, the current environment can be altered via the ``ENV`` variable. Any changes made to the environment will also be available to child process started by Chef Infra Client. For example, consider the following recipe:
 
 .. code-block:: ruby
 
@@ -122,7 +122,7 @@ Another method is to use the Ruby predefined ``ENV`` variable to set the environ
      action :start
    end
 
-.. note:: Changes made to ``ENV`` only effect the environment of the chef-client process and child processes. Altering the environment in this way will often ensure that the chef-client can start a service properly, but will not ensure that a service will start properly when started using other methods.
+.. note:: Changes made to ``ENV`` only effect the environment of the Chef Infra Client process and child processes. Altering the environment in this way will often ensure that Chef Infra Client can start a service properly, but will not ensure that a service will start properly when started using other methods.
 
 Using Resource Attributes
 -----------------------------------------------------
@@ -139,13 +139,13 @@ If processes is started by using the **execute** or **script** resources (or any
      environment ({ 'FOO' => 'bar' })
    end
 
-The only environment being altered is the one being passed to the child process that is started by the **bash** resource. This will not affect the environment of the chef-client or any child processes.
+The only environment being altered is the one being passed to the child process that is started by the **bash** resource. This will not affect the Chef Infra Client environment or any child processes.
 
 .. end_tag
 
 Other Issues
 =====================================================
-**My init script works fine when I'm logged in but not over ssh or when launched from the chef-client running as daemon!**
+**My init script works fine when I'm logged in but not over ssh or when launched from Chef Infra Client running as daemon!**
 
 Shells commonly alter their environment at startup by loading various initialization scripts. The files used for initialization vary based on whether the shell is started as an interactive or non-interactive shell and whether it is is started as a login or non-login shell. When a user first logs in, most often an interactive login shell is started. When a command is run via SSH, this is often a non-interactive shell. This can mean that the process in question is receiving different environments. Ensure that a service or process is being started in a way that ensures its environment has the necessary key-value pairs.
 
@@ -164,4 +164,4 @@ resource; however, there are a few caveats:
 * The environments of existing processes will be unaffected
 * Shells look to different startup files when started with different options. See the shell-specific documentation for the definitive list of files that need to be altered and whether it is possible to alter the environment for every possible invocation of the shell
 * When a shell's initialization file is first changed, it will have no affect on your current shell or process since its environment has already been initialized
-* From a shell, the source command can be used to reload a given initialization file; however, since child processes do not affect their parent's environment, using a script or execute resource to run source from inside a recipe will have no effect on the environment for the chef-client
+* From a shell, the source command can be used to reload a given initialization file; however, since child processes do not affect their parent's environment, using a script or execute resource to run source from inside a recipe will have no effect on the Chef Infra Client environment.

@@ -14,11 +14,11 @@ Use `Test Kitchen <https://kitchen.ci/>`_  to automatically test cookbook data a
 
 .. tag test_kitchen_yml
 
-Use a kitchen.yml file to define what is required to run Kitchen, including drivers, provisioners, platforms, and test suites.
+Use a kitchen.yml file to define what is required to run Test Kitchen, including drivers, provisioners, platforms, and test suites.
 
 .. end_tag
 
-.. note:: This topic details functionality that is packaged with Chef development kit. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
+.. note:: This topic details functionality that is packaged with ChefDK. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
 
 Syntax
 ==========================================================================
@@ -65,11 +65,11 @@ The basic structure of a kitchen.yml file is as follows:
 where:
 
 * ``driver_name`` is the name of a driver that will be used to create platform instances used during cookbook testing. This is the default driver used for all platforms and suites **unless** a platform or suite specifies a ``driver`` to override the default driver for that platform or suite; a driver specified for a suite will override a driver set for a platform
-* ``provisioner_name`` specifies how the chef-client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
+* ``provisioner_name`` specifies how Chef Infra Client will be simulated during testing. ``chef_zero``  and ``chef_solo`` are the most common provisioners used for testing cookbooks
 * ``verifier_name`` specifies which application to use when running tests, such as ``inspec``
 * ``transport_name`` specifies which transport to use when executing commands remotely on the test instance. ``winrm`` is the default transport on Windows. The ``ssh`` transport is the default on all other operating systems.
-* ``platform-version`` is the name of a platform on which Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
-* ``platforms`` may define Chef server attributes that are common to the collection of test suites
+* ``platform-version`` is the name of a platform on which Test Kitchen will perform cookbook testing, for example, ``ubuntu-16.04`` or ``centos-7``; depending on the platform, additional driver details---for example, instance names and URLs used with cloud platforms like OpenStack or Amazon EC2---may be required
+* ``platforms`` may define Chef Infra Server attributes that are common to the collection of test suites
 * ``suites`` is a collection of test suites, with each ``suite_name`` grouping defining an aspect of a cookbook to be tested. Each ``suite_name`` must specify a run-list, for example:
 
   .. code-block:: ruby
@@ -102,14 +102,14 @@ For example, a very simple kitchen.yml file:
      - name: centos-7
      - name: debian-9
 
-  suites:
-    - name: default
-      run_list:
-        - recipe[apache::httpd]
-      excludes:
-        - debian-9
+   suites:
+     - name: default
+       run_list:
+         - recipe[apache::httpd]
+       excludes:
+         - debian-9
 
-This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
+This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Test Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 
 .. end_tag
 
@@ -129,29 +129,29 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``attributes``
      - Chef attributes for use in the suite
    * - ``chef_client_path``
-     - chef-client provisioner only.
+     - Chef Infra Client provisioner only.
    * - ``chef_metadata_url``
      - **This will be deprecated in a future version.**
    * - ``chef_omnibus_install_options``
-     - Use to specify the package to be installed. Possible values: ``-P chef`` (for the Chef client) and ``-P chefdk`` (for the Chef client that is packaged as part of ChefDK). Use ``-n`` to specify the nightly build. For example: ``-P chefdk`` or ``-n -P chefdk``. **This will be deprecated in a future version.** See the ``product_name``, ``product_version``, and ``channel`` settings instead.
+     - Use to specify the package to be installed. Possible values: ``-P chef`` (for Chef Infra Client) and ``-P chefdk`` (for the Chef Infra Client that is packaged as part of ChefDK). Use ``-n`` to specify the nightly build. For example: ``-P chefdk`` or ``-n -P chefdk``. **This will be deprecated in a future version.** See the ``product_name``, ``product_version``, and ``channel`` settings instead.
 
    * - ``chef_omnibus_root``
      - Default value: ``/etc/opt`` for UNIX and Linux, ``$env:systemdrive\\opscode\\chef`` on Microsoft Windows.
    * - ``chef_omnibus_url``
-     - The URL for an ``install.sh`` script that will install chef-client on the machine under test. Default value: ``https://www.chef.io/chef/install.sh``. **This will be deprecated in a future version.**
+     - The URL for an ``install.sh`` script that will install Chef Infra Client on the machine under test. Default value: ``https://www.chef.io/chef/install.sh``. **This will be deprecated in a future version.**
    * - ``chef_solo_path``
      - chef-solo provisioner only.
    * - ``chef_zero_host``
-     - chef-client provisioner only.
+     - Chef Infra Client provisioner only.
    * - ``chef_zero_port``
-     - chef-client provisioner only. The port on which chef-zero is to listen.
+     - Chef Infra Client provisioner only. The port on which chef-zero is to listen.
    * - ``client_rb``
-     - chef-client provisioner only. A list of client.rb file settings. For example:
+     - Chef Infra Client provisioner only. A list of client.rb file settings. For example:
 
        .. code-block:: yaml
 
           client_rb:
-            audit_mode: :audit_only
+            log_level: :warn
 
    * - ``clients_path``
      - The relative path to the directory in which client data is located. This data must be defined as JSON.
@@ -178,9 +178,9 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``no_proxy``
      - The comma-separated exception list of host patterns to exclude from proxying.
    * - ``install_msi_url``
-     - An alternate URL for a Windows MSI package that will install chef-client on the machine under test. **This will be deprecated in a future version.** Use the ``download_url`` setting instead.
+     - An alternate URL for a Windows MSI package that will install Chef Infra Client on the machine under test. **This will be deprecated in a future version.** Use the ``download_url`` setting instead.
    * - ``json_attributes``
-     - chef-client provisioner only.
+     - Chef Infra Client provisioner only.
    * - ``log_file``
      -
    * - ``multiple_converge``
@@ -188,13 +188,13 @@ Kitchen can configure the chef-zero provisioner with the following Chef-specific
    * - ``nodes_path``
      - The relative path to the directory in which node data is located. This data must be defined as JSON.
    * - ``require_chef_omnibus``
-     - Use to install the latest version of Chef client on a node. Set to ``true`` to install the latest version, ``false`` to not install Chef client (assumes the box already has it installed), or a version specifier like ``12.19.36`` to install a particular version, or simply ``12`` to install the latest 12.x package. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of Chef client. Default value: ``true``. **This will be deprecated in a future version.**  See the ``product_version`` and ``install_strategy`` settings.
+     - Use to install the latest version of Chef Infra Client on a node. Set to ``true`` to install the latest version, ``false`` to not install Chef Infra Client (assumes the box already has it installed), or a version specifier like ``12.19.36`` to install a particular version, or simply ``12`` to install the latest 12.x package. When set to ``true`` or a version number, the ``chef_omnibus_url`` may be used to specify the URL of the ``install.sh`` that installs the specified version of Chef Infra Client. Default value: ``true``. **This will be deprecated in a future version.**  See the ``product_version`` and ``install_strategy`` settings.
    * - ``roles_path``
      - The relative path to the directory in which role data is located. This data must be defined as JSON.
    * - ``root_path``
      - The directory in which Kitchen will stage all content on the target node. This directory should be large enough to store all the content and must be writable. (Typically, this value does not need to be modified from the default value.) Default value: ``/tmp/kitchen``.
    * - ``ruby_bindir``
-     - chef-client provisioner only.
+     - Chef Infra Client provisioner only.
    * - ``run_list``
      -
    * - ``solo_rb``
@@ -327,7 +327,7 @@ Work with Proxies
 --------------------------------------------------------------------------
 .. tag test_kitchen_yml_syntax_proxy
 
-The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, the chef-client will configure the ``ENV`` variable based on these (and related) settings. For example:
+The environment variables ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are honored by Test Kitchen for proxies. The client.rb file is read to look for proxy configuration settings. If ``http_proxy``, ``https_proxy``, and ``ftp_proxy`` are specified in the client.rb file, Chef Infra Client will configure the ``ENV`` variable based on these (and related) settings. For example:
 
 .. code-block:: ruby
 
@@ -341,7 +341,7 @@ will be set to:
 
    ENV['http_proxy'] = 'http://myself:Password1@proxy.example.org:8080'
 
-Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
+Test Kitchen also supports ``http_proxy`` and ``https_proxy`` in the ``kitchen.yml`` file. You can set them manually or have them read from your local environment variables:
 
 .. code-block:: yaml
 
@@ -362,9 +362,9 @@ This will not set the proxy environment variables for applications other than Ch
 
 .. end_tag
 
-chef-client Settings
+Chef Infra Client Settings
 ==========================================================================
-A kitchen.yml file may define chef-client-specific settings, such as whether to require the Chef installer or the URL from which the chef-client is downloaded, or to override settings in the client.rb file:
+A kitchen.yml file may define Chef Infra Client-specific settings, such as whether to require the Chef installer or the URL from which Chef Infra Client is downloaded, or to override settings in the client.rb file:
 
 .. code-block:: yaml
 
@@ -395,8 +395,8 @@ A kitchen.yml file may define chef-client-specific settings, such as whether to 
 
 where:
 
-* ``require_chef_omnibus`` is used to ensure that the Chef installer will be used to install the chef-client to all platform instances; ``require_chef_omnibus`` may also be set to ``latest``, which means the newest version of the chef-client for that platform will be used for cookbook testing
-* ``chef_omnibus_url`` is used to specify the URL from which the chef-client is downloaded
+* ``require_chef_omnibus`` is used to ensure that the Chef installer will be used to install Chef Infra Client to all platform instances; ``require_chef_omnibus`` may also be set to ``latest``, which means the newest version of Chef Infra Client for that platform will be used for cookbook testing
+* ``chef_omnibus_url`` is used to specify the URL from which Chef Infra Client is downloaded
 * All of the ``attributes`` for the ``config`` test suite contain specific client.rb settings for use with this test suite
 
 Driver Settings
@@ -415,7 +415,7 @@ Bento
 --------------------------------------------------------------------------
 .. tag bento
 
-`Bento <https://github.com/chef/bento>`_ is a project that contains a set of base images that are used by Chef for internal testing and to provide a comprehensive set of base images for use with Kitchen. By default, Kitchen uses the base images provided by Bento. (Custom images may also be built using Packer.)
+`Bento <https://github.com/chef/bento>`_ is a Chef Software project that produces base testing VirtualBox, Parallels, and VMware boxes for multiple operating systems for use with Test Kitchen. By default, Test Kitchen uses the base images provided by Bento although custom images may also be built using Hashicorp Packer.
 
 .. end_tag
 
@@ -423,11 +423,11 @@ Drivers
 --------------------------------------------------------------------------
 .. tag test_kitchen_drivers
 
-Kitchen uses a driver plugin architecture to enable Kitchen to simulate testing on cloud providers, such as Amazon EC2, OpenStack, and Rackspace, and also on non-cloud platforms, such as Microsoft Windows. Each driver is responsible for managing a virtual instance of that platform so that it may be used by Kitchen during cookbook testing.
+Test Kitchen uses a driver plugin architecture to enable Test Kitchen to test instances on cloud providers such as Amazon EC2, Google Compute Engine, and Microsoft Azure. You can also test on multiple local hypervisors, such as VMware, Hyper-V, or VirtualBox.
 
-.. note:: The Chef development kit includes the ``kitchen-vagrant`` driver.
+.. note:: Chef Workstation includes many common Test Kitchen drivers.
 
-Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
+Most drivers have driver-specific configuration settings that must be added to the kitchen.yml file before Test Kitchen will be able to use that platform during cookbook testing. For information about these driver-specific settings, please refer to the driver-specific documentation.
 
 Some popular drivers:
 
@@ -446,29 +446,17 @@ Some popular drivers:
    * - `kitchen-dsc <https://github.com/test-kitchen/kitchen-dsc>`__
      - A driver for Windows PowerShell Desired State Configuration (DSC).
    * - `kitchen-ec2 <https://github.com/test-kitchen/kitchen-ec2>`__
-     - A driver for Amazon EC2.
-   * - `kitchen-fog <https://github.com/TerryHowe/kitchen-fog>`__
-     - A driver for Fog, a Ruby gem for interacting with various cloud providers.
-   * - `kitchen-google <https://github.com/anl/kitchen-google>`__
-     - A driver for Google Compute Engine.
+     - A driver for Amazon EC2. This driver ships in Chef Workstation.
+   * - `kitchen-google <https://github.com/test-kitchen/kitchen-google>`__
+     - A driver for Google Compute Engine.  This driver ships in Chef Workstation
    * - `kitchen-hyperv <https://github.com/test-kitchen/kitchen-hyperv>`__
      - A driver for Hyper-V Server.
-   * - `kitchen-joyent <https://github.com/test-kitchen/kitchen-joyent>`__
-     - A driver for Joyent.
-   * - `kitchen-linode <https://github.com/ssplatt/kitchen-linode>`__
-     - A driver for Linode.
-   * - `kitchen-opennebula <https://github.com/test-kitchen/kitchen-opennebula>`__
-     - A driver for OpenNebula.
    * - `kitchen-openstack <https://github.com/test-kitchen/kitchen-openstack>`__
      - A driver for OpenStack.
-   * - `kitchen-pester <https://github.com/test-kitchen/kitchen-pester>`__
-     - A driver for Pester, a testing framework for Microsoft Windows.
    * - `kitchen-rackspace <https://github.com/test-kitchen/kitchen-rackspace>`__
      - A driver for Rackspace.
-   * - `kitchen-terraform <https://github.com/newcontext-oss/kitchen-terraform>`__
-     - A driver for Terraform.
    * - `kitchen-vagrant <https://github.com/test-kitchen/kitchen-vagrant>`__
-     - A driver for Vagrant. The default driver packaged with the Chef development kit.
+     - A driver for Vagrant. This driver ships in Chef Workstation.
 
 .. end_tag
 
@@ -559,9 +547,9 @@ The following examples show actual kitchen.yml files used in Chef-maintained coo
 
 Chef, ChefDK
 --------------------------------------------------------------------------
-The following example shows the provisioner settings needed to install the Chef development kit, and then use the version of Chef that is embedded in the Chef development kit to converge the node.
+The following example shows the provisioner settings needed to install ChefDK, and then use the version of Chef that is embedded in ChefDK to converge the node.
 
-To install the latest version of the Chef development kit:
+To install the latest version of ChefDK:
 
 .. code-block:: yaml
 
@@ -570,7 +558,7 @@ To install the latest version of the Chef development kit:
      chef_omnibus_install_options: -P chefdk
      chef_omnibus_root: /opt/chefdk
 
-and to install a specific version of the Chef development kit:
+and to install a specific version of ChefDK:
 
 .. code-block:: yaml
 
@@ -597,49 +585,9 @@ The following example shows platform settings for the Microsoft Windows platform
 
 If ``name`` begins with ``win`` then the ``os_type`` defaults to ``windows``. The ``winrm`` transport is the default on Windows operating systems. Here ``elevated`` is true which runs windows commands via a scheduled task to imitate a local user.
 
-chef-client, audit-mode
+Chef Infra Client Cookbook
 --------------------------------------------------------------------------
-The following example shows provisioner settings for running the chef-client in audit-mode:
-
-.. code-block:: yaml
-
-   ---
-   driver:
-     name: vagrant
-     customize:
-       memory: 1024
-       cpus: 2
-
-   provisioner:
-     name: chef_zero
-     client_rb:
-       audit_mode: :enabled
-
-   platforms:
-     - name: ubuntu-18.04
-       run_list:
-         - recipe[audit-cis::ubuntu1804-100]
-     - name: centos-7
-       run_list:
-         - recipe[audit-cis::centos7-100]
-     - name: centos-6
-       run_list:
-       - recipe[audit-cis::centos6-110]
-
-   suites:
-     - name: default
-
-where ``audit_mode`` may be ``:enabled``, ``:disabled`` (default), or ``:audit_only``.
-
-mysql Cookbook
---------------------------------------------------------------------------
-The most impressive (and thorough) kitchen.yml file is part of the ``mysql`` cookbook. It is too big to paste into this topic, so please see it at the following links:
-
-* `kitchen.yml <https://github.com/chef-cookbooks/mysql/blob/master/.kitchen.yml>`__
-
-chef-client Cookbook
---------------------------------------------------------------------------
-The following kitchen.yml file is part of the ``chef-client`` cookbook and ensures the chef-client is configured correctly.
+The following kitchen.yml file is part of the ``chef-client`` cookbook and ensures Chef Infra Client is configured correctly.
 
 .. code-block:: yaml
 
@@ -786,7 +734,7 @@ The following kitchen.yml file is part of the ``yum`` cookbook:
 
 Platform Attributes
 --------------------------------------------------------------------------
-The following kitchen.yml file sets up a simple tiered configuration of the Chef server, including two front-end servers, a single back-end server, and two add-ons (Chef push jobs and Chef management console). The ``platforms`` block uses an ``attributes`` section to define Chef server-specific attributes that are used by all three test suites:
+The following kitchen.yml file sets up a simple tiered configuration of the Chef Infra Server, including two front-end servers, a single back-end server, and two add-ons (Chef Push Jobs and Chef management console). The ``platforms`` block uses an ``attributes`` section to define Chef server-specific attributes that are used by all three test suites:
 
 .. code-block:: yaml
 
@@ -857,7 +805,7 @@ The following kitchen.yml file sets up a simple tiered configuration of the Chef
 
 Kitchen Converge On System Reboot
 --------------------------------------------------------------------------
-Test-Kitchen can handle reboots (when initiated from chef-client) by setting ``retry_on_exit_code``, ``max_retries`` and ``wait_for_retry`` attributes on the provisioner in ``kitchen.yml`` file as follows :
+Test-Kitchen can handle reboots (when initiated from Chef Infra Client) by setting ``retry_on_exit_code``, ``max_retries`` and ``wait_for_retry`` attributes on the provisioner in ``kitchen.yml`` file as follows :
 
 .. code-block:: yaml
 
@@ -873,6 +821,6 @@ Test-Kitchen can handle reboots (when initiated from chef-client) by setting ``r
         exit_status: :enabled # Opt-in to the standardized exit codes
         client_fork: false  # Forked instances don't return the real exit code
 
-**One note on linux nodes**: The shutdown command blocks (as opposed to the windows variant which registers the reboot and returns right away), so once the timeout period passes, chef-client and the node are in a race to see who can exit/shutdown first - so you may or may not get the exit code out of linux instances. In that case, you can add ``1`` to the ``retry_on_exit_code`` array and that should catch both cases.
+**One note on linux nodes**: The shutdown command blocks (as opposed to the windows variant which registers the reboot and returns right away), so once the timeout period passes, Chef Infra Client and the node are in a race to see who can exit/shutdown first - so you may or may not get the exit code out of linux instances. In that case, you can add ``1`` to the ``retry_on_exit_code`` array and that should catch both cases.
 
 Please refer `YAML documentation <https://symfony.com/doc/current/components/yaml/yaml_format.html#collections>`__ to set ``retry_on_exit_code`` attribute.

@@ -19,13 +19,13 @@ Commercial support generally follows Chef community support policies, which trac
 
 In all cases (beyond community support), a maintenance contract with Chef Software Inc. is required in order to open support tickets and get SLA-based assistance from our support desk.
 
-Chef Client
+Chef Infra Client
 ------------------------------------------------------
 
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms and versions for Chef Client:
+The following table lists the commercially-supported platforms and versions for Chef Infra Client:
 
 .. list-table::
    :widths: 280 100 120
@@ -35,37 +35,40 @@ The following table lists the commercially-supported platforms and versions for 
      - Architecture
      - Version
    * - AIX
-     - ``ppc64``
-     - ``7.1`` (TL0 SP3 or higher, recommended), ``7.2``
+     - ``powerpc``
+     - ``7.1`` (TL5 SP2 or higher, recommended), ``7.2``
    * - Amazon Linux
      -
      - 2013+ and 2.0
    * - CentOS
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``, ``8.x``
+   * - Debian
+     - ``i686``, ``x86_64``
+     - ``8``, ``9``, ``10``
    * - FreeBSD
      - ``amd64``
-     - ``11.x``
+     - ``11.x``, ``12.x``
    * - macOS
      - ``x86_64``
-     - ``10.12``, ``10.13``, ``10.14``
+     - ``10.13``, ``10.14``, ``10.15``
    * - Oracle Enterprise Linux
      - ``x86_64``
-     - ``6.x``, ``7.x``
+     - ``6.x``, ``7.x``, ``8.x``
    * - Red Hat Enterprise Linux
-     - ``x86_64``, ``s390x``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only)
-     - ``6.x``, ``7.x``
+     - ``x86_64``, ``ppc64le`` (7.x only), ``ppc64`` (7.x only), ``aarch64`` (7.x only)
+     - ``6.x``, ``7.x``, ``8.x``
    * - Solaris
-     - ``sparc``, ``x86``
+     - ``sparc``, ``i86pc``
      - ``11.2``, ``11.3``, ``11.4``
    * - SUSE Enterprise Linux Server
-     - ``x86_64``, ``s390x``, ``ppc64le``, ``ppc64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``x86_64``, ``ppc64le``, ``ppc64``
+     - ``12 SP1+``, ``15``
    * - Ubuntu (LTS releases)
-     - ``x86``, ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``, ``18.04``
+     - ``x86_64``
+     - ``16.04``, ``18.04``
    * - Microsoft Windows
-     - ``x86``, ``x86_64``
+     - ``x86``, ``x64``
      - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
 Community Support
@@ -83,9 +86,6 @@ The following platforms are supported only via the community:
    * - Arch Linux
      -
      - current version
-   * - Debian
-     - ``i686``, ``x86_64``
-     - ``8``, ``9``
    * - Fedora
      -
      - current non-EOL releases
@@ -99,22 +99,22 @@ The following platforms are supported only via the community:
      -
      - ``42.x``
    * - Scientific Linux
-     - ``x86-64``
+     - ``x86_64``
      - ``6.x``, ``7.x``
    * - Ubuntu
-     - ``x86``, ``x86_64``
+     - ``i386``, ``x86_64``
      - Current non-LTS releases
    * - Windows
-     - ``x86_64``
+     - ``x64``
      - ``Windows Server, Semi-annual channel (SAC) (Server Core only)``
 
-ChefDK
+Chef Workstation
 ------------------------------------------------------
 
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms and versions for the Chef Development Kit (ChefDK):
+The following table lists the commercially-supported platforms and versions for the Chef Workstation:
 
 .. list-table::
    :widths: 280 100 120
@@ -124,20 +124,84 @@ The following table lists the commercially-supported platforms and versions for 
      - Architecture
      - Version
    * - macOS
-     -
-     - ``10.12``, ``10.13``, ``10.14``
+     - ``x86_64``
+     - ``10.13``, ``10.14``, ``10.15``
    * - Red Hat Enterprise Linux
-     -
-     - ``6.x``, ``7.x``
-   * - SUSE Enterprise Linux Server
-     -
-     - ``11 SP4``, ``12 SP1+``
+     - ``x86_64``
+     - ``6.x``, ``7.x``, ``8.x``
    * - Ubuntu
-     -
-     - ``14.04``, ``16.04``, ``18.04``
+     - ``x86_64``
+     - ``16.04``, ``18.04``
    * - Microsoft Windows
-     -
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
+     - ``x64``
+     - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
+
+Chef InSpec
+------------------------------------------------------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms and versions for Chef InSpec:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - macOS
+     - ``x86_64``
+     - ``10.13``, ``10.14``, ``10.15``
+   * - Red Hat Enterprise Linux
+     - ``x86_64``
+     - ``6.x``, ``7.x``, ``8.x``
+   * - SUSE Enterprise Linux Server
+     - ``x86_64``
+     - ``12 SP1+``, ``15``
+   * - Ubuntu
+     - ``x86_64``
+     - ``16.04``, ``18.04``
+   * - Microsoft Windows
+     - ``x86_64``
+     - ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019``
+
+Chef InSpec Target Mode (``inspec --target``) may be functional on additional platforms, versions, and architectures but are not validated by Chef Software, Inc.
+
+ChefDK
+------------------------------------------------------
+
+Commercial Support
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The following table lists the commercially-supported platforms and versions for ChefDK:
+
+.. list-table::
+   :widths: 280 100 120
+   :header-rows: 1
+
+   * - Platform
+     - Architecture
+     - Version
+   * - Debian
+     - ``x86_64``
+     - ``8.x``, ``9.x``, ``10.x``
+   * - macOS
+     - ``x86_64``
+     - ``10.13``, ``10.14``, ``10.15``
+   * - Red Hat Enterprise Linux
+     - ``x86_64``
+     - ``6.x``, ``7.x``, ``8.x``
+   * - SUSE Enterprise Linux Server
+     - ``x86_64``
+     - ``12 SP1+``, ``15``
+   * - Ubuntu
+     - ``x86_64``
+     - ``16.04``, ``18.04``
+   * - Microsoft Windows
+     - ``x86``, ``x64``
+     - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), Desktop Experience only)``
 
 Community Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -150,21 +214,21 @@ The following platforms are supported only via the community:
    * - Platform
      - Architecture
      - Version
-   * - Debian
+   * - openSUSE
      -
-     - ``8.x``, ``9.x``
+     - ``42.x``
    * - Scientific Linux
-     - ``x86-64``
+     - ``x86_64``
      - ``6.x``, ``7.x``
 
-Chef Server
+Chef Infra Server
 ------------------------------------------------------
 
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag adopted_platforms_server
 
-The following table lists the commercially-supported platforms and versions for the Chef Server:
+The following table lists the commercially-supported platforms and versions for the Chef Infra Server:
 
 .. list-table::
    :widths: 280 100 120
@@ -184,10 +248,10 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP1+``
+     - ``12 SP1+``, ``15``
    * - Ubuntu
-     - ``x86_64``, ``ppc64le`` (14.04 only)
-     - ``14.04``, ``16.04``, ``18.04`` 
+     - ``x86_64``
+     - ``16.04``, ``18.04``
 
 .. end_tag
 
@@ -197,7 +261,7 @@ Chef Automate Server
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Commercial support for the `Chef Automate 2 Server <https://automate.chef.io/docs/system_requirements>`_ is available for platforms that use
+Commercial support for the `Chef Automate 2 Server <https://automate.chef.io/docs/system-requirements/>`_ is available for platforms that use:
 
 * a Linux kernel version of 3.2 or greater
 * ``systemd`` as the init system
@@ -224,10 +288,10 @@ The following table lists the commercially-supported platforms and versions for 
      - ``6.x``, ``7.x``
    * - SUSE Enterprise Linux Server
      - ``x86_64``
-     - ``11 SP4``, ``12 SP2``
+     - ``12 SP2``
    * - Ubuntu
      - ``x86_64``
-     - ``14.04``, ``16.04``, ``18.04``
+     - ``16.04``, ``18.04``
 
 Chef Automate Job Runners
 ----------------------------------------------------
@@ -249,13 +313,11 @@ Chef Automate Job Runners are supported on the Commercial Support platforms for 
      - ``10.12``
 
 Chef Push Jobs Client
------------------------------------------------------
-.. tag adopted_platforms_push_jobs
-
+----------------------------------------------------
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms for the Chef push jobs client:
+The following table lists the commercially-supported platforms for the Chef Push Jobs client:
 
 .. list-table::
    :widths: 280 100 120
@@ -274,13 +336,13 @@ The following table lists the commercially-supported platforms for the Chef push
      - ``x86_64``
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
-     - ``x86``, ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``i386``, ``x86_64``
+     - ``16.04``, ``18.04``
    * - Microsoft Windows
-     - ``x86``, ``x86_64``
+     - ``x86``, ``x64``
      - ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10``
 
-.. end_tag
+
 
 Chef Push Jobs Server
 -----------------------------------------------------
@@ -288,7 +350,7 @@ Chef Push Jobs Server
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms for the Chef push jobs server:
+The following table lists the commercially-supported platforms for the Chef Push Jobs server:
 
 .. list-table::
    :widths: 280 100 120
@@ -305,7 +367,7 @@ The following table lists the commercially-supported platforms for the Chef push
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``16.04``, ``18.04``
 
 Chef Backend
 ----------------------------------------------------
@@ -313,7 +375,7 @@ Chef Backend
 Commercial Support
 ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-The following table lists the commercially-supported platforms for Chef Backend, the high-availability solution for Chef Server:
+The following table lists the commercially-supported platforms for Chef Backend, the high-availability solution for Chef Infra Server:
 
 .. list-table::
    :widths: 280 100 120
@@ -330,7 +392,7 @@ The following table lists the commercially-supported platforms for Chef Backend,
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``16.04``, ``18.04``
 
 
 Chef Manage
@@ -356,7 +418,7 @@ The following table lists the commercially-supported platforms for Chef Manage:
      - ``6.x``, ``7.x``
    * - Ubuntu (LTS releases)
      - ``x86_64``
-     - ``14.04``, ``16.04``
+     - ``16.04``, ``18.04``
 
 Platform End-of-Life Policy
 ===========================

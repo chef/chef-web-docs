@@ -3,13 +3,11 @@ cron resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_cron.rst>`__
 
-.. tag resource_cron_summary
-
 Use the **cron** resource to manage cron entries for time-based job scheduling.
 
 .. warning:: The **cron** resource should only be used to modify an entry in a crontab file. The ``cron_d`` resource directly manages cron.d files. This resource ships in Chef 14.4 or later and can also be found in the `cron <https://github.com/chef-cookbooks/cron>`__ cookbook) for previous chef-client releases.
 
-.. end_tag
+
 
 Syntax
 =====================================================
@@ -49,6 +47,7 @@ The full syntax for all of the properties that are available to the **cron** res
     path             String
     shell            String
     time             Symbol
+    time_out         Hash
     user             String # default value: "root"
     weekday          
     action           Symbol # defaults to :create if not specified
@@ -58,8 +57,8 @@ where:
 
 * ``cron`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
-* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``user``, and ``weekday`` are the properties available to this resource.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
+* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``time_out``, ``user``, and ``weekday`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -75,11 +74,11 @@ The cron resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
-.. note:: Chef can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
+.. note:: Chef Infra Client can only reliably manage crontab entries that it creates. To remove existing system entries we may use **execute** resource with a guard like:
 
   .. code-block:: ruby
 
@@ -172,6 +171,18 @@ The cron resource has the following properties:
 
    A time interval. Possible values: ``:annually``, ``:daily``, ``:hourly``, ``:midnight``, ``:monthly``, ``:reboot``, ``:weekly``, or ``:yearly``.
 
+``time_out``
+   **Ruby Type:** Hash
+
+   A Hash of timeouts in the form of ({'OPTION' => 'VALUE'}).
+        Accepted valid options are:
+        preserve-status (BOOL, default: 'false'),
+        foreground (BOOL, default: 'false'),
+        kill-after (in seconds),
+        signal (a name like 'HUP' or a number)
+
+   *New in Chef Infra Client 15.7.*
+
 ``user``
    **Ruby Type:** String | **Default Value:** ``"root"``
 
@@ -212,12 +223,13 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -229,13 +241,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -278,13 +290,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -306,17 +318,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -328,11 +343,10 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Run a program at a specified interval**
-
-.. tag resource_cron_run_program_on_fifth_hour
 
 .. To run a program on the fifth hour of the day:
 
@@ -344,11 +358,9 @@ The following examples demonstrate various approaches for using resources in rec
      command '/bin/true'
    end
 
-.. end_tag
+
 
 **Run an entry if a folder exists**
-
-.. tag resource_cron_run_entry_when_folder_exists
 
 .. To run an entry if a folder exists:
 
@@ -363,11 +375,9 @@ The following examples demonstrate various approaches for using resources in rec
      only_if do File.exist?('/home/jboss') end
    end
 
-.. end_tag
+
 
 **Run every Saturday, 8:00 AM**
-
-.. tag resource_cron_run_every_saturday
 
 The following example shows a schedule that will run every hour at 8:00 each Saturday morning, and will then send an email to "admin@example.com" after each run.
 
@@ -381,11 +391,9 @@ The following example shows a schedule that will run every hour at 8:00 each Sat
      action :create
    end
 
-.. end_tag
+
 
 **Run only in November**
-
-.. tag resource_cron_run_only_in_november
 
 The following example shows a schedule that will run at 8:00 PM, every weekday (Monday through Friday), but only in November:
 
@@ -400,4 +408,4 @@ The following example shows a schedule that will run at 8:00 PM, every weekday (
      action :create
    end
 
-.. end_tag
+

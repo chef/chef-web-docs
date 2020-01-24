@@ -14,7 +14,7 @@ When we wish to remove a feature or an API in Chef, we try to first mark it with
 Testing for Deprecations
 =====================================================
 
-To test your code for deprecations, you can put Test Kitchen in a mode where any deprecations cause the chef run to fail. Ensure your ``.kitchen.yml`` includes:
+To test your code for deprecations, you can put Test Kitchen in a mode where any deprecations cause the chef run to fail. Ensure your ``kitchen.yml`` includes:
 
 .. code-block:: yaml
 

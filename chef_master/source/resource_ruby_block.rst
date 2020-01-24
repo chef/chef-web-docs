@@ -3,15 +3,11 @@ ruby_block resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_ruby_block.rst>`__
 
-.. tag resource_ruby_block_summary
-
-Use the **ruby_block** resource to execute Ruby code during a chef-client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
-
-.. end_tag
+Use the **ruby_block** resource to execute Ruby code during a Chef Infra Client run. Ruby code in the ``ruby_block`` resource is evaluated with other resources during convergence, whereas Ruby code outside of a ``ruby_block`` resource is evaluated before other resources, as the recipe is compiled.
 
 Syntax
 =====================================================
-A **ruby_block** resource block executes a block of arbitrary Ruby code. For example, to reload the client.rb file during the chef-client run:
+A **ruby_block** resource block executes a block of arbitrary Ruby code. For example, to reload the client.rb file during a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -37,7 +33,7 @@ where:
 * ``ruby_block`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``block`` is the block of Ruby code to be executed.
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``block`` and ``block_name`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
 Actions
@@ -51,7 +47,7 @@ The ruby_block resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -89,13 +85,13 @@ The ruby_block resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -148,13 +144,13 @@ The ruby_block resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -177,9 +173,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Re-read configuration data**
 
-.. tag resource_ruby_block_reread_chef_client
-
-.. To re-read the chef-client configuration during a chef-client run:
+.. To re-read Chef Infra Client configuration during a Chef Infra Client run:
 
 .. code-block:: ruby
 
@@ -190,13 +184,13 @@ The following examples demonstrate various approaches for using resources in rec
      action :run
    end
 
-.. end_tag
+
 
 **Install repositories from a file, trigger a command, and force the internal cache to reload**
 
 .. tag resource_package_install_yum_repo_from_file
 
-The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
+The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for Chef Infra Client to reload:
 
 .. code-block:: ruby
 
@@ -279,8 +273,6 @@ The following example shows how to use the **ruby_block** resource to stash a Bi
 
 **Update the /etc/hosts file**
 
-.. tag resource_ruby_block_update_etc_host
-
 The following example shows how the **ruby_block** resource can be used to update the ``/etc/hosts`` file:
 
 .. code-block:: ruby
@@ -297,11 +289,9 @@ The following example shows how the **ruby_block** resource can be used to updat
      end
    end
 
-.. end_tag
+
 
 **Set environment variables**
-
-.. tag resource_ruby_block_use_variables_to_set_env_variables
 
 The following example shows how to use variables within a Ruby block to set environment variables using rbenv.
 
@@ -317,11 +307,9 @@ The following example shows how to use variables within a Ruby block to set envi
      end
    end
 
-.. end_tag
+
 
 **Set JAVA_HOME**
-
-.. tag resource_ruby_block_use_variables_to_set_java_home
 
 The following example shows how to use a variable within a Ruby block to set the ``java_home`` environment variable:
 
@@ -333,7 +321,7 @@ The following example shows how to use a variable within a Ruby block to set the
      end
    end
 
-.. end_tag
+
 
 **Run specific blocks of Ruby code on specific platforms**
 

@@ -3,19 +3,12 @@ powershell_script resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_powershell_script.rst>`__
 
-.. tag resource_powershell_script_summary
-
 Use the **powershell_script** resource to execute a script using the Windows PowerShell interpreter, much like how the **script** and **script**-based resources---**bash**, **csh**, **perl**, **python**, and **ruby**---are used. The **powershell_script** is specific to the Microsoft Windows platform and the Windows PowerShell interpreter.
 
 The **powershell_script** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
-.. end_tag
-
-Changed in 12.19 to support windows alternate user identity in execute resources
-
 Syntax
 =====================================================
-.. tag resource_powershell_script_syntax
 
 A **powershell_script** resource block executes a batch script using the Windows PowerShell interpreter. For example, writing to an interpolated path:
 
@@ -59,14 +52,11 @@ where:
 * ``powershell_script`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``command`` is the command to be run and ``cwd`` is the location from which the command is run.
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``architecture``, ``code``, ``command``, ``convert_boolean_return``, ``creates``, ``cwd``, ``environment``, ``flags``, ``group``, ``guard_interpreter``, ``interpreter``, ``returns``, ``sensitive``, ``timeout``, ``user``, ``password``, ``domain`` and ``elevated`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
-
-.. end_tag
 
 Actions
 =====================================================
-.. tag resource_powershell_script_actions
 
 The powershell_script resource has the following actions:
 
@@ -76,18 +66,15 @@ The powershell_script resource has the following actions:
 ``:run``
    Default. Run the script.
 
-.. end_tag
-
 Properties
 =====================================================
-.. tag resource_powershell_script_properties
 
 The powershell_script resource has the following properties:
 
 ``architecture``
    **Ruby Type:** Symbol
 
-   The architecture of the process under which a script is executed. If a value is not provided, the chef-client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
+   The architecture of the process under which a script is executed. If a value is not provided, Chef Infra Client defaults to the correct value for the architecture, as determined by Ohai. An exception is raised when anything other than ``:i386`` is specified for a 32-bit process. Possible values: ``:i386`` (for 32-bit processes) and ``:x86_64`` (for 64-bit processes).
 
 ``code``
    **Ruby Type:** String | ``REQUIRED``
@@ -95,9 +82,9 @@ The powershell_script resource has the following properties:
    A quoted (" ") string of code to be executed.
 
 ``command``
-   **Ruby Type:** String, Array
+   **Ruby Type:** String, Array | **Default Value:** ``The resource block's name``
 
-   The name of the command to be executed. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the command to be executed if it differs from the resource block's name.
 
 ``convert_boolean_return``
    **Ruby Type:** true, false | **Default Value:** ``false``
@@ -126,17 +113,17 @@ The powershell_script resource has the following properties:
 ``creates``
    **Ruby Type:** String
 
-   Inherited from **execute** resource. Prevent a command from creating a file when that file already exists.
+   Prevent a command from creating a file when that file already exists.
 
 ``cwd``
    **Ruby Type:** String
 
-   Inherited from **execute** resource. The current working directory from which a command is run.
+   The current working directory from which the command will be run.
 
 ``environment``
    **Ruby Type:** Hash
 
-   Inherited from **execute** resource. A Hash of environment variables in the form of ``({"ENV_VARIABLE" => "VALUE"})``. (These variables must exist for a command to be run successfully.)
+   A Hash of environment variables in the form of ({'ENV_VARIABLE' => 'VALUE'}).
 
 ``flags``
    **Ruby Type:** String
@@ -146,7 +133,7 @@ The powershell_script resource has the following properties:
 ``group``
    **Ruby Type:** String, Integer
 
-   Inherited from **execute** resource. The group name or group ID that must be changed before running a command.
+   The group name or group ID that must be changed before running a command.
 
 ``guard_interpreter``
    **Ruby Type:** Symbol | **Default Value:** ``:powershell_script``
@@ -166,10 +153,10 @@ The powershell_script resource has the following properties:
 ``timeout``
    **Ruby Type:** Integer, Float
 
-   Inherited from **execute** resource. The amount of time (in seconds) a command is to wait before timing out. Default value: ``3600``.
+   The amount of time (in seconds) a command is to wait before timing out.
 
 ``user``
-   **Ruby Type:** String | **Default Value:** ``nil``
+   **Ruby Type:** String
 
    The user name of the user identity with which to launch the new process. The user name may optionally be specified with a domain, i.e. `domain\\user` or `user@my.dns.domain.com` via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the `domain` attribute. On Windows only, if this property is specified, the `password` property must be specified.
 
@@ -183,7 +170,7 @@ The powershell_script resource has the following properties:
    **Ruby Type:** String
 
    *Windows only*: The domain of the user specified by the `user` property.
-   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
+   Default value: `nil`. If not specified, the user name and password specified by the `user` and `password` properties will be used to resolve that user against the domain in which the system running Chef Infra Client is joined, or if that system is not joined to a domain it will resolve the user as a local account on that system. An alternative way to specify the domain is to leave this property unspecified and specify the domain as part of the `user` property.
 
 ``elevated``
     **Ruby Type:**  true, false
@@ -194,7 +181,7 @@ The powershell_script resource has the following properties:
 
     Because this requires a login, the ``user`` and ``password`` properties are required.
 
-.. end_tag
+
 
 Common Resource Functionality
 =====================================================
@@ -226,7 +213,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -244,13 +231,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -293,13 +280,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -321,17 +308,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -343,11 +333,10 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
-The following examples demonstrate different approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Write to an interpolated path**
-
-.. tag resource_powershell_write_to_interpolated_path
 
 .. To write out to an interpolated path:
 
@@ -361,11 +350,9 @@ The following examples demonstrate different approaches for using resources in r
      EOH
    end
 
-.. end_tag
+
 
 **Change the working directory**
-
-.. tag resource_powershell_cwd
 
 .. To use the change working directory (``cwd``) attribute:
 
@@ -385,11 +372,9 @@ The following examples demonstrate different approaches for using resources in r
      EOH
    end
 
-.. end_tag
+
 
 **Change the working directory in Microsoft Windows**
-
-.. tag resource_powershell_cwd_microsoft_env
 
 .. To change the working directory to a Microsoft Windows environment variable:
 
@@ -404,11 +389,9 @@ The following examples demonstrate different approaches for using resources in r
      EOH
    end
 
-.. end_tag
+
 
 **Pass an environment variable to a script**
-
-.. tag resource_powershell_pass_env_to_script
 
 .. To pass a Microsoft Windows environment variable to a script:
 
@@ -424,11 +407,9 @@ The following examples demonstrate different approaches for using resources in r
      EOH
    end
 
-.. end_tag
+
 
 **Evaluate for true and/or false**
-
-.. tag resource_powershell_convert_boolean_return
 
 .. To return ``0`` for true, ``1`` for false:
 
@@ -457,11 +438,9 @@ whereas the following will raise an exception:
      code '$false'
    end
 
-.. end_tag
+
 
 **Use the flags attribute**
-
-.. tag resource_powershell_script_use_flag
 
 .. To use the flags attribute:
 
@@ -477,7 +456,7 @@ whereas the following will raise an exception:
      not_if '(Get-WindowsFeature -Name Web-Server).Installed'
    end
 
-.. end_tag
+
 
 **Rename computer, join domain, reboot**
 
@@ -508,13 +487,11 @@ where:
 * The **powershell_script** resource block renames a computer, and then joins a domain
 * The **reboot** resource restarts the computer
 * The ``not_if`` guard prevents the Windows PowerShell script from running when the settings in the ``not_if`` guard match the desired state
-* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during the chef-client run
+* The ``notifies`` statement tells the **reboot** resource block to run if the **powershell_script** block was executed during a Chef Infra Client run
 
 .. end_tag
 
 **Run a command as an alternate user**
-
-.. tag resource_powershell_script_alternate_user
 
 *Note*: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
@@ -528,7 +505,7 @@ This right can be added and checked in a recipe using this example:
     # Check if the user has 'SeAssignPrimaryTokenPrivilege' rights
     Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')
 
-The following example shows how to run ``mkdir test_dir`` from a chef-client run as an alternate user.
+The following example shows how to run ``mkdir test_dir`` from a Chef Infra Client run as an alternate user.
 
 .. code-block:: ruby
 
@@ -574,4 +551,4 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
     elevated true
    end
 
-.. end_tag
+

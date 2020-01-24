@@ -3,12 +3,20 @@ Manage Secrets in a build-cookbook
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_manage_secrets.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag chef_automate_mark
 
 .. image:: ../../images/a2_docs_banner.svg
    :target: https://automate.chef.io/docs
 
-.. danger:: This documentation covers an outdated version of Chef Automate. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features.
+.. end_tag
+
+
+.. tag EOL_a1
+
+.. danger:: This documentation applies to a `deprecated product </versions.html#deprecated-products-and-versions>`__. Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. Chef Automate is included as part of the Workflow license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -68,19 +76,19 @@ From there, begin using the secrets by calling the ``get_project_secrets`` metho
 
 .. code-block:: ruby
 
-   if push_repo_to_github?
-     secrets = get_project_secrets
-     github_repo = node['delivery']['config']['delivery-truck']['publish']['github']
+    if push_repo_to_github?
+      secrets = get_project_secrets
+      github_repo = node['delivery']['config']['delivery-truck']['publish']['github']
 
-     delivery_github github_repo do
-       deploy_key secrets['github']
-       branch node['delivery']['change']['pipeline']
-       remote_url "git@github.com:#{github_repo}.git"
-       repo_path node['delivery']['workspace']['repo']
-       cache_path node['delivery']['workspace']['cache']
-       action :push
-     end
-  end
+      delivery_github github_repo do
+        deploy_key secrets['github']
+        branch node['delivery']['change']['pipeline']
+        remote_url "git@github.com:#{github_repo}.git"
+        repo_path node['delivery']['workspace']['repo']
+        cache_path node['delivery']['workspace']['cache']
+        action :push
+      end
+    end
 
 This example is part of the ``publish.rb`` recipe in the ``delivery-truck`` cookbook: https://github.com/chef-cookbooks/delivery-truck/blob/master/recipes/publish.rb#L91-L103.
 

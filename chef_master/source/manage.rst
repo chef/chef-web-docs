@@ -3,23 +3,22 @@ Chef Manage
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage.rst>`__
 
-.. tag manage_summary
+.. tag EOL_manage
 
-The Chef management console enables the management of nodes, data bags, roles, environments, and cookbooks by using a web user interface. In addition, access to nodes, data bags, roles, environments, and cookbooks is configurable using role-based access control (RBAC).
+.. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
-.. note:: .. tag chef_subscriptions
 
-          This feature is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
-          .. end_tag
+The Chef management console enables the management of nodes, data bags, roles, environments, and cookbooks by using a web user interface. In addition, access to nodes, data bags, roles, environments, and cookbooks is configurable using role-based access control (RBAC).
+
 
 Nodes
 =====================================================
 .. tag node
 
-A node is any machine---physical, virtual, cloud, network device, etc.---that is under management by Chef.
+A node is any device---physical, virtual, cloud, network device, etc.---that is under management by Chef Infra.
 
 .. end_tag
 
@@ -31,11 +30,11 @@ Search
 -----------------------------------------------------
 .. tag search
 
-Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
+Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef Infra Server API. The search engine is based on Apache Solr and is run from the Chef Infra Server.
 
 .. end_tag
 
-.. note:: The syntax for search queries in the Chef management console is identical to the syntax for search queries used with knife, the command line tool used to manage objects on the Chef server.
+.. note:: The syntax for search queries in the Chef management console is identical to the syntax for search queries used with knife, the command line tool used to manage objects on the Chef Infra Server.
 
 Query Syntax
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -47,7 +46,7 @@ A search query is comprised of two parts: the key and the search pattern. A sear
 
    key:search_pattern
 
-where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
+where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef Infra Server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
 
 .. end_tag
 
@@ -55,7 +54,7 @@ Keys
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search_key
 
-A field name/description pair is available in the JSON object. Use the field name when searching for this information in the JSON object. Any field that exists in any JSON description for any role, node, chef-client, environment, or data bag can be searched.
+A field name/description pair is available in the JSON object. Use the field name when searching for this information in the JSON object. Any field that exists in any JSON description for any role, node, Chef Infra Client, environment, or data bag can be searched.
 
 .. end_tag
 
@@ -63,7 +62,7 @@ Nested Fields
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. tag search_key_nested
 
-A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, the chef-client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
+A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, Chef Infra Client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
 
 By combining wildcards with range-matching patterns and wildcard queries, it is possible to perform very powerful searches, such as using the vendor part of the MAC address to find every node that has a network card made by the specified vendor.
 
@@ -123,7 +122,7 @@ Consider the following snippet of JSON data:
          },
      //snipped...
 
-Before this data is indexed on the Chef server, the nested fields are extracted into the top level, similar to:
+Before this data is indexed on the Chef Infra Server, the nested fields are extracted into the top level, similar to:
 
 .. code-block:: none
 
@@ -190,7 +189,7 @@ About Patterns
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag search_pattern
 
-A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query. There are four types of search patterns that can be used when searching the search indexes on the Chef server: exact, wildcard, range, and fuzzy.
+A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query. There are four types of search patterns that can be used when searching the search indexes on the Chef Infra Server: exact, wildcard, range, and fuzzy.
 
 .. end_tag
 
@@ -304,11 +303,11 @@ Policy
 =====================================================
 .. tag policy_summary
 
-Policy maps business and operational requirements, process, and workflow to settings and objects stored on the Chef server:
+Policy maps business and operational requirements, process, and workflow to settings and objects stored on the Chef Infra Server:
 
 * Roles define server types, such as "web server" or "database server"
 * Environments define process, such as "dev", "staging", or "production"
-* Certain types of data---passwords, user account data, and other sensitive items---can be placed in data bags, which are located in a secure sub-area on the Chef server that can only be accessed by nodes that authenticate to the Chef server with the correct SSL certificates
+* Certain types of data---passwords, user account data, and other sensitive items---can be placed in data bags, which are located in a secure sub-area on the Chef Infra Server that can only be accessed by nodes that authenticate to the Chef Infra Server with the correct SSL certificates
 * The cookbooks (and cookbook versions) in which organization-specific configuration policies are maintained
 
 .. end_tag
@@ -319,11 +318,11 @@ The Chef management console provides ways for users to manage `data bags </serve
 
 Admin
 =====================================================
-Organizations, users, and groups can be managed from the Chef management console, including role-based access control for any user and group to any of the objects saved to the Chef server.
+Organizations, users, and groups can be managed from the Chef management console, including role-based access control for any user and group to any of the objects saved to the Chef Infra Server.
 
 .. tag server_rbac
 
-The Chef server uses role-based access control (RBAC) to restrict access to objects---nodes, environments, roles, data bags, cookbooks, and so on. This ensures that only authorized user and/or chef-client requests to the Chef server are allowed. Access to objects on the Chef server is fine-grained, allowing access to be defined by object type, object, group, user, and organization. The Chef server uses permissions to define how a user may interact with an object, after they have been authorized to do so.
+The Chef Infra Server uses role-based access control (RBAC) to restrict access to objects---nodes, environments, roles, data bags, cookbooks, and so on. This ensures that only authorized user and/or Chef Infra Client requests to the Chef Infra Server are allowed. Access to objects on the Chef Infra Server is fine-grained, allowing access to be defined by object type, object, group, user, and organization. The Chef Infra Server uses permissions to define how a user may interact with an object, after they have been authorized to do so.
 
 .. end_tag
 
@@ -332,61 +331,61 @@ The Chef server uses role-based access control (RBAC) to restrict access to obje
 Install Chef Manage
 =====================================================
 
-   .. tag ctl_chef_server_install_features_download
+.. tag ctl_chef_server_install_features_download
 
-   The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.  
+The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are not behind a firewall (and have connectivity to https://packages.chef.io/), these packages can be installed as described below.
 
-   .. list-table::
-      :widths: 100 400
-      :header-rows: 1
+.. list-table::
+   :widths: 100 400
+   :header-rows: 1
 
-      * - Feature
-        - Command
-      * - Chef Manage
-        - Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
+   * - Feature
+     - Command
+   * - Chef Manage
+     - Use Chef management console to manage data bags, attributes, run-lists, roles, environments, and cookbooks from a web user interface.
 
-          On the Chef server, run:
+       On the Chef Infra Server, run:
 
-          .. code-block:: bash
+       .. code-block:: bash
 
-             $ sudo chef-server-ctl install chef-manage
+          $ sudo chef-server-ctl install chef-manage
 
-          then:
+       then:
 
-          .. code-block:: bash
+       .. code-block:: bash
 
-             $ sudo chef-server-ctl reconfigure
+          $ sudo chef-server-ctl reconfigure
 
-          and then:
+       and then:
 
-          .. code-block:: bash
+       .. code-block:: bash
 
-             $ sudo chef-manage-ctl reconfigure
+          $ sudo chef-manage-ctl reconfigure
 
-          .. note:: .. tag chef_license_reconfigure_manage
+       To accept the `Chef MLSA </chef_license.html>`__:
 
-                    Starting with the Chef management console 2.3.0, the `Chef MLSA </chef_license.html>`__ must be accepted when reconfiguring the product. If the Chef MLSA has not already been accepted, the reconfigure process will prompt for a ``yes`` to accept it. Or run ``chef-manage-ctl reconfigure --accept-license`` to automatically accept the license.
+       .. code-block:: bash
 
-                    .. end_tag
+          $ sudo chef-manage-ctl reconfigure --accept-license
 
-   .. end_tag
+.. end_tag
 
 Chef Manage Local Installation
 ---------------------------------------------
-   .. tag ctl_chef_server_install_features_manual
+.. tag ctl_chef_server_install_features_manual
 
-   The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are behind a firewall (and may not have connectivity to packages.chef.io), these packages can be downloaded from https://downloads.chef.io/chef-manage/, and then installed manually. First download the package that is appropriate for the platform, save it to a local path, and then run the ``install`` command using the ``--path`` option to specify the directory in which the package is located:
+The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are behind a firewall (and may not have connectivity to packages.chef.io), these packages can be downloaded from https://downloads.chef.io/chef-manage/, and then installed manually. First download the package that is appropriate for the platform, save it to a local path, and then run the ``install`` command using the ``--path`` option to specify the directory in which the package is located:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
+   $ sudo chef-server-ctl install PACKAGE_NAME --path /path/to/package/directory
 
-   For example:
+For example:
 
-   .. code-block:: bash
+.. code-block:: bash
 
-      $ sudo chef-server-ctl install chef-manage --path /root/packages
+   $ sudo chef-server-ctl install chef-manage --path /root/packages
 
-   The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
+The ``chef-server-ctl`` command will install the first ``chef-manage`` package found in the ``/root/packages`` directory.
 
-   .. end_tag
+.. end_tag

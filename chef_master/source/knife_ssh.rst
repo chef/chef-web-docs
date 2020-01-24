@@ -5,7 +5,7 @@ knife ssh
 
 .. tag knife_ssh_summary
 
-Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subset of nodes within an organization, based on the results of a `search query </chef_search.html>`__ made to the Chef server.
+Use the ``knife ssh`` subcommand to invoke SSH commands (in parallel) on a subset of nodes within an organization, based on the results of a `search query </chef_search.html>`__ made to the Chef Infra Server.
 
 .. end_tag
 
@@ -47,7 +47,7 @@ This subcommand has the following options:
 
    *New in Chef Client 13.0.*
 
-``-i IDENTITY_FILE``, ``--identity-file IDENTIFY_FILE``
+``-i IDENTITY_FILE``, ``--ssh-identity-file IDENTIFY_FILE``
    The SSH identity file used for authentication. Key-based authentication is recommended.
 
 ``-m``, ``--manual-list``
@@ -119,17 +119,17 @@ to return something like:
    ec2-75-101-240-230.compute-1.amazonaws.com   13:50:48 up 1 day, 22:59,  1 user,  load average: 0.24, 0.17, 0.11
    ec2-184-73-60-141.compute-1.amazonaws.com    13:50:48 up 1 day, 23:30,  1 user,  load average: 0.32, 0.17, 0.15
 
-**Run the chef-client on all nodes**
+**Run Chef Infra Client on all nodes**
 
-.. To run the chef-client on all nodes, enter:
+.. To run Chef Infra Client on all nodes, enter:
 
 .. code-block:: bash
 
    $ knife ssh 'name:*' 'sudo chef-client'
 
-**Force a chef-client run**
+**Force a Chef Infra Client run**
 
-To force a chef-client run on all of the web servers running Ubuntu on the Amazon EC2 platform, enter:
+To force a Chef Infra Client run on all of the web servers running Ubuntu on the Amazon EC2 platform, enter:
 
 .. code-block:: bash
 

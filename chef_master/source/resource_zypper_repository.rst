@@ -9,6 +9,7 @@ Use the **zypper_repository** resource to create Zypper package repositories on 
 
 Syntax
 =====================================================
+
 The zypper_repository resource has the following syntax:
 
 .. code-block:: ruby
@@ -38,7 +39,7 @@ where:
 
 * ``zypper_repository`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``autorefresh``, ``baseurl``, ``cookbook``, ``description``, ``enabled``, ``gpgautoimportkeys``, ``gpgcheck``, ``gpgkey``, ``keeppackages``, ``mirrorlist``, ``mode``, ``path``, ``priority``, ``refresh_cache``, ``repo_name``, ``source``, and ``type`` are the properties available to this resource.
 
 Actions
@@ -50,13 +51,20 @@ The zypper_repository resource has the following actions:
 
    Default action. Add a new Zypper repository.
 
+``:refresh``
+
+   Refresh a Zypper repository.
+
 ``:remove``
 
    Remove a Zypper repository.
 
-``:refresh``
+``:nothing``
+   .. tag resources_common_actions_nothing
 
-   Refresh a Zypper repository.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
+
+   .. end_tag
 
 Properties
 =====================================================
@@ -92,6 +100,7 @@ The zypper_repository resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``true``
 
    Automatically import the specified key when setting up the repository.
+
 ``gpgcheck``
    **Ruby Type:** true, false | **Default Value:** ``true``
 
@@ -125,7 +134,7 @@ The zypper_repository resource has the following properties:
 ``priority``
    **Ruby Type:** Integer | **Default Value:** ``99``
 
-   Determines the priority of the Zypper repository. 
+   Determines the priority of the Zypper repository.
 
 ``refresh_cache``
    **Ruby Type:** true, false | **Default Value:** ``true``
@@ -135,13 +144,12 @@ The zypper_repository resource has the following properties:
 ``repo_name``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Specifies the repository name if it differs from the resource name.
+   An optional property to set the repository name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
    The name of the template for the repository file. Only necessary if you're not using the built in template.
-
 
 ``type``
    **Ruby Type:** String | **Default Value:** ``"NONE"``
@@ -178,12 +186,13 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -195,13 +204,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -244,13 +253,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -272,17 +281,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -293,17 +305,19 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-==========================================
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Add a repository**
 
-This example adds the "Apache" repository for OpenSUSE Leap 42.2:
+This example adds the "Apache" repository for OpenSUSE Leap 15.0:
 
 .. code-block:: ruby
 
    zypper_repository 'apache' do
      baseurl 'http://download.opensuse.org/repositories/Apache'
-     path '/openSUSE_Leap_42.2'
+     path '/openSUSE_Leap_15.0'
      type 'rpm-md'
      priority '100'
    end

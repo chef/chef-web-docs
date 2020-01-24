@@ -3,12 +3,13 @@ Deprecation: Deprecation of old shell_out APIs (CHEF-26)
 ===========================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_shell_out.rst>`__
 
-.. tag deprecations_shell_out
-
+.. meta::
+    :robots: noindex
+    
 The functionality of mutiple old `shell_out` APIs has been collapsed into the `shell_out` API itself, and the old methods
 have been deprecated.
 
-.. end_tag
+
 
 The `shell_out_compact` API has been migrated into `shell_out`, so those methods can be renamed.  The functionality of
 `shell_out_compact_timeout` and `shell_out_with_timeout` have been migrated into `shell_out` for internal resources, and will

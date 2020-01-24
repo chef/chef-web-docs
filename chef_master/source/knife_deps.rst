@@ -37,7 +37,7 @@ This subcommand has the following options:
    Use ``--recurse`` to list dependencies recursively. This option can only be used when ``--tree`` is set to ``true``. Default: ``--no-recurse``.
 
 ``--remote``
-   Determine dependencies from objects located on the Chef server instead of in the local chef-repo. Default: ``false``.
+   Determine dependencies from objects located on the Chef Infra Server instead of in the local chef-repo. Default: ``false``.
 
 ``--repo-mode MODE``
    The layout of the local chef-repo. Possible values: ``static``, ``everything``, or ``hosted_everything``. Use ``static`` for just roles, environments, cookbooks, and data bags. By default, ``everything`` and ``hosted_everything`` are dynamically selected depending on the server type. Default: ``everything`` / ``hosted_everything``.

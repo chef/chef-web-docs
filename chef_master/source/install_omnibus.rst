@@ -1,5 +1,5 @@
 =====================================================
-Install via URL
+Install via Install Script
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_omnibus.rst>`__
 
@@ -64,7 +64,16 @@ In addition to the default install behavior, the Chef install script supports th
    The name of the file and the path at which that file is located. When a filename already exists at this path and the checksum matches, the package is not re-downloaded. When ``-d`` and ``-f`` are not specified, a package is downloaded to a temporary directory.
 
 ``-P`` (``-project`` on Microsoft Windows)
-   The product name to install. A list of valid product names can be found at https://omnitruck.chef.io/products. Default value: ``chef``.
+   The product name to install. Supported versions of Chef products are ``automate``, ``chef``, ``chef-server``, ``inspec``, ``chef-workstation``, ``chefdk``, ``supermarket``, ``chef-backend``, ``push-jobs-client``, and ``push-jobs-server``. Default value: ``chef``.
+
+``-s`` (``-install_strategy`` on Microsoft Windows)
+   The method of package installations. The default strategy is to always install when the install.sh script runs. Set to "once" to skip installation if the product is already installed on the node.
+
+``-l`` (``-download_url_override`` on Microsoft Windows)
+   Install package downloaded from a direct URL.
+
+``-a`` (``-checksum`` on Microsoft Windows)
+   The SHA256 for download_url_override
 
 ``-v`` (``-version`` on Microsoft Windows)
    The version of the package to be installed. A version always takes the form x.y.z, where x, y, and z are decimal numbers that are used to represent major (x), minor (y), and patch (z) versions. A two-part version (x.y) is also allowed. For more information about application versioning, see https://semver.org/.
@@ -77,16 +86,16 @@ Examples
 
 The following examples show how to use the install script.
 
-To install chef-client version 14.4.56:
+To install Chef Client 15.3.14:
 
 .. code-block:: bash
 
-   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 14.4.56
+   $ curl -L https://omnitruck.chef.io/install.sh | sudo bash -s -- -v 15.3.14
 
-To install the latest version of the Chef development kit on Microsoft Windows from the ``current`` channel:
+To install the latest version of Chef Workstation on Microsoft Windows from the ``current`` channel:
 
 .. code-block:: none
 
-   . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -channel current -project chefdk
+   . { iwr -useb https://omnitruck.chef.io/install.ps1 } | iex; install -channel current -project chef-workstation
 
 .. end_tag

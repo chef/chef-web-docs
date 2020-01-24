@@ -3,24 +3,16 @@ chef_organization
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_organization.rst>`__
 
-.. warning:: .. tag notes_provisioning
+.. meta::
+    :robots: noindex
 
-             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+.. warning:: .. tag EOL_provisioning
+
+             This functionality was available with Chef Provisioning and was packaged in the ChefDK.
+
+             Chef Provisioning was officially end-of-life on August 31, 2019 and is no longer included with ChefDK. The Chef Provisioning source code and drivers have been moved into the chef-boneyard organization. If you are a current user of Chef Provisioning, please contact your Chef Customer Success Manager or Account Representative to review your options.
 
              .. end_tag
-
-.. tag chef_client_summary
-
-A chef-client is an agent that runs locally on every node that is under management by Chef. When a chef-client is run, it will perform all of the steps that are required to bring the node into the expected state, including:
-
-* Registering and authenticating the node with the Chef server
-* Building the node object
-* Synchronizing cookbooks
-* Compiling the resource collection by loading each of the required cookbooks, including recipes, attributes, and all other dependencies
-* Taking the appropriate and required actions to configure the node
-* Looking for exceptions and notifications, handling each as required
-
-.. end_tag
 
 Use the **chef_organization** resource to interact with organization objects that exist on the Chef server.
 
@@ -38,10 +30,10 @@ The syntax for using the **chef_organization** resource in a recipe is as follow
 
 where
 
-* ``chef_organization`` tells the chef-client to use the ``Chef::Provider::ChefOrganization`` provider during the chef-client run
+* ``chef_organization`` tells Chef Infra Client to use the ``Chef::Provider::ChefOrganization`` provider during a Chef Infra Client run
 * ``name`` is the name of the resource block
 * ``attribute`` is zero (or more) of the attributes that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
 
 Actions
 =====================================================
@@ -55,7 +47,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -100,13 +92,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.
@@ -174,13 +166,13 @@ This resource has the following properties:
 
    .. tag resources_common_notification_timers
 
-   A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+   A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
    ``:before``
       Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
    ``:delayed``
-      Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+      Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
    ``:immediate``, ``:immediately``
       Specifies that a notification should be run immediately, per resource notified.

@@ -3,13 +3,16 @@ About the Workflow DSL
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dsl_delivery.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 The Workflow DSL is a collection of helper methods that is used in recipes as a way to enhance the Recipe DSL to collect data about:
 
 * Which testing tools---Foodcritic, Kitchen, ChefSpec, and so on---are present in a cookbook?
 * What types of delivery environments are available?
 * Have files been changed?
 * Do the changes made to a cookbook require a version change?
-* Should a cookbook should be pushed to the Chef server and/or to GitHub?
+* Should a cookbook should be pushed to the Chef Infra Server and/or to GitHub?
 
 .. warning:: These recipe helpers are available from the ``delivery-truck`` cookbook: https://github.com/opscode-cookbooks/delivery-truck. This cookbook is a recommended dependency for any ``build-cookbook`` for a project that publishes changes to a Chef Automate pipeline.
 
@@ -30,16 +33,16 @@ The following Chef Automate-specific helpers can be used in recipes:
    Define a set of attributes that are used to pin versions as the project moves through stages in the Chef Automate pipeline.
 
 ``delivery_chef_server``
-   Return a Hash that contains details about how to talk to the Chef server.
+   Return a Hash that contains details about how to talk to the Chef Infra Server.
 
 ``delivery_chef_server_search``
-   Run a search query against the node objects on the Chef server, using the default search query. The default search query is defined in the Chef Automate web UI on the "Default Search" tab.
+   Run a search query against the node objects on the Chef Infra Server, using the default search query. The default search query is defined in the Chef Automate web UI on the "Default Search" tab.
 
 ``delivery_environment``
    Get the name of the standard environment.
 
 ``deployment_search_query``
-   Get a custom search query from the ``config.json`` file. By default, the ``deploy.rb`` recipe triggers a chef-client run via Chef push jobs against all nodes that belong to the current environment in Chef Automate and have modified cookbooks in the run-list.
+   Get a custom search query from the ``config.json`` file. By default, the ``deploy.rb`` recipe triggers a Chef Infra Client run via Chef Push Jobs against all nodes that belong to the current environment in Chef Automate and have modified cookbooks in the run-list.
 
    If the ``config.json`` file specifies:
 
@@ -51,7 +54,7 @@ The following Chef Automate-specific helpers can be used in recipes:
         }
       }
 
-   then the search is run against all node objects on the Chef server. For example:
+   then the search is run against all node objects on the Chef Infra Server. For example:
 
    .. code-block:: javascript
 
@@ -138,10 +141,10 @@ The following Chef Automate-specific helpers can be used in recipes:
                    include_recipe 'delivery-truck::provision'
                    get_project_application(<project_app_name_string>)
 
-                you will get an error because the chef-client will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
+                you will get an error because Chef Infra Client will execute ``get_project_application`` at compile time before it has run ``include_recipe 'delivery-truck::provision'``. It is recommended to either use ``get_project_application`` in ``deploy.rb``, a project cookbook, in a ``ruby_block`` or in a separate ``include_recipe`` that is executed after ``include_recipe 'delivery-truck::provision'``.
 
 ``get_project_secrets``
-   Get the contents of the ``delivery-secrets`` data bag from the Chef server. This data bag contains secrets that enable cookbooks to be published to a Chef Supermarket, an open source git repository, a repository on GitHub.
+   Get the contents of the ``delivery-secrets`` data bag from the Chef Infra Server. This data bag contains secrets that enable cookbooks to be published to a Chef Supermarket, an open source git repository, a repository on GitHub.
 
 ``has_kitchen_tests?``
    Determine if a .kitchen.yml file exists in a cookbook.
@@ -164,7 +167,7 @@ The following Chef Automate-specific helpers can be used in recipes:
         }
       }
 
-   This publishing option requires the ``git`` deploy key for that repository to be available from a data bag on the Chef server that is part of this Chef Automate configuration.
+   This publishing option requires the ``git`` deploy key for that repository to be available from a data bag on the Chef Infra Server that is part of this Chef Automate configuration.
 
    .. end_tag
 
@@ -185,7 +188,7 @@ The following Chef Automate-specific helpers can be used in recipes:
 
    where ``"chef/chef-web-docs"`` represents the organization/repository to which the ``build-cookbook`` belongs.
 
-   This publishing option requires the ``github`` deploy key for that repository to be available from a data bag on the Chef server that is part of this Chef Automate configuration.
+   This publishing option requires the ``github`` deploy key for that repository to be available from a data bag on the Chef Infra Server that is part of this Chef Automate configuration.
 
    .. end_tag
 
@@ -223,11 +226,11 @@ The following Chef Automate-specific helpers can be used in recipes:
    .. end_tag
 
 ``upload_cookbook_to_chef_server?``
-   Determine if a cookbook should be pushed to the Chef server.
+   Determine if a cookbook should be pushed to the Chef Infra Server.
 
    .. tag delivery_config_json_setting_delivery_truck_publish_chef_server
 
-   If the ``config.json`` file specifies the following cookbooks are published to the Chef server that is part of this Chef Automate configuration:
+   If the ``config.json`` file specifies the following cookbooks are published to the Chef Infra Server that is part of this Chef Automate configuration:
 
    .. code-block:: javascript
 
@@ -240,7 +243,6 @@ The following Chef Automate-specific helpers can be used in recipes:
    .. end_tag
 
 ``use_custom_supermarket_credentials``
-
    .. tag delivery_config_json_setting_delivery_truck_publish_supermarket_credentials
 
    Publish cookbooks to Chef Supermarket, but with custom credentials:
@@ -255,7 +257,7 @@ The following Chef Automate-specific helpers can be used in recipes:
       }
 
    This ``publish`` option requires the ``supermarket_user`` and ``supermarket_key`` credentials to be available from the
-   ``delivery-secrets`` data bag on the Chef server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag,
+   ``delivery-secrets`` data bag on the Chef Infra Server that is part of this Chef Automate configuration. For more information on the ``delivery-secrets`` data bag,
    see `Handling Secrets <https://github.com/chef-cookbooks/delivery-sugar#handling-secrets-alpha>`_ in the ``delivery-sugar`` cookbook README file.
 
    .. end_tag

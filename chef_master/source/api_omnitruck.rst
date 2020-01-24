@@ -75,7 +75,7 @@ Omnitruck accepts the following platforms:
    * - Red Hat Enterprise Linux / CentOS
      - ``el``
      - ``x86_64``
-     - ``5``, ``6``, ``7``
+     - ``5``, ``6``, ``7``, ``8``
    * -
      -
      - ``i386``
@@ -83,7 +83,7 @@ Omnitruck accepts the following platforms:
    * - FreeBSD
      - ``freebsd``
      - ``x86_64``
-     - ``9``, ``10``, ``11``
+     - ``9``, ``10``, ``11``, ``12``
    * -
      -
      - ``i386``

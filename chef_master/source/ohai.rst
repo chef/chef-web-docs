@@ -5,7 +5,7 @@ About Ohai
 
 .. tag ohai_summary
 
-Ohai is a tool that is used to collect system configuration data, which is provided to the chef-client for use within cookbooks. Ohai is run by the chef-client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
+Ohai is a tool that is used to collect system configuration data, which is provided to Chef Infra Client for use within cookbooks. Ohai is run by Chef Infra Client at the beginning of every Chef run to determine system state. Ohai includes many built-in plugins to detect common configuration details as well as a plugin model for writing custom plugins.
 
 The types of attributes Ohai collects include but are not limited to:
 
@@ -20,7 +20,7 @@ The types of attributes Ohai collects include but are not limited to:
 * Virtualization
 * Cloud provider metadata
 
-Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by the chef-client to ensure that these attributes remain unchanged after the chef-client is done configuring the node.
+Attributes that are collected by Ohai are automatic level attributes, in that these attributes are used by Chef Infra Client to ensure that these attributes remain unchanged after Chef Infra Client is done configuring the node.
 
 .. end_tag
 
@@ -32,7 +32,7 @@ Automatic Attributes
 =====================================================
 .. tag ohai_automatic_attribute
 
-An automatic attribute is a specific detail about a node, such as an IP address, a host name, a list of loaded kernel modules, and so on. Automatic attributes are detected by Ohai and are then used by the chef-client to ensure that they are handled properly during every chef-client run. The most commonly accessed automatic attributes are:
+An automatic attribute is a specific detail about a node, such as an IP address, a host name, a list of loaded kernel modules, and so on. Automatic attributes are detected by Ohai and are then used by Chef Infra Client to ensure that they are handled properly during every Chef Infra Client run. The most commonly accessed automatic attributes are:
 
 .. list-table::
    :widths: 60 420
@@ -59,7 +59,7 @@ An automatic attribute is a specific detail about a node, such as an IP address,
    * - ``node['roles']``
      - A list of roles associated with a node (and part of that node's run-list).
    * - ``node['ohai_time']``
-     - The time at which Ohai was last run. This attribute is not commonly used in recipes, but it is saved to the Chef server and can be accessed using the ``knife status`` subcommand.
+     - The time at which Ohai was last run. This attribute is not commonly used in recipes, but it is saved to the Chef Infra Server and can be accessed using the ``knife status`` subcommand.
 
 .. end_tag
 
@@ -67,17 +67,13 @@ An automatic attribute is a specific detail about a node, such as an IP address,
 
 .. tag ohai_attribute_list
 
-The list of automatic attributes that are collected by Ohai at the start of each chef-client run vary from organization to organization, and will often vary between the various server types being configured and the platforms on which those servers are run. All attributes collected by Ohai are unmodifiable by the chef-client. To see which automatic attributes are collected by Ohai for a particular node, run the following command:
-
-.. code-block:: bash
-
-   find  /opt/chefdk/embedded/lib/ruby/gems/*/gems/ohai-*/lib -name "*.rb" -print | xargs grep -R "provides" -h |sed 's/^\s*//g'|sed "s/\\\"/\'/g"|sort|uniq|grep "\sprovides"
+Ohai collects a list of automatic attributes at the start of each Chef Infra Client run. This list will vary from organization to organization, by server type, and by the platform that runs those servers. All the attributes collected by Ohai are unmodifiable by Chef Infra Client. Run the ``ohai`` command on a system to see which automatic attributes Ohai has collected for a particular node.
 
 .. end_tag
 
 .. note:: .. tag notes_see_attributes_overview
 
-          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of the chef-client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
+          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of a Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
 
           .. end_tag
 
@@ -220,26 +216,87 @@ Default Plugins
 =====================================================
 The following list shows the type of plugins that are included with Ohai. See the ``ohai/lib/ohai/plugins`` directory in the version of Ohai installed on your system for the full list:
 
+General Purpose Plugins
+-----------------------
+
+.. code-block:: ruby
+
+    azure.rb
+    c.rb
+    chef.rb
+    cloud.rb
+    command.rb
+    cpu.rb
+    digital_ocean.rb
+    dmi.rb
+    docker.rb
+    ec2.rb
+    elixir.rb
+    erlang.rb
+    eucalyptus.rb
+    filesystem.rb
+    freebsd
+    gce.rb
+    go.rb
+    groovy.rb
+    haskell.rb
+    hostname.rb
+    init_package.rb
+    java.rb
+    joyent.rb
+    kernel.rb
+    keys.rb
+    languages.rb
+    libvirt.rb
+    linode.rb
+    lua.rb
+    mono.rb
+    network.rb
+    nodejs.rb
+    ohai_time.rb
+    ohai.rb
+    memory.rb
+    network.rb
+    platform.rb
+    openstack.rb
+    os.rb
+    packages.rb
+    perl.rb
+    php.rb
+    platform.rb
+    powershell.rb
+    ps.rb
+    python.rb
+    rackspace.rb
+    root_group.rb
+    ruby.rb
+    rust.rb
+    scala.rb
+    scaleway.rb
+    shard.rb
+    shells.rb
+    softlayer.rb
+    ssh_host_key.rb
+    timezone.rb
+    uptime.rb
+    virtualbox.rb
+    vmware.rb
+    zpools.rb
+
+Platform Specific Plugins
+-------------------------
+
 .. code-block:: ruby
 
    aix
-     cpu.rb
-     filesystem.rb
      kernel.rb
      memory.rb
      network.rb
-     os.rb
      platform.rb
      uptime.rb
      virtualization.rb
-   azure.rb
    bsd
-    filesystem.rb
     virtualization.rb
-   c.rb
-   chef.rb
-   cloud.rb
-   command.rb
    darwin
      cpu.rb
      filesystem.rb
@@ -249,38 +306,18 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      system_profiler.rb
      virtualization.rb
-   digital_ocean.rb
-   dmi.rb
-   docker.rb
    dragonflybsd
     cpu.rb
     memory.rb
     network.rb
     os.rb
     platform.rb
-   ec2.rb
-   elixir.rb
-   erlang.rb
-   eucalyptus.rb
    freebsd
      cpu.rb
      memory.rb
      network.rb
      os.rb
      platform.rb
-   gce.rb
-   go.rb
-   groovy.rb
-   haskell.rb
-   hostname.rb
-   init_package.rb
-   java.rb
-   joyent.rb
-   kernel.rb
-   keys.rb
-   languages.rb
-   libvirt.rb
-   linode.rb
    linux
      block_device.rb
      cpu.rb
@@ -295,42 +332,16 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      sessons.rb
      virtualization.rb
-   lua.rb
-   mono.rb
    netbsd
      cpu.rb
      memory.rb
      network.rb
      platform.rb
-   network.rb
-   nodejs.rb
-   ohai.rb
-   ohai_time.rb
    openbsd
      cpu.rb
      memory.rb
      network.rb
      platform.rb
-   openstack.rb
-   os.rb
-   packages.rb
-   passwd.rb
-   perl.rb
-   php.rb
-   platform.rb
-   powershell.rb
-   ps.rb
-   python.rb
-   rackspace.rb
-   root_group.rb
-   ruby.rb
-   rust.rb
-   scala.rb
-   scaleway.rb
-   scsi.rb
-   shard.rb
-   shells.rb
-   softlayer.rb
    solaris2
      cpu.rb
      dmi.rb
@@ -339,12 +350,6 @@ The following list shows the type of plugins that are included with Ohai. See th
      network.rb
      platform.rb
      virtualization.rb
-   ssh_host_key.rb
-   sysconf.rb
-   timezone.rb
-   uptime.rb
-   virtualbox.rb
-   vmware.rb
    windows
      cpu.rb
      drivers.rb
@@ -355,7 +360,29 @@ The following list shows the type of plugins that are included with Ohai. See th
      platform.rb
      system_enclosure.rb
      virtualization.rb
-   zpools.rb
+
+Optional Plugins
+=====================================================
+
+Ohai ships several plugins that are considered optional and can be enabled in the `client.rb configuration file </config_rb_client.html>`__.
+
+- `Lspci` - PCI device information on Linux hosts.
+- `Lsscsi` - SCSI device information on Linux hosts.
+- `Passwd` - User and Group information on non-Windows hosts. This plugin can result in very large node sizes if a system connects to Active Directory or LDAP.
+- `Sessions` - Sessions data from loginctl on Linux hosts.
+- `Sysctl` - All sysctl values on Linux hosts.
+
+Enabling Optional Plugins
+-------------------------
+
+Optional plugins can be enabled in the `client.rb configuration file </config_rb_client.html>`__:
+
+.. code-block:: ruby
+
+   ohai.optional_plugins = [
+     :Sessions,
+     :Lspci
+   ]
 
 Custom Plugins
 =====================================================
@@ -364,13 +391,8 @@ Custom Ohai plugins can be written to collect additional information from system
 
 Hints
 =====================================================
-.. tag ohai_hints
 
 Ohai hints are used to tell Ohai something about the system that it is running on that it would not be able to discover itself. An Ohai hint exists if a JSON file exists in the hint directory with the same name as the hint. For example, calling ``hint?('antarctica')`` in an Ohai plugin would return an empty hash if the file ``antarctica.json`` existed in the hints directory, and return nil if the file does not exist.
-
-.. end_tag
-
-.. tag ohai_hints_json
 
 If the hint file contains JSON content, it will be returned as a hash from the call to ``hint?``.
 
@@ -390,28 +412,21 @@ If the hint file contains JSON content, it will be returned as a hash from the c
      'There is no snow here, and penguins like snow.'
    end
 
-Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the ``client.rb`` file to customize this location.
+Hint files are located in the ``/etc/chef/ohai/hints/`` directory by default. Use the ``Ohai.config[:hints_path]`` setting in the `client.rb configuration file </config_rb_client.html>`__ to customize this location.
 
-.. end_tag
 
 ohai Resource
 =====================================================
-.. tag resources_common_generic
+A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef Infra. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `Chef Infra Client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which Chef Infra Client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
-A `resource </resource.html>`__ defines the desired state for a single configuration item present on a node that is under management by Chef. A resource collection---one (or more) individual resources---defines the desired state for the entire node. During a `chef-client run </chef_client.html#the-chef-client-run.html>`__, the current state of each resource is tested, after which the chef-client will take any steps that are necessary to repair the node and bring it back into the desired state.
 
-.. end_tag
 
-.. tag resource_ohai_summary
+Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during a Chef Infra Client run.
 
-Use the **ohai** resource to reload the Ohai configuration on a node. This allows recipes that change system attributes (like a recipe that adds a user) to refer to those attributes later on during the chef-client run.
 
-.. end_tag
 
 Syntax
------------------------------------------------------
-.. tag resource_ohai_syntax
-
+----------------------------------------------------
 A **ohai** resource block reloads the Ohai configuration on a node:
 
 .. code-block:: ruby
@@ -436,10 +451,10 @@ where
 
 * ``ohai`` is the resource
 * ``name`` is the name of the resource block
-* ``action`` identifies the steps the chef-client will take to bring the node into the desired state
+* ``action`` identifies the steps Chef Infra Client will take to bring the node into the desired state
 * ``name`` and ``plugin`` are properties of this resource, with the Ruby type shown. See "Properties" section below for more information about all of the properties that may be used with this resource.
 
-.. end_tag
+
 
 Actions
 -----------------------------------------------------
@@ -450,7 +465,7 @@ The ohai resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -468,16 +483,9 @@ The ohai resource has the following properties:
 ``plugin``
    **Ruby Type:** String
 
-   The name of an Ohai plugin to be reloaded. If this property is not specified, the chef-client will reload all plugins.
+   The name of an Ohai plugin to be reloaded. If this property is not specified, Chef Infra Client will reload all plugins.
 
 .. end_tag
-
-Providers
------------------------------------------------------
-This resource has the following providers:
-
-``Chef::Provider::Ohai``, ``ohai``
-   The default provider for all platforms.
 
 Examples
 -----------------------------------------------------
@@ -531,7 +539,7 @@ ohai Command Line Tool
 =====================================================
 .. tag ctl_ohai_summary
 
-ohai is the command-line interface for Ohai, a tool that is used to detect attributes on a node, and then provide these attributes to the chef-client at the start of every chef-client run.
+ohai is the command-line interface for Ohai, a tool that is used to detect attributes on a node, and then provide these attributes to Chef Infra Client at the start of every Chef Infra Client run.
 
 .. end_tag
 
@@ -599,21 +607,11 @@ Ohai configuration settings can be added to the client.rb file.
 
       ohai.disabled_plugins = [
         :MyPlugin,
-        :MyPlugin,
-        :MyPlugin
+        :MyPlugin2,
+        :MyPlugin3
       ]
 
-   and to disable multiple plugins, including Ohai 6 plugins:
-
-   .. code-block:: ruby
-
-      ohai.disabled_plugins = [
-		:MyPlugin,
-        :MyPlugin,
-        'my_ohai_6_plugin'
-      ]
-
-   When a plugin is disabled, the chef-client log file will contain entries similar to:
+   When a plugin is disabled, the Chef Infra Client log file will contain entries similar to:
 
    .. code-block:: ruby
 
@@ -644,9 +642,6 @@ Ohai configuration settings can be added to the client.rb file.
         '/path/to/other/plugins'
         ]
 
-``ohai.version``
-   The version of Ohai.
-
-.. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of the chef-client.
+.. note:: The Ohai executable ignores settings in the client.rb file when Ohai is run independently of Chef Infra Client.
 
 .. end_tag

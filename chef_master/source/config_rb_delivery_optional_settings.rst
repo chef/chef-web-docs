@@ -3,7 +3,10 @@ delivery.rb Optional Settings
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery_optional_settings.rst>`__
 
-.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see `Automate Server Tuning </delivery_server_tuning.html>`__), but many of them should be left as default values.
+.. meta::
+    :robots: noindex
+
+.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see `Workflow Server Tuning </delivery_server_tuning.html>`__), but many of them should be left as default values.
 
 Settings
 =====================================================
@@ -86,8 +89,8 @@ This configuration file has the following settings for ``backup``:
    Back up Chef Automate Census data. Default value: ``true``.
 
 ``backup['chef_server_config']``
-   Back up the Chef server configuration directory.  Usefull for instances
-   when Chef Automate and Chef server are installed on a single node. Default
+   Back up the Chef Infra Server configuration directory.  Usefull for instances
+   when Chef Automate and Chef Infra Server are installed on a single node. Default
    value: ``false``.
 
 ``backup['compliance_profiles']['enabled']``
@@ -514,7 +517,7 @@ This configuration file has the following settings for ``elasticsearch``:
 ``elasticsearch['role_arn']``
    The Amazon Resource Names(ARN) of IAM policies role for Amazon Elasticsearch Service. Default value: ``nil``.
 
-    .. note:: If ``elasticsearch['urls']`` is specified with Amazon elasticsearch url then ``elasticsearch['role_arn']`` value will be required.
+   .. note:: If ``elasticsearch['urls']`` is specified with Amazon elasticsearch url then ``elasticsearch['role_arn']`` value will be required.
 
 ``elasticsearch['config_directory']``
    The working directory. The default value is the recommended value. Default value: ``"/var/opt/delivery/elasticsearch/conf"``.
@@ -760,7 +763,7 @@ This configuration file has the following settings for ``nginx``:
       ]
 
 ``nginx['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``nginx['keepalive_timeout']``
    The amount of time (in seconds) to wait for requests on a Keepalived connection. Default value: ``65``.
@@ -803,7 +806,7 @@ This configuration file has the following settings for ``nginx``:
    The city in which your company is located. Default value: "Seattle".
 
 ``nginx['ssl_organizational_unit_name']``
-   The organization or group within your company that is running the Chef server. Default value: "Engineering".
+   The organization or group within your company that is running the Chef Infra Server. Default value: "Engineering".
 
 ``nginx['ssl_port']``
    Default value: ``443``.
@@ -908,7 +911,7 @@ This configuration file has the following settings for ``postgresql``:
    Enable a service. Default value: ``true``.
 
 ``postgresql['ha']``
-   Run the Chef server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
+   Run the Chef Infra Server in a high availability topology. When ``topology`` is set to ``ha``, this setting defaults to ``true``. Default value: ``false``.
 
 ``postgresql['home']``
    The home directory for PostgreSQL. Default value: ``"/var/opt/delivery/postgresql"``.

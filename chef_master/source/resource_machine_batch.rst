@@ -3,21 +3,23 @@ machine_batch
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_machine_batch.rst>`__
 
-.. tag resource_machine_batch_summary
+.. meta::
+    :robots: noindex
 
 Use the **machine_batch** resource to explicitly declare a parallel process when building machines.
 
-.. end_tag
 
-.. warning:: .. tag notes_provisioning
 
-             This functionality is available with Chef provisioning and is packaged in the Chef development kit. Chef provisioning is a framework that allows clusters to be managed by the chef-client and the Chef server in the same way nodes are managed: with recipes. Use Chef provisioning to describe, version, deploy, and manage clusters of any size and complexity using a common set of tools.
+.. warning:: .. tag EOL_provisioning
+
+             This functionality was available with Chef Provisioning and was packaged in the ChefDK.
+
+             Chef Provisioning was officially end-of-life on August 31, 2019 and is no longer included with ChefDK. The Chef Provisioning source code and drivers have been moved into the chef-boneyard organization. If you are a current user of Chef Provisioning, please contact your Chef Customer Success Manager or Account Representative to review your options.
 
              .. end_tag
 
 Syntax
 =====================================================
-.. tag resource_machine_batch_syntax
 
 The syntax for using the **machine_batch** resource in a recipe is as follows:
 
@@ -31,17 +33,13 @@ The syntax for using the **machine_batch** resource in a recipe is as follows:
 
 where
 
-* ``machine_batch`` tells the chef-client to use the ``Chef::Provider::MachineBatch`` provider during the chef-client run
+* ``machine_batch`` tells Chef Infra Client to use the ``Chef::Provider::MachineBatch`` provider during a Chef Infra Client run
 * ``name`` is the name of the resource block
 * ``attribute`` is zero (or more) of the properties that are available for this resource
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state
-
-.. end_tag
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state
 
 Actions
 =====================================================
-.. tag resource_machine_batch_actions
-
 This resource has the following actions:
 
 ``:allocate``
@@ -56,7 +54,7 @@ This resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -66,15 +64,13 @@ This resource has the following actions:
 
 ``:stop``
 
-.. end_tag
-
 In-Parallel Processing
 -----------------------------------------------------
 .. tag provisioning_parallel
 
-In certain situations Chef provisioning will run multiple **machine** processes in-parallel, as long as each of the individual **machine** resources have the same declared action. The **machine_batch** resource is used to run in-parallel processes.
+In certain situations Chef Provisioning will run multiple **machine** processes in-parallel, as long as each of the individual **machine** resources have the same declared action. The **machine_batch** resource is used to run in-parallel processes.
 
-Chef provisioning will processes resources in-parallel automatically, unless:
+Chef Provisioning will processes resources in-parallel automatically, unless:
 
 * The recipe contains complex scripts, such as when a **file** resource sits in-between two **machine** resources in a single recipe. In this situation, the resources will be run sequentially
 * The actions specified for each individual **machine** resource are not identical; for example, if resource A is set to ``:converge`` and resource B is set to ``:destroy``, then they may not be processed in-parallel
@@ -142,14 +138,12 @@ At the end, it shows ``1/1 resources updated``. The three **machine** resources 
 
 Properties
 =====================================================
-.. tag resource_machine_batch_attributes
-
 This resource has the following attributes:
 
 ``chef_server``
    **Ruby Type:** Hash
 
-   The URL for the Chef server.
+   The URL for the Chef Infra Server.
 
 ``driver``
    **Ruby Type:** Chef::Provisioning::Driver
@@ -171,15 +165,13 @@ This resource has the following attributes:
 ``max_simultaneous``
    ...
 
-.. end_tag
+
 
 Examples
 =====================================================
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Set up multiple machines, in-parallel**
-
-.. tag resource_machine_batch_setup_n_machines
 
 .. To setup multiple machines in-parallel:
 
@@ -190,11 +182,9 @@ The following examples demonstrate various approaches for using resources in rec
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
+
 
 **Converge multiple machines, in-parallel**
-
-.. tag resource_machine_batch_converge_n_machines
 
 .. To converge multiple machines in-parallel:
 
@@ -205,11 +195,9 @@ The following examples demonstrate various approaches for using resources in rec
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
+
 
 **Stop multiple machines, in-parallel**
-
-.. tag resource_machine_batch_stop_n_machines
 
 .. To stop multiple machines in-parallel:
 
@@ -220,11 +208,9 @@ The following examples demonstrate various approaches for using resources in rec
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
+
 
 **Destroy multiple machines, in-parallel**
-
-.. tag resource_machine_batch_destroy_n_machines
 
 .. To delete multiple machines in-parallel:
 
@@ -235,7 +221,7 @@ The following examples demonstrate various approaches for using resources in rec
      machines 'a', 'b', 'c', 'd', 'e'
    end
 
-.. end_tag
+
 
 **Destroy all machines**
 
@@ -301,8 +287,6 @@ The **machine_batch** resource can be used to converge multiple machine types, i
 
 **Destroy EBS volumes for batch of machines, along with keys**
 
-.. tag resource_provisioning_aws_ebs_volume_delete_machine_and_keys
-
 .. To destroy a named group of machines along with keys:
 
 The following example destroys an Amazon Elastic Block Store (EBS) volume for the specified batch of machines, along with any associated public and/or private keys:
@@ -324,11 +308,9 @@ The following example destroys an Amazon Elastic Block Store (EBS) volume for th
      action :destroy
    end
 
-.. end_tag
+
 
 **Define subnets for a batch of machines on Amazon AWS**
-
-.. tag resource_provisioning_aws_security_group_machine_batch
 
 .. To define a VPC, subnets, and security group for a batch of machines:
 
@@ -384,4 +366,4 @@ The following example destroys an Amazon Elastic Block Store (EBS) volume for th
      vpc 'provisioning-vpc'
    end
 
-.. end_tag
+

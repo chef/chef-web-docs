@@ -23,15 +23,15 @@ The following repositories are the preferred locations for the creation of issue
 
    * - Repo
      - URL
-   * - chef-client
+   * - Chef Infra Client
      - https://github.com/chef/chef
    * - Ohai
      - https://github.com/chef/ohai
    * - Chef Workstation
      - https://github.com/chef/chef-workstation
-   * - ChefDK
-     - https://github.com/chef/chef-dk
-   * - Chef Server
+   * - Chef InSpec
+     - https://github.com/inspec/inspec
+   * - Chef Infra Server
      - https://github.com/chef/chef-server
    * - Chef Automate
      - please contact `Chef Support <https://www.chef.io/support/>`_
@@ -40,7 +40,7 @@ For additional support about Chef products, including documentation, learning, a
 
 .. warning:: If you require a response from Chef per the terms of a support level agreement (SLA), please contact `Chef Support <https://www.chef.io/support/>`_ directly.
 
-.. note:: Questions on how to use Chef should be sent as Support Tickets if you have an SLA, or asked on the `Chef Mailing List <https://discourse.chef.io/>`_, or `Chef Community Slack <https://community-slack.chef.io/>`_. Bug Trackers are not appropriate for general purpose questions that are not bugs.
+.. note:: Questions on how to use Chef Infra should be sent as Support Tickets if you have an SLA, or asked on the `Chef Software Mailing List <https://discourse.chef.io/>`_, or `Chef Community Slack <https://community-slack.chef.io/>`_. Bug Trackers are not appropriate for general purpose questions that are not bugs.
 
 Contribution Process
 =====================================================
@@ -175,7 +175,7 @@ Things that would still require a DCO sign-off before submitting would likely in
 
 Use git
 =====================================================
-Chef is maintained on GitHub. To contribute to Chef, such as submitting a pull request, requires using GitHub and git. The sections below describe how to use git to set up the Chef repository, keep it current and synchronized, and how to use branches to submit pull requests.
+Chef is maintained on GitHub. To contribute to Chef, such as submitting a pull request, requires using GitHub and Git. The sections below describe how to use git to set up the Chef repository, keep it current and synchronized, and how to use branches to submit pull requests.
 
 Set Up Repo
 -----------------------------------------------------

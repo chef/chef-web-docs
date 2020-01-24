@@ -5,7 +5,7 @@ knife raw
 
 .. tag knife_raw_summary
 
-Use the ``knife raw`` subcommand to send a REST request to an endpoint in the Chef server API.
+Use the ``knife raw`` subcommand to send a REST request to an endpoint in the Chef Infra Server API.
 
 .. end_tag
 
@@ -37,7 +37,7 @@ This subcommand has the following options:
    The request method: ``DELETE``, ``GET``, ``POST``, or ``PUT``. Default value: ``GET``.
 
 ``--proxy-auth``
-   Enable proxy authentication to the Chef server web user interface. Default value: ``false``.
+   Enable proxy authentication to the Chef Infra Server web user interface. Default value: ``false``.
 
 .. note:: .. tag knife_common_see_all_config_options
 
