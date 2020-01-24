@@ -80,17 +80,9 @@ Use of these and later versions of these distributions must be in accordance wit
      - 4.x
      - GA
      - n/a
-   * - Supermarket¹
-     - 4.x
-     - Releasing Soon
-     - n/a
    * - Chef Backend¹
      - 3.x
-     - Releasing Soon
-     - n/a
-   * - Push Jobs¹
-     - 3.x
-     - Releasing Soon
+     - Releasing 2020
      - n/a
 
 1. These distributions do not directly require acceptance of the Chef EULA, but have functionality that requires its acceptance in other products.
@@ -120,27 +112,27 @@ Use of the following distributions is governed by the Apache License, version 2.
      - 3.x
      - GA
      - April 30, 2020
-   * - Chef Server
-     - 12.x
-     - GA
-     - April 30, 2020
    * - Chef InSpec
      - 3.x
      - GA
      - April 30, 2020
+   * - Chef Infra Server
+     - 12.x
+     - GA
+     - TBD
    * - Push Jobs
      - 2.5.x
      - GA
-     - April 30, 2020
+     - TBD
    * - Supermarket
      - 3.x
      - GA
-     - April 30, 2020
+     - TBD
 
 Deprecated Products and Versions
 ===================================================
 
-The following products are deprecated or end of life. Users are advised to use newer versions or products.
+The following products are deprecated. Users are advised to move to newer versions or products.
 
 .. list-table::
    :header-rows: 1
@@ -152,10 +144,6 @@ The following products are deprecated or end of life. Users are advised to use n
      - EOL Date
    * - Chef Manage
      - 2.5.x
-     - Deprecated
-     - TBD
-   * - Chef Infra Server
-     - 12.x
      - Deprecated
      - TBD
    * - Chef Workflow
