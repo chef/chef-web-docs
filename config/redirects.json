@@ -477,7 +477,7 @@
   "release/automate/api_delivery.html": "https://automate.chef.io/release-notes/",
   "release/automate/chef_automate.html": "https://automate.chef.io/release-notes/",
   "release/automate/compliance.html": "https://automate.chef.io/release-notes/",
-  "release/automate/config_json_delivery.html": "config_json_delivery.html",
+  "release/automate/config_json_delivery.html": "/config_json_delivery.html",
   "release/automate/config_rb_compliance.html": "https://automate.chef.io/release-notes/",
   "release/automate/config_rb_delivery.html": "/config_rb_delivery.html",
   "release/automate/config_rb_delivery_optional_settings.html": "/config_rb_delivery_optional_settings.html",
