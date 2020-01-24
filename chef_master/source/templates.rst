@@ -189,7 +189,7 @@ and a resource that looks something like the following:
      group 'root'
    end
 
-This resource would be matched in the same order as the ``/templates`` directory structure. For a node named ``host-node-desktop`` that is running Windows 8, the second item would be the matching item and the location:
+This resource would be matched in the same order as the ``/templates`` directory structure. For a node named ``host-node-desktop`` that is running Windows 8.1, the second item would be the matching item and the location:
 
 .. code-block:: ruby
 
