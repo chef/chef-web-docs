@@ -1131,21 +1131,38 @@ Removed Flags
 
   The ``Virtualization`` plugin will no longer detect systems running on the circa ~2005 VirtualPC or VirtualServer hypervisors. These hypervisors were long ago deprecated by Microsoft and support can no longer be tested.
 
+What's New in 14.14.29
+=====================================================
+
+Bug Fixes
+-----------------------------------------------------
+
+* Fixed an error with the ``service`` and ``systemd_unit`` resources which would try to re-enable services with an indirect status.
+* The `systemd_unit` resource now logs at the info level.
+* Fixed knife config when it returned a ``TypeError: no implicit conversion of nil into String`` error.
+
+Security Updates
+-----------------------------------------------------
+
+libxslt
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+libxslt has been updated to 1.1.34 to resolve `CVE-2019-13118 <https://nvd.nist.gov/vuln/detail/CVE-2019-13118>`__.
+
 What's New in 14.14.25
 =====================================================
 
 Bug Fixes
 -----------------------------------------------------
 
-* Resolved a regression introduced in Chef Infra Client 14.14.14 that broke installation of gems in some scenarios.
-* Fixed Habitat packaging of ``chef-client`` artifacts.
-* Fixed crash in knife when displaying a missing profile error message.
-* Fixed knife subcommand --help not working as intended for some commands.
-* Fixed knife ssh interactive mode exit error.
-* Fixed for ``:day`` option not accepting integer value in the ``windows_task`` resource.
-* Fixed for ``user`` resource not handling a GID if it is specified as a string.
-* Fixed the ``ifconfig`` resource to support interfaces with a - in the name.
-
+* Resolved a regression introduced in Chef Infra Client 14.14.14 that broke installation of gems in some scenarios
+* Fixed Habitat packaging of ``chef-client`` artifacts
+* Fixed crash in knife when displaying a missing profile error message
+* Fixed knife subcommand --help not working as intended for some commands
+* Fixed knife ssh interactive mode exit error
+* Fixed for ``:day`` option not accepting integer value in the ``windows_task`` resource
+* Fixed for ``user`` resource not handling a GID if it is specified as a string
+* Fixed the ``ifconfig`` resource to support interfaces with a ``-`` in the name
 
 What's New in 14.14.14
 =====================================================
