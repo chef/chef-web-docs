@@ -87,7 +87,7 @@ In this section you'll install the Chef Infra Server, and create your organizati
 
    .. code-block:: bash
 
-      $ chef-server-ctl reconfigure
+      $ sudo chef-server-ctl reconfigure
 
    Because the Chef Infra Server is composed of many different services that work together to create a functioning system, this step may take a few minutes to complete.
 

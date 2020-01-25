@@ -29,12 +29,10 @@ Supported Host Operating Systems:
      - 10, Server 2012, Server 2012 R2, Server 2016, Server 2019
    * - Red Hat Enterprise Linux / CentOS
      - 6.x, 7.x, 8.x
-   * - SUSE Enterprise Linux Server
-     - 11 SP4, 12 SP1+, 15
    * - Ubuntu
-     - 14.04, 16.04, 18.04
+     - 16.04, 18.04
    * - Debian
-     - 7.x, 8.x, 9.x
+     - 8.x, 9.x
 
 .. list-table:: Supported Target Operating System
    :widths: 15 15
@@ -47,11 +45,11 @@ Supported Host Operating Systems:
    * - Red Hat Enterprise Linux
      - 6.x, 7.x, 8.x
    * - SUSE Enterprise Linux Server
-     - 11 SP4, 12 SP1+, 15
+     - 12 SP1+, 15.x
    * - Ubuntu
-     - 14.04, 16.04, 18.04
+     - 16.04, 18.04
    * - Debian
-     - 7.x, 8.x, 9.x
+     - 8.x, 9.x
 
 Chef Workstation System Requirements
 ----------------------------------------------------
@@ -89,7 +87,7 @@ In some cases, such as if you're working with older or unsupported systems, you 
 Verify the Chef Workstation or ChefDK Installation
 -----------------------------------------------------
 
-To verify the ChefDK installation, run:
+To verify the installation, run:
 
 .. code-block:: shell
 
@@ -99,11 +97,12 @@ Which returns the versions of all installed Chef tools:
 
 .. code-block:: shell
 
-   ChefDK version: 4.4.27
-   Chef Infra Client version: 15.3.14
-   Chef InSpec version: 4.16.0
-   Test Kitchen version: 2.3.3
-   Cookstyle version: 5.6.2
+  Chef Workstation version: 0.14.16
+  Chef Infra Client version: 15.6.10
+  Chef InSpec version: 4.18.39
+  Chef CLI version: 2.0.0
+  Test Kitchen version: 2.3.4
+  Cookstyle version: 5.19.9
 
 Spaces and Directories
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
