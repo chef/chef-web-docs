@@ -5174,7 +5174,7 @@ The response will return the end state of the user, similar to:
    * - ``200``
      - OK. The request was successful. The user association was removed.
    * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
    * - ``404``
