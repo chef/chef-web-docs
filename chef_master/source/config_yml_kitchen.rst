@@ -759,7 +759,6 @@ The following kitchen.yml file sets up a simple tiered configuration of the Chef
            urls:
              private_chef: http://123.456.789.0/path/to/private-chef_11.1.4-1_amd64.deb
              manage: http://123.456.789.0/path/to/opscode-manage_1.3.1-1_amd64.deb
-             reporting: http://123.456.789.0/path/to/opscode-reporting_1.1.1-1_amd64.deb
              push_jobs: http://123.456.789.0/path/to/opscode-push-jobs-server_1.1.1-1_amd64.deb
 
    suites:

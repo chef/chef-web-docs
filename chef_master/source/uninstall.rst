@@ -59,8 +59,6 @@ This subcommand has the following syntax:
 
 .. note:: To revert the ``uninstall`` subcommand, run the ``reconfigure`` subcommand (because the ``start`` subcommand is disabled by the ``uninstall`` command).
 
-
-
 Chef Push Jobs
 =====================================================
 To uninstall Chef Push Jobs, do the following:
