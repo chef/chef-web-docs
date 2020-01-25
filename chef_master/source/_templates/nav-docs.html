@@ -198,7 +198,7 @@
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Chef Development Kit",
+            "title": "ChefDK",
             "hasSubItems": false,
             "url": "/about_chefdk.html"
           },
@@ -316,6 +316,11 @@
         "title": "Features",
         "hasSubItems": true,
         "subItems": [
+         {
+            "title": "FIPS",
+            "hasSubItems": false,
+            "url": "/fips.html"
+         },
          {
             "title": "Handlers",
             "hasSubItems": false,
@@ -1900,7 +1905,7 @@
         ]
       },
       {
-        "title": "Managing Chef Infra Server",
+        "title": "Chef Infra Server",
         "hasSubItems": true,
         "subItems": [
           {
@@ -2051,7 +2056,7 @@
             "url": "/release_notes.html"
           },
           {
-            "title": "Chef Development Kit",
+            "title": "ChefDK",
             "hasSubItems": false,
             "url": "/release_notes_chefdk.html"
           },
@@ -2126,10 +2131,6 @@
       {
         "title": "Chef Automate Documentation",
         "url": "https://automate.chef.io/docs/"
-      },
-      {
-        "title": "Automate 1 Documentation",
-        "url": "/chef_automate.html"
       }
     ]
   },
@@ -2138,48 +2139,18 @@
     "iconClass": "fa-hdd-o",
     "subItems": [
       {
-        "title": "Chef Automate 1",
+        "title": "Workflow",
         "iconClass": "fa-cogs",
         "hasSubItems": true,
         "subItems": [
           {
-            "title": "Overview",
+            "title": "Workflow Basics",
             "hasSubItems": true,
             "subItems": [
-              {
-                "title": "Chef Automate Overview",
-                "url": "/chef_automate.html"
-              },
               {
                 "title": "Workflow Overview",
                 "hasSubItems": false,
                 "url": "/workflow.html"
-              },
-              {
-                "title": "Nodes Overview",
-                "hasSubItems": false,
-                "url": "/visibility.html"
-              },
-              {
-                "title": "Compliance Overview",
-                "hasSubItems": false,
-                "url": "/chef_automate_compliance.html"
-              }
-            ]
-          },
-          {
-            "title": "Release Notes",
-            "hasSubItems": false,
-            "url": "/release_notes_chef_automate.html"
-          },
-          {
-            "title": "Getting Started",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Installation Guide",
-                "hasSubItems": false,
-                "url": "/install_chef_automate.html"
               },
               {
                 "title": "Configure a Pipeline",
@@ -2207,80 +2178,13 @@
                "url": "/data_collection_without_server.html"
               },
               {
-                "title": "Enable FIPS",
-                "hasSubItems": false,
-                "url": "/fips.html"
-              },
-              {
-                "title": "Stream Data",
-                "hasSubItems": false,
-                "url": "/stream_data_chef_automate.html"
-              },
-              {
-                "title": "Upgrades",
-                "hasSubItems": false,
-                "url": "/upgrade_chef_automate.html"
-              }
-            ]
-          },
-          {
-            "title": "Nodes",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Node Notifications w/Slack",
-                "hasSubItems": false,
-                "url": "/integrate_node_notifications_slack.html"
-              },
-              {
-                "title": "Node Notifications w/Webhooks",
-                "hasSubItems": false,
-                "url": "/integrate_node_notifications_webhook.html"
-              },
-              {
-                "title": "Node Search Reference",
-                "hasSubItems": false,
-                "url": "/search_query_chef_automate.html"
-              }
-            ]
-          },
-          {
-            "title": "Compliance",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Reporting",
-                "hasSubItems": false,
-                "url": "/automate_compliance_reporting.html"
-              },
-              {
-                "title": "Scanner",
-                "hasSubItems": false,
-                "url": "/automate_compliance_scanner.html"
-              },
-              {
-                "title": "Profile Store",
-                "hasSubItems": false,
-                "url": "/profile_store.html"
-              },
-              {
-                "title": "Credentials",
-                "hasSubItems": false,
-                "url": "/automate_compliance_credentials.html"
-              },
-              {
-                "title": "Perform Compliance Scan",
-                "hasSubItems": false,
-                "url": "/perform_compliance_scan.html"
-              },
-              {
                 "title": "Audit Cookbook",
                 "url": "/audit_cookbook.html"
               }
             ]
           },
           {
-            "title": "Workflow",
+            "title": "Managing Workflow",
             "hasSubItems": true,
             "subItems": [
               {
@@ -2288,7 +2192,6 @@
                 "hasSubItems": false,
                 "url": "/delivery_build_cookbook.html"
               },
-
               {
                 "title": "delivery-truck (cookbook)",
                 "hasSubItems": false,
@@ -2333,15 +2236,9 @@
                 "title": "Workflow w/Slack",
                 "hasSubItems": false,
                 "url": "/integrate_delivery_slack.html"
-              }
-            ]
-          },
-          {
-            "title": "Admin",
-            "hasSubItems": true,
-            "subItems": [
+              },
               {
-                "title": "Users &amp; Roles",
+                "title": "Users and Roles",
                 "hasSubItems": false,
                 "url": "/delivery_users_and_roles.html"
               },
@@ -2354,37 +2251,11 @@
                 "title": "Authentication w/SAML",
                 "hasSubItems": false,
                 "url": "/integrate_chef_automate_saml.html"
-              }
-            ]
-          },
-          {
-            "title": "Managing the Chef Automate Server",
-            "hasSubItems": true,
-            "subItems": [
-              {
-                "title": "Backups",
-                "hasSubItems": false,
-                "url": "/delivery_server_backup.html"
               },
               {
-                "title": "Capacity Planning",
-                "hasSubItems": false,
-                "url": "/scaling_capacity_planning_chef_automate.html"
-              },
-              {
-                "title": "Disaster Recovery",
-                "hasSubItems": false,
-                "url": "/delivery_server_disaster_recovery.html"
-              },
-              {
-                "title": "Elasticsearch &amp; Kibana Auth",
+                "title": "Elasticsearch and Kibana Auth",
                 "hasSubItems": false,
                 "url": "/elasticsearch_and_kibana_auth.html"
-              },
-              {
-                "title": "Data Retention",
-                "hasSubItems": false,
-                "url": "/data_retention_chef_automate.html"
               },
               {
                 "title": "Tuning",
@@ -2397,16 +2268,6 @@
             "title": "Reference",
             "hasSubItems": true,
             "subItems": [
-              {
-                "title": "Chef Automate API",
-                "hasSubItems": false,
-                "url": "/api_automate.html"
-              },
-              {
-                "title": "automate-ctl",
-                "subItems": false,
-                "url": "/ctl_automate_server.html"
-              },
               {
                 "title": "Delivery CLI",
                 "hasSubItems": false,
@@ -2434,11 +2295,6 @@
             "hasSubItems": false,
             "url": "/automate_azure.html"
           },
-          {
-            "title": "Troubleshooting",
-            "hasSubItems": false,
-            "url": "/troubleshooting_chef_automate.html"
-          }
         ]
       }
     ]

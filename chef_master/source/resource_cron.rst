@@ -47,6 +47,7 @@ The full syntax for all of the properties that are available to the **cron** res
     path             String
     shell            String
     time             Symbol
+    time_out         Hash
     user             String # default value: "root"
     weekday          
     action           Symbol # defaults to :create if not specified
@@ -57,7 +58,7 @@ where:
 * ``cron`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``user``, and ``weekday`` are the properties available to this resource.
+* ``command``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``month``, ``path``, ``shell``, ``time``, ``time_out``, ``user``, and ``weekday`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -169,6 +170,18 @@ The cron resource has the following properties:
    **Ruby Type:** Symbol
 
    A time interval. Possible values: ``:annually``, ``:daily``, ``:hourly``, ``:midnight``, ``:monthly``, ``:reboot``, ``:weekly``, or ``:yearly``.
+
+``time_out``
+   **Ruby Type:** Hash
+
+   A Hash of timeouts in the form of ({'OPTION' => 'VALUE'}).
+        Accepted valid options are:
+        preserve-status (BOOL, default: 'false'),
+        foreground (BOOL, default: 'false'),
+        kill-after (in seconds),
+        signal (a name like 'HUP' or a number)
+
+   *New in Chef Infra Client 15.7.*
 
 ``user``
    **Ruby Type:** String | **Default Value:** ``"root"``

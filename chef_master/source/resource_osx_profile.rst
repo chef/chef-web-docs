@@ -47,8 +47,6 @@ The osx_profile resource has the following actions:
 ``:remove``
    Remove the specified configuration profile.
 
-
-
 Properties
 =====================================================
 
@@ -58,7 +56,6 @@ The osx_profile resource has the following properties:
    **Ruby Type:** String
 
    Use to specify the identifier for the profile, such as ``com.company.screensaver``.
-
 
 ``path``
    **Ruby Type:** String
@@ -224,7 +221,7 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-==========================================
+=====================================================
 
 The following examples demonstrate various approaches for using resources in recipes:
 

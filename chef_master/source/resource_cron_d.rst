@@ -52,6 +52,7 @@ The full syntax for all of the properties that are available to the **cron_d** r
     predefined_value      String
     random_delay          Integer
     shell                 String
+    time_out              Hash
     user                  String # default value: "root"
     weekday               Integer, String # default value: "*"
     action                Symbol # defaults to :create if not specified
@@ -62,7 +63,7 @@ where:
 * ``cron_d`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``command``, ``comment``, ``cookbook``, ``cron_name``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``mode``, ``month``, ``path``, ``predefined_value``, ``random_delay``, ``shell``, ``user``, and ``weekday`` are the properties available to this resource.
+* ``command``, ``comment``, ``cookbook``, ``cron_name``, ``day``, ``environment``, ``home``, ``hour``, ``mailto``, ``minute``, ``mode``, ``month``, ``path``, ``predefined_value``, ``random_delay``, ``shell``, ``time_out``, ``user``, and ``weekday`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -191,6 +192,18 @@ The cron_d resource has the following properties:
    **Ruby Type:** String
 
    Set the ``SHELL`` environment variable in the cron.d file.
+
+``time_out``
+   **Ruby Type:** Hash
+
+   A Hash of timeouts in the form of ({'OPTION' => 'VALUE'}).
+        Accepted valid options are:
+        preserve-status (BOOL, default: 'false'),
+        foreground (BOOL, default: 'false'),
+        kill-after (in seconds),
+        signal (a name like 'HUP' or a number)
+
+   *New in Chef Infra Client 15.7.*
 
 ``user``
    **Ruby Type:** String | **Default Value:** ``"root"``

@@ -7,10 +7,6 @@ Use the **powershell_script** resource to execute a script using the Windows Pow
 
 The **powershell_script** resource creates and executes a temporary file (similar to how the **script** resource behaves), rather than running the command inline. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
 
-
-
-Changed in 12.19 to support windows alternate user identity in execute resources
-
 Syntax
 =====================================================
 
@@ -61,6 +57,7 @@ where:
 
 Actions
 =====================================================
+
 The powershell_script resource has the following actions:
 
 ``:nothing``
@@ -69,10 +66,9 @@ The powershell_script resource has the following actions:
 ``:run``
    Default. Run the script.
 
-
-
 Properties
 =====================================================
+
 The powershell_script resource has the following properties:
 
 ``architecture``
@@ -337,7 +333,8 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
-The following examples demonstrate different approaches for using resources in recipes. If you want to see examples of how Chef uses resources in recipes, take a closer look at the cookbooks that Chef authors and maintains: https://github.com/chef-cookbooks.
+
+The following examples demonstrate various approaches for using resources in recipes:
 
 **Write to an interpolated path**
 

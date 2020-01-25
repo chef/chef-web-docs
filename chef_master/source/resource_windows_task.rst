@@ -3,7 +3,7 @@ windows_task resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_windows_task.rst>`__
 
-Use the **windows_task** resource to create, delete or run a Windows scheduled task. Requires Windows Server 2008 or later due to API usage.
+Use the **windows_task** resource to create, delete or run a Windows scheduled task.
 
 **New in Chef Client 13.0.**
 

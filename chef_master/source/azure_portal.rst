@@ -42,7 +42,7 @@ Once this information has been identified, launch the Azure portal, start the vi
 
    .. note:: The Chef extension on the Azure portal may be used on the following platforms:
 
-      * Windows Server 2008 R2 SP1, 2012, 2012 R2, 2016
+      * Windows Server 2012, 2012 R2, 2016
       * Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 16.10
       * CentOS 6.5+
       * RHEL 6+
