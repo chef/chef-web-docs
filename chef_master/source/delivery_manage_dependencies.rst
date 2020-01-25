@@ -3,6 +3,9 @@ Managing Run-time Dependencies
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_manage_dependencies.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 A run-time dependency in Chef Automate is defined as an API-level dependency between two distinct pieces of software that occurs after both pieces have already compiled and started running. This type of dependency is distinct from compile-time dependencies, which should be handled through other means, such as local build verification tests and through the publish phase. Dependencies are tracked in Chef Automate because it is not safe to deploy a project in an inter-dependent test environment if other related projects are failing.
 
 Declare Dependencies
@@ -62,11 +65,11 @@ To understand how dependency failures can affect a given project (or set of proj
 
 Assume we have some projects with the following dependencies:
 
-   * Projects B and C depend on the same pipeline of project A
-   * D depends on a pipeline of B
-   * E depends on a pipeline of C
-   * F depends on a pipeline of E
-   * and Y depends on a pipeline of X
+* Projects B and C depend on the same pipeline of project A
+* D depends on a pipeline of B
+* E depends on a pipeline of C
+* F depends on a pipeline of E
+* and Y depends on a pipeline of X
 
 Here it is represented graphically:
 

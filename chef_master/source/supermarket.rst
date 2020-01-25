@@ -9,14 +9,14 @@ Chef Supermarket is the site for community cookbooks. It provides an easily sear
 
 There are two ways to use Chef Supermarket:
 
-* The public Chef Supermarket is hosted by Chef and is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
+* The public Chef Supermarket is hosted by Chef Software and is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
 * A private Chef Supermarket may be installed on-premise behind the firewall on the internal network. Cookbook retrieval from a private Chef Supermarket is often faster than from the public Chef Supermarket because of closer proximity and fewer cookbooks to resolve. A private Chef Supermarket can also help formalize internal cookbook release management processes (e.g. "a cookbook is not released until it's published on the private Chef Supermarket").
 
 .. end_tag
 
 Public Supermarket
 =====================================================
-The public Chef Supermarket hosted by Chef is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
+The public Chef Supermarket hosted by Chef Software is located at `Chef Supermarket <https://supermarket.chef.io/>`__.
 
 To interact with the public Chef Supermarket, use `knife supermarket </knife_supermarket.html>`__ commands.
 
@@ -88,7 +88,7 @@ To configure config.rb for the private Chef Supermarket, do the following:
 
 Create a Cookbook
 -----------------------------------------------------
-The following examples show how to create a simple cookbook by using the chef command that is built into the the Chef Development Kit.
+The following examples show how to create a simple cookbook by using the chef command that is built into ChefDK.
 
 **Generate a chef-repo**
 
@@ -193,7 +193,7 @@ If an SSL error is returned similar to:
 
    ERROR: Error uploading cookbook my_cookbook to the Opscode Cookbook Site: SSL_connect returned=1 errno=0 state=SSLv3 read server certificate B: certificate verify failed. Increase log verbosity (-VV) for more information.
 
-this is because Chef server version 12.0 (and higher) enforces SSL by default when sharing cookbooks. A private Chef Supermarket uses self-signed certificates by default. Use the ``knife ssl fetch`` and ``knife ssl check`` commands to resolve this error.
+this is because Chef Server version 12.0 (and higher) enforces SSL by default when sharing cookbooks. A private Chef Supermarket uses self-signed certificates by default. Use the ``knife ssl fetch`` and ``knife ssl check`` commands to resolve this error.
 
 First fetch the SSL certificate for the private Chef Supermarket:
 

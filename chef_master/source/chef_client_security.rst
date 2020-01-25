@@ -1,11 +1,11 @@
 =====================================================
-chef-client Security
+Chef Infra Client Security
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_client_security.rst>`__
 
 .. tag chef_auth
 
-All communication with the Chef server must be authenticated using the Chef server API, which is a REST API that allows requests to be made to the Chef server. Only authenticated requests will be authorized. Most of the time, and especially when using knife, the chef-client, or the Chef server web interface, the use of the Chef server API is transparent. In some cases, the use of the Chef server API requires more detail, such as when making the request in Ruby code, with a knife plugin, or when using cURL.
+All communication with the Chef Infra Server must be authenticated using the Chef Infra Server API, which is a REST API that allows requests to be made to the Chef Infra Server. Only authenticated requests will be authorized. Most of the time, and especially when using knife, Chef Infra Client, or the Chef Infra Server web interface, the use of the Chef Infra Server API is transparent. In some cases, the use of the Chef Infra Server API requires more detail, such as when making the request in Ruby code, with a knife plugin, or when using cURL.
 
 .. end_tag
 
@@ -13,11 +13,11 @@ Authentication
 =====================================================
 .. tag chef_auth_authentication
 
-The authentication process ensures the Chef server responds only to requests made by trusted users. Public key encryption is used by the Chef server. When a node and/or a workstation is configured to run the chef-client, both public and private keys are created. The public key is stored on the Chef server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
+The authentication process ensures the Chef Infra Server responds only to requests made by trusted users. Public key encryption is used by the Chef Infra Server. When a node and/or a workstation is configured to run Chef Infra Client, both public and private keys are created. The public key is stored on the Chef Infra Server, while the private key is returned to the user for safe keeping. (The private key is a .pem file located in the ``.chef`` directory or in ``/etc/chef``.)
 
-Both the chef-client and knife use the Chef server API when communicating with the Chef server. The chef-validator uses the Chef server API, but only during the first chef-client run on a node.
+Both Chef Infra Client and knife use the Chef Infra Server API when communicating with the Chef Infra Server. The chef-validator uses the Chef Infra Server API, but only during the first Chef Infra Client run on a node.
 
-Each request to the Chef server from those executables sign a special group of HTTP headers with the private key. The Chef server then uses the public key to verify the headers and verify the contents.
+Each request to the Chef Infra Server from those executables sign a special group of HTTP headers with the private key. The Chef Infra Server then uses the public key to verify the headers and verify the contents.
 
 .. end_tag
 
@@ -25,35 +25,43 @@ chef-validator
 -----------------------------------------------------
 .. tag security_chef_validator
 
-Every request made by the chef-client to the Chef server must be an authenticated request using the Chef server API and a private key. When the chef-client makes a request to the Chef server, the chef-client authenticates each request using a private key located in ``/etc/chef/client.pem``.
+Every request made by Chef Infra Client to the Chef Infra Server must be an authenticated request using the Chef Infra Server API and a private key. When Chef Infra Client makes a request to the Chef Infra Server, Chef Infra Client authenticates each request using a private key located in ``/etc/chef/client.pem``.
 
 .. end_tag
 
-During a chef-client Run
------------------------------------------------------
-.. tag chef_auth_authentication_chef_run
+.. tag security_chef_validator_context
 
-As part of `every chef-client run </chef_client.html#the-chef-client-run>`_, the chef-client authenticates to the Chef server using an RSA private key and the Chef server API.
+However, during the first Chef Infra Client run, this private key does not exist. Instead, Chef Infra Client attempts to use the private key assigned to the chef-validator, located in ``/etc/chef/validation.pem``. (If, for any reason, the chef-validator is unable to make an authenticated request to the Chef Infra Server, the initial Chef Infra Client run will fail.)
+
+During the initial Chef Infra Client run, Chef Infra Client registers itself with the Chef Infra Server using the private key assigned to the chef-validator, after which Chef Infra Client will obtain a ``client.pem`` private key for all future authentication requests to the Chef Infra Server.
+
+After the initial Chef Infra Client run has completed successfully, the chef-validator is no longer required and may be deleted from the node. Use the ``delete_validation`` recipe found in the ``chef-client`` cookbook (https://github.com/chef-cookbooks/chef-client) to remove the chef-validator.
 
 .. end_tag
+
+During a Chef Infra Client Run
+----------------------------------------------------
+As part of `every Chef Infra Client run </chef_client.html#the-chef-client-run>`_, Chef Infra Client authenticates to the Chef Infra Server using an RSA private key and the Chef Infra Server API.
+
+
 
 authentication_protocol_version
 ----------------------------------------------------
-The ``authentication_protocol_version`` option in the ``client.rb`` file is used to determine the authentication protocol that communicates with Chef server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
+The ``authentication_protocol_version`` option in the ``client.rb`` file is used to determine the authentication protocol that communicates with Chef Infra Server. For example, specify protocol version 1.3 to enable support for SHA-256 algorithms:
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
-      knife[:authentication_protocol_version] = '1.3'
-      
-Note that authentication protocol 1.3 is only supported on Chef server versions 12.4.0 and above.
+   knife[:authentication_protocol_version] = '1.3'
+
+Note that authentication protocol 1.3 is only supported on Chef Server versions 12.4.0 and above.
 
 SSL Certificates
 =====================================================
-.. warning:: The following information does not apply to hosted Chef server 12, only to on-premises Chef server 12.
+.. warning:: The following information does not apply to hosted Chef Server 12, only to on-premises Chef Server 12.
 
 .. tag server_security_ssl_cert_client
 
-Chef server 12 enables SSL verification by default for all requests made to the server, such as those made by knife and the chef-client. The certificate that is generated during the installation of the Chef server is self-signed, which means the certificate is not signed by a trusted certificate authority (CA) that ships with the chef-client. The certificate generated by the Chef server must be downloaded to any machine from which knife and/or the chef-client will make requests to the Chef server.
+Chef Server 12 enables SSL verification by default for all requests made to the server, such as those made by knife and Chef Infra Client. The certificate that is generated during the installation of the Chef Infra Server is self-signed, which means the certificate is not signed by a trusted certificate authority (CA) that ships with Chef Infra Client. The certificate generated by the Chef Infra Server must be downloaded to any machine from which knife and/or Chef Infra Client will make requests to the Chef Infra Server.
 
 For example, without downloading the SSL certificate, the following knife command:
 
@@ -72,58 +80,30 @@ This is by design and will occur until a verifiable certificate is added to the 
 
 .. end_tag
 
-Changes Prior to Chef 12
------------------------------------------------------
-.. tag 12_ssl_changes
-
-The following changes were made during certain chef-client release prior to the chef-client 12 release:
-
-* In the chef-client 11.8 release, the ``verify_api_cert`` setting was added to the client.rb file with a default value of ``false``.
-* In the chef-client 11.12 release, the ``local_key_generation`` setting was added to the client.rb file.
-
-  The ``ssl_verify_mode`` continued to default to ``:verify_none``, but now returned a warning: ``SSL validation of HTTPS requests is disabled...``, followed by steps for how to configure SSL certificate validation for the chef-client.
-
-  Two knife commands---``knife ssl check`` and ``knife ssl fetch`` were added.
-
-  A new directory in the chef-repo---``/.chef/trusted_certs``---was added.
-
-  These new settings and tools enabled users who wanted to use stronger SSL settings to generate the private/public key pair from the chef-client, verify HTTPS requests, verify SSL certificates, and pull the SSL certificate from the Chef server down to the ``/.chef/trusted_certs`` directory.
-* In the chef-client 12 release, the default value for ``local_key_generation`` was changed to ``true`` and the default value for ``ssl_verify_mode`` was changed to ``:verify_peer``.
-
-Starting with chef-client 12, SSL certificate validation is enabled by default and the ``knife ssl fetch`` is a necessary `part of the setup process </install_dk.html#get-ssl-certificates>`__ for every workstation.
-
-.. end_tag
-
 ``/.chef/trusted_certs``
------------------------------------------------------
-.. tag chef_repo_directory_trusted_certs
+----------------------------------------------------
+The ``/.chef/trusted_certs`` directory stores trusted SSL certificates used to access the Chef Infra Server:
 
-The ``/.chef/trusted_certs`` directory stores trusted SSL certificates used to access the Chef server:
+* On each workstation, this directory is the location into which SSL certificates are placed after they are downloaded from the Chef Infra Server using the ``knife ssl fetch`` subcommand
+* On every node, this directory is the location into which SSL certificates are placed when a node has been bootstrapped with Chef Infra Client from a workstation
 
-* On each workstation, this directory is the location into which SSL certificates are placed after they are downloaded from the Chef server using the ``knife ssl fetch`` subcommand
-* On every node, this directory is the location into which SSL certificates are placed when a node has been bootstrapped with the chef-client from a workstation
 
-.. end_tag
 
 SSL_CERT_FILE
------------------------------------------------------
-.. tag environment_variables_ssl_cert_file
+----------------------------------------------------
+Use the ``SSL_CERT_FILE`` environment variable to specify the location for the SSL certificate authority (CA) bundle that is used by Chef Infra Client.
 
-Use the ``SSL_CERT_FILE`` environment variable to specify the location for the SSL certificate authority (CA) bundle that is used by the chef-client.
+A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef Infra will look for SSL certificates are:
 
-A value for ``SSL_CERT_FILE`` is not set by default. Unless updated, the locations in which Chef will look for SSL certificates are:
-
-* chef-client: ``/opt/chef/embedded/ssl/certs/cacert.pem``
-* Chef development kit: ``/opt/chefdk/embedded/ssl/certs/cacert.pem``
+* Chef Infra Client: ``/opt/chef/embedded/ssl/certs/cacert.pem``
+* ChefDK: ``/opt/chefdk/embedded/ssl/certs/cacert.pem``
 
 Keeping the default behavior is recommended. To use a custom CA bundle, update the environment variable to specify the path to the custom CA bundle. If (for some reason) SSL certificate verification stops working, ensure the correct value is specified for ``SSL_CERT_FILE``.
 
-.. end_tag
+
 
 client.rb Settings
------------------------------------------------------
-.. tag chef_client_ssl_config_settings
-
+----------------------------------------------------
 Use following client.rb settings to manage SSL certificate preferences:
 
 .. list-table::
@@ -133,33 +113,33 @@ Use following client.rb settings to manage SSL certificate preferences:
    * - Setting
      - Description
    * - ``local_key_generation``
-     - Whether the Chef server or chef-client generates the private/public key pair. When ``true``, the chef-client generates the key pair, and then sends the public key to the Chef server. Default value: ``true``.
+     - Whether the Chef Infra Server or Chef Infra Client generates the private/public key pair. When ``true``, Chef Infra Client generates the key pair, and then sends the public key to the Chef Infra Server. Default value: ``true``.
    * - ``ssl_ca_file``
-     - The file in which the OpenSSL key is saved. This setting is generated automatically by the chef-client and most users do not need to modify it.
+     - The file in which the OpenSSL key is saved. Chef Infra Client generates this setting automatically and most users do not need to modify it.
    * - ``ssl_ca_path``
-     - The path to where the OpenSSL key is located. This setting is generated automatically by the chef-client and most users do not need to modify it.
+     - The path to where the OpenSSL key is located. Chef Infra Client generates this setting automatically and most users do not need to modify it.
    * - ``ssl_client_cert``
-     - The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef server. Default value: ``nil``.
+     - The OpenSSL X.509 certificate used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: ``nil``.
    * - ``ssl_client_key``
-     - The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef server. Default value: ``nil``.
+     - The OpenSSL X.509 key used for mutual certificate validation. This setting is only necessary when mutual certificate validation is configured on the Chef Infra Server. Default value: ``nil``.
    * - ``ssl_verify_mode``
      - Set the verify mode for HTTPS requests.
 
        * Use ``:verify_none`` to do no validation of SSL certificates.
-       * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in the chef-client run. This is the recommended setting.
+       * Use ``:verify_peer`` to do validation of all SSL certificates, including the Chef Infra Server connections, S3 connections, and any HTTPS **remote_file** resource URLs used in a Chef Infra Client run. This is the recommended setting.
 
        Depending on how OpenSSL is configured, the ``ssl_ca_path`` may need to be specified. Default value: ``:verify_peer``.
    * - ``verify_api_cert``
-     - Verify the SSL certificate on the Chef server. When ``true``, the chef-client always verifies the SSL certificate. When ``false``, the chef-client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
+     - Verify the SSL certificate on the Chef Infra Server. When ``true``, Chef Infra Client always verifies the SSL certificate. When ``false``, Chef Infra Client uses the value of ``ssl_verify_mode`` to determine if the SSL certificate requires verification. Default value: ``false``.
 
-.. end_tag
+
 
 Knife Subcommands
 -----------------------------------------------------
-The chef-client includes two knife commands for managing SSL certificates:
+The Chef Infra Client includes two knife commands for managing SSL certificates:
 
 * Use `knife ssl check </knife_ssl_check.html>`__ to troubleshoot SSL certificate issues
-* Use `knife ssl fetch </knife_ssl_fetch.html>`__ to pull down a certificate from the Chef server to the ``/.chef/trusted_certs`` directory on the workstation.
+* Use `knife ssl fetch </knife_ssl_fetch.html>`__ to pull down a certificate from the Chef Infra Server to the ``/.chef/trusted_certs`` directory on the workstation.
 
 After the workstation has the correct SSL certificate, bootstrap operations from that workstation will use the certificate in the ``/.chef/trusted_certs`` directory during the bootstrap operation.
 
@@ -237,15 +217,15 @@ is similar to:
 
 knife ssl fetch
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-Run the ``knife ssl fetch`` to download the self-signed certificate from the Chef server to the ``/.chef/trusted_certs`` directory on a workstation.
+Run the ``knife ssl fetch`` to download the self-signed certificate from the Chef Infra Server to the ``/.chef/trusted_certs`` directory on a workstation.
 
 **Verify Checksums**
 
 .. tag knife_ssl_fetch_verify_certificate
 
-The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory should be verified to ensure that it is, in fact, the same certificate as the one located on the Chef server. This can be done by comparing the SHA-256 checksums.
+The SSL certificate that is downloaded to the ``/.chef/trusted_certs`` directory should be verified to ensure that it is, in fact, the same certificate as the one located on the Chef Infra Server. This can be done by comparing the SHA-256 checksums.
 
-#. View the checksum on the Chef server:
+#. View the checksum on the Chef Infra Server:
 
    .. code-block:: bash
 

@@ -3,15 +3,11 @@ dnf_package resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_dnf_package.rst>`__
 
-.. tag resource_package_dnf
-
-Use the **dnf_package** resource to install, upgrade, and remove packages with DNF for Fedora platforms. The **dnf_package** resource is able to resolve ``provides`` data for packages much like DNF can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
-
-.. end_tag
+Use the **dnf_package** resource to install, upgrade, and remove packages with DNF for Fedora and RHEL 8+. The **dnf_package** resource is able to resolve ``provides`` data for packages much like DNF can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
 .. note:: .. tag notes_resource_based_on_package
 
-          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, the chef-client will use details that are collected by Ohai at the start of the chef-client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
+          In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
 
           .. end_tag
 
@@ -30,21 +26,21 @@ The full syntax for all of the properties that are available to the **dnf_packag
 .. code-block:: ruby
 
   dnf_package 'name' do
-    arch                         String, Array
-    flush_cache                  Hash # default value: {"before"=>false, "after"=>false}
-    options                      String, Array
-    package_name                 String, Array
-    source                       String
-    timeout                      String, Integer
-    version                      String, Array
-    action                       Symbol # defaults to :install if not specified
+    arch              String, Array
+    flush_cache       Hash # default value: {"before"=>false, "after"=>false}
+    options           String, Array
+    package_name      String, Array
+    source            String
+    timeout           String, Integer
+    version           String, Array
+    action            Symbol # defaults to :install if not specified
   end
 
 where:
 
 * ``dnf_package`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``arch``, ``flush_cache``, ``options``, ``package_name``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
 
 Actions
@@ -61,7 +57,7 @@ The dnf_package resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -92,11 +88,7 @@ The dnf_package resource has the following properties:
 
    Flush the in-memory cache before or after a DNF operation that installs, upgrades, or removes a package. Default value: ``[ :before, :after ]``. The value may also be a Hash: ``( { :before => true/false, :after => true/false } )``.
 
-   .. tag resources_common_package_dnf_cache
-
-   DNF automatically synchronizes remote metadata to a local cache. The chef-client creates a copy of the local cache, and then stores it in-memory during the chef-client run. The in-memory cache allows packages to be installed during the chef-client run without the need to continue synchronizing the remote metadata to the local cache while the chef-client run is in-progress.
-
-   .. end_tag
+   DNF automatically synchronizes remote metadata to a local cache. Chef Infra Client creates a copy of the local cache, and then stores it in-memory during a Chef Infra Client run. The in-memory cache allows packages to be installed during a Chef Infra Client run without the need to continue synchronizing the remote metadata to the local cache while a Chef Infra Client run is in-progress.
 
    As an array:
 
@@ -128,12 +120,12 @@ The dnf_package resource has the following properties:
 ``package_name``
    **Ruby Type:** String, Array
 
-   One of the following: the name of a package, the name of a package and its architecture, the name of a dependency. Default value: the ``name`` of the resource block. See "Syntax" section above for more information.
+   An optional property to set the package name if it differs from the resource block's name.
 
 ``source``
    **Ruby Type:** String
 
-   Optional. The path to a package in the local file system.
+   The optional path to a package on the local file system.
 
 ``timeout``
    **Ruby Type:** String, Integer
@@ -152,7 +144,7 @@ Multiple Packages
 A resource may specify multiple packages and/or versions for platforms that use Yum, DNF, Apt, Zypper, or Chocolatey package managers. Specifying multiple packages and/or versions allows a single transaction to:
 
 * Download the specified packages and versions via a single HTTP transaction
-* Update or install multiple packages with a single resource during the chef-client run
+* Update or install multiple packages with a single resource during a Chef Infra Client run
 
 For example, installing multiple packages:
 
@@ -238,12 +230,13 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -255,13 +248,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -304,13 +297,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -332,17 +325,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -359,19 +355,15 @@ The following examples demonstrate various approaches for using resources in rec
 
 **Install an exact version**
 
-.. tag resource_dnf_package_install_exact_version
-
 .. To install an exact version:
 
 .. code-block:: ruby
 
    dnf_package 'netpbm = 10.35.58-8.el5'
 
-.. end_tag
+
 
 **Install a minimum version**
-
-.. tag resource_dnf_package_install_minimum_version
 
 .. To install a minimum version:
 
@@ -379,11 +371,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    dnf_package 'netpbm >= 10.35.58-8.el5'
 
-.. end_tag
+
 
 **Install a minimum version using the default action**
-
-.. tag resource_dnf_package_install_package_using_default_action
 
 .. To install the same package using the default action:
 
@@ -391,11 +381,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    dnf_package 'netpbm'
 
-.. end_tag
+
 
 **To install a package**
-
-.. tag resource_dnf_package_install_package
 
 .. To install a package:
 
@@ -405,11 +393,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-.. end_tag
+
 
 **To install a partial minimum version**
-
-.. tag resource_dnf_package_install_partial_minimum_version
 
 .. To install a partial minimum version:
 
@@ -417,11 +403,9 @@ The following examples demonstrate various approaches for using resources in rec
 
    dnf_package 'netpbm >= 10'
 
-.. end_tag
+
 
 **To install a specific architecture**
-
-.. tag resource_dnf_package_install_specific_architecture
 
 .. To install a specific architecture:
 
@@ -437,11 +421,9 @@ or:
 
    dnf_package 'netpbm.x86_64'
 
-.. end_tag
+
 
 **To install a specific version-release**
-
-.. tag resource_dnf_package_install_specific_version_release
 
 .. To install a specific version-release:
 
@@ -451,11 +433,9 @@ or:
      version '10.35.58-8.el5'
    end
 
-.. end_tag
+
 
 **To install a specific version (even when older than the current)**
-
-.. tag resource_dnf_package_install_specific_version
 
 .. To install a specific version (even if it is older than the version currently installed):
 
@@ -465,11 +445,9 @@ or:
      version '2011b-1.el5'
    end
 
-.. end_tag
+
 
 **Handle cookbook_file and dnf_package resources in the same recipe**
-
-.. tag resource_dnf_package_handle_cookbook_file_and_dnf_package
 
 .. To handle cookbook_file and dnf_package when both called in the same recipe
 
@@ -487,4 +465,3 @@ When a **cookbook_file** resource and a **dnf_package** resource are both called
      flush_cache [ :before ]
    end
 
-.. end_tag

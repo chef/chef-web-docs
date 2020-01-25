@@ -3,11 +3,7 @@ execute resource
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_execute.rst>`__
 
-.. tag resource_execute_summary
-
 Use the **execute** resource to execute a single command. Commands that are executed with this resource are (by their nature) not idempotent, as they are typically unique to the environment in which they are run. Use ``not_if`` and ``only_if`` to guard this resource for idempotence.
-
-.. end_tag
 
 .. note:: Use the **script** resource to execute a script using a specific interpreter (Ruby, Python, Perl, csh, or Bash).
 
@@ -72,7 +68,7 @@ where:
 
 * ``execute`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``command``, ``creates``, ``cwd``, ``default_env``, ``domain``, ``elevated``, ``environment``, ``group``, ``live_stream``, ``password``, ``returns``, ``sensitive``, ``timeout``, ``umask``, and ``user`` are the properties available to this resource.
 
 Actions
@@ -108,7 +104,6 @@ The execute resource has the following properties:
 
    The current working directory from which the command will be run.
 
-
 ``default_env``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
@@ -143,7 +138,7 @@ The execute resource has the following properties:
 ``live_stream``
    **Ruby Type:** true, false | **Default Value:** ``false``
 
-   Send the output of the command run by this **execute** resource block to the chef-client event stream.
+   Send the output of the command run by this **execute** resource block to Chef Infra Client event stream.
 
 ``password``
    **Ruby Type:** String
@@ -172,7 +167,7 @@ The execute resource has the following properties:
 ``user``
    **Ruby Type:** String, Integer
 
-   The user name of the user identity with which to launch the new process. The user name may optionally be specifed with a domain, i.e. domainuser or user@my.dns.domain.com via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the domain attribute. On Windows only, if this property is specified, the password property must be specified.
+   The user name of the user identity with which to launch the new process. The user name may optionally be specifed with a domain, i.e. domainuser or user@my.dns.domain.com via Universal Principal Name (UPN)format. It can also be specified without a domain simply as user if the domain is instead specified using the domain property. On Windows only, if this property is specified, the password property must be specified.
 
 Common Resource Functionality
 =====================================================
@@ -204,12 +199,13 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
 Notifications
 -----------------------------------------------------
+
 ``notifies``
   **Ruby Type:** Symbol, 'Chef::Resource[String]'
 
@@ -221,13 +217,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -270,13 +266,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -298,17 +294,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -323,8 +322,6 @@ Examples
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Run a command upon notification**
-
-.. tag resource_execute_command_upon_notification
 
 .. To execute a command only upon notification:
 
@@ -341,11 +338,9 @@ The following examples demonstrate various approaches for using resources in rec
      notifies :run, 'execute[slapadd]', :immediately
    end
 
-.. end_tag
+
 
 **Run a touch file only once while running a command**
-
-.. tag resource_execute_command_with_touch_file
 
 .. To execute a command with a touch file running only once:
 
@@ -357,11 +352,9 @@ The following examples demonstrate various approaches for using resources in rec
      action :run
    end
 
-.. end_tag
+
 
 **Run a command which requires an environment variable**
-
-.. tag resource_execute_command_with_variable
 
 .. To execute a command with an environment variable:
 
@@ -374,7 +367,7 @@ The following examples demonstrate various approaches for using resources in rec
      environment ({'HOME' => '/home/myhome'})
    end
 
-.. end_tag
+
 
 **Delete a repository using yum to scrub the cache**
 
@@ -403,7 +396,7 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. tag resource_package_install_yum_repo_from_file
 
-The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for the chef-client to reload:
+The following example shows how to install new Yum repositories from a file, where the installation of the repository triggers a creation of the Yum cache that forces the internal cache for Chef Infra Client to reload:
 
 .. code-block:: ruby
 
@@ -494,7 +487,7 @@ The following example shows how to set up IPv4 packet forwarding using the **exe
      notifies :run, 'execute[forward_ipv4]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[forward_ipv4]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -521,7 +514,7 @@ The following example shows how to add a rule named ``test_rule`` to an IP table
      notifies :run, 'execute[test_rule]', :delayed
    end
 
-where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of the chef-client run.
+where the ``command`` property for the **execute** resource contains the command that is to be run and the ``source`` property for the **template** resource specifies which template to use. The ``notifies`` property for the **template** specifies that the ``execute[test_rule]`` (which is defined by the **execute** resource) should be queued up and run at the end of a Chef Infra Client run.
 
 .. end_tag
 
@@ -698,13 +691,11 @@ where
 
 * the search will use both of the **execute** resources, unless the condition specified by the ``not_if`` commands are met
 * the ``environments`` property in the first **execute** resource is being used to define values that appear as variables in the OpenVPN configuration
-* the **template** resource tells the chef-client which template to use
+* the **template** resource tells Chef Infra Client which template to use
 
 .. end_tag
 
 **Enable remote login for macOS**
-
-.. tag resource_execute_enable_remote_login
 
 .. To enable remote login on macOS:
 
@@ -716,13 +707,13 @@ where
      action :run
    end
 
-.. end_tag
+
 
 **Execute code immediately, based on the template resource**
 
 .. tag resource_template_notifies_run_immediately
 
-By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a chef-client run. To run an action immediately, use ``:immediately``:
+By default, notifications are ``:delayed``, that is they are queued up as they are triggered, and then executed at the very end of a Chef Infra Client run. To run an action immediately, use ``:immediately``:
 
 .. code-block:: ruby
 
@@ -731,7 +722,7 @@ By default, notifications are ``:delayed``, that is they are queued up as they a
      notifies :run, 'execute[test-nagios-config]', :immediately
    end
 
-and then the chef-client would immediately run the following:
+and then Chef Infra Client would immediately run the following:
 
 .. code-block:: ruby
 
@@ -743,8 +734,6 @@ and then the chef-client would immediately run the following:
 .. end_tag
 
 **Sourcing a file**
-
-.. tag resource_execute_source_a_file
 
 The **execute** resource cannot be used to source a file (e.g. ``command 'source filename'``). The following example will fail because ``source`` is not an executable:
 
@@ -762,11 +751,9 @@ Instead, use the **script** resource or one of the **script**-based resources (*
      code 'source /tmp/foo.sh'
    end
 
-.. end_tag
+
 
 **Run a Knife command**
-
-.. tag resource_execute_knife_user_create
 
 .. To create a user with knife user create:
 
@@ -783,11 +770,9 @@ Instead, use the **script** resource or one of the **script**-based resources (*
        EOM
    end
 
-.. end_tag
+
 
 **Run install command into virtual environment**
-
-.. tag resource_execute_install_q
 
 The following example shows how to install a lightweight JavaScript framework into Vagrant:
 
@@ -801,13 +786,11 @@ The following example shows how to install a lightweight JavaScript framework in
      action :run
    end
 
-.. end_tag
+
 
 **Run a command as a named user**
 
-.. tag resource_execute_bundle_install
-
-The following example shows how to run ``bundle install`` from a chef-client run as a specific user. This will put the gem into the path of the user (``vagrant``) instead of the root user (under which the chef-client runs):
+The following example shows how to run ``bundle install`` from a Chef Infra Client run as a specific user. This will put the gem into the path of the user (``vagrant``) instead of the root user (under which the Chef Infra Client runs):
 
 .. code-block:: ruby
 
@@ -821,11 +804,9 @@ The following example shows how to run ``bundle install`` from a chef-client run
      not_if 'bundle check'
    end
 
-.. end_tag
+
 
 **Run a command as an alternate user**
-
-.. tag resource_execute_alternate_user
 
 *Note*: When Chef is running as a service, this feature requires that the user that Chef runs as has 'SeAssignPrimaryTokenPrivilege' (aka 'SE_ASSIGNPRIMARYTOKEN_NAME') user right. By default only LocalSystem and NetworkService have this right when running as a service. This is necessary even if the user is an Administrator.
 
@@ -839,7 +820,7 @@ This right can be added and checked in a recipe using this example:
     # Check if the user has 'SeAssignPrimaryTokenPrivilege' rights
     Chef::ReservedNames::Win32::Security.get_account_right('<user>').include?('SeAssignPrimaryTokenPrivilege')
 
-The following example shows how to run ``mkdir test_dir`` from a chef-client run as an alternate user.
+The following example shows how to run ``mkdir test_dir`` from a Chef Infra Client run as an alternate user.
 
 .. code-block:: ruby
 
@@ -872,4 +853,3 @@ The following example shows how to run ``mkdir test_dir`` from a chef-client run
     password "password"
    end
 
-.. end_tag

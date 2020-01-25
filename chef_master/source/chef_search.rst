@@ -5,15 +5,15 @@ About Search
 
 .. tag search
 
-Search indexes allow queries to be made for any type of data that is indexed by the Chef server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef server API. The search engine is based on Apache Solr and is run from the Chef server.
+Search indexes allow queries to be made for any type of data that is indexed by the Chef Infra Server, including data bags (and data bag items), environments, nodes, and roles. A defined query syntax is used to support search patterns like exact, wildcard, range, and fuzzy. A search is a full-text query that can be done from several locations, including from within a recipe, by using the ``search`` subcommand in knife, the ``search`` method in the Recipe DSL, the search box in the Chef management console, and by using the ``/search`` or ``/search/INDEX`` endpoints in the Chef Infra Server API. The search engine is based on Apache Solr and is run from the Chef Infra Server.
 
 .. end_tag
 
-Many of the examples in this section use knife, but the search indexes and search query syntax can be used in many locations, including from within recipes and when using the Chef server API.
+Many of the examples in this section use knife, but the search indexes and search query syntax can be used in many locations, including from within recipes and when using the Chef Infra Server API.
 
 Search Indexes
 =====================================================
-A search index is a full-text list of objects that are stored on the Chef server, against which search queries can be made. The following search indexes are built:
+A search index is a full-text list of objects that are stored on the Chef Infra Server, against which search queries can be made. The following search indexes are built:
 
 .. list-table::
    :widths: 200 300
@@ -24,11 +24,11 @@ A search index is a full-text list of objects that are stored on the Chef server
    * - ``client``
      - API client
    * - ``DATA_BAG_NAME``
-     - A data bag is a global variable that is stored as JSON data and is accessible from a Chef server. The name of the search index is the name of the data bag. For example, if the name of the data bag was "admins" then a corresponding search query might look something like ``search(:admins, "*:*")``.
+     - A data bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server. The name of the search index is the name of the data bag. For example, if the name of the data bag was "admins" then a corresponding search query might look something like ``search(:admins, "*:*")``.
    * - ``environment``
-     - An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef server.
+     - An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server.
    * - ``node``
-     - A node is any server or virtual server that is configured to be maintained by a chef-client.
+     - A node is any server or virtual server that is configured to be maintained by a Chef Infra Client.
    * - ``role``
      - A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function.
 
@@ -36,7 +36,7 @@ Using Knife
 -----------------------------------------------------
 .. tag knife_search_summary
 
-Use the ``knife search`` subcommand to run a search query for information that is indexed on a Chef server.
+Use the ``knife search`` subcommand to run a search query for information that is indexed on a Chef Infra Server.
 
 .. end_tag
 
@@ -210,7 +210,7 @@ A search query is comprised of two parts: the key and the search pattern. A sear
 
    key:search_pattern
 
-where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
+where ``key`` is a field name that is found in the JSON description of an indexable object on the Chef Infra Server (a role, node, client, environment, or data bag) and ``search_pattern`` defines what will be searched for, using one of the following search patterns: exact, wildcard, range, or fuzzy matching. Both ``key`` and ``search_pattern`` are case-sensitive; ``key`` has limited support for multiple character wildcard matching using an asterisk ("*") (and as long as it is not the first character).
 
 .. end_tag
 
@@ -239,7 +239,7 @@ The syntax for the ``search`` method that uses ``:filter_result`` is as follows:
 
 where:
 
-* ``:index`` is of name of the index on the Chef server against which the search query will run: ``:client``, ``:data_bag_name``, ``:environment``, ``:node``, and ``:role``
+* ``:index`` is of name of the index on the Chef Infra Server against which the search query will run: ``:client``, ``:data_bag_name``, ``:environment``, ``:node``, and ``:role``
 * ``'query'`` is a valid search query against an object on the Chef server
 * ``:filter_result`` defines a Hash of values to be returned
 
@@ -264,7 +264,7 @@ Keys
 =====================================================
 .. tag search_key
 
-A field name/description pair is available in the JSON object. Use the field name when searching for this information in the JSON object. Any field that exists in any JSON description for any role, node, chef-client, environment, or data bag can be searched.
+A field name/description pair is available in the JSON object. Use the field name when searching for this information in the JSON object. Any field that exists in any JSON description for any role, node, Chef Infra Client, environment, or data bag can be searched.
 
 .. end_tag
 
@@ -272,7 +272,7 @@ Nested Fields
 -----------------------------------------------------
 .. tag search_key_nested
 
-A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, the chef-client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
+A nested field appears deeper in the JSON data structure. For example, information about a network interface might be several layers deep: ``node[:network][:interfaces][:en1]``. When nested fields are present in a JSON structure, Chef Infra Client will extract those nested fields to the top-level, flattening them into compound fields that support wildcard search patterns.
 
 By combining wildcards with range-matching patterns and wildcard queries, it is possible to perform very powerful searches, such as using the vendor part of the MAC address to find every node that has a network card made by the specified vendor.
 
@@ -332,7 +332,7 @@ Consider the following snippet of JSON data:
          },
      //snipped...
 
-Before this data is indexed on the Chef server, the nested fields are extracted into the top level, similar to:
+Before this data is indexed on the Chef Infra Server, the nested fields are extracted into the top level, similar to:
 
 .. code-block:: none
 
@@ -457,7 +457,7 @@ Patterns
 =====================================================
 .. tag search_pattern
 
-A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query. There are four types of search patterns that can be used when searching the search indexes on the Chef server: exact, wildcard, range, and fuzzy.
+A search pattern is a way to fine-tune search results by returning anything that matches some type of incomplete search query. There are four types of search patterns that can be used when searching the search indexes on the Chef Infra Server: exact, wildcard, range, and fuzzy.
 
 .. end_tag
 
@@ -734,24 +734,24 @@ to return something like:
 
    2 items found
 
-   Node Name:   windows-server-2008r2.domain.com
+   Node Name:   windows-server-2012r2.domain.com
    Environment: _default
-   FQDN:        windows-server-2008r2
+   FQDN:        windows-server-2012r2
    IP:          0000::0000:0000:0000:0000
    Run List:    role[jenkins-windows]
    Roles:       jenkins-windows, jenkins
    Recipes:     jenkins-client::windows, jenkins::node_windows
-   Platform:    windows 6.1.7601
+   Platform:    windows 6.3.9600
    Tags:
 
-   Node Name:   123-windows-2008r2-amd64-builder
+   Node Name:   123-windows-2012r2-amd64-builder
    Environment: _default
    FQDN:        ABC-1234567890AB
    IP:          123.45.6.78
-   Run List:    role[123-windows-2008r2-amd64-builder]
-   Roles:       123-windows-2008r2-amd64-builder, jenkins
+   Run List:    role[123-windows-2012r2-amd64-builder]
+   Roles:       123-windows-2012r2-amd64-builder, jenkins
    Recipes:     jenkins::node_windows, git_windows
-   Platform:    windows 6.1.7601
+   Platform:    windows 6.3.9600
    Tags:
 
 .. end_tag
@@ -852,13 +852,13 @@ For example:
 
 Targets
 =====================================================
-A search target is any object that has been indexed on the Chef server, including roles (and run-lists), nodes, environments, data bags, and any API client.
+A search target is any object that has been indexed on the Chef Infra Server, including roles (and run-lists), nodes, environments, data bags, and any API client.
 
 Roles in Run-lists
 -----------------------------------------------------
 A search query can be made for roles that are at the top-level of a run-list and also for a role that is part of an expanded run-list.
 
-.. note:: The ``roles`` field is updated each time the chef-client is run; changes to a run-list will not affect ``roles`` until the next time the chef-client is run on the node.
+.. note:: The ``roles`` field is updated with each Chef Infra Client run; changes to a run-list will not affect ``roles`` until the next Chef Infra Client run on the node.
 
 .. list-table::
    :widths: 200 300
@@ -913,9 +913,9 @@ A node can be searched from a recipe by using the following syntax:
 
 A wildcard can be used to replace characters within the search query.
 
-Expanded lists of roles (all of the roles that apply to a node, including nested roles) and recipes to the role and recipe attributes on a node are saved on the Chef server. The expanded lists of roles allows for searching within nodes that run a given recipe, even if that recipe is included by a role.
+Expanded lists of roles (all of the roles that apply to a node, including nested roles) and recipes to the role and recipe attributes on a node are saved on the Chef Infra Server. The expanded lists of roles allows for searching within nodes that run a given recipe, even if that recipe is included by a role.
 
-.. note:: The ``recipes`` field is updated each time the chef-client is run; changes to a run-list will not affect ``recipes`` until the next time the chef-client is run on the node.
+.. note:: The ``recipes`` field is with each Chef Infra Client run; changes to a run-list will not affect ``recipes`` until the next Chef Infra Client run on the node.
 
 .. list-table::
    :widths: 200 300
@@ -956,7 +956,7 @@ If you just want to use each result of the search and don't care about the aggre
 
 API Clients
 -----------------------------------------------------
-An API client is any machine that has permission to use the Chef server API to communicate with the Chef server. An API client is typically a node (on which the chef-client runs) or a workstation (on which knife runs), but can also be any other machine configured to use the Chef server API.
+An API client is any machine that has permission to use the Chef Infra Server API to communicate with the Chef Infra Server. An API client is typically a node (that runs Chef Infra Client) or a workstation (that runs knife), but can also be any other machine configured to use the Chef Infra Server API.
 
 Sometimes when a role isn't fully defined (or implemented), it may be necessary for a machine to connect to a database, search engine, or some other service within an environment by using the settings located on another machine, such as a host name, IP address, or private IP address. The following example shows a simplified settings file:
 
@@ -987,7 +987,7 @@ Environments
 -----------------------------------------------------
 .. tag environment
 
-An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef server. Every organization begins with a single environment called the ``_default`` environment, which cannot be modified (or deleted). Additional environments can be created to reflect each organization's patterns and workflow. For example, creating ``production``, ``staging``, ``testing``, and ``development`` environments. Generally, an environment is also associated with one (or more) cookbook versions.
+An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra. This mapping is accomplished by setting attributes and pinning cookbooks at the environment level. With environments, you can change cookbook configurations depending on the system's designation. For example, by designating different staging and production environments, you can then define the correct URL of a database server for each environment. Environments also allow organizations to move new cookbook releases from staging to production with confidence by stepping releases through testing environments before entering production.
 
 .. end_tag
 

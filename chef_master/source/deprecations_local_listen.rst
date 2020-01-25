@@ -3,6 +3,9 @@ Deprecation: Local Mode Listen (CHEF-18)
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_local_listen.rst>`__
 
+.. meta:: 
+    :robots: noindex
+
 When using `chef-client` Local Mode, there are two ways to launch the internal
 Chef Zero server. Originally we launched it as a normal network service on
 localhost and then connected to it as per normal. Unfortunately this meant that

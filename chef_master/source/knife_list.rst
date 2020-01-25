@@ -5,7 +5,7 @@ knife list
 
 .. tag knife_list_summary
 
-Use the ``knife list`` subcommand to view a list of objects on the Chef server. This subcommand works similar to ``knife cookbook list``, ``knife data bag list``, ``knife environment list``, ``knife node list``, and ``knife role list``, but with a single verb (and a single action).
+Use the ``knife list`` subcommand to view a list of objects on the Chef Infra Server. This subcommand works similar to ``knife cookbook list``, ``knife data bag list``, ``knife environment list``, ``knife node list``, and ``knife role list``, but with a single verb (and a single action).
 
 .. end_tag
 
@@ -66,7 +66,7 @@ The following examples show how to use this knife subcommand:
 
 **List roles**
 
-For example, to view a list of roles on the Chef server:
+For example, to view a list of roles on the Chef Infra Server:
 
 .. code-block:: bash
 
@@ -74,7 +74,7 @@ For example, to view a list of roles on the Chef server:
 
 **List roles and environments**
 
-To view a list of roles and environments on the Chef server:
+To view a list of roles and environments on the Chef Infra Server:
 
 .. code-block:: bash
 
@@ -82,7 +82,7 @@ To view a list of roles and environments on the Chef server:
 
 **List everything**
 
-To view a list of absolutely everything on the Chef server:
+To view a list of absolutely everything on the Chef Infra Server:
 
 .. code-block:: bash
 

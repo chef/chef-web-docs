@@ -5,14 +5,14 @@ knife supermarket
 
 The ``knife supermarket`` subcommand is used to interact with cookbooks that are located in on the public Supermarket as well as private Chef Supermarket sites. A user account is required for any community actions that write data to the Chef Supermarket; however, the following arguments do not require a user account: ``download``, ``search``, ``install``, and ``list``.
 
-.. note:: If you are interested in uploading to the supermarket as a company you might be interested
+.. note:: If you are interested in uploading to the Supermarket as a company you might be interested
           in looking at the `Chef Partner Cookbook Program <https://www.chef.io/partners/cookbooks/>`__
           which can help validate and verify your company cookbook. A selection of Certified Partner Cookbooks can
           be found `here <https://supermarket.chef.io/cookbooks?utf8=✓&q=&badges%5B%5D=partner&platforms%5B%5D=>`__.
 
 .. note:: .. tag notes_knife_cookbook_site_use_devkit_berkshelf
 
-          Please consider managing community cookbooks using the version of Berkshelf that ships with the Chef Development Kit. For more information about the Chef Development Kit, see `About ChefDK </about_chefdk.html>`__.
+          Please consider managing community cookbooks using the version of Berkshelf that ships with ChefDK. For more information about ChefDK, see `About ChefDK </about_chefdk.html>`__.
 
           .. end_tag
 
@@ -66,11 +66,11 @@ install
 =====================================================
 Use the ``install`` argument to install a cookbook that has been downloaded from Chef Supermarket to a local git repository . This action uses the git version control system in conjunction with Chef Supermarket site to install community-contributed cookbooks to the local chef-repo. Using this argument does the following:
 
-  #. A new "pristine copy" branch is created in git for tracking the upstream.
-  #. All existing versions of a cookbook are removed from the branch.
-  #. The cookbook is downloaded from Chef Supermarket in the tar.gz format.
-  #. The downloaded cookbook is untarred and its contents are committed to git and a tag is created.
-  #. The "pristine copy" branch is merged into the master branch.
+#. A new "pristine copy" branch is created in git for tracking the upstream.
+#. All existing versions of a cookbook are removed from the branch.
+#. The cookbook is downloaded from Chef Supermarket in the tar.gz format.
+#. The downloaded cookbook is untarred and its contents are committed to git and a tag is created.
+#. The "pristine copy" branch is merged into the master branch.
 
 This process allows the upstream cookbook in the master branch to be modified while letting git maintain changes as a separate patch. When an updated upstream version becomes available, those changes can be merged while maintaining any local modifications.
 
@@ -384,7 +384,6 @@ where ``mysql`` is the cookbook and ``8.5.1`` is the cookbook version. This will
       centos:       >= 6.0
       debian:       >= 7.0
       fedora:       >= 0.0.0
-      opensuse:     >= 13.0
       opensuseleap: >= 0.0.0
       oracle:       >= 6.0
       redhat:       >= 6.0

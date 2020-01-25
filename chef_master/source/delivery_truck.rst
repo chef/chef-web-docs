@@ -3,6 +3,9 @@ About the delivery-truck Cookbook
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_truck.rst>`__
 
+.. meta:: 
+    :robots: noindex 
+
 .. tag delivery_cookbook_delivery_truck
 
 ``delivery-truck`` is a cookbook for Chef Automate that should be a dependency of every recipe in a ``build-cookbook``, which is effectively a project-specific wrapper cookbook for the ``delivery-truck`` cookbook. The ``delivery-truck`` cookbook defines a set of recipes that correspond to the phases and stages in the Chef Automate pipeline and help ensure good default ``build-cookbook`` behavior. Chef recommends including the ``delivery-truck`` cookbook in all recipes in a ``build-cookbook``.
@@ -18,7 +21,7 @@ The following recipes are available by default in the ``delivery-truck`` cookboo
 ``default.rb``
    .. tag delivery_cookbook_common_recipe_default
 
-   Use the ``default.rb`` recipe to configure a project on a build node. This recipe is run by the chef-client as the root user and is a standard default recipe, i.e. the chef-client may use this recipe to configure this project on any node, whether or not it's part of a Chef Automate pipeline.
+   Use the ``default.rb`` recipe to configure a project on a build node. This recipe is run by Chef Infra Client as the root user and is a standard default recipe, i.e. Chef Infra Client may use this recipe to configure this project on any node, whether or not it's part of a Chef Automate pipeline.
 
    .. end_tag
 
@@ -186,11 +189,11 @@ Project Cookbooks
 =====================================================
 A project cookbook is a cookbook that is located within a project and is used to deploy that project's software onto one (or more) nodes in the Chef Automate pipeline. These cookbooks are located in the ``/cookbooks`` directory, which should exist at the root of the project (similar to the ``.delivery`` directory).
 
-The ``default.rb`` recipe in a project cookbook is executed by the chef-client on infrastructure nodes as the project moves through the Chef Automate pipeline. The ``provision.rb`` recipe discovers all ``metadata.rb`` and/or ``metadata.json`` files in the project, including those under the ``/cookbooks`` directory.
+The ``default.rb`` recipe in a project cookbook is executed by Chef Infra Client on infrastructure nodes as the project moves through the Chef Automate pipeline. The ``provision.rb`` recipe discovers all ``metadata.rb`` and/or ``metadata.json`` files in the project, including those under the ``/cookbooks`` directory.
 
 Single Cookbook
 -----------------------------------------------------
-A project may use a single cookbook to tell the chef-client how to configure nodes in the Chef Automate pipeline.
+A project may use a single cookbook to tell Chef Infra Client how to configure nodes in the Chef Automate pipeline.
 
 Add Project Cookbook
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -224,7 +227,7 @@ Create a project cookbook. From the project's root directory, do the following:
 
 Configure default.rb
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
-In the ``default.rb`` recipe, define how this project is to be deployed. This is a normal Chef recipe that is executed by the chef-client, so do the same in this recipe as you would do in any other.
+In the ``default.rb`` recipe, define how this project is to be deployed. This is a normal Chef recipe that is executed by Chef Infra Client, so do the same in this recipe as you would do in any other.
 
 Promote the Project
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -302,7 +305,7 @@ Some projects need more than one project cookbook. Put as many cookbooks as nece
 
 Each cookbook under the ``/cookbooks`` directory must have a valid cookbook structure. If the cookbook does not have a ``metadata.rb`` or ``metadata.json`` file it will not be discovered by the ``provision.rb`` recipe; consequently, that cookbook will not be used to configure nodes in the Chef Automate pipeline.
 
-The ``default.rb`` recipes in all project cookbooks are executed by the chef-client on infrastructure nodes as the project moves through the Chef Automate pipeline. The ``default.rb`` recipe in the ``build-cookbook`` is run first, and then each ``default.rb`` recipe in each cookbook under ``/cookbooks`` is run (in alphabetical order, by cookbook name).
+The ``default.rb`` recipes in all project cookbooks are executed by Chef Infra Client on infrastructure nodes as the project moves through the Chef Automate pipeline. The ``default.rb`` recipe in the ``build-cookbook`` is run first, and then each ``default.rb`` recipe in each cookbook under ``/cookbooks`` is run (in alphabetical order, by cookbook name).
 
 Project Applications
 =====================================================
@@ -310,7 +313,7 @@ A project may be a binary, a package, or some other set of arbitrary information
 
 Configure Project Application
 -----------------------------------------------------
-Project applications are defined in the ``publish.rb`` recipe in a ``build-cookbook`` using the ``define_project_application`` helper method, and then in the ``deploy.rb`` recipe using the ``get_project_application`` method. The publish phase happens at the end of the build stage. It is at this point where the project application version is pinned, uploaded to the Chef server as a data bag item, and then used through the remaining stages.
+Project applications are defined in the ``publish.rb`` recipe in a ``build-cookbook`` using the ``define_project_application`` helper method, and then in the ``deploy.rb`` recipe using the ``get_project_application`` method. The publish phase happens at the end of the build stage. It is at this point where the project application version is pinned, uploaded to the Chef Infra Server as a data bag item, and then used through the remaining stages.
 
 .. note:: The ``define_project_application`` helper method is available from the ``delivery-sugar`` cookbook, which is a dependency of the ``delivery-truck`` cookbook. This helper is available when the ``publish.rb`` recipe has ``include_recipe 'delivery-truck::publish'`` defined.
 
@@ -456,7 +459,7 @@ The following example shows how to create a cookbook, with project and pipeline,
 
       $ cd NEW-COOKBOOK-NAME
 
-   This uses the Chef development kit to generate a new cookbook, including a default recipe and default ChefSpec tests.
+   This uses ChefDK to generate a new cookbook, including a default recipe and default ChefSpec tests.
 
 #. Create an initial commit (use ``git status`` to verify the change) on the "master" branch:
 
@@ -495,14 +498,14 @@ Prerequisites
 -----------------------------------------------------
 
 * Ensure you have a private Supermarket installed, setup, and running. See `Install Private Supermarket </install_supermarket.html>`__ for more information.
-* Ensure you have a Chef server with the Chef Identity authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node/runner installed, setup, and running. See `Install Chef Automate </install_chef_automate.html>`__ and `Chef Identity </install_supermarket.html#chef-identity.html>`__ for more information.
+* Ensure you have a Chef Infra Server with the Chef Identity authentication/authorization service configured, a Chef Automate server setup that references your private Supermarket, and at least one Chef Automate build node/runner installed, setup, and running. See `Install Chef Automate </install_chef_automate.html>`__ and `Chef Identity </install_supermarket.html#chef-identity.html>`__ for more information.
 * Ensure you have created a project in Chef Automate. Follow these instructions to `Set Up Projects </delivery_build_cookbook.html#set-up-projects>`__.
 * Ensure you have `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ installed on your `workstation </workstation.html>`__.
 
 Share cookbooks with your private Supermarket
 -----------------------------------------------------
 
-To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first share them with a private Supermarket that is authenticated with your Chef server.
+To use ``delivery-truck`` and its dependency, ``delivery-sugar``, you must first share them with a private Supermarket that is authenticated with your Chef Infra Server.
 
 #. From a workstation, create a cookbooks directory, ``$COOKBOOKS_DIR``:
 

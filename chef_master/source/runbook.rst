@@ -5,17 +5,17 @@ Runbook
 
 .. tag chef_server
 
-The Chef server acts as a hub for configuration data. The Chef server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by the chef-client. Nodes use the chef-client to ask the Chef server for configuration details, such as recipes, templates, and file distributions. The chef-client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef server). This scalable approach distributes the configuration effort throughout the organization.
+The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions. Chef Infra Client then does as much of the configuration work as possible on the nodes themselves (and not on the Chef Infra Server). This scalable approach distributes the configuration effort throughout the organization.
 
 .. end_tag
 
 .. tag chef_server_component_erchef_background
 
-The front-end for the Chef server is written using `Erlang <http://www.erlang.org/>`_, which is a programming language that `first appeared in 1986 <http://en.wikipedia.org/wiki/Erlang_%28programming_language%29>`_, was open sourced in 1998, and is excellent with critical enterprise concerns like concurrency, fault-tolerance, and distributed environments. The Chef server can scale to the size of any enterprise and is sometimes referred to as Erchef.
+The front-end for the Chef Infra Server is written using `Erlang <http://www.erlang.org/>`_, which is a programming language that `first appeared in 1986 <http://en.wikipedia.org/wiki/Erlang_%28programming_language%29>`_, was open sourced in 1998, and is excellent with critical enterprise concerns like concurrency, fault-tolerance, and distributed environments. The Chef Infra Server can scale to the size of any enterprise and is sometimes referred to as Erchef.
 
 .. end_tag
 
-The following diagram shows the various components that are part of a Chef server deployment and how they relate to one another.
+The following diagram shows the various components that are part of a Chef Infra Server deployment and how they relate to one another.
 
 .. image:: ../../images/server_components.svg
    :width: 500px
@@ -29,7 +29,7 @@ The following diagram shows the various components that are part of a Chef serve
    * - Bookshelf
      - .. tag chef_server_component_bookshelf
 
-       Bookshelf is used to store cookbook content---files, templates, and so on---that have been uploaded to the Chef server as part of a cookbook version. Cookbook content is stored by content checksum. If two different cookbooks or different versions of the same cookbook include the same file or template, Bookshelf will store that file only once. The cookbook content managed by Bookshelf is stored in flat files and is separated from the Chef server and search index repositories.
+       Bookshelf is used to store cookbook content---files, templates, and so on---that have been uploaded to the Chef Infra Server as part of a cookbook version. Cookbook content is stored by content checksum. If two different cookbooks or different versions of the same cookbook include the same file or template, Bookshelf will store that file only once. The cookbook content managed by Bookshelf is stored in flat files and is separated from the Chef Infra Server and search index repositories.
 
        .. end_tag
 
@@ -38,9 +38,9 @@ The following diagram shows the various components that are part of a Chef serve
    * - Erchef
      - .. tag chef_server_component_erchef
 
-       Erchef is a complete rewrite of the core API for the Chef server, which allows it to be faster and more scalable than previous versions. The API itself is still compatible with the original Ruby-based Chef server, which means that cookbooks and recipes that were authored for the Ruby-based Chef server will continue to work on the Erlang-based Chef server. The chef-client is still written in Ruby.
+       Erchef is a complete rewrite of the core API for the Chef Infra Server, which allows it to be faster and more scalable than previous versions. The API itself is still compatible with the original Ruby-based Chef Infra Server, which means that cookbooks and recipes that were authored for the Ruby-based Chef Infra Server will continue to work on the Erlang-based Chef Infra Server. Chef Infra Client is still written in Ruby.
 
-       .. note:: Even though the Chef server is authored in Erlang, writing code in Erlang is NOT a requirement for using Chef.
+       .. note:: Even though the Chef Infra Server is authored in Erlang, writing code in Erlang is NOT a requirement for using Chef.
 
        .. end_tag
 
@@ -49,7 +49,7 @@ The following diagram shows the various components that are part of a Chef serve
 
           #. .. tag chef_server_component_rabbitmq
 
-             RabbitMQ is used as the message queue for the Chef server. All items that will be added to the search index repository are first added to a queue.
+             RabbitMQ is used as the message queue for the Chef Infra Server. All items that will be added to the search index repository are first added to a queue.
 
              .. end_tag
 
@@ -69,14 +69,14 @@ The following diagram shows the various components that are part of a Chef serve
    * - Nginx
      - .. tag chef_server_component_nginx
 
-       Nginx is an open-source HTTP and reverse proxy server that is used as the front-end load balancer for the Chef server. All requests to the Chef server API are routed through Nginx.
+       Nginx is an open-source HTTP and reverse proxy server that is used as the front-end load balancer for the Chef Infra Server. All requests to the Chef Infra Server API are routed through Nginx.
 
        .. end_tag
 
    * - PostgreSQL
      - .. tag chef_server_component_postgresql
 
-       PostgreSQL is the data storage repository for the Chef server.
+       PostgreSQL is the data storage repository for the Chef Infra Server.
 
        .. end_tag
 

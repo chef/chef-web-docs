@@ -17,7 +17,7 @@ A cookbook is the fundamental unit of configuration and policy distribution. A c
 
 .. tag knife_cookbook_summary
 
-Use the ``knife cookbook`` subcommand to interact with cookbooks that are located on the Chef server or the local chef-repo.
+Use the ``knife cookbook`` subcommand to interact with cookbooks that are located on the Chef Infra Server or the local chef-repo.
 
 .. end_tag
 
@@ -44,7 +44,7 @@ Options
 This argument has the following options:
 
 ``-p``, ``--purge``
-   Entirely remove a cookbook (or cookbook version) from the Chef server. Use this action carefully because only one copy of any single file is stored on the Chef server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
+   Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -70,7 +70,7 @@ create
 
 .. note:: .. tag ruby_style_patterns_hyphens
 
-          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. The chef-client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
+          Cookbook and custom resource names should contain only alphanumeric characters. A hyphen (``-``) is a valid character and may be used in cookbook and custom resource names, but it is discouraged. Chef Infra Client will return an error if a hyphen is not converted to an underscore (``_``) when referencing from a recipe the name of a custom resource in which a hyphen is located.
 
           .. end_tag
 
@@ -129,7 +129,7 @@ to return something like:
 
 delete
 =====================================================
-Use the ``delete`` argument to delete a specified cookbook or cookbook version on the Chef server (and not locally).
+Use the ``delete`` argument to delete a specified cookbook or cookbook version on the Chef Infra Server (and not locally).
 
 Syntax
 -----------------------------------------------------
@@ -150,7 +150,7 @@ This argument has the following options:
    The version of a cookbook to be deleted. If a cookbook has only one version, this option does not need to be specified. If a cookbook has more than one version and this option is not specified, knife  prompts for a version.
 
 ``-p``, ``--purge``
-   Entirely remove a cookbook (or cookbook version) from the Chef server. Use this action carefully because only one copy of any single file is stored on the Chef server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
+   Entirely remove a cookbook (or cookbook version) from the Chef Infra Server. Use this action carefully because only one copy of any single file is stored on the Chef Infra Server. Consequently, purging a cookbook disables any other cookbook that references one or more files from the cookbook that has been purged.
 
 .. note:: .. tag knife_common_see_all_config_options
 
@@ -180,7 +180,7 @@ Type ``Y`` to confirm a deletion.
 
 download
 =====================================================
-Use the ``download`` argument to download a cookbook from the Chef server to the current working directory.
+Use the ``download`` argument to download a cookbook from the Chef Infra Server to the current working directory.
 
 Syntax
 -----------------------------------------------------
@@ -223,7 +223,7 @@ To download a cookbook named ``smartmon``, enter:
 
 list
 =====================================================
-Use the ``list`` argument to view a list of cookbooks that are currently available on the Chef server. The list will contain only the most recent version for each cookbook by default.
+Use the ``list`` argument to view a list of cookbooks that are currently available on the Chef Infra Server. The list will contain only the most recent version for each cookbook by default.
 
 Syntax
 -----------------------------------------------------
@@ -488,11 +488,11 @@ The following examples show how to use this knife subcommand:
 
 upload
 =====================================================
-Use the ``upload`` argument to upload one or more cookbooks (and any files that are associated with those cookbooks) from a local repository to the Chef server. Only files that do not already exist on the Chef server will be uploaded.
+Use the ``upload`` argument to upload one or more cookbooks (and any files that are associated with those cookbooks) from a local repository to the Chef Infra Server. Only files that do not already exist on the Chef Infra Server will be uploaded.
 
 .. note:: Use a chefignore file to prevent the upload of specific files and file types, such as temporary files or files placed in folders by version control systems. The chefignore file must be located in the root of the cookbook repository and must use rules similar to filename globbing (as defined by the Ruby ``File.fnmatch`` syntax).
 
-.. note:: Empty directories are not uploaded to the Chef server. To upload an empty directory, create a "dot" file---e.g. ``.keep``---in that directory to ensure that the directory itself is not empty.
+.. note:: Empty directories are not uploaded to the Chef Infra Server. To upload an empty directory, create a "dot" file---e.g. ``.keep``---in that directory to ensure that the directory itself is not empty.
 
 Syntax
 -----------------------------------------------------

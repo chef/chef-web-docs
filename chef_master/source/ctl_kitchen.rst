@@ -5,13 +5,13 @@ kitchen (executable)
 
 .. tag ctl_kitchen_summary
 
-kitchen is the command-line tool for Kitchen, an integration testing tool used by the chef-client. Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
+kitchen is the command-line tool for Test Kitchen, an integration testing tool maintained by Chef Software. Test Kitchen runs tests against any combination of platforms using any combination of test suites. Each test, however, is done against a specific instance, which is comprised of a single platform and a single set of testing criteria. This allows each test to be run in isolation, ensuring that different behaviors within the same codebase can be tested thoroughly before those changes are committed to production.
 
-.. note:: Any Kitchen subcommand that does not specify an instance will be applied to all instances.
+.. note:: Any Test Kitchen subcommand that does not specify an instance will be applied to all instances.
 
 .. end_tag
 
-.. note:: This topic details functionality that is packaged with Chef development kit. See https://kitchen.ci/docs/getting-started/ for more information about Kitchen.
+.. note:: This topic details functionality that is packaged with Chef Workstation. See https://kitchen.ci/docs/getting-started/ for more information about Test Kitchen.
 
 Fuzzy Matching
 =====================================================
@@ -19,13 +19,13 @@ Fuzzy matching can be used with all commands because kitchen uses regular expres
 
 .. code-block:: bash
 
-   $ kitchen list default-ubuntu-1404 --bare
+   $ kitchen list client-ubuntu-1804 --bare
 
 will return something similar to:
 
 .. code-block:: bash
 
-   client-ubuntu-1404
+   client-ubuntu-1804
 
 A partial name:
 
@@ -37,8 +37,8 @@ will return something similar to:
 
 .. code-block:: bash
 
-   client-ubuntu-1404
-   server-ubuntu-1404
+   client-ubuntu-1804
+   server-ubuntu-1804
 
 A short string:
 
@@ -50,8 +50,8 @@ will return something similar to:
 
 .. code-block:: bash
 
-   client-ubuntu-1404
-   server-ubuntu-1404
+   client-ubuntu-1804
+   server-ubuntu-1804
 
 An integer:
 
@@ -63,8 +63,8 @@ will return something similar to:
 
 .. code-block:: bash
 
-   client-ubuntu-1404
-   server-ubuntu-1404
+   client-ubuntu-1804
+   server-ubuntu-1804
 
 A single-quoted Ruby regular expression:
 
@@ -80,11 +80,11 @@ will return something similar to:
 
 kitchen converge
 =====================================================
-Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file. This process will install the chef-client on an instance using the Chef installer, upload cookbook files and minimal configuration to the instance, and then start a chef-client run using the run-list and attributes specified in the .kitchen.yml file.
+Use the ``converge`` subcommand to converge one (or more) instances. Instances are based on the list of platforms in the kitchen.yml file. This process will install Chef Infra Client on an instance using the Chef installer, upload cookbook files and minimal configuration to the instance, and then start a Chef Infra Client run using the run-list and attributes specified in the kitchen.yml file.
 
-Kitchen will skip unnecessary steps. For example, if the chef-client is already installed to the instance, Kitchen will not re-install the chef-client. That said, Kitchen will always upload the cookbook files and minimal configuration. This ensures that cookbook testing is being done correctly.
+Test Kitchen will skip unnecessary steps. For example, if Chef Infra Client is already installed to the instance, Test Kitchen will not re-install Chef Infra Client. That said, Test Kitchen will always upload the cookbook files and minimal configuration. This ensures that cookbook testing is being done correctly.
 
-The following exit codes are used by Kitchen:
+The following exit codes are used by Test Kitchen:
 
 * ``0`` means the operation was successful
 * Any non-zero value means at least one part of the operation was unsuccessful
@@ -110,11 +110,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -124,7 +124,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -139,7 +139,7 @@ To converge the default CentOS instance, run the following:
 
    $ kitchen converge default-centos-71
 
-The chef-client is downloaded the first time this command is run. The output of the command is similar to:
+Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
 .. code-block:: bash
 
@@ -197,7 +197,7 @@ To converge the default Ubuntu instance, run the following:
 
    $ kitchen converge default-ubuntu-1404
 
-The chef-client is downloaded the first time this command is run. The output of the command is similar to:
+Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
 .. code-block:: bash
 
@@ -248,7 +248,7 @@ The chef-client is downloaded the first time this command is run. The output of 
 
 kitchen create
 =====================================================
-Use the ``create`` subcommand to create one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
+Use the ``create`` subcommand to create one (or more) instances. Instances are based on the list of platforms and suites in the kitchen.yml file.
 
 Syntax
 -----------------------------------------------------
@@ -269,11 +269,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -283,7 +283,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -382,7 +382,7 @@ The output of the command is similar to:
 
 kitchen destroy
 =====================================================
-Use the ``destroy`` subcommand to delete one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
+Use the ``destroy`` subcommand to delete one (or more) instances. Instances are based on the list of platforms and suites in the kitchen.yml file.
 
 Syntax
 -----------------------------------------------------
@@ -403,11 +403,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -417,7 +417,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -454,11 +454,11 @@ This subcommand has the following options:
    Include data loader diagnostics. Default: ``false``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -468,7 +468,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -508,7 +508,7 @@ or:
 
 **Diagnose an instance using --instances option**
 
-Use the ``--instances`` option to track instances, which are based on the list of platforms and suites in the .kitchen.yml file:
+Use the ``--instances`` option to track instances, which are based on the list of platforms and suites in the kitchen.yml file:
 
 .. code-block:: yaml
 
@@ -535,7 +535,7 @@ This command returns data as YAML:
      default-centos-65
        # ...
 
-When Kitchen is being used to test cookbooks, Kitchen will track state data:
+When Test Kitchen is being used to test cookbooks, Test Kitchen will track state data:
 
 .. code-block:: yaml
 
@@ -578,7 +578,7 @@ and will track information about provisioners:
 
 kitchen driver create
 =====================================================
-Use the ``driver create`` subcommand to create a new Kitchen driver in the RubyGems project.
+Use the ``driver create`` subcommand to create a new Test Kitchen driver in the RubyGems project.
 
 Syntax
 -----------------------------------------------------
@@ -619,11 +619,11 @@ This subcommand has the following options:
    Use to specify a remote command to be run via SSH.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -633,7 +633,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -643,10 +643,10 @@ None.
 
 kitchen init
 =====================================================
-Use the ``init`` subcommand to create an initial Kitchen environment, including:
+Use the ``init`` subcommand to create an initial Test Kitchen environment, including:
 
-* Creating a .kitchen.yml file
-* Appending Kitchen to the RubyGems file, .gitignore, and .thor
+* Creating a kitchen.yml file
+* Appending Test Kitchen to the RubyGems file, .gitignore, and .thor
 * Creating the ``test/integration/default`` directory
 
 Syntax
@@ -665,20 +665,20 @@ This subcommand has the following options:
    Create a RubyGems file, if one does not already exist. Default: ``false``.
 
 ``-D``, ``--driver``
-   Add one (or more) Kitchen drivers to a RubyGems file. Default: ``kitchen-vagrant``.
+   Add one (or more) Test Kitchen drivers to a RubyGems file. Default: ``kitchen-vagrant``.
 
 ``-l``, ``--log-level``
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``-P``, ``--provisioner``
-   The default provisioner that is used by Kitchen.
+   The default provisioner that is used by Test Kitchen.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -688,14 +688,14 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
 Examples
 -----------------------------------------------------
 
-**Create the Kitchen environment**
+**Create the Test Kitchen environment**
 
 .. code-block:: bash
 
@@ -705,7 +705,7 @@ will return something similar to:
 
 .. code-block:: bash
 
-   create .kitchen.yml
+   create kitchen.yml
    create test/integration/default
    create .gitignore
    append .gitignore
@@ -717,7 +717,7 @@ will return something similar to:
 
 kitchen list
 =====================================================
-Use the ``list`` subcommand to view the list of instances. Instances are based on the list of platforms in the .kitchen.yml file. Kitchen will auto-name instances by combining a suite name with a platform name. For example, if a suite is named ``default`` and a platform is named ``ubuntu-10.04``, then the instance would be ``default-ubuntu-10.04``. This ensures that Kitchen instances have safe DNS and hostname records.
+Use the ``list`` subcommand to view the list of instances. Instances are based on the list of platforms in the kitchen.yml file. Test Kitchen will auto-name instances by combining a suite name with a platform name. For example, if a suite is named ``default`` and a platform is named ``ubuntu-10.04``, then the instance would be ``default-ubuntu-10.04``. This ensures that Test Kitchen instances have safe DNS and hostname records.
 
 Syntax
 -----------------------------------------------------
@@ -738,11 +738,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -752,16 +752,16 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
 Examples
 -----------------------------------------------------
 
-**View a list of Kitchen instances**
+**View a list of Test Kitchen instances**
 
-To view the list of Kitchen instances:
+To view the list of Test Kitchen instances:
 
 .. code-block:: bash
 
@@ -811,7 +811,7 @@ or if there are multiple suites defined, such as ``default`` and ``test``:
 
 kitchen login
 =====================================================
-Use the ``login`` subcommand to log in to a single instance. Instances are based on the list of platforms and suites in the .kitchen.yml file. After logging in successfully, the instance can be interacted with just like any other virtual machine, including adding or removing packages, starting or stopping services, and so on. It's a sandbox. Make any change necessary to help improve the coverage for cookbook testing.
+Use the ``login`` subcommand to log in to a single instance. Instances are based on the list of platforms and suites in the kitchen.yml file. After logging in successfully, the instance can be interacted with just like any other virtual machine, including adding or removing packages, starting or stopping services, and so on. It's a sandbox. Make any change necessary to help improve the coverage for cookbook testing.
 
 Syntax
 -----------------------------------------------------
@@ -829,11 +829,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -843,7 +843,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -853,19 +853,20 @@ To login to the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen login default-ubuntu-14.04
+   $ kitchen login default-ubuntu-1804
 
 to return something similar to:
 
 .. code-block:: bash
 
-   Welcome to Ubuntu 14.04.2 LTS (GNU/Linux 3.5.0-23-generic x86_64)
-   Last login: Mon Mar 28 17:34:26 2014 from 127.0.0.5
-   vagrant@default-ubuntu-14.04:~$
+   Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-51-generic x86_64)
+
+   Last login: Wed Jul  3 18:21:09 2019 from 10.0.2.2
+   vagrant@default-ubuntu-1804:~$
 
 kitchen setup
 =====================================================
-Use the ``setup`` subcommand to set up one (or more) instances. Instances are based on the list of platforms in the .kitchen.yml file.
+Use the ``setup`` subcommand to set up one (or more) instances. Instances are based on the list of platforms in the kitchen.yml file.
 
 Syntax
 -----------------------------------------------------
@@ -886,11 +887,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -900,7 +901,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -910,7 +911,7 @@ None.
 
 kitchen test
 =====================================================
-Use the ``test`` subcommand to test one (or more) verified instances. Instances are based on the list of platforms and suites in the .kitchen.yml file. This subcommand will create a new instance (cleaning up a previous instance, if necessary), converge that instance, set up the test harness, verify the instance using that test harness, and then destroy the instance.
+Use the ``test`` subcommand to test one (or more) verified instances. Instances are based on the list of platforms and suites in the kitchen.yml file. This subcommand will create a new instance (cleaning up a previous instance, if necessary), converge that instance, set up the test harness, verify the instance using that test harness, and then destroy the instance.
 
 In general, use the ``test`` subcommand to verify the end-to-end quality of a cookbook. Use the ``converge`` and ``verify`` subcommands during the normal the day-to-day development of a cookbook.
 
@@ -927,23 +928,23 @@ Options
 This subcommand has the following options:
 
 ``--auto-init``
-   Invoke the ``init`` command if .kitchen.yml is missing. Default: ``false``.
+   Invoke the ``init`` command if kitchen.yml is missing. Default: ``false``.
 
 ``-c NUMBER``, ``--concurrency NUMBER``
    The number of allowed concurrent connections. Use this option to limit the number of instances that are tested concurrently. For example, ``--concurrency 6`` will set this limit to six concurrent instances. Default: ``9999`` (all instances, effectively).
 
 ``-d``, ``--destroy``
-   The destroy strategy used at the conclusion of a Kitchen run. Possible values: ``always`` (always destroy instances), ``never`` (never destroy instances), or ``passing`` (only destroy instances that passed). Default: ``passing``.
+   The destroy strategy used at the conclusion of a Test Kitchen run. Possible values: ``always`` (always destroy instances), ``never`` (never destroy instances), or ``passing`` (only destroy instances that passed). Default: ``passing``.
 
 ``-l``, ``--log-level``
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -953,7 +954,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -966,60 +967,58 @@ To test the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen test default-ubuntu-14.04
+   $ kitchen test default-ubuntu-1404
 
 to return something similar to:
 
 .. code-block:: bash
 
-   -----> Starting Kitchen (v1.0.0)
-   -----> Cleaning up any prior instances of <default-ubuntu-14.04>
-   -----> Destroying <default-ubuntu-14.04>...
+   -----> Starting Kitchen (v2.2.5)
+   -----> Cleaning up any prior instances of <default-ubuntu-1804>
+   -----> Destroying <default-ubuntu-1804>...
    ...
-   Finished destroying <default-ubuntu-14.04> (0m3.06s).
-   -----> Testing <default-ubuntu-14.04>
-   -----> Creating <default-ubuntu-14.04>...
-   Bringing machine 'default' up with 'virtualbox' provider...
+          Finished destroying <config-ubuntu-1804> (0m4.92s).
+   -----> Testing <default-ubuntu-1804>
+   -----> Creating <default-ubuntu-1804>...
+          Bringing machine 'default' up with 'virtualbox' provider...
    ...
-   Vagrant instance <default-ubuntu-14.04> created.
-   Finished creating <default-ubuntu-14.04> (0m46.22s).
-   -----> Converging <default-ubuntu-14.04>...
+          Vagrant instance <default-ubuntu-1804> created.
+          Finished creating <default-ubuntu-1804> (0m34.01s).
+   -----> Converging <default-ubuntu-1804>...
    ...
-   -----> Installing Chef Omnibus (true)
-   downloading https://www.chef.io/chef/install.sh
+   -----> Installing Chef install only if missing package
+          Downloading https://omnitruck.chef.io/install.sh to file /tmp/install.sh
    ...
-   Installing Chef
+          Installing chef
    ...
-   Setting up chef (11.12.0-1.ubuntu.12.04) ...
-   Thank you for installing Chef!
+          Setting up chef (15.1.36-1) ...
+          Thank you for installing Chef Infra Client! For help getting started visit https://learn.chef.io
    ...
-   Starting Chef Client, version 11.12.0
+          Starting Chef Infra Client, version 15.1.36
    ...
-   Converging 2 resources
-   Recipe: git::default
-     * package[git] action install[date/time] INFO: Processing package[git] action install (git::default line 10)
+          Converging 2 resources
+          Recipe: git::default
+            * package[git] action install[date/time] INFO: Processing package[git] action install (git::default line 10)
+              - install version 1:2.3.4.5-6 of package git
 
-       - install version 1:2.3.4.5-6 of package git
-
-     * log[log_description] action write[date/time] INFO: Processing log[log_description] action write (git::default line 5)
+            * log[log_description] action write[date/time] INFO: Processing log[log_description] action write (git::default line 5)
    ...
-   Chef Client finished, 2 resources updated
-   Finished converging <default-ubuntu-14.04> (0m45.17s).
-   -----> Starting Kitchen (v1.0.0)
-   -----> Setting up <default-ubuntu-14.04>
-   Fetching: <name of test tool> (100%)
-   Successfully installed <name of test tool>
-   # gems installed
-   -----> Setting up <name of test tool>
+          Chef Infra Client finished finished, 2 resources updated
+          Finished converging <default-ubuntu-1804> (0m45.17s).
+   -----> Setting up <default-ubuntu-1804>...
+          Finished setting up <default-ubuntu-1804> (0m0.00s).
+   -----> Verifying <default-ubuntu-1804>...
    ...
-   -----> Running <name of test tool> test suite
-    ✓ <test result>
+   Package: `git`
+      ✔  should exist
 
-   2 tests, 0 failures
-        Finished verifying <default-ubuntu-14.04> (2m1.12s).
-   -----> Kitchen is finished. (2m3.45s)
-   $ echo $?
-   0
+   Test Summary: 1 successful, 0 failures, 0 skipped
+        Finished verifying <default-ubuntu-1804> (0m1.25s).
+   -----> Destroying <default-ubuntu-1804>...
+   ...
+          Finished destroying <default-ubuntu-1804> (0m4.68s).
+          Finished testing <default-ubuntu-1804> (0m57.80s).
+
 
 **Test an instance using --concurrency option**
 
@@ -1049,7 +1048,7 @@ or:
 
 kitchen verify
 =====================================================
-Use the ``verify`` subcommand to verify one (or more) instances. Instances are based on the list of platforms and suites in the .kitchen.yml file.
+Use the ``verify`` subcommand to verify one (or more) instances. Instances are based on the list of platforms and suites in the kitchen.yml file.
 
 In general, use the ``test`` subcommand to verify the end-to-end quality of a cookbook. Use the ``converge`` and ``verify`` subcommands during the normal the day-to-day development of a cookbook.
 
@@ -1072,11 +1071,11 @@ This subcommand has the following options:
    The level of logging to be stored in a log file. Options (in order of priority): ``debug``, ``info``, ``warn``, ``error``, and ``fatal``. Default: ``info``.
 
 ``PLATFORMS``
-   Run Kitchen against one or more platforms listed in the .kitchen.yml file. Use ``all`` to run Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
+   Run Test Kitchen against one or more platforms listed in the kitchen.yml file. Use ``all`` to run Test Kitchen against all platforms. Use a Ruby regular expression to glob two or more platforms into a single run.
 
    .. tag ctl_kitchen_common_option_platforms
 
-   For example, if a .kitchen.yml file contains the following:
+   For example, if a kitchen.yml file contains the following:
 
    .. code-block:: javascript
 
@@ -1086,7 +1085,7 @@ This subcommand has the following options:
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -1159,9 +1158,9 @@ This subcommand does not have any options.
 Examples
 -----------------------------------------------------
 
-**Verify the version of Kitchen**
+**Verify the version of Test Kitchen**
 
-To view the version of Kitchen:
+To view the version of Test Kitchen:
 
 .. code-block:: bash
 
@@ -1171,4 +1170,4 @@ will return something similar to:
 
 .. code-block:: bash
 
-   Text Kitchen version 1.0.0
+   Test Kitchen version 2.2.5

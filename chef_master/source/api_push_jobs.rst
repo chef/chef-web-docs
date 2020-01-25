@@ -3,15 +3,15 @@ Push Jobs API
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_push_jobs.rst>`__
 
-The Push Jobs API is used to create jobs and retrieve status using Chef push jobs, a tool that pushes jobs against a set of nodes in the organization.
-All requests are signed using the Chef server API and the validation key on the workstation from which the requests are made.
+The Push Jobs API is used to create jobs and retrieve status using Chef Push Jobs, a tool that pushes jobs against a set of nodes in the organization.
+All requests are signed using the Chef Infra Server API and the validation key on the workstation from which the requests are made.
 
 Endpoints
 =====================================================
 Each authentication request must include ``/organizations/organization_name/pushy/`` as part of the name for the endpoint.
 For example: ``/organizations/organization_name/pushy/jobs/ID`` or ``/organizations/organization_name/pushy/node_states``.
 
-.. note:: The easiest way to send commands to the Chef server from your workstation is to use the ``knife exec`` subcommand.
+.. note:: The easiest way to send commands to the Chef Infra Server from your workstation is to use the ``knife exec`` subcommand.
           Here is an example of making a basic ``knife exec`` command against a RESTful JSON API.
 
           .. code-block:: bash
@@ -176,7 +176,7 @@ where:
 * ``env`` is a JSON object of key-value pairs to assign to the environment.
 * ``file`` is a string that will be stored as a file on each node, with the path provided to the command as an environment variable.
 
-    .. note:: The string has a required prefix of ``raw:`` or ``base64:``, indicating the encoding (if any) of the contents. The path to this file will be made available via the ``CHEF_PUSH_JOB_FILE`` environment variable.
+  .. note:: The string has a required prefix of ``raw:`` or ``base64:``, indicating the encoding (if any) of the contents. The path to this file will be made available via the ``CHEF_PUSH_JOB_FILE`` environment variable.
 
 * ``capture_output`` is a boolean indicating whether to capture the STDOUT and STDERR for this job. Capture is enabled on a per-job basis, meaning that it will affect all nodes that run the job. It is not possible to enable capture on a per-node basis.
 
@@ -363,7 +363,7 @@ The response will return something similar to:
 
     Running handlers:
     Running handlers complete
-    Chef Client finished, 23/187 resources updated in 15 seconds
+    Chef client finished, 23/187 resources updated in 15 seconds
 
 **Request**
 
@@ -682,4 +682,3 @@ where ``updated_at`` shows the date and time at which a node's status last chang
      - Not found. The requested object does not exist.
 
 .. end_tag
-

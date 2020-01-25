@@ -5,7 +5,7 @@ About Roles
 
 .. tag role
 
-A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a chef-client runs, it merges its own attributes and run-lists with those contained within each assigned role.
+A role is a way to define certain patterns and processes that exist across nodes in an organization as belonging to a single job function. Each role consists of zero (or more) attributes and a run-list. Each node can have zero (or more) roles assigned to it. When a role is run against a node, the configuration details of that node are compared against the attributes of the role, and then the contents of that role's run-list are applied to the node's configuration details. When a Chef Infra Client runs, it merges its own attributes and run-lists with those contained within each assigned role.
 
 .. end_tag
 
@@ -13,7 +13,7 @@ Role Attributes
 =====================================================
 .. tag role_attribute
 
-An attribute can be defined in a role and then used to override the default settings on a node. When a role is applied during a chef-client run, these attributes are compared to the attributes that are already present on the node. When the role attributes take precedence over the default attributes, the chef-client will apply those new settings and values during the chef-client run on the node.
+An attribute can be defined in a role and then used to override the default settings on a node. When a role is applied during a Chef Infra Client run, these attributes are compared to the attributes that are already present on the node. When the role attributes take precedence over the default attributes, Chef Infra Client applies those new settings and values during a Chef Infra Client run.
 
 A role attribute can only be set to be a default attribute or an override attribute. A role attribute cannot be set to be a normal attribute. Use the ``default_attribute`` and ``override_attribute`` methods in the Ruby DSL file or the ``default_attributes`` and ``override_attributes`` hashes in a JSON data file.
 
@@ -21,7 +21,7 @@ A role attribute can only be set to be a default attribute or an override attrib
 
 .. note:: .. tag notes_see_attributes_overview
 
-          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of the chef-client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
+          Attributes can be configured in cookbooks (attribute files and recipes), roles, and environments. In addition, Ohai collects attribute data about each node at the start of a Chef Infra Client run. See `Attributes </attributes.html>`__ for more information about how all of these attributes fit together.
 
           .. end_tag
 
@@ -38,14 +38,14 @@ There are two types of attributes that can be used with roles:
    * - ``default``
      - .. tag node_attribute_type_default
 
-       A ``default`` attribute is automatically reset at the start of every chef-client run and has the lowest attribute precedence. Use ``default`` attributes as often as possible in cookbooks.
+       A ``default`` attribute is automatically reset at the start of every Chef Infra Client run and has the lowest attribute precedence. Use ``default`` attributes as often as possible in cookbooks.
 
        .. end_tag
 
    * - ``override``
      - .. tag node_attribute_type_override
 
-       An ``override`` attribute is automatically reset at the start of every chef-client run and has a higher attribute precedence than ``default``, ``force_default``, and ``normal`` attributes. An ``override`` attribute is most often specified in a recipe, but can be specified in an attribute file, for a role, and/or for an environment. A cookbook should be authored so that it uses ``override`` attributes only when required.
+       An ``override`` attribute is automatically reset at the start of every Chef Infra Client run and has a higher attribute precedence than ``default``, ``force_default``, and ``normal`` attributes. An ``override`` attribute is most often specified in a recipe, but can be specified in an attribute file, for a role, and/or for an environment. A cookbook should be authored so that it uses ``override`` attributes only when required.
 
        .. end_tag
 
@@ -53,7 +53,7 @@ Attribute Persistence
 -----------------------------------------------------
 .. tag node_attribute_persistence
 
-At the beginning of a chef-client run, all attributes except for normal attributes are reset. The chef-client rebuilds them using automatic attributes collected by Ohai at the beginning of the chef-client run and then using default and override attributes that are specified in cookbooks or by roles and environments. All attributes are then merged and applied to the node according to attribute precedence. At the conclusion of the chef-client run, the attributes that were applied to the node are saved to the Chef server as part of the node object.
+All attributes except for normal attributes are reset at the beginning of a Chef Infra Client run. Attributes set via ``chef-client -j`` with a JSON file have normal precedence and are persisted between Chef Infra Client runs. Chef Infra Client rebuilds these attributes using automatic attributes collected by Ohai at the beginning of each Chef Infra Client run, and then uses default and override attributes that are specified in cookbooks, roles, environments, and Policyfiles. All attributes are then merged and applied to the node according to attribute precedence. The attributes that were applied to the node are saved to the Chef Infra Server as part of the node object at the conclusion of each Chef Infra Client run.
 
 .. end_tag
 
@@ -61,7 +61,7 @@ Attribute Precedence
 -----------------------------------------------------
 .. tag node_attribute_precedence
 
-Attributes are always applied by the chef-client in the following order:
+Attributes are always applied by Chef Infra Client in the following order:
 
 #. A ``default`` attribute located in a cookbook attribute file
 #. A ``default`` attribute located in a recipe
@@ -69,6 +69,7 @@ Attributes are always applied by the chef-client in the following order:
 #. A ``default`` attribute located in a role
 #. A ``force_default`` attribute located in a cookbook attribute file
 #. A ``force_default`` attribute located in a recipe
+#. A ``normal`` attribute located in a JSON file passed via ``chef-client -j``
 #. A ``normal`` attribute located in a cookbook attribute file
 #. A ``normal`` attribute located in a recipe
 #. An ``override`` attribute located in a cookbook attribute file
@@ -77,7 +78,7 @@ Attributes are always applied by the chef-client in the following order:
 #. An ``override`` attribute located in an environment
 #. A ``force_override`` attribute located in a cookbook attribute file
 #. A ``force_override`` attribute located in a recipe
-#. An ``automatic`` attribute identified by Ohai at the start of the chef-client run
+#. An ``automatic`` attribute identified by Ohai at the start of a Chef Infra Client run
 
 where the last attribute in the list is the one that is applied to the node.
 
@@ -250,7 +251,6 @@ To learn more about Ruby, see:
 
 * `Ruby Documentation <https://www.ruby-lang.org/en/documentation/>`_
 * `Ruby Standard Library Documentation <https://www.ruby-doc.org/stdlib/>`_
-* `Codeacademy <https://www.codecademy.com/tracks/ruby>`_
 
 .. end_tag
 
@@ -410,7 +410,7 @@ The JSON format has two additional settings:
    * - ``chef_type``
      - Always set this to ``role``. Use this setting for any custom process that consumes role objects outside of Ruby.
    * - ``json_class``
-     - Always set this to ``Chef::Role``. The chef-client uses this setting to auto-inflate a role object. If objects are being rebuilt outside of Ruby, ignore it.
+     - Always set this to ``Chef::Role``. The Chef Infra Client uses this setting to auto-inflate a role object. If objects are being rebuilt outside of Ruby, ignore it.
 
 Manage Roles
 =====================================================
@@ -418,16 +418,16 @@ There are several ways to manage roles:
 
 * knife can be used to create, edit, view, list, tag, and delete roles.
 * The Chef management console add-on can be used to create, edit, view, list, tag, and delete roles. In addition, role attributes can be modified and roles can be moved between environments.
-* The chef-client can be used to manage role data using the command line and JSON files (that contain a hash, the elements of which are added as role attributes). In addition, the ``run_list`` setting allows roles and/or recipes to be added to the role.
-* The open source Chef server can be used to manage role data using the command line and JSON files (that contain a hash, the elements of which are added as role attributes). In addition, the ``run_list`` setting allows roles and/or recipes to be added to the role.
-* The Chef server API can be used to create and manage roles directly, although using knife and/or the Chef management console is the most common way to manage roles.
-* The command line can also be used with JSON files and third-party services, such as Amazon EC2, where the JSON files can contain per-instance metadata stored in a file on-disk and then read by chef-solo or chef-client as required.
+* The Chef Infra Client can be used to manage role data using the command line and JSON files (that contain a hash, the elements of which are added as role attributes). In addition, the ``run_list`` setting allows roles and/or recipes to be added to the role.
+* The open source Chef Infra Server can be used to manage role data using the command line and JSON files (that contain a hash, the elements of which are added as role attributes). In addition, the ``run_list`` setting allows roles and/or recipes to be added to the role.
+* The Chef Infra Server API can be used to create and manage roles directly, although using knife and/or the Chef management console is the most common way to manage roles.
+* The command line can also be used with JSON files and third-party services, such as Amazon EC2, where the JSON files can contain per-instance metadata stored in a file on-disk and then read by chef-solo or Chef Infra Client as required.
 
 By creating and editing files using the Ruby DSL or JSON, role data can be dynamically generated with the Ruby DSL. Roles created and edited using files are compatible with all versions of Chef, including chef-solo. Roles created and edited using files can be kept in version source control, which also keeps a history of what changed when. When roles are created and edited using files, they should not be managed using knife or the Chef management console, as changes will be overwritten.
 
-A run-list that is associated with a role can be edited using the Chef management console add-on. The canonical source of a role's data is stored on the Chef server, which means that keeping role data in version source control can be challenging.
+A run-list that is associated with a role can be edited using the Chef management console add-on. The canonical source of a role's data is stored on the Chef Infra Server, which means that keeping role data in version source control can be challenging.
 
-When files are uploaded to a Chef server from a file and then edited using the Chef management console, if the file is edited and uploaded again, the changes made using the Chef management console user interface will be lost. The same is true with knife, in that if roles are created and managed using knife and then arbitrarily updated uploaded JSON data, that action will overwrite what has been done previously using knife. It is strongly recommended to keep to one process and not switch back and forth.
+When files are uploaded to a Chef Infra Server from a file and then edited using the Chef management console, if the file is edited and uploaded again, the changes made using the Chef management console user interface will be lost. The same is true with knife, in that if roles are created and managed using knife and then arbitrarily updated uploaded JSON data, that action will overwrite what has been done previously using knife. It is strongly recommended to keep to one process and not switch back and forth.
 
 Set Per-environment Run-lists
 ------------------------------------------------------

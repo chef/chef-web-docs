@@ -1,5 +1,5 @@
 =====================================================
-Custom Knife Plugins
+Writing Custom Knife Plugins
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_custom.rst>`__
 
@@ -9,7 +9,7 @@ A knife plugin is a set of one (or more) subcommands that can be added to knife 
 
 .. end_tag
 
-The chef-client will load knife and knife plugin commands from the following locations:
+The Chef Infra Client will load knife plugins from the following locations:
 
 * The home directory: ``~/.chef/plugins/knife/``
 * A ``.chef/plugins/knife`` directory in the cookbook repository
@@ -448,7 +448,7 @@ where
 
 Search
 -----------------------------------------------------
-Use the Chef server search capabilities from a plugin to return information about the infrastructure to that plugin. Use the ``require`` method to ensure that search functionality is available with the following:
+Use the Chef Infra Server search capabilities from a plugin to return information about the infrastructure to that plugin. Use the ``require`` method to ensure that search functionality is available with the following:
 
 .. code-block:: ruby
 
@@ -460,7 +460,7 @@ Create a search query object and assign it to a variable:
 
    variable_name = Chef::Search::Query.new
 
-After the search object is created it can be used by the plugin to execute search queries for objects on the Chef server. For example, using a variable named ``query_nodes`` a plugin could search for nodes with the ``webserver`` role and then return the name of each node found:
+After the search object is created it can be used by the plugin to execute search queries for objects on the Chef Infra Server. For example, using a variable named ``query_nodes`` a plugin could search for nodes with the ``webserver`` role and then return the name of each node found:
 
 .. code-block:: ruby
 
@@ -602,7 +602,7 @@ For example, to show a fatal error in a plugin in the same way that it would be 
       ui.fatal "Be sure to say hello to someone!"
       show_usage
       exit 1
-   end
+    end
 
 Create a Plugin
 =====================================================

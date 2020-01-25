@@ -45,12 +45,12 @@ This event is issued when a job is requested.
 
 where:
 
-  * ``job`` is the Job ID. (Not present in Job Feed)
-  * ``command`` is the command that was run
-  * ``run_timeout`` is the timeout in seconds specified in the job request
-  * ``user`` is the user making the job request
-  * ``quorum`` is the number of clients required to accept the command as specified in the job request
-  * ``node_count`` is the number of nodes in the request
+* ``job`` is the Job ID. (Not present in Job Feed)
+* ``command`` is the command that was run
+* ``run_timeout`` is the timeout in seconds specified in the job request
+* ``user`` is the user making the job request
+* ``quorum`` is the number of clients required to accept the command as specified in the job request
+* ``node_count`` is the number of nodes in the request
 
 quorum_vote
 -----------------------------------------------------
@@ -66,9 +66,8 @@ This event is issued as each node responds to the quorum request. (Not available
 
 where:
 
-  * ``node`` is the name of the node responding to the vote
-  * ``status`` is one of the following: ``client_died_while_voting`` (node went offline during voting), ``failure`` (node rejected the job),
-    ``lost_availability`` (node become unavailable during voting), ``success`` (node accepted the job), ``unexpected_commit`` (node attempted to vote twice)
+* ``node`` is the name of the node responding to the vote
+* ``status`` is one of the following: ``client_died_while_voting`` (node went offline during voting), ``failure`` (node rejected the job), ``lost_availability`` (node become unavailable during voting), ``success`` (node accepted the job), ``unexpected_commit`` (node attempted to vote twice)
 
 quorum_succeeded
 -----------------------------------------------------
@@ -98,7 +97,7 @@ This event is issued as each node acknowledges that it is running the command. (
 
 where:
 
-  * ``node`` is the name of the node
+* ``node`` is the name of the node
 
 run_complete
 -----------------------------------------------------
@@ -114,8 +113,8 @@ This event is issued as each node completes the command. (Not available in Organ
 
 where:
 
-  * ``node`` is the name of the node
-  * ``status`` is one of the following: ``client_died_while_running`` (node went offline before finishing the run), ``crashed`` (node terminated run without returning status), ``failure`` (run failed), ``run_nacked`` (node rejected the run after quorum was reached), ``run_nacked_while_running`` (node rejected the run after starting it), or ``success`` (the run completed successfully),
+* ``node`` is the name of the node
+* ``status`` is one of the following: ``client_died_while_running`` (node went offline before finishing the run), ``crashed`` (node terminated run without returning status), ``failure`` (run failed), ``run_nacked`` (node rejected the run after quorum was reached), ``run_nacked_while_running`` (node rejected the run after starting it), or ``success`` (the run completed successfully),
 
 job_complete
 -----------------------------------------------------
@@ -131,8 +130,8 @@ This event is issued when the job completes.
 
 where:
 
-  * ``job`` is the Job ID (Not present in Job Feed)
-  * ``status`` is one of the following: ``aborted`` (the job was aborted), ``complete`` (the job completed), ``quorum_failed`` (the command was not run on any nodes), or ``timed_out`` (the command timed out)
+* ``job`` is the Job ID (Not present in Job Feed)
+* ``status`` is one of the following: ``aborted`` (the job was aborted), ``complete`` (the job completed), ``quorum_failed`` (the command was not run on any nodes), or ``timed_out`` (the command timed out)
 
 start_of_history
 -----------------------------------------------------
@@ -168,7 +167,7 @@ This event is issued when a request for the Job Feed comes in after the job has 
 
 where:
 
-  * ``data`` is the same Job Summary you would get from the ``job/ID`` endpoint
+* ``data`` is the same Job Summary you would get from the ``job/ID`` endpoint
 
 Event Stream Examples
 =====================================================
@@ -177,12 +176,12 @@ An event stream should follow a standard structure:
 Job Feed (Normal Run Execution)
 -----------------------------------------------------
 
-1. ``start``
-2. 0 or more ``quorum_vote``
-3. ``quorum_succeeded``
-4. 1 or more ``run_start``
-5. 1 or more ``run_complete``
-6. ``job_complete``
+#. ``start``
+#. 0 or more ``quorum_vote``
+#. ``quorum_succeeded``
+#. 1 or more ``run_start``
+#. 1 or more ``run_complete``
+#. ``job_complete``
 
 **Request**
 

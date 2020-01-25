@@ -27,19 +27,19 @@ For Windows versions older than 2012r2, download `ChefDK <https://downloads.chef
 Install Knife Azure 
 ------------------------------------------------------
 
-If Chef Client was installed using RubyGems, install the ``knife azure`` with the following command:
+If Chef Infra Client was installed using RubyGems, install the ``knife azure`` with the following command:
 
 .. code-block:: bash
 
    $ gem install knife-azure
 
-If the Chef Client was installed from the `Chef Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
+If Chef Infra Client was installed from the `Chef Infra Client <https://downloads.chef.io/chef>`__ downloads page or any other method, run:
 
 .. code-block:: bash
 
    $ /opt/chef/embedded/bin/gem install knife-azure
 
-where ``/opt/chef/embedded/bin/`` is the path to the location where the chef-client expects knife plugins to be located.
+where ``/opt/chef/embedded/bin/`` is the path to the location where Chef Infra Client expects knife plugins to be located.
 
 Configuration
 ------------------------------------------------------
@@ -58,7 +58,7 @@ After creating the service principal, you will have the values:
 
 Put the following in your `knife.rb`
 
-   .. code-block:: ruby
+.. code-block:: ruby
 
       knife[:azure_tenant_id] # found via: tenantId=$(azure account show -s <subscriptionId> --json | jq -r '.[0].tenantId')
       knife[:azure_subscription_id] # found via: <subscriptionId>
@@ -162,7 +162,7 @@ This argument has the following options:
    Accept the data without opening the editor.
 
 ``--daemon DAEMON``
-  Configures the chef-client service for unattended execution. Requires ``--bootstrap-protocol`` to be ``cloud-api`` and the node platform to be ``Windows``. Options: 'none' or 'service' or 'task'. none - Currently prevents the chef-client service from being configured as a service. service - Configures the chef-client to run automatically in the background as a service. task - Configures the chef-client to run automatically in the background as a scheduled task.
+  Configures the Chef Infra Client service for unattended execution. Requires ``--bootstrap-protocol`` to be ``cloud-api`` and the node platform to be ``Windows``. Options: 'none' or 'service' or 'task'. 'none' - Currently prevents the Chef Infra Client service from being configured as a service. 'service' - Configures Chef Infra Client to run automatically in the background as a service. 'task' - Configures Chef Infra Client to run automatically in the background as a scheduled task.
 
 ``--defaults``
    Accept default values for all questions
@@ -186,7 +186,7 @@ This argument has the following options:
    Show this message
 
 ``-j``, ``--json-attributes JSON``
-   A JSON string to be added to the first run of chef-client
+   A JSON string to be added to the first run of Chef Infra Client
 
 ``--[no-]listen``
    Whether a local mode (-z) server binds to a port
@@ -207,7 +207,7 @@ This argument has the following options:
    Whether or not to verify the SSL cert for all HTTPS requests.
 
 ``--[no-]node-verify-api-cert``
-   Verify the SSL cert for HTTPS requests to the Chef server API.
+   Verify the SSL cert for HTTPS requests to the Chef Infra Server API.
 
 ``--ohai-hints HINT_OPTIONS``
    Hint option names to be set in Ohai configuration the target node. Values: ``vm_name``, ``public_fqdn`` and platform. User can pass any comma separated combination of these values like ``vm_name,public_fqdn``. Default: ``default`` which corresponds to supported values list mentioned here.
@@ -231,7 +231,7 @@ This argument has the following options:
    Number of servers to create with same configuration. Maximum: 5. Default: 1.
 
 ``--server-url URL``
-   Chef Server URL
+   Chef Infra Server URL
 
 ``--ssh-password PASSWORD``
    The ssh password
@@ -351,7 +351,7 @@ This argument has the following options:
   The Resource Group name.
 
 ``-s``, ``--server-url URL``
-   Chef Server URL.
+   Chef Infra Server URL.
 
 ``-u``, ``--user USER``
    API Client Username
@@ -436,7 +436,7 @@ This argument has the following options:
   The Resource Group name.
 
 ``-s``, ``--server-url URL``
-   Chef Server URL.
+   Chef Infra Server URL.
 
 ``-u``, ``--user USER``
    API Client Username
@@ -521,7 +521,7 @@ This argument has the following options:
   The Resource Group name.
 
 ``-s``, ``--server-url URL``
-   Chef Server URL.
+   Chef Infra Server URL.
 
 ``-u``, ``--user USER``
    API Client Username

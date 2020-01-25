@@ -3,8 +3,11 @@ Deprecation: Ohai::Config removal (OHAI-1)
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_legacy_config.rst>`__
 
-Ohai 8.8.0 (Chef 12.6.0) introduced a new Ohai configuration system as defined in `RFC-053
-<https://github.com/chef/chef-rfc/blob/master/rfc053-ohai-config.md>`__. This system replaced the existing usage of ``Ohai::Config`` config system, which will be removed in Chef 13.
+.. meta::
+    :robots: noindex
+    
+Ohai 8.8.0 (Chef Client 12.6.0) introduced a new Ohai configuration system as defined in `RFC-053
+<https://github.com/chef/chef-rfc/blob/master/rfc053-ohai-config.md>`__. This system replaced the existing usage of ``Ohai::Config`` config system, which will be removed in Chef Client 13.
 
 Remediation
 =============

@@ -7,6 +7,7 @@ Use the **mdadm** resource to manage RAID devices in a Linux environment using t
 
 Syntax
 =====================================================
+
 The mdadm resource has the following syntax:
 
 .. code-block:: ruby
@@ -26,7 +27,7 @@ where:
 
 * ``mdadm`` is the resource.
 * ``name`` is the name given to the resource block.
-* ``action`` identifies which steps the chef-client will take to bring the node into the desired state.
+* ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
 * ``bitmap``, ``chunk``, ``devices``, ``layout``, ``level``, ``metadata``, and ``raid_device`` are the properties available to this resource.
 
 Actions
@@ -43,7 +44,7 @@ The mdadm resource has the following actions:
 ``:nothing``
    .. tag resources_common_actions_nothing
 
-   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of the Chef Client run.
+   This resource block does not act unless notified by another resource to take action. Once notified, this resource block either runs immediately or is queued up to run at the end of a Chef Infra Client run.
 
    .. end_tag
 
@@ -85,13 +86,10 @@ The mdadm resource has the following properties:
 
    The superblock type for RAID metadata.
 
-
 ``raid_device``
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
-   Optional property to specify the name of the RAID device if it differs from the resource block's name.
-
-
+   An optional property to specify the name of the RAID device if it differs from the resource block's name.
 
 Common Resource Functionality
 =====================================================
@@ -123,7 +121,7 @@ The following properties are common to every resource:
 ``sensitive``
   **Ruby Type:** true, false | **Default Value:** ``false``
 
-  Ensure that sensitive resource data is not logged by the chef-client.
+  Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 .. end_tag
 
@@ -141,13 +139,13 @@ Notifications
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -190,13 +188,13 @@ In this case the ``subscribes`` property reloads the ``nginx`` service whenever 
 
 .. tag resources_common_notification_timers
 
-A timer specifies the point during the Chef Client run at which a notification is run. The following timers are available:
+A timer specifies the point during a Chef Infra Client run at which a notification is run. The following timers are available:
 
 ``:before``
    Specifies that the action on a notified resource should be run before processing the resource block in which the notification is located.
 
 ``:delayed``
-   Default. Specifies that a notification should be queued up, and then executed at the end of the Chef Client run.
+   Default. Specifies that a notification should be queued up, and then executed at the end of a Chef Infra Client run.
 
 ``:immediate``, ``:immediately``
    Specifies that a notification should be run immediately, per resource notified.
@@ -218,17 +216,20 @@ Guards
 
 .. tag resources_common_guards
 
-A guard property can be used to evaluate the state of a node during the execution phase of the chef-client run. Based on the results of this evaluation, a guard property is then used to tell the chef-client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
+A guard property can be used to evaluate the state of a node during the execution phase of a Chef Infra Client run. Based on the results of this evaluation, a guard property is then used to tell Chef Infra Client if it should continue executing a resource. A guard property accepts either a string value or a Ruby block value:
 
 * A string is executed as a shell command. If the command returns ``0``, the guard is applied. If the command returns any other value, then the guard property is not applied. String guards in a **powershell_script** run Windows PowerShell commands and may return ``true`` in addition to ``0``.
 * A block is executed as Ruby code that must return either ``true`` or ``false``. If the block returns ``true``, the guard property is applied. If the block returns ``false``, the guard property is not applied.
 
-A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for the chef-client to do nothing.
+A guard property is useful for ensuring that a resource is idempotent by allowing that resource to test for the desired state as it is being executed, and then if the desired state is present, for Chef Infra Client to do nothing.
 
 .. end_tag
+
+**Properties**
+
 .. tag resources_common_guards_properties
 
-The following properties can be used to define a guard that is evaluated during the execution phase of the chef-client run:
+The following properties can be used to define a guard that is evaluated during the execution phase of a Chef Infra Client run:
 
 ``not_if``
   Prevent a resource from executing when the condition returns ``true``.
@@ -240,11 +241,10 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Create and assemble a RAID 0 array**
-
-.. tag resource_mdadm_raid0
 
 The mdadm command can be used to create RAID arrays. For example, a RAID 0 array named ``/dev/md0`` with 10 devices would have a command similar to the following:
 
@@ -264,11 +264,9 @@ where ``/dev/s01 .. /dev/s10`` represents 10 devices (01, 02, 03, and so on). Th
 
 (again, where ``/dev/s01 .. /dev/s10`` represents devices /dev/s01, /dev/s02, /dev/s03, and so on).
 
-.. end_tag
+
 
 **Create and assemble a RAID 1 array**
-
-.. tag resource_mdadm_raid1
 
 .. To create and assemble a RAID 1 array from two disks with a 64k chunk size:
 
@@ -280,11 +278,9 @@ where ``/dev/s01 .. /dev/s10`` represents 10 devices (01, 02, 03, and so on). Th
      action [ :create, :assemble ]
    end
 
-.. end_tag
+
 
 **Create and assemble a RAID 5 array**
-
-.. tag resource_mdadm_raid5
 
 The mdadm command can be used to create RAID arrays. For example, a RAID 5 array named ``/dev/sd0`` with 4, and a superblock type of ``0.90`` would be similar to:
 
@@ -298,4 +294,4 @@ The mdadm command can be used to create RAID arrays. For example, a RAID 5 array
      action :create
    end
 
-.. end_tag
+

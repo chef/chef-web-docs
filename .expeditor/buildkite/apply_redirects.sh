@@ -2,8 +2,6 @@
 
 set -euo pipefail
 
-aws-configure chef-cd
-
 bucket_name="chef-web-docs-$ENVIRONMENT.cd.chef.co"
 # This is the key our `cd_hugo_static_site` Terraform module uses to
 # purge Fastly.
