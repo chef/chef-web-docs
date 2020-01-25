@@ -969,20 +969,18 @@ Any properties that are marked ``identity: true``, ``desired_state: false``, or 
    property :content, String
 
    load_current_value do |desired|
-     puts "The user requestion action = #{action} in the resource"
+     puts "The user requested action = #{action} in the resource"
      puts "The user typed content = #{desired.content} in the resource"
    end
 
-.. end_tag
-
 .. code-block:: ruby
- 
+
    // Block argument example
    property :action, String
    property :content, String
 
    load_current_value do |desired|
-     puts "The user requestion action = #{desired.action} in the resource"
+     puts "The user requested action = #{desired.action} in the resource"
      puts "The user typed content = #{desired.content} in the resource"
    end
 
