@@ -3,13 +3,6 @@ Chef Manage
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage.rst>`__
 
-.. tag chef_automate_mark
-
-.. image:: ../../images/a2_docs_banner.svg
-   :target: https://automate.chef.io/docs
-
-.. end_tag
-
 .. tag EOL_manage
 
 .. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
@@ -381,7 +374,7 @@ Chef Manage Local Installation
 ---------------------------------------------
 .. tag ctl_chef_server_install_features_manual
 
-The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are behind a firewall (and may not have connectivity to packages.chef.io), these packages can be downloaded from https://downloads.chef.io/chef-manage/, and then installed manually. First download the package that is appropriate for the platform, save it to a local path, and then run the ``install`` command using the ``--path`` option to specify the directory in which the package is located:
+The ``install`` subcommand is used to install premium features of the Chef server: Chef management console(``chef-manage``) and push jobs(``opscode-push-jobs-server``).
 
 .. code-block:: bash
 

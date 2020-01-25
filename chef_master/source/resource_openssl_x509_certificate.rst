@@ -15,30 +15,31 @@ The openssl_x509_certificate resource has the following syntax:
 .. code-block:: ruby
 
   openssl_x509_certificate 'name' do
-    ca_cert_file          String
-    ca_key_file           String
-    ca_key_pass           String
-    city                  String
-    common_name           String
-    country               String
-    csr_file              String
-    email                 String
-    expire                Integer # default value: 365
-    extensions            Hash
-    group                 String, Integer
-    key_curve             String # default value: "prime256v1"
-    key_file              String
-    key_length            Integer # default value: 2048
-    key_pass              String
-    key_type              String # default value: "rsa"
-    mode                  Integer, String
-    org                   String
-    org_unit              String
-    owner                 String, Integer
-    path                  String # default value: 'name' unless specified
-    state                 String
-    subject_alt_name      Array
-    action                Symbol # defaults to :create if not specified
+    ca_cert_file             String
+    ca_key_file              String
+    ca_key_pass              String
+    city                     String
+    common_name              String
+    country                  String
+    csr_file                 String
+    email                    String
+    expire                   Integer # default value: 365
+    extensions               Hash
+    group                    String, Integer
+    key_curve                String # default value: "prime256v1"
+    key_file                 String
+    key_length               Integer # default value: 2048
+    key_pass                 String
+    key_type                 String # default value: "rsa"
+    mode                     Integer, String
+    org                      String
+    org_unit                 String
+    owner                    String, Integer
+    path                     String # default value: 'name' unless specified
+    renew_before_expiry      Integer
+    state                    String
+    subject_alt_name         Array
+    action                   Symbol # defaults to :create if not specified
   end
 
 where:
@@ -46,7 +47,7 @@ where:
 * ``openssl_x509_certificate`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``city``, ``common_name``, ``country``, ``csr_file``, ``email``, ``expire``, ``extensions``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``org``, ``org_unit``, ``owner``, ``path``, ``state``, and ``subject_alt_name`` are the properties available to this resource.
+* ``ca_cert_file``, ``ca_key_file``, ``ca_key_pass``, ``city``, ``common_name``, ``country``, ``csr_file``, ``email``, ``expire``, ``extensions``, ``group``, ``key_curve``, ``key_file``, ``key_length``, ``key_pass``, ``key_type``, ``mode``, ``org``, ``org_unit``, ``owner``, ``path``, ``renew_before_expiry``, ``state``, and ``subject_alt_name`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -172,6 +173,13 @@ The openssl_x509_certificate resource has the following properties:
    **Ruby Type:** String | **Default Value:** ``The resource block's name``
 
    An optional property for specifying the path to write the file to if it differs from the resource block's name.
+
+``renew_before_expiry``
+   **Ruby Type:** Integer
+
+   The number of days before the expiry. The certificate will be automaticaly renewed when the value is reached.
+
+   *New in Chef Infra Client 15.7.*
 
 ``state``
    **Ruby Type:** String
@@ -332,7 +340,10 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-==========================================
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
 
 **Create a simple self-signed certificate file**
 

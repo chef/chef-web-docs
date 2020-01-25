@@ -5,8 +5,6 @@ remote_directory resource
 
 Use the **remote_directory** resource to incrementally transfer a directory from a cookbook to a node. The directory that is copied from the cookbook should be located under ``COOKBOOK_NAME/files/default/REMOTE_DIRECTORY``. The **remote_directory** resource will obey file specificity.
 
-
-
 Syntax
 =====================================================
 A **remote_directory** resource block transfers a directory from a cookbook to a node, and then assigns the permissions needed on that directory. For example:
@@ -594,6 +592,7 @@ Because the ``inherits`` property is not specified, Chef Infra Client will defau
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Recursively transfer a directory from a remote location**

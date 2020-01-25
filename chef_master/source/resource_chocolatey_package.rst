@@ -14,6 +14,9 @@ Use the **chocolatey_package** resource to manage packages using Chocolatey on t
 
 **New in Chef Client 12.7.**
 
+.. note::
+          The Chocolatey package manager is not installed on Windows by default. Install it prior to using this resource by adding the `Chocolatey cookbook <https://supermarket.chef.io/cookbooks/chocolatey/>`_ to your node's run list.
+
 Syntax
 =====================================================
 A **chocolatey_package** resource manages packages using Chocolatey on the Microsoft Windows platform. The simplest use of the **chocolatey_package** resource is:

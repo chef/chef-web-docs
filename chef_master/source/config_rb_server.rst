@@ -47,7 +47,7 @@ The following settings are typically added to the server configuration file (no 
 
 .. end_tag
 
-SSL Protocols
+NGINX SSL Protocols
 -----------------------------------------------------
 .. tag server_tuning_nginx
 
@@ -288,3 +288,6 @@ The following setting is often modified from the default as part of the tuning e
       550 = 350 + [(4 - 2) * (25 * 4)]
 
 .. end_tag
+
+``postgresql['sslmode']``
+   SSL encryption mode between the Chef Infra Server and PostgreSQL.  Valid settings are ``'disable'`` and ``'require'``.  Default value: ``'disable'``. 

@@ -6,7 +6,7 @@ delivery.rb Optional Settings
 .. meta::
     :robots: noindex
 
-.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see `Automate Server Tuning </delivery_server_tuning.html>`__), but many of them should be left as default values.
+.. warning:: The configuration settings in the ``delivery.rb`` file should not be modified before discussing those changes with Chef. Some of these settings should be considered for tuning (see `Workflow Server Tuning </delivery_server_tuning.html>`__), but many of them should be left as default values.
 
 Settings
 =====================================================

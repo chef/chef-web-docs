@@ -21,26 +21,9 @@ This subcommand requires WinRM to be installed, and then configured correctly, i
 
    C:\> winrm quickconfig -q
 
-The following WinRM configuration settings should be updated:
+Often commands can take longer than the default ``MaxTimeoutms`` WinRM configuration setting. Increase this value to ``1800000`` (30 minutes).
 
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Setting
-     - Description
-   * - ``MaxMemoryPerShellMB``
-     - Chef Infra Client and Ohai typically require more memory than the default setting allows. Increase this value to ``300MB``. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to ``1024MB``.
-   * - ``MaxTimeoutms``
-     - Often commands can take longer than the default setting. Increase this value to ``1800000`` (30 minutes).
-
-To update these settings, run the following commands on the Windows target:
-
-.. code-block:: bash
-
-   C:\> winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="300"}'
-
-and then:
+To update this setting, run the following command on the Windows target:
 
 .. code-block:: bash
 

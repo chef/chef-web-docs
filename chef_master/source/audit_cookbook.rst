@@ -9,13 +9,10 @@ Sending Compliance Data to Chef Automate with Audit Cookbook
 .. note:: The ``audit`` cookbook uses the Chef InSpec gem. It will check for an installed version of Chef InSpec and install it upon finding none. The latest version of Chef InSpec will be installed by default unless otherwise specified with ``node['audit']['inspec_version']``.
 
 `Cookbooks </cookbooks.html>`__ are Chef's primary unit of configuration management.  For tutorials on working with cookbooks in Chef, see `Learn Chef Rally <https://learn.chef.io>`__.
-For more information specifically on using the ``audit`` cookbook with Automate, see `perform a compliance scan </perform_compliance_scan.html>`__.
 
 Audit Cookbook
 =================================
 .. note:: Audit Cookbook version 4.2.0 or later requires Chef InSpec 1.25.1 or later. You can upgrade your Chef InSpec package in several different ways: by upgrading Automate, by upgrading the ChefDK, by upgrading Chef Infra Client, or by setting the ``node['audit']['inspec_version']`` attribute in your cookbook.
-
-
 
 To send compliance data gathered by Chef InSpec as part of a Chef Infra Client run, you will need to use the `audit cookbook <https://github.com/chef-cookbooks/audit>`_. All profiles configured to run during the audit cookbook execution will send their results back to the Chef Automate server.
 

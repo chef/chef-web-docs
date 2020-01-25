@@ -190,7 +190,7 @@ Configure the workstation
 
 Configure backups
 -----------------------------------------------------
-Follow the Chef Automate `instructions <delivery_server_backup.html#s3-backups>`__ for configuring backups.
+Follow the Workflow `instructions <delivery_server_backup.html#s3-backups>`__ for configuring backups.
 
 Troubleshooting
 -----------------------------------------------------
@@ -403,8 +403,6 @@ After verifying that your existing Chef Infra Server installation is up to date,
       $ /opt/opscode/embedded/bin/knife ec backup /tmp/chef-backup --with-user-sql --with-key-sql
       $ tar -czvf chef-backup.tgz -C /tmp/chef-backup
 
-   
-
 #. Copy the resulting tarball to your Amazon Machine Images (AMI) instance:
 
    .. code-block:: bash
@@ -417,20 +415,14 @@ After verifying that your existing Chef Infra Server installation is up to date,
 
       $ chef-marketplace-ctl upgrade -y
 
-#. .. tag chef_automate_reconfigure_for_marketplace
-
-   Reconfigure Chef Automate and the Chef Infra Server:
+#. Reconfigure Chef Automate and the Chef Infra Server:
 
    .. code-block:: bash
 
       $ sudo automate-ctl reconfigure
       $ sudo chef-server-ctl reconfigure
 
-   .. end_tag
-
-#. .. tag chef_server_backup_restore_for_automate
-
-   Restore the backup:
+#. Restore the backup:
 
    .. code-block:: bash
 
@@ -439,8 +431,6 @@ After verifying that your existing Chef Infra Server installation is up to date,
       $ cd /tmp/chef-backup
       $ tar -ztf chef-backup.tgz
       $ /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
-
-   .. end_tag
 
 #. .. tag install_update_aws_knife_rb
 

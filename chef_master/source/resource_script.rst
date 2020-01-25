@@ -7,8 +7,6 @@ Use the **script** resource to execute scripts using a specified interpreter, su
 
 .. note:: The **script** resource is different from the **ruby_block** resource because Ruby code that is run with this resource is created as a temporary file and executed like other script resources, rather than run inline.
 
-
-
 This resource is the base resource for several other resources used for scripting on specific platforms. For more information about specific resources for specific platforms, see the following topics:
 
 * `bash </resource_bash.html>`__
@@ -557,7 +555,7 @@ The following example shows how Bash can be used to install a plug-in for rbenv 
    end
 
    bash 'install_ruby_build' do
-     cwd '#{Chef::Config[:file_cache_path]}/ruby-build'
+     cwd "#{Chef::Config[:file_cache_path]}/ruby-build"
      user 'rbenv'
      group 'rbenv'
      code <<-EOH

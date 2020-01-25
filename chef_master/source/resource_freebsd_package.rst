@@ -5,8 +5,6 @@ freebsd_package resource
 
 Use the **freebsd_package** resource to manage packages for the FreeBSD platform.
 
-
-
 .. note:: .. tag notes_resource_based_on_package
 
           In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
@@ -253,5 +251,4 @@ The following examples demonstrate various approaches for using resources in rec
    freebsd_package 'name of package' do
      action :install
    end
-
 

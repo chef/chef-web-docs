@@ -72,7 +72,7 @@ The following authentication headers are required:
    * - Feature
      - Description
    * - ``Accept``
-     
+
      - The format in which response data from the Chef Infra Server is provided. This header must be set to ``application/json``.
 
    * - ``Content-Type``
@@ -80,19 +80,19 @@ The following authentication headers are required:
      - The format in which data is sent to the Chef Infra Server. This header is required for ``PUT`` and ``POST`` requests and must be set to ``application/json``.
 
    * - ``Host``
-     
+
      - The host name (and port number) to which a request is sent. (Port number ``80`` does not need to be specified.) For example: ``api.opscode.com`` (which is the same as ``api.opscode.com:80``) or ``api.opscode.com:443``.
 
    * - ``X-Chef-Version``
-     
+
      - The version of the Chef Infra Client executable from which a request is made. This header ensures that responses are in the correct format. For example: ``12.0.2`` or ``11.16.x``.
 
    * - ``X-Ops-Authorization-N``
-     
+
      - One (or more) 60 character segments that comprise the canonical header. A canonical header is signed with the private key used by the client machine from which the request is sent, and is also encoded using Base64. If more than one segment is required, each should be named sequentially, e.g. ``X-Ops-Authorization-1``, ``X-Ops-Authorization-2``, ``X-Ops-Authorization-N``, where ``N`` represents the integer used by the last header that is part of the request.
 
    * - ``X-Ops-Content-Hash``
-     
+
      - The body of the request. The body should be hashed using SHA-1 and encoded using Base64. All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters.
 
    * - ``X-Ops-Server-API-Version``
@@ -100,15 +100,15 @@ The following authentication headers are required:
      - Use ``X-Ops-Server-API-Version`` to specify the version of the Chef Infra Server API. For example: ``X-Ops-Server-API-Version: 1``. ``X-Ops-Server-API-Version: 0`` is supported for use with Chef Server version 12, but will be deprecated as part of the next major release.
 
    * - ``X-Ops-Sign``
-     
+
      - Set this header to the following value: ``version=1.0``.
 
    * - ``X-Ops-Timestamp``
-     
+
      - The timestamp, in ISO-8601 format and with UTC indicated by a trailing ``Z`` and separated by the character ``T``. For example: ``2013-03-10T14:14:44Z``.
 
    * - ``X-Ops-UserId``
-     
+
      - The name of the API client whose private key will be used to create the authorization header.
 
 .. note:: Use ``X-Ops-Server-API-Info`` to identify the version of the Chef Infra Server API.
@@ -257,6 +257,8 @@ This method has no parameters.
 
    GET /license
 
+This method has no request body.
+
 **Response**
 
 The response is similar to:
@@ -264,9 +266,9 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "limit_exceeded": "false",
-     "node_license": "25",
-     "node_count": "12",
+     "limit_exceeded": false,
+     "node_license": 25,
+     "node_count": 12,
      "upgrade_url": "http://www.chef.io/contact/on-premises-simple"
    }
 
@@ -299,8 +301,6 @@ The chef-server.rb file contains settings that can be used to edit the number of
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``404``
-     - Not found. The requested object does not exist.
 
 /organizations
 -----------------------------------------------------
@@ -526,14 +526,19 @@ The response will return the JSON for the updated organization.
 
 /_status
 ----------------------------------------------------
-The ``/_status`` endpoint can be used to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers.
+Use the ``/_status`` endpoint to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers. The ``/_status`` endpoint does not require authentication headers.
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method is used to get the details for the named organization.
 
 **Request**
 
 .. code-block:: none
 
-   api.get("https://chef_server.front_end.url/_status")
+   GET /_status
 
+This method has no parameters.
 This method has no request body.
 
 **Response**
@@ -549,6 +554,11 @@ The response will return something like the following:
          "service_name": "pong",
          "service_name": "pong",
          ...
+       }
+     "keygen":
+       {
+         "keys": 10,
+         ....
        }
     }
 
@@ -1173,7 +1183,9 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-
+     "id":      "79b9382ab70e962907cee1747f9969a4",
+     "orgname": "testorg",
+     "username" "janedoe"
    }
 
 **Response Codes**
@@ -1205,6 +1217,56 @@ This method has no parameters.
 
    GET /organizations/NAME/association_requests
 
+This method has no request body.
+
+**Response**
+
+The response returns a dictionary similar to:
+
+.. code-block:: javascript
+
+   [
+     {
+       "id": "79b9382ab70e962907cee1747f9969a4",
+       "username": "marygupta"
+     },
+     {
+       "id": "24t1432uf33x799382abb7096g8190b5",
+       "username": "johnirving"
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+   * - ``403``
+     - Forbidden. The user who made the request is not authorized to perform the action.
+
+POST
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``POST`` method is used to create an invitation.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: javascript
+
+   {
+    "user": "billysmith"
+   }
+
+   POST /organizations/NAME/association_requests
+
 **Response**
 
 The response is similar to:
@@ -1212,7 +1274,17 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-
+     "uri": "https:/organization/test/association_requests/79b9382ab70e962907cee1747f9969a4",
+     "organization_user": {
+       "username": "authorizeduser"
+     },
+     "organization": {
+       "name": "test"
+     },
+     "user": {
+       "email": "sallyjane@domain.org",
+       "first_name": "sally"
+     }
    }
 
 **Response Codes**
@@ -1223,41 +1295,8 @@ The response is similar to:
 
    * - Response Code
      - Description
-   * - ``200``
-     - OK. The request was successful.
-   * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
-   * - ``403``
-     - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``404``
-     - Not found. The requested object does not exist.
-
-POST
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create an invitation.
-
-This method has no parameters.
-
-**Request**
-
-.. code-block:: none
-
-   POST /organizations/NAME/association_requests
-
-**Response**
-
-This method has no response body.
-
-**Response Codes**
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Response Code
-     - Description
-   * - ``200``
-     - OK. The request was successful.
+   * - ``201``
+     - OK. An invitation was created.
    * - ``400``
      - Bad request. The contents of the request are not formatted correctly.
    * - ``401``
@@ -1265,18 +1304,15 @@ This method has no response body.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
    * - ``404``
-     -  Not found. The requested object does not exist.
+     -  Not found. The invited user does not exist.
    * - ``409``
      - Conflict. The object already exists.
-   * - ``413``
-     - Request entity too large. A request may not be larger than 1000000 bytes.
 
 
 
 /clients/CLIENT/keys/
 ----------------------------------------------------
 The ``/clients/CLIENT/keys`` endpoint has the following methods: ``GET`` and ``POST``.
-
 
 
 GET
@@ -4911,6 +4947,7 @@ GET
 The ``GET`` method is used to retrieve the universe data.
 
 This method has no parameters.
+This method has no request body.
 
 **Request**
 
@@ -4920,40 +4957,42 @@ This method has no parameters.
 
 **Response**
 
-The response will return an embedded hash, with the name of each cookbook as a top-level key. Each cookbook will list each version, along with its location information and dependencies:
+The response will return a json hash, with the name of each cookbook as a top-level key. Each cookbook will list each version, along with its location information and dependencies:
 
 .. code-block:: javascript
 
-   {
-     "ffmpeg": {
-       "0.1.0": {
-         "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.0/download"
-         "location_type": "supermarket",
-         "dependencies": {
-           "git": ">= 0.0.0",
-           "build-essential": ">= 0.0.0",
-           "libvpx": "~> 0.1.1",
-           "x264": "~> 0.1.1"
-         },
-       },
-       "0.1.1": {
-         "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.1/download"
-         "location_type": "supermarket",
-         "dependencies": {
-           "git": ">= 0.0.0",
-           "build-essential": ">= 0.0.0",
-           "libvpx": "~> 0.1.1",
-           "x264": "~> 0.1.1"
-         },
-       },
+
+    {
+      "ffmpeg": {
+        "0.1.0": {
+          "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.0/download",
+          "location_type": "supermarket",
+          "dependencies": {
+            "git": ">= 0.0.0",
+            "build-essential": ">= 0.0.0",
+            "libvpx": "~> 0.1.1",
+            "x264": "~> 0.1.1"
+          }
+        },
+        "0.1.1": {
+          "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.1/download",
+          "location_type": "supermarket",
+          "dependencies": {
+            "git": ">= 0.0.0",
+            "build-essential": ">= 0.0.0",
+            "libvpx": "~> 0.1.1",
+            "x264": "~> 0.1.1"
+          }
+        }
+      },
       "pssh": {
-       "0.1.0": {
-         "location_path": "http://supermarket.chef.io/api/v1/cookbooks/pssh.1.0/download"
-         "location_type": "supermarket",
-         "dependencies": {},
-       }
-     }
-   }
+        "0.1.0": {
+          "location_path": "http://supermarket.chef.io/api/v1/cookbooks/pssh.1.0/download",
+          "location_type": "supermarket",
+          "dependencies": {}
+        }
+      }
+    }
 
 .. list-table::
    :widths: 200 300
