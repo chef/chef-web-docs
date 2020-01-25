@@ -179,7 +179,7 @@ What's New in 4.4
 
   * **macOS 10.15 Support**
 
-    Chef DK is now validated against macOS 10.15 (Catalina). Additionally, Chef DK will no longer be validated against macOS 10.12.
+    ChefDK is now validated against macOS 10.15 (Catalina). Additionally, ChefDK will no longer be validated against macOS 10.12.
 
 What's New in 4.3
 =====================================================
