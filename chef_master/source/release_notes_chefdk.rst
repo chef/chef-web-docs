@@ -774,12 +774,12 @@ Many of the non-breaking updates to the ``chef generate`` command that shipped i
 
 * ``chef generate cookbook`` now includes ChefSpecs that utilize the ChefSpec 7.3+ format. This is a much simpler syntax that requires less updating of specs as older platforms are deprecated.
 * ``chef generate cookbook`` now generates Test Kitchen configs with Ubuntu 18.04
-* ``chef generate cookboo`k` now generates non-hidden Test Kitchen configs (kitchen.yml instead of .kitchen.yml)
+* ``chef generate cookbook`` now generates non-hidden Test Kitchen configs (kitchen.yml instead of .kitchen.yml)
 * ``chef generate cookbook --kitchen dokken`` now generates a fully working kitchen-dokken config.
 * ``chef generate cookbook`` no longer creates cookbook files with the unecessary ``frozen_string_literal: true`` comments.
 * ``chef generate cookbook`` now generates Test Kitchen configs with the ``product_name``/``product_version`` method of specifying Chef Infra Client releases as ``require_chef_omnibus`` will be removed in the next major Test Kitchen release.
-* ``chef generate cookbook_file`` no longer places the specified file in a `default` folder as these aren't needed in Chef Infra Client 12 and later.
-* ``chef generate cookbook`` now generates cookbooks with updated `.gitignore` and `chefignore` files
+* ``chef generate cookbook_file`` no longer places the specified file in a ``default`` folder as these aren't needed in Chef Infra Client 12 and later.
+* ``chef generate cookbook`` now generates cookbooks with updated ``.gitignore`` and ``chefignore`` files
 
 Updated Components
 -----------------------------------------------------
