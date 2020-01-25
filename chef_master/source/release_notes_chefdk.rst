@@ -647,6 +647,228 @@ kitchen.yml example:
       name: dokken
       pull_platform_image: false
 
+What's New in 3.13
+=====================================================
+
+Updated Components
+-----------------------------------------------------
+
+chef-vault
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The chef-vault gem has been updated to 4.0.1. This release includes bug fixes from `@MarkGibbons <https://github.com/MarkGibbons>`__ and `@jeremy-clerc <https://github.com/jeremy-clerc>`__ as well as a new way to update existing keys to sparse-mode by running ``knife vault update --keys_mode sparse`` thanks to `@jeunito <https://github.com/jeunito>`__.
+
+kitchen-azurerm
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+kitchen-azurerm has been updated from 0.14.9 to 0.15.1 with the following improvements:
+
+- Enable the WinRM HTTP listener by default. Thanks `@sean-nixon <https//github.com/sean-nixon>`__
+- Allow overriding of the ``subscription_id`` by setting the ``AZURE_SUBSCRIPTION_ID`` ENV variable.
+- Add a new ``nic_name`` config. Thanks `@libertymutual <https//github.com/libertymutual>`__
+- Support for creating VM with Azure KeyVault certificate. Thanks `@javgallegos <https//github.com/javgallegos>`__
+
+kitchen-dokken
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+kitchen-dokken has been updated to 2.8.1 which fixes a bug that prevented `ENV` vars from being passed into containers.
+
+knife-tidy
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+knife-tidy has been updated from 2.0.1 to 2.0.6 to resolve issues if an org was named ``cookbooks`` and to improve error messages.
+
+mixlib-install
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+mixlib-install has been updated from 3.11.21 to 3.11.24 and will now properly identify Windows 2019 hosts.
+
+Performance Improvements
+-----------------------------------------------------
+
+This release of ChefDK ships with several optimizations to our Ruby installation to improve the performance of loading the various commands bundled with ChefDK. These improvements are particularly noticeable on non-SSD hosts and on Windows.
+
+Smaller Size
+-----------------------------------------------------
+
+We continue to optimize the size of the ChefDK package with this release taking up 11% less space on disk and containing nearly 5,000 fewer files.
+
+Platform Support
+-----------------------------------------------------
+
+ChefDK packages are no longer produced for Windows 2008 R2 as this release reached its end of life on Jan 14th, 2020.
+
+Security Updates
+-----------------------------------------------------
+
+OpenSSL
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+OpenSSL has been updated to 1.0.2u to resolve `CVE-2019-1551 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551>`__
+
+Git
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+The embedded git client has been updated to 2.24.1 to resolve the following CVEs:
+
+* `CVE-2019-1348 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1348>`__
+* `CVE-2019-1349 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1349>`__
+* `CVE-2019-1350 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1350>`__
+* `CVE-2019-1351 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1351>`__
+* `CVE-2019-1352 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1352>`__
+* `CVE-2019-1353 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1353>`__
+* `CVE-2019-1354 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1354>`__
+* `CVE-2019-1387 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1387>`__
+* `CVE-2019-19604 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-19604>`__
+
+What's New in 3.12.10
+=====================================================
+
+Updated Components
+-----------------------------------------------------
+
+Chef Infra Client 14.14.29
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Chef Infra Client has been updated to 14.14.29 with the following bug fixes:
+
+* Fixed an error with the ``service`` and ``systemd_unit`` resources which would try to re-enable services with an indirect status.
+* The ``systemd_unit`` resource now logs at the info level.
+* Fixed knife config when it returned a ``TypeError: no implicit conversion of nil into String`` error.
+
+kitchen-digitalocean 0.10.4
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+kitchen-digitalocean has been updated to 0.10.5 which adds new image aliases for `Debian-10` and `FreeBSD-12`.
+
+kitchen-dokkken 2.8.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+kitchen-dokken has been updated to 2.8.0. This will make the ``CI`` and ``TEST_KITCHEN`` environmental variables match the behavior of ``kitchen-vagrant``.
+
+Security Updates
+-----------------------------------------------------
+
+libxslt
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+libxslt has been updated to 1.1.34 to resolve `CVE-2019-13118 <https://nvd.nist.gov/vuln/detail/CVE-2019-13118>`__.
+
+Ruby
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ruby has been updated from 2.5.6 to 2.5.7 in order to resolve the following CVEs:
+
+* `CVE-2019-16255 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255>`__: A code injection vulnerability of Shell#[] and Shell#test
+* `CVE-2019-16254 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254>`__: HTTP response splitting in WEBrick (Additional fix)
+* `CVE-2019-15845 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845>`__: A NUL injection vulnerability of File.fnmatch and File.fnmatch?
+* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`__: Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
+
+What's New in 3.12
+=====================================================
+
+Chef Generate Updates
+-----------------------------------------------------
+
+Many of the non-breaking updates to the ``chef generate`` command that shipped in ChefDK 4 have been backported to ChefDK 3.
+
+* ``chef generate cookbook`` now includes ChefSpecs that utilize the ChefSpec 7.3+ format. This is a much simpler syntax that requires less updating of specs as older platforms are deprecated.
+* ``chef generate cookbook`` now generates Test Kitchen configs with Ubuntu 18.04
+* ``chef generate cookboo`k` now generates non-hidden Test Kitchen configs (kitchen.yml instead of .kitchen.yml)
+* ``chef generate cookbook --kitchen dokken`` now generates a fully working kitchen-dokken config.
+* ``chef generate cookbook`` no longer creates cookbook files with the unecessary ``frozen_string_literal: true`` comments.
+* ``chef generate cookbook`` now generates Test Kitchen configs with the ``product_name``/``product_version`` method of specifying Chef Infra Client releases as ``require_chef_omnibus`` will be removed in the next major Test Kitchen release.
+* ``chef generate cookbook_file`` no longer places the specified file in a `default` folder as these aren't needed in Chef Infra Client 12 and later.
+* ``chef generate cookbook`` now generates cookbooks with updated `.gitignore` and `chefignore` files
+
+Updated Components
+-----------------------------------------------------
+
+Chef Infra Client 14.14.25
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Chef Infra Client has been udpated from 14.13 to 14.14.25. This release includes support for the new ``unified_mode`` in custom resources, a large number of improvements to resources, improved platform detection support, as well as bug fix. See the `Chef Infra Client 14.14.25 Release Notes <https://github.com/chef/chef/blob/chef-14/RELEASE_NOTES.md#chef-client-release-notes-141425>`__ for a detailed list of changes.
+
+ChefSpec 7.4.0
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ChefSpec has been updated to 7.4 with better support stubbing commands, and a new ``policyfile_path`` configuration option for specifying the path to the PolicyFile.
+
+kitchen-azurerm
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+kitchen-azurerm has been updated from 0.14.8 to 0.14.9, which adds a new ``use_ephemeral_osdisk`` configuration option. See Microsoft's `Empheral OS Disk Announcement <https://azure.microsoft.com/en-us/updates/azure-ephemeral-os-disk-now-generally-available/>`__ for more information on this new feature.
+
+kitchen-digitalocean 0.10.4
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+kitchen-digitalocean has been updated to 0.10.4 with support for new distros and additional configuration options for instance setup. You can now control the default DigitalOcean region systems that are spun up by using a new ``DIGITALOCEAN_REGION`` environmental variable. You can still modify the region in the driver section of your ``kitchen.yml`` file if you'd like, and the default region of ``nyc1`` has not changed. This release also adds slug support for ``fedora-29``, ``fedora-30``, and ``ubuntu-19``. Finally, if you'd like to monitor your test instances, the new ``monitoring`` configuration option in the ``kitchen.yml`` driver section allows enabling DigitalOcean's instance monitoring. See the `kitchen-digitalocean readme <https://github.com/test-kitchen/kitchen-digitalocean/blob/master/README.md>`__ for ``kitchen.yml`` config examples.
+
+kitchen-vagrant
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+kitchen-vagrant has been updated from 1.5.2. to 1.6.0. This new version properly truncates the instance name to avoid hitting the 100 character limit in Hyper-V, and also updates the hostname length limit on Windows from 12 characters to 15 characters. Thanks `@Xorima <https://github.com/Xorima>`__ and `@PowerSchill <https://github.com/PowerSchill>`__.
+
+knife-vsphere 3.0.1
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Knife-vsphere has been updated to 3.0.1. This new version adds support for specifying the ``bootstrap_template`` when creating new VMs. This release also improves how the plugin finds VM hosts, in order to support hosts in nested directories.
+
+Platform Support Updates
+-----------------------------------------------------
+
+macOS 10.15 Support
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ChefDK is now validated against macOS 10.15 (Catalina) with packages available at `downloads.chef.io <https://downloads.chef.io/chefdk/>`__. Additionally, ChefDK will no longer be validated against macOS 10.12.
+
+RHEL 8 Support
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ChefDK is now validated against RHEL 8 with packages available at `downloads.chef.io <https://downloads.chef.io/chefdk/>`__.
+
+Windows 2019 Support
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ChefDK is now validated against Windows 2019 with packages available at `downloads.chef.io <https://downloads.chef.io/chefdk/>`__.
+
+SLES 11 EOL
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Packages will no longer be built for SUSE Linux Enterprise Server (SLES) 11 as SLES 11 exited the 'General Support' phase on March 31, 2019. See `Chef's Platform End-of-Life Policy <https://docs.chef.io/platforms.html#platform-end-of-life-policy>`__ for more information on when Chef ends support for an OS release.
+
+Ubuntu 14.04 EOL
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Packages will no longer be built for Ubuntu 14.04 as Ubuntu 14.04 entered "End of life" status April 2019. See `Chef's Platform End-of-Life Policy <https://docs.chef.io/platforms.html#platform-end-of-life-policy>`__ for more information on when Chef ends support for an OS release.
+
+Security Updates
+-----------------------------------------------------
+
+Ruby
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Ruby has been updated from 2.5.5 to 2.5.6 in order to resolve the following CVEs:
+
+* `CVE-2019-16255 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16255>`__: A code injection vulnerability of Shell#[] and Shell#test
+* `CVE-2019-16254 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16254>`__: HTTP response splitting in WEBrick (Additional fix)
+* `CVE-2019-15845 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-15845>`__: A NUL injection vulnerability of File.fnmatch and File.fnmatch?
+* `CVE-2019-16201 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-16201>`__: Regular Expression Denial of Service vulnerability of WEBrick’s Digest access authentication
+
+openssl
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+OpenSSL has been updated from 1.0.2r to 1.0.2t to resolve the following CVEs:
+
+* `CVE-2019-1563 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1563>`__
+* `CVE-2019-1547 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1547>`__
+* `CVE-2019-1552 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1552>`__
+
+Nokogiri
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Nokogiri has been updated from 1.10.3 to 1.10.4 in order to resolve `CVE-2019-5477 <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-5477>`__.
+
 What's New in 3.11
 =====================================================
 
@@ -1047,7 +1269,6 @@ New Chef CLI Functionality
 -----------------------------------------------------
 
 The Chef CLI now includes a new option: `chef update --exclude-deps` for policyfiles which will only update the cookbook(s) given on the command line.
-
 
 Deprecations
 -----------------------------------------------------
