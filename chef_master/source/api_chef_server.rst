@@ -5073,6 +5073,191 @@ The response will return an array of paths for objects that have been created, u
 
 
 
+
+/users
+-----------------------------------------------------
+
+A user may be associated with an organization. 
+
+
+The ``/users`` endpoint has the following methods: ``GET`` and ``POST``.
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method is used to return an array of usernames for users associated with an organization.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   GET /organizations/NAME/users
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: javascript
+
+   [
+     { "user": { "username": "paperlatte" } }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.
+   * - ``403``
+     - Forbidden. The user who made the request is not authorized to perform the action.
+
+POST
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``POST`` method is used to associate a user with an organization immediately. Superuser only.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   POST /organizations/NAME/users
+
+with a request body similar to:
+
+.. code-block:: javascript
+
+   {
+     "username": "paperlatte",
+   }
+
+where ``username`` is the name of the user to be associated.
+
+**Response**
+
+No response block is returned.
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``201``
+     - Created. The user was associated with the organization.
+   * - ``400``
+     - Bad request. The contents of the request are not formatted correctly.
+   * - ``401``
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.
+   * - ``403``
+     - Forbidden. The user who made the request is not authorized to perform the action.
+   * - ``409``
+     - Conflict. The user is already associated.
+
+/users/NAME
+-----------------------------------------------------
+The ``/users/NAME`` endpoint has the following methods: ``DELETE``, ``GET``.
+
+DELETE
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``DELETE`` method is used to delete a user association with an organization.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   DELETE /organizations/NAME/users/NAME
+
+**Response**
+
+The response will return the end state of the user, similar to:
+
+.. code-block:: javascript
+
+   {
+     "username": "paperlatte"
+     "email": "latte",
+     "display_name": "Ms. Latte",
+     "first_name": "Paper",
+     "last_name": "Latte",
+     "public_key": "-----BEGIN PUBLIC KEY----- ... "
+   }
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful. The user association was removed.
+   * - ``401``
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.
+   * - ``403``
+     - Forbidden. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not found. The requested object does not exist.
+
+GET
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``GET`` method is used to return the details of a user as JSON.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: none
+
+   GET /organizations/NAME/users/NAME
+
+**Response**
+
+The response is similar to:
+
+.. code-block:: javascript
+
+   {
+     "username": "paperlatte"
+     "email": "latte",
+     "display_name": "Ms. Latte",
+     "first_name": "Paper",
+     "last_name": "Latte",
+     "public_key": "-----BEGIN PUBLIC KEY----- ... "
+   }
+
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.
+   * - ``403``
+     - Forbidden. The user who made the request is not authorized to perform the action.
+   * - ``404``
+     - Not found. The requested object does not exist.
+
 Examples
 =====================================================
 The following sections show examples of using the Chef Infra Server API.
