@@ -1183,7 +1183,9 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-
+     "id":      "79b9382ab70e962907cee1747f9969a4",
+     "orgname": "testorg",
+     "username" "janedoe"
    }
 
 **Response Codes**
@@ -1215,6 +1217,56 @@ This method has no parameters.
 
    GET /organizations/NAME/association_requests
 
+This method has no request body.
+
+**Response**
+
+The response returns a dictionary similar to:
+
+.. code-block:: javascript
+
+   [
+     {
+       "id": "79b9382ab70e962907cee1747f9969a4",
+       "username": "marygupta"
+     },
+     {
+       "id": "24t1432uf33x799382abb7096g8190b5",
+       "username": "johnirving"
+     }
+   ]
+
+**Response Codes**
+
+.. list-table::
+   :widths: 200 300
+   :header-rows: 1
+
+   * - Response Code
+     - Description
+   * - ``200``
+     - OK. The request was successful.
+   * - ``401``
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+   * - ``403``
+     - Forbidden. The user who made the request is not authorized to perform the action.
+
+POST
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+The ``POST`` method is used to create an invitation.
+
+This method has no parameters.
+
+**Request**
+
+.. code-block:: javascript
+
+   {
+    "user": "billysmith"
+   }
+
+   POST /organizations/NAME/association_requests
+
 **Response**
 
 The response is similar to:
@@ -1222,7 +1274,17 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-
+     "uri": "https:/organization/test/association_requests/79b9382ab70e962907cee1747f9969a4",
+     "organization_user": {
+       "username": "authorizeduser"
+     },
+     "organization": {
+       "name": "test"
+     },
+     "user": {
+       "email": "sallyjane@domain.org",
+       "first_name": "sally"
+     }
    }
 
 **Response Codes**
@@ -1233,41 +1295,8 @@ The response is similar to:
 
    * - Response Code
      - Description
-   * - ``200``
-     - OK. The request was successful.
-   * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
-   * - ``403``
-     - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``404``
-     - Not found. The requested object does not exist.
-
-POST
-+++++++++++++++++++++++++++++++++++++++++++++++++++++
-The ``POST`` method is used to create an invitation.
-
-This method has no parameters.
-
-**Request**
-
-.. code-block:: none
-
-   POST /organizations/NAME/association_requests
-
-**Response**
-
-This method has no response body.
-
-**Response Codes**
-
-.. list-table::
-   :widths: 200 300
-   :header-rows: 1
-
-   * - Response Code
-     - Description
-   * - ``200``
-     - OK. The request was successful.
+   * - ``201``
+     - OK. An invitation was created.
    * - ``400``
      - Bad request. The contents of the request are not formatted correctly.
    * - ``401``
@@ -1275,18 +1304,15 @@ This method has no response body.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
    * - ``404``
-     -  Not found. The requested object does not exist.
+     -  Not found. The invited user does not exist.
    * - ``409``
      - Conflict. The object already exists.
-   * - ``413``
-     - Request entity too large. A request may not be larger than 1000000 bytes.
 
 
 
 /clients/CLIENT/keys/
 ----------------------------------------------------
 The ``/clients/CLIENT/keys`` endpoint has the following methods: ``GET`` and ``POST``.
-
 
 
 GET
