@@ -5040,7 +5040,6 @@ The response will return an array of paths for objects that have been created, u
 
 /users
 -----------------------------------------------------
-.. tag organization user
 
 A user may be associated with an organization. 
 
