@@ -6,7 +6,6 @@ Site Map
 This is the documentation for:
 
 * Chef Infra Server, Chef Infra Client, ChefDK, and related tools
-* Chef Automate 1.0 (deprecated)
 
 Documentation for other Chef products:
 
@@ -45,7 +44,6 @@ Packages and Platform Support
 `Platforms </platforms.html>`__ |
 `Supported Versions </versions.html>`__ |
 `Omnitruck API </api_omnitruck.html>`__
-
 
 Chef
 =====================================================
@@ -281,7 +279,6 @@ Cookbook Reference
 `yum_repository </resource_yum_repository.html>`__ |
 `zypper_package </resource_zypper_package.html>`__ |
 `zypper_repository </resource_zypper_repository.html>`__
-
 
 `Templates </templates.html>`__ |
 `Cookbook Repo </cookbook_repo.html>`__ |
