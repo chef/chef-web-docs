@@ -374,7 +374,7 @@ Chef Manage Local Installation
 ---------------------------------------------
 .. tag ctl_chef_server_install_features_manual
 
-The ``install`` subcommand downloads packages from https://packages.chef.io/ by default. For systems that are behind a firewall (and may not have connectivity to packages.chef.io), these packages can be downloaded from https://downloads.chef.io/chef-manage/, and then installed manually. First download the package that is appropriate for the platform, save it to a local path, and then run the ``install`` command using the ``--path`` option to specify the directory in which the package is located:
+The ``install`` subcommand is used to install premium features of the Chef server: Chef management console(``chef-manage``) and push jobs(``opscode-push-jobs-server``).
 
 .. code-block:: bash
 

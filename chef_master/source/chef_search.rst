@@ -734,24 +734,24 @@ to return something like:
 
    2 items found
 
-   Node Name:   windows-server-2008r2.domain.com
+   Node Name:   windows-server-2012r2.domain.com
    Environment: _default
-   FQDN:        windows-server-2008r2
+   FQDN:        windows-server-2012r2
    IP:          0000::0000:0000:0000:0000
    Run List:    role[jenkins-windows]
    Roles:       jenkins-windows, jenkins
    Recipes:     jenkins-client::windows, jenkins::node_windows
-   Platform:    windows 6.1.7601
+   Platform:    windows 6.3.9600
    Tags:
 
-   Node Name:   123-windows-2008r2-amd64-builder
+   Node Name:   123-windows-2012r2-amd64-builder
    Environment: _default
    FQDN:        ABC-1234567890AB
    IP:          123.45.6.78
-   Run List:    role[123-windows-2008r2-amd64-builder]
-   Roles:       123-windows-2008r2-amd64-builder, jenkins
+   Run List:    role[123-windows-2012r2-amd64-builder]
+   Roles:       123-windows-2012r2-amd64-builder, jenkins
    Recipes:     jenkins::node_windows, git_windows
-   Platform:    windows 6.1.7601
+   Platform:    windows 6.3.9600
    Tags:
 
 .. end_tag

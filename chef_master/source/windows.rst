@@ -62,7 +62,7 @@ The recommended minimum amount of RAM available to Chef Infra Client during a Ch
      - Version
    * - Windows
      - ``x86``, ``x64``
-     - ``7``, ``8.1``, ``2008 R2``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
+     - ``8.1``, ``2012``, ``2012 R2``, ``2016``, ``10 (all channels except "insider" builds)``, ``2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)``
 
 After Chef Infra Client is installed, it is located at ``C:\opscode``. The main configuration file for Chef Infra Client is located at ``C:\chef\client.rb``.
 
@@ -123,35 +123,6 @@ On Microsoft Windows, Chef Infra Client must have two entries added to the ``PAT
 This is typically done during the installation of Chef Infra Client automatically. If these values (for any reason) are not in the ``PATH`` environment variable, Chef Infra Client will not run properly.
 
 .. image:: ../../images/includes_windows_environment_variable_path.png
-
-This value can be set from a recipe. For example, from the ``php`` cookbook:
-
-.. code-block:: ruby
-
-   #  the following code sample comes from the ``package`` recipe in the ``php`` cookbook: https://github.com/chef-cookbooks/php
-
-   if platform?('windows')
-
-     include_recipe 'iis::mod_cgi'
-
-     install_dir = File.expand_path(node['php']['conf_dir']).gsub('/', '\\')
-     windows_package node['php']['windows']['msi_name'] do
-       source node['php']['windows']['msi_source']
-       installer_type :msi
-
-       options %W[
-         /quiet
-         INSTALLDIR="#{install_dir}"
-         ADDLOCAL=#{node['php']['packages'].join(',')}
-       ].join(' ')
-   end
-
-   ...
-
-   ENV['PATH'] += ";#{install_dir}"
-   windows_path install_dir
-
-   ...
 
 .. end_tag
 
@@ -251,7 +222,7 @@ For example:
 
    $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
 
-Refer `Schedule a Task <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc748993(v=ws.11)>`_ for more details.
+Refer to the `Schtasks documentation <https://docs.microsoft.com/en-us/windows/win32/taskschd/schtasks>`_ for more details.
 
 After Chef Infra Client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
 
@@ -281,8 +252,6 @@ Some of the most popular Chef-maintained cookbooks that contain custom resources
      - This cookbook downloads and installs the IIS URL Rewrite 2.0 extension into Microsoft Internet Information Server.
    * - `PowerShell Cookbook <https://github.com/chef-cookbooks/powershell>`_
      - Installs and configures PowerShell 2.0, 3.0, 4.0 or 5.0.
-   * - `Microsoft Azure Cookbook <https://github.com/chef-cookbooks/miccrosoft_azure>`_
-     - This cookbook provides resources and providers to create an manage Microsoft Azure components.
    * - `Microsoft Visual C++ Runtime Cookbook <https://github.com/chef-cookbooks/vcruntime>`_
      - Installs Microsoft Visual C++ runtime version 6 (2005), 9 (2008), 10 (2010), 11 (2012), 12 (2013), 14 (2015) or 15 (2017) on Windows.
    * - `Mingw Cookbook <https://github.com/chef-cookbooks/mingw>`_

@@ -104,7 +104,7 @@ For example:
 
    $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
 
-Refer `Schedule a Task <https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc748993(v=ws.11)>`_ for more details.
+Refer to the `Schtasks documentation <https://docs.microsoft.com/en-us/windows/win32/taskschd/schtasks>`_ for more details.
 
 After Chef Infra Client is configured to run as a scheduled task, the default file path is: ``c:\chef\chef-client.log``.
 
@@ -130,34 +130,5 @@ On Microsoft Windows, Chef Infra Client must have two entries added to the ``PAT
 This is typically done during the installation of Chef Infra Client automatically. If these values (for any reason) are not in the ``PATH`` environment variable, Chef Infra Client will not run properly.
 
 .. image:: ../../images/includes_windows_environment_variable_path.png
-
-This value can be set from a recipe. For example, from the ``php`` cookbook:
-
-.. code-block:: ruby
-
-   #  the following code sample comes from the ``package`` recipe in the ``php`` cookbook: https://github.com/chef-cookbooks/php
-
-   if platform?('windows')
-
-     include_recipe 'iis::mod_cgi'
-
-     install_dir = File.expand_path(node['php']['conf_dir']).gsub('/', '\\')
-     windows_package node['php']['windows']['msi_name'] do
-       source node['php']['windows']['msi_source']
-       installer_type :msi
-
-       options %W[
-         /quiet
-         INSTALLDIR="#{install_dir}"
-         ADDLOCAL=#{node['php']['packages'].join(',')}
-       ].join(' ')
-   end
-
-   ...
-
-   ENV['PATH'] += ";#{install_dir}"
-   windows_path install_dir
-
-   ...
 
 .. end_tag

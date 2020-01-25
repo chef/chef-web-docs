@@ -1545,7 +1545,6 @@ And then use this variable to define specific behaviors for specific Microsoft W
    end
 
 
-
 The following Microsoft Windows platform-specific helpers can be used in recipes:
 
 .. list-table::
@@ -1555,33 +1554,21 @@ The following Microsoft Windows platform-specific helpers can be used in recipes
    * - Helper
      - Description
    * - ``cluster?``
-     - Use to test for a Cluster SKU (Windows Server 2003 and later).
+     - Use to test for a Cluster SKU (Windows Server 2012 and later).
    * - ``core?``
-     - Use to test for a Core SKU (Windows Server 2003 and later).
+     - Use to test for a Core SKU (Windows Server 2012 and later).
    * - ``datacenter?``
      - Use to test for a Datacenter SKU.
    * - ``marketing_name``
      - Use to display the marketing name for a Microsoft Windows platform.
-   * - ``windows_7?``
-     - Use to test for Windows 7.
    * - ``windows_8?``
      - Use to test for Windows 8.
    * - ``windows_8_1?``
      - Use to test for Windows 8.1.
    * - ``windows_10?``
      - Use to test for Windows 10.
-   * - ``windows_2000?``
-     - Use to test for Windows 2000.
    * - ``windows_home_server?``
      - Use to test for Windows Home Server.
-   * - ``windows_server_2003?``
-     - Use to test for Windows Server 2003.
-   * - ``windows_server_2003_r2?``
-     - Use to test for Windows Server 2003 R2.
-   * - ``windows_server_2008?``
-     - Use to test for Windows Server 2008.
-   * - ``windows_server_2008_r2?``
-     - Use to test for Windows Server 2008 R2.
    * - ``windows_server_2012?``
      - Use to test for Windows Server 2012.
    * - ``windows_server_2012_r2?``
@@ -1590,63 +1577,6 @@ The following Microsoft Windows platform-specific helpers can be used in recipes
      - Use to test for Windows Server 2016.
    * - ``windows_server_2019?``
      - Use to test for Windows Server 2019.
-   * - ``windows_vista?``
-     - Use to test for Windows Vista.
-   * - ``windows_xp?``
-     - Use to test for Windows XP.
-
-
-
-The following example installs Windows PowerShell 2.0 on systems that do not already have it installed. Microsoft Windows platform helper methods are used to define specific behaviors for specific platform versions:
-
-.. code-block:: ruby
-
-   case node['platform']
-   when 'windows'
-
-     require 'chef/win32/version'
-     windows_version = Chef::ReservedNames::Win32::Version.new
-
-     if (windows_version.windows_server_2008_r2? || windows_version.windows_7?) && windows_version.core?
-
-       windows_feature 'NetFx2-ServerCore' do
-         action :install
-       end
-       windows_feature 'NetFx2-ServerCore-WOW64' do
-         action :install
-         only_if { node['kernel']['machine'] == 'x86_64' }
-       end
-
-     elsif windows_version.windows_server_2008? || windows_version.windows_server_2003_r2? ||
-         windows_version.windows_server_2003? || windows_version.windows_xp?
-
-       if windows_version.windows_server_2008?
-         windows_feature 'NET-Framework-Core' do
-           action :install
-         end
-
-       else
-         windows_package 'Microsoft .NET Framework 2.0 Service Pack 2' do
-           source node['ms_dotnet2']['url']
-           checksum node['ms_dotnet2']['checksum']
-           installer_type :custom
-           options '/quiet /norestart'
-           action :install
-         end
-       end
-     else
-       log '.NET Framework 2.0 is already enabled on this version of Windows' do
-         level :warn
-       end
-     end
-   else
-     log '.NET Framework 2.0 cannot be installed on platforms other than Windows' do
-       level :warn
-     end
-   end
-
-The previous example is from the `ms_dotnet2 cookbook <https://github.com/juliandunn/ms_dotnet2>`_, created by community member ``juliandunn``.
-
 
 
 Log Entries

@@ -504,6 +504,8 @@ The pattern for template specificity depends on two things: the lookup path and 
 #. ``/default/$source``
 #. ``/$source``
 
+.. note:: To specify a particular Windows version, use the `operating system version number <https://docs.microsoft.com/en-us/windows/win32/sysinfo/operating-system-version>`_. For example, a template in ``templates/windows-6.3`` will be deployed on systems installed with Windows 8.1.
+
 Use an array with the ``source`` property to define an explicit lookup path. For example:
 
 .. code-block:: ruby
@@ -534,9 +536,8 @@ A cookbook may have a ``/templates`` directory structure like this:
 .. code-block:: ruby
 
    /templates/
-     windows-6.2
-     windows-6.1
-     windows-6.0
+     windows-10
+     windows-6.3
      windows
      default
 
@@ -551,14 +552,13 @@ and a resource that looks something like the following:
      group 'root'
    end
 
-This resource would be matched in the same order as the ``/templates`` directory structure. For a node named ``host-node-desktop`` that is running Windows 7, the second item would be the matching item and the location:
+This resource would be matched in the same order as the ``/templates`` directory structure. For a node named ``host-node-desktop`` that is running Windows 8.1, the second item would be the matching item and the location:
 
 .. code-block:: ruby
 
    /templates
-     windows-6.2/text_file.txt
-     windows-6.1/text_file.txt
-     windows-6.0/text_file.txt
+     windows-10/text_file.txt
+     windows-6.3/text_file.txt
      windows/text_file.txt
      default/text_file.txt
 
