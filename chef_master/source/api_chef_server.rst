@@ -5111,7 +5111,6 @@ where ``username`` is the name of the user to be associated.
 
 No response block is returned.
 
-.. code-block:: none
 
 **Response Codes**
 
