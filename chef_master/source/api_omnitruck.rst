@@ -126,21 +126,21 @@ Examples
 
 **Get the Latest Build**
 
-To get the latest supported build for Ubuntu 16.04, enter the following:
+To get the latest supported build for Ubuntu 18.04, enter the following:
 
 .. code-block:: none
 
-   https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=16.04&m=x86_64
+   https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=18.04&m=x86_64
 
 to return something like:
 
 .. code-block:: none
 
 
-   sha1 1e8019cf630e8a7c6287e1b950ddeecbe042d554
-   sha256 26c31070a71309709ed1d19b796ad0b47a283c5c21930906f19e0771a5dd1c1b
-   url https://packages.chef.io/files/stable/chef/14.0.190/ubuntu/16.04/chef_14.0.190-1_amd64.deb
-   version 14.0.190
+   sha1 e05c7930f1b561c3d1d057a5d5013ea3150374bf
+   sha256 ab107d1b8ee3470aceb3e57edb5fcc220af89c866599ec3d84b5fb3921251d12
+   url https://packages.chef.io/files/stable/chef/15.7.31/ubuntu/18.04/chef_15.7.31-1_amd64.deb
+   version 15.7.31
 
 **Download Directly**
 
