@@ -526,7 +526,7 @@ The response will return the JSON for the updated organization.
 
 /_status
 ----------------------------------------------------
-Use the ``/_status`` endpoint to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers. The ``/_status`` endpoint does not require authentication headers
+Use the ``/_status`` endpoint to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers. The ``/_status`` endpoint does not require authentication headers.
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
