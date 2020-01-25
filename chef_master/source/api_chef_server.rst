@@ -5067,7 +5067,7 @@ The response is similar to:
 .. code-block:: javascript
 
    [
-     { "user: { "username": "paperlatte" } }
+     { "user": { "username": "paperlatte" } }
    ]
 
 **Response Codes**
