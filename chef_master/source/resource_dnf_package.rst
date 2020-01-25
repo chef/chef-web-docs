@@ -5,8 +5,6 @@ dnf_package resource
 
 Use the **dnf_package** resource to install, upgrade, and remove packages with DNF for Fedora and RHEL 8+. The **dnf_package** resource is able to resolve ``provides`` data for packages much like DNF can do when it is run from the command line. This allows a variety of options for installing packages, like minimum versions, virtual provides, and library names.
 
-
-
 .. note:: .. tag notes_resource_based_on_package
 
           In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
@@ -466,5 +464,4 @@ When a **cookbook_file** resource and a **dnf_package** resource are both called
      action :install
      flush_cache [ :before ]
    end
-
 

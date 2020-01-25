@@ -5,8 +5,6 @@ openbsd_package resource
 
 Use the **openbsd_package** resource to manage packages for the OpenBSD platform.
 
-
-
 .. note:: .. tag notes_resource_based_on_package
 
           In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
@@ -240,7 +238,8 @@ The following properties can be used to define a guard that is evaluated during 
 .. end_tag
 
 Examples
-==========================================
+=====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Install a package**

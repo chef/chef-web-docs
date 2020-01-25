@@ -81,7 +81,7 @@ The following examples show how to use this knife subcommand:
 
 .. code-block:: bash
 
-   $ azure vm create your-vm-name MSFT__Windows-Server-2008-R2-SP1.11-29-2011 yourusername yourpassword --location "West US" -r
+   $ azure vm create your-vm-name MSFT__Windows-Server-2012 yourusername yourpassword --location "West US" -r
 
 **Set the Chef extension without a run-list**
 

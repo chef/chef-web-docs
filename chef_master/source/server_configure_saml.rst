@@ -6,23 +6,9 @@ Configuring for SAML Authentication
 .. meta:: 
     :robots: noindex 
 
-.. tag chef_automate_mark
-
-.. image:: ../../images/a2_docs_banner.svg
-   :target: https://automate.chef.io/docs
-
-.. end_tag
-
 .. tag EOL_manage
 
 .. warning:: Chef Manage is `deprecated </versions.html#deprecated-products-and-versions>`__. The `Chef Enterprise Automation Stack <https://www.chef.io/products/enterprise-automation-stack>`_ allows you to define infrastructure, security policies, and application dependencies as code, deliver the stack via an automated pipeline to any platform, and deploy, observe, and manage the stack over its lifecycle. Chef Automate is included as part of the Chef license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
-
-.. end_tag
-
-
-.. tag EOL_a1
-
-.. danger:: This documentation applies to a deprecated version of Chef Automate and will reach its `End-Of-Life on December 31, 2019 </versions.html#deprecated-products-and-versions>`__. See the `Chef Automate site <https://automate.chef.io/docs/quickstart/>`__ for current documentation. The new Chef Automate includes newer out-of-the-box compliance profiles, an improved compliance scanner with total cloud scanning functionality, better visualizations, role-based access control and many other features. The new Chef Automate is included as part of the Chef Automate license agreement and is `available via subscription <https://www.chef.io/pricing/>`_.
 
 .. end_tag
 
@@ -57,7 +43,3 @@ Finally, run ``chef-manage-ctl reconfigure`` to apply these settings.
 
 .. warning:: You cannot have both LDAP and SAML authentication enabled at the same time. If you do, the reconfigure will fail with an appropriate error message.
 
-Configuring the Chef Automate Server
-=====================================================
-
-See `Integrate Chef Automate with SAML </integrate_chef_automate_saml.html>`__ for information on how to configure it to act like an OpenID Connect server.

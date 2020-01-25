@@ -5,8 +5,6 @@ rpm_package resource
 
 Use the **rpm_package** resource to manage packages for the RPM Package Manager platform.
 
-
-
 .. note:: .. tag notes_resource_based_on_package
 
           In many cases, it is better to use the **package** resource instead of this one. This is because when the **package** resource is used in a recipe, Chef Infra Client will use details that are collected by Ohai at the start of a Chef Infra Client run to determine the correct package application. Using the **package** resource allows a recipe to be authored in a way that allows it to be used across many platforms.
@@ -15,6 +13,7 @@ Use the **rpm_package** resource to manage packages for the RPM Package Manager 
 
 Syntax
 =====================================================
+
 A **rpm_package** resource block manages a package on a node, typically by installing it. The simplest use of the **rpm_package** resource is:
 
 .. code-block:: ruby
@@ -250,6 +249,7 @@ The following properties can be used to define a guard that is evaluated during 
 
 Examples
 =====================================================
+
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Install a package**
@@ -261,5 +261,4 @@ The following examples demonstrate various approaches for using resources in rec
    rpm_package 'name of package' do
      action :install
    end
-
 

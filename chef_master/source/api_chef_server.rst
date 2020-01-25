@@ -257,6 +257,8 @@ This method has no parameters.
 
    GET /license
 
+This method has no request body.
+
 **Response**
 
 The response is similar to:
@@ -264,9 +266,9 @@ The response is similar to:
 .. code-block:: javascript
 
    {
-     "limit_exceeded": "false",
-     "node_license": "25",
-     "node_count": "12",
+     "limit_exceeded": false,
+     "node_license": 25,
+     "node_count": 12,
      "upgrade_url": "http://www.chef.io/contact/on-premises-simple"
    }
 
@@ -299,8 +301,6 @@ The chef-server.rb file contains settings that can be used to edit the number of
      - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
-   * - ``404``
-     - Not found. The requested object does not exist.
 
 /organizations
 -----------------------------------------------------
@@ -4911,6 +4911,7 @@ GET
 The ``GET`` method is used to retrieve the universe data.
 
 This method has no parameters.
+This method has no request body.
 
 **Request**
 
@@ -4920,40 +4921,42 @@ This method has no parameters.
 
 **Response**
 
-The response will return an embedded hash, with the name of each cookbook as a top-level key. Each cookbook will list each version, along with its location information and dependencies:
+The response will return a json hash, with the name of each cookbook as a top-level key. Each cookbook will list each version, along with its location information and dependencies:
 
 .. code-block:: javascript
 
-   {
-     "ffmpeg": {
-       "0.1.0": {
-         "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.0/download"
-         "location_type": "supermarket",
-         "dependencies": {
-           "git": ">= 0.0.0",
-           "build-essential": ">= 0.0.0",
-           "libvpx": "~> 0.1.1",
-           "x264": "~> 0.1.1"
-         },
-       },
-       "0.1.1": {
-         "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.1/download"
-         "location_type": "supermarket",
-         "dependencies": {
-           "git": ">= 0.0.0",
-           "build-essential": ">= 0.0.0",
-           "libvpx": "~> 0.1.1",
-           "x264": "~> 0.1.1"
-         },
-       },
+
+    {
+      "ffmpeg": {
+        "0.1.0": {
+          "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.0/download",
+          "location_type": "supermarket",
+          "dependencies": {
+            "git": ">= 0.0.0",
+            "build-essential": ">= 0.0.0",
+            "libvpx": "~> 0.1.1",
+            "x264": "~> 0.1.1"
+          }
+        },
+        "0.1.1": {
+          "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.1/download",
+          "location_type": "supermarket",
+          "dependencies": {
+            "git": ">= 0.0.0",
+            "build-essential": ">= 0.0.0",
+            "libvpx": "~> 0.1.1",
+            "x264": "~> 0.1.1"
+          }
+        }
+      },
       "pssh": {
-       "0.1.0": {
-         "location_path": "http://supermarket.chef.io/api/v1/cookbooks/pssh.1.0/download"
-         "location_type": "supermarket",
-         "dependencies": {},
-       }
-     }
-   }
+        "0.1.0": {
+          "location_path": "http://supermarket.chef.io/api/v1/cookbooks/pssh.1.0/download",
+          "location_type": "supermarket",
+          "dependencies": {}
+        }
+      }
+    }
 
 .. list-table::
    :widths: 200 300
