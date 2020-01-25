@@ -5044,7 +5044,6 @@ The response will return an array of paths for objects that have been created, u
 
 A user may be associated with an organization. 
 
-.. end_tag
 
 The ``/users`` endpoint has the following methods: ``GET`` and ``POST``.
 
