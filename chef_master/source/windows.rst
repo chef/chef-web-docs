@@ -124,6 +124,8 @@ This is typically done during the installation of Chef Infra Client automaticall
 
 .. image:: ../../images/includes_windows_environment_variable_path.png
 
+.. end_tag
+
 Proxy Settings
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag proxy_windows
