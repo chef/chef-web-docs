@@ -38,7 +38,7 @@ This configuration file has the following general settings:
 
    .. code-block:: ruby
 
-      %w{opscode-reporting chef-manage opscode-push-jobs-server}
+      %w{chef-manage opscode-push-jobs-server}
 
 ``api_version``
    The version of the Chef Infra Server. Default value: ``'12.0.0'``.
