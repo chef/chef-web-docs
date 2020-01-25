@@ -5123,7 +5123,7 @@ No response block is returned.
    * - ``400``
      - Bad request. The contents of the request are not formatted correctly.
    * - ``401``
-     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.
+     - Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.
    * - ``403``
      - Forbidden. The user who made the request is not authorized to perform the action.
    * - ``409``
