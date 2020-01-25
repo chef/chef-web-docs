@@ -72,7 +72,7 @@ The following authentication headers are required:
    * - Feature
      - Description
    * - ``Accept``
-     
+
      - The format in which response data from the Chef Infra Server is provided. This header must be set to ``application/json``.
 
    * - ``Content-Type``
@@ -80,19 +80,19 @@ The following authentication headers are required:
      - The format in which data is sent to the Chef Infra Server. This header is required for ``PUT`` and ``POST`` requests and must be set to ``application/json``.
 
    * - ``Host``
-     
+
      - The host name (and port number) to which a request is sent. (Port number ``80`` does not need to be specified.) For example: ``api.opscode.com`` (which is the same as ``api.opscode.com:80``) or ``api.opscode.com:443``.
 
    * - ``X-Chef-Version``
-     
+
      - The version of the Chef Infra Client executable from which a request is made. This header ensures that responses are in the correct format. For example: ``12.0.2`` or ``11.16.x``.
 
    * - ``X-Ops-Authorization-N``
-     
+
      - One (or more) 60 character segments that comprise the canonical header. A canonical header is signed with the private key used by the client machine from which the request is sent, and is also encoded using Base64. If more than one segment is required, each should be named sequentially, e.g. ``X-Ops-Authorization-1``, ``X-Ops-Authorization-2``, ``X-Ops-Authorization-N``, where ``N`` represents the integer used by the last header that is part of the request.
 
    * - ``X-Ops-Content-Hash``
-     
+
      - The body of the request. The body should be hashed using SHA-1 and encoded using Base64. All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters.
 
    * - ``X-Ops-Server-API-Version``
@@ -100,15 +100,15 @@ The following authentication headers are required:
      - Use ``X-Ops-Server-API-Version`` to specify the version of the Chef Infra Server API. For example: ``X-Ops-Server-API-Version: 1``. ``X-Ops-Server-API-Version: 0`` is supported for use with Chef Server version 12, but will be deprecated as part of the next major release.
 
    * - ``X-Ops-Sign``
-     
+
      - Set this header to the following value: ``version=1.0``.
 
    * - ``X-Ops-Timestamp``
-     
+
      - The timestamp, in ISO-8601 format and with UTC indicated by a trailing ``Z`` and separated by the character ``T``. For example: ``2013-03-10T14:14:44Z``.
 
    * - ``X-Ops-UserId``
-     
+
      - The name of the API client whose private key will be used to create the authorization header.
 
 .. note:: Use ``X-Ops-Server-API-Info`` to identify the version of the Chef Infra Server API.
@@ -526,7 +526,7 @@ The response will return the JSON for the updated organization.
 
 /_status
 ----------------------------------------------------
-The ``/_status`` endpoint can be used to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers. Use of the ``/_status`` endpoint does not require adding authentication headers
+Use the ``/_status`` endpoint to check the status of communications between the front and back end servers. This endpoint is located at ``/_status`` on the front end servers. The ``/_status`` endpoint does not require authentication headers
 
 GET
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
