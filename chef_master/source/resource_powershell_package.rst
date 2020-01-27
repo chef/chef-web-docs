@@ -278,7 +278,7 @@ The following examples demonstrate various approaches for using resources in rec
       version ['2.0.0.0', '2.12.0.0']
     end
 
-** Install multiple packages, specifying the package version for one package but not the other:**
+**Install multiple packages, specifying the package version for one package but not the other:**
 
 .. code-block:: ruby
 
