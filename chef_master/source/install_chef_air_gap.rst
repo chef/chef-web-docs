@@ -142,7 +142,7 @@ Install Chef Workstation
 
    .. code-block:: bash
 
-      dpkg -i chefdk_3.2.30-1_amd64.deb
+      dpkg -i chef-workstation_0.14.16-1_amd64.deb
 
 #. Use the ``chef generate repo`` command to generate your Chef repo:
 
