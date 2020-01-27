@@ -7,7 +7,7 @@ This guide contains common configuration options used when setting up a new Chef
 
 Configure Ruby Environment
 =====================================================
-For many users of Chef, the version of Ruby that is included in Chef Workstation should be configured as the default version of Ruby.
+For many users of Chef, the version of Ruby that is included in Chef Workstation should be configured as the default version of Ruby on your system.
 
 .. note:: These instructions are intended for macOS and Linux users.
 
@@ -34,7 +34,7 @@ For many users of Chef, the version of Ruby that is included in Chef Workstation
 
 #. Run ``which ruby`` again. It should return ``/opt/chef-workstation/embedded/bin/ruby``.
 
-.. note:: Using Chef Workstation-provided Ruby as your system Ruby is optional. For many users, Ruby is primarily used for authoring Chef cookbooks and recipes. If that's true for you, then using the Chef Workstation-provided Ruby is recommended.
+.. note:: Using Chef Workstation-provided Ruby as your system Ruby is optional. For many users, Ruby is primarily used for authoring Chef cookbooks. If that's true for you, then using the Chef Workstation-provided Ruby is recommended.
 
 
 Add Ruby to $PATH

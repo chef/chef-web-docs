@@ -139,4 +139,4 @@ Which returns the versions of all installed Chef tools:
 
 Next Steps
 =====================================================
-Now that you've installed Chef Workstation, proceed to the `Chef Workstation Setup </workstation_setup.html>`__ guide to configure your Chef Workstation installation.
+Now that you've installed Chef Workstation, proceed to the `Configuring Chef Workstation</workstation_setup.html>`__ guide to configure your Chef Workstation installation.
