@@ -1273,7 +1273,7 @@ The Chef CLI now includes a new option: `chef update --exclude-deps` for policyf
 Deprecations
 -----------------------------------------------------
 
-* ```chef generate app`` - Application repos were a pattern that didn't take off.
+* ``chef generate app`` - Application repos were a pattern that didn't take off.
 * ``chef generate lwrp`` - Use `chef generate resource`. Every supported release of Chef supports custom resources. Custom resources are awesome. No one should be writing new LWRPs any more. LWRPS are not awesome.
 
 What's New in 3.2

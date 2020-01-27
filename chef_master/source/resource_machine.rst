@@ -337,17 +337,17 @@ This resource has the following properties:
       [ 'recipe[COOKBOOK::RECIPE]','COOKBOOK::RECIPE','role[NAME]' ]
 
 ``source_key``
-   Use to copy a private key, but apply a different ``format`` and ``password``. Use in conjunction with ``source_key_pass_phrase``` and ``source_key_path``.
+   Use to copy a private key, but apply a different ``format`` and ``password``. Use in conjunction with ``source_key_pass_phrase`` and ``source_key_path``.
 
 ``source_key_pass_phrase``
    **Ruby Type:** String
 
-   The pass phrase for the private key. Use in conjunction with ``source_key``` and ``source_key_path``.
+   The pass phrase for the private key. Use in conjunction with ``source_key`` and ``source_key_path``.
 
 ``source_key_path``
    **Ruby Type:** String
 
-   The path to the private key. Use in conjunction with ``source_key``` and ``source_key_pass_phrase``.
+   The path to the private key. Use in conjunction with ``source_key`` and ``source_key_pass_phrase``.
 
 ``tag``
    Use to add a tag.
@@ -542,5 +542,3 @@ where ``provisioning_driver`` and ``:driver_options`` specify the actual ``drive
    m = machine 'test' do
      machine_options bootstrap_options: { key_name: 'ref-key-pair' }
    end
-
-

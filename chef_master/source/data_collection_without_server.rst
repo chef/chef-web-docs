@@ -8,7 +8,7 @@ Data Collection without Chef Infra Server
 
 .. important:: Previous step: `Setup Data Collection </data_collection.html>`__
 
-If you do not use a Chef Infra Server in your environment (if you only use ```chef-solo```, for example), you can configure your Chef Infra Clients to send their run data to Automate directly.
+If you do not use a Chef Infra Server in your environment (if you only use ``chef-solo``, for example), you can configure your Chef Infra Clients to send their run data to Automate directly.
 
 To enable this functionality, you must perform the following steps:
 

@@ -1801,11 +1801,11 @@ What’s New in 14.4
 
   We've added new commands to the knife config to help you manage multiple profiles in your credentials file.
 
-  ```knife config get-profile``` displays the active profile.
+  ``knife config get-profile`` displays the active profile.
 
-  ```knife config use-profile PROFILE``` sets the workstation-level default profile. You can still override this setting with the ``--profile`` command line option or the $CHEF_PROFILE environment variable.
+  ``knife config use-profile PROFILE`` sets the workstation-level default profile. You can still override this setting with the ``--profile`` command line option or the $CHEF_PROFILE environment variable.
 
-  ```knife config list-profiles``` displays all your available profiles along with summary information on each.
+  ``knife config list-profiles`` displays all your available profiles along with summary information on each.
 
   .. code-block:: bash
 
@@ -1895,7 +1895,7 @@ What’s New in 14.4
 
 * The default shell out timeout period of 30 seconds can now be configured by setting ``shellout_timeout`` in your ``client.rb`` config.
 
-* System enclosure information is now collected on Windows with a new ```system_enclosure``` plugin.
+* System enclosure information is now collected on Windows with a new ``system_enclosure`` plugin.
 
 Security Updates
 -----------------------------------------------------
@@ -3084,7 +3084,7 @@ This can be used by any other resource by just overriding the name property and 
 
   property :name, String, default: ""
 
-Notifications to resources with empty strings as their name is also supported via either the bare resource name (``apt_update`` -- matches what the user types in the DSL) or with empty brackets (``apt_update[]``` -- matches the resource notification pattern).
+Notifications to resources with empty strings as their name is also supported via either the bare resource name (``apt_update`` -- matches what the user types in the DSL) or with empty brackets (``apt_update[]`` -- matches the resource notification pattern).
 
 The knife ssh command applies the same fuzzifier as knife search node
 -------------------------------------------------------------------------

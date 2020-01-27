@@ -32,7 +32,7 @@ For many users of Chef, the version of Ruby that is included in Chef Workstation
 
     echo 'eval "$(chef shell-init zsh)"' >> ~/.zshrc
 
-#. Run ``which ruby`` again. It should return ```/opt/chef-workstation/embedded/bin/ruby``.
+#. Run ``which ruby`` again. It should return ``/opt/chef-workstation/embedded/bin/ruby``.
 
 .. note:: Using Chef Workstation-provided Ruby as your system Ruby is optional. For many users, Ruby is primarily used for authoring Chef cookbooks and recipes. If that's true for you, then using the Chef Workstation-provided Ruby is recommended.
 

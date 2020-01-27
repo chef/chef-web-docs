@@ -22,7 +22,7 @@ Supported Platforms
 
 Supported Host Operating Systems:
 
-.. list-table:: Supported Host Operating System
+.. list-table::
    :widths: 15 15
    :header-rows: 1
 
@@ -61,21 +61,21 @@ Chef Workstation App Requirements
 * Windows: No additional requirements
 * Mac: No additional requirements
 * Linux:
-   - You must have a graphical window manager running
-   - Additional libraries may be required. See `Running the Chef Workstation App <https://chef-workstation-app.html>`_ for more details.
+  * You must have a graphical window manager running
+  * Additional libraries may be required. See `Running the Chef Workstation App <https://chef-workstation-app.html>`_ for more details.
 
 Installation
 =====================================================
 The Chef Workstation installer must run as a privileged user.
 
-Chef Workstation installs to ```/opt/chef-workstation/`` on macOS / Linux and ``C:\opscode\chef-workstation\`` on Windows. These file locations should help avoid interference between these components and other applications that may be running on the target machine.
+Chef Workstation installs to ``/opt/chef-workstation/`` on macOS / Linux and ``C:\opscode\chef-workstation\`` on Windows. These file locations should help avoid interference between these components and other applications that may be running on the target machine.
 
 macOS
 -----------------------------------------------------
 
 #. Dependency: Xcode is recommended for running Chef Workstation on macOS. While Chef Workstation works without Xcode, it is required for native Ruby Gem installation. Run ``xcode-select --install`` from the terminal to install Xcode.
 #. Visit the `Chef Workstation downloads page <https://downloads.chef.io/chef-workstation#mac_os_x>`__ and select the appropriate package for your macOS version. Click on the **Download** button.
-#. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the ```/opt/chef-workstation/`` directory.
+#. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the ``/opt/chef-workstation/`` directory.
 
 Windows
 -----------------------------------------------------

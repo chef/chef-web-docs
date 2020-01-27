@@ -182,9 +182,9 @@ By default, ``knife bootstrap`` uses the ``chef-full`` template to bootstrap a n
 
    .. code-block:: bash
 
-      find `/opt/chef-workstation/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > airgap.erb
+      find /opt/chef-workstation/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > airgap.erb
 
-   This command searches for the ``chef-full`` template file under ```/opt/chef-workstation/embedded/lib/ruby``, and then outputs the contents of the file to ``airgap.erb``. If you used a different template file name, be sure to replace ``airgap.erb`` with the template file you created during the last step.
+   This command searches for the ``chef-full`` template file under ``/opt/chef-workstation/embedded/lib/ruby``, and then outputs the contents of the file to ``airgap.erb``. If you used a different template file name, be sure to replace ``airgap.erb`` with the template file you created during the last step.
 
 #. Update ``airgap.erb`` to replace ``omnitruck.chef.io`` with the URL of ``install.sh`` on your artifact store:
 

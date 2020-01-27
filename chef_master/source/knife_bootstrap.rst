@@ -84,7 +84,7 @@ WinRM Connection Options
 ``--winrm-basic-auth-only``
    For WinRM basic authentication when using the 'ssl' auth method.
 
-``-R KERBEROS_REALM``, ``--kerberos-realm KERBEROS_REALM```
+``-R KERBEROS_REALM``, ``--kerberos-realm KERBEROS_REALM``
    The Kerberos realm used for authentication.
 
 ``-S KERBEROS_SERVICE``, ``--kerberos-service KERBEROS_SERVICE``
@@ -331,9 +331,9 @@ For example, the default bootstrap operation relies on an Internet connection to
 
    .. code-block:: bash
 
-      find `/opt/chef-workstation/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > template.erb
+      find /opt/chef-workstation/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > template.erb
 
-   This command searches for the ``chef-full`` template file under ```/opt/chef-workstation/embedded/lib/ruby``, and then outputs the contents of the file to ``template.erb``. If you used a different template file name, be sure to replace ``template.erb`` with the template file you created during the last step.
+   This command searches for the ``chef-full`` template file under ``/opt/chef-workstation/embedded/lib/ruby``, and then outputs the contents of the file to ``template.erb``. If you used a different template file name, be sure to replace ``template.erb`` with the template file you created during the last step.
 
 #. Update ``template.erb`` to replace ``omnitruck.chef.io`` with the URL of an ``install.sh`` script on your artifact store:
 
