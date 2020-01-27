@@ -15,6 +15,8 @@ Chef Workstation contains everything that is needed to start using Chef Infra an
 
 .. end_tag
 
+Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without back-porting features.
+
 Getting Started
 =====================================================
 .. This page is used as the short overview on the index page at docs.chef.io

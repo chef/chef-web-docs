@@ -5,8 +5,6 @@ Install Chef Workstation
 
 Start your infrastructure automation quickly and easily with `Chef Workstation <https://www.chef.sh/>`__ Chef Workstation gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package.
 
-Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without back-porting features.
-
 Chef Workstation includes:
 
 * Chef Infra Client
