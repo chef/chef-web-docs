@@ -79,13 +79,13 @@ This subcommand has the following options:
 Examples
 -----------------------------------------------------
 
-**Show an existing gem in the chef-dk**
+**Show an existing gem in Chef Workstation**
 
 To show a gem, run a command similar to:
 
 .. code-block:: bash
 
-   $ chef gem list chef-dk
+   $ chef gem list cookstyle
 
 to return something similar to:
 
@@ -93,7 +93,7 @@ to return something similar to:
 
    *** LOCAL GEMS ***
 
-   chef-dk (0.1.0)
+   cookstyle (5.20.0)
 
 **List all local gems**
 
