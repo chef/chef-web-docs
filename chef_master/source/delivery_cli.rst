@@ -718,8 +718,6 @@ delivery local
 =====================================================
 Use the ``local`` subcommand to run a phase or stage of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
 
-.. note:: As of ChefDK 1.2, delivery local now supports options for functional phases, running stages, and specifying a remote ``project.toml``.
-
 Syntax
 -----------------------------------------------------
 This subcommand has the following syntax:
