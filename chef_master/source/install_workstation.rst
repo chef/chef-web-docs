@@ -158,5 +158,4 @@ Chef support in editors:
 
 Next Steps
 =====================================================
-Now that you've installed Chef Workstation, proceed to the `Chef Workstation Setup </chefdk_setup.html>`__ guide to configure your Chef Workstation installation.
-
+Now that you've installed Chef Workstation, proceed to the `Chef Workstation Setup </workstation_setup.html>`__ guide to configure your Chef Workstation installation.
