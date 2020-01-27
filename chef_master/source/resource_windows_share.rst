@@ -284,7 +284,7 @@ The following examples demonstrate various approaches for using resources in rec
     read_users ['DOMAIN_C\\Domain users']
   end
 
-** Delete a share **
+**Delete a share**
 
 .. code-block:: ruby
 
