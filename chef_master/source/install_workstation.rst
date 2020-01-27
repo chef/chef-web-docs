@@ -58,7 +58,7 @@ Chef Workstation App Requirements
 * Mac: No additional requirements
 * Linux:
   * You must have a graphical window manager running
-  * Additional libraries may be required. See `Running the Chef Workstation App <https://chef-workstation-app.html>`_ for more details.
+  * Additional libraries may be required. See `Running the Chef Workstation App <https://chef-workstation-app.html>`__ for more details.
 
 Installation
 =====================================================
@@ -101,7 +101,7 @@ Linux
 
    .. code-block:: bash
 
-      wget https://packages.chef.io/files/stable/chefworkstation/0.13/ubuntu/18.04/chefworkstation_0.13.0-1_amd64.deb
+      wget https://packages.chef.io/files/stable/chefworkstation/0.14/ubuntu/18.04/chefworkstation_0.14.16-1_amd64.deb
 
 #. Use your distribution's package manager to install Chef Workstation:
 
@@ -109,13 +109,13 @@ Linux
 
      .. code-block:: bash
 
-        rpm -Uvh chefworkstation_0-3.2.30-1.el7.x86_64.rpm
+        rpm -Uvh chef-workstation-0.14.16-1.el7.x86_64.rpm
 
    * Debian/Ubuntu:
 
      .. code-block:: bash
 
-        dpkg -i chefworkstation_0.13.0-1_amd64.deb
+        dpkg -i chefworkstation_0.14.16-1_amd64.deb
 
 Verify the Installation
 ====================================================
@@ -139,4 +139,5 @@ Which returns the versions of all installed Chef tools:
 
 Next Steps
 =====================================================
-Now that you've installed Chef Workstation, proceed to the `Configuring Chef Workstation</workstation_setup.html>`__ guide to configure your Chef Workstation installation.
+
+Now that you've installed Chef Workstation, proceed to the `Configuring Chef Workstation </workstation_setup.html>`__ guide to configure your Chef Workstation installation.
