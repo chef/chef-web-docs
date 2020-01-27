@@ -9,16 +9,16 @@ Configure Ruby Environment
 =====================================================
 For many users of Chef, the version of Ruby that is included in Chef Workstation should be configured as the default version of Ruby.
 
-.. note:: These instructions are intended for macOS and Linux users. For instructions on setting up your Ruby environment on Windows, see `Chef Workstation on Windows </install_workstation.html#configure-environment>`__.
+.. note:: These instructions are intended for macOS and Linux users.
 
-#. Open a command window and enter the following:
+#. Open a terminal and enter the following:
 
    .. code-block:: bash
 
       $ which ruby
 
    which will return something like ``/usr/bin/ruby``.
-#. To use Chef Workstation version of Ruby as the default Ruby, edit the ``$PATH`` and ``GEM`` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
+#. To use Chef Workstation-provided Ruby as the default Ruby on your system, edit the ``$PATH`` and ``GEM`` environment variables to include paths to Chef Workstation. For example, on a machine that runs Bash, run:
 
    .. code-block:: bash
 
