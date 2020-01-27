@@ -73,7 +73,7 @@ is similar to:
    Configuration Info:
 
    OpenSSL Configuration:
-   * Version: OpenSSL 1.0.1j 15 Oct 2014
+   * Version: OpenSSL 1.0.2u  20 Dec 2019
    * Certificate file: /opt/chef-workstation/embedded/ssl/cert.pem
    * Certificate directory: /opt/chef-workstation/embedded/ssl/certs
    Chef SSL Configuration:
