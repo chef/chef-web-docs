@@ -141,21 +141,6 @@ Which returns the versions of all installed Chef tools:
   Test Kitchen version: 2.3.4
   Cookstyle version: 5.19.9
 
-Install a Code Editor
--------------------------------------------------------
-A good visual code editor is not a requirement for working with Chef, but a good code editor can save you time.
-A code editor should support the following: themes, plugins, snippets, syntax Ruby code coloring/highlighting, multiple cursors, a tree view of the entire folder/repository you are working with, and a Git integration.
-
-These are a few common editors:
-
-* `Visual Studio Code (free/open source) <https://code.visualstudio.com/>`__
-* `GitHub Atom - (free/open source) <https://atom.io/>`__
-
-Chef support in editors:
-
-* `VSCode Chef Extension <https://marketplace.visualstudio.com/items?itemName=chef-software.Chef>`__
-* `Chef on Atom <https://atom.io/packages/language-chef>`__
-
 Next Steps
 =====================================================
 Now that you've installed Chef Workstation, proceed to the `Chef Workstation Setup </workstation_setup.html>`__ guide to configure your Chef Workstation installation.
