@@ -21,9 +21,8 @@ Getting Started
 
 Chef Infra is a systems and cloud infrastructure automation framework that makes it easy to deploy servers and applications to any physical, virtual, or cloud location, no matter the size of the infrastructure. Each organization is comprised of one (or more) Chef Workstation installations, a single server, and every node that will be configured and maintained by Chef Infra Client. Cookbooks (and recipes) are used to tell Chef Infra Client how each node in your organization should be configured. Chef Infra Client---which is installed on every node---does the actual configuration.
 
-* `An Overview of Chef </chef_overview.html>`_
+* `An Overview of Chef Infra </chef_overview.html>`_
 * `Install Chef Workstation </install_workstation.html>`_
-* `Ruby Guide </ruby.html>`_
 
 Cookbook Development Workflow
 -----------------------------------------------------
@@ -69,13 +68,3 @@ The most important tools included in Chef Workstation are:
      - Test Kitchen drivers for cookbook testinng on common cloud providers
    * - Ruby
      - The reference language for Chef Infra and InSpec.
-
-Community Tools
------------------------------------------------------
-The following tools have been developed by members of the Chef community. These tools are considered to be a useful part of the Chef workflow and have been packaged as part of Chef Workstation. (They are all available independently of Chef Workstation, as well.) The use of these tools as part of your workflow is recommended, but at the same time is completely optional. Use them in the way that makes sense for your organization:
-
-`Berkshelf </berkshelf.html>`_ |
-`Chef Vault </chef_vault.html>`_ |
-`ChefSpec </chefspec.html>`_ |
-`Test Kitchen </kitchen.html>`_ |
-`kitchen-vagrant </plugin_kitchen_vagrant.html>`_ |
