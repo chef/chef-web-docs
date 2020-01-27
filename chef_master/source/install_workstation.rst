@@ -9,11 +9,9 @@ Chef Workstation includes:
 
 * Chef Infra Client
 * Chef InSpec
-* Chef Workstation menu bar application
-* Embedded versions of Ruby and RubyGems
-* Test Kitchen
-* Cookstyle
-* ChefSpec
+* chef and knife command line tools
+* Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
+* Everything else needed to author cookbooks and upload them to the Chef Infra Server
 
 Supported Platforms
 ====================================================
