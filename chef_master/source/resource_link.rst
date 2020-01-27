@@ -9,7 +9,9 @@ Use the **link** resource to create symbolic or hard links.
 
 A symbolic link---sometimes referred to as a soft link---is a directory entry that associates a file name with a string that contains an absolute or relative path to a file on any file system. In other words, "a file that contains a path that points to another file." A symbolic link creates a new file with a new inode that points to the inode location of the original file.
 
-A hard link is a directory entry that associates a file with another file in the same file system. In other words, "multiple directory entries to the same file." A hard link creates a new file that points to the same inode as the original file.
+A hard link is a directory entry that associates a file with another file in the same file system. In other words, "multiple directory entries to the same file." A hard link creates a new file that points to the same inode as the original file.\
+
+On Windows, this resource can be used to create directory junction/reparse points.
 
 Syntax
 =====================================================
@@ -82,7 +84,7 @@ The link resource has the following properties:
 ``link_type``
    **Ruby Type:** String, Symbol | **Default Value:** ``:symbolic``
 
-   The type of link: ``:symbolic`` or ``:hard``.
+   The type of link: ``:symbolic`` or ``:hard``. On Windows, ``:symbolic`` will create a junction point if the target is a directory.
 
 ``mode``
    **Ruby Type:** Integer, String | **Default Value:** ``777``
@@ -272,8 +274,6 @@ The following example will create a symbolic link from ``/tmp/file`` to ``/etc/f
      to '/etc/file'
    end
 
-
-
 **Create hard links**
 
 The following example will create a hard link from ``/tmp/file`` to ``/etc/file``:
@@ -285,8 +285,6 @@ The following example will create a hard link from ``/tmp/file`` to ``/etc/file`
      link_type :hard
    end
 
-
-
 **Delete links**
 
 The following example will delete the ``/tmp/file`` symbolic link and uses the ``only_if`` guard to run the ``test -L`` command, which verifies that ``/tmp/file`` is a symbolic link, and then only deletes ``/tmp/file`` if the test passes:
@@ -297,8 +295,6 @@ The following example will delete the ``/tmp/file`` symbolic link and uses the `
      action :delete
      only_if 'test -L /tmp/file'
    end
-
-
 
 **Create multiple symbolic links**
 
@@ -313,8 +309,6 @@ The following example creates symbolic links from two files in the ``/vol/webser
    link '/vol/webserver/cert/server.key' do
      to '/etc/ssl/certs/ssl-cert-name.key'
    end
-
-
 
 **Create platform-specific symbolic links**
 
@@ -345,6 +339,17 @@ The following example shows installing a filter module on Apache. The package na
 
    ...
 
-For the entire recipe, see https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb.
+For the complete recipe, see https://github.com/onehealth-cookbooks/apache2/blob/68bdfba4680e70b3e90f77e40223dd535bf22c17/recipes/mod_apreq2.rb.
 
+**Create Windows junction/reparse points**
 
+This example demonstrates how to create a directory junction/reparse point. In this example, ``C:\destination`` will be a junction/reparse point to the ``C:\source`` directory.
+
+.. code-block:: ruby
+
+    directory 'C:/source'
+
+    link 'C:/destination' do
+        link_type :symbolic
+        to 'C:/source'
+    end
