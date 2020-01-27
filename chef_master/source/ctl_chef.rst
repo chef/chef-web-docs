@@ -119,7 +119,6 @@ which returns the following output:
 
    knife-opc (0.3.2)
    knife-push (1.0.2)
-   knife-spork (1.6.3)
    knife-windows (1.9.0)
 
 **Search remote gems**

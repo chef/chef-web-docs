@@ -589,7 +589,6 @@
   "release/devkit/nodes.html": "/nodes.html",
   "release/devkit/plugin_community.html": "/plugin_community.html",
   "release/devkit/plugin_kitchen_vagrant.html": "/plugin_kitchen_vagrant.html",
-  "release/devkit/plugin_knife_spork.html": "/plugin_knife_spork.html",
   "release/devkit/plugin_knife_supermarket.html": "/knife_supermarket.html",
   "release/devkit/policyfile.html": "/policyfile.html",
   "release/devkit/proxies.html": "/proxies.html",
