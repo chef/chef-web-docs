@@ -261,7 +261,7 @@ See the `knife config.rb documentation </config_rb.html>`__ for more details.
 
 Get SSL Certificates
 =====================================================
-Chef Server 12 enables SSL verification by default for all requests made to the server, such as those made by knife and Chef Infra Client. The certificate that is generated during the installation of the Chef Infra Server is self-signed, which means there isn't a signing certificate authority (CA) to verify. In addition, this certificate must be downloaded to any machine from which knife and/or Chef Infra Client will make requests to the Chef Infra Server.
+Chef Server 12 and later enables SSL verification by default for all requests made to the server, such as those made by knife and Chef Infra Client. The certificate that is generated during the installation of the Chef Infra Server is self-signed, which means there isn't a signing certificate authority (CA) to verify. In addition, this certificate must be downloaded to any machine from which knife and/or Chef Infra Client will make requests to the Chef Infra Server.
 
 Use the ``knife ssl fetch`` subcommand to pull the SSL certificate down from the Chef Infra Server:
 
