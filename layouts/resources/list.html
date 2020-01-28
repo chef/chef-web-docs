@@ -38,15 +38,51 @@
             </button>
 
             <div class="prose">
+							<p><a href="/resources/">Resources Reference page</a></p>
             
-              <p>{{ .Params.resource_description | markdownify }}</p>
-
-              {{ if and (.Params.resource_note) (ne .Params.resource_note "")}}
-
-                <p><div class="alert-info">{{ .Params.resource_note }}</div></p>
-              {{ end }}
-
-
+							<hr>
+							{{ if .Params.resource_description_list }}
+								{{ range .Params.resource_description_list }}
+									{{ range $key, $value := . }}
+										{{ if eq $key "markdown" }}
+											<p>{{- $value | markdownify -}}</p>
+										{{ end }}
+										{{ if eq $key "note" }}
+											<div class="admonition-note">
+												<p class="admonition-note-title">Note</p>
+												<div class="admonition-note-text">
+													{{ range $subkey, $subvalue := $value }}
+														{{ if eq $subkey "markdown" }}
+															{{- $subvalue | markdownify -}}
+														{{ end }}
+														{{ if eq $subkey "shortcode" }}
+															{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+														{{ end }}
+													{{ end }}
+												</div>
+											</div>
+										{{ end }}
+										{{ if eq $key "warning" }}
+										<div class="admonition-warning">
+											<p class="admonition-warning-title">Note</p>
+											<div class="admonition-warning-text">
+												{{ range $subkey, $subvalue := $value }}
+													{{ if eq $subkey "markdown" }}
+														{{- $subvalue | markdownify -}}
+													{{ end }}
+													{{ if eq $subkey "shortcode" }}
+														{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+													{{ end }}
+												{{ end }}
+											</div>
+										</div>
+										{{ end }}
+										{{ if eq $key "shortcode" }}
+											{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+										{{ end }}
+									{{ end }}
+								{{ end }}
+							{{ end }}
 
               {{ if and ( ne .Params.resource_new_in "" ) ( .Params.resource_new_in )}}
                 <p><strong>New in Chef Infra Client {{ .Params.resource_new_in }}.</strong></p>
@@ -691,10 +727,10 @@
 											{{ end }}
 											
 											{{ if eq $key "shortcode" }}
-												{{ readFile (delimit (slice `layouts/shortcodes/` $value `.md`) "") | markdownify }}
+												{{ readFile (delimit (slice `layouts/shortcodes/` $value) "") | markdownify }}
 											{{ end }}
 											
-											{{ if eq $key "string" }}
+											{{ if eq $key "markdown" }}
 												<p>{{- $value | markdownify -}}</p>
 											{{ end }}
 											
