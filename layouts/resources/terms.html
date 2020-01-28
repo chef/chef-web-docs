@@ -440,56 +440,32 @@
                   <h2 id = "syntax-{{ $SyntaxID.Get "Value" }}">Syntax</h2>
                   <hr>
 
-                  {{ if and (.Params.resource_block_codeblock) (ne .Params.resource_block_codeblock "")}}
-                    {{ .Params.resource_block_description }}
-                    {{- highlight (trim .Params.resource_block_codeblock "\n" ) "ruby" "" -}}
-
-                    {{ if and (.Params.resource_block_list) (ne .Params.resource_block_list "" )}}
-                        <p>where:</p>
-                        <ul>
-                          {{ range $k, $v := .Params.resource_block_list }}
-                          <li><code>{{ $k }}</code>{{ $v }}</li>
-                          {{ end }}
-                        </ul>
-                    {{ end }}
-                  {{ end }}
-
-                  <p>The {{ .Title }} has the following syntax:</p>
-
-                  {{- highlight (trim .Params.syntax_codeblock "\n" ) "ruby" "" -}}
-
-                  {{ if .Params.syntax_property_list }}
-                    {{ $property_list_scratch := newScratch }}
-                    {{ $length_syntax_property_list := (len .Params.syntax_property_list) }}
-                    <p>where:</p>
-                    <ul>
-                      {{ $resource := .Params.resource }}
-                      {{ range .Params.syntax_property_list }}
-                        {{ if eq . $resource }}
-                          <li><code>{{- . -}}</code> is the resource.</li>
-                        {{ else if (eq . "name") }}
-                          <li><code>name</code>is the name given to the resource block.</li>
-                        {{ else if (eq . "action") }}
-                          <li><code>action</code>identifies which steps Chef Infra Client will take to bring the node into the desired state.</li>
-                        {{ else }}
-                          {{ $property_list_scratch.Add "Property" (slice .) }}
-                        {{ end }}
-                      {{ end }}
-                      {{ if gt (len ($property_list_scratch.Get "Property")) 0 }}
-                        {{ $len_property_list_scratch := (len ($property_list_scratch.Get "Property")) }}
-                        <li>
-                          {{ range $i, $e := $property_list_scratch.Get "Property" }}
-                            {{ if (and (eq (sub $len_property_list_scratch 1) $i) (gt $len_property_list_scratch 2) ) }}
-                              and
-                            {{ end }}
-                            <code>{{- . -}} </code>
-                            {{ if ne $i (sub $len_property_list_scratch 1) }},{{ end }}
-                          {{ end }} are the properties available to this resource.
-                        </li>
-                      {{ end }}
-                    </ul>
-                  {{ end }}
-
+                  <p>{{ .Params.syntax_description | markdownify }}</p>
+									<p>{{- highlight .Params.syntax_code_block "ruby" "" -}}</p>
+									
+									{{ if .Params.syntax_properties_list }}
+										<p>where:</p>
+										<ul>
+											{{ range .Params.syntax_properties_list }}
+											<li>{{ . | markdownify }}</li>
+											{{ end }}
+										</ul>
+									{{ end }}
+									
+									{{ if .Params.syntax_full_code_block }}
+										<p>The full syntax for all of the properties that are available to the <strong>{{ .Params.resource }}</strong> resource is:</p>
+										<p>{{- highlight .Params.syntax_full_code_block "ruby" "" -}}</p>
+									{{ end }}
+									
+									{{ if .Params.syntax_full_properties_list }}
+										<p>where:</p>
+										<ul>
+											{{ range .Params.syntax_full_properties_list }}
+											<li>{{ . | markdownify }}</li>
+											{{ end }}
+										</ul>
+									{{ end }}
+									
                   {{ if .Params.registry_key }}
                     <h3 id="windows_registry_key_backslashes">Registry Key Path Separators</h3>
                     {{ readFile "layouts/shortcodes/windows_registry_key_backslashes.md" | markdownify }}
