@@ -201,7 +201,7 @@ If the Chef Infra Server is configured to use HTTP, add the following settings:
 
    .. code-block:: ruby
 
-      http_proxy 'http://proxy.vmware.com:3128'
+      http_proxy 'http://proxy.example.com:3128'
 
 ``http_proxy_user``
    The user name for the proxy server when the proxy server is using an HTTP connection. Default value: ``nil``.
