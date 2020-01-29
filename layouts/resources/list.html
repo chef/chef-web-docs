@@ -132,7 +132,7 @@
 							
 							{{ if .Params.syntax_full_code_block }}
 								<p>The full syntax for all of the properties that are available to the <strong>{{ .Params.resource }}</strong> resource is:</p>
-								<p>{{- highlight .Params.syntax_full_code_block "ruby" "" -}}</p>
+								<p>{{- highlight ( trim .Params.syntax_full_code_block "\n") "ruby" "" -}}</p>
 							{{ end }}
 							
 							{{ if .Params.syntax_full_properties_list }}
@@ -142,6 +142,10 @@
 									<li>{{ . | markdownify }}</li>
 									{{ end }}
 								</ul>
+							{{ end }}
+							
+							{{ if .Params.syntax_shortcode}}
+								{{ readFile (delimit (slice `layouts/shortcodes/` .Params.syntax_shortcode ) "") | markdownify }}
 							{{ end }}
 
               {{ if .Params.registry_key }}
@@ -368,8 +372,8 @@
 
               <h2 id = "properties">Properties</h2>
               <hr>
-              {{ if .Params.properties_list }}
-                {{ if ne (index .Params.properties_list 0 "property") nil }}
+							{{ if or .Params.properties_shortcode .Params.properties_list }}
+								{{ if .Params.properties_list }}
                   <p>The {{ .Title }} has the following properties:</p>
                   {{ range .Params.properties_list }}
                     <dl>
@@ -408,14 +412,14 @@
 												{{ end }}
 											</dd>
                     </dl>
-
-                  {{ end }}
-                {{ else }}
-                  <p>This resource does not have any properties.</p>
-                {{ end }}
-              {{ else }}
-                <p>This resource does not have any properties.</p>
-              {{ end }}
+										{{ end }}
+									{{ end }}
+									{{ if .Params.properties_shortcode }}
+										{{ readFile (delimit (slice `layouts/shortcodes/` .Params.properties_shortcode ) "") | markdownify }}
+									{{ end }}
+								{{ else }}
+									<p>This resource does not have any properties.</p>
+								{{ end }}
 
               {{ if .Params.properties_multiple_packages }}
                 <h3 id="multiple-packages">Multiple Packages</h3>
@@ -689,7 +693,7 @@
               <h2 id = "examples">Examples</h2>
               <hr>
 							{{ if .Params.examples_list }}
-								<p>The following examples demonstrate various approaches for using the {{ .Title }} in recipes:</p>
+								<p>The following examples demonstrate various approaches for using the <strong>{{ .Params.resource }}</strong> resource in recipes:</p>
 								{{ range .Params.examples_list }}
 									<p><strong>{{ index . "example_heading" }}</strong></p>
 									{{ range index . "text_blocks"}}
