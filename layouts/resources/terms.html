@@ -688,9 +688,16 @@
 
 										<p>The {{ .Title }} has the following actions:</p>
 										<dl>
-											{{ range $k, $v := .Params.actions_list }}
-											<dt><code>{{ $k }}</code></dt>
-											<dd>{{ $v | markdownify }}</dd>
+											{{ range $key, $value := .Params.actions_list }}
+											<dt><code>{{ $key }}</code></dt>
+												{{ range $subkey, $subvalue := $value }}
+														{{ if eq $subkey "shortcode" }}
+															<dd>{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}</dd>
+														{{ end }}
+														{{ if eq $subkey "markdown" }}
+															<dd>{{- $subvalue | markdownify -}}</dd>
+														{{ end }}
+												{{ end }}
 											{{ end }}
 										</dl>
 										<br>
@@ -730,7 +737,16 @@
 																	<div class="admonition-note">
 																		<p class="admonition-note-title">Note</p>
 																		<div class="admonition-note-text">
-																			{{- $value | markdownify -}}
+																			{{ range $value }}
+																				{{ range $subkey, $subvalue := . }}
+																					{{ if eq $subkey "shortcode" }}
+																						{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+																					{{ end }}
+																					{{ if eq $subkey "markdown" }}
+																						{{- $subvalue | markdownify -}}
+																					{{ end }}
+																				{{ end }}
+																			{{ end }}
 																		</div>
 																	</div>
 																{{ end }}
@@ -738,7 +754,16 @@
 																	<div class="admonition-warning">
 																    <p class="admonition-warning-title">Warning</p>
 																    <div class="admonition-warning-text">
-																			{{- $value | markdownify -}}
+																			{{ range $value }}
+																				{{ range $subkey, $subvalue := . }}
+																					{{ if eq $subkey "shortcode" }}
+																						{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+																					{{ end }}
+																					{{ if eq $subkey "markdown" }}
+																						{{- $subvalue | markdownify -}}
+																					{{ end }}
+																				{{ end }}
+																			{{ end }}
 																		</div>
 																	</div>
 																{{ end }}
