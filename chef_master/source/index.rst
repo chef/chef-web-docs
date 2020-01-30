@@ -556,6 +556,7 @@ Addenda
    dsl_delivery
    dsl_handler
    dsl_recipe
+   elasticsearch_and_kibana_auth
    environment_variables
    environments
    errors
