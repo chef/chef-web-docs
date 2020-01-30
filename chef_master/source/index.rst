@@ -577,6 +577,7 @@ Addenda
    install_server_tiered
    install_supermarket
    install_windows
+   integrate_chef_automate_saml
    integrate_delivery_bitbucket
    integrate_delivery_github
    integrate_delivery_ldap
