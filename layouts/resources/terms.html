@@ -705,7 +705,7 @@
 									{{ if or .Params.properties_shortcode .Params.properties_list }}
 									
 										{{ if .Params.properties_list }}
-											<p>The {{ .Title }} has the following properties:</p>
+											<p>The <strong>{{ .Params.resource }}</strong> resource has the following properties:</p>
 											{{ range .Params.properties_list }}
 												<dl>
 													{{ if and (.property) (ne .property nil) }}
@@ -719,13 +719,34 @@
 																<strong>Ruby Type:</strong> {{ .ruby_type }} {{ if .default_value }}| <strong>Default Value:</strong> <code>{{ .default_value }}</code>{{ end }} {{ if .required }}| <code>REQUIRED</code>{{ end }}
 															</p>
 														{{ end }}
-
-														{{ if ne .description nil }}
-															<p>
-																{{ .description | markdownify }}
-															</p>
+														
+														{{ range .description_list }}
+															{{ range $key, $value :=  . }}
+																{{ if eq $key "markdown" }}
+																	<p>{{- $value | markdownify -}}</p>
+																{{ end }}
+																
+																{{ if eq $key "note" }}
+																	<div class="admonition-note">
+																		<p class="admonition-note-title">Note</p>
+																		<div class="admonition-note-text">
+																			{{- $value | markdownify -}}
+																		</div>
+																	</div>
+																{{ end }}
+																{{ if eq $key "warning" }}
+																	<div class="admonition-warning">
+																    <p class="admonition-warning-title">Warning</p>
+																    <div class="admonition-warning-text">
+																			{{- $value | markdownify -}}
+																		</div>
+																	</div>
+																{{ end }}
+																{{ if eq $key "shortcode" }}
+																	{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+																{{ end }}
+															{{ end }}
 														{{ end }}
-
 														{{ if and (.new_in) (ne .new_in nil) }}
 															<p>
 																{{ if ge .new_in 15 }}
