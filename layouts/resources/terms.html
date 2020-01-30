@@ -940,6 +940,14 @@
 
                   {{ end }}
 
+									<!------------------ Unit File Verification ---------------------->
+
+									{{ if .Params.unit_file_verification }}
+										<h2 id="unit_file_verification">Unit file verification</h2>
+										{{ readFile "layouts/shortcodes/unit_file_verification.md" | markdownify }}
+									{{ end }}
+
+
                   <!-------------- Common Resource Functionality ------------------->
 
 									{{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.common_resource_functionality_multiple_packages ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}

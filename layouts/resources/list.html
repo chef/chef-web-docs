@@ -609,7 +609,12 @@
 
               {{ end }}
 
+							<!------------------ Unit File Verification ---------------------->
 
+							{{ if .Params.unit_file_verification }}
+								<h2 id="unit_file_verification">Unit file verification</h2>
+								{{ readFile "layouts/shortcodes/unit_file_verification.md" | markdownify }}
+							{{ end }}
 
               <!-------------- Common Resource Functionality ------------------->
 

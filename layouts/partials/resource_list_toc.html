@@ -195,6 +195,13 @@
       </li>
     </ul>
     {{ end }}
+		
+		{{ if .Params.unit_file_verification }}
+			<li>
+				<a href="unit_file_verification">Unit file verification</a>
+			</li>
+		{{ end }}
+		
 		{{ if or (.Params.resources_common_properties ) ( .Params.resources_common_notification ) ( .Params.resources_common_guards ) ( .Params.common_resource_functionality_multiple_packages ) (  .Params.resources_common_guard_interpreter ) (  .Params.remote_directory_recursive_directories ) ( .Params.common_resource_functionality_resources_common_windows_security )}}
 	    <li>
 	      <a href="#functionality">Common Resource Functionality</a>
