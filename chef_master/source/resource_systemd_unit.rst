@@ -145,10 +145,13 @@ The systemd_unit resource has the following properties:
 Unit file verification
 =====================================================
 
+.. tag unit_file_verification
+
 The unit file is verified via a ``systemd-analyze verify`` call before being written to disk.
 
 Be aware that the referenced commands and files need to already exist before verification.
 
+.. end_tag
 
 Common Resource Functionality
 =====================================================
