@@ -190,7 +190,7 @@ The windows_task resource has the following properties:
 ``run_level``
    **Ruby Type:** Symbol | **Default Value:** ``:limited``
 
-  Run with ``:limited`` or ``:highest`` privileges.
+   Run with ``:limited`` or ``:highest`` privileges.
 
 ``start_day``
    **Ruby Type:** String

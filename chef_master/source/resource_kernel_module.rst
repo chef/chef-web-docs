@@ -241,14 +241,15 @@ Examples
 
 The following examples demonstrate various approaches for using resources in recipes:
 
-Install and load a kernel module and ensure it loads on reboot.
+**Install and load a kernel module and ensure it loads on reboot.**
 
 .. code-block:: ruby
 
   kernel_module 'loop'
 
-Install and load a kernel with a specific set of options and ensure it loads on reboot. Consult kernel module
-documentation for specific options that are supported.
+**Install and load a kernel with a specific set of options and ensure it loads on reboot.**
+
+Consult kernel module documentation for specific options that are supported.
 
 .. code-block:: ruby
 
@@ -256,7 +257,7 @@ documentation for specific options that are supported.
     options [ 'max_loop=4', 'max_part=8' ]
   end
 
-Load a kernel module.
+**Load a kernel module.**
 
 .. code-block:: ruby
 
@@ -264,7 +265,7 @@ Load a kernel module.
     action :load
   end
 
-Unload a kernel module and remove module config so it doesn’t load on reboot.
+**Unload a kernel module and remove module config so it doesn’t load on reboot.**
 
 .. code-block:: ruby
 
@@ -272,7 +273,7 @@ Unload a kernel module and remove module config so it doesn’t load on reboot.
     action :uninstall
   end
 
-Unload kernel module.
+**Unload kernel module.**
 
 .. code-block:: ruby
 
@@ -280,7 +281,7 @@ Unload kernel module.
     action :unload
   end
 
-Blacklist a module from loading.
+**Blacklist a module from loading.**
 
 .. code-block:: ruby
 
@@ -288,7 +289,7 @@ Blacklist a module from loading.
     action :blacklist
   end
 
-Disable a kernel module.
+**Disable a kernel module.**
 
 .. code-block:: ruby
 
