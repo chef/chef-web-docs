@@ -12,8 +12,7 @@ aliases = "/ruby.html"
     weight = 130
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ruby.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ruby.md)
 
 {{% ruby_summary %}}
 
@@ -199,7 +198,16 @@ x                     # => ["a", "b", "c", "d"]
 
 ### Whitespace Arrays
 
-{{% ruby_style_basics_array_shortcut %}}
+The `%w` syntax is a Ruby shortcut for creating an array without
+requiring quotes and commas around the elements.
+
+For example:
+
+``` ruby
+if %w(debian ubuntu).include?(node['platform'])
+  # do debian/ubuntu things with the Ruby array %w() shortcut
+end
+```
 
 {{% ruby_style_patterns_string_quoting_vs_whitespace_array %}}
 
@@ -292,11 +300,50 @@ end
 
 ### if
 
-{{% ruby_style_basics_statement_if %}}
+An `if` statement can be used to specify part of a recipe to be used
+when certain conditions are met. `else` and `elseif` statements can be
+used to handle situations where either the initial condition is not met
+or when there are other possible conditions that can be met. Since this
+behavior is 100% Ruby, do this in a recipe the same way here as anywhere
+else.
+
+For example, using an `if` statement with the `platform` node attribute:
+
+``` ruby
+if node['platform'] == 'ubuntu'
+  # do ubuntu things
+end
+```
 
 ### case
 
-{{% ruby_style_basics_statement_case %}}
+A `case` statement can be used to handle a situation where there are a
+lot of conditions. Use the `when` statement for each condition, as many
+as are required.
+
+For example, using a `case` statement with the `platform` node
+attribute:
+
+``` ruby
+case node['platform']
+when 'debian', 'ubuntu'
+  # do debian/ubuntu things
+when 'redhat', 'centos', 'fedora'
+  # do redhat/centos/fedora things
+end
+```
+
+For example, using a `case` statement with the `platform_family` node
+attribute:
+
+``` ruby
+case node['platform_family']
+when 'debian'
+  # do things on debian-ish platforms (debian, ubuntu, linuxmint)
+when 'rhel'
+  # do things on RHEL platforms (redhat, centos, scientific, etc)
+end
+```
 
 Call a Method
 -------------
@@ -357,7 +404,23 @@ for the specified class that follows.
 Include a Parameter
 -------------------
 
-{{% ruby_style_basics_parameter_include %}}
+The `include?` method can be used to ensure that a specific parameter is
+included before an action is taken. For example, using the `include?`
+method to find a specific parameter:
+
+``` ruby
+if %w(debian ubuntu).include?(node['platform'])
+  # do debian/ubuntu things
+end
+```
+
+or:
+
+``` ruby
+if %w{rhel}.include?(node['platform_family'])
+  # do RHEL things
+end
+```
 
 Patterns to Follow
 ==================

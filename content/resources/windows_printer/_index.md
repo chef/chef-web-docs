@@ -1,160 +1,150 @@
 ---
-######## Page Data ########
 title: windows_printer resource
 resource: windows_printer
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_windows_printer.html
-
 menu:
   docs:
     title: windows_printer
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_printer.md windows_printer
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_printer.md
+      windows_printer
     parent: chef_infra/cookbook_reference/resources
     weight: 1250
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **windows_printer** resource to setup Windows printers. Note
 
+    that this doesn''t currently install a printer driver. You must already
 
-######## Basic Resource Data ########
-
-resource_description:
-resource_note:
-resource_new_in:      
-
-
-######## Handler Types ########
+    have the driver installed on the system.'
+resource_new_in: '14.0'
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The windows_printer resource has the following syntax:'
+syntax_code_block: "windows_printer 'name' do\n  comment           String\n  default\
+  \           true, false # default value: false\n  device_id         String # default\
+  \ value: 'name' unless specified\n  driver_name       String\n  ipv4_address   \
+  \   String\n  location          String\n  share_name        String\n  shared   \
+  \         true, false # default value: false\n  action            Symbol # defaults\
+  \ to :create if not specified\nend"
+syntax_properties_list:
+- '`windows_printer` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`comment`, `default`, `device_id`, `driver_name`, `ipv4_address`, `location`, `share_name`,
+  and `shared` are the properties available to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :create:
+    markdown: Default. Create a new printer and printer port, if one doesn't already
+      exist.
+  :delete:
+    markdown: Delete an existing printer. Note that this resource does not delete
+      the associated printer port.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: comment
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: Optional descriptor for the printer queue.
+- property: default
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: null
+  description_list:
+  - markdown: 'Determines whether or not this should be the system''s default
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      printer.'
+- property: device_id
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'An optional property to set the printer queue name if it differs
+
+      from the resource block''s name. Example: ''HP LJ 5200 in fifth floor
+
+      copy room''.'
+- property: driver_name
+  ruby_type: String
+  required: true
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The exact name of printer driver installed on the system.
+- property: ipv4_address
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The IPv4 address of the printer, such as '10.4.64.23'.
+- property: location
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: Printer location, such as `'Fifth floor copy room'`.
+- property: share_name
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The name used to identify the shared printer.
+- property: shared
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: null
+  description_list:
+  - markdown: Determines whether or not the printer is shared.
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: Create a printer
+  text_blocks:
+  - code_block: "windows_printer 'HP LaserJet 5th Floor' do\n  driver_name 'HP LaserJet\
+      \ 4100 Series PCL6'\n  ipv4_address '10.4.64.38'\nend"
+- example_heading: Delete a printer
+  text_blocks:
+  - markdown: 'Note: this doesn''t delete the associated printer port. See
 
+      windows_printer_port above for how to delete the port.'
+  - code_block: "windows_printer 'HP LaserJet 5th Floor' do\n  action :delete\nend"
 
 ---

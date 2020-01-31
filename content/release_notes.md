@@ -1,5 +1,5 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 15.4"
+title = "Release Notes: Chef Infra Client 12.0 - 15.7"
 draft = false
 
 aliases = "/release_notes.html"
@@ -12,13 +12,316 @@ aliases = "/release_notes.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes.md)
 
 Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each
-release. For a detailed list of changes see the [Chef Infra
+release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+
+What's New in 15.7
+==================
+
+Updated Resources
+-----------------
+
+### archive_file
+
+The `archive_file` resource will now only change ownership on files and
+directories that were part of the archive itself. This prevents changing
+permissions on important high level directories such as `/etc` or `/bin`
+when you extract a file into those directories. Thanks for this fix,
+[@bobchaos](https://github.com/bobchaos/).
+
+### cron and cron_d
+
+The `cron` and `cron_d` resources now include a `timeout` property,
+which allows you to configure actions to perform when a job times out.
+This property accepts a hash of timeout configuration options:
+
+-   `preserve-status`: `true`/`false` with a default of `false`
+-   `foreground`: `true`/`false` with a default of `false`
+-   `kill-after`: `Integer` for the timeout in seconds
+-   `signal`: `String` or `Integer` to send to the process such as `HUP`
+
+### launchd
+
+The `launchd` resource has been updated to properly capitalize
+`HardResourceLimits`. Thanks for this fix,
+[@rb2k](https://github.com/rb2k/).
+
+### sudo
+
+The `sudo` resource no longer fails on the second Chef Infra Client run
+when using a `Cmnd_Alias`. Thanks for reporting this issue,
+[@Rudikza](https://github.com/Rudikza).
+
+### user
+
+The `user` resource on AIX no longer forces the user to change the
+password after Chef Infra Client modifies the password. Thanks for this
+fix, [@Triodes](https://github.com/Triodes).
+
+The `user` resource on macOS 10.15 has received several important fixes
+to improve logging and prevent failures.
+
+### windows_task
+
+The `windows_task` resource is now idempotent when a system is joined to
+a domain and the job runs under a local user account.
+
+### x509_certificate
+
+The `x509_certificate` resource now includes a new `renew_before_expiry`
+property that allows you to auto renew certicates a specified number of
+days before they expire. Thanks
+[@julienhuon](https://github.com/julienhuon/) for this improvement.
+
+Additional Recipe Helpers
+-------------------------
+
+We have added new helpers for identifying Windows releases that can be
+used in any part of your cookbooks.
+
+### windows_workstation?
+
+Returns `true` if the system is a Windows Workstation edition.
+
+### windows_server?
+
+Returns `true` if the system is a Windows Server edition.
+
+### windows_server_core?
+
+Returns `true` if the system is a Windows Server Core edition.
+
+Other Notable Changes and Fixes
+-------------------------------
+
+-   `knife upload` and `knife cookbook upload` will now generate a
+    metadata.json file from metadata.rb when uploading a cookbook to the
+    Chef Infra Server.
+-   A bug in `knife bootstrap` behavior that caused failures when
+    bootstrapping Windows hosts from non-Windows hosts and vice versa
+    has been resolved.
+-   The existing system path is now preserved when bootstrapping Windows
+    nodes. Thanks for this fix, [@Xorima](https://github.com/Xorima/).
+-   Ohai now properly returns the drive name on Windows and includes new
+    drive_type fields to allow you to determine the type of attached
+    disk. Thanks for this improvement
+    [@sshock](https://github.com/sshock/).
+-   Ohai has been updated to properly return DMI data to Chef Infra
+    Client. Thanks for troubleshooting this,
+    [@zmscwx](https://github.com/zmscwx/) and
+    [@Sliim](https://github.com/Sliim/).
+
+Platform Support
+----------------
+
+-   Chef Infra Clients packages are no longer produced for Windows 2008
+    R2 as this release reached its end of life on Jan 14th, 2020.
+-   Chef Infra Client packages are no longer produced for RHEL 6 on the
+    s390x platform. Builds will continue to be published for RHEL 7 on
+    the s390x platform.
+
+Security Updates
+----------------
+
+OpenSSL has been updated to 1.0.2u to resolve
+[CVE-2019-1551](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-1551)
+
+What's New in 15.6
+==================
+
+Updated Resources
+-----------------
+
+### apt_repository
+
+The apt_repository resource now properly escapes repository URIs
+instead of quoting them. This prevents failures when using the
+`apt-file` command, which was unable to parse the quoted URIs. Thanks
+for reporting this [@Seb-Solon](https://github.com/Seb-Solon)
+
+### file
+
+The file resource now shows the output of any failures when running
+commands specified in the `verify` property. This means you can more
+easily validate config files before potentially writing an incorrect
+file to disk. Chef Infra Client will shellout to any specified command
+and will show the results of failures for further troubleshooting.
+
+### user
+
+The user resource on Linux systems now continues successfully when
+usermod returns an exit code of 12. Exit code 12 occurs when a user's
+home directory is changed and the underlying directory already exists.
+Thanks [@skippyj](https://github.com/skippyj) for this fix.
+
+### yum_repository
+
+The yum_repository now properly formats the repository configuration
+when multiple baseurl values are present. Thanks
+[@bugok](https://github.com/bugok/) for this fix.
+
+Performance Improvements
+------------------------
+
+This release of Chef Infra Client ships with several optimizations to
+our Ruby installation to improve the performance of loading the
+chef-client and knife commands. These improvements are particularly
+noticeable on non-SSD hosts and on Windows.
+
+Smaller Install Footprint
+-------------------------
+
+We've further optimized our install footprint and reduced the size of
+`/opt/chef` by `~7%` by removing unnecessary test files and libraries
+that shipped in previous releases.
+
+filesystem2 Ohai Data on Windows
+--------------------------------
+
+Ohai 15.6 includes new `node['filesystem2']` data on Windows hosts.
+Fileystem2 presents filesystem data by both mountpoint and by device
+name. This data structure matches that of the filesystem plugin on Linux
+and other \*nix operating systems. Thanks
+[@jaymzh](https://github.com/jaymzh/) for this new data structure.
+
+What's New in 15.5.15
+=====================
+
+The Chef Infra Client 15.5.15 release includes fixes for two
+regressions. A regression in the `build_essential` resource caused
+failures on rhel platforms and a second regression caused Chef Infra
+Client to fail when starting with `enforce_path_sanity` enabled. As part
+of this fix we've added a new property, `raise_if_unsupported`, to the
+build-essential resource. Instead of silently continuing, this property
+will fail a Chef Infra Client run if an unknown platform is encountered.
+
+We've also updated the `windows_package` resource. The resource will now
+provide better error messages if invalid options are passed to the
+`installer_type` property and the `checksum` property will now accept
+uppercase SHA256 checksums.
+
+What's New in 15.5.9
+====================
+
+New Cookbook Helpers
+--------------------
+
+Chef Infra Client now includes a new chef-utils gem, which ships with a
+large number of helpers to make writing cookbooks easier. Many of these
+helpers existed previously in the `chef-sugar` gem. We have renamed many
+of the named helpers for consistency, while providing backwards
+compatibility with existing chef-sugar names. Existing cookbooks written
+with chef-sugar should work unmodified with any of these new helpers.
+Expect a Cookstyle rule in the near future to help you update existing
+chef-sugar code to use the newer built-in helpers.
+
+For more information all all of the new helpers available, see the
+[chef-utils
+readme](https://github.com/chef/chef/blob/master/chef-utils/README.md).
+
+Chefignore Improvements
+-----------------------
+
+We've reworked how chefignore files are handled in <span
+class="title-ref">knife</span>, which has allowed us to close out a
+large number of long outstanding bugs. knife will now traverse all the
+way up the directory structure looking for a chefignore file. This means
+you can place a chefignore file in each cookbook or any parent directory
+in your repository structure. Additionally, we have made fixes that
+ensure that commands like `knife diff` and `knife cookbook upload`
+always honor your chefignore files.
+
+Windows Habitat Plan
+--------------------
+
+Official Habitat packages of Chef Infra Client are now available for
+Windows. It has all the executables of the traditional omnibus packages,
+but in Habitat form. You can find it in the Habitat Builder under
+`chef/chef-infra-client`.
+
+Performance Improvements
+------------------------
+
+This release of Chef Infra Client ships with several optimizations to
+our Ruby installation that improve the performance of the chef-client
+and knife commands, especially on Windows systems. Expect to see more
+here in future releases.
+
+Chef InSpec 4.18.39
+-------------------
+
+Chef InSpec has been updated from 4.17.17 to 4.18.38. This release
+includes a large number of bug fixes in addition to some great resource
+enhancements:
+
+-   Inputs can now be used within a `describe.one` block
+-   The `service` resource now includes a `startname` property for
+    Windows and systemd services
+-   The `interface` resource now includes a `name` property
+-   The `user` resource now better supports Windows with the addition of
+    `passwordage`, `maxbadpasswords`, and `badpasswordattempts`
+    properties
+-   The nginx resource now includes parsing support for wildcard, dot
+    prefix, and regex
+-   The `iis_app_pool` resource now handles empty app pools
+-   The `filesystem` resource now supports devices with very long names
+-   The `apt` resource better handles URIs and supports repos with an
+    arch
+-   The `oracledb_session` resource has received multiple fixes to make
+    it work better
+-   The `npm` resource now works under sudo on Unix and on Windows with
+    a custom PATH
+
+New Resources
+-------------
+
+### chef_sleep
+
+The `chef_sleep` resource can be used to sleep for a specified number of
+seconds during a Chef Infra Client run. This may be helpful to use with
+other commands that return a completed status before they are actually
+ready. In general, do not use this resource unless you truly need it.
+
+Using with a Windows service that starts, but is not immediately ready:
+
+> ``` ruby
+> service 'Service that is slow to start and reports as started' do
+>   service_name 'my_database'
+>   action :start
+>   notifies :sleep, chef_sleep['wait for service start']
+> end
+>
+> chef_sleep 'wait for service start' do
+>   seconds 30
+>   action :nothing
+> end
+> ```
+
+Updated Resources
+-----------------
+
+### systemd_unit / service
+
+The `systemd_unit` and `service` resources (when on systemd) have been
+updated to not re-enable services with an indirect status. Thanks
+[@jaymzh](https://github.com/jaymzh) for this fix.
+
+### windows_firewall
+
+The `windows_firewall` resource has been updated to support passing in
+an array of profiles in the <span class="title-ref">profile</span>
+property. Thanks [@Happycoil](https://github.com/Happycoil) for this
+improvement.
+
+Security Updates
+----------------
+
+libxslt has been updated to 1.1.34 to resolve
+[CVE-2019-13118](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-13118).
 
 What's New in 15.4
 ==================
@@ -32,7 +335,7 @@ the `converge_if_changed` helper. Previously, default values would be
 ignored, which caused necessary changes to be skipped. Note: This change
 may cause behavior changes for some users, but we believe this original
 behavior is an impacting bug for enough users to make it outside of a
-major release. Thanks [@ jakauppila](https://github.com/jakauppila) for
+major release. Thanks [@jakauppila](https://github.com/jakauppila) for
 reporting this.
 
 Bootstrap Improvements
@@ -99,8 +402,8 @@ when using the `show_progress` resource. Thanks for reporting this issue
 The `sudo` resource now runs sudo config validation against all of the
 sudo configuration files on the system instead of only the file being
 written. This allows us to detect configuration errors that occur when
-configs conflict with each other. Thanks for reporting this issue <span
-class="title-ref">@drzewiec \<https://github.com/drzewiec\></span>.
+configs conflict with each other. Thanks for reporting this issue
+[@drzewiec](https://github.com/drzewiec).
 
 ### windows_ad_join
 
@@ -1282,6 +1585,27 @@ flag. The new flag must be used.
     hypervisors were long ago deprecated by Microsoft and support can no
     longer be tested.
 
+What's New in 14.14.29
+======================
+
+Bug Fixes
+---------
+
+-   Fixed an error with the `service` and `systemd_unit` resources which
+    would try to re-enable services with an indirect status.
+-   The <span class="title-ref">systemd_unit</span> resource now logs
+    at the info level.
+-   Fixed knife config when it returned a
+    `TypeError: no implicit conversion of nil into String` error.
+
+Security Updates
+----------------
+
+### libxslt
+
+libxslt has been updated to 1.1.34 to resolve
+[CVE-2019-13118](https://nvd.nist.gov/vuln/detail/CVE-2019-13118).
+
 What's New in 14.14.25
 ======================
 
@@ -1289,19 +1613,18 @@ Bug Fixes
 ---------
 
 -   Resolved a regression introduced in Chef Infra Client 14.14.14 that
-    broke installation of gems in some scenarios.
--   Fixed Habitat packaging of `chef-client` artifacts.
--   Fixed crash in knife when displaying a missing profile error
-    message.
+    broke installation of gems in some scenarios
+-   Fixed Habitat packaging of `chef-client` artifacts
+-   Fixed crash in knife when displaying a missing profile error message
 -   Fixed knife subcommand --help not working as intended for some
-    commands.
--   Fixed knife ssh interactive mode exit error.
+    commands
+-   Fixed knife ssh interactive mode exit error
 -   Fixed for `:day` option not accepting integer value in the
-    `windows_task` resource.
+    `windows_task` resource
 -   Fixed for `user` resource not handling a GID if it is specified as a
-    string.
--   Fixed the `ifconfig` resource to support interfaces with a - in the
-    name.
+    string
+-   Fixed the `ifconfig` resource to support interfaces with a `-` in
+    the name
 
 What's New in 14.14.14
 ======================

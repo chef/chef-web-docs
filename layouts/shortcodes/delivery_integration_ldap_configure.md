@@ -1,7 +1,7 @@
-To configure LDAP for Chef Automate:
+To configure LDAP for Workflow:
 
 1.  Open `/etc/delivery/delivery.rb` and enter the LDAP attributes you
-    want Chef Automate to use. If you do not specify an LDAP port, the
+    want Workflow to use. If you do not specify an LDAP port, the
     default port of `3269` is used.
 
     ``` ruby
@@ -23,6 +23,6 @@ To configure LDAP for Chef Automate:
     $ sudo automate-ctl reconfigure
     ```
 
-Once Chef Automate is set up, you will have a usable **LDAP** option in
-the Chef Automate **Users** page that allows you to find users through
-your LDAP database.
+Once Workflow is set up, you will have a usable **LDAP** option in the
+Workflow **Users** page that allows you to find users through your LDAP
+database.

@@ -12,8 +12,7 @@ aliases = "/chef_system_requirements.html"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_system_requirements.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_system_requirements.md)
 
 Before installing Chef Infra:
 
@@ -69,7 +68,9 @@ Chef Infra Client
     [client.rb](https://docs.chef.io/config_rb_client.html) file via the
     `file_cache_path` setting.
 
-ChefDK
-======
+Chef Workstation
+================
 
-ChefDK has the same requirements as Chef Infra Client.
+-   64-bit architecture
+-   4 GB of RAM or more
+-   2 GB of free disk space

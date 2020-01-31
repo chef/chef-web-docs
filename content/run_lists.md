@@ -12,8 +12,7 @@ aliases = "/run_lists.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/run_lists.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/run_lists.md)
 
 {{% node_run_list %}}
 

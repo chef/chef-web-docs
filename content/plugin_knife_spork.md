@@ -12,8 +12,7 @@ aliases = "/plugin_knife_spork.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_spork.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_spork.md)
 
 The `knife-spork` plugin adds workflow that enables multiple developers
 to work on the same Chef Infra Server and repository, but without

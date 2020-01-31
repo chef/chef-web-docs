@@ -12,7 +12,7 @@ git "#{Chef::Config[:file_cache_path]}/ruby-build" do
 end
 
 bash 'install_ruby_build' do
-  cwd '#{Chef::Config[:file_cache_path]}/ruby-build'
+  cwd "#{Chef::Config[:file_cache_path]}/ruby-build"
   user 'rbenv'
   group 'rbenv'
   code <<-EOH

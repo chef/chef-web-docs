@@ -12,8 +12,7 @@ aliases = "/about_chefdk.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/about_chefdk.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/about_chefdk.md)
 
 {{< note >}}
 

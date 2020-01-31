@@ -12,8 +12,7 @@ aliases = "/deprecations_json_auto_inflate.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_json_auto_inflate.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_json_auto_inflate.md)
 
 <meta name="robots" content="noindex">
 

@@ -12,8 +12,7 @@ aliases = "/knife_cookbook_site.html"
     weight = 90
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_cookbook_site.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_cookbook_site.md)
 
 {{% supermarket_api_summary %}}
 

@@ -12,8 +12,7 @@ aliases = "/knife_azurerm.html"
     weight = 60
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_azurerm.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_azurerm.md)
 
 Knife Azure Overview
 ====================

@@ -12,8 +12,7 @@ aliases = "/ctl_kitchen.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_kitchen.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_kitchen.md)
 
 {{% ctl_kitchen_summary %}}
 

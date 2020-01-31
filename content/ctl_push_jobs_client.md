@@ -7,13 +7,12 @@ aliases = "/ctl_push_jobs_client.html"
 [menu]
   [menu.docs]
     title = "push-jobs-client"
-    identifier = "chef_infra/managing_chef_infra_server/push_jobs/ctl_push_jobs_client.md push-jobs-client"
-    parent = "chef_infra/managing_chef_infra_server/push_jobs"
+    identifier = "chef_infra/chef_infra_server/push_jobs/ctl_push_jobs_client.md push-jobs-client"
+    parent = "chef_infra/chef_infra_server/push_jobs"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_push_jobs_client.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_push_jobs_client.md)
 
 {{% push_jobs_summary %}}
 

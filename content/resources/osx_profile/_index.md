@@ -1,160 +1,158 @@
 ---
-######## Page Data ########
 title: osx_profile resource
 resource: osx_profile
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_osx_profile.html
-
 menu:
   docs:
     title: osx_profile
     identifier: chef_infra/cookbook_reference/resources/resource_osx_profile.md osx_profile
     parent: chef_infra/cookbook_reference/resources
     weight: 700
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **osx_profile** resource to manage configuration profiles
 
+    (`.mobileconfig` files) on the macOS platform. The **osx_profile**
 
-######## Basic Resource Data ########
+    resource installs profiles by using the `uuidgen` library to generate a
 
-resource_description:
-resource_note:
-resource_new_in:      
+    unique `ProfileUUID`, and then using the `profiles` command to install
 
-
-######## Handler Types ########
+    the profile on the system.'
+resource_new_in: null
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The osx_profile resource has the following syntax:'
+syntax_code_block: "osx_profile 'name' do\n  identifier        String\n  path    \
+  \          String\n  profile           String, Hash\n  profile_name      String\
+  \ # default value: 'name' unless specified\n  action            Symbol # defaults\
+  \ to :install if not specified\nend"
+syntax_properties_list:
+- '`osx_profile` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`identifier`, `path`, `profile`, and `profile_name` are the properties available
+  to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :install:
+    markdown: Default. Install the specified configuration profile.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove the specified configuration profile.
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: identifier
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'Use to specify the identifier for the profile, such as
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      `com.company.screensaver`.'
+- property: path
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The path to write the profile to disk before loading it.
+- property: profile
+  ruby_type: String, Hash
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'Use to specify a profile. This may be the name of a profile
+
+      contained in a cookbook or a Hash that contains the contents of the
+
+      profile.'
+- property: profile_name
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'Use to specify the name of the profile, if different from the name
+
+      of the resource block.'
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: One liner to install profile from cookbook file
+  text_blocks:
+  - markdown: 'The `profiles` command will be used to install the specified
 
+      configuration profile.'
+  - code_block: osx_profile 'com.company.screensaver.mobileconfig'
+- example_heading: Install profile from cookbook file
+  text_blocks:
+  - markdown: 'The `profiles` command will be used to install the specified
+
+      configuration profile. It can be in sub-directory within a cookbook.'
+  - code_block: "osx_profile 'Install screensaver profile' do\n  profile 'screensaver/com.company.screensaver.mobileconfig'\n\
+      end"
+- example_heading: Install profile from a hash
+  text_blocks:
+  - markdown: 'The `profiles` command will be used to install the configuration
+
+      profile, which is provided as a hash.'
+  - code_block: "profile_hash = {\n  'PayloadIdentifier' => 'com.company.screensaver',\n\
+      \  'PayloadRemovalDisallowed' => false,\n  'PayloadScope' => 'System',\n  'PayloadType'\
+      \ => 'Configuration',\n  'PayloadUUID' => '1781fbec-3325-565f-9022-8aa28135c3cc',\n\
+      \  'PayloadOrganization' => 'Chef',\n  'PayloadVersion' => 1,\n  'PayloadDisplayName'\
+      \ => 'Screensaver Settings',\n  'PayloadContent'=> [\n    {\n      'PayloadType'\
+      \ => 'com.apple.ManagedClient.preferences',\n      'PayloadVersion' => 1,\n\
+      \      'PayloadIdentifier' => 'com.company.screensaver',\n      'PayloadUUID'\
+      \ => '73fc30e0-1e57-0131-c32d-000c2944c108',\n      'PayloadEnabled' => true,\n\
+      \      'PayloadDisplayName' => 'com.apple.screensaver',\n      'PayloadContent'\
+      \ => {\n        'com.apple.screensaver' => {\n          'Forced' => [\n    \
+      \        {\n              'mcx_preference_settings' => {\n                'idleTime'\
+      \ => 0,\n              }\n            }\n          ]\n        }\n      }\n \
+      \   }\n  ]\n}\n\nosx_profile 'Install screensaver profile' do\n  profile profile_hash\n\
+      end"
+- example_heading: Remove profile using identifier in resource name
+  text_blocks:
+  - markdown: 'The `profiles` command will be used to remove the configuration profile
+
+      specified by the provided `identifier` property.'
+  - code_block: "osx_profile 'com.company.screensaver' do\n  action :remove\nend"
+- example_heading: Remove profile by identifier and user friendly resource name
+  text_blocks:
+  - markdown: 'The `profiles` command will be used to remove the configuration profile
+
+      specified by the provided `identifier` property.'
+  - code_block: "osx_profile 'Remove screensaver profile' do\n  identifier 'com.company.screensaver'\n\
+      \  action :remove\nend"
 
 ---

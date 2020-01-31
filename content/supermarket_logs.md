@@ -12,8 +12,7 @@ aliases = "/supermarket_logs.html"
     weight = 60
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket_logs.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_logs.md)
 
 The Chef Supermarket omnibus package does not log Ruby on Rails messages
 by default. To enable debug logging, edit the

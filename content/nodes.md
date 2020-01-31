@@ -12,8 +12,7 @@ aliases = "/nodes.html"
     weight = 70
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/nodes.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/nodes.md)
 
 {{% node %}}
 

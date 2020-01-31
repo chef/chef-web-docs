@@ -12,8 +12,7 @@ aliases = "/windows.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/windows.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/windows.md)
 
 Overview
 ========
@@ -74,7 +73,7 @@ Windows:
 <tr class="odd">
 <td>Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>7</code>, <code>8.1</code>, <code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
+<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
 </tr>
 </tbody>
 </table>
@@ -175,30 +174,26 @@ listed below:
 <td>Installs and configures PowerShell 2.0, 3.0, 4.0 or 5.0.</td>
 </tr>
 <tr class="even">
-<td><a href="https://github.com/chef-cookbooks/miccrosoft_azure">Microsoft Azure Cookbook</a></td>
-<td>This cookbook provides resources and providers to create an manage Microsoft Azure components.</td>
-</tr>
-<tr class="odd">
 <td><a href="https://github.com/chef-cookbooks/vcruntime">Microsoft Visual C++ Runtime Cookbook</a></td>
 <td>Installs Microsoft Visual C++ runtime version 6 (2005), 9 (2008), 10 (2010), 11 (2012), 12 (2013), 14 (2015) or 15 (2017) on Windows.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://github.com/chef-cookbooks/mingw">Mingw Cookbook</a></td>
 <td>Installs <code>msys/mingw</code> compiler toolchains on windows.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="https://github.com/chef-cookbooks/webpi">Webpi Cookbook</a></td>
 <td>The <code>webpi</code> cookbook is used to run the Microsoft Web Platform Installer (WebPI).</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://github.com/chef-cookbooks/windows">Windows Cookbook</a></td>
 <td>The <code>windows</code> cookbook is used to configure auto run, batch, reboot, enable built-in operating system packages, configure Microsoft Windows packages, reboot machines, and more.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><a href="https://github.com/chef-cookbooks/windows_dns">Windows_dns Cookbook</a></td>
 <td>This cookbook provides a resource for managing DNS on Windows hosts.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><a href="https://github.com/chef-cookbooks/windows_uac">windows_uac Cookbook</a></td>
 <td>The <code>windows_uac</code> resource configures UAC on Windows hosts by setting registry keys at <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System</code></td>
 </tr>

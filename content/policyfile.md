@@ -12,8 +12,7 @@ aliases = "/policyfile.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/policyfile.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/policyfile.md)
 
 {{% policyfile_summary %}}
 

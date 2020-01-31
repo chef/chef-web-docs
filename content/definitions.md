@@ -12,8 +12,7 @@ aliases = "/definitions.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/definitions.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/definitions.md)
 
 This topic covers migrating existing definitions to custom resources.
 Custom resources are integral to the modern Chef Infra workflow. While

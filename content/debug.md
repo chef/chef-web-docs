@@ -12,8 +12,7 @@ aliases = "/debug.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/debug.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/debug.md)
 
 Elements of good approaches to building cookbooks and recipes that are
 reliable include:

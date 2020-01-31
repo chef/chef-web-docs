@@ -11,8 +11,8 @@ For example:
 $ SCHTASKS.EXE /CREATE /TN ChefClientSchTask /SC MINUTE /MO 30 /F /RU "System" /RP /RL HIGHEST /TR "cmd /c \"C:\opscode\chef\embedded\bin\ruby.exe C:\opscode\chef\bin\chef-client -L C:\chef\chef-client.log -c C:\chef\client.rb\""
 ```
 
-Refer [Schedule a
-Task](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc748993(v=ws.11))
+Refer to the [Schtasks
+documentation](https://docs.microsoft.com/en-us/windows/win32/taskschd/schtasks)
 for more details.
 
 After Chef Infra Client is configured to run as a scheduled task, the

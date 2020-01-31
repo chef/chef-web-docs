@@ -12,8 +12,7 @@ aliases = "/custom_resources_notes.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/custom_resources_notes.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/custom_resources_notes.md)
 
 {{< warning >}}
 

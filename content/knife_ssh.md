@@ -12,8 +12,7 @@ aliases = "/knife_ssh.html"
     weight = 260
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_ssh.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_ssh.md)
 
 {{% knife_ssh_summary %}}
 

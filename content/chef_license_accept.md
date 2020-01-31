@@ -12,8 +12,7 @@ aliases = "/chef_license_accept.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_license_accept.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_license_accept.md)
 
 This page aims to document how to accept the Chef license for all Chef
 Software products. For an overview of the license, see the [Chef
@@ -30,9 +29,9 @@ There are three ways to accept the Chef MLSA:
     printed. Type `yes` to accept it. Anything other than typing `yes`
     rejects the Chef MLSA, and the upgrade process will exit. Typing
     `yes` adds a `.license.accepted` file to the
-    `/var/opt/<PRODUCT-NAME>/` directory. As long as this file exists in
-    this directory, the Chef MLSA is accepted and the reconfigure
-    process will not prompt for `yes`.
+    `/etc/chef/accepted_licenses/<PRODUCT-NAME>` file. As long as this
+    file exists in this directory, the Chef MLSA is accepted and the
+    reconfigure process will not prompt for `yes`.
 2.  Run the `chef-<PRODUCT-NAME>-ctl reconfigure` command using the
     `--chef-license=accept` option. This automatically types `yes` and
     skips printing the Chef MLSA.

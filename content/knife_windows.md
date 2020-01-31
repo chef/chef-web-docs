@@ -12,8 +12,7 @@ aliases = "/knife_windows.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_windows.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_windows.md)
 
 Knife Windows Overview
 ======================
@@ -44,39 +43,10 @@ following on the Windows target:
 C:\> winrm quickconfig -q
 ```
 
-The following WinRM configuration settings should be updated:
+Often commands can take longer than the default `MaxTimeoutms` WinRM
+configuration setting. Increase this value to `1800000` (30 minutes).
 
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Setting</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>MaxMemoryPerShellMB</code></td>
-<td>Chef Infra Client and Ohai typically require more memory than the default setting allows. Increase this value to <code>300MB</code>. Only required on Windows Server 2008 R2 Standard and older. The default in Windows Server 2012 was increased to <code>1024MB</code>.</td>
-</tr>
-<tr class="even">
-<td><code>MaxTimeoutms</code></td>
-<td>Often commands can take longer than the default setting. Increase this value to <code>1800000</code> (30 minutes).</td>
-</tr>
-</tbody>
-</table>
-
-To update these settings, run the following commands on the Windows
-target:
-
-``` bash
-C:\> winrm set winrm/config/winrs '@{MaxMemoryPerShellMB="300"}'
-```
-
-and then:
+To update this setting, run the following command on the Windows target:
 
 ``` bash
 C:\> winrm set winrm/config '@{MaxTimeoutms="1800000"}'

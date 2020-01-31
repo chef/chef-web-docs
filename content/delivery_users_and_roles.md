@@ -6,14 +6,13 @@ aliases = "/delivery_users_and_roles.html"
 
 [menu]
   [menu.docs]
-    title = "Users & Roles"
-    identifier = "legacy/chef_automate_1/admin/delivery_users_and_roles.md Users & Roles"
-    parent = "legacy/chef_automate_1/admin"
-    weight = 10
+    title = "Users and Roles"
+    identifier = "legacy/workflow/managing_workflow/delivery_users_and_roles.md Users and Roles"
+    parent = "legacy/workflow/managing_workflow"
+    weight = 110
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_users_and_roles.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_users_and_roles.md)
 
 <meta name="robots" content="noindex">
 

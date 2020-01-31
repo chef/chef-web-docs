@@ -12,8 +12,7 @@ aliases = "/azure_powershell.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/azure_powershell.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_powershell.md)
 
 PowerShell
 ==========

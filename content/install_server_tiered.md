@@ -12,8 +12,7 @@ aliases = "/install_server_tiered.html"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_tiered.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server_tiered.md)
 
 This topic describes how to set up the Chef Infra Server with a single
 back end and multiple load-balanced frontend servers.

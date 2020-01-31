@@ -12,8 +12,7 @@ aliases = "/ctl_ohai.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_ohai.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_ohai.md)
 
 {{% ctl_ohai_summary %}}
 

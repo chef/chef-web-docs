@@ -12,8 +12,7 @@ aliases = "/deprecations_erl_call_resource.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_erl_call_resource.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_erl_call_resource.md)
 
 <meta name="robots" content="noindex">
 

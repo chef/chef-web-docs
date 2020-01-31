@@ -1,160 +1,166 @@
 ---
-######## Page Data ########
 title: ssh_known_hosts_entry resource
 resource: ssh_known_hosts_entry
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_ssh_known_hosts_entry.html
-
 menu:
   docs:
     title: ssh_known_hosts_entry
-    identifier: chef_infra/cookbook_reference/resources/resource_ssh_known_hosts_entry.md ssh_known_hosts_entry
+    identifier: chef_infra/cookbook_reference/resources/resource_ssh_known_hosts_entry.md
+      ssh_known_hosts_entry
     parent: chef_infra/cookbook_reference/resources
     weight: 990
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **ssh_known_hosts_entry** resource to add an entry for the
 
+    specified host in /etc/ssh/ssh_known_hosts or a user''s known hosts
 
-######## Basic Resource Data ########
-
-resource_description:
-resource_note:
-resource_new_in:      
-
-
-######## Handler Types ########
+    file if specified.'
+resource_new_in: '14.3'
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The ssh_known_hosts_entry resource has the following syntax:'
+syntax_code_block: "ssh_known_hosts_entry 'name' do\n  file_location      String #\
+  \ default value: \"/etc/ssh/ssh_known_hosts\"\n  group              String, Integer\n\
+  \  hash_entries       true, false # default value: false\n  host               String\
+  \ # default value: 'name' unless specified\n  key                String\n  key_type\
+  \           String # default value: \"rsa\"\n  mode               String # default\
+  \ value: \"0644\"\n  owner              String, Integer # default value: \"root\"\
+  \n  port               Integer # default value: 22\n  timeout            Integer\
+  \ # default value: 30\n  action             Symbol # defaults to :create if not\
+  \ specified\nend"
+syntax_properties_list:
+- '`ssh_known_hosts_entry` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`file_location`, `group`, `hash_entries`, `host`, `key`, `key_type`, `mode`, `owner`,
+  `port`, and `timeout` are the properties available to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :create:
+    markdown: Default. Create an entry in the ssh_known_hosts file.
+  :flush:
+    markdown: Immediately flush the entries to the config file. Without this the actual
+      writing of the file is delayed in the Chef run so all entries can be accumulated
+      before writing the file out.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: file_location
+  ruby_type: String
+  required: false
+  default_value: '"/etc/ssh/ssh_known_hosts"'
+  new_in: null
+  description_list:
+  - markdown: 'The location of the ssh known hosts file. Change this to set a known
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      host file for a particular user.'
+- property: group
+  ruby_type: String, Integer
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The file group for the ssh_known_hosts file.
+- property: hash_entries
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: null
+  description_list:
+  - markdown: 'Hash the hostname and addresses in the ssh_known_hosts file for
+
+      privacy.'
+- property: host
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: The host to add to the known hosts file.
+- property: key
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'An optional key for the host. If not provided this will be
+
+      automatically determined.'
+- property: key_type
+  ruby_type: String
+  required: false
+  default_value: '"rsa"'
+  new_in: null
+  description_list:
+  - markdown: The type of key to store.
+- property: mode
+  ruby_type: String
+  required: false
+  default_value: '"0644"'
+  new_in: null
+  description_list:
+  - markdown: The file mode for the ssh_known_hosts file.
+- property: owner
+  ruby_type: String, Integer
+  required: false
+  default_value: '"root"'
+  new_in: null
+  description_list:
+  - markdown: The file owner for the ssh_known_hosts file.
+- property: port
+  ruby_type: Integer
+  required: false
+  default_value: '22'
+  new_in: null
+  description_list:
+  - markdown: 'The server port that the ssh-keyscan command will use to gather the
+
+      public key.'
+- property: timeout
+  ruby_type: Integer
+  required: false
+  default_value: '30'
+  new_in: null
+  description_list:
+  - markdown: The timeout in seconds for ssh-keyscan.
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
-
+- example_heading: Add a single entry for github.com with the key auto detected
+  text_blocks:
+  - code_block: ssh_known_hosts_entry 'github.com'
+- example_heading: Add a single entry with your own provided key
+  text_blocks:
+  - code_block: "ssh_known_hosts_entry 'github.com' do\n  key 'node.example.com ssh-rsa\
+      \ ...'\nend"
 
 ---

@@ -12,8 +12,7 @@ aliases = "/config_rb_client.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_client.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_client.md)
 
 {{% config_rb_client_summary %}}
 

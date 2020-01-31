@@ -7,13 +7,12 @@ aliases = "/api_push_jobs.html"
 [menu]
   [menu.docs]
     title = "Push Jobs API"
-    identifier = "chef_infra/managing_chef_infra_server/push_jobs/api_push_jobs.md Push Jobs API"
-    parent = "chef_infra/managing_chef_infra_server/push_jobs"
+    identifier = "chef_infra/chef_infra_server/push_jobs/api_push_jobs.md Push Jobs API"
+    parent = "chef_infra/chef_infra_server/push_jobs"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_push_jobs.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_push_jobs.md)
 
 The Push Jobs API is used to create jobs and retrieve status using Chef
 Push Jobs, a tool that pushes jobs against a set of nodes in the

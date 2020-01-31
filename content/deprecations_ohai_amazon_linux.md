@@ -12,8 +12,7 @@ aliases = "/deprecations_ohai_amazon_linux.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_amazon_linux.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_amazon_linux.md)
 
 <meta name="robots" content="noindex">
 

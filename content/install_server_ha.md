@@ -12,8 +12,7 @@ aliases = "/install_server_ha.html"
     weight = 60
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_ha.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server_ha.md)
 
 This topic introduces the underlying concepts behind the architecture of
 the high availability Chef Infra Server cluster. The topic then

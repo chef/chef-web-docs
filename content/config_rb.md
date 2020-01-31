@@ -12,8 +12,7 @@ aliases = "/config_rb.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb.md)
 
 {{< warning >}}
 
@@ -325,7 +324,7 @@ settings:
     example:
 
     ``` ruby
-    http_proxy 'http://proxy.vmware.com:3128'
+    http_proxy 'http://proxy.example.com:3128'
     ```
 
 `http_proxy_user`

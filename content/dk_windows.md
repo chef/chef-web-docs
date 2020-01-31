@@ -12,8 +12,7 @@ aliases = "/dk_windows.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dk_windows.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dk_windows.md)
 
 Chef Workstation
 ================
@@ -52,27 +51,23 @@ Supported Host Operating Systems:
 <tbody>
 <tr class="odd">
 <td>Apple macOS</td>
-<td>10.11, 10.12, 10.13, 10.14</td>
+<td>10.13, 10.14, 10.15</td>
 </tr>
 <tr class="even">
 <td>Microsoft Windows</td>
-<td>10, Server 2008 R2, Server 2012, Server 2012 R2, Server 2016</td>
+<td>10, Server 2012, Server 2012 R2, Server 2016, Server 2019</td>
 </tr>
 <tr class="odd">
 <td>Red Hat Enterprise Linux / CentOS</td>
-<td>6.x, 7.x</td>
+<td>6.x, 7.x, 8.x</td>
 </tr>
 <tr class="even">
-<td>SUSE Enterprise Linux Server</td>
-<td>11 SP4, 12 SP1+, 15</td>
+<td>Ubuntu</td>
+<td>16.04, 18.04</td>
 </tr>
 <tr class="odd">
-<td>Ubuntu</td>
-<td>14.04, 16.04, 18.04</td>
-</tr>
-<tr class="even">
 <td>Debian</td>
-<td>7.x, 8.x, 9.x</td>
+<td>8.x, 9.x</td>
 </tr>
 </tbody>
 </table>
@@ -92,23 +87,23 @@ Supported Host Operating Systems:
 <tbody>
 <tr class="odd">
 <td>Microsoft Windows</td>
-<td>10, Server 2008 R2, Server 2012, Server 2012 R2, Server 2016</td>
+<td>10, Server 2012, Server 2012 R2, Server 2016, Server 2019</td>
 </tr>
 <tr class="even">
 <td>Red Hat Enterprise Linux</td>
-<td>6.x, 7.x</td>
+<td>6.x, 7.x, 8.x</td>
 </tr>
 <tr class="odd">
 <td>SUSE Enterprise Linux Server</td>
-<td>11 SP4, 12 SP1+, 15</td>
+<td>12 SP1+, 15.x</td>
 </tr>
 <tr class="even">
 <td>Ubuntu</td>
-<td>14.04, 16.04, 18.04</td>
+<td>16.04, 18.04</td>
 </tr>
 <tr class="odd">
 <td>Debian</td>
-<td>7.x, 8.x, 9.x</td>
+<td>8.x, 9.x</td>
 </tr>
 </tbody>
 </table>
@@ -161,7 +156,7 @@ Download ChefDK by following the installation instructions on
 Verify the Chef Workstation or ChefDK Installation
 --------------------------------------------------
 
-To verify the ChefDK installation, run:
+To verify the installation, run:
 
 ``` shell
 chef -v
@@ -170,11 +165,12 @@ chef -v
 Which returns the versions of all installed Chef tools:
 
 ``` shell
-ChefDK version: 4.4.27
-Chef Infra Client version: 15.3.14
-Chef InSpec version: 4.16.0
-Test Kitchen version: 2.3.3
-Cookstyle version: 5.6.2
+Chef Workstation version: 0.14.16
+Chef Infra Client version: 15.6.10
+Chef InSpec version: 4.18.39
+Chef CLI version: 2.0.0
+Test Kitchen version: 2.3.4
+Cookstyle version: 5.19.9
 ```
 
 ### Spaces and Directories

@@ -6,32 +6,29 @@ aliases = "/fips.html"
 
 [menu]
   [menu.docs]
-    title = "Enable FIPS"
-    identifier = "legacy/chef_automate_1/getting_started/fips.md Enable FIPS"
-    parent = "legacy/chef_automate_1/getting_started"
-    weight = 70
+    title = "FIPS"
+    identifier = "chef_infra/features/fips.md FIPS"
+    parent = "chef_infra/features"
+    weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/fips.rst)
-
-<meta name="robots" content="noindex">
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/fips.md)
 
 What is FIPS?
 =============
 
 {{% fips_intro %}}
 
-Why would you want to enable it?
---------------------------------
+Who should enable FIPS?
+-----------------------
 
 You may be legally required to enable FIPS if you are a United States
 non-military government agency, or are contracting with one. If you are
 not sure if you need to enable FIPS, please check with your compliance
 department.
 
-Why might you not need to enable it?
-------------------------------------
+Who shouldn't enable FIPS?
+--------------------------
 
 You will only need to enable FIPS if you are a US non-military
 government agency, or contracting with one, and you are contractually
@@ -48,8 +45,6 @@ Supported Products
 
 **Supported:**
 
--   [Chef
-    Automate](/fips.html#how-to-enable-fips-mode-for-the-chef-automate-server)
 -   [Chef Infra
     Client](/fips.html#how-to-enable-fips-mode-for-the-chef-client)
 -   [ChefDK](/fips.html#how-to-enable-fips-mode-for-workstations)
@@ -132,7 +127,34 @@ Client will default to running in FIPS mode. Otherwise you can add
 
 {{% knife_bootstrap_node_fips %}}
 
-{{% delivery_cli_fips %}}
+How to enable FIPS mode for workstations
+========================================
+
+A workstation is a computer running ChefDK that is used to author
+cookbooks, interact with the Chef Infra Server, and interact with nodes.
+
+Prerequisites
+-------------
+
+-   Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
+-   ChefDK version `1.3.23` or greater
+
+Now that FIPS mode is enabled in your `.delivery/cli.toml`, running any
+project-specific Delivery CLI command will automatically use
+FIPS-compliant encrypted git traffic between your workstation and the
+Chef Automate server. As long as the Chef Automate server is in FIPS
+mode, no other action is needed on your part to operate Delivery CLI in
+FIPS mode. If you ever stop using FIPS mode on the Chef Automate server,
+simply delete the above two lines from your `.delivery/cli.toml` file
+and Delivery CLI will stop running in FIPS mode.
+
+{{< note >}}
+
+You could also pass `--fips` and `--fips-git-port=OPEN_PORT` into
+project specific commands if you do not wish to edit your
+`.delivery/cli.toml`. See list of commands below for details..
+
+{{< /note >}}
 
 For more information on configuring the Chef Automate server, see
 [Delivery CLI](/delivery_cli/).

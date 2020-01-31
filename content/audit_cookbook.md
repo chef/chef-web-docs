@@ -7,13 +7,12 @@ aliases = "/audit_cookbook.html"
 [menu]
   [menu.docs]
     title = "Audit Cookbook"
-    identifier = "legacy/chef_automate_1/compliance/audit_cookbook.md Audit Cookbook"
-    parent = "legacy/chef_automate_1/compliance"
-    weight = 60
+    identifier = "legacy/workflow/workflow_basics/audit_cookbook.md Audit Cookbook"
+    parent = "legacy/workflow/workflow_basics"
+    weight = 70
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/audit_cookbook.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/audit_cookbook.md)
 
 <meta name="robots" content="noindex">
 
@@ -28,9 +27,7 @@ otherwise specified with `node['audit']['inspec_version']`.
 
 [Cookbooks](/cookbooks/) are Chef's primary unit of configuration
 management. For tutorials on working with cookbooks in Chef, see [Learn
-Chef Rally](https://learn.chef.io). For more information specifically on
-using the `audit` cookbook with Automate, see [perform a compliance
-scan](/perform_compliance_scan/).
+Chef Rally](https://learn.chef.io).
 
 Audit Cookbook
 ==============

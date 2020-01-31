@@ -7,15 +7,17 @@ order:
 4.  A `default` attribute located in a role
 5.  A `force_default` attribute located in a cookbook attribute file
 6.  A `force_default` attribute located in a recipe
-7.  A `normal` attribute located in a cookbook attribute file
-8.  A `normal` attribute located in a recipe
-9.  An `override` attribute located in a cookbook attribute file
-10. An `override` attribute located in a recipe
-11. An `override` attribute located in a role
-12. An `override` attribute located in an environment
-13. A `force_override` attribute located in a cookbook attribute file
-14. A `force_override` attribute located in a recipe
-15. An `automatic` attribute identified by Ohai at the start of a Chef
+7.  A `normal` attribute located in a JSON file passed via
+    `chef-client -j`
+8.  A `normal` attribute located in a cookbook attribute file
+9.  A `normal` attribute located in a recipe
+10. An `override` attribute located in a cookbook attribute file
+11. An `override` attribute located in a recipe
+12. An `override` attribute located in a role
+13. An `override` attribute located in an environment
+14. A `force_override` attribute located in a cookbook attribute file
+15. A `force_override` attribute located in a recipe
+16. An `automatic` attribute identified by Ohai at the start of a Chef
     Infra Client run
 
 where the last attribute in the list is the one that is applied to the

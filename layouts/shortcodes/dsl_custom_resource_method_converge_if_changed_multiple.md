@@ -4,14 +4,14 @@ compare the multiple desired property values against the current
 property values (as loaded by the `load_current_value` method).
 
 ``` ruby
-property :path, String, name_property: true
+property :path, String
 property :content, String
 property :mode, String
 
-load_current_value do
-  if ::File.exist?(new_resource.path)
-    content IO.read(new_resource.path)
-    mode ::File.stat(new_resource.path).mode
+load_current_value do |desired|
+  if ::File.exist?(desired.path)
+    content IO.read(desired.path)
+    mode ::File.stat(desired.path).mode
   end
 end
 

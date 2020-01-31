@@ -12,8 +12,7 @@ aliases = "/dsl_custom_resource.html"
     weight = 70
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dsl_custom_resource.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_custom_resource.md)
 
 Use the Custom Resource DSL to define property behaviors within custom
 resources, such as:

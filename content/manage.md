@@ -12,10 +12,7 @@ aliases = "/manage.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/manage.rst)
-
-{{% chef_automate_mark %}}
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/manage.md)
 
 {{% EOL_manage %}}
 

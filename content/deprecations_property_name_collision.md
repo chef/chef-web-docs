@@ -12,8 +12,7 @@ aliases = "/deprecations_property_name_collision.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_property_name_collision.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_property_name_collision.md)
 
 <meta name="robots" content="noindex">
 

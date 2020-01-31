@@ -12,8 +12,7 @@ aliases = "/ctl_chef_client.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_client.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_client.md)
 
 {{% chef_client_summary %}}
 
@@ -152,8 +151,8 @@ This command has the following options:
 `-j PATH`, `--json-attributes PATH`
 
 :   The path to a file that contains JSON data. Used to setup the first
-    client run. For all the future runs with option -i the attributes
-    are expected to be persisted in the chef-server.
+    client run. The attributes will persist on the Chef Infra Server for
+    all future runs with option `-j`.
 
     **Run-lists**
 

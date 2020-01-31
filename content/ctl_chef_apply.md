@@ -12,8 +12,7 @@ aliases = "/ctl_chef_apply.html"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_apply.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_apply.md)
 
 chef-apply is an executable program that runs a single recipe from the
 command line:

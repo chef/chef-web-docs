@@ -12,8 +12,7 @@ aliases = "/plugin_knife_custom.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_custom.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_custom.md)
 
 {{% plugin_knife_summary %}}
 

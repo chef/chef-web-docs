@@ -12,12 +12,9 @@ aliases = "/server_manage_clients.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_clients.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_clients.md)
 
 <meta name="robots" content="noindex">
-
-{{% chef_automate_mark %}}
 
 {{% EOL_manage %}}
 

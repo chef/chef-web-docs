@@ -12,8 +12,7 @@ aliases = "/community_guidelines.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/community_guidelines.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/community_guidelines.md)
 
 **Note**: If you are in a physical space (e.g. ChefConf, Meetup, etc),
 please see the [Physical Spaces Code of

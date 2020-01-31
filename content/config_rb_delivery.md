@@ -7,13 +7,12 @@ aliases = "/config_rb_delivery.html"
 [menu]
   [menu.docs]
     title = "delivery.rb"
-    identifier = "legacy/chef_automate_1/reference/config_rb_delivery.md delivery.rb"
-    parent = "legacy/chef_automate_1/reference"
-    weight = 40
+    identifier = "legacy/workflow/reference/config_rb_delivery.md delivery.rb"
+    parent = "legacy/workflow/reference"
+    weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_delivery.md)
 
 <meta name="robots" content="noindex">
 

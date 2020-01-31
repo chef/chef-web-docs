@@ -7,13 +7,12 @@ aliases = "/automate_azure.html"
 [menu]
   [menu.docs]
     title = "Chef Automate for Microsoft Azure"
-    identifier = "legacy/chef_automate_1/automate_azure.md Chef Automate for Microsoft Azure"
-    parent = "legacy/chef_automate_1"
-    weight = 110
+    identifier = "legacy/workflow/automate_azure.md Chef Automate for Microsoft Azure"
+    parent = "legacy/workflow"
+    weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/automate_azure.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/automate_azure.md)
 
 <meta name="robots" content="noindex">
 
@@ -173,9 +172,22 @@ to date, do the following to migrate to the Chef Automate Azure VM:
     $ chef-marketplace-ctl upgrade --server
     ```
 
-3.  {{% chef_automate_reconfigure_for_marketplace %}}
+3.  Reconfigure Chef Automate and the Chef Infra Server
 
-4.  {{% chef_server_backup_restore_for_automate %}}
+    ``` bash
+    $ sudo automate-ctl reconfigure
+    $ sudo chef-server-ctl reconfigure
+    ```
+
+4.  Restore the backup
+
+    ``` bash
+    $ mkdir -p /tmp/chef-backup
+    $ mv /tmp/chef-backup.tgz /tmp/chef-backup
+    $ cd /tmp/chef-backup
+    $ tar -ztf chef-backup.tgz
+    $ /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
+    ```
 
 5.  Update your workstation knife configuration. Open `.chef/config.rb`
     in a text editor and modify the `chef_server_url` with your Azure VM

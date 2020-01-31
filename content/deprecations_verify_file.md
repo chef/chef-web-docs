@@ -12,8 +12,7 @@ aliases = "/deprecations_verify_file.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_verify_file.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_verify_file.md)
 
 <meta name="robots" content="noindex">
 
