@@ -35,7 +35,7 @@ The windows_task resource has the following syntax:
     priority                            Integer # default value: 7
     random_delay                        String, Integer
     run_level                           Symbol # default value: :limited
-    start_day                           String
+    start_day                           String # defaults to current date if not specified
     start_time                          String
     start_when_available                true, false # default value: false
     stop_if_going_on_batteries          true, false # default value: false
