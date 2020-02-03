@@ -20,8 +20,8 @@ Chef Infra is a powerful automation platform that transforms infrastructure into
 
 This diagram shows how you develop, test, and deploy your Chef Infra code.
 
-.. image:: ../../images/start_chef.svg
-   :width: 700px
+.. image:: ../../images/start_chef.png
+   :width: 716px
    :align: center
 
 .. end_tag
