@@ -26,7 +26,7 @@ Supported Products
 **Supported:**
 
 * `Chef Infra Client </fips.html#how-to-enable-fips-mode-for-the-chef-client>`__
-* `Chef Workstation <fips.html#how-to-enable-fips-mode-for-workstations>`__
+* `Chef Workstation </fips.html#how-to-enable-fips-mode-for-workstations>`__
 * `Chef Infra Server </fips.html#how-to-enable-fips-mode-for-the-chef-server>`__
 
 **Unsupported:**
