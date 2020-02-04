@@ -171,10 +171,10 @@ Example config.rb:
      knife[:aws_secret_access_key] = ENV['AWS_SECRET_ACCESS_KEY']
 .. end_tag
 
-Create the chef-repo
+Create the Chef repository
 =====================================================
 
-To create a chef-repo, run the following command:
+Use the `chef generate repo command </ctl_chef.html#chef-generate-repo>`__ to create the Chef Infra repository.
 
 .. code-block:: bash
 
