@@ -25,7 +25,7 @@ Glossary
    A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
 
 **Chef Workstation**
-   A collection of tools to aide in development of Chef cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__.
+   A collection of tools to aide in development of Chef Infra cookbooks. It uses the full stack installer to give you everything you need to get going in one package. You can download it at `Chef Workstation <https://downloads.chef.io/chef-workstation/>`__.
 
 **chef-repo**
    The repository structure in which cookbooks are authored, tested, and maintained. View `an example of the <https://github.com/chef/chef-repo>`__ chef-repo.
@@ -34,7 +34,7 @@ Glossary
    The Chef Infra Server acts as a hub for configuration data. The Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef Infra Client. Nodes use Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
 
 **ChefSpec**
-   ChefSpec is a unit-testing framework for testing Chef cookbooks.
+   ChefSpec is a unit-testing framework for testing Chef Infra cookbooks.
 
 **chef-zero**
    A very lightweight Chef Infra Server that runs in-memory on the local machine during a Chef Infra Client run. Also known as local mode.
