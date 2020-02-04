@@ -9,6 +9,9 @@ Glossary
 **analytics rules**
    Event tracking during a Chef Infra Client run that generates data made visible to Workflow.
 
+**Automate**
+   A full suite of enterprise capabilities for maintaining continuous visibility into application, infrastructure, and security automation.
+
 **Berkshelf**
    Manage cookbook dependencies.
 
