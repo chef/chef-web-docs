@@ -48,6 +48,9 @@ Glossary
 **Cookstyle**
    A linting tool that helps you write better Chef Infra cookbooks by detecting and automatically correcting style, syntax, and logic mistakes in your code.
 
+**custom resource**
+   An extension to Chef Infra Client that allows you to ship your own reusable resources within a cookbook.
+
 **data bag**
    A data_bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server.
 
