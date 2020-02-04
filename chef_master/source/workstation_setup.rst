@@ -102,17 +102,16 @@ To create the ``.chef`` directory:
 
 Install a Code Editor
 -------------------------------------------------------
-A good visual code editor is not a requirement for working with Chef, but a good code editor can save you time.
-A code editor should support the following: themes, plugins, snippets, syntax Ruby code coloring/highlighting, multiple cursors, a tree view of the entire folder/repository you are working with, and a Git integration.
+A good visual code editor is not a requirement for working with Chef Infra, but a good code editor can save you time. A code editor should support the following: themes, plugins, snippets, syntax Ruby code coloring/highlighting, multiple cursors, a tree view of the entire folder/repository you are working with, and a Git integration.
 
 These are a few common editors:
 
 * `Visual Studio Code (free/open source) <http://code.visualstudio.com>`__
 * `GitHub Atom - (free/open source) <http://atom.io>`__
 
-Chef support in editors:
+Chef Infra support in editors:
 
-* `VSCode Chef Extension <https://marketplace.visualstudio.com/items?itemName=Pendrica.Chef>`__
+* `VSCode Chef Infra Extension <https://marketplace.visualstudio.com/items?itemName=chef-software.Chef>`__
 * `Chef on Atom <https://atom.io/packages/language-chef>`__
 
 Starter Kit
