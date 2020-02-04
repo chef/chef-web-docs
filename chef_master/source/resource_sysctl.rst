@@ -262,7 +262,7 @@ Note: This only removes the sysctl.d config for kernel.msgmax. The value will be
 
 This produces /etc/sysctl.d/99-chef-vm.swappiness.conf as follows:
 
-.. code-block::
+.. code-block:: none
 
   # define how aggressively the kernel will swap memory pages.
   vm.swappiness = 1
