@@ -3,8 +3,8 @@ About the build-cookbook
 =======================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_build_cookbook.rst>`__
 
-.. meta:: 
-    :robots: noindex 
+.. meta::
+    :robots: noindex
 
 Chef Automate uses Chef Infra Client to run recipes for each phase in a build pipeline. The phases are grouped into different stages.
 
@@ -226,7 +226,7 @@ The following example shows how to create a cookbook, with project and pipeline,
 
       $ cd NEW-COOKBOOK-NAME
 
-   This uses ChefDK to generate a new cookbook, including a default recipe and default ChefSpec tests.
+   This uses Chef Workstation to generate a new cookbook, including a default recipe and default ChefSpec tests.
 
 #. Create an initial commit (use ``git status`` to verify the change) on the "master" branch:
 

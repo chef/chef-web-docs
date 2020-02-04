@@ -180,4 +180,4 @@ To create a chef-repo, run the following command:
 
    $ chef generate repo REPO_NAME
 
-This command uses the ``chef`` command-line tool that is packaged as part of ChefDK to create a chef-repo.
+This command uses the ``chef`` command-line tool that is packaged as part of Chef Workstation to create a chef-repo.

@@ -87,5 +87,5 @@ Related Content
 
 Next Steps
 ===================================
-* `Install Chef Workstation </install_dk.html>`_
+* `Install Chef Workstation </install_workstation.html>`_
 * `Bootstrap Nodes </install_bootstrap.html>`_

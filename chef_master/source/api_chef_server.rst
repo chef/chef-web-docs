@@ -594,7 +594,7 @@ A user is an individual account that is created to allow access to the Chef Infr
 * A hosted Chef Infra Server account
 * The user that operates the workstation from which a Chef Infra Server will be managed
 
-The ``/users`` endpoint has the following methods: ```GET`` and ``POST``.
+The ``/users`` endpoint has the following methods: ``GET`` and ``POST``.
 
 .. warning:: This endpoint may only be accessed by the ``pivotal`` user, which is created as part of the installation process for the Chef Infra Server. (See the "Query for Users and Orgs" example below for an example of how to access this endpoint with the ``pivotal`` user.)
 
@@ -5077,7 +5077,7 @@ The response will return an array of paths for objects that have been created, u
 /users
 -----------------------------------------------------
 
-A user may be associated with an organization. 
+A user may be associated with an organization.
 
 
 The ``/users`` endpoint has the following methods: ``GET`` and ``POST``.

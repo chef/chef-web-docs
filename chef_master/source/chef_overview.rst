@@ -9,25 +9,25 @@ Chef Infra is a powerful automation platform that transforms infrastructure into
 
 This diagram shows how you develop, test, and deploy your Chef Infra code.
 
-.. image:: ../../images/start_chef.svg
-   :width: 700px
+.. image:: ../../images/start_chef.png
+   :width: 716px
    :align: center
 
 .. end_tag
 
-* **Chef Workstation** is the location where users interact with Chef. With Chef Workstation, users can author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef Infra Server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
-* **Chef Infra Client nodes** are the machines that are managed by Chef. The Chef Infra Client is installed on each node and is used to configure the node to its desired state.
+* **Chef Workstation** is the location where users interact with Chef Infra. With Chef Workstation, users can author and test `cookbooks </cookbooks.html>`__ using tools such as `Test Kitchen </kitchen.html>`__ and interact with the Chef Infra Server using the `knife </knife.html>`__ and `chef </ctl_chef.html>`__ command line tools.
+* **Chef Infra Client nodes** are the machines that are managed by Chef Infra. The Chef Infra Client is installed on each node and is used to configure the node to its desired state.
 * **Chef Infra Server** acts as `a hub for configuration data </server_overview.html>`__. Chef Infra Server stores cookbooks, the policies that are applied to nodes, and metadata that describes each registered node that is being managed by Chef. Nodes use the Chef Infra Client to ask the Chef Infra Server for configuration details, such as recipes, templates, and file distributions.
 
-Chef Components
+Chef Infra Components
 =====================================================
-The following diagram shows the relationships between the various elements of Chef, including the nodes, the server, and the workstation. These elements work together to provide the Chef Infra Client the information and instruction that it needs so that it can do its job. As you are reviewing the rest of this topic, use the icons in the tables to refer back to this image.
+The following diagram shows the relationships between the various elements of Chef Infra, including the nodes, the server, and the workstation. These elements work together to provide the Chef Infra Client the information and instruction that it needs so that it can do its job. As you are reviewing the rest of this topic, use the icons in the tables to refer back to this image.
 
 .. image:: ../../images/chef_overview.svg
    :width: 600px
    :align: center
 
-Chef has the following major components:
+Chef Infra has the following major components:
 
 .. list-table::
    :widths: 100 400
@@ -47,11 +47,15 @@ Chef has the following major components:
           :width: 100px
           :align: center
 
-     - One (or more) workstations are configured to allow users to author, test, and maintain cookbooks. Cookbooks are uploaded to the Chef Infra Server from the workstation. Some cookbooks are custom to the organization and others are based on community cookbooks available from the Chef Supermarket.
+     - One (or more) workstations are configured to allow users to author, test, and maintain cookbooks. 
+     
+       A workstation is your local computer that runs your development tools. The Chef Workstation development tools includes Chef Infra, Chef InSpec, Test Kitchen, ChefSpec, Cookstyle, and other tools necessary for developing and testing your infrastructure with Chef products.
+     
+       Cookbooks are uploaded to the Chef Infra Server from these workstations. Some cookbooks are custom to the organization and others are based on community cookbooks available from the Chef Supermarket.
 
-       Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users). The full power of Ruby is available for when you need a programming language.
+       Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users. The full power of Ruby is available for when you need a programming language.
 
-       Often, a workstation is configured to use Chef Workstation as the development toolkit. Chef Workstation is a package from Chef that provides a recommended set of tooling, including Chef itself, the chef command line tool, Test Kitchen, ChefSpec, and more.
+       
 
    * - .. image:: ../../images/icon_node.svg
           :width: 100px
@@ -75,21 +79,19 @@ Chef has the following major components:
      - The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations. (Policy settings may also be maintained from the Chef Infra Server itself, via the Chef management console web user interface.)
 
        The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.
-
-       Chef management console is the user interface for the Chef Infra Server. It is used to manage data bags, attributes, run-lists, roles, environments, and cookbooks, and also to configure role-based access for users and groups.
    * - .. image:: ../../images/icon_chef_supermarket.svg
           :width: 100px
           :align: center
 
      - Chef Supermarket is the location in which community cookbooks are shared and managed. Cookbooks that are part of the Chef Supermarket may be used by any Chef user. How community cookbooks are used varies from organization to organization.
 
-Chef management console, Chef Infra Client run reporting, high availability configurations, and Chef Infra Server replication are available as part of Chef Automate.
+Chef Infra Client run reporting, compliance reporting, high availability configurations, and Chef Infra Server replication are available as part of Chef Automate.
 
 The following sections discuss these elements (and their various components) in more detail.
 
 Workstations
 =====================================================
-A workstation is a computer running Chef Workstation that is used to author cookbooks, interact with the Chef Infra Server, and interact with nodes.
+A workstation is your local computer running Chef Workstation that you use to author cookbooks, interact with the Chef Infra Server, and interact with nodes.
 
 The workstation is where users do most of their work, including:
 
@@ -99,8 +101,6 @@ The workstation is where users do most of their work, including:
 * Configuring organizational policy, including defining roles and environments, and ensuring that critical data is stored in data bags
 * Interacting with nodes, as (or when) required, such as performing a bootstrap operation
 
-
-`Chef Workstation <https://downloads.chef.io/chef-workstation/>`__ gives you everything you need to get started with Chef — ad hoc remote execution, remote scanning, configuration tasks, cookbook creation tools as well as robust dependency and testing software — all in one easy-to-install package. Chef Workstation replaces ChefDK, combining all the existing features with new features, such as ad-hoc task support and the new Chef Workstation desktop application. Chef will continue to maintain ChefDK, but new development will take place in Chef Workstation without backporting features.
 
 Chef Workstation Components and Tools
 -----------------------------------------------------
@@ -116,14 +116,14 @@ Some important tools and components of Chef Workstation include:
           :width: 100px
           :align: center
 
-     - .. tag chef_dk
+     - .. tag chef_workstation
 
-       ChefDK, short for Chef Development Kit, is a package that contains everything that is needed to start using Chef:
+       Chef Workstation contains everything that is needed to start using Chef Infra and Chef InSpec:
 
        * Chef Infra Client
+       * Chef InSpec
        * chef and knife command line tools
        * Testing tools such as Test Kitchen, ChefSpec, and Cookstyle
-       * Chef InSpec
        * Everything else needed to author cookbooks and upload them to the Chef Infra Server
 
        .. end_tag
@@ -150,7 +150,7 @@ Some important tools and components of Chef Workstation include:
           :width: 100px
           :align: center
 
-     
+
      - The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:
 
        * Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata
@@ -158,7 +158,7 @@ Some important tools and components of Chef Workstation include:
 
        The directory structure within the chef-repo varies. Some organizations prefer to keep all of their cookbooks in a single chef-repo, while other organizations prefer to use a chef-repo for every cookbook.
 
-       
+
 
    * - .. image:: ../../images/icon_kitchen.svg
           :width: 100px
@@ -553,4 +553,3 @@ Some important aspects of policy include:
 Conclusion
 =====================================================
 Chef is a thin DSL (domain-specific language) built on top of Ruby. This approach allows Chef to provide just enough abstraction to make reasoning about your infrastructure easy. Chef includes a built-in taxonomy of all the basic resources one might configure on a system, plus a defined mechanism to extend that taxonomy using the full power of the Ruby language. Ruby was chosen because it provides the flexibility to use both the simple built-in taxonomy, as well as being able to handle any customization path your organization requires.
-

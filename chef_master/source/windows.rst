@@ -19,7 +19,7 @@ Chef Infra Client can be installed on machines running Microsoft Windows in the 
 
 Setting up Windows Workstations
 =======================================================
-To set up your Windows workstation follow the steps on `Chef for Microsoft Windows </dk_windows.html>`__
+To set up your Windows workstation follow the steps on `Chef for Microsoft Windows </install_workstation.html>`__
 
 Install Chef Infra Client on Windows Nodes
 =======================================================
@@ -99,7 +99,7 @@ Spaces and Directories
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_spaces_and_directories
 
-Directories that are used by Chef on Windows cannot have spaces. For example, ``C:\Users\User Name`` will not work, but ``C:\Users\UserName`` will. Chef commands may fail if used against a directory with a space in its name.
+Directories that are used by Chef products on Windows cannot have spaces. For example, ``C:\Users\User Name`` will not work, but ``C:\Users\UserName`` will. Chef commands may fail if used against a directory with a space in its name.
 
 .. end_tag
 
@@ -107,7 +107,7 @@ Top-level Directory Names
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag windows_top_level_directory_names
 
-Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install ChefDK on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.
+Windows will throw errors when path name lengths are too long. For this reason, it's often helpful to use a very short top-level directory, much like what is done in UNIX and Linux. For example, Chef uses ``/opt/`` to install Chef Workstation on macOS. A similar approach can be done on Microsoft Windows, by creating a top-level directory with a short name. For example: ``C:\chef``.
 
 .. end_tag
 

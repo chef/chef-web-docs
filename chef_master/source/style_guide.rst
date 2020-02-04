@@ -95,10 +95,10 @@ Bulleted lists break up text blocks and draw attention to a group of items::
 
   * list item
   * list item
-  
+
     * sublist item
     * sublist item
-    
+
   * list item
   * list item
 
@@ -248,8 +248,8 @@ Chef docs uses tags to indicate text that is used in more than one topic::
 
     This diagram shows how you develop, test, and deploy your Chef Infra code.
 
-    .. image:: ../../images/start_chef.svg
-       :width: 700px
+    .. image:: ../../images/start_chef.png
+       :width: 716px
        :align: center
 
     .. end_tag

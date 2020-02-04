@@ -180,7 +180,7 @@ If a local license marker file is detected, no configuration is required; accept
 
 To disable this persistence, specify ``accept-no-persist`` on every test instance converge.
 
-``kitchen-inspec`` uses Chef InSpec as a library, and is not covered by the EULA when installed as a gem, but is covered by the EULA when packaged as part of the ChefDK installation.
+``kitchen-inspec`` uses Chef InSpec as a library, and is not covered by the EULA when installed as a gem, but is covered by the EULA when packaged as part of the Chef Workstation installation.
 Accept the license in a similar way to the Chef Infra Client license - specify the ``CHEF_LICENSE`` environment variable, specify the ``chef_license`` config under the verifier section in ``kitchen.yml`` or persist the acceptance locally.
 
 Pin to Chef 14

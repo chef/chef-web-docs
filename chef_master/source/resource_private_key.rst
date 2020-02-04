@@ -136,13 +136,13 @@ This resource has the following properties:
    Use to specify the size of an RSA or DSA private key. Default value: ``2048``.
 
 ``source_key``
-   Use to copy a private key, but apply a different ``format`` and ``password``. Use in conjunction with ``source_key_pass_phrase``` and ``source_key_path``.
+   Use to copy a private key, but apply a different ``format`` and ``password``. Use in conjunction with ``source_key_pass_phrase`` and ``source_key_path``.
 
 ``source_key_pass_phrase``
-   The pass phrase for the private key. Use in conjunction with ``source_key``` and ``source_key_path``.
+   The pass phrase for the private key. Use in conjunction with ``source_key`` and ``source_key_path``.
 
 ``source_key_path``
-   The path to the private key. Use in conjunction with ``source_key``` and ``source_key_pass_phrase``.
+   The path to the private key. Use in conjunction with ``source_key`` and ``source_key_pass_phrase``.
 
 ``subscribes``
    **Ruby Type:** Symbol, 'Chef::Resource[String]'

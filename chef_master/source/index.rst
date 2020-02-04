@@ -5,14 +5,13 @@ Site Map
 
 This is the documentation for:
 
-* Chef Infra Server, Chef Infra Client, ChefDK, and related tools
+* Chef Infra Server, Chef Infra Client, Chef Workstation, and related tools
 
 Documentation for other Chef products:
 
 * `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart/>`_
 * `Chef Habitat <https://www.habitat.sh/docs/>`_
 * `Chef InSpec <https://www.inspec.io/docs/>`_
-* `Chef Workstation <https://www.chef.sh/docs/chef-workstation/getting-started/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
@@ -45,18 +44,14 @@ Packages and Platform Support
 `Supported Versions </versions.html>`__ |
 `Omnitruck API </api_omnitruck.html>`__
 
-Chef
+Chef Infra
 =====================================================
 
 Getting Started
 -----------------------------------------------------
-`Chef Overview </chef_overview.html>`__ |
+`Chef Infra Overview </chef_overview.html>`__ |
 `Quick Start </quick_start.html>`__ |
 `System Requirements </chef_system_requirements.html>`__
-
-**Chef Workstation**:
-`Chef Workstation <https://www.chef.sh/>`__ |
-`Documentation <https://www.chef.sh/docs/chef-workstation/getting-started/>`__
 
 **Release Notes**:
 `Chef Infra Client </release_notes.html>`__ |
@@ -77,7 +72,6 @@ Concepts
 `Search </chef_search.html>`__ |
 `Cookbooks </cookbooks.html>`__ |
 `Handlers </handlers.html>`__ |
-`Management Console </manage.html>`__
 
 **Policy**: `About Policy </policy.html>`__ | `Data Bags </data_bags.html>`__ | `Environments </environments.html>`__ | `Roles </roles.html>`__
 
@@ -95,13 +89,12 @@ Guides
 
 **Chef on Azure**: `Microsoft Azure Portal </azure_portal.html>`__ | `Chef Workstation in Azure Cloud Shell </azure_cwa_cloud_shell.html>`__ | `Microsoft Azure PowerShell </azure_powershell.html>`__ | `Knife Azure </knife_azure.html>`__ | `Knife Azurerm </knife_azurerm.html>`__
 
-**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Installing Chef on Windows </dk_windows.html>`__ | `Chef Infra Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
+**Chef on Microsoft Windows**: `Chef for Microsoft Windows </windows.html>`__ | `Chef Infra Client on Windows Nodes </install_windows.html>`__ | `Knife Windows </knife_windows.html>`__
 
 Setup
 -----------------------------------------------------
 `Proxies </proxies.html>`__ |
-`Installing Chef on Windows </dk_windows.html>`__ |
-`Chef Workstation </install_dk.html>`__
+`Install Chef Workstation </install_workstation.html>`__
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via Script </install_omnibus.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
@@ -128,7 +121,7 @@ Cookbook Reference
 
 **Resources**:
 `About Resources </resource.html>`__ |
-`Common Functionality </resource_common.html>`__ |
+`Common Resource Functionality </resource_common.html>`__ |
 `Custom Resources </custom_resources.html>`__ |
 `Converting Definitions to Custom Resources </definitions.html>`__ |
 `All Resources (Single Page) </resource_reference.html>`__ |
@@ -288,10 +281,10 @@ Cookbook Reference
 
 **Chef Automate Cookbooks**: `build-cookbook (cookbook) </delivery_build_cookbook.html>`__ | `delivery-truck (cookbook) </delivery_truck.html>`__ | `Publish Cookbooks to Multiple Chef Servers </publish_cookbooks_multiple_servers.html>`__
 
-ChefDK
+Chef Workstation
 -----------------------------------------------------
 
-`About ChefDK </about_chefdk.html>`__ |
+`About Chef Workstation </about_workstation.html>`__ |
 `Berkshelf </berkshelf.html>`__ |
 `chef-apply (executable) </ctl_chef_apply.html>`__ |
 `chef-shell (executable) </chef_shell.html>`__
@@ -311,7 +304,7 @@ ChefDK
 
 **Knife**: `About Knife </knife.html>`__ | `Common Options </knife_options.html>`__ | `Setting up Knife </knife_setup.html>`__ | `knife bootstrap </knife_bootstrap.html>`__ | `knife client </knife_client.html>`__ | `knife configure </knife_configure.html>`__ | `knife cookbook </knife_cookbook.html>`__ | `knife cookbook site </knife_cookbook_site.html>`__ | `knife data bag </knife_data_bag.html>`__ | `knife delete </knife_delete.html>`__ | `knife deps </knife_deps.html>`__ | `knife diff </knife_diff.html>`__ | `knife download </knife_download.html>`__ | `knife edit </knife_edit.html>`__ | `knife environment </knife_environment.html>`__ | `knife exec </knife_exec.html>`__ | `knife list </knife_list.html>`__ | `knife node </knife_node.html>`__ | `knife raw </knife_raw.html>`__ | `knife recipe list </knife_recipe_list.html>`__ | `knife role </knife_role.html>`__ | `knife search </knife_search.html>`__ | `knife serve </knife_serve.html>`__ | `knife show </knife_show.html>`__ | `knife ssh </knife_ssh.html>`__ | `knife ssl check </knife_ssl_check.html>`__ | `knife ssl fetch </knife_ssl_fetch.html>`__ | `knife status </knife_status.html>`__ | `knife supermarket </knife_supermarket.html>`_ | `knife tag </knife_tag.html>`__ | `knife upload </knife_upload.html>`__ | `knife user </knife_user.html>`__ | `knife xargs </knife_xargs.html>`__ | `knife azure </knife_azure.html>`__ | `knife_azurerm <knife_azurerm.html>`__ | `knife windows <knife_windows.html>`__
 
-**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `config.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__ | `knife spork </plugin_knife_spork.html>`__
+**knife opc**: `About knife opc </plugin_knife_opc.html>`__ | `config.rb Configuration </plugin_knife_opc.html#plugin-knife-opc-knife-rb-configuration>`__ | `opc user list </plugin_knife_opc.html#plugin-knife-opc-opc-user-list>`__ | `opc user show </plugin_knife_opc.html#plugin-knife-opc-opc-user-show>`__ | `opc user create </plugin_knife_opc.html#plugin-knife-opc-opc-user-create>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-delete>`__ | `opc user delete </plugin_knife_opc.html#plugin-knife-opc-opc-user-edit>`__ |  `opc org list </plugin_knife_opc.html#plugin-knife-opc-opc-org-list>`__ | `opc org show </plugin_knife_opc.html#plugin-knife-opc-opc-org-show>`__ | `opc org create </plugin_knife_opc.html#plugin-knife-opc-opc-org-create>`__ | `opc org delete </plugin_knife_opc.html#plugin-knife-opc-opc-org-delete>`__ | `opc org user add </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add>`__ | `opc org user remove </plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove>`__
 
 **Ohai**: `About Ohai </ohai.html>`__ | `ohai (executable) </ctl_ohai.html>`__
 
@@ -425,7 +418,7 @@ Addenda
 .. toctree::
    :hidden:
 
-   about_chefdk
+   about_workstation
    api_chef_server
    api_omnitruck
    api_push_jobs
@@ -454,7 +447,7 @@ Addenda
    chef_solo
    chef_system_requirements
    chef_vault
-   chefdk_setup
+   workstation_setup
    chefspec
    community
    community_contributions
@@ -551,7 +544,6 @@ Addenda
    deprecations_supports_property
    deprecations_verify_file
    depreciations_ohai_system_profile
-   dk_windows
    dsl_custom_resource
    dsl_delivery
    dsl_handler
@@ -569,7 +561,7 @@ Addenda
    handlers
    install_bootstrap
    install_chef_air_gap
-   install_dk
+   install_workstation
    install_omnibus
    install_push_jobs
    install_server
@@ -636,7 +628,6 @@ Addenda
    plugin_knife_custom
    plugin_knife_opc
    plugin_knife_push_jobs
-   plugin_knife_spork
    policy
    policyfile
    proxies

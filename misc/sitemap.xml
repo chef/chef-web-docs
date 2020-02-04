@@ -118,7 +118,7 @@
 </url>
 
 <url>
-  <loc>https://docs.chef.io/chefdk_setup.html</loc>
+  <loc>https://docs.chef.io/workstation_setup.html</loc>
 </url>
 
 <url>
@@ -422,7 +422,7 @@
 </url>
 
 <url>
-  <loc>https://docs.chef.io/dk_windows.html</loc>
+  <loc>https://docs.chef.io/install_workstation.html</loc>
 </url>
 
 <url>
@@ -494,7 +494,7 @@
 </url>
 
 <url>
-  <loc>https://docs.chef.io/install_dk.html</loc>
+  <loc>https://docs.chef.io/install_workstation.html</loc>
 </url>
 
 <url>
@@ -715,10 +715,6 @@
 
 <url>
   <loc>https://docs.chef.io/plugin_knife_push_jobs.html</loc>
-</url>
-
-<url>
-  <loc>https://docs.chef.io/plugin_knife_spork.html</loc>
 </url>
 
 <url>

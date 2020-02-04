@@ -217,7 +217,7 @@ A ``Policyfile.rb`` file may contain the following settings:
       named_run_list :update_app, "my_app_cookbook::default"
 
 ``include_policy "NAME", *args``
-  Specify a policyfile lock to be merged with this policy. ChefDK supports pulling this lock from a local or remote file, from a Chef Infra Server, or from a git repository. When the policyfile lock is included, its run-list will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
+  Specify a policyfile lock to be merged with this policy. Chef Workstation supports pulling this lock from a local or remote file, from a Chef Infra Server, or from a git repository. When the policyfile lock is included, its run-list will appear before the current policyfile's run-list. This setting requires that the solved cookbooks appear as-is from the included policyfile lock. If conflicting attributes or cookbooks are provided, an error will be presented. See `RFC097 <https://github.com/chef/chef-rfc/blob/master/rfc097-policyfile-includes.md>`__ for the full specifications of this feature.
 
 
   Pull the policyfile lock from ``./NAME.lock.json``:
@@ -853,7 +853,7 @@ Policyfile.lock.json
 +++++++++++++++++++++++++++++++++++++++++++++++++++++
 .. tag policyfile_lock_json
 
-When the ``chef install`` command is run, ChefDK caches any necessary cookbooks and emits a ``Policyfile.lock.json`` file that describes:
+When the ``chef install`` command is run, Chef Workstation caches any necessary cookbooks and emits a ``Policyfile.lock.json`` file that describes:
 
 * The versions of cookbooks in use
 * A Hash of cookbook content

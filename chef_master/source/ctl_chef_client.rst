@@ -277,7 +277,7 @@ This command has the following options:
    Use the ``--profile-ruby`` option to dump a (large) profiling graph into ``/var/chef/cache/graph_profile.out``. Use the graph output to help identify, and then resolve performance bottlenecks in a Chef Infra Client run. This option:
 
    * Generates a large amount of data about a Chef Infra Client run.
-   * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and ChefDK.
+   * Has a dependency on the ``ruby-prof`` gem, which is packaged as part of Chef and Chef Workstation.
    * Increases the amount of time required to complete a Chef Infra Client run.
    * Should not be used in a production environment.
 

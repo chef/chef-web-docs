@@ -12,9 +12,9 @@ Install Delivery CLI
 =====================================================
 .. tag delivery_cli_install
 
-The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in ChefDK and can be obtained by `installing the latest version </install_dk.html>`__.
+The Delivery CLI is required for the workstation and for many Chef Automate functions. It is included in Chef Workstation and can be obtained by `installing the latest version </install_workstation.html>`__.
 
-.. note:: You must delete your old Delivery CLI if you installed it prior to it being included in ChefDK.
+.. note:: You must delete your old Delivery CLI if you installed it prior to it being included in Chef Workstation.
 
 .. end_tag
 
@@ -56,7 +56,7 @@ How to enable FIPS mode for the Chef Automate server
 
 Prerequisites
 ------------------------------------------------------------------
-* Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
+* Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
 * Chef Automate version ``0.7.100`` or greater
 
 Configuration
@@ -95,12 +95,9 @@ If you are using a custom certificate authority or a self-signed certificate the
 How to enable FIPS mode for workstations
 ==================================================================
 
-A workstation is a computer running ChefDK that is used to author cookbooks, interact with the Chef Infra Server, and interact with nodes.
-
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
-* ChefDK version ``1.3.23`` or greater
 
 Now that FIPS mode is enabled in your ``.delivery/cli.toml``, running any project-specific Delivery CLI command will automatically use FIPS-compliant encrypted git traffic between your
 workstation and the Chef Automate server. As long as the Chef Automate server is in FIPS mode, no other action is needed on your part to operate Delivery CLI in FIPS mode.
@@ -718,8 +715,6 @@ which will return output similar to:
 delivery local
 =====================================================
 Use the ``local`` subcommand to run a phase or stage of Chef Automate locally, based on settings in the ``project.toml`` file located in the project's ``.delivery`` directory.
-
-.. note:: As of ChefDK 1.2, delivery local now supports options for functional phases, running stages, and specifying a remote ``project.toml``.
 
 Syntax
 -----------------------------------------------------

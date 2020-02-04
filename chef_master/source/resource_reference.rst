@@ -6,7 +6,7 @@ Resources Reference
 This reference describes each of the resources available to Chef Infra Client, including a list of actions, properties, and usage examples.
 
 =====================================================
-Common Functionality
+Common Resource Functionality
 =====================================================
 The properties and actions in this section apply to all resources.
 
