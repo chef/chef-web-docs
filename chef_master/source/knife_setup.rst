@@ -35,7 +35,7 @@ Example config.rb:
 .. code-block:: none
 
    current_dir = File.dirname(__FILE__)
-     user = ENV['OPSCODE_USER'] || ENV['USER']
+     user = ENV['CHEF_USER'] || ENV['USER']
      node_name                user
      client_key               "#{ENV['HOME']}/chef-repo/.chef/#{user}.pem"
      validation_client_name   "#{ENV['ORGNAME']}-validator"
@@ -100,7 +100,7 @@ Credentials for use with Target Mode (e.g. ``chef-client --target switch.example
    U9VQQSQzY1oZMVX8i1m5WUTLPz2yLJIBQVdXqhMCQBGoiuSoSjafUhV7i1cEGpb88h5NBYZzWXGZ
    37sJ5QsW+sJyoNde3xH8vdXhzU7eT82D6X/scw9RZz+/6rCJ4p0=
    -----END RSA PRIVATE KEY-----
-   """   
+   """
    validator_key = "test-validator.pem"
    chef_server_url = "https://api.chef-server.dev/organizations/test"
 
@@ -134,7 +134,7 @@ You can list your profiles using the ``knife config list-profiles`` command, for
 
    Profile              Client   Key                          Server
    ----------------------------------------------------------------------------------------------------------------
-    default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organizations/bedrock       
+    default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organizations/bedrock
   * dev                 admin    ~/.chef/admin.pem            https://api.chef-server.dev/organizations/test
     web.preprod         brubble  ~/.chef/preprod-brubble.pem  https://preprod.chef-server.dev/organizations/preprod
     switch.example.org  btm      ~/.chef/btm.pem              https://localhost:443
