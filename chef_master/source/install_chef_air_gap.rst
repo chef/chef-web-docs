@@ -138,7 +138,7 @@ Chef Workstation
 
 Install Chef Workstation
 -----------------------------------------------------
-#. Your workstation should have a copy of Chef Workstation `installer package <https://downloads.chef.io/chef-workstation>`__. Use the appropriate tool to run the installer:
+#. First, install the Chef Workstation `installer package <https://downloads.chef.io/chef-workstation>`__. Use the appropriate tool to run the installer:
 
    .. code-block:: bash
 

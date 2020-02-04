@@ -105,8 +105,6 @@ which shows something similar to:
 How to enable FIPS mode for workstations
 ==================================================================
 
-A workstation is a computer running Chef Workstation that is used to author cookbooks, interact with the Chef Infra Server, and interact with nodes.
-
 Prerequisites
 ------------------------------------------------------------------
 * Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
