@@ -52,7 +52,7 @@ Glossary
    A data_bag is a global variable that is stored as JSON data and is accessible from a Chef Infra Server.
 
 **definition**
-   A definition is code that is reused across recipes, similar to a compile-time macro, and is defined in a cookbook.
+   A definition is code that is reused across recipes, similar to a compile-time macro, and is defined in a cookbook. Definitions are not recommended for new users, and Custom Resources should be written for reusable code instead.
 
 **Delivered**
    A Workflow stage. Delivered is the final stage of the pipeline, what it means for your system is up to you. It could mean deploying the change so that it is live and receiving production traffic, or it might mean publishing a set of artifacts so they are accessible for your customers.
