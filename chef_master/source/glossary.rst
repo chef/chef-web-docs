@@ -64,7 +64,7 @@ Glossary
    An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra Server.
 
 **Foodcritic**
-   A linting tool for doing static code analysis on cookbooks.
+   A legacy linting tool for doing static code analysis on cookbooks. This tool has been replaced with Cookstyle, which should be used instead.
 
 **knife**
    A command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef Infra Server, and more.
