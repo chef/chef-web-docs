@@ -32,14 +32,14 @@ The full syntax for all of the properties that are available to the **chocolatey
 .. code-block:: ruby
 
   chocolatey_package 'name' do
-    options           String
     list_options      String
-    package_name      String, Array # defaults to 'name' if not specified
-    user              String
+    options           String, Array
+    package_name      String, Array
     password          String
     returns           Integer, Array # default value: [0, 2]
     source            String
     timeout           String, Integer
+    user              String
     version           String, Array
     action            Symbol # defaults to :install if not specified
   end
@@ -49,7 +49,7 @@ where:
 * ``chocolatey_package`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``options``, ``list_options``, ``package_name``, ``user``, ``password``, ``returns``, ``source``, ``timeout``, and ``version`` are the properties available to this resource.
+* ``list_options``, ``options``, ``package_name``, ``password``, ``returns``, ``source``, ``timeout``, ``user``, and ``version`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -88,11 +88,6 @@ Properties
 
 The chocolatey_package resource has the following properties:
 
-``options``
-   **Ruby Type:** String
-
-   One (or more) additional options that are passed to the command.
-
 ``list_options``
    **Ruby Type:** String
 
@@ -100,17 +95,15 @@ The chocolatey_package resource has the following properties:
 
    *New in Chef Infra Client 15.3.*
 
+``options``
+   **Ruby Type:** String, Array
+
+   One (or more) additional options that are passed to the command.
+
 ``package_name``
    **Ruby Type:** String, Array
 
    The name of the package. Default value: the name of the resource block.
-
-``user``
-   **Ruby Type:** String
-
-   The username to authenticate feeds.
-
-   *New in Chef Infra Client 15.3.*
 
 ``password``
    **Ruby Type:** String
@@ -147,6 +140,13 @@ The chocolatey_package resource has the following properties:
    **Ruby Type:** String, Integer
 
    The amount of time (in seconds) to wait before timing out.
+
+``user``
+   **Ruby Type:** String
+
+   The username to authenticate feeds.
+
+   *New in Chef Infra Client 15.3.*
 
 ``version``
    **Ruby Type:** String, Array
@@ -306,9 +306,7 @@ Examples
 
 The following examples demonstrate various approaches for using resources in recipes:
 
-**Install a package**
-
-.. To install a package:
+**Install a Chocolatey package**
 
 .. code-block:: ruby
 
@@ -316,9 +314,7 @@ The following examples demonstrate various approaches for using resources in rec
      action :install
    end
 
-**Install a package with options**
-
-This example uses Chocolatey's ``--checksum`` option:
+**Install a package with Chocolatey's ``--checksum`` option**
 
 .. code-block:: ruby
 
