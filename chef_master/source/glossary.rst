@@ -70,7 +70,7 @@ Glossary
    A library allows arbitrary Ruby code to be included in a cookbook, either as a way of extending the classes that are built-in to Chef Infra Client or by implementing entirely new functionality.
 
 **Management Console**
-   The Chef web-based management console you can use to manage Role Based Access Control (RBAC), edit and delete nodes, and reset private keys. Keep up to date with what's happening during chef client runs across an entire organization or on specific nodes.
+   The Chef web-based management console you can use to manage Role Based Access Control (RBAC), edit and delete nodes, and reset private keys. Keep up to date with what's happening during Chef Infra Client runs across an entire organization or on specific nodes.
 
 **node**
    A node is any physical, virtual, or cloud device that is configured and maintained by an instance of Chef Infra Client.
