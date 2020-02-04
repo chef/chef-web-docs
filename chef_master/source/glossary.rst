@@ -63,9 +63,6 @@ Glossary
 **Foodcritic**
    A linting tool for doing static code analysis on cookbooks.
 
-**Test Kitchen**
-   Test Kitchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Test Kitchen is packaged in Chef Workstation.
-
 **knife**
    A command-line tool that provides an interface between a local chef-repo and the Chef Infra Server. Use it to manage nodes, cookbooks, recipes, roles, data bags, environments, bootstrapping nodes, searching the Chef Infra Server, and more.
 
@@ -114,8 +111,8 @@ Glossary
 **run-list**
    A run-list defines all of the configuration settings that are necessary for a node that is under management by Chef to be put into the desired state and the order in which these configuration settings are applied.
 
-**test-kitchen**
-   See kitchen.
+**Test Kitchen**
+   Test Kitchen is an integration framework that is used to automatically test cookbook data across any combination of platforms and test suites. Test Kitchen is packaged in Chef Workstation.
 
 **Union**
   A Workflow stage. Union is the first of the three shared pipeline stages. The purpose of the Union stage is to assess the impact of the change in the context of a complete (or as close as possible) installation of the set of projects that comprise the system as a whole.
