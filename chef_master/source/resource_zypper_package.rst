@@ -108,7 +108,6 @@ The zypper_package resource has the following properties:
 
    Verify the package's GPG signature. Can also be controlled site-wide using the ``zypper_check_gpg`` config option.
 
-
 ``options``
    **Ruby Type:** String, Array
 

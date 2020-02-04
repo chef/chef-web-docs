@@ -15,6 +15,7 @@ The sysctl resource has the following syntax:
 .. code-block:: ruby
 
   sysctl 'name' do
+    comment           Array, String # default value: []
     conf_dir          String # default value: "/etc/sysctl.d"
     ignore_error      true, false # default value: false
     key               String # default value: 'name' unless specified
@@ -27,7 +28,7 @@ where:
 * ``sysctl`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``conf_dir``, ``ignore_error``, ``key``, and ``value`` are the properties available to this resource.
+* ``comment``, ``conf_dir``, ``ignore_error``, ``key``, and ``value`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -51,6 +52,13 @@ Properties
 =====================================================
 
 The sysctl resource has the following properties:
+
+``comment``
+   **Ruby Type:** Array, String | **Default Value:** ``[]``
+
+   Comments, placed above the resource setting in the generated file. For multi-line comments, use an array of strings, one per line.
+
+   *New in Chef Infra Client 15.8.*
 
 ``conf_dir``
    **Ruby Type:** String | **Default Value:** ``"/etc/sysctl.d"``
@@ -243,6 +251,22 @@ Note: This only removes the sysctl.d config for kernel.msgmax. The value will be
     action :remove
   end
 
+**Adding Comments to sysctl configuration files**
+
+.. code-block:: ruby
+
+  sysctl 'vm.swappiness' do
+    value 19
+    comment "define how aggressively the kernel will swap memory pages."
+  end
+
+This produces /etc/sysctl.d/99-chef-vm.swappiness.conf as follows:
+
+.. code-block:: none
+
+  # define how aggressively the kernel will swap memory pages.
+  vm.swappiness = 1
+
 **Converting sysctl settings from shell scripts**
 
 Example of existing settings:
@@ -262,7 +286,7 @@ Converted to sysctl resources:
   sysctl 'net.ipv4.ip_local_port_range' do
     value '9000 65500'
   end
-  
+
   sysctl 'kernel.sem' do
     value '250 32000 100 128'
   end
