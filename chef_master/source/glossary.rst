@@ -21,6 +21,9 @@ Glossary
 **chef-apply**
    A command-line tool that allows a single recipe to be run from the command line.
 
+**ChefDK**
+   The legacy package of tools for developing Chef Infra cookbooks. This product has been superceded by Chef Workstation, which should be used instead.
+
 **Chef Infra Client**
    A command-line tool that that runs Chef. Also, the name of Chef as it is installed on a node.
 
