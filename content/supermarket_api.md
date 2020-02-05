@@ -12,8 +12,7 @@ aliases = "/supermarket_api.html"
     weight = 100
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket_api.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_api.md)
 
 {{% supermarket_api_summary %}} .. note:: In general, using
 knife (and the `knife supermarket` subcommand) to manage cookbooks that

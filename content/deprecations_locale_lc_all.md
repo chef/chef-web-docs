@@ -12,8 +12,7 @@ aliases = "/deprecations_locale_lc_all.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_locale_lc_all.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_locale_lc_all.md)
 
 <meta name="robots" content="noindex">
 

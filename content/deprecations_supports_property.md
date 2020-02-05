@@ -12,8 +12,7 @@ aliases = "/deprecations_supports_property.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_supports_property.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_supports_property.md)
 
 <meta name="robots" content="noindex">
 

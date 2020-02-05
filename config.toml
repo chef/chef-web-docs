@@ -3,9 +3,57 @@ languageCode = "en-us"
 title = "Chef Web Docs"
 theme = "docs-new"
 
-PygmentsCodeFences = true
-pygmentsUseClasses = true
-pluralizelisttitles = false
+
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.blackFriday]
+    angledQuotes = false
+    footnoteAnchorPrefix = ""
+    footnoteReturnLinkContents = ""
+    fractions = true
+    hrefTargetBlank = false
+    latexDashes = true
+    nofollowLinks = false
+    noreferrerLinks = false
+    plainIDAnchors = true
+    skipHTML = false
+    smartDashes = true
+    smartypants = true
+    smartypantsQuotesNBSP = false
+    taskLists = true
+		extensions = ["hardLineBreak"]
+  [markup.goldmark]
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+      linkify = true
+      strikethrough = true
+      table = true
+      taskList = true
+      typographer = true
+    [markup.goldmark.parser]
+      attribute = true
+      autoHeadingID = true
+      autoHeadingIDType = "github"
+    [markup.goldmark.renderer]
+      hardWraps = false
+      unsafe = true
+      xHTML = false
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "emacs"
+    tabWidth = 4
+  [markup.tableOfContents]
+    endLevel = 3
+    ordered = false
+    startLevel = 1
+
 
 enableGitInfo = true
 
@@ -86,8 +134,8 @@ weight = 30
   weight = 20
 
     [[menu.docs]]
-    title = "Chef Development Kit"
-    identifier = "chef_infra/concepts/about_chefdk.md Chef Development Kit"
+    title = "ChefDK"
+    identifier = "chef_infra/concepts/about_chefdk.md ChefDK"
     parent = "chef_infra/concepts"
     url = "/about_chefdk/"
     weight = 10
@@ -157,7 +205,7 @@ weight = 30
     title = "Management Console"
     identifier = "chef_infra/features/management_console"
     parent = "chef_infra/features"
-    weight = 20
+    weight = 30
 
       [[menu.docs]]
       title = "Users"
@@ -654,23 +702,23 @@ weight = 30
     weight = 180
 
   [[menu.docs]]
-  title = "Managing Chef Infra Server"
-  identifier = "chef_infra/managing_chef_infra_server"
+  title = "Chef Infra Server"
+  identifier = "chef_infra/chef_infra_server"
   parent = "chef_infra"
   weight = 80
 
     [[menu.docs]]
     title = "Runbook (Single Page)"
-    identifier = "chef_infra/managing_chef_infra_server/runbook.md Runbook (Single Page)"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/runbook.md Runbook (Single Page)"
+    parent = "chef_infra/chef_infra_server"
     url = "/runbook/"
     weight = 10
     aliases = "/runbook.html"
 
     [[menu.docs]]
     title = "Push Jobs"
-    identifier = "chef_infra/managing_chef_infra_server/push_jobs"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/push_jobs"
+    parent = "chef_infra/chef_infra_server"
     weight = 210
 
   [[menu.docs]]
@@ -743,23 +791,16 @@ weight = 60
   weight = 30
 
 [[menu.docs]]
-title = "Automate"
-identifier = "automate"
+title = "Chef Automate"
+identifier = "chef_automate"
 weight = 70
 
   [[menu.docs]]
-  title = "Documentation"
-  identifier = "automate/https://automate.chef.io/docs/ Documentation"
-  parent = "automate"
+  title = "Chef Automate Documentation"
+  identifier = "chef_automate/https://automate.chef.io/docs/ Chef Automate Documentation"
+  parent = "chef_automate"
   url = "https://automate.chef.io/docs/"
   pre = "external_link"
-  weight = 20
-
-  [[menu.docs]]
-  title = "Automate 1 Documentation"
-  identifier = "automate/chef_automate.md Automate 1 Documentation"
-  parent = "automate"
-  url = "/chef_automate.html"
   weight = 20
 
 [[menu.docs]]
@@ -768,58 +809,28 @@ identifier = "legacy"
 weight = 80
 
   [[menu.docs]]
-  title = "Chef Automate 1"
-  identifier = "legacy/chef_automate_1"
+  title = "Workflow"
+  identifier = "legacy/workflow"
   parent = "legacy"
   weight = 10
 
     [[menu.docs]]
-    title = "Overview"
-    identifier = "legacy/chef_automate_1/overview"
-    parent = "legacy/chef_automate_1"
+    title = "Workflow Basics"
+    identifier = "legacy/workflow/workflow_basics"
+    parent = "legacy/workflow"
     weight = 10
 
     [[menu.docs]]
-    title = "Getting Started"
-    identifier = "legacy/chef_automate_1/getting_started"
-    parent = "legacy/chef_automate_1"
-    weight = 30
-
-    [[menu.docs]]
-    title = "Nodes"
-    identifier = "legacy/chef_automate_1/nodes"
-    parent = "legacy/chef_automate_1"
-    weight = 40
-
-    [[menu.docs]]
-    title = "Compliance"
-    identifier = "legacy/chef_automate_1/compliance"
-    parent = "legacy/chef_automate_1"
-    weight = 50
-
-    [[menu.docs]]
-    title = "Workflow"
-    identifier = "legacy/chef_automate_1/workflow"
-    parent = "legacy/chef_automate_1"
-    weight = 60
-
-    [[menu.docs]]
-    title = "Admin"
-    identifier = "legacy/chef_automate_1/admin"
-    parent = "legacy/chef_automate_1"
-    weight = 70
-
-    [[menu.docs]]
-    title = "Managing the Chef Automate Server"
-    identifier = "legacy/chef_automate_1/managing_the_chef_automate_server"
-    parent = "legacy/chef_automate_1"
-    weight = 80
+    title = "Managing Workflow"
+    identifier = "legacy/workflow/managing_workflow"
+    parent = "legacy/workflow"
+    weight = 20
 
     [[menu.docs]]
     title = "Reference"
-    identifier = "legacy/chef_automate_1/reference"
-    parent = "legacy/chef_automate_1"
-    weight = 90
+    identifier = "legacy/workflow/reference"
+    parent = "legacy/workflow"
+    weight = 30
 
 [[menu.docs]]
 title = "Extension APIs"

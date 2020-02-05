@@ -12,8 +12,7 @@ aliases = "/templates.html"
     weight = 90
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/templates.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/templates.md)
 
 {{% template %}}
 

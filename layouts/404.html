@@ -2,24 +2,42 @@
 <html lang="en">
 {{ partial "head" . }}
 <body>
+  <a class="skip-main" href="#main-content-col">Skip to main content</a>
+
+  {{ partial "utility-bar" . }}
+
+  <div id="left-nav-off-canvas" class="hide-for-medium" data-toggler=".reveal">
+    {{ partial "sidebar-off-canvas" . }}
+  </div>
+
   <div class="off-canvas-wrapper">
-    <div class="off-canvas-content" data-off-canvas-content>
-      <div class="cell small-12">
-        {{ partial "utility-bar" . }}
-      </div>
-      <div id="main-content" class="cell small-12">
-        <div class="content">
-          This page you were looking for is not here. If you think it's our fault,
-          [please let us know](/feedback.html).
+    <div class="grid-container">
+      <div class="grid-x">
 
-          The left navigation shows all the topics about Chef. Browse through to
-          find what you're looking for or use the search box (in the top left) to
-          search for something specific.
+        <div class="cell position-left off-canvas-absolute reveal-for-medium col-sidebar" id="left-nav-on-canvas" data-off-canvas data-transition="overlap" >
+            {{ partial "sidebar-on-canvas" . }}
+        </div>
 
-          Thanks for reading chef-docs!
+        <div id="main-content" class="cell off-canvas-content cell auto" data-off-canvas-content>
+					<main id="main-content-col" tabindex="-1">
+					<div class="col-content">
+						<div id="404_heading"><h1>404</h1></div>
+
+							<div class="prose">
+								<p>We did something wrong!</p>
+								<p>If a page has gone missing,</p>
+								<p><a href="/feedback/">contact us</a> for help.</p>
+							</div>
+						</div>
+					</main>
         </div>
       </div>
-      <div id="footer" class="cell small-12">
+    </div>
+  </div>
+
+  <div id="footer" class="cell small-12">
+    <div class="grid-x">
+      <div class="cell small-12">
         <nav>
           {{ partial "footer" . }}
         </nav>
@@ -27,5 +45,5 @@
     </div>
   </div>
   {{ partial "javascript" . }}
-</body>
+  </body>
 </html>

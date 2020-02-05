@@ -12,8 +12,7 @@ aliases = "/files.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/files.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/files.md)
 
 Files are managed using the following resources:
 

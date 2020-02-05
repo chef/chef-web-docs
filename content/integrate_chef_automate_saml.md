@@ -7,13 +7,12 @@ aliases = "/integrate_chef_automate_saml.html"
 [menu]
   [menu.docs]
     title = "Authentication w/SAML"
-    identifier = "legacy/chef_automate_1/admin/integrate_chef_automate_saml.md Authentication w/SAML"
-    parent = "legacy/chef_automate_1/admin"
-    weight = 30
+    identifier = "legacy/workflow/managing_workflow/integrate_chef_automate_saml.md Authentication w/SAML"
+    parent = "legacy/workflow/managing_workflow"
+    weight = 130
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/integrate_chef_automate_saml.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/integrate_chef_automate_saml.md)
 
 <meta name="robots" content="noindex">
 

@@ -1,5 +1,5 @@
 +++
-title = "Configure a Project through config.json (Chef Automate)"
+title = "Configure a Project through config.json"
 draft = false
 
 aliases = "/config_json_delivery.html"
@@ -7,13 +7,12 @@ aliases = "/config_json_delivery.html"
 [menu]
   [menu.docs]
     title = "Configure a Project"
-    identifier = "legacy/chef_automate_1/getting_started/config_json_delivery.md Configure a Project"
-    parent = "legacy/chef_automate_1/getting_started"
+    identifier = "legacy/workflow/workflow_basics/config_json_delivery.md Configure a Project"
+    parent = "legacy/workflow/workflow_basics"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_json_delivery.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_json_delivery.md)
 
 <meta name="robots" content="noindex">
 
@@ -22,8 +21,8 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 {{% EOL_a1 %}}
 
 The `config.json` file is located at the root of the `.delivery` folder
-that is located within a project managed by Chef Automate and configures
-that project to publish to a Chef Automate pipeline.
+that is located within a project managed by Workflow and configures that
+project to publish to a pipeline.
 
 Structure
 =========
@@ -279,7 +278,15 @@ which cookbooks are published.
 
 {{% delivery_config_json_setting_delivery_truck_publish_supermarket_credentials %}}
 
-{{% automate_supermarket %}}
+{{< note >}}
+
+To enable Chef Automate to upload cookbooks to a private Supermarket,
+you have to manually log into the Supermarket server with the `delivery`
+user, and when it prompts you to enable the user for Supermarket, enter
+`yes`. Also, you must copy the Supermarket certificate file to
+`/etc/delivery/supermarket.crt` on the Chef Automate server.
+
+{{< /note >}}
 
 #### Multiple Locations
 

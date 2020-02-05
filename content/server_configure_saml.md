@@ -12,16 +12,11 @@ aliases = "/server_configure_saml.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_configure_saml.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_configure_saml.md)
 
 <meta name="robots" content="noindex">
 
-{{% chef_automate_mark %}}
-
 {{% EOL_manage %}}
-
-{{% EOL_a1 %}}
 
 Chef Manage can support logging in users via SAML authentication. In
 order to do so, there must be a Chef Automate Server that is configured
@@ -70,10 +65,3 @@ time. If you do, the reconfigure will fail with an appropriate error
 message.
 
 {{< /warning >}}
-
-Configuring the Chef Automate Server
-====================================
-
-See [Integrate Chef Automate with
-SAML](/integrate_chef_automate_saml/) for information on how to
-configure it to act like an OpenID Connect server.

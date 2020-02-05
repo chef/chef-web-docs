@@ -12,8 +12,7 @@ aliases = "/install_server_pre.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server_pre.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server_pre.md)
 
 The following is a detailed discussion of the prerequisites for every
 installation of the Chef Infra Server. See <span

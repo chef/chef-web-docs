@@ -1,5 +1,5 @@
 The following table describes the LDAP attributes that may be used with
-Chef Automate:
+Workflow:
 
 <table>
 <colgroup>
@@ -31,7 +31,7 @@ Chef Automate:
 </tr>
 <tr class="odd">
 <td><code>ldap_bind_dn</code></td>
-<td>The user Chef Automate will use to perform LDAP searches. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. The Chef Automate server must do an LDAP search before any user can log in. Many LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the <code>bind_dn</code> and <code>bind_dn_password</code> settings blank. If anonymous bind is not allowed, a user with <code>READ</code> access to the directory is required. This user must be specified as an LDAP distinguished name (<code>dn</code>). Default value: <code>nil</code>.</td>
+<td>The user Workflow will use to perform LDAP searches. This is often the administrator or manager user. This user needs to have read access to all LDAP users that require authentication. The Workflow server must do an LDAP search before any user can log in. Many LDAP systems do not allow an anonymous bind. If anonymous bind is allowed, leave the <code>bind_dn</code> and <code>bind_dn_password</code> settings blank. If anonymous bind is not allowed, a user with <code>READ</code> access to the directory is required. This user must be specified as an LDAP distinguished name (<code>dn</code>). Default value: <code>nil</code>.</td>
 </tr>
 <tr class="even">
 <td><code>ldap_bind_dn_password</code></td>
@@ -39,11 +39,11 @@ Chef Automate:
 </tr>
 <tr class="odd">
 <td><code>ldap_encryption</code></td>
-<td>The type of encryption used to communicate with Chef Automate. Default value: <code>start_tls</code>. If tls is not in use, set to <code>no_tls</code>.</td>
+<td>The type of encryption used to communicate with Workflow. Default value: <code>start_tls</code>. If tls is not in use, set to <code>no_tls</code>.</td>
 </tr>
 <tr class="even">
 <td><code>ldap_hosts</code></td>
-<td>An array of hostname(s) of the LDAP server. Be sure Chef Automate is able to resolve any host names. Default value: <code>[]</code>.</td>
+<td>An array of hostname(s) of the LDAP server. Be sure Workflow is able to resolve any host names. Default value: <code>[]</code>.</td>
 </tr>
 <tr class="odd">
 <td><code>ldap_port</code></td>
@@ -51,7 +51,7 @@ Chef Automate:
 </tr>
 <tr class="even">
 <td><code>ldap_timeout</code></td>
-<td>Timeout when Chef Automate connects to LDAP. Default value: <code>5000</code>.</td>
+<td>Timeout when Workflow connects to LDAP. Default value: <code>5000</code>.</td>
 </tr>
 </tbody>
 </table>

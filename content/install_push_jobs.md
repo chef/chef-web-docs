@@ -12,8 +12,7 @@ aliases = "/install_push_jobs.html"
     weight = 100
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_push_jobs.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_push_jobs.md)
 
 Chef Push Jobs is installed to the following locations:
 

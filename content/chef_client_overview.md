@@ -12,8 +12,7 @@ aliases = "/chef_client_overview.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_client_overview.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_client_overview.md)
 
 {{< note >}}
 

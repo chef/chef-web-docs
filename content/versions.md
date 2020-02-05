@@ -12,8 +12,7 @@ aliases = "/versions.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/versions.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/versions.md)
 
 This section lists the free and commercial Chef products and versions we
 currently support. The lifecycle stage defines the involvement by Chef
@@ -137,21 +136,9 @@ announcement](https://blog.chef.io/2019/04/02/chef-software-announces-the-enterp
 <td>n/a</td>
 </tr>
 <tr class="even">
-<td>Supermarket¹</td>
-<td>4.x</td>
-<td>Releasing Soon</td>
-<td>n/a</td>
-</tr>
-<tr class="odd">
 <td>Chef Backend¹</td>
 <td>3.x</td>
-<td>Releasing Soon</td>
-<td>n/a</td>
-</tr>
-<tr class="even">
-<td>Push Jobs¹</td>
-<td>3.x</td>
-<td>Releasing Soon</td>
+<td>Releasing 2020</td>
 <td>n/a</td>
 </tr>
 </tbody>
@@ -202,28 +189,28 @@ version 2.0.
 <td>April 30, 2020</td>
 </tr>
 <tr class="even">
-<td>Chef Server</td>
-<td>12.x</td>
-<td>GA</td>
-<td>April 30, 2020</td>
-</tr>
-<tr class="odd">
 <td>Chef InSpec</td>
 <td>3.x</td>
 <td>GA</td>
 <td>April 30, 2020</td>
 </tr>
+<tr class="odd">
+<td>Chef Infra Server</td>
+<td>12.x</td>
+<td>GA</td>
+<td>TBD</td>
+</tr>
 <tr class="even">
 <td>Push Jobs</td>
 <td>2.5.x</td>
 <td>GA</td>
-<td>April 30, 2020</td>
+<td>TBD</td>
 </tr>
 <tr class="odd">
 <td>Supermarket</td>
 <td>3.x</td>
 <td>GA</td>
-<td>April 30, 2020</td>
+<td>TBD</td>
 </tr>
 </tbody>
 </table>
@@ -231,8 +218,8 @@ version 2.0.
 Deprecated Products and Versions
 ================================
 
-The following products are deprecated or end of life. Users are advised
-to use newer versions or products.
+The following products are deprecated. Users are advised to move to
+newer versions or products.
 
 <table>
 <colgroup>
@@ -251,34 +238,16 @@ to use newer versions or products.
 </thead>
 <tbody>
 <tr class="odd">
-<td>Chef Automate</td>
-<td>1.x</td>
-<td>Deprecated</td>
-<td>December 31, 2019</td>
-</tr>
-<tr class="even">
 <td>Chef Manage</td>
 <td>2.5.x</td>
 <td>Deprecated</td>
 <td>TBD</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Workflow</td>
 <td>2.x</td>
 <td>Deprecated</td>
 <td>TBD</td>
-</tr>
-<tr class="even">
-<td>Chef InSpec</td>
-<td>1.x</td>
-<td>Deprecated</td>
-<td>December 31, 2019</td>
-</tr>
-<tr class="odd">
-<td>Chef InSpec</td>
-<td>2.x</td>
-<td>Deprecated</td>
-<td>December 31, 2019</td>
 </tr>
 </tbody>
 </table>
@@ -288,8 +257,8 @@ End of Life (EOL) Products
 
 <table>
 <colgroup>
-<col style="width: 18%" />
-<col style="width: 31%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
 <col style="width: 25%" />
 <col style="width: 25%" />
 </colgroup>
@@ -309,28 +278,28 @@ End of Life (EOL) Products
 <td>December 31, 2018</td>
 </tr>
 <tr class="even">
+<td>Automate</td>
+<td>1.x</td>
+<td>EOL</td>
+<td>December 31, 2019</td>
+</tr>
+<tr class="odd">
 <td>Chef Client</td>
 <td>13 and under</td>
 <td>EOL</td>
 <td>April 30, 2019</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td>Chef Compliance</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>ChefDK</td>
 <td>2 and under</td>
 <td>EOL</td>
 <td>April 30, 2019</td>
-</tr>
-<tr class="odd">
-<td>Chef Server DRBD HA</td>
-<td>All</td>
-<td>EOL</td>
-<td>March 31, 2019</td>
 </tr>
 <tr class="even">
 <td>Enterprise Chef</td>
@@ -339,22 +308,34 @@ End of Life (EOL) Products
 <td>December 31, 2018</td>
 </tr>
 <tr class="odd">
-<td>Chef Provisioning</td>
-<td>All</td>
-<td>Deprecated</td>
-<td>August 31, 2019</td>
+<td>Chef InSpec</td>
+<td>2 and under</td>
+<td>EOL</td>
+<td>December 31, 2019</td>
 </tr>
 <tr class="even">
-<td>Chef Replication/Sync</td>
+<td>Chef Provisioning</td>
 <td>All</td>
 <td>EOL</td>
 <td>August 31, 2019</td>
 </tr>
 <tr class="odd">
+<td>Chef Replication/Sync</td>
+<td>All</td>
+<td>EOL</td>
+<td>August 31, 2019</td>
+</tr>
+<tr class="even">
 <td>Reporting</td>
 <td>All</td>
 <td>EOL</td>
 <td>December 31, 2018</td>
+</tr>
+<tr class="odd">
+<td>Chef Server DRBD HA</td>
+<td>All</td>
+<td>EOL</td>
+<td>March 31, 2019</td>
 </tr>
 </tbody>
 </table>

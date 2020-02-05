@@ -12,8 +12,7 @@ aliases = "/knife_data_bag.html"
     weight = 100
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_data_bag.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_data_bag.md)
 
 {{% data_bag %}}
 

@@ -12,8 +12,7 @@ aliases = "/feedback.html"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/feedback.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/feedback.md)
 
 chef-docs hopes that the documentation is always just what you are
 looking for, but when that isn't the case chef-docs does appreciate

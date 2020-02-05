@@ -12,8 +12,7 @@ aliases = "/knife_status.html"
     weight = 290
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_status.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_status.md)
 
 {{% knife_status_summary %}}
 

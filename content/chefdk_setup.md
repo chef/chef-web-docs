@@ -12,8 +12,7 @@ aliases = "/chefdk_setup.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chefdk_setup.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chefdk_setup.md)
 
 This guide contains common configuration options used when setting up a
 new ChefDK installation. If you do not have ChefDK installed, see its

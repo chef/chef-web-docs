@@ -12,8 +12,7 @@ aliases = "/knife_supermarket.html"
     weight = 300
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_supermarket.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_supermarket.md)
 
 The `knife supermarket` subcommand is used to interact with cookbooks
 that are located in on the public Supermarket as well as private Chef
@@ -496,7 +495,6 @@ supports:
   centos:       >= 6.0
   debian:       >= 7.0
   fedora:       >= 0.0.0
-  opensuse:     >= 13.0
   opensuseleap: >= 0.0.0
   oracle:       >= 6.0
   redhat:       >= 6.0

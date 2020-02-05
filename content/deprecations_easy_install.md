@@ -12,8 +12,7 @@ aliases = "/deprecations_easy_install.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_easy_install.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_easy_install.md)
 
 <meta name="robots" content="noindex">
 

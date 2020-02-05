@@ -12,8 +12,7 @@ aliases = "/install_bootstrap.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_bootstrap.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_bootstrap.md)
 
 {{% chef_client_bootstrap_node %}}
 

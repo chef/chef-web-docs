@@ -12,8 +12,7 @@ aliases = "/release_notes_push_jobs.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/release_notes_push_jobs.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_push_jobs.md)
 
 Chef Push Jobs is an extension of the Chef server that allows jobs to be
 run against nodes independently of a chef-client run. A job is an action

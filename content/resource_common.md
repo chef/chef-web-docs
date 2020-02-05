@@ -12,8 +12,7 @@ aliases = "/resource_common.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_common.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/resource_common.md)
 
 All resources (including custom resources) share a set of common
 actions, properties, conditional executions, notifications, and relative

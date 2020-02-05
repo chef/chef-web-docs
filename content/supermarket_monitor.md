@@ -12,8 +12,7 @@ aliases = "/supermarket_monitor.html"
     weight = 70
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket_monitor.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_monitor.md)
 
 A private Chef Supermarket includes a URL for status monitoring:
 <https://your_private_supermarket/status>.

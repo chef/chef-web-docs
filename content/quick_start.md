@@ -12,8 +12,7 @@ aliases = "/quick_start.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/quick_start.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/quick_start.md)
 
 For the quickest way to get started using Chef Infra:
 

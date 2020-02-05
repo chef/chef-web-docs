@@ -6,14 +6,13 @@ aliases = "/elasticsearch_and_kibana_auth.html"
 
 [menu]
   [menu.docs]
-    title = "Elasticsearch & Kibana Auth"
-    identifier = "legacy/chef_automate_1/managing_the_chef_automate_server/elasticsearch_and_kibana_auth.md Elasticsearch & Kibana Auth"
-    parent = "legacy/chef_automate_1/managing_the_chef_automate_server"
-    weight = 40
+    title = "Elasticsearch and Kibana Auth"
+    identifier = "legacy/workflow/managing_workflow/elasticsearch_and_kibana_auth.md Elasticsearch and Kibana Auth"
+    parent = "legacy/workflow/managing_workflow"
+    weight = 140
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/elasticsearch_and_kibana_auth.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/elasticsearch_and_kibana_auth.md)
 
 <meta name="robots" content="noindex">
 

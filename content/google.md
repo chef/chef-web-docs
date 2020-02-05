@@ -12,8 +12,7 @@ aliases = "/google.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/google.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/google.md)
 
 Google Cloud Platform is a suite of cloud computing services that run on
 the same infrastructure that Google uses internally for its end-user

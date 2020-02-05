@@ -7,13 +7,12 @@ aliases = "/config_rb_server.html"
 [menu]
   [menu.docs]
     title = "chef-server.rb"
-    identifier = "chef_infra/managing_chef_infra_server/config_rb_server.md chef-server.rb"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/config_rb_server.md chef-server.rb"
+    parent = "chef_infra/chef_infra_server"
     weight = 170
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_server.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_server.md)
 
 {{% config_rb_server_summary %}}
 
@@ -27,8 +26,8 @@ Recommended Settings
 
 {{% server_tuning_general %}}
 
-SSL Protocols
--------------
+NGINX SSL Protocols
+-------------------
 
 {{% server_tuning_nginx %}}
 
@@ -122,3 +121,9 @@ postgresql
 ----------
 
 {{% server_tuning_postgresql %}}
+
+`postgresql['sslmode']`
+
+:   SSL encryption mode between the Chef Infra Server and PostgreSQL.
+    Valid settings are `'disable'` and `'require'`. Default value:
+    `'disable'`.

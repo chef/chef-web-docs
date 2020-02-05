@@ -12,8 +12,7 @@ aliases = "/dsl_recipe.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dsl_recipe.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_recipe.md)
 
 {{% dsl_recipe_summary %}}
 
@@ -512,30 +511,26 @@ The following parameters can be used with this method:
 <td>OpenBSD. All platform variants of OpenBSD return <code>openbsd</code>.</td>
 </tr>
 <tr class="odd">
-<td><code>opensuse</code></td>
-<td>openSUSE</td>
-</tr>
-<tr class="even">
 <td><code>opensuseleap</code></td>
 <td>openSUSE leap</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>slackware</code></td>
 <td>Slackware</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>solaris</code></td>
 <td>Solaris. For Solaris-related platforms, the <code>platform_family</code> method does not support the Solaris platform family and will default back to <code>platform_family = platform</code>. For example, if the platform is OmniOS, the <code>platform_family</code> is <code>omnios</code>, if the platform is SmartOS, the <code>platform_family</code> is <code>smartos</code>, and so on. All platform variants of Solaris return <code>solaris</code>.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>suse</code></td>
 <td>SUSE Enterprise Linux Server.</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td><code>ubuntu</code></td>
 <td>Ubuntu Linux.</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>windows</code></td>
 <td>Microsoft Windows. All platform variants of Microsoft Windows return <code>windows</code>.</td>
 </tr>
@@ -1060,14 +1055,114 @@ registry_value_exists?
 Helpers
 -------
 
-{{% dsl_recipe_helper_windows_platform %}}
+A recipe can define specific behaviors for specific Microsoft Windows
+platform versions by using a series of helper methods. To enable these
+helper methods, add the following to a recipe:
 
-{{% dsl_recipe_helper_windows_platform_helpers %}}
+``` ruby
+require 'chef/win32/version'
+```
 
-{{% dsl_recipe_helper_windows_platform_summary %}}
+Then declare a variable using the `Chef::ReservedNames::Win32::Version`
+class:
+
+``` ruby
+variable_name = Chef::ReservedNames::Win32::Version.new
+```
+
+And then use this variable to define specific behaviors for specific
+Microsoft Windows platform versions. For example:
+
+``` ruby
+if variable_name.helper_name?
+  # Ruby code goes here, such as
+  resource_name do
+    # resource block
+  end
+
+elsif variable_name.helper_name?
+  # Ruby code goes here
+  resource_name do
+    # resource block for something else
+  end
+
+else variable_name.helper_name?
+  # Ruby code goes here, such as
+  log 'log entry' do
+    level :level
+  end
+
+end
+```
+
+The following Microsoft Windows platform-specific helpers can be used in
+recipes:
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Helper</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>cluster?</code></td>
+<td>Use to test for a Cluster SKU (Windows Server 2012 and later).</td>
+</tr>
+<tr class="even">
+<td><code>core?</code></td>
+<td>Use to test for a Core SKU (Windows Server 2012 and later).</td>
+</tr>
+<tr class="odd">
+<td><code>datacenter?</code></td>
+<td>Use to test for a Datacenter SKU.</td>
+</tr>
+<tr class="even">
+<td><code>marketing_name</code></td>
+<td>Use to display the marketing name for a Microsoft Windows platform.</td>
+</tr>
+<tr class="odd">
+<td><code>windows_8?</code></td>
+<td>Use to test for Windows 8.</td>
+</tr>
+<tr class="even">
+<td><code>windows_8_1?</code></td>
+<td>Use to test for Windows 8.1.</td>
+</tr>
+<tr class="odd">
+<td><code>windows_10?</code></td>
+<td>Use to test for Windows 10.</td>
+</tr>
+<tr class="even">
+<td><code>windows_home_server?</code></td>
+<td>Use to test for Windows Home Server.</td>
+</tr>
+<tr class="odd">
+<td><code>windows_server_2012?</code></td>
+<td>Use to test for Windows Server 2012.</td>
+</tr>
+<tr class="even">
+<td><code>windows_server_2012_r2?</code></td>
+<td>Use to test for Windows Server 2012 R2.</td>
+</tr>
+<tr class="odd">
+<td><code>windows_server_2016?</code></td>
+<td>Use to test for Windows Server 2016.</td>
+</tr>
+<tr class="even">
+<td><code>windows_server_2019?</code></td>
+<td>Use to test for Windows Server 2019.</td>
+</tr>
+</tbody>
+</table>
 
 Log Entries
------------
+===========
 
 {{% ruby_style_basics_chef_log %}}
 

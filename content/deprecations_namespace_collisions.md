@@ -12,8 +12,7 @@ aliases = "/deprecations_namespace_collisions.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_namespace_collisions.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_namespace_collisions.md)
 
 <meta name="robots" content="noindex">
 

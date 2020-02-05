@@ -12,8 +12,7 @@ aliases = "/chef_deprecations_client.html"
     weight = 100
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_deprecations_client.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_deprecations_client.md)
 
 When we wish to remove a feature or an API in Chef, we try to first mark
 it with a deprecation warning that contains a link to a description of

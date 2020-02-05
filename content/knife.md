@@ -12,10 +12,17 @@ aliases = "/knife.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife.md)
 
-{{% knife_summary %}}
+knife is a command-line tool that provides an interface between a local
+chef-repo and the Chef Infra Server. knife helps users to manage:
+
+-   Nodes
+-   Cookbooks and recipes
+-   Roles, Environments, and Data Bags
+-   Resources within various cloud environments
+-   The installation of Chef Infra Client onto nodes
+-   Searching of indexed data on the Chef Infra Server
 
 The Knife Quick Reference provides an all-in-one quick reference of
 knife commands. You can view the

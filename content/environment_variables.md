@@ -12,8 +12,7 @@ aliases = "/environment_variables.html"
     weight = 120
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/environment_variables.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/environment_variables.md)
 
 {{% environment_variables_summary %}}
 

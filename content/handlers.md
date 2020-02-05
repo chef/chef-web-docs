@@ -9,11 +9,10 @@ aliases = "/handlers.html"
     title = "Handlers"
     identifier = "chef_infra/features/handlers.md Handlers"
     parent = "chef_infra/features"
-    weight = 10
+    weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/handlers.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/handlers.md)
 
 {{% handler %}}
 

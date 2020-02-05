@@ -12,8 +12,7 @@ aliases = "/config_rb_manage.html"
     weight = 100
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_manage.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_manage.md)
 
 <meta name="robots" content="noindex">
 

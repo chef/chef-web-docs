@@ -12,8 +12,7 @@ aliases = "/community.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/community.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/community.md)
 
 The Chef community is an active, caring, wickedly smart, and fast
 growing group of practitioners who want to help you succeed with Chef.

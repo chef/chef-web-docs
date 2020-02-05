@@ -4,15 +4,20 @@ draft = false
 
 toc = false
 
+
+
+
+
+
+
+
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/index.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/sitemap.md)
 
 This is the documentation for:
 
 -   Chef Infra Server, Chef Infra Client, ChefDK, and related tools
--   Chef Automate 1.0 (deprecated)
 
 Documentation for other Chef products:
 
@@ -395,8 +400,8 @@ remove](/plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove) |
 
 [push-jobs-client (executable)](/ctl_push_jobs_client.html)
 
-**Managing the Server**: [Runbook (Single Page)](/runbook.html) |
-[Backend Cluster Failure Recovery](/backend_failure_recovery/) |
+**Managing Chef Infra Server**: [Runbook (Single Page)](/runbook.html)
+| [Backend Cluster Failure Recovery](/backend_failure_recovery/) |
 [Backup and Restore](/server_backup_restore/) | [Firewalls and
 Ports](/server_firewalls_and_ports/) | [Active Directory and
 LDAP](/server_ldap/) | [Log Files](/server_logs/) |
@@ -411,6 +416,8 @@ Groups](/server_orgs/) | [Secrets](/secrets/) |
 Settings](/config_rb_server_optional_settings/) |
 [opscode-expander-ctl](/ctl_opscode_expander/) | [Chef Infra Server
 API](/api_chef_server/)
+
+**FIPS** [FIPS Overview](/fips/)
 
 **Push Jobs**: [knife push jobs](/plugin_knife_push_jobs/) |
 [push-jobs-client](/ctl_push_jobs_client/) |
@@ -491,70 +498,21 @@ Documentation](https://www.inspec.io/docs/)
 Legacy
 ======
 
-Chef Automate 1
----------------
-
-**Overview**: [Chef Automate Overview](/chef_automate/) | [Workflow
-Overview](/workflow/) | [Nodes Overview](/visibility/) |
-[Compliance Overview](/chef_automate_compliance/) | [Administration
-Overview](/automate_admin/)
-
-**Getting Started**: [Installation Guide](/install_chef_automate/)
-| [Configure a Pipeline](/delivery_pipeline/) | [Configure a
-Project](/config_json_delivery/) | [Configure Data
-Collection](/data_collection/) | [Data Collection and Chef
-HA](/data_collection_ha/) | [Data Collection without Chef Infra
-Server](/data_collection_without_server/) | [Stream
-Data](/stream_data_chef_automate/) |
-[Upgrades](/upgrade_chef_automate/)
-
-**Release Notes**: [Release Notes](/release_notes_chef_automate/)
-
-**Nodes**: [Node Notifications
-w/Slack](/integrate_node_notifications_slack.html) | [Node
-Notifications w/Webhooks](/integrate_node_notifications_webhook.html) |
-[Node Search Reference](/search_query_chef_automate/)
-
-**Compliance**: [Reporting](/automate_compliance_reporting/) |
-[Scanner](/automate_compliance_scanner/) | [Profile
-Store](/profile_store/) |
-[Credentials](/automate_compliance_credentials/)
-
-**Workflow**: [build-cookbook (cookbook)](/delivery_build_cookbook.html)
-| [delivery-truck (cookbook)](/delivery_truck.html) | [Manage
-Dependencies](/delivery_manage_dependencies/) |
-[Runners](/runners/) | [Workflow
-w/Bitbucket](/integrate_delivery_bitbucket.html) | [Workflow w/Email
-(SMTP)](/integrate_delivery_smtp.html) | [Workflow
+**Workflow**: [Workflow Overview](/workflow/) | [build-cookbook
+(cookbook)](/delivery_build_cookbook.html) | [Delivery
+Pipeline](/delivery_pipeline/) | [Delivery Server
+Backup](/delivery_server_backup/) | [Delivery Server Disaster
+Recovery](/delivery_server_disaster_recovery/) | [Delivery Server
+Tuning](/delivery_server_tuning/) | [delivery-truck
+(cookbook)](/delivery_truck.html) | [Manage
+Dependencies](/delivery_manage_dependencies/) | [Manage
+Secrets](/delivery_manage_secrets/) | [Runners](/runners/) |
+[Workflow w/Bitbucket](/integrate_delivery_bitbucket.html) | [Workflow
+w/Email (SMTP)](/integrate_delivery_smtp.html) | [Workflow
 w/GitHub](/integrate_delivery_github.html) | [Workflow
-w/Slack](/integrate_delivery_slack.html)
-
-**Admin**: [Authentication w/LDAP](/integrate_delivery_ldap.html) |
-[Authentication w/SAML](/integrate_chef_automate_saml.html)
-
-**Managing the Server**: [Backups](/delivery_server_backup/) |
-[Capacity Planning](/scaling_capacity_planning_chef_automate/) |
-[Disaster Recovery](/delivery_server_disaster_recovery/) |
-[Elasticsearch and Kibana
-Authentication](/elasticsearch_and_kibana_auth/) |
-[Secrets](/delivery_manage_secrets/) | [Data Retention Management
-in Chef Automate](/data_retention_chef_automate/) |
-[Tuning](/delivery_server_tuning/) | [Users and
-Roles](/delivery_users_and_roles/)
-
-**Reference**: [Chef Automate API](/api_automate/) | [Automate
-CTL](/ctl_automate_server/) | [Delivery CLI](/delivery_cli/) |
-[delivery.rb](/config_rb_delivery.html) | [Workflow
-DSL](/dsl_delivery/)
-
-**Chef Automate for Microsoft Azure**: [Chef Automate for Microsoft
-Azure](/automate_azure/)
-
-**AWS OpsWorks for Chef Automate**: [AWS OpsWorks for Chef
-Automate](/aws_opsworks_chef_automate/)
-
-**Troubleshooting**:
-[Troubleshooting](/troubleshooting_chef_automate/)
+w/LDAP](/integrate_delivery_ldap.html) | [Workflow
+w/Slack](/integrate_delivery_slack.html) | [Audit
+Cookbook](/audit_cookbook/)
 
 Extension APIs
 ==============
@@ -625,151 +583,3 @@ Feedback](/feedback/) | [Support](https://www.chef.io/support) |
 [Site Map](/index/) |
 [Archive](https://docs-archive.chef.io/index.html)
 
-<div class="toctree" markdown="1" hidden="">
-
-about_chefdk api_automate api_chef_server api_omnitruck
-api_push_jobs attributes audit_cookbook auth automate_azure
-automate_compliance_credentials automate_compliance_reporting
-automate_compliance_scanner aws_marketplace
-aws_opsworks_chef_automate azure_chef_cli azure_cwa_cloud_shell
-azure_portal azure_powershell backend_failure_recovery berkshelf
-chef_automate chef_automate_compliance chef_client_overview
-chef_client_security chef_deprecations_client chef_license
-chef_license_accept chef_overview chef_repo chef_search chef_shell
-chef_solo chef_system_requirements chef_vault chefdk_setup chefspec
-community community_contributions community_guidelines
-config_json_delivery config_rb config_rb_client
-config_rb_delivery config_rb_delivery_optional_settings
-config_rb_manage config_rb_metadata config_rb_metadata
-config_rb_optional_settings config_rb_policyfile
-config_rb_push_jobs_client config_rb_push_jobs_server
-config_rb_server config_rb_server_optional_settings
-config_rb_solo config_rb_supermarket config_yml_kitchen
-cookbook_repo cookbook_versioning cookbooks cookstyle
-ctl_automate_server ctl_chef ctl_chef_apply ctl_chef_backend
-ctl_chef_client ctl_chef_server ctl_chef_solo ctl_kitchen
-ctl_manage ctl_ohai ctl_opscode_expander ctl_push_jobs_client
-ctl_supermarket custom_resources custom_resources_notes data_bags
-data_collection data_collection_ha data_collection_without_server
-data_retention_chef_automate debug definitions
-delivery_build_cookbook delivery_cli delivery_manage_dependencies
-delivery_manage_secrets delivery_pipeline delivery_server_backup
-delivery_server_disaster_recovery delivery_server_tuning
-delivery_truck delivery_users_and_roles deprecations_attributes
-deprecations_chef_gem_compile_time
-deprecations_chef_platform_methods deprecations_chef_rest
-deprecations_chocolatey_uninstall
-deprecations_custom_resource_cleanups deprecations_deploy_resource
-deprecations_dnf_package_allow_downgrade deprecations_easy_install
-deprecations_epic_fail deprecations_erl_call_resource
-deprecations_exit_code deprecations_internal_api
-deprecations_json_auto_inflate deprecations_launchd_hash_property
-deprecations_legacy_hwrp_mixins deprecations_local_listen
-deprecations_locale_lc_all deprecations_map_collision
-deprecations_namespace_collisions deprecations_ohai_amazon_linux
-deprecations_ohai_cloud deprecations_ohai_cloud_v2
-deprecations_ohai_digitalocean deprecations_ohai_filesystem
-deprecations_ohai_filesystem_v2 deprecations_ohai_ipscopes
-deprecations_ohai_legacy_config deprecations_ohai_libvirt_plugin
-deprecations_ohai_run_command_helpers
-deprecations_ohai_sigar_plugins deprecations_ohai_v6_plugins
-deprecations_ohai_windows_cpu deprecations_property_name_collision
-deprecations_resource_cloning deprecations_run_command
-deprecations_shell_out deprecations_supports_property
-deprecations_verify_file depreciations_ohai_system_profile
-dk_windows dsl_custom_resource dsl_delivery dsl_handler dsl_recipe
-elasticsearch_and_kibana_auth environment_variables environments
-errors feedback files filter_compliance_scan fips foodcritic glossary
-google handlers install_bootstrap install_chef_air_gap
-install_chef_automate install_dk install_omnibus install_push_jobs
-install_server install_server_ha install_server_pre
-install_server_tiered install_supermarket install_windows
-integrate_chef_automate_saml integrate_delivery_bitbucket
-integrate_delivery_github integrate_delivery_ldap
-integrate_delivery_slack integrate_delivery_smtp
-integrate_node_notifications_slack
-integrate_node_notifications_webhook junos kitchen knife knife_azure
-knife_azurerm knife_bootstrap knife_client knife_configure
-knife_cookbook knife_cookbook_site knife_data_bag knife_delete
-knife_deps knife_diff knife_download knife_edit knife_environment
-knife_exec knife_list knife_node knife_options knife_raw
-knife_recipe_list knife_role knife_search knife_serve knife_setup
-knife_show knife_ssh knife_ssl_check knife_ssl_fetch knife_status
-knife_supermarket knife_tag knife_upload knife_user knife_windows
-knife_xargs libraries manage nodes ohai ohai_custom packages
-perform_compliance_scan platform_overview platforms plugin_community
-plugin_kitchen_vagrant plugin_knife plugin_knife_custom
-plugin_knife_opc plugin_knife_push_jobs plugin_knife_spork policy
-policyfile profile_store proxies publish_cookbooks_multiple_servers
-push_jobs quick_start recipes release_notes
-release_notes_chef_automate release_notes_chefdk
-release_notes_push_jobs release_notes_server resource
-resource_apt_package resource_apt_preference
-resource_apt_repository resource_apt_update resource_archive_file
-resource_bash resource_batch resource_bff_package
-resource_breakpoint resource_build_essential resource_cab_package
-resource_chef_acl resource_chef_client resource_chef_container
-resource_chef_data_bag resource_chef_data_bag_item
-resource_chef_environment resource_chef_gem resource_chef_group
-resource_chef_handler resource_chef_mirror resource_chef_node
-resource_chef_organization resource_chef_role resource_chef_user
-resource_chocolatey_feature resource_chocolatey_package
-resource_common resource_cookbook_file resource_cron resource_csh
-resource_deploy resource_directory resource_dmg_package
-resource_dnf_package resource_dpkg_package resource_dsc_resource
-resource_dsc_script resource_erlang_call resource_execute
-resource_file resource_freebsd_package resource_gem_package
-resource_git resource_group resource_homebrew_cask
-resource_homebrew_package resource_homebrew_tap resource_hostname
-resource_http_request resource_ifconfig resource_ips_package
-resource_ksh resource_launchd resource_link resource_load_balancer
-resource_log resource_machine resource_machine_batch
-resource_machine_execute resource_machine_file
-resource_machine_image resource_macos_userdefaults
-resource_macports_package resource_mdadm resource_mount
-resource_msu_package resource_ohai resource_ohai_hint
-resource_openbsd_package resource_openssl_dhparam
-resource_openssl_ec_private_key resource_openssl_ec_public_key
-resource_openssl_rsa_private_key resource_openssl_rsa_public_key
-resource_openssl_x509_certificate resource_openssl_x509_crl
-resource_openssl_x509_request resource_osx_profile
-resource_package resource_pacman_package resource_paludis_package
-resource_perl resource_portage_package resource_powershell_package
-resource_powershell_script resource_private_key
-resource_public_key resource_python resource_reboot
-resource_reference resource_registry_key resource_remote_directory
-resource_remote_file resource_rhsm_errata
-resource_rhsm_errata_level resource_rhsm_register
-resource_rhsm_repo resource_rhsm_subscription resource_route
-resource_rpm_package resource_ruby resource_ruby_block
-resource_script resource_service resource_smartos_package
-resource_snap_package resource_solaris_package resource_subversion
-resource_sudo resource_swap_file resource_sysctl
-resource_systemd_unit resource_template resource_timezone
-resource_user resource_windows_ad_join resource_windows_auto_run
-resource_windows_dfs_folder resource_windows_dfs_namespace
-resource_windows_dfs_server resource_windows_dns_record
-resource_windows_dns_zone resource_windows_env
-resource_windows_feature resource_windows_feature_dism
-resource_windows_feature_powershell resource_windows_font
-resource_windows_package resource_windows_path
-resource_windows_printer resource_windows_printer_port
-resource_windows_service resource_windows_shortcut
-resource_windows_task resource_windows_uac resource_yum_package
-resource_yum_repository resource_zypper_package
-resource_zypper_repository roles ruby run_lists runbook runners
-scaling_capacity_planning_chef_automate
-search_query_chef_automate secrets server_backup_restore
-server_configure_saml server_firewalls_and_ports server_ldap
-server_logs server_manage_clients server_manage_cookbooks
-server_manage_data_bags server_manage_environments
-server_manage_nodes server_manage_roles server_monitor server_orgs
-server_overview server_security server_sent_events server_services
-server_tuning server_users stream_data_chef_automate style_guide
-supermarket supermarket_api supermarket_backup_restore
-supermarket_logs supermarket_monitor supermarket_share_cookbook
-templates troubleshooting_chef_automate uninstall
-upgrade_chef_automate upgrade_client upgrade_server
-upgrade_server_ha_v2 versions visibility vmware windows workflow
-
-</div>

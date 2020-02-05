@@ -12,8 +12,7 @@ aliases = "/config_rb_delivery_optional_settings.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_delivery_optional_settings.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_delivery_optional_settings.md)
 
 <meta name="robots" content="noindex">
 
@@ -21,7 +20,7 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/c
 
 The configuration settings in the `delivery.rb` file should not be
 modified before discussing those changes with Chef. Some of these
-settings should be considered for tuning (see [Automate Server
+settings should be considered for tuning (see [Workflow Server
 Tuning](/delivery_server_tuning/)), but many of them should be left
 as default values.
 

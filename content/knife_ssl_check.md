@@ -12,8 +12,7 @@ aliases = "/knife_ssl_check.html"
     weight = 270
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/knife_ssl_check.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_ssl_check.md)
 
 {{% knife_ssl_check_summary %}}
 

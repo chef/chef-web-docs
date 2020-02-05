@@ -12,8 +12,7 @@ aliases = "/environments.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/environments.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/environments.md)
 
 {{% environment %}}
 

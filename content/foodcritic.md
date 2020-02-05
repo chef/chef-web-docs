@@ -12,8 +12,7 @@ aliases = "/foodcritic.html"
     weight = 130
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/foodcritic.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/foodcritic.md)
 
 Use Foodcritic to check cookbooks for common problems:
 

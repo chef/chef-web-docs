@@ -7,13 +7,12 @@ aliases = "/ctl_chef_backend.html"
 [menu]
   [menu.docs]
     title = "chef-backend-ctl"
-    identifier = "chef_infra/managing_chef_infra_server/ctl_chef_backend.md chef-backend-ctl"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/ctl_chef_backend.md chef-backend-ctl"
+    parent = "chef_infra/chef_infra_server"
     weight = 160
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ctl_chef_backend.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_backend.md)
 
 The Chef Infra Server backend HA cluster includes a command-line utility
 named chef-backend-ctl. This command-line tool is used to manage the

@@ -1,160 +1,165 @@
 ---
-######## Page Data ########
 title: chef_handler resource
 resource: chef_handler
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_chef_handler.html
-
 menu:
   docs:
     title: chef_handler
     identifier: chef_infra/cookbook_reference/resources/resource_chef_handler.md chef_handler
     parent: chef_infra/cookbook_reference/resources
     weight: 180
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **chef_handler** resource to enable handlers during a Chef
+
+    Infra Client run. The resource allows arguments to be passed to Chef
+
+    Infra Client, which then applies the conditions defined by the custom
+
+    handler to the node attribute data collected during a Chef Infra Client
+
+    run, and then processes the handler based on that data.
 
 
-######## Basic Resource Data ########
+    The **chef_handler** resource is typically defined early in a node''s
 
-resource_description:
-resource_note:
-resource_new_in:      
+    run-list (often being the first item). This ensures that all of the
 
-
-######## Handler Types ########
-handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+    handlers will be available for the entire Chef Infra Client run.'
+resource_new_in: '14.0'
+handler_types: true
+syntax_description: 'A **chef_handler** resource block enables handlers during a chef-client
+  run. Two handlers---`JsonFile` and `ErrorReport`---are built into Chef:'
+syntax_code_block: "chef_handler 'Chef::Handler::JsonFile' do\n  source 'chef/handler/json_file'\n\
+  \  arguments :path => '/var/chef/reports'\n  action :enable\nend"
+syntax_properties_list: null
+syntax_full_code_block: "chef_handler 'name' do\n  arguments       Array, Hash\n \
+  \ class_name      String # default value: 'name' unless specified\n  source    \
+  \      String\n  type            Hash # default value: { \"report\" => true, \"\
+  exception\" => true}\n  action          Symbol # defaults to :enable if not specified\n\
+  end"
+syntax_full_properties_list:
+- '`chef_handler` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`arguments`, `class_name`, `source`, and `type` are the properties available to
+  this resource.'
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :disable:
+    markdown: Disable the handler for the current chef-client run on the current node.
+  :enable:
+    markdown: Enable the handler for the current chef-client run on the current node.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: arguments
+  ruby_type: Array, Hash
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'An array of arguments that are passed to the initializer for the
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      handler class. For example:
+
+
+      ``` ruby
+
+      arguments :key1 => ''val1''
+
+      ```
+
+
+      or:
+
+
+      ``` ruby
+
+      arguments [:key1 => ''val1'', :key2 => ''val2'']
+
+      ```'
+- property: class_name
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: The name of the handler class. This can be module name-spaced.
+- property: source
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'The full path to the handler file or the path to a gem (if the
+
+      handler ships as part of a Ruby gem).'
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: true
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: Enable the CloudkickHandler handler
+  text_blocks:
+  - markdown: 'The following example shows how to enable the `CloudkickHandler`
 
+      handler, which adds it to the default handler path and passes the
+
+      `oauth` key/secret to the handler''s initializer:'
+  - code_block: "chef_handler \"CloudkickHandler\" do\n  source \"#{node['chef_handler']['handler_path']}/cloudkick_handler.rb\"\
+      \n  arguments [node['cloudkick']['oauth_key'], node['cloudkick']['oauth_secret']]\n\
+      \  action :enable\nend"
+- example_heading: Enable handlers during the compile phase
+  text_blocks:
+  - code_block: "chef_handler \"Chef::Handler::JsonFile\" do\n  source \"chef/handler/json_file\"\
+      \n  arguments :path => '/var/chef/reports'\n  action :nothing\nend.run_action(:enable)"
+- example_heading: Handle only exceptions
+  text_blocks:
+  - code_block: "chef_handler \"Chef::Handler::JsonFile\" do\n  source \"chef/handler/json_file\"\
+      \n  arguments :path => '/var/chef/reports'\n  supports :exception => true\n\
+      \  action :enable\nend"
+- example_heading: Cookbook Versions (a custom handler)
+  text_blocks:
+  - shortcode: handler_custom_example_cookbook_versions.md
+  - markdown: 'cookbook_versions.rb:'
+  - shortcode: handler_custom_example_cookbook_versions_handler.md
+  - markdown: 'default.rb:'
+  - shortcode: handler_custom_example_cookbook_versions_recipe.md
+- example_heading: JsonFile Handler
+  text_blocks:
+  - shortcode: handler_custom_example_json_file.md
+- example_heading: Register the JsonFile handler
+  text_blocks:
+  - code_block: "chef_handler \"Chef::Handler::JsonFile\" do\n  source \"chef/handler/json_file\"\
+      \n  arguments :path => '/var/chef/reports'\n  action :enable\nend"
+- example_heading: ErrorReport Handler
+  text_blocks:
+  - shortcode: handler_custom_example_error_report.md
 
 ---

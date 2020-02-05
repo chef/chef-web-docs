@@ -7,13 +7,12 @@ aliases = "/data_collection_without_server.html"
 [menu]
   [menu.docs]
     title = "Data Collection without Chef Infra Server"
-    identifier = "legacy/chef_automate_1/getting_started/data_collection_without_server.md Data Collection without Chef Infra Server"
-    parent = "legacy/chef_automate_1/getting_started"
+    identifier = "legacy/workflow/workflow_basics/data_collection_without_server.md Data Collection without Chef Infra Server"
+    parent = "legacy/workflow/workflow_basics"
     weight = 60
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_without_server.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_without_server.md)
 
 <meta name="robots" content="noindex">
 

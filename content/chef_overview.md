@@ -12,8 +12,7 @@ aliases = "/chef_overview.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/chef_overview.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_overview.md)
 
 {{% chef %}}
 
@@ -96,7 +95,19 @@ components) in more detail.
 Workstations
 ============
 
-{{% workstation_summary %}}
+A workstation is a computer running Chef Workstation that is used to
+author cookbooks, interact with the Chef Infra Server, and interact with
+nodes.
+
+The workstation is where users do most of their work, including:
+
+-   Developing and testing cookbooks and recipes
+-   Testing Chef code
+-   Keeping the Chef repository synchronized with version source control
+-   Configuring organizational policy, including defining roles and
+    environments, and ensuring that critical data is stored in data bags
+-   Interacting with nodes, as (or when) required, such as performing a
+    bootstrap operation
 
 [Chef Workstation](https://downloads.chef.io/chef-workstation/) gives
 you everything you need to get started with Chef — ad hoc remote
@@ -145,8 +156,12 @@ Some important tools and components of Chef Workstation include:
 </tr>
 <tr class="odd">
 <td><p><img src="/images/icon_repository.svg" class="align-center" width="100" alt="image" /></p></td>
-<td><p>{{% chef_repo_summary %}}</p>
-<p>{{% chef_repo_structure %}}</p></td>
+<td><p>The chef-repo is the repository structure in which cookbooks are authored, tested, and maintained:</p>
+<ul>
+<li>Cookbooks contain recipes, attributes, custom resources, libraries, files, templates, tests, and metadata</li>
+<li>The chef-repo should be synchronized with a version control system (such as git), and then managed as if it were source code</li>
+</ul>
+<p>The directory structure within the chef-repo varies. Some organizations prefer to keep all of their cookbooks in a single chef-repo, while other organizations prefer to use a chef-repo for every cookbook.</p></td>
 </tr>
 <tr class="even">
 <td><img src="/images/icon_kitchen.svg" class="align-center" width="100" alt="image" /></td>
@@ -343,4 +358,11 @@ Some important aspects of policy include:
 Conclusion
 ==========
 
-{{% chef_about %}}
+Chef is a thin DSL (domain-specific language) built on top of Ruby. This
+approach allows Chef to provide just enough abstraction to make
+reasoning about your infrastructure easy. Chef includes a built-in
+taxonomy of all the basic resources one might configure on a system,
+plus a defined mechanism to extend that taxonomy using the full power of
+the Ruby language. Ruby was chosen because it provides the flexibility
+to use both the simple built-in taxonomy, as well as being able to
+handle any customization path your organization requires.

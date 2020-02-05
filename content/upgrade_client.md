@@ -12,8 +12,7 @@ aliases = "/upgrade_client.html"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_client.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_client.md)
 
 The following sections describe the upgrade process for Chef Client 12.
 

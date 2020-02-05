@@ -7,13 +7,12 @@ aliases = "/workflow.html"
 [menu]
   [menu.docs]
     title = "Workflow Overview"
-    identifier = "legacy/chef_automate_1/overview/workflow.md Workflow Overview"
-    parent = "legacy/chef_automate_1/overview"
-    weight = 20
+    identifier = "legacy/workflow/workflow_basics/workflow.md Workflow Overview"
+    parent = "legacy/workflow/workflow_basics"
+    weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/workflow.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/workflow.md)
 
 <meta name="robots" content="noindex">
 
@@ -21,16 +20,16 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/w
 
 {{% EOL_a1 %}}
 
-Chef Automate manages changes to both infrastructure and application
-code, giving your operations and development teams a common platform for
+Workflow manages changes to both infrastructure and application code,
+giving your operations and development teams a common platform for
 developing, testing, and deploying cookbooks, applications, and more.
 
-Chef Automate accelerates the adoption of continuous delivery and
-encourages DevOps collaboration. It provides a proven, reproducible
-workflow for managing changes as they flow through the pipeline from a
-local workstation, through automated tests, and out into production.
+Workflow accelerates the adoption of continuous delivery and encourages
+DevOps collaboration. It provides a proven, reproducible workflow for
+managing changes as they flow through the pipeline from a local
+workstation, through automated tests, and out into production.
 
-Chef Automate handles many types of software systems. Use it to:
+Workflow handles many types of software systems. Use it to:
 
 -   Upload new and updated cookbooks to the Chef Infra Server that
     manages your infrastructure and applications
@@ -57,18 +56,18 @@ software changes from development to delivery. The goal of a pipeline is
 to move changes from your workstation into production quickly and
 safely.
 
-Pipelines in Chef Automate have six stages: Verify, Build, Acceptance,
-Union, Rehearsal, and Delivered. Changes progress from one stage to
-another by passing a suite of automated tests. For the Verify and
-Acceptance stages, explicit approval by a designated person is required
-(in addition to the tests).
+Pipelines in Workflow have six stages: Verify, Build, Acceptance, Union,
+Rehearsal, and Delivered. Changes progress from one stage to another by
+passing a suite of automated tests. For the Verify and Acceptance
+stages, explicit approval by a designated person is required (in
+addition to the tests).
 
-Here are the stages of a Chef Automate pipeline.
+Here are the stages of a Workflow pipeline.
 
 <img src="/images/delivery_partial_workflow.svg" class="align-center" width="600" alt="image" />
 
 The tests within each stage are organized into phases. The stages and
-the phases are fixed for all pipelines in Chef Automate. However, what
+the phases are fixed for all pipelines in Workflow. However, what
 happens within any given phase is completely up to you---if you can
 describe the activity in a Chef recipe, then you can make it happen in a
 phase.
@@ -80,20 +79,20 @@ The following illustration shows the phases of each pipeline stage.
 Projects
 ========
 
-Chef Automate relies on git and uses its lightweight feature branches as
-the mechanism for handling changes before they merge, as well as its
-ability to perform merges automatically. Each pipeline has a designated
-target branch into which it will merge approved changes. Chef Automate
-uses a "gated master" model that manages merges to the target branch.
-(In preparation for using Chef Automate, it is helpful if team members
-understand how to use feature branches.)
+Workflow relies on git and uses its lightweight feature branches as the
+mechanism for handling changes before they merge, as well as its ability
+to perform merges automatically. Each pipeline has a designated target
+branch into which it will merge approved changes. Workflow uses a "gated
+master" model that manages merges to the target branch. (In preparation
+for using Workflow, it is helpful if team members understand how to use
+feature branches.)
 
-Chef Automate uses projects to organize work across multiple teams. You
-can create as many projects as you need. A common approach is to have
-one project for each major component of your system. Each project has
-its own git repository. (Chef Automate includes a git server for hosting
-project repositories. It is also possible to integrate with GitHub and
-GitHub Enterprise for the git-related aspects of the workflow.)
+Workflow uses projects to organize work across multiple teams. You can
+create as many projects as you need. A common approach is to have one
+project for each major component of your system. Each project has its
+own git repository. (Workflow includes a git server for hosting project
+repositories. It is also possible to integrate with GitHub and GitHub
+Enterprise for the git-related aspects of the workflow.)
 
 Organizations allow you to group related projects and provide scope for
 authorization rules.
@@ -110,30 +109,30 @@ quickly and easily.
 Changes and Project Pipelines
 =============================
 
-Let's walk through what happens as a change makes its way through Chef
-Automate. We'll assume you have created a project in Chef Automate and
-want to make a change.
+Let's walk through what happens as a change makes its way through
+Workflow. We'll assume you have created a project in Workflow and want
+to make a change.
 
 You start with a local checkout of the project's git repository. You
 create a feature branch, make a change in that branch and test it
 locally. When you're ready, submit the change using the
-`delivery review` command (part of the Chef Automate command line tool).
-This command submits the change to Chef Automate and kicks off the
-pipeline. The command is the equivalent to `git push`, although it also
-creates a change in Chef Automate that is similar to a pull request in
-GitHub and other git-based version control systems.
+`delivery review` command (part of the Workflow command line tool). This
+command submits the change to Workflow and kicks off the pipeline. The
+command is the equivalent to `git push`, although it also creates a
+change in Workflow that is similar to a pull request in GitHub and other
+git-based version control systems.
 
 Verification
 ------------
 
-When Chef Automate receives the change, it triggers the Verify stage.
-The purpose of Verify is to run checks so that the system can decide if
-it's worth the time of a human to review the change.
+When Workflow receives the change, it triggers the Verify stage. The
+purpose of Verify is to run checks so that the system can decide if it's
+worth the time of a human to review the change.
 
 When the Verify phases have completed successfully, the change is ready
-for code review. Chef Automate provides integrated code review through
-its web UI. There is also an integration with GitHub and Bitbucket
-Server (by Atlassian) for teams with existing code review workflows.
+for code review. Workflow provides integrated code review through its
+web UI. There is also an integration with GitHub and Bitbucket Server
+(by Atlassian) for teams with existing code review workflows.
 
 In code review, team members can comment on the diffs. If more changes
 are required, they can be made either as additional commits on top of
@@ -142,9 +141,9 @@ reworked using `git commit --amend` and `git rebase`.
 
 To submit the updates on a feature branch for review, simply run
 `delivery review` again. There's no need to worry about force pushing if
-you've squashed commits. Chef Automate patchset handling will work with
-your workflow. When you resubmit a change with updates from code review,
-Chef Automate triggers a fresh run of the Verify stage using the updated
+you've squashed commits. Workflow patchset handling will work with your
+workflow. When you resubmit a change with updates from code review,
+Workflow triggers a fresh run of the Verify stage using the updated
 feature branch. This can be repeated as necessary. When Verify has
 passed and the team is happy with the change, it can be approved.
 Changes are approved by clicking the Approve button in the web UI.
@@ -185,9 +184,9 @@ health of the resulting system is verified by running a functional test
 suite. At this point, the pipeline pauses and waits for explicit
 approval from someone who has the "shipper" role. The Acceptance stage
 is where you can run ad-hoc tests, and perform manual user acceptance
-testing. For the internal use of Chef Automate at Chef, we have our
-product owners review changes in Acceptance and decide whether or not to
-click the Deliver button.
+testing. For the internal use of Workflow at Chef, we have our product
+owners review changes in Acceptance and decide whether or not to click
+the Deliver button.
 
 When you click the Deliver button, the change begins its final journey
 into production. This journey consists of three stages: Union,
@@ -215,8 +214,8 @@ Pipeline Stages
 ===============
 
 In this section, we go into more detail about the pipeline. As we've
-said, the Chef Automate pipeline is made up of six stages: Verify,
-Build, Acceptance, Union, Rehearsal, and Delivered.
+said, the Workflow pipeline is made up of six stages: Verify, Build,
+Acceptance, Union, Rehearsal, and Delivered.
 
 Each stage consists of phases that perform a particular task, such as
 running some type of test.
@@ -259,7 +258,7 @@ a given phase job.)
 Build Stage
 -----------
 
-When a change is approved, Chef Automate merges the change into the
+When a change is approved, Workflow merges the change into the
 pipeline's target branch and triggers the Build stage. The Build stage
 repeats the lint, syntax, and unit phases from the Verify stage. This is
 because the target branch may have moved ahead since the Verify stage
@@ -316,31 +315,30 @@ for interactions between interdependent projects. The phases in Union
 and the remaining stages in the pipeline are the same: provision,
 deploy, smoke, and functional.
 
-When an artifact is in Union, Chef Automate ensures that any projects
-that depend on it can only pass their own Acceptance stages by proving
-their compatibility with that artifact. Chef Automate does this by
-pinning the versions of the dependencies to the version of the artifact
-in Union. In this way, Chef Automate forces projects to consume updates
-to their dependencies as early as possible and prevents them from
-shipping before proving that they are compatible with the latest
-version.
+When an artifact is in Union, Workflow ensures that any projects that
+depend on it can only pass their own Acceptance stages by proving their
+compatibility with that artifact. Workflow does this by pinning the
+versions of the dependencies to the version of the artifact in Union. In
+this way, Workflow forces projects to consume updates to their
+dependencies as early as possible and prevents them from shipping before
+proving that they are compatible with the latest version.
 
 If a problem is discovered in Union (it will happen, that is what Union
 is for), the cooperating teams need to have a conversation about the
 right fix. Sometimes the fix may require a change on a different project
 than the one that initiated the break. To fix the break, you submit a
-new change through the pipeline. Chef Automate is fundamentally a
+new change through the pipeline. Workflow is fundamentally a
 roll-forward system.
 
-Chef Automate ensures that only one change is active in each of the
-Union, Rehearsal, and Delivered stages at any one time. This
-orchestration increases safety by encouraging small batch change. In
-complex systems, identifying root causes of issues in the context of a
-single change is much easier than trying to analyze larger batches of
-changes across many different projects. In the future, Chef Automate's
-dependency management features will be enhanced to include all
-concurrent deploys in Union, Rehearsal, and Delivered, as long as they
-map to completely unrelated dependency sets.
+Workflow ensures that only one change is active in each of the Union,
+Rehearsal, and Delivered stages at any one time. This orchestration
+increases safety by encouraging small batch change. In complex systems,
+identifying root causes of issues in the context of a single change is
+much easier than trying to analyze larger batches of changes across many
+different projects. In the future, Workflow's dependency management
+features will be enhanced to include all concurrent deploys in Union,
+Rehearsal, and Delivered, as long as they map to completely unrelated
+dependency sets.
 
 Rehearsal Stage
 ---------------
@@ -367,32 +365,19 @@ your system is up to you. It could mean deploying the change so that it
 is live and receiving production traffic, or it might mean publishing a
 set of artifacts so they are accessible for your customers.
 
-Components
-==========
-
-The following diagram shows the servers that are involved in a Chef
-Automate installation.
-
-<img src="/images/automate_architecture_workflow.svg" class="align-center" width="600" alt="image" />
-
-The build cookbook, hosted on the Chef Infra Server, determines what
-happens during each phase job. Runners, under control of the Chef Infra
-Server, run the phase jobs. It's a good idea to have at least three
-runners so that the lint, syntax and unit phases can run in parallel.
-
 Environments
 ============
 
-As changes flow through the Chef Automate pipeline, they are tested in a
+As changes flow through the Workflow pipeline, they are tested in a
 series of runtime environments that are increasingly similar to the
 final runtime target environment.
 
-Chef Automate allows you to define the infrastructure that participates
-in each stage. How you map infrastructure environments to pipeline
-phases is controlled by the build cookbook. In other words, whether a
-given phase job distributes work to other infrastructure is up to you.
-There are many ways to map infrastructure environments to pipeline
-phases, but here are some possible approaches.
+Workflow allows you to define the infrastructure that participates in
+each stage. How you map infrastructure environments to pipeline phases
+is controlled by the build cookbook. In other words, whether a given
+phase job distributes work to other infrastructure is up to you. There
+are many ways to map infrastructure environments to pipeline phases, but
+here are some possible approaches.
 
 Because they test source code, the Verify and Build stages ordinarily
 run exclusively on the runners and don't involve other infrastructure.
@@ -427,12 +412,11 @@ the environments you want to use for each stage of the pipeline.
 
 {{< note >}}
 
-Currently, Chef Automate manages cookbook version and application
-attribute version pins using environment objects of the Chef Infra
-Server. The names of the environments in the Chef Infra Server
-correspond to the stages of a pipeline. (This doesn't mean, however,
-that the nodes that participate in a given stage need to remain fixed
-over time.)
+Currently, Workflow manages cookbook version and application attribute
+version pins using environment objects of the Chef Infra Server. The
+names of the environments in the Chef Infra Server correspond to the
+stages of a pipeline. (This doesn't mean, however, that the nodes that
+participate in a given stage need to remain fixed over time.)
 
 {{< /note >}}
 

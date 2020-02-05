@@ -12,8 +12,7 @@ aliases = "/ohai.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/ohai.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ohai.md)
 
 {{% ohai_summary %}}
 
@@ -275,9 +274,19 @@ configuration file](/config_rb_client.html) to customize this location.
 ohai Resource
 =============
 
-{{% resources_common_generic %}}
+A [resource](/resource/) defines the desired state for a single
+configuration item present on a node that is under management by Chef
+Infra. A resource collection---one (or more) individual
+resources---defines the desired state for the entire node. During a
+[Chef Infra Client run](/chef_client.html#the-chef-client-run.html), the
+current state of each resource is tested, after which Chef Infra Client
+will take any steps that are necessary to repair the node and bring it
+back into the desired state.
 
-{{% resource_ohai_summary %}}
+Use the **ohai** resource to reload the Ohai configuration on a node.
+This allows recipes that change system attributes (like a recipe that
+adds a user) to refer to those attributes later on during a Chef Infra
+Client run.
 
 Syntax
 ------

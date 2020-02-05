@@ -12,8 +12,7 @@ aliases = "/azure_portal.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/azure_portal.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_portal.md)
 
 {{% cloud_azure_portal %}}
 
@@ -80,11 +79,11 @@ machines with Chef using the following steps:
     The Chef extension on the Azure portal may be used on the following
     platforms:
 
-    -   Windows Server 2008 R2 SP1, 2012, 2012 R2, 2016
-    -   Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS, 16.10
+    -   Windows Server 2012, 2012 R2, 2016, 2019
+    -   Ubuntu 16.04 LTS, 18.04 LTS
     -   CentOS 6.5+
     -   RHEL 6+
-    -   Debian 7, 8
+    -   Debian 8+
 
     {{< /note >}}
 

@@ -12,8 +12,7 @@ aliases = "/server_manage_environments.html"
     weight = 60
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_manage_environments.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_manage_environments.md)
 
 <meta name="robots" content="noindex">
 
@@ -23,8 +22,6 @@ This topic is about using the Chef management console to manage
 environments.
 
 {{< /note >}}
-
-{{% chef_automate_mark %}}
 
 {{% EOL_manage %}}
 

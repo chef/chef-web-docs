@@ -12,8 +12,7 @@ aliases = "/auth.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/auth.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/auth.md)
 
 {{% chef_auth %}}
 
@@ -35,7 +34,10 @@ Chef Infra Server Key Use
 
 ### Knife
 
-{{% security_key_pairs_knife %}}
+RSA public key-pairs are used to authenticate knife with the Chef Infra
+Server every time knife attempts to access the Chef Infra Server. This
+ensures that each instance of knife is properly registered with the Chef
+Infra Server and that only trusted users can make changes to the data.
 
 Knife can also use the `knife exec` subcommand to make specific,
 authenticated requests to the Chef Infra Server. knife plugins can also

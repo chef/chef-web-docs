@@ -7,13 +7,12 @@ aliases = "/upgrade_server.html"
 [menu]
   [menu.docs]
     title = "Upgrades"
-    identifier = "chef_infra/managing_chef_infra_server/upgrade_server.md Upgrades"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/upgrade_server.md Upgrades"
+    parent = "chef_infra/chef_infra_server"
     weight = 120
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/upgrade_server.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/upgrade_server.md)
 
 The following sections describe the upgrade process for Chef Server 12.
 
