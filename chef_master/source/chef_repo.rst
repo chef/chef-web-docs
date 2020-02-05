@@ -34,11 +34,9 @@ The sub-directories in the chef-repo are:
    * - ``cookbooks/``
      - Contains cookbooks that have been downloaded from the `Chef Supermarket <https://supermarket.chef.io/>`__ or created locally.
    * - ``data_bags/``
-     - Stores data bags (and data bag items) in JSON (.json).
-   * - ``environments/``
-     - Stores environment in Ruby (.rb) or JSON (.json).
-   * - ``roles/``
-     - Stores roles in Ruby (.rb) or JSON (.json).
+     - Stores data bags (and data bag items) in JSON (.json) format.
+   * - ``policyfiles/``
+     - Stores Policyfiles in Ruby (.rb) format.
 
 .chef/
 -----------------------------------------------------
