@@ -1,160 +1,146 @@
 ---
-######## Page Data ########
 title: archive_file resource
 resource: archive_file
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_archive_file.html
-
 menu:
   docs:
     title: archive_file
     identifier: chef_infra/cookbook_reference/resources/resource_archive_file.md archive_file
     parent: chef_infra/cookbook_reference/resources
     weight: 100
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **archive_file** resource to extract archive files to disk.
 
+    This resource uses the libarchive library to extract multiple archive
 
-######## Basic Resource Data ########
-
-resource_description:
-resource_note:
-resource_new_in:      
-
-
-######## Handler Types ########
+    formats including tar, gzip, bzip, and zip formats.'
+resource_new_in: '15.0'
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The archive_file resource has the following syntax:'
+syntax_code_block: "archive_file 'name' do\n  destination      String\n  group   \
+  \         String\n  mode             String, Integer # default value: \"755\"\n\
+  \  options          Array, Symbol\n  overwrite        true, false, auto # default\
+  \ value: false\n  owner            String\n  path             String # default value:\
+  \ 'name' unless specified\n  action           Symbol # defaults to :extract if not\
+  \ specified\nend"
+syntax_properties_list:
+- '`archive_file` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`destination`, `group`, `mode`, `options`, `overwrite`, `owner`, and `path` are
+  the properties available to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :extract:
+    markdown: Extract and archive file.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: destination
+  ruby_type: String
+  required: true
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The file path to extract the archive file to.
+- property: group
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The group of the extracted files.
+- property: mode
+  ruby_type: String, Integer
+  required: false
+  default_value: '"755"'
+  new_in: null
+  description_list:
+  - markdown: The mode of the extracted files.
+- property: options
+  ruby_type: Array, Symbol
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'An array of symbols representing extraction flags. Example:
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      `:no_overwrite` to prevent overwriting files on disk. By default,
+
+      this properly sets `:time`, which preserves the modification
+
+      timestamps of files in the archive when writing them to disk.'
+- property: overwrite
+  ruby_type: true, false, auto
+  required: false
+  default_value: 'false'
+  new_in: null
+  description_list:
+  - markdown: 'Should the resource overwrite the destination file contents if they
+
+      already exist? If set to `:auto`, the date stamp of files within the
+
+      archive will be compared to those on disk, and disk contents will be
+
+      overwritten if they differ. This may cause unintended consequences
+
+      if disk date stamps are changed between runs, which will result in
+
+      the files being overwritten during each client run. Make sure to
+
+      properly test any change to this property.'
+- property: owner
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The owner of the extracted files.
+- property: path
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'An optional property to set the file path to the archive to extract
+
+      if it differs from the resource block''s name.'
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
-
+- example_heading: Extract a zip file to a specified directory
+  text_blocks:
+  - code_block: "archive_file 'Precompiled.zip' do\n  path '/tmp/Precompiled.zip'\n\
+      \  destination '/srv/files'\nend"
 
 ---

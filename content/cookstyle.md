@@ -12,8 +12,7 @@ aliases = "/cookstyle.html"
     weight = 110
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/cookstyle.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/cookstyle.md)
 
 Cookstyle is a code linting tool that helps you write better Chef Infra
 cookbooks by detecting and automatically correcting style, syntax, and

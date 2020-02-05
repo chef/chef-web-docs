@@ -12,8 +12,7 @@ aliases = "/install_dk.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_dk.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_dk.md)
 
 {{< note >}}
 

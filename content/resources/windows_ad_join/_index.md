@@ -1,160 +1,151 @@
 ---
-######## Page Data ########
 title: windows_ad_join resource
 resource: windows_ad_join
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_windows_ad_join.html
-
 menu:
   docs:
     title: windows_ad_join
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_ad_join.md windows_ad_join
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_ad_join.md
+      windows_ad_join
     parent: chef_infra/cookbook_reference/resources
     weight: 1080
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **windows_ad_join** resource to join a Windows Active
 
-
-######## Basic Resource Data ########
-
-resource_description:
-resource_note:
-resource_new_in:      
-
-
-######## Handler Types ########
+    Directory domain.'
+resource_new_in: '14.0'
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The windows_ad_join resource has the following syntax:'
+syntax_code_block: "windows_ad_join 'name' do\n  domain_name          String # default\
+  \ value: 'name' unless specified\n  domain_password      String\n  domain_user \
+  \         String\n  new_hostname         String\n  ou_path              String\n\
+  \  reboot               Symbol # default value: :immediate\n  sensitive        \
+  \    true, false # default value: true\n  workgroup_name       String\n  action\
+  \               Symbol # defaults to :join if not specified\nend"
+syntax_properties_list:
+- '`windows_ad_join` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`domain_name`, `domain_password`, `domain_user`, `new_hostname`, `ou_path`, `reboot`,
+  `sensitive`, and `workgroup_name` are the properties available to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :join:
+    markdown: Default. Join the Active Directory domain.
+  :leave:
+    markdown: '> Leave an Active Directory domain and re-join a workgroup.'
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: domain_name
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'An optional property to set the FQDN of the Active Directory domain
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      to join if it differs from the resource block''s name.'
+- property: domain_password
+  ruby_type: String
+  required: true
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'The password for the domain user. Note that this resource is set to
+
+      hide sensitive information by default.'
+- property: domain_user
+  ruby_type: String
+  required: true
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The domain user that will be used to join the domain.
+- property: new_hostname
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: '14.5'
+  description_list:
+  - markdown: Specifies a new hostname for the computer in the new domain.
+- property: ou_path
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The path to the Organizational Unit where the host will be placed.
+- property: reboot
+  ruby_type: Symbol
+  required: false
+  default_value: :immediate
+  new_in: null
+  description_list:
+  - markdown: 'Controls the system reboot behavior post domain joining. Reboot
+
+      immediately, after the Chef Infra Client run completes, or never.
+
+      Note that a reboot is necessary for changes to take effect.'
+- property: sensitive
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  new_in: null
+  description_list: []
+- property: workgroup_name
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: '15.4'
+  description_list:
+  - markdown: 'Specifies the name of a workgroup to which the computer is added to
+
+      when it is removed from the domain. The default value is WORKGROUP.
+
+      This property is only applicable to the :leave action.'
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
-
+- example_heading: Join a domain
+  text_blocks:
+  - code_block: "windows_ad_join 'ad.example.org' do\n  domain_user 'nick'\n  domain_password\
+      \ 'p@ssw0rd1'\nend"
+  - markdown: '**Join a domain, as \`win-workstation\`**'
+  - code_block: "windows_ad_join 'ad.example.org' do\n  domain_user 'nick'\n  domain_password\
+      \ 'p@ssw0rd1'\n  new_hostname 'win-workstation'\nend"
+  - markdown: '**Leave the current domain and re-join the \`local\` workgroup**'
+  - code_block: "windows_ad_join 'Leave domain' do\n  action :leave\n  workgroup 'local'\n\
+      end"
 
 ---

@@ -12,8 +12,7 @@ aliases = "/deprecations_chef_gem_compile_time.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_chef_gem_compile_time.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chef_gem_compile_time.md)
 
 <meta name="robots" content="noindex">
 

@@ -12,8 +12,7 @@ aliases = "/supermarket_share_cookbook.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket_share_cookbook.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket_share_cookbook.md)
 
 This guide will show you how to share a cookbook on the public [Chef
 Supermarket](https://supermarket.chef.io/). The public Supermarket uses

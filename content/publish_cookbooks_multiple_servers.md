@@ -7,13 +7,12 @@ aliases = "/publish_cookbooks_multiple_servers.html"
 [menu]
   [menu.docs]
     title = "Publish to Multiple Chef Infra Servers"
-    identifier = "legacy/chef_automate_1/workflow/publish_cookbooks_multiple_servers.md Publish to Multiple Chef Infra Servers"
-    parent = "legacy/chef_automate_1/workflow"
+    identifier = "legacy/workflow/managing_workflow/publish_cookbooks_multiple_servers.md Publish to Multiple Chef Infra Servers"
+    parent = "legacy/workflow/managing_workflow"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/publish_cookbooks_multiple_servers.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/publish_cookbooks_multiple_servers.md)
 
 <meta name="robots" content="noindex">
 

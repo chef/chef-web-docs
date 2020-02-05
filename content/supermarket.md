@@ -12,8 +12,7 @@ aliases = "/supermarket.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/supermarket.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/supermarket.md)
 
 {{% supermarket_summary %}}
 

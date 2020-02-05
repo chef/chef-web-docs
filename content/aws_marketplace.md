@@ -12,8 +12,7 @@ aliases = "/aws_marketplace.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/aws_marketplace.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/aws_marketplace.md)
 
 Chef provides Amazon Machine Images (AMIs) for Chef Automate and Chef
 Infra Server that can be launched from the [AWS
@@ -279,7 +278,7 @@ Configure the workstation
 Configure backups
 =================
 
-Follow the Chef Automate
+Follow the Workflow
 [instructions](delivery_server_backup.html#s3-backups) for configuring
 backups.
 
@@ -558,9 +557,22 @@ instance:
     $ chef-marketplace-ctl upgrade -y
     ```
 
-3.  {{% chef_automate_reconfigure_for_marketplace %}}
+3.  Reconfigure Chef Automate and the Chef Infra Server:
 
-4.  {{% chef_server_backup_restore_for_automate %}}
+    ``` bash
+    $ sudo automate-ctl reconfigure
+    $ sudo chef-server-ctl reconfigure
+    ```
+
+4.  Restore the backup:
+
+    ``` bash
+    $ mkdir -p /tmp/chef-backup
+    $ mv /tmp/chef-backup.tgz /tmp/chef-backup
+    $ cd /tmp/chef-backup
+    $ tar -ztf chef-backup.tgz
+    $ /opt/opscode/embedded/bin/knife ec restore /tmp/chef-backup --with-user-sql --with-key-sql
+    ```
 
 5.  {{% install_update_aws_knife_rb %}}
 

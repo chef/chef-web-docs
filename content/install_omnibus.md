@@ -12,8 +12,7 @@ aliases = "/install_omnibus.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_omnibus.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_omnibus.md)
 
 {{% packages_install_script %}}
 

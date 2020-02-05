@@ -12,8 +12,7 @@ aliases = "/api_omnitruck.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_omnitruck.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_omnitruck.md)
 
 Chef's Omnitruck API powers the Chef install scripts as well as
 downloads.chef.io site. It can be used to query available versions of
@@ -69,7 +68,7 @@ where:
     `windows`.
 -   `pv` is the platform version. Possible values depend on the
     platform. For example, Ubuntu: `16.04`, or `18.04` or for macOS:
-    `10.13` or `10.14`.
+    `10.14` or `10.15`.
 -   `m` is the machine architecture for the machine on which the product
     will be installed. Possible values depend on the platform. For
     example, for Ubuntu or Debian: `i386` or `x86_64` or for macOS:
@@ -160,7 +159,7 @@ Omnitruck accepts the following platforms:
 <td>macOS</td>
 <td><code>mac_os_x</code></td>
 <td><code>x86_64</code></td>
-<td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code></td>
+<td><code>10.6</code>, <code>10.7</code>, <code>10.8</code>, <code>10.9</code>, <code>10.10</code>, <code>10.11</code>, <code>10.12</code>, <code>10.13</code>, <code>10.14</code>, <code>10.15</code></td>
 </tr>
 <tr class="odd">
 <td>Solaris</td>
@@ -190,7 +189,7 @@ Omnitruck accepts the following platforms:
 <td>Microsoft Windows</td>
 <td><code>windows</code></td>
 <td><code>x86_64</code></td>
-<td><code>2016</code>, <code>2012r2</code>, <code>2008r2</code>, <code>2003r2</code>, <code>2008</code>, <code>2012</code>, <code>7</code>, <code>8</code></td>
+<td><code>7</code>, <code>8</code>, <code>10</code>, <span class="title-ref">2008r2</span>, <code>2012</code>, <code>2012r2</code>, <code>2016</code>, <code>2019</code></td>
 </tr>
 <tr class="even">
 <td></td>
@@ -206,19 +205,19 @@ Examples
 
 **Get the Latest Build**
 
-To get the latest supported build for Ubuntu 16.04, enter the following:
+To get the latest supported build for Ubuntu 18.04, enter the following:
 
 ``` none
-https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=16.04&m=x86_64
+https://omnitruck.chef.io/stable/chef/metadata?p=ubuntu&pv=18.04&m=x86_64
 ```
 
 to return something like:
 
 ``` none
-sha1 1e8019cf630e8a7c6287e1b950ddeecbe042d554
-sha256 26c31070a71309709ed1d19b796ad0b47a283c5c21930906f19e0771a5dd1c1b
-url https://packages.chef.io/files/stable/chef/14.0.190/ubuntu/16.04/chef_14.0.190-1_amd64.deb
-version 14.0.190
+sha1 e05c7930f1b561c3d1d057a5d5013ea3150374bf
+sha256 ab107d1b8ee3470aceb3e57edb5fcc220af89c866599ec3d84b5fb3921251d12
+url https://packages.chef.io/files/stable/chef/15.7.31/ubuntu/18.04/chef_15.7.31-1_amd64.deb
+version 15.7.31
 ```
 
 **Download Directly**

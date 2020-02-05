@@ -12,8 +12,7 @@ aliases = "/community_contributions.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/community_contributions.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/community_contributions.md)
 
 We're glad you want to contribute to a Chef project! This guide will
 help answer common questions you may have during your first

@@ -9,11 +9,10 @@ aliases = "/push_jobs.html"
     title = "Push Jobs"
     identifier = "chef_infra/features/push_jobs.md Push Jobs"
     parent = "chef_infra/features"
-    weight = 30
+    weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/push_jobs.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/push_jobs.md)
 
 {{% push_jobs_summary %}}
 

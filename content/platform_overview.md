@@ -12,8 +12,7 @@ aliases = "/platform_overview.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/platform_overview.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/platform_overview.md)
 
 Chef is an automation company. Ever since it was founded in 2008, we've
 been bringing together developers and system administrators with our
@@ -143,43 +142,14 @@ end
 Chef Automate
 =============
 
-Chef Automate provides a full suite of enterprise capabilities for
-workflow, node visibility and compliance. Chef Automate integrates with
-the open-source products Chef Infra, Chef InSpec and Chef Habitat. Chef
-Automate comes with comprehensive 24x7 support services for the entire
-platform, including open source components.
+Chef Automate provides a full suite of enterprise capabilities for node
+visibility and compliance. Chef Automate integrates with the open-source
+products Chef Infra, Chef InSpec and Chef Habitat. Chef Automate comes
+with comprehensive 24x7 support services for the entire platform,
+including open source components.
 
-Chef Automate gives you a full-stack continuous deployment pipeline,
-automated testing for compliance and security, as well as visibility
-into everything that's happening as you move your applications and
-infrastructure through the pipeline and then when they're in production.
-
-Workflow
---------
-
-Chef Automate includes a pipeline for continuous delivery of
-infrastructure and applications. This full-stack approach, where
-infrastructure changes are delivered in tandem with any application
-changes, allows for safe deployment at high velocity. Here is the Chef
-Automate workflow.
-
-<img src="/images/delivery_full_workflow.svg" class="align-center" width="600" alt="image" />
-
-The Chef Automate pipeline has automated quality gates that move a
-change from a developer’s workstation all the way to production. Your
-team approves a proposed change, and, after acceptance tests, releases
-the corresponding artifact for delivery into production. After the
-Acceptance stage, the artifact moves on to the Union, Rehearsal and
-Delivered stages of the pipeline.
-
-The Union phase enables cross-team collaboration—it contains quality
-gates that ensure that changes made by one team or organization work
-consistently with changes made in parallel by other teams.
-
-Chef Automate includes a graphical user interface that shows you the
-entire process. For example, you can tell at a glance which
-organizations include which projects. Dashboards let you track each
-change and see its status as it moves through the pipeline.
+Chef Automate gives you a full-stack continuous compliance and security,
+as well as visibility into your applications and infrastructure.
 
 Nodes
 -----

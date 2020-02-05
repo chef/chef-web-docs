@@ -12,8 +12,7 @@ aliases = "/cookbook_repo.html"
     weight = 100
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/cookbook_repo.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/cookbook_repo.md)
 
 The `cookbooks/` directory of your Chef Infra repository is used to
 store the cookbooks that Chef Infra Client uses in configuring the

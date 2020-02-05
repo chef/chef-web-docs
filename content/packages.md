@@ -12,8 +12,7 @@ aliases = "/packages.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/packages.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/packages.md)
 
 Packages for Chef Software Inc. products may be installed using
 platform-native package repositories or the Chef install script. Both

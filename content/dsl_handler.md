@@ -12,8 +12,7 @@ aliases = "/dsl_handler.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/dsl_handler.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/dsl_handler.md)
 
 {{% dsl_handler_summary %}}
 

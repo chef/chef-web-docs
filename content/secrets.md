@@ -12,8 +12,7 @@ aliases = "/secrets.html"
     weight = 90
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/secrets.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/secrets.md)
 
 One way to manage secrets used by Chef is with data bags.
 

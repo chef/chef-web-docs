@@ -12,8 +12,7 @@ aliases = "/deprecations_ohai_filesystem_v2.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_ohai_filesystem_v2.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_ohai_filesystem_v2.md)
 
 <meta name="robots" content="noindex">
 

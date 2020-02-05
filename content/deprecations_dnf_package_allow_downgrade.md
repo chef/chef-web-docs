@@ -12,8 +12,7 @@ aliases = "/deprecations_dnf_package_allow_downgrade.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_dnf_package_allow_downgrade.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_dnf_package_allow_downgrade.md)
 
 <meta name="robots" content="noindex">
 

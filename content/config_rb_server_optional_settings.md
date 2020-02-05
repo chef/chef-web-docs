@@ -7,13 +7,12 @@ aliases = "/config_rb_server_optional_settings.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Server Optional Settings"
-    identifier = "chef_infra/managing_chef_infra_server/config_rb_server_optional_settings.md Chef Infra Server Optional Settings"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/config_rb_server_optional_settings.md Chef Infra Server Optional Settings"
+    parent = "chef_infra/chef_infra_server"
     weight = 180
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_server_optional_settings.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_server_optional_settings.md)
 
 {{% config_rb_server_summary %}}
 
@@ -47,7 +46,7 @@ This configuration file has the following general settings:
 :   Default value:
 
     ``` ruby
-    %w{opscode-reporting chef-manage opscode-push-jobs-server}
+    %w{chef-manage opscode-push-jobs-server}
     ```
 
 `api_version`
@@ -235,6 +234,17 @@ This configuration file has the following settings for `bookshelf`:
     especially with the memory usage of the **bookshelf** service and
     the behavior of load balancers and proxies in-between Chef Infra
     Client and the Chef Infra Server. Default value: `true`.
+
+`bookshelf['sql_connection_user']`
+
+:   The PostgreSQL user name in `'username@hostname'` format (e.g.
+    `'bookshelf@my_postgresql.postgres.database.azure.com'`), where
+    `username` would normally equal the value of `bookshelf['sql_user']`
+    (default: `'bookshelf'`). This setting is **required** in an
+    external Azure PostgreSQL database-as-a-service configuration. If
+    set to `nil`, Chef Infra Server assumes that the database is not on
+    Azure and the PostgreSQL connection will be made using the value
+    specified in `bookshelf['sql_user']`. Default value: `nil`.
 
 `bookshelf['vip']`
 
@@ -913,6 +923,18 @@ This configuration file has the following settings for `oc_bifrost`:
 
 :   The port on which the service is to listen. Default value: `9463`.
 
+`oc_bifrost['sql_connection_user']`
+
+:   The PostgreSQL user name in `'username@hostname'` format (e.g.
+    `'bifrost@my_postgresql.postgres.database.azure.com'`), where
+    `username` would normally equal the value of
+    `oc_bifrost['sql_user']` (default: `'bifrost'`). This setting is
+    **required** in an external Azure PostgreSQL database-as-a-service
+    configuration. If set to `nil`, Chef Infra Server assumes that the
+    database is not on Azure and the PostgreSQL connection will be made
+    using the value specified in `oc_bifrost['sql_user']`. Default
+    value: `nil`.
+
 `oc_bifrost['sql_password']`
 
 :   The password for the `sql_user`. Default value: **generated**.
@@ -1090,6 +1112,17 @@ This configuration file has the following settings for `oc-id`:
 `oc_id['port']`
 
 :   The port on which the service is to listen. Default value: `9090`.
+
+`oc_id['sql_connection_user']`
+
+:   The PostgreSQL user name in `'username@hostname'` format (e.g.
+    `'oc_id@my_postgresql.postgres.database.azure.com'`), where
+    `username` would normally equal the value of `oc_id['sql_user']`
+    (default: `'od_id'`). This setting is **required** in an external
+    Azure PostgreSQL database-as-a-service configuration. If set to
+    `nil`, Chef Infra Server assumes that the database is not on Azure
+    and the PostgreSQL connection will be made using the value specified
+    in `oc_id['sql_user']`. Default value: `nil`.
 
 `oc_id['sql_database']`
 
@@ -1403,6 +1436,18 @@ This configuration file has the following settings for `opscode-erchef`:
     expire. If node bootstraps are timing out, increase this setting.
     Default value: `28800`.
 
+`opscode_erchef['sql_connection_user']`
+
+:   The PostgreSQL user name in `'username@hostname'` format (e.g.
+    `'opscode_chef@my_postgresql.postgres.database.azure.com'`), where
+    `username` would normally equal the value of
+    `opscode-erchef['sql_user']` (default: `'opscode_chef'`). This
+    setting is **required** in an external Azure PostgreSQL
+    database-as-a-service configuration. If set to `nil`, Chef Infra
+    Server assumes that the database is not on Azure and the PostgreSQL
+    connection will be made using the value specified in
+    `opscode_erchef['sql_user']`.Default value: `nil`.
+
 `opscode_erchef['strict_search_result_acls']`
 
 :   {{% settings_strict_search_result_acls %}}
@@ -1669,6 +1714,18 @@ This configuration file has the following settings for `postgresql`:
     the recommended value. Default value:
     `/var/opt/opscode/postgresql/#{node['private_chef']['postgresql']['version']}/data`.
 
+`postgresql['db_connection_superuser']`
+
+:   The PostgreSQL superuser name in `'username@hostname'` format (e.g.
+    `'opscode_pgsql@my_postgresql.postgres.database.azure.com'`), where
+    `username` would normally equal the value of
+    `postgresql['db_superuser']` with any dashes replaced by
+    underscores. This setting is **required** in an external Azure
+    PostgreSQL database-as-a-service configuration. If set to `nil`,
+    Chef Infra Server assumes that the database is not on Azure and the
+    PostgreSQL connection will be made using the value specified in
+    `postgresql['db_superuser']`. Default value: `nil`.
+
 `postgresql['db_superuser']`
 
 :   Default value: `opscode-pgsql`. If `username` is set, set
@@ -1774,6 +1831,12 @@ This configuration file has the following settings for `postgresql`:
 `postgresql['shmmax']`
 
 :   The maximum amount of shared memory. Default value: `17179869184`.
+
+`postgresql['sslmode']`
+
+:   SSL encryption mode between the Chef Infra Server and PostgreSQL.
+    Valid settings are `'disable'` and `'require'`. Default value:
+    `'disable'`.
 
 `postgresql['trust_auth_cidr_addresses']`
 

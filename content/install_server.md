@@ -12,8 +12,7 @@ aliases = "/install_server.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_server.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server.md)
 
 There are three configuration scenarios for the Chef Infra Server:
 

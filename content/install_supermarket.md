@@ -12,8 +12,7 @@ aliases = "/install_supermarket.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/install_supermarket.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_supermarket.md)
 
 {{% supermarket_summary %}}
 

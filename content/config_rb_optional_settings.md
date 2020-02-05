@@ -12,8 +12,7 @@ aliases = "/config_rb_optional_settings.html"
     weight = 100
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_optional_settings.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_optional_settings.md)
 
 In addition to the default settings in a knife config.rb file, there are
 other subcommand-specific settings that can be added. When a subcommand

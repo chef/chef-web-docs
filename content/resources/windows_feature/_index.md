@@ -1,160 +1,170 @@
 ---
-######## Page Data ########
 title: windows_feature resource
 resource: windows_feature
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_windows_feature.html
-
 menu:
   docs:
     title: windows_feature
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_feature.md windows_feature
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_feature.md
+      windows_feature
     parent: chef_infra/cookbook_reference/resources
     weight: 1170
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **windows_feature** resource to add, remove or entirely delete
 
+    Windows features and roles. This resource calls the
 
-######## Basic Resource Data ########
+    [windows_feature_dism](/resource_windows_feature_dism/) or
 
-resource_description:
-resource_note:
-resource_new_in:      
+    [windows_feature_powershell](/resource_windows_feature_powershell/)
 
+    resources depending on the specified installation method, and defaults
 
-######## Handler Types ########
+    to DISM, which is available on both Workstation and Server editions of
+
+    Windows.'
+resource_new_in: '14.0'
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The windows_feature resource has the following syntax:'
+syntax_code_block: "windows_feature 'name' do\n  all                   true, false\
+  \ # default value: false\n  feature_name          Array, String # default value:\
+  \ 'name' unless specified\n  install_method        Symbol # default value: :windows_feature_dism\n\
+  \  management_tools      true, false # default value: false\n  source          \
+  \      String\n  timeout               Integer # default value: 600\n  action  \
+  \              Symbol # defaults to :install if not specified\nend"
+syntax_properties_list:
+- '`windows_feature` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`all`, `feature_name`, `install_method`, `management_tools`, `source`, and `timeout`
+  are the properties available to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :install:
+    markdown: Default. Install a Windows role / feature using PowerShell.
+  :remove:
+    markdown: Remove a Windows role / feature using PowerShell.
+  :delete:
+    markdown: Delete a Windows role / feature from the image using PowerShell.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: all
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: null
+  description_list:
+  - markdown: Install all sub-features.
+- property: feature_name
+  ruby_type: Array, String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'The name of the feature(s) or role(s) to install if they differ from
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      the resource block''s name. The same feature may have different names
+
+      depending on the underlying installation method being used (ie
+
+      DHCPServer vs DHCP; DNS-Server-Full-Role vs DNS).'
+- property: install_method
+  ruby_type: Symbol
+  required: false
+  default_value: :windows_feature_dism
+  new_in: null
+  description_list:
+  - markdown: 'The underlying installation method to use for feature installation.
+
+      Specify '':windows_feature_dism'' for DISM or
+
+      '':windows_feature_powershell'' for PowerShell.'
+- property: management_tools
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: null
+  description_list:
+  - markdown: 'Install all applicable management tools for the roles, role
+
+      services, or features (PowerShell-only).'
+- property: source
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: Specify a local repository for the feature install.
+- property: timeout
+  ruby_type: Integer
+  required: false
+  default_value: '600'
+  new_in: null
+  description_list:
+  - markdown: Specifies a timeout (in seconds) for the feature installation.
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: Install the DHCP Server feature
+  text_blocks:
+  - code_block: "windows_feature 'DHCPServer' do\n  action :install\nend"
+- example_heading: Install the .Net 3.5.1 feature using repository files on DVD
+  text_blocks:
+  - code_block: "windows_feature \"NetFx3\" do\n  action :install\n  source \"d:\\\
+      sources\\sxs\"\nend"
+- example_heading: Remove Telnet Server and Client features
+  text_blocks:
+  - code_block: "windows_feature ['TelnetServer', 'TelnetClient'] do\n  action :remove\n\
+      end"
+- example_heading: Add the SMTP Server feature using the PowerShell provider
+  text_blocks:
+  - code_block: "windows_feature \"smtp-server\" do\n  action :install\n  all true\n\
+      \  install_method :windows_feature_powershell\nend"
+- example_heading: 'Install multiple features using one resource with the PowerShell
 
+    provider'
+  text_blocks:
+  - code_block: "windows_feature ['Web-Asp-Net45', 'Web-Net-Ext45'] do\n  action :install\n\
+      \  install_method :windows_feature_powershell\nend"
+- example_heading: 'Install the Network Policy and Access Service feature, including
+    the
+
+    management tools. Which, for this example, will automatically install
+
+    RSAT-NPAS as well.'
+  text_blocks:
+  - code_block: "windows_feature 'NPAS' do\n  action :install\n  management_tools\
+      \ true\n  install_method :windows_feature_powershell\nend"
 
 ---

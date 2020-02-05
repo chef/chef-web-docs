@@ -1,1 +1,0 @@
-Use the **file** resource to manage files directly on a node.

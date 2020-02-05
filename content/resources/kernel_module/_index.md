@@ -1,160 +1,145 @@
 ---
-######## Page Data ########
 title: kernel_module resource
 resource: kernel_module
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_kernel_module.html
-
 menu:
   docs:
     title: kernel_module
-    identifier: chef_infra/cookbook_reference/resources/resource_kernel_module.md kernel_module
+    identifier: chef_infra/cookbook_reference/resources/resource_kernel_module.md
+      kernel_module
     parent: chef_infra/cookbook_reference/resources
     weight: 480
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **kernel_module** resource to manage kernel modules on Linux
 
+    systems. This resource can load, unload, blacklist, disable, install,
 
-######## Basic Resource Data ########
-
-resource_description:
-resource_note:
-resource_new_in:      
-
-
-######## Handler Types ########
+    and uninstall modules.'
+resource_new_in: '14.3'
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The kernel_module resource has the following syntax:'
+syntax_code_block: "kernel_module 'name' do\n  load_dir        String # default value:\
+  \ \"/etc/modules-load.d\"\n  modname         String # default value: 'name' unless\
+  \ specified\n  options         Array\n  unload_dir      String # default value:\
+  \ \"/etc/modprobe.d\"\n  action          Symbol # defaults to :install if not specified\n\
+  end"
+syntax_properties_list:
+- '`kernel_module` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`load_dir`, `modname`, `options`, and `unload_dir` are the properties available
+  to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
+  :blacklist:
+    markdown: Blacklist a kernel module.
+  :disable:
+    markdown: 'Disable a kernel module
 
 
-########Properties ########
-
+      **New in Chef Client 15.2.**'
+  :install:
+    markdown: Default. Load kernel module, and ensure it loads on reboot.
+  :load:
+    markdown: Load a kernel module.
+  :uninstall:
+    markdown: Unload a kernel module and remove module config, so it doesn't load
+      on reboot.
+  :unload:
+    markdown: Unload kernel module.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: load_dir
+  ruby_type: String
+  required: false
+  default_value: '"/etc/modules-load.d"'
+  new_in: null
+  description_list:
+  - markdown: The directory to load modules from.
+- property: modname
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'An optional property to set the kernel module name if it differs
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      from the resource block''s name.'
+- property: options
+  ruby_type: Array
+  required: false
+  default_value: null
+  new_in: '15.4'
+  description_list:
+  - markdown: An optional property to set options for the kernel module.
+- property: unload_dir
+  ruby_type: String
+  required: false
+  default_value: '"/etc/modprobe.d"'
+  new_in: null
+  description_list:
+  - markdown: The modprobe.d directory.
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: Install and load a kernel module and ensure it loads on reboot.
+  text_blocks:
+  - code_block: kernel_module 'loop'
+- example_heading: 'Install and load a kernel with a specific set of options and ensure
+    it
 
+    loads on reboot.'
+  text_blocks:
+  - markdown: 'Consult kernel module documentation for specific options that are
+
+      supported.'
+  - code_block: "kernel_module 'loop' do\n  options [ 'max_loop=4', 'max_part=8' ]\n\
+      end"
+- example_heading: Load a kernel module.
+  text_blocks:
+  - code_block: "kernel_module 'loop' do\n  action :load\nend"
+  - markdown: "**Unload a kernel module and remove module config so it doesn\u2019\
+      t load on\nreboot.**"
+  - code_block: "kernel_module 'loop' do\n  action :uninstall\nend"
+- example_heading: Unload kernel module.
+  text_blocks:
+  - code_block: "kernel_module 'loop' do\n  action :unload\nend"
+- example_heading: Blacklist a module from loading.
+  text_blocks:
+  - code_block: "kernel_module 'loop' do\n  action :blacklist\nend"
+- example_heading: Disable a kernel module.
+  text_blocks:
+  - code_block: "kernel_module 'loop' do\n  action :disable\nend"
 
 ---

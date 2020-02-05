@@ -12,8 +12,7 @@ aliases = "/config_rb_solo.html"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/config_rb_solo.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_solo.md)
 
 A solo.rb file is used to specify the configuration details for
 chef-solo.

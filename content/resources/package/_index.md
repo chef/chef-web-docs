@@ -1,160 +1,528 @@
 ---
-######## Page Data ########
 title: package resource
 resource: package
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_package.html
-
 menu:
   docs:
     title: package
     identifier: chef_infra/cookbook_reference/resources/resource_package.md package
     parent: chef_infra/cookbook_reference/resources
     weight: 710
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **package** resource to manage packages. When the package is
+
+    installed from a local file (such as with RubyGems, dpkg, or RPM Package
+
+    Manager), the file must be added to the node using the **remote_file**
+
+    or **cookbook_file** resources.
 
 
-######## Basic Resource Data ########
+    This resource is the base resource for several other resources used for
 
-resource_description:
-resource_note:
-resource_new_in:      
+    package management on specific platforms. While it is possible to use
+
+    each of these specific resources, it is recommended to use the
+
+    **package** resource as often as possible.
 
 
-######## Handler Types ########
+    For more information about specific resources for specific platforms,
+
+    see the following topics:
+
+
+    -   [apt_package](/resource_apt_package/)
+
+    -   [bff_package](/resource_bff_package/)
+
+    -   [cab_package](/resource_cab_package/)
+
+    -   [chef_gem](/resource_chef_gem/)
+
+    -   [chocolatey_package](/resource_chocolatey_package/)
+
+    -   [dmg_package](/resource_dmg_package/)
+
+    -   [dnf_package](/resource_dnf_package/)
+
+    -   [dpkg_package](/resource_dpkg_package/)
+
+    -   [freebsd_package](/resource_freebsd_package/)
+
+    -   [gem_package](/resource_gem_package/)
+
+    -   [homebrew_package](/resource_homebrew_package/)
+
+    -   [ips_package](/resource_ips_package/)
+
+    -   [macports_package](/resource_macports_package/)
+
+    -   [msu_package](/resource_msu_package/)
+
+    -   [openbsd_package](/resource_openbsd_package/)
+
+    -   [pacman_package](/resource_pacman_package/)
+
+    -   [paludis_package](/resource_paludis_package/)
+
+    -   [portage_package](/resource_portage_package/)
+
+    -   [rpm_package](/resource_rpm_package/)
+
+    -   [smartos_package](/resource_smartos_package/)
+
+    -   [snap_package](/resource_snap_package/)
+
+    -   [solaris_package](/resource_solaris_package/)
+
+    -   [windows_package](/resource_windows_package/)
+
+    -   [yum_package](/resource_yum_package/)
+
+    -   [zypper_package](/resource_zypper_package/)'
+resource_new_in: null
 handler_types: false
+syntax_description: 'A **package** resource block manages a package on a node, typically
+  by installing it. The simplest use of the **package** resource is:'
+syntax_code_block: package 'httpd'
+syntax_properties_list:
+- '`''redhat'', ''centos''` will install Apache using the `httpd` package
+
+  and `''ubuntu'', ''debian''` will install it using the `apache2` package'
+syntax_full_code_block: "package 'name' do\n  allow_downgrade            true, false\
+  \ # Yum, RPM packages only\n  arch                       String, Array # Yum packages\
+  \ only\n  default_release            String # Apt packages only\n  flush_cache \
+  \               Array\n  gem_binary                 String\n  homebrew_user    \
+  \          String, Integer # Homebrew packages only\n  notifies                \
+  \   # see description\n  options                    String\n  package_name     \
+  \          String, Array # defaults to 'name' if not specified\n  response_file\
+  \              String # Apt packages only\n  response_file_variables    Hash # Apt\
+  \ packages only\n  source                     String\n  subscribes             \
+  \    # see description\n  timeout                    String, Integer\n  version\
+  \                    String, Array\n  action                     Symbol # defaults\
+  \ to :install if not specified\nend"
+syntax_full_properties_list:
+- '`package` tells Chef Infra Client to manage a package; Chef Infra Client will determine
+  the correct package provider to use based on the platform running on the node'
+- '`''name''` is the name of the package'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state'
+- '`allow_downgrade`, `arch`, `default_release`, `flush_cache`, `gem_binary`, `homebrew_user`,
+  `options`, `package_name`, `response_file`, `response_file_variables`, `source`,
+  `recursive`, `timeout`, and `version` are properties of this resource, with the
+  Ruby type shown. See "Properties" section below for more information about all of
+  the properties that may be used with this resource.
 
 
-######## Package Resource ########
-package_resource: false
+  Gem Package Options'
+- '{{% resource_package_options %}}
 
 
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
+  {{< warning >}}
 
 
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+  Gem package options should only be used when gems are installed into the
+
+  system'
+- 'wide instance of Ruby, and not the instance of Ruby dedicated to
+
+  Chef Infra Client.
+
+
+  {{< /warning >}}
+
+
+  ### Specify with Hash
+
+
+  {{% resource_package_options_hash %}}
+
+
+  **Example**
+
+
+  {{% resource_package_install_gem_with_hash_options %}}
+
+
+  ### Specify with String
+
+
+  {{% resource_package_options_string %}}
+
+
+  **Example**
+
+
+  {{% resource_package_install_gem_with_options_string %}}
+
+
+  ### Specify with .gemrc File
+
+
+  {{% resource_package_options_gemrc %}}
+
+
+  **Example**
+
+
+  {{% resource_package_install_gem_with_gemrc %}}'
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
-resource_package_options: false
-
-
-########Actions ########
-
+resource_package_options: true
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :install:
+    markdown: Default. Install a package. If a version is specified, install the specified
+      version of the package.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :purge:
+    markdown: Purge a package. This action typically removes the configuration files
+      as well as the package. (Debian platform only; for other platforms, use the
+      `:remove` action.)
+  :reconfig:
+    markdown: Reconfigure a package. This action requires a response file.
+  :remove:
+    markdown: action.)
+  :upgrade:
+    markdown: Install a package and/or ensure that a package is the latest version.
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: allow_downgrade
+  ruby_type: true, false
+  required: false
+  default_value: 'true'
+  new_in: null
+  description_list:
+  - markdown: '**yum_package** resource only. Downgrade a package to satisfy
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
-properties_multiple_packages: false
+      requested version requirements.'
+- property: arch
+  ruby_type: String, Array
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: '**yum_package** resource only. The architecture of the package to
 
-## Recursive Directories from remote_directory resource and directory resource
+      be installed or upgraded. This value can also be passed as part of
+
+      the package name.'
+- property: default_release
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: '**apt_package** resource only. The default release. For example:
+
+      `stable`.'
+- property: flush_cache
+  ruby_type: Array
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'Flush the in-memory cache before or after a Yum operation that
+
+      installs, upgrades, or removes a package. Default value:
+
+      `[ :before, :after ]`. The value may also be a Hash:
+
+      `( { :before => true/false, :after => true/false } )`.'
+  - shortcode: resources_common_package_yum_cache.md
+  - markdown: "As an array:\n\n``` ruby\nyum_package 'some-package' do\n  #...\n \
+      \ flush_cache [ :before ]\n  #...\nend\n```\n\nand as a Hash:\n\n``` ruby\n\
+      yum_package 'some-package' do\n  #...\n  flush_cache( { :after => true } )\n\
+      \  #...\nend\n```"
+  - note:
+    - markdown: 'The `flush_cache` property does not flush the local Yum cache! Use
+
+        Yum tools---`yum clean headers`, `yum clean packages`,
+
+        `yum clean all`---to clean the local Yum cache.'
+- property: gem_binary
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'A property for the `gem_package` provider that is used to specify a
+
+      gems binary.'
+- property: homebrew_user
+  ruby_type: String, Integer
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: '**homebrew_package** resource only. The name of the Homebrew owner
+
+      to be used by Chef Infra Client when executing a command.'
+- property: ignore_failure
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: null
+  description_list:
+  - markdown: Continue running a recipe if a resource fails for any reason.
+- property: notifies
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - shortcode: resources_common_notification_notifies.md
+  - markdown: ''
+  - shortcode: resources_common_notification_timers.md
+  - markdown: ''
+  - shortcode: resources_common_notification_notifies_syntax.md
+- property: options
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: One (or more) additional options that are passed to the command.
+- property: package_name
+  ruby_type: String, Array
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'The name of the package. Default value: the `name` of the resource
+
+      block. See "Syntax" section above for more information.'
+- property: response_file
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: '**apt_package** and **dpkg_package** resources only. The direct
+
+      path to the file used to pre-seed a package.'
+- property: response_file_variables
+  ruby_type: Hash
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: '**apt_package** and **dpkg_package** resources only. A Hash of
+
+      response file variables in the form of `{"VARIABLE" => "VALUE"}`.'
+- property: retries
+  ruby_type: Integer
+  required: false
+  default_value: '0'
+  new_in: null
+  description_list:
+  - markdown: The number of attempts to catch exceptions and retry the resource.
+- property: retry_delay
+  ruby_type: Integer
+  required: false
+  default_value: '2'
+  new_in: null
+  description_list:
+  - markdown: The retry delay (in seconds).
+- property: source
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: Optional. The path to a package in the local file system.
+  - note:
+    - markdown: 'The AIX platform requires `source` to be a local file system path
+
+        because `installp` does not retrieve packages using HTTP or FTP.'
+- property: subscribes
+  ruby_type: Symbol, Chef::Resource\[String\]
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - shortcode: resources_common_notification_subscribes.md
+  - markdown: ''
+  - shortcode: resources_common_notification_timers.md
+  - markdown: ''
+  - shortcode: resources_common_notification_subscribes_syntax.md
+- property: timeout
+  ruby_type: String, Integer
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The amount of time (in seconds) to wait before timing out.
+- property: version
+  ruby_type: String, Array
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The version of a package to be installed or upgraded.
+properties_shortcode: null
+properties_multiple_packages: true
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
 resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
 resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
 resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
-common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
+common_resource_functionality_multiple_packages: null
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: Install a gems file for use in recipes
+  text_blocks:
+  - code_block: "chef_gem 'right_aws' do\n  action :install\nend\n\nrequire 'right_aws'"
+- example_heading: Install a gems file from the local file system
+  text_blocks:
+  - shortcode: resource_package_install_gems_from_local.md
+- example_heading: Install a package
+  text_blocks:
+  - code_block: "package 'tar' do\n  action :install\nend"
+- example_heading: Install a package version
+  text_blocks:
+  - code_block: "package 'tar' do\n  version '1.16.1-1'\n  action :install\nend"
+- example_heading: Install a package with options
+  text_blocks:
+  - code_block: "package 'debian-archive-keyring' do\n  action :install\n  options\
+      \ '--force-yes'\nend"
+- example_heading: Install a package with a response_file
+  text_blocks:
+  - markdown: 'Use of a `response_file` is only supported on Debian and Ubuntu at
+      this
 
+      time. Custom resources must be written to support the use of a
+
+      `response_file`, which contains debconf answers to questions normally
+
+      asked by the package manager on installation. Put the file in
+
+      `/files/default` of the cookbook where the package is specified and Chef
+
+      Infra Client will use the **cookbook_file** resource to retrieve it.
+
+
+      To install a package with a `response_file`:'
+  - code_block: "package 'sun-java6-jdk' do\n  response_file 'java.seed'\nend"
+- example_heading: Install a specified architecture using a named provider
+  text_blocks:
+  - code_block: "yum_package 'glibc-devel' do\n  arch 'i386'\nend"
+- example_heading: Purge a package
+  text_blocks:
+  - code_block: "package 'tar' do\n  action :purge\nend"
+- example_heading: Remove a package
+  text_blocks:
+  - code_block: "package 'tar' do\n  action :remove\nend"
+- example_heading: Upgrade a package
+  text_blocks:
+  - code_block: "package 'tar' do\n  action :upgrade\nend"
+- example_heading: Use the ignore_failure common attribute
+  text_blocks:
+  - shortcode: resource_package_use_ignore_failure_attribute.md
+- example_heading: Avoid unnecessary string interpolation
+  text_blocks:
+  - markdown: 'Do this:'
+  - code_block: "package 'mysql-server' do\n  version node['mysql']['version']\n \
+      \ action :install\nend"
+  - markdown: 'and not this:'
+  - code_block: "package 'mysql-server' do\n  version \"#{node['mysql']['version']}\"\
+      \n  action :install\nend"
+- example_heading: Install a package in a platform
+  text_blocks:
+  - markdown: 'The following example shows how to use the **package** resource to
+
+      install an application named `app` and ensure that the correct packages
+
+      are installed for the correct platform:'
+  - code_block: "package 'app_name' do\n  action :install\nend\n\ncase node[:platform]\n\
+      when 'ubuntu','debian'\n  package 'app_name-doc' do\n    action :install\n \
+      \ end\nwhen 'centos'\n  package 'app_name-html' do\n    action :install\n  end\n\
+      end"
+  - markdown: '**Install sudo, then configure /etc/sudoers/ file**
+
+
+      The following example shows how to install sudo and then configure the
+
+      `/etc/sudoers` file:'
+  - code_block: "#  the following code sample comes from the ``default`` recipe in\
+      \ the ``sudo`` cookbook: https://github.com/chef-cookbooks/sudo\n\npackage 'sudo'\
+      \ do\n  action :install\nend\n\nif node['authorization']['sudo']['include_sudoers_d']\n\
+      \  directory '/etc/sudoers.d' do\n    mode        '0755'\n    owner       'root'\n\
+      \    group       'root'\n    action      :create\n  end\n\n  cookbook_file '/etc/sudoers.d/README'\
+      \ do\n    source      'README'\n    mode        '0440'\n    owner       'root'\n\
+      \    group       'root'\n    action      :create\n  end\nend\n\ntemplate '/etc/sudoers'\
+      \ do\n  source 'sudoers.erb'\n  mode '0440'\n  owner 'root'\n  group platform?('freebsd')\
+      \ ? 'wheel' : 'root'\n  variables(\n    :sudoers_groups => node['authorization']['sudo']['groups'],\n\
+      \    :sudoers_users => node['authorization']['sudo']['users'],\n    :passwordless\
+      \ => node['authorization']['sudo']['passwordless']\n  )\nend"
+  - markdown: "where\n\n-   the **package** resource is used to install sudo\n-  \
+      \ the `if` statement is used to ensure availability of the\n    `/etc/sudoers.d`\
+      \ directory\n-   the **template** resource tells Chef Infra Client where to\
+      \ find the\n    `sudoers` template\n-   the `variables` property is a hash that\
+      \ passes values to template\n    files (that are located in the `templates/`\
+      \ directory for the\n    cookbook"
+- example_heading: Use a case statement to specify the platform
+  text_blocks:
+  - markdown: 'The following example shows how to use a case statement to tell Chef
+
+      Infra Client which platforms and packages to install using cURL.'
+  - code_block: "package 'curl'\n  case node[:platform]\n  when 'redhat', 'centos'\n\
+      \    package 'package_1'\n    package 'package_2'\n    package 'package_3'\n\
+      \  when 'ubuntu', 'debian'\n    package 'package_a'\n    package 'package_b'\n\
+      \    package 'package_c'\n  end\nend"
+  - markdown: 'where `node[:platform]` for each node is identified by Ohai during
+      every
+
+      Chef Infra Client run. For example:'
+  - code_block: "package 'curl'\n  case node[:platform]\n  when 'redhat', 'centos'\n\
+      \    package 'zlib-devel'\n    package 'openssl-devel'\n    package 'libc6-dev'\n\
+      \  when 'ubuntu', 'debian'\n    package 'openssl'\n    package 'pkg-config'\n\
+      \    package 'subversion'\n  end\nend"
+- example_heading: Use symbols to reference attributes
+  text_blocks:
+  - markdown: 'Symbols may be used to reference attributes:'
+  - code_block: "package 'mysql-server' do\n  version node[:mysql][:version]\n  action\
+      \ :install\nend"
+  - markdown: 'instead of strings:'
+  - code_block: "package 'mysql-server' do\n  version node['mysql']['version']\n \
+      \ action :install\nend"
+- example_heading: Use a whitespace array to simplify a recipe
+  text_blocks:
+  - markdown: 'The following examples show different ways of doing the same thing.
+      The
+
+      first shows a series of packages that will be upgraded:'
+  - code_block: "package 'package-a' do\n  action :upgrade\nend\n\npackage 'package-b'\
+      \ do\n  action :upgrade\nend\n\npackage 'package-c' do\n  action :upgrade\n\
+      end\n\npackage 'package-d' do\n  action :upgrade\nend"
+  - markdown: 'and the next uses a single **package** resource and a whitespace array
+
+      (`%w`):'
+  - code_block: "package %w{package-a package-b package-c package-d} do\n  action\
+      \ :upgrade\nend"
+- example_heading: Specify the Homebrew user with a UUID
+  text_blocks:
+  - shortcode: resource_homebrew_package_homebrew_user_as_uuid.md
+- example_heading: Specify the Homebrew user with a string
+  text_blocks:
+  - shortcode: resource_homebrew_package_homebrew_user_as_string.md
 
 ---

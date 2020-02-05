@@ -7,13 +7,12 @@ aliases = "/server_sent_events.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Server Sent Events"
-    identifier = "chef_infra/managing_chef_infra_server/push_jobs/server_sent_events.md Chef Infra Server Sent Events"
-    parent = "chef_infra/managing_chef_infra_server/push_jobs"
+    identifier = "chef_infra/chef_infra_server/push_jobs/server_sent_events.md Chef Infra Server Sent Events"
+    parent = "chef_infra/chef_infra_server/push_jobs"
     weight = 60
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_sent_events.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_sent_events.md)
 
 The Push Jobs server provides feeds of events associated with actions,
 via the [Server-Sent-Events (SSE)

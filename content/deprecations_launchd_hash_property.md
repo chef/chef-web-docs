@@ -12,8 +12,7 @@ aliases = "/deprecations_launchd_hash_property.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_launchd_hash_property.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_launchd_hash_property.md)
 
 <meta name="robots" content="noindex">
 

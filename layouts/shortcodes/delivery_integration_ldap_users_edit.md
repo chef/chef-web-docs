@@ -1,13 +1,13 @@
 <div class="alert-info">
 
 In order to add or edit users, you must have root shell access and the
-**Admin** role assigned in Chef Automate.
+**Admin** role assigned in Workflow.
 
 </div>
 
 To edit LDAP details for a user:
 
-1.  Log into the Chef Automate web UI as an administrator.
+1.  Log into the Workflow web UI as an administrator.
 
 2.  Select **Users** from the drop-down menu on the upper right.
 
@@ -16,14 +16,14 @@ To edit LDAP details for a user:
 
 3.  Click the plus sign (**+**) next to **Add a New User**.
 
-4.  In the **Add New a User** text area, select one of two types for the
-    new user. The selection box is grey for the active selection.
+4.  In the **Add New a User** text area, select one of two types for
+    user. The selection box is grey for the active selection.
 
     **Internal** means you are manually adding the user to the Delivery
     database.
 
     **LDAP** means the user is in an LDAP system that has been
-    integrated to this Chef Automate.
+    integrated to this Workflow.
 
     If you select **Internal**, options for **Name and Email**, first
     name, last name, email address, and **Security Information**, a

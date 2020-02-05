@@ -7,26 +7,93 @@ aliases = "/server_orgs.html"
 [menu]
   [menu.docs]
     title = "Organizations & Groups"
-    identifier = "chef_infra/managing_chef_infra_server/server_orgs.md Organizations & Groups"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/server_orgs.md Organizations & Groups"
+    parent = "chef_infra/chef_infra_server"
     weight = 80
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_orgs.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_orgs.md)
 
 {{% server_rbac %}}
 
-{{% server_rbac_components %}}
+The Chef Infra Server uses organizations, groups, and users to define
+role-based access control:
 
-{{% server_rbac_workflow %}}
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><img src="/images/icon_server_organization.svg" class="align-center" width="100" alt="image" /></td>
+<td>An organization is the top-level entity for role-based access control in the Chef Infra Server. Each organization contains the default groups (<code>admins</code>, <code>clients</code>, and <code>users</code>, plus <code>billing_admins</code> for the hosted Chef Infra Server), at least one user and at least one node (on which the Chef Infra Client is installed). The Chef Infra Server supports multiple organizations. The Chef Infra Server includes a single default organization that is defined during setup. Additional organizations can be created after the initial setup and configuration of the Chef Infra Server.</td>
+</tr>
+<tr class="even">
+<td><p><img src="/images/icon_server_groups.svg" class="align-center" width="100" alt="image" /></p></td>
+<td><p>A group is used to define access to object types and objects in the Chef Infra Server and also to assign permissions that determine what types of tasks are available to members of that group who are authorized to perform them. Groups are configured per-organization.</p>
+<p>Individual users who are members of a group will inherit the permissions assigned to the group. The Chef Infra Server includes the following default groups: <code>admins</code>, <code>clients</code>, and <code>users</code>. For users of the hosted Chef Infra Server, an additional default group is provided: <code>billing_admins</code>.</p></td>
+</tr>
+<tr class="odd">
+<td><img src="/images/icon_server_users.svg" class="align-center" width="100" alt="image" /></td>
+<td>A user is any non-administrator human being who will manage data that is uploaded to the Chef Infra Server from a workstation or who will log on to the Chef management console web user interface. The Chef Infra Server includes a single default user that is defined during setup and is automatically assigned to the <code>admins</code> group.</td>
+</tr>
+<tr class="even">
+<td><img src="/images/icon_chef_client.svg" class="align-center" width="100" alt="image" /></td>
+<td>A client is an actor that has permission to access the Chef Infra Server. A client is most often a node (on which the Chef Infra Client runs), but is also a workstation (on which knife runs), or some other machine that is configured to use the Chef Infra Server API. Each request to the Chef Infra Server that is made by a client uses a private key for authentication that must be authorized by the public key on the Chef Infra Server.</td>
+</tr>
+</tbody>
+</table>
+
+When a user makes a request to the Chef Infra Server using the Chef
+Infra Server API, permission to perform that action is determined by the
+following process:
+
+1.  Check if the user has permission to the object type
+2.  If no, recursively check if the user is a member of a security group
+    that has permission to that object
+3.  If yes, allow the user to perform the action
+
+Permissions are managed using the Chef management console add-on in the
+Chef Infra Server web user interface.
 
 Organizations
 =============
 
-{{% server_rbac_orgs_multi %}}
+A single instance of the Chef Infra Server can support many
+organizations. Each organization has a unique set of groups and users.
+Each organization manages a unique set of nodes, on which a Chef Infra
+Client is installed and configured so that it may interact with a single
+organization on the Chef Infra Server.
 
-{{% server_rbac_orgs_multi_use %}}
+![image](/images/server_rbac_orgs_groups_and_users.png)
+
+A user may belong to multiple organizations under the following
+conditions:
+
+-   Role-based access control is configured per-organization
+-   For a single user to interact with the Chef Infra Server using knife
+    from the same chef-repo, that user may need to edit their config.rb
+    file prior to that interaction
+
+Using multiple organizations within the Chef Infra Server ensures that
+the same toolset, coding patterns and practices, physical hardware, and
+product support effort is being applied across the entire company, even
+when:
+
+-   Multiple product groups must be supported---each product group can
+    have its own security requirements, schedule, and goals
+-   Updates occur on different schedules---the nodes in one organization
+    are managed completely independently from the nodes in another
+-   Individual teams have competing needs for object and object
+    types---data bags, environments, roles, and cookbooks are unique to
+    each organization, even if they share the same name
 
 Permissions
 -----------
@@ -39,7 +106,34 @@ Permissions
 
 ### Global Permissions
 
-{{% server_rbac_permissions_global %}}
+The Chef Infra Server includes the following global permissions:
+
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 87%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Permission</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Create</strong></td>
+<td>Use the <strong>Create</strong> global permission to define which users and groups may create the following server object types: cookbooks, data bags, environments, nodes, roles, and tags. This permission is required for any user who uses the <code>knife [object] create</code> argument to interact with objects on the Chef Infra Server.</td>
+</tr>
+<tr class="even">
+<td><strong>List</strong></td>
+<td>Use the <strong>List</strong> global permission to define which users and groups may view the following server object types: cookbooks, data bags, environments, nodes, roles, and tags. This permission is required for any user who uses the <code>knife [object] list</code> argument to interact with objects on the Chef Infra Server.</td>
+</tr>
+</tbody>
+</table>
+
+These permissions set the default permissions for the following Chef
+Infra Server object types: clients, cookbooks, data bags, environments,
+groups, nodes, roles, and sandboxes.
 
 ### Client Key Permissions
 
@@ -51,7 +145,36 @@ migration.
 
 {{< /note >}}
 
-{{% server_rbac_permissions_key %}}
+Keys should have `DELETE`, `GRANT`, `READ` and `UPDATE` permissions.
+
+Use the following code to set the correct permissions:
+
+``` ruby
+#!/usr/bin/env ruby
+require 'chef/knife'
+
+#previously knife.rb
+Chef::Config.from_file(File.join(Chef::Knife.chef_config_dir, 'knife.rb'))
+
+rest = Chef::ServerAPI.new(Chef::Config[:chef_server_url])
+
+Chef::Node.list.each do |node|
+  %w{read update delete grant}.each do |perm|
+    ace = rest.get("nodes/#{node[0]}/_acl")[perm]
+    ace['actors'] << node[0] unless ace['actors'].include?(node[0])
+    rest.put("nodes/#{node[0]}/_acl/#{perm}", perm => ace)
+    puts "Client \"#{node[0]}\" granted \"#{perm}\" access on node \"#{node[0]}\""
+  end
+end
+```
+
+Save it as a Ruby script---`chef_server_permissions.rb`, for
+example---in the `.chef/scripts` directory located in the chef-repo, and
+then run a knife command similar to:
+
+``` bash
+$ knife exec chef_server_permissions.rb
+```
 
 ### Knife ACL
 

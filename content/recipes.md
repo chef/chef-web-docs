@@ -12,8 +12,7 @@ aliases = "/recipes.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/recipes.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/recipes.md)
 
 {{% cookbooks_recipe %}}
 

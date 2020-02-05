@@ -1,160 +1,184 @@
 ---
-######## Page Data ########
 title: mdadm resource
 resource: mdadm
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_mdadm.html
-
 menu:
   docs:
     title: mdadm
     identifier: chef_infra/cookbook_reference/resources/resource_mdadm.md mdadm
     parent: chef_infra/cookbook_reference/resources
     weight: 560
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **mdadm** resource to manage RAID devices in a Linux environment
 
+    using the mdadm utility. The **mdadm** resource will create and assemble
 
-######## Basic Resource Data ########
+    an array, but it will not create the config file that is used to persist
 
-resource_description:
-resource_note:
-resource_new_in:      
+    the array upon reboot. If the config file is required, it must be done
 
+    by specifying a template with the correct array layout, and then by
 
-######## Handler Types ########
+    using the **mount** resource to create a file systems table (fstab)
+
+    entry.'
+resource_new_in: null
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The mdadm resource has the following syntax:'
+syntax_code_block: "mdadm 'name' do\n  bitmap           String\n  chunk          \
+  \  Integer # default value: 16\n  devices          Array\n  layout           String\n\
+  \  level            Integer # default value: 1\n  metadata         String # default\
+  \ value: \"0.90\"\n  raid_device      String # default value: 'name' unless specified\n\
+  \  action           Symbol # defaults to :create if not specified\nend"
+syntax_properties_list:
+- '`mdadm` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`bitmap`, `chunk`, `devices`, `layout`, `level`, `metadata`, and `raid_device`
+  are the properties available to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :assemble:
+    markdown: Assemble a previously created array into an active array.
+  :create:
+    markdown: Default. Create an array with per-device superblocks. If an array already
+      exists (but does not match), update that array to match.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :stop:
+    markdown: Stop an active array.
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: bitmap
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The path to a file in which a write-intent bitmap is stored.
+- property: chunk
+  ruby_type: Integer
+  required: false
+  default_value: '16'
+  new_in: null
+  description_list:
+  - markdown: 'The chunk size. This property should not be used for a RAID 1
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      mirrored pair (i.e. when the `level` property is set to `1`).'
+- property: devices
+  ruby_type: Array
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The devices to be part of a RAID array.
+- property: layout
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'The RAID5 parity algorithm. Possible values: `left-asymmetric` (or
+
+      `la`), `left-symmetric` (or `ls`), `right-asymmetric` (or `ra`), or
+
+      `right-symmetric` (or `rs`).'
+- property: level
+  ruby_type: Integer
+  required: false
+  default_value: '1'
+  new_in: null
+  description_list:
+  - markdown: The RAID level.
+- property: metadata
+  ruby_type: String
+  required: false
+  default_value: '"0.90"'
+  new_in: null
+  description_list:
+  - markdown: The superblock type for RAID metadata.
+- property: raid_device
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'An optional property to specify the name of the RAID device if it
+
+      differs from the resource block''s name.'
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: Create and assemble a RAID 0 array
+  text_blocks:
+  - markdown: 'The mdadm command can be used to create RAID arrays. For example, a
+      RAID
 
+      0 array named `/dev/md0` with 10 devices would have a command similar to
+
+      the following:
+
+
+      ``` bash
+
+      $ mdadm --create /dev/md0 --level=0 --raid-devices=10 /dev/s01.../dev/s10
+
+      ```
+
+
+      where `/dev/s01 .. /dev/s10` represents 10 devices (01, 02, 03, and so
+
+      on). This same command, when expressed as a recipe using the **mdadm**
+
+      resource, would be similar to:'
+  - code_block: "mdadm '/dev/md0' do\n  devices [ '/dev/s01', ... '/dev/s10' ]\n \
+      \ level 0\n  action :create\nend"
+  - markdown: '(again, where `/dev/s01 .. /dev/s10` represents devices /dev/s01,
+
+      /dev/s02, /dev/s03, and so on).'
+- example_heading: Create and assemble a RAID 1 array
+  text_blocks:
+  - code_block: "mdadm '/dev/md0' do\n  devices [ '/dev/sda', '/dev/sdb' ]\n  level\
+      \ 1\n  action [ :create, :assemble ]\nend"
+- example_heading: Create and assemble a RAID 5 array
+  text_blocks:
+  - markdown: 'The mdadm command can be used to create RAID arrays. For example, a
+      RAID
+
+      5 array named `/dev/sd0` with 4, and a superblock type of `0.90` would
+
+      be similar to:'
+  - code_block: "mdadm '/dev/sd0' do\n  devices [ '/dev/s1', '/dev/s2', '/dev/s3',\
+      \ '/dev/s4' ]\n  level 5\n  metadata '0.90'\n  chunk 32\n  action :create\n\
+      end"
 
 ---

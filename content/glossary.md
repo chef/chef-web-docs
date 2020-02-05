@@ -12,19 +12,18 @@ aliases = "/glossary.html"
     weight = 80
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/glossary.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/glossary.md)
 
 **Acceptance**
 
-:   A Chef Automate stage. The Acceptance stage is where your team
-    decides whether the submitted change should ship all the way out to
-    its final destination.
+:   A Workflow stage. The Acceptance stage is where your team decides
+    whether the submitted change should ship all the way out to its
+    final destination.
 
 **analytics rules**
 
 :   Event tracking during a Chef Infra Client run that generates data
-    made visible to Chef Automate.
+    made visible to Workflow.
 
 **Berkshelf**
 
@@ -32,9 +31,9 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/g
 
 **Build**
 
-:   A Chef Automate stage. The purpose of the Build stage is to assemble
-    one or more potentially releasable artifacts and make them available
-    to the remaining stages of the pipeline. Using Berkshelf can help to
+:   A Workflow stage. The purpose of the Build stage is to assemble one
+    or more potentially releasable artifacts and make them available to
+    the remaining stages of the pipeline. Using Berkshelf can help to
     manage cookbook dependencies.
 
 **chef-apply**
@@ -102,11 +101,11 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/g
 
 **Delivered**
 
-:   A Chef Automate stage. Delivered is the final stage of the pipeline,
-    what it means for your system is up to you. It could mean deploying
-    the change so that it is live and receiving production traffic, or
-    it might mean publishing a set of artifacts so they are accessible
-    for your customers.
+:   A Workflow stage. Delivered is the final stage of the pipeline, what
+    it means for your system is up to you. It could mean deploying the
+    change so that it is live and receiving production traffic, or it
+    might mean publishing a set of artifacts so they are accessible for
+    your customers.
 
 **environment**
 
@@ -170,9 +169,9 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/g
 **pipeline**
 
 :   A pipeline is series of automated and manual quality gates that take
-    software changes from development to delivery. Pipelines in Chef
-    Automate have six stages: Verify, Build, Acceptance, Union,
-    Rehearsal, and Delivered.
+    software changes from development to delivery. Pipelines in Workflow
+    have six stages: Verify, Build, Acceptance, Union, Rehearsal, and
+    Delivered.
 
 **policy**
 
@@ -228,28 +227,28 @@ GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/g
 
 **Union**
 
-:   A Chef Automate stage. Union is the first of the three shared
-    pipeline stages. The purpose of the Union stage is to assess the
-    impact of the change in the context of a complete (or as close as
-    possible) installation of the set of projects that comprise the
-    system as a whole.
+:   A Workflow stage. Union is the first of the three shared pipeline
+    stages. The purpose of the Union stage is to assess the impact of
+    the change in the context of a complete (or as close as possible)
+    installation of the set of projects that comprise the system as a
+    whole.
 
 **Verify**
 
-:   A Chef Automate stage. The purpose of Verify is to run checks so
-    that the system can decide if it's worth the time of a human to
-    review the submitted change.
+:   A Workflow stage. The purpose of Verify is to run checks so that the
+    system can decide if it's worth the time of a human to review the
+    submitted change.
 
 **visibility**
 
-:   A feature of Chef Automate that provides real-time visibility into
-    what is happening on the Chef Infra Server, including what's
-    changing, who made those changes, and when they occurred.
+:   A feature of Workflow that provides real-time visibility into what
+    is happening on the Chef Infra Server, including what's changing,
+    who made those changes, and when they occurred.
 
 **workflow**
 
-:   A feature of Chef Automate that manages changes to both
-    infrastructure and application code, giving your operations and
-    development teams a common platform for developing, building,
-    testing, and deploying cookbooks, applications, and more. For more
-    information see the [Chef Automate Overview](/chef_automate/).
+:   A feature of Workflow that manages changes to both infrastructure
+    and application code, giving your operations and development teams a
+    common platform for developing, building, testing, and deploying
+    cookbooks, applications, and more. For more information see the
+    [Chef Automate Overview](/workflow%20.html).

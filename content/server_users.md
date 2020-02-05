@@ -7,13 +7,12 @@ aliases = "/server_users.html"
 [menu]
   [menu.docs]
     title = "Users"
-    identifier = "chef_infra/managing_chef_infra_server/server_users.md Users"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/server_users.md Users"
+    parent = "chef_infra/chef_infra_server"
     weight = 140
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/server_users.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/server_users.md)
 
 The following tasks are available for user management in Chef Infra
 Server:

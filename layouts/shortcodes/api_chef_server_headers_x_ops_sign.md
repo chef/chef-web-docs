@@ -1,1 +1,0 @@
-Set this header to the following value: `version=1.0`.

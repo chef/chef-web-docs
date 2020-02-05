@@ -1,1 +1,0 @@
-Use the **group** resource to manage a local group.

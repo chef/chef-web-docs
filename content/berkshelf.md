@@ -12,8 +12,7 @@ aliases = "/berkshelf.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/berkshelf.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/berkshelf.md)
 
 Berkshelf is a dependency manager for Chef cookbooks. With it, you can
 easily depend on community cookbooks and have them safely included in

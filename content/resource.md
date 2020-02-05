@@ -12,8 +12,7 @@ aliases = "/resource.html"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/resource.md)
 
 {{% resources_common %}}
 

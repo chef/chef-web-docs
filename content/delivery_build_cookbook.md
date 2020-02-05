@@ -7,13 +7,12 @@ aliases = "/delivery_build_cookbook.html"
 [menu]
   [menu.docs]
     title = "build-cookbook (cookbook)"
-    identifier = "legacy/chef_automate_1/workflow/delivery_build_cookbook.md build-cookbook (cookbook)"
-    parent = "legacy/chef_automate_1/workflow"
+    identifier = "legacy/workflow/managing_workflow/delivery_build_cookbook.md build-cookbook (cookbook)"
+    parent = "legacy/workflow/managing_workflow"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_build_cookbook.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_build_cookbook.md)
 
 <meta name="robots" content="noindex">
 

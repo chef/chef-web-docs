@@ -12,8 +12,7 @@ aliases = "/plugin_knife_opc.html"
     weight = 350
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_opc.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_opc.md)
 
 The `knife opc` subcommand is used to manage organizations and users in
 Chef Server 12.

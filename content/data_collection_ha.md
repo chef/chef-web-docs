@@ -7,13 +7,12 @@ aliases = "/data_collection_ha.html"
 [menu]
   [menu.docs]
     title = "Data Collection with Chef HA"
-    identifier = "legacy/chef_automate_1/getting_started/data_collection_ha.md Data Collection with Chef HA"
-    parent = "legacy/chef_automate_1/getting_started"
+    identifier = "legacy/workflow/workflow_basics/data_collection_ha.md Data Collection with Chef HA"
+    parent = "legacy/workflow/workflow_basics"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/data_collection_ha.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/data_collection_ha.md)
 
 <meta name="robots" content="noindex">
 

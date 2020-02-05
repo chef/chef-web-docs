@@ -1,7 +1,7 @@
-`Chef::Log` extends `Mixlib::Log` and will print log entries to the
-default logger that is configured for the machine on which Chef Infra
-Client is running. (To create a log entry that is built into the
-resource collection, use the **log** resource instead of `Chef::Log`.)
+`Chef::Log` will print log entries to the default logger that is
+configured for the machine on which Chef Infra Client is running. (To
+create a log entry that is built into the resource collection, use the
+**log** resource instead of `Chef::Log`.)
 
 The following log levels are supported:
 

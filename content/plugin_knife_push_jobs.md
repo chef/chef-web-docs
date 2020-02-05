@@ -7,13 +7,12 @@ aliases = "/plugin_knife_push_jobs.html"
 [menu]
   [menu.docs]
     title = "knife push jobs"
-    identifier = "chef_infra/managing_chef_infra_server/push_jobs/plugin_knife_push_jobs.md knife push jobs"
-    parent = "chef_infra/managing_chef_infra_server/push_jobs"
+    identifier = "chef_infra/chef_infra_server/push_jobs/plugin_knife_push_jobs.md knife push jobs"
+    parent = "chef_infra/chef_infra_server/push_jobs"
     weight = 10
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/plugin_knife_push_jobs.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_push_jobs.md)
 
 {{% plugin_knife_push_jobs_summary %}}
 

@@ -12,8 +12,7 @@ aliases = "/proxies.html"
     weight = 40
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/proxies.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/proxies.md)
 
 In an environment that requires proxies to reach the Internet, many Chef
 commands will not work until they are configured correctly. To configure

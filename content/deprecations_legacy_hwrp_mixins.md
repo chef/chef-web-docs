@@ -12,8 +12,7 @@ aliases = "/deprecations_legacy_hwrp_mixins.html"
     
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/deprecations_legacy_hwrp_mixins.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_legacy_hwrp_mixins.md)
 
 <meta name="robots" content="noindex">
 

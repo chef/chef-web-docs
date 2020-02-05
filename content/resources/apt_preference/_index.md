@@ -1,160 +1,134 @@
 ---
-######## Page Data ########
 title: apt_preference resource
 resource: apt_preference
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_apt_preference.html
-
 menu:
   docs:
     title: apt_preference
-    identifier: chef_infra/cookbook_reference/resources/resource_apt_preference.md apt_preference
+    identifier: chef_infra/cookbook_reference/resources/resource_apt_preference.md
+      apt_preference
     parent: chef_infra/cookbook_reference/resources
     weight: 70
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'The **apt_preference** resource allows for the creation of APT
 
+    [preference files](https://wiki.debian.org/AptPreferences). Preference
 
-######## Basic Resource Data ########
+    files are used to control which package versions and sources are
 
-resource_description:
-resource_note:
-resource_new_in:      
-
-
-######## Handler Types ########
+    prioritized during installation.'
+resource_new_in: '13.3'
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'The apt_preference resource has the following syntax:'
+syntax_code_block: "apt_preference 'name' do\n  glob              String\n  package_name\
+  \      String # default value: 'name' unless specified\n  pin               String\n\
+  \  pin_priority      String, Integer\n  action            Symbol # defaults to :add\
+  \ if not specified\nend"
+syntax_properties_list:
+- '`apt_preference` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`glob`, `package_name`, `pin`, and `pin_priority` are the properties available
+  to this resource.'
+syntax_full_code_block: null
+syntax_full_properties_list: null
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  add:
+    markdown: Default action. Creates a preferences file under `/etc/apt/preferences.d`.
+  remove:
+    markdown: Removes the preferences file, thus unpinning the package.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: glob
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'Pin by `glob()` expression or with regular expressions surrounded by
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      `/`.'
+- property: package_name
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'An optional property to set the package name if it differs from the
+
+      resource block''s name.'
+- property: pin
+  ruby_type: String
+  required: true
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The package version or repository to pin.
+- property: pin_priority
+  ruby_type: String, Integer
+  required: true
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'Sets the `Pin-Priority` for a package. See the [APT pinning
+
+      documentation](https://wiki.debian.org/AptPreferences) for more
+
+      details.'
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: Pin a package to a specific version
+  text_blocks:
+  - markdown: 'This example pins the `libmysqlclient16` package to `version 5.1.49-3`:'
+  - code_block: "apt_preference 'libmysqlclient16' do\n  pin          'version 5.1.49-3'\n\
+      \  pin_priority '700'\nend"
+  - markdown: 'Note that the `pin_priority` of `700` ensures that this version will
+      be
 
+      preferred over any other available versions.'
+- example_heading: Unpin a package
+  text_blocks:
+  - markdown: 'This example unpins the `libmysqlclient16` package, disabling all
+
+      preferences for it:'
+  - code_block: "apt_preference 'libmysqlclient16' do\n  action :remove\nend"
+- example_heading: Pin all packages to prefer a specific repository
+  text_blocks:
+  - markdown: 'This example instructs APT to prefer the `packages.dotdeb.org`
+
+      repository:'
+  - code_block: "apt_preference 'dotdeb' do\n  glob         '*'\n  pin          'origin\
+      \ packages.dotdeb.org'\n  pin_priority '700'\nend"
 
 ---

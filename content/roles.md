@@ -12,8 +12,7 @@ aliases = "/roles.html"
     weight = 50
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/roles.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/roles.md)
 
 {{% role %}}
 

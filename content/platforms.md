@@ -12,8 +12,7 @@ aliases = "/platforms.html"
     weight = 20
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/platforms.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/platforms.md)
 
 Chef software is supported on the various operating systems (platforms)
 listed below. To see which versions of our software we currently
@@ -122,7 +121,7 @@ versions for Chef Infra Client:
 <tr class="even">
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>7</code>, <code>8.1</code>, <code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
+<td><code>8.1</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), both Desktop Experience and Server Core)</code></td>
 </tr>
 </tbody>
 </table>
@@ -337,7 +336,7 @@ versions for ChefDK:
 <tr class="even">
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
+<td><code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10 (all channels except "insider" builds)</code>, <code>2019 (Long-term servicing channel (LTSC), Desktop Experience only)</code></td>
 </tr>
 </tbody>
 </table>
@@ -516,7 +515,7 @@ Chef Push Jobs client:
 <tr class="odd">
 <td>Microsoft Windows</td>
 <td><code>x86</code>, <code>x64</code></td>
-<td><code>2008 R2</code>, <code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10</code></td>
+<td><code>2012</code>, <code>2012 R2</code>, <code>2016</code>, <code>10</code></td>
 </tr>
 </tbody>
 </table>

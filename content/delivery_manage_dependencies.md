@@ -7,13 +7,12 @@ aliases = "/delivery_manage_dependencies.html"
 [menu]
   [menu.docs]
     title = "Manage Dependencies"
-    identifier = "legacy/chef_automate_1/workflow/delivery_manage_dependencies.md Manage Dependencies"
-    parent = "legacy/chef_automate_1/workflow"
+    identifier = "legacy/workflow/managing_workflow/delivery_manage_dependencies.md Manage Dependencies"
+    parent = "legacy/workflow/managing_workflow"
     weight = 30
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/delivery_manage_dependencies.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/delivery_manage_dependencies.md)
 
 <meta name="robots" content="noindex">
 

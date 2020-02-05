@@ -7,15 +7,17 @@ aliases = "/api_chef_server.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Server API"
-    identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
-    parent = "chef_infra/managing_chef_infra_server"
+    identifier = "chef_infra/chef_infra_server/api_chef_server.md Chef Infra Server API"
+    parent = "chef_infra/chef_infra_server"
     weight = 200
 +++    
 
-[\[edit on
-GitHub\]](https://github.com/chef/chef-web-docs/blob/master/chef_master/source/api_chef_server.rst)
+[\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/api_chef_server.md)
 
-{{% api_chef_server_summary %}}
+The Chef Infra Server API is a REST API that provides access to objects
+on the Chef Infra Server, including nodes, environments, roles,
+cookbooks (and cookbook versions), and to manage an API client list and
+the associated RSA public key-pairs.
 
 Requirements
 ============
@@ -34,12 +36,77 @@ The Chef Infra Server API has the following requirements:
 Authentication Headers
 ======================
 
-{{% api_chef_server_headers %}}
+Authentication to the Chef Infra Server occurs when a specific set of
+HTTP headers are signed using a private key that is associated with the
+machine from which the request is made. The request is authorized if the
+Chef Infra Server can verify the signature using the public key. Only
+authorized actions are allowed.
+
+{{< note >}}
+
+Most authentication requests made to the Chef Infra Server are
+abstracted from the user. Such as when using knife or the Chef Infra
+Server user interface. In some cases, such as when using the
+`knife exec` subcommand, the authentication requests need to be made
+more explicitly, but still in a way that does not require authentication
+headers. In a few cases, such as when using arbitrary Ruby code or cURL,
+it may be necessary to include the full authentication header as part of
+the request to the Chef Infra Server.
+
+{{< /note >}}
 
 Header Format
 -------------
 
-{{% api_chef_server_headers_format %}}
+By default, all hashing is done using SHA-1 and encoded in Base64.
+Base64 encoding should have line breaks every 60 characters. Each
+canonical header should be encoded in the following format:
+
+``` none
+Method:HTTP_METHOD
+Hashed Path:HASHED_PATH
+X-Ops-Content-Hash:HASHED_BODY
+X-Ops-Timestamp:TIME
+X-Ops-UserId:USERID
+```
+
+where:
+
+-   `HTTP_METHOD` is the method used in the API request (`GET`, `POST`,
+    and so on)
+-   `HASHED_PATH` is the path of the request:
+    `/organizations/NAME/name_of_endpoint`. The `HASHED_PATH` must be
+    hashed using SHA-1 and encoded using Base64, must not have repeated
+    forward slashes (`/`), must not end in a forward slash (unless the
+    path is `/`), and must not include a query string.
+-   The private key must be an RSA key in the SSL `.pem` file format.
+    This signature is then broken into character strings (of not more
+    than 60 characters per line) and placed in the header.
+
+The Chef Infra Server decrypts this header and ensures its content
+matches the content of the non-encrypted headers that were in the
+request. The timestamp of the message is checked to ensure the request
+was received within a reasonable amount of time. One approach generating
+the signed headers is to use
+[mixlib-authentication](https://github.com/chef/mixlib-authentication),
+which is a class-based header signing authentication object similar to
+the one used by Chef Infra Client.
+
+### Enable SHA-256
+
+Chef Server versions 12.4.0 and above support signing protocol version
+1.3, which adds support for SHA-256 algorithms. It can be enabled on
+Chef Infra Client via the `client.rb` file:
+
+``` ruby
+authentication_protocol_version = '1.3'
+```
+
+And on Chef knife via `config.rb`:
+
+``` ruby
+knife[:authentication_protocol_version] = '1.3'
+```
 
 Required Headers
 ----------------
@@ -60,7 +127,7 @@ The following authentication headers are required:
 <tbody>
 <tr class="odd">
 <td><code>Accept</code></td>
-<td>{{% api_chef_server_headers_accept %}}</td>
+<td>The format in which response data from the Chef Infra Server is provided. This header must be set to <code>application/json</code>.</td>
 </tr>
 <tr class="even">
 <td><code>Content-Type</code></td>
@@ -68,19 +135,19 @@ The following authentication headers are required:
 </tr>
 <tr class="odd">
 <td><code>Host</code></td>
-<td>{{% api_chef_server_headers_host %}}</td>
+<td>The host name (and port number) to which a request is sent. (Port number <code>80</code> does not need to be specified.) For example: <code>api.opscode.com</code> (which is the same as <code>api.opscode.com:80</code>) or <code>api.opscode.com:443</code>.</td>
 </tr>
 <tr class="even">
 <td><code>X-Chef-Version</code></td>
-<td>{{% api_chef_server_headers_x_chef_version %}}</td>
+<td>The version of the Chef Infra Client executable from which a request is made. This header ensures that responses are in the correct format. For example: <code>12.0.2</code> or <code>11.16.x</code>.</td>
 </tr>
 <tr class="odd">
 <td><code>X-Ops-Authorization-N</code></td>
-<td>{{% api_chef_server_headers_x_ops_authorization %}}</td>
+<td>One (or more) 60 character segments that comprise the canonical header. A canonical header is signed with the private key used by the client machine from which the request is sent, and is also encoded using Base64. If more than one segment is required, each should be named sequentially, e.g. <code>X-Ops-Authorization-1</code>, <code>X-Ops-Authorization-2</code>, <code>X-Ops-Authorization-N</code>, where <code>N</code> represents the integer used by the last header that is part of the request.</td>
 </tr>
 <tr class="even">
 <td><code>X-Ops-Content-Hash</code></td>
-<td>{{% api_chef_server_headers_x_ops_content_hash %}}</td>
+<td>The body of the request. The body should be hashed using SHA-1 and encoded using Base64. All hashing is done using SHA-1 and encoded in Base64. Base64 encoding should have line breaks every 60 characters.</td>
 </tr>
 <tr class="odd">
 <td><code>X-Ops-Server-API-Version</code></td>
@@ -88,15 +155,15 @@ The following authentication headers are required:
 </tr>
 <tr class="even">
 <td><code>X-Ops-Sign</code></td>
-<td>{{% api_chef_server_headers_x_ops_sign %}}</td>
+<td>Set this header to the following value: <code>version=1.0</code>.</td>
 </tr>
 <tr class="odd">
 <td><code>X-Ops-Timestamp</code></td>
-<td>{{% api_chef_server_headers_x_ops_timestamp %}}</td>
+<td>The timestamp, in ISO-8601 format and with UTC indicated by a trailing <code>Z</code> and separated by the character <code>T</code>. For example: <code>2013-03-10T14:14:44Z</code>.</td>
 </tr>
 <tr class="even">
 <td><code>X-Ops-UserId</code></td>
-<td>{{% api_chef_server_headers_x_ops_userid %}}</td>
+<td>The name of the API client whose private key will be used to create the authorization header.</td>
 </tr>
 </tbody>
 </table>
@@ -111,7 +178,27 @@ Server API.
 Example
 -------
 
-{{% api_chef_server_headers_example %}}
+The following example shows an authentication request:
+
+``` none
+GET /organizations/NAME/nodes HTTP/1.1
+  Accept: application/json
+  Accept-Encoding: gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  X-Ops-Sign: algorithm=sha1;version=1.0;
+  X-Ops-Userid: user_id
+  X-Ops-Timestamp: 2014-12-12T17:13:28Z
+  X-Ops-Content-Hash: 2jmj7l5rfasfgSw0ygaVb/vlWAghYkK/YBwk=
+  X-Ops-Authorization-1: BE3NnBritishaf3ifuwLSPCCYasdfXaRN5oZb4c6hbW0aefI
+  X-Ops-Authorization-2: sL4j1qtEZzi/2WeF67UuytdsdfgbOc5CjgECQwqrym9gCUON
+  X-Ops-Authorization-3: yf0p7PrLRCNasdfaHhQ2LWSea+kTcu0dkasdfvaTghfCDC57
+  X-Ops-Authorization-4: 155i+ZlthfasfasdffukusbIUGBKUYFjhbvcds3k0i0gqs+V
+  X-Ops-Authorization-5: /sLcR7JjQky7sdafIHNfsBQrISktNPower1236hbFIayFBx3
+  X-Ops-Authorization-6: nodilAGMb166@haC/fttwlWQ2N1LasdqqGomRedtyhSqXA==
+  Host: api.opscode.com:443
+  X-Ops-Server-API-Info: 1
+  X-Chef-Version: 12.0.2
+  User-Agent: Chef Knife/12.0.2 (ruby-2.1.1-p320; ohai-8.0.0; x86_64-darwin12.0.2; +http://chef.io)
+```
 
 Knife API Requests
 ------------------
@@ -211,15 +298,17 @@ This method has no parameters.
 GET /license
 ```
 
+This method has no request body.
+
 **Response**
 
 The response is similar to:
 
 ``` javascript
 {
-  "limit_exceeded": "false",
-  "node_license": "25",
-  "node_count": "12",
+  "limit_exceeded": false,
+  "node_license": 25,
+  "node_count": 12,
   "upgrade_url": "http://www.chef.io/contact/on-premises-simple"
 }
 ```
@@ -281,10 +370,6 @@ number of nodes that are under license:
 <tr class="odd">
 <td><code>403</code></td>
 <td>Forbidden. The user who made the request is not authorized to perform the action.</td>
-</tr>
-<tr class="even">
-<td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
 </tr>
 </tbody>
 </table>
@@ -606,17 +691,22 @@ The response will return the JSON for the updated organization.
 /_status
 ---------
 
-The `/_status` endpoint can be used to check the status of
-communications between the front and back end servers. This endpoint is
-located at `/_status` on the front end servers.
+Use the `/_status` endpoint to check the status of communications
+between the front and back end servers. This endpoint is located at
+`/_status` on the front end servers. The `/_status` endpoint does not
+require authentication headers.
+
+### GET
+
+The `GET` method is used to get the details for the named organization.
 
 **Request**
 
 ``` none
-api.get("https://chef_server.front_end.url/_status")
+GET /_status
 ```
 
-This method has no request body.
+This method has no parameters. This method has no request body.
 
 **Response**
 
@@ -630,6 +720,11 @@ The response will return something like the following:
       "service_name": "pong",
       "service_name": "pong",
       ...
+    }
+  "keygen":
+    {
+      "keys": 10,
+      ....
     }
  }
 ```
@@ -1446,7 +1541,15 @@ similar to:
 Organization Endpoints
 ======================
 
-{{% api_chef_server_endpoints %}}
+Each organization-specific authentication request must include
+`/organizations/NAME` as part of the name for the endpoint. For example,
+the full endpoint for getting a list of roles:
+
+``` none
+GET /organizations/NAME/roles
+```
+
+where `ORG_NAME` is the name of the organization.
 
 /association_requests
 ----------------------
@@ -1478,7 +1581,9 @@ The response is similar to:
 
 ``` javascript
 {
-
+  "id":      "79b9382ab70e962907cee1747f9969a4",
+  "orgname": "testorg",
+  "username" "janedoe"
 }
 ```
 
@@ -1527,13 +1632,87 @@ This method has no parameters.
 GET /organizations/NAME/association_requests
 ```
 
+This method has no request body.
+
+**Response**
+
+The response returns a dictionary similar to:
+
+``` javascript
+[
+  {
+    "id": "79b9382ab70e962907cee1747f9969a4",
+    "username": "marygupta"
+  },
+  {
+    "id": "24t1432uf33x799382abb7096g8190b5",
+    "username": "johnirving"
+  }
+]
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+</tbody>
+</table>
+
+### POST
+
+The `POST` method is used to create an invitation.
+
+This method has no parameters.
+
+**Request**
+
+``` javascript
+{
+ "user": "billysmith"
+}
+
+POST /organizations/NAME/association_requests
+```
+
 **Response**
 
 The response is similar to:
 
 ``` javascript
 {
-
+  "uri": "https:/organization/test/association_requests/79b9382ab70e962907cee1747f9969a4",
+  "organization_user": {
+    "username": "authorizeduser"
+  },
+  "organization": {
+    "name": "test"
+  },
+  "user": {
+    "email": "sallyjane@domain.org",
+    "first_name": "sally"
+  }
 }
 ```
 
@@ -1552,57 +1731,8 @@ The response is similar to:
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
-</tr>
-<tr class="even">
-<td><code>401</code></td>
-<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
-</tr>
-<tr class="odd">
-<td><code>403</code></td>
-<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
-</tr>
-<tr class="even">
-<td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
-</tr>
-</tbody>
-</table>
-
-### POST
-
-The `POST` method is used to create an invitation.
-
-This method has no parameters.
-
-**Request**
-
-``` none
-POST /organizations/NAME/association_requests
-```
-
-**Response**
-
-This method has no response body.
-
-**Response Codes**
-
-<table>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Response Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>200</code></td>
-<td>OK. The request was successful.</td>
+<td><code>201</code></td>
+<td>OK. An invitation was created.</td>
 </tr>
 <tr class="even">
 <td><code>400</code></td>
@@ -1618,15 +1748,11 @@ This method has no response body.
 </tr>
 <tr class="odd">
 <td><code>404</code></td>
-<td>Not found. The requested object does not exist.</td>
+<td>Not found. The invited user does not exist.</td>
 </tr>
 <tr class="even">
 <td><code>409</code></td>
 <td>Conflict. The object already exists.</td>
-</tr>
-<tr class="odd">
-<td><code>413</code></td>
-<td>Request entity too large. A request may not be larger than 1000000 bytes.</td>
 </tr>
 </tbody>
 </table>
@@ -6447,7 +6573,7 @@ The `/universe` endpoint has the following methods: `GET`.
 
 The `GET` method is used to retrieve the universe data.
 
-This method has no parameters.
+This method has no parameters. This method has no request body.
 
 **Request**
 
@@ -6457,38 +6583,39 @@ GET /universe
 
 **Response**
 
-The response will return an embedded hash, with the name of each
-cookbook as a top-level key. Each cookbook will list each version, along
-with its location information and dependencies:
+The response will return a json hash, with the name of each cookbook as
+a top-level key. Each cookbook will list each version, along with its
+location information and dependencies:
 
 ``` javascript
 {
   "ffmpeg": {
     "0.1.0": {
-      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.0/download"
+      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.0/download",
       "location_type": "supermarket",
       "dependencies": {
         "git": ">= 0.0.0",
         "build-essential": ">= 0.0.0",
         "libvpx": "~> 0.1.1",
         "x264": "~> 0.1.1"
-      },
+      }
     },
     "0.1.1": {
-      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.1/download"
+      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/ffmpeg/0.1.1/download",
       "location_type": "supermarket",
       "dependencies": {
         "git": ">= 0.0.0",
         "build-essential": ">= 0.0.0",
         "libvpx": "~> 0.1.1",
         "x264": "~> 0.1.1"
-      },
-    },
-   "pssh": {
+      }
+    }
+  },
+  "pssh": {
     "0.1.0": {
-      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/pssh.1.0/download"
+      "location_path": "http://supermarket.chef.io/api/v1/cookbooks/pssh.1.0/download",
       "location_type": "supermarket",
-      "dependencies": {},
+      "dependencies": {}
     }
   }
 }
@@ -6516,7 +6643,10 @@ with its location information and dependencies:
 /updated_since
 ---------------
 
-{{% api_chef_server_endpoint_org_name_updated_since %}}
+The `/updated_since` endpoint ensures that replica instances of the Chef
+Infra Server are able to synchronize with the primary Chef Infra Server.
+The `/organizations/NAME/updated_since` endpoint has the following
+methods: `GET`.
 
 {{< warning >}}
 
@@ -6527,7 +6657,328 @@ Infra Server.
 
 ### GET
 
-{{% api_chef_server_endpoint_org_name_updated_since_get %}}
+The `GET` method is used to return the details of an organization as
+JSON.
+
+**Request**
+
+``` none
+GET /organizations/NAME/objects_since?seq=NUM
+```
+
+where `NUM` is the largest integer previously returned as an identifier.
+
+**Response**
+
+The response will return an array of paths for objects that have been
+created, updated, or deleted since `NUM`, similar to:
+
+``` javascript
+[
+  {
+    "action": "create",
+    "id": 1,
+    "path": "/roles/foo"
+  },
+  {
+    "action": "create",
+    "id": 2,
+    "path": "/roles/foo2"
+  },
+  {
+    "action": "create",
+    "id": 3,
+    "path": "/roles/foo3"
+  },
+  {
+    "action": "update",
+    "id": 4,
+    "path": "/roles/foo3"
+  }
+]
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name, and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+/users
+------
+
+A user may be associated with an organization.
+
+The `/users` endpoint has the following methods: `GET` and `POST`.
+
+### GET
+
+The `GET` method is used to return an array of usernames for users
+associated with an organization.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /organizations/NAME/users
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+[
+  { "user": { "username": "paperlatte" } }
+]
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+</tbody>
+</table>
+
+### POST
+
+The `POST` method is used to associate a user with an organization
+immediately. Superuser only.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+POST /organizations/NAME/users
+```
+
+with a request body similar to:
+
+``` javascript
+{
+  "username": "paperlatte",
+}
+```
+
+where `username` is the name of the user to be associated.
+
+**Response**
+
+No response block is returned.
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>201</code></td>
+<td>Created. The user was associated with the organization.</td>
+</tr>
+<tr class="even">
+<td><code>400</code></td>
+<td>Bad request. The contents of the request are not formatted correctly.</td>
+</tr>
+<tr class="odd">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="even">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="odd">
+<td><code>409</code></td>
+<td>Conflict. The user is already associated.</td>
+</tr>
+</tbody>
+</table>
+
+/users/NAME
+-----------
+
+The `/users/NAME` endpoint has the following methods: `DELETE`, `GET`.
+
+### DELETE
+
+The `DELETE` method is used to delete a user association with an
+organization.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+DELETE /organizations/NAME/users/NAME
+```
+
+**Response**
+
+The response will return the end state of the user, similar to:
+
+``` javascript
+{
+  "username": "paperlatte"
+  "email": "latte",
+  "display_name": "Ms. Latte",
+  "first_name": "Paper",
+  "last_name": "Latte",
+  "public_key": "-----BEGIN PUBLIC KEY----- ... "
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful. The user association was removed.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
+
+### GET
+
+The `GET` method is used to return the details of a user as JSON.
+
+This method has no parameters.
+
+**Request**
+
+``` none
+GET /organizations/NAME/users/NAME
+```
+
+**Response**
+
+The response is similar to:
+
+``` javascript
+{
+  "username": "paperlatte"
+  "email": "latte",
+  "display_name": "Ms. Latte",
+  "first_name": "Paper",
+  "last_name": "Latte",
+  "public_key": "-----BEGIN PUBLIC KEY----- ... "
+}
+```
+
+**Response Codes**
+
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Response Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>200</code></td>
+<td>OK. The request was successful.</td>
+</tr>
+<tr class="even">
+<td><code>401</code></td>
+<td>Unauthorized. The user or client who made the request could not be authenticated. Verify the user/client name and that the correct key was used to sign the request.</td>
+</tr>
+<tr class="odd">
+<td><code>403</code></td>
+<td>Forbidden. The user who made the request is not authorized to perform the action.</td>
+</tr>
+<tr class="even">
+<td><code>404</code></td>
+<td>Not found. The requested object does not exist.</td>
+</tr>
+</tbody>
+</table>
 
 Examples
 ========

@@ -1,160 +1,246 @@
 ---
-######## Page Data ########
 title: windows_package resource
 resource: windows_package
 draft: false
-
-# redirect from old sphinx url
 aliases: /resource_windows_package.html
-
 menu:
   docs:
     title: windows_package
-    identifier: chef_infra/cookbook_reference/resources/resource_windows_package.md windows_package
+    identifier: chef_infra/cookbook_reference/resources/resource_windows_package.md
+      windows_package
     parent: chef_infra/cookbook_reference/resources
     weight: 1220
+resource_reference: true
+robots: null
+resource_description_list:
+- markdown: 'Use the **windows_package** resource to manage Microsoft Installer
 
-
-######## Basic Resource Data ########
-
-resource_description:
-resource_note:
-resource_new_in:      
-
-
-######## Handler Types ########
+    Package (MSI) packages for the Microsoft Windows platform.'
+resource_new_in: null
 handler_types: false
-
-
-######## Package Resource ########
-package_resource: false
-
-
-######## Syntax ########
-
-## Resource Block: For example, under Syntax in batch_resource
-resource_block_description: 
-resource_block_codeblock: |
-resource_block_list:
-
-syntax_codeblock: |
-syntax_property_list: 
-
-
-##Activates the Registry Key Path Separators and Recipe DSL Methods in registry_key resource
+syntax_description: 'A **windows_package** resource block manages a package on a node,
+  typically by installing it. The simplest use of the **windows_package** resource
+  is:'
+syntax_code_block: windows_package 'package_name'
+syntax_properties_list: null
+syntax_full_code_block: "windows_package 'name' do\n  checksum                   \
+  \ String\n  installer_type              Symbol\n  options                     String\n\
+  \  package_name                String, Array\n  remote_file_attributes      Hash\n\
+  \  returns                     String, Integer, Array # default value: [0]\n  source\
+  \                      String # default value: \"The resource block's name\"\n \
+  \ timeout                     String, Integer # default value: 600 (seconds)\n \
+  \ version                     String, Array\n  action                      Symbol\
+  \ # defaults to :install if not specified\nend"
+syntax_full_properties_list:
+- '`windows_package` is the resource.'
+- '`name` is the name given to the resource block.'
+- '`action` identifies which steps Chef Infra Client will take to bring the node into
+  the desired state.'
+- '`checksum`, `installer_type`, `options`, `package_name`, `remote_file_attributes`,
+  `returns`, `source`, `timeout`, and `version` are the properties available to this
+  resource.'
+syntax_shortcode: null
 registry_key: false
-
-
-######## Nameless ########
-
-##Activates the Nameless section in apt_update or build_essential resource
 nameless_apt_update: false
 nameless_build_essential: false
-
-
-######## Gem Package Options ########
-
-## Activates Gem Package Options in gem_package resource
 resource_package_options: false
-
-
-########Actions ########
-
 actions_list:
-  key: description
-
-
-########Properties ########
-
+  :install:
+    markdown: Default. Install a package. If a version is specified, install the specified
+      version of the package.
+  :nothing:
+    shortcode: resources_common_actions_nothing.md
+  :remove:
+    markdown: Remove a package.
 properties_list:
-  - property:
-    ruby_type:
-    default_value:
-    description:
-    new_in:
+- property: checksum
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'The SHA-256 checksum of the file. Use to prevent a file from being
 
-## Multiple Packages in Properties section from, for example, dnf_package resource
+      re-downloaded. When the local file matches the checksum, Chef Infra
+
+      Client does not download it. Use when a URL is specified by the
+
+      `source` property.'
+- property: installer_type
+  ruby_type: Symbol
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'A symbol that specifies the type of package. Possible values:
+
+      `:custom` (such as installing a non-.msi file that embeds an
+
+      .msi-based installer), `:inno` (Inno Setup), `:installshield`
+
+      (InstallShield), `:msi` (Microsoft Installer Package (MSI)), `:nsis`
+
+      (Nullsoft Scriptable Install System (NSIS)), `:wise` (Wise).'
+- property: options
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: One (or more) additional options that are passed to the command.
+- property: package_name
+  ruby_type: String, Array
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'An optional property to set the package name if it differs from the
+
+      resource block''s name.'
+- property: remote_file_attributes
+  ruby_type: Hash
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: 'This property allows you to define a hash of properties and their
+
+      value if the source package to be installed is at a remote location.
+
+      This hash will be used by the underlying **remote_file** resource
+
+      which will fetch the source package.'
+- property: returns
+  ruby_type: String, Integer, Array of integers
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: '**Default
+
+      Value:** `0`
+
+
+      A comma-delimited list of return codes that indicate the success or
+
+      failure of the package command that was run.'
+- property: source
+  ruby_type: String
+  required: false
+  default_value: The resource blocks name
+  new_in: null
+  description_list:
+  - markdown: 'The path to a package in the local file system. The location of the
+
+      package may be at a URL.
+
+
+      If the `source` property is not specified, the package name MUST be
+
+      exactly the same as the display name found in **Add/Remove
+
+      programs** or exactly the same as the `DisplayName` property in the
+
+      appropriate registry key, which may be one of the following:
+
+
+      ``` ruby
+
+      HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall
+
+      HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Uninstall
+
+      HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall
+
+      ```'
+  - note:
+    - markdown: 'If there are multiple versions of a package installed with the same
+
+        display name, all of those packages will be removed unless a version
+
+        is provided in the `version` property or unless it can be discovered
+
+        in the installer file specified by the `source` property.'
+- property: timeout
+  ruby_type: String, Integer
+  required: false
+  default_value: '600'
+  new_in: null
+  description_list:
+  - markdown: '(seconds)
+
+
+      The amount of time (in seconds) to wait before timing out.'
+- property: version
+  ruby_type: String, Array
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: The version of a package to be installed or upgraded.
+properties_shortcode: null
 properties_multiple_packages: false
-
-## Recursive Directories from remote_directory resource and directory resource
 resource_directory_recursive_directories: false
-
-## Atomic File Updates in the Properties Section of, for example, cookbook_file resource
-resources_common_atomic_update: false 
-
-## Windows File Security in the Properties section of, for example, cookbook_file resource
-properties_resources_common_windows_security: false 
-
-## Prevent Re-downloads from remote_file resource
-remote_file_prevent_re_downloads: false 
-
-## Access a remote UNC path on Windows from remote_file resource
-remote_file_unc_path: false 
-
-## ps_credential Helper from dsc_script resource
+resources_common_atomic_update: false
+properties_resources_common_windows_security: false
+remote_file_prevent_re_downloads: false
+remote_file_unc_path: false
 ps_credential_helper: false
-
-
-######## Chef::Log Entries ########
-
-##Chef::Log Entries from log resource
 ruby_style_basics_chef_log: false
-
-
-######## Debug Recipes with chef-shell ########
-
-## Debug Recipes with chef-shell from breakpoint resource 
 debug_recipes_chef_shell: false
-
-
-######## Using Templates ########
-
-## Using Templates in template resource
 template_requirements: false
-
-
-########Common Resource Functionality ########
-
-## Common Properties in, for example, apt_package resource 
-resources_common_properties: false
-
-## Notifications in, for example, apt_package resource 
-resources_common_notification: false
-
-## Guards in, for example, apt_package resource  
-resources_common_guards: false
-
-## Multiple Packages in, for example, apt_package resource   
+resources_common_properties: true
+resources_common_notification: true
+resources_common_guards: true
 common_resource_functionality_multiple_packages: false
-
-## Guard Interpreters in, for example, common resource
 resources_common_guard_interpreter: false
-
-## Recursive Directories in, for example,  remote_directory resource
 remote_directory_recursive_directories: false
-
-## Windows File Security under Common Resource Functionality in, for example, remote_directory resource
-common_resource_functionality_resources_common_windows_security: false 
-
-
-########Custom Handlers ########
-
-## Custom Handlers in chef_handler resource
-handler_custom: false 
-
-
-########File Specificity ########
-
-## File Specificity in cookbook_file resource
-cookbook_file_specificity: false 
-
-
-########Examples ########
+directory_recursive_directories: false
+common_resource_functionality_resources_common_windows_security: false
+handler_custom: false
+cookbook_file_specificity: false
+unit_file_verification: false
 examples_list:
-  - example:
-    heading: 
-    description: 
-    codeblock:
+- example_heading: Install a package
+  text_blocks:
+  - code_block: "windows_package '7zip' do\n  action :install\n  source 'C:\\7z920.msi'\n\
+      end"
+- example_heading: Specify a URL for the source attribute
+  text_blocks:
+  - code_block: "windows_package '7zip' do\n  source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
+      end"
+- example_heading: Specify path and checksum
+  text_blocks:
+  - code_block: "windows_package '7zip' do\n  source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
+      \  checksum '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'\n\
+      end"
+- example_heading: Modify remote_file resource attributes
+  text_blocks:
+  - markdown: 'The **windows_package** resource may specify a package at a remote
 
+      location using the `remote_file_attributes` property. This uses the
+
+      **remote_file** resource to download the contents at the specified URL
+
+      and passes in a Hash that modifies the properties of the [remote_file
+
+      resource](/resource_remote_file/).
+
+
+      For example:'
+  - code_block: "windows_package '7zip' do\n  source 'http://www.7-zip.org/a/7z938-x64.msi'\n\
+      \  remote_file_attributes ({\n    :path => 'C:\\\\7zip.msi',\n    :checksum\
+      \ => '7c8e873991c82ad9cfc123415254ea6101e9a645e12977dcd518979e50fdedf3'\n  })\n\
+      end"
+- example_heading: Download a nsis (Nullsoft) package resource
+  text_blocks:
+  - code_block: "windows_package 'Mercurial 3.6.1 (64-bit)' do\n  source 'http://mercurial.selenic.com/release/windows/Mercurial-3.6.1-x64.exe'\n\
+      \  checksum 'febd29578cb6736163d232708b834a2ddd119aa40abc536b2c313fc5e1b5831d'\n\
+      end"
+- example_heading: Download a custom package
+  text_blocks:
+  - code_block: "windows_package 'Microsoft Visual C++ 2005 Redistributable' do\n\
+      \  source 'https://download.microsoft.com/download/6/B/B/6BB661D6-A8AE-4819-B79F-236472F6070C/vcredist_x86.exe'\n\
+      \  installer_type :custom\n  options '/Q'\nend"
 
 ---
