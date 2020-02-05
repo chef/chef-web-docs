@@ -113,6 +113,9 @@ This command has the following options:
 ``-l LEVEL``, ``--log-level LEVEL``
    The level of logging to be stored in a log file.
 
+``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
+   Replace the current run-list with the specified items. Only applicable when also using ``solo`` or ``server`` modes.
+
 ``-s``, ``--solo``
    Run chef-shell in chef-solo mode.
 
@@ -173,7 +176,7 @@ Manage
 =====================================================
 .. tag chef_shell_manage
 
-When chef-shell is configured to access a Chef Infra Server, chef-shell can list, show, search for and edit cookbooks, clients, nodes, roles, environments, and data bags.
+When chef-shell is configured to access a Chef Infra Server, chef-shell can list, show, search for and edit cookbooks, clients, nodes, roles, environments, policyfiles, and data bags.
 
 The syntax for managing objects on the Chef Infra Server is as follows:
 
@@ -325,18 +328,18 @@ and then run Chef Infra Client:
 .. code-block:: bash
 
    $ chef:recipe > run_chef
-     [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-     [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
-     [Fri, 15 Jan 2010 14:17:49 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
-     [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-     [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+     [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+     [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:17:49 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
+     [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+     [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
 
 Chef Infra Client ran the first resource before the breakpoint (``file[/tmp/before-breakpoint]``), but then stopped after execution. Chef Infra Client attempted to name the breakpoint after its position in the source file, but Chef Infra Client was confused because the resource was entered interactively. From here, chef-shell can resume the interrupted Chef Infra Client run:
 
 .. code-block:: bash
 
    $ chef:recipe > chef_run.resume
-     [Fri, 15 Jan 2010 14:27:08 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
+     [Fri, 15 Jan 2020 14:27:08 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
 
 A quick view of the ``/tmp`` directory shows that the following files were created:
 
@@ -354,16 +357,16 @@ You can rewind and step through a Chef Infra Client run:
      chef:recipe > chef_run.rewind
        => 0
      chef:recipe > chef_run.step
-     [Fri, 15 Jan 2010 14:40:52 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-     [Fri, 15 Jan 2010 14:40:52 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:40:52 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+     [Fri, 15 Jan 2020 14:40:52 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
        => 1
      chef:recipe > chef_run.step
-     [Fri, 15 Jan 2010 14:40:54 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-     [Fri, 15 Jan 2010 14:40:54 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+     [Fri, 15 Jan 2020 14:40:54 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+     [Fri, 15 Jan 2020 14:40:54 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
        => 2
      chef:recipe > chef_run.step
-     [Fri, 15 Jan 2010 14:40:56 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
-     [Fri, 15 Jan 2010 14:40:56 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:40:56 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
+     [Fri, 15 Jan 2020 14:40:56 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
        => 3
 
 From the output, the rewound run-list is shown, but when the resources are executed again, they will repeat their checks for the existence of files. If they exist, Chef Infra Client will skip creating them. If the files are deleted, then:
@@ -379,15 +382,15 @@ Rewind, and then resume your Chef Infra Client run to get the expected results:
 
    $ chef:recipe > chef_run.rewind
      chef:recipe > chef_run.resume
-     [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-     [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
-     [Fri, 15 Jan 2010 14:48:56 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
-     [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-     [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+     [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+     [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:48:56 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
+     [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+     [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
      chef:recipe > chef_run.resume
-     [Fri, 15 Jan 2010 14:49:20 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
-     [Fri, 15 Jan 2010 14:49:20 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
-     [Fri, 15 Jan 2010 14:49:20 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
+     [Fri, 15 Jan 2020 14:49:20 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
+     [Fri, 15 Jan 2020 14:49:20 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:49:20 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
 
 .. end_tag
 
@@ -401,17 +404,17 @@ chef-shell can be used to debug existing recipes. The recipe first needs to be a
 
     loading configuration: none (standalone session)
     Session type: standalone
-    Loading..............done.
+    Loading.......done.
 
     This is the chef-shell.
-     Chef Version: 12.17.44
-     https://www.chef.io/
-     /
+    Chef Infra Client Version: 15.7.32
+    https://chef.io
+    https://docs.chef.io/
 
     run `help' for help, `exit' or ^D to quit.
 
-    Ohai2u YOURNAME@!
-    chef (12.17.44)>
+    Ohai2u username@localhost!
+    chef (15.7.32)>
 
 To just load one recipe from the run-list, go into the recipe and use the ``include_recipe`` command. For example:
 
@@ -489,17 +492,17 @@ When Chef Infra Client is installed using RubyGems or a package manager, chef-sh
    $ bin/chef-shell
      loading configuration: none (standalone session)
      Session type: standalone
-     Loading..............done.
+     Loading.......done.
 
      This is the chef-shell.
-      Chef Version: 12.17.44
-      https://www.chef.io/
-      /
+     Chef Infra Client Version: 15.7.32
+     https://chef.io
+     https://docs.chef.io/
 
      run `help' for help, `exit' or ^D to quit.
 
-     Ohai2u YOURNAME@!
-     chef (12.17.44)>
+     Ohai2u username@localhost!
+     chef (15.7.32)>
 
 (Use the help command to print a list of supported commands.) Use the recipe_mode command to switch to recipe context:
 
@@ -546,9 +549,9 @@ Typing is evaluated in the same context as recipes. Create a file resource:
 .. code-block:: bash
 
    $ chef:recipe_mode > run_chef
-     [Fri, 15 Jan 2010 10:42:47 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
-     [Fri, 15 Jan 2010 10:42:47 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
-     [Fri, 15 Jan 2010 10:42:47 -0800] INFO: Creating file[/tmp/ohai2u_shef] at /tmp/ohai2u_shef
+     [Fri, 15 Jan 2020 10:42:47 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
+     [Fri, 15 Jan 2020 10:42:47 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
+     [Fri, 15 Jan 2020 10:42:47 -0800] INFO: Creating file[/tmp/ohai2u_shef] at /tmp/ohai2u_shef
        => true
 
 chef-shell can also switch to the same context as attribute files. Set an attribute with the following syntax:
@@ -573,11 +576,11 @@ Now, run Chef Infra Client again:
 .. code-block:: bash
 
    $ chef:recipe_mode > run_chef
-     [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
-     [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
-     [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u-again]
-     [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: file[/tmp/ohai2u-again] using Chef::Provider::File
-     [Fri, 15 Jan 2010 10:53:22 -0800] INFO: Creating file[/tmp/ohai2u-again] at /tmp/ohai2u-again
+     [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
+     [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
+     [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u-again]
+     [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: file[/tmp/ohai2u-again] using Chef::Provider::File
+     [Fri, 15 Jan 2020 10:53:22 -0800] INFO: Creating file[/tmp/ohai2u-again] at /tmp/ohai2u-again
        => true
      chef:recipe_mode >
 
