@@ -58,7 +58,7 @@ Chef Workstation App Requirements
 * Mac: No additional requirements
 * Linux: You must have a graphical window manager running with support for system tray icons.
 
-  * On some distributions you may need to install additional libraries. The post-install message shown when you install the Chef Workstation package from the terminal will tell you which – if any – additional libraries are required to run Chef Workstation App.
+  * On some distributions you may need to install additional libraries. After you install the Chef Workstation package from the terminal, the post-install message will tell you which, if any, additional libraries are required to run the Chef Workstation App.
 
 Installation
 =====================================================
