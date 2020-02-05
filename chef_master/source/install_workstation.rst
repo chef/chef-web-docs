@@ -71,7 +71,7 @@ macOS
 
 #. Dependency: Xcode is recommended for running Chef Workstation on macOS. While Chef Workstation works without Xcode, it is required for native Ruby Gem installation. Run ``xcode-select --install`` from the terminal to install Xcode.
 #. Visit the `Chef Workstation downloads page <https://downloads.chef.io/chef-workstation#mac_os_x>`__ and select the appropriate package for your macOS version. Click on the **Download** button.
-#. Follow the steps to accept the license and install Chef Workstation. You will have the option to change your install location; by default the installer uses the ``/opt/chef-workstation/`` directory.
+#. Follow the steps to accept the license and install Chef Workstation.
 
 Windows
 -----------------------------------------------------
