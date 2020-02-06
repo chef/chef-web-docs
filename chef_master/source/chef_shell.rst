@@ -26,9 +26,9 @@ chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-she
    * - Standalone
      - Default. No cookbooks are loaded, and the run-list is empty.
    * - Solo
-     - chef-shell acts as a chef-solo client. It attempts to load the chef-solo configuration file and JSON attributes. If the JSON attributes set a run-list, it will be honored. Cookbooks will be loaded in the same way that chef-solo loads them. chef-solo mode is activated with the ``-s`` or ``--solo`` command line option, and JSON attributes are specified in the same way as for chef-solo, with ``-j /path/to/chef-solo.json``.
+     - chef-shell acts as a Chef Solo Client. It attempts to load the chef-solo configuration file at ``~/.chef/config.rb`` and any JSON attributes passed. If the JSON attributes set a run-list, it will be honored. Cookbooks will be loaded in the same way that chef-solo loads them. chef-solo mode is activated with the ``-s`` or ``--solo`` command line option, and JSON attributes are specified in the same way as for chef-solo, with ``-j /path/to/chef-solo.json``.
    * - Client
-     - chef-shell acts as a Chef Infra Client. During startup, it reads the Chef Infra Client configuration file and contacts the Chef Infra Server to get attributes and cookbooks. The run-list will be set in the same way as normal Chef Infra Client runs. Chef Infra Client mode is activated with the ``-z`` or ``--client`` options. You can also specify the configuration file with ``-c CONFIG`` and the server URL with ``-S SERVER_URL``.
+     - chef-shell acts as a Chef Infra Client. During startup, it reads the Chef Infra Client configuration file from ``~/.chef/client.rb`` and contacts the Chef Infra Server to get the node's run_list, attributes, and cookbooks. Chef Infra Client mode is activated with the ``-z`` or ``--client`` options. You can also specify the configuration file with ``-c CONFIG`` and the server URL with ``-S SERVER_URL``.
 
 .. end_tag
 
@@ -54,8 +54,6 @@ This command has the following options:
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data.
 
-   .. tag node_ctl_run_list
-
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
    .. code-block:: javascript
@@ -67,11 +65,9 @@ This command has the following options:
         "role[webserver]"
       ],
 
-   may be used by running ``chef-client -j path/to/file.json``.
+   may be used by running ``chef-shell -j path/to/file.json``.
 
    In certain situations this option may be used to update ``normal`` attributes.
-
-   .. end_tag
 
    .. warning:: .. tag node_ctl_attribute
 
