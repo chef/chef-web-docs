@@ -9,16 +9,16 @@ This is the documentation for:
 
 Documentation for other Chef products:
 
-* `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart/>`_
-* `Chef Habitat <https://www.habitat.sh/docs/>`_
-* `Chef InSpec <https://www.inspec.io/docs/>`_
+* `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart>`__
+* `Chef Habitat <https://www.habitat.sh/docs/>`__
+* `Chef InSpec <https://www.inspec.io/docs/>`__
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If you are new to Chef Infra, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef to familiarize yourself with Chef Infra concepts.
+If you are new to Chef Infra, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`__ track on Learn Chef to familiarize yourself with Chef Infra concepts.
 
-If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
+If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`__.
 
 Overview
 =====================================================
@@ -64,14 +64,14 @@ Getting Started
 Concepts
 -----------------------------------------------------
 
-`Chef Workstation </workstation.html>`__ |
+`Chef Workstation </about_workstation.html>`__ |
 `chef-repo </chef_repo.html>`__ |
 `Nodes </nodes.html>`__ |
 `Chef Infra Client Overview </chef_client_overview.html>`__ |
 `Chef Infra Server Overview </server_overview.html>`__ |
 `Search </chef_search.html>`__ |
 `Cookbooks </cookbooks.html>`__ |
-`Handlers </handlers.html>`__ |
+`Handlers </handlers.html>`__
 
 **Policy**: `About Policy </policy.html>`__ | `Data Bags </data_bags.html>`__ | `Environments </environments.html>`__ | `Roles </roles.html>`__
 
@@ -98,7 +98,7 @@ Setup
 
 **Nodes**: `Install via Bootstrap </install_bootstrap.html>`__ | `Install via Script </install_omnibus.html>`__ | `chef-client (executable) </ctl_chef_client.html>`__ | `client.rb </config_rb_client.html>`__ | `Upgrades </upgrade_client.html>`__ | `Security </chef_client_security.html>`__
 
-**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Infra Server Prerequisites </install_server_pre>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__
+**Server**: `Hosted Chef Infra Server <https://manage.chef.io/signup.html>`__ | `Install Standalone </install_server.html#standalone>`__ | `Chef Infra Server Prerequisites </install_server_pre.html>`__ | `Tiered Installation </install_server_tiered.html>`__ | `Install High Availability </install_server_ha.html>`__ | `Upgrade High Availability </upgrade_server_ha_v2.html>`__
 
 **Supermarket**: `Public Supermarket <https://supermarket.chef.io.html>`__ | `Install Private Supermarket </install_supermarket.html>`__ | `Customize Supermarket </install_supermarket.html#customize-supermarket.html>`__ | `Run in Kitchen </install_supermarket.html#run-supermarket-in-kitchen.html>`__
 
@@ -123,9 +123,9 @@ Cookbook Reference
 `About Resources </resource.html>`__ |
 `Common Resource Functionality </resource_common.html>`__ |
 `Custom Resources </custom_resources.html>`__ |
-`Converting Definitions to Custom Resources </definitions.html>`__ |
-`All Resources (Single Page) </resource_reference.html>`__ |
+`Converting Definitions to Custom Resources </definitions.html>`__
 
+`All Resources (Single Page) </resource_reference.html>`__ |
 `apt_package </resource_apt_package.html>`__ |
 `apt_preference </resource_apt_preference.html>`__ |
 `apt_repository </resource_apt_repository.html>`__ |
@@ -192,7 +192,7 @@ Cookbook Reference
 `macports_package </resource_macports_package.html>`__ |
 `mdadm </resource_mdadm.html>`__ |
 `mount </resource_mount.html>`__ |
-`msu_package </resource_msu_package>`__ |
+`msu_package </resource_msu_package.html>`__ |
 `ohai </resource_ohai.html>`__ |
 `ohai_hint </resource_ohai_hint.html>`__ |
 `openbsd_package </resource_openbsd_package.html>`__ |
@@ -272,7 +272,6 @@ Cookbook Reference
 `yum_repository </resource_yum_repository.html>`__ |
 `zypper_package </resource_zypper_package.html>`__ |
 `zypper_repository </resource_zypper_repository.html>`__
-
 `Templates </templates.html>`__ |
 `Cookbook Repo </cookbook_repo.html>`__ |
 `metadata.rb </config_rb_metadata.html>`__ |
@@ -324,49 +323,59 @@ Chef Workstation
 
 Chef Automate
 =====================================================
-`Chef Automate Documentation <https://automate.chef.io/docs/>`__ |
-`Quick Start Demo <https://automate.chef.io/docs/quickstart/>`__ |
-`System Requirements <https://automate.chef.io/docs/system-requirements/>`__ |
-`Upgrade from Chef Automate One <https://automate.chef.io/docs/upgrade/>`__ |
-`Installation Guide <https://automate.chef.io/docs/install/>`__ |
-`Backup and Restore <https://automate.chef.io/docs/backup/>`__ |
-`Configuration <https://automate.chef.io/docs/configuration/>`__ |
-`Data Collection <https://automate.chef.io/docs/data-collection/>`__ |
-`Log Management <https://automate.chef.io/docs/log-management/>`__ |
-`Telemetry <https://automate.chef.io/docs/telemetry/>`__ |
-`Event Feed <https://automate.chef.io/docs/event-feed/>`__ |
-`Client Runs <https://automate.chef.io/docs/client-runs/>`__ |
-`Scan Jobs <https://automate.chef.io/docs/scan-jobs/>`__ |
-`Nodes API <https://automate.chef.io/docs/nodes/>`__ |
-`Cloud Integrations <https://automate.chef.io/docs/integrations/>`__ |
-`Asset Store <https://automate.chef.io/docs/asset-store/>`__ |
-`Admin Panel <https://automate.chef.io/docs/admin/>`__ |
-`Credentials <https://automate.chef.io/docs/credentials/>`__ |
-`Notifications <https://automate.chef.io/docs/notifications/>`__ |
-`Node Integrations <https://automate.chef.io/docs/integrations-ui/>`__ |
-`Authorization <https://automate.chef.io/docs/authorization/>`__ |
-`Users and Teams <https://automate.chef.io/docs/users-and-teams/>`__ |
-`API Tokens <https://automate.chef.io/docs/api-tokens/>`__ |
-`Default Policies <https://automate.chef.io/docs/default-policies/>`__ |
-`LDAP Integration <https://automate.chef.io/docs/ldap/>`__ |
-`Architecture <https://automate.chef.io/docs/architectural-overview/>`__ |
-`Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate/>`__ |
-`ServiceNow Integration <https://automate.chef.io/docs/servicenow-integration-install/>`__ |
-`Troubleshooting <https://automate.chef.io/docs/troubleshooting/>`__
+`Chef Automate Documentation <https://automate.chef.io/docs>`__ |
+`Quick Start Demo <https://automate.chef.io/docs/quickstart>`__ |
+`System Requirements <https://automate.chef.io/docs/system-requirements>`__ |
+`Installation Guide <https://automate.chef.io/docs/install>`__ |
+`Upgrade from Chef Automate One <https://automate.chef.io/docs/upgrade>`__ |
+`Airgapped Installation Guide <https://automate.chef.io/docs/airgapped-installation>`__ |
+`Install Chef Habitat on-prem <https://automate.chef.io/docs/on-prem-builder>`__ |
+`Backup and Restore <https://automate.chef.io/docs/backup>`__ |
+`Configuration <https://automate.chef.io/docs/configuration>`__ |
+`Data Lifecycle <https://automate.chef.io/docs/data-lifecycle>`__ |
+`Data Collection <https://automate.chef.io/docs/data-collection>`__ |
+`LDAP Integration <https://automate.chef.io/docs/ldap>`__ |
+`Log Management <https://automate.chef.io/docs/log-management>`__ |
+`SAML Integration <https://automate.chef.io/docs/saml>`__ |
+`Telemetry <https://automate.chef.io/docs/telemetry>`__ |
+`Setting up the Applications Dashboard <https://automate.chef.io/docs/applications-setup>`__ |
+`Event Feed <https://automate.chef.io/docs/event-feed>`__ |
+`Client Runs <https://automate.chef.io/docs/client-runs>`__ |
+`Compliance Reports <https://automate.chef.io/docs/reports>`__ |
+`Scan Jobs <https://automate.chef.io/docs/scan-jobs>`__ |
+`Compliance Profiles <https://automate.chef.io/docs/profiles>`__ |
+`Notifications <https://automate.chef.io/docs/notifications>`__ |
+`Cloud Integrations <https://automate.chef.io/docs/node-integrations>`__ |
+`Node Credentials <https://automate.chef.io/docs/node-credentials>`__ |
+`Node Lifecycle <https://automate.chef.io/docs/node-lifecycle>`__ |
+`API Tokens <https://automate.chef.io/docs/api-tokens>`__ |
+`Users <https://automate.chef.io/docs/users>`__ |
+`Teams <https://automate.chef.io/docs/teams>`__ |
+`API Tokens <https://automate.chef.io/docs/api-tokens>`__ |
+`Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate>`__ |
+`Troubleshooting <https://automate.chef.io/docs/troubleshooting>`__ |
+`IAM Overview <https://automate.chef.io/docs/iam-v2-overview>`__ |
+`IAM Users Guide <https://automate.chef.io/docs/iam-v2-guide>`__ |
+`IAM API Reference <https://automate.chef.io/docs/iam-v2-api-reference>`__ |
+`Architecture <https://automate.chef.io/docs/architectural-overview>`__ |
+`Chef Automate API <https://automate.chef.io/docs/api>`__ |
+`Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate>`__ |
+`Monitoring Chef Automate <https://automate.chef.io/docs/monitoring>`__ |
+`Troubleshooting <https://automate.chef.io/docs/troubleshooting>`__
 
 Chef Habitat
 =====================================================
 
-**Documentation**: `Chef Habitat Documentation <https://www.habitat.sh/docs/>`__
+**Documentation**: `Chef Habitat Documentation <https://www.habitat.sh/docs>`__
 
-**Tutorials**: `Chef Habitat Tutorials <https://www.habitat.sh/tutorials/>`_
+**Tutorials**: `Chef Habitat Tutorials <https://www.habitat.sh/tutorials>`_
 
 Chef InSpec
 =====================================================
 
-**Documentation**: `Chef InSpec Documentation <https://www.inspec.io/docs/>`__
+**Documentation**: `Chef InSpec Documentation <https://www.inspec.io/docs>`__
 
-**Tutorials**: `Chef InSpec Tutorials <https://www.inspec.io/tutorials/>`__
+**Tutorials**: `Chef InSpec Tutorials <https://www.inspec.io/tutorials>`__
 
 Legacy
 =====================================================
@@ -379,7 +388,7 @@ Extension APIs
 Resources
 -----------------------------------------------------
 
-**Recipe DSL**: `attribute? </dsl_recipe.html#attribute>`_ | `control </dsl_recipe.html#control>`_ | `control_group </dsl_recipe.html#control-group>`_ | `cookbook_name </dsl_recipe.html#cookbook-name>`_ | `data_bag </dsl_recipe.html#data-bag>`_ | `data_bag_item </dsl_recipe.html#data-bag-item>`_ | `platform? </dsl_recipe.html#platform>`_ | `platform_family? </dsl_recipe.html#platform-family>`_ | `reboot_pending? </dsl_recipe.html#reboot-pending>`_ | `recipe_name </dsl_recipe.html#recipe-name>`_ | `registry_data_exists? </dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys </dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values </dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? </dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? </dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? </dsl_recipe.html#registry-value-exists>`_ | `resources </dsl_recipe.html#resources>`_ | `search </dsl_recipe.html#search>`_ | `shell_out </dsl_recipe.html#shell-out>`_ | `shell_out! </dsl_recipe.html#shell-out-bang>`_ | `tag </dsl_recipe.html#tag-tagged-untag>`_ | `tagged? </dsl_recipe.html#tag-tagged-untag>`_ | `untag </dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform </dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family </dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers </dsl_recipe.html#helpers>`_ | `Custom Resource DSL </dsl_custom_resource>`__ | `Community Resources <https://supermarket.chef.io>`__
+**Recipe DSL**: `attribute? </dsl_recipe.html#attribute>`_ | `control </dsl_recipe.html#control>`_ | `control_group </dsl_recipe.html#control-group>`_ | `cookbook_name </dsl_recipe.html#cookbook-name>`_ | `data_bag </dsl_recipe.html#data-bag>`_ | `data_bag_item </dsl_recipe.html#data-bag-item>`_ | `platform? </dsl_recipe.html#platform>`_ | `platform_family? </dsl_recipe.html#platform-family>`_ | `reboot_pending? </dsl_recipe.html#reboot-pending>`_ | `recipe_name </dsl_recipe.html#recipe-name>`_ | `registry_data_exists? </dsl_recipe.html#registry-data-exists>`_ | `registry_get_subkeys </dsl_recipe.html#registry-get-subkeys>`_ | `registry_get_values </dsl_recipe.html#registry-get-values>`_ | `registry_has_subkeys? </dsl_recipe.html#registry-has-subkeys>`_ | `registry_key_exists? </dsl_recipe.html#registry-key-exists>`_ | `registry_value_exists? </dsl_recipe.html#registry-value-exists>`_ | `resources </dsl_recipe.html#resources>`_ | `search </dsl_recipe.html#search>`_ | `shell_out </dsl_recipe.html#shell-out>`_ | `shell_out! </dsl_recipe.html#shell-out-bang>`_ | `tag </dsl_recipe.html#tag-tagged-untag>`_ | `tagged? </dsl_recipe.html#tag-tagged-untag>`_ | `untag </dsl_recipe.html#tag-tagged-untag>`_ | `value_for_platform </dsl_recipe.html#value-for-platform>`_ | `value_for_platform_family </dsl_recipe.html#value-for-platform-family>`_ | `Windows Platform Helpers </dsl_recipe.html#helpers>`_ | `Custom Resource DSL </dsl_custom_resource.html>`__ | `Community Resources <https://supermarket.chef.io>`__
 
 Handlers
 -----------------------------------------------------
