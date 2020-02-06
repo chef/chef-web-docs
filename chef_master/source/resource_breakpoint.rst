@@ -89,10 +89,13 @@ Configure
 chef-shell determines which configuration file to load based on the following:
 
 #. If a configuration file is specified using the ``-c`` option, chef-shell will use the specified configuration file
-#. When chef-shell is started using a named configuration as an argument, chef-shell will search for a chef-shell.rb file in that directory under ``~/.chef``. For example, if chef-shell is started using ``production`` as the named configuration, the chef-shell will load a configuration file from ``~/.chef/production/chef_shell.rb``
-#. If a named configuration is not provided, chef-shell will attempt to load the chef-shell.rb file from the ``.chef`` directory. For example: ``~/.chef/chef_shell.rb``
-#. If a chef-shell.rb file is not found, chef-shell will attempt to load the client.rb file
-#. If a chef-shell.rb file is not found, chef-shell will attempt to load the solo.rb file
+#. If a NAMED_CONF is given, chef-shell will load ~/.chef/NAMED_CONF/chef_shell.rb
+#. If no NAMED_CONF is given chef-shell will load ~/.chef/chef_shell.rb if it exists
+#. If no chef_shell.rb can be found, chef-shell falls back to load:
+      * /etc/chef/client.rb if -z option is given.
+      * /etc/chef/solo.rb   if --solo-legacy-mode option is given.
+      * .chef/config.rb     if -s option is given.
+      * .chef/knife.rb      if -s option is given.
 
 .. end_tag
 
