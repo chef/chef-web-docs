@@ -9,7 +9,7 @@ aliases = "/install_push_jobs.html"
     title = "Push Jobs"
     identifier = "chef_infra/setup/install_push_jobs.md Push Jobs"
     parent = "chef_infra/setup"
-    weight = 100
+    weight = 90
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_push_jobs.md)

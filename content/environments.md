@@ -9,7 +9,7 @@ aliases = "/environments.html"
     title = "Environments"
     identifier = "chef_infra/concepts/policy/environments.md Environments"
     parent = "chef_infra/concepts/policy"
-    weight = 40
+    weight = 60
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/environments.md)

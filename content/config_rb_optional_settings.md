@@ -7,9 +7,9 @@ aliases = "/config_rb_optional_settings.html"
 [menu]
   [menu.docs]
     title = "Optional config.rb Settings"
-    identifier = "chef_infra/chefdk/config_rb_optional_settings.md Optional config.rb Settings"
-    parent = "chef_infra/chefdk"
-    weight = 100
+    identifier = "chef_workstation/chef_workstation_tools/config_rb_optional_settings.md Optional config.rb Settings"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 80
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_optional_settings.md)

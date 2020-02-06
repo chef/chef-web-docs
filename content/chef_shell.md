@@ -7,9 +7,9 @@ aliases = "/chef_shell.html"
 [menu]
   [menu.docs]
     title = "chef-shell (executable)"
-    identifier = "chef_infra/chefdk/chef_shell.md chef-shell (executable)"
-    parent = "chef_infra/chefdk"
-    weight = 30
+    identifier = "chef_workstation/chef_workstation_tools/chef_shell.md chef-shell (executable)"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 20
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_chef_shell.md)

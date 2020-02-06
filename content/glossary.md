@@ -9,7 +9,7 @@ aliases = "/glossary.html"
     title = "Glossary"
     identifier = "chef_infra/getting_started/glossary.md Glossary"
     parent = "chef_infra/getting_started"
-    weight = 80
+    weight = 60
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/glossary.md)
@@ -24,6 +24,12 @@ aliases = "/glossary.html"
 
 :   Event tracking during a Chef Infra Client run that generates data
     made visible to Workflow.
+
+**Automate**
+
+:   A full suite of enterprise capabilities for maintaining continuous
+    visibility into application, infrastructure, and security
+    automation.
 
 **Berkshelf**
 
@@ -41,17 +47,23 @@ aliases = "/glossary.html"
 :   A command-line tool that allows a single recipe to be run from the
     command line.
 
+**ChefDK**
+
+:   The legacy package of tools for developing Chef Infra cookbooks.
+    This product has been superseded by Chef Workstation which should be
+    used instead.
+
 **Chef Infra Client**
 
 :   A command-line tool that that runs Chef. Also, the name of Chef as
     it is installed on a node.
 
-**ChefDK**
+**Chef Workstation**
 
-:   A collection of tools to aide in development of Chef cookbooks. It
-    uses the full stack installer to give you everything you need to get
-    going in one package. You can download it at
-    [ChefDK](https://downloads.chef.io/chefdk/).
+:   A collection of tools to aide in development of Chef Infra
+    cookbooks. It uses the full stack installer to give you everything
+    you need to get going in one package. You can download it at [Chef
+    Workstation](https://downloads.chef.io/chef-workstation/).
 
 **chef-repo**
 
@@ -70,7 +82,8 @@ aliases = "/glossary.html"
 
 **ChefSpec**
 
-:   ChefSpec is a unit-testing framework for testing Chef cookbooks.
+:   ChefSpec is a unit-testing framework for testing Chef Infra
+    cookbooks.
 
 **chef-zero**
 
@@ -89,6 +102,11 @@ aliases = "/glossary.html"
     detecting and automatically correcting style, syntax, and logic
     mistakes in your code.
 
+**custom resource**
+
+:   An extension to Chef Infra Client that allows you to ship your own
+    reusable resources within a cookbook.
+
 **data bag**
 
 :   A data_bag is a global variable that is stored as JSON data and is
@@ -97,7 +115,9 @@ aliases = "/glossary.html"
 **definition**
 
 :   A definition is code that is reused across recipes, similar to a
-    compile-time macro, and is defined in a cookbook.
+    compile-time macro, and is defined in a cookbook. Definitions are
+    not recommended for new users and Custom Resources should be written
+    for reusable code instead.
 
 **Delivered**
 
@@ -114,13 +134,9 @@ aliases = "/glossary.html"
 
 **Foodcritic**
 
-:   A linting tool for doing static code analysis on cookbooks.
-
-**kitchen**
-
-:   Kitchen is an integration framework that is used to automatically
-    test cookbook data across any combination of platforms and test
-    suites. Kitchen is packaged in ChefDK.
+:   A legacy linting tool for doing static code analysis on cookbooks.
+    This tool has been replaced with Cookstyle which should be used
+    instead.
 
 **knife**
 
@@ -139,8 +155,9 @@ aliases = "/glossary.html"
 
 :   The Chef web-based management console you can use to manage Role
     Based Access Control (RBAC), edit and delete nodes, and reset
-    private keys. Keep up to date with what's happening during chef
-    client runs across an entire organization or on specific nodes.
+    private keys. Keep up to date with what's happening during Chef
+    Infra Client runs across an entire organization or on specific
+    nodes.
 
 **node**
 
@@ -221,9 +238,11 @@ aliases = "/glossary.html"
     the desired state and the order in which these configuration
     settings are applied.
 
-**test-kitchen**
+**Test Kitchen**
 
-:   See kitchen.
+:   Test Kitchen is an integration framework that is used to
+    automatically test cookbook data across any combination of platforms
+    and test suites. Test Kitchen is packaged in Chef Workstation.
 
 **Union**
 

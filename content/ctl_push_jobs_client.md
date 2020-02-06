@@ -6,10 +6,10 @@ aliases = "/ctl_push_jobs_client.html"
 
 [menu]
   [menu.docs]
-    title = "push-jobs-client"
-    identifier = "chef_infra/chef_infra_server/push_jobs/ctl_push_jobs_client.md push-jobs-client"
-    parent = "chef_infra/chef_infra_server/push_jobs"
-    weight = 20
+    title = "push-jobs-client (executable)"
+    identifier = "chef_workstation/chef_workstation_tools/ctl_push_jobs_client.md push-jobs-client (executable)"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 140
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/ctl_push_jobs_client.md)

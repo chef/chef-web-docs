@@ -7,9 +7,9 @@ aliases = "/plugin_knife_opc.html"
 [menu]
   [menu.docs]
     title = "knife opc"
-    identifier = "chef_infra/chefdk/knife/plugin_knife_opc.md knife opc"
-    parent = "chef_infra/chefdk/knife"
-    weight = 350
+    identifier = "chef_workstation/chef_workstation_tools/knife/plugin_knife_opc.md knife opc"
+    parent = "chef_workstation/chef_workstation_tools/knife"
+    weight = 220
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/plugin_knife_opc.md)

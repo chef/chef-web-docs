@@ -7,9 +7,9 @@ aliases = "/knife_supermarket.html"
 [menu]
   [menu.docs]
     title = "knife supermarket"
-    identifier = "chef_infra/chefdk/knife/knife_supermarket.md knife supermarket"
-    parent = "chef_infra/chefdk/knife"
-    weight = 300
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_supermarket.md knife supermarket"
+    parent = "chef_workstation/chef_workstation_tools/knife"
+    weight = 330
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_supermarket.md)

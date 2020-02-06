@@ -7,8 +7,8 @@ aliases = "/knife_setup.html"
 [menu]
   [menu.docs]
     title = "Setting up Knife"
-    identifier = "chef_infra/chefdk/knife/knife_setup.md Setting up Knife"
-    parent = "chef_infra/chefdk/knife"
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_setup.md Setting up Knife"
+    parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 20
 +++    
 
@@ -125,7 +125,7 @@ X6zk7S0ljKtt2jny2+00VsBerQJBAJGC1Mg5Oydo5NwD6BiROrPxGo2bpTbu/fhrT8ebHkTz2epl
 U9VQQSQzY1oZMVX8i1m5WUTLPz2yLJIBQVdXqhMCQBGoiuSoSjafUhV7i1cEGpb88h5NBYZzWXGZ
 37sJ5QsW+sJyoNde3xH8vdXhzU7eT82D6X/scw9RZz+/6rCJ4p0=
 -----END RSA PRIVATE KEY-----
-"""   
+"""
 validator_key = "test-validator.pem"
 chef_server_url = "https://api.chef-server.dev/organizations/test"
 
@@ -162,7 +162,7 @@ command, for example:
 ``` bash
 Profile              Client   Key                          Server
 ----------------------------------------------------------------------------------------------------------------
- default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organizations/bedrock       
+ default             barney   ~/.chef/barney_rubble.pem    https://api.chef.io/organizations/bedrock
 ```
 
 > -   dev admin \~/.chef/admin.pem

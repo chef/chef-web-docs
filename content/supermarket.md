@@ -99,7 +99,7 @@ Create a Cookbook
 -----------------
 
 The following examples show how to create a simple cookbook by using the
-chef command that is built into ChefDK.
+chef command that is built into Chef Workstation.
 
 **Generate a chef-repo**
 

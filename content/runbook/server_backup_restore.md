@@ -9,8 +9,8 @@ runbook_weight = 70
 [menu]
   [menu.docs]
     title = "Backup & Restore"
-    identifier = "chef_infra/chef_infra_server/server_backup_restore.md Backup & Restore"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_backup_restore.md Backup & Restore"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 20
 +++    
 

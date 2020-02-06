@@ -7,9 +7,9 @@ aliases = "/knife_upload.html"
 [menu]
   [menu.docs]
     title = "knife upload"
-    identifier = "chef_infra/chefdk/knife/knife_upload.md knife upload"
-    parent = "chef_infra/chefdk/knife"
-    weight = 320
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_upload.md knife upload"
+    parent = "chef_workstation/chef_workstation_tools/knife"
+    weight = 350
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_upload.md)

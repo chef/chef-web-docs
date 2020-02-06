@@ -16,15 +16,15 @@ aliases = "/chef_overview.html"
 
 {{% chef %}}
 
--   **Chef Workstation** is the location where users interact with Chef.
-    With Chef Workstation, users can author and test
+-   **Chef Workstation** is the location where users interact with Chef
+    Infra. With Chef Workstation, users can author and test
     [cookbooks](/cookbooks/) using tools such as [Test
     Kitchen](/kitchen/) and interact with the Chef Infra Server
     using the [knife](/knife/) and [chef](/ctl_chef/) command
     line tools.
 -   **Chef Infra Client nodes** are the machines that are managed by
-    Chef. The Chef Infra Client is installed on each node and is used to
-    configure the node to its desired state.
+    Chef Infra. The Chef Infra Client is installed on each node and is
+    used to configure the node to its desired state.
 -   **Chef Infra Server** acts as [a hub for configuration
     data](/server_overview/). Chef Infra Server stores cookbooks,
     the policies that are applied to nodes, and metadata that describes
@@ -32,19 +32,19 @@ aliases = "/chef_overview.html"
     Chef Infra Client to ask the Chef Infra Server for configuration
     details, such as recipes, templates, and file distributions.
 
-Chef Components
-===============
+Chef Infra Components
+=====================
 
 The following diagram shows the relationships between the various
-elements of Chef, including the nodes, the server, and the workstation.
-These elements work together to provide the Chef Infra Client the
-information and instruction that it needs so that it can do its job. As
-you are reviewing the rest of this topic, use the icons in the tables to
-refer back to this image.
+elements of Chef Infra, including the nodes, the server, and the
+workstation. These elements work together to provide the Chef Infra
+Client the information and instruction that it needs so that it can do
+its job. As you are reviewing the rest of this topic, use the icons in
+the tables to refer back to this image.
 
 <img src="/images/chef_overview.svg" class="align-center" width="600" alt="image" />
 
-Chef has the following major components:
+Chef Infra has the following major components:
 
 <table>
 <colgroup>
@@ -62,9 +62,10 @@ Chef has the following major components:
 <td><p><img src="/images/icon_workstation.svg" class="align-center" width="100" alt="image" /></p>
 <p><img src="/images/icon_cookbook.svg" class="align-center" width="100" alt="image" /></p>
 <p><img src="/images/icon_ruby.svg" class="align-center" width="100" alt="image" /></p></td>
-<td><p>One (or more) workstations are configured to allow users to author, test, and maintain cookbooks. Cookbooks are uploaded to the Chef Infra Server from the workstation. Some cookbooks are custom to the organization and others are based on community cookbooks available from the Chef Supermarket.</p>
-<p>Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users). The full power of Ruby is available for when you need a programming language.</p>
-<p>Often, a workstation is configured to use Chef Workstation as the development toolkit. Chef Workstation is a package from Chef that provides a recommended set of tooling, including Chef itself, the chef command line tool, Test Kitchen, ChefSpec, and more.</p></td>
+<td><p>One (or more) workstations are configured to allow users to author, test, and maintain cookbooks.</p>
+<p>A workstation is your local computer that runs your development tools. The Chef Workstation development tools includes Chef Infra, Chef InSpec, Test Kitchen, ChefSpec, Cookstyle, and other tools necessary for developing and testing your infrastructure with Chef products.</p>
+<p>Cookbooks are uploaded to the Chef Infra Server from these workstations. Some cookbooks are custom to the organization and others are based on community cookbooks available from the Chef Supermarket.</p>
+<p>Ruby is the programming language that is the authoring syntax for cookbooks. Most recipes are simple patterns (blocks that define properties and values that map to specific configuration items like packages, files, services, templates, and users. The full power of Ruby is available for when you need a programming language.</p></td>
 </tr>
 <tr class="even">
 <td><p><img src="/images/icon_node.svg" class="align-center" width="100" alt="image" /></p>
@@ -75,8 +76,7 @@ Chef has the following major components:
 <tr class="odd">
 <td><p><img src="/images/icon_chef_server.svg" class="align-center" width="100" alt="image" /></p></td>
 <td><p>The Chef Infra Server acts as a hub of information. Cookbooks and policy settings are uploaded to the Chef Infra Server by users from workstations. (Policy settings may also be maintained from the Chef Infra Server itself, via the Chef management console web user interface.)</p>
-<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p>
-<p>Chef management console is the user interface for the Chef Infra Server. It is used to manage data bags, attributes, run-lists, roles, environments, and cookbooks, and also to configure role-based access for users and groups.</p></td>
+<p>The Chef Infra Client accesses the Chef Infra Server from the node on which it's installed to get configuration data, performs searches of historical Chef Infra Client run data, and then pulls down the necessary configuration data. After a Chef Infra Client run is finished, the Chef Infra Client uploads updated run data to the Chef Infra Server.</p></td>
 </tr>
 <tr class="even">
 <td><img src="/images/icon_chef_supermarket.svg" class="align-center" width="100" alt="image" /></td>
@@ -85,9 +85,9 @@ Chef has the following major components:
 </tbody>
 </table>
 
-Chef management console, Chef Infra Client run reporting, high
-availability configurations, and Chef Infra Server replication are
-available as part of Chef Automate.
+Chef Infra Client run reporting, compliance reporting, high availability
+configurations, and Chef Infra Server replication are available as part
+of Chef Automate.
 
 The following sections discuss these elements (and their various
 components) in more detail.
@@ -95,9 +95,9 @@ components) in more detail.
 Workstations
 ============
 
-A workstation is a computer running Chef Workstation that is used to
-author cookbooks, interact with the Chef Infra Server, and interact with
-nodes.
+A workstation is your local computer running Chef Workstation that you
+use to author cookbooks, interact with the Chef Infra Server, and
+interact with nodes.
 
 The workstation is where users do most of their work, including:
 
@@ -108,16 +108,6 @@ The workstation is where users do most of their work, including:
     environments, and ensuring that critical data is stored in data bags
 -   Interacting with nodes, as (or when) required, such as performing a
     bootstrap operation
-
-[Chef Workstation](https://downloads.chef.io/chef-workstation/) gives
-you everything you need to get started with Chef — ad hoc remote
-execution, remote scanning, configuration tasks, cookbook creation tools
-as well as robust dependency and testing software — all in one
-easy-to-install package. Chef Workstation replaces ChefDK, combining all
-the existing features with new features, such as ad-hoc task support and
-the new Chef Workstation desktop application. Chef will continue to
-maintain ChefDK, but new development will take place in Chef Workstation
-without backporting features.
 
 Chef Workstation Components and Tools
 -------------------------------------
@@ -138,7 +128,7 @@ Some important tools and components of Chef Workstation include:
 <tbody>
 <tr class="odd">
 <td><img src="/images/icon_devkit.svg" class="align-center" width="100" alt="image" /></td>
-<td>{{% chef_dk %}}</td>
+<td>{{% chef_workstation %}}</td>
 </tr>
 <tr class="even">
 <td><p><img src="/images/icon_ctl_chef.svg" class="align-center" width="100" alt="image" /></p>

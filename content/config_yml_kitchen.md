@@ -7,8 +7,8 @@ aliases = "/config_yml_kitchen.html"
 [menu]
   [menu.docs]
     title = "kitchen.yml"
-    identifier = "chef_infra/chefdk/test_kitchen/config_yml_kitchen.md kitchen.yml"
-    parent = "chef_infra/chefdk/test_kitchen"
+    identifier = "chef_workstation/chef_workstation_tools/test_kitchen/config_yml_kitchen.md kitchen.yml"
+    parent = "chef_workstation/chef_workstation_tools/test_kitchen"
     weight = 30
 +++    
 
@@ -30,9 +30,9 @@ data across any combination of platforms and test suites:
 
 {{< note >}}
 
-This topic details functionality that is packaged with ChefDK. See
-<https://kitchen.ci/docs/getting-started/> for more information about
-Kitchen.
+This topic details functionality that is packaged with Chef Workstation.
+See <https://kitchen.ci/docs/getting-started/> for more information
+about Kitchen.
 
 {{< /note >}}
 
@@ -81,7 +81,7 @@ Chef-specific settings:
 </tr>
 <tr class="even">
 <td><code>chef_omnibus_install_options</code></td>
-<td>Use to specify the package to be installed. Possible values: <code>-P chef</code> (for Chef Infra Client) and <code>-P chefdk</code> (for the Chef Infra Client that is packaged as part of ChefDK). Use <code>-n</code> to specify the nightly build. For example: <code>-P chefdk</code> or <code>-n -P chefdk</code>. <strong>This will be deprecated in a future version.</strong> See the <code>product_name</code>, <code>product_version</code>, and <code>channel</code> settings instead.</td>
+<td>Use to specify the package to be installed. Possible values: <code>-P chef</code> (for Chef Infra Client) and <code>-P chef-workstation</code> (for the Chef Infra Client that is packaged as part of Chef Workstation). Use <code>-n</code> to specify the nightly build. For example: <code>-P chef-workstation</code> or <code>-n -P chef-workstation</code>. <strong>This will be deprecated in a future version.</strong> See the <code>product_name</code>, <code>product_version</code>, and <code>channel</code> settings instead.</td>
 </tr>
 <tr class="odd">
 <td><code>chef_omnibus_root</code></td>
@@ -179,7 +179,7 @@ Chef-specific settings:
 </tr>
 <tr class="even">
 <td><code>require_chef_omnibus</code></td>
-<td>Use to install the latest version of Chef Infra Client on a node. Set to <code>true</code> to install the latest version, <code>false</code> to not install Chef Infra Client (assumes the box already has it installed), or a version specifier like <code>12.19.36</code> to install a particular version, or simply <code>12</code> to install the latest 12.x package. When set to <code>true</code> or a version number, the <code>chef_omnibus_url</code> may be used to specify the URL of the <code>install.sh</code> that installs the specified version of Chef Infra Client. Default value: <code>true</code>. <strong>This will be deprecated in a future version.</strong> See the <code>product_version</code> and <code>install_strategy</code> settings.</td>
+<td>Use to install the latest version of Chef Infra Client on a node. Set to <code>true</code> to install the latest version, <code>false</code> to not install Chef Infra Client (assumes the box already has it installed), or a version specifier like <code>15.3.12</code> to install a particular version, or simply <code>15</code> to install the latest 15.x package. When set to <code>true</code> or a version number, the <code>chef_omnibus_url</code> may be used to specify the URL of the <code>install.sh</code> that installs the specified version of Chef Infra Client. Default value: <code>true</code>. <strong>This will be deprecated in a future version.</strong> See the <code>product_version</code> and <code>install_strategy</code> settings.</td>
 </tr>
 <tr class="odd">
 <td><code>roles_path</code></td>
@@ -240,7 +240,7 @@ New Provisioner Settings
 <tbody>
 <tr class="odd">
 <td><code>product_name</code></td>
-<td><code>chef</code> or <code>chefdk</code>. This setting must be specified in order to use the new settings. Using this setting overrides Test Kitchen's default behavior based on the <code>require_chef_omnibus</code> setting.</td>
+<td><code>chef</code> or <code>chef-workstation</code>. This setting must be specified in order to use the new settings. Using this setting overrides Test Kitchen's default behavior based on the <code>require_chef_omnibus</code> setting.</td>
 <td></td>
 <td><code>chef_omnibus_install_options</code></td>
 </tr>
@@ -523,30 +523,30 @@ Examples
 The following examples show actual kitchen.yml files used in
 Chef-maintained cookbooks.
 
-Chef, ChefDK
-------------
+Chef, Chef Workstation
+----------------------
 
 The following example shows the provisioner settings needed to install
-ChefDK, and then use the version of Chef that is embedded in ChefDK to
-converge the node.
+Chef Workstation, and then use the version of Chef that is embedded in
+Chef Workstation to converge the node.
 
-To install the latest version of ChefDK:
+To install the latest version of Chef Workstation:
 
 ``` yaml
 provisioner:
   ...
-  chef_omnibus_install_options: -P chefdk
-  chef_omnibus_root: /opt/chefdk
+  chef_omnibus_install_options: -P chef-workstation
+  chef_omnibus_root: /opt/chef-workstation
 ```
 
-and to install a specific version of ChefDK:
+and to install a specific version of Chef Workstation:
 
 ``` yaml
 provisioner:
   ...
-  chef_omnibus_install_options: -P chefdk
-  chef_omnibus_root: /opt/chefdk
-  require_chef_omnibus: 3.2.0
+  chef_omnibus_install_options: -P chef-workstation
+  chef_omnibus_root: /opt/chef-workstation
+  require_chef_omnibus: 0.9
 ```
 
 Microsoft Windows Platform
@@ -810,7 +810,6 @@ attributes on the provisioner in `kitchen.yml` file as follows :
 ---
 provisioner:
    name: chef_zero
-   require_chef_omnibus: 12.11 # need the RFC 062 exit codes
    retry_on_exit_code:
      - 35 # 35 is the exit code signaling that the node is rebooting
      - 1

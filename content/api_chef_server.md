@@ -7,8 +7,8 @@ aliases = "/api_chef_server.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Server API"
-    identifier = "chef_infra/chef_infra_server/api_chef_server.md Chef Infra Server API"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/api_chef_server.md Chef Infra Server API"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 200
 +++    
 
@@ -773,7 +773,7 @@ Chef Infra Server. For example:
 -   The user that operates the workstation from which a Chef Infra
     Server will be managed
 
-The `/users` endpoint has the following methods: `` `GET `` and `POST`.
+The `/users` endpoint has the following methods: `GET` and `POST`.
 
 {{< warning >}}
 

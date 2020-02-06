@@ -261,7 +261,8 @@ examples_list:
   text_blocks:
   - code_block: "service 'samba' do\n  pattern 'smbd'\n  action [:enable, :start]\n\
       end"
-  - markdown: '**Use the :nothing common action**'
+- example_heading: Use the :nothing common action
+  text_blocks:
   - shortcode: resource_service_use_nothing_action.md
 - example_heading: Use the retries common attribute
   text_blocks:

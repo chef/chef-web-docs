@@ -7,8 +7,8 @@ aliases = "/ctl_chef_server.html"
 [menu]
   [menu.docs]
     title = "chef-server-ctl"
-    identifier = "chef_infra/chef_infra_server/ctl_chef_server.md chef-server-ctl"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/ctl_chef_server.md chef-server-ctl"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 150
 +++    
 

@@ -35,19 +35,19 @@ syntax_description: 'A **chocolatey_package** resource manages packages using Ch
   resource is:'
 syntax_code_block: chocolatey_package 'package_name'
 syntax_properties_list: null
-syntax_full_code_block: "chocolatey_package 'name' do\n  options           String\n\
-  \  list_options      String\n  package_name      String, Array # defaults to 'name'\
-  \ if not specified\n  user              String\n  password          String\n  returns\
-  \           Integer, Array # default value: [0, 2]\n  source            String\n\
-  \  timeout           String, Integer\n  version           String, Array\n  action\
-  \            Symbol # defaults to :install if not specified\nend"
+syntax_full_code_block: "chocolatey_package 'name' do\n  list_options      String\n\
+  \  options           String, Array\n  package_name      String, Array\n  password\
+  \          String\n  returns           Integer, Array # default value: [0, 2]\n\
+  \  source            String\n  timeout           String, Integer\n  user       \
+  \       String\n  version           String, Array\n  action            Symbol #\
+  \ defaults to :install if not specified\nend"
 syntax_full_properties_list:
 - '`chocolatey_package` is the resource.'
 - '`name` is the name given to the resource block.'
 - '`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state.'
-- '`options`, `list_options`, `package_name`, `user`, `password`, `returns`, `source`,
-  `timeout`, and `version` are the properties available to this resource.'
+- '`list_options`, `options`, `package_name`, `password`, `returns`, `source`, `timeout`,
+  `user`, and `version` are the properties available to this resource.'
 syntax_shortcode: null
 registry_key: false
 nameless_apt_update: false
@@ -71,13 +71,6 @@ actions_list:
   :upgrade:
     markdown: Install a package and/or ensure that a package is the latest version.
 properties_list:
-- property: options
-  ruby_type: String
-  required: false
-  default_value: null
-  new_in: null
-  description_list:
-  - markdown: One (or more) additional options that are passed to the command.
 - property: list_options
   ruby_type: String
   required: false
@@ -87,6 +80,13 @@ properties_list:
   - markdown: 'One (or more) additional list options that are passed to the
 
       command.'
+- property: options
+  ruby_type: String, Array
+  required: false
+  default_value: null
+  new_in: null
+  description_list:
+  - markdown: One (or more) additional options that are passed to the command.
 - property: package_name
   ruby_type: String, Array
   required: false
@@ -96,13 +96,6 @@ properties_list:
   - markdown: 'The name of the package. Default value: the name of the resource
 
       block.'
-- property: user
-  ruby_type: String
-  required: false
-  default_value: null
-  new_in: '15.3'
-  description_list:
-  - markdown: The username to authenticate feeds.
 - property: password
   ruby_type: String
   required: false
@@ -165,6 +158,13 @@ properties_list:
   new_in: null
   description_list:
   - markdown: The amount of time (in seconds) to wait before timing out.
+- property: user
+  ruby_type: String
+  required: false
+  default_value: null
+  new_in: '15.3'
+  description_list:
+  - markdown: The username to authenticate feeds.
 - property: version
   ruby_type: String, Array
   required: false
@@ -195,12 +195,10 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples_list:
-- example_heading: Install a package
+- example_heading: Install a Chocolatey package
   text_blocks:
   - code_block: "chocolatey_package 'name of package' do\n  action :install\nend"
-- example_heading: Install a package with options
-  text_blocks:
-  - markdown: 'This example uses Chocolatey''s `--checksum` option:'
+  - markdown: '**Install a package with Chocolatey''s \`\`--checksum\`\` option**'
   - code_block: "chocolatey_package 'name of package' do\n  options '--checksum 1234567890'\n\
       \  action :install\nend"
 

@@ -9,14 +9,14 @@ aliases = "/chef_system_requirements.html"
     title = "System Requirements"
     identifier = "chef_infra/getting_started/chef_system_requirements.md System Requirements"
     parent = "chef_infra/getting_started"
-    weight = 50
+    weight = 30
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_system_requirements.md)
 
 Before installing Chef Infra:
 
--   Ensure that each machine that will be a node is running a [supported
+-   Ensure that each system you will be managing is running a [supported
     platform](/platforms/)
 -   Ensure that the machine that will run the Chef Infra Server is
     sufficiently powerful
@@ -24,8 +24,8 @@ Before installing Chef Infra:
     correctly
 
 Install and configure the Chef Infra Server, then install and configure
-a workstation, and then run the bootstrap command from the workstation
-to install Chef Infra Client on each node.
+Chef Workstation, and then run the bootstrap command from Chef
+Workstation to install Chef Infra Client on each node.
 
 The Chef Infra Server
 =====================

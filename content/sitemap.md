@@ -17,15 +17,14 @@ toc = false
 
 This is the documentation for:
 
--   Chef Infra Server, Chef Infra Client, ChefDK, and related tools
+-   Chef Infra Server, Chef Infra Client, Chef Workstation, and related
+    tools
 
 Documentation for other Chef products:
 
 -   [Chef Automate 2.0](https://automate.chef.io/docs/quickstart/)
 -   [Chef Habitat](https://www.habitat.sh/docs/)
 -   [Chef InSpec](https://www.inspec.io/docs/)
--   [Chef
-    Workstation](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
 This page has links to each topic in this doc set. You can also use the
 navigation tool or the search box to find what you're looking for.
@@ -60,17 +59,15 @@ Packages and Platform Support
 [Platforms](/platforms/) | [Supported Versions](/versions/) |
 [Omnitruck API](/api_omnitruck/)
 
-Chef
-====
+Chef Infra
+==========
 
 Getting Started
 ---------------
 
-[Chef Overview](/chef_overview/) | [Quick Start](/quick_start/)
-| [System Requirements](/chef_system_requirements/)
-
-**Chef Workstation**: [Chef Workstation](https://www.chef.sh/) |
-[Documentation](https://www.chef.sh/docs/chef-workstation/getting-started/)
+[Chef Infra Overview](/chef_overview/) | [Quick
+Start](/quick_start/) | [System
+Requirements](/chef_system_requirements/)
 
 **Release Notes**: [Chef Infra Client](/release_notes/) |
 [ChefDK](/release_notes_chefdk/) | [Chef Infra
@@ -87,7 +84,6 @@ Concepts
 Overview](/chef_client_overview/) | [Chef Infra Server
 Overview](/server_overview/) | [Search](/chef_search/) |
 [Cookbooks](/cookbooks/) | [Handlers](/handlers/) |
-[Management Console](/manage/)
 
 **Policy**: [About Policy](/policy/) | [Data Bags](/data_bags/)
 | [Environments](/environments/) | [Roles](/roles/)
@@ -115,15 +111,14 @@ Workstation in Azure Cloud Shell](/azure_cwa_cloud_shell/) |
 Azure](/knife_azure/) | [Knife Azurerm](/knife_azurerm/)
 
 **Chef on Microsoft Windows**: [Chef for Microsoft
-Windows](/windows/) | [Installing Chef on
-Windows](/dk_windows/) | [Chef Infra Client on Windows
+Windows](/windows/) | [Chef Infra Client on Windows
 Nodes](/install_windows/) | [Knife Windows](/knife_windows/)
 
 Setup
 -----
 
-[Proxies](/proxies/) | [Installing Chef on
-Windows](/dk_windows/) | [Chef Workstation](/install_dk/)
+[Proxies](/proxies/) | [Install Chef
+Workstation](/install_workstation/)
 
 **Nodes**: [Install via Bootstrap](/install_bootstrap/) | [Install
 via Script](/install_omnibus/) | [chef-client
@@ -165,7 +160,7 @@ Cookbook Reference
 **Recipes**: [About Recipes](/recipes/) | [Debug Recipes, Client
 Runs](/debug.html)
 
-**Resources**: [About Resources](/resource/) | [Common
+**Resources**: [About Resources](/resource/) | [Common Resource
 Functionality](/resource_common/) | [Custom
 Resources](/custom_resources/) | [Converting Definitions to Custom
 Resources](/definitions/) | [All Resources (Single
@@ -313,11 +308,12 @@ Versioning](/cookbook_versioning/) | [Ruby Guide](/ruby/)
 (cookbook)](/delivery_truck.html) | [Publish Cookbooks to Multiple Chef
 Servers](/publish_cookbooks_multiple_servers/)
 
-ChefDK
-------
+Chef Workstation
+----------------
 
-[About ChefDK](/about_chefdk/) | [Berkshelf](/berkshelf/) |
-[chef-apply (executable)](/ctl_chef_apply.html) | [chef-shell
+[About Chef Workstation](/about_workstation/) |
+[Berkshelf](/berkshelf/) | [chef-apply
+(executable)](/ctl_chef_apply.html) | [chef-shell
 (executable)](/chef_shell.html)
 
 **chef (executable)**: [chef env](/ctl_chef.html#chef-env) | [chef
@@ -389,8 +385,7 @@ org delete](/plugin_knife_opc.html#plugin-knife-opc-opc-org-delete) |
 [opc org user
 add](/plugin_knife_opc.html#plugin-knife-opc-opc-org-user-add) | [opc
 org user
-remove](/plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove) |
-[knife spork](/plugin_knife_spork/)
+remove](/plugin_knife_opc.html#plugin-knife-opc-opc-org-user-remove)
 
 **Ohai**: [About Ohai](/ohai/) | [ohai
 (executable)](/ctl_ohai.html)

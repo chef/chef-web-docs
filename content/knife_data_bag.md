@@ -7,9 +7,9 @@ aliases = "/knife_data_bag.html"
 [menu]
   [menu.docs]
     title = "knife data bag"
-    identifier = "chef_infra/chefdk/knife/knife_data_bag.md knife data bag"
-    parent = "chef_infra/chefdk/knife"
-    weight = 100
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_data_bag.md knife data bag"
+    parent = "chef_workstation/chef_workstation_tools/knife"
+    weight = 120
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_data_bag.md)

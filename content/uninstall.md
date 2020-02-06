@@ -9,7 +9,7 @@ aliases = "/uninstall.html"
     title = "Uninstall"
     identifier = "chef_infra/getting_started/uninstall.md Uninstall"
     parent = "chef_infra/getting_started"
-    weight = 90
+    weight = 70
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/uninstall.md)
@@ -112,36 +112,37 @@ push-jobs-client
 Use the package manager for the platform on which Chef Push Jobs is
 installed to uninstall Chef Push Jobs.
 
-ChefDK
-======
+Chef Workstation
+================
 
-ChefDK can be uninstalled using the steps below that are appropriate for
-the platform on which ChefDK is installed.
+Chef Workstation can be uninstalled using the steps below that are
+appropriate for the platform on which Chef Workstation is installed.
 
 Debian
 ------
 
-Use the following command to remove ChefDK on Debian-based platforms:
+Use the following command to remove Chef Workstation on Debian-based
+platforms:
 
 ``` bash
-$ dpkg -P chefdk
+$ dpkg -P chef-workstation
 ```
 
 macOS
 -----
 
-Use the following commands to remove ChefDK on macOS.
+Use the following commands to remove Chef Workstation on macOS.
 
 To remove installed files:
 
 ``` bash
-$ sudo rm -rf /opt/chefdk
+$ sudo rm -rf `/opt/chef-workstation
 ```
 
 To remove the system installation entry:
 
 ``` bash
-$ sudo pkgutil --forget com.getchef.pkg.chefdk
+$ sudo pkgutil --forget com.getchef.pkg.chef-workstation
 ```
 
 To remove symlinks:
@@ -149,28 +150,22 @@ To remove symlinks:
 -   For Chef Client 12.x, under `/usr/local/bin`:
 
     ``` bash
-    $ sudo find /usr/local/bin -lname '/opt/chefdk/*' -delete
-    ```
-
--   For Chef Client 11.x, under `/usr/bin`:
-
-    ``` bash
-    $ sudo find /usr/bin -lname '/opt/chefdk/*' -delete
+    $ sudo find /usr/local/bin -lname '`/opt/chef-workstation/*' -delete
     ```
 
 Red Hat Enterprise Linux
 ------------------------
 
-Use the following commands to remove ChefDK on Red Hat Enterprise
-Linux-based platforms:
+Use the following commands to remove Chef Workstation on Red Hat
+Enterprise Linux-based platforms:
 
 ``` bash
-$ rpm -qa *chefdk*
+$ rpm -qa *chef-workstation*
 $ sudo yum remove -y <package>
 ```
 
 Microsoft Windows
 -----------------
 
-Use **Add / Remove Programs** to remove ChefDK on the Microsoft Windows
-platform.
+Use **Add / Remove Programs** to remove Chef Workstation on the
+Microsoft Windows platform.

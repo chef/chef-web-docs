@@ -7,8 +7,8 @@ aliases = "/ctl_opscode_expander.html"
 [menu]
   [menu.docs]
     title = "opscode-expander-ctl"
-    identifier = "chef_infra/chef_infra_server/ctl_opscode_expander.md opscode-expander-ctl"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/ctl_opscode_expander.md opscode-expander-ctl"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 190
 +++    
 

@@ -7,8 +7,8 @@ aliases = "/server_sent_events.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Server Sent Events"
-    identifier = "chef_infra/chef_infra_server/push_jobs/server_sent_events.md Chef Infra Server Sent Events"
-    parent = "chef_infra/chef_infra_server/push_jobs"
+    identifier = "chef_infra/managing_chef_infra_server/push_jobs/server_sent_events.md Chef Infra Server Sent Events"
+    parent = "chef_infra/managing_chef_infra_server/push_jobs"
     weight = 60
 +++    
 
