@@ -9,16 +9,16 @@ This is the documentation for:
 
 Documentation for other Chef products:
 
-* `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart>`_
-* `Chef Habitat <https://www.habitat.sh/docs/>`_
-* `Chef InSpec <https://www.inspec.io/docs/>`_
+* `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart>`__
+* `Chef Habitat <https://www.habitat.sh/docs/>`__
+* `Chef InSpec <https://www.inspec.io/docs/>`__
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If you are new to Chef Infra, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started>`_ track on Learn Chef to familiarize yourself with Chef Infra concepts.
+If you are new to Chef Infra, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`__ track on Learn Chef to familiarize yourself with Chef Infra concepts.
 
-If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
+If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`__.
 
 Overview
 =====================================================
@@ -71,7 +71,7 @@ Concepts
 `Chef Infra Server Overview </server_overview.html>`__ |
 `Search </chef_search.html>`__ |
 `Cookbooks </cookbooks.html>`__ |
-`Handlers </handlers.html>`__ |
+`Handlers </handlers.html>`__
 
 **Policy**: `About Policy </policy.html>`__ | `Data Bags </data_bags.html>`__ | `Environments </environments.html>`__ | `Roles </roles.html>`__
 
@@ -125,7 +125,6 @@ Cookbook Reference
 `Custom Resources </custom_resources.html>`__ |
 `Converting Definitions to Custom Resources </definitions.html>`__ |
 `All Resources (Single Page) </resource_reference.html>`__ |
-
 `apt_package </resource_apt_package.html>`__ |
 `apt_preference </resource_apt_preference.html>`__ |
 `apt_repository </resource_apt_repository.html>`__ |
@@ -272,7 +271,6 @@ Cookbook Reference
 `yum_repository </resource_yum_repository.html>`__ |
 `zypper_package </resource_zypper_package.html>`__ |
 `zypper_repository </resource_zypper_repository.html>`__
-
 `Templates </templates.html>`__ |
 `Cookbook Repo </cookbook_repo.html>`__ |
 `metadata.rb </config_rb_metadata.html>`__ |
@@ -330,7 +328,7 @@ Chef Automate
 `Installation Guide <https://automate.chef.io/docs/install>`__ |
 `Upgrade from Chef Automate One <https://automate.chef.io/docs/upgrade>`__ |
 `Airgapped Installation Guide <https://automate.chef.io/docs/airgapped-installation>`__ |
-`Install Chef Habitat on-prem https://automate.chef.io/docs/on-prem-builder>`__ |
+`Install Chef Habitat on-prem <https://automate.chef.io/docs/on-prem-builder>`__ |
 `Backup and Restore <https://automate.chef.io/docs/backup>`__ |
 `Configuration <https://automate.chef.io/docs/configuration>`__ |
 `Data Lifecycle <https://automate.chef.io/docs/data-lifecycle>`__ |
