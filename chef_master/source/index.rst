@@ -64,7 +64,7 @@ Getting Started
 Concepts
 -----------------------------------------------------
 
-`Chef Workstation </workstation.html>`__ |
+`Chef Workstation </about_workstation.html>`__ |
 `chef-repo </chef_repo.html>`__ |
 `Nodes </nodes.html>`__ |
 `Chef Infra Client Overview </chef_client_overview.html>`__ |
@@ -340,7 +340,7 @@ Chef Automate
 `Setting up the Applications Dashboard <https://automate.chef.io/docs/applications-setup>`__ |
 `Event Feed <https://automate.chef.io/docs/event-feed>`__ |
 `Client Runs <https://automate.chef.io/docs/client-runs>`__ |
-`Compliance Reports <https://automate.chef.io/docs/reports>`__
+`Compliance Reports <https://automate.chef.io/docs/reports>`__ |
 `Scan Jobs <https://automate.chef.io/docs/scan-jobs>`__ |
 `Compliance Profiles <https://automate.chef.io/docs/profiles>`__ |
 `Notifications <https://automate.chef.io/docs/notifications>`__ |
