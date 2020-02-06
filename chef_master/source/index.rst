@@ -10,13 +10,13 @@ This is the documentation for:
 Documentation for other Chef products:
 
 * `Chef Automate 2.0 <https://automate.chef.io/docs/quickstart>`_
-* `Chef Habitat <https://www.habitat.sh/docs>`_
-* `Chef InSpec <https://www.inspec.io/docs>`_
+* `Chef Habitat <https://www.habitat.sh/docs/>`_
+* `Chef InSpec <https://www.inspec.io/docs/>`_
 
 This page has links to each topic in this doc set. You can also use
 the navigation tool or the search box to find what you're looking for.
 
-If you are new to Chef Infra, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started/>`_ track on Learn Chef to familiarize yourself with Chef Infra concepts.
+If you are new to Chef Infra, we highly recommend the `Getting Started <https://learn.chef.io/tracks/getting-started>`_ track on Learn Chef to familiarize yourself with Chef Infra concepts.
 
 If you need documentation for previous versions, see the `Docs Archive <https://docs-archive.chef.io>`_.
 
@@ -362,7 +362,7 @@ Chef Automate
 `Chef Automate API <https://automate.chef.io/docs/api>`__ |
 `Chef Automate CLI <https://automate.chef.io/docs/cli-chef-automate>`__ |
 `Monitoring Chef Automate <https://automate.chef.io/docs/monitoring>`__ |
-`Troubleshooting <https://automate.chef.io/docs/troubleshooting>`__ |
+`Troubleshooting <https://automate.chef.io/docs/troubleshooting>`__
 
 Chef Habitat
 =====================================================
