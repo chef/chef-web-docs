@@ -123,7 +123,8 @@ Cookbook Reference
 `About Resources </resource.html>`__ |
 `Common Resource Functionality </resource_common.html>`__ |
 `Custom Resources </custom_resources.html>`__ |
-`Converting Definitions to Custom Resources </definitions.html>`__ |
+`Converting Definitions to Custom Resources </definitions.html>`__
+
 `All Resources (Single Page) </resource_reference.html>`__ |
 `apt_package </resource_apt_package.html>`__ |
 `apt_preference </resource_apt_preference.html>`__ |
