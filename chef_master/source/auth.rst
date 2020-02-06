@@ -89,7 +89,7 @@ The chef-repo is a directory on your workstation that stores everything you need
 
 The chef-repo directory should be synchronized with a version control system, such as git. All of the data in the chef-repo should be treated like source code.
 
-The chef and knife commands are used to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, that data is used by Chef Infra Client to manage all of the nodes that are registered with the Chef Infra Server and to ensure that the correct cookbooks, policyfiles, and other settings are applied to nodes correctly.
+You'll use the ``chef`` and ``knife ``commands to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, Chef Infra Client uses that data to manage the nodes registered with the Chef Infra Server and to ensure that it applies the right cookbooks, policyfiles, and settings to the right nodes in the right order.
 
 .. end_tag
 
