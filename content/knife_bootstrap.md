@@ -7,9 +7,9 @@ aliases = "/knife_bootstrap.html"
 [menu]
   [menu.docs]
     title = "knife bootstrap"
-    identifier = "chef_infra/chefdk/knife/knife_bootstrap.md knife bootstrap"
-    parent = "chef_infra/chefdk/knife"
-    weight = 50
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_bootstrap.md knife bootstrap"
+    parent = "chef_workstation/chef_workstation_tools/knife"
+    weight = 70
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_bootstrap.md)
@@ -109,7 +109,7 @@ WinRM Connection Options
 
 :   For WinRM basic authentication when using the 'ssl' auth method.
 
-`-R KERBEROS_REALM`, `--kerberos-realm KERBEROS_REALM`\`
+`-R KERBEROS_REALM`, `--kerberos-realm KERBEROS_REALM`
 
 :   The Kerberos realm used for authentication.
 
@@ -396,14 +396,14 @@ for Chef packages and installation scripts, as well as a RubyGem mirror:
     copy the `chef-full` configuration to your new template:
 
     ``` bash
-    find /opt/chefdk/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > template.erb
+    find /opt/chef-workstation/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > template.erb
     ```
 
     This command searches for the `chef-full` template file under
-    `/opt/chefdk/embedded/lib/ruby`, and then outputs the contents of
-    the file to `template.erb`. If you used a different template file
-    name, be sure to replace `template.erb` with the template file you
-    created during the last step.
+    `/opt/chef-workstation/embedded/lib/ruby`, and then outputs the
+    contents of the file to `template.erb`. If you used a different
+    template file name, be sure to replace `template.erb` with the
+    template file you created during the last step.
 
 4.  Update `template.erb` to replace `omnitruck.chef.io` with the URL of
     an `install.sh` script on your artifact store:

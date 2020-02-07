@@ -267,7 +267,7 @@ versions for Chef InSpec:
 <tr class="odd">
 <td>SUSE Enterprise Linux Server</td>
 <td><code>x86_64</code></td>
-<td><code>12 SP1+</code>, <code>15</code></td>
+<td><code>12 SP4+</code>, <code>15</code></td>
 </tr>
 <tr class="even">
 <td>Ubuntu</td>

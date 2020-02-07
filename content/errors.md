@@ -15,7 +15,7 @@ aliases = "/errors.html"
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/errors.md)
 
 The following sections describe how to troubleshoot the Chef Infra
-Server, Chef Infra Client, and ChefDK.
+Server, Chef Infra Client, and Chef Workstation.
 
 401 Unauthorized
 ================

@@ -7,8 +7,8 @@ aliases = "/config_rb_server_optional_settings.html"
 [menu]
   [menu.docs]
     title = "Chef Infra Server Optional Settings"
-    identifier = "chef_infra/chef_infra_server/config_rb_server_optional_settings.md Chef Infra Server Optional Settings"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/config_rb_server_optional_settings.md Chef Infra Server Optional Settings"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 180
 +++    
 

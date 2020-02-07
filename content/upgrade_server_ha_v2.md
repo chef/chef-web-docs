@@ -7,8 +7,8 @@ aliases = "/upgrade_server_ha_v2.html"
 [menu]
   [menu.docs]
     title = "Upgrade HA Cluster"
-    identifier = "chef_infra/chef_infra_server/upgrade_server_ha_v2.md Upgrade HA Cluster"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/upgrade_server_ha_v2.md Upgrade HA Cluster"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 130
 +++    
 

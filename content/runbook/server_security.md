@@ -9,8 +9,8 @@ runbook_weight = 50
 [menu]
   [menu.docs]
     title = "Security"
-    identifier = "chef_infra/chef_infra_server/server_security.md Security"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_security.md Security"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 90
 +++    
 
@@ -478,7 +478,7 @@ the user.
     Start a psql session:
 
     ``` bash
-    chef-server-ctl psql opscode_chef 
+    chef-server-ctl psql opscode_chef
     ```
 
     From the psql session, enter `postgres=# show ssl;` which will show

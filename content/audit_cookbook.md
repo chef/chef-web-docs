@@ -36,9 +36,9 @@ Audit Cookbook
 
 Audit Cookbook version 4.2.0 or later requires Chef InSpec 1.25.1 or
 later. You can upgrade your Chef InSpec package in several different
-ways: by upgrading Automate, by upgrading the ChefDK, by upgrading Chef
-Infra Client, or by setting the `node['audit']['inspec_version']`
-attribute in your cookbook.
+ways: by upgrading Automate, by upgrading the Chef Workstation, by
+upgrading Chef Infra Client, or by setting the
+`node['audit']['inspec_version']` attribute in your cookbook.
 
 {{< /note >}}
 

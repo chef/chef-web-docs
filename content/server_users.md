@@ -7,8 +7,8 @@ aliases = "/server_users.html"
 [menu]
   [menu.docs]
     title = "Users"
-    identifier = "chef_infra/chef_infra_server/server_users.md Users"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_users.md Users"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 140
 +++    
 

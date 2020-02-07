@@ -9,8 +9,8 @@ runbook_weight = 20
 [menu]
   [menu.docs]
     title = "Log Files"
-    identifier = "chef_infra/chef_infra_server/server_logs.md Log Files"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_logs.md Log Files"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 60
 +++    
 

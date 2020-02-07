@@ -7,8 +7,8 @@ aliases = "/config_rb.html"
 [menu]
   [menu.docs]
     title = "config.rb (knife.rb)"
-    identifier = "chef_infra/chefdk/knife/config_rb.md config.rb (knife.rb)"
-    parent = "chef_infra/chefdk/knife"
+    identifier = "chef_workstation/chef_workstation_tools/knife/config_rb.md config.rb (knife.rb)"
+    parent = "chef_workstation/chef_workstation_tools/knife"
     weight = 40
 +++    
 
@@ -288,9 +288,9 @@ This configuration file has the following settings:
 
 `config_log_level`
 
-:   New in ChefDK 1.2. Sets the default value of `log_level` in the
-    client.rb file of the node being bootstrapped. Possible values are
-    `:debug`, `:info`, `:warn`, `:error` and `:fatal`. For example:
+:   Sets the default value of `log_level` in the client.rb file of the
+    node being bootstrapped. Possible values are `:debug`, `:info`,
+    `:warn`, `:error` and `:fatal`. For example:
 
     ``` ruby
     config_log_level :debug
@@ -298,8 +298,8 @@ This configuration file has the following settings:
 
 `config_log_location`
 
-:   New in ChefDK 1.2. Sets the default value of `log_location` in the
-    client.rb file of the node being bootstrapped. Possible values are
+:   Sets the default value of `log_location` in the client.rb file of
+    the node being bootstrapped. Possible values are
     `/path/to/log_location`, `STDOUT`, `STDERR`, `:win_evt` and
     `:syslog`. For example:
 

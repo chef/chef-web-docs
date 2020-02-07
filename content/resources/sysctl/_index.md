@@ -27,18 +27,18 @@ resource_description_list:
 resource_new_in: '14.0'
 handler_types: false
 syntax_description: 'The sysctl resource has the following syntax:'
-syntax_code_block: "sysctl 'name' do\n  conf_dir          String # default value:\
-  \ \"/etc/sysctl.d\"\n  ignore_error      true, false # default value: false\n  key\
-  \               String # default value: 'name' unless specified\n  value       \
-  \      Array, String, Integer, Float\n  action            Symbol # defaults to :apply\
-  \ if not specified\nend"
+syntax_code_block: "sysctl 'name' do\n  comment           Array, String # default\
+  \ value: []\n  conf_dir          String # default value: \"/etc/sysctl.d\"\n  ignore_error\
+  \      true, false # default value: false\n  key               String # default\
+  \ value: 'name' unless specified\n  value             Array, String, Integer, Float\n\
+  \  action            Symbol # defaults to :apply if not specified\nend"
 syntax_properties_list:
 - '`sysctl` is the resource.'
 - '`name` is the name given to the resource block.'
 - '`action` identifies which steps Chef Infra Client will take to bring the node into
   the desired state.'
-- '`conf_dir`, `ignore_error`, `key`, and `value` are the properties available to
-  this resource.'
+- '`comment`, `conf_dir`, `ignore_error`, `key`, and `value` are the properties available
+  to this resource.'
 syntax_full_code_block: null
 syntax_full_properties_list: null
 syntax_shortcode: null
@@ -54,6 +54,15 @@ actions_list:
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:
+- property: comment
+  ruby_type: Array, String
+  required: false
+  default_value: '[]'
+  new_in: '15.8'
+  description_list:
+  - markdown: 'Comments, placed above the resource setting in the generated file.
+
+      For multi-line comments, use an array of strings, one per line.'
 - property: conf_dir
   ruby_type: String
   required: false
@@ -117,6 +126,20 @@ examples_list:
 
       will be set back to the kernel default value.'
   - code_block: "sysctl 'kernel.msgmax' do\n  action :remove\nend"
+- example_heading: Adding Comments to sysctl configuration files
+  text_blocks:
+  - code_block: "sysctl 'vm.swappiness' do\n  value 19\n  comment \"define how aggressively\
+      \ the kernel will swap memory pages.\"\nend"
+  - markdown: 'This produces /etc/sysctl.d/99-chef-vm.swappiness.conf as follows:
+
+
+      ``` none
+
+      # define how aggressively the kernel will swap memory pages.
+
+      vm.swappiness = 1
+
+      ```'
 - example_heading: Converting sysctl settings from shell scripts
   text_blocks:
   - markdown: 'Example of existing settings:

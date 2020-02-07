@@ -4,7 +4,7 @@ How to enable FIPS mode for the Chef Automate server
 Prerequisites
 -------------
 
--   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or 7
+-   Supported Systems - CentOS or Red Hat Enterprise Linux 6 or later
 -   Chef Automate version `0.7.100` or greater
 
 Configuration
@@ -57,14 +57,10 @@ generate the file.
 How to enable FIPS mode for workstations
 ========================================
 
-A workstation is a computer running ChefDK that is used to author
-cookbooks, interact with the Chef Infra Server, and interact with nodes.
-
 Prerequisites
 -------------
 
 -   Supported Systems - Windows, CentOS and Red Hat Enterprise Linux
--   ChefDK version `1.3.23` or greater
 
 Now that FIPS mode is enabled in your `.delivery/cli.toml`, running any
 project-specific Delivery CLI command will automatically use

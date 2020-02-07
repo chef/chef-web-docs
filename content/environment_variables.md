@@ -9,7 +9,7 @@ aliases = "/environment_variables.html"
     title = "Environment Variables"
     identifier = "chef_infra/concepts/environment_variables.md Environment Variables"
     parent = "chef_infra/concepts"
-    weight = 120
+    weight = 110
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/environment_variables.md)

@@ -9,7 +9,7 @@ aliases = "/quick_start.html"
     title = "Quick Start"
     identifier = "chef_infra/getting_started/quick_start.md Quick Start"
     parent = "chef_infra/getting_started"
-    weight = 40
+    weight = 20
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/quick_start.md)

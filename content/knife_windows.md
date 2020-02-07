@@ -6,10 +6,10 @@ aliases = "/knife_windows.html"
 
 [menu]
   [menu.docs]
-    title = "Knife Windows"
-    identifier = "chef_infra/getting_started/chef_on_windows_guide/knife_windows.md Knife Windows"
-    parent = "chef_infra/getting_started/chef_on_windows_guide"
-    weight = 40
+    title = "knife windows"
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_windows.md knife windows"
+    parent = "chef_workstation/chef_workstation_tools/knife"
+    weight = 370
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_windows.md)

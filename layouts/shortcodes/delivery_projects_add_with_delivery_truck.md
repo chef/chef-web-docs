@@ -43,8 +43,8 @@ privileges on the Chef Automate server, do the following:
     $ cd NEW-COOKBOOK-NAME
     ```
 
-    This uses ChefDK to generate a new cookbook, including a default
-    recipe and default ChefSpec tests.
+    This uses Chef Workstation to generate a new cookbook, including a
+    default recipe and default ChefSpec tests.
 
 4.  Create an initial commit (use `git status` to verify the change) on
     the "master" branch:

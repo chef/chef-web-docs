@@ -7,9 +7,9 @@ aliases = "/knife_ssh.html"
 [menu]
   [menu.docs]
     title = "knife ssh"
-    identifier = "chef_infra/chefdk/knife/knife_ssh.md knife ssh"
-    parent = "chef_infra/chefdk/knife"
-    weight = 260
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssh.md knife ssh"
+    parent = "chef_workstation/chef_workstation_tools/knife"
+    weight = 290
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_ssh.md)

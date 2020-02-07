@@ -7,9 +7,9 @@ aliases = "/knife_ssl_fetch.html"
 [menu]
   [menu.docs]
     title = "knife ssl_fetch"
-    identifier = "chef_infra/chefdk/knife/knife_ssl_fetch.md knife ssl_fetch"
-    parent = "chef_infra/chefdk/knife"
-    weight = 280
+    identifier = "chef_workstation/chef_workstation_tools/knife/knife_ssl_fetch.md knife ssl_fetch"
+    parent = "chef_workstation/chef_workstation_tools/knife"
+    weight = 310
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/knife_ssl_fetch.md)

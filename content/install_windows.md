@@ -9,7 +9,7 @@ aliases = "/install_windows.html"
     title = "Chef Infra Client on Windows"
     identifier = "chef_infra/getting_started/chef_on_windows_guide/install_windows.md Chef Infra Client on Windows"
     parent = "chef_infra/getting_started/chef_on_windows_guide"
-    weight = 30
+    weight = 20
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_windows.md)

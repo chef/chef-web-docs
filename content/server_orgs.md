@@ -7,8 +7,8 @@ aliases = "/server_orgs.html"
 [menu]
   [menu.docs]
     title = "Organizations & Groups"
-    identifier = "chef_infra/chef_infra_server/server_orgs.md Organizations & Groups"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_orgs.md Organizations & Groups"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 80
 +++    
 

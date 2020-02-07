@@ -9,7 +9,7 @@ aliases = "/install_chef_air_gap.html"
     title = "Air-gapped Installation"
     identifier = "chef_infra/setup/install_chef_air_gap.md Air-gapped Installation"
     parent = "chef_infra/setup"
-    weight = 50
+    weight = 40
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_chef_air_gap.md)
@@ -34,7 +34,7 @@ software - as such, it makes the following assumptions:
 -   You have a private Ruby gem mirror to supply gems as needed
 -   You have an artifact store for file downloads. At a minimum, it
     should have the following packages available:
-    -   ChefDK
+    -   Chef Workstation
     -   Chef Infra Client
     -   Chef Supermarket
     -   An [install
@@ -118,15 +118,15 @@ group.
 Chef Workstation
 ================
 
-Install ChefDK
---------------
+Install Chef Workstation
+------------------------
 
-1.  Your workstation should have a copy of ChefDK [installer
-    package](https://downloads.chef.io/chefdk). Use the appropriate tool
-    to run the installer:
+1.  First, install the Chef Workstation [installer
+    package](https://downloads.chef.io/chef-workstation). Use the
+    appropriate tool to run the installer:
 
     ``` bash
-    dpkg -i chefdk_3.2.30-1_amd64.deb
+    dpkg -i chef-workstation_0.14.16-1_amd64.deb
     ```
 
 2.  Use the `chef generate repo` command to generate your Chef repo:
@@ -175,14 +175,14 @@ custom template, and then modify the package and Ruby gem sources.
     copy the `chef-full` configuration to your new template:
 
     ``` bash
-    find /opt/chefdk/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > airgap.erb
+    find /opt/chef-workstation/embedded/lib/ruby -type f -name chef-full.erb -exec cat {} \; > airgap.erb
     ```
 
     This command searches for the `chef-full` template file under
-    `/opt/chefdk/embedded/lib/ruby`, and then outputs the contents of
-    the file to `airgap.erb`. If you used a different template file
-    name, be sure to replace `airgap.erb` with the template file you
-    created during the last step.
+    `/opt/chef-workstation/embedded/lib/ruby`, and then outputs the
+    contents of the file to `airgap.erb`. If you used a different
+    template file name, be sure to replace `airgap.erb` with the
+    template file you created during the last step.
 
 4.  Update `airgap.erb` to replace `omnitruck.chef.io` with the URL of
     `install.sh` on your artifact store:

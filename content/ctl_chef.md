@@ -24,7 +24,8 @@ The chef executable is a command-line tool that does the following:
 chef env
 ========
 
-Use the `chef env` subcommand to configure the environment for ChefDK.
+Use the `chef env` subcommand to configure the environment for Chef
+Workstation.
 
 Syntax
 ------
@@ -50,7 +51,7 @@ chef exec
 
 Use the `chef exec` subcommand to run arbitrary shell commands with the
 `PATH` environment variable and the `GEM_HOME` and `GEM_PATH` Ruby
-environment variables pointed at ChefDK.
+environment variables pointed at Chef Workstation.
 
 Syntax
 ------
@@ -83,12 +84,12 @@ chef gem
 ========
 
 The `chef gem` subcommand is a wrapper around the `gem` command in
-RubyGems and is used by Chef to install RubyGems into ChefDK development
-environment. All knife plugins, drivers for Kitchen, and other Ruby
-applications that are not packaged within ChefDK will be installed to
-the `.chefdk` path in the home directory:
-`~/.chefdk/gem/ruby/ver.si.on/bin` (where `ver.si.on` is the version of
-Ruby that is packaged within ChefDK).
+RubyGems and is used by Chef to install RubyGems into Chef Workstation
+development environment. All knife plugins, drivers for Kitchen, and
+other Ruby applications that are not packaged within Chef Workstation
+will be installed to the `.Chef Workstation` path in the home directory:
+`~/.Chef Workstation/gem/ruby/ver.si.on/bin` (where `ver.si.on` is the
+version of Ruby that is packaged within Chef Workstation).
 
 Syntax
 ------
@@ -115,12 +116,12 @@ This subcommand has the following options:
 Examples
 --------
 
-**Show an existing gem in the chef-dk**
+**Show an existing gem in Chef Workstation**
 
 To show a gem, run a command similar to:
 
 ``` bash
-$ chef gem list chef-dk
+$ chef gem list cookstyle
 ```
 
 to return something similar to:
@@ -128,7 +129,7 @@ to return something similar to:
 ``` bash
 *** LOCAL GEMS ***
 
-chef-dk (0.1.0)
+cookstyle (5.20.0)
 ```
 
 **List all local gems**
@@ -156,7 +157,6 @@ which returns the following output:
 
 knife-opc (0.3.2)
 knife-push (1.0.2)
-knife-spork (1.6.3)
 knife-windows (1.9.0)
 ```
 
@@ -199,7 +199,7 @@ Successfully installed knife-config-1.1.0
 
 **Uninstall a gem**
 
-To uninstall a gem from ChefDK environment:
+To uninstall a gem from Chef Workstation environment:
 
 ``` bash
 $ chef gem uninstall knife-config
@@ -254,7 +254,8 @@ This subcommand has the following options:
     cookbook is used by the `chef generate` subcommands to generate
     cookbooks, cookbook files, templates, attribute files, and so on.
     Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of ChefDK.
+    `code_generator` cookbook that is included as part of Chef
+    Workstation.
 
 `-h`, `--help`
 
@@ -317,7 +318,8 @@ This subcommand has the following options:
     cookbook is used by the `chef generate` subcommands to generate
     cookbooks, cookbook files, templates, attribute files, and so on.
     Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of ChefDK.
+    `code_generator` cookbook that is included as part of Chef
+    Workstation.
 
 `-b`, `--berks`
 
@@ -428,9 +430,9 @@ and which creates a directory structure similar to:
 
 If a custom skeleton cookbook is located on a macOS desktop (and in this
 example, the `chef_generator` cookbook is simply a copy of the same
-cookbook that ships in ChefDK), the following command will use the
-skeleton cookbook at the custom location to generate a cookbook into the
-repository from which the `chef` command is run:
+cookbook that ships in Chef Workstation), the following command will use
+the skeleton cookbook at the custom location to generate a cookbook into
+the repository from which the `chef` command is run:
 
 ``` bash
 $ chef generate cookbook --generator-cookbook ~/Desktop testcookbook
@@ -499,7 +501,8 @@ This subcommand has the following options:
     cookbook is used by the `chef generate` subcommands to generate
     cookbooks, cookbook files, templates, attribute files, and so on.
     Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of ChefDK.
+    `code_generator` cookbook that is included as part of Chef
+    Workstation.
 
 `-C COPYRIGHT`, `--copyright COPYRIGHT`
 
@@ -562,7 +565,8 @@ This subcommand has the following options:
     cookbook is used by the `chef generate` subcommands to generate
     cookbooks, cookbook files, templates, attribute files, and so on.
     Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of ChefDK.
+    `code_generator` cookbook that is included as part of Chef
+    Workstation.
 
 `-h`, `--help`
 
@@ -613,7 +617,8 @@ This subcommand has the following options:
     cookbook is used by the `chef generate` subcommands to generate
     cookbooks, cookbook files, templates, attribute files, and so on.
     Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of ChefDK.
+    `code_generator` cookbook that is included as part of Chef
+    Workstation.
 
 `-h`, `--help`
 
@@ -654,7 +659,8 @@ This subcommand has the following options:
     cookbook is used by the `chef generate` subcommands to generate
     cookbooks, cookbook files, templates, attribute files, and so on.
     Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of ChefDK.
+    `code_generator` cookbook that is included as part of Chef
+    Workstation.
 
 `-h`, `--help`
 
@@ -715,7 +721,8 @@ This subcommand has the following options:
     cookbook is used by the `chef generate` subcommands to generate
     cookbooks, cookbook files, templates, attribute files, and so on.
     Default value: `lib/chef-dk/skeletons`, under which is the default
-    `code_generator` cookbook that is included as part of ChefDK.
+    `code_generator` cookbook that is included as part of Chef
+    Workstation.
 
 `-h`, `--help`
 
@@ -737,11 +744,11 @@ None.
 chef shell-init
 ===============
 
-Use the `chef shell-init` subcommand to set the Ruby included in ChefDK
-as the system Ruby. ChefDK is designed to allow the isolation of
-applications used by ChefDK from other Ruby development tools that may
-be present on the workstation. This supports Bash, fish, Windows
-PowerShell (posh), and zsh.
+Use the `chef shell-init` subcommand to set the Ruby included in Chef
+Workstation as the system Ruby. Chef Workstation is designed to allow
+the isolation of applications used by Chef Workstation from other Ruby
+development tools that may be present on the workstation. This supports
+Bash, fish, Windows PowerShell (posh), and zsh.
 
 bash zsh fish PowerShell (posh)
 

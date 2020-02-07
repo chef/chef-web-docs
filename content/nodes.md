@@ -9,7 +9,7 @@ aliases = "/nodes.html"
     title = "Nodes"
     identifier = "chef_infra/concepts/nodes.md Nodes"
     parent = "chef_infra/concepts"
-    weight = 70
+    weight = 60
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/nodes.md)

@@ -9,8 +9,8 @@ runbook_weight = 10
 [menu]
   [menu.docs]
     title = "Monitor"
-    identifier = "chef_infra/chef_infra_server/server_monitor.md Monitor"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_monitor.md Monitor"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 70
 +++    
 

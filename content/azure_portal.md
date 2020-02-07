@@ -9,7 +9,7 @@ aliases = "/azure_portal.html"
     title = "Microsoft Azure"
     identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_portal.md Microsoft Azure"
     parent = "chef_infra/getting_started/chef_on_azure_guide"
-    weight = 20
+    weight = 10
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_portal.md)

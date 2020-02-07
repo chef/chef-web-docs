@@ -7,9 +7,9 @@ aliases = "/chefspec.html"
 [menu]
   [menu.docs]
     title = "ChefSpec"
-    identifier = "chef_infra/chefdk/chefspec.md ChefSpec"
-    parent = "chef_infra/chefdk"
-    weight = 80
+    identifier = "chef_workstation/chef_workstation_tools/chefspec.md ChefSpec"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 60
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chefspec.md)
@@ -24,7 +24,7 @@ often the first indicator of problems that may exist within a cookbook.
 Run ChefSpec
 ============
 
-ChefSpec is packaged as part of ChefDK. To run ChefSpec:
+ChefSpec is packaged as part of Chef Workstation. To run ChefSpec:
 
 ``` bash
 $ chef exec rspec

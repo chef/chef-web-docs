@@ -7,9 +7,9 @@ aliases = "/config_rb_policyfile.html"
 [menu]
   [menu.docs]
     title = "Policyfile.rb"
-    identifier = "chef_infra/chefdk/policyfile/config_rb_policyfile.md Policyfile.rb"
-    parent = "chef_infra/chefdk/policyfile"
-    weight = 20
+    identifier = "chef_infra/concepts/policy/config_rb_policyfile.md Policyfile.rb"
+    parent = "chef_infra/concepts/policy"
+    weight = 30
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/config_rb_policyfile.md)

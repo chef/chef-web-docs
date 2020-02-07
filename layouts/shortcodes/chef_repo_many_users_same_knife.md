@@ -11,7 +11,7 @@ Example config.rb:
 
 ``` none
 current_dir = File.dirname(__FILE__)
-  user = ENV['OPSCODE_USER'] || ENV['USER']
+  user = ENV['CHEF_USER'] || ENV['USER']
   node_name                user
   client_key               "#{ENV['HOME']}/chef-repo/.chef/#{user}.pem"
   validation_client_name   "#{ENV['ORGNAME']}-validator"

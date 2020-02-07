@@ -38,9 +38,9 @@ with a single GitHub server URL.
 
 {{< note >}}
 
-The Delivery CLI from the latest
-[ChefDK](https://downloads.chef.io/chefdk/) (version 0.19 or higher)
-must be installed on any workstations that setup and initialize
+The Delivery CLI from the latest [Chef
+Workstaton](https://downloads.chef.io/chef-workstation/) must be
+installed on any workstations that setup and initialize
 GitHub-integrated projects.
 
 {{< /note >}}
@@ -131,7 +131,7 @@ the URL `https://10.10.10.10` will pass.
     update-ca-certificates
     ```
 
-### Rhel/Centos 6.x and greater
+### Rhel/CentOS 6.x and greater
 
 1.  Log into your Workflow Server as root.
 

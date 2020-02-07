@@ -6,10 +6,10 @@ aliases = "/azure_cwa_cloud_shell.html"
 
 [menu]
   [menu.docs]
-    title = "Chef Workstation on Azure Cloud Shell"
-    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_cwa_cloud_shell.md Chef Workstation on Azure Cloud Shell"
+    title = "Chef Workstation in Azure Cloud Shell"
+    identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_cwa_cloud_shell.md Chef Workstation in Azure Cloud Shell"
     parent = "chef_infra/getting_started/chef_on_azure_guide"
-    weight = 30
+    weight = 20
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/azure_cwa_cloud_shell.md)

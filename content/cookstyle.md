@@ -7,9 +7,9 @@ aliases = "/cookstyle.html"
 [menu]
   [menu.docs]
     title = "cookstyle"
-    identifier = "chef_infra/chefdk/cookstyle.md cookstyle"
-    parent = "chef_infra/chefdk"
-    weight = 110
+    identifier = "chef_workstation/chef_workstation_tools/cookstyle.md cookstyle"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 90
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/cookstyle.md)

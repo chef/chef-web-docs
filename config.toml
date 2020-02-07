@@ -102,30 +102,37 @@ weight = 30
   weight = 10
 
     [[menu.docs]]
-    title = "Install ChefDK"
-    identifier = "chef_infra/getting_started/install_dk.md Install ChefDK"
-    parent = "chef_infra/getting_started"
-    url = "/install_dk/"
-    weight = 20
-
-    [[menu.docs]]
     title = "Chef on Azure Guide"
     identifier = "chef_infra/getting_started/chef_on_azure_guide"
     parent = "chef_infra/getting_started"
-    weight = 60
+    weight = 40
 
       [[menu.docs]]
-      title = "Installing Chef on Windows"
-      identifier = "chef_infra/getting_started/chef_on_azure_guide/dk_windows.md Installing Chef on Windows"
+      title = "Azure Powershell_Cmdlets"
+      identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.md Azure Powershell_Cmdlets"
       parent = "chef_infra/getting_started/chef_on_azure_guide"
-      url = "/dk_windows/"
-      weight = 10
+      url = "azure_powershell/"
+      weight = 30
+
+      [[menu.docs]]
+      title = "Microsoft Azure PowerShell"
+      identifier = "chef_infra/getting_started/chef_on_azure_guide/azure_powershell.md Microsoft Azure PowerShell"
+      parent = "chef_infra/getting_started/chef_on_azure_guide"
+      url = "azure_powershell/"
+      weight = 40
 
     [[menu.docs]]
     title = "Chef on Windows Guide"
     identifier = "chef_infra/getting_started/chef_on_windows_guide"
     parent = "chef_infra/getting_started"
-    weight = 70
+    weight = 50
+
+      [[menu.docs]]
+      title = "Knife Windows"
+      identifier = "chef_infra/getting_started/chef_on_windows_guide/knife_windows.md Knife Windows"
+      parent = "chef_infra/getting_started/chef_on_windows_guide"
+      url = "/knife_windows/"
+      weight = 30
 
   [[menu.docs]]
   title = "Concepts"
@@ -134,38 +141,31 @@ weight = 30
   weight = 20
 
     [[menu.docs]]
-    title = "ChefDK"
-    identifier = "chef_infra/concepts/about_chefdk.md ChefDK"
-    parent = "chef_infra/concepts"
-    url = "/about_chefdk/"
-    weight = 10
-
-    [[menu.docs]]
     title = "Cookbooks"
     identifier = "chef_infra/concepts/cookbooks.md Cookbooks"
     parent = "chef_infra/concepts"
     url = "/cookbooks/"
-    weight = 50
+    weight = 40
 
     [[menu.docs]]
     title = "Custom Resources"
     identifier = "chef_infra/concepts/custom_resources.md Custom Resources"
     parent = "chef_infra/concepts"
     url = "/custom_resources/"
-    weight = 60
+    weight = 50
 
     [[menu.docs]]
     title = "Policy"
     identifier = "chef_infra/concepts/policy"
     parent = "chef_infra/concepts"
-    weight = 80
+    weight = 70
 
     [[menu.docs]]
     title = "Authentication"
     identifier = "chef_infra/concepts/auth.md#authentication Authentication"
     parent = "chef_infra/concepts"
     url = "/auth/#authentication"
-    weight = 100
+    weight = 90
     aliases = "/auth.html"
 
     [[menu.docs]]
@@ -173,13 +173,13 @@ weight = 30
     identifier = "chef_infra/concepts/auth.md#authorization Authorization"
     parent = "chef_infra/concepts"
     url = "/auth/#authorization"
-    weight = 110
+    weight = 100
 
     [[menu.docs]]
     title = "Supermarket"
     identifier = "chef_infra/concepts/supermarket"
     parent = "chef_infra/concepts"
-    weight = 130
+    weight = 120
 
       [[menu.docs]]
       title = "Public Supermarket"
@@ -202,10 +202,22 @@ weight = 30
   weight = 30
 
     [[menu.docs]]
+    title = "Chef Solo"
+    identifier = "chef_infra/features/chef_solo"
+    parent = "chef_infra/features"
+    weight = 10
+
+    [[menu.docs]]
+    title = "Ohai"
+    identifier = "chef_infra/features/ohai"
+    parent = "chef_infra/features"
+    weight = 20
+
+    [[menu.docs]]
     title = "Management Console"
     identifier = "chef_infra/features/management_console"
     parent = "chef_infra/features"
-    weight = 30
+    weight = 50
 
       [[menu.docs]]
       title = "Users"
@@ -224,13 +236,13 @@ weight = 30
     title = "Nodes"
     identifier = "chef_infra/setup/nodes"
     parent = "chef_infra/setup"
-    weight = 20
+    weight = 10
 
     [[menu.docs]]
     title = "Chef Infra Server"
     identifier = "chef_infra/setup/chef_infra_server"
     parent = "chef_infra/setup"
-    weight = 30
+    weight = 20
 
       [[menu.docs]]
       title = "Hosted Chef Server"
@@ -252,20 +264,20 @@ weight = 30
     identifier = "chef_infra/setup/ctl_chef_client.md#run-in-fips-mode FIPS-mode"
     parent = "chef_infra/setup"
     url = "/ctl_chef_client/#run-in-fips-mode"
-    weight = 60
+    weight = 50
     aliases = "/ctl_chef_client.html"
 
     [[menu.docs]]
     title = "Integrations"
     identifier = "chef_infra/setup/integrations"
     parent = "chef_infra/setup"
-    weight = 70
+    weight = 60
 
     [[menu.docs]]
     title = "Supermarket"
     identifier = "chef_infra/setup/supermarket"
     parent = "chef_infra/setup"
-    weight = 80
+    weight = 70
 
       [[menu.docs]]
       title = "Public Supermarket"
@@ -294,7 +306,7 @@ weight = 30
     identifier = "chef_infra/setup/ctl_chef_server.md#install Management Console"
     parent = "chef_infra/setup"
     url = "/ctl_chef_server/#install"
-    weight = 90
+    weight = 80
     aliases = "/ctl_chef_server.html"
 
   [[menu.docs]]
@@ -562,170 +574,37 @@ weight = 30
       aliases = "/resource_reference.html"
 
   [[menu.docs]]
-  title = "ChefDK"
-  identifier = "chef_infra/chefdk"
+  title = "Managing Chef Infra Server"
+  identifier = "chef_infra/managing_chef_infra_server"
   parent = "chef_infra"
   weight = 70
 
     [[menu.docs]]
-    title = "chef (executable)"
-    identifier = "chef_infra/chefdk/chef_(executable)"
-    parent = "chef_infra/chefdk"
-    weight = 40
-
-      [[menu.docs]]
-      title = "chef env"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-env chef env"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-env"
-      weight = 10
-
-      [[menu.docs]]
-      title = "chef exec"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-exec chef exec"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-exec"
-      weight = 20
-
-      [[menu.docs]]
-      title = "chef gem"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-gem chef gem"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-gem"
-      weight = 30
-
-      [[menu.docs]]
-      title = "chef generate attribute"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-attribute chef generate attribute"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-attribute"
-      weight = 40
-
-      [[menu.docs]]
-      title = "chef generate cookbook"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-cookbook chef generate cookbook"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-cookbook"
-      weight = 50
-
-      [[menu.docs]]
-      title = "chef generate file"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-file chef generate file"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-file"
-      weight = 60
-
-      [[menu.docs]]
-      title = "chef generate recipe"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-recipe chef generate recipe"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-recipe"
-      weight = 70
-
-      [[menu.docs]]
-      title = "chef generate repo"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-repo chef generate repo"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-repo"
-      weight = 80
-
-      [[menu.docs]]
-      title = "chef generate resource"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-resource chef generate resource"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-resource"
-      weight = 90
-
-      [[menu.docs]]
-      title = "chef generate template"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-generate-template chef generate template"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-generate-template"
-      weight = 100
-
-      [[menu.docs]]
-      title = "chef shell-init"
-      identifier = "chef_infra/chefdk/chef_(executable)/ctl_chef.md#chef-shell-init chef shell-init"
-      parent = "chef_infra/chefdk/chef_(executable)"
-      url = "/ctl_chef/#chef-shell-init"
-      weight = 110
-
-    [[menu.docs]]
-    title = "Chef Solo"
-    identifier = "chef_infra/chefdk/chef_solo"
-    parent = "chef_infra/chefdk"
-    weight = 60
-
-    [[menu.docs]]
-    title = "config.rb (knife.rb)"
-    identifier = "chef_infra/chefdk/config_rb.md config.rb (knife.rb)"
-    parent = "chef_infra/chefdk"
-    url = "/config_rb/"
-    weight = 90
-
-    [[menu.docs]]
-    title = "Delivery CLI"
-    identifier = "chef_infra/chefdk/delivery_cli.md Delivery CLI"
-    parent = "chef_infra/chefdk"
-    url = "/delivery_cli/"
-    weight = 120
-
-    [[menu.docs]]
-    title = "Test Kitchen"
-    identifier = "chef_infra/chefdk/test_kitchen"
-    parent = "chef_infra/chefdk"
-    weight = 140
-
-    [[menu.docs]]
-    title = "Knife"
-    identifier = "chef_infra/chefdk/knife"
-    parent = "chef_infra/chefdk"
-    weight = 150
-
-    [[menu.docs]]
-    title = "Ohai"
-    identifier = "chef_infra/chefdk/ohai"
-    parent = "chef_infra/chefdk"
-    weight = 160
-
-    [[menu.docs]]
-    title = "Policyfile"
-    identifier = "chef_infra/chefdk/policyfile"
-    parent = "chef_infra/chefdk"
-    weight = 170
-
-    [[menu.docs]]
-    title = "push-jobs-client (executable)"
-    identifier = "chef_infra/chefdk/ctl_push_jobs_client.md push-jobs-client (executable)"
-    parent = "chef_infra/chefdk"
-    url = "/ctl_push_jobs_client/"
-    weight = 180
-
-  [[menu.docs]]
-  title = "Chef Infra Server"
-  identifier = "chef_infra/chef_infra_server"
-  parent = "chef_infra"
-  weight = 80
-
-    [[menu.docs]]
     title = "Runbook (Single Page)"
-    identifier = "chef_infra/chef_infra_server/runbook.md Runbook (Single Page)"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/runbook.md Runbook (Single Page)"
+    parent = "chef_infra/managing_chef_infra_server"
     url = "/runbook/"
     weight = 10
     aliases = "/runbook.html"
 
     [[menu.docs]]
     title = "Push Jobs"
-    identifier = "chef_infra/chef_infra_server/push_jobs"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/push_jobs"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 210
+
+      [[menu.docs]]
+      title = "push-jobs-client"
+      identifier = "chef_infra/managing_chef_infra_server/push_jobs/ctl_push_jobs_client.md push-jobs-client"
+      parent = "chef_infra/managing_chef_infra_server/push_jobs"
+      url = "/ctl_push_jobs_client/"
+      weight = 20
 
   [[menu.docs]]
   title = "Release Notes"
   identifier = "chef_infra/release_notes"
   parent = "chef_infra"
-  weight = 90
+  weight = 80
 
 [[menu.docs]]
 title = "Chef Workstation"
@@ -733,20 +612,119 @@ identifier = "chef_workstation"
 weight = 40
 
   [[menu.docs]]
-  title = "Chef Workstation"
-  identifier = "chef_workstation/https://www.chef.sh/ Chef Workstation"
+  title = "Chef Workstation Tools"
+  identifier = "chef_workstation/chef_workstation_tools"
   parent = "chef_workstation"
-  url = "https://www.chef.sh/"
-  pre = "external_link"
-  weight = 20
+  weight = 40
 
-  [[menu.docs]]
-  title = "Documentation"
-  identifier = "chef_workstation/https://www.chef.sh/docs/chef-workstation/getting-started/ Documentation"
-  parent = "chef_workstation"
-  url = "https://www.chef.sh/docs/chef-workstation/getting-started/"
-  pre = "external_link"
-  weight = 30
+    [[menu.docs]]
+    title = "chef (executable)"
+    identifier = "chef_workstation/chef_workstation_tools/chef_(executable)"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 30
+
+      [[menu.docs]]
+      title = "chef env"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-env chef env"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-env"
+      weight = 10
+
+      [[menu.docs]]
+      title = "chef exec"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-exec chef exec"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-exec"
+      weight = 20
+
+      [[menu.docs]]
+      title = "chef gem"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-gem chef gem"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-gem"
+      weight = 30
+
+      [[menu.docs]]
+      title = "chef generate attribute"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-attribute chef generate attribute"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-generate-attribute"
+      weight = 40
+
+      [[menu.docs]]
+      title = "chef generate cookbook"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-cookbook chef generate cookbook"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-generate-cookbook"
+      weight = 50
+
+      [[menu.docs]]
+      title = "chef generate file"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-file chef generate file"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-generate-file"
+      weight = 60
+
+      [[menu.docs]]
+      title = "chef generate recipe"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-recipe chef generate recipe"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-generate-recipe"
+      weight = 70
+
+      [[menu.docs]]
+      title = "chef generate repo"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-repo chef generate repo"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-generate-repo"
+      weight = 80
+
+      [[menu.docs]]
+      title = "chef generate resource"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-resource chef generate resource"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-generate-resource"
+      weight = 90
+
+      [[menu.docs]]
+      title = "chef generate template"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-generate-template chef generate template"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-generate-template"
+      weight = 100
+
+      [[menu.docs]]
+      title = "chef shell-init"
+      identifier = "chef_workstation/chef_workstation_tools/chef_(executable)/ctl_chef.md#chef-shell-init chef shell-init"
+      parent = "chef_workstation/chef_workstation_tools/chef_(executable)"
+      url = "/ctl_chef/#chef-shell-init"
+      weight = 110
+
+    [[menu.docs]]
+    title = "config.rb (knife.rb)"
+    identifier = "chef_workstation/chef_workstation_tools/config_rb.md config.rb (knife.rb)"
+    parent = "chef_workstation/chef_workstation_tools"
+    url = "/config_rb/"
+    weight = 70
+
+    [[menu.docs]]
+    title = "Delivery CLI"
+    identifier = "chef_workstation/chef_workstation_tools/delivery_cli.md Delivery CLI"
+    parent = "chef_workstation/chef_workstation_tools"
+    url = "/delivery_cli/"
+    weight = 100
+
+    [[menu.docs]]
+    title = "Test Kitchen"
+    identifier = "chef_workstation/chef_workstation_tools/test_kitchen"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 120
+
+    [[menu.docs]]
+    title = "Knife"
+    identifier = "chef_workstation/chef_workstation_tools/knife"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 130
 
 [[menu.docs]]
 title = "Chef Habitat"
@@ -754,7 +732,7 @@ identifier = "chef_habitat"
 weight = 50
 
   [[menu.docs]]
-  title = "Chef Habitat"
+  title = "Documentation"
   identifier = "chef_habitat/https://www.habitat.sh/docs/ Documentation"
   parent = "chef_habitat"
   url = "https://www.habitat.sh/docs/"

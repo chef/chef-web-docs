@@ -7,9 +7,9 @@ aliases = "/chef_vault.html"
 [menu]
   [menu.docs]
     title = "chef-vault"
-    identifier = "chef_infra/chefdk/chef_vault.md chef-vault"
-    parent = "chef_infra/chefdk"
-    weight = 70
+    identifier = "chef_workstation/chef_workstation_tools/chef_vault.md chef-vault"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 50
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_vault.md)

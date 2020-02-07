@@ -1,5 +1,6 @@
-When the `chef install` command is run, ChefDK caches any necessary
-cookbooks and emits a `Policyfile.lock.json` file that describes:
+When the `chef install` command is run, Chef Workstation caches any
+necessary cookbooks and emits a `Policyfile.lock.json` file that
+describes:
 
 -   The versions of cookbooks in use
 -   A Hash of cookbook content

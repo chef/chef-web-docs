@@ -59,8 +59,8 @@ method which requires a cookbook repository.
 
 {{< note >}}
 
-Stove is included in ChefDK. If you are not using ChefDK, follow the
-[Stove installation
+Stove is included in Chef Workstation. If you are not using Chef
+Workstation, follow the [Stove installation
 instructions](https://github.com/sethvargo/stove#installation) to
 install Stove separately.
 

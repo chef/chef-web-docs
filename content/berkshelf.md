@@ -7,9 +7,9 @@ aliases = "/berkshelf.html"
 [menu]
   [menu.docs]
     title = "Berkshelf"
-    identifier = "chef_infra/chefdk/berkshelf.md Berkshelf"
-    parent = "chef_infra/chefdk"
-    weight = 20
+    identifier = "chef_workstation/chef_workstation_tools/berkshelf.md Berkshelf"
+    parent = "chef_workstation/chef_workstation_tools"
+    weight = 10
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/berkshelf.md)
@@ -19,7 +19,7 @@ easily depend on community cookbooks and have them safely included in
 your workflow. You can also ensure that your CI systems reproducibly
 select the same cookbook versions, and can upload and bundle cookbook
 dependencies without needing a locally maintained copy. Berkshelf is
-included in ChefDK.
+included in Chef Workstation.
 
 {{< note >}}
 
@@ -286,8 +286,9 @@ It is possible to configure which engine to use for the
 system.
 
 By default, the solver selection depends on your environment. When the
-`dep_selector` gem is installed, as in the case of ChefDK, the `gecode`
-solver is used. Otherwise, the `ruby` solver is utilized by default.
+`dep_selector` gem is installed, as in the case of Chef Workstation, the
+`gecode` solver is used. Otherwise, the `ruby` solver is utilized by
+default.
 
 The `gecode` solver matches the engine used by the Chef Infra Server, so
 will more closely reflect the behavior of the Chef Infra Server in

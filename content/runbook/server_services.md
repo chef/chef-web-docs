@@ -9,8 +9,8 @@ runbook_weight = 40
 [menu]
   [menu.docs]
     title = "Services"
-    identifier = "chef_infra/chef_infra_server/server_services.md Services"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_services.md Services"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 100
 +++    
 

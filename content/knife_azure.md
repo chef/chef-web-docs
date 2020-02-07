@@ -38,9 +38,6 @@ Install Chef Workstation
 Install the latest version of Chef Workstation from [Chef
 Downloads](https://downloads.chef.io/chef-workstation)
 
-For Windows versions older than 2012r2, download
-[ChefDK](https://downloads.chef.io/chefdk/).
-
 Install Knife Azure
 -------------------
 

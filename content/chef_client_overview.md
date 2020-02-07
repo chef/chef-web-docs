@@ -9,7 +9,7 @@ aliases = "/chef_client_overview.html"
     title = "Chef Infra Client Overview"
     identifier = "chef_infra/concepts/chef_client_overview.md Chef Infra Client Overview"
     parent = "chef_infra/concepts"
-    weight = 20
+    weight = 10
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_client_overview.md)
@@ -53,5 +53,5 @@ Related Content
 Next Steps
 ==========
 
--   [Install Chef Workstation](/install_dk/)
+-   [Install Chef Workstation](/install_workstation/)
 -   [Bootstrap Nodes](/install_bootstrap/)

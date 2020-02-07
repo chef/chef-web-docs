@@ -9,8 +9,8 @@ runbook_weight = 30
 [menu]
   [menu.docs]
     title = "Firewalls & Ports"
-    identifier = "chef_infra/chef_infra_server/server_firewalls_and_ports.md Firewalls & Ports"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/server_firewalls_and_ports.md Firewalls & Ports"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 40
 +++    
 

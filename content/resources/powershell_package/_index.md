@@ -124,29 +124,28 @@ handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
 examples_list:
-- example_heading: null
+- example_heading: 'Install a specific version of a package:'
   text_blocks:
-  - markdown: 'The following examples demonstrate various approaches for using
-
-      resources in recipes:
-
-
-      **Install a specific version of a package:**'
   - code_block: "powershell_package 'xCertificate' do\n  action :install\n  version\
       \ '1.1.0.0'\nend"
-  - markdown: '**Install multiple packages:**'
+- example_heading: 'Install multiple packages:'
+  text_blocks:
   - code_block: "powershell_package 'Install Multiple Packages' do\n  action :install\n\
       \  package_name %w(xCertificate xNetworking)\nend"
-  - markdown: '**Install a package from a custom source:**'
+- example_heading: 'Install a package from a custom source:'
+  text_blocks:
   - code_block: "powershell_package 'xCertificate' do\n  action :install\n  source\
       \ 'MyGallery'\nend"
-  - markdown: '**Install multiple packages, and specify package versions:**'
+- example_heading: 'Install multiple packages, and specify package versions:'
+  text_blocks:
   - code_block: "powershell_package 'Install Multiple Packages' do\n  action :install\n\
       \  package_name %w(xCertificate xNetworking)\n  version ['2.0.0.0', '2.12.0.0']\n\
       end"
-  - markdown: '**Install multiple packages, specifying the package version for one
+- example_heading: 'Install multiple packages, specifying the package version for
+    one
 
-      package but not the other:**'
+    package but not the other:'
+  text_blocks:
   - code_block: "powershell_package 'Install Multiple Packages' do\n   action :install\n\
       \   package_name %w(xCertificate xNetworking)\n   version [nil, '2.12.0.0']\n\
       \ end"
@@ -154,10 +153,9 @@ examples_list:
 
       most up to date version of `xCertificate` that is available, while
 
-      pinning `xNetworking` to version 2.12.0.0.
-
-
-      **Remove a package:**'
+      pinning `xNetworking` to version 2.12.0.0.'
+- example_heading: 'Remove a package:'
+  text_blocks:
   - code_block: "powershell_package 'xCertificate' do\n  action :remove\nend"
 
 ---

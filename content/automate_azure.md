@@ -49,12 +49,12 @@ please contact <amp@chef.io> to obtain a new license.
     {{< /note >}}
 
 5.  While the Chef Automate VM is being provisioned, download and
-    install [ChefDK](/install_dk/). ChefDK is a collection of tools
-    ---Test Kitchen, ChefSpec, knife, delivery-cli, chef, chef-vault,
-    Cookstyle, and more--- and libraries that are all packaged together
-    to get your started with the Chef Automate workflow. You'll need
-    this to interact with Chef Automate and Chef Infra Server from the
-    command line.
+    install [Chef Workstation](/install_workstation/). Chef
+    Workstation is a collection of tools ---Test Kitchen, ChefSpec,
+    knife, delivery-cli, chef, chef-vault, Cookstyle, and more--- and
+    libraries that are all packaged together to get your started with
+    the Chef Automate workflow. You'll need this to interact with Chef
+    Automate and Chef Infra Server from the command line.
 
 6.  After the VM has been provisioned and the Resource Manager has
     completed (usually 10 to 13 minutes), finish configuring Chef

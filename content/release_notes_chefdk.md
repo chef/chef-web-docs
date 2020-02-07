@@ -458,7 +458,6 @@ Platform Support Updates
 
 ChefDK is now validated against macOS 10.15 (Catalina). Additionally,
 ChefDK will no longer be validated against macOS 10.12.
->>>>>>> im/Hugo
 
 What's New in 4.3
 =================
@@ -1709,8 +1708,8 @@ cookbook(s) given on the command line.
 Deprecations
 ------------
 
--   `` `chef generate app `` - Application repos were a pattern that
-    didn't take off.
+-   `chef generate app` - Application repos were a pattern that didn't
+    take off.
 -   `chef generate lwrp` - Use <span class="title-ref">chef generate
     resource</span>. Every supported release of Chef supports custom
     resources. Custom resources are awesome. No one should be writing

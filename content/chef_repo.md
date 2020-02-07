@@ -9,7 +9,7 @@ aliases = "/chef_repo.html"
     title = "chef-repo"
     identifier = "chef_infra/concepts/chef_repo.md chef-repo"
     parent = "chef_infra/concepts"
-    weight = 40
+    weight = 30
 +++    
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/chef_repo.md)
@@ -212,4 +212,4 @@ $ chef generate repo REPO_NAME
 ```
 
 This command uses the `chef` command-line tool that is packaged as part
-of ChefDK to create a chef-repo.
+of Chef Workstation to create a chef-repo.

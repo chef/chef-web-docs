@@ -325,7 +325,7 @@ This command has the following options:
 
     -   Generates a large amount of data about a Chef Infra Client run.
     -   Has a dependency on the `ruby-prof` gem, which is packaged as
-        part of Chef and ChefDK.
+        part of Chef and Chef Workstation.
     -   Increases the amount of time required to complete a Chef Infra
         Client run.
     -   Should not be used in a production environment.

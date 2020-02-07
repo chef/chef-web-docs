@@ -7,8 +7,8 @@ aliases = "/upgrade_server.html"
 [menu]
   [menu.docs]
     title = "Upgrades"
-    identifier = "chef_infra/chef_infra_server/upgrade_server.md Upgrades"
-    parent = "chef_infra/chef_infra_server"
+    identifier = "chef_infra/managing_chef_infra_server/upgrade_server.md Upgrades"
+    parent = "chef_infra/managing_chef_infra_server"
     weight = 120
 +++    
 
