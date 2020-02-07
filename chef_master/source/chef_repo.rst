@@ -5,16 +5,15 @@ About the chef-repo
 
 .. tag chef_repo_description
 
-The chef-repo is a directory on your workstation that stores:
+The chef-repo is a directory on your workstation that stores everything you need to define your infrastructure with Chef Infra:
 
 * Cookbooks (including recipes, attributes, custom resources, libraries, and templates)
-* Roles
 * Data bags
-* Environments
+* Policyfiles
 
 The chef-repo directory should be synchronized with a version control system, such as git. All of the data in the chef-repo should be treated like source code.
 
-knife is used to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, that data is used by Chef Infra Client to manage all of the nodes that are registered with the Chef Infra Server and to ensure that the correct cookbooks, environments, roles, and other settings are applied to nodes correctly.
+You'll use the ``chef`` and ``knife`` commands to upload data to the Chef Infra Server from the chef-repo directory. Once uploaded, Chef Infra Client uses that data to manage the nodes registered with the Chef Infra Server and to ensure that it applies the right cookbooks, policyfiles, and settings to the right nodes in the right order.
 
 .. end_tag
 
@@ -35,11 +34,9 @@ The sub-directories in the chef-repo are:
    * - ``cookbooks/``
      - Contains cookbooks that have been downloaded from the `Chef Supermarket <https://supermarket.chef.io/>`__ or created locally.
    * - ``data_bags/``
-     - Stores data bags (and data bag items) in JSON (.json).
-   * - ``environments/``
-     - Stores environment in Ruby (.rb) or JSON (.json).
-   * - ``roles/``
-     - Stores roles in Ruby (.rb) or JSON (.json).
+     - Stores data bags (and data bag items) in JSON (.json) format.
+   * - ``policyfiles/``
+     - Stores Policyfiles in Ruby (.rb) format.
 
 .chef/
 -----------------------------------------------------
@@ -57,13 +54,10 @@ data_bags/
 -----------------------------------------------------
 The ``data_bags/`` directory is used to store all of the data bags that exist for an organization. Each sub-directory corresponds to a single data bag on the Chef Infra Server and contains a JSON file for each data bag item. If a sub-directory does not exist, then create it using SSL commands. After a data bag item is created, it can then be uploaded to the Chef Infra Server.
 
-environments/
+policyfiles/
 -----------------------------------------------------
-The ``environments/`` directory is used to store the files that define the environments that are available to the Chef Infra Server. The environments files can be Ruby DSL files (.rb) or they can be JSON files (.json). Use knife to install environment files to the Chef Infra Server.
 
-roles/
------------------------------------------------------
-The ``roles/`` directory is used to store the files that define the roles that are available to the Chef Infra Server. The roles files can be Ruby DSL files (.rb) or they can be JSON files (.json). Use knife to install role files to the Chef Infra Server.
+The ``policyfiles/`` directory is used to store Policyfiles that define the set of cookbooks and attributes to apply to specific systems managed by the Chef Infra Server.
 
 chefignore Files
 =====================================================
@@ -73,7 +67,7 @@ The chefignore file is used to tell knife which cookbook files in the chef-repo 
 * A pattern may contain relative directory names
 * A pattern may match all files in a directory
 
-The chefignore file can be located in any subdirectory of a chef-repo: ``/``, ``/cookbooks``, ``/cookbooks/COOKBOOK_NAME/``, ``roles``, etc. It should contain sections similar to the following:
+The chefignore file can be located in any subdirectory of a chef-repo: ``/``, ``/cookbooks``, ``/cookbooks/COOKBOOK_NAME/``, etc. It should contain sections similar to the following:
 
 .. code-block:: none
 
@@ -174,10 +168,10 @@ Example config.rb:
 Create the chef-repo
 =====================================================
 
-To create a chef-repo, run the following command:
+Use the `chef generate repo command </ctl_chef.html#chef-generate-repo>`__ to create your chef-repo directory along with the base folder structure. This command uses the ``chef`` command-line tool that is packaged as part of Chef Workstation to create a chef-repo.
 
 .. code-block:: bash
 
    $ chef generate repo REPO_NAME
 
-This command uses the ``chef`` command-line tool that is packaged as part of Chef Workstation to create a chef-repo.
+.. note:: By default the chef generate repo command generates a base chef-repo configured for Policyfiles. To create a repository setup for Roles and Environments instead use the ``--roles`` flag when running the command.
