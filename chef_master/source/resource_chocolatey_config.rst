@@ -222,7 +222,7 @@ The following examples demonstrate various approaches for using resources in rec
 
    chocolatey_config 'Set cacheLocation config' do
      config_key 'cacheLocation'
-     value 'C:	empoco'
+     value 'C:	empoco'
    end
 
 **Unset a Chocolatey config**
