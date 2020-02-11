@@ -118,13 +118,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -137,14 +137,14 @@ To converge the default CentOS instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen converge default-centos-71
+   $ kitchen converge default-centos-7
 
 Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
 .. code-block:: bash
 
    -----> Starting Kitchen (v1.4.2)
-   -----> Converging <default-centos-71>...
+   -----> Converging <default-centos-7>...
           Preparing files for transfer
           Preparing cookbooks from project directory
           Removing non-cookbook files before transfer
@@ -156,7 +156,7 @@ Chef Infra Client is downloaded the first time this command is run. The output o
           Downloading Chef ...
           Installing Chef ...
           Thank you for installing Chef!
-          Transferring files to <default-centos-71>
+          Transferring files to <default-centos-7>
           [2014-06-27T18:41:04+00:00] INFO: Forking chef instance to converge...
           Starting Chef Client, version 12.4.1
           [2014-06-27T18:45:18+00:00] INFO: *** Chef 12.4.1 ***
@@ -164,7 +164,7 @@ Chef Infra Client is downloaded the first time this command is run. The output o
           [2014-06-27T18:45:25+00:00] INFO: Setting the run_list to ["recipe[chef-repo::default]"] from CLI options
           [2014-06-27T18:45:25+00:00] INFO: Run List is [recipe[chef-repo::default]]
           [2014-06-27T18:45:25+00:00] INFO: Run List expands to [chef-repo::default]
-          [2014-06-27T18:45:25+00:00] INFO: Starting Chef Run for default-centos-71
+          [2014-06-27T18:45:25+00:00] INFO: Starting Chef Run for default-centos-7
           [2014-06-27T18:45:25+00:00] INFO: Running start handlers
           [2014-06-27T18:42:40+00:00] INFO: Start handlers complete.
           Compiling Cookbooks...
@@ -186,7 +186,7 @@ Chef Infra Client is downloaded the first time this command is run. The output o
           Running handlers complete
           [2014-06-27T18:42:40+00:00] INFO: Report handlers complete
           Chef Client finished, 1/1 resources updated in 7.152725504 seconds
-          Finished converging <default-centos-71> (0m8.43s).
+          Finished converging <default-centos-7> (0m8.43s).
    -----> Kitchen is finished. (0m15.96s)
 
 **Converge the default Ubuntu instance**
@@ -277,13 +277,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -296,7 +296,7 @@ To create the default CentOS instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen create default-centos-71
+   $ kitchen create default-centos-7
 
 CentOS is downloaded the first time this command is run, after which Vagrant is started. (This may take a few minutes.)
 
@@ -305,7 +305,7 @@ The output of the command is similar to:
 .. code-block:: bash
 
    -----> Starting Kitchen (v1.4.2)
-   -----> Creating <default-centos-71>...
+   -----> Creating <default-centos-7>...
           Bringing machine 'default' up with 'virtualbox' provider...
           ==> default: Box 'opscode-centos-6.5' could not be found. Attempting to find and install...
               default: Box Provider: virtualbox
@@ -315,7 +315,7 @@ The output of the command is similar to:
           ==> default: Successfully added box 'opscode-centos-6.5' (v0) for 'virtualbox'!
           ==> default: Importing base box 'opscode-centos-6.5'...
           ==> default: Matching MAC address for NAT networking...
-          ==> default: Setting the name of the VM: default-centos-71_default_1403650129063_53517
+          ==> default: Setting the name of the VM: default-centos-7_default_1403650129063_53517
           ==> default: Clearing any previously set network interfaces...
           ==> default: Preparing network interfaces based on configuration...
               default: Adapter 1: nat
@@ -331,8 +331,8 @@ The output of the command is similar to:
           ==> default: Checking for guest additions in VM...
           ==> default: Setting hostname...
           ==> default: Machine not provisioning because `--no-provision` is specified.
-          Vagrant instance <default-centos-71> created.
-          Finished creating <default-centos-71> (4m0.59s).
+          Vagrant instance <default-centos-7> created.
+          Finished creating <default-centos-7> (4m0.59s).
    -----> Kitchen is finished. (11m29.76s)
 
 **Create the default Ubuntu instance**
@@ -411,13 +411,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -462,13 +462,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -627,13 +627,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -682,13 +682,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -717,7 +717,7 @@ will return something similar to:
 
 kitchen list
 =====================================================
-Use the ``list`` subcommand to view the list of instances. Instances are based on the list of platforms in the kitchen.yml file. Test Kitchen will auto-name instances by combining a suite name with a platform name. For example, if a suite is named ``default`` and a platform is named ``ubuntu-10.04``, then the instance would be ``default-ubuntu-10.04``. This ensures that Test Kitchen instances have safe DNS and hostname records.
+Use the ``list`` subcommand to view the list of instances. Instances are based on the list of platforms in the kitchen.yml file. Test Kitchen will auto-name instances by combining a suite name with a platform name. For example, if a suite is named ``default`` and a platform is named ``ubuntu-10.04``, then the instance would be ``default-ubuntu-18.04``. This ensures that Test Kitchen instances have safe DNS and hostname records.
 
 Syntax
 -----------------------------------------------------
@@ -746,13 +746,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -772,7 +772,7 @@ A list will be returned, similar to:
 .. code-block:: bash
 
    Instance              Driver   Provisioner   Last Action
-   default-ubuntu-10.04  vagrant  chef_zero     created
+   default-ubuntu-18.04  vagrant  chef_zero     created
    default-centos-6.5    vagrant  chef_zero     created
 
 or:
@@ -780,7 +780,7 @@ or:
 .. code-block:: bash
 
    Instance              Driver   Provisioner   Last Action
-   default-ubuntu-10.04  vagrant  chef_zero     converged
+   default-ubuntu-18.04  vagrant  chef_zero     converged
    default-centos-6.5    vagrant  chef_zero     created
 
 or:
@@ -788,7 +788,7 @@ or:
 .. code-block:: bash
 
    Instance              Driver   Provisioner   Last Action
-   default-ubuntu-10.04  vagrant  chef_zero     verified
+   default-ubuntu-18.04  vagrant  chef_zero     verified
    default-centos-6.5    vagrant  chef_zero     created
 
 or:
@@ -796,7 +796,7 @@ or:
 .. code-block:: bash
 
    Instance              Driver   Provisioner   Last Action
-   default-ubuntu-10.04  vagrant  chef_zero     created
+   default-ubuntu-18.04  vagrant  chef_zero     created
    default-centos-6.5    vagrant  chef_zero     <not created>
 
 or if there are multiple suites defined, such as ``default`` and ``test``:
@@ -804,7 +804,7 @@ or if there are multiple suites defined, such as ``default`` and ``test``:
 .. code-block:: bash
 
    Instance              Driver   Provisioner   Last Action
-   default-ubuntu-10.04  vagrant  chef_zero     <not created>
+   default-ubuntu-18.04  vagrant  chef_zero     <not created>
    default-centos-6.5    vagrant  chef_zero     <not created>
    test-ubuntu-10.04     vagrant  chef_zero     <not created>
    test-centos-6.5       vagrant  chef_zero     <not created>
@@ -837,13 +837,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -895,13 +895,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -948,13 +948,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -1079,13 +1079,13 @@ This subcommand has the following options:
 
    .. code-block:: javascript
 
-       - name: centos-6
        - name: centos-7
+       - name: centos-8
        - name: fedora-latest
        - name: ubuntu-1604
        - name: ubuntu-1804
 
-   then a regular expression like ``(04|6)`` would run Test Kitchen against ``centos-6``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
+   then a regular expression like ``(04|7)`` would run Test Kitchen against ``centos-7``, ``ubuntu-1604``, and ``ubuntu-1804``. A regular expression like ``(ubuntu)`` would run Test Kitchen against ``ubuntu-1604`` and ``ubuntu-1804``. A regular expression like ``(fedora)`` would run Test Kitchen against only ``fedora-latest``. Default: ``all``.
 
    .. end_tag
 
@@ -1098,14 +1098,14 @@ To verify the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen verify default-ubuntu-10.04
+   $ kitchen verify default-ubuntu-18.04
 
 to return something similar to:
 
 .. code-block:: bash
 
-   -----> Starting Kitchen (v1.0.0)
-   -----> Setting up <default-ubuntu-10.04>
+   -----> Starting Kitchen (v2.2.5)
+   -----> Setting up <default-ubuntu-18.04>
    Fetching: <name of test tool> (100%)
    Successfully installed <name of test tool>
    # gems installed
@@ -1115,7 +1115,7 @@ to return something similar to:
     ✓ <test result>
 
    2 tests, 0 failures
-        Finished verifying <default-ubuntu-10.04> (2m1.12s).
+        Finished verifying <default-ubuntu-18.04> (2m1.12s).
    -----> Kitchen is finished. (2m3.45s)
    $ echo $?
    0
@@ -1124,8 +1124,8 @@ or:
 
 .. code-block:: bash
 
-   -----> Starting Kitchen (v1.0.0)
-   -----> Setting up <default-ubuntu-10.04>
+   -----> Starting Kitchen (v2.2.5)
+   -----> Setting up <default-ubuntu-18.04>
    Fetching: <name of test tool> (100%)
    Successfully installed <name of test tool>
    # gems installed
