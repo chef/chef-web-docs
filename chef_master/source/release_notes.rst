@@ -144,7 +144,7 @@ The ``sysctl`` resource has been updated to allow the inclusion of descriptive c
 
 An example:
 
-  .. code-block:: ruby
+.. code-block:: ruby
 
   sysctl 'vm.swappiness' do
     value 10
