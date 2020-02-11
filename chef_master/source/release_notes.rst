@@ -161,7 +161,7 @@ An example:
 
 which results in ``/etc/sysctl.d/99-chef-vm.swappiness.conf`` as follows:
 
-  .. code-block:: shell
+.. code-block:: shell
   # define how aggressively the kernel will swap memory pages.
   # Higher values will increase aggressiveness
   # lower values decrease the amount of swap.
