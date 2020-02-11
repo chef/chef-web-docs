@@ -195,14 +195,14 @@ To converge the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen converge default-ubuntu-1404
+   $ kitchen converge default-ubuntu-1804
 
 Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
 .. code-block:: bash
 
    -----> Starting Kitchen (v1.4.2)
-   -----> Converging <default-ubuntu-1404>...
+   -----> Converging <default-ubuntu-1804>...
           Preparing files for transfer
           Preparing cookbooks from project directory
           Removing non-cookbook files before transfer
@@ -214,7 +214,7 @@ Chef Infra Client is downloaded the first time this command is run. The output o
           Downloading Chef ...
           Installing Chef ...
           Thank you for installing Chef!
-          Transferring files to <default-ubuntu-1404>
+          Transferring files to <default-ubuntu-1804>
           [2014-06-27T18:48:01+00:00] INFO: Forking chef instance to converge...
           Starting Chef Client, version 12.4.1
           [2014-06-27T18:48:01+00:00] INFO: *** Chef 12.4.1 ***
@@ -222,7 +222,7 @@ Chef Infra Client is downloaded the first time this command is run. The output o
           [2014-06-27T18:48:03+00:00] INFO: Setting the run_list to ["recipe[chef-repo::default]"] from CLI options
           [2014-06-27T18:48:03+00:00] INFO: Run List is [recipe[chef-repo::default]]
           [2014-06-27T18:48:03+00:00] INFO: Run List expands to [chef-repo::default]
-          [2014-06-27T18:48:03+00:00] INFO: Starting Chef Run for default-ubuntu-1404
+          [2014-06-27T18:48:03+00:00] INFO: Starting Chef Run for default-ubuntu-1804
           [2014-06-27T18:48:03+00:00] INFO: Running start handlers
           [2014-06-27T18:48:03+00:00] INFO: Start handlers complete.
           Compiling Cookbooks...
@@ -243,7 +243,7 @@ Chef Infra Client is downloaded the first time this command is run. The output o
           Running handlers complete
           [2014-06-27T18:48:03+00:00] INFO: Report handlers complete
           Chef Client finished, 1/1 resources updated in 1.955915841 seconds
-          Finished converging <default-ubuntu-1404> (0m15.67s).
+          Finished converging <default-ubuntu-1804> (0m15.67s).
    -----> Kitchen is finished. (0m15.96s)
 
 kitchen create
@@ -341,7 +341,7 @@ To create the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen create default-ubuntu-1404
+   $ kitchen create default-ubuntu-1804
 
 Ubuntu is downloaded the first time this command is run, after which Vagrant is started. (This may take a few minutes.)
 
@@ -350,7 +350,7 @@ The output of the command is similar to:
 .. code-block:: bash
 
    -----> Starting Kitchen (v1.4.2)
-   -----> Creating <default-ubuntu-1404>...
+   -----> Creating <default-ubuntu-1804>...
           Bringing machine 'default' up with 'virtualbox' provider...
           ==> default: Box 'opscode-ubuntu-12.04' could not be found. Attempting to find and install...
               default: Box Provider: virtualbox
@@ -360,7 +360,7 @@ The output of the command is similar to:
           ==> default: Successfully added box 'opscode-ubuntu-12.04' (v0) for 'virtualbox'!
           ==> default: Importing base box 'opscode-ubuntu-12.04'...
           ==> default: Matching MAC address for NAT networking...
-          ==> default: Setting the name of the VM: default-ubuntu-1404_default_1403651715173_54200
+          ==> default: Setting the name of the VM: default-ubuntu-1804_default_1403651715173_54200
           ==> default: Fixed port collision for 22 => 2222. Now on port 2200.
           ==> default: Clearing any previously set network interfaces...
           ==> default: Preparing network interfaces based on configuration...
@@ -376,8 +376,8 @@ The output of the command is similar to:
           ==> default: Checking for guest additions in VM...
           ==> default: Setting hostname...
           ==> default: Machine not provisioning because `--no-provision` is specified.
-          Vagrant instance <default-ubuntu-1404> created.
-          Finished creating <default-ubuntu-1404> (4m1.59s).
+          Vagrant instance <default-ubuntu-1804> created.
+          Finished creating <default-ubuntu-1804> (4m1.59s).
    -----> Kitchen is finished. (10m58.24s)
 
 kitchen destroy
@@ -514,7 +514,7 @@ Use the ``--instances`` option to track instances, which are based on the list o
 
    ---
    instances
-     default-ubuntu-1204
+     default-ubuntu-1804
        busser:
          root_path: /tmp/busser
          ruby_bindir: /opt/chef/embedded/bin
@@ -530,9 +530,9 @@ This command returns data as YAML:
    timestamp: 2014-04-15 18:59:58.460470000 Z
    kitchen-version: 1.2.2.dev
    instances:
-     default-ubuntu-1404
+     default-ubuntu-1804
        # ...
-     default-centos-65
+     default-centos-8
        # ...
 
 When Test Kitchen is being used to test cookbooks, Test Kitchen will track state data:
@@ -541,7 +541,7 @@ When Test Kitchen is being used to test cookbooks, Test Kitchen will track state
 
    ---
    instances:
-     default-ubuntu-1404
+     default-ubuntu-1804
        state_file:
          hostname: 192.0.2.0
          last_action: create
@@ -557,9 +557,9 @@ and will track information that was given to a driver:
 
    ---
    instances:
-     default-ubuntu-1404
+     default-ubuntu-1804
        driver:
-         box: opscode-ubuntu-12.04
+         box: opscode-ubuntu-18.04
          box_url: https://URL/path/to/filename.box
          kitchen_root: "/Users/username/Projects/sandbox/"
 
@@ -569,7 +569,7 @@ and will track information about provisioners:
 
    ---
    instances:
-     default-ubuntu-1404
+     default-ubuntu-1804
        provisioner:
          attributes: {}
          chef_omnibus_url: https://www.chef.io/chef/install.sh
@@ -717,7 +717,7 @@ will return something similar to:
 
 kitchen list
 =====================================================
-Use the ``list`` subcommand to view the list of instances. Instances are based on the list of platforms in the kitchen.yml file. Test Kitchen will auto-name instances by combining a suite name with a platform name. For example, if a suite is named ``default`` and a platform is named ``ubuntu-10.04``, then the instance would be ``default-ubuntu-18.04``. This ensures that Test Kitchen instances have safe DNS and hostname records.
+Use the ``list`` subcommand to view the list of instances. Instances are based on the list of platforms in the kitchen.yml file. Test Kitchen will auto-name instances by combining a suite name with a platform name. For example, if a suite is named ``default`` and a platform is named ``ubuntu-18.04``, then the instance would be ``default-ubuntu-1804``. This ensures that Test Kitchen instances have safe DNS and hostname records.
 
 Syntax
 -----------------------------------------------------
@@ -773,7 +773,7 @@ A list will be returned, similar to:
 
    Instance              Driver   Provisioner   Last Action
    default-ubuntu-18.04  vagrant  chef_zero     created
-   default-centos-6.5    vagrant  chef_zero     created
+   default-centos-8      vagrant  chef_zero     created
 
 or:
 
@@ -781,7 +781,7 @@ or:
 
    Instance              Driver   Provisioner   Last Action
    default-ubuntu-18.04  vagrant  chef_zero     converged
-   default-centos-6.5    vagrant  chef_zero     created
+   default-centos-8      vagrant  chef_zero     created
 
 or:
 
@@ -789,7 +789,7 @@ or:
 
    Instance              Driver   Provisioner   Last Action
    default-ubuntu-18.04  vagrant  chef_zero     verified
-   default-centos-6.5    vagrant  chef_zero     created
+   default-centos-8      vagrant  chef_zero     created
 
 or:
 
@@ -797,7 +797,7 @@ or:
 
    Instance              Driver   Provisioner   Last Action
    default-ubuntu-18.04  vagrant  chef_zero     created
-   default-centos-6.5    vagrant  chef_zero     <not created>
+   default-centos-8      vagrant  chef_zero     <not created>
 
 or if there are multiple suites defined, such as ``default`` and ``test``:
 
@@ -805,9 +805,9 @@ or if there are multiple suites defined, such as ``default`` and ``test``:
 
    Instance              Driver   Provisioner   Last Action
    default-ubuntu-18.04  vagrant  chef_zero     <not created>
-   default-centos-6.5    vagrant  chef_zero     <not created>
-   test-ubuntu-10.04     vagrant  chef_zero     <not created>
-   test-centos-6.5       vagrant  chef_zero     <not created>
+   default-centos-8      vagrant  chef_zero     <not created>
+   test-ubuntu-18.04     vagrant  chef_zero     <not created>
+   test-centos-8         vagrant  chef_zero     <not created>
 
 kitchen login
 =====================================================
@@ -913,7 +913,7 @@ kitchen test
 =====================================================
 Use the ``test`` subcommand to test one (or more) verified instances. Instances are based on the list of platforms and suites in the kitchen.yml file. This subcommand will create a new instance (cleaning up a previous instance, if necessary), converge that instance, set up the test harness, verify the instance using that test harness, and then destroy the instance.
 
-In general, use the ``test`` subcommand to verify the end-to-end quality of a cookbook. Use the ``converge`` and ``verify`` subcommands during the normal the day-to-day development of a cookbook.
+In general, use the ``test`` subcommand to verify the end-to-end quality of a cookbook. Use the ``converge`` and ``verify`` subcommands during the normal day-to-day development of a cookbook.
 
 Syntax
 -----------------------------------------------------
@@ -967,7 +967,7 @@ To test the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen test default-ubuntu-1404
+   $ kitchen test default-ubuntu-1804
 
 to return something similar to:
 
@@ -1050,7 +1050,7 @@ kitchen verify
 =====================================================
 Use the ``verify`` subcommand to verify one (or more) instances. Instances are based on the list of platforms and suites in the kitchen.yml file.
 
-In general, use the ``test`` subcommand to verify the end-to-end quality of a cookbook. Use the ``converge`` and ``verify`` subcommands during the normal the day-to-day development of a cookbook.
+In general, use the ``test`` subcommand to verify the end-to-end quality of a cookbook. Use the ``converge`` and ``verify`` subcommands during the normal day-to-day development of a cookbook.
 
 Syntax
 -----------------------------------------------------
