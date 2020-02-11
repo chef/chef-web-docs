@@ -119,7 +119,10 @@
               <hr>
 
 							<p>{{ .Params.syntax_description | markdownify }}</p>
-							<p>{{- highlight .Params.syntax_code_block "ruby" "" -}}</p>
+							
+							{{ if .Params.syntax_code_block }}
+								<p>{{- highlight .Params.syntax_code_block "ruby" "" -}}</p>
+							{{ end }}
 							
 							{{ if .Params.syntax_properties_list }}
 								<p>where:</p>
