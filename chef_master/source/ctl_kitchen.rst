@@ -296,7 +296,7 @@ To create the default CentOS instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen create default-centos-7
+   kitchen create default-centos-7
 
 CentOS is downloaded the first time this command is run, after which Vagrant is started. (This may take a few minutes.)
 
