@@ -15,7 +15,7 @@ Chef Infra Client now includes a new ``notify_group`` feature that can be used t
 
 Example notify_group that stops, sleeps, and then starts service when a service config is updated:
 
-  .. code-block:: ruby
+.. code-block:: ruby
 
     service "crude" do
       action [ :enable, :start ]
