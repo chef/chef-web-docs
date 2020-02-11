@@ -67,7 +67,7 @@ Omnitruck accepts the following platforms:
    * - Debian
      - ``debian``
      - ``x86_64``
-     - ``6``, ``7``, ``8``, ``9``
+     - ``6``, ``7``, ``8``, ``9``, ``10``
    * -
      -
      - ``i386``

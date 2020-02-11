@@ -98,16 +98,16 @@ For example, a very simple kitchen.yml file:
      name: chef_zero
 
    platforms:
-     - name: ubuntu-16.04
-     - name: centos-7
-     - name: debian-9
+     - name: ubuntu-18.04
+     - name: centos-8
+     - name: debian-10
 
    suites:
      - name: default
        run_list:
          - recipe[apache::httpd]
        excludes:
-         - debian-9
+         - debian-10
 
 This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Test Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 
@@ -522,9 +522,9 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
    platforms:
    - name: ubuntu-16.04
    - name: ubuntu-18.04
-   - name: centos-6
    - name: centos-7
-   - name: debian-9
+   - name: centos-8
+   - name: debian-10
 
 which will generate a configuration file similar to:
 
@@ -598,7 +598,7 @@ The following kitchen.yml file is part of the ``chef-client`` cookbook and ensur
      name: chef_zero
 
    platforms:
-     - name: centos-6
+     - name: centos-8
      - name: fedora-latest
      - name: ubuntu-1604
      - name: ubuntu-1804
@@ -657,8 +657,8 @@ The following kitchen.yml file is part of the ``chef-splunk`` cookbook and is us
    platforms:
      - name: ubuntu-16.04
      - name: ubuntu-18.04
-     - name: centos-6
      - name: centos-7
+     - name: centos-8
 
    suites:
      - name: client
@@ -681,34 +681,6 @@ The following kitchen.yml file is part of the ``chef-splunk`` cookbook and is us
            ssl_options:
              enable_ssl: true
 
-     - name: disabled
-       run_list:
-         - recipe[chef-splunk::default]
-       attributes:
-         splunk:
-           disabled: true
-
-     - name: upgrade_client
-       run_list:
-         - recipe[chef-splunk::default]
-         - recipe[chef-splunk::upgrade]
-       attributes:
-         dev_mode: true
-         splunk:
-           accept_license: true
-           upgrade_enabled: true
-
-     - name: upgrade_server
-       run_list:
-         - recipe[chef-splunk::default]
-         - recipe[chef-splunk::upgrade]
-       attributes:
-         dev_mode: true
-         splunk:
-           accept_license: true
-           upgrade_enabled: true
-           is_server: true
-
 yum Cookbook
 --------------------------------------------------------------------------
 The following kitchen.yml file is part of the ``yum`` cookbook:
@@ -722,8 +694,8 @@ The following kitchen.yml file is part of the ``yum`` cookbook:
      name: chef_zero
 
    platforms:
-     - name: centos-6
      - name: centos-7
+     - name: centos-8
      - name: fedora-latest
 
    suites:
