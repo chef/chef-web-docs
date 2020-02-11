@@ -967,7 +967,7 @@ To test the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen test default-ubuntu-1804
+   kitchen test default-ubuntu-1804
 
 to return something similar to:
 
