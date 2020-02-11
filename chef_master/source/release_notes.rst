@@ -97,8 +97,8 @@ The virtualization helpers from chef-sugar have been ported to Chef Infra Client
 * ``kvm_host?`` - if the node is a kvm host
 * ``lxc?`` - if the node is an lxc guest
 * ``lxc_host?`` - if the node is an lxc host
-* ``parallels?``- if the node is a parallels guest
-* ``parallels_host?`- if the node is a parallels host
+* ``parallels?`` - if the node is a parallels guest
+* ``parallels_host?`` - if the node is a parallels host
 * ``vbox?`` - if the node is a virtualbox guest
 * ``vbox_host?`` - if the node is a virtualbox host
 * ``vmware?`` - if the node is a vmware guest
