@@ -117,7 +117,7 @@ chef-sugar's ``include_recipe?`` has been added to Chef Infra Client providing a
 
 Example usage in a not_if conditional:
 
-  .. code-block:: ruby
+.. code-block:: ruby
 
   execute 'install my_app'
     command '/tmp/my_app_install.sh'
