@@ -137,7 +137,7 @@ To converge the default CentOS instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen converge default-centos-7
+   kitchen converge default-centos-7
 
 Chef Infra Client is downloaded the first time this command is run. The output of the command is similar to:
 
