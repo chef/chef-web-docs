@@ -66,7 +66,7 @@ New helpers for checking platform versions have been added. These helpers return
 
 Example comparison using windows_nt_version:
 
-  .. code-block:: ruby
+.. code-block:: ruby
 
   if windows_nt_version >= 10
     some_modern_windows_things
