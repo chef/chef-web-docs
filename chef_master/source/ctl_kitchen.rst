@@ -1098,7 +1098,7 @@ To verify the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen verify default-ubuntu-18.04
+   kitchen verify default-ubuntu-18.04
 
 to return something similar to:
 
