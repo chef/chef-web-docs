@@ -100,14 +100,14 @@ For example, a very simple kitchen.yml file:
    platforms:
      - name: ubuntu-16.04
      - name: centos-7
-     - name: debian-9
+     - name: debian-10
 
    suites:
      - name: default
        run_list:
          - recipe[apache::httpd]
        excludes:
-         - debian-9
+         - debian-10
 
 This file uses Vagrant as the driver, which requires no additional configuration because it's the default driver used by Test Kitchen, chef-zero as the provisioner, and a single (default) test suite that runs on Ubuntu 16.04, and CentOS 7.
 
@@ -522,9 +522,9 @@ The ``kitchen-vagrant`` driver can predict the box name for Vagrant and the down
    platforms:
    - name: ubuntu-16.04
    - name: ubuntu-18.04
-   - name: centos-6
    - name: centos-7
-   - name: debian-9
+   - name: centos-8
+   - name: debian-10
 
 which will generate a configuration file similar to:
 

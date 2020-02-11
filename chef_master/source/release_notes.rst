@@ -175,7 +175,7 @@ which results in ``/etc/sysctl.d/99-chef-vm.swappiness.conf`` as follows:
 Platform Support
 -----------------------------------------------------
 
-* Chef Infra Clients packages are now validated for Debian 10.
+Chef Infra Clients packages are now validated for Debian 10.
 
 macOS Binary Signing
 -----------------------------------------------------
