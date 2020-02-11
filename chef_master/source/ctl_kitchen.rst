@@ -341,7 +341,7 @@ To create the default Ubuntu instance, run the following:
 
 .. code-block:: bash
 
-   $ kitchen create default-ubuntu-1804
+   kitchen create default-ubuntu-1804
 
 Ubuntu is downloaded the first time this command is run, after which Vagrant is started. (This may take a few minutes.)
 
