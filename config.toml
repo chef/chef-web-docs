@@ -59,6 +59,7 @@ enableGitInfo = true
 
 [params]
   enable_search = true
+	robots = ''
 
 [taxonomies]
   category = "categories"
