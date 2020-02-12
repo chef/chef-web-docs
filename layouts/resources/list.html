@@ -639,19 +639,30 @@
 	              {{ if .Params.resources_common_notification }}
 	                <h3 id="resources_common_notifications">Notifications</h3>
 
-	                <code>notifies</code>
-
-	                <p><strong>Ruby Type:</strong> Symbol, 'Chef::Resource[String]'</p>
-
-	                {{ readFile "layouts/shortcodes/resources_common_notification_notifies.md" | markdownify }}
-	                {{ readFile "layouts/shortcodes/resources_common_notification_notifies_syntax.md" | markdownify }}
-
-	                <code>subscribes</code>
-	                <p><strong>Ruby Type:</strong>  Symbol, 'Chef::Resource[String]'</p>
-
-	                {{ readFile "layouts/shortcodes/resources_common_notification_subscribes.md" | markdownify }}
-	                {{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify }}
-	                {{ readFile "layouts/shortcodes/resources_common_notification_subscribes_syntax.md" | markdownify }}
+									<dl>
+										<dt>
+											<code>notifies</code>
+										</dt>
+										<dd>
+											<p><strong>Ruby Type:</strong> Symbol, 'Chef::Resource[String]'</p>
+											{{ readFile "layouts/shortcodes/resources_common_notification_notifies.md" | markdownify }}
+										</dd>
+									</dl>
+									
+									{{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify  }}
+									{{ readFile "layouts/shortcodes/resources_common_notification_notifies_syntax.md" | markdownify }}
+									
+									<dl>
+										<dt>
+											<code>subscribes</code>
+										</dt>
+										<dd>
+											<p><strong>Ruby Type:</strong>  Symbol, 'Chef::Resource[String]'</p>
+										</dd>
+									</dl>
+									{{ readFile "layouts/shortcodes/resources_common_notification_subscribes.md" | markdownify }}
+									{{ readFile "layouts/shortcodes/resources_common_notification_timers.md" | markdownify }}
+									{{ readFile "layouts/shortcodes/resources_common_notification_subscribes_syntax.md" | markdownify }}
 
 	              {{ end }}
 
