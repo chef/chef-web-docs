@@ -425,7 +425,7 @@ Or:
 
    chef (preprod) > load_balancer.ec2.public_hostname
 
-to return something similar to:
+will return something similar to:
 
 .. code-block:: bash
 
