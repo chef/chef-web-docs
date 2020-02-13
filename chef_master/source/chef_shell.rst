@@ -395,7 +395,7 @@ The ``list`` command can take a code block, which will applied (but not saved), 
 
 .. code-block:: bash
 
-   $ chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
+   chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
 
 to return something similar to:
 
