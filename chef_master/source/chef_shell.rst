@@ -441,7 +441,7 @@ You can also format the results with a code block. For example:
 
 .. code-block:: bash
 
-   $ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
+   chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
 
 to return something similar to:
 
