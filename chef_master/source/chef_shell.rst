@@ -443,7 +443,7 @@ You can also format the results with a code block. For example:
 
    chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
 
-to return something similar to:
+will return something similar to:
 
 .. code-block:: bash
 
