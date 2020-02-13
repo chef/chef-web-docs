@@ -59,6 +59,7 @@ The full syntax for all of the properties that are available to the **remote_fil
      show_progress              true, false # default value: false
      use_etag                   true, false # default value: true
      use_last_modified          true, false # default value: true
+     sensitive                  true, false # default value: false
      verifications              Array
      action                     Symbol # defaults to :create if not specified
    end
@@ -68,7 +69,7 @@ where:
 * ``remote_file`` is the resource.
 * ``name`` is the name given to the resource block.
 * ``action`` identifies which steps Chef Infra Client will take to bring the node into the desired state.
-* ``atomic_update``, ``authentication``, ``backup``, ``checksum``, ``content``, ``diff``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``remote_domain``, ``remote_password``, ``remote_user``, ``show_progress``, ``use_etag``, ``use_last_modified``, and ``verifications`` are the properties available to this resource.
+* ``atomic_update``, ``authentication``, ``backup``, ``checksum``, ``content``, ``diff``, ``force_unlink``, ``ftp_active_mode``, ``group``, ``headers``, ``manage_symlink_source``, ``mode``, ``owner``, ``path``, ``remote_domain``, ``remote_password``, ``remote_user``, ``show_progress``, ``use_etag``, ``use_last_modified``, ``sensitive``, and ``verifications`` are the properties available to this resource.
 
 Actions
 =====================================================
@@ -387,6 +388,11 @@ The remote_file resource has the following properties:
    **Ruby Type:** true, false | **Default Value:** ``false``
 
    Displays the progress of the file download. Set to ``true`` to enable this feature.
+
+``sensitive``
+   **Ruby Type:** true, false | **Default Value:** ``false``
+
+   Ensure that sensitive resource data is not logged by Chef Infra Client.
 
 ``verify``
    **Ruby Type:** String, Block
@@ -861,4 +867,3 @@ When specifying a local Microsoft Windows file path as a valid file URI, an addi
    remote_file 'file:///c:/path/to/file' do
      ...       # other attributes
    end
-
