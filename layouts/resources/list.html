@@ -53,10 +53,14 @@
 												<div class="admonition-note-text">
 													{{ range $subkey, $subvalue := $value }}
 														{{ if eq $subkey "markdown" }}
-															{{- $subvalue | markdownify -}}
+															<p>
+																{{- $subvalue | markdownify -}}
+															</p>
 														{{ end }}
 														{{ if eq $subkey "shortcode" }}
-															{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+															<p>
+																{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+															</p>
 														{{ end }}
 													{{ end }}
 												</div>
@@ -68,17 +72,23 @@
 											<div class="admonition-warning-text">
 												{{ range $subkey, $subvalue := $value }}
 													{{ if eq $subkey "markdown" }}
-														{{- $subvalue | markdownify -}}
+														<p>
+															{{- $subvalue | markdownify -}}
+														</p>
 													{{ end }}
 													{{ if eq $subkey "shortcode" }}
-														{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+														<p>
+															{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+														</p>
 													{{ end }}
 												{{ end }}
 											</div>
 										</div>
 										{{ end }}
 										{{ if eq $key "shortcode" }}
-											{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+											<p>
+												{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+											</p>
 										{{ end }}
 									{{ end }}
 								{{ end }}
@@ -375,7 +385,6 @@
 										{{ end }}
 	                {{ end }}
 								</dl>
-                <br>
               {{ end }}
 
               <!-------------- Properties ------------------->
@@ -412,10 +421,12 @@
 																	{{ range $value }}
 																		{{ range $subkey, $subvalue := . }}
 																			{{ if eq $subkey "shortcode" }}
-																				{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+																				<p>
+																					{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+																				</p>
 																			{{ end }}
 																			{{ if eq $subkey "markdown" }}
-																				{{- $subvalue | markdownify -}}
+																				<p>{{- $subvalue | markdownify -}}</p>
 																			{{ end }}
 																		{{ end }}
 																	{{ end }}
@@ -429,10 +440,14 @@
 																	{{ range $value }}
 																		{{ range $subkey, $subvalue := . }}
 																			{{ if eq $subkey "shortcode" }}
-																				{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}
+																				<p>
+																					{{ readFile (delimit (slice `layouts/shortcodes/` $subvalue ) "") | markdownify }}																				
+																				</p>
 																			{{ end }}
 																			{{ if eq $subkey "markdown" }}
-																				{{- $subvalue | markdownify -}}
+																				<p>
+																					{{- $subvalue | markdownify -}}																				
+																				</p>
 																			{{ end }}
 																		{{ end }}
 																	{{ end }}
@@ -440,7 +455,9 @@
 															</div>
 														{{ end }}
 														{{ if eq $key "shortcode" }}
-															{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+															<p>
+																{{ readFile (delimit (slice `layouts/shortcodes/` $value ) "") | markdownify }}
+															</p>
 														{{ end }}
 													{{ end }}
 												{{ end }}
@@ -684,14 +701,24 @@
 
 	              {{ if .Params.resources_common_guard_interpreter }}
 	                <h3 id="guard-interpreter">Guard Interpreter</h3>
-
-	                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
+									
+									<p>
+										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter.md" | markdownify }}
+									</p>
 	                <strong>Attributes</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes.md" | markdownify }}
+									<p>
+										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes.md" | markdownify }}
+									</p>
+	                
 	                <strong>Inheritance</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes_inherit.md" | markdownify }}
+									<p>
+										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_attributes_inherit.md" | markdownify }}										
+									</p>
+	                
 	                <strong>Example</strong>
-	                {{ readFile "layouts/shortcodes/resources_common_guard_interpreter_example_default.md" | markdownify }}
+									<p>
+										{{ readFile "layouts/shortcodes/resources_common_guard_interpreter_example_default.md" | markdownify }}
+									</p>
 
 	              {{ end }}
 
@@ -779,7 +806,9 @@
 											{{ end }}
 											
 											{{ if eq $key "shortcode" }}
-												{{ readFile (delimit (slice `layouts/shortcodes/` $value) "") | markdownify }}
+												<p>
+													{{ readFile (delimit (slice `layouts/shortcodes/` $value) "") | markdownify }}
+												</p>
 											{{ end }}
 											
 											{{ if eq $key "markdown" }}
