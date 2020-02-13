@@ -357,7 +357,7 @@ The syntax for managing objects on the Chef Infra Server is as follows:
 
 where:
 
-* ``named_configuration`` is an existing configuration file in ``~/.chef/named_configuration/chef_shell.rb``, such as ``production``, ``staging``, or ``test``
+* ``named_configuration`` is an existing configuration file in ``~/.chef/named_configuration/chef_shell.rb``, such as ``production``, ``staging``, or ``test``.
 
 Once in chef-shell, commands can be run against objects as follows:
 
