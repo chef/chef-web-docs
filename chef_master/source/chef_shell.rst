@@ -388,7 +388,7 @@ to return something similar to:
        node[i-78f2e213], node[i-962232fd], node[i-4c322227], node[i-922232f9],
        node[i-c02728ab], node[i-f06c7b9b]]
 
-The ``list`` command can take a code block, which will applied (but not saved) to each object that is returned from the server. For example:
+The ``list`` command can take a code block, which will applied (but not saved), to each object that is returned from the server. For example:
 
 .. code-block:: bash
 
