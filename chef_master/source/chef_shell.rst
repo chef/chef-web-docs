@@ -363,7 +363,7 @@ Once in chef-shell, commands can be run against objects as follows:
 
 .. code-block:: bash
 
-   $ chef (preprod) > items.command
+   chef (preprod) > items.command
 
 Where:
 
