@@ -242,3 +242,27 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Create a new 2048bit key with the default des3 cipher**
+
+.. code-block:: ruby
+
+   openssl_rsa_private_key '/etc/ssl_files/rsakey_des3.pem' do
+      key_length 2048
+      action :create
+   end
+
+**Create a new 1024 bit key with the aes-128-cbc cipher**
+
+.. code-block:: ruby
+
+   openssl_rsa_key '/etc/ssl_files/rsakey_aes128cbc.pem' do
+      key_length 1024
+      key_cipher 'aes-128-cbc'
+      action :create
+   end
