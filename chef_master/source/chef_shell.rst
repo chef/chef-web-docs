@@ -423,7 +423,7 @@ Or:
 
 .. code-block:: bash
 
-   $ chef (preprod) > load_balancer.ec2.public_hostname
+   chef (preprod) > load_balancer.ec2.public_hostname
 
 to return something similar to:
 
