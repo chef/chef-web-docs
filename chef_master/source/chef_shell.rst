@@ -376,7 +376,7 @@ For example, to list all of the nodes in a configuration named "preprod", enter:
 
    chef (preprod) > nodes.list
 
-to return something similar to:
+Which will return something similar to:
 
 .. code-block:: bash
 
