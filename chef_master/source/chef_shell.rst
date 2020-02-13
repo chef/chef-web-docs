@@ -353,7 +353,7 @@ The syntax for managing objects on the Chef Infra Server is as follows:
 
 .. code-block:: bash
 
-   $ chef-shell -z named_configuration
+   chef-shell -z named_configuration
 
 where:
 
