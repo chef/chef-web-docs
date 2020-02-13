@@ -298,9 +298,33 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-  openssl_x509_request '/etc/ssl_test/my_ec_request.csr' do
+  openssl_x509_request '/etc/ssl_files/my_ec_request.csr' do
     common_name 'myecrequest.example.com'
     org 'Test Kitchen Example'
     org_unit 'Kitchens'
     country 'UK'
   end
+
+**Create a new certificate request file from an existing ec key**
+
+.. code-block:: ruby
+
+   openssl_x509_request '/etc/ssl_files/my_ec_request2.csr' do
+      common_name 'myecrequest2.example.com'
+      org 'Test Kitchen Example'
+      org_unit 'Kitchens'
+      country 'UK'
+      key_file '/etc/ssl_files/my_ec_request.key'
+   end
+
+**Create both a new rsa key and certificate request file**
+
+.. code-block:: ruby
+
+   openssl_x509_request '/etc/ssl_files/my_rsa_request.csr' do
+      common_name 'myrsarequest.example.com'
+      org 'Test Kitchen Example'
+      org_unit 'Kitchens'
+      country 'UK'
+      key_type 'rsa'
+   end
