@@ -140,28 +140,30 @@ The syntax for managing objects on the Chef Infra Server is as follows:
 
 .. code-block:: bash
 
-   $ chef-shell -z named_configuration
+   chef-shell -z named_configuration
 
-where:
+Where:
 
-* ``named_configuration`` is an existing configuration file in ``~/.chef/named_configuration/chef_shell.rb``, such as ``production``, ``staging``, or ``test``
+* ``named_configuration`` is an existing configuration file in ``~/.chef/named_configuration/chef_shell.rb``, such as ``production``, ``staging``, or ``test``.
 
 Once in chef-shell, commands can be run against objects as follows:
 
 .. code-block:: bash
 
-   $ chef (preprod) > items.command
+   chef (preprod) > items.command
 
-* ``items`` is the type of item to search for: ``cookbooks``, ``clients``, ``nodes``, ``roles``, ``environments`` or a data bag
-* ``command`` is the command: ``list``, ``show``, ``find``, or ``edit``
+Where:
 
-For example, to list all of the nodes in a configuration named "preprod":
+* ``items`` is the type of item to search for: ``cookbooks``, ``clients``, ``nodes``, ``roles``, ``environments`` or a data bag.
+* ``command`` is the command: ``list``, ``show``, ``find``, or ``edit``.
+
+For example, to list all of the nodes in a configuration named "preprod", enter:
 
 .. code-block:: bash
 
-   $ chef (preprod) > nodes.list
+   chef (preprod) > nodes.list
 
-to return something similar to:
+Which will return something similar to:
 
 .. code-block:: bash
 
@@ -176,13 +178,13 @@ to return something similar to:
        node[i-78f2e213], node[i-962232fd], node[i-4c322227], node[i-922232f9],
        node[i-c02728ab], node[i-f06c7b9b]]
 
-The ``list`` command can take a code block, which will applied (but not saved) to each object that is returned from the server. For example:
+The ``list`` command can take a code block, which will applied (but not saved), to each object that is returned from the server. For example:
 
 .. code-block:: bash
 
-   $ chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
+   chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
 
-to return something similar to:
+will return something similar to:
 
 .. code-block:: bash
 
@@ -196,21 +198,21 @@ The ``show`` command can be used to display a specific node. For example:
 
 .. code-block:: bash
 
-   $ chef (preprod) > load_balancer = nodes.show('i-f09a939b')
+   chef (preprod) > load_balancer = nodes.show('i-f09a939b')
 
-to return something similar to:
+will return something similar to:
 
 .. code-block:: bash
 
    => node[i-f09a939b]
 
-or:
+Or:
 
 .. code-block:: bash
 
-   $ chef (preprod) > load_balancer.ec2.public_hostname
+   chef (preprod) > load_balancer.ec2.public_hostname
 
-to return something similar to:
+will return something similar to:
 
 .. code-block:: bash
 
@@ -220,15 +222,15 @@ The ``find`` command can be used to search the Chef Infra Server from the chef-s
 
 .. code-block:: bash
 
-   $ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
+   chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
 
-A code block can be used to format the results. For example:
+You can also format the results with a code block. For example:
 
 .. code-block:: bash
 
-   $ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
+   chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
 
-to return something similar to:
+will return something similar to:
 
 .. code-block:: bash
 
@@ -245,10 +247,10 @@ Or:
 
 .. code-block:: bash
 
-   $ chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
-   $ chef (preprod) > puts amis.uniq.sort
+   chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
+   chef (preprod) > puts amis.uniq.sort
 
-to return something similar to:
+will return something similar to:
 
 .. code-block:: bash
 
