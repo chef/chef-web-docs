@@ -463,7 +463,7 @@ Or:
    chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
    chef (preprod) > puts amis.uniq.sort
 
-to return something similar to:
+will return something similar to:
 
 .. code-block:: bash
 
