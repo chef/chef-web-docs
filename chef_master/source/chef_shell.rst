@@ -435,7 +435,7 @@ The ``find`` command can be used to search the Chef Infra Server from the chef-s
 
 .. code-block:: bash
 
-   $ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
+   chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
 
 You can also format the results with a code block. For example:
 
