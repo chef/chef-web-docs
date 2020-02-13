@@ -94,7 +94,7 @@ chef-shell determines which configuration file to load based on the following:
 #. If no chef_shell.rb can be found, chef-shell falls back to load:
 
    * /etc/chef/client.rb if -z option is given.
-      * /etc/chef/solo.rb   if --solo-legacy-mode option is given.
+   * /etc/chef/solo.rb   if --solo-legacy-mode option is given.
       * .chef/config.rb     if -s option is given.
       * .chef/knife.rb      if -s option is given.
 
