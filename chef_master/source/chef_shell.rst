@@ -411,7 +411,7 @@ The ``show`` command can be used to display a specific node. For example:
 
 .. code-block:: bash
 
-   $ chef (preprod) > load_balancer = nodes.show('i-f09a939b')
+   chef (preprod) > load_balancer = nodes.show('i-f09a939b')
 
 to return something similar to:
 
