@@ -653,17 +653,14 @@ chef-shell can be used to debug existing recipes. The recipe first needs to be a
 
     loading configuration: none (standalone session)
     Session type: standalone
-    Loading.......done.
+    Loading.............done.
 
-    This is the chef-shell.
-    Chef Infra Client Version: 15.7.32
-    https://chef.io
-    https://docs.chef.io/
+    Welcome to the chef-shell 15.8.23
+    For usage see https://docs.chef.io/chef_shell.html
 
     run `help' for help, `exit' or ^D to quit.
 
-    Ohai2u username@localhost!
-    chef (15.7.32)>
+    chef (15.8.23)>
 
 To just load one recipe from the run-list, go into the recipe and use the ``include_recipe`` command. For example:
 
