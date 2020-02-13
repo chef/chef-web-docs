@@ -48,15 +48,12 @@ Actions
 The zypper_repository resource has the following actions:
 
 ``:add``
-
    Default action. Add a new Zypper repository.
 
 ``:refresh``
-
    Refresh a Zypper repository.
 
 ``:remove``
-
    Remove a Zypper repository.
 
 ``:nothing``

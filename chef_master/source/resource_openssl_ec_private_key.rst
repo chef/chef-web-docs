@@ -240,3 +240,29 @@ The following properties can be used to define a guard that is evaluated during 
   Allow a resource to execute only if the condition returns ``true``.
 
 .. end_tag
+
+Examples
+=====================================================
+
+The following examples demonstrate various approaches for using resources in recipes:
+
+**Create a new ec private key with a prime256v1 key curve and the default des3 cipher**
+
+.. code-block:: ruby
+
+   openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem' do
+     key_curve 'prime256v1'
+     key_pass 'something'
+     action :create
+   end
+
+**Create a new ec private key with a prime256v1 key curve and a aes-128-cbc cipher**
+
+.. code-block:: ruby
+
+   openssl_ec_private_key '/etc/ssl_files/eckey_prime256v1_des3.pem' do
+     key_curve 'prime256v1'
+     key_cipher 'aes-128-cbc'
+     key_pass 'something'
+     action :create
+   end
