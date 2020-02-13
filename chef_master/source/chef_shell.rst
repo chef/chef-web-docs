@@ -416,7 +416,7 @@ to return something similar to:
 
    => node[i-f09a939b]
 
-or:
+Or:
 
 .. code-block:: bash
 
