@@ -367,7 +367,7 @@ Once in chef-shell, commands can be run against objects as follows:
 * ``items`` is the type of item to search for: ``cookbooks``, ``clients``, ``nodes``, ``roles``, ``environments`` or a data bag
 * ``command`` is the command: ``list``, ``show``, ``find``, or ``edit``
 
-For example, to list all of the nodes in a configuration named "preprod":
+For example, to list all of the nodes in a configuration named "preprod", enter:
 
 .. code-block:: bash
 
