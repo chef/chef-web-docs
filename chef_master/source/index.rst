@@ -507,8 +507,6 @@ Addenda
    delivery_manage_dependencies
    delivery_manage_secrets
    delivery_pipeline
-   delivery_server_backup
-   delivery_server_disaster_recovery
    delivery_server_tuning
    delivery_truck
    delivery_users_and_roles
@@ -667,7 +665,6 @@ Addenda
    resource_chef_gem
    resource_chef_group
    resource_chef_handler
-   resource_chef_mirror
    resource_chef_node
    resource_chef_organization
    resource_chef_role
@@ -678,14 +675,12 @@ Addenda
    resource_cookbook_file
    resource_cron
    resource_csh
-   resource_deploy
    resource_directory
    resource_dmg_package
    resource_dnf_package
    resource_dpkg_package
    resource_dsc_resource
    resource_dsc_script
-   resource_erlang_call
    resource_execute
    resource_file
    resource_freebsd_package
@@ -702,13 +697,7 @@ Addenda
    resource_ksh
    resource_launchd
    resource_link
-   resource_load_balancer
    resource_log
-   resource_machine
-   resource_machine_batch
-   resource_machine_execute
-   resource_machine_file
-   resource_machine_image
    resource_macos_userdefaults
    resource_macports_package
    resource_mdadm
@@ -733,8 +722,6 @@ Addenda
    resource_portage_package
    resource_powershell_package
    resource_powershell_script
-   resource_private_key
-   resource_public_key
    resource_python
    resource_reboot
    resource_reference
