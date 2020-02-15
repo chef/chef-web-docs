@@ -42,17 +42,22 @@ def generate_source_array
   @files -= whitelisted
 end
 
-generate_source_array
+generate_source_array.sort!
 
-puts 'Source files that are not included in the left nav:'
+# puts generate_source_array.length
+# puts generate_source_array.sort
+
 nav = list_entries('./_templates/nav-docs.html', regex1: NAVREGEX)
-puts nav
-puts
+puts 'Source files that are not included in the left nav:'
+puts nav.count
+# puts nav.sort
 
 puts 'Source files that are not included in the index:'
 index = list_entries('index.rst', regex1: RELREGEX, regex2: ABSREGEX)
-puts index
-puts
+puts index.count
+# puts index.sort
 
 puts 'Here links to files that are in the nav but not the index:'
-puts (nav - index)
+puts (nav - index).count
+# puts (nav - index).sort
+

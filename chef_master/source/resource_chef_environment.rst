@@ -3,17 +3,6 @@ chef_environment
 =====================================================
 `[edit on GitHub] <https://github.com/chef/chef-web-docs/blob/master/chef_master/source/resource_chef_environment.rst>`__
 
-.. meta::
-    :robots: noindex
-
-.. warning:: .. tag EOL_provisioning
-
-             This functionality was available with Chef Provisioning and was packaged in the ChefDK.
-
-             Chef Provisioning was officially end-of-life on August 31, 2019 and is no longer included with ChefDK. The Chef Provisioning source code and drivers have been moved into the chef-boneyard organization. If you are a current user of Chef Provisioning, please contact your Chef Customer Success Manager or Account Representative to review your options.
-
-             .. end_tag
-
 .. tag environment
 
 An environment is a way to map an organization's real-life workflow to what can be configured and managed when using Chef Infra. This mapping is accomplished by setting attributes and pinning cookbooks at the environment level. With environments, you can change cookbook configurations depending on the system's designation. For example, by designating different staging and production environments, you can then define the correct URL of a database server for each environment. Environments also allow organizations to move new cookbook releases from staging to production with confidence by stepping releases through testing environments before entering production.
