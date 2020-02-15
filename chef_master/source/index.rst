@@ -483,6 +483,7 @@ Addenda
    cookbooks
    cookstyle
    ctl_chef
+   ctl_automate_server
    ctl_chef_apply
    ctl_chef_backend
    ctl_chef_client
@@ -507,6 +508,8 @@ Addenda
    delivery_manage_dependencies
    delivery_manage_secrets
    delivery_pipeline
+   delivery_server_backup
+   delivery_server_disaster_recovery
    delivery_server_tuning
    delivery_truck
    delivery_users_and_roles
@@ -665,6 +668,7 @@ Addenda
    resource_chef_gem
    resource_chef_group
    resource_chef_handler
+   resource_chef_mirror
    resource_chef_node
    resource_chef_organization
    resource_chef_role
