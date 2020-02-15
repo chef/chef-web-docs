@@ -4,7 +4,7 @@
 
 NAVREGEX = /\"url\": \"\/(\S+).html.*\"/
 RELREGEX = /<\/(\S+)>/
-ABSREGEX = /<https:\/\/docs\.chef\.io\/(\S+).html#\S+>/
+ABSREGEX = /<\/(\S+).html(\S+)>|<\/(\S+).html>/
 
 @files = []
 
@@ -16,14 +16,14 @@ def list_entries(file, regexoptions = {})
   #Do another pass through the target file with a different regex and then append the results to the previous array.
   if regexoptions.key?(:regex2)
     temp2 = File.read(file).scan(regexoptions[:regex2]).flatten
-    temp.push(*temp2)
+    temp.push(temp2)
   end
 
   # Remove the duplicate entries in the array.
   temp.uniq!
 
   # Sort the array so that it can be compared against the list of source files.
-  temp.sort!
+  # temp.sort
 
   # Return the entries that are in the source array, but not in the array created from the target file.
   @files - temp
@@ -44,20 +44,30 @@ end
 
 generate_source_array.sort!
 
-# puts generate_source_array.length
-# puts generate_source_array.sort
-
 nav = list_entries('./_templates/nav-docs.html', regex1: NAVREGEX)
+index = list_entries('index.rst', regex1: ABSREGEX)
+
+puts '##################################################'
+puts 'The number of docs source files:'
+puts generate_source_array.length
+# puts generate_source_array.sort
+puts '##################################################'
 puts 'Source files that are not included in the left nav:'
 puts nav.count
-# puts nav.sort
-
+puts '##################################################'
+puts nav.sort
+puts '##################################################'
 puts 'Source files that are not included in the index:'
-index = list_entries('index.rst', regex1: RELREGEX, regex2: ABSREGEX)
 puts index.count
-# puts index.sort
-
-puts 'Here links to files that are in the nav but not the index:'
+puts '##################################################'
+puts index.sort
+puts '##################################################'
+puts 'Source files that are in the nav but not the index:'
 puts (nav - index).count
-# puts (nav - index).sort
-
+puts '##################################################'
+puts (nav - index).sort
+puts '##################################################'
+puts 'Source files that are in the index but not the nav:'
+puts (index - nav).count
+puts '##################################################'
+puts (index - nav).sort

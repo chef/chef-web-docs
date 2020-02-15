@@ -482,7 +482,6 @@ Addenda
    cookbook_versioning
    cookbooks
    cookstyle
-   ctl_automate_server
    ctl_chef
    ctl_chef_apply
    ctl_chef_backend
@@ -585,7 +584,6 @@ Addenda
    integrate_delivery_ldap
    integrate_delivery_slack
    integrate_delivery_smtp
-   junos
    kitchen
    knife
    knife_azure
