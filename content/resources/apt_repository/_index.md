@@ -2,7 +2,8 @@
 title: apt_repository resource
 resource: apt_repository
 draft: false
-aliases: /resource_apt_repository.html
+aliases:
+- /resource_apt_repository.html
 menu:
   docs:
     title: apt_repository
@@ -20,10 +21,11 @@ resource_description_list:
     immediately.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'An **apt_repository** resource specifies APT repository information
-  and adds an additional APT repository to the existing list of repositories:'
-syntax_code_block: "apt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\
-  \  components ['nginx']\nend"
+syntax_description: "An **apt_repository** resource specifies APT repository information\
+  \ and\nadds an additional APT repository to the existing list of repositories:\n\
+  \n``` ruby\napt_repository 'nginx' do\n  uri        'http://nginx.org/packages/ubuntu/'\n\
+  \  components ['nginx']\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`apt_repository` is the resource'
 - '`name` is the name of the APT repository, or the name of the resource block. Must
@@ -108,7 +110,7 @@ properties_list:
 - property: distribution
   ruby_type: String, false
   required: false
-  default_value: The LSB codename of the host such as bionic.
+  default_value: The LSB codename of the host such as 'bionic'.
   new_in: null
   description_list:
   - markdown: 'Usually a distribution''s codename, such as trusty, xenial or bionic.
@@ -142,7 +144,7 @@ properties_list:
 - property: repo_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: '14.1'
   description_list:
   - markdown: 'An optional property to set the repository name if it differs from
@@ -183,7 +185,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

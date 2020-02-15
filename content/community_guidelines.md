@@ -2,7 +2,7 @@
 title = "Chef Contributor Covenant Code of Conduct"
 draft = false
 
-aliases = "/community_guidelines.html"
+aliases = ["/community_guidelines.html"]
 
 [menu]
   [menu.docs]

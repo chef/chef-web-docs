@@ -2,7 +2,7 @@
 title = "knife opc"
 draft = false
 
-aliases = "/plugin_knife_opc.html"
+aliases = ["/plugin_knife_opc.html"]
 
 [menu]
   [menu.docs]
@@ -24,7 +24,7 @@ manage organizations, or change a user's assignment to an organization,
 the pivotal key is required. To grant a user administrator permissions,
 use `chef-server-ctl grant-server-admin-permissions USER_NAME` on the
 Chef Infra Server. [See chef-server-ctl for
-details](/ctl_chef_server/).
+details](/ctl_chef_server.html).
 
 {{< /note >}}
 
@@ -64,7 +64,7 @@ If your `chef_server_url` configuration ends with
 
 On Chef Server 12, the majority of the commands provided by this plugin
 can be accessed via `chef-server-ctl` wrapper commands. [See
-chef-server-ctl for details](/ctl_chef_server/).
+chef-server-ctl for details](/ctl_chef_server.html).
 
 {{< /note >}}
 

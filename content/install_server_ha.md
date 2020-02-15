@@ -2,7 +2,7 @@
 title = "High Availability: Chef Backend"
 draft = false
 
-aliases = "/install_server_ha.html"
+aliases = ["/install_server_ha.html"]
 
 [menu]
   [menu.docs]
@@ -892,4 +892,4 @@ The Chef Infra Server backend HA cluster includes a command-line utility
 named chef-backend-ctl. This command-line tool is used to manage the
 Chef Infra Server backend HA cluster, start and stop individual
 services, and tail Chef Infra Server log files. For more information,
-see the [chef-backend-ctl documentation](/ctl_chef_backend/).
+see the [chef-backend-ctl documentation](/ctl_chef_backend.html).

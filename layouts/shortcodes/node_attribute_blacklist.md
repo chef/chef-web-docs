@@ -1,4 +1,4 @@
-<div class="alert-warning">
+<div class="admonition-warning"><p class="admonition-warning-title">Warning</p><div class="admonition-warning-text">
 
 When attribute blacklist settings are used, any attribute defined in a
 blacklist will not be saved and any attribute that is not defined in a
@@ -11,7 +11,7 @@ attributes, default attributes, and override attributes will be saved,
 as well as the automatic attributes that were not specifically excluded
 through blacklisting.
 
-</div>
+</div></div>
 
 Attributes that should not be saved by a node may be blacklisted in the
 client.rb file. The blacklist is a Hash of keys that specify each
@@ -53,13 +53,21 @@ following settings in the client.rb file:
 </tbody>
 </table>
 
-<div class="alert-warning">
+<div class="admonition-warning">
+
+<p class="admonition-warning-title">Warning</p>
+
+<div class="admonition-warning-text">
 
 The recommended practice is to use only `automatic_attribute_blacklist`
 for blacklisting attributes. This is primarily because automatic
 attributes generate the most data, but also that normal, default, and
 override attributes are typically much more important attributes and are
 more likely to cause issues if they are blacklisted incorrectly.
+
+
+
+</div>
 
 </div>
 

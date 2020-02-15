@@ -2,7 +2,8 @@
 title: powershell_script resource
 resource: powershell_script
 draft: false
-aliases: /resource_powershell_script.html
+aliases:
+- /resource_powershell_script.html
 menu:
   docs:
     title: powershell_script
@@ -37,13 +38,13 @@ resource_description_list:
     `only_if` to guard this resource for idempotence.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **powershell_script** resource block executes a batch script
-  using the Windows PowerShell interpreter. For example, writing to an interpolated
-  path:'
-syntax_code_block: "powershell_script 'write-to-interpolated-path' do\n  code <<-EOH\n\
+syntax_description: "A **powershell_script** resource block executes a batch script\
+  \ using\nthe Windows PowerShell interpreter. For example, writing to an\ninterpolated\
+  \ path:\n\n``` ruby\npowershell_script 'write-to-interpolated-path' do\n  code <<-EOH\n\
   \  $stream = [System.IO.StreamWriter] \"#{Chef::Config[:file_cache_path]}/powershell-test.txt\"\
   \n  $stream.WriteLine(\"In #{Chef::Config[:file_cache_path]}...word.\")\n  $stream.close()\n\
-  \  EOH\nend"
+  \  EOH\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "powershell_script 'name' do\n  architecture             \
   \  Symbol\n  code                       String\n  command                    String,\
@@ -107,7 +108,7 @@ properties_list:
 - property: command
   ruby_type: String, Array
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the command to be executed if it differs
@@ -330,7 +331,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

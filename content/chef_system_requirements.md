@@ -2,7 +2,7 @@
 title = "System Requirements"
 draft = false
 
-aliases = "/chef_system_requirements.html"
+aliases = ["/chef_system_requirements.html"]
 
 [menu]
   [menu.docs]

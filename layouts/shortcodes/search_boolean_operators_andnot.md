@@ -1,7 +1,11 @@
 Operators must be in ALL CAPS. Parentheses can be used to group clauses
 and to form sub-queries.
 
-<div class="alert-warning">
+<div class="admonition-warning">
+
+<p class="admonition-warning-title">Warning</p>
+
+<div class="admonition-warning-text">
 
 Using `AND NOT` together may trigger an error. For example:
 
@@ -16,5 +20,9 @@ Use `-` instead of `NOT`. For example:
 ``` bash
 $ knife search sample "id:foo AND -id:bar"
 ```
+
+
+
+</div>
 
 </div>

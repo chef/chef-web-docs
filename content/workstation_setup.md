@@ -2,7 +2,7 @@
 title = "Configuring Chef Workstation"
 draft = false
 
-aliases = "/workstation_setup.html"
+aliases = ["/workstation_setup.html", "/chefdk_setup.html", "/workstation.html"]
 
 [menu]
   [menu.docs]

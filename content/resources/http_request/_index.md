@@ -2,7 +2,8 @@
 title: http_request resource
 resource: http_request
 draft: false
-aliases: /resource_http_request.html
+aliases:
+- /resource_http_request.html
 menu:
   docs:
     title: http_request
@@ -21,10 +22,11 @@ resource_description_list:
     necessary.'
 resource_new_in: null
 handler_types: false
-syntax_description: A **http_request** resource block sends HTTP requests with an
-  arbitrary message. For example, send a `DELETE` request to `'http://www.chef.io/some_page?message=please_delete_me'`.
-syntax_code_block: "http_request 'please_delete_me' do\n  url 'http://www.chef.io/some_page'\n\
-  \  action :delete\nend"
+syntax_description: "A **http_request** resource block sends HTTP requests with an\
+  \ arbitrary\nmessage. For example, send a `DELETE` request to\n`'http://www.chef.io/some_page?message=please_delete_me'`.\n\
+  \n``` ruby\nhttp_request 'please_delete_me' do\n  url 'http://www.chef.io/some_page'\n\
+  \  action :delete\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "http_request 'name' do\n  headers                    Hash\n\
   \  message                    Object # defaults to 'name' if not specified\n  url\
@@ -104,7 +106,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

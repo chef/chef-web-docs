@@ -2,7 +2,7 @@
 title = "Knife Cloud Plugins"
 draft = false
 
-aliases = "/plugin_knife.html"
+aliases = ["/plugin_knife.html"]
 
 [menu]
   [menu.docs]

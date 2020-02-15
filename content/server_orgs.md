@@ -2,7 +2,7 @@
 title = "Organizations and Groups"
 draft = false
 
-aliases = "/server_orgs.html"
+aliases = ["/server_orgs.html", "/auth_authorization.html"]
 
 [menu]
   [menu.docs]

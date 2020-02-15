@@ -2,7 +2,7 @@
 title = "Troubleshooting"
 draft = false
 
-aliases = "/errors.html"
+aliases = ["/errors.html"]
 
 [menu]
   [menu.docs]

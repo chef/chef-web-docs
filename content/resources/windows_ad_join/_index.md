@@ -2,7 +2,8 @@
 title: windows_ad_join resource
 resource: windows_ad_join
 draft: false
-aliases: /resource_windows_ad_join.html
+aliases:
+- /resource_windows_ad_join.html
 menu:
   docs:
     title: windows_ad_join
@@ -18,13 +19,14 @@ resource_description_list:
     Directory domain.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The windows_ad_join resource has the following syntax:'
-syntax_code_block: "windows_ad_join 'name' do\n  domain_name          String # default\
-  \ value: 'name' unless specified\n  domain_password      String\n  domain_user \
-  \         String\n  new_hostname         String\n  ou_path              String\n\
-  \  reboot               Symbol # default value: :immediate\n  sensitive        \
-  \    true, false # default value: true\n  workgroup_name       String\n  action\
-  \               Symbol # defaults to :join if not specified\nend"
+syntax_description: "The windows_ad_join resource has the following syntax:\n\n```\
+  \ ruby\nwindows_ad_join 'name' do\n  domain_name          String # default value:\
+  \ 'name' unless specified\n  domain_password      String\n  domain_user        \
+  \  String\n  new_hostname         String\n  ou_path              String\n  reboot\
+  \               Symbol # default value: :immediate\n  sensitive            true,\
+  \ false # default value: true\n  workgroup_name       String\n  action         \
+  \      Symbol # defaults to :join if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_ad_join` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -43,14 +45,14 @@ actions_list:
   :join:
     markdown: Default. Join the Active Directory domain.
   :leave:
-    markdown: '> Leave an Active Directory domain and re-join a workgroup.'
+    markdown: Leave an Active Directory domain and re-join a workgroup.
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:
 - property: domain_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the FQDN of the Active Directory domain
@@ -131,7 +133,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

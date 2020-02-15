@@ -2,7 +2,8 @@
 title: windows_package resource
 resource: windows_package
 draft: false
-aliases: /resource_windows_package.html
+aliases:
+- /resource_windows_package.html
 menu:
   docs:
     title: windows_package
@@ -19,9 +20,23 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **windows_package** resource block manages a package on a node,
-  typically by installing it. The simplest use of the **windows_package** resource
-  is:'
-syntax_code_block: windows_package 'package_name'
+
+  typically by installing it. The simplest use of the **windows_package**
+
+  resource is:
+
+
+  ``` ruby
+
+  windows_package ''package_name''
+
+  ```
+
+
+  which will install the named package using all of the default options
+
+  and the default action (`:install`).'
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "windows_package 'name' do\n  checksum                   \
   \ String\n  installer_type              Symbol\n  options                     String\n\
@@ -127,7 +142,7 @@ properties_list:
 - property: source
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The path to a package in the local file system. The location of the
@@ -195,7 +210,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
@@ -224,7 +238,7 @@ examples_list:
 
       and passes in a Hash that modifies the properties of the [remote_file
 
-      resource](/resource_remote_file/).
+      resource](/resources/remote_file/).
 
 
       For example:'

@@ -2,7 +2,7 @@
 title = "Chef Infra Client Security"
 draft = false
 
-aliases = "/chef_client_security.html"
+aliases = ["/chef_client_security.html"]
 
 [menu]
   [menu.docs]

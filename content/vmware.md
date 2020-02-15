@@ -2,7 +2,7 @@
 title = "Chef and VMware"
 draft = false
 
-aliases = "/vmware.html"
+aliases = ["/vmware.html"]
 
 [menu]
   [menu.docs]

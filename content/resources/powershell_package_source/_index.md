@@ -2,7 +2,8 @@
 title: powershell_package_source resource
 resource: powershell_package_source
 draft: false
-aliases: /resource_powershell_package_source.html
+aliases:
+- /resource_powershell_package_source.html
 menu:
   docs:
     title: powershell_package_source
@@ -18,14 +19,15 @@ resource_description_list:
     PowerShell package repository.'
 resource_new_in: '14.3'
 handler_types: false
-syntax_description: 'The powershell_package_source resource has the following syntax:'
-syntax_code_block: "powershell_package_source 'name' do\n  provider_name         \
-  \       String # default value: \"NuGet\"\n  publish_location             String\n\
-  \  script_publish_location      String\n  script_source_location       String\n\
-  \  source_name                  String # default value: 'name' unless specified\n\
-  \  trusted                      true, false # default value: false\n  url      \
-  \                    String\n  action                       Symbol # defaults to\
-  \ :register if not specified\nend"
+syntax_description: "The powershell_package_source resource has the following syntax:\n\
+  \n``` ruby\npowershell_package_source 'name' do\n  provider_name               \
+  \ String # default value: \"NuGet\"\n  publish_location             String\n  script_publish_location\
+  \      String\n  script_source_location       String\n  source_name            \
+  \      String # default value: 'name' unless specified\n  trusted              \
+  \        true, false # default value: false\n  url                          String\n\
+  \  action                       Symbol # defaults to :register if not specified\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`powershell_package_source` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -89,7 +91,7 @@ properties_list:
 - property: source_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: The name of the package source.
@@ -124,7 +126,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

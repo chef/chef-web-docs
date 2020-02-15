@@ -2,7 +2,8 @@
 title: mdadm resource
 resource: mdadm
 draft: false
-aliases: /resource_mdadm.html
+aliases:
+- /resource_mdadm.html
 menu:
   docs:
     title: mdadm
@@ -27,12 +28,13 @@ resource_description_list:
     entry.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The mdadm resource has the following syntax:'
-syntax_code_block: "mdadm 'name' do\n  bitmap           String\n  chunk          \
-  \  Integer # default value: 16\n  devices          Array\n  layout           String\n\
-  \  level            Integer # default value: 1\n  metadata         String # default\
-  \ value: \"0.90\"\n  raid_device      String # default value: 'name' unless specified\n\
-  \  action           Symbol # defaults to :create if not specified\nend"
+syntax_description: "The mdadm resource has the following syntax:\n\n``` ruby\nmdadm\
+  \ 'name' do\n  bitmap           String\n  chunk            Integer # default value:\
+  \ 16\n  devices          Array\n  layout           String\n  level            Integer\
+  \ # default value: 1\n  metadata         String # default value: \"0.90\"\n  raid_device\
+  \      String # default value: 'name' unless specified\n  action           Symbol\
+  \ # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`mdadm` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -109,7 +111,7 @@ properties_list:
 - property: raid_device
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to specify the name of the RAID device if it
@@ -132,7 +134,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

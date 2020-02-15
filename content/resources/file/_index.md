@@ -2,7 +2,8 @@
 title: file resource
 resource: file
 draft: false
-aliases: /resource_file.html
+aliases:
+- /resource_file.html
 menu:
   docs:
     title: file
@@ -25,11 +26,12 @@ resource_description_list:
       location.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **file** resource block manages files that exist on nodes.
-  For example, to write the home page for an Apache website:'
-syntax_code_block: "file '/var/www/customers/public_html/index.php' do\n  content\
-  \ '<html>This is a placeholder for the home page.</html>'\n  mode '0755'\n  owner\
-  \ 'web_admin'\n  group 'web_admin'\nend"
+syntax_description: "A **file** resource block manages files that exist on nodes.\
+  \ For\nexample, to write the home page for an Apache website:\n\n``` ruby\nfile\
+  \ '/var/www/customers/public_html/index.php' do\n  content '<html>This is a placeholder\
+  \ for the home page.</html>'\n  mode '0755'\n  owner 'web_admin'\n  group 'web_admin'\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.php''` is path to the file and also the
   filename to be managed'
@@ -371,7 +373,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

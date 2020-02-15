@@ -2,7 +2,7 @@
 title = "Omnitruck API"
 draft = false
 
-aliases = "/api_omnitruck.html"
+aliases = ["/api_omnitruck.html"]
 
 [menu]
   [menu.docs]
@@ -117,7 +117,7 @@ Omnitruck accepts the following platforms:
 <td>Debian</td>
 <td><code>debian</code></td>
 <td><code>x86_64</code></td>
-<td><code>6</code>, <code>7</code>, <code>8</code>, <code>9</code></td>
+<td><code>6</code>, <code>7</code>, <code>8</code>, <code>9</code>, <code>10</code></td>
 </tr>
 <tr class="even">
 <td></td>

@@ -2,7 +2,7 @@
 title = "Uninstall"
 draft = false
 
-aliases = "/uninstall.html"
+aliases = ["/uninstall.html"]
 
 [menu]
   [menu.docs]

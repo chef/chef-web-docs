@@ -2,7 +2,7 @@
 title = "client.rb"
 draft = false
 
-aliases = "/config_rb_client.html"
+aliases = ["/config_rb_client.html"]
 
 [menu]
   [menu.docs]

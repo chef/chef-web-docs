@@ -2,7 +2,7 @@
 title = "FIPS (Federal Information Processing Standards)"
 draft = false
 
-aliases = "/fips.html"
+aliases = ["/fips.html"]
 
 [menu]
   [menu.docs]

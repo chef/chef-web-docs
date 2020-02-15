@@ -2,7 +2,8 @@
 title: registry_key resource
 resource: registry_key
 draft: false
-aliases: /resource_registry_key.html
+aliases:
+- /resource_registry_key.html
 menu:
   docs:
     title: registry_key
@@ -53,11 +54,22 @@ resource_description_list:
       Reflection](https://msdn.microsoft.com/en-us/library/windows/desktop/aa384235(v=vs.85).aspx).'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **registry_key** resource block creates and deletes registry
-  keys in Microsoft Windows:'
-syntax_code_block: "registry_key 'HKEY_LOCAL_MACHINE\\\\...\\\\System' do\n  values\
-  \ [{\n    name: 'NewRegistryKeyValue',\n    type: :multi_string,\n    data: %w(foo\
-  \ bar baz),\n  }]\n  action :create\nend"
+syntax_description: "A **registry_key** resource block creates and deletes registry\
+  \ keys in\nMicrosoft Windows:\n\n``` ruby\nregistry_key 'HKEY_LOCAL_MACHINE\\\\\
+  ...\\\\System' do\n  values [{\n    name: 'NewRegistryKeyValue',\n    type: :multi_string,\n\
+  \    data: %w(foo bar baz),\n  }]\n  action :create\nend\n```\n\nUse multiple registry\
+  \ key entries with key values that are based on node\nattributes:\n\n``` ruby\n\
+  registry_key 'HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\\
+  name_of_registry_key' do\n  values [{name: 'key_name', type: :string, data: 'C:\\\
+  Windows\\System32\\file_name.bmp'},\n          {name: 'key_name', type: :string,\
+  \ data: node['node_name']['attribute']['value']},\n          {name: 'key_name',\
+  \ type: :string, data: node['node_name']['attribute']['value']}\n         ]\n  action\
+  \ :create\nend\n```\n\nThe registry_key resource has the following syntax:\n\n```\
+  \ ruby\nregistry_key 'name' do\n  architecture      Symbol # default value: :machine\n\
+  \  key               String # default value: 'name' unless specified\n  recursive\
+  \         true, false # default value: false\n  values\n  action            Symbol\
+  \ # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`registry_key` is the resource'
 - '`name` is the name of the resource block'
@@ -77,11 +89,17 @@ syntax_properties_list:
 
 
   Registry Key Path Separators'
-- '{{% windows_registry_key_backslashes %}}
+- '---------------------------
+
+
+  {{% windows_registry_key_backslashes %}}
 
 
   Recipe DSL Methods'
-- '{{% dsl_recipe_method_windows_methods %}}
+- '-----------------
+
+
+  {{% dsl_recipe_method_windows_methods %}}
 
 
   {{% notes_dsl_recipe_order_for_windows_methods %}}
@@ -180,7 +198,7 @@ properties_list:
 - property: key
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The path to the location in which a registry key is to be created or
@@ -244,15 +262,9 @@ properties_list:
 
       REG_DWORD_BIG_ENDIAN, or `:qword` for REG_QWORD.'
   - warning:
-    - markdown: '
+    - markdown: '`:multi_string` must be an array, even if there is only a single
 
-
-        `:multi_string` must be an array, even if there is only a single
-
-        string.
-
-
-        '
+        string.'
 properties_shortcode: null
 properties_multiple_packages: false
 resource_directory_recursive_directories: false
@@ -270,7 +282,6 @@ resources_common_guards: false
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

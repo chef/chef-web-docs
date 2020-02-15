@@ -2,7 +2,8 @@
 title: rhsm_subscription resource
 resource: rhsm_subscription
 draft: false
-aliases: /resource_rhsm_subscription.html
+aliases:
+- /resource_rhsm_subscription.html
 menu:
   docs:
     title: rhsm_subscription
@@ -22,10 +23,11 @@ resource_description_list:
     your host.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The rhsm_subscription resource has the following syntax:'
-syntax_code_block: "rhsm_subscription 'name' do\n  pool_id      String # default value:\
-  \ 'name' unless specified\n  action       Symbol # defaults to :attach if not specified\n\
-  end"
+syntax_description: "The rhsm_subscription resource has the following syntax:\n\n\
+  ``` ruby\nrhsm_subscription 'name' do\n  pool_id      String # default value: 'name'\
+  \ unless specified\n  action       Symbol # defaults to :attach if not specified\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`rhsm_subscription` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -50,7 +52,7 @@ properties_list:
 - property: pool_id
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for specifying the Pool ID if it differs from
@@ -73,7 +75,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

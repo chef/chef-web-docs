@@ -2,7 +2,7 @@
 title = "Cookbook Directory"
 draft = false
 
-aliases = "/cookbook_repo.html"
+aliases = ["/cookbook_repo.html"]
 
 [menu]
   [menu.docs]

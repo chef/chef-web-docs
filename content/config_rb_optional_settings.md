@@ -2,7 +2,7 @@
 title = "config.rb Optional Settings"
 draft = false
 
-aliases = "/config_rb_optional_settings.html"
+aliases = ["/config_rb_optional_settings.html", "/config_rb_knife_optional_settings.html"]
 
 [menu]
   [menu.docs]

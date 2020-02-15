@@ -2,7 +2,8 @@
 title: remote_directory resource
 resource: remote_directory
 draft: false
-aliases: /resource_remote_directory.html
+aliases:
+- /resource_remote_directory.html
 menu:
   docs:
     title: remote_directory
@@ -24,11 +25,11 @@ resource_description_list:
     **remote_directory** resource will obey file specificity.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **remote_directory** resource block transfers a directory from
-  a cookbook to a node, and then assigns the permissions needed on that directory.
-  For example:'
-syntax_code_block: "remote_directory '/etc/apache2' do\n  source 'apache2'\n  owner\
-  \ 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend"
+syntax_description: "A **remote_directory** resource block transfers a directory from\
+  \ a\ncookbook to a node, and then assigns the permissions needed on that\ndirectory.\
+  \ For example:\n\n``` ruby\nremote_directory '/etc/apache2' do\n  source 'apache2'\n\
+  \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`''/etc/apache2''` specifies the directory'
 - '`source` specifies a directory in the current cookbook (use the `cookbook` property
@@ -275,7 +276,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The path to the directory. Using a fully qualified path is
@@ -325,7 +326,7 @@ properties_list:
 - property: source
   ruby_type: String
   required: false
-  default_value: The base portion of the path property.
+  default_value: The base portion of the 'path' property.
   new_in: null
   description_list:
   - markdown: 'The base name of the source file (and inferred from the `path`
@@ -350,7 +351,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: true
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: true
 handler_custom: false
 cookbook_file_specificity: false

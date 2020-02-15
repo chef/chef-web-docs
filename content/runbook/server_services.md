@@ -2,7 +2,7 @@
 title = "Services"
 draft = false
 
-aliases = "/server_services.html"
+aliases = ["/server_services.html"]
 
 runbook_weight = 40
 

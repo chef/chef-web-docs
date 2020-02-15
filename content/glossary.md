@@ -2,7 +2,7 @@
 title = "Glossary"
 draft = false
 
-aliases = "/glossary.html"
+aliases = ["/glossary.html"]
 
 [menu]
   [menu.docs]

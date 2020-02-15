@@ -2,7 +2,7 @@
 title = "Backup and Restore a Standalone or Frontend install"
 draft = false
 
-aliases = "/server_backup_restore.html"
+aliases = ["/server_backup_restore.html"]
 
 runbook_weight = 70
 

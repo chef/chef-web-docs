@@ -2,7 +2,8 @@
 title: script resource
 resource: script
 draft: false
-aliases: /resource_script.html
+aliases:
+- /resource_script.html
 menu:
   docs:
     title: script
@@ -40,17 +41,17 @@ resource_description_list:
     resources for specific platforms, see the following topics:
 
 
-    -   [bash](/resource_bash/)
+    -   [bash](/resources/bash/)
 
-    -   [csh](/resource_csh/)
+    -   [csh](/resources/csh/)
 
-    -   [ksh](/resource_ksh/)
+    -   [ksh](/resources/ksh/)
 
-    -   [perl](/resource_perl/)
+    -   [perl](/resources/perl/)
 
-    -   [python](/resource_python/)
+    -   [python](/resources/python/)
 
-    -   [ruby](/resource_ruby/)
+    -   [ruby](/resources/ruby/)
 
 
     Changed in 12.19 to support windows alternate user identity in execute
@@ -58,23 +59,22 @@ resource_description_list:
     resources'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **script** resource block typically executes scripts using
-  a specified interpreter, such as Bash, csh, Perl, Python, or Ruby:'
-syntax_code_block: "script 'extract_module' do\n  interpreter \"bash\"\n  cwd ::File.dirname(src_filepath)\n\
+syntax_description: "A **script** resource block typically executes scripts using\
+  \ a specified\ninterpreter, such as Bash, csh, Perl, Python, or Ruby:\n\n``` ruby\n\
+  script 'extract_module' do\n  interpreter \"bash\"\n  cwd ::File.dirname(src_filepath)\n\
   \  code <<-EOH\n    mkdir -p #{extract_path}\n    tar xzf #{src_filename} -C #{extract_path}\n\
   \    mv #{extract_path}/*/* #{extract_path}/\n    EOH\n  not_if { ::File.exist?(extract_path)\
-  \ }\nend"
+  \ }\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`interpreter` specifies the command shell to use'
 - '`cwd` specifies the directory from which the command is run'
 - '`code` specifies the command to run
 
 
-  It is more common to use the **script**'
-- 'based resource that is specific
+  It is more common to use the **script**-based resource that is specific
 
-  to the command shell. Chef has shell'
-- 'specific resources for Bash, csh,
+  to the command shell. Chef has shell-specific resources for Bash, csh,
 
   Perl, Python, and Ruby.
 
@@ -84,11 +84,9 @@ syntax_properties_list:
 
   ``` ruby
 
-  bash ''extract_module'' do cwd ::File.dirname(src_filepath) code <<'
-- EOH mkdir
-- 'p #{extract_path} tar xzf #{src_filename}'
-- 'C #{extract_path} mv #{extract_path}/*/* #{extract_path}/ EOH not_if { ::File.exist?(extract_path)
-  }
+  bash ''extract_module'' do cwd ::File.dirname(src_filepath) code <<-EOH mkdir -p
+  #{extract_path} tar xzf #{src_filename} -C #{extract_path} mv #{extract_path}/*/*
+  #{extract_path}/ EOH not_if { ::File.exist?(extract_path) }
 
   end
 
@@ -369,7 +367,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: true
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

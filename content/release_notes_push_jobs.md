@@ -2,7 +2,7 @@
 title = "Release Notes: Chef Push Jobs 1.0 - 2.5"
 draft = false
 
-aliases = "/release_notes_push_jobs.html"
+aliases = ["/release_notes_push_jobs.html"]
 
 [menu]
   [menu.docs]

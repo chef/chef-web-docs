@@ -2,7 +2,7 @@
 title = "Monitor"
 draft = false
 
-aliases = "/server_monitor.html"
+aliases = ["/server_monitor.html"]
 
 runbook_weight = 10
 

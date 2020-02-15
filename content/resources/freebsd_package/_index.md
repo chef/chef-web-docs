@@ -2,7 +2,8 @@
 title: freebsd_package resource
 resource: freebsd_package
 draft: false
-aliases: /resource_freebsd_package.html
+aliases:
+- /resource_freebsd_package.html
 menu:
   docs:
     title: freebsd_package
@@ -21,9 +22,23 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **freebsd_package** resource block manages a package on a node,
-  typically by installing it. The simplest use of the **freebsd_package** resource
-  is:'
-syntax_code_block: freebsd_package 'package_name'
+
+  typically by installing it. The simplest use of the **freebsd_package**
+
+  resource is:
+
+
+  ``` ruby
+
+  freebsd_package ''package_name''
+
+  ```
+
+
+  which will install the named package using all of the default options
+
+  and the default action (`:install`).'
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "freebsd_package 'name' do\n  options           String\n \
   \ package_name      String\n  source            String\n  timeout           String,\
@@ -106,7 +121,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

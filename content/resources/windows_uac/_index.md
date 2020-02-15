@@ -2,7 +2,8 @@
 title: windows_uac resource
 resource: windows_uac
 draft: false
-aliases: /resource_windows_uac.html
+aliases:
+- /resource_windows_uac.html
 menu:
   docs:
     title: windows_uac
@@ -19,14 +20,14 @@ resource_description_list:
     ''HKEY_LOCAL_MACHINESOFTWAREMicrosoftWindowsCurrentVersionPoliciesSystem'''
 resource_new_in: '15.0'
 handler_types: false
-syntax_description: 'The windows_uac resource has the following syntax:'
-syntax_code_block: "windows_uac 'name' do\n  consent_behavior_admins       Symbol\
-  \ # default value: :prompt_for_consent_non_windows_binaries\n  consent_behavior_users\
-  \        Symbol # default value: :prompt_for_creds\n  detect_installers        \
-  \     true, false\n  enable_uac                    true, false # default value:\
-  \ true\n  prompt_on_secure_desktop      true, false # default value: true\n  require_signed_binaries\
-  \       true, false # default value: false\n  action                        Symbol\
-  \ # defaults to :configure if not specified\nend"
+syntax_description: "The windows_uac resource has the following syntax:\n\n``` ruby\n\
+  windows_uac 'name' do\n  consent_behavior_admins       Symbol # default value: :prompt_for_consent_non_windows_binaries\n\
+  \  consent_behavior_users        Symbol # default value: :prompt_for_creds\n  detect_installers\
+  \             true, false\n  enable_uac                    true, false # default\
+  \ value: true\n  prompt_on_secure_desktop      true, false # default value: true\n\
+  \  require_signed_binaries       true, false # default value: false\n  action  \
+  \                      Symbol # defaults to :configure if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_uac` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -123,7 +124,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

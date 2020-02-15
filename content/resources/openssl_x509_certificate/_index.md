@@ -2,7 +2,8 @@
 title: openssl_x509_certificate resource
 resource: openssl_x509_certificate
 draft: false
-aliases: /resource_openssl_x509_certificate.html
+aliases:
+- /resource_openssl_x509_certificate.html
 menu:
   docs:
     title: openssl_x509_certificate
@@ -30,12 +31,12 @@ resource_description_list:
     the new resource name.'
 resource_new_in: '14.4'
 handler_types: false
-syntax_description: 'The openssl_x509_certificate resource has the following syntax:'
-syntax_code_block: "openssl_x509_certificate 'name' do\n  ca_cert_file           \
-  \  String\n  ca_key_file              String\n  ca_key_pass              String\n\
-  \  city                     String\n  common_name              String\n  country\
-  \                  String\n  csr_file                 String\n  email          \
-  \          String\n  expire                   Integer # default value: 365\n  extensions\
+syntax_description: "The openssl_x509_certificate resource has the following syntax:\n\
+  \n``` ruby\nopenssl_x509_certificate 'name' do\n  ca_cert_file             String\n\
+  \  ca_key_file              String\n  ca_key_pass              String\n  city  \
+  \                   String\n  common_name              String\n  country       \
+  \           String\n  csr_file                 String\n  email                 \
+  \   String\n  expire                   Integer # default value: 365\n  extensions\
   \               Hash\n  group                    String, Integer\n  key_curve  \
   \              String # default value: \"prime256v1\"\n  key_file              \
   \   String\n  key_length               Integer # default value: 2048\n  key_pass\
@@ -44,7 +45,9 @@ syntax_code_block: "openssl_x509_certificate 'name' do\n  ca_cert_file          
   \  org_unit                 String\n  owner                    String, Integer\n\
   \  path                     String # default value: 'name' unless specified\n  renew_before_expiry\
   \      Integer\n  state                    String\n  subject_alt_name         Array\n\
-  \  action                   Symbol # defaults to :create if not specified\nend"
+  \  action                   Symbol # defaults to :create if not specified\nend\n\
+  ```"
+syntax_code_block: null
 syntax_properties_list:
 - '`openssl_x509_certificate` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -249,7 +252,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for specifying the path to write the file to if
@@ -297,7 +300,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
@@ -310,11 +312,11 @@ examples_list:
 - example_heading: Create a certificate using additional options
   text_blocks:
   - code_block: "openssl_x509_certificate '/etc/ssl_test/my_signed_cert.crt' do\n\
-      common_name 'www.f00bar.com'\nca_key_file '/etc/ssl_test/my_ca.key'\nca_cert_file\
-      \ '/etc/ssl_test/my_ca.crt'\nexpire 365\nextensions(\n  'keyUsage' => {\n  \
-      \  'values' => %w(\n      keyEncipherment\n      digitalSignature),\n    'critical'\
-      \ => true,\n  },\n  'extendedKeyUsage' => {\n    'values' => %w(serverAuth),\n\
-      \    'critical' => false,\n  }\n)\nsubject_alt_name ['IP:127.0.0.1', 'DNS:localhost.localdomain']"
-  - markdown: '> end'
+      \  common_name 'www.f00bar.com'\n  ca_key_file '/etc/ssl_test/my_ca.key'\n \
+      \ ca_cert_file '/etc/ssl_test/my_ca.crt'\n  expire 365\n  extensions(\n    'keyUsage'\
+      \ => {\n      'values' => %w(\n        keyEncipherment\n        digitalSignature),\n\
+      \      'critical' => true,\n    },\n    'extendedKeyUsage' => {\n      'values'\
+      \ => %w(serverAuth),\n      'critical' => false,\n    }\n  )\n  subject_alt_name\
+      \ ['IP:127.0.0.1', 'DNS:localhost.localdomain']\nend"
 
 ---

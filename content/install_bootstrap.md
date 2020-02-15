@@ -2,7 +2,7 @@
 title = "Bootstrap a Node"
 draft = false
 
-aliases = "/install_bootstrap.html"
+aliases = ["/install_bootstrap.html"]
 
 [menu]
   [menu.docs]

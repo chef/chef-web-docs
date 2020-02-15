@@ -2,7 +2,8 @@
 title: directory resource
 resource: directory
 draft: false
-aliases: /resource_directory.html
+aliases:
+- /resource_directory.html
 menu:
   docs:
     title: directory
@@ -25,10 +26,10 @@ resource_description_list:
     permission to access that location in the directory is required.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **directory** resource block declares a directory and the permissions
-  needed on that directory. For example:'
-syntax_code_block: "directory '/etc/apache2' do\n  owner 'root'\n  group 'root'\n\
-  \  mode '0755'\n  action :create\nend"
+syntax_description: "A **directory** resource block declares a directory and the permissions\n\
+  needed on that directory. For example:\n\n``` ruby\ndirectory '/etc/apache2' do\n\
+  \  owner 'root'\n  group 'root'\n  mode '0755'\n  action :create\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`''/etc/apache2''` specifies the directory'
 - '`owner`, `group`, and `mode` define the permissions'
@@ -167,7 +168,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The path to the directory. Using a fully qualified path is
@@ -222,7 +223,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: true
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

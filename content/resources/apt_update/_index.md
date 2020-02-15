@@ -2,7 +2,8 @@
 title: apt_update resource
 resource: apt_update
 draft: false
-aliases: /resource_apt_update.html
+aliases:
+- /resource_apt_update.html
 menu:
   docs:
     title: apt_update
@@ -17,9 +18,10 @@ resource_description_list:
     Debian and Ubuntu platforms.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The apt_update resource has the following syntax:'
-syntax_code_block: "apt_update 'name' do\n  frequency      Integer # default value:\
-  \ 86400\n  action         Symbol # defaults to :periodic if not specified\nend"
+syntax_description: "The apt_update resource has the following syntax:\n\n``` ruby\n\
+  apt_update 'name' do\n  frequency      Integer # default value: 86400\n  action\
+  \         Symbol # defaults to :periodic if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`apt_update` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -68,7 +70,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,7 @@
 title = "Community Contributions"
 draft = false
 
-aliases = "/community_contributions.html"
+aliases = ["/community_contributions.html"]
 
 [menu]
   [menu.docs]

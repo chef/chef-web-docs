@@ -2,7 +2,7 @@
 title = "Runners"
 draft = false
 
-aliases = "/runners.html"
+aliases = ["/runners.html", "/job_dispatch.html"]
 
 [menu]
   [menu.docs]

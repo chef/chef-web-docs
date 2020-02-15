@@ -62,11 +62,19 @@ all) of the following properties:
 </tbody>
 </table>
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 These properties are not always available. For example, a start handler
 runs at the beginning of Chef Infra Client run, which means that
 properties like `end_time` and `elapsed_time` are still unknown and will
 be unavailable to the `run_status` object.
+
+
+
+</div>
 
 </div>

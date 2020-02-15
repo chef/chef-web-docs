@@ -2,7 +2,7 @@
 title = "kitchen.yml"
 draft = false
 
-aliases = "/config_yml_kitchen.html"
+aliases = ["/config_yml_kitchen.html"]
 
 [menu]
   [menu.docs]
@@ -585,7 +585,7 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: centos-6
+  - name: centos-8
   - name: fedora-latest
   - name: ubuntu-1604
   - name: ubuntu-1804
@@ -647,8 +647,8 @@ provisioner:
 platforms:
   - name: ubuntu-16.04
   - name: ubuntu-18.04
-  - name: centos-6
   - name: centos-7
+  - name: centos-8
 
 suites:
   - name: client
@@ -670,34 +670,6 @@ suites:
         accept_license: true
         ssl_options:
           enable_ssl: true
-
-  - name: disabled
-    run_list:
-      - recipe[chef-splunk::default]
-    attributes:
-      splunk:
-        disabled: true
-
-  - name: upgrade_client
-    run_list:
-      - recipe[chef-splunk::default]
-      - recipe[chef-splunk::upgrade]
-    attributes:
-      dev_mode: true
-      splunk:
-        accept_license: true
-        upgrade_enabled: true
-
-  - name: upgrade_server
-    run_list:
-      - recipe[chef-splunk::default]
-      - recipe[chef-splunk::upgrade]
-    attributes:
-      dev_mode: true
-      splunk:
-        accept_license: true
-        upgrade_enabled: true
-        is_server: true
 ```
 
 yum Cookbook
@@ -713,8 +685,8 @@ provisioner:
   name: chef_zero
 
 platforms:
-  - name: centos-6
   - name: centos-7
+  - name: centos-8
   - name: fedora-latest
 
 suites:

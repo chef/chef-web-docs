@@ -2,7 +2,8 @@
 title: template resource
 resource: template
 draft: false
-aliases: /resource_template.html
+aliases:
+- /resource_template.html
 menu:
   docs:
     title: template
@@ -31,11 +32,12 @@ resource_description_list:
     **remote_file** and **file** resources.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **template** resource block typically declares the location
-  in which a file is to be created, the source template that will be used to create
-  the file, and the permissions needed on that file. For example:'
-syntax_code_block: "template '/etc/motd' do\n  source 'motd.erb'\n  owner 'root'\n\
-  \  group 'root'\n  mode '0755'\nend"
+syntax_description: "A **template** resource block typically declares the location\
+  \ in which a\nfile is to be created, the source template that will be used to create\n\
+  the file, and the permissions needed on that file. For example:\n\n``` ruby\ntemplate\
+  \ '/etc/motd' do\n  source 'motd.erb'\n  owner 'root'\n  group 'root'\n  mode '0755'\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`''/etc/motd''` specifies the location in which the file is created'
 - '`''motd.erb''` specifies the name of a template that exists in in the `/templates`
@@ -312,7 +314,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The full path to the file, including the file name and its
@@ -389,11 +391,11 @@ properties_list:
       \  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n``` ruby\ntemplate\
       \ '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```"
   - warning:
-    - markdown: "\n\nFor releases of Chef Infra Client prior to 12.5 (chef-client\
-        \ 12.4\nand earlier) the correct syntax is:\n\n``` ruby\ntemplate '/etc/nginx.conf'\
+    - markdown: "For releases of Chef Infra Client prior to 12.5 (chef-client 12.4\n\
+        and earlier) the correct syntax is:\n\n``` ruby\ntemplate '/etc/nginx.conf'\
         \ do\n  verify 'nginx -t -c %{file}'\nend\n```\n\nSee GitHub issues <https://github.com/chef/chef/issues/3232>\
         \ and\n<https://github.com/chef/chef/pull/3693> for more information about\n\
-        these differences.\n\n"
+        these differences."
   - markdown: "This should return `true`:\n\n``` ruby\ntemplate '/tmp/bar' do\n  verify\
       \ { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n``` ruby\ntemplate\
       \ '/tmp/foo' do\n  verify do |path|\n    true\n  end\nend\n```\n\nWhereas, this\
@@ -417,7 +419,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

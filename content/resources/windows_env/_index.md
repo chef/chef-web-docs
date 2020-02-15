@@ -2,7 +2,9 @@
 title: windows_env resource
 resource: windows_env
 draft: false
-aliases: /resource_windows_env.html
+aliases:
+- /resource_windows_env.html
+- /resource_env.html
 menu:
   docs:
     title: windows_env
@@ -37,11 +39,12 @@ resource_description_list:
       the same permanent effect as using the **windows_env** resource.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The windows_env resource has the following syntax:'
-syntax_code_block: "windows_env 'name' do\n  delim         String, false\n  key_name\
-  \      String # default value: 'name' unless specified\n  user          String #\
-  \ default value: \"<System>\"\n  value         String\n  action        Symbol #\
-  \ defaults to :create if not specified\nend"
+syntax_description: "The windows_env resource has the following syntax:\n\n``` ruby\n\
+  windows_env 'name' do\n  delim         String, false\n  key_name      String # default\
+  \ value: 'name' unless specified\n  user          String # default value: \"<System>\"\
+  \n  value         String\n  action        Symbol # defaults to :create if not specified\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_env` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -79,7 +82,7 @@ properties_list:
 - property: key_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the name of the key that is to be
@@ -117,7 +120,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

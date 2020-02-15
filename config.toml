@@ -47,7 +47,7 @@ theme = "docs-new"
     lineNos = false
     lineNumbersInTable = true
     noClasses = true
-    style = "emacs"
+    style = "friendly"
     tabWidth = 4
   [markup.tableOfContents]
     endLevel = 3
@@ -59,7 +59,7 @@ enableGitInfo = true
 
 [params]
   enable_search = true
-	robots = ''
+  robots = ''
 
 [taxonomies]
   category = "categories"
@@ -565,14 +565,6 @@ weight = 30
       url = "/resources/"
       weight = 50
       aliases = "/resources.html"
-
-      [[menu.docs]]
-      title = "reference"
-      identifier = "chef_infra/cookbook_reference/resources/resource_reference.md reference"
-      parent = "chef_infra/cookbook_reference/resources"
-      url = "/resource_reference/"
-      weight = 810
-      aliases = "/resource_reference.html"
 
   [[menu.docs]]
   title = "Managing Chef Infra Server"

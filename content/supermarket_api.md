@@ -2,7 +2,7 @@
 title = "Supermarket API"
 draft = false
 
-aliases = "/supermarket_api.html"
+aliases = ["/supermarket_api.html"]
 
 [menu]
   [menu.docs]

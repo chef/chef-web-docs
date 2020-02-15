@@ -2,7 +2,7 @@
 title = "Chef Infra Client (executable)"
 draft = false
 
-aliases = "/ctl_chef_client.html"
+aliases = ["/ctl_chef_client.html"]
 
 [menu]
   [menu.docs]
@@ -660,25 +660,25 @@ as a non-root user that is unable to create or modify users, the
 Set the Cache Path
 ------------------
 
-To run a Chef Infra Client in non-root mode, add the `cache_path`
+To run a Chef Infra Client in non-root mode, add the `file_cache_path`
 setting to the client.rb file for the node that will run as the non-root
-user. Set the value of `cache_path` to be the home directory for the
-user that is running the Chef Infra Client. For example:
+user. Set the value of `file_cache_path` to be the home directory for
+the user that is running the Chef Infra Client. For example:
 
 ``` ruby
-cache_path "~/.chef/cache"
+file_cache_path "~/.chef/cache"
 ```
 
 or:
 
 ``` ruby
-cache_path File.join(File.expand_path("~"), ".chef", "cache")
+file_cache_path File.join(File.expand_path("~"), ".chef", "cache")
 ```
 
 {{< note >}}
 
 When running the Chef Infra Client using the `--local-mode` option,
-`~/.chef/local-mode-cache` is the default value for `cache_path`.
+`~/.chef/local-mode-cache` is the default value for `file_cache_path`.
 
 {{< /note >}}
 

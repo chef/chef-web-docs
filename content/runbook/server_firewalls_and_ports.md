@@ -2,7 +2,7 @@
 title = "Firewalls and Ports"
 draft = false
 
-aliases = "/server_firewalls_and_ports.html"
+aliases = ["/server_firewalls_and_ports.html"]
 
 runbook_weight = 30
 

@@ -1,9 +1,9 @@
-<div class="alert-warning">
+<div class="admonition-warning"><p class="admonition-warning-title">Warning</p><div class="admonition-warning-text">
 
 This is an example of something that should NOT be done. Use the
 **service** resource to control a service, not the **execute** resource.
 
-</div>
+</div></div>
 
 Do something like this:
 

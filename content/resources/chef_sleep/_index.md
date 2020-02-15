@@ -2,7 +2,8 @@
 title: chef_sleep resource
 resource: chef_sleep
 draft: false
-aliases: /resource_chef_sleep.html
+aliases:
+- /resource_chef_sleep.html
 menu:
   docs:
     title: chef_sleep
@@ -19,10 +20,11 @@ resource_description_list:
     exits successfully but is not ready for the next step in a recipe.'
 resource_new_in: '15.5'
 handler_types: false
-syntax_description: 'The chef_sleep resource has the following syntax:'
-syntax_code_block: "chef_sleep 'name' do\n  seconds      String, Integer # default\
-  \ value: 'name' unless specified\n  action       Symbol # defaults to :sleep if\
-  \ not specified\nend"
+syntax_description: "The chef_sleep resource has the following syntax:\n\n``` ruby\n\
+  chef_sleep 'name' do\n  seconds      String, Integer # default value: 'name' unless\
+  \ specified\n  action       Symbol # defaults to :sleep if not specified\nend\n\
+  ```"
+syntax_code_block: null
 syntax_properties_list:
 - '`chef_sleep` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -45,7 +47,7 @@ properties_list:
 - property: seconds
   ruby_type: String, Integer
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: The number of seconds to sleep.
@@ -66,7 +68,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -6,9 +6,17 @@ for the Ruby-based Chef Infra Server will continue to work on the
 Erlang-based Chef Infra Server. Chef Infra Client is still written in
 Ruby.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 Even though the Chef Infra Server is authored in Erlang, writing code in
 Erlang is NOT a requirement for using Chef.
+
+
+
+</div>
 
 </div>

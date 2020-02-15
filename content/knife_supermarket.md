@@ -2,7 +2,7 @@
 title = "knife supermarket"
 draft = false
 
-aliases = "/knife_supermarket.html"
+aliases = ["/knife_supermarket.html", "/plugin_knife_supermarket.html"]
 
 [menu]
   [menu.docs]

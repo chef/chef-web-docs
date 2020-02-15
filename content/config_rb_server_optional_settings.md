@@ -2,7 +2,7 @@
 title = "chef-server.rb Optional Settings"
 draft = false
 
-aliases = "/config_rb_server_optional_settings.html"
+aliases = ["/config_rb_server_optional_settings.html"]
 
 [menu]
   [menu.docs]

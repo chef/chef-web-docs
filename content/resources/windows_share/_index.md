@@ -2,7 +2,8 @@
 title: windows_share resource
 resource: windows_share
 draft: false
-aliases: /resource_windows_share.html
+aliases:
+- /resource_windows_share.html
 menu:
   docs:
     title: windows_share
@@ -18,17 +19,18 @@ resource_description_list:
     shares.'
 resource_new_in: '14.7'
 handler_types: false
-syntax_description: 'The windows_share resource has the following syntax:'
-syntax_code_block: "windows_share 'name' do\n  ca_timeout                  Integer\
-  \ # default value: 0\n  change_users                Array\n  concurrent_user_limit\
-  \       Integer # default value: 0\n  continuously_available      true, false #\
-  \ default value: false\n  description                 String\n  encrypt_data   \
-  \             true, false # default value: false\n  full_users                 \
-  \ Array\n  path                        String\n  read_users                  Array\n\
-  \  scope_name                  String # default value: \"*\"\n  share_name     \
-  \             String # default value: 'name' unless specified\n  temporary     \
-  \              true, false # default value: false\n  action                    \
-  \  Symbol # defaults to :create if not specified\nend"
+syntax_description: "The windows_share resource has the following syntax:\n\n``` ruby\n\
+  windows_share 'name' do\n  ca_timeout                  Integer # default value:\
+  \ 0\n  change_users                Array\n  concurrent_user_limit       Integer\
+  \ # default value: 0\n  continuously_available      true, false # default value:\
+  \ false\n  description                 String\n  encrypt_data                true,\
+  \ false # default value: false\n  full_users                  Array\n  path    \
+  \                    String\n  read_users                  Array\n  scope_name \
+  \                 String # default value: \"*\"\n  share_name                  String\
+  \ # default value: 'name' unless specified\n  temporary                   true,\
+  \ false # default value: false\n  action                      Symbol # defaults\
+  \ to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_share` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -137,7 +139,7 @@ properties_list:
 - property: share_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the share name if it differs from the
@@ -169,7 +171,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

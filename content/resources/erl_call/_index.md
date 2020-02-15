@@ -2,7 +2,8 @@
 title: erl_call resource
 resource: erl_call
 draft: false
-aliases: /resource_erlang_call.html
+aliases:
+- /resource_erlang_call.html
 resource_reference: false
 robots: noindex, nofollow
 resource_description_list:
@@ -23,10 +24,10 @@ resource_description_list:
 - markdown: '**Removed from Chef Client 14.0**'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **erl_call** resource block connects to a node located within
-  a distributed Erlang system:'
-syntax_code_block: "erl_call 'list names' do\n  code 'net_adm:names().'\n  distributed\
-  \ true\n  node_name 'chef@latte'\nend"
+syntax_description: "A **erl_call** resource block connects to a node located within\
+  \ a\ndistributed Erlang system:\n\n``` ruby\nerl_call 'list names' do\n  code 'net_adm:names().'\n\
+  \  distributed true\n  node_name 'chef@latte'\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "erl_call 'name' do\n  code                       String\n\
   \  cookie                     String\n  distributed                true, false\n\
@@ -155,7 +156,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

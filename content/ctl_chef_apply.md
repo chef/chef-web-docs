@@ -2,7 +2,7 @@
 title = "chef-apply (executable)"
 draft = false
 
-aliases = "/ctl_chef_apply.html"
+aliases = ["/ctl_chef_apply.html"]
 
 [menu]
   [menu.docs]

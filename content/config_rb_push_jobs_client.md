@@ -2,7 +2,7 @@
 title = "push-jobs-client.rb"
 draft = false
 
-aliases = "/config_rb_push_jobs_client.html"
+aliases = ["/config_rb_push_jobs_client.html"]
 
 [menu]
   [menu.docs]

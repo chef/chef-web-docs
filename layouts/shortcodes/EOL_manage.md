@@ -1,4 +1,4 @@
-<div class="alert-warning">
+<div class="admonition-warning"><p class="admonition-warning-title">Warning</p><div class="admonition-warning-text">
 
 Chef Manage is
 [deprecated](/versions.html#deprecated-products-and-versions). The [Chef
@@ -10,4 +10,4 @@ platform, and deploy, observe, and manage the stack over its lifecycle.
 Chef Automate is included as part of the Chef license agreement and is
 [available via subscription](https://www.chef.io/pricing/).
 
-</div>
+</div></div>

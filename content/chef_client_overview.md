@@ -2,7 +2,7 @@
 title = "Chef Infra Client Overview"
 draft = false
 
-aliases = "/chef_client_overview.html"
+aliases = ["/chef_client_overview.html", "/chef_client.html"]
 
 [menu]
   [menu.docs]
@@ -44,7 +44,7 @@ The Chef Infra Client Run [the-chef-client-run]
 Related Content
 ===============
 
--   [Chef Infra Client (executable)](/ctl_chef_client.html)
+-   [Chef Infra Client (executable)](/ctl_chef_client/)
 -   [Chef Infra Server](/server_overview/)
 -   [Cookbooks](/cookbooks/)
 -   [Nodes](/nodes/)

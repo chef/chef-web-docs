@@ -1,8 +1,8 @@
 +++
-title = "Release Notes: Chef Infra Client 12.0 - 15.7"
+title = "Release Notes: Chef Infra Client 12.0 - 15.8"
 draft = false
 
-aliases = "/release_notes.html"
+aliases = ["/release_notes.html", "/release_notes_ohai.html"]
 
 [menu]
   [menu.docs]
@@ -18,6 +18,225 @@ Chef Infra Client is released on a monthly schedule with new releases
 the first Wednesday of every month. Below are the major changes for each
 release. For a detailed list of changes see the [Chef Infra Client
 changelog](https://github.com/chef/chef/blob/master/CHANGELOG.md)
+
+What's New in 15.8
+==================
+
+New notify_group functionality
+-------------------------------
+
+Chef Infra Client now includes a new `notify_group` feature that can be
+used to extract multiple common notifies out of individual resources to
+reduce duplicate code in your cookbooks and custom resources. Previously
+cookbook authors would often use a `log` resource to achieve a similar
+outcome, but using the log resource results in unnecessary Chef Infra
+Client log output. The `notify_group` method produces no additional
+logging, but fires all defined notifications when the `:run` action is
+set.
+
+Example notify_group that stops, sleeps, and then starts service when a
+service config is updated:
+
+``` ruby
+service "crude" do
+  action [ :enable, :start ]
+end
+
+chef_sleep "60" do
+  action :nothing
+end
+
+notify_group "crude_stop_and_start" do
+  notifies :stop, "service[crude]", :immediately
+  notifies :sleep, "chef_sleep[60]", :immediately
+  notifies :start, "service[crude]", :immediately
+end
+
+template "/etc/crude/crude.conf" do
+  source "crude.conf.erb"
+  variables node["crude"]
+  notifies :run, "notify_group[crude_stop_and_start]", :immediately
+end
+```
+
+Chef InSpec 4.18.85
+-------------------
+
+Chef InSpec has been updated from 4.18.39 to 4.18.85. This release
+includes a large number of bug fixes in addition to some great resource
+enhancements:
+
+-   The service resource features new support for yocto-based linux
+    distributions. Thank you to
+    [@michaellihs](https://github.com/michaellihs/) for this addition!
+-   The package resource now includes support for FreeBSD. Thank you to
+    [@fzipi](https://github.com/fzipi/) for this work!
+-   We standardized the platform for the etc_hosts, virtualization,
+    ini, and xml resources.
+-   The oracledb_session resource works again due to a missing quote
+    fix.
+-   The groups resource on macOS no longer reports duplicates anymore.
+-   command.exist? now conforms to POSIX standards. Thanks to
+    [@PiQuer](https://github.com/PiQuer/)!
+-   Changed the postfix_conf resource's supported platform to the
+    broader unix. Thank you to [@fzipi](https://github.com/fzipi/) for
+    this fix!
+
+New Cookbook Helpers
+--------------------
+
+New helpers have been added to make writing cookbooks easier.
+
+### Platform Version Helpers
+
+New helpers for checking platform versions have been added. These
+helpers return parsed version strings so there's no need to convert the
+returned values to Integers or Floats before comparing them.
+Additionally, comparisons with version objects properly understand the
+order of versions so `5.11` will compare as larger than `5.9`, whereas
+converting those values to Floats would result in `5.9` being larger
+than `5.11`.
+
+-   `windows_nt_version` returns the NT kernel version which often
+    differs from Microsoft's marketing versions. This helper offers a
+    good way to find desktop and server releases that are based on the
+    same codebase. For example, NT 6.3 is both Windows 8.1 and Windows
+    2012 R2.
+-   `powershell_version` returns the version of PowerShell installed on
+    the system.
+-   `platform_version` returns the value of node\['platform_version'\].
+
+Example comparison using windows_nt_version:
+
+``` ruby
+if windows_nt_version >= 10
+  some_modern_windows_things
+end
+```
+
+### Cloud Helpers
+
+The cloud helpers from chef-sugar have been ported to Chef Infra Client:
+
+-   `cloud?` - if the node is running in any cloud, including internal
+    clouds
+-   `ec2?` - if the node is running in ec2
+-   `gce?` - if the node is running in gce
+-   `rackspace?` - if the node is running in rackspace
+-   `eucalyptus?` - if the node is running under eucalyptus
+-   `linode?` - if the node is running in linode
+-   `openstack?` - if the node is running under openstack
+-   `azure?` - if the node is running in azure
+-   `digital_ocean?` - if the node is running in digital ocean
+-   `softlayer?` - if the node is running in softlayer
+
+### Virtualization Helpers
+
+The virtualization helpers from chef-sugar have been ported to Chef
+Infra Client and extended with helpers to detect hypervisor hosts,
+physical, and guest systems.
+
+-   `kvm?` - if the node is a kvm guest
+-   `kvm_host?` - if the node is a kvm host
+-   `lxc?` - if the node is an lxc guest
+-   `lxc_host?` - if the node is an lxc host
+-   `parallels?` - if the node is a parallels guest
+-   `parallels_host?` - if the node is a parallels host
+-   `vbox?` - if the node is a virtualbox guest
+-   `vbox_host?` - if the node is a virtualbox host
+-   `vmware?` - if the node is a vmware guest
+-   `vmware_host?` - if the node is a vmware host
+-   `openvz?` - if the node is an openvz guest
+-   `openvz_host?` - if the node is an openvz host
+-   `guest?` - if the node is detected as any kind of guest
+-   `hypervisor?` - if the node is detected as being any kind of
+    hypervisor
+-   `physical?` - the node is not running as a guest (may be a
+    hypervisor or may be bare-metal)
+-   `vagrant?` - attempts to identify the node as a vagrant guest (this
+    check may be error-prone)
+
+### include_recipe? helper
+
+chef-sugar's `include_recipe?` has been added to Chef Infra Client
+providing a simple way to see if a recipe has been included on a node
+already.
+
+Example usage in a not_if conditional:
+
+``` ruby
+execute 'install my_app'
+  command '/tmp/my_app_install.sh'
+  not_if { include_recipe?('my_app::install') }
+end
+```
+
+Updated Resources
+-----------------
+
+### ifconfig
+
+The `ifconfig` resource now supports the newer `ifconfig` release that
+ships in Debian 10.
+
+### mac_user
+
+The `mac_user` resource, used when creating a user on Mac systems, has
+been improved to work better with macOS Catalina (10.15). The resource
+now properly looks up the numeric GID when creating a user, once again
+supports the `system` property, and includes a new `hidden` property
+which prevents the user from showing on the login screen. Thanks
+[@chilcote](https://github.com/chilcote/) for these fixes and
+improvements.
+
+### sysctl
+
+The `sysctl` resource has been updated to allow the inclusion of
+descriptive comments. Comments may be passed as an array or as a string.
+Any comments provided are prefixed with '\#' signs and precede the
+`sysctl` setting in generated files.
+
+An example:
+
+``` ruby
+sysctl 'vm.swappiness' do
+  value 10
+  comment [
+    "define how aggressively the kernel will swap memory pages.",
+    "Higher values will increase aggressiveness",
+    "lower values decrease the amount of swap.",
+    "A value of 0 instructs the kernel not to initiate swap",
+    "until the amount of free and file-backed pages is less",
+    "than the high water mark in a zone.",
+    "The default value is 60."
+    ]
+end
+```
+
+which results in `/etc/sysctl.d/99-chef-vm.swappiness.conf` as follows:
+
+``` shell
+# define how aggressively the kernel will swap memory pages.
+# Higher values will increase aggressiveness
+# lower values decrease the amount of swap.
+# A value of 0 instructs the kernel not to initiate swap
+# until the amount of free and file-backed pages is less
+# than the high water mark in a zone.
+# The default value is 60.
+vm.swappiness = 10
+```
+
+Platform Support
+----------------
+
+Chef Infra Clients packages are now validated for Debian 10.
+
+macOS Binary Signing
+--------------------
+
+Each binary in the macOS Chef Infra Client installation is now signed to
+improve the integrity of the installation and ensure compatibility with
+macOS Catalina security requirements.
 
 What's New in 15.7
 ==================
@@ -1872,14 +2091,14 @@ What’s New in 14.12
 
 -   **windows_service**
 
-    The [windows_service](/resource_windows_service/) resource no
+    The [windows_service](/resources/windows_service/) resource no
     longer resets credentials on a service when using the :start action
     without the :configure action. Thanks
     [@jasonwbarnett](https://github.com/jasonwbarnett) for fixing this.
 
 -   **windows_certificate**
 
-    The [windows_certificate](/resource_windows_certificate/)
+    The [windows_certificate](/resources/windows_certificate/)
     resource now imports nested certificates while importing P7B certs.
 
 **Updated Components**
@@ -1897,7 +2116,7 @@ What’s New in 14.11
 
 -   **chocolatey_package**
 
-    The [chocolatey_package](/resource_chocolatey_package/)
+    The [chocolatey_package](/resources/chocolatey_package/)
     resource now uses the provided options to fetch information on
     available packages, which allows installation packages from private
     sources. Thanks [@astoltz](https://github.com/astoltz) for reporting
@@ -1905,26 +2124,26 @@ What’s New in 14.11
 
 -   **openssl_dhparam**
 
-    The [openssl_dhparam](/resource_openssl_dhparam/) resource now
+    The [openssl_dhparam](/resources/openssl_dhparam/) resource now
     supports updating the dhparam file's mode on subsequent chef-client
     runs. Thanks [@anewb](https://github.com/anewb) for the initial work
     on this fix.
 
 -   **mount**
 
-    The [mount](/resource_mount/) resource now properly adds a blank
+    The [mount](/resources/mount/) resource now properly adds a blank
     line between entries in fstab to prevent mount failures on AIX.
 
 -   **windows_certificate**
 
-    The [windows_certificate](/resource_windows_certificate/)
+    The [windows_certificate](/resources/windows_certificate/)
     resource now supports importing Base64 encoded CER certificates and
     nested P7B certificates. Additionally, private keys in PFX
     certificates are now imported along with the certificate.
 
 -   **windows_share**
 
-    The [windows_share](/resource_windows_share/) resource has
+    The [windows_share](/resources/windows_share/) resource has
     improved logic to compare the desired share path vs. the current
     path, which prevents the resource from incorrectly converging during
     each Chef run. Thanks [@xorima](https://github.com/xorima) for this
@@ -1932,7 +2151,7 @@ What’s New in 14.11
 
 -   **windows_task**
 
-    The [windows_task](/resource_windows_task/) resource now
+    The [windows_task](/resources/windows_task/) resource now
     properly clears out arguments that are no longer present when
     updating a task. Thanks [@nmcspadden](https://github.com/nmcspadden)
     for reporting this.
@@ -1984,20 +2203,20 @@ What’s New in 14.10
 
 -   **windows_certificate**
 
-    The [windows_certificate](/resource_windows_certificate/)
+    The [windows_certificate](/resources/windows_certificate/)
     resource is now fully idempotent. Thanks
     [@Xorima](https://github.com/Xorima) for reporting this issue.
 
 -   **apt_repository**
 
-    The [apt_repository](/resource_apt_repository/) resource no
+    The [apt_repository](/resources/apt_repository/) resource no
     longer creates .gpg directory in the user's home directory owned by
     root when installing repository keys. Thanks
     [@omry](https://github.com/omry) for reporting this issue.
 
 -   **git**
 
-    The [git](/resource_git/) resource no longer displays the URL of
+    The [git](/resources/git/) resource no longer displays the URL of
     the repository if the sensitive property is set.
 
 -   **InSpec 3.4.1**
@@ -2037,13 +2256,13 @@ What’s New in 14.9
 
 -   **group**
 
-    On Windows hosts the [group](/resource_group/) resource now
+    On Windows hosts the [group](/resources/group/) resource now
     supports setting the comment field via a new comment property.
 
 -   **homebrew_cask**
 
     Two issues that caused
-    [homebrew_cask](/resource_homebrew_cask/) to converge on each
+    [homebrew_cask](/resources/homebrew_cask/) to converge on each
     Chef run have been resolved. Thanks
     [@jeroenj](https://github.com/jeroenj) for this fix. Additionally
     the resource will no longer fail if the cask_name property is
@@ -2051,19 +2270,19 @@ What’s New in 14.9
 
 -   **homebrew_tap**
 
-    The [homebrew_tap](/resource_homebrew_tap/) resource no longer
+    The [homebrew_tap](/resources/homebrew_tap/) resource no longer
     fails if the tap_name property is specified.
 
 -   **openssl_x509_request**
 
-    The [openssl_x509_request](/resource_openssl_x509_request/)
+    The [openssl_x509_request](/resources/openssl_x509_request/)
     resource now property writes out the CSR file if the path property
     is specified. Thank you [@cpjones](https://github.com/cpjones) for
     reporting this issue.
 
 -   **powershell_package_source**
 
-    [powershell_package_source](/resource_powershell_package_source/)
+    [powershell_package_source](/resources/powershell_package_source/)
     now suppresses warnings which prevented properly loading the
     resource state, and resolves idempotency issues when both the name
     and source_name properties were specified. Thanks
@@ -2071,7 +2290,7 @@ What’s New in 14.9
 
 -   **sysctl**
 
-    The [sysctl](/resource_sysctl/) resource now allows slashes in
+    The [sysctl](/resources/sysctl/) resource now allows slashes in
     the key or block name. This allows keys such as
     net/ipv4/conf/ens256.401/rp_filter to be used with this resource.
 
@@ -2090,7 +2309,7 @@ What’s New in 14.9
 
 -   **windows_printer**
 
-    The [windows_printer](/resource_windows_printer/) resource no
+    The [windows_printer](/resources/windows_printer/) resource no
     longer fails when creating or deleting a printer if the device_id
     property is specified.
 
@@ -2129,7 +2348,7 @@ What’s New in 14.8
 
 -   **apt_package**
 
-    The [apt_package](/resource_apt_package/) resource now supports
+    The [apt_package](/resources/apt_package/) resource now supports
     using the <span class="title-ref">allow_downgrade</span> property
     to enable downgrading of packages on a node in order to meet a
     specified version. Thank you
@@ -2139,7 +2358,7 @@ What’s New in 14.8
 -   **apt_repository**
 
     An issue was resolved in the
-    [apt_repository](/resource_apt_repository/) resource that
+    [apt_repository](/resources/apt_repository/) resource that
     caused the resource to fail when importing GPG keys on newer Debian
     releases. Thank you [@EugenMayer](https://github.com/EugenMayer) for
     this fix.
@@ -2151,25 +2370,25 @@ What’s New in 14.8
 
 -   **gem_package**
 
-    The [gem_package](/resource_gem_package/) resource now supports
+    The [gem_package](/resources/gem_package/) resource now supports
     installing gems into Ruby 2.6 or later installations.
 
 -   **windows_ad_join**
 
-    The [windows_ad_join](/resource_windows_ad_join/) resource now
+    The [windows_ad_join](/resources/windows_ad_join/) resource now
     uses the UPN format for usernames, which prevents some failures to
     authenticate to domains.
 
 -   **windows_certificate**
 
     An issue was resolved in the :acl_add action of the
-    [windows_certificate](/resource_windows_certificate/) resource,
+    [windows_certificate](/resources/windows_certificate/) resource,
     which caused the resource to fail. Thank you
     [@shoekstra](https://github.com/shoekstra) for reporting this issue.
 
 -   **windows_feature**
 
-    The [windows_feature](/resource_windows_feature/) resource now
+    The [windows_feature](/resources/windows_feature/) resource now
     allows for the installation of DISM features that have been fully
     removed from a system. Thank you
     [@zanecodes](https://github.com/zanecodes) for requesting this
@@ -2178,7 +2397,7 @@ What’s New in 14.8
 -   **windows_share**
 
     Multiple issues were resolved in
-    [windows_share](/resource_windows_share/), which caused the
+    [windows_share](/resources/windows_share/), which caused the
     resource to either fail or update the share state on every Chef
     Client run. Thank you [@chadmccune](https://github.com/chadmccune)
     for reporting several of these issues and
@@ -2244,7 +2463,7 @@ What’s New in 14.7
 -   **windows_firewall_rule**
 
     Use the
-    [windows_firewall_rule](/resource_windows_firewall_rule/)
+    [windows_firewall_rule](/resources/windows_firewall_rule/)
     resource to create or delete Windows Firewall rules.
 
     Thank you [Schuberg Philis](https://schubergphilis.com) for
@@ -2255,12 +2474,12 @@ What’s New in 14.7
 
 -   **windows_share**
 
-    Use the [windows_share](/resource_windows_share/) resource
+    Use the [windows_share](/resources/windows_share/) resource
     create or delete Windows file shares.
 
 -   **windows_certificate**
 
-    Use the [windows_certificate](/resource_windows_certificate/)
+    Use the [windows_certificate](/resources/windows_certificate/)
     resource add, remove, or verify certificates in the system or user
     certificate stores.
 
@@ -2309,7 +2528,7 @@ smaller than a legacy Chef 10 package.
 
 -   **timezone**
 
-    Chef now includes the [timezone](/resource_timezone/) resource
+    Chef now includes the [timezone](/resources/timezone/) resource
     from [@dragonsmith](http://github.com/dragonsmith)'s `timezone_lwrp`
     cookbook. This resource supports setting a Linux node's timezone.
     Thank you [@dragonsmith](http://github.com/dragonsmith) for allowing
@@ -2438,7 +2657,7 @@ What’s New in 14.5
 
 -   **locale**
 
-    Use the [locale](/resource_locale/) resource to set the system’s
+    Use the [locale](/resources/locale/) resource to set the system’s
     locale.
 
     Thank you [@vincentaubert](https://github.com/vincentaubert) for
@@ -2446,7 +2665,7 @@ What’s New in 14.5
 
 -   **windows_workgroup**
 
-    Use the [windows_workgroup](/resource_windows_workgroup/)
+    Use the [windows_workgroup](/resources/windows_workgroup/)
     resource to join or change the workgroup of a Windows host.
 
     Thank you [@derekgroh](https://github.com/derekgroh) for
@@ -2456,19 +2675,19 @@ What’s New in 14.5
 
 -   **windows_package**
 
-    The [windows_package](/resource_windows_package/) resource will
+    The [windows_package](/resources/windows_package/) resource will
     no longer log sensitive information in the event of an installation
     failure if the `sensitive` property is set.
 
 -   **windows_service**
 
-    The [windows_service](/resource_windows_service/) resource will
+    The [windows_service](/resources/windows_service/) resource will
     no longer log potentially sensitive information when the service is
     setup.
 
 -   **windows_ad_join**
 
-    Use the [windows_ad_join](/resource_windows_ad_join/) resource
+    Use the [windows_ad_join](/resources/windows_ad_join/) resource
     now includes a `new_hostname` property for setting the hostname for
     the node upon joining the domain.
 
@@ -2553,13 +2772,13 @@ What’s New in 14.4
 
 -   **cron_d**
 
-    Use the [cron_d](/resource_cron_d/) resource to manage cron
+    Use the [cron_d](/resources/cron_d/) resource to manage cron
     definitions in `/etc/cron.d`. This is similar to the cron resource,
     but it does not use the monolithic `/etc/crontab` file.
 
 -   **cron_access**
 
-    Use the [cron_access](/resource_cron_access/) resource to
+    Use the [cron_access](/resources/cron_access/) resource to
     manage the `/etc/cron.allow` and `/etc/cron.deny` files. This
     resource previously shipped in the cron community cookbook and has
     fully backwards compatibility with the previous `cron_manage`
@@ -2568,7 +2787,7 @@ What’s New in 14.4
 -   **openssl_x509_certificate**
 
     Use the
-    [openssl_x509_certificate](/resource_openssl_x509_certificate/)
+    [openssl_x509_certificate](/resources/openssl_x509_certificate/)
     resource to generate signed or self-signed, PEM-formatted x509
     certificates. If no existing key is specified, the resource
     automatically generates a passwordless key with the certificate. If
@@ -2582,7 +2801,7 @@ What’s New in 14.4
 -   **openssl_x509_request**
 
     Use the
-    [openssl_x509_request](/resource_openssl_x509_request/)
+    [openssl_x509_request](/resources/openssl_x509_request/)
     resource to generate PEM-formatted x509 certificates requests. If no
     existing key is specified, the resource automatically generates a
     passwordless key with the certificate.
@@ -2591,7 +2810,7 @@ What’s New in 14.4
 
 -   **openssl_x509_crl**
 
-    Use the [openssl_x509_crl](/resource_openssl_x509_crl/)
+    Use the [openssl_x509_crl](/resources/openssl_x509_crl/)
     resource to generate PEM-formatted x509 certificate revocation list
     (CRL) files.
 
@@ -2600,7 +2819,7 @@ What’s New in 14.4
 -   **openssl_ec_private_key**
 
     Use the
-    [openssl_ec_private_key](/resource_openssl_ec_private_key/)
+    [openssl_ec_private_key](/resources/openssl_ec_private_key/)
     resource to generate ec private key files. If a valid ec key file
     can be opened at the specified location, no new file will be
     created.
@@ -2610,7 +2829,7 @@ What’s New in 14.4
 -   **openssl_ec_public_key**
 
     Use the
-    [openssl_ec_public_key](/resource_openssl_ec_public_key/)
+    [openssl_ec_public_key](/resources/openssl_ec_public_key/)
     resource to generate ec public key files given a private key.
 
     Thank you @juju482 for contributing this resource.
@@ -2619,19 +2838,19 @@ What’s New in 14.4
 
 -   **windows_package**
 
-    The [windows_package](/resource_windows_package/) resource now
+    The [windows_package](/resources/windows_package/) resource now
     supports setting the sensitive property to avoid showing errors if a
     package install fails.
 
 -   **sysctl**
 
-    The [sysctl](/resource_sysctl/) resource now updates the on-disk
+    The [sysctl](/resources/sysctl/) resource now updates the on-disk
     `sysctl.d` file even if the current sysctl value matches the desired
     value.
 
 -   **windows_task**
 
-    The [windows_task](/resource_windows_task/) resource now
+    The [windows_task](/resources/windows_task/) resource now
     supports setting the task priority of the scheduled task with a new
     priority property. Additionally `windows_task` now supports managing
     the behavior of task execution when a system is on battery using new
@@ -2640,7 +2859,7 @@ What’s New in 14.4
 
 -   **ifconfig**
 
-    The [ifconfig](/resource_ifconfig/) resource now supports
+    The [ifconfig](/resources/ifconfig/) resource now supports
     setting the interface's VLAN via a new vlan property on RHEL
     `platform_family` and setting the interface's gateway via a new
     gateway property on RHEL/Debian `platform_family`.
@@ -2649,12 +2868,12 @@ What’s New in 14.4
 
 -   **route**
 
-    The [route](/resource_route/) resource now supports additional
+    The [route](/resources/route/) resource now supports additional
     RHEL platform_family systems as well as Amazon Linux.
 
 -   **systemd_unit**
 
-    The [systemd_unit](/resource_systemd_unit/) resource now
+    The [systemd_unit](/resources/systemd_unit/) resource now
     supports specifying options multiple times in the content hash.
     Instead of setting the value to a string you can now set it to an
     array of strings.
@@ -2706,30 +2925,30 @@ precedence over resources with the same names in cookbooks.
 
 -   **chocolatey_config**
 
-    Use the [chocolatey_config](/resource_chocolatey_config/)
+    Use the [chocolatey_config](/resources/chocolatey_config/)
     resource to add or remove Chocolatey configuration keys."
 
 -   **chocolatey_source**
 
-    Use the [chocolatey_source](/resource_chocolatey_source/)
+    Use the [chocolatey_source](/resources/chocolatey_source/)
     resource to add or remove Chocolatey sources.
 
 -   **powershell_package_source**
 
     Use the
-    [powershell_package_source](/resource_powershell_package_source/)
+    [powershell_package_source](/resources/powershell_package_source/)
     resource to register a PowerShell package repository.
 
 -   **kernel_module**
 
-    Use the [kernel_module](/resource_kernel_module/) resource to
+    Use the [kernel_module](/resources/kernel_module/) resource to
     manage kernel modules on Linux systems. This resource can
     `load`,`unload`, `blacklist`, `install`, and `uninstall` modules.
 
 -   **ssh_known_hosts_entry**
 
     Use the
-    [ssh_known_hosts_entry](/resource_ssh_known_hosts_entry/)
+    [ssh_known_hosts_entry](/resources/ssh_known_hosts_entry/)
     resource to add an entry for the specified host in
     `/etc/ssh/ssh_known_hosts` or a user's known hosts file if
     specified.
@@ -2749,16 +2968,16 @@ precedence over resources with the same names in cookbooks.
 **Windows Improvements**
 
 -   A new `skip_publisher_check` property has been added to the
-    [powershell_package](/resource_powershell_package/) resource
+    [powershell_package](/resources/powershell_package/) resource
 -   `windows_feature_powershell` now supports Windows 2008 R2
--   The [mount](/resource_mount/) resource now supports the <span
+-   The [mount](/resources/mount/) resource now supports the <span
     class="title-ref">mount_point</span> property on Windows
--   [windows_feature_dism](/resource_windows_feature_dism/) no
+-   [windows_feature_dism](/resources/windows_feature_dism/) no
     longer errors when specifying the source
 -   Resolved idempotency issues in the
-    [windows_task](/resource_windows_task/) resource and prevented
+    [windows_task](/resources/windows_task/) resource and prevented
     setting up a task with bad credentials
--   [windows_service](/resource_windows_service/) no longer throws
+-   [windows_service](/resources/windows_service/) no longer throws
     Ruby deprecation warnings
 
 **Ohai 14.3**
@@ -2774,7 +2993,7 @@ New Deprecations
     release of Chef unifies our shell_out helpers into just shell_out
     and shell_out!. Previous helpers are now deprecated and will be
     removed in Chef 15. See [CHEF-26 Deprecation
-    Page](/deprecations_shell_out/) for details.
+    Page](/deprecations_shell_out.html) for details.
 
 **Legacy FreeBSD pkg provider**
 
@@ -2817,7 +3036,7 @@ What’s New in 14.2
     to true (modify the environment), preserving the previous behavior
     of the helper.
 
-    The [execute](/resource_execute/) resource has also been updated
+    The [execute](/resources/execute/) resource has also been updated
     with a new property `default_env` that allows utilizing this the ENV
     sanity functionality in `shell_out`. The new property defaults to
     false, but it can be set to true in order to ensure a sane PATH and
@@ -2846,16 +3065,16 @@ What's New in 14.1.12
     -   shard plugin: work in FIPS compliant environments
     -   filesystem plugin: Handle BSD platforms
 -   **Resource Changes & Notes**
-    -   [git](/resource_git/) resource: we don't recommend using
+    -   [git](/resources/git/) resource: we don't recommend using
         `--prune-tags` yet, because it is really new.
-    -   [rhsm_repo](/resource_rhsm_repo/) resource: now works
-    -   [apt_repository](/resource_apt_repository/) resource: use
+    -   [rhsm_repo](/resources/rhsm_repo/) resource: now works
+    -   [apt_repository](/resources/apt_repository/) resource: use
         the repo_name property to name files
-    -   [windows_task](/resource_windows_task/) resource: properly
+    -   [windows_task](/resources/windows_task/) resource: properly
         handle commands with arguments
-    -   [windows_task](/resource_windows_task/) resource: handle
+    -   [windows_task](/resources/windows_task/) resource: handle
         creating tasks as the SYSTEM user
-    -   [remote_directory](/resource_remote_directory/) resource:
+    -   [remote_directory](/resources/remote_directory/) resource:
         restore the default for the overwrite property
 
 What's New in 14.1.1
@@ -2863,7 +3082,7 @@ What's New in 14.1.1
 
 -   **windows_task**
 
-    The [windows_task](/resource_windows_task/) resource has been
+    The [windows_task](/resources/windows_task/) resource has been
     entirely rewritten. This resolves a large number of bugs by allowing
     Chef to correctly set the start time of tasks, adding proper
     creation and deletion of tasks, and improving Chef’s validation of
@@ -2877,7 +3096,7 @@ What's New in 14.1.1
 
 -   **build_essential**
 
-    The [build_essential](/resource_build_essential/) resource no
+    The [build_essential](/resources/build_essential/) resource no
     longer requires a name, similar to the `apt_update` resource.
 
 -   **ignore_failure**
@@ -2925,7 +3144,7 @@ This release fixes a handful of regressions that were present in the
     Chef Client resources, which resulted in older resources running
 -   Resources failed due to missing `property_is_set?` and `resources`
     methods
--   [yum_package](/resource_yum_package/) changed the order of
+-   [yum_package](/resources/yum_package/) changed the order of
     `disablerepo` and `enablerepo` options
 -   Depsolving large numbers of cookbooks with Chef zero/local took a
     long time
@@ -2944,7 +3163,7 @@ management has been greatly reduced.
 
 -   **build_essential**
 
-    Use the [build_essential](/resource_build_essential/) resource
+    Use the [build_essential](/resources/build_essential/) resource
     to install packages required for compiling C software from source.
     This resource was ported from the build-essential community
     cookbook.
@@ -2957,13 +3176,13 @@ management has been greatly reduced.
 
 -   **chef_handler**
 
-    Use the [chef_handler](/resource_chef_handler/) resource to
+    Use the [chef_handler](/resources/chef_handler/) resource to
     install or uninstall Chef reporting/exception handlers. This
     resource was ported from the chef_handler community cookbook.
 
 -   **dmg_package**
 
-    Use the [dmg_package](/resource_dmg_package/) resource to
+    Use the [dmg_package](/resources/dmg_package/) resource to
     install a dmg 'package'. The resource will retrieve the dmg file
     from a remote URL, mount it using hdiutil, copy the application
     (.app directory) to the specified destination (/Applications), and
@@ -2973,19 +3192,19 @@ management has been greatly reduced.
 
 -   **homebrew_cask**
 
-    Use the [homebrew_cask](/resource_homebrew_cask/) resource to
+    Use the [homebrew_cask](/resources/homebrew_cask/) resource to
     install binaries distributed via the Homebrew package manager. This
     resource was ported from the homebrew community cookbook.
 
 -   **homebrew_tap**
 
-    Use the [homebrew_tap](/resource_homebrew_tap/) resource to add
+    Use the [homebrew_tap](/resources/homebrew_tap/) resource to add
     formula repositories to the Homebrew package manager. This resource
     was ported from the homebrew community cookbook.
 
 -   **hostname**
 
-    Use the [hostname](/resource_hostname/) resource to set the
+    Use the [hostname](/resources/hostname/) resource to set the
     system's hostname, configure the hostname and hosts configuration
     file, and re-run the Ohai hostname plugin so the hostname will be
     available in subsequent cookbooks. This resource was ported from the
@@ -2993,7 +3212,7 @@ management has been greatly reduced.
 
 -   **macos_userdefaults**
 
-    Use the [macos_userdefaults](/resource_macos_userdefaults/)
+    Use the [macos_userdefaults](/resources/macos_userdefaults/)
     resource to manage the macOS user defaults system. The properties of
     this resource are passed to the defaults command, and the parameters
     follow the convention of that command. See the `defaults` man page
@@ -3002,13 +3221,13 @@ management has been greatly reduced.
 
 -   **ohai_hint**
 
-    Use the [ohai_hint](/resource_ohai_hint/) resource to pass hint
+    Use the [ohai_hint](/resources/ohai_hint/) resource to pass hint
     data to Ohai to aid in configuration detection. This resource was
     ported from the ohai community cookbook.
 
 -   **openssl_dhparam**
 
-    Use the [openssl_dhparam](/resource_openssl_dhparam/) resource
+    Use the [openssl_dhparam](/resources/openssl_dhparam/) resource
     to generate `dhparam.pem` files. If a valid `dhparam.pem` file is
     found at the specified location, no new file will be created. If a
     file is found at the specified location but it is not a valid
@@ -3018,7 +3237,7 @@ management has been greatly reduced.
 -   **openssl_rsa_private_key**
 
     Use the
-    [openssl_rsa_private_key](/resource_openssl_rsa_private_key/)
+    [openssl_rsa_private_key](/resources/openssl_rsa_private_key/)
     resource to generate RSA private key files. If a valid RSA key file
     can be opened at the specified location, no new file will be
     created. If the RSA key file cannot be opened, either because it
@@ -3029,13 +3248,13 @@ management has been greatly reduced.
 -   **openssl_rsa_public_key**
 
     Use the
-    [openssl_rsa_public_key](/resource_openssl_rsa_public_key/)
+    [openssl_rsa_public_key](/resources/openssl_rsa_public_key/)
     resource to generate RSA public key files given an RSA private key.
     This resource was ported from the openssl community cookbook.
 
 -   **rhsm_errata**
 
-    Use the [rhsm_errata](/resource_rhsm_errata/) resource to
+    Use the [rhsm_errata](/resources/rhsm_errata/) resource to
     install packages associated with a given Red Hat Subscription
     Manager Errata ID. This is helpful if packages to mitigate a single
     vulnerability must be installed on your hosts. This resource was
@@ -3043,7 +3262,7 @@ management has been greatly reduced.
 
 -   **rhsm_errata_level**
 
-    Use the [rhsm_errata_level](/resource_rhsm_errata_level/)
+    Use the [rhsm_errata_level](/resources/rhsm_errata_level/)
     resource to install all packages of a specified errata level from
     the Red Hat Subscription Manager. For example, you can ensure that
     all packages associated with errata marked at a 'Critical' security
@@ -3052,21 +3271,21 @@ management has been greatly reduced.
 
 -   **rhsm_register**
 
-    Use the [rhsm_register](/resource_rhsm_register/) resource to
+    Use the [rhsm_register](/resources/rhsm_register/) resource to
     register a node with the Red Hat Subscription Manager, or a local
     Red Hat Satellite server. This resource was ported from the
     redhat_subscription_manager community cookbook.
 
 -   **rhsm_repo**
 
-    Use the [rhsm_repo](/resource_rhsm_repo/) resource to enable or
+    Use the [rhsm_repo](/resources/rhsm_repo/) resource to enable or
     disable Red Hat Subscription Manager repositories that are made
     available via attached subscriptions. This resource was ported from
     the redhat_subscription_manager community cookbook.
 
 -   **rhsm_subscription**
 
-    Use the [rhsm_subscription](/resource_rhsm_subscription/)
+    Use the [rhsm_subscription](/resources/rhsm_subscription/)
     resource to add or remove Red Hat Subscription Manager subscriptions
     for your host. This can be used when a host's activation_key does
     not attach all necessary subscriptions to your host. This resource
@@ -3075,7 +3294,7 @@ management has been greatly reduced.
 
 -   **sudo**
 
-    Use the [sudo](/resource_sudo/) resource to add or remove
+    Use the [sudo](/resources/sudo/) resource to add or remove
     individual sudo entries using `sudoers.d` files. Sudo version 1.7.2
     or newer is required to use the sudo resource, as it relies on the
     `#includedir` directive introduced in version 1.7.2. This resource
@@ -3086,14 +3305,14 @@ management has been greatly reduced.
 
 -   **swap_file**
 
-    Use the [swap_file](/resource_swap_file/) resource to create or
+    Use the [swap_file](/resources/swap_file/) resource to create or
     delete swap files on Linux systems, and optionally to manage the
     swappiness configuration for a host. This resource was ported from
     the swap community cookbook.
 
 -   **sysctl**
 
-    Use the [sysctl](/resource_sysctl/) resource to set kernel
+    Use the [sysctl](/resources/sysctl/) resource to set kernel
     parameters using the `sysctl` command line tool and configuration
     files in the system's `sysctl.d` directory. Configuration files
     managed by this resource are named `99-chef-KEYNAME.conf`. If an
@@ -3112,7 +3331,7 @@ management has been greatly reduced.
 
 -   **windows_ad_join**
 
-    Use the [windows_ad_join](/resource_windows_ad_join/) resource
+    Use the [windows_ad_join](/resources/windows_ad_join/) resource
     to join a Windows Active Directory domain and reboot the node. This
     resource is based on the `win_ad_client` resource in the win_ad
     community cookbook, but is not backwards compatible with that
@@ -3120,17 +3339,17 @@ management has been greatly reduced.
 
 -   **windows_auto_run**
 
-    Use the [windows_auto_run](/resource_windows_auto_run/)
+    Use the [windows_auto_run](/resources/windows_auto_run/)
     resource to set applications to run at logon. This resource was
     ported from the windows community cookbook.
 
 -   **windows_feature**
 
-    Use the [windows_feature](/resource_windows_feature/) resource
+    Use the [windows_feature](/resources/windows_feature/) resource
     to add, remove or entirely delete Windows features and roles. This
     resource calls the
-    [windows_feature_dism](/resource_windows_feature_dism/) or
-    [windows_feature_powershell](/resource_windows_feature_powershell/)
+    [windows_feature_dism](/resources/windows_feature_dism/) or
+    [windows_feature_powershell](/resources/windows_feature_powershell/)
     resources depending on the specified installation method, and
     defaults to DISM, which is available on both Workstation and Server
     editions of Windows. This resource was ported from the windows
@@ -3150,7 +3369,7 @@ management has been greatly reduced.
 
 -   **windows_font**
 
-    Use the [windows_font](/resource_windows_font/) resource to
+    Use the [windows_font](/resources/windows_font/) resource to
     install or remove font files on Windows. By default, the font is
     sourced from the cookbook using the resource, but a URI source can
     be specified as well. This resource was ported from the windows
@@ -3158,12 +3377,12 @@ management has been greatly reduced.
 
 -   **windows_pagefile**
 
-    Use the [windows_pagefile](/resource_windows_pagefile/)
+    Use the [windows_pagefile](/resources/windows_pagefile/)
     resource to configure pagefile settings on Windows.
 
 -   **windows_printer**
 
-    Use the [windows_printer](/resource_windows_printer/) resource
+    Use the [windows_printer](/resources/windows_printer/) resource
     to set up Windows printers. Note that currently this resource does
     not install a printer driver; you must already have the driver
     installed on the system. This resource was ported from the windows
@@ -3172,13 +3391,13 @@ management has been greatly reduced.
 -   **windows_printer_port**
 
     Use the
-    [windows_printer_port](/resource_windows_printer_port/)
+    [windows_printer_port](/resources/windows_printer_port/)
     resource to create and delete TCP/IPv4 printer ports on Windows.
     This resource was ported from the windows community cookbook.
 
 -   **windows_shortcut**
 
-    Use the [windows_shortcut](/resource_windows_shortcut/)
+    Use the [windows_shortcut](/resources/windows_shortcut/)
     resource to create shortcut files on Windows. This resource was
     ported from the windows community cookbook.
 
@@ -3267,7 +3486,7 @@ expand their functionality.
 
 -   **apt_package**
 
-    [apt_package](/resource_apt_package/) includes a new
+    [apt_package](/resources/apt_package/) includes a new
     overwrite_config_files property. Setting this new property to true
     is equivalent to passing `-o Dpkg::Options::="--force-confnew"` to
     `apt`, and allows you to install packages that prompt the user to
@@ -3276,32 +3495,32 @@ expand their functionality.
 -   **env**
 
     The env resource has been renamed to
-    [windows_env](/resource_windows_env/) as it only supports the
+    [windows_env](/resources/windows_env/) as it only supports the
     Windows platform. Existing cookbooks using env will continue to
     function, but should be updated to use the new name.
 
 -   **ifconfig**
 
-    The [ifconfig](/resource_ifconfig/) resource includes a new
+    The [ifconfig](/resources/ifconfig/) resource includes a new
     family property for setting the network family on Debian systems.
     Thanks @martinisoft for this new property.
 
 -   **registry_key**
 
     The `sensitive` property can now be used in
-    [registry_key](/resource_registry_key/) to suppress the output
+    [registry_key](/resources/registry_key/) to suppress the output
     of the key's data from logs and error messages. Thanks @shoekstra
     for implementing this.
 
 -   **powershell_package**
 
-    [powershell_package](/resource_powershell_package/) includes a
+    [powershell_package](/resources/powershell_package/) includes a
     new `source` property to allow specifying the source of the package.
     Thanks @Happycoil for this new property.
 
 -   **systemd_unit**
 
-    [systemd_unit](/resource_systemd_unit/) includes the following
+    [systemd_unit](/resources/systemd_unit/) includes the following
     new actions:
 
     -   `preset` - Restore the preset enable/disable configuration for a
@@ -3313,7 +3532,7 @@ expand their functionality.
 
 **windows_service**
 
-:   [windows_service](/resource_windows_service/) now includes
+:   [windows_service](/resources/windows_service/) now includes
     actions for fully managing services on Windows, in addition to the
     previous actions for starting/stopping/enabling services:
 
@@ -3325,7 +3544,7 @@ expand their functionality.
 
 **route**
 
-:   [route](/resource_route/) includes a new `comment` property.
+:   [route](/resources/route/) includes a new `comment` property.
 
     Thanks Thomas Doherty for adding this new property.
 
@@ -3419,7 +3638,7 @@ Other Changes
 
 -   **yum_package rewrite**
 
-    [yum_package](/resource_yum_package/) received a ground up
+    [yum_package](/resources/yum_package/) received a ground up
     rewrite that greatly improves both the performance and functionality
     while also resolving a dozen existing issues. It introduces a new
     caching method that runs for the duration of chef-client process.
@@ -3497,12 +3716,12 @@ releases.
 
 -   **erl_call Resource**
 
-    The [erl_call](/resource_erl_call/) resource was deprecated in
+    The [erl_call](/resources/erl_call/) resource was deprecated in
     Chef 13.7 and has been removed.
 
 -   **deploy Resource**
 
-    The [deploy](/resource_deploy/) resource was deprecated in Chef
+    The [deploy](/resources/deploy/) resource was deprecated in Chef
     13.6 and been removed. If you still require this resource, it is
     available in the new deploy_resource cookbook at
     <https://supermarket.chef.io/cookbooks/deploy_resource>
@@ -3802,7 +4021,7 @@ What's New in 13.9.1
 
 -   On Windows, the installer now correctly re-extracts files during
     repair mode
--   The [mount](/resource_mount/) resource will not create duplicate
+-   The [mount](/resources/mount/) resource will not create duplicate
     entries when the device type differs
 -   Chef no longer requests every remote file when running with lazy
     loading enabled
@@ -3826,7 +4045,7 @@ What's New in 13.9
 
 -   On Windows, the installer now correctly re-extracts files during
     repair mode
--   The [mount](/resource_mount/) resource will now not create
+-   The [mount](/resources/mount/) resource will now not create
     duplicate entries when the device type differs
 -   Ensure we don’t request every remote file when running with lazy
     loading enabled
@@ -3935,7 +4154,7 @@ What's New in 13.7.16
 -   **The windows_task Resource should be better behaved**
 
     We’ve spent a considerable amount of time testing and fixing the
-    [windows_task](/resource_windows_task/) resource to ensure that
+    [windows_task](/resources/windows_task/) resource to ensure that
     it is properly idempotent and correct in more situations.
 
 -   **Credentials Handling**
@@ -3974,7 +4193,7 @@ Deprecations
 
 -   **erl_call Resource**
 
-    We introduced [erl_call](/resource_erlang_call/) to help us to
+    We introduced [erl_call](/resources/erlang_call/) to help us to
     manage CouchDB servers back in the olden times of Chef. Since then
     we’ve noticed that no one uses it, and so `erl_call` will be removed
     in Chef 14. Foodcritic rule [FC105](http://www.foodcritic.io/#FC105)
@@ -4012,7 +4231,7 @@ Deprecations
 
     The chocolatey cookbook’s `chocolatey_package` resource originally
     contained an `:uninstall` action. When
-    [chocolatey_package](/resource_chocolatey_package/) was moved
+    [chocolatey_package](/resources/chocolatey_package/) was moved
     into core Chef we made `:uninstall` an alias for `:remove`. In Chef
     14, `:uninstall` will no longer be a valid action. Foodcritic rule
     [FC103](http://www.foodcritic.io/#FC103) has been introduced to
@@ -4135,8 +4354,8 @@ with users of the previous V2 plugins, we write data to both locations.
 We had originally planned to continue writing data to both locations
 until Chef 15. Instead, due to the large amount of duplicate node data
 this introduces, we are updating the
-[OHAI-11](/deprecations_ohai_cloud_v2/) and
-[OHAI-12](/deprecations_ohai_filesystem_v2/) deprecations to remove
+[OHAI-11](/deprecations_ohai_cloud_v2.html) and
+[OHAI-12](/deprecations_ohai_filesystem_v2.html) deprecations to remove
 `node['cloud_v2']` and `node['filesystem2']` with the release of Chef 14
 in April 2018.
 
@@ -4199,7 +4418,7 @@ What's New in 13.4.19
 -   **Additional ifconfig options on RHEL and CentOS** The
     `ethtool_opts`, `bonding_opts`, `master`, and `slave` properties
     have been added. See the [ifconfig resource
-    documentation](/resource_ifconfig/) for additional details.
+    documentation](/resources/ifconfig/) for additional details.
 -   **Chef vault now included by default** Chef client 13.4 includes the
     `chef-vault` gem, so users can more easily work with encrypted
     items.
@@ -4209,11 +4428,11 @@ What's New in 13.4.19
     even if the Chef client process identity does not have permission to
     access it. This is mainly intended to be used for accessing files
     between two nodes on different domains. See the [remote_file
-    documentation](/resource_remote_file/) for more information.
+    documentation](/resources/remote_file/) for more information.
 -   **New windows_path resource** `windows_path` has been moved from
     the Windows cookbook to core Chef. The `windows_path` resource is
     used to manage the path environment variable on Windows. See the
-    [windows_path documentation](/resource_windows_path/) for
+    [windows_path documentation](/resources/windows_path/) for
     additional details.
 
 Ohai 13.4
@@ -4299,8 +4518,8 @@ What's New in 13.3
     omnibus install of Chef.
 
 -   **New resources** This release introduces the
-    [apt_preference](/resource_apt_preference/) and
-    [zypper_repository](/resource_zypper_repository/) resources.
+    [apt_preference](/resources/apt_preference/) and
+    [zypper_repository](/resources/zypper_repository/) resources.
 
 -   **windows_task Improvements** The `windows_task` resource now
     allows updating the configuration of a scheduled task when using the
@@ -5198,7 +5417,7 @@ feature will be coming soon.
 Bugfixes
 --------
 
-Fixes issue where the [apt_repository](/resource_apt_repository/)
+Fixes issue where the [apt_repository](/resources/apt_repository/)
 resource couldn't identify key fingerprints when gnupg 2.1.x was used.
 
 What's New in 12.19
@@ -5633,7 +5852,7 @@ the local machine. This configuration file specifies which repositories
 to reference, how to handle cached data, etc.
 
 For syntax, a list of properties and actions, see
-[yum_repository](/resource_yum_repository/).
+[yum_repository](/resources/yum_repository/).
 
 sensitive: true
 ---------------
@@ -9004,7 +9223,7 @@ The following examples show:
 1.  A definition
 2.  The same definition rewritten as a custom resource
 3.  The same definition, rewritten again to use a [common resource
-    property](/resource_common/)
+    property](/resources/common/)
 
 ### As a Definition
 
@@ -9070,7 +9289,7 @@ end
 ### Common Properties
 
 Unlike definitions, custom resources are able to use [common resource
-properties](/resource_common/). For example, `only_if`:
+properties](/resources/common/). For example, `only_if`:
 
 ``` ruby
 host_porter 'www1' do
@@ -9581,7 +9800,7 @@ The **windows_package** resource may specify a package at a remote
 location using the `remote_file_attributes` property. This uses the
 **remote_file** resource to download the contents at the specified URL
 and passes in a Hash that modifies the properties of the [remote_file
-resource](/resource_remote_file/).
+resource](/resources/remote_file/).
 
 For example:
 

@@ -2,7 +2,7 @@
 title = "Documentation Style Guide"
 draft = false
 
-aliases = "/style_guide.html"
+aliases = ["/style_guide.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,7 @@
 title = "Writing Ohai Custom Plugins"
 draft = false
 
-aliases = "/ohai_custom.html"
+aliases = ["/ohai_custom.html"]
 
 [menu]
   [menu.docs]

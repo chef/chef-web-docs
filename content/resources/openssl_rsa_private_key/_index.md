@@ -2,7 +2,8 @@
 title: openssl_rsa_private_key resource
 resource: openssl_rsa_private_key
 draft: false
-aliases: /resource_openssl_rsa_private_key.html
+aliases:
+- /resource_openssl_rsa_private_key.html
 menu:
   docs:
     title: openssl_rsa_private_key
@@ -27,14 +28,15 @@ resource_description_list:
       recipe, it cannot be opened, and will be overwritten.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The openssl_rsa_private_key resource has the following syntax:'
-syntax_code_block: "openssl_rsa_private_key 'name' do\n  force           true, false\
-  \ # default value: false\n  group           String, Integer\n  key_cipher      String\
-  \ # default value: \"des3\"\n  key_length      Integer # default value: 2048\n \
-  \ key_pass        String\n  mode            Integer, String # default value: \"\
-  0600\"\n  owner           String, Integer\n  path            String # default value:\
-  \ 'name' unless specified\n  action          Symbol # defaults to :create if not\
-  \ specified\nend"
+syntax_description: "The openssl_rsa_private_key resource has the following syntax:\n\
+  \n``` ruby\nopenssl_rsa_private_key 'name' do\n  force           true, false # default\
+  \ value: false\n  group           String, Integer\n  key_cipher      String # default\
+  \ value: \"des3\"\n  key_length      Integer # default value: 2048\n  key_pass \
+  \       String\n  mode            Integer, String # default value: \"0600\"\n  owner\
+  \           String, Integer\n  path            String # default value: 'name' unless\
+  \ specified\n  action          Symbol # defaults to :create if not specified\nend\n\
+  ```"
+syntax_code_block: null
 syntax_properties_list:
 - '`openssl_rsa_private_key` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -113,7 +115,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for specifying the path to write the file to if
@@ -136,11 +138,18 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
 unit_file_verification: false
-examples_list: null
+examples_list:
+- example_heading: Create a new 2048bit key with the default des3 cipher
+  text_blocks:
+  - code_block: "openssl_rsa_private_key '/etc/ssl_files/rsakey_des3.pem' do\n   key_length\
+      \ 2048\n   action :create\nend"
+- example_heading: Create a new 1024 bit key with the aes-128-cbc cipher
+  text_blocks:
+  - code_block: "openssl_rsa_key '/etc/ssl_files/rsakey_aes128cbc.pem' do\n   key_length\
+      \ 1024\n   key_cipher 'aes-128-cbc'\n   action :create\nend"
 
 ---

@@ -2,7 +2,8 @@
 title: windows_dns_record resource
 resource: windows_dns_record
 draft: false
-aliases: /resource_windows_dns_record.html
+aliases:
+- /resource_windows_dns_record.html
 menu:
   docs:
     title: windows_dns_record
@@ -18,11 +19,12 @@ resource_description_list:
     domain.'
 resource_new_in: '15.0'
 handler_types: false
-syntax_description: 'The windows_dns_record resource has the following syntax:'
-syntax_code_block: "windows_dns_record 'name' do\n  record_name      String # default\
-  \ value: 'name' unless specified\n  record_type      String # default value: \"\
-  ARecord\"\n  target           String\n  zone             String\n  action      \
-  \     Symbol # defaults to :create if not specified\nend"
+syntax_description: "The windows_dns_record resource has the following syntax:\n\n\
+  ``` ruby\nwindows_dns_record 'name' do\n  record_name      String # default value:\
+  \ 'name' unless specified\n  record_type      String # default value: \"ARecord\"\
+  \n  target           String\n  zone             String\n  action           Symbol\
+  \ # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_dns_record` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -48,7 +50,7 @@ properties_list:
 - property: record_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the dns record name if it differs from
@@ -92,7 +94,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

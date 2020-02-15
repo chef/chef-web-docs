@@ -2,7 +2,7 @@
 title = "About Handlers"
 draft = false
 
-aliases = "/handlers.html"
+aliases = ["/handlers.html"]
 
 [menu]
   [menu.docs]

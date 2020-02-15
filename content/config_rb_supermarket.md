@@ -2,7 +2,7 @@
 title = "supermarket.rb Settings"
 draft = false
 
-aliases = "/config_rb_supermarket.html"
+aliases = ["/config_rb_supermarket.html"]
 
 [menu]
   [menu.docs]

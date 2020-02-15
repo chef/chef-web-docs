@@ -2,7 +2,7 @@
 title = "Push Jobs Server Sent Events Feed"
 draft = false
 
-aliases = "/server_sent_events.html"
+aliases = ["/server_sent_events.html"]
 
 [menu]
   [menu.docs]

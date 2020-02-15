@@ -2,7 +2,8 @@
 title: remote_file resource
 resource: remote_file
 draft: false
-aliases: /resource_remote_file.html
+aliases:
+- /resource_remote_file.html
 menu:
   docs:
     title: remote_file
@@ -24,11 +25,12 @@ resource_description_list:
       with the **cookbook_file** resource.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **remote_file** resource block manages files by using files
-  that exist remotely. For example, to write the home page for an Apache website:'
-syntax_code_block: "remote_file '/var/www/customers/public_html/index.html' do\n \
-  \ source 'http://somesite.com/index.html'\n  owner 'web_admin'\n  group 'web_admin'\n\
-  \  mode '0755'\n  action :create\nend"
+syntax_description: "A **remote_file** resource block manages files by using files\
+  \ that\nexist remotely. For example, to write the home page for an Apache\nwebsite:\n\
+  \n``` ruby\nremote_file '/var/www/customers/public_html/index.html' do\n  source\
+  \ 'http://somesite.com/index.html'\n  owner 'web_admin'\n  group 'web_admin'\n \
+  \ mode '0755'\n  action :create\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`''/var/www/customers/public_html/index.html''` is path to the file to be created'
 - '`''http://somesite.com/index.html''` specifies the location of the remote file,
@@ -50,9 +52,10 @@ syntax_full_code_block: "remote_file 'name' do\n  atomic_update              tru
   \ Block\n  remote_domain              String\n  remote_password            String\n\
   \  remote_user                String\n  show_progress              true, false #\
   \ default value: false\n  use_etag                   true, false # default value:\
-  \ true\n  use_last_modified          true, false # default value: true\n  verifications\
-  \              Array\n  action                     Symbol # defaults to :create\
-  \ if not specified\nend"
+  \ true\n  use_last_modified          true, false # default value: true\n  sensitive\
+  \                  true, false # default value: false\n  verifications         \
+  \     Array\n  action                     Symbol # defaults to :create if not specified\n\
+  end"
 syntax_full_properties_list:
 - '`remote_file` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -61,7 +64,8 @@ syntax_full_properties_list:
 - '`atomic_update`, `authentication`, `backup`, `checksum`, `content`, `diff`, `force_unlink`,
   `ftp_active_mode`, `group`, `headers`, `manage_symlink_source`, `mode`, `owner`,
   `path`, `remote_domain`, `remote_password`, `remote_user`, `show_progress`, `use_etag`,
-  `use_last_modified`, and `verifications` are the properties available to this resource.'
+  `use_last_modified`, `sensitive`, and `verifications` are the properties available
+  to this resource.'
 syntax_shortcode: null
 registry_key: false
 nameless_apt_update: false
@@ -593,6 +597,15 @@ properties_list:
   - markdown: 'Displays the progress of the file download. Set to `true` to enable
 
       this feature.'
+- property: sensitive
+  ruby_type: true, false
+  required: false
+  default_value: 'false'
+  new_in: null
+  description_list:
+  - markdown: 'Ensure that sensitive resource data is not logged by Chef Infra
+
+      Client.'
 - property: verify
   ruby_type: String, Block
   required: false
@@ -607,11 +620,11 @@ properties_list:
       \ do\n  verify { 1 == 1 }\nend\n```\n\nThis should return `true`:\n\n``` ruby\n\
       remote_file '/etc/nginx.conf' do\n  verify 'nginx -t -c %{path}'\nend\n```"
   - warning:
-    - markdown: "\n\nFor releases of Chef Infra Client prior to 12.5 (chef-client\
-        \ 12.4\nand earlier) the correct syntax is:\n\n``` ruby\nremote_file '/etc/nginx.conf'\
+    - markdown: "For releases of Chef Infra Client prior to 12.5 (chef-client 12.4\n\
+        and earlier) the correct syntax is:\n\n``` ruby\nremote_file '/etc/nginx.conf'\
         \ do\n  verify 'nginx -t -c %{file}'\nend\n```\n\nSee GitHub issues <https://github.com/chef/chef/issues/3232>\
         \ and\n<https://github.com/chef/chef/pull/3693> for more information about\n\
-        these differences.\n\n"
+        these differences."
   - markdown: "This should return `true`:\n\n``` ruby\nremote_file '/tmp/bar' do\n\
       \  verify { 1 == 1}\nend\n```\n\nAnd this should return `true`:\n\n``` ruby\n\
       remote_file '/tmp/foo' do\n  verify do |path|\n    true\n  end\nend\n```\n\n\
@@ -635,7 +648,6 @@ resources_common_guards: false
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

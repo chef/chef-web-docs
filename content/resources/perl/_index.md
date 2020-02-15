@@ -2,7 +2,8 @@
 title: perl resource
 resource: perl
 draft: false
-aliases: /resource_perl.html
+aliases:
+- /resource_perl.html
 menu:
   docs:
     title: perl
@@ -33,10 +34,9 @@ resource_description_list:
       other script resources, rather than run inline.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **perl** resource block executes scripts Perl:  ``` perl perl
-  ''hello world'' do code <<-EOH print "Hello world! From Chef and Perl."; EOH end
-  ```  where  -   `code` specifies the command to run  The full syntax for all of
-  the properties that are available to the **perl** resource is:'
+syntax_description: "A **perl** resource block executes scripts Perl:\n\n``` perl\n\
+  perl 'hello world' do\n  code <<-EOH\n    print \"Hello world! From Chef and Perl.\"\
+  ;\n    EOH\nend\n```"
 syntax_code_block: null
 syntax_properties_list:
 - '`code` specifies the command to run'
@@ -288,7 +288,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

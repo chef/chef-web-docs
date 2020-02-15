@@ -2,7 +2,8 @@
 title: yum_repository resource
 resource: yum_repository
 draft: false
-aliases: /resource_yum_repository.html
+aliases:
+- /resource_yum_repository.html
 menu:
   docs:
     title: yum_repository
@@ -22,9 +23,9 @@ resource_description_list:
     to reference, how to handle cached data, etc.'
 resource_new_in: '12.14'
 handler_types: false
-syntax_description: 'The yum_repository resource has the following syntax:'
-syntax_code_block: "yum_repository 'name' do\n  baseurl                    String,\
-  \ Array\n  clean_headers              true, false # default value: false\n  clean_metadata\
+syntax_description: "The yum_repository resource has the following syntax:\n\n```\
+  \ ruby\nyum_repository 'name' do\n  baseurl                    String, Array\n \
+  \ clean_headers              true, false # default value: false\n  clean_metadata\
   \             true, false # default value: true\n  cost                       String\n\
   \  description                String # default value: \"Yum Repository\"\n  enabled\
   \                    true, false # default value: true\n  enablegroups         \
@@ -47,7 +48,8 @@ syntax_code_block: "yum_repository 'name' do\n  baseurl                    Strin
   \        String\n  sslclientkey               String\n  sslverify              \
   \    true, false\n  throttle                   String, Integer\n  timeout      \
   \              String\n  username                   String\n  action           \
-  \          Symbol # defaults to :create if not specified\nend"
+  \          Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`yum_repository` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -453,7 +455,7 @@ properties_list:
 - property: repositoryid
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the repository name if it differs from
@@ -551,7 +553,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

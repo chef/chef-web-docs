@@ -2,7 +2,8 @@
 title: chef_gem resource
 resource: chef_gem
 draft: false
-aliases: /resource_chef_gem.html
+aliases:
+- /resource_chef_gem.html
 menu:
   docs:
     title: chef_gem
@@ -29,8 +30,22 @@ resource_description_list:
 resource_new_in: null
 handler_types: false
 syntax_description: 'A **chef_gem** resource block manages a package on a node, typically
-  by installing it. The simplest use of the **chef_gem** resource is:'
-syntax_code_block: chef_gem 'package_name'
+  by
+
+  installing it. The simplest use of the **chef_gem** resource is:
+
+
+  ``` ruby
+
+  chef_gem ''package_name''
+
+  ```
+
+
+  which will install the named gem using all of the default options and
+
+  the default action (`:install`).'
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "chef_gem 'name' do\n  clear_sources              true, false\n\
   \  compile_time               true, false\n  gem_binary                 String\n\
@@ -104,7 +119,7 @@ properties_list:
 - property: gem_binary
   ruby_type: String
   required: false
-  default_value: Chefs built-in gem binary
+  default_value: Chef's built-in gem binary
   new_in: null
   description_list:
   - markdown: 'The path of a gem binary to use for the installation. By default,
@@ -195,7 +210,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

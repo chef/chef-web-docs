@@ -2,7 +2,8 @@
 title: batch resource
 resource: batch
 draft: false
-aliases: /resource_batch.html
+aliases:
+- /resource_batch.html
 menu:
   docs:
     title: batch
@@ -27,10 +28,11 @@ resource_description_list:
     `only_if` to guard this resource for idempotence.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **batch** resource block executes a batch script using the
-  cmd.exe interpreter:'
-syntax_code_block: "batch 'echo some env vars' do\n  code <<-EOH\n    echo %TEMP%\n\
-  \    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n    EOH\nend"
+syntax_description: "A **batch** resource block executes a batch script using the\
+  \ cmd.exe\ninterpreter:\n\n``` ruby\nbatch 'echo some env vars' do\n  code <<-EOH\n\
+  \    echo %TEMP%\n    echo %SYSTEMDRIVE%\n    echo %PATH%\n    echo %WINDIR%\n \
+  \   EOH\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "batch 'name' do\n  architecture               Symbol\n  code\
   \                       String\n  command                    String, Array\n  creates\
@@ -254,7 +256,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

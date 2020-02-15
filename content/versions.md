@@ -2,7 +2,7 @@
 title = "Supported Versions"
 draft = false
 
-aliases = "/versions.html"
+aliases = ["/versions.html"]
 
 [menu]
   [menu.docs]

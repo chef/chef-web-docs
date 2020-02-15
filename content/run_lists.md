@@ -2,7 +2,7 @@
 title = "About Run-lists"
 draft = false
 
-aliases = "/run_lists.html"
+aliases = ["/run_lists.html"]
 
 [menu]
   [menu.docs]

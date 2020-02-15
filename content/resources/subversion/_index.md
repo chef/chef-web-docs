@@ -2,7 +2,8 @@
 title: subversion resource
 resource: subversion
 draft: false
-aliases: /resource_subversion.html
+aliases:
+- /resource_subversion.html
 menu:
   docs:
     title: subversion
@@ -26,20 +27,21 @@ resource_description_list:
       [\#4257](https://github.com/chef/chef/issues/4257).'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The subversion resource has the following syntax:'
-syntax_code_block: "subversion 'name' do\n  checkout_branch        String # default\
-  \ value: \"deploy\"\n  depth                  Integer\n  destination           \
-  \ String # default value: 'name' unless specified\n  enable_checkout        true,\
-  \ false # default value: true\n  enable_submodules      true, false # default value:\
-  \ false\n  environment            Hash\n  group                  String, Integer\n\
-  \  remote                 String # default value: \"origin\"\n  repository     \
-  \        String\n  revision               String # default value: \"HEAD\"\n  ssh_wrapper\
-  \            String\n  svn_arguments          String, false # default value: \"\
-  --no-auth-cache\"\n  svn_binary             String\n  svn_info_args          String,\
-  \ false # default value: \"--no-auth-cache\"\n  svn_password           String\n\
-  \  svn_username           String\n  timeout                Integer\n  user     \
-  \              String, Integer\n  action                 Symbol # defaults to :sync\
-  \ if not specified\nend"
+syntax_description: "The subversion resource has the following syntax:\n\n``` ruby\n\
+  subversion 'name' do\n  checkout_branch        String # default value: \"deploy\"\
+  \n  depth                  Integer\n  destination            String # default value:\
+  \ 'name' unless specified\n  enable_checkout        true, false # default value:\
+  \ true\n  enable_submodules      true, false # default value: false\n  environment\
+  \            Hash\n  group                  String, Integer\n  remote          \
+  \       String # default value: \"origin\"\n  repository             String\n  revision\
+  \               String # default value: \"HEAD\"\n  ssh_wrapper            String\n\
+  \  svn_arguments          String, false # default value: \"--no-auth-cache\"\n \
+  \ svn_binary             String\n  svn_info_args          String, false # default\
+  \ value: \"--no-auth-cache\"\n  svn_password           String\n  svn_username  \
+  \         String\n  timeout                Integer\n  user                   String,\
+  \ Integer\n  action                 Symbol # defaults to :sync if not specified\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`subversion` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -76,7 +78,7 @@ properties_list:
 - property: destination
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The location path to which the source is to be cloned, checked out,
@@ -182,7 +184,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

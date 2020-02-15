@@ -53,7 +53,11 @@ A `Policyfile.rb` file may contain the following settings:
     default_source :supermarket, "https://supermarket.example"
     ```
 
-    <div class="alert-info">
+    <div class="admonition-note">
+
+    <p class="admonition-note-title">Note</p>
+
+    <div class="admonition-note-text">
 
     If a run-list or any dependencies require a cookbook that is present
     in more than one source, be explicit about which source is
@@ -78,6 +82,10 @@ A `Policyfile.rb` file may contain the following settings:
       s.preferred_for "chef-client", "nginx", "mysql"
     end
     ```
+
+    
+
+    </div>
 
     </div>
 

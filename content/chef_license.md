@@ -2,7 +2,7 @@
 title = "About Chef Licenses"
 draft = false
 
-aliases = "/chef_license.html"
+aliases = ["/chef_license.html"]
 
 [menu]
   [menu.docs]

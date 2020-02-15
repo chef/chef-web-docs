@@ -2,7 +2,7 @@
 title = "About Cookbook Versioning"
 draft = false
 
-aliases = "/cookbook_versioning.html"
+aliases = ["/cookbook_versioning.html", "/cookbook_versions.html"]
 
 [menu]
   [menu.docs]

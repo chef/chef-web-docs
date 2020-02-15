@@ -2,7 +2,7 @@
 title = "About Attributes"
 draft = false
 
-aliases = "/attributes.html"
+aliases = ["/attributes.html"]
 
 [menu]
   [menu.docs]

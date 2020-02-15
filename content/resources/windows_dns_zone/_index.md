@@ -2,7 +2,8 @@
 title: windows_dns_zone resource
 resource: windows_dns_zone
 draft: false
-aliases: /resource_windows_dns_zone.html
+aliases:
+- /resource_windows_dns_zone.html
 menu:
   docs:
     title: windows_dns_zone
@@ -18,11 +19,12 @@ resource_description_list:
     Integrated DNS Zone on the local server.'
 resource_new_in: '15.0'
 handler_types: false
-syntax_description: 'The windows_dns_zone resource has the following syntax:'
-syntax_code_block: "windows_dns_zone 'name' do\n  replication_scope      String #\
-  \ default value: \"Domain\"\n  server_type            String # default value: \"\
-  Domain\"\n  zone_name              String # default value: 'name' unless specified\n\
-  \  action                 Symbol # defaults to :create if not specified\nend"
+syntax_description: "The windows_dns_zone resource has the following syntax:\n\n```\
+  \ ruby\nwindows_dns_zone 'name' do\n  replication_scope      String # default value:\
+  \ \"Domain\"\n  server_type            String # default value: \"Domain\"\n  zone_name\
+  \              String # default value: 'name' unless specified\n  action       \
+  \          Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_dns_zone` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -64,7 +66,7 @@ properties_list:
 - property: zone_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the dns zone name if it differs from the
@@ -87,7 +89,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

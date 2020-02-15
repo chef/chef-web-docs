@@ -2,7 +2,7 @@
 title = "Configure a Project through config.json"
 draft = false
 
-aliases = "/config_json_delivery.html"
+aliases = ["/config_json_delivery.html", "/release/automate/config_json_delivery.html"]
 
 [menu]
   [menu.docs]

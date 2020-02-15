@@ -2,7 +2,7 @@
 title = "knife ssh"
 draft = false
 
-aliases = "/knife_ssh.html"
+aliases = ["/knife_ssh.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,8 @@
 title: rhsm_errata_level resource
 resource: rhsm_errata_level
 draft: false
-aliases: /resource_rhsm_errata_level.html
+aliases:
+- /resource_rhsm_errata_level.html
 menu:
   docs:
     title: rhsm_errata_level
@@ -27,10 +28,11 @@ resource_description_list:
     and `low`.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The rhsm_errata_level resource has the following syntax:'
-syntax_code_block: "rhsm_errata_level 'name' do\n  errata_level      String # default\
-  \ value: 'name' unless specified\n  action            Symbol # defaults to :install\
-  \ if not specified\nend"
+syntax_description: "The rhsm_errata_level resource has the following syntax:\n\n\
+  ``` ruby\nrhsm_errata_level 'name' do\n  errata_level      String # default value:\
+  \ 'name' unless specified\n  action            Symbol # defaults to :install if\
+  \ not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`rhsm_errata_level` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -53,7 +55,7 @@ properties_list:
 - property: errata_level
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for specifying the errata level of packages to
@@ -76,7 +78,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

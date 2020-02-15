@@ -2,7 +2,7 @@
 title = "High Availability: Upgrade to Chef Backend 2"
 draft = false
 
-aliases = "/upgrade_server_ha_v2.html"
+aliases = ["/upgrade_server_ha_v2.html"]
 
 [menu]
   [menu.docs]

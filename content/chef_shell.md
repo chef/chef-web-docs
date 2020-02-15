@@ -2,7 +2,7 @@
 title = "chef-shell (executable)"
 draft = false
 
-aliases = "/chef_shell.html"
+aliases = ["/chef_shell.html"]
 
 [menu]
   [menu.docs]
@@ -50,7 +50,22 @@ This command has the following options:
 
 :   The path to a file that contains JSON data.
 
-    {{% node_ctl_run_list %}}
+    Use this option to define a `run_list` object. For example, a JSON
+    file similar to:
+
+    ``` javascript
+    "run_list": [
+      "recipe[base]",
+      "recipe[foo]",
+      "recipe[bar]",
+      "role[webserver]"
+    ],
+    ```
+
+    may be used by running `chef-shell -j path/to/file.json`.
+
+    In certain situations this option may be used to update `normal`
+    attributes.
 
     {{< warning >}}
 
@@ -61,6 +76,11 @@ This command has the following options:
 `-l LEVEL`, `--log-level LEVEL`
 
 :   The level of logging to be stored in a log file.
+
+`-o RUN_LIST_ITEM`, `--override-runlist RUN_LIST_ITEM`
+
+:   Replace the current run-list with the specified items. Only
+    applicable when also using `solo` or `server` modes.
 
 `-s`, `--solo`
 
@@ -93,13 +113,8 @@ Run as a Chef Infra Client
 
 {{% chef_shell_run_as_chef_client %}}
 
-Manage
-======
-
-{{% chef_shell_manage %}}
-
-Use Breakpoints
-===============
+Debugging Cookbooks
+===================
 
 {{% chef_shell_breakpoints %}}
 
@@ -117,6 +132,11 @@ Advanced Debugging
 ------------------
 
 {{% chef_shell_advanced_debug %}}
+
+Manipulating Chef Infra Server Data
+===================================
+
+{{% chef_shell_manage %}}
 
 Examples
 ========

@@ -2,7 +2,8 @@
 title: chef_acl resource
 resource: chef_acl
 draft: false
-aliases: /resource_chef_acl.html
+aliases:
+- /resource_chef_acl.html
 resource_reference: false
 robots: noindex, nofollow
 resource_description_list:
@@ -13,10 +14,10 @@ resource_description_list:
     (ACLs) that exist on the Chef server.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The syntax for using the **chef_acl** resource in a recipe is
-  as follows:'
-syntax_code_block: "chef_acl 'name' do\n  attribute 'value' # see properties section\
-  \ below\n  ...\n  action :action # see actions section below\nend"
+syntax_description: "The syntax for using the **chef_acl** resource in a recipe is\
+  \ as\nfollows:\n\n``` ruby\nchef_acl 'name' do\n  attribute 'value' # see properties\
+  \ section below\n  ...\n  action :action # see actions section below\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`chef_acl` tells Chef Infra Client to use the `Chef::Provider::ChefAcl` provider
   during a Chef Infra Client run'
@@ -227,7 +228,6 @@ resources_common_guards: false
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

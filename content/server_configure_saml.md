@@ -2,7 +2,7 @@
 title = "Configuring for SAML Authentication"
 draft = false
 
-aliases = "/server_configure_saml.html"
+aliases = ["/server_configure_saml.html", "/release/automate/server_configure_saml.html"]
 
 [menu]
   [menu.docs]

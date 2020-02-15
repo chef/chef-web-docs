@@ -9,7 +9,11 @@ returned when certificates do not have valid X.509 certificate
 properties or if the `/.chef/trusted_certs` directory does not contain
 any certificates.
 
-<div class="alert-warning">
+<div class="admonition-warning">
+
+<p class="admonition-warning-title">Warning</p>
+
+<div class="admonition-warning-text">
 
 When verification of a remote server's SSL certificate is disabled, Chef
 Infra Client will issue a warning similar to "SSL validation of HTTPS
@@ -18,5 +22,9 @@ Infra Client is not able to detect forged replies or man-in-the-middle
 attacks." To configure SSL for Chef Infra Client, set `ssl_verify_mode`
 to `:verify_peer` (recommended) **or** `verify_api_cert` to `true` in
 the client.rb file.
+
+
+
+</div>
 
 </div>

@@ -2,7 +2,7 @@
 title = "About Policyfile"
 draft = false
 
-aliases = "/policyfile.html"
+aliases = ["/policyfile.html"]
 
 [menu]
   [menu.docs]

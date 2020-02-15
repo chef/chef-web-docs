@@ -2,7 +2,7 @@
 title = "Install Chef Infra Client on Windows Nodes"
 draft = false
 
-aliases = "/install_windows.html"
+aliases = ["/install_windows.html"]
 
 [menu]
   [menu.docs]

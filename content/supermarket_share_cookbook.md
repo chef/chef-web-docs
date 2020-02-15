@@ -2,7 +2,7 @@
 title = "Share Cookbooks on the Chef Supermarket"
 draft = false
 
-aliases = "/supermarket_share_cookbook.html"
+aliases = ["/supermarket_share_cookbook.html"]
 
 [menu]
   [menu.docs]

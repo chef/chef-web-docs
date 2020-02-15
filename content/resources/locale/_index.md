@@ -2,7 +2,8 @@
 title: locale resource
 resource: locale
 draft: false
-aliases: /resource_locale.html
+aliases:
+- /resource_locale.html
 menu:
   docs:
     title: locale
@@ -15,9 +16,10 @@ resource_description_list:
 - markdown: Use the **locale** resource to set the system's locale.
 resource_new_in: '14.5'
 handler_types: false
-syntax_description: 'The locale resource has the following syntax:'
-syntax_code_block: "locale 'name' do\n  lang        String\n  lc_env      Hash\n \
-  \ action      Symbol # defaults to :update if not specified\nend"
+syntax_description: "The locale resource has the following syntax:\n\n``` ruby\nlocale\
+  \ 'name' do\n  lang        String\n  lc_env      Hash\n  action      Symbol # defaults\
+  \ to :update if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`locale` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -73,7 +75,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

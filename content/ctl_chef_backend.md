@@ -2,7 +2,7 @@
 title = "chef-backend-ctl"
 draft = false
 
-aliases = "/ctl_chef_backend.html"
+aliases = ["/ctl_chef_backend.html"]
 
 [menu]
   [menu.docs]

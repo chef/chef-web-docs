@@ -2,7 +2,8 @@
 title: chef_handler resource
 resource: chef_handler
 draft: false
-aliases: /resource_chef_handler.html
+aliases:
+- /resource_chef_handler.html
 menu:
   docs:
     title: chef_handler
@@ -30,10 +31,13 @@ resource_description_list:
     handlers will be available for the entire Chef Infra Client run.'
 resource_new_in: '14.0'
 handler_types: true
-syntax_description: 'A **chef_handler** resource block enables handlers during a chef-client
-  run. Two handlers---`JsonFile` and `ErrorReport`---are built into Chef:'
-syntax_code_block: "chef_handler 'Chef::Handler::JsonFile' do\n  source 'chef/handler/json_file'\n\
-  \  arguments :path => '/var/chef/reports'\n  action :enable\nend"
+syntax_description: "A **chef_handler** resource block enables handlers during a chef-client\n\
+  run. Two handlers---`JsonFile` and `ErrorReport`---are built into Chef:\n\n``` ruby\n\
+  chef_handler 'Chef::Handler::JsonFile' do\n  source 'chef/handler/json_file'\n \
+  \ arguments :path => '/var/chef/reports'\n  action :enable\nend\n```\n\nand:\n\n\
+  ``` ruby\nchef_handler 'Chef::Handler::ErrorReport' do\n  source 'chef/handler/error_report'\n\
+  \  action :enable\nend\n```\n\nshow how to enable those handlers in a recipe."
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "chef_handler 'name' do\n  arguments       Array, Hash\n \
   \ class_name      String # default value: 'name' unless specified\n  source    \
@@ -89,7 +93,7 @@ properties_list:
 - property: class_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: The name of the handler class. This can be module name-spaced.
@@ -119,7 +123,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: true
 cookbook_file_specificity: false

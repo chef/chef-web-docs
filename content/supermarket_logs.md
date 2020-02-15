@@ -2,7 +2,7 @@
 title = "Supermarket Logs"
 draft = false
 
-aliases = "/supermarket_logs.html"
+aliases = ["/supermarket_logs.html"]
 
 [menu]
   [menu.docs]

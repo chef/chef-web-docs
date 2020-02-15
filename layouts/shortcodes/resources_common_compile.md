@@ -15,9 +15,17 @@ during the compile phase. For example, a resource can be configured to
 install a package during the compile phase to ensure that application is
 available to other resources during the execution phase.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 Use the **chef_gem** resource to install gems that are needed by Chef
 Infra Client during the execution phase.
+
+
+
+</div>
 
 </div>

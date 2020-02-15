@@ -2,7 +2,7 @@
 title = "Tiered Installation"
 draft = false
 
-aliases = "/install_server_tiered.html"
+aliases = ["/install_server_tiered.html"]
 
 [menu]
   [menu.docs]

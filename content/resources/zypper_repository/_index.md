@@ -2,7 +2,8 @@
 title: zypper_repository resource
 resource: zypper_repository
 draft: false
-aliases: /resource_zypper_repository.html
+aliases:
+- /resource_zypper_repository.html
 menu:
   docs:
     title: zypper_repository
@@ -22,19 +23,20 @@ resource_description_list:
     resource in the existing zypper cookbook.'
 resource_new_in: '13.3'
 handler_types: false
-syntax_description: 'The zypper_repository resource has the following syntax:'
-syntax_code_block: "zypper_repository 'name' do\n  autorefresh            true, false\
-  \ # default value: true\n  baseurl                String\n  cookbook           \
-  \    String\n  description            String\n  enabled                true, false\
-  \ # default value: true\n  gpgautoimportkeys      true, false # default value: true\n\
-  \  gpgcheck               true, false # default value: true\n  gpgkey          \
-  \       String\n  keeppackages           true, false # default value: false\n  mirrorlist\
-  \             String\n  mode                   String, Integer # default value:\
-  \ \"0644\"\n  path                   String\n  priority               Integer #\
-  \ default value: 99\n  refresh_cache          true, false # default value: true\n\
-  \  repo_name              String # default value: 'name' unless specified\n  source\
-  \                 String\n  type                   String # default value: \"NONE\"\
-  \n  action                 Symbol # defaults to :create if not specified\nend"
+syntax_description: "The zypper_repository resource has the following syntax:\n\n\
+  ``` ruby\nzypper_repository 'name' do\n  autorefresh            true, false # default\
+  \ value: true\n  baseurl                String\n  cookbook               String\n\
+  \  description            String\n  enabled                true, false # default\
+  \ value: true\n  gpgautoimportkeys      true, false # default value: true\n  gpgcheck\
+  \               true, false # default value: true\n  gpgkey                 String\n\
+  \  keeppackages           true, false # default value: false\n  mirrorlist     \
+  \        String\n  mode                   String, Integer # default value: \"0644\"\
+  \n  path                   String\n  priority               Integer # default value:\
+  \ 99\n  refresh_cache          true, false # default value: true\n  repo_name  \
+  \            String # default value: 'name' unless specified\n  source         \
+  \        String\n  type                   String # default value: \"NONE\"\n  action\
+  \                 Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`zypper_repository` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -53,11 +55,11 @@ nameless_build_essential: false
 resource_package_options: false
 actions_list:
   :add:
-    markdown: '> Default action. Add a new Zypper repository.'
+    markdown: Default action. Add a new Zypper repository.
   :refresh:
-    markdown: '> Refresh a Zypper repository.'
+    markdown: Refresh a Zypper repository.
   :remove:
-    markdown: '> Remove a Zypper repository.'
+    markdown: Remove a Zypper repository.
   :nothing:
     shortcode: resources_common_actions_nothing.md
 properties_list:
@@ -174,7 +176,7 @@ properties_list:
 - property: repo_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the repository name if it differs from
@@ -213,7 +215,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

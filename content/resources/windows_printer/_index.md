@@ -2,7 +2,8 @@
 title: windows_printer resource
 resource: windows_printer
 draft: false
-aliases: /resource_windows_printer.html
+aliases:
+- /resource_windows_printer.html
 menu:
   docs:
     title: windows_printer
@@ -20,13 +21,14 @@ resource_description_list:
     have the driver installed on the system.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The windows_printer resource has the following syntax:'
-syntax_code_block: "windows_printer 'name' do\n  comment           String\n  default\
-  \           true, false # default value: false\n  device_id         String # default\
-  \ value: 'name' unless specified\n  driver_name       String\n  ipv4_address   \
-  \   String\n  location          String\n  share_name        String\n  shared   \
-  \         true, false # default value: false\n  action            Symbol # defaults\
-  \ to :create if not specified\nend"
+syntax_description: "The windows_printer resource has the following syntax:\n\n```\
+  \ ruby\nwindows_printer 'name' do\n  comment           String\n  default       \
+  \    true, false # default value: false\n  device_id         String # default value:\
+  \ 'name' unless specified\n  driver_name       String\n  ipv4_address      String\n\
+  \  location          String\n  share_name        String\n  shared            true,\
+  \ false # default value: false\n  action            Symbol # defaults to :create\
+  \ if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_printer` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -70,7 +72,7 @@ properties_list:
 - property: device_id
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the printer queue name if it differs
@@ -130,7 +132,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

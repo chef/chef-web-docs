@@ -2,7 +2,8 @@
 title: msu_package resource
 resource: msu_package
 draft: false
-aliases: /resource_msu_package.html
+aliases:
+- /resource_msu_package.html
 menu:
   docs:
     title: msu_package
@@ -17,9 +18,10 @@ resource_description_list:
     packages on Microsoft Windows machines.'
 resource_new_in: '12.17'
 handler_types: false
-syntax_description: 'The msu_package resource has the following syntax:'
-syntax_code_block: "msu_package 'name' do\n  package_name               String\n \
-  \ source                     String\n  action                     Symbol\nend"
+syntax_description: "The msu_package resource has the following syntax:\n\n``` ruby\n\
+  msu_package 'name' do\n  package_name               String\n  source           \
+  \          String\n  action                     Symbol\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`msu_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -78,7 +80,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

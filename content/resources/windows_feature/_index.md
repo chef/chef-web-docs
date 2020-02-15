@@ -2,7 +2,8 @@
 title: windows_feature resource
 resource: windows_feature
 draft: false
-aliases: /resource_windows_feature.html
+aliases:
+- /resource_windows_feature.html
 menu:
   docs:
     title: windows_feature
@@ -17,9 +18,9 @@ resource_description_list:
 
     Windows features and roles. This resource calls the
 
-    [windows_feature_dism](/resource_windows_feature_dism/) or
+    [windows_feature_dism](/resources/windows_feature_dism/) or
 
-    [windows_feature_powershell](/resource_windows_feature_powershell/)
+    [windows_feature_powershell](/resources/windows_feature_powershell/)
 
     resources depending on the specified installation method, and defaults
 
@@ -28,13 +29,14 @@ resource_description_list:
     Windows.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The windows_feature resource has the following syntax:'
-syntax_code_block: "windows_feature 'name' do\n  all                   true, false\
-  \ # default value: false\n  feature_name          Array, String # default value:\
-  \ 'name' unless specified\n  install_method        Symbol # default value: :windows_feature_dism\n\
+syntax_description: "The windows_feature resource has the following syntax:\n\n```\
+  \ ruby\nwindows_feature 'name' do\n  all                   true, false # default\
+  \ value: false\n  feature_name          Array, String # default value: 'name' unless\
+  \ specified\n  install_method        Symbol # default value: :windows_feature_dism\n\
   \  management_tools      true, false # default value: false\n  source          \
   \      String\n  timeout               Integer # default value: 600\n  action  \
-  \              Symbol # defaults to :install if not specified\nend"
+  \              Symbol # defaults to :install if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_feature` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -69,7 +71,7 @@ properties_list:
 - property: feature_name
   ruby_type: Array, String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The name of the feature(s) or role(s) to install if they differ from
@@ -130,7 +132,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

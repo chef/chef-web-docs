@@ -2,7 +2,7 @@
 title = "Debug Recipes, Chef Infra Client Runs"
 draft = false
 
-aliases = "/debug.html"
+aliases = ["/debug.html"]
 
 [menu]
   [menu.docs]

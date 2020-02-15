@@ -2,7 +2,8 @@
 title: macos_userdefaults resource
 resource: macos_userdefaults
 draft: false
-aliases: /resource_macos_userdefaults.html
+aliases:
+- /resource_macos_userdefaults.html
 menu:
   docs:
     title: macos_userdefaults
@@ -24,12 +25,13 @@ resource_description_list:
     the `defaults` man page for additional information.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The macos_userdefaults resource has the following syntax:'
-syntax_code_block: "macos_userdefaults 'name' do\n  domain      String\n  global \
-  \     true, false # default value: false\n  key         String\n  sudo        true,\
-  \ false # default value: false\n  type        String\n  user        String\n  value\
-  \       Integer, Float, String, true, false, Hash, Array\n  action      Symbol #\
-  \ defaults to :write if not specified\nend"
+syntax_description: "The macos_userdefaults resource has the following syntax:\n\n\
+  ``` ruby\nmacos_userdefaults 'name' do\n  domain      String\n  global      true,\
+  \ false # default value: false\n  key         String\n  sudo        true, false\
+  \ # default value: false\n  type        String\n  user        String\n  value  \
+  \     Integer, Float, String, true, false, Hash, Array\n  action      Symbol # defaults\
+  \ to :write if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`macos_userdefaults` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -120,7 +122,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,8 @@
 title: homebrew_cask resource
 resource: homebrew_cask
 draft: false
-aliases: /resource_homebrew_cask.html
+aliases:
+- /resource_homebrew_cask.html
 menu:
   docs:
     title: homebrew_cask
@@ -18,12 +19,13 @@ resource_description_list:
     the Homebrew package manager.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The homebrew_cask resource has the following syntax:'
-syntax_code_block: "homebrew_cask 'name' do\n  cask_name          String # default\
-  \ value: 'name' unless specified\n  homebrew_path      String # default value: \"\
-  /usr/local/bin/brew\"\n  install_cask       true, false # default value: true\n\
-  \  options            String\n  owner              String, Integer\n  action   \
-  \          Symbol # defaults to :install if not specified\nend"
+syntax_description: "The homebrew_cask resource has the following syntax:\n\n``` ruby\n\
+  homebrew_cask 'name' do\n  cask_name          String # default value: 'name' unless\
+  \ specified\n  homebrew_path      String # default value: \"/usr/local/bin/brew\"\
+  \n  install_cask       true, false # default value: true\n  options            String\n\
+  \  owner              String, Integer\n  action             Symbol # defaults to\
+  \ :install if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`homebrew_cask` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -49,7 +51,7 @@ properties_list:
 - property: cask_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the cask name if it differs from the
@@ -100,7 +102,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

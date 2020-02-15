@@ -2,7 +2,7 @@
 title = "Data Collection with a Chef Backend Cluster"
 draft = false
 
-aliases = "/data_collection_ha.html"
+aliases = ["/data_collection_ha.html"]
 
 [menu]
   [menu.docs]

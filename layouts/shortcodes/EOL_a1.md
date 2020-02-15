@@ -1,4 +1,4 @@
-<div class="alert-danger">
+<div class="admonition-danger"><p class="admonition-danger-title">Danger</p><div class="admonition-danger-text">
 
 This documentation applies to a [deprecated
 product](/versions.html#deprecated-products-and-versions). Chef Automate
@@ -8,4 +8,4 @@ visualizations, role-based access control and many other features. Chef
 Automate is included as part of the Workflow license agreement and is
 [available via subscription](https://www.chef.io/pricing/).
 
-</div>
+</div></div>

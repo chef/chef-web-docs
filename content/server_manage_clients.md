@@ -2,7 +2,7 @@
 title = "Manage Client Keys"
 draft = false
 
-aliases = "/server_manage_clients.html"
+aliases = ["/server_manage_clients.html"]
 
 [menu]
   [menu.docs]

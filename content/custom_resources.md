@@ -2,7 +2,7 @@
 title = "Custom Resources"
 draft = false
 
-aliases = "/custom_resources.html"
+aliases = ["/custom_resources.html"]
 
 [menu]
   [menu.docs]

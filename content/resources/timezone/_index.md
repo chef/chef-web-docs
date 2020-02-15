@@ -2,7 +2,8 @@
 title: timezone resource
 resource: timezone
 draft: false
-aliases: /resource_timezone.html
+aliases:
+- /resource_timezone.html
 menu:
   docs:
     title: timezone
@@ -23,10 +24,10 @@ resource_description_list:
     Windows here: <https://ss64.com/nt/timezones.html>.'
 resource_new_in: '14.6'
 handler_types: false
-syntax_description: 'The timezone resource has the following syntax:'
-syntax_code_block: "timezone 'name' do\n  timezone      String # default value: 'name'\
-  \ unless specified\n  action        Symbol # defaults to :set if not specified\n\
-  end"
+syntax_description: "The timezone resource has the following syntax:\n\n``` ruby\n\
+  timezone 'name' do\n  timezone      String # default value: 'name' unless specified\n\
+  \  action        Symbol # defaults to :set if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`timezone` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -49,7 +50,7 @@ properties_list:
 - property: timezone
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the timezone value if it differs from
@@ -72,7 +73,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false
@@ -80,12 +80,9 @@ unit_file_verification: false
 examples_list:
 - example_heading: Set the timezone to UTC
   text_blocks:
-  - markdown: ':'
   - code_block: timezone 'UTC'
 - example_heading: Set the timezone to UTC with a friendly resource name
   text_blocks:
-  - markdown: ':'
-  - code_block: "timezone 'Set the hosts timezone to UTC' do\n      timezone 'UTC'\n\
-      \    end"
+  - code_block: "timezone 'Set the hosts timezone to UTC' do\n  timezone 'UTC'\nend"
 
 ---

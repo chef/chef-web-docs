@@ -2,7 +2,8 @@
 title: windows_shortcut resource
 resource: windows_shortcut
 draft: false
-aliases: /resource_windows_shortcut.html
+aliases:
+- /resource_windows_shortcut.html
 menu:
   docs:
     title: windows_shortcut
@@ -18,12 +19,12 @@ resource_description_list:
     Windows.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The windows_shortcut resource has the following syntax:'
-syntax_code_block: "windows_shortcut 'name' do\n  arguments          String\n  cwd\
-  \                String\n  description        String\n  iconlocation       String\n\
-  \  shortcut_name      String # default value: 'name' unless specified\n  target\
-  \             String\n  action             Symbol # defaults to :create if not specified\n\
-  end"
+syntax_description: "The windows_shortcut resource has the following syntax:\n\n```\
+  \ ruby\nwindows_shortcut 'name' do\n  arguments          String\n  cwd         \
+  \       String\n  description        String\n  iconlocation       String\n  shortcut_name\
+  \      String # default value: 'name' unless specified\n  target             String\n\
+  \  action             Symbol # defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_shortcut` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -81,7 +82,7 @@ properties_list:
 - property: shortcut_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property to set the shortcut name if it differs from the
@@ -111,7 +112,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

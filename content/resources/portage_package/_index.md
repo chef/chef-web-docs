@@ -2,7 +2,8 @@
 title: portage_package resource
 resource: portage_package
 draft: false
-aliases: /resource_portage_package.html
+aliases:
+- /resource_portage_package.html
 menu:
   docs:
     title: portage_package
@@ -20,10 +21,16 @@ resource_description_list:
     shortcode: notes_resource_based_on_package.md
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **portage_package** resource block manages a package on a node,
-  typically by installing it. The simplest use of the **portage_package** resource
-  is:'
-syntax_code_block: portage_package 'package_name'
+syntax_description: "A **portage_package** resource block manages a package on a node,\n\
+  typically by installing it. The simplest use of the **portage_package**\nresource\
+  \ is:\n\n``` ruby\nportage_package 'package_name'\n```\n\nwhich will install the\
+  \ named package using all of the default options\nand the default action (`:install`).\n\
+  \nThe portage_package resource has the following syntax:\n\n``` ruby\nportage_package\
+  \ 'name' do\n  options           String, Array\n  package_name      String, Array\n\
+  \  source            String\n  timeout           String, Integer # default value:\
+  \ 3600\n  version           String, Array\n  action            Symbol # defaults\
+  \ to :install if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`portage_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -108,7 +115,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

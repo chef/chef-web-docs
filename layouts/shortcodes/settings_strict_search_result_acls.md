@@ -8,7 +8,11 @@ a `chef-server-ctl reconfigure` run `chef-manage-ctl reconfigure` to
 ensure the Chef management console also picks up the setting. Default
 value: `false`.
 
-<div class="alert-warning">
+<div class="admonition-warning">
+
+<p class="admonition-warning-title">Warning</p>
+
+<div class="admonition-warning-text">
 
 When `true`, `opscode_erchef['strict_search_result_acls']` affects all
 search results and any actor (user, client, etc.) that does not have
@@ -16,5 +20,9 @@ read access to a search result will not be able to view it. For example,
 this could affect search results returned during a Chef Infra Client
 runs if a Chef Infra Client does not have permission to read the
 information.
+
+
+
+</div>
 
 </div>

@@ -2,7 +2,7 @@
 title = "About Ohai"
 draft = false
 
-aliases = "/ohai.html"
+aliases = ["/ohai.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,7 @@
 title = "Policyfile.rb"
 draft = false
 
-aliases = "/config_rb_policyfile.html"
+aliases = ["/config_rb_policyfile.html"]
 
 [menu]
   [menu.docs]

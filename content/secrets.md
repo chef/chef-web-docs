@@ -2,7 +2,7 @@
 title = "Manage Secrets"
 draft = false
 
-aliases = "/secrets.html"
+aliases = ["/secrets.html"]
 
 [menu]
   [menu.docs]

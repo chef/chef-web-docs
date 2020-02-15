@@ -2,7 +2,7 @@
 title = "Managing Run-time Dependencies"
 draft = false
 
-aliases = "/delivery_manage_dependencies.html"
+aliases = ["/delivery_manage_dependencies.html", "/release/automate/delivery_manage_dependencies.html"]
 
 [menu]
   [menu.docs]

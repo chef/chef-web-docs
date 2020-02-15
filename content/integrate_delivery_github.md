@@ -2,7 +2,7 @@
 title = "Integrate Workflow with GitHub"
 draft = false
 
-aliases = "/integrate_delivery_github.html"
+aliases = ["/integrate_delivery_github.html", "/release/automate/integrate_delivery_github.html"]
 
 [menu]
   [menu.docs]

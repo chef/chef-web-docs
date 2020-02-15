@@ -2,7 +2,7 @@
 title = "Working with Proxies"
 draft = false
 
-aliases = "/proxies.html"
+aliases = ["/proxies.html"]
 
 [menu]
   [menu.docs]

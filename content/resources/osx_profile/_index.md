@@ -2,7 +2,8 @@
 title: osx_profile resource
 resource: osx_profile
 draft: false
-aliases: /resource_osx_profile.html
+aliases:
+- /resource_osx_profile.html
 menu:
   docs:
     title: osx_profile
@@ -23,11 +24,12 @@ resource_description_list:
     the profile on the system.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The osx_profile resource has the following syntax:'
-syntax_code_block: "osx_profile 'name' do\n  identifier        String\n  path    \
-  \          String\n  profile           String, Hash\n  profile_name      String\
-  \ # default value: 'name' unless specified\n  action            Symbol # defaults\
-  \ to :install if not specified\nend"
+syntax_description: "The osx_profile resource has the following syntax:\n\n``` ruby\n\
+  osx_profile 'name' do\n  identifier        String\n  path              String\n\
+  \  profile           String, Hash\n  profile_name      String # default value: 'name'\
+  \ unless specified\n  action            Symbol # defaults to :install if not specified\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`osx_profile` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -80,7 +82,7 @@ properties_list:
 - property: profile_name
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'Use to specify the name of the profile, if different from the name
@@ -103,7 +105,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

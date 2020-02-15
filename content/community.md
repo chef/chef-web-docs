@@ -2,7 +2,7 @@
 title = "About the Chef Community"
 draft = false
 
-aliases = "/community.html"
+aliases = ["/community.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,8 @@
 title: windows_feature_dism resource
 resource: windows_feature_dism
 draft: false
-aliases: /resource_windows_feature_dism.html
+aliases:
+- /resource_windows_feature_dism.html
 menu:
   docs:
     title: windows_feature_dism
@@ -18,12 +19,13 @@ resource_description_list:
     delete Windows features and roles using DISM.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The windows_feature_dism resource has the following syntax:'
-syntax_code_block: "windows_feature_dism 'name' do\n  all               true, false\
-  \ # default value: false\n  feature_name      Array, String # default value: 'name'\
-  \ unless specified\n  source            String\n  timeout           Integer # default\
-  \ value: 600\n  action            Symbol # defaults to :install if not specified\n\
-  end"
+syntax_description: "The windows_feature_dism resource has the following syntax:\n\
+  \n``` ruby\nwindows_feature_dism 'name' do\n  all               true, false # default\
+  \ value: false\n  feature_name      Array, String # default value: 'name' unless\
+  \ specified\n  source            String\n  timeout           Integer # default value:\
+  \ 600\n  action            Symbol # defaults to :install if not specified\nend\n\
+  ```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_feature_dism` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -60,7 +62,7 @@ properties_list:
 - property: feature_name
   ruby_type: Array, String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The name of the feature(s) or role(s) to install if they differ from
@@ -97,7 +99,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

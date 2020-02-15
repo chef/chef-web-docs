@@ -2,7 +2,7 @@
 title = "chef-manage-ctl (executable)"
 draft = false
 
-aliases = "/ctl_manage.html"
+aliases = ["/ctl_manage.html"]
 
 [menu]
   [menu.docs]

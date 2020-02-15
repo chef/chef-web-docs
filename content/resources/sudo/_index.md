@@ -2,7 +2,8 @@
 title: sudo resource
 resource: sudo
 draft: false
-aliases: /resource_sudo.html
+aliases:
+- /resource_sudo.html
 menu:
   docs:
     title: sudo
@@ -25,20 +26,21 @@ resource_description_list:
     and RHEL (6+) all support this feature.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The sudo resource has the following syntax:'
-syntax_code_block: "sudo 'name' do\n  command_aliases        Array\n  commands   \
-  \            Array # default value: [\"ALL\"]\n  config_prefix          String #\
-  \ default value: Prefix values based on the node's platform\n  defaults        \
-  \       Array\n  env_keep_add           Array\n  env_keep_subtract      Array\n\
-  \  filename               String # default value: 'name' unless specified\n  groups\
-  \                 String, Array\n  host                   String # default value:\
-  \ \"ALL\"\n  noexec                 true, false # default value: false\n  nopasswd\
-  \               true, false # default value: false\n  runas                  String\
-  \ # default value: \"ALL\"\n  setenv                 true, false # default value:\
-  \ false\n  template               String\n  users                  String, Array\n\
-  \  variables              Hash\n  visudo_binary          String # default value:\
-  \ \"/usr/sbin/visudo\"\n  visudo_path            String\n  action              \
-  \   Symbol # defaults to :create if not specified\nend"
+syntax_description: "The sudo resource has the following syntax:\n\n``` ruby\nsudo\
+  \ 'name' do\n  command_aliases        Array\n  commands               Array # default\
+  \ value: [\"ALL\"]\n  config_prefix          String # default value: Prefix values\
+  \ based on the node's platform\n  defaults               Array\n  env_keep_add \
+  \          Array\n  env_keep_subtract      Array\n  filename               String\
+  \ # default value: 'name' unless specified\n  groups                 String, Array\n\
+  \  host                   String # default value: \"ALL\"\n  noexec            \
+  \     true, false # default value: false\n  nopasswd               true, false #\
+  \ default value: false\n  runas                  String # default value: \"ALL\"\
+  \n  setenv                 true, false # default value: false\n  template      \
+  \         String\n  users                  String, Array\n  variables          \
+  \    Hash\n  visudo_binary          String # default value: \"/usr/sbin/visudo\"\
+  \n  visudo_path            String\n  action                 Symbol # defaults to\
+  \ :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`sudo` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -83,7 +85,7 @@ properties_list:
 - property: config_prefix
   ruby_type: String
   required: false
-  default_value: Prefix values based on the nodes platform
+  default_value: Prefix values based on the node's platform
   new_in: null
   description_list:
   - markdown: The directory that contains the sudoers configuration file.
@@ -111,7 +113,7 @@ properties_list:
 - property: filename
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The name of the sudoers.d file if it differs from the name of the
@@ -216,7 +218,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

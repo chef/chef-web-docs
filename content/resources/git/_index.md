@@ -2,7 +2,8 @@
 title: git resource
 resource: git
 draft: false
-aliases: /resource_git.html
+aliases:
+- /resource_git.html
 menu:
   docs:
     title: git
@@ -19,11 +20,11 @@ resource_description_list:
     all of the functionality in the **git** resource.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'A **git** resource block manages source control resources that
-  exist in a git repository:'
-syntax_code_block: "git \"#{Chef::Config[:file_cache_path]}/app_name\" do\n  repository\
-  \ node[:app_name][:git_repository]\n  revision node[:app_name][:git_revision]\n\
-  \  action :sync\nend"
+syntax_description: "A **git** resource block manages source control resources that\
+  \ exist in\na git repository:\n\n``` ruby\ngit \"#{Chef::Config[:file_cache_path]}/app_name\"\
+  \ do\n  repository node[:app_name][:git_repository]\n  revision node[:app_name][:git_revision]\n\
+  \  action :sync\nend\n```"
+syntax_code_block: null
 syntax_properties_list: null
 syntax_full_code_block: "git 'name' do\n  additional_remotes      Hash\n  checkout_branch\
   \         String # default value: \"deploy\"\n  depth                   Integer\n\
@@ -97,7 +98,7 @@ properties_list:
 - property: destination
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The location path to which the source is to be cloned, checked out,
@@ -263,7 +264,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

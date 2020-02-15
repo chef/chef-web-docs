@@ -2,7 +2,7 @@
 title = "ohai (executable)"
 draft = false
 
-aliases = "/ctl_ohai.html"
+aliases = ["/ctl_ohai.html"]
 
 [menu]
   [menu.docs]

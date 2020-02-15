@@ -2,7 +2,8 @@
 title: windows_printer_port resource
 resource: windows_printer_port
 draft: false
-aliases: /resource_windows_printer_port.html
+aliases:
+- /resource_windows_printer_port.html
 menu:
   docs:
     title: windows_printer_port
@@ -18,13 +19,14 @@ resource_description_list:
     TCP/IPv4 printer ports on Windows.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The windows_printer_port resource has the following syntax:'
-syntax_code_block: "windows_printer_port 'name' do\n  ipv4_address          String\
-  \ # default value: 'name' unless specified\n  port_description      String\n  port_name\
-  \             String\n  port_number           Integer # default value: 9100\n  port_protocol\
+syntax_description: "The windows_printer_port resource has the following syntax:\n\
+  \n``` ruby\nwindows_printer_port 'name' do\n  ipv4_address          String # default\
+  \ value: 'name' unless specified\n  port_description      String\n  port_name  \
+  \           String\n  port_number           Integer # default value: 9100\n  port_protocol\
   \         Integer # default value: 1\n  snmp_enabled          true, false # default\
   \ value: false\n  action                Symbol # defaults to :create if not specified\n\
-  end"
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`windows_printer_port` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -50,7 +52,7 @@ properties_list:
 - property: ipv4_address
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for the IPv4 address of the printer if it
@@ -108,7 +110,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

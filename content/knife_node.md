@@ -2,7 +2,7 @@
 title = "knife node"
 draft = false
 
-aliases = "/knife_node.html"
+aliases = ["/knife_node.html"]
 
 [menu]
   [menu.docs]

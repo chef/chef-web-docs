@@ -1,4 +1,4 @@
-<div class="alert-warning">
+<div class="admonition-warning"><p class="admonition-warning-title">Warning</p><div class="admonition-warning-text">
 
 The standalone Chef Compliance server is deprecated. The standalone Chef
 Compliance server's end-of-life date is December 31, 2018. [Chef
@@ -8,4 +8,4 @@ profiles, an improved compliance scanner with total cloud scanning
 functionality, better visualizations, role-based access control and many
 other features not found in Chef Compliance Server.
 
-</div>
+</div></div>

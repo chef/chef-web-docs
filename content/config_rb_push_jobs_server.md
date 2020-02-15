@@ -2,7 +2,7 @@
 title = "opscode-push-jobs-server.rb"
 draft = false
 
-aliases = "/config_rb_push_jobs_server.html"
+aliases = ["/config_rb_push_jobs_server.html"]
 
 [menu]
   [menu.docs]

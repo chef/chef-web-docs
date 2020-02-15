@@ -2,7 +2,8 @@
 title: openssl_x509_crl resource
 resource: openssl_x509_crl
 draft: false
-aliases: /resource_openssl_x509_crl.html
+aliases:
+- /resource_openssl_x509_crl.html
 menu:
   docs:
     title: openssl_x509_crl
@@ -18,15 +19,16 @@ resource_description_list:
     certificate revocation list (CRL) files.'
 resource_new_in: '14.4'
 handler_types: false
-syntax_description: 'The openssl_x509_crl resource has the following syntax:'
-syntax_code_block: "openssl_x509_crl 'name' do\n  ca_cert_file           String\n\
-  \  ca_key_file            String\n  ca_key_pass            String\n  expire    \
-  \             Integer # default value: 8\n  group                  String, Integer\n\
-  \  mode                   Integer, String\n  owner                  String, Integer\n\
-  \  path                   String # default value: 'name' unless specified\n  renewal_threshold\
+syntax_description: "The openssl_x509_crl resource has the following syntax:\n\n```\
+  \ ruby\nopenssl_x509_crl 'name' do\n  ca_cert_file           String\n  ca_key_file\
+  \            String\n  ca_key_pass            String\n  expire                 Integer\
+  \ # default value: 8\n  group                  String, Integer\n  mode         \
+  \          Integer, String\n  owner                  String, Integer\n  path   \
+  \                String # default value: 'name' unless specified\n  renewal_threshold\
   \      Integer # default value: 1\n  revocation_reason      Integer # default value:\
   \ 0\n  serial_to_revoke       Integer, String\n  action                 Symbol #\
-  \ defaults to :create if not specified\nend"
+  \ defaults to :create if not specified\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`openssl_x509_crl` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -110,7 +112,7 @@ properties_list:
 - property: path
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'An optional property for specifying the path to write the file to if
@@ -156,7 +158,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

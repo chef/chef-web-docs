@@ -2,7 +2,7 @@
 title = "Chef Software Inc Packages"
 draft = false
 
-aliases = "/packages.html"
+aliases = ["/packages.html"]
 
 [menu]
   [menu.docs]

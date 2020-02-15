@@ -2,7 +2,7 @@
 title = "Manage Nodes"
 draft = false
 
-aliases = "/server_manage_nodes.html"
+aliases = ["/server_manage_nodes.html"]
 
 [menu]
   [menu.docs]

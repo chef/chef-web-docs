@@ -25,9 +25,17 @@ configuration file. The `config.rb`, `company_settings.rb`, and
 `ec2_configuration` files are merged together as if they are a single
 configuration file.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 If multiple configuration files exists in a `.d` directory, ensure that
 the same setting has the same value in all files.
+
+
+
+</div>
 
 </div>

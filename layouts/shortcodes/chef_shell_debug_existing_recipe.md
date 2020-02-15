@@ -6,17 +6,14 @@ which recipes are being cached when it is started:
 ``` bash
 loading configuration: none (standalone session)
 Session type: standalone
-Loading..............done.
+Loading.............done.
 
-This is the chef-shell.
- Chef Version: 12.17.44
- https://www.chef.io/
- /
+Welcome to the chef-shell 15.8.23
+For usage see https://docs.chef.io/chef_shell.html
 
 run `help' for help, `exit' or ^D to quit.
 
-Ohai2u YOURNAME@!
-chef (12.17.44)>
+chef (15.8.23)>
 ```
 
 To just load one recipe from the run-list, go into the recipe and use

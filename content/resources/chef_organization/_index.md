@@ -2,7 +2,8 @@
 title: chef_organization resource
 resource: chef_organization
 draft: false
-aliases: /resource_chef_organization.html
+aliases:
+- /resource_chef_organization.html
 resource_reference: false
 robots: noindex, nofollow
 resource_description_list:
@@ -13,10 +14,11 @@ resource_description_list:
     objects that exist on the Chef server.'
 resource_new_in: null
 handler_types: false
-syntax_description: 'The syntax for using the **chef_organization** resource in a
-  recipe is as follows:'
-syntax_code_block: "chef_organization 'name' do\n  attribute 'value' # see attributes\
-  \ section below\n  ...\n  action :action # see actions section below\nend"
+syntax_description: "The syntax for using the **chef_organization** resource in a\
+  \ recipe is\nas follows:\n\n``` ruby\nchef_organization 'name' do\n  attribute 'value'\
+  \ # see attributes section below\n  ...\n  action :action # see actions section\
+  \ below\nend\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`chef_organization` tells Chef Infra Client to use the `Chef::Provider::ChefOrganization`
   provider during a Chef Infra Client run'
@@ -190,7 +192,6 @@ resources_common_guards: false
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -1,9 +1,17 @@
 Use the `registry_has_subkeys?` method to find out if a Microsoft
 Windows registry key has one (or more) values.
 
-<div class="alert-info">
+<div class="admonition-note">
+
+<p class="admonition-note-title">Note</p>
+
+<div class="admonition-note-text">
 
 {{ readFile "layouts/shortcodes/notes_registry_key_not_if_only_if.md" | markdownify }}
+
+
+
+</div>
 
 </div>
 

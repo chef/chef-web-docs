@@ -2,7 +2,7 @@
 title = "Install Private Supermarket"
 draft = false
 
-aliases = "/install_supermarket.html"
+aliases = ["/install_supermarket.html"]
 
 [menu]
   [menu.docs]

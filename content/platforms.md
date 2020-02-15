@@ -2,7 +2,7 @@
 title = "Platforms"
 draft = false
 
-aliases = "/platforms.html"
+aliases = ["/platforms.html", "/supported_platforms.html"]
 
 [menu]
   [menu.docs]

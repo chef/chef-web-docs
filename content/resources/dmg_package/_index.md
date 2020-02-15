@@ -2,7 +2,8 @@
 title: dmg_package resource
 resource: dmg_package
 draft: false
-aliases: /resource_dmg_package.html
+aliases:
+- /resource_dmg_package.html
 menu:
   docs:
     title: dmg_package
@@ -23,18 +24,19 @@ resource_description_list:
     will be stored in the `Chef::Config[:file_cache_path]`.'
 resource_new_in: '14.0'
 handler_types: false
-syntax_description: 'The dmg_package resource has the following syntax:'
-syntax_code_block: "dmg_package 'name' do\n  accept_eula          true, false # default\
-  \ value: false\n  allow_untrusted      true, false # default value: false\n  app\
-  \                  String # default value: 'name' unless specified\n  checksum \
-  \            String\n  destination          String # default value: \"/Applications\"\
-  \n  dmg_name             String # default value: The value passed for the application\
-  \ name.\n  dmg_passphrase       String\n  file                 String\n  headers\
-  \              Hash\n  owner                String, Integer\n  package_id      \
-  \     String\n  source               String\n  type                 String # default\
-  \ value: \"app\"\n  volumes_dir          String # default value: The value passed\
-  \ for the application name.\n  action               Symbol # defaults to :install\
-  \ if not specified\nend"
+syntax_description: "The dmg_package resource has the following syntax:\n\n``` ruby\n\
+  dmg_package 'name' do\n  accept_eula          true, false # default value: false\n\
+  \  allow_untrusted      true, false # default value: false\n  app              \
+  \    String # default value: 'name' unless specified\n  checksum             String\n\
+  \  destination          String # default value: \"/Applications\"\n  dmg_name  \
+  \           String # default value: The value passed for the application name.\n\
+  \  dmg_passphrase       String\n  file                 String\n  headers       \
+  \       Hash\n  owner                String, Integer\n  package_id           String\n\
+  \  source               String\n  type                 String # default value: \"\
+  app\"\n  volumes_dir          String # default value: The value passed for the application\
+  \ name.\n  action               Symbol # defaults to :install if not specified\n\
+  end\n```"
+syntax_code_block: null
 syntax_properties_list:
 - '`dmg_package` is the resource.'
 - '`name` is the name given to the resource block.'
@@ -77,7 +79,7 @@ properties_list:
 - property: app
   ruby_type: String
   required: false
-  default_value: The resource blocks name
+  default_value: The resource block's name
   new_in: null
   description_list:
   - markdown: 'The name of the application as it appears in the `/Volumes`
@@ -189,7 +191,6 @@ resources_common_guards: true
 common_resource_functionality_multiple_packages: false
 resources_common_guard_interpreter: false
 remote_directory_recursive_directories: false
-directory_recursive_directories: false
 common_resource_functionality_resources_common_windows_security: false
 handler_custom: false
 cookbook_file_specificity: false

@@ -2,7 +2,7 @@
 title = "Install via Install Script"
 draft = false
 
-aliases = "/install_omnibus.html"
+aliases = ["/install_omnibus.html"]
 
 [menu]
   [menu.docs]

@@ -2,7 +2,7 @@
 title = "Chef Infra Server Prerequisites"
 draft = false
 
-aliases = "/install_server_pre.html"
+aliases = ["/install_server_pre.html"]
 
 [menu]
   [menu.docs]
