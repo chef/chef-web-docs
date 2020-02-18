@@ -19,7 +19,7 @@ pre {
   background-color: $sidebargray;
   border: 1px solid $ash;
   border-radius: $border-radius-base;
-  margin-bottom: rem-calc(24);
+  margin-bottom: rem-calc(48);
   padding: .25rem;
 
   code {
@@ -68,6 +68,12 @@ pre {
     }
   }
 }
+
+p + button {
+    background-color: yellow;
+    margin-bottom: .5rem;
+  }
+
 
 // prevent code blocks from wrapping
 .highlight pre code * {
