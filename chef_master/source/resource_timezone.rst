@@ -205,13 +205,15 @@ Examples
 The following examples demonstrate various approaches for using resources in recipes:
 
 **Set the timezone to UTC**
- .. code-block:: ruby
+
+.. code-block:: ruby
 
    timezone 'UTC'
   
 **Set the timezone to UTC with a friendly resource name**
- .. code-block:: ruby
 
-  timezone 'Set the hosts timezone to UTC' do
-    timezone 'UTC'
-  end
+.. code-block:: ruby
+
+   timezone 'Set the hosts timezone to UTC' do
+     timezone 'UTC'
+   end

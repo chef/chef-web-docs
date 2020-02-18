@@ -42,7 +42,6 @@ The windows_ad_join resource has the following actions:
    Default. Join the Active Directory domain.
 
 ``:leave``
-
    Leave an Active Directory domain and re-join a workgroup.
 
 ``:nothing``

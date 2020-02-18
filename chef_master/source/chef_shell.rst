@@ -26,9 +26,9 @@ chef-shell is tool that is run using an Interactive Ruby (IRb) session. chef-she
    * - Standalone
      - Default. No cookbooks are loaded, and the run-list is empty.
    * - Solo
-     - chef-shell acts as a chef-solo client. It attempts to load the chef-solo configuration file and JSON attributes. If the JSON attributes set a run-list, it will be honored. Cookbooks will be loaded in the same way that chef-solo loads them. chef-solo mode is activated with the ``-s`` or ``--solo`` command line option, and JSON attributes are specified in the same way as for chef-solo, with ``-j /path/to/chef-solo.json``.
+     - chef-shell acts as a Chef Solo Client. It attempts to load the chef-solo configuration file at ``~/.chef/config.rb`` and any JSON attributes passed. If the JSON attributes set a run-list, it will be honored. Cookbooks will be loaded in the same way that chef-solo loads them. chef-solo mode is activated with the ``-s`` or ``--solo`` command line option, and JSON attributes are specified in the same way as for chef-solo, with ``-j /path/to/chef-solo.json``.
    * - Client
-     - chef-shell acts as a Chef Infra Client. During startup, it reads the Chef Infra Client configuration file and contacts the Chef Infra Server to get attributes and cookbooks. The run-list will be set in the same way as normal Chef Infra Client runs. Chef Infra Client mode is activated with the ``-z`` or ``--client`` options. You can also specify the configuration file with ``-c CONFIG`` and the server URL with ``-S SERVER_URL``.
+     - chef-shell acts as a Chef Infra Client. During startup, it reads the Chef Infra Client configuration file from ``~/.chef/client.rb`` and contacts the Chef Infra Server to get the node's run_list, attributes, and cookbooks. Chef Infra Client mode is activated with the ``-z`` or ``--client`` options. You can also specify the configuration file with ``-c CONFIG`` and the server URL with ``-S SERVER_URL``.
 
 .. end_tag
 
@@ -54,8 +54,6 @@ This command has the following options:
 ``-j PATH``, ``--json-attributes PATH``
    The path to a file that contains JSON data.
 
-   .. tag node_ctl_run_list
-
    Use this option to define a ``run_list`` object. For example, a JSON file similar to:
 
    .. code-block:: javascript
@@ -67,11 +65,9 @@ This command has the following options:
         "role[webserver]"
       ],
 
-   may be used by running ``chef-client -j path/to/file.json``.
+   may be used by running ``chef-shell -j path/to/file.json``.
 
    In certain situations this option may be used to update ``normal`` attributes.
-
-   .. end_tag
 
    .. warning:: .. tag node_ctl_attribute
 
@@ -113,6 +109,9 @@ This command has the following options:
 ``-l LEVEL``, ``--log-level LEVEL``
    The level of logging to be stored in a log file.
 
+``-o RUN_LIST_ITEM``, ``--override-runlist RUN_LIST_ITEM``
+   Replace the current run-list with the specified items. Only applicable when also using ``solo`` or ``server`` modes.
+
 ``-s``, ``--solo``
    Run chef-shell in chef-solo mode.
 
@@ -132,10 +131,14 @@ Configure
 chef-shell determines which configuration file to load based on the following:
 
 #. If a configuration file is specified using the ``-c`` option, chef-shell will use the specified configuration file
-#. When chef-shell is started using a named configuration as an argument, chef-shell will search for a chef-shell.rb file in that directory under ``~/.chef``. For example, if chef-shell is started using ``production`` as the named configuration, the chef-shell will load a configuration file from ``~/.chef/production/chef_shell.rb``
-#. If a named configuration is not provided, chef-shell will attempt to load the chef-shell.rb file from the ``.chef`` directory. For example: ``~/.chef/chef_shell.rb``
-#. If a chef-shell.rb file is not found, chef-shell will attempt to load the client.rb file
-#. If a chef-shell.rb file is not found, chef-shell will attempt to load the solo.rb file
+#. If a NAMED_CONF is given, chef-shell will load ~/.chef/NAMED_CONF/chef_shell.rb
+#. If no NAMED_CONF is given chef-shell will load ~/.chef/chef_shell.rb if it exists
+#. If no chef_shell.rb can be found, chef-shell falls back to load:
+
+   * /etc/chef/client.rb if -z option is given.
+   * /etc/chef/solo.rb   if --solo-legacy-mode option is given.
+   * .chef/config.rb     if -s option is given.
+   * .chef/knife.rb      if -s option is given.
 
 .. end_tag
 
@@ -169,136 +172,7 @@ chef-shell can use the same credentials as knife when connecting to a Chef Infra
 
 .. end_tag
 
-Manage
-=====================================================
-.. tag chef_shell_manage
-
-When chef-shell is configured to access a Chef Infra Server, chef-shell can list, show, search for and edit cookbooks, clients, nodes, roles, environments, and data bags.
-
-The syntax for managing objects on the Chef Infra Server is as follows:
-
-.. code-block:: bash
-
-   $ chef-shell -z named_configuration
-
-where:
-
-* ``named_configuration`` is an existing configuration file in ``~/.chef/named_configuration/chef_shell.rb``, such as ``production``, ``staging``, or ``test``
-
-Once in chef-shell, commands can be run against objects as follows:
-
-.. code-block:: bash
-
-   $ chef (preprod) > items.command
-
-* ``items`` is the type of item to search for: ``cookbooks``, ``clients``, ``nodes``, ``roles``, ``environments`` or a data bag
-* ``command`` is the command: ``list``, ``show``, ``find``, or ``edit``
-
-For example, to list all of the nodes in a configuration named "preprod":
-
-.. code-block:: bash
-
-   $ chef (preprod) > nodes.list
-
-to return something similar to:
-
-.. code-block:: bash
-
-   => [node[i-f09a939b], node[i-049a936f], node[i-eaaaa581], node[i-9154b1fb],
-       node[i-6a213101], node[i-c2687aa9], node[i-7abeaa11], node[i-4eb8ac25],
-       node[i-9a2030f1], node[i-a06875cb], node[i-145f457f], node[i-e032398b],
-       node[i-dc8c98b7], node[i-6afdf401], node[i-f49b119c], node[i-5abfab31],
-       node[i-78b8ac13], node[i-d99678b3], node[i-02322269], node[i-feb4a695],
-       node[i-9e2232f5], node[i-6e213105], node[i-cdde3ba7], node[i-e8bfb083],
-       node[i-743c2c1f], node[i-2eaca345], node[i-aa7f74c1], node[i-72fdf419],
-       node[i-140e1e7f], node[i-f9d43193], node[i-bd2dc8d7], node[i-8e7f70e5],
-       node[i-78f2e213], node[i-962232fd], node[i-4c322227], node[i-922232f9],
-       node[i-c02728ab], node[i-f06c7b9b]]
-
-The ``list`` command can take a code block, which will applied (but not saved) to each object that is returned from the server. For example:
-
-.. code-block:: bash
-
-   $ chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
-
-to return something similar to:
-
-.. code-block:: bash
-
-   => i-f09a939b: role[lb], role[preprod], recipe[aws]
-      i-049a936f: role[lb], role[preprod], recipe[aws]
-      i-9154b1fb: recipe[erlang], role[base], role[couchdb], role[preprod],
-      i-6a213101: role[chef], role[preprod]
-      # more...
-
-The ``show`` command can be used to display a specific node. For example:
-
-.. code-block:: bash
-
-   $ chef (preprod) > load_balancer = nodes.show('i-f09a939b')
-
-to return something similar to:
-
-.. code-block:: bash
-
-   => node[i-f09a939b]
-
-or:
-
-.. code-block:: bash
-
-   $ chef (preprod) > load_balancer.ec2.public_hostname
-
-to return something similar to:
-
-.. code-block:: bash
-
-   => "ec2-111-22-333-44.compute-1.amazonaws.com"
-
-The ``find`` command can be used to search the Chef Infra Server from the chef-shell. For example:
-
-.. code-block:: bash
-
-   $ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
-
-A code block can be used to format the results. For example:
-
-.. code-block:: bash
-
-   $ chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
-
-to return something similar to:
-
-.. code-block:: bash
-
-   => ["ami-f8927a91",
-       "ami-f8927a91",
-       "ami-a89870c1",
-       "ami-a89870c1",
-       "ami-a89870c1",
-       "ami-a89870c1",
-       "ami-a89870c1"
-       # and more...
-
-Or:
-
-.. code-block:: bash
-
-   $ chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
-   $ chef (preprod) > puts amis.uniq.sort
-
-to return something similar to:
-
-.. code-block:: bash
-
-   => ami-4b4ba522
-      ami-a89870c1
-      ami-eef61587
-      ami-f8927a91
-
-.. end_tag
-
-Use Breakpoints
+Debugging Cookbooks
 =====================================================
 .. tag chef_shell_breakpoints
 
@@ -325,18 +199,18 @@ and then run Chef Infra Client:
 .. code-block:: bash
 
    $ chef:recipe > run_chef
-     [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-     [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
-     [Fri, 15 Jan 2010 14:17:49 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
-     [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-     [Fri, 15 Jan 2010 14:17:49 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+     [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+     [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:17:49 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
+     [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+     [Fri, 15 Jan 2020 14:17:49 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
 
 Chef Infra Client ran the first resource before the breakpoint (``file[/tmp/before-breakpoint]``), but then stopped after execution. Chef Infra Client attempted to name the breakpoint after its position in the source file, but Chef Infra Client was confused because the resource was entered interactively. From here, chef-shell can resume the interrupted Chef Infra Client run:
 
 .. code-block:: bash
 
    $ chef:recipe > chef_run.resume
-     [Fri, 15 Jan 2010 14:27:08 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
+     [Fri, 15 Jan 2020 14:27:08 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
 
 A quick view of the ``/tmp`` directory shows that the following files were created:
 
@@ -354,16 +228,16 @@ You can rewind and step through a Chef Infra Client run:
      chef:recipe > chef_run.rewind
        => 0
      chef:recipe > chef_run.step
-     [Fri, 15 Jan 2010 14:40:52 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-     [Fri, 15 Jan 2010 14:40:52 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:40:52 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+     [Fri, 15 Jan 2020 14:40:52 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
        => 1
      chef:recipe > chef_run.step
-     [Fri, 15 Jan 2010 14:40:54 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-     [Fri, 15 Jan 2010 14:40:54 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+     [Fri, 15 Jan 2020 14:40:54 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+     [Fri, 15 Jan 2020 14:40:54 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
        => 2
      chef:recipe > chef_run.step
-     [Fri, 15 Jan 2010 14:40:56 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
-     [Fri, 15 Jan 2010 14:40:56 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:40:56 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
+     [Fri, 15 Jan 2020 14:40:56 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
        => 3
 
 From the output, the rewound run-list is shown, but when the resources are executed again, they will repeat their checks for the existence of files. If they exist, Chef Infra Client will skip creating them. If the files are deleted, then:
@@ -379,15 +253,15 @@ Rewind, and then resume your Chef Infra Client run to get the expected results:
 
    $ chef:recipe > chef_run.rewind
      chef:recipe > chef_run.resume
-     [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
-     [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
-     [Fri, 15 Jan 2010 14:48:56 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
-     [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
-     [Fri, 15 Jan 2010 14:48:56 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
+     [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: Processing file[/tmp/before-breakpoint]
+     [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: file[/tmp/before-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:48:56 -0800] INFO: Creating file[/tmp/before-breakpoint] at /tmp/before-breakpoint
+     [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: Processing [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new']
+     [Fri, 15 Jan 2020 14:48:56 -0800] DEBUG: [./bin/../lib/chef/mixin/recipe_definition_dsl_core.rb:56:in 'new'] using Chef::Provider::Breakpoint
      chef:recipe > chef_run.resume
-     [Fri, 15 Jan 2010 14:49:20 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
-     [Fri, 15 Jan 2010 14:49:20 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
-     [Fri, 15 Jan 2010 14:49:20 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
+     [Fri, 15 Jan 2020 14:49:20 -0800] DEBUG: Processing file[/tmp/after-breakpoint]
+     [Fri, 15 Jan 2020 14:49:20 -0800] DEBUG: file[/tmp/after-breakpoint] using Chef::Provider::File
+     [Fri, 15 Jan 2020 14:49:20 -0800] INFO: Creating file[/tmp/after-breakpoint] at /tmp/after-breakpoint
 
 .. end_tag
 
@@ -401,17 +275,14 @@ chef-shell can be used to debug existing recipes. The recipe first needs to be a
 
     loading configuration: none (standalone session)
     Session type: standalone
-    Loading..............done.
+    Loading.............done.
 
-    This is the chef-shell.
-     Chef Version: 12.17.44
-     https://www.chef.io/
-     /
+    Welcome to the chef-shell 15.8.23
+    For usage see https://docs.chef.io/chef_shell.html
 
     run `help' for help, `exit' or ^D to quit.
 
-    Ohai2u YOURNAME@!
-    chef (12.17.44)>
+    chef (15.8.23)>
 
 To just load one recipe from the run-list, go into the recipe and use the ``include_recipe`` command. For example:
 
@@ -472,6 +343,137 @@ and:
 
 .. end_tag
 
+Manipulating Chef Infra Server Data
+=====================================================
+.. tag chef_shell_manage
+
+When chef-shell is configured to access a Chef Infra Server, chef-shell can list, show, search for and edit cookbooks, clients, nodes, roles, environments, policyfiles, and data bags.
+
+The syntax for managing objects on the Chef Infra Server is as follows:
+
+.. code-block:: bash
+
+   chef-shell -z named_configuration
+
+Where:
+
+* ``named_configuration`` is an existing configuration file in ``~/.chef/named_configuration/chef_shell.rb``, such as ``production``, ``staging``, or ``test``.
+
+Once in chef-shell, commands can be run against objects as follows:
+
+.. code-block:: bash
+
+   chef (preprod) > items.command
+
+Where:
+
+* ``items`` is the type of item to search for: ``cookbooks``, ``clients``, ``nodes``, ``roles``, ``environments`` or a data bag.
+* ``command`` is the command: ``list``, ``show``, ``find``, or ``edit``.
+
+For example, to list all of the nodes in a configuration named "preprod", enter:
+
+.. code-block:: bash
+
+   chef (preprod) > nodes.list
+
+Which will return something similar to:
+
+.. code-block:: bash
+
+   => [node[i-f09a939b], node[i-049a936f], node[i-eaaaa581], node[i-9154b1fb],
+       node[i-6a213101], node[i-c2687aa9], node[i-7abeaa11], node[i-4eb8ac25],
+       node[i-9a2030f1], node[i-a06875cb], node[i-145f457f], node[i-e032398b],
+       node[i-dc8c98b7], node[i-6afdf401], node[i-f49b119c], node[i-5abfab31],
+       node[i-78b8ac13], node[i-d99678b3], node[i-02322269], node[i-feb4a695],
+       node[i-9e2232f5], node[i-6e213105], node[i-cdde3ba7], node[i-e8bfb083],
+       node[i-743c2c1f], node[i-2eaca345], node[i-aa7f74c1], node[i-72fdf419],
+       node[i-140e1e7f], node[i-f9d43193], node[i-bd2dc8d7], node[i-8e7f70e5],
+       node[i-78f2e213], node[i-962232fd], node[i-4c322227], node[i-922232f9],
+       node[i-c02728ab], node[i-f06c7b9b]]
+
+The ``list`` command can take a code block, which will applied (but not saved), to each object that is returned from the server. For example:
+
+.. code-block:: bash
+
+   chef (preprod) > nodes.list {|n| puts "#{n.name}: #{n.run_list}" }
+
+will return something similar to:
+
+.. code-block:: bash
+
+   => i-f09a939b: role[lb], role[preprod], recipe[aws]
+      i-049a936f: role[lb], role[preprod], recipe[aws]
+      i-9154b1fb: recipe[erlang], role[base], role[couchdb], role[preprod],
+      i-6a213101: role[chef], role[preprod]
+      # more...
+
+The ``show`` command can be used to display a specific node. For example:
+
+.. code-block:: bash
+
+   chef (preprod) > load_balancer = nodes.show('i-f09a939b')
+
+will return something similar to:
+
+.. code-block:: bash
+
+   => node[i-f09a939b]
+
+Or:
+
+.. code-block:: bash
+
+   chef (preprod) > load_balancer.ec2.public_hostname
+
+will return something similar to:
+
+.. code-block:: bash
+
+   => "ec2-111-22-333-44.compute-1.amazonaws.com"
+
+The ``find`` command can be used to search the Chef Infra Server from the chef-shell. For example:
+
+.. code-block:: bash
+
+   chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*')
+
+You can also format the results with a code block. For example:
+
+.. code-block:: bash
+
+   chef (preprod) > pp nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id } and nil
+
+will return something similar to:
+
+.. code-block:: bash
+
+   => ["ami-f8927a91",
+       "ami-f8927a91",
+       "ami-a89870c1",
+       "ami-a89870c1",
+       "ami-a89870c1",
+       "ami-a89870c1",
+       "ami-a89870c1"
+       # and more...
+
+Or:
+
+.. code-block:: bash
+
+   chef (preprod) > amis = nodes.find(:ec2_public_hostname => 'ec2*') {|n| n.ec2.ami_id }
+   chef (preprod) > puts amis.uniq.sort
+
+will return something similar to:
+
+.. code-block:: bash
+
+   => ami-4b4ba522
+      ami-a89870c1
+      ami-eef61587
+      ami-f8927a91
+
+.. end_tag
+
 Examples
 =====================================================
 The following examples show how to use chef-shell.
@@ -487,19 +489,17 @@ When Chef Infra Client is installed using RubyGems or a package manager, chef-sh
 .. code-block:: bash
 
    $ bin/chef-shell
+
      loading configuration: none (standalone session)
      Session type: standalone
-     Loading..............done.
+     Loading.............done.
 
-     This is the chef-shell.
-      Chef Version: 12.17.44
-      https://www.chef.io/
-      /
+     Welcome to the chef-shell 15.8.23
+     For usage see https://docs.chef.io/chef_shell.html
 
      run `help' for help, `exit' or ^D to quit.
 
-     Ohai2u YOURNAME@!
-     chef (12.17.44)>
+     chef (15.8.23)>
 
 (Use the help command to print a list of supported commands.) Use the recipe_mode command to switch to recipe context:
 
@@ -546,9 +546,9 @@ Typing is evaluated in the same context as recipes. Create a file resource:
 .. code-block:: bash
 
    $ chef:recipe_mode > run_chef
-     [Fri, 15 Jan 2010 10:42:47 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
-     [Fri, 15 Jan 2010 10:42:47 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
-     [Fri, 15 Jan 2010 10:42:47 -0800] INFO: Creating file[/tmp/ohai2u_shef] at /tmp/ohai2u_shef
+     [Fri, 15 Jan 2020 10:42:47 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
+     [Fri, 15 Jan 2020 10:42:47 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
+     [Fri, 15 Jan 2020 10:42:47 -0800] INFO: Creating file[/tmp/ohai2u_shef] at /tmp/ohai2u_shef
        => true
 
 chef-shell can also switch to the same context as attribute files. Set an attribute with the following syntax:
@@ -573,11 +573,11 @@ Now, run Chef Infra Client again:
 .. code-block:: bash
 
    $ chef:recipe_mode > run_chef
-     [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
-     [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
-     [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u-again]
-     [Fri, 15 Jan 2010 10:53:22 -0800] DEBUG: file[/tmp/ohai2u-again] using Chef::Provider::File
-     [Fri, 15 Jan 2010 10:53:22 -0800] INFO: Creating file[/tmp/ohai2u-again] at /tmp/ohai2u-again
+     [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u_shef]
+     [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: file[/tmp/ohai2u_shef] using Chef::Provider::File
+     [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: Processing file[/tmp/ohai2u-again]
+     [Fri, 15 Jan 2020 10:53:22 -0800] DEBUG: file[/tmp/ohai2u-again] using Chef::Provider::File
+     [Fri, 15 Jan 2020 10:53:22 -0800] INFO: Creating file[/tmp/ohai2u-again] at /tmp/ohai2u-again
        => true
      chef:recipe_mode >
 

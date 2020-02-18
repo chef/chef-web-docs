@@ -349,33 +349,33 @@ The following examples demonstrate various approaches for using resources in rec
 
 .. code-block:: ruby
 
-  openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
-    common_name 'www.f00bar.com'
-    org 'Foo Bar'
-    org_unit 'Lab'
-    country 'US'
-  end
+   openssl_x509_certificate '/etc/httpd/ssl/mycert.pem' do
+     common_name 'www.f00bar.com'
+     org 'Foo Bar'
+     org_unit 'Lab'
+     country 'US'
+   end
 
 **Create a certificate using additional options**
 
 .. code-block:: ruby
 
-    openssl_x509_certificate '/etc/ssl_test/my_signed_cert.crt' do
-    common_name 'www.f00bar.com'
-    ca_key_file '/etc/ssl_test/my_ca.key'
-    ca_cert_file '/etc/ssl_test/my_ca.crt'
-    expire 365
-    extensions(
-      'keyUsage' => {
-        'values' => %w(
-          keyEncipherment
-          digitalSignature),
-        'critical' => true,
-      },
-      'extendedKeyUsage' => {
-        'values' => %w(serverAuth),
-        'critical' => false,
-      }
-    )
-    subject_alt_name ['IP:127.0.0.1', 'DNS:localhost.localdomain']
-  end
+   openssl_x509_certificate '/etc/ssl_test/my_signed_cert.crt' do
+     common_name 'www.f00bar.com'
+     ca_key_file '/etc/ssl_test/my_ca.key'
+     ca_cert_file '/etc/ssl_test/my_ca.crt'
+     expire 365
+     extensions(
+       'keyUsage' => {
+         'values' => %w(
+           keyEncipherment
+           digitalSignature),
+         'critical' => true,
+       },
+       'extendedKeyUsage' => {
+         'values' => %w(serverAuth),
+         'critical' => false,
+       }
+     )
+     subject_alt_name ['IP:127.0.0.1', 'DNS:localhost.localdomain']
+   end

@@ -101,11 +101,13 @@ The windows_task resource has the following properties:
    **Ruby Type:** String, Integer
 
    The day(s) on which the task runs.
-    * Use with frequency ``:monthly`` and ``:weekly`` tasks,
-    * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
-    * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
-       * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modifier`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
-       * Multiple days should be comma separated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
+
+   * Use with frequency ``:monthly`` and ``:weekly`` tasks,
+   * Valid values with frequency ``:weekly`` are ``MON-SUN`` or ``\*``.
+   * Valid values with frequency ``:monthly`` are ``1-31 `` or ``MON`` to ``SUN`` and ``LASTDAY``.
+
+     * Use ``MON-SUN`` or ``LASTDAY`` if you are setting ``frequency_modifier`` as ``"FIRST, SECOND, THIRD etc."`` else use ``1-31``.
+     * Multiple days should be comma separated. e.g ``"1, 2, 3"`` or ``"MON, WEN, FRI"``.
 
 ``description``
    **Ruby Type:** String
