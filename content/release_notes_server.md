@@ -10,7 +10,7 @@ aliases = ["/release_notes_server.html"]
     identifier = "chef_infra/release_notes/release_notes_server.md Chef Infra Server"
     parent = "chef_infra/release_notes"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/release_notes_server.md)
 
@@ -71,8 +71,8 @@ What's New in 13.0.11
 Chef Server is now Chef Infra Server
 ------------------------------------
 
-Chef Server has a new name, but don’t worry, it’s the same Chef Server
-you’ve grown used to. You’ll notice new branding throughout the
+Chef Server has a new name, but don't worry, it's the same Chef Server
+you've grown used to. You'll notice new branding throughout the
 application and documentation but the command <span
 class="title-ref">chef-server-ctl</span> remains the same.
 
@@ -104,7 +104,7 @@ Deprecation notice
     platforms](https://blog.chef.io/2018/11/01/end-of-life-announcement-for-chef-server-for-linux-on-ibm-z-and-linux-on-ibm-power-systems/)
 -   [Deprecated Keepalived/DRBD-based
     HA](https://blog.chef.io/2018/10/02/end-of-life-announcement-for-drbd-based-ha-support-in-chef-server/)
--   Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL’d at the end of
+-   Deprecated Ubuntu 14.04 support. (Ubuntu 14 was EoL'd at the end of
     April 2019)
 
 Updates and Improvements
@@ -270,7 +270,7 @@ What's New in 12.17.5
 
 This release fixes a regression that occurs when deploying to
 DigitalOcean and potentially other non-AWS cloud platforms, where the
-`nginx[‘use_implicit_hosts’] = true` setting results in an incorrect
+`nginx[‘use_implicit_hosts'] = true` setting results in an incorrect
 nginx configuration.
 
 See the [change

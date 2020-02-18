@@ -48,7 +48,7 @@ where:
     force write to a 64-bit registry location, however Chef Infra Client
     returns an exception if `:x86_64` is used on a 32-bit machine. Set
     to `:machine` to allow Chef Infra Client to allow Chef Infra Client
-    to use the appropriate key location based on your node’s
+    to use the appropriate key location based on your node's
     architecture. Default value: `:machine`.
 
 This method will return `true` or `false`.

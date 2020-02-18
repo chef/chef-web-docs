@@ -10,7 +10,7 @@ aliases = ["/community_guidelines.html"]
     identifier = "overview/community/community_guidelines.md Guidelines"
     parent = "overview/community"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/community_guidelines.md)
 
@@ -53,7 +53,7 @@ mind that the following guidelines apply equally to founders, mentors,
 those who submit new features/pull requests, and anyone who is seeking
 help and guidance.
 
-The following list isn’t exhaustive, but these few examples can help all
+The following list isn't exhaustive, but these few examples can help all
 of us communicate well, so that the community can work better together:
 
 -   Use welcoming and inclusive language
@@ -73,7 +73,7 @@ Please keep in mind that:
     depend on the work of others.
 -   Decisions that you make often will affect others in the community.
 -   Disagreements happen, but should not be an excuse for poor behavior
-    and bad manners. When disagreements do happen, let’s work together
+    and bad manners. When disagreements do happen, let's work together
     to solve them effectively and in a way that ensures that everyone
     understands what the disagreements were.
 -   Our community spans languages, cultures, perspectives (and

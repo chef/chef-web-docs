@@ -5,18 +5,18 @@ draft = false
 aliases = "/deprecations_chocolatey_uninstall.html"
 
 
-  
-    
-    
-    
-    
-+++    
+
+
+
+
+
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/deprecations_chocolatey_uninstall.md)
 
 <meta name="robots" content="noindex">
 
-The Chocolatey cookbook’s `chocolatey_package` resource originally
+The Chocolatey cookbook's `chocolatey_package` resource originally
 contained an `:uninstall` action. When
 [chocolatey_package](/resources/chocolatey_package/) was moved into
 core Chef, we made `:uninstall` an alias for `:remove`. In Chef Client

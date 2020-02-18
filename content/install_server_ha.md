@@ -10,7 +10,7 @@ aliases = ["/install_server_ha.html"]
     identifier = "chef_infra/setup/chef_infra_server/install_server_ha.md Install High Availability"
     parent = "chef_infra/setup/chef_infra_server"
     weight = 60
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/install_server_ha.md)
 
@@ -395,7 +395,7 @@ will be overwritten by the values in the array, so we must also specify
 local network to connect to PostgreSQL.
 
 For example, if a frontend host at 192.168.1.3 can reach a backend
-member over the network, but the backend’s local network is 192.168.2.x,
+member over the network, but the backend's local network is 192.168.2.x,
 you would add the following line to `/etc/chef-backend/chef-backend.rb`
 
 ``` none

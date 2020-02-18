@@ -10,7 +10,7 @@ aliases = ["/vmware.html"]
     identifier = "chef_infra/setup/integrations/vmware.md VMware"
     parent = "chef_infra/setup/integrations"
     weight = 30
-+++    
++++
 
 [\[edit on GitHub\]](https://github.com/chef/chef-web-docs/blob/master/content/vmware.md)
 
@@ -426,7 +426,7 @@ kitchen-vro
 [\[Github\]](https://github.com/chef-partners/kitchen-vro)
 
 -   An integration point with vRO and test-kitchen
--   Leverages specific Workflows in vRO if it’s required by VMware
+-   Leverages specific Workflows in vRO if it's required by VMware
     admins
 
 ### Usage Examples

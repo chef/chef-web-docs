@@ -3,10 +3,10 @@ DSL on different operating systems. When multiple custom resources use
 the same DSL, specificity rules are applied to determine the priority,
 from highest to lowest:
 
-1.  provides :resource_name, platform_version: ‘0.1.2’
-2.  provides :resource_name, platform: ‘platform_name’
-3.  provides :resource_name, platform_family: ‘platform_family’
-4.  provides :resource_name, os: ‘operating_system’
+1.  provides :resource_name, platform_version: ‘0.1.2'
+2.  provides :resource_name, platform: ‘platform_name'
+3.  provides :resource_name, platform_family: ‘platform_family'
+4.  provides :resource_name, os: ‘operating_system'
 5.  provides :resource_name
 
 For example:
