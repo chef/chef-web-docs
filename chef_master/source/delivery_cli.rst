@@ -503,7 +503,7 @@ The following example shows how to add a build cookbook after the initialization
 
 .. code-block:: bash
 
-   $ delivery init —skip-build-cookbook
+   $ delivery init -skip-build-cookbook
 
 and then update the ``config.json`` file for the ``delivery-truck`` cookbook and the path to the cookbook in a private Chef Supermarket:
 

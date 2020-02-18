@@ -204,7 +204,7 @@ To fix object permissions:
 
 500 (Unexpected)
 =====================================================
-HTTP 500 is a non-specific error message. The full error message for the error Chef Infra Client is receiving can be found in one of the following log ﬁles:
+HTTP 500 is a non-specific error message. The full error message for the error Chef Infra Client is receiving can be found in one of the following log files:
 
 * ``/var/log/opscode/opscode-account/current``
 * ``/var/log/opscode/opscode-erchef/current``

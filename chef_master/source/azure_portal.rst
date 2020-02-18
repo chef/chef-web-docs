@@ -123,7 +123,7 @@ Log files are available from within the Azure portal:
    .. code-block:: bash
 
       $ cd c:\windowsazure\logs
-        ls –r chef*.log
+        ls -r chef*.log
 
 #. This should display the log files, including the Chef Infra Client log file.
 

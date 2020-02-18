@@ -229,7 +229,7 @@ To install AppArmor, run the following command:
 
 .. code-block:: bash
 
-   $ sudo apt-get install apparmor-utils —yes
+   $ sudo apt-get install apparmor-utils -yes
 
 If a response other than ``"0 processes are in enforce mode"`` or ``"0 profiles are in enforce mode."`` is returned, AppArmor must be set to ``Complaining`` mode or disabled.
 

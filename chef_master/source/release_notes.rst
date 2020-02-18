@@ -2219,7 +2219,7 @@ This release of Chef Client 14 resolves a number of regressions in 14.0:
 * Fixes locking and unlocking packages with APT and Zypper
 * Chef no longer requests every remote file when running with lazy loading enabled
 * The ``sysctl`` resource correctly handles missing keys when used with ``ignore_error``
-* ``–recipe-url`` works with Windows with local files.
+* ``-recipe-url`` works with Windows with local files.
 
 **Ohai 14.1**
 

@@ -99,7 +99,7 @@ Fill out the following fields to configure SAML SSO. These details can often be 
          <KeyInfo>
              <X509Data>
                  <X509Certificate>
-                     MIIC4jCCAcqgAwIBAgIQQNXrmzh…..
+                     MIIC4jCCAcqgAwIBAgIQQNXrmzh...
                  </X509Certificate>
              </X509Data>
          </KeyInfo>
